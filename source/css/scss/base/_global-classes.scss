@@ -1,0 +1,171 @@
+/*------------------------------------*\
+    $GLOBAL CLASSES
+\*------------------------------------*/
+
+
+html, body {
+    font-size: 16px;
+    font-family: $font;  
+    color: $black;
+    background-color: $grey-light;
+}
+
+body.private-person {
+    background-color: $grey-light;
+}
+
+body.business{
+    background-color: $blue-light;
+}
+
+::selection {
+    background: #e0daf7;  
+    color: #000;
+}
+
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    border: 0;
+}
+
+.a-panel {
+    padding: $pad-double;
+    background-color: #fff;
+    border-radius: 2px;
+    margin-bottom: $pad;
+}
+
+.a-dimText {
+    color: rgba(0,0,0,0.4)
+}
+.a-dimBackground {
+    background: rgba(0,0,0,0.3)
+}
+
+
+
+/* Clearfix */
+.cf {
+    *zoom: 1;
+}
+.cf:before, .cf:after { 
+    content: " "; /* 1 */
+    display: table; /* 2 */ 
+}
+
+.cf:after { 
+    clear: both;  
+}
+
+.clear {
+    clear: both;  
+}
+
+/* Fonts */
+.font-primary {
+    font-family: $font; 
+}
+
+/* Completely remove from the flow and screen readers. */
+.is-hidden {
+    display: none !important;
+    visibility: hidden !important;
+}
+
+/* Completely remove from the flow but leave available to screen readers. */
+.is-vishidden {
+    position: absolute !important;
+    overflow: hidden;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    border: 0;
+    clip: rect(1px, 1px, 1px, 1px);
+}
+
+/* Floats */
+.right { 
+	float: right;
+	padding: 0 0 $pad $pad; 
+} 
+
+.right-search {
+	float: right;
+	padding: 0 0 $pad 0;
+}
+
+.left {
+	float: left;
+	padding: 0 $pad $pad 0;
+}
+
+/* Text-Align */
+.align-right {
+	text-align: right;
+} 
+
+.align-center {
+	text-align: center;
+}
+
+.align-left {
+	text-align: left;
+}
+
+/* Display Classes */
+.hide-small {
+    @media all and (max-width: $bp-med) {
+        display: none;
+    }
+}
+
+.hide-med {
+    @media all and (min-width: $bp-med) and (max-width: $bp-large) {
+        display: none;
+    }
+}
+
+.hide-large {
+    @media all and (min-width: $bp-large) {
+        display: none;
+    }
+}
+
+//States
+.valid {
+	color: $valid;
+}
+
+.error {
+	color: $error;
+}
+
+.warning {
+    color: $warning;
+}
+
+.information {
+    color: $information;
+}
+
+.font-secondary {
+    font-family: $font-secondary; 
+}
+
+
+// Overall styles 
+
+.valid {
+    color: #ffffff; 
+    background: #64a70b;
+    padding: 5px 10px;
+}
+
+
+

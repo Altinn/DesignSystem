@@ -1,0 +1,90 @@
+/*------------------------------------*\
+    $BUTTONS
+\*------------------------------------*/
+
+
+.a-btn {
+	display: inline-block;
+    font-weight: normal;
+    text-align: center;
+    position: relative;
+    cursor: pointer;
+    user-select: none;
+    border: 0px solid transparent;
+    padding: 6px 24px;
+    font-size: 16px;
+    line-height: 24px;
+    background: $blue-dark;
+    color: $white;
+    font-family: 'DIN-medium'; 
+
+    &:hover {
+        background: $blue-hover-color;
+    }
+      
+    &.focus {
+        text-decoration: none;
+    }
+
+    &:active,
+    &.active {
+        background-image: none;
+        outline: 0;
+        @include box-shadow(inset 0 3px 5px rgba(0,0,0,.125)); 
+    }
+
+    &.disabled,
+    &:disabled {
+        cursor: $cursor-disabled;
+        background: $grey-light; 
+        color: $black;
+        @include box-shadow(none); 
+    }
+
+}
+
+.a-btn-secondary {
+    background-color: $white; 
+
+    &:hover {
+        background: $grey-light;
+    }
+}
+
+
+.a-btn-success {
+    background-color: $green; 
+    color: $black;
+
+    &:hover {
+        background: $green-hover-color;
+    }
+}
+
+.a-btn-danger {
+    background-color: $red;  
+    &:hover {
+        background: $red-hover-color;
+    }
+}
+
+.a-btn-add {
+    border: 2px dotted $blue;
+    padding: 4px 24px 4px 36px;
+    background-color: transparent; 
+    color: #000;
+    text-align: left;
+
+    &:hover {
+        background: $blue-light; 
+    }
+
+    .a-btn-add-plus {
+        font-size: 24px;
+        position: absolute;
+        top: 4px;
+        left: 12px; 
+    } 
+} 
+
+  

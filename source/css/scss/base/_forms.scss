@@ -1,0 +1,196 @@
+
+/*------------------------------------*\
+ * FORMS
+ * DIFI Guidelines: https://uu.difi.no/artikkel/2015/07/skjema
+ *
+\*------------------------------------*/
+
+
+/*------------------------------------*\
+ * Dropdown
+\*------------------------------------*/
+
+.altinn-form-icon {
+	top: 7px;
+    position: absolute;
+    left: 12px;
+}
+
+.altinn-form-text {
+	padding: 10px 50px;
+	display: block;
+}
+
+// Toggle btn
+
+.altinn-dropdown-toggle {
+    width: 100%;
+    text-align: left;
+    border: 2px solid $blue;
+    background-color: #fff;
+    border-radius: 0;  
+    padding:0;
+}
+
+.altinn-dropdown-toggle:hover {
+    color: #333;
+    background-color: $blue-light;
+    border-color: $blue;
+}
+
+.altinn-dropdown-toggle::after {
+    position: absolute;
+    right: 15px;
+    top: 22px;
+}
+
+// Choises
+
+.altinn-dropdown-menu {
+	border: 2px solid $blue;
+	border-radius: 0;
+	padding: 0;
+	width: 100%;
+	margin-top: 0;
+	border-top: 0;
+}
+
+.altinn-dropdown-item {
+	position: relative;
+	border-bottom: 2px dotted #1eaef7;
+	padding: 0;
+}
+.altinn-dropdown-item:last- {
+	position: relative;
+	border-bottom: 2px dotted #1eaef7;
+	padding: 0;
+}
+.altinn-dropdown-item-active,
+.altinn-dropdown-item:hover {
+	background-color: $grey-light;
+}
+
+
+// Altinn checkbox
+
+.a-options {
+	ul {
+		list-style: none;
+	}
+	.c-indicator {
+	    border: 2px solid $blue;
+	    border-radius: 0;
+	    background-color: #fff;
+	}
+
+	.c-input > input:checked ~ .c-indicator {
+		background-color: #fff;
+		background-image: url('../images/checkbox-checked.svg');
+		background-size: 100%;
+	}
+	.c-input > input:indeterminate ~ .c-indicator {
+	}
+
+	.c-input > input {
+	    &:focus ~ .c-indicator {
+	      box-shadow: 0 0 0 .075rem #fff, 0 0 0 .2rem $blue-light; 
+	    }
+	}
+
+}
+
+
+// Altinn Radio buttons
+
+.a-radioButtons {
+	.c-input > input:checked ~ .c-indicator {
+	    color: #fff;
+	    background-color: $blue;
+	}
+
+	.c-input > input:focus ~ .c-indicator {
+      box-shadow: 0 0 0 .075rem #fff, 0 0 0 .2rem $blue-light;
+    }
+
+}
+
+// Altinn select menu
+
+.a-c-select {
+    padding: 4px 36px 4px 24px;
+    color: $black;
+    border: 2px solid $blue;
+
+    &:hover {
+    	background-color: $blue-light;
+    } 
+}
+
+
+
+
+
+// Altinn input
+
+.a-input {
+	position: relative;
+	border: 2px solid $blue; 
+
+	.input-group-addon {
+	    background-color: $white;
+	    border: none;
+	    border-radius: none;
+	    color: $black; 
+	    min-width: 48px;
+	}
+	.form-control {
+	    border: none;
+	    border-radius: none;
+	    padding: 4px 0px;
+	}
+
+	.input-group-btn .btn {
+		border: none;
+    	padding: 0;
+    	width: 48px;
+    	height: 32px;
+
+    	&:hover {
+    		background-color: $blue-light;
+    	}
+	}
+}
+
+.a-input-icon {
+	position: absolute;
+	top: 4px;
+	left: 12px;
+}
+.a-input-labelText {
+	padding-left: 36px;  
+}
+
+// Notifications 
+
+.a-textfield-error{
+	    background-color: $red-light;
+	    padding: 12px 15px;
+	    margin-top: 20px;
+    	position: relative;
+    	float: left;
+	}
+
+.a-textfield-error:after {
+	bottom: 100%;
+	left: 10%;
+	border: solid transparent;
+	content: " ";
+	height: 0;
+	width: 0;
+	position: absolute;
+	pointer-events: none;
+	border-color: rgba(136, 183, 213, 0);
+	border-bottom-color: $red-light;
+	border-width: 10px;
+	margin-left: -10px;
+}
