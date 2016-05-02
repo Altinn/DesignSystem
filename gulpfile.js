@@ -148,6 +148,7 @@ gulp.task('connect', ['lab'], function () {
       path.resolve(paths().source.fonts + '/*'),
       path.resolve(paths().source.images + '/*'),
       path.resolve(paths().source.data + '*.json'),
+      path.resolve(paths().source.data + '*.js'),
       path.resolve(paths().source.patternlabFiles + '**/*.*'),
     ],
     ['lab-pipe'],

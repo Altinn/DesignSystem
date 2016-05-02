@@ -41,6 +41,16 @@
         @include box-shadow(none); 
     }
 
+    &:after {
+        // Making the touch target area bigger without affecting the layout
+        content: "";
+        width: 100%;
+        height: 48px;
+        position: absolute;
+        left: 0;
+        top: -6px;
+    } 
+
 }
 
 .a-btn-secondary {
@@ -86,5 +96,98 @@
         left: 12px; 
     } 
 } 
+ 
 
+// BOX BUTTON
+
+.a-boxBtn {
+    border: 1px solid $grey-medium;
+    padding: 12px;
+    cursor: pointer; 
+    width: 100%;
+    max-width: 400px;
+    background: #fff;
+    position: relative;
+    height: 200px;
+
+    p {
+            margin-bottom: 0px;
+    }
+
+
+    .a-boxBtn-icon {
+        display: block;
+        font-size: 60px;
+    }
+
+    .a-boxBtn-action {
+        max-width: 160px;
+        display: inline-block;
+    }
+
+    .a-boxBtn-action-arrow {
+        font-size: 16px;
+    }
+
+    &:hover {
+        background: $blue-light; 
+        border: 1px solid $blue;
+    }
+}
   
+
+// BOX ADD BUTTON
+
+.a-boxAddBtn {
+    border: none;
+    padding: 12px;
+    background: transparent;
+    width: 100%;
+    max-width: 400px;
+    cursor: pointer;
+    
+
+    .a-boxAddBtn-inner {
+        border: 2px dotted $blue; 
+        padding: 24px 12px; 
+        height: 172px;
+
+        .a-boxAddBtn-icon {
+            display: block;
+            font-size: 36px; 
+            padding: 12px;
+        }
+
+        &:hover {
+            background: $blue-light; 
+        }
+    }
+      
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

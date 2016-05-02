@@ -12,7 +12,7 @@ var comments = {
 	}, 
 	{
 		"el": ".a-buttons", 
-	 	"title" : "Touchable target height", 
+	 	"title" : "Touchable target heigh", 
 	 	"comment": "To ensure balanced information density and usability, touch targets should be at least 48 x 48 px. In most cases, there should be 8px or more space between them."
 	}, 
 	{ 
