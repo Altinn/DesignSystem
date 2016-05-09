@@ -10,20 +10,20 @@
  * Dropdown
 \*------------------------------------*/
 
-.altinn-form-icon {
+.a-form-icon {
 	top: 7px;
     position: absolute;
     left: 12px;
 }
 
-.altinn-form-text {
+.a-form-text {
 	padding: 4px 50px;
 	display: block;
 }
 
 // Toggle btn
 
-.altinn-dropdown-toggle {
+.a-dropdown-toggle {
     width: 100%;
     text-align: left;
     border: 2px solid $blue;
@@ -32,19 +32,19 @@
     padding:0;
 }
 
-.altinn-dropdown-toggle:hover {
+.a-dropdown-toggle:hover {
     color: #333;
     background-color: $blue-light;
     border-color: $blue;
 }
 
-.altinn-dropdown-toggle:after {
+.a-dropdown-toggle:after {
     position: absolute;
     right: 12px;
     top: 16px;
 }
 
-.altinn-dropdown-toggle:before {
+.a-dropdown-toggle:before {
     // Making the touch target area bigger without affecting the layout
     content: "";
     width: 100%;
@@ -56,7 +56,7 @@
 
 // Choises
 
-.altinn-dropdown-menu {
+.a-dropdown-menu {
 	border: 2px solid $blue;
 	border-radius: 0;
 	padding: 0;
@@ -65,18 +65,18 @@
 	border-top: 0;
 }
 
-.altinn-dropdown-item {
+.a-dropdown-item {
 	position: relative;
 	border-bottom: 2px dotted #1eaef7;
 	padding: 0;
 }
-.altinn-dropdown-item:last- {
+.a-dropdown-item:last- {
 	position: relative;
 	border-bottom: 2px dotted #1eaef7;
 	padding: 0;
 }
-.altinn-dropdown-item-active,
-.altinn-dropdown-item:hover {
+.a-dropdown-item-active,
+.a-dropdown-item:hover {
 	background-color: $grey-light;
 }
 
@@ -112,36 +112,54 @@
 // Altinn Check buttons / Switch
 
 .a-switch {
-    display: inline-block;
-    margin-right: 6px;
-    margin-bottom: 6px;
+	position: relative;
+	display: inline-block;
+	margin-right: 12px;
+	cursor: pointer;
 }
-
-.a-switch input[type="checkbox"]:not(:checked)+label, 
-.a-switch input[type="checkbox"]:checked+label {
-    transition: all .2s;
-}
-
-.a-switch input[type="checkbox"]:checked+label {
-    background-color: rgba(30,174,247,.2);
-    -moz-border-radius: 2px solid #1eaef7;
-    border: 2px solid #1eaef7;
-}
-
-.a-switch input[type="checkbox"]+label {
-    position: relative;
-    padding-left: 20px;
-    margin-bottom: 0;
-    vertical-align: middle;
-    font-weight: normal;
-    cursor: pointer;
-    display: inline-block;
-    margin: 0;
-    height: 36px;
-    border-radius: 36px;
-    padding: 6px 18px;
+.a-switch-label {
     font-family: DIN-reg;
+    font-size: 14px;
+    padding: 6px 12px 6px 36px;
+    cursor: pointer;
 }
+
+.a-switch input[type="checkbox"] + label.disabled,
+fieldset[disabled] .a-switch input[type="checkbox"] + label {
+  cursor: not-allowed;
+}
+.a-switch input[type="checkbox"] + label.focused {
+  -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px #1eaef7;
+  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px #1eaef7;
+}
+.a-switch input[type="checkbox"]:not(:checked) + label {
+  background: none;
+  border-radius: 36px;
+  border: 2px dotted #1eaef7;
+}
+
+.a-switch input[type="checkbox"]:checked + label { 
+  background-color: rgba(30, 174, 247, 0.2);
+  border-radius: 36px;
+  border: 2px solid #1eaef7;
+}
+.a-switch input[type="checkbox"]:not(:checked) + label,
+.a-switch input[type="checkbox"]:checked + label {
+  transition: all .2s;
+}
+.a-switch .disabled {
+  display: inline-block;
+  height: 36px;
+  border-radius: 36px;
+  padding: 6px 18px;
+  background-color: transparent;
+  background-image: url('/ui/Content/img/disabled-background.svg');
+}
+.a-switch-icon  {
+	position: absolute;
+	font-size: 20px;
+	left: 12px;
+} 
 
 
 // Altinn Radio buttons
@@ -234,15 +252,27 @@
 	padding-left: 36px;  
 }
 
+// Altinn disabled input
+
+.a-input.disabled {
+	border: none;
+	.input-group-addon,
+	.form-control  {
+	    background-image: url('/images/disabled-background.svg');
+	    background-color: #fff;
+	}
+}
+
+
 // Notifications 
 
 .a-textfield-error{
-	    background-color: $red-light;
-	    padding: 12px 15px;
-	    margin-top: 20px;
-    	position: relative;
-    	float: left;
-	}
+    background-color: $red-light;
+    padding: 12px 15px;
+    margin-top: 20px;
+	position: relative;
+	float: left;
+}
 
 .a-textfield-error:after {
 	bottom: 100%;
@@ -258,3 +288,8 @@
 	border-width: 10px;
 	margin-left: -10px;
 }
+
+
+
+
+
