@@ -1,74 +1,9 @@
-/*                                                       
-
-  ___  _ _   _              ______          _               _____           _                 
- / _ \| | | (_)             |  _  \        (_)             /  ___|         | |                
-/ /_\ \ | |_ _ _ __  _ __   | | | |___  ___ _  __ _ _ __   \ `--. _   _ ___| |_ ___ _ __ ___  
-|  _  | | __| | '_ \| '_ \  | | | / _ \/ __| |/ _` | '_ \   `--. \ | | / __| __/ _ \ '_ ` _ \ 
-| | | | | |_| | | | | | | | | |/ /  __/\__ \ | (_| | | | | /\__/ / |_| \__ \ ||  __/ | | | | |
-\_| |_/_|\__|_|_| |_|_| |_| |___/ \___||___/_|\__, |_| |_| \____/ \__, |___/\__\___|_| |_| |_|
-                                               __/ |               __/ |                      
-                                              |___/               |___/                   
-                     
-Atomic Designsystem built with Pattern Lab (http://patternlab.io/)
-------------------------------------------------------------------
-
-Atomic design is philosophically complimentary with these CSS approaches:
-
-* SMACSS by Jonathan Snook http://smacss.com/
-* OOCSS by Nicole Sullivan http://oocss.org/
-* BEM CSS Methology : http://bem.info/method/
-* CSS Guidelines by Harry Roberts : https://github.com/csswizardry/CSS-Guidelines
-
-*/ 
-
 /*------------------------------------*\
-    $USE OF PREFIXES IN ALTINN
+    $VARIABLES
 \*------------------------------------*/
 
-/**
-* Prefixes help developers distinguish between classes that 
-* comes from Bootstrap, Patternlab and classes that are made to style 
-* Altinn web components.
-*
-*  .sg-...  Specific styles for the Style Guide presentation
-*  .a-...   Specific styles for Altinn web components
-*/
-
-/*------------------------------------*
-    $CONVENTIONS
-\*------------------------------------*
-
-* To ensure readability and consistency, 
-* this styleguide has the following convention:
-
-* /* Square brackets denote optional parts 
-* .<moduleName>[-<componentName>][-<state>] {}
-
-* Examples: 
-
-* /* module container/root 
-*    .searchResults {}
-
-* /* components of a module
-*    .searchResults-heading {}
-
-* /* state: such as AJAX loading 
-*    .searchResults-isLoading {}
-
-* Each of these class names are semantic. Module, component and state are 
-* all delimitted by dashes. Each bit is written in lowerCamelCase.
-
-
-
-/*------------------------------------*\
-    $TABLE OF CONTENTS 
-\*------------------------------------*/
-
-/**
- * TOC To Be Continued
- */
- 
-
+@import "scss/generic/bootstrap-variables";
+@import "scss/generic/variables";
 
 /*------------------------------------*\
  * Bootstrap v4.0.0-alpha.2 (http://getbootstrap.com)
@@ -77,7 +12,6 @@ Atomic design is philosophically complimentary with these CSS approaches:
 \*------------------------------------*/
 
 // Core variables and mixins
-@import "bootstrap/variables";
 @import "bootstrap/mixins";
 
 // Reset and dependencies
@@ -128,15 +62,77 @@ Atomic design is philosophically complimentary with these CSS approaches:
 @import "bootstrap/utilities-responsive";
 
 
+/*                                                       
+
+  ___  _ _   _              ______          _               _____           _                 
+ / _ \| | | (_)             |  _  \        (_)             /  ___|         | |                
+/ /_\ \ | |_ _ _ __  _ __   | | | |___  ___ _  __ _ _ __   \ `--. _   _ ___| |_ ___ _ __ ___  
+|  _  | | __| | '_ \| '_ \  | | | / _ \/ __| |/ _` | '_ \   `--. \ | | / __| __/ _ \ '_ ` _ \ 
+| | | | | |_| | | | | | | | | |/ /  __/\__ \ | (_| | | | | /\__/ / |_| \__ \ ||  __/ | | | | |
+\_| |_/_|\__|_|_| |_|_| |_| |___/ \___||___/_|\__, |_| |_| \____/ \__, |___/\__\___|_| |_| |_|
+                                               __/ |               __/ |                      
+                                              |___/               |___/                   
+                     
+Atomic Designsystem built with Pattern Lab (http://patternlab.io/)
+------------------------------------------------------------------
+
+Atomic design is philosophically complimentary with these CSS approaches:
+
+* SMACSS by Jonathan Snook http://smacss.com/
+* OOCSS by Nicole Sullivan http://oocss.org/
+* BEM CSS Methology : http://bem.info/method/
+* CSS Guidelines by Harry Roberts : https://github.com/csswizardry/CSS-Guidelines
+
+*/ 
+
 /*------------------------------------*\
-    $ ALTINN STYLES 
+    $USE OF PREFIXES IN ALTINN
 \*------------------------------------*/
 
-@import "scss/generic/variables";
+/**
+* Prefixes help developers distinguish between classes that 
+* comes from Bootstrap, Patternlab and classes that are made to style 
+* Altinn web components.
+*
+*  .ap-...  Specific styles for Altinn Profile manual
+*  .sg-...  Specific styles for the Style Guide presentation
+*  .a-...   Specific styles for Altinn web components
+*/
+
+/*------------------------------------*
+    $CONVENTIONS
+\*------------------------------------*
+
+* To ensure readability and consistency, 
+* this styleguide has the following convention:
+
+* /* Square brackets denote optional parts 
+* .<moduleName>[-<componentName>][-<state>] {}
+
+* Examples: 
+
+* /* module container/root 
+*    .searchResults {}
+
+* /* components of a module
+*    .searchResults-heading {}
+
+* /* state: such as AJAX loading 
+*    .searchResults-isLoading {}
+
+* Each of these class names are semantic. Module, component and state are 
+* all delimitted by dashes. Each bit is written in lowerCamelCase.
+
+
+
+/*------------------------------------*\
+    $TABLE OF CONTENTS 
+\*------------------------------------*/
+
 @import "scss/generic/mixins";
 @import "scss/generic/reset"; 
 
-@import "scss/base/global-classes";
+@import "scss/base/global-classes"; 
 @import "scss/base/links";
 @import "scss/base/headings";
 @import "scss/base/text";
@@ -166,9 +162,22 @@ Atomic design is philosophically complimentary with these CSS approaches:
 @import "scss/objects/modal";
 @import "scss/objects/collapse";  
 
+
 /*------------------------------------*\
-    $PATTERNLAB PRESENTATION
-    * NB: Include only for patternlab view
+    $ALTINN PROFILE MANUAL PRESENTATION
+    * NB: Include only for profile and patternlab view 
 \*------------------------------------*/
 
-@import "scss/base/pattern-presentation"; 
+@import "scss/base/profile-presentation"; 
+
+
+/*------------------------------------*\
+    $PATTERNLAB PRESENTATION
+    * NB: Include only for profile and patternlab view 
+\*------------------------------------*/
+
+@import "scss/base/pattern-presentation";  
+
+
+
+

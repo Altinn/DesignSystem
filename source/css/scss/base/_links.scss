@@ -8,22 +8,53 @@
     border-bottom: 2px solid $link-color;
     text-decoration: none;
     cursor: pointer;
+
+    &.a-link-warning {
+        border-bottom: 2px solid $red;
+    }
 }    
 
 .a-link:hover,
 .a-link:focus { 
     text-decoration: none;
-    border-bottom: 2px solid $blue-dark;;
+    border-bottom: 2px solid $blue-dark;
     color: $black;
 	
+    &.a-link-warning {
+        border-bottom: 2px solid darken($red, 15%);
+    }
 }    
 
-p a {
+
+a {
 	color: $blue-dark;
-	text-decoration: underline;
+	border-bottom: 1px solid $blue-dark;
+    padding-bottom: 2px;
+
+    &:hover { 
+        text-decoration: none;
+        border-bottom: 1px solid $link-color;
+        color: $link-color;
+    }
 }
 
 a.no-decoration {
     text-decoration: none;
     color: $black;
+    border: none;
+    padding-bottom: 0;
+} 
+
+.a-link-helpfunction {
+    color: $black;
+
+    a { 
+        color: $blue-dark;
+        border-color: $blue-dark;
+
+        &:hover { 
+            border-bottom: 1px solid $link-color;
+            color: $link-color;
+        }
+    }
 }

@@ -7,16 +7,32 @@ html, body {
     font-size: 16px;
     font-family: $font;  
     color: $black;
+    background: $white;
+}
+
+body.private-person,
+html.private-person {
     background-color: $grey-light;
 }
 
-body.private-person {
-    background-color: $grey-light;
-}
-
-body.business{
+body.business,
+html.business{
     background-color: $blue-light;
 }
+
+body.a-modal-background,
+html.a-modal-background {
+    background: $blue;
+}
+body.a-modal-background-success,
+html.a-modal-background-success {
+    background: $green-light;
+}
+body.a-modal-background-error,
+html.a-modal-background-error {
+    background: $red-light;
+} 
+
 
 ::selection {
     background: #e0daf7;  
@@ -44,9 +60,21 @@ body.business{
 .a-dimText {
     color: rgba(0,0,0,0.4)
 }
+.a-whiteText {
+    color: $white;
+
+    a, a:hover { 
+        color: $white;
+        border-color: $white;
+    }
+} 
 .a-dimBackground {
     background: rgba(0,0,0,0.3)
 }
+
+
+
+
 
 
 /* Grid */
@@ -65,23 +93,6 @@ body.business{
     text-align: center;
 }
 
-
-/* Clearfix */
-.cf {
-    *zoom: 1;
-}
-.cf:before, .cf:after { 
-    content: " "; /* 1 */
-    display: table; /* 2 */ 
-}
-
-.cf:after { 
-    clear: both;  
-}
-
-.clear {
-    clear: both;  
-}
 
 /* Fonts */
 .font-primary {

@@ -2,28 +2,34 @@
     $BUTTONS
 \*------------------------------------*/
 
-
 .a-btn {
 	display: inline-block;
     font-weight: normal;
     text-align: center;
     position: relative;
     cursor: pointer;
-    user-select: none;
     border: 0px solid transparent;
     padding: 6px 24px;
     font-size: 16px;
     line-height: 24px;
-    background: $blue-dark;
-    color: $white;
-    font-family: 'DIN-medium'; 
+    background: $blue;
+    color: $black;
+    font-family: 'DIN-reg'; 
+    margin-bottom: 12px;
+
 
     &:hover {
         background: $blue-hover-color;
+        text-decoration: none;
+        color: $black; 
+        border: 0;
     }
       
-    &.focus {
+    &:focus{
         text-decoration: none;
+        outline: 0;
+        background: $black;
+        color: $white;
     }
 
     &:active,
@@ -31,6 +37,8 @@
         background-image: none;
         outline: 0;
         @include box-shadow(inset 0 3px 5px rgba(0,0,0,.125)); 
+        background: $blue; 
+        color: $black;
     }
 
     &.disabled,
@@ -45,10 +53,10 @@
         // Making the touch target area bigger without affecting the layout
         content: "";
         width: 100%;
-        height: 48px;
+        height: 48px; 
         position: absolute;
         left: 0;
-        top: -6px;
+        top: -6px; 
     } 
 
 }
@@ -64,10 +72,11 @@
 
 .a-btn-success {
     background-color: $green; 
-    color: $black;
+    color: $black; 
 
     &:hover {
         background: $green-hover-color;
+        border: none;
     }
 }
 
@@ -75,10 +84,35 @@
     background-color: $red;  
     &:hover {
         background: $red-hover-color;
+        border: none;
     }
 }
 
-.a-btn-add {
+// Make button look like link 
+
+.a-btn-link, 
+.a-btn-link:active,
+.a-btn-link:focus { 
+    background: none;
+    border: none;
+    color: $black;
+    padding: 0;
+    padding-bottom: 2px;
+    border-bottom: 2px solid $link-color;
+    text-decoration: none;
+    cursor: pointer;
+}    
+
+.a-btn-link:hover,
+.a-btn-link:focus { 
+    text-decoration: none;
+    border-bottom: 2px solid $blue-dark;
+    color: $black;
+}
+
+// add btn
+
+.a-btn-action {
     border: 2px dotted $blue;
     padding: 4px 24px 4px 36px;
     background-color: transparent; 
@@ -87,16 +121,22 @@
 
     &:hover {
         background: $blue-light; 
+        border: 2px dotted $blue; 
     }
 
-    .a-btn-add-plus {
-        font-size: 24px;
+    .a-btn-action-icon,
+    .a-btn-action-iconPlus {
+        font-size: 16px;
         position: absolute;
-        top: 4px;
+        top: 7px;
         left: 12px; 
+    }
+
+    .a-btn-action-iconPlus {
+        font-size: 24px;
+        top: 4px;
     } 
-} 
- 
+}
 
 // BOX BUTTON
 
@@ -168,14 +208,19 @@
 
 
 
+// Buttons groups
 
+.a-btn-group {
+    a,
+    button {
+        margin-right: 12px;
 
+        &:last-child {
+            margin-right: 0;
+        }
+    }
 
-
-
-
-
-
+} 
 
 
 

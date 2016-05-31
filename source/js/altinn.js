@@ -15,7 +15,7 @@
             return false;
         })
     });
-}(jQuery)); 
+}(jQuery));  
 
 /*!
  * Show textarea for writing a message 
@@ -56,7 +56,7 @@
         var $submit_btn = $container.find("a.sk-btn");
         showMaxLengthExceededWarning($(this), $warning, $submit_btn);
     });
-}(jQuery));
+}(jQuery));  
 
 
 /*!
@@ -134,7 +134,7 @@
 
     });
 
-}(jQuery));
+}(jQuery));  
 
  
 
@@ -158,7 +158,7 @@
         positionSkTopNav();
     });
 
-})(jQuery);
+}(jQuery));  
 
 
 
@@ -184,4 +184,47 @@
            }
        });
     });
-}(jQuery)); 
+}(jQuery));  
+
+
+// INPUT Focus style
+// If state on input is "focus", add class to a-input : "a-input-focus"
+
+
+; (function ($, undefined) {
+    $(function () {
+        
+        $("input.form-control").focus(function(){
+        $(this).parent().addClass("a-input-focus");
+
+        }).blur(function(){
+               $(this).parent().removeClass("a-input-focus");
+        })
+    });
+}(jQuery));  
+
+
+
+// TOOLTIP AND POPOVERS
+
+; (function ($, undefined) {
+    $(function () {
+
+      $('[data-toggle="tooltip"]').tooltip();
+
+      $('[data-toggle="popover"]').popover(); 
+
+      $('#myPopup').popover(options);
+
+    })
+}(jQuery));  
+
+
+
+
+
+
+
+
+
+

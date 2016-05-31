@@ -12,17 +12,33 @@
 			margin: auto; 
 		}
 	}
+	.modal-content {
+		margin-bottom: 72px; 
+		border: none; 
+    	border-radius: 0;
+		box-shadow: 1px 1px 4px 0px rgba(137,137,137,0.50);
+		// box-shadow: 0 1px 5px -2px #000; // Current
+	}
+
+	.a-link-helpfunction {
+		color: $white;
+
+		a { 
+			color: $white;
+			border-color: $white;
+		}
+	}
+
 }
 
-
-
-// Modal top 
+// Modal top  
 
 .a-modal-top {
-	padding-top: 24px;
+	min-height: 48px;
+	padding-top: 60px;
 
 	.a-modal-top-logo {
-		width: 160px;
+		width: 140px;
 	}
 
 	.a-modal-top-user {
@@ -49,23 +65,52 @@
 	margin-top: 24px;
 }
 
-
-
 .a-modal-header {
 	background: $grey;
-	padding: 30px;
-	padding-left: 96px;
+	padding: 12px;
+	padding-left: 72px;
 	border-bottom: 0;
-}
+    display: table;
+    width: 100%; 
+    min-height: 72px;
 
-.a-modal-body {
-	padding: $pad-double;
-} 
+    @media all and (min-width: $bp-med) {
+      min-height: 100px; 
+      padding-left: 96px;
+    }
+
+}
 
 .a-modal-title {
 	font-size: $font-size-large-2;
 	color: #fff; 
+	width: 100%;
+    font-size: 18px;
+    line-height: 24px;
+    position: relative;
+    min-height: 100px;
+    display: table-cell;
+    margin: 0;
+    vertical-align: middle;
+
+    @media all and (min-width: $bp-med) {
+        font-size: 24px;
+    }
 }  
+
+
+.a-modal-body { 
+	padding: 24px 12px;
+
+	@media all and (min-width: $bp-med) {
+        padding: 36px 96px;
+    }
+
+	.a-btn-group {
+		margin-top: $space-x3;  
+	}
+} 
+
 
 .a-modal-close,
 .a-modal-back {
@@ -79,9 +124,15 @@
 .a-modal-close:hover,
 .a-modal-back:hover {
 	opacity: .70;
+	border: none;
 }
 .a-modal-close{
 	float: right;
+}
+
+a.a-modal-close {
+	text-align: center;
+	padding-top: 6px;
 }
 
 
@@ -93,5 +144,110 @@
 .a-modal-close-icon {
 	color: $red;
 }
+
+
+
+
+
+/*------------------------------------*\
+    $MODAL PROCESS
+\*------------------------------------*/
+
+
+// MODAL WITH SUCCESS
+.a-modal-background-success{
+
+	.a-modal-top {
+		.a-modal-top-user {
+			.a-modal-top-user-icon {
+			    color: $black;
+			}
+			.a-modal-top-user-name {
+			    color: $black;
+			} 
+		}
+	}
+
+	.a-modal-top-user-name {
+		color: $black;
+	}
+    
+    .a-modal-header {
+    	background: $green;
+
+    	.a-modal-title {
+    		color: $black;
+    	}
+    }
+
+    .a-link-helpfunction {
+		color: $black;
+
+		a { 
+			color: $black;
+			border-color: $black;
+		}
+
+	}
+}
+// MODAL WITH ERROR
+.a-modal-background-error {
+	.a-modal-top {
+		.a-modal-top-user {
+			.a-modal-top-user-icon {
+			    color: $black;
+			}
+			.a-modal-top-user-name {
+			    color: $black;
+			} 
+		}
+	}
+    .a-modal-header {
+    	background: $red;
+
+    	.a-modal-title {
+    		color: $black;
+    	}
+    }
+     .a-link-helpfunction {
+		color: $black;
+
+		a { 
+			color: $black;
+			border-color: $black;
+		}
+
+	}
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 

@@ -1,0 +1,275 @@
+/*------------------------------------*\
+*  PRESENTATION OF PROFILE
+*  NB: Include this file only for the patternlab-designsystem
+*
+*  ap = altinn profile 
+\*------------------------------------*/
+
+body.ap-profile {
+  background: $white; 
+}
+
+body.ap-profile-pattern {
+  overflow: hidden;
+}
+
+iframe.ap-showPatternlab {
+  width: 100%;
+  height: 100vh;
+  margin: 0;
+  border: 0;
+  border-left: 5px solid $white;
+}
+
+.ap-navbarLeft-content {
+
+  @media screen and (min-width: $bp-med) {
+      margin-left: 300px;
+    }
+  
+} 
+
+.ap-main {
+  max-width: 900px;
+  margin: auto;
+  margin-top: 36px;
+}
+
+
+.ap-navbarLeft {
+    padding: 0;
+    width: 100%; 
+    display: block;
+
+    @media screen and (min-width: $bp-med) {
+      width: 300px;  
+    }
+
+    .ap-navbarLeft-collapse {
+      width: 100%;
+      height: 100%;     
+      background: #D2EFFD; 
+      position: fixed;
+      overflow: hidden;
+
+      @media screen and (min-width: $bp-med) {
+        width: 300px;
+        top: 0;
+      }
+    }
+
+    .navbar-brand,
+    .navbar-nav,
+    .navbar-nav .nav-item {
+      float: none; 
+      margin-left: 0;
+    } 
+
+    .navbar-brand {
+      background: $blue-dark;
+      color: $white;
+      display: block;
+      padding: 36px 12px;
+      width: 100%;
+      text-align: center;
+      border-bottom: 1px solid $white;
+
+      img {
+        width: 160px;
+        margin: auto;
+        margin-bottom: 12px;
+      }
+
+      h1 {
+        color: $white;
+        font-family: 'DIN-reg';
+        font-size: 22px;
+        line-height: 30px;
+        margin-bottom: 0;
+      }  
+    }
+
+    .nav-link {
+      padding: 12px;
+      color: $black;
+      font-family: 'DIN-medium';
+      border-bottom: 1px solid $white;
+
+      &:hover {
+        background: #BEDFEF;
+      }
+
+      &.nav-link-hassub {
+        border:0;
+      }
+    }
+
+
+     .nav-item {
+      &.nav-item-level2 {
+         .nav-link {
+            padding-left: 24px;
+            font-family: 'DIN-reg';
+            border-bottom: 0;
+          }
+          &:last-child {
+            border-bottom: 1px solid $white;
+          }
+      }
+    }
+
+    .ap-nav-active,
+    .ap-nav-active:hover, {
+      background: $blue-dark;
+      color: $white;
+    }
+
+}  
+
+@media screen and (max-width: $bp-med) {
+
+  .ap-collapse-content {
+    position: absolute;
+    height: 100%;
+    width: 0%;
+    overflow: hidden;
+  }
+
+  .collapse.in .ap-collapse-content {
+    width: 100%;
+  }
+}
+
+
+
+// OT NAV 
+
+
+
+/* Navbar */
+
+.ot-navbar {
+  display: none;
+  background-color: #3b3b3b;
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 280px;
+  height: 100%;
+}
+
+.ot-navbar-x {
+  padding:20px;
+  background: #999;
+  width: 70px;
+  float: left;
+  cursor: pointer;
+  text-align: center;
+  color: #fff;
+}
+
+.ot-navbar-x:hover {
+  background: #555; 
+}
+
+.ot-navbar-title {
+  padding:20px;
+  background: #ddd;
+  color: #333;
+  width: 210px;
+  float: left;
+  font-weight: bold;
+  letter-spacing: 3px;
+}
+
+
+.ot-navbar-firstlevel {
+  margin: 0; 
+}
+
+.ot-navbar-firstlevel li {
+  width: 100%;
+  position: relative;
+}
+
+.ot-navbar-toggle-secondlevel {
+  color: #eee;
+  position: absolute;
+  right: 20px;
+  top: 10px;
+  padding: 3px 10px;
+  cursor: pointer;
+}
+
+.ot-navbar-firstlevel a {
+  display: block;
+  padding: 15px 18px;
+  font-size: 18px;
+}
+
+.ot-navbar-firstlevel a:hover,
+.ot-navbar-firstlevel .open a {
+  background-color: #333;
+}
+
+.ot-navbar-firstlevel a:hover .ot-navbar-toggle-secondlevel {
+  background-color: #444;
+  -webkit-border-radius: 5px 5px 5px 5px;
+  border-radius: 5px 5px 5px 5px;
+}
+
+.ot-navbar-firstlevel-itemtitle {
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+.open a .ot-navbar-firstlevel-itemtitle {
+  text-decoration: underline;
+}
+
+.ot-navbar-secondlevel {
+  display: none;
+  background: #333;
+    margin: 0;
+    margin-bottom: 1px;
+    width: 100%;
+    float: left;
+}
+
+.ot-navbar-secondlevel a {
+  padding-left: 50px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    font-size: 16px;
+}
+
+.ot-navbar-secondlevel a:hover,
+.ot-navbar-secondlevel a:focus,
+.ot-navbar-secondlevel a:active {
+  background: #222;
+}
+
+.ot-navbar-secondlevel-itemtitle {
+  padding-right: 10px;
+}
+
+
+
+
+/* Wider menu for large screens */
+
+@media screen and (min-width: 768px) {
+
+  .ot-navbar {
+    width: 350px;
+  }
+
+  .ot-navbar-x {
+    width: 70px;
+  }
+
+  .ot-navbar-title {
+    width: 280px;
+  }
+
+}

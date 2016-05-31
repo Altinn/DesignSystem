@@ -1,4 +1,18 @@
 /*------------------------------------*\
+    BOOTSTRAP EXTENDED
+    Collapse horizontal
+\*------------------------------------*/
+
+.collapse.width {
+    height: auto;
+    -webkit-transition: width 0.35s ease;
+    -moz-transition: width 0.35s ease;
+    -o-transition: width 0.35s ease;
+    transition: width 0.35s ease;
+} 
+
+
+/*------------------------------------*\
     $COLLAPSE PANEL 
 \*------------------------------------*/
 
@@ -6,24 +20,42 @@
     margin-bottom: $pad;
 }
 
+.a-collapse-heading {
+  display: table;
+  width: 100%; 
+  min-height: 72px;
+
+  @media all and (min-width: $bp-med) {
+    min-height: 100px; 
+  }
+}
+
 .a-collapseBtn {
     background-color: #fff;
     border: 1px solid #ddd;
     width: 100%;
-    display: block;
-    padding-left: 96px;
-    height: 100px; 
+    padding: 12px 70px 12px 72px;
     border-radius: 2px; 
-    font-size: $font-size-large-2;
-    padding-top: 30px;
+    font-size: 18px;
+    line-height: 24px;
     position: relative;
     color: $black;
+    min-height: 100px;
+    display: table-cell;
+    margin: 0;
+    vertical-align: middle;
+
+    @media all and (min-width: $bp-med) {
+        font-size: 24px;
+        padding: 12px 70px 12px 96px;
+    }
 
     &:hover,
     &:focus,
     &:active {
         text-decoration: none;
         color: $black;
+        border-color: #ddd;
     }
 
 
@@ -32,7 +64,11 @@
         position: absolute;
         font-size: 36px;
         right: 30px;
-        top: 30px;     
+        top: 20px;   
+
+        @media all and (min-width: $bp-med) {
+            top: 30px;   
+        }
     } 
     .a-collapse-arrowDown {
         display: none;
@@ -59,15 +95,22 @@
 
 .a-collapse-icon {
     background-color: #eee;
-    height: 72px;
-    width: 72px;
+    width: 48px;
+    height: 48px;
     border-radius: 50%; 
-    font-size: 36px;
+    font-size: 24px;
     text-align: center;
-    padding-top: 16px;
+    padding-top: 12px;
     position: absolute;
     top: 12px;
     left: 12px;
+
+    @media all and (min-width: $bp-med) {
+        height: 72px;
+        width: 72px;
+        font-size: 36px;
+        padding-top: 16px;
+    }
 }
 
 .a-collapsePanel {
@@ -77,7 +120,11 @@
 }
 
 .a-collapsePanel-content {
-    padding: 40px 100px;
+    padding: 24px 12px;
+
+    @media all and (min-width: $bp-med) {
+        padding: 40px 100px;
+    }
 }
 
 
@@ -93,6 +140,10 @@
     padding-bottom: 3px;
     display: inline-block;
     width: 100%;
+
+    a {
+        border: none;
+    }
 }
 
 .a-collapseContent{

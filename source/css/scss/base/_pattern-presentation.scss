@@ -8,18 +8,65 @@
 // Patternlab TOP
 
 .sg-top {
-	background: $purple;
-	color: $white;
+	background: $blue-light;
+	color: $black;
 	padding: 100px 0 120px 0;
+  border-bottom: 6px solid $white;
 
-  h1 {
-    color: $white;
-  }
-  .a-btn {
-    background: $white;
+  h1,h2 {
     color: $black;
   }
+
+  img {
+    float: right;
+    padding-top: 30px;
+  }
 } 
+
+// Patternlab states explanation
+
+.sg-statesExplanation {
+  background: $white;
+  padding: 24px 0;
+
+  .sg-pattern-state-inprogress {
+    color: $red;
+  }
+  .sg-pattern-state-inreview {
+    color: #FFA900;
+  }
+  .sg-pattern-state-complete {
+    color: $green;
+  }
+}
+
+.sg-pattern-state:before {
+    margin-bottom: 0;
+  }
+
+  .sg-pattern-state:before {
+    font-size: 30px;
+  }
+span.sg-pattern-state:before {
+    margin-bottom: -12px;
+    /* margin-left: 4px; */
+}
+// Pattern headlines for atoms
+
+.sg-pattern-head {
+  margin: 18px 0;
+  padding: 6px 0;
+
+  .patternLink,
+  .patternLink:hover {
+    border: none;
+    text-decoration: none;
+    font-size: 14px;
+    text-transform: uppercase;
+    font-family: 'DIN-light';
+  }
+}
+
 
 // Patternlab Grid examples
 
@@ -50,28 +97,48 @@
   width: 100%;
 
   @media screen and (min-width: $bp-med) { 
-	   width: 33%;
-  	max-width: 200px;
+	  width: 24%;
   }
 }
 
-.sg-swatch {
-	border-radius: 2px;
-	width: 100%;
-    display: block;
-    height: 80px;
-    margin-bottom: 10px;
-
-	@media screen and (min-width: $bp-med) { 
-	}
-}
-
 .sg-label {
-	display: block;
+  display: none;
   line-height: 24px;
 }
 
-// Patternlab all icons
+
+.sg-swatch {
+	  border-radius: 2px;
+	  width: 100%;
+    text-align: center;
+    padding-top: 15px;
+    display: block;
+    height: 72px;
+    margin-bottom: 10px; 
+    position: relative;
+    
+    .sg-label {
+      position: absolute;
+      top: 12px;
+      right: -100%;
+      bottom: 0;
+      left: 0;
+      display: block;
+      opacity: 0;
+      -webkit-transition: 0.2s all;
+      transition: 0.2s all;
+    }
+
+  	&:hover .sg-label {
+      display: block;
+      right: 0;
+      opacity: 1;
+    }
+
+}
+
+
+// Patternlab multiple color icons
 
 .sg-iconPreview {
   display: inline;
@@ -105,6 +172,36 @@
   color: $black; 
   font-size: 36px; 
 }
+
+
+// Icons Fort Awesome
+
+.sg-kitIcons {
+  margin-bottom: 24px;
+
+  .sg-kitIcons-icon {
+      text-align: center;
+      display: inline-block;
+      padding: 12px 24px;
+      color: $grey-medium;
+      border: none;
+      border-radius: 5px;
+      
+      &:hover {
+        background: $blue;
+        color: $white;
+      } 
+  }
+
+  .sg-kitIcons-name {
+    font-size: 14px;
+    font-family: 'DIN-light'; 
+  }
+
+}
+
+
+
 
 // Patternlab TYPO
 
@@ -154,11 +251,48 @@
     p {
       color: $black;
     }
-}
+} 
 
 .sg-code  {
     background: #000;
       pre {
       color: #fff;
+       margin-bottom: -20px; 
     }
+    .sg-code-head {
+      margin: 0;
+  }
 }
+
+
+
+
+// Switch theme
+
+.sg-switchtheme {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  background:$white;
+  z-index: 9999;
+  padding: 12px 0;
+  border-top: 2px solid $grey-light;
+}
+
+
+// Highlight code
+
+.sg-highlight {
+  background: $grey-light;
+  padding: 12px;
+  border-radius: 5px;
+  margin: 12px 0;
+
+  pre {
+    margin: 0;
+  }
+}
+
+
+
+

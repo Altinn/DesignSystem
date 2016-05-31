@@ -1,53 +1,65 @@
 
+/*------------------------------------*\
+    $Item list
+\*------------------------------------*/
+
 .a-itemList {
 
 	list-style: none;
+
+	a.a-listItem-title {
+		cursor: pointer;
+		&:hover {
+			background-color: $blue-light;
+			color: $black;
+		}
+	}
 
 	.a-itemList-item {
 		position: relative;
 		border-bottom: 2px dotted #1eaef7;
 		width: 100%;
-		padding: 5px;
 
 		&:first-child {
 			border-top: 2px dotted #1eaef7;
-		}
-
-		&:hover {
-			background-color: $grey-light;
 		}
 
 		&.a-itemList-item-deactivated,
 		&.a-itemList-item-deactivated:hover { 
 			background-image: url('/images/disabled-background.svg');
 			background-color: $white;
+
+			a.a-listItem-title {
+				cursor: default;
+				background-color: transparent;
+			} 
+			
 		}
 
-		
+		.a-listItem-title {
+			display: block;
+		    border: none;
+		    padding: 4px 0;
+		    font-size: 14px; 
+		    color: $black;
+		    text-decoration: none;
+
+		    @media screen and (min-width: $bp-med) {
+		    	font-size: 16px;
+		    } 
+		}
+
 	}
 
-	.a-itemList-item-remove,
-	.a-itemList-item-add,
-	.a-itemList-item-noaction {
-		position: absolute; 
-		right: 0;
-		top: 4px;
-	} 
-	.a-itemList-item-remove {
-		color: $red;
-	} 
-	.a-itemList-item-add {
-		color: $green;
-	} 
-	.a-itemList-item-noaction {
-		color: $grey;
-	}  
-	
-	
 }
 
-// Box button List
+
+/*------------------------------------*\
+    $Box btn list
+\*------------------------------------*/
+
 
 .a-boxBtnList {
 	list-style: none;
 }
+
