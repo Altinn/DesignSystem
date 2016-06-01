@@ -214,13 +214,11 @@
 
       $('[data-toggle="popover"]').popover(); 
 
-      $('#myPopup').popover(options);
+      $('#example').popover(options);
 
     })
 }(jQuery));  
-
-
-
+ 
 
 
 
