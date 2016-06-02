@@ -9,7 +9,7 @@
  */
 
 // alert the iframe parent that the pattern has loaded assuming this view was loaded in an iframe
-if (false && self != top) {
+if (self != top) {
 	
 	// handle the options that could be sent to the parent window
 	//   - all get path

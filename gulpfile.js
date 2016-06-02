@@ -63,9 +63,45 @@ gulp.task('banner', function () {
 
 // COPY TASKS
 
+// Spawn a core folder
+gulp.task('cp:pl', function () {
+  return gulp.src('node_modules/patternlab-node/core/**')
+    .pipe(gulp.dest('./core'));
+});
+
 // JS copy
 gulp.task('cp:js', function () {
   return gulp.src('**/*.js', {cwd: path.resolve(paths().source.js)})
+    .pipe(gulp.dest(path.resolve(paths().public.js)));
+});
+
+// Bootstrap copy
+gulp.task('cp:bs', function () {
+  return gulp.src('node_modules/bootstrap/dist/js/bootstrap.min.js')
+    .pipe(gulp.dest(path.resolve(paths().public.js)));
+});
+
+// Tether copy
+gulp.task('cp:th', function () {
+  return gulp.src('node_modules/tether/dist/js/tether.min.js')
+    .pipe(gulp.dest(path.resolve(paths().public.js)));
+});
+
+// jQuery copy
+gulp.task('cp:jq', function () {
+  return gulp.src('node_modules/jquery/dist/jquery.min.js')
+    .pipe(gulp.dest(path.resolve(paths().public.js)));
+});
+
+// Validator copy
+gulp.task('cp:bv', function () {
+  return gulp.src('node_modules/bootstrap-validator/dist/validator.min.js')
+    .pipe(gulp.dest(path.resolve(paths().public.js)));
+});
+
+// SmoothState copy
+gulp.task('cp:ss', function () {
+  return gulp.src('node_modules/smoothstate/jquery.smoothState.min.js')
     .pipe(gulp.dest(path.resolve(paths().public.js)));
 });
 
@@ -179,7 +215,7 @@ gulp.task('lab-pipe', ['lab'], function (cb) {
 
 gulp.task('default', ['lab']);
 
-gulp.task('assets', ['cp:js', 'cp:img', 'cp:font', 'cp:data', 'cp:css', 'cp:styleguide' ]);
+gulp.task('assets', ['cp:js', 'cp:bs', 'cp:th', 'cp:jq', 'cp:bv', 'cp:ss', 'cp:img', 'cp:font', 'cp:data', 'cp:css', 'cp:styleguide' ]);
 gulp.task('prelab', ['clean', 'assets']);
 gulp.task('lab', ['prelab', 'patternlab'], function (cb) { cb(); });
 gulp.task('patterns', ['patternlab:only_patterns']);
@@ -188,3 +224,4 @@ gulp.task('build', ['eslint', 'nodeunit', 'banner']);
 
 gulp.task('version', ['patternlab:version']);
 gulp.task('help', ['patternlab:help']);
+gulp.task('setup', ['cp:pl'])
