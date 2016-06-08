@@ -4,6 +4,7 @@
 var pkg = require('./package.json'),
     gulp = require('gulp'),
     path = require('path'),
+    fs = require('fs'),
     eol = require('os').EOL,
     del = require('del'),
     strip_banner = require('gulp-strip-banner'),
@@ -59,6 +60,18 @@ gulp.task('banner', function () {
     ))
     .pipe(gulp.dest('./core/lib'));
 });
+
+
+// Add custom modification to styleguide.mustache 
+
+gulp.task('cp:mod', function() {
+  fs.readFile('./core/templates/styleguide.mustache', 'utf-8', function(err, origin) {
+    fs.readFile('./patternlab-all-wrapper.mustache', 'utf-8', function(err, custom) {
+      var src = custom + origin + '</div><!-- End container -->'
+      fs.writeFile('./core/templates/styleguide.mustache', src);
+    })
+  })
+})
 
 
 // COPY TASKS
@@ -224,4 +237,4 @@ gulp.task('build', ['eslint', 'nodeunit', 'banner']);
 
 gulp.task('version', ['patternlab:version']);
 gulp.task('help', ['patternlab:help']);
-gulp.task('setup', ['cp:pl'])
+gulp.task('setup', ['cp:pl', 'cp:mod'])

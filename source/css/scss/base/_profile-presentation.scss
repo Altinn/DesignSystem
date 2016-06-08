@@ -32,7 +32,7 @@ iframe.ap-showPatternlab {
 .ap-main {
   max-width: 900px;
   margin: auto;
-  margin-top: 36px;
+  margin-top: 60px;
 }
 
 
@@ -115,6 +115,9 @@ iframe.ap-showPatternlab {
           &:last-child {
             border-bottom: 1px solid $white;
           }
+          &:first-child {
+            margin-top: -4px;
+          }
       }
     }
 
@@ -122,6 +125,10 @@ iframe.ap-showPatternlab {
     .ap-nav-active:hover, {
       background: $blue-dark;
       color: $white;
+    }
+
+    .ap-nav-hide {
+      display: none;
     }
 
 }  
@@ -141,135 +148,39 @@ iframe.ap-showPatternlab {
 }
 
 
+// View code snippets
 
-// OT NAV 
+pre.prettyprint {
+    width: 100% !important;
+} 
 
 
+// Color combinations
 
-/* Navbar */
-
-.ot-navbar {
-  display: none;
-  background-color: #3b3b3b;
-  position: absolute;
-  left: 0;
-  top: 0;
-  width: 280px;
-  height: 100%;
-}
-
-.ot-navbar-x {
-  padding:20px;
-  background: #999;
-  width: 70px;
-  float: left;
-  cursor: pointer;
-  text-align: center;
-  color: #fff;
-}
-
-.ot-navbar-x:hover {
-  background: #555; 
-}
-
-.ot-navbar-title {
-  padding:20px;
-  background: #ddd;
-  color: #333;
-  width: 210px;
-  float: left;
-  font-weight: bold;
-  letter-spacing: 3px;
+.sg-colorCircle{
+    width: 48px; 
+    height: 48px;
+    display: inline-block;
+    border-radius: 999px;
+    margin-right: 1rem;
+    font-size: 24px;
+    padding-top: 6px;
+    text-align: center;
+    vertical-align: middle;
 }
 
 
-.ot-navbar-firstlevel {
-  margin: 0; 
-}
 
-.ot-navbar-firstlevel li {
-  width: 100%;
-  position: relative;
-}
 
-.ot-navbar-toggle-secondlevel {
-  color: #eee;
-  position: absolute;
-  right: 20px;
-  top: 10px;
-  padding: 3px 10px;
-  cursor: pointer;
-}
 
-.ot-navbar-firstlevel a {
+// Shadows 
+
+.ap-shadowBox {
+  height: 100px;
+  width: 100px;
   display: block;
-  padding: 15px 18px;
-  font-size: 18px;
+  background: #fff;
+  box-shadow: 1px 1px 4px 0px rgba(137, 137, 137, 0.5);
+  -webkit-box-shadow: 1px 1px 4px 0 rgba(137,137,137,0.5);
 }
 
-.ot-navbar-firstlevel a:hover,
-.ot-navbar-firstlevel .open a {
-  background-color: #333;
-}
-
-.ot-navbar-firstlevel a:hover .ot-navbar-toggle-secondlevel {
-  background-color: #444;
-  -webkit-border-radius: 5px 5px 5px 5px;
-  border-radius: 5px 5px 5px 5px;
-}
-
-.ot-navbar-firstlevel-itemtitle {
-  padding-left: 10px;
-  padding-right: 10px;
-}
-
-.open a .ot-navbar-firstlevel-itemtitle {
-  text-decoration: underline;
-}
-
-.ot-navbar-secondlevel {
-  display: none;
-  background: #333;
-    margin: 0;
-    margin-bottom: 1px;
-    width: 100%;
-    float: left;
-}
-
-.ot-navbar-secondlevel a {
-  padding-left: 50px;
-    padding-top: 10px;
-    padding-bottom: 10px;
-    font-size: 16px;
-}
-
-.ot-navbar-secondlevel a:hover,
-.ot-navbar-secondlevel a:focus,
-.ot-navbar-secondlevel a:active {
-  background: #222;
-}
-
-.ot-navbar-secondlevel-itemtitle {
-  padding-right: 10px;
-}
-
-
-
-
-/* Wider menu for large screens */
-
-@media screen and (min-width: 768px) {
-
-  .ot-navbar {
-    width: 350px;
-  }
-
-  .ot-navbar-x {
-    width: 70px;
-  }
-
-  .ot-navbar-title {
-    width: 280px;
-  }
-
-}
