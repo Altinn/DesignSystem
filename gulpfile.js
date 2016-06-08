@@ -61,25 +61,19 @@ gulp.task('banner', function () {
     .pipe(gulp.dest('./core/lib'));
 });
 
-
-// Add custom modification to styleguide.mustache 
-
-gulp.task('cp:mod', function() {
-  fs.readFile('./core/templates/styleguide.mustache', 'utf-8', function(err, origin) {
-    fs.readFile('./patternlab-all-wrapper.mustache', 'utf-8', function(err, custom) {
-      var src = custom + origin + '</div><!-- End container -->'
-      fs.writeFile('./core/templates/styleguide.mustache', src);
-    })
-  })
-})
-
-
 // COPY TASKS
 
-// Spawn a core folder
+// Spawn a core folder and add custom modification to styleguide.mustache
 gulp.task('cp:pl', function () {
   return gulp.src('node_modules/patternlab-node/core/**')
-    .pipe(gulp.dest('./core'));
+    .pipe(gulp.dest('./core')).on('end', function () {
+    fs.readFile('./core/templates/styleguide.mustache', 'utf-8', function(err, origin) {
+      fs.readFile('./patternlab-all-wrapper.mustache', 'utf-8', function(err, custom) {
+        var src = custom + origin + '</div><!-- End container -->'
+        fs.writeFile('./core/templates/styleguide.mustache', src);
+      })
+    })
+  });
 });
 
 // JS copy
@@ -137,7 +131,7 @@ gulp.task('cp:font', function () {
 gulp.task('cp:data', function () {
   return gulp.src('annotations.js', {cwd: path.resolve(paths().source.data)})
     .pipe(gulp.dest(path.resolve(paths().public.data)));
-}); 
+});
 
 // CSS Copy
 gulp.task('cp:css', function () {
@@ -237,4 +231,4 @@ gulp.task('build', ['eslint', 'nodeunit', 'banner']);
 
 gulp.task('version', ['patternlab:version']);
 gulp.task('help', ['patternlab:help']);
-gulp.task('setup', ['cp:pl', 'cp:mod'])
+gulp.task('setup', ['cp:pl'])
