@@ -1,62 +1,59 @@
-<div class="page" id="page">
+<!-- Side nav -->
+{{> molecules-leftside-nav }}
 
-	{{> molecules-leftside-nav }}
+<!-- Content next to nav, needs to be pushed 300px -->
+<div class="ap-navbarLeft-contentContainer">
 
+	<!-- Content, max-width: 900px;  margin: auto; -->
+	<div class="ap-content">
 
-	<div class="ap-navbarLeft-content">
+		<!-- Article content starts here -->
+		<div class="a-text">
 
-		<div role="main" class="ap-navbarLeft-content ap-main">
+			<h1>Layout og grid</h1>
+			<p class="a-leadText">Altinn’s responsive UI is based on a 12-column grid layout. This grid creates visual consistency between layouts, while allowing flexibility across a wide variety of designs. </p>
 
-			<div class="a-panel a-text">
+			<h2>Spacing</h2>
 
+			<pre class="prettyprint lang-css">
+				// SPACE
+				$space : 12px;				// 12px
 
-				<h1>Layout og grid</h1>
-				<p class="a-leadText">Altinn’s responsive UI is based on a 12-column grid layout. This grid creates visual consistency between layouts, while allowing flexibility across a wide variety of designs. </p>
-				<p>
-
-				<h2>Spacing</h2>
-
-				<pre class="prettyprint lang-css">
-//SPACE
-$space : 12px;				// 12px
-
-$space-half : $space/2;			// 6px 
-$space-and-half : $space*1.5;		// 18px
-$space-x2 : $space*2;			// 24px
-$space-x3 : $space*3;			// 36px
-$space-x4 : $space*4;			// 48px
-$space-x5 : $space*5; 			// 60px
-$space-x6 : $space*6;			// 72px</pre>
-
-
-				</p>
+				$space-half : $space/2;			// 6px
+				$space-and-half : $space*1.5;		// 18px
+				$space-x2 : $space*2;			// 24px
+				$space-x3 : $space*3;			// 36px
+				$space-x4 : $space*4;			// 48px
+				$space-x5 : $space*5; 			// 60px
+				$space-x6 : $space*6;			// 72px</pre>
 
 				<h2>Breakpoints</h2>
 				<pre class="prettyprint lang-css">
-$bp-xsmall : 0px; 			// Small phone
-$bp-small : 544px; 			// Large phone
-$bp-med : 768px; 			// Tablet
-$bp-large : 992px; 			// Laptop
-$bp-xlarge : 1200px; 			// Desktop</pre>
+					$bp-xsmall : 0px; 			// Small phone
+					$bp-small : 544px; 			// Large phone
+					$bp-med : 768px; 			// Tablet
+					$bp-large : 992px; 			// Laptop
+					$bp-xlarge : 1200px; 			// Desktop
+				</pre>
 
 				<h2>CSS3 Media queries</h2>
 				<p>@media blir brukt for å definere ulik stilsetting for ulike medietyper, skjermstørrelser og enheter. CSS-kode som skal være forskjellig på forskjellige skjermstørrelser lages for mobil først - deretter utvider vi for større skjermer. Eksempel: </p>
 				<pre class="prettyprint lang-css">
-.a-navbar {
-    width: 100%; 
+					.a-navbar {
+						width: 100%;
 
-    @media screen and (min-width: $bp-med) {
-      width: 300px;  
-    }
-}
-</pre>
+						@media screen and (min-width: $bp-med) {
+							width: 300px;
+						}
+					}
+				</pre>
 
 				<h2>Bootstrap grid</h2>
 
 				<p>Bootstrap includes a powerful mobile-first grid system for building layouts of all shapes and sizes. It is based on a 12 column layout and has multiple tiers, one for each media query range. </p>
 
 				<h3>Hvordan grid-systemet skal brukes</h3>
-				
+
 				<ul>
 					<li>Det er tre hovedkomponenter: "containers", "rows", og "columns".</li>
 					<li>Containers—<code class="highlighter-rouge">.container</code> for fixed width or <code class="highlighter-rouge">.container-fluid</code> for full width—center your site’s contents and help align your grid content.</li>
@@ -75,114 +72,110 @@ $bp-xlarge : 1200px; 			// Desktop</pre>
 
 				<div class="sg-gridExample">
 					<div class="row">
-					  <div class="col-md-1"><span class="sg-gridExample-col"> 1/12 </span></div>
-					  <div class="col-md-1"><span class="sg-gridExample-col"> 1/12 </span></div>
-					  <div class="col-md-1"><span class="sg-gridExample-col"> 1/12 </span></div>
-					  <div class="col-md-1"><span class="sg-gridExample-col"> 1/12 </span></div>
-					  <div class="col-md-1"><span class="sg-gridExample-col"> 1/12 </span></div>
-					  <div class="col-md-1"><span class="sg-gridExample-col"> 1/12 </span></div>
-					  <div class="col-md-1"><span class="sg-gridExample-col"> 1/12 </span></div>
-					  <div class="col-md-1"><span class="sg-gridExample-col"> 1/12 </span></div>
-					  <div class="col-md-1"><span class="sg-gridExample-col"> 1/12 </span></div>
-					  <div class="col-md-1"><span class="sg-gridExample-col"> 1/12 </span></div>
-					  <div class="col-md-1"><span class="sg-gridExample-col"> 1/12 </span></div>
-					  <div class="col-md-1"><span class="sg-gridExample-col"> 1/12 </span></div>
+						<div class="col-md-1"><span class="sg-gridExample-col"> 1/12 </span></div>
+						<div class="col-md-1"><span class="sg-gridExample-col"> 1/12 </span></div>
+						<div class="col-md-1"><span class="sg-gridExample-col"> 1/12 </span></div>
+						<div class="col-md-1"><span class="sg-gridExample-col"> 1/12 </span></div>
+						<div class="col-md-1"><span class="sg-gridExample-col"> 1/12 </span></div>
+						<div class="col-md-1"><span class="sg-gridExample-col"> 1/12 </span></div>
+						<div class="col-md-1"><span class="sg-gridExample-col"> 1/12 </span></div>
+						<div class="col-md-1"><span class="sg-gridExample-col"> 1/12 </span></div>
+						<div class="col-md-1"><span class="sg-gridExample-col"> 1/12 </span></div>
+						<div class="col-md-1"><span class="sg-gridExample-col"> 1/12 </span></div>
+						<div class="col-md-1"><span class="sg-gridExample-col"> 1/12 </span></div>
+						<div class="col-md-1"><span class="sg-gridExample-col"> 1/12 </span></div>
 					</div>
-					
+
 					<div class="row">
-					  <div class="col-md-3"><span class="sg-gridExample-col"> 3/12 </span></div>
-					  <div class="col-md-3"><span class="sg-gridExample-col"> 3/12 </span></div>
-					  <div class="col-md-3"><span class="sg-gridExample-col"> 3/12 </span></div>
-					  <div class="col-md-3"><span class="sg-gridExample-col"> 3/12 </span></div>
-					</div>
-					<div class="row">
-					  <div class="col-md-4"><span class="sg-gridExample-col"> 4/12 </span></div>
-					  <div class="col-md-4"><span class="sg-gridExample-col"> 4/12 </span></div>
-					  <div class="col-md-4"><span class="sg-gridExample-col"> 4/12 </span></div>
+						<div class="col-md-3"><span class="sg-gridExample-col"> 3/12 </span></div>
+						<div class="col-md-3"><span class="sg-gridExample-col"> 3/12 </span></div>
+						<div class="col-md-3"><span class="sg-gridExample-col"> 3/12 </span></div>
+						<div class="col-md-3"><span class="sg-gridExample-col"> 3/12 </span></div>
 					</div>
 					<div class="row">
-					  <div class="col-md-6"><span class="sg-gridExample-col"> 6/12 </span></div>
-					  <div class="col-md-6"><span class="sg-gridExample-col"> 6/12 </span></div>
-					</div> 
+						<div class="col-md-4"><span class="sg-gridExample-col"> 4/12 </span></div>
+						<div class="col-md-4"><span class="sg-gridExample-col"> 4/12 </span></div>
+						<div class="col-md-4"><span class="sg-gridExample-col"> 4/12 </span></div>
+					</div>
 					<div class="row">
-					  <div class="col-md-8">
-					  	<span class="sg-gridExample-col"> 8/12 </span>
-					  </div>
-					  <div class="col-md-4">
-					  	<span class="sg-gridExample-col"> 4/12 </span>
-					  </div>
+						<div class="col-md-6"><span class="sg-gridExample-col"> 6/12 </span></div>
+						<div class="col-md-6"><span class="sg-gridExample-col"> 6/12 </span></div>
+					</div>
+					<div class="row">
+						<div class="col-md-8">
+							<span class="sg-gridExample-col"> 8/12 </span>
+						</div>
+						<div class="col-md-4">
+							<span class="sg-gridExample-col"> 4/12 </span>
+						</div>
 					</div>
 				</div>
 
 				<pre class="prettyprint lang-html html-escape">
-<div class="row">
-	<div class="col-md-1">1/12</div>
-	<div class="col-md-1">1/12</div>
-	<div class="col-md-1">1/12</div>
-	<div class="col-md-1">1/12</div>
-	<div class="col-md-1">1/12</div>
-	<div class="col-md-1">1/12</div>
-	<div class="col-md-1">1/12</div>
-	<div class="col-md-1">1/12</div>
-	<div class="col-md-1">1/12</div>
-	<div class="col-md-1">1/12</div>
-	<div class="col-md-1">1/12</div>
-	<div class="col-md-1">1/12</div>
-</div>
+					<div class="row">
+						<div class="col-md-1">1/12</div>
+						<div class="col-md-1">1/12</div>
+						<div class="col-md-1">1/12</div>
+						<div class="col-md-1">1/12</div>
+						<div class="col-md-1">1/12</div>
+						<div class="col-md-1">1/12</div>
+						<div class="col-md-1">1/12</div>
+						<div class="col-md-1">1/12</div>
+						<div class="col-md-1">1/12</div>
+						<div class="col-md-1">1/12</div>
+						<div class="col-md-1">1/12</div>
+						<div class="col-md-1">1/12</div>
+					</div>
 
-<div class="row">
-	<div class="col-md-3">3/12</div>
-	<div class="col-md-3">3/12</div>
-	<div class="col-md-3">3/12</div>
-	<div class="col-md-3">3/12</div>
-</div>
+					<div class="row">
+						<div class="col-md-3">3/12</div>
+						<div class="col-md-3">3/12</div>
+						<div class="col-md-3">3/12</div>
+						<div class="col-md-3">3/12</div>
+					</div>
 
-<div class="row">
-	<div class="col-md-4">4/12</div>
-	<div class="col-md-4">4/12</div>
-	<div class="col-md-4">4/12</div>
-</div>
+					<div class="row">
+						<div class="col-md-4">4/12</div>
+						<div class="col-md-4">4/12</div>
+						<div class="col-md-4">4/12</div>
+					</div>
 
-<div class="row">
-	<div class="col-md-6">6/12</div>
-	<div class="col-md-6">6/12</div>
-</div>
+					<div class="row">
+						<div class="col-md-6">6/12</div>
+						<div class="col-md-6">6/12</div>
+					</div>
 
-<div class="row">
-	<div class="col-md-8">8/12 </div>
-	<div class="col-md-4">4/12 </div>
-</div></pre><br><br>
+					<div class="row">
+						<div class="col-md-8">8/12 </div>
+						<div class="col-md-4">4/12 </div>
+					</div>
+
+				</pre><br><br>
 
 				<h3>Eksempel med ulikt antall kolonner på ulike skjermstørrelser</h3>
 				<p>Denne raden går fra en kolonne på mobil, to kolonner på store mobiler, tre kolonner på tablet og 4 kolonner på desktop. Test ved å endre størrelsen på nettleservinduet ditt.</p>
-				<div class="sg-gridExample"> 
+
+				<div class="sg-gridExample">
 					<div class="row">
 						<div class="col-xs-12 col-sm-6 col-md-4 col-lg-3"><span class="sg-gridExample-col">Innhold første kolonne</span></div>
 						<div class="col-xs-12 col-sm-6 col-md-4 col-lg-3"><span class="sg-gridExample-col">Innhold andre kolonne</span></div>
 						<div class="col-xs-12 col-sm-6 col-md-4 col-lg-3"><span class="sg-gridExample-col">Innhold tredje kolonne</span></div>
-						<div class="col-xs-12 col-sm-6 col-md-4 col-lg-3"><span class="sg-gridExample-col">Innhold fjerde kolonne</span></div> 
-					</div> 
+						<div class="col-xs-12 col-sm-6 col-md-4 col-lg-3"><span class="sg-gridExample-col">Innhold fjerde kolonne</span></div>
+					</div>
 				</div>
 
 				<pre class="prettyprint html-escape">
-<div class="row">
-	<div class="col-xs-12 col-sm-6 col-md-4 col-lg-3">innhold første kolonne</div>
-	<div class="col-xs-12 col-sm-6 col-md-4 col-lg-3">innhold andre kolonne</div>
-	<div class="col-xs-12 col-sm-6 col-md-4 col-lg-3">innhold tredje kolonne</div>
-	<div class="col-xs-12 col-sm-6 col-md-4 col-lg-3">innhold fjerde kolonne</div>
-</div></pre>
+					<div class="row">
+						<div class="col-xs-12 col-sm-6 col-md-4 col-lg-3">innhold første kolonne</div>
+						<div class="col-xs-12 col-sm-6 col-md-4 col-lg-3">innhold andre kolonne</div>
+						<div class="col-xs-12 col-sm-6 col-md-4 col-lg-3">innhold tredje kolonne</div>
+						<div class="col-xs-12 col-sm-6 col-md-4 col-lg-3">innhold fjerde kolonne</div>
+					</div>
+				</pre>
 
 
-
-
-
-
-		</div>
-
-	</div>
-
-</div>
+		</div> <!--end .a-text-->
+	</div> <!--end .ap-content-->
+</div> <!--end .ap-navbarLeft-contentContainer -->
 
 {{> organisms-footer }}
-
-</div>

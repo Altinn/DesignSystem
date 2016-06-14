@@ -1,17 +1,18 @@
 
-<div class="page" id="page">
-
+	<!-- Side nav -->
 	{{> molecules-leftside-nav }}
 
+	<!-- Content next to nav, needs to be pushed 300px -->
+	<div class="ap-navbarLeft-contentContainer">
 
-	<div class="ap-navbarLeft-content">
+		<!-- Content, max-width: 900px;  margin: auto; -->
+		<div class="ap-content">
 
-			<div role="main" class="ap-navbarLeft-content ap-main">
+			<!-- Article content starts here -->
+			<div class="a-text">
 
-			<div class="a-panel a-text">
+				{{# article }}
 
-			  {{# article }}
-				
 				<h1>{{ article-title }}</h1>
 
 				<p class="a-leadText">{{{ article-intro }}}</p>
@@ -19,18 +20,13 @@
 				<!-- From WYSIWYG editor -->
 				{{{ article-content }}}
 
-				{{> atoms-landscape-16x9 }} 
+				{{> atoms-landscape-16x9 }}
+
+			  {{/ article }}
 
 
-			  {{/ article }} 
-
-			</div><!--end .text-->
-
-			</div>
-
-
-	</div>
+			</div> <!--end .a-text-->
+		</div> <!--end .ap-content-->
+	</div> <!--end .ap-navbarLeft-contentContainer -->
 
 	{{> organisms-footer }}
-
-</div>

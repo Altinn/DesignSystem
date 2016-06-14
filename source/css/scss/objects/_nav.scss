@@ -3,7 +3,7 @@
 \*------------------------------------*/
 
 .nav {
-	
+
 	a {
 		display: block;
 		padding: $pad;
@@ -25,7 +25,7 @@
 		a {
 			border: 0;
 		}
-		
+
 	}
 }
 
@@ -59,8 +59,53 @@
 			background-color: $grey-light;
 			color: $black;
 		}
-		
+
 
 	}
 }
 
+/*------------------------------------*\
+    $FOUNDATION NAVIGATION
+\*------------------------------------*/
+
+// Accordion opens-left
+
+.is-accordion-submenu-parent > a {
+  position: relative; }
+  .is-accordion-submenu-parent > a::after {
+    content: '';
+    display: block;
+    width: 0;
+    height: 0;
+    border: inset 6px;
+    border-color: #2199e8 transparent transparent;
+    border-top-style: solid;
+    border-bottom-width: 0;
+    position: absolute;
+    top: 50%;
+    margin-top: -4px;
+    right: 1rem;
+
+		-webkit-transition: all 300ms ease;
+		-moz-transition: all 300ms ease;
+		-ms-transition: all 300ms ease;
+		-o-transition: all 300ms ease;
+		transition: all 300ms ease;
+
+	}
+
+.is-accordion-submenu-parent[aria-expanded='true'] > a::after {
+  -webkit-transform-origin: 50% 50%;
+      -ms-transform-origin: 50% 50%;
+          transform-origin: 50% 50%;
+  -webkit-transform: scaleY(-1);
+      -ms-transform: scaleY(-1);
+          transform: scaleY(-1); 
+
+	-webkit-transition: all 300ms ease;
+			-moz-transition: all 300ms ease;
+			-ms-transition: all 300ms ease;
+			-o-transition: all 300ms ease;
+			transition: all 300ms ease;
+
+}
