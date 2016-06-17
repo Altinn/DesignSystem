@@ -111,3 +111,13 @@
 $(function() {
   $('#main').smoothState();
 });
+
+
+// anchor
+
+/**
+ * Add anchors to all h1s, h2s, h3s and h4s inside of .ap-content.
+ */
+anchors.options.placement = 'left';
+anchors.options.class = 'a-anchor';
+anchors.add('.ap-content h1, .ap-content h2, .ap-content h3, .ap-content h4');

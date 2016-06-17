@@ -2,10 +2,9 @@
     $GLOBAL CLASSES
 \*------------------------------------*/
 
-
 html, body {
     font-size: 16px;
-    font-family: $font;  
+    font-family: $font;
     color: $black;
     background: $white;
 }
@@ -31,14 +30,15 @@ html.a-modal-background-success {
 body.a-modal-background-error,
 html.a-modal-background-error {
     background: $red-light;
-} 
+}
 
-
+/* Selection style */
 ::selection {
-    background: #e0daf7;  
+    background: #e0daf7;
     color: #000;
 }
 
+/* Styles for screen readers only */
 .sr-only {
     position: absolute;
     width: 1px;
@@ -50,6 +50,7 @@ html.a-modal-background-error {
     border: 0;
 }
 
+/* White panel */
 .a-panel {
     padding: $pad-double;
     background-color: #fff;
@@ -57,99 +58,173 @@ html.a-modal-background-error {
     margin-bottom: $pad;
 }
 
+/* Text colors */
+
 .a-dimText {
     color: rgba(0,0,0,0.4)
 }
 .a-whiteText {
     color: $white;
 
-    a, a:hover { 
+    a, a:hover {
         color: $white;
         border-color: $white;
     }
-} 
-.a-dimBackground {
-    background: rgba(0,0,0,0.3)
 }
-
 
 /* Background colors */
 
 .a-bgPurple {
    background-color: $purple;
    color: $white;
-} 
+}
 
 .a-bgPurpleLight {
    background-color: $purple-light;
    color: $black;
-} 
+}
 
 .a-bgYellow {
     background-color: $yellow;
     color: $black;
-} 
+}
 
 .a-bgYellowLight {
     background-color: $yellow-light;
     color: $black;
-} 
+}
 
 .a-bgBlue {
    background-color: $blue;
    color: $white;
-} 
+}
 
 .a-bgBlueLight {
    background-color: $blue-light;
    color: $white;
-} 
+}
 
 .a-bgBlueDark {
    background-color: $blue-dark;
    color: $white;
-} 
+}
 
 .a-bgRed {
     background-color: $red;
     color: $black;
-} 
+}
 
 .a-bgRedLight {
     background-color: $red-light;
     color: $black;
-} 
+}
 
 .a-bgGreen {
     background-color: $green;
     color: $black;
-} 
+}
 .a-bgGreenLight {
     background-color: $green-light;
     color: $black;
-} 
+}
+
+.a-dimBackground {
+    background: rgba(0,0,0,0.3)
+}
+
+
+/*
+Uniform spacing
+Spacing can be applied using either margin or padding. Both margin and padding share the same predefined scale. There are 7 available spacing sizes.*/
+
+.a-margin {
+  margin: $space;
+}
+.a-margin-half {
+  margin: $space/2;
+}
+.a-margin-x2 {
+  margin: $space*2;
+}
+.a-margin-x3 {
+  margin: $space*3;
+}
+.a-margin-x4 {
+  margin: $space*4;
+}
+.a-margin-x5 {
+  margin: $space*5;
+}
+.a-margin-x6 {
+  margin: $space*6;
+}
+
+.a-padding {
+  margin: $space;
+}
+.a-padding-half {
+  margin: $space/2;
+}
+.a-padding-x2 {
+  margin: $space*2;
+}
+.a-padding-x3 {
+  margin: $space*3;
+}
+.a-padding-x4 {
+  margin: $space*4;
+}
+.a-padding-x5 {
+  margin: $space*5;
+}
+.a-padding-x6 {
+  margin: $space*6;
+}
+
+/*  Individual spacing
+Individual spacing can be applied to a single side of an element using either margin or padding. Again, both margin and padding share the same predefined scale. The same 6 sizes are available.
+*/
+
+.a-marginTop {
+  margin: $space;
+}
+.a-marginRight {
+  margin: $space;
+}
+.a-marginBottom {
+  margin: $space;
+}
+.a-marginLeft {
+  margin: $space;
+}
+
+.a-paddingTop {
+  margin: $space;
+}
+.a-paddingRight {
+  margin: $space;
+}
+.a-paddingBottom {
+  margin: $space;
+}
+.a-paddingLeft {
+  margin: $space;
+}
 
 
 /* Grid */
 
 .a-noColPadding {
     margin: 0;
-    
+
     .col-xs-1, .col-xs-2, .col-xs-3, .col-xs-4, .col-xs-5, .col-xs-6, .col-xs-7, .col-xs-8, .col-xs-9, .col-xs-10, .col-xs-11, .col-xs-12, .col-sm-1, .col-sm-2, .col-sm-3, .col-sm-4, .col-sm-5, .col-sm-6, .col-sm-7, .col-sm-8, .col-sm-9, .col-sm-10, .col-sm-11, .col-sm-12, .col-md-1, .col-md-2, .col-md-3, .col-md-4, .col-md-5, .col-md-6, .col-md-7, .col-md-8, .col-md-9, .col-md-10, .col-md-11, .col-md-12, .col-lg-1, .col-lg-2, .col-lg-3, .col-lg-4, .col-lg-5, .col-lg-6, .col-lg-7, .col-lg-8, .col-lg-9, .col-lg-10, .col-lg-11, .col-lg-12, .col-xl-1, .col-xl-2, .col-xl-3, .col-xl-4, .col-xl-5, .col-xl-6, .col-xl-7, .col-xl-8, .col-xl-9, .col-xl-10, .col-xl-11, .col-xl-12 {
         padding-left: 0;
         padding-right: 0;
     }
-
 }
 
 .a-center {
     text-align: center;
-}
-
-
-/* Fonts */
-.font-primary {
-    font-family: $font; 
 }
 
 /* Completely remove from the flow and screen readers. */
@@ -170,10 +245,10 @@ html.a-modal-background-error {
 }
 
 /* Floats */
-.right { 
+.right {
 	float: right;
-	padding: 0 0 $pad $pad; 
-} 
+	padding: 0 0 $pad $pad;
+}
 
 .right-search {
 	float: right;
@@ -188,7 +263,7 @@ html.a-modal-background-error {
 /* Text-Align */
 .align-right {
 	text-align: right;
-} 
+}
 
 .align-center {
 	text-align: center;
@@ -216,36 +291,3 @@ html.a-modal-background-error {
         display: none;
     }
 }
-
-//States
-.valid {
-	color: $valid;
-}
-
-.error {
-	color: $error;
-}
-
-.warning {
-    color: $warning;
-}
-
-.information {
-    color: $information;
-}
-
-.font-secondary {
-    font-family: $font-secondary; 
-}
-
-
-// Overall styles 
-
-.valid {
-    color: #ffffff; 
-    background: #64a70b;
-    padding: 5px 10px;
-}
-
-
-
