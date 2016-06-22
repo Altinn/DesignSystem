@@ -107,15 +107,17 @@
 }(jQuery));
 
 
-// smoothState
+/**
+ * SmoothState
+ */
 $(function() {
   $('#main').smoothState();
 });
 
 
-// anchor
 
 /**
+ * Anchor js
  * Add anchors to all h1s, h2s, h3s and h4s inside of .ap-content.
  */
 anchors.options.placement = 'left';
