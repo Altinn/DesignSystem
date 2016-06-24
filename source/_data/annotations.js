@@ -9,7 +9,7 @@ var comments = {
 	{
 		"el": ".a-btn-group",
 	 	"title" : "Gruppe med knapper",
-	 	"comment": "Når flere knapper skal vises ved siden av hverandre, kan de legges i klassen a-btn-group."
+	 	"comment": "Dette er en test. Når flere knapper skal vises ved siden av hverandre, kan de legges i klassen a-btn-group."
 	},
 	{
 		"el": ".a-switch-label",
