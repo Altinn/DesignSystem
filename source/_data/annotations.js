@@ -1,26 +1,62 @@
+/* Her skrives kommentarer til UI-komponentene. */
 var comments = {
 "comments" : [
 	{
-		"el": ".a-link", 
-	 	"title" : "Vanlig link", 
+		"el": ".a-options",
+	 	"title" : "Avkrysningsbokser",
+	 	"comment": "Brukes i tilfeller der brukeren kan velge flere verdier fra et lite sett med alternativer.<a class=\"asg-editcomment\" href=\"https://github.com/Altinn/DesignSystem/blob/master/source/_data/annotations.js\">Rediger kommentaren</a>"
+	},
+	{
+		"el": ".a-btn-group",
+	 	"title" : "Gruppe med knapper",
+	 	"comment": "Når flere knapper skal vises ved siden av hverandre, kan de legges i klassen a-btn-group."
+	},
+	{
+		"el": ".a-switch-label",
+	 	"title" : "Avkrysningsknapper",
+	 	"comment": "Brukes i tilfeller der brukeren kan tildele rettigheter til andre personer."
+	},
+	{
+		"el": "#a-radioButtons",
+	 	"title" : "Radioknapper",
+	 	"comment": "Brukes i tilfeller der brukeren kun kan velge en verdi blant flere tilgjengelige."
+	},
+	{
+		"el": "input[type=email]",
+	 	"title" : "Input-felt: Epost",
+	 	"comment": "Brukes når epost skal fylles ut av brukeren."
+	},
+	{
+		"el": ".input-group.disabled input[type=email]",
+	 	"title" : "Deaktivert input-felt",
+	 	"comment": "I visse tilfeller kan inputfelt være deaktivert, f.eks dersom brukeren må fylle ut noe annet først for å aktivere feltet. I disse tilfellene brukes klassen 'disabled' for å deaktivere feltet med grå, stiplede linjer."
+	},
+	{
+		"el": ".a-btn",
+	 	"title" : "Knapp",
+	 	"comment": "Brukes for handlinger, f.eks 'Lagre', 'Send', osv."
+	},
+	{
+		"el": ".a-link",
+	 	"title" : "Vanlig link",
 	 	"comment": "Vanlig link, brukes i løpende tekst."
 	},
 	{
 		"el": "header[role=banner]",
 	 	"title" : "Masthead",
 	 	"comment": "The main header of the site doesn't take up too much screen real estate in order to keep the focus on the core content. It's using a linear CSS gradient instead of a background image to give greater design flexibility and reduce HTTP requests."
-	}, 
+	},
 	{
 		"el": ".logo",
 	 	"title" : "Logo",
 	 	"comment": "The logo image is an SVG file, which ensures that the logo displays crisply even on high resolution displays. A PNG fallback is provided for browsers that don't support SVG images.</p><p>Further reading: <a href=\"http://bradfrostweb.com/blog/mobile/hi-res-optimization/\">Optimizing Web Experiences for High Resolution Screens</a></p>"
-	}, 
+	},
 	{
-		"el": ".a-buttons", 
-	 	"title" : "Touchable target heigh", 
+		"el": ".a-buttons",
+	 	"title" : "Touchable target heigh",
 	 	"comment": "To ensure balanced information density and usability, touch targets should be at least 48 x 48 px. In most cases, there should be 8px or more space between them."
-	}, 
-	{ 
+	},
+	{
 	 	"el": "#nav",
 	 	"title" : "Navigation",
 	 	"comment": "<p>Navigation for adaptive web experiences can be tricky. Top navigations are typical on desktop sites, but mobile screen sizes don't give us the luxury of space. We're dealing with this situation by creating a simple menu anchor that toggles the main navigation on small screens. This is just one method. <a href=\"http://bagcheck.com/\">Bagcheck</a> and <a href=\"http://contentsmagazine.com/\">Contents Magazine</a> add an anchor in the header that jumps users to the navigation which is placed in the footer. This solution works well because it doesn't require any Javascript in order to work. Other methods exist too. For example, <a href=\"http://m.espn.com\">ESPN's mobile navigation</a> overlays the main content of the page.</p><p>The nav is only hidden when a certain level of javascript is supported in order to ensure that users with little/poor javascript support can still access the navigation. Once the screen size is large enough to accommodate the nav, we show the main navigation links and hide the menu anchor.<p><p>See also: <a href=\"http://bradfrostweb.com/blog/web/responsive-nav-patterns/\">Responsive Navigation Patterns</a></p>"
@@ -44,16 +80,6 @@ var comments = {
 		"el": ".product-main header",
 	 	"title" : "Product Overview",
 	 	"comment": "The product overview appears in the markup before the image container in order to provide the user with the product name, how much it costs and how popular it is. Providing this information as soon as possible can help the user determine whether or not this is the product they're looking for without having to wait for the rest of the page to load."
-	},
-	{
-		"el": ".star",
-	 	"title" : "Rating Stars",
-	 	"comment": "<p>We're using HTML special characters to display the product rating stars. We're using HTML characters instead of images to reduce the amount of images we're requesting and also maintaining crispness on high resolution screens. Not every device supports HTML special characters (Blackberry <=5.0 for example), but support is strong enough and the benefits are many.</p><p>See also: <a href=\"http://bradfrostweb.com/blog/mobile/hi-res-optimization/\">Optimizing Web Experiences for High Resolution Screens</a></p>"
-	},
-	{
-		"el": ".review-count",
-	 	"title" : "Review Count",
-	 	"comment": "This is a simple anchor link that points to the review section of the page. This may seem like a small detail, but consider a mobile use case. Users can be in stores looking at the physical product, and <a href=\"http://googlemobileads.blogspot.com/2011/04/smartphone-user-study-shows-mobile.html\">79% of smartphone consumers use their phones to help with shopping</a>. They might be interested in buying in-store but turn to their phones to verify its popularity and quality. Making it easy for uses to read product reviews on small screens can help drive more sales, both online and offline.</p><p>While not incorporated yet, it would be easy to load the reviews for small screens on demand, thereby saving a step.</p>"
 	},
 	{
 		"el": ".qty-field",
@@ -83,7 +109,7 @@ var comments = {
 	{
 		"el": "#p-desc",
 	 	"title" : "Product Description",
-	 	"comment": "A product description is an essential part of any e-commerce experience. Descriptions offer tangible details that inform and persuade, and the tone can help support the physical product. Provide relevant information clearly and concisely. Check out the <a href=\"http://developer.android.com/design/style/writing.html\">Android design guide</a> for some tips on how to keep copy short and extremely effective."	
+	 	"comment": "A product description is an essential part of any e-commerce experience. Descriptions offer tangible details that inform and persuade, and the tone can help support the physical product. Provide relevant information clearly and concisely. Check out the <a href=\"http://developer.android.com/design/style/writing.html\">Android design guide</a> for some tips on how to keep copy short and extremely effective."
 	},
 	{
 		"el": "#related-products",

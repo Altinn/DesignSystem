@@ -161,7 +161,8 @@ iframe.ap-showPatternlab {
       padding-bottom: 139px + $space;
     }
     .menu>li>a {
-      line-height: inherit;;
+      line-height: inherit;
+      text-decoration: none;
     }
 
     //Link
@@ -170,12 +171,10 @@ iframe.ap-showPatternlab {
       color: $black;
       font-family: 'DIN-reg';
       border-bottom: 1px solid $grey-light;
-      border-top: 1px solid $white;
       display: block;
 
       &:hover {
         background: $grey-light;
-        border-top: 1px solid $grey-light;
       }
 
       &.nav-link-hassub {
@@ -191,10 +190,12 @@ iframe.ap-showPatternlab {
     // Active item
     .ap-nav-active,
     .ap-nav-active:hover {
-      text-decoration: underline;
-      cursor: default;
       background: lighten($grey-light, 4%);
-      border-top: 1px solid lighten($grey-light, 4%);
+      border-left: 6px solid $blue-dark;
+
+      .ap-sideNav-link {
+        padding: 17px 19px;
+      }
     }
 
     // Level 2
@@ -217,9 +218,13 @@ iframe.ap-showPatternlab {
           z-index: 1000;
         }
 
-        .ap-nav-active,
-        .ap-nav-active:hover {
+        &.ap-nav-active,
+        &.ap-nav-active:hover {
           background: lighten($grey-light, 2%);
+
+          .ap-sideNav-link {
+            padding: 11px 24px 11px 30px;
+          }
         }
 
       }
