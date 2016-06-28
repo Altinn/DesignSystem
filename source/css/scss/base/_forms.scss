@@ -226,7 +226,6 @@ fieldset[disabled] .a-switch input[type="checkbox"] + label {
 
 }
 
-
 // Form label
 
 .a-form {
@@ -235,11 +234,8 @@ fieldset[disabled] .a-switch input[type="checkbox"] + label {
 .a-formLabel {
 }
 
-
-
 // Altinn
 // INPUT FIELDS
-
 
 // Icons inside a field
 .a-input-icon {
@@ -278,11 +274,19 @@ fieldset[disabled] .a-switch input[type="checkbox"] + label {
 		.form-control {
 		    color: $grey;
 		    border: 2px solid $blue;
-		    border-radius: 0;
-		    border-left: 0;
-		    padding: 4px 0px;
+				border-left: 0;
+				padding: 4px 0px;
 		}
 
+	}
+
+	// If there is no label or icon on the left of the input..
+	.form-control {
+			&.form-control-noleft{
+				border-radius: 0;
+				border-left: 2px solid $blue;
+				padding: 4px 12px;
+			}
 	}
 
 	// Hover state on label and input
@@ -303,7 +307,11 @@ fieldset[disabled] .a-switch input[type="checkbox"] + label {
 		    border: 2px solid $blue-dark;
 		    border-left: 0;
 		}
+		.form-control-noleft {
+			border-left: 2px solid $blue-dark;
+		}
 	}
+
 
 
 	// Icon
@@ -434,5 +442,26 @@ fieldset[disabled] .a-switch input[type="checkbox"] + label {
 	    	background: $blue-light;
 	    }
 	}
+
+
+	// For large input fields
+
+	.input-group-large {
+			.form-control {
+				padding: 13px 12px;
+				font-size: 20px;
+			}
+			.input-group-btn .btn {
+		    height: 60px;
+				width: 60px;
+			}
+
+			.a-input-icon {
+				top: 12px;
+				font-size: 30px;
+				left: 14px;
+			}
+	}
+
 
 }
