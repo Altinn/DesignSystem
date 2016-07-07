@@ -43,6 +43,57 @@
 }(jQuery));
 
 
+// Add dim class to colnav FIRST LEVEL
+
+; (function ($, undefined) {
+    $(function () {
+
+        $('.a-colnav-item').click(function () {
+           if ($(this).hasClass('expanded')) {
+               $(this).removeClass('expanded');
+               if ($('.a-colnav-item.expanded').length === 0) {
+                   $('.a-colnav-item').removeClass('dim-second-no');
+               }
+               else {
+                   $(this).addClass('dim')
+               }
+           } else {
+               $('.a-colnav-item').removeClass('expanded');
+               $(this).addClass('expanded');
+               $('.a-colnav-item').addClass('dim');
+               $('.a-colnav-item.expanded').removeClass('dim');
+           }
+       });
+    });
+}(jQuery));
+
+// Add dim class to colnav SECOND LEVEL
+
+; (function ($, undefined) {
+    $(function () {
+
+        $('.a-colnav-item-second').click(function () {
+           if ($(this).hasClass('expanded-second')) {
+               $(this).removeClass('expanded-second');
+               if ($('.a-colnav-item-second.expanded-second').length === 0) {
+                   $('.a-colnav-item-second').removeClass('dim-second-no');
+               }
+               else {
+                   $(this).addClass('dim-second')
+               }
+           } else {
+               $('.a-colnav-item-second').removeClass('expanded-second');
+               $(this).addClass('expanded-second');
+               $('.a-colnav-item-second').addClass('dim-second');
+               $('.a-colnav-item-second.expanded-second').removeClass('dim-second');
+           }
+       });
+    });
+}(jQuery));
+
+
+
+
 // INPUT Focus style
 // If state on input is "focus", add class to a-input : "a-input-focus"
 

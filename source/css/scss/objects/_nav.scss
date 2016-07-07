@@ -93,3 +93,202 @@
 		box-shadow: -2px 2px 3px 0 rgba(0, 0, 0, 0.11);
 		top: 1px;
 }
+
+
+/*------------------------------------*\
+    COLUMN NAVIGATION (DRILLDOWN ON MOBILE)
+		Used on "Skjema"
+\*------------------------------------*/
+
+.a-filter-container {
+	padding: $space $space-x4;
+}
+.a-filter {
+	text-align: right;
+
+	.btn {
+		background: transparent;
+		&:before {
+    display: inline-block;
+    width: 0;
+    height: 0;
+    margin-right: .25rem;
+    margin-left: .25rem;
+    vertical-align: middle;
+    content: "";
+    border-top: 0.3em solid;
+    border-right: 0.3em solid transparent;
+    border-left: 0.3em solid transparent;
+		}
+		&:after {
+			border:none;
+		}
+	}
+}
+
+.a-colnav-container {
+	border-top: 1px solid $grey-medium;
+	border-bottom: 1px solid $grey-medium;
+}
+
+.a-colnav {
+	width: 100%;
+
+	@media all and (min-width: $bp-large) {
+		max-width: 450px; 
+	}
+
+	// First level
+	li {
+
+		a {
+			padding: $space $space-x4;
+			background: #fff;
+			color: $black;
+			border-bottom: 1px solid $grey-medium;
+			border-right: 1px solid $grey-medium;
+			display: block;
+
+			&:hover,
+			&.expanded,
+			&:focus {
+				background: #f9f9f9;
+			}
+			&.last-child {
+				border-bottom: none;
+			}
+
+			&:focus {
+				outline: none;
+				text-decoration: underline;
+			}
+			&.is-active {
+				text-decoration: none;
+			}
+
+			h2 {
+				font-size: 20px;
+				font-family: 'din-bold';
+				margin-bottom: 0;
+			}
+			p {
+				margin-bottom: 0;
+			}
+		}
+		// DIMMING not active panels
+		.dim {
+			background: $grey-light;
+			h2 {
+				color: $grey;
+			}
+			color: $grey;
+		}
+
+	}
+
+	// Second level
+	.a-colnav-secondLevel {
+		z-index: 1000;
+		min-height: 100%;
+		width: 250px;
+		background: $grey-light;
+		margin-top: -1px;
+
+		@media all and (min-width: $bp-large) {
+
+			-webkit-animation: slide 0.5s forwards;
+	    -webkit-animation-delay: 2s;
+	    animation: slide 0.5s forwards;
+	    animation-delay: 0ms;
+
+			@-webkit-keyframes slide {
+			  100% { margin-left: -250px; }
+			}
+			@keyframes slide {
+			  100% { margin-left: -250px; }
+			}
+		}
+
+		@media all and (min-width: $bp-xlarge) {
+			width: 300px;
+		}
+
+		.is-dropdown-submenu-item {
+			a {
+				border-bottom: 1px solid $grey-light;
+				padding: 18px $space-x2 17px $space-x2;
+				h3 {
+					font-size: 18px;
+					font-family: 'din-reg';
+					margin-bottom: 0;
+				}
+			}
+		}
+	}
+
+	.dim-second {
+		background: $grey-light;
+		h2 {
+			color: $grey;
+		}
+		color: $grey;
+	}
+
+
+
+	// Third level
+	.a-colnav-thirdLevel {
+		margin-left: -1px;
+		margin-top: -1px;
+
+		@media all and (min-width: $bp-med) {
+			width: 357px;
+			min-height: 500px;
+		}
+
+		@media all and (min-width: $bp-large) {
+			width: 469px;
+		}
+
+		@media all and (min-width: $bp-xlarge) {
+			width: 517px;
+		}
+
+		.is-dropdown-submenu-item {
+			a {
+				border-bottom: 1px solid $grey-light;
+				padding: 6px $space-x2 3px $space-x2;
+				position: relative;
+				border-right: none;
+				h4 {
+					font-size: 16px;
+					font-family: 'din-reg';
+					margin-bottom: 0;
+					padding-right: 60px;
+				}
+				.a-colnav-rightText {
+					position: absolute;
+					right: $space;
+					top:11px;
+					display: block;
+					font-size: 14px;
+				}
+			}
+		}
+
+	}
+
+}
+
+// Make all levels start on top
+.is-dropdown-submenu-parent {
+    position: static; //remove position:relative
+}
+
+// Remove arrow
+.dropdown.menu.vertical > li.opens-right > a::after {
+    border: none;
+}
+.is-dropdown-submenu .is-dropdown-submenu-parent.opens-right > a::after {
+    border: none;
+}
