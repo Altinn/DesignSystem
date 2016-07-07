@@ -92,6 +92,16 @@ var comments = {
 	 	"comment": "Knapper som antyder fare skal ha rød linje under teksten."
 	},
 	{
+		"el": "#buttonBorder",
+	 	"title" : "Stor knapp",
+	 	"comment": "Brukes for å fremheve en oppgave, f.eks lenk til viktig skjema, etc."
+	},
+	{
+		"el": "#linkButtonBorder",
+	 	"title" : "Lenke stylet som stor knapp",
+		 	"comment": "Samme utseende og formål som #buttonBorder, bare at her er det <code>< a ></code> som er stylet i stedet for <code>< button ></code> ."
+	},
+	{
 		"el": "#button",
 	 	"title" : "Standard knapp",
 	 	"comment": "Brukes for handlinger, f.eks 'Lagre', 'Send', osv. Siden knappen er kun 36px høy, er det avsatt et område over og under, slik at touch target er 48px. Det skal være minimum 12px mellomrom mellom hver knapp/lenke."
@@ -277,11 +287,6 @@ var comments = {
 		"comment": "Når flere knapper skal vises ved siden av hverandre, kan de legges i klassen <code>a-btn-group</code>. Dette gjelder f.eks i tilfeller der brukeren har flere valg/handlingsmuligheter."
 	},
 	{
-		"el": "#btnGroup",
-		"title" : "Gruppe med knapper",
-		"comment": "Når flere knapper skal vises ved siden av hverandre, kan de legges i klassen <code>a-btn-group</code>. Dette gjelder f.eks i tilfeller der brukeren har flere valg/handlingsmuligheter."
-	},
-	{
 		"el": "#alert",
 		"title" : "Varsel",
 		"comment": "Brukes for å varsle brukeren om noe. Et varsel hører som regel sammen med en annen komponent. Varselene kan for eksempel høre sammen med input-felt, der brukeren får en feilmelding dersom utfyllt informasjon ikke er korrekt."
@@ -299,7 +304,12 @@ var comments = {
 	{
 		"el": "header[role=banner]",
 	 	"title" : "Global topp",
-	 	"comment": "Den globale toppen på siden tar lite plass i høyden, for å holde fokus på innholdet på siden. "
+	 	"comment": "Den globale toppen på siden tar lite plass i høyden, for å holde fokus på innholdet på siden. Headeren tilpasser seg mindre skjermer, og gjemmer menyen under en meny-knapp. Headeren skal være synlig på alle sider på altinn.no."
+	},
+	{
+		"el": "footer",
+	 	"title" : "Footer",
+	 	"comment": "Footeren inneholder ekstra navigasjonsmuligheter samt kontaktinformasjon. Den tilpasser seg skjermstørrelser. På de minste skjermene legges footer-menypunktene opp i toppmenyen. Footeren skal være synlig på alle sider på altinn.no."
 	},
 	{
 		"el": "#articleBody",

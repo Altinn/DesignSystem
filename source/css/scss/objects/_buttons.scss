@@ -14,17 +14,17 @@
     line-height: 24px;
     background: $blue;
     color: $black;
-    font-family: 'DIN-reg'; 
+    font-family: 'DIN-reg';
     margin-bottom: 12px;
 
 
     &:hover {
         background: $blue-hover-color;
         text-decoration: none;
-        color: $black; 
+        color: $black;
         border: 0;
     }
-      
+
     &:focus{
         text-decoration: none;
         outline: 0;
@@ -36,33 +36,33 @@
     &.active {
         background-image: none;
         outline: 0;
-        @include box-shadow(inset 0 3px 5px rgba(0,0,0,.125)); 
-        background: $blue; 
+        @include box-shadow(inset 0 3px 5px rgba(0,0,0,.125));
+        background: $blue;
         color: $black;
     }
 
     &.disabled,
     &:disabled {
         cursor: $cursor-disabled;
-        background: $grey-light; 
+        background: $grey-light;
         color: $black;
-        @include box-shadow(none); 
+        @include box-shadow(none);
     }
 
     &:after {
         // Making the touch target area bigger without affecting the layout
         content: "";
         width: 100%;
-        height: 48px; 
+        height: 48px;
         position: absolute;
         left: 0;
-        top: -6px; 
-    } 
+        top: -6px;
+    }
 
 }
 
 .a-btn-secondary {
-    background-color: $white; 
+    background-color: $white;
 
     &:hover {
         background: $grey-light;
@@ -71,8 +71,8 @@
 
 
 .a-btn-success {
-    background-color: $green; 
-    color: $black; 
+    background-color: $green;
+    color: $black;
 
     &:hover {
         background: $green-hover-color;
@@ -81,18 +81,34 @@
 }
 
 .a-btn-danger {
-    background-color: $red;  
+    background-color: $red;
     &:hover {
         background: $red-hover-color;
         border: none;
     }
 }
 
-// Make button look like link 
+.a-btn-border {
+	background: transparent;
+	border: 2px solid $blue-darker;
+	color: $blue-darker;
+	padding: 16px 24px;
+  font-size: 24px;
+  font-family: 'DIN-medium';
+	background: rgba(255,255,255,0.5);
 
-.a-btn-link, 
+	&:hover {
+			background: $blue-darker;
+			border: 2px solid $blue-darker;
+			color: $white;
+	}
+}
+
+// Make button look like link
+
+.a-btn-link,
 .a-btn-link:active,
-.a-btn-link:focus { 
+.a-btn-link:focus {
     background: none;
     border: none;
     color: $black;
@@ -101,10 +117,10 @@
     border-bottom: 2px solid $link-color;
     text-decoration: none;
     cursor: pointer;
-}    
+}
 
 .a-btn-link:hover,
-.a-btn-link:focus { 
+.a-btn-link:focus {
     text-decoration: none;
     border-bottom: 2px solid $blue-dark;
     color: $black;
@@ -115,13 +131,13 @@
 .a-btn-action {
     border: 2px dotted $blue;
     padding: 4px 24px 4px 36px;
-    background-color: transparent; 
+    background-color: transparent;
     color: #000;
     text-align: left;
 
     &:hover {
-        background: $blue-light; 
-        border: 2px dotted $blue; 
+        background: $blue-light;
+        border: 2px dotted $blue;
     }
 
     .a-btn-action-icon,
@@ -129,13 +145,13 @@
         font-size: 16px;
         position: absolute;
         top: 7px;
-        left: 12px; 
+        left: 12px;
     }
 
     .a-btn-action-iconPlus {
         font-size: 24px;
         top: 4px;
-    } 
+    }
 }
 
 // BOX BUTTON
@@ -143,7 +159,7 @@
 .a-boxBtn {
     border: 1px solid $grey-medium;
     padding: 12px;
-    cursor: pointer; 
+    cursor: pointer;
     width: 100%;
     max-width: 400px;
     background: #fff;
@@ -171,11 +187,11 @@
     }
 
     &:hover {
-        background: $blue-light; 
+        background: $blue-light;
         border: 1px solid $blue;
     }
 }
-  
+
 
 // BOX ADD BUTTON
 
@@ -186,24 +202,24 @@
     width: 100%;
     max-width: 400px;
     cursor: pointer;
-    
+
 
     .a-boxAddBtn-inner {
-        border: 2px dotted $blue; 
-        padding: 24px 12px; 
+        border: 2px dotted $blue;
+        padding: 24px 12px;
         height: 172px;
 
         .a-boxAddBtn-icon {
             display: block;
-            font-size: 36px; 
+            font-size: 36px;
             padding: 12px;
         }
 
         &:hover {
-            background: $blue-light; 
+            background: $blue-light;
         }
     }
-      
+
 }
 
 
@@ -218,22 +234,6 @@
         &:last-child {
             margin-right: 0;
         }
-    } 
+    }
 
-} 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+}

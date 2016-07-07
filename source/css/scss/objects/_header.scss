@@ -2,34 +2,373 @@
     $HEADER
 \*------------------------------------*/
 
+.a-header {
+	padding: 36px 0 24px 0;
+
+	.a-logo {
+		max-width: 110px;
+		float: left;
+		margin-right: $space-x2;
+
+		@media all and (min-width: $bp-large) {
+			max-width: 142px;
+			margin-top: 2px;
+		}
+	}
+}
+
+// Header options
+.a-header-options {
+	margin-top: -10px;
+	position: absolute;
+	right: 100px;
+
+	@media all and (min-width: $bp-small) {
+		float: right;
+		position: relative;
+		right: 0px;
+		left: auto;
+	}
+
+	@media all and (min-width: $bp-med) {
+		margin-top: -12px;
+	}
+	@media all and (min-width: $bp-large) {
+		margin-top: -8px;
+	}
+
+	.nav-link {
+    padding: 12px 3px;
+
+		@media all and (min-width: $bp-large) {
+			padding: 12px;
+		}
+	}
+
+	// Language switcher
+	.a-languageSwitcher {
+		margin-top: -6px;
+		font-size: 14px;
+		font-family: 'DIN-medium';
+		border: none;
+		position: absolute;
+		right: 36px;
+
+		@media all and (min-width: $bp-small) {
+			position: relative;
+			right: 0px;
+		}
+
+		@media all and (min-width: $bp-med) {
+			margin-top: 2px;
+		}
+
+		&:hover,
+		&:focus,
+		&:active {
+			color: $blue-dark;
+			border: none;
+		}
+		i {
+			font-size: 36px;
+			vertical-align: middle;
+		}
+		&:after {
+			display: none;
+			@media all and (min-width: $bp-med) {
+				display: inline-block;
+			}
+		}
+	}
+
+	// Person switcher
+	.a-personSwitcher {
+		margin-top: -6px;
+		font-size: 14px;
+		font-family: 'DIN-medium';
+		border: none;
+		padding-right: 0;
+		position: absolute;
+		right: 0;
+
+		@media all and (min-width: $bp-small) {
+			position: relative;
+		}
+
+		&:hover,
+		&:focus,
+		&:active {
+			color: $blue-dark;
+			border: none;
+		}
+		i {
+			font-size: 36px;
+			vertical-align: middle;
+		}
+	}
+}
+
+//Language list
+
+.a-dropdown-languages,
+.a-dropdown-personswitchList {
+	width: 320px;
+	right: -90px;
+	left: auto;
+	padding: 0;
+	position: absolute;
+	top: 57px;
+	z-index: 10001;
+
+	@media all and (min-width: $bp-small) {
+		right: -38px;
+		top: 55px;
+	}
+
+	@media all and (min-width: $bp-med) {
+		width: 420px;
+		right: -77px;
+		top: 55px;
+	}
+
+	.dropdown-item {
+		white-space: normal;
+		border-bottom: 1px solid $grey-light;
+		padding: $space-and-half;
+
+		.a-flag {
+			max-width: 48px;
+			margin-right: $space;
+			float: left;
+			margin-top: 2px;
+		}
+
+		p {
+			margin-bottom: 0;
+			font-size: 14px;
+			word-wrap: break-word;;
+		}
+
+		&:last-child {
+			border-bottom: none;
+		}
+	}
+
+	&.a-dropdownTriangle:after {
+	  margin-left: 29px;
+
+		@media all and (min-width: $bp-small) {
+			margin-left: 118px;
+		}
+
+		@media all and (min-width: $bp-med) {
+			margin-left: 140px;
+		}
+
+		@media all and (min-width: $bp-large) {
+			margin-left: 130px;
+		}
+	}
+}
+
+// Person switch list
+
+.a-dropdown-personswitchList {
+
+		right: -87px;
+
+		@media all and (min-width: $bp-small) {
+			right: -18px;
+		}
+
+		@media all and (min-width: $bp-med) {
+			width: 420px;
+			right: -77px;
+		}
+
+		&.a-dropdownTriangle:after{
+			margin-left: 72px;
+
+			@media all and (min-width: $bp-small) {
+				margin-left: 140px;
+			}
+
+			@media all and (min-width: $bp-med) {
+				margin-left: 131px;
+			}
+		}
+}
+
+// When switcher panel is open
+.nav-pills .nav-item.open .nav-link.a-languageSwitcher,
+.nav-pills .nav-item.open .nav-link.a-personSwitcher {
+	background: transparent;
+	color: $blue-dark;
+	text-align: right;
+}
+
+// LOGO
 .a-logo {
-	max-width: 200px;
+	height: 24px;
 	width: 100%;
 	margin-bottom: 0;
 }
 
-.a-header {
-	padding: 0;
 
-	.a-logo {
-		max-width: 160px;
-		float: left;
-		margin-right: $space-x2;
+
+
+/*------------------------------------*\
+    $GLOBAL NAVIGATION (in header)
+\*------------------------------------*/
+.a-globalNav {
+	.navbar-toggler {
+    background: $blue-dark;
+    color: $white;
+		float: right;
+		margin-top: -5px;
+		min-width: 74px;
+
+		&:after {
+			content: 'meny';
+		}
+
+		&[aria-expanded="true"]:after {
+			content: 'lukk';
+		}
+
+	}
+
+	.navbar-toggleable-xs {
+		width: 100%;
+		position: absolute;
+		left: 0;
+		overflow: visible;
+
+		@media all and (min-width: $bp-small) {
+			position: relative;
+		}
 	}
 }
 
-.a-globalNav {
-	list-style: none;
-	float: left;
-	margin-top: -2px;
+.a-globalNav-main {
+	margin-top: 60px;
+	padding-top: $space-x3;
+	background: $white;
+	position: absolute;
+	z-index: 1000;
+  min-height: 100%;
+	left: 0;
+	overflow: auto;
+	box-shadow: 2px 2px 9px 1px rgba(137,137,137,0.5);
+
+	.a-dropdownTriangle{
+		box-shadow: none;
+	}
+
+	@media all and (min-width: $bp-small) {
+		box-shadow: none;
+		margin-top: 2px;
+		background: transparent;
+		position: relative;
+	  min-height: none;
+		z-index: auto;
+		overflow: visible;
+		padding-top: 0;
+
+		.a-dropdownTriangle{
+		  background: transparent;
+			box-shadow: none;
+		}
+
+		.a-dropdownTriangle:after{
+		  display: none;
+		}
+	}
+
+	@media all and (min-width: $bp-large) {
+		margin-top: -2px;
+	}
+
+	.a-dropdownTriangle:after{
+	  margin-left: auto;
+		right: 8px;
+	}
+
+	ul {
+		list-style: none;
+		float: left;
+	}
+
 	li {
 		float: left;
-		margin-left: $space-x3;
+		width: 100%;
+		padding: 0 $space-x2;
+
+		@media all and (min-width: $bp-small) {
+			width: auto;
+			margin-left: $space-x2;
+			padding: 0;
+
+			&:first-child {
+				margin-left: $space;
+			}
+		}
+
+		@media all and (min-width: $bp-large) {
+			margin-left: $space-x3;
+
+			&:first-child {
+				margin-left: $space-x3;
+			}
+		}
+
+		@media all and (min-width: $bp-xlarge) {
+			margin-left: $space-x3;
+
+			&:first-child {
+				margin-left: $space-x4;
+			}
+		}
 
 		a {
-			font-size: 24px;
+			font-size: 18px;
 			border: none;
-			font-family: 'DIN-medium'
+			font-family: 'DIN-medium';
+			padding: $space $space;
+			display: block;
+			border-bottom: 1px solid $blue-dark;
+
+			&:hover {
+				color: $blue;
+			}
+
+			@media all and (min-width: $bp-small) {
+				padding: 0;
+				padding-bottom: $space-half;
+				display: inline;
+				border-bottom: none;
+
+				&:hover,
+				&:active,
+				&:focus {
+					color: $blue-dark;
+				}
+			}
+
+			@media all and (min-width: $bp-large) {
+				font-size: 24px;
+				padding-bottom: 8px;
+			}
+
 		}
+
+		.a-tel {
+			font-family: 'DIN-bold';
+			padding-top: $space-x3;
+		}
+	}
+
+	li:last-child > a{
+		border-bottom: none;
 	}
 }
