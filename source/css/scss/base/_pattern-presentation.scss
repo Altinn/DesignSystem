@@ -2,53 +2,15 @@
 *  PRESENTATION OF STYLE GUIDE
 *  NB: Include this file only for the patternlab-designsystem
 *
-*  sg = styleguide
+*  sg = Style Guide
 \*------------------------------------*/
 
+// NB: Pattern Lab header and navigation can not be overwritten inside of source-folder, must be changed inside core-folder.
 
-// PAtternlab header/navigation bar
-
-.sg-header {
-    background: $white;
-    color: $black;
-		font-family: 'DIN-reg';
-    text-transform: uppercase;
-    position: fixed;
-    top: 0;
-    left: 0;
-    z-index: 2;
-    width: 100%;
-
-		a {
-			font-family: 'DIN-reg';
-			font-size: 18px;
-		}
-}
-
-.atom {
-  display: block;
-  width: 250px;
-  height: 250px;
-  float: right;
-  margin-top: 24px;
-  margin-right: 0.5rem;
-  background: url(../images/lab5.svg) no-repeat;
-  background-size: 100% 100%;
-  animation: rotation 30s linear infinite;
-}
-
-/** Atom Logo Rotations */
-@-webkit-keyframes rotation { 0% { -webkit-transform: rotate(0deg); }
-  100% { -webkit-transform: rotate(360deg); } }
-@-moz-keyframes rotation { 0% { -moz-transform: rotate(0deg); }
-  100% { -moz-transform: rotate(360deg); } }
-@-o-keyframes rotation { 0% { -o-transform: rotate(0deg); }
-  100% { -o-transform: rotate(360deg); } }
-@keyframes rotation { 0% { transform: rotate(0deg); }
-  100% { transform: rotate(360deg); } }
+/*------------------------------------*/
 
 
-// Patternlab TOP
+// Pattern Lab TOP hero
 
 .sg-top {
 	background: $blue-light;
@@ -66,7 +28,29 @@
   }
 }
 
-// Patternlab states explanation
+// Spinning atom in Pattern Lab Top hero
+.sg-atom {
+  display: block;
+  width: 250px;
+  height: 250px;
+  float: right;
+  margin-top: 24px;
+  margin-right: 0.5rem;
+  background: url(../images/lab5.svg) no-repeat;
+  background-size: 100% 100%;
+  animation: rotation 30s linear infinite;
+}
+
+@-webkit-keyframes rotation { 0% { -webkit-transform: rotate(0deg); }
+  100% { -webkit-transform: rotate(360deg); } }
+@-moz-keyframes rotation { 0% { -moz-transform: rotate(0deg); }
+  100% { -moz-transform: rotate(360deg); } }
+@-o-keyframes rotation { 0% { -o-transform: rotate(0deg); }
+  100% { -o-transform: rotate(360deg); } }
+@keyframes rotation { 0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); } }
+
+// Pattern Lab states explanation
 
 .sg-statesExplanation {
   background: $white;
@@ -94,8 +78,8 @@ span.sg-pattern-state:before {
     margin-bottom: -12px;
     /* margin-left: 4px; */
 }
-// Pattern headlines for atoms
 
+// Pattern titles for components on ALL-page
 .sg-pattern-head {
   margin: 18px 0;
   padding: 6px 0;
@@ -110,198 +94,8 @@ span.sg-pattern-state:before {
   }
 }
 
-
-// Patternlab Grid examples
-
-.sg-gridExample .row {
-  margin-bottom: 24px;
-}
-.sg-gridExample .row .row {
-  margin-top: 1rem;
-  margin-bottom: 0;
-}
-.sg-gridExample-col {
-  padding: 12px 0;
-  background-color: rgba(86,61,124,.15);
-  width: 100%;
-  text-align: center;
-  float: left;
-}
-
-// Patternlab Color palette
-
-.sg-colors {
-	list-style: none;
-}
-
-.sg-colors li {
-  border: none;
-  width: 100%;
-  padding: 0 10px 0 0;
-  margin:0;
-
-
-
-  @media screen and (min-width: $bp-med) {
-	  width: 25%;
-
-    &:last-child {
-    padding-right: 0;
-  }
-  }
-}
-
-.sg-label {
-  display: none;
-  line-height: 24px;
-}
-
-
-.sg-swatch {
-	  border-radius: 2px;
-	  width: 100%;
-    text-align: center;
-    padding-top: 15px;
-    display: block;
-    height: 72px;
-    margin-bottom: 10px;
-    position: relative;
-
-    .sg-label {
-      position: absolute;
-      top: 12px;
-      right: -100%;
-      bottom: 0;
-      left: 0;
-      display: block;
-      opacity: 0;
-      -webkit-transition: 0.2s all;
-      transition: 0.2s all;
-    }
-
-  	&:hover .sg-label {
-      display: block;
-      right: 0;
-      opacity: 1;
-    }
-
-}
-
-
-// Patternlab multiple color icons
-
-.sg-iconPreview {
-  display: inline;
-  float: left;
-  text-align: center;
-  margin-bottom: $pad;
-  padding: $pad;
-  padding-top: 0;
-  &:hover {
-    background-color: $grey-light;
-  }
-}
-
-.sg-iconPreview-caption {
-  display: block;
-  font-size: $font-size-small;
-  color: $grey;
-}
-
-.sg-icon {
-	width: 100px;
-  height: 100px;
-  margin-bottom: 0;
-}
-
-.sg-systemicon {
-	width: 50px;
-}
-
-.material-icons.sg-fonticon {
-  color: $black;
-  font-size: 36px;
-}
-
-
-// Icons Fort Awesome
-
-.sg-kitIcons {
-  margin-bottom: 24px;
-
-  .sg-kitIcons-icon {
-      text-align: center;
-      display: inline-block;
-      padding: 12px 24px;
-      color: $grey-medium;
-      border: none;
-      border-radius: 5px;
-
-      &:hover {
-        background: $blue;
-        color: $white;
-      }
-  }
-
-  .sg-kitIcons-name {
-    font-size: 14px;
-    font-family: 'DIN-light';
-  }
-
-}
-
-
-
-// Patternlab TYPO
-
-.sg-typo-container {
-  border-top: 1px dotted rgba(0,0,0,0.1);
-}
-
-.sg-typo {
-  border-bottom: 1px dotted rgba(0,0,0,0.1);
-  background: $white;
-      padding: 30px 0 30px 40px;
-
-      &:hover {
-        background: #F9F9F9;
-      }
-
-      h1,h2,h3,h4 {
-        margin-top: 0;
-      }
-}
-
-.sg-typo-activeSize-m { // mobile
-    @media all and (max-width: $bp-med) {
-        color: $green;
-        font-family: 'DIN-bold';
-    }
-}
-.sg-typo-activeSize-t { // tablet
-    @media all and (min-width: $bp-med) and (max-width: $bp-large) {
-        color: $green;
-        font-family: 'DIN-bold';
-    }
-}
-
-.sg-typo-activeSize-l { // laptop
-    @media all and (min-width: $bp-large) and (max-width: $bp-xlarge) {
-        color: $green;
-        font-family: 'DIN-bold';
-    }
-}
-
-.sg-typo-activeSize-d { // desktop
-    @media all and (min-width: $bp-xlarge) {
-        color: $green;
-        font-family: 'DIN-bold';
-    }
-}
-
-
-
 // Annotations & code
+// TODO: Make it posible to show/hide code and comment for each component (Javascript)
 
 .sg-annotations {
     padding: 24px;
@@ -360,23 +154,8 @@ a.asg-toggle-code {
     }
 }
 
-a.asg-toggle-annotation {
 
-  &:hover {
-
-  }
-}
-
-a.asg-toggle-code {
-
-
-  &:hover {
-
-  }
-}
-
-
-
+// Code view in Pattern Lab
 .sg-code  {
     background: #000;
       pre {
@@ -388,8 +167,7 @@ a.asg-toggle-code {
   }
 }
 
-
-// Switch theme
+// Switch theme (Private or Business)
 
 .sg-switchtheme {
   position: fixed;
@@ -399,18 +177,4 @@ a.asg-toggle-code {
   z-index: 9999;
   padding: 12px 0;
   border-top: 2px solid $grey-light;
-}
-
-
-// Highlight code
-
-.sg-highlight {
-  background: $grey-light;
-  padding: 12px;
-  border-radius: 5px;
-  margin: 12px 0;
-
-  pre {
-    margin: 0;
-  }
 }
