@@ -101,24 +101,34 @@
 \*------------------------------------*/
 
 .a-filter-container {
-	padding: $space $space-x4;
+	padding: $space-x2 0;
+
+	@media all and (min-width: $bp-med) {
+		padding: $space $space-x4;
+	}
 }
 .a-filter {
-	text-align: right;
+	padding-top: $space;
+	@media all and (min-width: $bp-med) {
+		text-align: right;
+		padding-top: 0;
+	}
 
 	.btn {
 		background: transparent;
+		padding: 0; 
+
 		&:before {
-    display: inline-block;
-    width: 0;
-    height: 0;
-    margin-right: .25rem;
-    margin-left: .25rem;
-    vertical-align: middle;
-    content: "";
-    border-top: 0.3em solid;
-    border-right: 0.3em solid transparent;
-    border-left: 0.3em solid transparent;
+	    display: inline-block;
+	    width: 0;
+	    height: 0;
+	    margin-right: .25rem;
+	    margin-left: .25rem;
+	    vertical-align: middle;
+	    content: "";
+	    border-top: 0.3em solid;
+	    border-right: 0.3em solid transparent;
+	    border-left: 0.3em solid transparent;
 		}
 		&:after {
 			border:none;
@@ -135,7 +145,7 @@
 	width: 100%;
 
 	@media all and (min-width: $bp-large) {
-		max-width: 450px; 
+		max-width: 550px;
 	}
 
 	// First level
@@ -146,8 +156,11 @@
 			background: #fff;
 			color: $black;
 			border-bottom: 1px solid $grey-medium;
-			border-right: 1px solid $grey-medium;
 			display: block;
+
+			@media all and (min-width: $bp-med) {
+				border-right: 1px solid $grey-medium;
+			}
 
 			&:hover,
 			&.expanded,
@@ -221,6 +234,23 @@
 					font-size: 18px;
 					font-family: 'din-reg';
 					margin-bottom: 0;
+				}
+			}
+		}
+
+		// Drilldown on mobile
+		&.is-drilldown-submenu {
+			width: 100%;
+
+			h3 {
+				margin-bottom: 0;
+			}
+
+			li.js-drilldown-back a {
+				padding: 16px 48px 15px 48px;
+
+				&:before {
+			    margin-top: -3px;
 				}
 			}
 		}
