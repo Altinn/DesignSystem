@@ -18,39 +18,33 @@
 				<div class="col-sm-12 col-md-8">
 					<div class="a-filter">
 
-					  <div class="btn-group">
-					    <button type="button" class="btn dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Alle typer skjema</button>
-					    <div class="dropdown-menu">
-					      <a class="dropdown-item" href="#">Action</a>
-					      <a class="dropdown-item" href="#">Another action</a>
-					      <a class="dropdown-item" href="#">Something else here</a>
-					      <div class="dropdown-divider"></div>
-					      <a class="dropdown-item" href="#">Separated link</a>
-					    </div>
+					  <div class="a-btn-group" id="filterSkjema">
+
+									{{> atoms-collapse-filter(collapse-filter-text: "Alle typer skjema", collapse-filter-id: "#filter-type") }}
+
+									{{> atoms-collapse-filter(collapse-filter-text: "Alle etater", collapse-filter-id: "#filter-etat") }}
+
+									{{> atoms-collapse-filter(collapse-filter-text: "Alle frister", collapse-filter-id: "#filter-frist") }}
+
 					  </div><!-- /btn-group -->
-					  <div class="btn-group">
-					    <button type="button" class="btn dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Alle etater</button>
-					    <div class="dropdown-menu">
-					      <a class="dropdown-item" href="#">Action</a>
-					      <a class="dropdown-item" href="#">Another action</a>
-					      <a class="dropdown-item" href="#">Something else here</a>
-					      <div class="dropdown-divider"></div>
-					      <a class="dropdown-item" href="#">Separated link</a>
-					    </div>
-					  </div><!-- /btn-group -->
-					  <div class="btn-group">
-					    <button type="button" class="btn dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Alle frister</button>
-					    <div class="dropdown-menu">
-					      <a class="dropdown-item" href="#">Action</a>
-					      <a class="dropdown-item" href="#">Another action</a>
-					      <a class="dropdown-item" href="#">Something else here</a>
-					      <div class="dropdown-divider"></div>
-					      <a class="dropdown-item" href="#">Separated link</a>
-					    </div>
-					  </div><!-- /btn-group -->
+
 					</div>
 
 				</div>
+			</div>
+
+			<div class="row a-filter-container">
+				<div id="filter-type" class="a-collapseContent collapse" role="tabpanel" aria-expanded="true">
+			    {{> atoms-checkbuttons(checkbuttons: [ {"checkbuttons-title" : " Første type", "checkbuttons-id" : "checkbutton-type1"}, {"checkbuttons-title" : "Andre type","checkbuttons-id" : "checkbutton-type2"}, {"checkbuttons-title" : " Tredje type","checkbuttons-id" : "checkbutton-type3"}, {"checkbuttons-title" : "Fjerde type","checkbuttons-id" : "checkbutton-type4"} ]) }}
+			  </div>
+
+				<div id="filter-etat" class="a-collapseContent collapse" role="tabpanel" aria-expanded="true">
+			    {{> atoms-checkbuttons(checkbuttons: [ {"checkbuttons-title" : " Folkehelseinstituttet", "checkbuttons-id" : "checkbutton-etat1"}, {"checkbuttons-title" : "Landbruksdirektoratet","checkbuttons-id" : "checkbutton-etat2"}, {"checkbuttons-title" : "Skatteetaten","checkbuttons-id" : "checkbutton-etat3"}, {"checkbuttons-title" : "Mattilsynet","checkbuttons-id" : "checkbutton-etat4"}, {"checkbuttons-title" : "Petroleumstilsynet","checkbuttons-id" : "checkbutton-etat5"}, {"checkbuttons-title" : "Utenriksdept.","checkbuttons-id" : "checkbutton-etat6"}, {"checkbuttons-title" : "Finanstilsynet","checkbuttons-id" : "checkbutton-etat7"}, {"checkbuttons-title" : "Statens strålevern","checkbuttons-id" : "checkbutton-etat8"}, {"checkbuttons-title" : "Politiet","checkbuttons-id" : "checkbutton-etat9"}, {"checkbuttons-title" : " Tolldirektoratet","checkbuttons-id" : "checkbutton-etat10"} ]) }}
+			  </div>
+
+				<div id="filter-frist" class="a-collapseContent collapse" role="tabpanel" aria-expanded="true">
+			    {{> atoms-checkbuttons(checkbuttons: [ {"checkbuttons-title" : "Månedlig", "checkbuttons-id" : "checkbutton-frist1"}, {"checkbuttons-title" : "Kvartalsvis","checkbuttons-id" : "checkbutton-frist2"}, {"checkbuttons-title" : "Årlig","checkbuttons-id" : "checkbutton-frist3"} ]) }}
+			  </div>
 			</div>
 
 			<div class="a-colnav-container">

@@ -1,18 +1,19 @@
-<div class="a-panel">
-	<div class="hidewhenempty">
-		<div class="a-switch">
-			<input id="3743;140516;Read:ArchiveRead" class="sr-only" type="checkbox" name="addRights" onclick="CheckRoleOrRightForDelegtion(this, 'right')" onfocus="$('label[for=\'3743;140516;Read:ArchiveRead\']').addClass('focused')" onblur="$('label[for=\'3743;140516;Read:ArchiveRead\']').removeClass('focused')" value="3743;140516;Read:ArchiveRead">
-			<label for="3743;140516;Read:ArchiveRead" class="a-switch-label"><i class="material-icons a-switch-icon">remove_red_eye</i>Kun lese</label>
-		</div> 
-		<div class="a-switch">
-			<input id="3743;140516;Write" class="sr-only" type="checkbox" name="addRights" onclick="CheckRoleOrRightForDelegtion(this, 'right')" onfocus="$('label[for=\'3743;140516;Write\']').addClass('focused')" onblur="$('label[for=\'3743;140516;Write\']').removeClass('focused')" value="3743;140516;Write ">
-			<label for="3743;140516;Write" class="a-switch-label"><i class="material-icons a-switch-icon">edit</i>  Fylle ut</label>
-		</div>
+
+<div class="hidewhenempty">
+
+	{{# checkbuttons }}
 
 		<div class="a-switch">
-            <input id="2705;201409;Sign" class="sr-only" type="checkbox" name="addRights" onclick="CheckRoleOrRightForDelegtion(this, 'right')" onfocus="$('label[for=\'2705;201409;Sign\']').addClass('focused')" onblur="$('label[for=\'2705;201409;Sign\']').removeClass('focused')" value="2705;201409;Sign">
-            <label for="2705;201409;Sign" class="a-switch-label"><i class="material-icons a-switch-icon">thumb_up</i> Signere</label>
-        </div>
-	</div>
-	
+
+			<input id="{{{ checkbuttons-id }}}" class="sr-only" type="checkbox" name="addRights" onclick="CheckRoleOrRightForDelegtion(this, 'right')" onfocus="$('label[for=\'{{{ checkbuttons-id }}}']').addClass('focused')" onblur="$('label[for=\'{{{ checkbuttons-id }}}\']').removeClass('focused')" value="checkbutton-read">
+
+			<label for="{{{ checkbuttons-id }}}" class="a-switch-label">
+				<i class="material-icons a-switch-icon"> {{{ checkbuttons-icon }}}</i>
+				{{{ checkbuttons-title }}}
+			</label>
+
+		</div>
+
+	{{/ checkbuttons }}
+
 </div>

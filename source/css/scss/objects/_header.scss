@@ -45,14 +45,14 @@
 		}
 	}
 
-	// Language switcher
+	// Language switcher (Button)
 	.a-languageSwitcher {
 		margin-top: -6px;
 		font-size: 14px;
 		font-family: 'DIN-medium';
 		border: none;
 		position: absolute;
-		right: 36px;
+		right: 30px;
 
 		@media all and (min-width: $bp-small) {
 			position: relative;
@@ -70,8 +70,12 @@
 			border: none;
 		}
 		i {
-			font-size: 36px;
+			font-size: 30px;
 			vertical-align: middle;
+
+			@media all and (min-width: $bp-small) {
+				font-size: 36px;
+			}
 		}
 		&:after {
 			display: none;
@@ -81,7 +85,7 @@
 		}
 	}
 
-	// Person switcher
+	// Person switcher (Button)
 	.a-personSwitcher {
 		margin-top: -6px;
 		font-size: 14px;
@@ -102,34 +106,22 @@
 			border: none;
 		}
 		i {
-			font-size: 36px;
+			font-size: 30px;
 			vertical-align: middle;
+
+			@media all and (min-width: $bp-small) {
+				font-size: 36px;
+			}
 		}
 	}
 }
 
-//Language list
+//Language list (dropdown)
 
 .a-dropdown-languages,
 .a-dropdown-personswitchList {
-	width: 320px;
-	right: -90px;
-	left: auto;
-	padding: 0;
-	position: absolute;
-	top: 57px;
-	z-index: 10001;
 
-	@media all and (min-width: $bp-small) {
-		right: -38px;
-		top: 55px;
-	}
-
-	@media all and (min-width: $bp-med) {
-		width: 420px;
-		right: -77px;
-		top: 55px;
-	}
+	position: relative;
 
 	.dropdown-item {
 		white-space: normal;
@@ -155,49 +147,12 @@
 	}
 
 	&.a-dropdownTriangle:after {
-	  margin-left: 29px;
-
-		@media all and (min-width: $bp-small) {
-			margin-left: 118px;
-		}
-
-		@media all and (min-width: $bp-med) {
-			margin-left: 140px;
-		}
-
-		@media all and (min-width: $bp-large) {
-			margin-left: 130px;
-		}
+		left: 72px;
+		margin-left: 0px;
 	}
 }
 
-// Person switch list
 
-.a-dropdown-personswitchList {
-
-		right: -87px;
-
-		@media all and (min-width: $bp-small) {
-			right: -18px;
-		}
-
-		@media all and (min-width: $bp-med) {
-			width: 420px;
-			right: -77px;
-		}
-
-		&.a-dropdownTriangle:after{
-			margin-left: 72px;
-
-			@media all and (min-width: $bp-small) {
-				margin-left: 140px;
-			}
-
-			@media all and (min-width: $bp-med) {
-				margin-left: 131px;
-			}
-		}
-}
 
 // When switcher panel is open
 .nav-pills .nav-item.open .nav-link.a-languageSwitcher,
@@ -205,6 +160,92 @@
 	background: transparent;
 	color: $blue-dark;
 	text-align: right;
+}
+
+
+// If switchList is inside header, make absolute and positioned
+
+.a-header {
+
+	.a-dropdown-languages,
+	.a-dropdown-personswitchList {
+		width: 320px;
+		right: -90px;
+		left: auto;
+		padding: 0;
+		position: absolute;
+		top: 57px;
+		z-index: 10001;
+
+		@media all and (min-width: $bp-small) {
+			right: -38px;
+			top: 55px;
+		}
+
+		@media all and (min-width: $bp-med) {
+			width: 420px;
+			right: -77px;
+			top: 55px;
+		}
+
+		&.a-dropdownTriangle:after {
+		  margin-left: 29px;
+			left: 50%;
+
+			@media all and (min-width: $bp-small) {
+				margin-left: 118px;
+			}
+
+			@media all and (min-width: $bp-med) {
+				margin-left: 140px;
+			}
+
+			@media all and (min-width: $bp-large) {
+				margin-left: 130px;
+			}
+		}
+	}
+	.a-dropdown-personswitchList {
+
+			right: -87px;
+
+			@media all and (min-width: $bp-small) {
+				right: -18px;
+			}
+
+			@media all and (min-width: $bp-med) {
+				width: 420px;
+				right: -77px;
+			}
+
+			&.a-dropdownTriangle:after{
+				margin-left: 72px;
+
+				@media all and (min-width: $bp-small) {
+					margin-left: 140px;
+				}
+
+				@media all and (min-width: $bp-med) {
+					margin-left: 131px;
+				}
+			}
+	}
+}
+
+
+// Hide .dropdown-menu (Language and personswitcher)
+// ONLY when inside a collapse-btn (.dropdown)
+
+.dropdown-menu,
+.dropdown-menu {
+	display: block;
+}
+.dropdown .dropdown-menu,
+.dropdown .dropdown-menu {
+	display: none;
+}
+.open > .dropdown-menu {
+    display: block;
 }
 
 // LOGO
