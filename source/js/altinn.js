@@ -64,34 +64,54 @@
 // Adjust position of second level menu upon click:
 (function ($) {
   $(function () {
+    // Event on click anywhere on menu
     $('#colnav').on('mouseup', function (event) {
+      // Position second level
       $('.a-colnav-secondLevel').css('margin-left', '-1px')
+      // If clicked on second or third level...
       if (
         $(event.target).closest('ul').hasClass('a-colnav-secondLevel') ||
         $(event.target).closest('ul').hasClass('a-colnav-thirdLevel')
       ) {
+        // ...and third level is hidden...
         if (
           $('.a-colnav-secondLevel').find('.a-colnav-thirdLevel')
             .attr('aria-hidden') === 'true'
         ) {
-          $('.a-colnav-secondLevel').animate({'margin-left': '-250px'}, 250)
+          // ...animate second level into position
+          $('.a-colnav-secondLevel').animate({'margin-left': '-78px'}, 125)
         } else {
-          $('.a-colnav-secondLevel').css('margin-left', '-250px')
+          // Else, simply position second level
+          $('.a-colnav-secondLevel').css('margin-left', '-78px')
         }
+        // Position third level, and make sure it spans the width
         $('.a-colnav-thirdLevel').css('margin-left', '-1px')
         $('.a-colnav-thirdLevel').css('left', '100%')
       } else if (
+        // If clicked on first level...
         $(event.target).closest('ul').hasClass('a-colnav') &&
         (
+          // ...and the item clicked has been opened...
           $(event.target).closest('li').hasClass('is-active') ||
           $(event.target).hasClass('is-active')
         )
       ) {
+        // ...remove active state, remove all dimming, and position other levels
         $('#colnav').find('.is-active').removeClass('is-active')
         $('.dim').removeClass('dim')
         $('.dim-second').removeClass('dim-second')
         $('.a-colnav-secondLevel').css('margin-left', '-10000px')
         $('.a-colnav-thirdLevel').css('margin-left', '-10000px')
+        // Hide third level
+        $('.a-colnav-secondLevel').find('.a-colnav-thirdLevel')
+          .attr('aria-hidden', 'true')
+      } else if ($(event.target).closest('ul').hasClass('a-colnav')) {
+        // If clicked on first level, position second level
+        $('.a-colnav-secondLevel').css('margin-left', '-1px')
+        // // Position and hide third level
+        $('.a-colnav-thirdLevel').css('margin-left', '-10000px')
+        $('.a-colnav-secondLevel').find('.a-colnav-thirdLevel')
+          .attr('aria-hidden', 'true')
       }
     })
   })
