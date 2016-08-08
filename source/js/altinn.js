@@ -1,3 +1,4 @@
+/* globals jQuery */
 /*!
  * TOGGLE elements with the same parent + add "open"-class
  */
@@ -42,11 +43,62 @@
     });
 }(jQuery));
 
+// Hide second level column menu when clicking on the active upper level item:
+// (function ($) {
+//   $(function () {
+//     var upperLvlClicked = false; var stopPropagationNextClick = false
+//     function handleClick (event) {
+//       if (upperLvlClicked && !stopPropagationNextClick) {
+//         stopPropagationNextClick = true
+//         console.log($('.a-colnav.dropdown').children('li').eq(4).find('a'))
+//         $('.a-colnav.dropdown').children('li').eq(4).find('a').click()
+//       } else {
+//         upperLvlClicked = true; stopPropagationNextClick = false
+//       }
+//     }
+//     $('li.a-colnav').on('click', handleClick)
+//     $('a.a-colnav-item').on('click', handleClick)
+//   })
+// }(jQuery))
 
+// Adjust position of second level menu upon click:
+(function ($) {
+  $(function () {
+    $('#colnav').on('mouseup', function (event) {
+      $('.a-colnav-secondLevel').css('margin-left', '-1px')
+      if (
+        $(event.target).closest('ul').hasClass('a-colnav-secondLevel') ||
+        $(event.target).closest('ul').hasClass('a-colnav-thirdLevel')
+      ) {
+        if (
+          $('.a-colnav-secondLevel').find('.a-colnav-thirdLevel')
+            .attr('aria-hidden') === 'true'
+        ) {
+          $('.a-colnav-secondLevel').animate({'margin-left': '-250px'}, 250)
+        } else {
+          $('.a-colnav-secondLevel').css('margin-left', '-250px')
+        }
+        $('.a-colnav-thirdLevel').css('margin-left', '-1px')
+        $('.a-colnav-thirdLevel').css('left', '100%')
+      } else if (
+        $(event.target).closest('ul').hasClass('a-colnav') &&
+        (
+          $(event.target).closest('li').hasClass('is-active') ||
+          $(event.target).hasClass('is-active')
+        )
+      ) {
+        $('#colnav').find('.is-active').removeClass('is-active')
+        $('.dim').removeClass('dim')
+        $('.dim-second').removeClass('dim-second')
+        $('.a-colnav-secondLevel').css('margin-left', '-10000px')
+        $('.a-colnav-thirdLevel').css('margin-left', '-10000px')
+      }
+    })
+  })
+}(jQuery))
 
 // INPUT Focus style
 // If state on input is "focus", add class to a-input : "a-input-focus"
-
 
 ; (function ($, undefined) {
     $(function () {
@@ -59,8 +111,6 @@
         })
     });
 }(jQuery));
-
-
 
 // TOOLTIP AND POPOVERS
 
