@@ -61,8 +61,16 @@
 //   })
 // }(jQuery))
 
-// Adjust position of second level menu upon click:
 (function ($) {
+  // Hide other filters upon filter toggle:
+  $(function () {
+    $('.a-collapseFilter').on('mouseup', function () {
+      $('.a-collapseContent').removeClass('in')
+      $('.a-collapseFilter').addClass('collapsed')
+      $(this).removeClass('collapsed')
+    })
+  })
+  // Adjust position of second level menu upon click:
   $(function () {
     $('#colnav').on('mouseup', function (event) {
       var target = $(event.target); var second = $('.a-colnav-secondLevel')
