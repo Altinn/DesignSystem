@@ -64,54 +64,50 @@
 // Adjust position of second level menu upon click:
 (function ($) {
   $(function () {
-    // Event on click anywhere on menu
     $('#colnav').on('mouseup', function (event) {
-      // Position second level
-      $('.a-colnav-secondLevel').css('margin-left', '-1px')
-      // If clicked on second or third level...
-      if (
-        $(event.target).closest('ul').hasClass('a-colnav-secondLevel') ||
-        $(event.target).closest('ul').hasClass('a-colnav-thirdLevel')
-      ) {
-        // ...and third level is hidden...
-        if (
-          $('.a-colnav-secondLevel').find('.a-colnav-thirdLevel')
-            .attr('aria-hidden') === 'true'
-        ) {
-          // ...animate second level into position
-          $('.a-colnav-secondLevel').animate({'margin-left': '-78px'}, 125)
-        } else {
-          // Else, simply position second level
-          $('.a-colnav-secondLevel').css('margin-left', '-78px')
+      var target = $(event.target); var second = $('.a-colnav-secondLevel')
+      second.css('margin-left', '-1px')
+      var getThird = function (el) {
+        if (el.attr('class') === '.a-colnav-thirdLevel') return el
+        else return el.find('.a-colnav-thirdLevel')
+      }
+      var findOpenThird = function (el) {
+        var bool = false
+        el.find('.a-colnav-thirdLevel').each(function () {
+          if ($(this).attr('data-ignore') === 'false') bool = true
+        })
+        return bool
+      }
+      var isOpen = function (el) {
+        var x = 'expanded'
+        return (el.closest('a').hasClass(x) || el.find('a').hasClass(x) ||
+          el.hasClass(x))
+      }
+      var ul = target.closest('ul')
+      if (ul.hasClass('a-colnav-secondLevel' || 'a-colnav-thirdLevel')) {
+        if (!findOpenThird(ul)) second.animate({ 'margin-left': '-78px' }, 125)
+        else { second.css('margin-left', '-78px') }
+        getThird(ul).css('margin-left', '-1px').css('left', '100%')
+          .attr('data-ignore', 'false')
+        if (ul.hasClass('a-colnav-secondLevel')) {
+          ul.children('li').children('a').addClass('dim-second')
+          target.closest('a').removeClass('dim-second')
+          target.children('a').removeClass('dim-second')
+          target.removeClass('dim-second')
         }
-        // Position third level, and make sure it spans the width
-        $('.a-colnav-thirdLevel').css('margin-left', '-1px')
-        $('.a-colnav-thirdLevel').css('left', '100%')
-      } else if (
-        // If clicked on first level...
-        $(event.target).closest('ul').hasClass('a-colnav') &&
-        (
-          // ...and the item clicked has been opened...
-          $(event.target).closest('li').hasClass('is-active') ||
-          $(event.target).hasClass('is-active')
-        )
-      ) {
-        // ...remove active state, remove all dimming, and position other levels
-        $('#colnav').find('.is-active').removeClass('is-active')
-        $('.dim').removeClass('dim')
+      } else if (ul.hasClass('a-colnav') && isOpen(target)) {
+        $('.dim').removeClass('dim'); second.css('margin-left', '-10000px')
+        getThird(ul).css('margin-left', '-10000px')
+          .attr('data-ignore', 'true')
+        $('.col-md-3').removeClass('col-md-3').addClass('col-md-6')
+          .removeClass('col-md-offset-4').addClass('col-md-offset-1')
+      } else {
+        second.each(function () {
+          getThird($(this)).attr('data-ignore', 'true')
+        })
         $('.dim-second').removeClass('dim-second')
-        $('.a-colnav-secondLevel').css('margin-left', '-10000px')
-        $('.a-colnav-thirdLevel').css('margin-left', '-10000px')
-        // Hide third level
-        $('.a-colnav-secondLevel').find('.a-colnav-thirdLevel')
-          .attr('aria-hidden', 'true')
-      } else if ($(event.target).closest('ul').hasClass('a-colnav')) {
-        // If clicked on first level, position second level
-        $('.a-colnav-secondLevel').css('margin-left', '-1px')
-        // // Position and hide third level
-        $('.a-colnav-thirdLevel').css('margin-left', '-10000px')
-        $('.a-colnav-secondLevel').find('.a-colnav-thirdLevel')
-          .attr('aria-hidden', 'true')
+        $('.col-md-6').removeClass('col-md-6').addClass('col-md-3')
+          .removeClass('col-md-offset-1').addClass('col-md-offset-4')
       }
     })
   })
