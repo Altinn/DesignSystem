@@ -56,20 +56,62 @@ gulp.task('banner', function () {
     today: new Date().getFullYear()
   }))
   .pipe(gulp.dest('./core/lib')) })
-// Spawn a core folder and add custom modification to styleguide.mustache
+// Spawn a core folder and add custom modification to styleguide.mustache & index.mustache, as well as creating a base for rewriting styleguide.mustache
 gulp.task('cp:pl', function () {
   return gulp.src('node_modules/patternlab-node/core/**')
     .pipe(gulp.dest('./core'))
     .on('end', function () {
-      fs.readFile('./core/templates/styleguide.mustache', 'utf-8',
+      fs.readFile('./patternlab_gulp.js', 'utf-8',
         function (err, origin) {
           if (err) console.log(err)
-          fs.readFile('./patternlab-all-wrapper.mustache', 'utf-8',
-            function (err, custom) {
-              if (err) console.log(err)
-              var src = custom + origin + '</div><!-- End container -->'
-              fs.writeFile('./core/templates/styleguide.mustache', src)
-            })
+          fs.writeFile('./core/lib/patternlab_gulp.js', origin)
+        })
+      fs.readFile('./core/lib/pattern_engines.js', 'utf-8',
+        function (err, origin) {
+          if (err) console.log(err)
+          var src = origin.replace('recursive: false', 'recursive: true')
+          fs.writeFile('./core/lib/pattern_engines.js', src)
+        })
+    })
+    .on('end', function () {
+    //   fs.readFile('./core/templates/styleguide.mustache', 'utf-8',
+    //     function (err, origin) {
+    //       if (err) console.log(err)
+    //       fs.writeFile('./core/templates/styleguide_base.mustache', origin)
+    //     })
+    //   fs.readFile('./core/templates/styleguide.mustache', 'utf-8',
+    //     function (err, origin) {
+    //       if (err) console.log(err)
+    //       fs.readFile('./patternlab-all-wrapper.mustache', 'utf-8',
+    //         function (err, custom) {
+    //           if (err) console.log(err)
+    //           var src = custom + origin + '</div><!-- End container -->'
+    //           fs.writeFile('./core/templates/styleguide.mustache', src)
+    //         })
+    //     })
+    //   var anchor1 = '<link rel="stylesheet" href="styleguide/css/styleguide.css?{{ cacheBuster }}" media="all" />'
+    //   var newRef = '<link rel="stylesheet" href="styleguide/css/styleguide-edit.css" media="all" />'
+    //   var anchor2 = '<header class="sg-header" role="banner">'
+    //   var header = '<div class="a-sg-header-top"><a href="/" class="a-sg-header-title">Pattern Lab</a><div class="a-sg-header-links"><a href="https://github.com/Altinn/DesignSystem">Åpne i Github </a><a href="#">Om designsystemet</a></div></div>'
+    //   fs.readFile('./core/templates/index.mustache', 'utf-8',
+    //     function (err, origin) {
+    //       if (err) console.log(err)
+    //       var src = origin.replace(anchor1, anchor1 + newRef)
+    //       src = src.replace(anchor2, anchor2 + header)
+    //       fs.writeFileSync('./core/templates/index.mustache', src)
+    //     })
+    })
+})
+// Support continuous modification to styleguide.mustache
+gulp.task('cp:sm', function () {
+  fs.readFile('./core/templates/styleguide_base.mustache', 'utf-8',
+    function (err, origin) {
+      if (err) console.log(err)
+      fs.readFile('./patternlab-all-wrapper.mustache', 'utf-8',
+        function (err, custom) {
+          if (err) console.log(err)
+          var src = custom + origin + '</div><!-- End container -->'
+          fs.writeFile('./core/templates/styleguide.mustache', src)
         })
     })
 })
@@ -163,11 +205,25 @@ gulp.task('cp:djs', function () {
     .pipe(gulp_rename('plugins.min.js'))
     .pipe(gulp.dest('public/distributions/v' + version))
 })
+// Create styleguide-edit.css
+gulp.task('cp:sge', function () {
+  return gulp.src(path.resolve(paths().source.css, 'styleguide-edit.scss'))
+    .pipe(sass().on('error', sass.logError))
+    .pipe(gulp.dest('public/styleguide/css'))
+    .pipe(browserSync.stream())
+})
+// Create patternlab-presentation.css
+gulp.task('cp:pp', function () {
+  return gulp.src(path.resolve(paths().source.css, 'patternlab-presentation.scss'))
+    .pipe(sass().on('error', sass.logError))
+    .pipe(gulp.dest('public/css'))
+    .pipe(browserSync.stream())
+})
 // Copy styleguide
 gulp.task('cp:styleguide', function () {
   return gulp.src(
     ['**/*'],
-    { cwd: path.resolve(paths().source.styleguide) }
+    { cwd: path.resolve(paths().source.styleguide, 'styleguide') }
   )
     .pipe(gulp.dest(path.resolve(paths().public.styleguide)))
     .pipe(browserSync.stream())
@@ -200,6 +256,8 @@ gulp.task('connect', ['lab'], function () {
     }
   })
   gulp.watch(path.resolve(paths().source.css, '**/*.scss'), ['cp:css'])
+  gulp.watch(path.resolve('.', 'patternlab-all-wrapper.mustache'), ['cp:sm'])
+  gulp.watch(path.resolve(paths().source.css, '**/*.scss'), ['cp:sge'])
   gulp
     .watch(path.resolve(paths().source.styleguide, '**/*.*'), ['cp:styleguide'])
   gulp.watch(
@@ -233,7 +291,7 @@ gulp.task('lab-pipe', ['lab'], function (cb) { cb(); browserSync.reload() })
 gulp.task('default', ['lab'])
 gulp.task('assets', [
   'cp:js', 'cp:bs', 'cp:th', 'cp:jq', 'cp:bv', 'cp:ss', 'cp:an', 'cp:img',
-  'cp:font', 'cp:data', 'cp:css', 'cp:djs', 'cp:dcss', 'cp:styleguide'
+  'cp:font', 'cp:data', 'cp:css', 'cp:djs', 'cp:dcss', 'cp:sge', 'cp:pp', 'cp:styleguide'
 ])
 gulp.task('prelab', ['clean', 'assets'])
 gulp.task('lab', ['prelab', 'patternlab'], function (cb) {

@@ -1,3 +1,4 @@
+options = undefined
 /* globals jQuery */
 /*!
  * TOGGLE elements with the same parent + add "open"-class
