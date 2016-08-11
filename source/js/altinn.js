@@ -62,12 +62,16 @@
 // }(jQuery))
 
 (function ($) {
-  // Hide other filters upon filter toggle:
+  // Handle filter toggle:
   $(function () {
     $('.a-collapseFilter').on('mouseup', function () {
-      $('.a-collapseContent').removeClass('in')
-      $('.a-collapseFilter').addClass('collapsed')
-      $(this).removeClass('collapsed')
+      if (!$(this).hasClass('collapsed')) {
+        $(this).addClass('collapsed')
+      } else {
+        $('.a-collapseContent').removeClass('in')
+        $('.a-collapseFilter').addClass('collapsed')
+        $(this).removeClass('collapsed')
+      }
     })
   })
   // Adjust position of second level menu upon click:
