@@ -1,0 +1,61 @@
+
+<div class="page" id="page">
+
+		{{> organisms-header }}
+
+		<div class="container">
+
+			<div class="row">
+				<div class="col-sm-6 col-lg-offset-3 a-padding-x3">
+					{{> atoms-search-large(search-label: "Søk etter skjema eller annet innhold") }}
+				</div>
+			</div>
+
+			<div class="row a-filter-container">
+				<div class="col-sm-12 col-md-4">
+					<span class="a-textSize2"><span class="din-bold">1287</span> skjemaer</span>
+				</div>
+				<div class="col-sm-12 col-md-8">
+					<div class="a-filter">
+
+					  <div class="a-btn-group" id="filterSkjema">
+
+									{{> atoms-collapse-filter(collapse-filter-text: "Alle typer skjema", collapse-filter-id: "#filter-type") }}
+
+									{{> atoms-collapse-filter(collapse-filter-text: "Alle etater", collapse-filter-id: "#filter-etat") }}
+
+									{{> atoms-collapse-filter(collapse-filter-text: "Alle frister", collapse-filter-id: "#filter-frist") }}
+
+					  </div><!-- /btn-group -->
+
+					</div>
+
+				</div>
+			</div>
+
+			<div class="row a-filter-container">
+				<!-- TODO: Add JSON in skjema.json-->
+			</div>
+
+			<div class="a-colnav-container">
+
+				<div class="row">
+					<div class="col-sm-12 col-md-4">
+						{{> molecules-colnav }}
+					</div>
+					<div class="col-sm-6 col-md-6 col-md-offset-1">
+						<h2 class="a-paddingTop-x5">Forslag til deg:</h2>
+						{{> atoms-itemlist-ordered }}
+					</div>
+				</div>
+
+			</div>
+
+
+		{{> organisms-footer }}
+
+	</div>
+
+
+
+</div>

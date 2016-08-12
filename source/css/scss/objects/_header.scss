@@ -1,0 +1,481 @@
+/*------------------------------------*\
+    $HEADER
+\*------------------------------------*/
+
+.a-header {
+	padding: 36px 0 24px 0;
+
+	.a-logo {
+		max-width: 110px;
+		float: left;
+		margin-right: $space;
+
+		@media all and (min-width: $bp-large) {
+			max-width: 142px;
+			margin-top: 2px;
+		}
+	}
+}
+
+// Header options
+.a-header-options {
+	margin-top: -10px;
+	position: absolute;
+	right: 100px;
+
+	@media all and (min-width: $bp-small) {
+		float: right;
+		position: relative;
+		right: 0px;
+		left: auto;
+	}
+
+	@media all and (min-width: $bp-med) {
+		margin-top: -12px;
+	}
+	@media all and (min-width: $bp-large) {
+		margin-top: -8px;
+	}
+
+	.nav-link {
+    padding: 12px 3px;
+
+		@media all and (min-width: $bp-large) {
+			padding: 12px;
+		}
+	}
+
+	// Language switcher (Button)
+	.a-languageSwitcher {
+		margin-top: -6px;
+		font-size: 14px;
+		font-family: 'DIN-medium';
+		border: none;
+		position: absolute;
+		right: 18px;
+
+		@media all and (min-width: $bp-small) {
+			position: relative;
+			right: 0px;
+		}
+
+		@media all and (min-width: $bp-med) {
+			margin-top: 2px;
+		}
+
+		&:hover,
+		&:focus,
+		&:active {
+			color: $blue-dark;
+			border: none;
+		}
+		i {
+			font-size: 30px;
+			vertical-align: middle;
+
+			@media all and (min-width: $bp-small) {
+			}
+		}
+		&:after {
+			display: none;
+			@media all and (min-width: $bp-med) {
+				display: inline-block;
+			}
+		}
+	}
+
+	// Person switcher (Button)
+	.a-personSwitcher {
+		margin-top: -6px;
+		font-size: 14px;
+		font-family: 'DIN-medium';
+		border: none;
+		padding-right: 0;
+		position: absolute;
+		right: -12px;
+		text-align: right;
+
+		@media all and (min-width: $bp-small) {
+			position: relative;
+			right: 0px;
+		}
+
+		&:hover,
+		&:focus,
+		&:active {
+			color: $blue-dark;
+			border: none;
+		}
+		.a-personSwitcher-name {
+			text-align: right;
+			vertical-align: middle;
+
+			display:inline-block;
+	    max-width:90px;
+	    white-space: nowrap;
+	    overflow:hidden !important;
+	    text-overflow: ellipsis;
+
+			@media all and (min-width: $bp-large) {
+				max-width:120px;
+			}
+
+			@media all and (min-width: $bp-xlarge) {
+				max-width:220px;
+			}
+		}
+		.a-personSwitcher-icon {
+			font-size: 30px;
+			vertical-align: middle;
+
+
+			@media all and (min-width: $bp-med) {
+				font-size: 36px;
+			}
+		}
+	}
+}
+
+//Language an personSwitch list (dropdown)
+.a-dropdown-languages,
+.a-dropdown-personswitchList {
+	position: relative;
+
+	.dropdown-item {
+		white-space: normal;
+		border-bottom: 1px solid $grey-light;
+		padding: $space-and-half;
+
+		.a-flag {
+			max-width: 48px;
+			margin-right: $space;
+			float: left;
+			margin-top: 2px;
+		}
+
+		p {
+			margin-bottom: 0;
+			font-size: 14px;
+			word-wrap: break-word;;
+		}
+
+		&:last-child {
+			border-bottom: none;
+		}
+	}
+	// Arrow position when not inside header
+	&.a-dropdownTriangle:after {
+		left: 72px;
+		margin-left: 0px;
+	}
+}
+
+// If switchList is inside header, make absolute and positioned
+
+.a-header {
+	.a-dropdown-languages,
+	.a-dropdown-personswitchList {
+		width: 280px;
+		right: -90px;
+		left: auto;
+		padding: 0;
+		position: absolute;
+		top: 57px;
+		z-index: 10001;
+
+		@media all and (min-width: 360px) {
+			width: 320px;
+		}
+
+		@media all and (min-width: $bp-small) {
+			right: -38px;
+			top: 55px;
+		}
+
+		@media all and (min-width: $bp-med) {
+			width: 420px;
+			right: -77px;
+			top: 55px;
+		}
+
+		&.a-dropdownTriangle:after {
+			left: auto;
+			right: 98px;
+
+			@media all and (min-width: $bp-small) {
+				right: 28px;
+			}
+
+			@media all and (min-width: $bp-med) {
+				right: 60px;
+			}
+
+			@media all and (min-width: $bp-large) {
+				right: 68px;
+			}
+		}
+	}
+	.a-dropdown-personswitchList {
+			right: -87px;
+
+			@media all and (min-width: $bp-small) {
+				right: -12px;
+			}
+
+			@media all and (min-width: $bp-med) {
+				width: 420px;
+			}
+
+			&.a-dropdownTriangle:after{
+				right: 62px;
+
+				@media all and (min-width: $bp-small) {
+					right: 0px;
+				}
+				@media all and (min-width: $bp-med) {
+					right: 2px;
+				}
+			}
+	}
+}
+
+// When switcher panel is open
+.nav-pills .nav-item.open .nav-link.a-languageSwitcher,
+.nav-pills .nav-item.open .nav-link.a-personSwitcher {
+	background: transparent;
+	color: $blue-dark;
+	text-align: right;
+}
+
+// Hide .dropdown-menu (Language and personswitcher)
+// ONLY when inside a collapse-btn (.dropdown)
+
+.dropdown-menu,
+.dropdown-menu {
+	display: block;
+}
+.dropdown .dropdown-menu,
+.dropdown .dropdown-menu {
+	display: none;
+}
+.open > .dropdown-menu {
+    display: block;
+}
+
+// LOGO
+.a-logo {
+	height: 24px;
+	width: 100%;
+	margin-bottom: 0;
+}
+
+
+
+
+/*------------------------------------*\
+    $GLOBAL NAVIGATION (in header)
+\*------------------------------------*/
+.a-globalNav {
+	.navbar-toggler {
+    background: $blue-dark;
+    color: $white;
+		float: right;
+		margin-top: -5px;
+		width: 60px;
+		font-size: 16px;
+		padding: 8px 0;
+
+		&:after {
+			content: 'meny';
+		}
+
+		&[aria-expanded="true"]:after {
+			content: 'lukk';
+		}
+
+	}
+
+	.navbar-toggleable-xs {
+		width: 100%;
+		position: absolute;
+		left: 0;
+		overflow: visible;
+
+		@media all and (min-width: $bp-small) {
+			position: relative;
+		}
+	}
+}
+
+.a-globalNav-main {
+	margin-top: 60px;
+	padding-top: $space-x3;
+	background: $white;
+	position: absolute;
+	z-index: 1000;
+  min-height: 100%;
+	left: 0;
+	overflow: auto;
+	box-shadow: 2px 2px 9px 1px rgba(137,137,137,0.5);
+
+	.a-dropdownTriangle{
+		box-shadow: none;
+	}
+
+	@media all and (min-width: $bp-small) {
+		box-shadow: none;
+		margin-top: 2px;
+		background: transparent;
+		position: relative;
+	  min-height: none;
+		z-index: auto;
+		overflow: visible;
+		padding-top: 0;
+
+		.a-dropdownTriangle{
+		  background: transparent;
+			box-shadow: none;
+		}
+
+		.a-dropdownTriangle:after{
+		  display: none;
+		}
+	}
+
+	@media all and (min-width: $bp-large) {
+		margin-top: -2px;
+	}
+
+	.a-dropdownTriangle:after{
+	  margin-left: auto;
+		right: 8px;
+	}
+
+	ul {
+		list-style: none;
+		float: left;
+	}
+
+	li {
+		float: left;
+		width: 100%;
+		padding: 0 $space-x2;
+
+		@media all and (min-width: $bp-small) {
+			width: auto;
+			margin-left: $space-x2;
+			padding: 0;
+
+			&:first-child {
+				margin-left: $space;
+			}
+		}
+
+		@media all and (min-width: $bp-large) {
+			margin-left: $space-x3;
+
+			&:first-child {
+				margin-left: $space-x3;
+			}
+		}
+
+		@media all and (min-width: $bp-xlarge) {
+			margin-left: $space-x3;
+
+			&:first-child {
+				margin-left: $space-x4;
+			}
+		}
+
+		a {
+			font-size: 18px;
+			border: none;
+			font-family: 'DIN-medium';
+			padding: $space $space;
+			display: block;
+			border-bottom: 1px solid $blue-dark;
+
+			&:hover {
+				color: $blue;
+			}
+
+			&.globalNav-active {
+				color: $black;
+			}
+
+			@media all and (min-width: $bp-small) {
+				padding: 0;
+				padding-bottom: $space-half;
+				display: inline;
+				border-bottom: none;
+
+				&:hover,
+				&:active,
+				&:focus {
+					color: $blue-dark;
+				}
+
+				&.globalNav-active {
+			    border-bottom: 3px solid $blue-dark;
+					padding-bottom: 5px;
+					color: $blue-dark;
+				}
+			}
+
+			@media all and (min-width: $bp-large) {
+				font-size: 24px;
+				padding-bottom: 8px;
+			}
+
+
+
+			&.globalNav-active:before {
+		    content: "";
+		    position: absolute;
+		    z-index: -1;
+		    left: 50%;
+		    right: 50%;
+		    bottom: 0;
+		    background: #0062ba;
+		    height: 3px;
+			}
+
+		}
+
+		.a-tel {
+			font-family: 'DIN-bold';
+			padding-top: $space-x3;
+		}
+	}
+
+	li:last-child > a{
+		border-bottom: none;
+	}
+}
+
+
+/*----------------------------------------*\
+    $ Different color versions of header
+\*----------------------------------------*/
+
+// Dark background, white text
+.a-darkBackground {
+	.hvr-underline-from-center:before {
+		background: $white;
+	}
+
+	@media all and (min-width: $bp-small) {
+		.a-globalNav-main li a {
+			color: $white;
+		}
+	}
+	.a-header-options .a-languageSwitcher,
+	.a-header-options .a-personSwitcher {
+    color: $white;
+	}
+	.nav-pills .nav-item.open .nav-link.a-languageSwitcher,
+	.nav-pills .nav-item.open .nav-link.a-personSwitcher {
+    color: $white;
+	}
+
+}

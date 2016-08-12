@@ -1,0 +1,224 @@
+/*------------------------------------*\
+    $Table
+\*------------------------------------*/
+
+.a-table {
+
+	thead th {
+	    border-bottom: 2px solid $blue;
+	    font-family: 'DIN-bold';
+	}
+	td, th{
+		border-top: none;
+		border-bottom: 1px solid $blue-light;
+		padding: 6px 0 5px 0;
+	}
+
+}
+
+/*------------------------------------*\
+    $Table list
+\*------------------------------------*/
+
+.a-tableList {
+    border-collapse: collapse;
+
+    tr {
+        border-bottom: 2px dotted $blue;
+        display: table;
+        width: 100%;
+        font-size: 14px;
+
+         @media all and (min-width: $bp-med) {
+
+         	 // font-size: 16px;
+         }
+
+        &:hover {
+			background: $blue-light;
+			cursor: pointer;
+		}
+
+		&.a-table-header {
+		    margin-bottom: 0;
+		    padding-bottom: 3px;
+		    display: inline-block;
+		    width: 100%;
+
+
+		    &:hover {
+				background: transparent;
+				cursor: default;
+			}
+
+			th {
+				border-top: none;
+			}
+
+			.a-table-header-title {
+				margin-bottom: 0;
+			}
+
+		}
+
+        td, th {
+            position: relative;
+            width: 100%;
+            padding: 4px;
+            height: 36px;
+            display: table;
+            table-layout: fixed;
+
+
+			// Container for text and icon
+            .a-tableList-text-container {
+                padding: 4px;
+                display: table-cell;
+                vertical-align: middle;
+                word-wrap: break-word;
+            }
+
+            .a-tableList-text-fill-container {
+                @extend .a-tableList-text-container;
+                width: 100%;
+            }
+
+            .a-tableList-icon-container {
+                display: table-cell;
+                vertical-align: middle;
+                text-align: right;
+                width: 120px;
+                height: 30px;
+            }
+
+            .a-tableList-right-text-container {
+                @extend .a-tableList-icon-container;
+                padding: 4px 0 4px 4px;
+                text-align: left;
+            }
+
+
+			// Container for text and icon - LG
+            .a-tableList-icon-container-lg {
+                @extend .a-tableList-icon-container;
+                width: 300px;
+
+                @media(max-width: $bp-small) {
+                    width: 160px;
+                }
+            }
+
+            .a-tableList-right-text-container-lg {
+                @extend .a-tableList-right-text-container;
+                width: 200px;
+
+                @media(max-width: $bp-small) {
+                    width: 160px;
+                }
+            }
+
+			// Container for text and icon - SM
+            .a-tableList-icon-container-sm {
+                @extend .a-tableList-icon-container;
+                width: 30px;
+            }
+
+
+
+            // Icon inside list item
+            .a-tableList-icon {
+			    display: inline-block;
+			    width: 24px;
+			    height: 24px;
+			    margin: 0 6px;
+			    vertical-align: middle;
+
+				&.a-tableList-iconAdd {
+					color: $blue;
+					 margin: 0px;
+				}
+
+				&.a-tableList-iconUndo {
+					color: $black;
+				}
+
+				&.a-tableList-iconRemove {
+					color: $red;
+				}
+				&.a-tableList-iconRights {
+					color: #9A9A9A;
+					font-size: 18px;
+					height: 20px;
+					width: 20px;
+				}
+
+			}
+
+			.a-tableList-helpIcon {
+				border: none;
+				color: $grey-medium;
+
+				&:hover {
+					color: $grey;
+				}
+			}
+
+			.a-tableList-iconEdit {
+				padding-right: 24px;
+				color: $grey;
+				font-size: 14px;
+
+				.a-tableList-icon {
+					color: $grey ;
+					font-size: 18px;
+					height: 20px;
+					width: 20px;
+				}
+
+				&:hover {
+					color: $black;
+
+					.a-tableList-icon {
+						color: $black;
+					}
+				}
+			}
+
+			// Right attention label
+			.a-tableList-attentionLabel {
+                display: inline-block;
+            }
+
+        }
+    }
+
+    tr.a-tableList-deactivated,
+	tr.a-tableList-deactivated:hover {
+		background-image: url('../images/disabled-background.svg');
+		background-color: $white;
+		cursor: default;
+	}
+
+	tr.a-tableList-noAction:hover {
+		background-color: transparent;
+		cursor: default;
+	}
+
+	tr.a-tableList-added,
+	tr.a-tableList-added:hover{
+		background-color: $green-light;
+	}
+
+	tr.a-tableList-deletable:hover {
+			background-color: $red-light;
+	}
+
+	tr.a-tableList-deleted {
+		background-color: $red-light;
+		.a-tableList-textCheckedForDeletion {
+			text-decoration: line-through;
+		}
+	}
+
+
+}

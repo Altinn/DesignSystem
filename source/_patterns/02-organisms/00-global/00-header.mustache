@@ -1,0 +1,57 @@
+<!-- Begin .header -->
+<header class="a-header {{{ header-color }}}" role="banner">
+	<!-- Begin .container -->
+  <div class="container">
+
+		<!-- Begin .a-globalNav-options -->
+		<ul class="nav nav-pills a-header-options">
+
+			<li class="nav-item dropdown">
+				<!-- Dropdown toggle -->
+				<a class="nav-link dropdown-toggle a-languageSwitcher" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false"> <i class="material-icons hidden-md-up">&#xE894;</i> <span class="hidden-sm-down">Language</span></a>
+
+				{{# dropdownLanguages }}
+					{{> molecules-dropdown-menu }}
+				{{/ dropdownLanguages }}
+
+			</li>
+
+			<li class="nav-item dropdown">
+				<!-- Dropdown toggle -->
+				<a class="nav-link a-personSwitcher" data-toggle="{{{ data-toggle-personInfo }}}" href="{{ link.pages-homepage-signedin }}" role="button" aria-haspopup="true" aria-expanded="false"> <span class="a-personSwitcher-name hidden-sm-down" title="{{{ login-name }}} {{{ login-represent }}} "> {{{ login-name }}} <br> {{{ login-represent }}}</span> <i class="material-icons a-personSwitcher-icon">&#xE853;</i></a>
+
+				{{# dropdownPersonswitchList }}
+					{{> molecules-dropdown-menu-personSwitch }}
+				{{/ dropdownPersonswitchList }}
+			</li>
+
+		</ul> <!-- End .a-globalNav-options -->
+
+
+		<!-- Begin .a-globalNav -->
+		<nav class="a-globalNav">
+			<a href="{{ link.pages-homepage }}"> {{> atoms-logo }} </a>
+
+			  <button class="navbar-toggler hidden-sm-up" type="button" data-toggle="collapse" data-target="#exCollapsingNavbar2">
+			  </button>
+			  <div class="collapse navbar-toggleable-xs a-globalNav-main" id="exCollapsingNavbar2">
+					<ul class="a-dropdownTriangle" id="exCollapsingNavbar">
+
+						<li class="hidden-sm-up">
+							{{> atoms-search }}
+						</li>
+						<li><a class="hvr-underline-from-center" href="#">innboks</a></li>
+						<li><a class="hvr-underline-from-center {{{ globalNav-active }}}" href="{{ link.pages-skjema }}">alle skjema</a></li>
+						<li><a class="hvr-underline-from-center" href="#">profil</a></li>
+						<li class="hidden-sm-up"><a class="a-nav-link hvr-underline-from-center" href="#">starte og drive bedrift</a></li>
+						<li class="hidden-sm-up"><a class="hvr-underline-from-center" href="#">om altinn</a></li>
+						<li class="hidden-sm-up"><a class="hvr-underline-from-center" href="#">hjelpesider</a></li>
+						<li class="hidden-sm-up">
+							{{> atoms-tel }}
+						</li>
+					</ul>
+			  </div>
+		</nav> <!-- End .a-globalNav -->
+
+	</div> <!-- End .container -->
+</header> <!-- End .header -->

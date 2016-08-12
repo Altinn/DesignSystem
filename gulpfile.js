@@ -5,6 +5,7 @@
 ******************************************************/
 var gulp = require('gulp'),
   path = require('path'),
+  sass = require('gulp-sass'),
   browserSync = require('browser-sync').create(),
   argv = require('minimist')(process.argv.slice(2));
 
@@ -17,11 +18,45 @@ gulp.task('pl-copy:js', function(){
     .pipe(gulp.dest(path.resolve(paths().public.js)));
 });
 
-// Images copy
-gulp.task('pl-copy:img', function(){
-  return gulp.src('**/*.*',{cwd: path.resolve(paths().source.images)} )
-    .pipe(gulp.dest(path.resolve(paths().public.images)));
-});
+// Copy Bootstrap:
+gulp.task('pl-copy:bs', function () {
+  return gulp.src('node_modules/bootstrap/dist/js/bootstrap.min.js')
+    .pipe(gulp.dest(path.resolve(paths().public.js)))
+})
+// Copy Tether:
+gulp.task('pl-copy:th', function () {
+  return gulp.src('node_modules/tether/dist/js/tether.min.js')
+    .pipe(gulp.dest(path.resolve(paths().public.js)))
+})
+// Copy jQuery:
+gulp.task('pl-copy:jq', function () {
+  return gulp.src('node_modules/jquery/dist/jquery.min.js')
+    .pipe(gulp.dest(path.resolve(paths().public.js)))
+})
+// Copy Validator:
+gulp.task('pl-copy:bv', function () {
+  return gulp.src('node_modules/bootstrap-validator/dist/validator.min.js')
+    .pipe(gulp.dest(path.resolve(paths().public.js)))
+})
+// Copy SmoothState:
+gulp.task('pl-copy:ss', function () {
+  return gulp.src('node_modules/smoothstate/jquery.smoothState.min.js')
+    .pipe(gulp.dest(path.resolve(paths().public.js)))
+})
+// Copy Anchor:
+gulp.task('pl-copy:an', function () {
+  return gulp.src('node_modules/anchor-js/anchor.min.js')
+    .pipe(gulp.dest(path.resolve(paths().public.js)))
+})
+
+// Images copy:
+gulp.task('pl-copy:img', function () {
+  return gulp.src(
+    ['**/*.gif', '**/*.png', '**/*.jpg', '**/*.jpeg', '**/*.svg'],
+    {cwd: path.resolve(paths().source.images)}
+  )
+    .pipe(gulp.dest(path.resolve(paths().public.images)))
+})
 
 // Favicon copy
 gulp.task('pl-copy:favicon', function(){
@@ -31,13 +66,14 @@ gulp.task('pl-copy:favicon', function(){
 
 // Fonts copy
 gulp.task('pl-copy:font', function(){
-  return gulp.src('*', {cwd: path.resolve(paths().source.fonts)})
+  return gulp.src('*/**', {cwd: path.resolve(paths().source.fonts)})
     .pipe(gulp.dest(path.resolve(paths().public.fonts)));
 });
 
 // CSS Copy
 gulp.task('pl-copy:css', function(){
-  return gulp.src(path.resolve(paths().source.css, '*.css'))
+  return gulp.src(path.resolve(paths().source.css, 'style.scss'))
+    .pipe(sass().on('error', sass.logError))
     .pipe(gulp.dest(path.resolve(paths().public.css)))
     .pipe(browserSync.stream());
 });
@@ -82,6 +118,12 @@ function build(done) {
 gulp.task('pl-assets', gulp.series(
   gulp.parallel(
     'pl-copy:js',
+    'pl-copy:bs',
+    'pl-copy:th',
+    'pl-copy:jq',
+    'pl-copy:bv',
+    'pl-copy:ss',
+    'pl-copy:an',
     'pl-copy:img',
     'pl-copy:favicon',
     'pl-copy:font',
