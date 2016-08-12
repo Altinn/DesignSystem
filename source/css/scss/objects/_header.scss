@@ -100,10 +100,6 @@
 			right: 0px;
 		}
 
-		@media all and (min-width: $bp-med) {
-			// width: 200px;
-		}
-
 		&:hover,
 		&:focus,
 		&:active {
@@ -111,15 +107,27 @@
 			border: none;
 		}
 		.a-personSwitcher-name {
-			// width: 150px;
-			// text-align: right;
-			// position: absolute;
-			// right: 50px;
-			// top: 10px;
+			text-align: right;
+			vertical-align: middle;
+
+			display:inline-block;
+	    max-width:90px;
+	    white-space: nowrap;
+	    overflow:hidden !important;
+	    text-overflow: ellipsis;
+
+			@media all and (min-width: $bp-large) {
+				max-width:120px;
+			}
+
+			@media all and (min-width: $bp-xlarge) {
+				max-width:220px;
+			}
 		}
 		.a-personSwitcher-icon {
 			font-size: 30px;
 			vertical-align: middle;
+
 
 			@media all and (min-width: $bp-med) {
 				font-size: 36px;
