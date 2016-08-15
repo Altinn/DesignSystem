@@ -82,7 +82,11 @@ gulp.task('pl-copy:css', function(){
 gulp.task('pl-copy:styleguide', function(){
   return gulp.src(path.resolve(paths().source.styleguide, '**/!(*.css)'))
     .pipe(gulp.dest(path.resolve(paths().public.root)))
-    .pipe(browserSync.stream());
+    .pipe(browserSync.stream())
+    .on('end', function () {
+      gulp.src('./public/images/lab5.svg')
+        .pipe(gulp.dest('./public/styleguide/images'));
+    });
 });
 
 // Styleguide Copy and flatten css
