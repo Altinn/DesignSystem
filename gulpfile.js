@@ -84,7 +84,7 @@ gulp.task('pl-copy:styleguide', function(){
     .pipe(gulp.dest(path.resolve(paths().public.root)))
     .pipe(browserSync.stream())
     .on('end', function () {
-      gulp.src('./public/images/lab5.svg')
+      gulp.src('./source/images/lab5.svg')
         .pipe(gulp.dest('./public/styleguide/images'));
     });
 });
@@ -187,7 +187,7 @@ function reload() {
 }
 
 function watch() {
-  gulp.watch(path.resolve(paths().source.css, '**/*.css')).on('change', gulp.series('pl-copy:css', reload));
+  gulp.watch(path.resolve(paths().source.css, '**/*.scss')).on('change', gulp.series('pl-copy:css', reload));
   gulp.watch(path.resolve(paths().source.styleguide, '**/*.*')).on('change', gulp.series('pl-copy:styleguide', 'pl-copy:styleguide-css', reload));
 
   var patternWatches = [
