@@ -4,7 +4,7 @@ var comments = {
 	{
 		"el": ".a-options",
 	 	"title" : "Avkrysningsbokser",
-	 	"comment": "Brukes i tilfeller der brukeren kan velge flere verdier fra et lite sett med alternativer.<a class=\"asg-editcomment\" href=\"https://github.com/Altinn/DesignSystem/blob/master/source/_data/annotations.js\">Rediger kommentaren</a>"
+	 	"comment": "Ingen kommentarer"
 	},
 	{
 		"el": ".a-switch-label",
