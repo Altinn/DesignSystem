@@ -63,6 +63,32 @@ options = undefined
 // }(jQuery))
 
 (function ($) {
+  // Handle theme toggle:
+  $(function () {
+    if (localStorage.getItem('theme') && localStorage.getItem('theme') === 'business') {
+      $('body', $('iframe').contents()[0]).attr('class', 'business');
+      $('#sg-switchtheme-blue', $('iframe').contents()[0]).prop('checked', true)
+    } else {
+      $('body', $('iframe').contents()[0]).attr('class', 'private-person');
+      $('#sg-switchtheme-grey', $('iframe').contents()[1]).prop('checked', true)
+    }
+    $('#sg-switchtheme-blue',
+      $('iframe').contents()[0]).change(function () {
+      $('body', $('iframe').contents()[0]).toggleClass('business');
+      $('body', $('iframe').contents()[0]).toggleClass('private-person');
+      $('html', $('iframe').contents()[0]).toggleClass('business');
+      $('html', $('iframe').contents()[0]).toggleClass('private-person');
+      localStorage.setItem('theme', $('body', $('iframe').contents()[0]).attr('class'))
+    });
+    $('#sg-switchtheme-grey',
+      $('iframe').contents()[0]).change(function () {
+      $('body', $('iframe').contents()[0]).toggleClass('business')
+      $('body', $('iframe').contents()[0]).toggleClass('private-person')
+      $('html', $('iframe').contents()[0]).toggleClass('business')
+      $('html', $('iframe').contents()[0]).toggleClass('private-person')
+      localStorage.setItem('theme', $('body', $('iframe').contents()[0]).attr('class'))
+    })
+  })
   // Handle filter toggle:
   $(function () {
     $('.a-collapseFilter').on('mouseup', function () {
