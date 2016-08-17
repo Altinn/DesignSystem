@@ -1,4 +1,4 @@
-/* Her skrives kommentarer til UI-komponentene. */
+/* Her skrives kommentarer til UI-komponentene.
 var comments = {
 "comments" : [
 	{
@@ -318,3 +318,4 @@ var comments = {
 	}
 ]
 };
+*/
