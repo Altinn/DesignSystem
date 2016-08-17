@@ -1,4 +1,4 @@
 ---
-state: inreview
+state: complete
 ---
-Avkrysningsknapper brukes i tilfeller der brukeren kan tildele rettigheter til andre personer.
+Brukes i tilfeller der brukeren kan tildele rettigheter til andre personer.
