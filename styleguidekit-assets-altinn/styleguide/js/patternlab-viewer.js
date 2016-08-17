@@ -10,32 +10,32 @@
 (function ($, document, undefined) {
 
   var pluses = /\+/g;
-
+  
   function raw(s) {
     return s;
   }
-
+  
   function decoded(s) {
     return decodeURIComponent(s.replace(pluses, ' '));
   }
-
+  
   var config = $.cookie = function (key, value, options) {
-
+    
     // write
     if (value !== undefined) {
       options = $.extend({}, config.defaults, options);
-
+      
       if (value === null) {
         options.expires = -1;
       }
-
+      
       if (typeof options.expires === 'number') {
         var days = options.expires, t = options.expires = new Date();
         t.setDate(t.getDate() + days);
       }
-
+      
       value = config.json ? JSON.stringify(value) : String(value);
-
+      
       return (document.cookie = [
         encodeURIComponent(key), '=', config.raw ? value : encodeURIComponent(value),
         options.expires ? '; expires=' + options.expires.toUTCString() : '', // use expires attribute, max-age is not supported by IE
@@ -44,7 +44,7 @@
         options.secure  ? '; secure' : ''
       ].join(''));
     }
-
+    
     // read
     var decode = config.raw ? raw : decoded;
     var cookies = document.cookie.split('; ');
@@ -55,12 +55,12 @@
         return config.json ? JSON.parse(cookie) : cookie;
       }
     }
-
+    
     return null;
   };
-
+  
   config.defaults = {};
-
+  
   $.removeCookie = function (key, options) {
     if ($.cookie(key) !== null) {
       $.cookie(key, null, options);
@@ -79,10 +79,10 @@
  */
 
 var DataSaver = {
-
+  
   // the name of the cookie to store the data in
   cookieName: "patternlab",
-
+  
   /**
   * Add a given value to the cookie
   * @param  {String}       the name of the key
@@ -93,7 +93,7 @@ var DataSaver = {
     cookieVal = ((cookieVal === null) || (cookieVal === "")) ? name+"~"+val : cookieVal+"|"+name+"~"+val;
     $.cookie(this.cookieName,cookieVal);
   },
-
+  
   /**
   * Update a value found in the cookie. If the key doesn't exist add the value
   * @param  {String}       the name of the key
@@ -115,7 +115,7 @@ var DataSaver = {
       this.addValue(name,val);
     }
   },
-
+  
   /**
   * Remove the given key
   * @param  {String}       the name of the key
@@ -133,7 +133,7 @@ var DataSaver = {
     }
     $.cookie(this.cookieName,updateCookieVals);
   },
-
+  
   /**
   * Find the value using the given key
   * @param  {String}       the name of the key
@@ -152,7 +152,7 @@ var DataSaver = {
     }
     return false;
   }
-
+  
 };
 
 /*!
@@ -163,24 +163,24 @@ var DataSaver = {
  */
 
 try {
-
+  
   /* load pattern nav */
   var template         = document.getElementById("pl-pattern-nav-template");
   var templateCompiled = Hogan.compile(template.innerHTML);
   var templateRendered = templateCompiled.render(navItems);
   document.getElementById("pl-pattern-nav-target").innerHTML = templateRendered;
-
+  
   /* load ish controls */
   var template         = document.getElementById("pl-ish-controls-template");
   var templateCompiled = Hogan.compile(template.innerHTML);
   var templateRendered = templateCompiled.render(ishControls);
   document.getElementById("sg-controls").innerHTML = templateRendered;
-
+  
 } catch(e) {
-
+  
   var message = "<h1>Nothing Here Yet</h1><p>Please generate your site before trying to view it.</p>";
   document.getElementById("pl-pattern-nav-target").innerHTML = message;
-
+  
 }
 
 /*!
@@ -196,11 +196,11 @@ try {
  */
 
 var urlHandler = {
-
+  
   // set-up some default vars
   skipBack: false,
   targetOrigin: (window.location.protocol == "file:") ? "*" : window.location.protocol+"//"+window.location.host,
-
+  
   /**
   * get the real file name for a given pattern name
   * @param  {String}       the shorthand partials syntax for a given pattern
@@ -209,51 +209,51 @@ var urlHandler = {
   * @return {String}       the real file path
   */
   getFileName: function (name, withRenderedSuffix) {
-
+    
     var baseDir     = "patterns";
     var fileName    = "";
-
+    
     if (name === undefined) {
       return fileName;
     }
-
+    
     if (withRenderedSuffix === undefined) {
       withRenderedSuffix = true;
     }
-
+    
     if (name == "all") {
       return "styleguide/html/styleguide.html";
     } else if (name == "snapshots") {
       return "snapshots/index.html";
     }
-
+    
     var paths = (name.indexOf("viewall-") != -1) ? viewAllPaths : patternPaths;
     var nameClean = name.replace("viewall-","");
-
+    
     // look at this as a regular pattern
     var bits        = this.getPatternInfo(nameClean, paths);
     var patternType = bits[0];
     var pattern     = bits[1];
-
+    
     if ((paths[patternType] !== undefined) && (paths[patternType][pattern] !== undefined)) {
-
+      
       fileName = paths[patternType][pattern];
-
+      
     } else if (paths[patternType] !== undefined) {
-
+      
       for (var patternMatchKey in paths[patternType]) {
         if (patternMatchKey.indexOf(pattern) != -1) {
           fileName = paths[patternType][patternMatchKey];
           break;
         }
       }
-
+    
     }
-
+    
     if (fileName === "") {
       return fileName;
     }
-
+    
     var regex = /\//g;
     if ((name.indexOf("viewall-") !== -1) && (name.indexOf("viewall-") === 0) && (fileName !== "")) {
       fileName = baseDir+"/"+fileName.replace(regex,"-")+"/index.html";
@@ -264,11 +264,11 @@ var urlHandler = {
         fileName = fileName+fileSuffixRendered+".html";
       }
     }
-
+    
     return fileName;
-
+    
   },
-
+  
   /**
   * break up a pattern into its parts, pattern type and pattern name
   * @param  {String}       the shorthand partials syntax for a given pattern
@@ -277,31 +277,31 @@ var urlHandler = {
   * @return {Array}        the pattern type and pattern name
   */
   getPatternInfo: function (name, paths) {
-
+    
     var patternBits = name.split("-");
-
+    
     var i = 1;
     var c = patternBits.length;
-
+    
     var patternType = patternBits[0];
     while ((paths[patternType] === undefined) && (i < c)) {
       patternType += "-"+patternBits[i];
       i++;
     }
-
+    
     var pattern = name.slice(patternType.length+1,name.length);
-
+    
     return [patternType, pattern];
-
+    
   },
-
+  
   /**
   * search the request vars for a particular item
   *
   * @return {Object}       a search of the window.location.search vars
   */
   getRequestVars: function() {
-
+    
     // the following is taken from https://developer.mozilla.org/en-US/docs/Web/API/window.location
     var oGetVars = new (function (sSearch) {
       if (sSearch.length > 1) {
@@ -311,11 +311,11 @@ var urlHandler = {
         }
       }
     })(window.location.search);
-
+    
     return oGetVars;
-
+    
   },
-
+  
   /**
   * push a pattern onto the current history based on a click
   * @param  {String}       the shorthand partials syntax for a given pattern
@@ -343,42 +343,42 @@ var urlHandler = {
       }
     }
   },
-
+  
   /**
   * based on a click forward or backward modify the url and iframe source
   * @param  {Object}      event info like state and properties set in pushState()
   */
   popPattern: function (e) {
-
+    
     var patternName;
     var state = e.state;
-
+    
     if (state === null) {
       this.skipBack = false;
       return;
     } else if (state !== null) {
       patternName = state.pattern;
     }
-
+    
     var iFramePath = "";
     iFramePath = this.getFileName(patternName);
     if (iFramePath === "") {
       iFramePath = "styleguide/html/styleguide.html";
     }
-
+    
     var obj = JSON.stringify({ "event": "patternLab.updatePath", "path": iFramePath });
     document.getElementById("sg-viewport").contentWindow.postMessage( obj, urlHandler.targetOrigin);
     document.getElementById("title").innerHTML = "Pattern Lab - "+patternName;
     document.getElementById("sg-raw").setAttribute("href",urlHandler.getFileName(patternName));
-
+    
     /*
     if (wsnConnected !== undefined) {
       wsn.send( '{"url": "'+iFramePath+'", "patternpartial": "'+patternName+'" }' );
     }
     */
-
+    
   }
-
+  
 };
 
 /**
@@ -402,29 +402,29 @@ window.onpopstate = function (event) {
  */
 
 var modalViewer = {
-
+  
   // set up some defaults
   active:        false,
   switchText:    true,
   template:      'info',
   patternData:   {},
   targetOrigin:  (window.location.protocol === 'file:') ? '*' : window.location.protocol+'//'+window.location.host,
-
+  
   /**
   * initialize the modal window
   */
   onReady: function() {
-
+    
     // make sure the listener for checkpanels is set-up
     Dispatcher.addListener('insertPanels', modalViewer.insert);
-
+    
     // watch for resizes and hide the modal container as appropriate when the modal is already hidden
     $(window).on('resize', function() {
       if (DataSaver.findValue('modalActive') === 'false') {
         modalViewer.slide($('#sg-modal-container').outerHeight());
       }
     });
-
+    
     // add the info/code panel onclick handler
     $('#sg-t-patterninfo').click(function(e) {
       e.preventDefault();
@@ -432,45 +432,45 @@ var modalViewer = {
       $(this).parents('ul').removeClass('active');
       modalViewer.toggle();
     });
-
+    
     // make sure the close button handles the click
     $('#sg-modal-close-btn').on('click', function(e) {
-
+      
       e.preventDefault();
-
+      
       // hide any open annotations
       obj = JSON.stringify({ 'event': 'patternLab.annotationsHighlightHide' });
       document.getElementById('sg-viewport').contentWindow.postMessage(obj, modalViewer.targetOrigin);
-
+      
       // hide the viewer
       modalViewer.close();
-
+      
     });
-
+    
     // see if the modal is already active, if so update attributes as appropriate
     if (DataSaver.findValue('modalActive') === 'true') {
       modalViewer.active = true;
       $('#sg-t-patterninfo').html("Hide Pattern Info");
     }
-
+    
     // make sure the modal viewer is not viewable, it's alway hidden by default. the pageLoad event determines when it actually opens
     modalViewer.hide();
-
+    
     // review the query strings in case there is something the modal viewer is supposed to handle by default
     var queryStringVars = urlHandler.getRequestVars();
-
+    
     // show the modal if code view is called via query string
     if ((queryStringVars.view !== undefined) && ((queryStringVars.view === 'code') || (queryStringVars.view === 'c'))) {
       modalViewer.queryPattern();
     }
-
+    
     // show the modal if the old annotations view is called via query string
     if ((queryStringVars.view !== undefined) && ((queryStringVars.view === 'annotations') || (queryStringVars.view === 'a'))) {
       modalViewer.queryPattern();
     }
-
+    
   },
-
+  
   /**
   * toggle the modal window open and closed
   */
@@ -483,12 +483,12 @@ var modalViewer = {
       modalViewer.close();
     }
   },
-
+  
   /**
   * open the modal window
   */
   open: function() {
-
+    
     // make sure the modal viewer and other options are off just in case
     modalViewer.close();
 
@@ -501,48 +501,48 @@ var modalViewer = {
 
     //Add active class to modal
     $('#sg-modal-container').addClass('active');
-
+    
     // show the modal
     modalViewer.show();
-
+    
   },
-
+  
   /**
   * close the modal window
   */
   close: function() {
-
+    
     var obj;
-
+    
     // not that the modal viewer is no longer active
     DataSaver.updateValue('modalActive', 'false');
     modalViewer.active = false;
-
+    
     //Add active class to modal
     $('#sg-modal-container').removeClass('active');
-
+    
     // remove the active class from all of the checkbox items
     $('.sg-checkbox').removeClass('active');
-
+    
     // hide the modal
     modalViewer.hide();
-
+    
     // update the wording
     $('#sg-t-patterninfo').html("Show Pattern Info");
-
+    
     // tell the styleguide to close
     obj = JSON.stringify({ 'event': 'patternLab.patternModalClose' });
     document.getElementById('sg-viewport').contentWindow.postMessage(obj, modalViewer.targetOrigin);
-
+    
   },
-
+  
   /**
   * hide the modal window, add 30px to account for the X box
   */
   hide: function() {
     modalViewer.slide($('#sg-modal-container').outerHeight()+30);
   },
-
+  
   /**
   * insert the copy for the modal window. if it's meant to be sent back to the iframe do do
   * @param  {String}       the rendered template that should be inserted
@@ -551,28 +551,28 @@ var modalViewer = {
   * @param  {Boolean}      if the text in the dropdown should be switched
   */
   insert: function(templateRendered, patternPartial, iframePassback, switchText) {
-
+    
     if (iframePassback) {
-
+      
       // send a message to the pattern
       var obj = JSON.stringify({ 'event': 'patternLab.patternModalInsert', 'patternPartial': patternPartial, 'modalContent': templateRendered.outerHTML });
       document.getElementById('sg-viewport').contentWindow.postMessage(obj, modalViewer.targetOrigin);
-
+      
     } else {
-
+      
       // insert the panels and open the viewer
       $('#sg-modal-content').html(templateRendered);
       modalViewer.open();
-
+      
     }
-
+    
     // update the wording unless this is a default viewall opening
     if (switchText === true) {
       $('#sg-t-patterninfo').html("Hide Pattern Info");
     }
-
+    
   },
-
+  
   /**
   * refresh the modal if a new pattern is loaded and the modal is active
   * @param  {Object}       the patternData sent back from the query
@@ -580,17 +580,17 @@ var modalViewer = {
   * @param  {Boolean}      if the text in the dropdown should be switched
   */
   refresh: function(patternData, iframePassback, switchText) {
-
+    
     // if this is a styleguide view close the modal
     if (iframePassback) {
       modalViewer.hide();
     }
-
+    
     // gather the data that will fill the modal window
     panelsViewer.gatherPanels(patternData, iframePassback, switchText);
-
+    
   },
-
+  
   /**
   * slides the modal window into or out of view
   * @param  {Integer}      where the modal window should be slide to
@@ -599,19 +599,19 @@ var modalViewer = {
     pos = (pos === 0) ? 0 : -pos;
     $('#sg-modal-container').css('bottom',pos);
   },
-
+  
   /**
   * slides the modal window to a particular annotation
   * @param  {Integer}      the number for the element that should be highlighted
   */
   slideToAnnotation: function(pos) {
-
+    
     // remove active class
     els = document.querySelectorAll('#sg-annotations > .sg-annotations-list > li');
     for (i = 0; i < els.length; ++i) {
       els[i].classList.remove('active');
     }
-
+    
     // add active class to called element and scroll to it
     for (i = 0; i < els.length; ++i) {
       if ((i+1) == pos) {
@@ -619,76 +619,76 @@ var modalViewer = {
         $('.sg-pattern-extra-info').animate({scrollTop: els[i].offsetTop - 10}, 600);
       }
     }
-
+    
   },
-
+  
   /**
   * alias for slide
   */
   show: function() {
     modalViewer.slide(0);
   },
-
+  
   /**
   * ask the pattern for info so we can open the modal window and populate it
   * @param  {Boolean}      if the dropdown text should be changed
   */
   queryPattern: function(switchText) {
-
+    
     // note that the modal is active and set switchText
     if ((switchText === undefined) || (switchText)) {
       switchText = true;
       DataSaver.updateValue('modalActive', 'true');
       modalViewer.active = true;
     }
-
+    
     // send a message to the pattern
     var obj = JSON.stringify({ 'event': 'patternLab.patternQuery', 'switchText': switchText });
     document.getElementById('sg-viewport').contentWindow.postMessage(obj, modalViewer.targetOrigin);
-
+    
   },
-
+  
   /**
   * toggle the comment pop-up based on a user clicking on the pattern
   * based on the great MDN docs at https://developer.mozilla.org/en-US/docs/Web/API/window.postMessage
   * @param  {Object}      event info
   */
   receiveIframeMessage: function(event) {
-
+    
     var els, i;
-
+    
     // does the origin sending the message match the current host? if not dev/null the request
     if ((window.location.protocol !== 'file:') && (event.origin !== window.location.protocol+'//'+window.location.host)) {
       return;
     }
-
+    
     var data = {};
     try {
       data = (typeof event.data !== 'string') ? event.data : JSON.parse(event.data);
     } catch(e) {}
-
+    
     if ((data.event !== undefined) && (data.event == "patternLab.pageLoad")) {
-
+      
       if ((modalViewer.active === false) && (data.patternpartial !== undefined) && (data.patternpartial.indexOf('viewall-') === 0) && (config.defaultShowPatternInfo !== undefined) && (config.defaultShowPatternInfo)) {
         modalViewer.queryPattern(false);
       } else if (modalViewer.active === true) {
         modalViewer.queryPattern();
       }
-
+      
     } else if ((data.event !== undefined) && (data.event == 'patternLab.patternQueryInfo')) {
-
+      
       // refresh the modal if a new pattern is loaded and the modal is active
       modalViewer.refresh(data.patternData, data.iframePassback, data.switchText);
-
+      
     } else if ((data.event !== undefined) && (data.event == 'patternLab.annotationNumberClicked')) {
-
+      
       // slide to a given annoation
       modalViewer.slideToAnnotation(data.displayNumber);
-
+      
     }
-
+    
   }
-
+  
 };
 
 // when the document is ready make sure the modal is ready
@@ -707,14 +707,14 @@ window.addEventListener("message", modalViewer.receiveIframeMessage, false);
  */
 
 var panelsUtil = {
-
+  
   /**
   * Add click events to the template that was rendered
   * @param  {String}      the rendered template for the modal
   * @param  {String}      the pattern partial for the modal
   */
   addClickEvents: function(templateRendered, patternPartial) {
-
+    
     var els = templateRendered.querySelectorAll('#sg-'+patternPartial+'-tabs li');
     for (var i = 0; i < els.length; ++i) {
       els[i].onclick = function(e) {
@@ -724,40 +724,40 @@ var panelsUtil = {
         panelsUtil.show(patternPartial, panelID);
       };
     }
-
+    
     return templateRendered;
-
+    
   },
-
+  
   /**
   * Show a specific modal
   * @param  {String}      the pattern partial for the modal
   * @param  {String}      the ID of the panel to be shown
   */
   show: function(patternPartial, panelID) {
-
+    
     var els;
-
+    
     // turn off all of the active tabs
     els = document.querySelectorAll('#sg-'+patternPartial+'-tabs li');
     for (i = 0; i < els.length; ++i) {
       els[i].classList.remove('sg-tab-title-active');
     }
-
+    
     // hide all of the panels
     els = document.querySelectorAll('#sg-'+patternPartial+'-panels div.sg-tabs-panel');
     for (i = 0; i < els.length; ++i) {
       els[i].style.display = 'none';
     }
-
+    
     // add active tab class
     document.getElementById('sg-'+patternPartial+'-'+panelID+'-tab').classList.add('sg-tab-title-active');
-
+    
     // show the panel
     document.getElementById('sg-'+patternPartial+'-'+panelID+'-panel').style.display = 'flex';
-
+    
   }
-
+  
 };
 
 /*!
@@ -768,26 +768,26 @@ var panelsUtil = {
  *
  */
 var PrismLanguages = {
-
+  
   languages: [],
-
+  
   get: function(key) {
-
+    
     var language;
-
+    
     for (i = 0; i < this.languages.length; ++i) {
       language = this.languages[i];
       if (language[key] !== undefined) {
         return language[key];
       }
     }
-
+    
     return 'markup';
-
+    
   },
-
+  
   add: function(language) {
-
+    
     // see if the language already exists, overwrite if it does
     for (var key in language) {
       if (language.hasOwnProperty(key)) {
@@ -799,11 +799,11 @@ var PrismLanguages = {
         }
       }
     }
-
+    
     this.languages.push(language);
-
+    
   }
-
+  
 };
 
 // this shouldn't get hardcoded, also need to think about including Prism's real lang libraries (e.g. handlebars & twig)
@@ -822,31 +822,31 @@ PrismLanguages.add({'mustache': 'markup'});
  */
 
 var Panels = {
-
+  
   panels: [],
-
+  
   count: function() {
     return this.panels.length;
   },
-
+  
   get: function() {
     return JSON.parse(JSON.stringify(this.panels));
   },
-
+  
   add: function(panel) {
-
+    
     // if ID already exists in panels array ignore the add()
     for (i = 0; i < this.panels.length; ++i) {
       if (panel.id === this.panels[i].id) {
         return;
       }
     }
-
+    
     // it wasn't found so push the tab onto the tabs
     this.panels.push(panel);
-
+    
   }
-
+  
 };
 
 // set-up the base file extensions to fetch
@@ -919,7 +919,7 @@ var panelsViewer = {
     for (var i = 0; i < panels.length; ++i) {
 
       panel = panels[i];
-
+      
       // catch pattern panel since it doesn't have a name defined by default
       if (panel.name === undefined) {
         panel.name = patternData.patternExtension;
@@ -944,7 +944,7 @@ var panelsViewer = {
               Dispatcher.trigger('checkPanels', [panels, patternData, iframePassback, switchText]);
             };
           })(i, panels, patternData, iframePassback);
-
+          
           e.open('GET', fileBase+panel.httpRequestReplace+'?'+(new Date()).getTime(), true);
           e.send();
 
@@ -978,7 +978,7 @@ var panelsViewer = {
     var annotation, comment, count, div, els, item, markup, i;
     var patternPartial = patternData.patternPartial;
     patternData.panels = panels;
-
+    
     // set a default pattern description for modal pop-up
     if (!iframePassback && (patternData.patternDesc.length === 0)) {
       patternData.patternDesc = "This pattern doesn't have a description.";
@@ -1044,13 +1044,13 @@ var panelsViewer = {
 
     // figure out if pattern state should be drawn
     patternData.patternStateExists = (patternData.patternState.length > 0);
-
+    
     // figure if annotations should be drawn
     patternData.annotationExists = (patternData.annotations.length > 0);
-
+    
     // figure if the entire desc block should be drawn
     patternData.descBlockExists = (patternData.patternDescExists || patternData.lineageExists || patternData.lineageRExists || patternData.patternStateExists || patternData.annotationExists);
-
+    
     // set isPatternView based on if we have to pass it back to the styleguide level
     patternData.isPatternView = (iframePassback === false);
 
@@ -1110,12 +1110,12 @@ var panelsViewer = {
  */
 
 var patternFinder = {
-
+  
   data:   [],
   active: false,
-
+  
   init: function() {
-
+    
     for (var patternType in patternPaths) {
       if (patternPaths.hasOwnProperty(patternType)) {
         for (var pattern in patternPaths[patternType]) {
@@ -1126,7 +1126,7 @@ var patternFinder = {
         }
       }
     }
-
+    
     // instantiate the bloodhound suggestion engine
     var patterns = new Bloodhound({
       datumTokenizer: function(d) { return Bloodhound.tokenizers.nonword(d.patternPartial); },
@@ -1134,32 +1134,32 @@ var patternFinder = {
       limit: 10,
       local: this.data
     });
-
+    
     // initialize the bloodhound suggestion engine
     patterns.initialize();
-
+    
     $('#sg-find .typeahead').typeahead({ highlight: true }, {
       displayKey: 'patternPartial',
       source: patterns.ttAdapter()
     }).on('typeahead:selected', patternFinder.onSelected).on('typeahead:autocompleted', patternFinder.onAutocompleted);
-
+    
   },
-
+  
   passPath: function(item) {
     // update the iframe via the history api handler
     patternFinder.closeFinder();
     var obj = JSON.stringify({ "event": "patternLab.updatePath", "path": urlHandler.getFileName(item.patternPartial) });
     document.getElementById("sg-viewport").contentWindow.postMessage(obj, urlHandler.targetOrigin);
   },
-
+  
   onSelected: function(e,item) {
     patternFinder.passPath(item);
   },
-
+  
   onAutocompleted: function(e,item) {
     patternFinder.passPath(item);
   },
-
+  
   toggleFinder: function() {
     if (!patternFinder.active) {
       patternFinder.openFinder();
@@ -1167,43 +1167,43 @@ var patternFinder = {
       patternFinder.closeFinder();
     }
   },
-
+  
   openFinder: function() {
     patternFinder.active = true;
     $('#sg-find .typeahead').val("");
     $("#sg-find").addClass('show-overflow');
   },
-
+  
   closeFinder: function() {
     patternFinder.active = false;
     document.activeElement.blur();
     $("#sg-find").removeClass('show-overflow');
     $('#sg-find .typeahead').val("");
   },
-
+  
   receiveIframeMessage: function(event) {
-
+    
     // does the origin sending the message match the current host? if not dev/null the request
     if ((window.location.protocol !== "file:") && (event.origin !== window.location.protocol+"//"+window.location.host)) {
       return;
     }
-
+    
     var data = {};
     try {
       data = (typeof event.data !== 'string') ? event.data : JSON.parse(event.data);
     } catch(e) {}
-
+    
     if ((data.event !== undefined) && (data.event == "patternLab.keyPress")) {
-
+      
       if (data.keyPress == 'ctrl+shift+f') {
         patternFinder.toggleFinder();
         return false;
       }
-
+      
     }
-
+    
   }
-
+  
 };
 
 patternFinder.init();
@@ -1232,7 +1232,7 @@ $('#sg-find .typeahead').blur(function() {
 
 // alert the iframe parent that the pattern has loaded assuming this view was loaded in an iframe
 if (self != top) {
-
+  
   // handle the options that could be sent to the parent window
   //   - all get path
   //   - pattern & view all get a pattern partial, styleguide gets all
@@ -1240,17 +1240,17 @@ if (self != top) {
   var path = window.location.toString();
   var parts = path.split("?");
   var options = { "event": "patternLab.pageLoad", "path": parts[0] };
-
+  
   patternData = document.getElementById('sg-pattern-data-footer').innerHTML;
   patternData = JSON.parse(patternData);
   options.patternpartial = (patternData.patternPartial !== undefined) ? patternData.patternPartial : "all";
   if (patternData.lineage !== "") {
     options.lineage = patternData.lineage;
   }
-
+  
   var targetOrigin = (window.location.protocol == "file:") ? "*" : window.location.protocol+"//"+window.location.host;
   parent.postMessage(options, targetOrigin);
-
+  
   // find all links and add an onclick handler for replacing the iframe address so the history works
   var aTags = document.getElementsByTagName('a');
   for (var i = 0; i < aTags.length; i++) {
@@ -1268,47 +1268,47 @@ if (self != top) {
       }
     };
   }
-
+  
 }
 
 // watch the iframe source so that it can be sent back to everyone else.
 function receiveIframeMessage(event) {
-
+  
   // does the origin sending the message match the current host? if not dev/null the request
   if ((window.location.protocol != "file:") && (event.origin !== window.location.protocol+"//"+window.location.host)) {
     return;
   }
-
+  
   var path;
   var data = {};
   try {
     data = (typeof event.data !== 'string') ? event.data : JSON.parse(event.data);
   } catch(e) {}
-
+  
   if ((data.event !== undefined) && (data.event == "patternLab.updatePath")) {
-
+    
     if (patternData.patternPartial !== undefined) {
-
+      
       // handle patterns and the view all page
       var re = /(patterns|snapshots)\/(.*)$/;
       path = window.location.protocol+"//"+window.location.host+window.location.pathname.replace(re,'')+data.path+'?'+Date.now();
       window.location.replace(path);
-
+      
     } else {
-
+      
       // handle the style guide
       path = window.location.protocol+"//"+window.location.host+window.location.pathname.replace("styleguide\/html\/styleguide.html","")+data.path+'?'+Date.now();
       window.location.replace(path);
-
+      
     }
-
+    
   } else if ((data.event !== undefined) && (data.event == "patternLab.reload")) {
-
+    
     // reload the location if there was a message to do so
     window.location.reload();
-
+    
   }
-
+  
 }
 window.addEventListener("message", receiveIframeMessage, false);
 
@@ -1886,9 +1886,9 @@ window.addEventListener("message", receiveIframeMessage, false);
     try {
       data = (typeof event.data !== 'string') ? event.data : JSON.parse(event.data);
     } catch(e) {}
-
+    
     if (data.event !== undefined) {
-
+      
       if (data.event == "patternLab.pageLoad") {
 
         if (!urlHandler.skipBack) {
@@ -1938,9 +1938,9 @@ window.addEventListener("message", receiveIframeMessage, false);
         }
         return false;
       }
-
+      
     }
-
+    
   }
   window.addEventListener("message", receiveIframeMessage, false);
 
@@ -1959,15 +1959,15 @@ window.addEventListener("message", receiveIframeMessage, false);
  */
 
 var pluginLoader = {
-
+  
   init: function () {
-
+    
     var s, t, l, c, n;
-
+    
     for (var i = 0; i < plugins.length; ++i) {
-
+      
       var plugin = plugins[i];
-
+      
       // load the templates
       for (var key in plugin.templates) {
         if (plugin.templates.hasOwnProperty(key)) {
@@ -1981,7 +1981,7 @@ var pluginLoader = {
           s.parentNode.insertBefore(n, s.nextSibling);
         }
       }
-
+      
       // load the stylesheets
       for (var k = 0; k < plugin.stylesheets.length; ++k) {
         s       = plugin.stylesheets[k];
@@ -1995,16 +1995,16 @@ var pluginLoader = {
         n.media = 'screen';
         c.parentNode.insertBefore(n, c.nextSibling);
       }
-
+      
       // load the javascript
       // $script.path('patternlab-components/'+plugin.name+'/');
       $script(plugin.javascripts, plugin.name, eval('(function() { '+plugin.callback+' })'));
       $script.ready([plugin.name], eval('(function() { '+plugin.onready+' })'));
-
+      
     }
-
+    
   }
-
+  
 };
 
 pluginLoader.init();
