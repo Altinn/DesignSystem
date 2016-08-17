@@ -4,17 +4,17 @@ var comments = {
 	{
 		"el": ".a-options",
 	 	"title" : "Avkrysningsbokser",
-	 	"comment": "Ingen kommentarer"
+	 	"comment": ""
 	},
 	{
 		"el": ".a-switch-label",
 	 	"title" : "Avkrysningsknapper",
-	 	"comment": "Brukes i tilfeller der brukeren kan tildele rettigheter til andre personer."
+	 	"comment": ""
 	},
 	{
 		"el": "#a-radioButtons",
 	 	"title" : "Radioknapper",
-	 	"comment": "Brukes i tilfeller der brukeren kun kan velge en verdi blant flere tilgjengelige."
+	 	"comment": ""
 	},
 	{
 		"el": "input[type=email]",
