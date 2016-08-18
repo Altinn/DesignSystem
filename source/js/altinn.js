@@ -79,6 +79,7 @@ options = undefined
       $('html', $('iframe').contents()[0]).toggleClass('business');
       $('html', $('iframe').contents()[0]).toggleClass('private-person');
       localStorage.setItem('theme', $('body', $('iframe').contents()[0]).attr('class'))
+      $('body', '.ap-profile').attr('class', '')
     });
     $('#sg-switchtheme-grey',
       $('iframe').contents()[0]).change(function () {
@@ -87,7 +88,9 @@ options = undefined
       $('html', $('iframe').contents()[0]).toggleClass('business')
       $('html', $('iframe').contents()[0]).toggleClass('private-person')
       localStorage.setItem('theme', $('body', $('iframe').contents()[0]).attr('class'))
+      $('body', '.ap-profile').attr('class', '')
     })
+    $('body', '.ap-profile').attr('class', '')
   })
   // Handle filter toggle:
   $(function () {
