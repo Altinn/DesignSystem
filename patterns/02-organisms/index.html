@@ -27,6 +27,11 @@
     <meta name="msapplication-TileImage" content="/mstile-144x144.png">
     <meta name="theme-color" content="#ffffff">
 
+    <!-- Material icons-->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!-- FortAwesome icons-->
+    <script src="https://use.fonticons.com/b2e1f56d.js"></script>
+
     <!-- Altinn stylesheet -->
     <link rel="stylesheet" href="../../css/style.css?" media="all" />
     <link rel="stylesheet" href="../../css/pattern-scaffolding.css?" media="all" />
@@ -39,7 +44,7 @@
 <meta http-equiv="expires" content="Tue, 01 Jan 1980 1:00:00 GMT" />
 <meta http-equiv="pragma" content="no-cache" />
 
-<link rel="stylesheet" href="../../styleguide/css/styleguide.min.css?1471423824570" media="all">
+<link rel="stylesheet" href="../../styleguide/css/styleguide.min.css?1471517450603" media="all">
 <style type="text/css">
   /* PRESENTATION OF STYLE GUIDE */
   .sg-top {
@@ -150,6 +155,14 @@
   .sg-pattern-extra {
     background: #fff;
   }
+  .sg-pattern-extra a,
+  .sg-pattern-extra a:hover {
+    text-decoration: none;
+    color: #0062ba;
+  }
+  .sg-pattern-extra a:hover {
+    color: #1eaef7;
+  }
   .sg-annotations {
     padding: 12px;
     background-color: #fbf6bd;
@@ -171,7 +184,20 @@
   .sg-pattern-desc {
     border-bottom: none;
     color: #000;
-}
+  }
+
+  /* Code view height minimum 300px */
+
+  .sg-pattern-extra-code {
+    width: 60%;
+    padding: 1em;
+    min-height: 300px;
+  }
+
+  .sg-pattern-extra-code .language-html{
+    margin-top: -12px;
+  }
+
 
 
   /* Toggle comments code in V2 */
@@ -222,15 +248,15 @@
     padding: 12px 0;
     border-top: 2px solid #efefef;
   }
+  .sg-switchtheme .a-radioButtons .c-input {
+      margin-bottom: 3px;
+  }
 </style>
-<link rel="stylesheet" href="../../styleguide/css/prism-typeahead.min.css?1471423824570" media="all" />
+<link rel="stylesheet" href="../../styleguide/css/prism-typeahead.min.css?1471517450603" media="all" />
 
     <!-- End Pattern Lab -->
 
-    <!-- Material icons-->
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <!-- FortAwesome icons-->
-    <script src="https://use.fonticons.com/b2e1f56d.js"></script>
+
 
   </head>
   <body class="">
@@ -371,145 +397,19 @@ Pattern Lab combine structure with an atomic design approach. This is an ideal c
     <!-- Patterns -->
     <div id="sg-patterns">
 <div id="viewall-viewall-organisms" class="sg-pattern-category">
-  <h2 class="sg-pattern-category-title"><a href="../../patterns/02-organisms-00-components&#x2F;index.html" class="patternLink" data-patternpartial="viewall-viewall-organisms">components</a></h2>
+  <h2 class="sg-pattern-category-title"><a href="../../patterns/02-organisms-00-global&#x2F;index.html" class="patternLink" data-patternpartial="viewall-viewall-organisms">global</a></h2>
 
   <div class="sg-pattern-category-body">
     
   </div><!--end sg-pattern-category-body-->
   
 </div><!--end sg-pattern-category-->
-<div id="organisms-modal" class="sg-pattern">
-  <div class="sg-pattern-head">
-    <h3 class="sg-pattern-title">
-      <a href="../../patterns/02-organisms-00-components-00-modal&#x2F;02-organisms-00-components-00-modal.html" class="patternLink" data-patternpartial="organisms-modal" title="Link to Pattern">
-          Modal
-      </a>
-    </h3>
-    <div class="sg-pattern-breadcrumb"></div>
-    <a href="#" data-patternpartial="organisms-modal" title="View Pattern Info" id="sg-pattern-extra-toggle-organisms-modal" class="sg-pattern-extra-toggle">Info <span>&#9660;</span></a>
-  </div>
-  <div class="sg-pattern-extra" id="sg-pattern-extra-organisms-modal">
-
-  </div>
-  <div class="sg-pattern-example">
-    <!-- Button trigger modal -->
-<button type="button" class="a-btn" data-toggle="modal" data-target="#modalExample">
-  Launch demo modal
-</button>
-
-
-<!-- Modal -->
-<div class="modal a-modal fade" id="modalExample" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-  <div class="modal-dialog modal-lg" role="document">
-
-    <!-- Modal Top -->
-    <div class="a-modal-top">
-      <img id="altinnlogo" class="a-modal-top-logo" src="../../images/a-logo-white.svg">
-
-      <div id="represented-by-user" class="a-modal-top-user hidden-xs">
-
-        <i class="material-icons a-modal-top-user-icon">person</i>
-
-          <span class="a-modal-top-user-name">
-            STEPHAN ISDAHL
-          </span>
-      </div>
-
-      <div class="a-modal-navbar">
-
-        <button type="button" class="a-modal-back" data-dismiss="modal" aria-label="Lukk">
-          <i class="material-icons a-modal-back-icon">keyboard_backspace</i>
-        </button>
-
-        <button type="button" class="a-modal-close" data-dismiss="modal" aria-label="Lukk">
-          <i class="material-icons a-modal-close-icon">close</i>
-        </button>
-
-
-      </div>
-    </div>
-
-
-    <!-- Modal content -->
-    <div class="modal-content">
-      <div class="modal-header a-modal-header">
-
-        <i class="material-icons a-collapse-icon">devices</i>
-        <h2 class="modal-title a-modal-title" id="myModalLabel">How to use the design system</h2>
-
-      </div>
-      <div class="modal-body a-modal-body a-text">
-        <p>Atomic design is a methodology used to construct web design systems. Read more about it <a href="http://localhost:3000/?p=all">here</a>. You can find all the components in the top navigation bar, organized into Atoms, Molecules, Organisms, Templates and Pages. </p>
-        <hr>
-        <h3 class="headerSmall">Keyboard Shortcuts</h3>
-        <b>ctrl+shift+a:</b> open/close annotations view <br>
-      <b>ctrl+shift+c:</b> open/close code view</p><br>
-      <h3 class="headerSmall">The goal</h3>
-      <p>The goals for us in creating this type of living Design System are:
-        <ul>
-          <li>Maintain a consistency of styles and identity in all Alltinn's web solutions</li>
-          <li>Having one common prototype environment where we are simultaneously able to see components abstractly and in context</li>
-          <li>Streamline the workflow for designers and developers</li>
-          <li>Create a focal point for our Design and User Experience work, both for ourselves and for the community</li>
-        </ul>
-      </div>
-
-      
-	<ul class="a-itemList">
-
-		<li class="a-itemList-item ">
-			<a class="a-listItem-title">Første punkt i listen</a>
-		</li>
-
-
-		<li class="a-itemList-item ">
-			<a class="a-listItem-title">Andre punkt i listen</a>
-		</li>
-
-
-		<li class="a-itemList-item ">
-			<span class="a-listItem-title">Tredje punkt i listen har ingen lenke</span>
-		</li>
-
-
-		<li class="a-itemList-item a-itemList-item-deactivated">
-			<a class="a-listItem-title">Fjerde punkt i listen er deaktivert</a>
-		</li>
-
-
-	</ul>
-
-
-
-
-      <div class="modal-footer">
-
-        <div class="a-btn-group">
-
-              <a href="../.." class="a-link" id="linkStandalone">Lenke som står alene ›</a> 
-
-
-              <a href="../.." class="a-btn a-btn-primary" id="linkButton">En lenke stylet som en standard knapp</a>
-
-
-        </div>
-
-      </div>
-
-    </div>
-  </div>
-</div>
-
-  </div>
-  <script type="text/json" id="sg-pattern-data-organisms-modal" class="sg-pattern-data">
-    {"cssEnabled":false,"patternLineageExists":true,"patternLineages":[{"lineagePattern":"atoms-itemlist","lineagePath":"../../patterns/00-atoms-03-lists-00-itemlist/00-atoms-03-lists-00-itemlist.html"},{"lineagePattern":"atoms-link-standalone","lineagePath":"../../patterns/00-atoms-03-links-and-buttons-01-link-standalone/00-atoms-03-links-and-buttons-01-link-standalone.html"},{"lineagePattern":"atoms-link-button","lineagePath":"../../patterns/00-atoms-03-links-and-buttons-05-link-button/00-atoms-03-links-and-buttons-05-link-button.html"}],"lineage":[{"lineagePattern":"atoms-itemlist","lineagePath":"../../patterns/00-atoms-03-lists-00-itemlist/00-atoms-03-lists-00-itemlist.html"},{"lineagePattern":"atoms-link-standalone","lineagePath":"../../patterns/00-atoms-03-links-and-buttons-01-link-standalone/00-atoms-03-links-and-buttons-01-link-standalone.html"},{"lineagePattern":"atoms-link-button","lineagePath":"../../patterns/00-atoms-03-links-and-buttons-05-link-button/00-atoms-03-links-and-buttons-05-link-button.html"}],"patternLineageRExists":false,"patternLineagesR":[],"lineageR":[],"patternLineageEExists":true,"patternDesc":"","patternBreadcrumb":{"patternType":"organisms","patternSubtype":"components"},"patternExtension":"mustache","patternName":"Modal","patternPartial":"organisms-modal","patternState":"","extraOutput":{}}
-  </script>
-</div><!--end .sg-pattern-->
 <div id="organisms-header" class="sg-pattern">
   <div class="sg-pattern-head">
     <h3 class="sg-pattern-title">
       <a href="../../patterns/02-organisms-00-global-00-header&#x2F;02-organisms-00-global-00-header.html" class="patternLink" data-patternpartial="organisms-header" title="Link to Pattern">
           Header
+            <span class="sg-pattern-state inreview">inreview</span>
       </a>
     </h3>
     <div class="sg-pattern-breadcrumb"></div>
@@ -520,7 +420,7 @@ Pattern Lab combine structure with an atomic design approach. This is an ideal c
   </div>
   <div class="sg-pattern-example">
     <!-- Begin .header -->
-<header class="a-header a-darkBackground" role="banner">
+<header class="a-header " role="banner">
 	<!-- Begin .container -->
   <div class="container">
 
@@ -577,7 +477,7 @@ Pattern Lab combine structure with an atomic design approach. This is an ideal c
 
 			<li class="nav-item dropdown">
 				<!-- Dropdown toggle -->
-				<a class="nav-link a-personSwitcher" data-toggle="" href="&#x2F;patterns&#x2F;04-pages-01-forside-00-homepage-signedin&#x2F;04-pages-01-forside-00-homepage-signedin.html" role="button" aria-haspopup="true" aria-expanded="false"> <span class="a-personSwitcher-name hidden-sm-down" title="Logg inn  "> Logg inn <br> </span> <i class="material-icons a-personSwitcher-icon">&#xE853;</i></a>
+				<a class="nav-link a-personSwitcher" data-toggle="" href="" role="button" aria-haspopup="true" aria-expanded="false"> <span class="a-personSwitcher-name hidden-sm-down" title="Logg inn  "> Logg inn <br> </span> <i class="material-icons a-personSwitcher-icon">&#xE853;</i></a>
 
 					<!-- Begin #a-dropdown-languages - -->
 <div class="dropdown-menu a-dropdown-personswitchList a-dropdownTriangle">
@@ -711,7 +611,7 @@ Pattern Lab combine structure with an atomic design approach. This is an ideal c
 		<!-- Begin .a-globalNav -->
 		<nav class="a-globalNav">
 			<a href="&#x2F;patterns&#x2F;04-pages-01-forside-00-homepage&#x2F;04-pages-01-forside-00-homepage.html"> 
-<img src="../../images/a-logo-white.svg" alt="Altinn logo" class="a-logo"> 
+<img src="../../images/a-logo-blue.svg" alt="Altinn logo" class="a-logo"> 
  </a>
 
 			  <button class="navbar-toggler hidden-sm-up" type="button" data-toggle="collapse" data-target="#exCollapsingNavbar2">
@@ -769,7 +669,7 @@ Pattern Lab combine structure with an atomic design approach. This is an ideal c
 
   </div>
   <script type="text/json" id="sg-pattern-data-organisms-header" class="sg-pattern-data">
-    {"cssEnabled":false,"patternLineageExists":true,"patternLineages":[{"lineagePattern":"molecules-dropdown-menu","lineagePath":"../../patterns/01-molecules-02-navigation-09-dropdown-menu/01-molecules-02-navigation-09-dropdown-menu.html"},{"lineagePattern":"molecules-dropdown-menu-personSwitch","lineagePath":"../../patterns/01-molecules-02-navigation-09-dropdown-menu-personSwitch/01-molecules-02-navigation-09-dropdown-menu-personSwitch.html"},{"lineagePattern":"atoms-logo","lineagePath":"../../patterns/00-atoms-04-images-00-logo/00-atoms-04-images-00-logo.html"},{"lineagePattern":"atoms-search","lineagePath":"../../patterns/00-atoms-01-forms-07-search/00-atoms-01-forms-07-search.html"},{"lineagePattern":"atoms-tel","lineagePath":"../../patterns/00-atoms-03-links-and-buttons-40-tel/00-atoms-03-links-and-buttons-40-tel.html"}],"lineage":[{"lineagePattern":"molecules-dropdown-menu","lineagePath":"../../patterns/01-molecules-02-navigation-09-dropdown-menu/01-molecules-02-navigation-09-dropdown-menu.html"},{"lineagePattern":"molecules-dropdown-menu-personSwitch","lineagePath":"../../patterns/01-molecules-02-navigation-09-dropdown-menu-personSwitch/01-molecules-02-navigation-09-dropdown-menu-personSwitch.html"},{"lineagePattern":"atoms-logo","lineagePath":"../../patterns/00-atoms-04-images-00-logo/00-atoms-04-images-00-logo.html"},{"lineagePattern":"atoms-search","lineagePath":"../../patterns/00-atoms-01-forms-07-search/00-atoms-01-forms-07-search.html"},{"lineagePattern":"atoms-tel","lineagePath":"../../patterns/00-atoms-03-links-and-buttons-40-tel/00-atoms-03-links-and-buttons-40-tel.html"}],"patternLineageRExists":true,"patternLineagesR":[{"lineagePattern":"templates-homepage","lineagePath":"../../patterns/03-templates-02-sidemaler-01-homepage/03-templates-02-sidemaler-01-homepage.html"},{"lineagePattern":"templates-skjema","lineagePath":"../../patterns/03-templates-02-sidemaler-02-skjema/03-templates-02-sidemaler-02-skjema.html","lineageState":"inreview"},{"lineagePattern":"templates-overview","lineagePath":"../../patterns/03-templates-02-sidemaler-04-overview/03-templates-02-sidemaler-04-overview.html"},{"lineagePattern":"templates-article","lineagePath":"../../patterns/03-templates-02-sidemaler-05-article/03-templates-02-sidemaler-05-article.html"}],"lineageR":[{"lineagePattern":"templates-homepage","lineagePath":"../../patterns/03-templates-02-sidemaler-01-homepage/03-templates-02-sidemaler-01-homepage.html"},{"lineagePattern":"templates-skjema","lineagePath":"../../patterns/03-templates-02-sidemaler-02-skjema/03-templates-02-sidemaler-02-skjema.html","lineageState":"inreview"},{"lineagePattern":"templates-overview","lineagePath":"../../patterns/03-templates-02-sidemaler-04-overview/03-templates-02-sidemaler-04-overview.html"},{"lineagePattern":"templates-article","lineagePath":"../../patterns/03-templates-02-sidemaler-05-article/03-templates-02-sidemaler-05-article.html"}],"patternLineageEExists":true,"patternDesc":"","patternBreadcrumb":{"patternType":"organisms","patternSubtype":"global"},"patternExtension":"mustache","patternName":"Header","patternPartial":"organisms-header","patternState":"","extraOutput":{}}
+    {"cssEnabled":false,"patternLineageExists":true,"patternLineages":[{"lineagePattern":"molecules-dropdown-menu","lineagePath":"../../patterns/01-molecules-02-navigation-05-dropdown-menu/01-molecules-02-navigation-05-dropdown-menu.html","lineageState":"inreview"},{"lineagePattern":"molecules-dropdown-menu-personSwitch","lineagePath":"../../patterns/01-molecules-02-navigation-04-dropdown-menu-personSwitch/01-molecules-02-navigation-04-dropdown-menu-personSwitch.html","lineageState":"inreview"},{"lineagePattern":"atoms-logo","lineagePath":"../../patterns/00-atoms-05-images-01-logo/00-atoms-05-images-01-logo.html","lineageState":"complete"},{"lineagePattern":"atoms-search","lineagePath":"../../patterns/00-atoms-01-forms-08-search/00-atoms-01-forms-08-search.html","lineageState":"complete"},{"lineagePattern":"atoms-tel","lineagePath":"../../patterns/00-atoms-02-links-and-buttons-34-tel/00-atoms-02-links-and-buttons-34-tel.html","lineageState":"inreview"}],"lineage":[{"lineagePattern":"molecules-dropdown-menu","lineagePath":"../../patterns/01-molecules-02-navigation-05-dropdown-menu/01-molecules-02-navigation-05-dropdown-menu.html","lineageState":"inreview"},{"lineagePattern":"molecules-dropdown-menu-personSwitch","lineagePath":"../../patterns/01-molecules-02-navigation-04-dropdown-menu-personSwitch/01-molecules-02-navigation-04-dropdown-menu-personSwitch.html","lineageState":"inreview"},{"lineagePattern":"atoms-logo","lineagePath":"../../patterns/00-atoms-05-images-01-logo/00-atoms-05-images-01-logo.html","lineageState":"complete"},{"lineagePattern":"atoms-search","lineagePath":"../../patterns/00-atoms-01-forms-08-search/00-atoms-01-forms-08-search.html","lineageState":"complete"},{"lineagePattern":"atoms-tel","lineagePath":"../../patterns/00-atoms-02-links-and-buttons-34-tel/00-atoms-02-links-and-buttons-34-tel.html","lineageState":"inreview"}],"patternLineageRExists":true,"patternLineagesR":[{"lineagePattern":"templates-homepage","lineagePath":"../../patterns/03-templates-02-sidemaler-01-homepage/03-templates-02-sidemaler-01-homepage.html","lineageState":"inprogress"},{"lineagePattern":"templates-skjema","lineagePath":"../../patterns/03-templates-02-sidemaler-02-skjema/03-templates-02-sidemaler-02-skjema.html","lineageState":"inprogress"},{"lineagePattern":"templates-overview","lineagePath":"../../patterns/03-templates-02-sidemaler-04-overview/03-templates-02-sidemaler-04-overview.html","lineageState":"inprogress"},{"lineagePattern":"templates-article","lineagePath":"../../patterns/03-templates-02-sidemaler-05-article/03-templates-02-sidemaler-05-article.html","lineageState":"inprogress"}],"lineageR":[{"lineagePattern":"templates-homepage","lineagePath":"../../patterns/03-templates-02-sidemaler-01-homepage/03-templates-02-sidemaler-01-homepage.html","lineageState":"inprogress"},{"lineagePattern":"templates-skjema","lineagePath":"../../patterns/03-templates-02-sidemaler-02-skjema/03-templates-02-sidemaler-02-skjema.html","lineageState":"inprogress"},{"lineagePattern":"templates-overview","lineagePath":"../../patterns/03-templates-02-sidemaler-04-overview/03-templates-02-sidemaler-04-overview.html","lineageState":"inprogress"},{"lineagePattern":"templates-article","lineagePath":"../../patterns/03-templates-02-sidemaler-05-article/03-templates-02-sidemaler-05-article.html","lineageState":"inprogress"}],"patternLineageEExists":true,"patternDesc":"<p>Den globale toppen på siden tar lite plass i høyden, for å holde fokus på innholdet på siden. Headeren tilpasser seg mindre skjermer, og gjemmer menyen under en meny-knapp. Headeren skal være synlig på alle sider på altinn.no.</p>\n","patternBreadcrumb":{"patternType":"organisms","patternSubtype":"global"},"patternExtension":"mustache","patternName":"Header","patternPartial":"organisms-header","patternState":"inreview","extraOutput":{}}
   </script>
 </div><!--end .sg-pattern-->
 <div id="organisms-footer" class="sg-pattern">
@@ -777,6 +677,7 @@ Pattern Lab combine structure with an atomic design approach. This is an ideal c
     <h3 class="sg-pattern-title">
       <a href="../../patterns/02-organisms-00-global-01-footer&#x2F;02-organisms-00-global-01-footer.html" class="patternLink" data-patternpartial="organisms-footer" title="Link to Pattern">
           Footer
+            <span class="sg-pattern-state inreview">inreview</span>
       </a>
     </h3>
     <div class="sg-pattern-breadcrumb"></div>
@@ -869,15 +770,143 @@ Pattern Lab combine structure with an atomic design approach. This is an ideal c
 
   </div>
   <script type="text/json" id="sg-pattern-data-organisms-footer" class="sg-pattern-data">
-    {"cssEnabled":false,"patternLineageExists":true,"patternLineages":[{"lineagePattern":"atoms-search","lineagePath":"../../patterns/00-atoms-01-forms-07-search/00-atoms-01-forms-07-search.html"},{"lineagePattern":"atoms-tel","lineagePath":"../../patterns/00-atoms-03-links-and-buttons-40-tel/00-atoms-03-links-and-buttons-40-tel.html"},{"lineagePattern":"atoms-button","lineagePath":"../../patterns/00-atoms-03-links-and-buttons-05-button/00-atoms-03-links-and-buttons-05-button.html"}],"lineage":[{"lineagePattern":"atoms-search","lineagePath":"../../patterns/00-atoms-01-forms-07-search/00-atoms-01-forms-07-search.html"},{"lineagePattern":"atoms-tel","lineagePath":"../../patterns/00-atoms-03-links-and-buttons-40-tel/00-atoms-03-links-and-buttons-40-tel.html"},{"lineagePattern":"atoms-button","lineagePath":"../../patterns/00-atoms-03-links-and-buttons-05-button/00-atoms-03-links-and-buttons-05-button.html"}],"patternLineageRExists":true,"patternLineagesR":[{"lineagePattern":"templates-homepage","lineagePath":"../../patterns/03-templates-02-sidemaler-01-homepage/03-templates-02-sidemaler-01-homepage.html"},{"lineagePattern":"templates-skjema","lineagePath":"../../patterns/03-templates-02-sidemaler-02-skjema/03-templates-02-sidemaler-02-skjema.html","lineageState":"inreview"},{"lineagePattern":"templates-overview","lineagePath":"../../patterns/03-templates-02-sidemaler-04-overview/03-templates-02-sidemaler-04-overview.html"},{"lineagePattern":"templates-article","lineagePath":"../../patterns/03-templates-02-sidemaler-05-article/03-templates-02-sidemaler-05-article.html"}],"lineageR":[{"lineagePattern":"templates-homepage","lineagePath":"../../patterns/03-templates-02-sidemaler-01-homepage/03-templates-02-sidemaler-01-homepage.html"},{"lineagePattern":"templates-skjema","lineagePath":"../../patterns/03-templates-02-sidemaler-02-skjema/03-templates-02-sidemaler-02-skjema.html","lineageState":"inreview"},{"lineagePattern":"templates-overview","lineagePath":"../../patterns/03-templates-02-sidemaler-04-overview/03-templates-02-sidemaler-04-overview.html"},{"lineagePattern":"templates-article","lineagePath":"../../patterns/03-templates-02-sidemaler-05-article/03-templates-02-sidemaler-05-article.html"}],"patternLineageEExists":true,"patternDesc":"","patternBreadcrumb":{"patternType":"organisms","patternSubtype":"global"},"patternExtension":"mustache","patternName":"Footer","patternPartial":"organisms-footer","patternState":"","extraOutput":{}}
+    {"cssEnabled":false,"patternLineageExists":true,"patternLineages":[{"lineagePattern":"atoms-search","lineagePath":"../../patterns/00-atoms-01-forms-08-search/00-atoms-01-forms-08-search.html","lineageState":"complete"},{"lineagePattern":"atoms-tel","lineagePath":"../../patterns/00-atoms-02-links-and-buttons-34-tel/00-atoms-02-links-and-buttons-34-tel.html","lineageState":"inreview"},{"lineagePattern":"atoms-button","lineagePath":"../../patterns/00-atoms-02-links-and-buttons-11-button/00-atoms-02-links-and-buttons-11-button.html","lineageState":"complete"}],"lineage":[{"lineagePattern":"atoms-search","lineagePath":"../../patterns/00-atoms-01-forms-08-search/00-atoms-01-forms-08-search.html","lineageState":"complete"},{"lineagePattern":"atoms-tel","lineagePath":"../../patterns/00-atoms-02-links-and-buttons-34-tel/00-atoms-02-links-and-buttons-34-tel.html","lineageState":"inreview"},{"lineagePattern":"atoms-button","lineagePath":"../../patterns/00-atoms-02-links-and-buttons-11-button/00-atoms-02-links-and-buttons-11-button.html","lineageState":"complete"}],"patternLineageRExists":true,"patternLineagesR":[{"lineagePattern":"templates-homepage","lineagePath":"../../patterns/03-templates-02-sidemaler-01-homepage/03-templates-02-sidemaler-01-homepage.html","lineageState":"inprogress"},{"lineagePattern":"templates-skjema","lineagePath":"../../patterns/03-templates-02-sidemaler-02-skjema/03-templates-02-sidemaler-02-skjema.html","lineageState":"inprogress"},{"lineagePattern":"templates-overview","lineagePath":"../../patterns/03-templates-02-sidemaler-04-overview/03-templates-02-sidemaler-04-overview.html","lineageState":"inprogress"},{"lineagePattern":"templates-article","lineagePath":"../../patterns/03-templates-02-sidemaler-05-article/03-templates-02-sidemaler-05-article.html","lineageState":"inprogress"}],"lineageR":[{"lineagePattern":"templates-homepage","lineagePath":"../../patterns/03-templates-02-sidemaler-01-homepage/03-templates-02-sidemaler-01-homepage.html","lineageState":"inprogress"},{"lineagePattern":"templates-skjema","lineagePath":"../../patterns/03-templates-02-sidemaler-02-skjema/03-templates-02-sidemaler-02-skjema.html","lineageState":"inprogress"},{"lineagePattern":"templates-overview","lineagePath":"../../patterns/03-templates-02-sidemaler-04-overview/03-templates-02-sidemaler-04-overview.html","lineageState":"inprogress"},{"lineagePattern":"templates-article","lineagePath":"../../patterns/03-templates-02-sidemaler-05-article/03-templates-02-sidemaler-05-article.html","lineageState":"inprogress"}],"patternLineageEExists":true,"patternDesc":"<p>Footeren inneholder ekstra navigasjonsmuligheter samt kontaktinformasjon. Den tilpasser seg skjermstørrelser. På de minste skjermene legges footer-menypunktene opp i toppmenyen. Footeren skal være synlig på alle sider på altinn.no.</p>\n","patternBreadcrumb":{"patternType":"organisms","patternSubtype":"global"},"patternExtension":"mustache","patternName":"Footer","patternPartial":"organisms-footer","patternState":"inreview","extraOutput":{}}
+  </script>
+</div><!--end .sg-pattern-->
+<div id="organisms-modal" class="sg-pattern">
+  <div class="sg-pattern-head">
+    <h3 class="sg-pattern-title">
+      <a href="../../patterns/02-organisms-01-components-00-modal&#x2F;02-organisms-01-components-00-modal.html" class="patternLink" data-patternpartial="organisms-modal" title="Link to Pattern">
+          Modal
+            <span class="sg-pattern-state inreview">inreview</span>
+      </a>
+    </h3>
+    <div class="sg-pattern-breadcrumb"></div>
+    <a href="#" data-patternpartial="organisms-modal" title="View Pattern Info" id="sg-pattern-extra-toggle-organisms-modal" class="sg-pattern-extra-toggle">Info <span>&#9660;</span></a>
+  </div>
+  <div class="sg-pattern-extra" id="sg-pattern-extra-organisms-modal">
+
+  </div>
+  <div class="sg-pattern-example">
+    <!-- Button trigger modal -->
+<button type="button" class="a-btn" data-toggle="modal" data-target="#modalExample">
+  Launch demo modal
+</button>
+
+
+<!-- Modal -->
+<div class="modal a-modal fade" id="modalExample" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg" role="document">
+
+    <!-- Modal Top -->
+    <div class="a-modal-top">
+      <img id="altinnlogo" class="a-modal-top-logo" src="../../images/a-logo-white.svg">
+
+      <div id="represented-by-user" class="a-modal-top-user hidden-xs">
+
+        <i class="material-icons a-modal-top-user-icon">person</i>
+
+          <span class="a-modal-top-user-name">
+            STEPHAN ISDAHL
+          </span>
+      </div>
+
+      <div class="a-modal-navbar">
+
+        <button type="button" class="a-modal-back" data-dismiss="modal" aria-label="Lukk">
+          <i class="material-icons a-modal-back-icon">keyboard_backspace</i>
+        </button>
+
+        <button type="button" class="a-modal-close" data-dismiss="modal" aria-label="Lukk">
+          <i class="material-icons a-modal-close-icon">close</i>
+        </button>
+
+
+      </div>
+    </div>
+
+
+    <!-- Modal content -->
+    <div class="modal-content">
+      <div class="modal-header a-modal-header">
+
+        <i class="material-icons a-collapse-icon">devices</i>
+        <h2 class="modal-title a-modal-title" id="myModalLabel">How to use the design system</h2>
+
+      </div>
+      <div class="modal-body a-modal-body a-text">
+        <p>Atomic design is a methodology used to construct web design systems. Read more about it <a href="http://localhost:3000/?p=all">here</a>. You can find all the components in the top navigation bar, organized into Atoms, Molecules, Organisms, Templates and Pages. </p>
+        <hr>
+        <h3 class="headerSmall">Keyboard Shortcuts</h3>
+        <b>ctrl+shift+a:</b> open/close annotations view <br>
+      <b>ctrl+shift+c:</b> open/close code view</p><br>
+      <h3 class="headerSmall">The goal</h3>
+      <p>The goals for us in creating this type of living Design System are:
+        <ul>
+          <li>Maintain a consistency of styles and identity in all Alltinn's web solutions</li>
+          <li>Having one common prototype environment where we are simultaneously able to see components abstractly and in context</li>
+          <li>Streamline the workflow for designers and developers</li>
+          <li>Create a focal point for our Design and User Experience work, both for ourselves and for the community</li>
+        </ul>
+      </div>
+
+      
+	<ul class="a-itemList">
+
+		<li class="a-itemList-item ">
+			<a class="a-listItem-title">Første punkt i listen</a>
+		</li>
+
+
+		<li class="a-itemList-item ">
+			<a class="a-listItem-title">Andre punkt i listen</a>
+		</li>
+
+
+		<li class="a-itemList-item ">
+			<span class="a-listItem-title">Tredje punkt i listen har ingen lenke</span>
+		</li>
+
+
+		<li class="a-itemList-item a-itemList-item-deactivated">
+			<a class="a-listItem-title">Fjerde punkt i listen er deaktivert</a>
+		</li>
+
+
+	</ul>
+
+
+
+
+      <div class="modal-footer">
+
+        <div class="a-btn-group">
+
+              <a href="../.." class="a-link" id="linkStandalone">Lenke som står alene ›</a> 
+
+
+              <a href="../.." class="a-btn a-btn-primary" id="linkButton">En lenke stylet som en standard knapp</a>
+
+
+        </div>
+
+      </div>
+
+    </div>
+  </div>
+</div>
+
+  </div>
+  <script type="text/json" id="sg-pattern-data-organisms-modal" class="sg-pattern-data">
+    {"cssEnabled":false,"patternLineageExists":true,"patternLineages":[{"lineagePattern":"atoms-itemlist","lineagePath":"../../patterns/00-atoms-03-lists-05-itemlist/00-atoms-03-lists-05-itemlist.html","lineageState":"inreview"},{"lineagePattern":"atoms-link-standalone","lineagePath":"../../patterns/00-atoms-02-links-and-buttons-05-link-standalone/00-atoms-02-links-and-buttons-05-link-standalone.html","lineageState":"complete"},{"lineagePattern":"atoms-link-button","lineagePath":"../../patterns/00-atoms-02-links-and-buttons-12-link-button/00-atoms-02-links-and-buttons-12-link-button.html","lineageState":"complete"}],"lineage":[{"lineagePattern":"atoms-itemlist","lineagePath":"../../patterns/00-atoms-03-lists-05-itemlist/00-atoms-03-lists-05-itemlist.html","lineageState":"inreview"},{"lineagePattern":"atoms-link-standalone","lineagePath":"../../patterns/00-atoms-02-links-and-buttons-05-link-standalone/00-atoms-02-links-and-buttons-05-link-standalone.html","lineageState":"complete"},{"lineagePattern":"atoms-link-button","lineagePath":"../../patterns/00-atoms-02-links-and-buttons-12-link-button/00-atoms-02-links-and-buttons-12-link-button.html","lineageState":"complete"}],"patternLineageRExists":false,"patternLineagesR":[],"lineageR":[],"patternLineageEExists":true,"patternDesc":"<p>Brukes i tilfeller der brukeren skal gjennom en prosess for å utføre endringer innefor et område. Modalvinduet kan bestå av flere steg. Når prosessen er fullført vises grønn bakgrunn i modalvinduet. Dersom prosessen mislykkes, vises rød bakgrunn i modalvinduet. Modalvinduet kan også brukes for å vise mer informasjon om et tema.</p>\n","patternBreadcrumb":{"patternType":"organisms","patternSubtype":"components"},"patternExtension":"mustache","patternName":"Modal","patternPartial":"organisms-modal","patternState":"inreview","extraOutput":{}}
   </script>
 </div><!--end .sg-pattern-->
 <div id="organisms-article-body" class="sg-pattern">
   <div class="sg-pattern-head">
     <h3 class="sg-pattern-title">
-      <a href="../../patterns/02-organisms-01-article-00-article-body&#x2F;02-organisms-01-article-00-article-body.html" class="patternLink" data-patternpartial="organisms-article-body" title="Link to Pattern">
+      <a href="../../patterns/02-organisms-02-article-00-article-body&#x2F;02-organisms-02-article-00-article-body.html" class="patternLink" data-patternpartial="organisms-article-body" title="Link to Pattern">
           Article Body
-            <span class="sg-pattern-state inreview">inreview</span>
+            <span class="sg-pattern-state inprogress">inprogress</span>
       </a>
     </h3>
     <div class="sg-pattern-breadcrumb"></div>
@@ -1035,7 +1064,7 @@ Pattern Lab combine structure with an atomic design approach. This is an ideal c
 
   </div>
   <script type="text/json" id="sg-pattern-data-organisms-article-body" class="sg-pattern-data">
-    {"cssEnabled":false,"patternLineageExists":true,"patternLineages":[{"lineagePattern":"atoms-_02-landscape-16x9","lineagePath":"../../patterns/00-atoms-04-images-_02-landscape-16x9/00-atoms-04-images-_02-landscape-16x9.html"},{"lineagePattern":"atoms-_04-blockquote","lineagePath":"../../patterns/00-atoms-09-text-_04-blockquote/00-atoms-09-text-_04-blockquote.html"},{"lineagePattern":"atoms-_00-unordered","lineagePath":"../../patterns/00-atoms-03-lists-_00-unordered/00-atoms-03-lists-_00-unordered.html"},{"lineagePattern":"atoms-itemlist-ordered","lineagePath":"../../patterns/00-atoms-03-lists-00-itemlist-ordered/00-atoms-03-lists-00-itemlist-ordered.html"},{"lineagePattern":"molecules-_06-pullquote","lineagePath":"../../patterns/01-molecules-00-text-_06-pullquote/01-molecules-00-text-_06-pullquote.html"},{"lineagePattern":"atoms-checkbox","lineagePath":"../../patterns/00-atoms-01-forms-01-checkbox/00-atoms-01-forms-01-checkbox.html","lineageState":"inreview"}],"lineage":[{"lineagePattern":"atoms-_02-landscape-16x9","lineagePath":"../../patterns/00-atoms-04-images-_02-landscape-16x9/00-atoms-04-images-_02-landscape-16x9.html"},{"lineagePattern":"atoms-_04-blockquote","lineagePath":"../../patterns/00-atoms-09-text-_04-blockquote/00-atoms-09-text-_04-blockquote.html"},{"lineagePattern":"atoms-_00-unordered","lineagePath":"../../patterns/00-atoms-03-lists-_00-unordered/00-atoms-03-lists-_00-unordered.html"},{"lineagePattern":"atoms-itemlist-ordered","lineagePath":"../../patterns/00-atoms-03-lists-00-itemlist-ordered/00-atoms-03-lists-00-itemlist-ordered.html"},{"lineagePattern":"molecules-_06-pullquote","lineagePath":"../../patterns/01-molecules-00-text-_06-pullquote/01-molecules-00-text-_06-pullquote.html"},{"lineagePattern":"atoms-checkbox","lineagePath":"../../patterns/00-atoms-01-forms-01-checkbox/00-atoms-01-forms-01-checkbox.html","lineageState":"inreview"}],"patternLineageRExists":false,"patternLineagesR":[],"lineageR":[],"patternLineageEExists":true,"patternDesc":"","patternBreadcrumb":{"patternType":"organisms","patternSubtype":"article"},"patternExtension":"mustache","patternName":"Article Body","patternPartial":"organisms-article-body","patternState":"inreview","extraOutput":{}}
+    {"cssEnabled":false,"patternLineageExists":true,"patternLineages":[{"lineagePattern":"atoms-_03-landscape-16x9","lineagePath":"../../patterns/00-atoms-05-images-_03-landscape-16x9/00-atoms-05-images-_03-landscape-16x9.html"},{"lineagePattern":"atoms-_05-blockquote","lineagePath":"../../patterns/00-atoms-09-text-_05-blockquote/00-atoms-09-text-_05-blockquote.html"},{"lineagePattern":"atoms-_01-unordered","lineagePath":"../../patterns/00-atoms-03-lists-_01-unordered/00-atoms-03-lists-_01-unordered.html"},{"lineagePattern":"atoms-itemlist-ordered","lineagePath":"../../patterns/00-atoms-03-lists-04-itemlist-ordered/00-atoms-03-lists-04-itemlist-ordered.html","lineageState":"complete"},{"lineagePattern":"molecules-_06-pullquote","lineagePath":"../../patterns/01-molecules-00-text-_06-pullquote/01-molecules-00-text-_06-pullquote.html"},{"lineagePattern":"atoms-checkbox","lineagePath":"../../patterns/00-atoms-01-forms-01-checkbox/00-atoms-01-forms-01-checkbox.html","lineageState":"complete"}],"lineage":[{"lineagePattern":"atoms-_03-landscape-16x9","lineagePath":"../../patterns/00-atoms-05-images-_03-landscape-16x9/00-atoms-05-images-_03-landscape-16x9.html"},{"lineagePattern":"atoms-_05-blockquote","lineagePath":"../../patterns/00-atoms-09-text-_05-blockquote/00-atoms-09-text-_05-blockquote.html"},{"lineagePattern":"atoms-_01-unordered","lineagePath":"../../patterns/00-atoms-03-lists-_01-unordered/00-atoms-03-lists-_01-unordered.html"},{"lineagePattern":"atoms-itemlist-ordered","lineagePath":"../../patterns/00-atoms-03-lists-04-itemlist-ordered/00-atoms-03-lists-04-itemlist-ordered.html","lineageState":"complete"},{"lineagePattern":"molecules-_06-pullquote","lineagePath":"../../patterns/01-molecules-00-text-_06-pullquote/01-molecules-00-text-_06-pullquote.html"},{"lineagePattern":"atoms-checkbox","lineagePath":"../../patterns/00-atoms-01-forms-01-checkbox/00-atoms-01-forms-01-checkbox.html","lineageState":"complete"}],"patternLineageRExists":false,"patternLineagesR":[],"lineageR":[],"patternLineageEExists":true,"patternDesc":"<p>Sammensatt av tittel, ingress, pupliseringsinfo, og wysiwyg-editor.</p>\n","patternBreadcrumb":{"patternType":"organisms","patternSubtype":"article"},"patternExtension":"mustache","patternName":"Article Body","patternPartial":"organisms-article-body","patternState":"inprogress","extraOutput":{}}
   </script>
 </div><!--end .sg-pattern-->
     </div> <!--end #sg-patterns-->
@@ -1046,7 +1075,7 @@ Pattern Lab combine structure with an atomic design approach. This is an ideal c
 	<div class="container">
 
 		<div class="a-radioButtons">
-		Bytt tema:
+		<span style="margin-right: 12px;"> Bytt tema: </span>
 
 			<label class="c-input c-radio">
 			  <input id="sg-switchtheme-blue" name="radio" type="radio" ><span class="c-indicator"></span>
@@ -1098,10 +1127,10 @@ Pattern Lab combine structure with an atomic design approach. This is an ideal c
   }
 </script>
 
-<script id="pl-js-polyfill-insert-1471423824570">
+<script id="pl-js-polyfill-insert-1471517450603">
   (function() {
     if (self != top) {
-      var cb = '1471423824570';
+      var cb = '1471517450603';
       var js = [];
       if (typeof document !== 'undefined' && !('classList' in document.documentElement)) {
         js.push('styleguide/bower_components/classList.min.js');
@@ -1111,10 +1140,10 @@ Pattern Lab combine structure with an atomic design approach. This is an ideal c
   })();
 </script>
 
-<script id="pl-js-insert-1471423824570">
+<script id="pl-js-insert-1471517450603">
   (function() {
     if (self != top) {
-      var cb = '1471423824570';
+      var cb = '1471517450603';
       var js = [ { 'src': 'styleguide/bower_components/jwerty.min.js', 'dep': [ 'styleguide/js/patternlab-pattern.min.js' ] } ];
       scriptLoader.run(js,cb,'pl-js-insert');
     }

@@ -196,11 +196,11 @@ try {
  */
 
 var urlHandler = {
-  
+
   // set-up some default vars
   skipBack: false,
   targetOrigin: (window.location.protocol == "file:") ? "*" : window.location.protocol+"//"+window.location.host,
-  
+
   /**
   * get the real file name for a given pattern name
   * @param  {String}       the shorthand partials syntax for a given pattern
@@ -209,51 +209,51 @@ var urlHandler = {
   * @return {String}       the real file path
   */
   getFileName: function (name, withRenderedSuffix) {
-    
+
     var baseDir     = "patterns";
     var fileName    = "";
-    
+
     if (name === undefined) {
       return fileName;
     }
-    
+
     if (withRenderedSuffix === undefined) {
       withRenderedSuffix = true;
     }
-    
+
     if (name == "all") {
       return "styleguide/html/styleguide.html";
     } else if (name == "snapshots") {
       return "snapshots/index.html";
     }
-    
+
     var paths = (name.indexOf("viewall-") != -1) ? viewAllPaths : patternPaths;
     var nameClean = name.replace("viewall-","");
-    
+
     // look at this as a regular pattern
     var bits        = this.getPatternInfo(nameClean, paths);
     var patternType = bits[0];
     var pattern     = bits[1];
-    
+
     if ((paths[patternType] !== undefined) && (paths[patternType][pattern] !== undefined)) {
-      
+
       fileName = paths[patternType][pattern];
-      
+
     } else if (paths[patternType] !== undefined) {
-      
+
       for (var patternMatchKey in paths[patternType]) {
         if (patternMatchKey.indexOf(pattern) != -1) {
           fileName = paths[patternType][patternMatchKey];
           break;
         }
       }
-    
+
     }
-    
+
     if (fileName === "") {
       return fileName;
     }
-    
+
     var regex = /\//g;
     if ((name.indexOf("viewall-") !== -1) && (name.indexOf("viewall-") === 0) && (fileName !== "")) {
       fileName = baseDir+"/"+fileName.replace(regex,"-")+"/index.html";
@@ -264,11 +264,11 @@ var urlHandler = {
         fileName = fileName+fileSuffixRendered+".html";
       }
     }
-    
+
     return fileName;
-    
+
   },
-  
+
   /**
   * break up a pattern into its parts, pattern type and pattern name
   * @param  {String}       the shorthand partials syntax for a given pattern
@@ -277,31 +277,31 @@ var urlHandler = {
   * @return {Array}        the pattern type and pattern name
   */
   getPatternInfo: function (name, paths) {
-    
+
     var patternBits = name.split("-");
-    
+
     var i = 1;
     var c = patternBits.length;
-    
+
     var patternType = patternBits[0];
     while ((paths[patternType] === undefined) && (i < c)) {
       patternType += "-"+patternBits[i];
       i++;
     }
-    
+
     var pattern = name.slice(patternType.length+1,name.length);
-    
+
     return [patternType, pattern];
-    
+
   },
-  
+
   /**
   * search the request vars for a particular item
   *
   * @return {Object}       a search of the window.location.search vars
   */
   getRequestVars: function() {
-    
+
     // the following is taken from https://developer.mozilla.org/en-US/docs/Web/API/window.location
     var oGetVars = new (function (sSearch) {
       if (sSearch.length > 1) {
@@ -311,11 +311,11 @@ var urlHandler = {
         }
       }
     })(window.location.search);
-    
+
     return oGetVars;
-    
+
   },
-  
+
   /**
   * push a pattern onto the current history based on a click
   * @param  {String}       the shorthand partials syntax for a given pattern
@@ -343,42 +343,42 @@ var urlHandler = {
       }
     }
   },
-  
+
   /**
   * based on a click forward or backward modify the url and iframe source
   * @param  {Object}      event info like state and properties set in pushState()
   */
   popPattern: function (e) {
-    
+
     var patternName;
     var state = e.state;
-    
+
     if (state === null) {
       this.skipBack = false;
       return;
     } else if (state !== null) {
       patternName = state.pattern;
     }
-    
+
     var iFramePath = "";
     iFramePath = this.getFileName(patternName);
     if (iFramePath === "") {
       iFramePath = "styleguide/html/styleguide.html";
     }
-    
+
     var obj = JSON.stringify({ "event": "patternLab.updatePath", "path": iFramePath });
     document.getElementById("sg-viewport").contentWindow.postMessage( obj, urlHandler.targetOrigin);
     document.getElementById("title").innerHTML = "Pattern Lab - "+patternName;
     document.getElementById("sg-raw").setAttribute("href",urlHandler.getFileName(patternName));
-    
+
     /*
     if (wsnConnected !== undefined) {
       wsn.send( '{"url": "'+iFramePath+'", "patternpartial": "'+patternName+'" }' );
     }
     */
-    
+
   }
-  
+
 };
 
 /**
@@ -1232,7 +1232,7 @@ $('#sg-find .typeahead').blur(function() {
 
 // alert the iframe parent that the pattern has loaded assuming this view was loaded in an iframe
 if (self != top) {
-  
+
   // handle the options that could be sent to the parent window
   //   - all get path
   //   - pattern & view all get a pattern partial, styleguide gets all
@@ -1240,17 +1240,18 @@ if (self != top) {
   var path = window.location.toString();
   var parts = path.split("?");
   var options = { "event": "patternLab.pageLoad", "path": parts[0] };
-  
-  patternData = document.getElementById('sg-pattern-data-footer').innerHTML;
+
+  // patternData = document.getElementById('sg-pattern-data-footer').innerHTML;
+  patternData = '{}';
   patternData = JSON.parse(patternData);
   options.patternpartial = (patternData.patternPartial !== undefined) ? patternData.patternPartial : "all";
   if (patternData.lineage !== "") {
     options.lineage = patternData.lineage;
   }
-  
+
   var targetOrigin = (window.location.protocol == "file:") ? "*" : window.location.protocol+"//"+window.location.host;
   parent.postMessage(options, targetOrigin);
-  
+
   // find all links and add an onclick handler for replacing the iframe address so the history works
   var aTags = document.getElementsByTagName('a');
   for (var i = 0; i < aTags.length; i++) {
@@ -1261,6 +1262,7 @@ if (self != top) {
         // just do normal stuff
       } else if (href && href !== "#") {
         e.preventDefault();
+        // Links in content
         window.location.replace(href);
       } else {
         e.preventDefault();
@@ -1268,47 +1270,58 @@ if (self != top) {
       }
     };
   }
-  
+
 }
 
 // watch the iframe source so that it can be sent back to everyone else.
 function receiveIframeMessage(event) {
-  
+
   // does the origin sending the message match the current host? if not dev/null the request
   if ((window.location.protocol != "file:") && (event.origin !== window.location.protocol+"//"+window.location.host)) {
     return;
   }
-  
+
   var path;
   var data = {};
   try {
     data = (typeof event.data !== 'string') ? event.data : JSON.parse(event.data);
   } catch(e) {}
-  
+
   if ((data.event !== undefined) && (data.event == "patternLab.updatePath")) {
-    
+
     if (patternData.patternPartial !== undefined) {
-      
+
       // handle patterns and the view all page
       var re = /(patterns|snapshots)\/(.*)$/;
+      console.log('EN', window.location.pathname, data.path);
       path = window.location.protocol+"//"+window.location.host+window.location.pathname.replace(re,'')+data.path+'?'+Date.now();
       window.location.replace(path);
-      
+
     } else {
-      
+
       // handle the style guide
+      console.log('TO', window.location.pathname, data.path);
       path = window.location.protocol+"//"+window.location.host+window.location.pathname.replace("styleguide\/html\/styleguide.html","")+data.path+'?'+Date.now();
-      window.location.replace(path);
-      
+      var count = (path.match(/\.html/g) || []).length;
+      if (count < 2) {
+        console.log('siste1', path)
+        window.location.replace(path);
+      } else if (data.path !== 'styleguide/html/styleguide.html') {
+        var re2 = /(patterns|snapshots)\/(.*)$/;
+        path = window.location.protocol+"//"+window.location.host+window.location.pathname.replace(re2,'')+data.path+'?'+Date.now();
+        console.log('siste2', path)
+        window.location.replace(path);
+      }
+
     }
-    
+
   } else if ((data.event !== undefined) && (data.event == "patternLab.reload")) {
-    
+
     // reload the location if there was a message to do so
     window.location.reload();
-    
+
   }
-  
+
 }
 window.addEventListener("message", receiveIframeMessage, false);
 
@@ -1819,6 +1832,7 @@ window.addEventListener("message", receiveIframeMessage, false);
   // set up the defaults for the
   var baseIframePath = window.location.protocol+"//"+window.location.host+window.location.pathname.replace("index.html","");
   var patternName    = ((config.defaultPattern !== undefined) && (typeof config.defaultPattern === 'string') && (config.defaultPattern.trim().length > 0)) ? config.defaultPattern : 'all';
+  // DUCK!
   var iFramePath     = baseIframePath+"styleguide/html/styleguide.html?"+Date.now();
   if ((oGetVars.p !== undefined) || (oGetVars.pattern !== undefined)) {
     patternName = (oGetVars.p !== undefined) ? oGetVars.p : oGetVars.pattern;
@@ -1886,9 +1900,9 @@ window.addEventListener("message", receiveIframeMessage, false);
     try {
       data = (typeof event.data !== 'string') ? event.data : JSON.parse(event.data);
     } catch(e) {}
-    
+
     if (data.event !== undefined) {
-      
+
       if (data.event == "patternLab.pageLoad") {
 
         if (!urlHandler.skipBack) {
@@ -1938,9 +1952,9 @@ window.addEventListener("message", receiveIframeMessage, false);
         }
         return false;
       }
-      
+
     }
-    
+
   }
   window.addEventListener("message", receiveIframeMessage, false);
 
