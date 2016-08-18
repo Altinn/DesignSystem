@@ -1230,8 +1230,6 @@ $('#sg-find .typeahead').blur(function() {
  *
  */
 
-// HYGGE
-
 // alert the iframe parent that the pattern has loaded assuming this view was loaded in an iframe
 if (self != top) {
 
@@ -1265,7 +1263,7 @@ if (self != top) {
       } else if (href && href !== "#") {
         e.preventDefault();
         // Links in content
-        window.location.replace(href);
+        // window.location.replace(href);
       } else {
         e.preventDefault();
         return false;
