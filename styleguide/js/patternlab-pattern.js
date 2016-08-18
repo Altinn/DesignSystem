@@ -8,6 +8,8 @@
  *
  */
 
+// HYGGE
+
 // alert the iframe parent that the pattern has loaded assuming this view was loaded in an iframe
 if (self != top) {
 
@@ -40,6 +42,7 @@ if (self != top) {
         // just do normal stuff
       } else if (href && href !== "#") {
         e.preventDefault();
+        // Links in content
         window.location.replace(href);
       } else {
         e.preventDefault();
@@ -77,7 +80,14 @@ function receiveIframeMessage(event) {
 
       // handle the style guide
       path = window.location.protocol+"//"+window.location.host+window.location.pathname.replace("styleguide\/html\/styleguide.html","")+data.path+'?'+Date.now();
-      window.location.replace(path);
+      var count = (path.match(/\.html/g) || []).length;
+      if (count < 2) {
+        window.location.replace(path);
+      } else if (data.path !== 'styleguide/html/styleguide.html') {
+        var re = /(patterns|snapshots)\/(.*)$/;
+        path = window.location.protocol+"//"+window.location.host+window.location.pathname.replace(re,'')+data.path+'?'+Date.now();
+        window.location.replace(path);
+      }
 
     }
 

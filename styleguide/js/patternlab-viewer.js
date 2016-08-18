@@ -1230,6 +1230,8 @@ $('#sg-find .typeahead').blur(function() {
  *
  */
 
+// HYGGE
+
 // alert the iframe parent that the pattern has loaded assuming this view was loaded in an iframe
 if (self != top) {
 
@@ -1262,6 +1264,7 @@ if (self != top) {
         // just do normal stuff
       } else if (href && href !== "#") {
         e.preventDefault();
+        // Links in content
         window.location.replace(href);
       } else {
         e.preventDefault();
@@ -1299,7 +1302,14 @@ function receiveIframeMessage(event) {
 
       // handle the style guide
       path = window.location.protocol+"//"+window.location.host+window.location.pathname.replace("styleguide\/html\/styleguide.html","")+data.path+'?'+Date.now();
-      window.location.replace(path);
+      var count = (path.match(/\.html/g) || []).length;
+      if (count < 2) {
+        window.location.replace(path);
+      } else if (data.path !== 'styleguide/html/styleguide.html') {
+        var re = /(patterns|snapshots)\/(.*)$/;
+        path = window.location.protocol+"//"+window.location.host+window.location.pathname.replace(re,'')+data.path+'?'+Date.now();
+        window.location.replace(path);
+      }
 
     }
 
@@ -1820,10 +1830,8 @@ window.addEventListener("message", receiveIframeMessage, false);
   // set up the defaults for the
   var baseIframePath = window.location.protocol+"//"+window.location.host+window.location.pathname.replace("index.html","");
   var patternName    = ((config.defaultPattern !== undefined) && (typeof config.defaultPattern === 'string') && (config.defaultPattern.trim().length > 0)) ? config.defaultPattern : 'all';
-  var iFramePath     = baseIframePath+"?"+Date.now();
-  if (patternName === "all") {
-    var iFramePath = baseIframePath+"styleguide/html/styleguide.html?"+Date.now()
-  }
+  // DUCK!
+  var iFramePath     = baseIframePath+"styleguide/html/styleguide.html?"+Date.now();
   if ((oGetVars.p !== undefined) || (oGetVars.pattern !== undefined)) {
     patternName = (oGetVars.p !== undefined) ? oGetVars.p : oGetVars.pattern;
   }
@@ -1841,6 +1849,7 @@ window.addEventListener("message", receiveIframeMessage, false);
 
   urlHandler.skipBack = true;
   document.getElementById("sg-viewport").contentWindow.location.replace(iFramePath);
+
   //Close all dropdowns and navigation
   function closePanels() {
     $('.sg-nav-container, .sg-nav-toggle, .sg-acc-handle, .sg-acc-panel').removeClass('active');
