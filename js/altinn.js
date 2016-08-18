@@ -65,6 +65,7 @@ options = undefined
 (function ($) {
   // Handle theme toggle:
   $(function () {
+    $('body', '.ap-profile').attr('class', '')
     if (localStorage.getItem('theme') && localStorage.getItem('theme') === 'business') {
       $('body', $('iframe').contents()[0]).attr('class', 'business');
       $('#sg-switchtheme-blue', $('iframe').contents()[0]).prop('checked', true)
