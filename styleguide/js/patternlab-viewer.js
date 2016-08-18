@@ -1263,7 +1263,7 @@ if (self != top) {
       } else if (href && href !== "#") {
         e.preventDefault();
         // Links in content
-        // window.location.replace(href);
+        window.location.replace(href);
       } else {
         e.preventDefault();
         return false;
