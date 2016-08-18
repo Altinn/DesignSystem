@@ -1,7 +1,7 @@
-/* Her skrives kommentarer til UI-komponentene.
+/* Her skrives kommentarer til UI-komponentene. */
 var comments = {
 "comments" : [
-	{
+/*	{
 		"el": ".a-options",
 	 	"title" : "Avkrysningsbokser",
 	 	"comment": ""
@@ -315,7 +315,6 @@ var comments = {
 		"el": "#articleBody",
 		"title" : "Artikkel",
 		"comment": ""
-	}
+	}*/
 ]
 };
-*/
