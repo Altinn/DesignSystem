@@ -4,7 +4,12 @@
  * The gulp wrapper around patternlab-node core, providing tasks to interact with the core library and move supporting frontend assets.
 ******************************************************/
 var gulp = require('gulp'),
+  gulp_concat = require('gulp-concat'),
+  gulp_rename = require('gulp-rename'),
   path = require('path'),
+  fs = require('fs'),
+  pjson = require('./package.json'),
+  version = pjson.version,
   sass = require('gulp-sass'),
   browserSync = require('browser-sync').create(),
   argv = require('minimist')(process.argv.slice(2));
@@ -100,6 +105,38 @@ gulp.task('pl-copy:styleguide-css', function(){
     .pipe(browserSync.stream());
 });
 
+// Create distribution CSS (no Patternlab or styleguide UI)
+gulp.task('pl-copy:distribution-css', function () {
+  fs.readFile('./source/css/style.scss', 'utf-8',
+    function (err, custom) {
+      if (err) console.log(err)
+      var src = custom.replace('@import "scss/base/profile-presentation"; ', '// Automatically removed')
+      src = src.replace('@import "scss/patternlab/_presentation"; ', '// Automatically removed')
+      // To remove further css:
+      // src = src.replace('Text to remove', '// Automatically removed')
+      fs.writeFileSync('./source/css/style.min.scss', src)
+      return gulp.src(path.resolve(paths().source.css, 'style.min.scss'))
+        .pipe(sass().on('error', sass.logError))
+        .pipe(gulp.dest('public/distributions/v' + version))
+        .pipe(browserSync.stream())
+    }
+    // TODO: Delete style.min.scss from source folder
+  )
+});
+
+// Create distribution JS (bundles JS resources, EXCEPT FOR JQUERY)
+gulp.task('pl-copy:distribution-js', function () {
+  return gulp.src([
+    'node_modules/tether/dist/js/tether.min.js',
+    'node_modules/bootstrap/dist/js/bootstrap.min.js',
+    'node_modules/bootstrap-validator/dist/validator.min.js',
+    'node_modules/smoothstate/jquery.smoothState.min.js',
+    'source/js/altinn.js'])
+    .pipe(gulp_concat('concat.js'))
+    .pipe(gulp_rename('plugins.min.js'))
+    .pipe(gulp.dest('public/distributions/v' + version))
+})
+
 /******************************************************
  * PATTERN LAB CONFIGURATION - API with core library
 ******************************************************/
@@ -134,6 +171,16 @@ gulp.task('pl-assets', gulp.series(
     'pl-copy:css',
     'pl-copy:styleguide',
     'pl-copy:styleguide-css'
+  ),
+  function(done){
+    done();
+  })
+);
+
+gulp.task('pl-distr', gulp.series(
+  gulp.parallel(
+    'pl-copy:distribution-css',
+    'pl-copy:distribution-js'
   ),
   function(done){
     done();
@@ -241,4 +288,4 @@ gulp.task('patternlab:connect', gulp.series(function(done) {
 ******************************************************/
 gulp.task('default', gulp.series('patternlab:build'));
 gulp.task('patternlab:watch', gulp.series('patternlab:build', watch));
-gulp.task('patternlab:serve', gulp.series('patternlab:build', 'patternlab:connect', watch));
+gulp.task('patternlab:serve', gulp.series('patternlab:build', 'patternlab:connect', 'pl-distr', watch));
