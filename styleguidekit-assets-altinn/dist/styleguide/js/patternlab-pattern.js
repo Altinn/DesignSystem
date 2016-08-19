@@ -71,24 +71,22 @@ function receiveIframeMessage(event) {
 
       // handle patterns and the view all page
       var re = /(patterns|snapshots)\/(.*)$/;
-      console.log('EN', window.location.pathname, data.path);
       path = window.location.protocol+"//"+window.location.host+window.location.pathname.replace(re,'')+data.path+'?'+Date.now();
       window.location.replace(path);
 
     } else {
 
       // handle the style guide
-      console.log('TO', window.location.pathname, data.path);
       path = window.location.protocol+"//"+window.location.host+window.location.pathname.replace("styleguide\/html\/styleguide.html","")+data.path+'?'+Date.now();
       var count = (path.match(/\.html/g) || []).length;
       if (count < 2) {
-        console.log('siste1', path)
         window.location.replace(path);
       } else if (data.path !== 'styleguide/html/styleguide.html') {
         var re2 = /(patterns|snapshots)\/(.*)$/;
         path = window.location.protocol+"//"+window.location.host+window.location.pathname.replace(re2,'')+data.path+'?'+Date.now();
-        console.log('siste2', path)
         window.location.replace(path);
+      // } else if (window.location.pathname !== 'styleguide/html/styleguide.html') {
+        // window.location.replace(window.location.protocol+"//"+window.location.host+'/DesignSystem/');
       }
 
     }
