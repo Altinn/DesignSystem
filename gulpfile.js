@@ -288,4 +288,6 @@ gulp.task('patternlab:connect', gulp.series(function(done) {
 ******************************************************/
 gulp.task('default', gulp.series('patternlab:build'));
 gulp.task('patternlab:watch', gulp.series('patternlab:build', watch));
-gulp.task('patternlab:serve', gulp.series('patternlab:build', 'patternlab:connect', 'pl-distr', watch));
+// gulp.task('patternlab:serve', gulp.series('patternlab:build', 'patternlab:connect', 'pl-distr', watch));
+
+gulp.task('patternlab:serve', gulp.series('patternlab:build', 'patternlab:connect', watch));
