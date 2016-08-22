@@ -2,7 +2,7 @@
 <html lang="no" class="">
 
   <head>
-    <title></title>
+    <title>Altinn</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width" />
 
@@ -45,7 +45,7 @@
 <meta http-equiv="expires" content="Tue, 01 Jan 1980 1:00:00 GMT" />
 <meta http-equiv="pragma" content="no-cache" />
 
-<link rel="stylesheet" href="../../styleguide/css/styleguide.min.css?1471847556798" media="all">
+<link rel="stylesheet" href="../../styleguide/css/styleguide.min.css?1471860531712" media="all">
 <style type="text/css">
   /* PRESENTATION OF STYLE GUIDE */
   .sg-top {
@@ -127,9 +127,13 @@
   .sg-pattern-state:before {
     font-size: 30px;
   }
-  #sg-patterns .sg-pattern-state:before {
+  #sg-patterns .sg-pattern-head .sg-pattern-state:before {
     font-size: 30px;
     margin-bottom: -10px;
+  }
+  #sg-patterns .sg-pattern-extra-info .sg-pattern-state:before {
+    font-size: 30px;
+    margin-bottom: 0px;
   }
   #sg-code-lineager-fill .sg-pattern-state:before {
     margin-bottom: -2px !important;
@@ -253,7 +257,7 @@
       margin-bottom: 3px;
   }
 </style>
-<link rel="stylesheet" href="../../styleguide/css/prism-typeahead.min.css?1471847556798" media="all" />
+<link rel="stylesheet" href="../../styleguide/css/prism-typeahead.min.css?1471860531712" media="all" />
 
     <!-- End Pattern Lab -->
 
@@ -268,7 +272,7 @@
 				<h1><span class="a-textSize4">PATTERN LAB</span><br>Levende designsystem og prototypeverktøy <br>for Altinns webløsninger </h1>
 				<p class="a-leadText">Designsystemet er laget med Patternlab, basert på atomisk designtankegang. Vi bruker dette systemet til å opprettholde frontend-kode og visuell konsistens på tvers av løsningene. Målet er å skape et felles sted for UI-mønstre og stilsett, som etterhvert skal benyttes av alle løsningene til Altinn.</p>
 				<!-- Button trigger modal -->
-				<button type="button" class="a-btn-link" data-toggle="modal" data-target="#modalabout" href="#">Les mer om designsystemet</button>
+				<a href="http://altinn-dev.dev.bouvet.no/en/profil/web/retningslinjer-for-web2/" class="a-link" id="linkStandalone" target="_blank">Les mer om designsystemet <i class="material-icons a-link-external">&#xE0B2;</i></a>
 			</div>
 			<div class="col-xs-12 col-sm-12 col-md-12 col-lg-4 col-xl-4">
 			  <span class="sg-atom hidden-md-down"></span>
@@ -293,105 +297,10 @@
 
 	</div>
 </div>
-<!-- <div class="sg-switchtheme">
-	<div class="container">
-
-		<div class="a-radioButtons">
-		Bytt tema:
-
-			<label class="c-input c-radio">
-			  <input id="sg-switchtheme-blue" name="radio" type="radio" ><span class="c-indicator"></span>
-			  Bedrift
-			</label>
-			<label class="c-input c-radio">
-			  <input id="sg-switchtheme-grey" name="radio" type="radio" ><span class="c-indicator"></span>
-			  Privat
-			</label>
-
-		</div>
-	</div>
-</div> -->
 
 
 
 
-
-
-
-
-<!-- Modal -->
-<div class="modal a-modal fade" id="modalabout" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-	<div class="modal-dialog modal-lg" role="document">
-
-		<!-- Modal Top -->
-	    <div class="a-modal-top">
-	      <img id="altinnlogo" class="a-modal-top-logo" src="../../images/a-logo-white.svg">
-
-	      <div id="represented-by-user" class="a-modal-top-user hidden-xs">
-
-	        <i class="material-icons a-modal-top-user-icon">person</i>
-
-	          <span class="a-modal-top-user-name">
-	            STEPHAN ISDAHL
-	          </span>
-	      </div>
-
-	      <div class="a-modal-navbar">
-
-	        <button type="button" class="a-modal-back" data-dismiss="modal" aria-label="Lukk">
-	          <i class="material-icons a-modal-back-icon">keyboard_backspace</i>
-	        </button>
-
-	        <button type="button" class="a-modal-close" data-dismiss="modal" aria-label="Lukk">
-	          <i class="material-icons a-modal-close-icon">close</i>
-	        </button>
-
-
-	      </div>
-	    </div>
-		<!-- Modal content -->
-		<div class="modal-content">
-			<div class="modal-header a-modal-header">
-
-				<i class="material-icons a-collapse-icon">devices</i>
-				<h2 class="modal-title a-modal-title" id="myModalLabel">Om designsystemet</h2>
-
-			</div>
-			<div class="modal-body a-modal-body a-text">
-
-				<p class="a-leadText">Stilsettene i dette designsystemet skal være grunnlaget for webløsninger som utvikles for Altinn. Designsystemet skal fungere som et løsrevet lag fra andre plattformer/publiseringsløsninger. Ulike webløsninger (nettsider, intranett, webapplikasjoner, osv) kan referere til stilsettene i designsystemet, og i tillegg ha sine egne stilsett med sine "unntak". Systemet er levende og skal oppdateres med nye stiler og komponenter etter behov. </p>
-				<hr>
-				<h3 class="headerSmall">Patternlab</h3>
-				<p>"Pattern Lab puts together a set of templates into a static style guide website. It also provides a set of useful features like navigation, annotation support and smart templating.
-Pattern Lab combine structure with an atomic design approach. This is an ideal combination for easy prototyping and passing HTML markup to clients or back-end developers."</p>I toppmenyen finer du alle komponentene og malene, organisert under "atomer", "molekyler", "organismer", "templates" og "pages". </p>Les mer om Patternlab <a href="http://localhost:3000/?p=all">her</a>. <br /><br />
-			<h3 class="headerSmall">Tastatursnarveier</h3>
-			<b>ctrl+shift+a:</b> Åpne/lukke kommentarer <br>
-			<b>ctrl+shift+c:</b> Åpne/lukke HTML-kode</p>
-			<hr>
-			<h3 class="headerSmall">Målet</h3>
-			<p>Målet med å lage et levende desigsystem er:
-				<ul>
-					<li>Maintain a consistency of styles and identity in all Alltinn's web solutions</li>
-					<li>Having one common prototype environment where we are simultaneously able to see components abstractly and in context</li>
-					<li>Streamline the workflow for designers and developers</li>
-					<li>Create a focal point for our Design and User Experience work, both for ourselves and for the community</li>
-				</ul>
-				<h3 class="headerSmall">Rutiner for oppdatering</h3>
-				<p>Når et nytt atom, molekyl eller organisme lages, skal følgene sjekkes:
-				<ul>
-					<li>Skriv en kommentar til komponenten, med bruksområde og retningslinjer.  </li>
-					<li>Legg status på komponenten (ferdig, under arbeid eller til kontroll)</li>
-					<li>Sjekk at koden er universelt utformet. </li>
-        </ul>
-				<br /><br />
-			</div>
-			<div class="modal-footer">
-				<a class="a-link" href="http://patternlab.io/">Jeg vil vite mer om Patternlab › </a>
-				<button type="button" class="a-btn a-btn-success" data-dismiss="modal" style="margin-left: 24px;">Ok, jeg forstår.</button>
-			</div>
-		</div>
-	</div>
-</div>
 <div class="container">
   <!-- View All Patterns in a Pattern Sub-Type -->
   <div class="sg-main" role="main">
@@ -420,7 +329,7 @@ Pattern Lab combine structure with an atomic design approach. This is an ideal c
 
   </div>
   <div class="sg-pattern-example">
-    <a href="../.." id="link">Ekstern lenke som står i løpende tekst <i class="material-icons a-link-external">&#xE0B2;</i></a>
+    <a href="../..">Ekstern lenke som står i løpende tekst <i class="material-icons a-link-external">&#xE0B2;</i></a>
 
   </div>
   <script type="text/json" id="sg-pattern-data-atoms-link-external" class="sg-pattern-data">
@@ -468,7 +377,7 @@ Pattern Lab combine structure with an atomic design approach. This is an ideal c
 
   </div>
   <div class="sg-pattern-example">
-    <a href="../.." id="link">Lenke som står i løpende tekst</a>
+    <a href="../..">Lenke som står i løpende tekst</a>
 
   </div>
   <script type="text/json" id="sg-pattern-data-atoms-link" class="sg-pattern-data">
@@ -490,7 +399,7 @@ Pattern Lab combine structure with an atomic design approach. This is an ideal c
 
   </div>
   <div class="sg-pattern-example">
-    <a href="../.." class="a-link" id="linkStandalone">Ekstern lenke som står alene <i class="material-icons a-link-external">&#xE0B2;</i></a> 
+    <a href="../.." class="a-link">Ekstern lenke som står alene <i class="material-icons a-link-external">&#xE0B2;</i></a> 
 
   </div>
   <script type="text/json" id="sg-pattern-data-atoms-link-standalone-external" class="sg-pattern-data">
@@ -512,7 +421,7 @@ Pattern Lab combine structure with an atomic design approach. This is an ideal c
 
   </div>
   <div class="sg-pattern-example">
-    <a href="../.." class="a-link" id="linkStandalone">Lenke som står alene ›</a> 
+    <a href="../.." class="a-link">Lenke som står alene ›</a> 
 
   </div>
   <script type="text/json" id="sg-pattern-data-atoms-link-standalone" class="sg-pattern-data">
@@ -534,7 +443,7 @@ Pattern Lab combine structure with an atomic design approach. This is an ideal c
 
   </div>
   <div class="sg-pattern-example">
-    <button type="button" class="a-btn-link" id="buttonLinkStandalone">En knapp som er stylet som en lenke ›</button> 
+    <button type="button" class="a-btn-link">En knapp som er stylet som en lenke ›</button> 
 
   </div>
   <script type="text/json" id="sg-pattern-data-atoms-button-link-standalone" class="sg-pattern-data">
@@ -556,7 +465,7 @@ Pattern Lab combine structure with an atomic design approach. This is an ideal c
 
   </div>
   <div class="sg-pattern-example">
-    <a class="a-link a-link-warning" href="#" id="linkStandaloneDanger">Lenke som står alene og antyder fare </a>
+    <a class="a-link a-link-warning" href="#">Lenke som står alene og antyder fare </a>
 
   </div>
   <script type="text/json" id="sg-pattern-data-atoms-link-standalone-danger" class="sg-pattern-data">
@@ -578,7 +487,7 @@ Pattern Lab combine structure with an atomic design approach. This is an ideal c
 
   </div>
   <div class="sg-pattern-example">
-    <button type="button" class="a-btn-link a-link a-link-warning" id="buttonLinkStandaloneDanger">En knapp som er stylet som en fare-lenke ›</button>  
+    <button type="button" class="a-btn-link a-link a-link-warning">En knapp som er stylet som en fare-lenke ›</button>  
 
   </div>
   <script type="text/json" id="sg-pattern-data-atoms-button-link-standalone-danger" class="sg-pattern-data">
@@ -600,7 +509,7 @@ Pattern Lab combine structure with an atomic design approach. This is an ideal c
 
   </div>
   <div class="sg-pattern-example">
-    <button type="button" class="a-btn a-btn-border" id="buttonBorder"> En stor knapp </button>
+    <button type="button" class="a-btn a-btn-border"> En stor knapp </button>
 
   </div>
   <script type="text/json" id="sg-pattern-data-atoms-button-border" class="sg-pattern-data">
@@ -622,7 +531,7 @@ Pattern Lab combine structure with an atomic design approach. This is an ideal c
 
   </div>
   <div class="sg-pattern-example">
-    <a href="../.." class="a-btn a-btn-border" id="linkButtonBorder">En lenke stylet som en stor knapp</a>
+    <a href="../.." class="a-btn a-btn-border">En lenke stylet som en stor knapp</a>
 
   </div>
   <script type="text/json" id="sg-pattern-data-atoms-link-button-border" class="sg-pattern-data">
@@ -644,7 +553,7 @@ Pattern Lab combine structure with an atomic design approach. This is an ideal c
 
   </div>
   <div class="sg-pattern-example">
-    <button type="button" class="a-btn a-btn-primary" id="button"> En standard knapp </button> 
+    <button type="button" class="a-btn a-btn-primary"> En standard knapp </button> 
 
   </div>
   <script type="text/json" id="sg-pattern-data-atoms-button" class="sg-pattern-data">
@@ -666,7 +575,7 @@ Pattern Lab combine structure with an atomic design approach. This is an ideal c
 
   </div>
   <div class="sg-pattern-example">
-    <a href="../.." class="a-btn a-btn-primary" id="linkButton">En lenke stylet som en standard knapp</a>
+    <a href="../.." class="a-btn a-btn-primary">En lenke stylet som en standard knapp</a>
 
   </div>
   <script type="text/json" id="sg-pattern-data-atoms-link-button" class="sg-pattern-data">
@@ -688,7 +597,7 @@ Pattern Lab combine structure with an atomic design approach. This is an ideal c
 
   </div>
   <div class="sg-pattern-example">
-    <button type="button" class="a-btn a-btn-primary disabled" id="buttonDisabled" disabled>En deaktivert knapp</button>
+    <button type="button" class="a-btn a-btn-primary disabled" disabled>En deaktivert knapp</button>
 
   </div>
   <script type="text/json" id="sg-pattern-data-atoms-button-disabled" class="sg-pattern-data">
@@ -710,7 +619,7 @@ Pattern Lab combine structure with an atomic design approach. This is an ideal c
 
   </div>
   <div class="sg-pattern-example">
-    <a href="../.." class="a-btn a-btn-primary disabled" id="linkButtonDisabled">En link stylet som en deaktivert knapp</a>
+    <a href="../.." class="a-btn a-btn-primary disabled">En link stylet som en deaktivert knapp</a>
 
   </div>
   <script type="text/json" id="sg-pattern-data-atoms-link-button-disabled" class="sg-pattern-data">
@@ -732,7 +641,7 @@ Pattern Lab combine structure with an atomic design approach. This is an ideal c
 
   </div>
   <div class="sg-pattern-example">
-    <button type="button" class="a-btn a-btn-success" id="buttonSuccess">En knapp som antyder suksess</button>
+    <button type="button" class="a-btn a-btn-success">En knapp som antyder suksess</button>
 
   </div>
   <script type="text/json" id="sg-pattern-data-atoms-button-success" class="sg-pattern-data">
@@ -754,7 +663,7 @@ Pattern Lab combine structure with an atomic design approach. This is an ideal c
 
   </div>
   <div class="sg-pattern-example">
-    <a href="../.." class="a-btn a-btn-success" id="linkButtonSuccess">En lenke stylet som en suksess-knapp</a>
+    <a href="../.." class="a-btn a-btn-success">En lenke stylet som en suksess-knapp</a>
 
   </div>
   <script type="text/json" id="sg-pattern-data-atoms-link-button-success" class="sg-pattern-data">
@@ -776,7 +685,7 @@ Pattern Lab combine structure with an atomic design approach. This is an ideal c
 
   </div>
   <div class="sg-pattern-example">
-    <button type="button" class="a-btn a-btn-danger" id="buttonDanger">En knapp som antyder fare</button> 
+    <button type="button" class="a-btn a-btn-danger">En knapp som antyder fare</button> 
 
   </div>
   <script type="text/json" id="sg-pattern-data-atoms-button-danger" class="sg-pattern-data">
@@ -798,7 +707,7 @@ Pattern Lab combine structure with an atomic design approach. This is an ideal c
 
   </div>
   <div class="sg-pattern-example">
-    <a href="../.." class="a-btn a-btn-danger" id="linkButtonDanger">En lenke stylet som en fare-knapp</a>
+    <a href="../.." class="a-btn a-btn-danger">En lenke stylet som en fare-knapp</a>
 
   </div>
   <script type="text/json" id="sg-pattern-data-atoms-link-button-danger" class="sg-pattern-data">
@@ -820,7 +729,7 @@ Pattern Lab combine structure with an atomic design approach. This is an ideal c
 
   </div>
   <div class="sg-pattern-example">
-    <button type="button" class="a-btn a-btn-action" id="buttonAdd">
+    <button type="button" class="a-btn a-btn-action">
     <span class="a-btn-action-iconPlus">+</span> En knapp for å legge til
 </button>
 
@@ -844,7 +753,7 @@ Pattern Lab combine structure with an atomic design approach. This is an ideal c
 
   </div>
   <div class="sg-pattern-example">
-    <a href="../.." class="a-btn a-btn-action" id="linkButtonAdd">
+    <a href="../.." class="a-btn a-btn-action">
 	<span class="a-btn-action-iconPlus">+</span> En lenke styles som en knapp for å legge til
 </a>
 
@@ -868,7 +777,7 @@ Pattern Lab combine structure with an atomic design approach. This is an ideal c
 
   </div>
   <div class="sg-pattern-example">
-    <button type="button" class="a-btn a-btn-action" id="buttonDownload">
+    <button type="button" class="a-btn a-btn-action">
    <i class="fa fa-download a-btn-action-icon"></i> En knapp for å laste ned
 </button>
 
@@ -892,7 +801,7 @@ Pattern Lab combine structure with an atomic design approach. This is an ideal c
 
   </div>
   <div class="sg-pattern-example">
-    <a href="../.." class="a-btn a-btn-action" id="linkButtonDownload">
+    <a href="../.." class="a-btn a-btn-action">
 	<i class="fa fa-download a-btn-action-icon"></i> En lenke styles som en knapp for å laste ned
 </a>
 
@@ -916,7 +825,7 @@ Pattern Lab combine structure with an atomic design approach. This is an ideal c
 
   </div>
   <div class="sg-pattern-example">
-    <button type="button" class="a-btn a-btn-action" id="buttonUpload">
+    <button type="button" class="a-btn a-btn-action">
     <i class="fa fa-upload a-btn-action-icon"></i> En knapp for å laste opp
 </button>
 
@@ -940,7 +849,7 @@ Pattern Lab combine structure with an atomic design approach. This is an ideal c
 
   </div>
   <div class="sg-pattern-example">
-    <a href="../.." class="a-btn a-btn-action" id="linkButtonUpload">
+    <a href="../.." class="a-btn a-btn-action">
 	<i class="fa fa-upload a-btn-action-icon"></i> En lenke styles som en knapp for å laste opp
 </a>
 
@@ -964,12 +873,12 @@ Pattern Lab combine structure with an atomic design approach. This is an ideal c
 
   </div>
   <div class="sg-pattern-example">
-    <a href="../.." class="a-btn a-btn-shadow " id="linkButtonShadow">
+    <a href="../.." class="a-btn a-btn-shadow ">
 	<i class="material-icons a-btn-shadow-icon">&#xE7F1;</i>
 
 	En knapp med skygge
 
-	<span class="label label-primary a-label label-pill" id="label"></span>
+	<span class="label label-primary a-label label-pill"></span>
 </a>
 
   </div>
@@ -997,10 +906,10 @@ Pattern Lab combine structure with an atomic design approach. This is an ideal c
 </a>
 
 
-  <div id="filter-example" class="a-collapseContent collapse" role="tabpanel" aria-expanded="true">
-  Innhold som vises/skjules
+<div id="filter-example" class="a-collapseContent collapse" role="tabpanel" aria-expanded="true">
+Innhold som vises/skjules
 
-  </div>
+</div>
 
   </div>
   <script type="text/json" id="sg-pattern-data-atoms-collapse-filter" class="sg-pattern-data">
@@ -1063,16 +972,16 @@ Pattern Lab combine structure with an atomic design approach. This is an ideal c
   </div>
   <div class="sg-pattern-example">
     
-<div class="panel panel-default a-collapse">
+<div class="panel panel-default a-collapse" role="tablist">
 
-    <div class="panel-heading index-heading clearfix collapsed a-collapse-heading" role="tab" id="">
+    <div class="panel-heading index-heading clearfix collapsed a-collapse-heading" role="tab" id=""> 
 
         <a class="a-collapseBtn collapsed center-table-text" data-toggle="collapse" data-parent="#accordion" data-target="#collapseExample" href="#" aria-expanded="false" aria-controls="collapseExample">
-          
+
 			  <i class="material-icons a-collapse-icon">get_app</i>
-       
-          Denne knappen vil ekspandere mer informasjon 
-          <i class="material-icons a-collapse-arrowDown">&#xE313;</i><i class="material-icons a-collapse-arrowUp">&#xE316;</i> 
+
+          Denne knappen vil ekspandere mer informasjon
+          <i class="material-icons a-collapse-arrowDown">&#xE313;</i><i class="material-icons a-collapse-arrowUp">&#xE316;</i>
 		    </a>
     </div>
 
@@ -1081,10 +990,8 @@ Pattern Lab combine structure with an atomic design approach. This is an ideal c
           Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quisquam excepturi sit natus pariatur consequuntur labore magnam aperiam non iusto itaque cumque iste ipsum, sed molestias! Placeat quia velit dolor doloremque?
       </p>
     </div>
- 
+
 </div>
-
-
 
   </div>
   <script type="text/json" id="sg-pattern-data-atoms-collapse-panel" class="sg-pattern-data">
@@ -1106,7 +1013,7 @@ Pattern Lab combine structure with an atomic design approach. This is an ideal c
 
   </div>
   <div class="sg-pattern-example">
-    <a href="../.." class="a-btn a-btn-viewmore " id="linkButtonShadow">
+    <a href="../.." class="a-btn a-btn-viewmore ">
 	<i class="material-icons a-btn-viewmore-icon">&#xE145;</i>
 
 	Knapp for å laste inn mer innhold
@@ -1134,16 +1041,17 @@ Pattern Lab combine structure with an atomic design approach. This is an ideal c
   </div>
   <div class="sg-pattern-example">
     <button type="button" class="a-boxAddBtn">
-  
-  <div class="a-boxAddBtn-inner">
+
+  <span class="a-boxAddBtn-inner">
        Legg til ny person
 
     <i class="material-icons a-boxAddBtn-icon">add_circle</i>
 
        eller virksomhet
-  </div>
+  </span>
 
-</button> 
+</button>
+
   </div>
   <script type="text/json" id="sg-pattern-data-atoms-box-button-add" class="sg-pattern-data">
     {"cssEnabled":false,"patternLineageExists":false,"patternLineages":[],"lineage":[],"patternLineageRExists":true,"patternLineagesR":[{"lineagePattern":"molecules-boxBtnlist","lineagePath":"../../patterns/01-molecules-08-lists-00-boxBtnlist/01-molecules-08-lists-00-boxBtnlist.html","lineageState":"inreview"}],"lineageR":[{"lineagePattern":"molecules-boxBtnlist","lineagePath":"../../patterns/01-molecules-08-lists-00-boxBtnlist/01-molecules-08-lists-00-boxBtnlist.html","lineageState":"inreview"}],"patternLineageEExists":true,"patternDesc":"<p>Brukes i tilfeller der brukeren kan legge til noe, f.eks: en en person, virksomhet, etc.</p>\n","patternBreadcrumb":{"patternType":"atoms","patternSubtype":"links-and-buttons"},"patternExtension":"mustache","patternName":"Box Button Add","patternPartial":"atoms-box-button-add","patternState":"inreview","extraOutput":{}}
@@ -1171,17 +1079,17 @@ Pattern Lab combine structure with an atomic design approach. This is an ideal c
           STYRETS LEDER
       </span>
 
-      <p>
+      <span class="a-boxBtn-name">
           WILHELM MJELDE
-      </p>
+      </span>
 
       <i class="material-icons a-boxBtn-icon a-blueText">people</i>
-      
+
       <b class="a-boxBtn-action a-blueText">
           Gi og fjerne rettigheter ›
-      </b> 
+      </b>
 
-  </button> 
+  </button>
 
   </div>
   <script type="text/json" id="sg-pattern-data-atoms-box-button" class="sg-pattern-data">
@@ -1204,7 +1112,7 @@ Pattern Lab combine structure with an atomic design approach. This is an ideal c
   </div>
   <div class="sg-pattern-example">
     
-<div class="a-btn-group" id="linkWithPopover">
+<div class="a-btn-group">
 
   <a href="javascript:;" aria-label="info" tabindex="0" class="a-link" role="button" data-toggle="popover" data-template='<div class="popover" role="tooltip"><div class="popover-arrow"></div><h3 class="popover-title"></h3><div class="popover-content"></div></div>' data-target="#myPopup3" data-placement="bottom" data-trigger="focus" title="Tittel på popover" data-content="Og her kommer innholdet..">
     Klikk for å se popover gul
@@ -1243,17 +1151,17 @@ Pattern Lab combine structure with an atomic design approach. This is an ideal c
   </div>
   <div class="sg-pattern-example">
     
-<div class="a-btn-group" id="linkWithTooltip">
+<div class="a-btn-group">
 
-  <a href="javascript:;" tabindex="0" class="a-link" role="button" class="a-button-link" data-toggle="tooltip" data-template='<div class="tooltip a-tooltip" role="tooltip"><div class="tooltip-arrow"></div><div class="tooltip-inner"></div></div>' data-placement="top" title="Gul tooltip på toppen ved mouseover">
+  <a href="javascript:;" tabindex="0" class="a-link a-button-link" role="button" data-toggle="tooltip" data-template='<div class="tooltip a-tooltip" role="tooltip"><div class="tooltip-arrow"></div><div class="tooltip-inner"></div></div>' data-placement="top" title="Gul tooltip på toppen ved mouseover">
     Hold over for å se gul tooltip
   </a>
 
-  <a href="javascript:;" tabindex="0" class="a-link" role="button" class="a-button-link" data-toggle="tooltip" data-template='<div class="tooltip a-tooltip a-tooltip-valid" role="tooltip"><div class="tooltip-arrow"></div><div class="tooltip-inner"></div></div>' data-placement="top" title="Grønn tooltip på toppen ved mouseover">
+  <a href="javascript:;" tabindex="0" class="a-link a-button-link" role="button" data-toggle="tooltip" data-template='<div class="tooltip a-tooltip a-tooltip-valid" role="tooltip"><div class="tooltip-arrow"></div><div class="tooltip-inner"></div></div>' data-placement="top" title="Grønn tooltip på toppen ved mouseover">
     Hold over for å se grønn tooltip
   </a>
 
-  <a href="javascript:;" tabindex="0" class="a-link" role="button" class="a-button-link" data-toggle="tooltip" data-template='<div class="tooltip a-tooltip a-tooltip-warning" role="tooltip"><div class="tooltip-arrow"></div><div class="tooltip-inner"></div></div>' data-placement="top" title="Rød tooltip på toppen ved mouseover">
+  <a href="javascript:;" tabindex="0" class="a-link a-button-link" role="button" data-toggle="tooltip" data-template='<div class="tooltip a-tooltip a-tooltip-warning" role="tooltip"><div class="tooltip-arrow"></div><div class="tooltip-inner"></div></div>' data-placement="top" title="Rød tooltip på toppen ved mouseover">
     Hold over for å se rød tooltip
   </a>
 
@@ -1346,10 +1254,10 @@ Pattern Lab combine structure with an atomic design approach. This is an ideal c
   }
 </script>
 
-<script id="pl-js-polyfill-insert-1471847556798">
+<script id="pl-js-polyfill-insert-1471860531712">
   (function() {
     if (self != top) {
-      var cb = '1471847556798';
+      var cb = '1471860531712';
       var js = [];
       if (typeof document !== 'undefined' && !('classList' in document.documentElement)) {
         js.push('styleguide/bower_components/classList.min.js');
@@ -1359,10 +1267,10 @@ Pattern Lab combine structure with an atomic design approach. This is an ideal c
   })();
 </script>
 
-<script id="pl-js-insert-1471847556798">
+<script id="pl-js-insert-1471860531712">
   (function() {
     if (self != top) {
-      var cb = '1471847556798';
+      var cb = '1471860531712';
       var js = [ { 'src': 'styleguide/bower_components/jwerty.min.js', 'dep': [ 'styleguide/js/patternlab-pattern.min.js' ] } ];
       scriptLoader.run(js,cb,'pl-js-insert');
     }
