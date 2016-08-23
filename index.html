@@ -37,7 +37,7 @@
           <a href="https://github.com/Altinn/DesignSystem">Åpne i Github </a>
         </div>
       </div>
-      <a href="#sg-nav-container" class="sg-nav-toggle">Menu</a>
+      <a href="#sg-nav-container" class="sg-nav-toggle">Meny</a>
       <div class="sg-nav-container" id="sg-nav-container">
         <ol class="sg-nav" id="pl-pattern-nav-target"><!-- pattern lab nav will be inserted here --></ol>
         <div class="sg-controls" id="sg-controls"><!-- ish Controls will be inserted here --></div>
@@ -48,7 +48,7 @@
     <!-- iFrame -->
     <div id="sg-vp-wrap">
       <div id="sg-cover"></div>
-      <div id="sg-gen-container" style="overflow: auto; overflow-x: hidden; width: 100%; -webkit-overflow-scrolling:touch;">
+      <div id="sg-gen-container" style="overflow: auto;  -webkit-overflow-scrolling:touch;">
         <iframe id="sg-viewport" name="sg-viewport" sandbox="allow-same-origin allow-scripts allow-popups allow-forms"></iframe>
         <div id="sg-rightpull-container">
           <div id="sg-rightpull"></div>
@@ -75,7 +75,9 @@
 
     <!-- mustache templates -->
     <script type="text/mustache" id="pl-pattern-nav-template">
-      {{# patternTypes }}
+      <!-- TODO: data-patternpartial="all" is this necessary on all-link? -->
+<li><a href="http://altinn.github.io/DesignSystem/" class="sg-pop">Alle komponenter</a></li>
+{{# patternTypes }}
   <li><a class="sg-acc-handle">{{ patternTypeUC }}</a><ol class="sg-acc-panel">
   {{# patternTypeItems }}
     <li><a class="sg-acc-handle">{{ patternSubtypeUC }}</a><ol class="sg-acc-panel sg-sub-nav">
@@ -89,7 +91,6 @@
   {{/ patternItems }}
   </ol></li>
 {{/ patternTypes }}
-<li><a href="http://altinn.github.io/DesignSystem/" class="sg-pop" data-patternpartial="all">All</a></li>
 
     </script>
 
