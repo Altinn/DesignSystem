@@ -1,3 +1,6 @@
+//Breakpoint-variabler
+var bpXsmall=0, bpSmall=544, bpMed=768, bpLarge=992, bpXlarge=1200;
+
 options = undefined
 /* globals jQuery */
 /*!
@@ -127,11 +130,15 @@ options = undefined
       }
       var ul = target.closest('ul')
       if (ul.hasClass('a-colnav-secondLevel' || 'a-colnav-thirdLevel')) {
-        if (!findOpenThird(ul)) second.animate({ 'margin-left': '-78px' }, 125)
-        else { second.css('margin-left', '-78px') }
+        if (!findOpenThird(ul)) {
+            if($(window).width() >= bpLarge) {second.animate({ 'margin-left': '-78px' }, 125)}
+        }
+        else {
+            if($(window).width() >= bpLarge) {second.css('margin-left', '-78px') }
+        }
         getThird(ul).css('margin-left', '-1px').css('left', '100%')
           .attr('data-ignore', 'false')
-        if (ul.hasClass('a-colnav-secondLevel')) {
+        if (ul.hasClass('a-colnav-secondLevel') && $(window).width() >= bpLarge) {
           ul.children('li').children('a').addClass('dim-second')
           target.closest('a').removeClass('dim-second')
           target.children('a').removeClass('dim-second')

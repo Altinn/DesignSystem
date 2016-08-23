@@ -1,0 +1,82 @@
+
+<div class="page" id="page">
+
+		{{> organismer-header }}
+
+		<div class="container">
+
+			<div class="row">
+				<div class="col-sm-12 col-lg-6 col-lg-offset-3 a-paddingTop-x3 a-paddingBottom-x3">
+					{{> atomer-search-large(search-label: "Søk etter skjema eller annet innhold") }}
+				</div>
+			</div>
+
+			<div class="row a-filter-container">
+				<div class="col-sm-12 col-md-4">
+					<span class="a-textSize2">
+						<span class="din-bold">1287</span> skjemaer
+					</span>
+				</div>
+				<div class="col-sm-12 col-md-8">
+					<div class="a-filter">
+
+					  <div class="a-btn-group" id="filterSkjema">
+
+									{{> atomer-collapse-filter(collapse-filter-text: "Alle typer skjema", collapse-filter-id: "#filter-type") }}
+
+									{{> atomer-collapse-filter(collapse-filter-text: "Alle etater", collapse-filter-id: "#filter-etat") }}
+
+									{{> atomer-collapse-filter(collapse-filter-text: "Alle frister", collapse-filter-id: "#filter-frist") }}
+
+					  </div><!-- /btn-group --> 
+
+					</div>
+
+				</div>
+			</div>
+
+			<div class="row a-filter-container">
+
+				<div id="filter-type" class="a-collapseContent collapse" role="tabpanel" aria-expanded="true">
+					{{# filterType }}
+						{{> atomer-checkbuttons }}
+					{{/ filterType }}
+				</div>
+
+				<div id="filter-etat" class="a-collapseContent collapse" role="tabpanel" aria-expanded="true">
+					{{# filterEtat }}
+						{{> atomer-checkbuttons }}
+					{{/ filterEtat }}
+				</div>
+
+				<div id="filter-frist" class="a-collapseContent collapse" role="tabpanel" aria-expanded="true">
+					{{# filterFrist }}
+						{{> atomer-checkbuttons }}
+					{{/ filterFrist }}
+
+				</div>
+
+			</div>
+
+			<div class="a-colnav-container">
+
+				<div class="row">
+					<div class="col-sm-12 col-md-4">
+						{{> molekyler--colnav }}
+					</div>
+					<div class="col-sm-6 col-md-6 col-md-offset-1">
+						<h2 class="a-paddingTop-x5">Forslag til deg:</h2>
+						{{> atomer-itemlist-ordered }}
+					</div>
+				</div>
+
+			</div>
+
+
+		{{> organismer-footer }}
+
+	</div>
+
+
+
+</div>
