@@ -4626,9 +4626,10 @@ Atomic design is philosophically complimentary with these CSS approaches:
 /* CSS Transition
 	Usage: @include transition(width,0.3s,ease-out);
  */
-/* Rem Unit font sizes with relative fallback http:/seesparkbox.com/foundry/scss_rem_mixin_now_with_a_better_fallback  
+/* Rem Unit font sizes with relative fallback http:/seesparkbox.com/foundry/scss_rem_mixin_now_with_a_better_fallback
 	Usage: @include font-size(1, large);
 */
+/* Decide responsive width of container */
 /*------------------------------------*    $RESET
 \*------------------------------------*/
 /* Border-Box http:/paulirish.com/2012/box-sizing-border-box-ftw/ */
@@ -5052,7 +5053,7 @@ figcaption {
 .a-options .c-indicator {
   width: 24px;
   height: 24px;
-  top: auto; }
+  top: -4px; }
 
 .a-options .c-input {
   padding-left: 36px; }
@@ -5171,7 +5172,8 @@ fieldset[disabled] .a-switch input[type="checkbox"] + label {
     color: #6a6a6a;
     border: 2px solid #1eaef7;
     border-left: 0;
-    padding: 4px 0px; }
+    padding: 4px 0px;
+    height: 36px; }
   .a-form-group .form-control.form-control-noleft {
     border-radius: 0;
     border-left: 2px solid #1eaef7;
@@ -5259,7 +5261,8 @@ fieldset[disabled] .a-switch input[type="checkbox"] + label {
       background: #cff0ff; }
   .a-form-group .input-group-large .form-control {
     padding: 13px 12px;
-    font-size: 20px; }
+    font-size: 20px;
+    height: 60px; }
   .a-form-group .input-group-large .input-group-btn .btn {
     height: 60px;
     width: 60px; }
@@ -6519,7 +6522,7 @@ fieldset[disabled] .a-switch input[type="checkbox"] + label {
 		http://foundation.zurb.com/sites/docs/navigation.html
 \*------------------------------------*/
 .foundation-mq {
-  font-family: "small=0em&medium=768px&large=64em&xlarge=75em&xxlarge=90em"; }
+  font-family: "small=0&medium=544px&large=768px&xlarge=992px&xxlarge=1200px"; }
 
 .menu {
   margin: 0;
@@ -6970,29 +6973,6 @@ fieldset[disabled] .a-switch input[type="checkbox"] + label {
 
 /*------------------------------------*    $NAVIGATION
 \*------------------------------------*/
-.nav {
-  /*
-	.a-nav-link {
-		display: block;
-		padding: $pad;
-	}
-	&.active {
-		max-height: 40em;
-	}
-
-	@media all and (min-width: $bp-med) {
-		max-height: none;
-		float: right;
-		clear: none;
-		li {
-			float: left;
-		}
-		.a-nav-link {
-			border: 0;
-		}
-	}
-	*/ }
-
 .a-pagination .page-item .page-link {
   border: none;
   color: #000;
@@ -7067,27 +7047,38 @@ fieldset[disabled] .a-switch input[type="checkbox"] + label {
       border: none; }
 
 .a-colnav-container {
-  border-top: 1px solid #B3B3B3;
-  border-bottom: 1px solid #B3B3B3; }
+  border-top: 1px solid #B3B3B3; }
+  @media (min-width: 544px) {
+    .a-colnav-container {
+      width: 528px; } }
+  @media (min-width: 768px) {
+    .a-colnav-container {
+      width: 672px; } }
+  @media (min-width: 992px) {
+    .a-colnav-container {
+      width: 892px; } }
+  @media (min-width: 1200px) {
+    .a-colnav-container {
+      width: 1092px; } }
+  @media all and (min-width: 992px) {
+    .a-colnav-container {
+      border-bottom: 1px solid #B3B3B3; } }
+  .a-colnav-container .a-colnav {
+    width: 100%; }
 
 .a-colnav {
-  width: 100%; }
-  @media all and (min-width: 992px) {
-    .a-colnav {
-      max-width: 550px; } }
+  width: 32.6%; }
   .a-colnav li a {
     padding: 12px 48px;
     background: #fff;
     color: #000;
     border-bottom: 1px solid #B3B3B3;
     display: block; }
-    @media all and (min-width: 768px) {
+    @media all and (min-width: 992px) {
       .a-colnav li a {
         border-right: 1px solid #B3B3B3; } }
     .a-colnav li a:hover, .a-colnav li a.expanded, .a-colnav li a:focus {
-      background: #f9f9f9; }
-    .a-colnav li a.last-child {
-      border-bottom: none; }
+      background: rgba(255, 255, 255, 0.7); }
     .a-colnav li a:focus {
       outline: none;
       text-decoration: underline; }
@@ -7095,19 +7086,22 @@ fieldset[disabled] .a-switch input[type="checkbox"] + label {
       text-decoration: none; }
     .a-colnav li a h2 {
       font-size: 20px;
-      font-family: 'din-bold';
+      line-height: 26px;
+      font-family: 'DIN-bold';
       margin-bottom: 0; }
     .a-colnav li a p {
       margin-bottom: 0; }
+  .a-colnav li:last-child a {
+    border-bottom: none; }
   .a-colnav li .dim {
-    background: #efefef;
+    background: transparent;
     color: #6a6a6a; }
     .a-colnav li .dim h2 {
       color: #6a6a6a; }
   .a-colnav .a-colnav-secondLevel {
     z-index: 1000;
-    min-height: 100%;
-    width: 250px;
+    min-height: 100.3%;
+    width: 100%;
     background: #efefef;
     margin-top: -1px; }
     .a-colnav .a-colnav-secondLevel.anim {
@@ -7115,25 +7109,7 @@ fieldset[disabled] .a-switch input[type="checkbox"] + label {
       transition: margin-left .5s ease-in-out; }
     @media all and (min-width: 992px) {
       .a-colnav .a-colnav-secondLevel {
-        margin-left: -1px;
-        /* Remove animations
-
-			-webkit-animation: slide 0.5s forwards;
-	    -webkit-animation-delay: 2s;
-	    animation: slide 0.5s forwards;
-	    animation-delay: 0ms;
-
-			@-webkit-keyframes slide {
-			  100% { margin-left: -250px; }
-			}
-			@keyframes slide {
-			  100% { margin-left: -250px; }
-			}
-
-			*/ } }
-    @media all and (min-width: 1200px) {
-      .a-colnav .a-colnav-secondLevel {
-        width: 300px; } }
+        margin-left: -1px; } }
     .a-colnav .a-colnav-secondLevel .is-dropdown-submenu-item a {
       border-bottom: 1px solid #efefef;
       padding: 18px 24px 17px 24px; }
@@ -7141,6 +7117,9 @@ fieldset[disabled] .a-switch input[type="checkbox"] + label {
         font-size: 18px;
         font-family: 'din-reg';
         margin-bottom: 0; }
+      @media all and (min-width: 768px) {
+        .a-colnav .a-colnav-secondLevel .is-dropdown-submenu-item a {
+          border-right: none; } }
     .a-colnav .a-colnav-secondLevel.is-drilldown-submenu {
       width: 100%; }
       .a-colnav .a-colnav-secondLevel.is-drilldown-submenu h3 {
@@ -7156,17 +7135,10 @@ fieldset[disabled] .a-switch input[type="checkbox"] + label {
       color: #6a6a6a; }
   .a-colnav .a-colnav-thirdLevel {
     margin-left: -1px;
-    margin-top: -1px; }
-    @media all and (min-width: 768px) {
-      .a-colnav .a-colnav-thirdLevel {
-        width: 357px;
-        min-height: 500px; } }
-    @media all and (min-width: 992px) {
-      .a-colnav .a-colnav-thirdLevel {
-        width: 469px; } }
-    @media all and (min-width: 1200px) {
-      .a-colnav .a-colnav-thirdLevel {
-        width: 517px; } }
+    margin-top: -1px;
+    width: 159%;
+    min-height: 100.3%;
+    background: #ffffff; }
     .a-colnav .a-colnav-thirdLevel .is-dropdown-submenu-item a {
       border-bottom: 1px solid #efefef;
       padding: 6px 24px 3px 24px;
@@ -7185,6 +7157,15 @@ fieldset[disabled] .a-switch input[type="checkbox"] + label {
         font-size: 14px;
         font-family: 'DIN-medium'; }
 
+.business .dim-second {
+  background: #cff0ff;
+  color: #6a6a6a; }
+  .business .dim-second h2 {
+    color: #6a6a6a; }
+
+.business .a-colnav .a-colnav-secondLevel {
+  background: #cff0ff; }
+
 .is-dropdown-submenu-parent {
   position: static; }
 
@@ -7194,7 +7175,7 @@ fieldset[disabled] .a-switch input[type="checkbox"] + label {
 .is-dropdown-submenu .is-dropdown-submenu-parent.opens-right > a::after {
   border: none; }
 
-@media all and (max-width: 768px) {
+@media all and (max-width: 992px) {
   .is-drilldown {
     min-height: initial !important; } }
 
@@ -8009,7 +7990,7 @@ a.a-modal-close {
   line-height: 24px;
   position: relative;
   color: #000;
-  min-height: 100px;
+  height: 100px;
   display: table-cell;
   margin: 0;
   vertical-align: middle; }
