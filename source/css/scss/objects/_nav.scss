@@ -2,30 +2,6 @@
     $NAVIGATION
 \*------------------------------------*/
 
-.nav {
-	/*
-	.a-nav-link {
-		display: block;
-		padding: $pad;
-	}
-	&.active {
-		max-height: 40em;
-	}
-
-	@media all and (min-width: $bp-med) {
-		max-height: none;
-		float: right;
-		clear: none;
-		li {
-			float: left;
-		}
-		.a-nav-link {
-			border: 0;
-		}
-	}
-	*/
-}
-
 // Pagination
 .a-pagination {
 
@@ -130,15 +106,18 @@
 
 .a-colnav-container {
 	border-top: 1px solid $grey-medium;
-	border-bottom: 1px solid $grey-medium;
+	@include make-container-widths();
+
+	@media all and (min-width: $bp-large) {
+		border-bottom: 1px solid $grey-medium;
+	}
+	.a-colnav {
+		width:100%;
+	}
 }
 
 .a-colnav {
-	width: 100%;
-
-	@media all and (min-width: $bp-large) {
-		max-width: 550px;
-	}
+	width: 32.6%;
 
 	// First level
 	li {
@@ -150,17 +129,14 @@
 			border-bottom: 1px solid $grey-medium;
 			display: block;
 
-			@media all and (min-width: $bp-med) {
+			@media all and (min-width: $bp-large) {
 				border-right: 1px solid $grey-medium;
 			}
 
 			&:hover,
 			&.expanded,
 			&:focus {
-				background: #f9f9f9;
-			}
-			&.last-child {
-				border-bottom: none;
+				background: rgba(255,255,255,0.7);
 			}
 
 			&:focus {
@@ -173,16 +149,22 @@
 
 			h2 {
 				font-size: 20px;
-				font-family: 'din-bold';
+				line-height: 26px;
+				font-family: 'DIN-bold';
 				margin-bottom: 0;
 			}
 			p {
 				margin-bottom: 0;
 			}
 		}
+
+		&:last-child a{
+			border-bottom: none;
+		}
+
 		// DIMMING not active panels
 		.dim {
-			background: $grey-light;
+			background: transparent;
 			h2 {
 				color: $grey;
 			}
@@ -194,8 +176,8 @@
 	// Second level
 	.a-colnav-secondLevel {
 		z-index: 1000;
-		min-height: 100%;
-		width: 250px;
+		min-height: 100.3%;
+		width:100%;
 		background: $grey-light;
 		margin-top: -1px;
 
@@ -206,26 +188,6 @@
 
 		@media all and (min-width: $bp-large) {
 			margin-left: -1px;
-
-			/* Remove animations
-
-			-webkit-animation: slide 0.5s forwards;
-	    -webkit-animation-delay: 2s;
-	    animation: slide 0.5s forwards;
-	    animation-delay: 0ms;
-
-			@-webkit-keyframes slide {
-			  100% { margin-left: -250px; }
-			}
-			@keyframes slide {
-			  100% { margin-left: -250px; }
-			}
-
-			*/
-		}
-
-		@media all and (min-width: $bp-xlarge) {
-			width: 300px;
 		}
 
 		.is-dropdown-submenu-item {
@@ -236,6 +198,9 @@
 					font-size: 18px;
 					font-family: 'din-reg';
 					margin-bottom: 0;
+				}
+				@media all and (min-width: $bp-med) {
+					border-right: none;
 				}
 			}
 		}
@@ -272,19 +237,9 @@
 	.a-colnav-thirdLevel {
 		margin-left: -1px;
 		margin-top: -1px;
-
-		@media all and (min-width: $bp-med) {
-			width: 357px;
-			min-height: 500px;
-		}
-
-		@media all and (min-width: $bp-large) {
-			width: 469px;
-		}
-
-		@media all and (min-width: $bp-xlarge) {
-			width: 517px;
-		}
+		width: 159%;
+		min-height: 100.3%;
+		background: $white;
 
 		.is-dropdown-submenu-item {
 			a {
@@ -311,6 +266,20 @@
 
 	}
 
+
+}
+
+.business {
+	.dim-second {
+		background: $blue-light;
+		h2 {
+			color: $grey;
+		}
+		color: $grey;
+	}
+	.a-colnav .a-colnav-secondLevel {
+    background: $blue-light;
+	}
 }
 
 // Make all levels start on top
@@ -327,7 +296,7 @@
 }
 
 
-@media all and (max-width: $bp-med) {
+@media all and (max-width: $bp-large) {
 	.is-drilldown {
 		min-height: initial !important
 	}

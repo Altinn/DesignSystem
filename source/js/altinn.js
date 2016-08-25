@@ -111,7 +111,6 @@ options = undefined
   $(function () {
     $('#colnav').on('mouseup', function (event) {
       var target = $(event.target); var second = $('.a-colnav-secondLevel')
-      second.css('margin-left', '-1px')
       var getThird = function (el) {
         if (el.attr('class') === '.a-colnav-thirdLevel') return el
         else return el.find('.a-colnav-thirdLevel')
@@ -129,12 +128,23 @@ options = undefined
           el.hasClass(x))
       }
       var ul = target.closest('ul')
+      if(ul.hasClass('a-colnav')) {
+          second.css('margin-left', '-1px')
+      }
       if (ul.hasClass('a-colnav-secondLevel' || 'a-colnav-thirdLevel')) {
         if (!findOpenThird(ul)) {
-            if($(window).width() >= bpLarge) {second.animate({ 'margin-left': '-78px' }, 125)}
+            if($(window).width() >= bpLarge) {
+                second.animate({ 'margin-left': '-49%' }, 125)
+                $('.a-colnav').parent().removeClass('col-lg-4').addClass('col-lg-12')
+                $('.a-colnav').css('width','32.6%')
+            }
         }
         else {
-            if($(window).width() >= bpLarge) {second.css('margin-left', '-78px') }
+            if($(window).width() >= bpLarge) {
+                second.css('margin-left', '-49%')
+                $('.a-colnav').parent().removeClass('col-lg-4').addClass('col-lg-12')
+                $('.a-colnav').css('width','32.6%')
+            }
         }
         getThird(ul).css('margin-left', '-1px').css('left', '100%')
           .attr('data-ignore', 'false')
@@ -145,18 +155,20 @@ options = undefined
           target.removeClass('dim-second')
         }
       } else if (ul.hasClass('a-colnav') && isOpen(target)) {
+        $('.a-colnav').parent().removeClass('col-lg-12').addClass('col-lg-4')
+        $('.a-colnav').css('width','100%')
         $('.dim').removeClass('dim'); second.css('margin-left', '-10000px')
         getThird(ul).css('margin-left', '-10000px')
           .attr('data-ignore', 'true')
-        $('.col-md-3').removeClass('col-md-3').addClass('col-md-6')
-          .removeClass('col-md-offset-4').addClass('col-md-offset-1')
+        $('.col-md-6').css('display', 'block')
       } else {
         second.each(function () {
           getThird($(this)).attr('data-ignore', 'true')
         })
         $('.dim-second').removeClass('dim-second')
-        $('.col-md-6').removeClass('col-md-6').addClass('col-md-3')
-          .removeClass('col-md-offset-1').addClass('col-md-offset-4')
+        $('.col-md-6').css('display', 'none')
+        $('.a-colnav').parent().removeClass('col-lg-4').addClass('col-lg-12')
+        $('.a-colnav').css('width','32.6%')
       }
     })
   })
