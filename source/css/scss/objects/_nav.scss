@@ -2,6 +2,7 @@
     $NAVIGATION
 \*------------------------------------*/
 
+
 // Pagination
 .a-pagination {
 
@@ -106,18 +107,18 @@
 
 .a-colnav-container {
 	border-top: 1px solid $grey-medium;
-	@include make-container-widths();
 
 	@media all and (min-width: $bp-large) {
 		border-bottom: 1px solid $grey-medium;
 	}
-	.a-colnav {
-		width:100%;
-	}
 }
 
 .a-colnav {
-	width: 32.6%;
+	width: 100%;
+
+	@media all and (min-width: $bp-large) {
+		max-width: 550px;
+	}
 
 	// First level
 	li {
@@ -129,7 +130,7 @@
 			border-bottom: 1px solid $grey-medium;
 			display: block;
 
-			@media all and (min-width: $bp-large) {
+			@media all and (min-width: $bp-med) {
 				border-right: 1px solid $grey-medium;
 			}
 
@@ -157,11 +158,9 @@
 				margin-bottom: 0;
 			}
 		}
-
 		&:last-child a{
 			border-bottom: none;
 		}
-
 		// DIMMING not active panels
 		.dim {
 			background: transparent;
@@ -177,7 +176,7 @@
 	.a-colnav-secondLevel {
 		z-index: 1000;
 		min-height: 100.3%;
-		width:100%;
+		width: 250px;
 		background: $grey-light;
 		margin-top: -1px;
 
@@ -188,6 +187,10 @@
 
 		@media all and (min-width: $bp-large) {
 			margin-left: -1px;
+		}
+
+		@media all and (min-width: $bp-xlarge) {
+			width: 300px;
 		}
 
 		.is-dropdown-submenu-item {
@@ -237,9 +240,17 @@
 	.a-colnav-thirdLevel {
 		margin-left: -1px;
 		margin-top: -1px;
-		width: 159%;
-		min-height: 100.3%;
 		background: $white;
+
+
+		@media all and (min-width: $bp-large) {
+			width: 469px;
+			min-height: 100.3%;
+		}
+
+		@media all and (min-width: $bp-xlarge) {
+			width: 517px;
+		}
 
 		.is-dropdown-submenu-item {
 			a {
@@ -265,7 +276,6 @@
 		}
 
 	}
-
 
 }
 
@@ -296,7 +306,7 @@
 }
 
 
-@media all and (max-width: $bp-large) {
+@media all and (max-width: $bp-med) {
 	.is-drilldown {
 		min-height: initial !important
 	}
