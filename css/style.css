@@ -6205,7 +6205,10 @@ fieldset[disabled] .a-switch input[type="checkbox"] + label {
     .a-header-options {
       margin-top: -8px; } }
   .a-header-options .nav-link {
-    padding: 12px 3px; }
+    padding: 12px 8px; }
+    @media all and (min-width: 544px) {
+      .a-header-options .nav-link {
+        padding: 12px 3px; } }
     @media all and (min-width: 992px) {
       .a-header-options .nav-link {
         padding: 12px; } }
@@ -6265,11 +6268,13 @@ fieldset[disabled] .a-switch input[type="checkbox"] + label {
         .a-header-options .a-personSwitcher .a-personSwitcher-name {
           max-width: 220px; } }
     .a-header-options .a-personSwitcher .a-personSwitcher-icon {
-      font-size: 30px;
+      font-size: 34px;
+      margin-top: -1px;
       vertical-align: middle; }
       @media all and (min-width: 768px) {
         .a-header-options .a-personSwitcher .a-personSwitcher-icon {
-          font-size: 36px; } }
+          font-size: 36px;
+          margin-top: 0px; } }
 
 .a-dropdown-languages,
 .a-dropdown-personswitchList {
@@ -6325,7 +6330,7 @@ fieldset[disabled] .a-switch input[type="checkbox"] + label {
   .a-header .a-dropdown-languages.a-dropdownTriangle:after,
   .a-header .a-dropdown-personswitchList.a-dropdownTriangle:after {
     left: auto;
-    right: 98px; }
+    right: 101px; }
     @media all and (min-width: 544px) {
       .a-header .a-dropdown-languages.a-dropdownTriangle:after,
       .a-header .a-dropdown-personswitchList.a-dropdownTriangle:after {
@@ -6348,7 +6353,7 @@ fieldset[disabled] .a-switch input[type="checkbox"] + label {
     .a-header .a-dropdown-personswitchList {
       width: 420px; } }
   .a-header .a-dropdown-personswitchList.a-dropdownTriangle:after {
-    right: 62px; }
+    right: 65px; }
     @media all and (min-width: 544px) {
       .a-header .a-dropdown-personswitchList.a-dropdownTriangle:after {
         right: 0px; } }
@@ -6434,7 +6439,7 @@ fieldset[disabled] .a-switch input[type="checkbox"] + label {
       margin-top: -2px; } }
   .a-globalNav-main .a-dropdownTriangle:after {
     margin-left: auto;
-    right: 8px; }
+    right: 14px; }
   .a-globalNav-main ul {
     list-style: none;
     float: left; }
@@ -7019,7 +7024,7 @@ fieldset[disabled] .a-switch input[type="checkbox"] + label {
 \*------------------------------------*/
 .a-filter-container {
   padding: 6px 0; }
-  @media all and (min-width: 768px) {
+  @media all and (min-width: 992px) {
     .a-filter-container {
       padding: 6px 48px; } }
 
@@ -7058,14 +7063,15 @@ fieldset[disabled] .a-switch input[type="checkbox"] + label {
     .a-colnav {
       max-width: 550px; } }
   .a-colnav li a {
-    padding: 12px 48px;
+    padding: 12px 36px 12px 24px;
     background: #fff;
     color: #000;
     border-bottom: 1px solid #B3B3B3;
     display: block; }
-    @media all and (min-width: 768px) {
+    @media all and (min-width: 992px) {
       .a-colnav li a {
-        border-right: 1px solid #B3B3B3; } }
+        border-right: 1px solid #B3B3B3;
+        padding: 12px 48px; } }
     .a-colnav li a:hover, .a-colnav li a.expanded, .a-colnav li a:focus {
       background: rgba(255, 255, 255, 0.7); }
     .a-colnav li a:focus {
@@ -7117,7 +7123,7 @@ fieldset[disabled] .a-switch input[type="checkbox"] + label {
       .a-colnav .a-colnav-secondLevel.is-drilldown-submenu h3 {
         margin-bottom: 0; }
       .a-colnav .a-colnav-secondLevel.is-drilldown-submenu li.js-drilldown-back a {
-        padding: 16px 48px 15px 48px; }
+        padding: 16px 36px 15px 24px; }
         .a-colnav .a-colnav-secondLevel.is-drilldown-submenu li.js-drilldown-back a:before {
           margin-top: -3px; }
   .a-colnav .dim-second {
@@ -7151,8 +7157,12 @@ fieldset[disabled] .a-switch input[type="checkbox"] + label {
         right: 12px;
         top: 11px;
         display: block;
-        font-size: 14px;
-        font-family: 'DIN-medium'; }
+        font-size: 14px; }
+    .a-colnav .a-colnav-thirdLevel h4 {
+      font-size: 16px;
+      font-family: 'din-reg'; }
+    .a-colnav .a-colnav-thirdLevel .a-colnav-rightText {
+      font-family: 'DIN-medium'; }
 
 .business .dim-second {
   background: #cff0ff;
@@ -7172,10 +7182,13 @@ fieldset[disabled] .a-switch input[type="checkbox"] + label {
 .is-dropdown-submenu .is-dropdown-submenu-parent.opens-right > a::after {
   border: none; }
 
-@media all and (max-width: 768px) {
-  .is-drilldown {
-    min-height: initial !important; } }
-
+/*
+@media all and (max-width: $bp-med) {
+	.is-drilldown {
+		min-height: initial !important
+	}
+}
+*/
 /*------------------------------------*    $FOOTER
 \*------------------------------------*/
 .a-footer {
