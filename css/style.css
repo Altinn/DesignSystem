@@ -7033,7 +7033,10 @@ fieldset[disabled] .a-switch input[type="checkbox"] + label {
   @media all and (min-width: 768px) {
     .a-filter {
       text-align: right;
-      padding-top: 7px; } }
+      padding-top: 0px; } }
+  @media all and (min-width: 992px) {
+    .a-filter {
+      padding-top: 5px; } }
   .a-filter .btn {
     background: transparent;
     padding: 0; }
@@ -7109,8 +7112,11 @@ fieldset[disabled] .a-switch input[type="checkbox"] + label {
       .a-colnav .a-colnav-secondLevel {
         width: 300px; } }
     .a-colnav .a-colnav-secondLevel .is-dropdown-submenu-item a {
-      border-bottom: 1px solid #efefef;
-      padding: 18px 24px 17px 24px; }
+      border-bottom: 1px solid #B3B3B3;
+      padding: 18px 24px 17px 24px;
+      position: relative; }
+      .a-colnav .a-colnav-secondLevel .is-dropdown-submenu-item a:hover {
+        background: #f5f5f5; }
       .a-colnav .a-colnav-secondLevel .is-dropdown-submenu-item a h3 {
         font-size: 18px;
         font-family: 'din-reg';
@@ -7147,6 +7153,8 @@ fieldset[disabled] .a-switch input[type="checkbox"] + label {
       padding: 6px 24px 3px 24px;
       position: relative;
       border-right: none; }
+      .a-colnav .a-colnav-thirdLevel .is-dropdown-submenu-item a:hover {
+        background: #f5f5f5; }
       .a-colnav .a-colnav-thirdLevel .is-dropdown-submenu-item a h4 {
         font-size: 16px;
         font-family: 'din-reg';
@@ -7172,16 +7180,22 @@ fieldset[disabled] .a-switch input[type="checkbox"] + label {
 
 .business .a-colnav .a-colnav-secondLevel {
   background: #cff0ff; }
+  .business .a-colnav .a-colnav-secondLevel .is-dropdown-submenu-item a:hover {
+    background: #f0faff; }
 
 .is-dropdown-submenu-parent {
   position: static; }
 
-.dropdown.menu.vertical > li.opens-right > a::after {
-  border: none; }
+.dropdown.menu.vertical > li.opens-right > a.dim:after,
+.is-dropdown-submenu .is-dropdown-submenu-parent.opens-right > a.dim-second:after {
+  border-color: transparent transparent transparent #ccc; }
 
+/*.dropdown.menu.vertical > li.opens-right > a::after {
+    border: none;
+}
 .is-dropdown-submenu .is-dropdown-submenu-parent.opens-right > a::after {
-  border: none; }
-
+    border: none;
+} */
 /*
 @media all and (max-width: $bp-med) {
 	.is-drilldown {
