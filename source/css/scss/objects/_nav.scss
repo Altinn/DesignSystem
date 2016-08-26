@@ -80,7 +80,10 @@
 	padding-top: $space;
 	@media all and (min-width: $bp-med) {
 		text-align: right;
-		padding-top: 7px;
+		padding-top: 0px;
+	}
+	@media all and (min-width: $bp-large) {
+		padding-top: 5px;
 	}
 
 	.btn {
@@ -196,17 +199,23 @@
 
 		.is-dropdown-submenu-item {
 			a {
-				border-bottom: 1px solid $grey-light;
+				border-bottom: 1px solid $grey-medium;
 				padding: 18px $space-x2 17px $space-x2;
+				position: relative;
+
+				&:hover {
+					background: $grey-lighter;
+				}
 				h3 {
 					font-size: 18px;
 					font-family: 'din-reg';
 					margin-bottom: 0;
 				}
-				@media all and (min-width: $bp-med) { 
+				@media all and (min-width: $bp-med) {
 					border-right: none;
 				}
 			}
+
 		}
 
 		// Drilldown on mobile
@@ -259,6 +268,9 @@
 				padding: 6px $space-x2 3px $space-x2;
 				position: relative;
 				border-right: none;
+				&:hover {
+					background: $grey-lighter;
+				}
 				h4 {
 					font-size: 16px;
 					font-family: 'din-reg';
@@ -297,7 +309,15 @@
 		color: $grey;
 	}
 	.a-colnav .a-colnav-secondLevel {
-    background: $blue-light;
+			background: $blue-light;
+		.is-dropdown-submenu-item {
+			a {
+				&:hover {
+					background: $blue-lighter;
+				}
+			}
+
+		}
 	}
 }
 
@@ -306,13 +326,20 @@
     position: static; //remove position:relative
 }
 
+// Make arrow dim
+
+.dropdown.menu.vertical > li.opens-right > a.dim:after,
+.is-dropdown-submenu .is-dropdown-submenu-parent.opens-right > a.dim-second:after {
+    border-color: transparent transparent transparent #ccc;
+}
+
 // Remove arrow
-.dropdown.menu.vertical > li.opens-right > a::after {
+/*.dropdown.menu.vertical > li.opens-right > a::after {
     border: none;
 }
 .is-dropdown-submenu .is-dropdown-submenu-parent.opens-right > a::after {
     border: none;
-}
+} */
 
 /*
 @media all and (max-width: $bp-med) {
