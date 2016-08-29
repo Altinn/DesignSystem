@@ -1,3 +1,7 @@
+ul.no-decoration {
+	list-style: none;
+	margin:none;
+}
 
 /*------------------------------------*\
     $Item list
@@ -36,7 +40,7 @@
 		}
 
 		.a-listItem-title {
-			display: block;
+			  display: block;
 		    border: none;
 		    padding: 5px 0;
 		    font-size: 14px;
@@ -50,12 +54,55 @@
 
 	}
 
-	&.a-itemList-ordered{
+	&.a-itemList-ordered {
 		list-style: decimal;
 		list-style-position: inside;
+
+		// Because list bullets is going to be INSIDE, and we cannot have a as block (firefox-bug), we need to add padding to li instead of a.
+		.a-itemList-item {
+			padding: 5px 0;
+		}
+
+		.a-itemList-item:hover {
+			background-color: $blue-light;
+		}
+
+		.a-listItem-title {
+			  display: inline-block;
+				width: 85%;
+				vertical-align: top;
+				padding: 0;
+
+				&:after {
+					content:'';
+					position:absolute;
+					top:-5px;
+					bottom:-5px;
+					left:-5px;
+					right:-5px;
+				}
+		}
+
 	}
 
 }
+
+// If business, change hover color on list
+.business {
+
+	.a-itemList-ordered {
+
+		.a-itemList-item:hover,
+		.a-listItem-title:hover {
+			background-color: $blue-light-hover-color-dark;
+		}
+
+
+	}
+
+}
+
+
 
 /*------------------------------------*\
     $Box btn list

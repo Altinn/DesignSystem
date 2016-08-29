@@ -1,3 +1,6 @@
+//Breakpoint-variabler
+var bpXsmall=0, bpSmall=544, bpMed=768, bpLarge=992, bpXlarge=1200;
+
 options = undefined
 /* globals jQuery */
 /*!
@@ -108,7 +111,6 @@ options = undefined
   $(function () {
     $('#colnav').on('mouseup', function (event) {
       var target = $(event.target); var second = $('.a-colnav-secondLevel')
-      second.css('margin-left', '-1px')
       var getThird = function (el) {
         if (el.attr('class') === '.a-colnav-thirdLevel') return el
         else return el.find('.a-colnav-thirdLevel')
@@ -126,18 +128,26 @@ options = undefined
           el.hasClass(x))
       }
       var ul = target.closest('ul')
+      if(ul.hasClass('a-colnav')) {
+          second.css('margin-left', '-1px')
+      }
       if (ul.hasClass('a-colnav-secondLevel' || 'a-colnav-thirdLevel')) {
-        if (!findOpenThird(ul)) second.animate({ 'margin-left': '-78px' }, 125)
-        else { second.css('margin-left', '-78px') }
+        if (!findOpenThird(ul)) {
+            if($(window).width() >= bpLarge) {second.animate({ 'margin-left': '-78px' }, 125)}
+        }
+        else {
+            if($(window).width() >= bpLarge) {second.css('margin-left', '-78px') }
+        }
         getThird(ul).css('margin-left', '-1px').css('left', '100%')
           .attr('data-ignore', 'false')
-        if (ul.hasClass('a-colnav-secondLevel')) {
+        if (ul.hasClass('a-colnav-secondLevel') && $(window).width() >= bpLarge) {
           ul.children('li').children('a').addClass('dim-second')
           target.closest('a').removeClass('dim-second')
           target.children('a').removeClass('dim-second')
           target.removeClass('dim-second')
         }
       } else if (ul.hasClass('a-colnav') && isOpen(target)) {
+          $('#a-js-suggestionList').css('display', 'block')
         $('.dim').removeClass('dim'); second.css('margin-left', '-10000px')
         getThird(ul).css('margin-left', '-10000px')
           .attr('data-ignore', 'true')
@@ -147,6 +157,7 @@ options = undefined
         second.each(function () {
           getThird($(this)).attr('data-ignore', 'true')
         })
+        $('#a-js-suggestionList').css('display', 'none')
         $('.dim-second').removeClass('dim-second')
         $('.col-md-6').removeClass('col-md-6').addClass('col-md-3')
           .removeClass('col-md-offset-1').addClass('col-md-offset-4')
@@ -165,7 +176,7 @@ options = undefined
         $(this).parent().addClass("a-input-focus");
 
         }).blur(function(){
-               $(this).parent().removeClass("a-input-focus");
+               $(this).parent().removeClass("a-input-focus");
         })
     });
 }(jQuery));
@@ -224,7 +235,7 @@ options = undefined
     $(function () {
 
         $('.a-colnav-item').click(function () {
-           if ($(this).hasClass('expanded')) {
+           if ($(this).hasClass('expanded') && $(window).width() >= bpLarge) {
                $(this).removeClass('expanded');
                if ($('.a-colnav-item.expanded').length === 0) {
                    $('.a-colnav-item').removeClass('dim-second-no');
@@ -232,7 +243,7 @@ options = undefined
                else {
                    $(this).addClass('dim')
                }
-           } else {
+           } else if($(window).width() >= bpLarge) {
                $('.a-colnav-item').removeClass('expanded');
                $(this).addClass('expanded');
                $('.a-colnav-item').addClass('dim');
@@ -248,7 +259,7 @@ options = undefined
     $(function () {
 
         $('.a-colnav-item-second').click(function () {
-           if ($(this).hasClass('expanded-second')) {
+           if ($(this).hasClass('expanded-second') && $(window).width() >= bpLarge) {
                $(this).removeClass('expanded-second');
                if ($('.a-colnav-item-second.expanded-second').length === 0) {
                    $('.a-colnav-item-second').removeClass('dim-second-no');
@@ -256,7 +267,7 @@ options = undefined
                else {
                    $(this).addClass('dim-second')
                }
-           } else {
+           } else if($(window).width() >= bpLarge){
                $('.a-colnav-item-second').removeClass('expanded-second');
                $(this).addClass('expanded-second');
                $('.a-colnav-item-second').addClass('dim-second');

@@ -2,29 +2,6 @@
     $NAVIGATION
 \*------------------------------------*/
 
-.nav {
-	/*
-	.a-nav-link {
-		display: block;
-		padding: $pad;
-	}
-	&.active {
-		max-height: 40em;
-	}
-
-	@media all and (min-width: $bp-med) {
-		max-height: none;
-		float: right;
-		clear: none;
-		li {
-			float: left;
-		}
-		.a-nav-link {
-			border: 0;
-		}
-	}
-	*/
-}
 
 // Pagination
 .a-pagination {
@@ -95,7 +72,7 @@
 .a-filter-container {
 	padding: $space-half 0;
 
-	@media all and (min-width: $bp-med) {
+	@media all and (min-width: $bp-large) {
 		padding: $space-half $space-x4;
 	}
 }
@@ -103,7 +80,10 @@
 	padding-top: $space;
 	@media all and (min-width: $bp-med) {
 		text-align: right;
-		padding-top: 7px;
+		padding-top: 0px;
+	}
+	@media all and (min-width: $bp-large) {
+		padding-top: 5px;
 	}
 
 	.btn {
@@ -130,7 +110,10 @@
 
 .a-colnav-container {
 	border-top: 1px solid $grey-medium;
-	border-bottom: 1px solid $grey-medium;
+
+	@media all and (min-width: $bp-large) {
+		border-bottom: 1px solid $grey-medium;
+	}
 }
 
 .a-colnav {
@@ -144,23 +127,21 @@
 	li {
 
 		a {
-			padding: $space $space-x4;
+			padding: 12px 36px 12px 24px;
 			background: #fff;
 			color: $black;
 			border-bottom: 1px solid $grey-medium;
 			display: block;
 
-			@media all and (min-width: $bp-med) {
+			@media all and (min-width: $bp-large) {
 				border-right: 1px solid $grey-medium;
+				padding: $space $space-x4;
 			}
 
 			&:hover,
 			&.expanded,
 			&:focus {
-				background: #f9f9f9;
-			}
-			&.last-child {
-				border-bottom: none;
+				background: rgba(255,255,255,0.7);
 			}
 
 			&:focus {
@@ -173,16 +154,20 @@
 
 			h2 {
 				font-size: 20px;
-				font-family: 'din-bold';
+				line-height: 26px;
+				font-family: 'DIN-bold';
 				margin-bottom: 0;
 			}
 			p {
 				margin-bottom: 0;
 			}
 		}
+		&:last-child a{
+			border-bottom: none;
+		}
 		// DIMMING not active panels
 		.dim {
-			background: $grey-light;
+			background: transparent;
 			h2 {
 				color: $grey;
 			}
@@ -194,7 +179,7 @@
 	// Second level
 	.a-colnav-secondLevel {
 		z-index: 1000;
-		min-height: 100%;
+		min-height: 100.3%;
 		width: 250px;
 		background: $grey-light;
 		margin-top: -1px;
@@ -206,22 +191,6 @@
 
 		@media all and (min-width: $bp-large) {
 			margin-left: -1px;
-
-			/* Remove animations
-
-			-webkit-animation: slide 0.5s forwards;
-	    -webkit-animation-delay: 2s;
-	    animation: slide 0.5s forwards;
-	    animation-delay: 0ms;
-
-			@-webkit-keyframes slide {
-			  100% { margin-left: -250px; }
-			}
-			@keyframes slide {
-			  100% { margin-left: -250px; }
-			}
-
-			*/
 		}
 
 		@media all and (min-width: $bp-xlarge) {
@@ -230,14 +199,23 @@
 
 		.is-dropdown-submenu-item {
 			a {
-				border-bottom: 1px solid $grey-light;
+				border-bottom: 1px solid $grey-medium;
 				padding: 18px $space-x2 17px $space-x2;
+				position: relative;
+
+				&:hover {
+					background: $grey-lighter;
+				}
 				h3 {
 					font-size: 18px;
 					font-family: 'din-reg';
 					margin-bottom: 0;
 				}
+				@media all and (min-width: $bp-med) {
+					border-right: none;
+				}
 			}
+
 		}
 
 		// Drilldown on mobile
@@ -249,7 +227,7 @@
 			}
 
 			li.js-drilldown-back a {
-				padding: 16px 48px 15px 48px;
+				padding: 16px 36px 15px 24px;
 
 				&:before {
 			    margin-top: -3px;
@@ -272,14 +250,12 @@
 	.a-colnav-thirdLevel {
 		margin-left: -1px;
 		margin-top: -1px;
+		background: $white;
 
-		@media all and (min-width: $bp-med) {
-			width: 357px;
-			min-height: 500px;
-		}
 
 		@media all and (min-width: $bp-large) {
 			width: 469px;
+			min-height: 100.3%;
 		}
 
 		@media all and (min-width: $bp-xlarge) {
@@ -292,6 +268,9 @@
 				padding: 6px $space-x2 3px $space-x2;
 				position: relative;
 				border-right: none;
+				&:hover {
+					background: $grey-lighter;
+				}
 				h4 {
 					font-size: 16px;
 					font-family: 'din-reg';
@@ -304,13 +283,42 @@
 					top:11px;
 					display: block;
 					font-size: 14px;
-					font-family: 'DIN-medium';
 				}
 			}
 		}
 
+		h4 {
+			font-size: 16px;
+			font-family: 'din-reg';
+		}
+
+		.a-colnav-rightText {
+			font-family: 'DIN-medium';
+		}
+
 	}
 
+}
+
+.business {
+	.dim-second {
+		background: $blue-light;
+		h2 {
+			color: $grey;
+		}
+		color: $grey;
+	}
+	.a-colnav .a-colnav-secondLevel {
+			background: $blue-light;
+		.is-dropdown-submenu-item {
+			a {
+				&:hover {
+					background: $blue-lighter;
+				}
+			}
+
+		}
+	}
 }
 
 // Make all levels start on top
@@ -318,17 +326,25 @@
     position: static; //remove position:relative
 }
 
+// Make arrow dim
+
+.dropdown.menu.vertical > li.opens-right > a.dim:after,
+.is-dropdown-submenu .is-dropdown-submenu-parent.opens-right > a.dim-second:after {
+    border-color: transparent transparent transparent #ccc;
+}
+
 // Remove arrow
-.dropdown.menu.vertical > li.opens-right > a::after {
+/*.dropdown.menu.vertical > li.opens-right > a::after {
     border: none;
 }
 .is-dropdown-submenu .is-dropdown-submenu-parent.opens-right > a::after {
     border: none;
-}
+} */
 
-
+/*
 @media all and (max-width: $bp-med) {
 	.is-drilldown {
 		min-height: initial !important
 	}
 }
+*/

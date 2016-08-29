@@ -13,11 +13,20 @@
 	transition: $transition-property $transition-time $method;
 }
 
-/* Rem Unit font sizes with relative fallback http:/seesparkbox.com/foundry/scss_rem_mixin_now_with_a_better_fallback  
+/* Rem Unit font sizes with relative fallback http:/seesparkbox.com/foundry/scss_rem_mixin_now_with_a_better_fallback
 	Usage: @include font-size(1, large);
 */
 @mixin font-size( $decimal-size, $keyword: null ) {
   @if $keyword{ font-size: $keyword; }
   @else { font-size: $decimal-size * $base-font-multiplier * 16px;}
   font-size: $decimal-size * 1rem;
+}
+
+/* Decide responsive width of container */
+@mixin make-container-widths($widths: $container-widths) {
+  @each $breakpoint, $container-width in $widths {
+    @include media-breakpoint-up($breakpoint) {
+      width: $container-width;
+    }
+  }
 }

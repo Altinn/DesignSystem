@@ -37,7 +37,7 @@
           <a href="https://github.com/Altinn/DesignSystem">Åpne i Github </a>
         </div>
       </div>
-      <a href="#sg-nav-container" class="sg-nav-toggle">Menu</a>
+      <a href="#sg-nav-container" class="sg-nav-toggle">Meny</a>
       <div class="sg-nav-container" id="sg-nav-container">
         <ol class="sg-nav" id="pl-pattern-nav-target"><!-- pattern lab nav will be inserted here --></ol>
         <div class="sg-controls" id="sg-controls"><!-- ish Controls will be inserted here --></div>
@@ -48,7 +48,7 @@
     <!-- iFrame -->
     <div id="sg-vp-wrap">
       <div id="sg-cover"></div>
-      <div id="sg-gen-container">
+      <div id="sg-gen-container" style="overflow: auto;  -webkit-overflow-scrolling:touch;">
         <iframe id="sg-viewport" name="sg-viewport" sandbox="allow-same-origin allow-scripts allow-popups allow-forms"></iframe>
         <div id="sg-rightpull-container">
           <div id="sg-rightpull"></div>
@@ -75,7 +75,9 @@
 
     <!-- mustache templates -->
     <script type="text/mustache" id="pl-pattern-nav-template">
-      {{# patternTypes }}
+      <!-- TODO: data-patternpartial="all" is this necessary on all-link? -->
+<li><a href="http://altinn.github.io/DesignSystem/" class="sg-pop">Alle komponenter</a></li>
+{{# patternTypes }}
   <li><a class="sg-acc-handle">{{ patternTypeUC }}</a><ol class="sg-acc-panel">
   {{# patternTypeItems }}
     <li><a class="sg-acc-handle">{{ patternSubtypeUC }}</a><ol class="sg-acc-panel sg-sub-nav">
@@ -89,7 +91,6 @@
   {{/ patternItems }}
   </ol></li>
 {{/ patternTypes }}
-<li><a href="http://altinn.github.io/DesignSystem/" target="_parent" class="sg-pop" data-patternpartial="all">All</a></li>
 
     </script>
 
@@ -99,9 +100,9 @@
     <li class="sg-size">
       <div class="sg-current-size">
         <form id="sg-form">
-          <label for="sg-size-px">Size</label>
-          <input type="text" class="sg-input sg-size-px" id="sg-size-px" value="---">px /
-          <input type="text" class="sg-input sg-size-em" value="---">em
+          <label for="sg-size-px">Skjermbredde</label>
+          <input type="text" class="sg-input sg-size-px" id="sg-size-px" value="---">px <!--/
+          <input type="text" class="sg-input sg-size-em" value="---">em -->
         </form><!--end #sg-form-->
       </div><!--end #sg-current-size-->
       <ul class="sg-size-options">
@@ -115,7 +116,7 @@
           <li><a href="#" id="sg-size-l">L</a></li>
         {{/ ishControlsHide.l }}
         {{^ ishControlsHide.full }}
-          <li><a href="#" id="sg-size-full">Full</a></li>
+          <li><a href="#" id="sg-size-full">Full skjermbredde</a></li>
         {{/ ishControlsHide.full }}
         {{^ ishControlsHide.random }}
           <li><a href="#" id="sg-size-random">Rand</a></li>
@@ -137,15 +138,15 @@
           </svg>
         </button>
         <ul class="sg-acc-panel sg-right sg-checklist">
-          <li><a href="#" id="sg-t-patterninfo">Show Pattern Info</a></li>
+          <li><a href="#" id="sg-t-patterninfo">Vis info på aller komponenter</a></li>
           {{^ ishControlsHide.views-new }}
-            <li><a href="#" target="_blank" id="sg-raw">Open in new window</a></li>
+            <li><a href="#" target="_blank" id="sg-raw">Åpne i nytt vindu</a></li>
           {{/ ishControlsHide.views-new }}
           {{^ ishControlsHide.tools-docs }}
-            <li><a href="http://patternlab.io/docs/" target="_blank">Pattern Lab Docs</a></li>
+            <li><a href="http://patternlab.io/docs/" target="_blank">Pattern Lab Dokumentasjon</a></li>
           {{/ ishControlsHide.tools-docs }}
           {{^ ishControlsHide.find }}
-            <li id="sg-find"><input class="typeahead" id="typeahead" type="text" placeholder="Find pattern" /></li>
+            <li id="sg-find"><input class="typeahead" id="typeahead" type="text" placeholder="Finn komponent" /></li>
           {{/ ishControlsHide.find }}
         </ul>
       </li>
