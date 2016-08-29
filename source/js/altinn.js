@@ -235,6 +235,7 @@ options = undefined
     $(function () {
 
         $('.a-colnav-item').click(function () {
+           $(this).parent().find('.a-colnav-item-second').eq(0).focus()
            if ($(this).hasClass('expanded') && $(window).width() >= bpLarge) {
                $(this).removeClass('expanded');
                if ($('.a-colnav-item.expanded').length === 0) {
@@ -259,6 +260,7 @@ options = undefined
     $(function () {
 
         $('.a-colnav-item-second').click(function () {
+          $(this).parent().find('.a-colnav-item-third').eq(0).focus()
            if ($(this).hasClass('expanded-second') && $(window).width() >= bpLarge) {
                $(this).removeClass('expanded-second');
                if ($('.a-colnav-item-second.expanded-second').length === 0) {
@@ -283,6 +285,17 @@ options = undefined
  */
 $(function() {
   $('#main').smoothState();
+});
+
+
+/**
+ * ...
+ */
+$(function() {
+  $('.a-colnav-item').attr('tabindex', '0')
+  $('.a-colnav-item').attr('href', '#')
+  $('.a-colnav-item-second').attr('tabindex', '0')
+  $('.a-colnav-item-second').attr('href', '#')
 });
 
 
