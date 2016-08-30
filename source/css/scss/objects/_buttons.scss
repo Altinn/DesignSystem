@@ -3,13 +3,12 @@
 \*------------------------------------*/
 
 .a-btn {
-	display: inline-block;
+		display: inline-block;
     font-weight: normal;
-    text-align: center;
     position: relative;
     cursor: pointer;
     border: 0px solid transparent;
-    padding: 6px 24px;
+    padding: $space-half $space-x2;
     font-size: 16px;
     line-height: 24px;
     background: $blue;
@@ -47,6 +46,7 @@
         background: $grey-light;
         color: $black;
         @include box-shadow(none);
+				box-shadow: 0px 0px 0px 1px white inset;
     }
 
     &:after {
@@ -58,6 +58,18 @@
         left: 0;
         top: -6px;
     }
+
+}
+
+// disabled on business theme
+
+.business {
+	.a-btn {
+	    &.disabled,
+	    &:disabled {
+	        background: $blue-light;
+	    }
+		}
 
 }
 
@@ -130,16 +142,20 @@
 .a-btn-withIcon {
 	background: transparent;
 	color: $black;
+	padding: $space-half $space;
 
-	&:hover {
+	&:hover,
+	&:active,
+	&:focus {
 			background: transparent;
 			color: $blue;
+			border: none;
 	}
 
 	.a-btn-withIcon-icon {
 		font-weight: bold;
 		vertical-align: middle;
-		margin-right: 13px;
+		margin-right: 12px;
 		font-size: 28px;
 		margin-top: -4px;
 	}

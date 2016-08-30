@@ -1,18 +1,10 @@
 
 <div class="a-btn-group">
 
-  <a href="javascript:;" aria-label="info" tabindex="0" class="a-link" role="button" data-toggle="popover" data-template='<div class="popover" role="tooltip"><div class="popover-arrow"></div><h3 class="popover-title"></h3><div class="popover-content"></div></div>' data-target="#myPopup3" data-placement="bottom" data-trigger="focus" title="Tittel på popover" data-content="Og her kommer innholdet..">
-    Klikk for å se popover gul
-  </a>
-
-
-  <a href="javascript:;" aria-label="valid" tabindex="0" class="a-link" role="button" data-toggle="popover" data-template='<div class="popover popover-valid" role="tooltip"><div class="popover-arrow"></div><h3 class="popover-title"></h3><div class="popover-content"></div></div>' data-target="#myPopup" data-placement="bottom" data-trigger="focus" title="Tittel på popover" data-content="Og her kommer innholdet..">
-    Klikk for å se popover grønn
-  </a>
-
-
-   <a href="javascript:;" aria-label="warning" tabindex="0" class="a-link" role="button" data-toggle="popover" data-template='<div class="popover popover-warning" role="tooltip"><div class="popover-arrow"></div><h3 class="popover-title"></h3><div class="popover-content"></div></div>' data-target="#myPopup2" data-placement="bottom" data-trigger="focus" title="Tittel på popover" data-content="Og her kommer innholdet..">
-     Klikk for å se popover rød
-  </a>
+    {{#popover-items}}
+        <a href="javascript:;" aria-label="{{popover-aria-label}}" tabindex="0" class="a-link" role="button" data-toggle="popover" data-template='<div class="popover" role="tooltip"><div class="popover-arrow {{popover-class}}"></div><h3 class="popover-title"></h3><div class="popover-content"></div></div>' data-target="#{{popover-data-target}}" data-placement="bottom" data-trigger="focus" title="{{popover-title}}" data-content="Og her kommer innholdet..">
+            {{popover-link-text}}
+        </a>
+    {{/popover-items}}
 
 </div>
