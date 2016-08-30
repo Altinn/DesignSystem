@@ -4890,7 +4890,15 @@ hr {
   height: 2px;
   background: transparent;
   margin: 40px 0;
-  border-bottom: 1px solid #B3B3B3; }
+  border-bottom: 1px solid #B3B3B3;
+  width: 100%;
+  float: left; }
+
+hr.a-hr-smallPadding {
+  margin: 24px 0; }
+
+hr.a-hrLight {
+  border-bottom: 1px solid #efefef; }
 
 hr.a-hrDotted {
   border: 0;
@@ -7292,7 +7300,6 @@ fieldset[disabled] .a-switch input[type="checkbox"] + label {
 .a-btn {
   display: inline-block;
   font-weight: normal;
-  text-align: center;
   position: relative;
   cursor: pointer;
   border: 0px solid transparent;
@@ -7321,7 +7328,8 @@ fieldset[disabled] .a-switch input[type="checkbox"] + label {
   .a-btn.disabled, .a-btn:disabled {
     cursor: not-allowed;
     background: #efefef;
-    color: #000; }
+    color: #000;
+    box-shadow: 0px 0px 0px 1px white inset; }
   .a-btn:after {
     content: "";
     width: 100%;
@@ -7329,6 +7337,9 @@ fieldset[disabled] .a-switch input[type="checkbox"] + label {
     position: absolute;
     left: 0;
     top: -6px; }
+
+.business .a-btn.disabled, .business .a-btn:disabled {
+  background: #cff0ff; }
 
 .a-btn-secondary {
   background-color: #ffffff; }
@@ -7369,8 +7380,7 @@ fieldset[disabled] .a-switch input[type="checkbox"] + label {
   box-shadow: 1px 1px 4px 0px rgba(137, 137, 137, 0.5);
   height: 60px;
   width: 100%;
-  text-align: left;
-  padding-top: 14px; }
+  text-align: left; }
   .a-btn-shadow:hover {
     background: #b6e8ff; }
   .a-btn-shadow .a-btn-shadow-icon {
@@ -7378,16 +7388,18 @@ fieldset[disabled] .a-switch input[type="checkbox"] + label {
     padding-right: 12px;
     vertical-align: middle; }
 
-.a-btn-viewmore {
+.a-btn-withIcon {
   background: transparent;
-  color: #000; }
-  .a-btn-viewmore:hover {
+  color: #000;
+  padding: 6px 12px; }
+  .a-btn-withIcon:hover, .a-btn-withIcon:active, .a-btn-withIcon:focus {
     background: transparent;
-    color: #1eaef7; }
-  .a-btn-viewmore .a-btn-viewmore-icon {
+    color: #1eaef7;
+    border: none; }
+  .a-btn-withIcon .a-btn-withIcon-icon {
     font-weight: bold;
     vertical-align: middle;
-    margin-right: 13px;
+    margin-right: 12px;
     font-size: 28px;
     margin-top: -4px; }
 
@@ -7522,7 +7534,9 @@ fieldset[disabled] .a-switch input[type="checkbox"] + label {
       background: rgba(255, 255, 255, 0.1); }
 
 .a-personRole {
-  display: block; }
+  display: block;
+  float: left;
+  width: 100%; }
   .a-personRole .a-personRole-icon {
     float: left;
     font-size: 48px;
@@ -8185,6 +8199,22 @@ html.a-modal-background-error {
   border-radius: 2px;
   margin-bottom: 12px; }
 
+/* Grey panel */
+.a-panel-grey {
+  padding: 24px;
+  background-color: #efefef;
+  border-radius: 2px;
+  margin-bottom: 12px;
+  box-shadow: 1px 1px 4px 0px rgba(137, 137, 137, 0.5); }
+
+/* Blue light panel */
+.a-panel-blueLight {
+  padding: 24px;
+  background-color: #cff0ff;
+  border-radius: 2px;
+  margin-bottom: 12px;
+  box-shadow: 1px 1px 4px 0px rgba(137, 137, 137, 0.5); }
+
 /* Text colors */
 .a-dimText {
   color: rgba(0, 0, 0, 0.4); }
@@ -8249,30 +8279,7 @@ html.a-modal-background-error {
 .a-dimBackground {
   background: rgba(0, 0, 0, 0.3); }
 
-/*
-Uniform spacing
-Spacing can be applied using either margin or padding. Both margin and padding share the same predefined scale. There are 7 available spacing sizes.*/
-.a-margin {
-  margin: 12px; }
-
-.a-margin-half {
-  margin: 6px; }
-
-.a-margin-x2 {
-  margin: 24px; }
-
-.a-margin-x3 {
-  margin: 36px; }
-
-.a-margin-x4 {
-  margin: 48px; }
-
-.a-margin-x5 {
-  margin: 60px; }
-
-.a-margin-x6 {
-  margin: 72px; }
-
+/* Padding */
 .a-padding-0 {
   padding: 0; }
 
@@ -8297,11 +8304,90 @@ Spacing can be applied using either margin or padding. Both margin and padding s
 .a-padding-x6 {
   padding: 72px; }
 
-/*  Individual spacing
-Individual spacing can be applied to a single side of an element using either margin or padding. Again, both margin and padding share the same predefined scale. The same 6 sizes are available.
-*/
+.a-paddingTop {
+  padding-top: 12px; }
+
+.a-paddingTop-x2 {
+  padding-top: 24px; }
+
+.a-paddingTop-x3 {
+  padding-top: 36px; }
+
+.a-paddingTop-x4 {
+  padding-top: 48px; }
+
+.a-paddingTop-x5 {
+  padding-top: 60px; }
+
+.a-paddingBottom-0 {
+  padding-bottom: 0; }
+
+.a-paddingRight {
+  padding-right: 12px; }
+
+.a-paddingBottom {
+  padding-bottom: 12px; }
+
+.a-paddingBottom-x3 {
+  padding-bottom: 36px; }
+
+.a-paddingLeft {
+  padding-left: 12px; }
+
+.a-paddingSide {
+  padding-right: 12px;
+  padding-left: 12px; }
+
+.a-paddingSide-x2 {
+  padding-right: 24px;
+  padding-left: 24px; }
+
+.a-paddingSide-x3 {
+  padding-right: 36px;
+  padding-left: 36px; }
+
+.a-paddingSide-x4 {
+  padding-right: 48px;
+  padding-left: 48px; }
+
+.a-paddingSide-x5 {
+  padding-right: 60px;
+  padding-left: 60px; }
+
+.a-paddingSide-x6 {
+  padding-right: 72px;
+  padding-left: 72px; }
+
+/*  Margin*/
+.a-margin-0 {
+  margin: 0; }
+
+.a-margin {
+  margin: 12px; }
+
+.a-margin-half {
+  margin: 6px; }
+
+.a-margin-x2 {
+  margin: 24px; }
+
+.a-margin-x3 {
+  margin: 36px; }
+
+.a-margin-x4 {
+  margin: 48px; }
+
+.a-margin-x5 {
+  margin: 60px; }
+
+.a-margin-x6 {
+  margin: 72px; }
+
 .a-marginTop {
   margin-top: 12px; }
+
+.a-marginTop-andhalf {
+  margin-top: 18px; }
 
 .a-marginTop-x2 {
   margin-top: 24px; }
@@ -8335,36 +8421,6 @@ Individual spacing can be applied to a single side of an element using either ma
 
 .a-marginLeft {
   margin-left: 12px; }
-
-.a-paddingTop {
-  padding-top: 12px; }
-
-.a-paddingTop-x2 {
-  padding-top: 24px; }
-
-.a-paddingTop-x3 {
-  padding-top: 36px; }
-
-.a-paddingTop-x4 {
-  padding-top: 48px; }
-
-.a-paddingTop-x5 {
-  padding-top: 60px; }
-
-.a-paddingBottom-0 {
-  padding-bottom: 0; }
-
-.a-paddingRight {
-  padding-right: 12px; }
-
-.a-paddingBottom {
-  padding-bottom: 12px; }
-
-.a-paddingBottom-x3 {
-  padding-bottom: 36px; }
-
-.a-paddingLeft {
-  padding-left: 12px; }
 
 /* Grid */
 .a-noColPadding {
@@ -8426,6 +8482,9 @@ Individual spacing can be applied to a single side of an element using either ma
 @media all and (min-width: 992px) {
   .hide-large {
     display: none; } }
+
+#propagated-content-origin {
+  display: none; }
 
 /*------------------------------------*    $MAIN CONTENT AREA
 \*------------------------------------*/

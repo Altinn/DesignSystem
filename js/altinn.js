@@ -1,3 +1,4 @@
+/* globals $ */
 //Breakpoint-variabler
 var bpXsmall=0, bpSmall=544, bpMed=768, bpLarge=992, bpXlarge=1200;
 
@@ -235,6 +236,7 @@ options = undefined
     $(function () {
 
         $('.a-colnav-item').click(function () {
+           $(this).parent().find('.a-colnav-item-second').eq(0).focus() // Repairs drilldown navigation (keyboard/screen reader)
            if ($(this).hasClass('expanded') && $(window).width() >= bpLarge) {
                $(this).removeClass('expanded');
                if ($('.a-colnav-item.expanded').length === 0) {
@@ -259,6 +261,7 @@ options = undefined
     $(function () {
 
         $('.a-colnav-item-second').click(function () {
+          $(this).parent().find('.a-colnav-item-third').eq(0).focus() // Repairs drilldown navigation (keyboard/screen reader)
            if ($(this).hasClass('expanded-second') && $(window).width() >= bpLarge) {
                $(this).removeClass('expanded-second');
                if ($('.a-colnav-item-second.expanded-second').length === 0) {
@@ -281,10 +284,70 @@ options = undefined
 /**
  * SmoothState
  */
-$(function() {
-  $('#main').smoothState();
+// $(function() {
+//   $('#main').smoothState();
+// });
+$(function(){
+  'use strict';
+  var options = {
+    prefetch: true,
+    cacheLength: 2,
+    onStart: {
+      duration: 250, // Duration of our animation
+      render: function ($container) {
+        // Add your CSS animation reversing class
+        $container.addClass('is-exiting');
+
+        // Restart your animation
+        smoothState.restartCSSAnimations();
+      }
+    },
+    onReady: {
+      duration: 0,
+      render: function ($container, $newContent) {
+        // Remove your CSS animation reversing class
+        $container.removeClass('is-exiting');
+
+        // Inject the new content
+        $container.html($newContent);
+
+      }
+    }
+  },
+  smoothState = $('#main').smoothState(options).data('smoothState');
 });
 
+
+/**
+ * Repair drilldown navigation (keyboard/screen reader)
+ */
+$(function () {
+  $('.a-colnav-item').attr('tabindex', '0')
+  $('.a-colnav-item').attr('href', '#')
+  $('.a-colnav-item-second').attr('tabindex', '0')
+  $('.a-colnav-item-second').attr('href', '#')
+  $('.a-colnav-item-third').attr('tabindex', '0')
+  $('.a-colnav-item-third').attr('href', '#')
+  $('.a-colnav-item').on('focus', function () {
+    if ($('.a-colnav-secondLevel.submenu.is-active').length === 1) {
+      $(this).off('keydown.zf.drilldown')
+      $(this).parent().find('.a-colnav-item-second').eq(0).focus()
+    }
+  })
+  // $('.a-colnav-item-second').on('focus', function () {
+  //   if ($('.a-colnav-thirdLevel.submenu.is-active').length === 1) {
+  //     $(this).off('keydown.zf.drilldown')
+  //     $(this).parent().find('.a-colnav-item-third').eq(0).focus()
+  //   }
+  // })
+})
+
+/**
+ * ...
+ */
+$(function () {
+  $('.propagated-content-destination').html($('#propagated-content-origin').html())
+})
 
 /**
  * Anchor js

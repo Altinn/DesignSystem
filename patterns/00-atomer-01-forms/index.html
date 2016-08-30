@@ -45,7 +45,7 @@
 <meta http-equiv="expires" content="Tue, 01 Jan 1980 1:00:00 GMT" />
 <meta http-equiv="pragma" content="no-cache" />
 
-<link rel="stylesheet" href="../../styleguide/css/styleguide.min.css?1472209692425" media="all">
+<link rel="stylesheet" href="../../styleguide/css/styleguide.min.css?1472556876478" media="all">
 <style type="text/css">
   /* PRESENTATION OF STYLE GUIDE */
   #sg-viewport {
@@ -260,14 +260,14 @@
       margin-bottom: 3px;
   }
 </style>
-<link rel="stylesheet" href="../../styleguide/css/prism-typeahead.min.css?1472209692425" media="all" />
+<link rel="stylesheet" href="../../styleguide/css/prism-typeahead.min.css?1472556876478" media="all" />
 
     <!-- End Pattern Lab -->
 
 
 
   </head>
-  <body class="">
+  <body class="" id="main">
 <div class="sg-top">
 	<div class="container">
 		<div class="row">
@@ -412,6 +412,18 @@
 			<label for="checkbutton-sign" class="a-switch-label">
 				<i class="material-icons a-switch-icon"> thumb_up</i>
 				 Signere
+			</label>
+
+		</div>
+
+
+		<div class="a-switch">
+
+			<input id="checkbutton-example" class="sr-only" type="checkbox" name="addRights" onclick="CheckRoleOrRightForDelegtion(this, 'right')" onfocus="$('label[for=\'checkbutton-example']').addClass('focused')" onblur="$('label[for=\'checkbutton-example\']').removeClass('focused')" value="checkbutton-read">
+
+			<label for="checkbutton-example" class="a-switch-label">
+				<i class="material-icons a-switch-icon"> </i>
+				 Eksempel uten ikon
 			</label>
 
 		</div>
@@ -642,7 +654,7 @@
 
   </div>
   <script type="text/json" id="sg-pattern-data-atomer-find-input" class="sg-pattern-data">
-    {"cssEnabled":false,"patternLineageExists":false,"patternLineages":[],"lineage":[],"patternLineageRExists":true,"patternLineagesR":[{"lineagePattern":"molekyler-dropdown-menu-personSwitch","lineagePath":"../../patterns/01-molekyler-02-navigation-04-dropdown-menu-personSwitch/01-molekyler-02-navigation-04-dropdown-menu-personSwitch.html","lineageState":"inreview"}],"lineageR":[{"lineagePattern":"molekyler-dropdown-menu-personSwitch","lineagePath":"../../patterns/01-molekyler-02-navigation-04-dropdown-menu-personSwitch/01-molekyler-02-navigation-04-dropdown-menu-personSwitch.html","lineageState":"inreview"}],"patternLineageEExists":true,"patternDesc":"<p>Søk innenfor et område. Ikon til venstre beskriver hva man søker i. F.eks tjenester, datalister, etc.</p>\n","patternBreadcrumb":{"patternType":"atomer","patternSubtype":"forms"},"patternExtension":"mustache","patternName":"Find Input","patternPartial":"atomer-find-input","patternState":"complete","extraOutput":{}}
+    {"cssEnabled":false,"patternLineageExists":false,"patternLineages":[],"lineage":[],"patternLineageRExists":true,"patternLineagesR":[{"lineagePattern":"molekyler-dropdown-menu-personSwitch-large","lineagePath":"../../patterns/01-molekyler-02-navigation-04-dropdown-menu-personSwitch-large/01-molekyler-02-navigation-04-dropdown-menu-personSwitch-large.html","lineageState":"inprogress"},{"lineagePattern":"molekyler-dropdown-menu-personSwitch","lineagePath":"../../patterns/01-molekyler-02-navigation-04-dropdown-menu-personSwitch/01-molekyler-02-navigation-04-dropdown-menu-personSwitch.html","lineageState":"inreview"}],"lineageR":[{"lineagePattern":"molekyler-dropdown-menu-personSwitch-large","lineagePath":"../../patterns/01-molekyler-02-navigation-04-dropdown-menu-personSwitch-large/01-molekyler-02-navigation-04-dropdown-menu-personSwitch-large.html","lineageState":"inprogress"},{"lineagePattern":"molekyler-dropdown-menu-personSwitch","lineagePath":"../../patterns/01-molekyler-02-navigation-04-dropdown-menu-personSwitch/01-molekyler-02-navigation-04-dropdown-menu-personSwitch.html","lineageState":"inreview"}],"patternLineageEExists":true,"patternDesc":"<p>Søk innenfor et område. Ikon til venstre beskriver hva man søker i. F.eks tjenester, datalister, etc.</p>\n","patternBreadcrumb":{"patternType":"atomer","patternSubtype":"forms"},"patternExtension":"mustache","patternName":"Find Input","patternPartial":"atomer-find-input","patternState":"complete","extraOutput":{}}
   </script>
 </div><!--end .sg-pattern-->
 <div id="atomer-search" class="sg-pattern">
@@ -674,7 +686,7 @@
       </label>
 
       <!-- Input  -->
-      <input aria-labelledby="search" required="" type="search" name="q" class="form-control form-control-noleft form-control-withBtn" value="" placeholder="Søk etter innhold">
+      <input aria-labelledby="search" type="search" class="form-control form-control-noleft form-control-withBtn" value="" placeholder="Søk etter innhold">
 
       <div class="input-group-btn">
         <button class="btn btn-secondary" type="button">
@@ -724,7 +736,7 @@
       </label>
 
       <!-- Input  -->
-      <input aria-labelledby="searchLarge" required="" type="search" name="q" class="form-control form-control-noleft form-control-withBtn" value="" placeholder="Søk etter innhold">
+      <input aria-labelledby="searchLarge" type="search" class="form-control form-control-noleft form-control-withBtn" value="" placeholder="Søk etter innhold">
 
       <div class="input-group-btn">
         <button class="btn btn-secondary" type="button">
@@ -814,7 +826,7 @@
 
       <!-- Label -->
       <label class="input-group-addon" for="inputText">
-          <span class="control-label"> Etternavn:</span>
+          <span class="control-label"> Etternavn: </span>
       </label>
 
       <!-- Input  -->
@@ -860,7 +872,7 @@
           <button class="btn dropdown-toggle a-dropdown-toggle" type="button" id="dropdownMenu" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 
 
-            <i class="material-icons a-input-icon">&#xE7F1;</i>
+            <i class="material-icons a-input-icon">&#xE7FD;</i>
 
         	<span class="a-form-text">
                 <b>KARI NORDMANNS FORETAK</b> org. nr. 995644944
@@ -870,7 +882,7 @@
           <div class="dropdown-menu a-dropdown-menu" aria-labelledby="dropdownMenu1">
             <a class="dropdown-item a-dropdown-item a-dropdown-item-active" href="#">
 
-            	<i class="material-icons a-input-icon">&#xE7F1;</i>
+            	<i class="material-icons a-input-icon">&#xE7FD;</i>
         	    <span class="a-form-text ">
         	        <b>KARI NORDMANNS FORETAK</b> org. nr. 995644944
         	    </span>
@@ -881,42 +893,36 @@
 
             	<i class="material-icons a-input-icon">&#xE7FD;</i>
                 <span class="a-form-text">
-        	        <b>NORDMANN KARI</b>
+        	        <b>KARI NORDMANN</b> 
         	    </span>
 
             </a>
-
             <a class="dropdown-item a-dropdown-item" href="#">
 
-                <i class="material-icons a-input-icon">&#xE7FD;</i>
-            	<span class="a-form-text">
-        	        <b>OLA NORDMANN</b>
+            	<i class="material-icons a-input-icon">&#xE7FD;</i>
+                <span class="a-form-text">
+        	        <b>OLA NORDMANN</b> 
         	    </span>
-            </a>
 
+            </a>
             <a class="dropdown-item a-dropdown-item" href="#">
 
             	<i class="material-icons a-input-icon">&#xE7F1;</i>
-        	    <span class="a-form-text">
+                <span class="a-form-text">
         	        <b>OLA NORDMANNS FORETAK</b> org. nr. 995644944
         	    </span>
 
-
             </a>
-
             <a class="dropdown-item a-dropdown-item" href="#">
 
             	<i class="material-icons a-input-icon">&#xE7F1;</i>
-        	    <span class="a-form-text">
+                <span class="a-form-text">
         	        <b>OLA NORDMANNS ANDRE FORETAK</b> org. nr. 995644944
         	    </span>
 
-
             </a>
-
           </div>
         </div>
-
     </div>
 </div>
 
@@ -942,12 +948,12 @@
   <div class="sg-pattern-example">
     
 <form>
-  	<label for="primaryemail" class="a-formLabel">Primær epost-adresse: </label>
-  <select class="c-select a-c-select" name="primaryemail" id="dropdownMenuDefault">
-  <option selected>post@første.com</option>
-  <option value="1">post@andre.com</option>
-  <option value="2">post@tredje.com</option>
-  <option value="3">post@fjerde.com</option>
+  	<label for="primaryEmail" class="a-formLabel">Primær epost-adresse:</label>
+  <select class="c-select a-c-select" name="primaryEmail" id="dropdownMenuDefault">
+  <option value="post@første.com" selected>post@første.com</option>
+  <option value="post@andre.com">post@andre.com</option>
+  <option value="post@tredje.com">post@tredje.com</option>
+  <option value="post@fjerde.com">post@fjerde.com</option>
 </select>
 </form>
 
@@ -1016,10 +1022,10 @@
   }
 </script>
 
-<script id="pl-js-polyfill-insert-1472209692425">
+<script id="pl-js-polyfill-insert-1472556876478">
   (function() {
     if (self != top) {
-      var cb = '1472209692425';
+      var cb = '1472556876478';
       var js = [];
       if (typeof document !== 'undefined' && !('classList' in document.documentElement)) {
         js.push('styleguide/bower_components/classList.min.js');
@@ -1029,10 +1035,10 @@
   })();
 </script>
 
-<script id="pl-js-insert-1472209692425">
+<script id="pl-js-insert-1472556876478">
   (function() {
     if (self != top) {
-      var cb = '1472209692425';
+      var cb = '1472556876478';
       var js = [ { 'src': 'styleguide/bower_components/jwerty.min.js', 'dep': [ 'styleguide/js/patternlab-pattern.min.js' ] } ];
       scriptLoader.run(js,cb,'pl-js-insert');
     }
