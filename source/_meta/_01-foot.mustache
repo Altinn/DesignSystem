@@ -51,6 +51,51 @@
 
     <script>
       $(document).foundation();
+      var smoothStateMod = function () {
+        $('#page').find('a').on('click', function (e) {
+          if (location.pathname.replace(/\//g, '') === $(this).attr('href').replace(/\//g, '').replace(/\.\./g, '')) {
+            e.preventDefault(); e.stopPropagation(); e.stopImmediatePropagation()
+            return false
+          } else if ($(this).attr('href') !== '#') {
+            e.preventDefault(); e.stopPropagation(); e.stopImmediatePropagation()
+            smoothState.load($(this).attr('href'));
+          }
+        })
+      }
+      var options = {
+        prefetch: true,
+        debug: true,
+        anchors: 'blink',
+        cacheLength: 9,
+        onStart: {
+          duration: 0, // Duration of our animation
+          render: function ($container) {
+            // Add your CSS animation reversing class
+            $container.addClass('is-exiting');
+
+            // Restart your animation
+            smoothState.restartCSSAnimations();
+          }
+        },
+        onReady: {
+          duration: 0,
+          render: function ($container, $newContent) {
+            // Remove your CSS animation reversing class
+            $container.removeClass('is-exiting');
+
+            // Inject the new content
+            $container.html($newContent);
+
+          }
+        },
+        onAfter: function () {
+          $(document).foundation();
+          altinnInit();
+          smoothStateMod()
+        }
+      };
+      var smoothState = $('#page').smoothState(options).data('smoothState');
+      smoothStateMod()
     </script>
 
   </body>
