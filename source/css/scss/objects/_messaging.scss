@@ -5,6 +5,7 @@
 .a-message {
 	background-color: $grey-medium;
     padding: 12px 15px;
+	border: 3px solid $white;
     margin-top: 20px;
 	position: relative;
 	float: left;
@@ -26,7 +27,21 @@
 	margin-left: -10px;
 }
 
-.a-message-error {	
+.a-message:before {
+	bottom: 100%;
+	left: 24px;
+	border: solid transparent;
+	content: " ";
+	height: 0;
+	width: 0;
+	position: absolute;
+	border-color: rgba(136, 183, 213, 0);
+
+	border-bottom-color: $white;
+	border-width: 14px;
+	margin-left: -14px;
+}
+.a-message-error {
     background-color: $red-light;
 
     &:after {
@@ -42,13 +57,10 @@
 	}
 }
 
-.a-message-info {	
+.a-message-info {
     background-color: $yellow-light;
 
     &:after {
 		border-bottom-color: $yellow-light;
 	}
 }
-
-
-
