@@ -67,6 +67,11 @@ ul.no-decoration {
 			background-color: $blue-light;
 		}
 
+    .a-itemList-item-deactivated:hover {
+			background-image: url('../images/disabled-background.svg');
+			background-color: $white;
+		}
+
 		.a-listItem-title {
 			  display: inline-block;
 				width: 85%;
@@ -110,4 +115,56 @@ ul.no-decoration {
 
 .a-boxBtnList {
 	list-style: none;
+}
+
+/*------------------------------------*\
+    Ordered list with circled numbers
+\*------------------------------------*/
+
+.a-circle-list {
+	margin-left: 0;
+	padding-right: 0;
+	list-style-type: none;
+	counter-reset: step;
+
+	li {
+		margin-bottom: 14px;
+		font-weight: bold;
+
+		&::before {
+			counter-increment: step;
+			content: counter(step);
+			margin-right: 10px;
+			font-weight: bold;
+			padding: 5px 9px 5px 9px;
+			border: 2px solid $blue;
+			border-radius: 50%;
+		}
+
+		span {
+			margin-left: 10px;
+			font-weight: normal;
+		}
+	}
+}
+
+/*------------------------------------*\
+    Unordered list with icons
+\*------------------------------------*/
+
+.a-icon-list {
+	list-style-type: none;
+
+	li {
+		padding-bottom: 15px;
+	}
+
+	i {
+		vertical-align: middle;
+		padding-right: 5px;
+	}
+
+	b {
+		padding-right: 5px;
+	}
 }
