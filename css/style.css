@@ -5290,6 +5290,37 @@ fieldset[disabled] .a-switch input[type="checkbox"] + label {
   border-bottom: 1px solid #cff0ff;
   padding: 6px 0 5px 0; }
 
+/*------------------------------------*    $Sortable table
+\*------------------------------------*/
+.a-sortable-table .a-sortable-row {
+  background: #efefef; }
+  .a-sortable-table .a-sortable-row td {
+    border-bottom: 1px solid #B3B3B3;
+    padding: 0.4rem;
+    vertical-align: middle; }
+  .a-sortable-table .a-sortable-row.open {
+    background: #ffffff; }
+    .a-sortable-table .a-sortable-row.open td {
+      border-bottom: 1px solid #ffffff; }
+
+.a-sortable-table thead th {
+  text-transform: uppercase;
+  font-size: 12px;
+  border-bottom: 1px solid #6a6a6a;
+  padding: 0.4rem;
+  bottom: 0; }
+
+.a-sortable-table thead .a-dropdownArrow {
+  transform: scale(0.75) rotate(90deg) translate(-50%); }
+
+.a-sortable-table .collapse.in {
+  display: table-row; }
+
+.a-sortable-table .a-sortable-action-row {
+  background: #ffffff; }
+  .a-sortable-table .a-sortable-action-row td {
+    border-bottom: 1px solid #B3B3B3; }
+
 /*------------------------------------*    $Table list
 \*------------------------------------*/
 .a-tableList {
@@ -7031,6 +7062,14 @@ fieldset[disabled] .a-switch input[type="checkbox"] + label {
   box-shadow: -2px 2px 3px 0 rgba(0, 0, 0, 0.11);
   top: 1px; }
 
+/*------------------------------------*    Small accordion
+\*------------------------------------*/
+.a-accordion-small a {
+  padding-bottom: 15px; }
+
+.a-accordion-small div {
+  padding-left: 20px; }
+
 /*------------------------------------*    COLUMN NAVIGATION (DRILLDOWN ON MOBILE)
 		Used on "Skjema"
 \*------------------------------------*/
@@ -7331,9 +7370,10 @@ fieldset[disabled] .a-switch input[type="checkbox"] + label {
     color: #000; }
   .a-btn.disabled, .a-btn:disabled {
     cursor: not-allowed;
-    background: #efefef;
+    background-color: #ffffff;
     color: #000;
-    box-shadow: 0px 0px 0px 1px white inset; }
+    box-shadow: 0px 0px 0px 1px white inset;
+    background-image: url("../images/disabled-background.svg"); }
   .a-btn:after {
     content: "";
     width: 100%;
@@ -7568,6 +7608,46 @@ fieldset[disabled] .a-switch input[type="checkbox"] + label {
     text-align: left;
     padding-top: 24px; }
 
+.a-card {
+  background: #ffffff;
+  width: 100%;
+  padding: 40px 50px;
+  box-shadow: 1px 1px 4px 0px rgba(137, 137, 137, 0.5);
+  margin-bottom: 10px; }
+  .a-card h3 {
+    margin-bottom: 30px; }
+    .a-card h3 span {
+      font-family: 'DIN-reg'; }
+
+.a-main-card h3 {
+  font-size: 24px;
+  margin-bottom: 5px; }
+  .a-main-card h3 span {
+    font-family: 'DIN-reg'; }
+
+.a-main-card .subtext {
+  font-size: 12px; }
+  .a-main-card .subtext a {
+    padding-bottom: 2px;
+    border-bottom: 1px solid #1eaef7; }
+
+.a-compare-element {
+  width: 100%;
+  padding: 10px 20px; }
+
+.a-compare-category h3 {
+  padding-bottom: 10px;
+  border-bottom: 1px solid #B3B3B3; }
+
+.a-compare-category .a-compare-container {
+  margin-bottom: 20px; }
+  @media all and (min-width: 768px) {
+    .a-compare-category .a-compare-container:not(:nth-of-type(even)) {
+      border-right: 1px solid #B3B3B3; } }
+  @media all and (min-width: 992px) {
+    .a-compare-category .a-compare-container:not(:last-of-type) {
+      border-right: 1px solid #B3B3B3; } }
+
 ul.no-decoration {
   list-style: none;
   margin: none; }
@@ -7610,6 +7690,9 @@ ul.no-decoration {
       padding: 5px 0; }
     .a-itemList.a-itemList-ordered .a-itemList-item:hover {
       background-color: #cff0ff; }
+    .a-itemList.a-itemList-ordered .a-itemList-item-deactivated:hover {
+      background-image: url("../images/disabled-background.svg");
+      background-color: #ffffff; }
     .a-itemList.a-itemList-ordered .a-listItem-title {
       display: inline-block;
       width: 85%;
@@ -7631,6 +7714,40 @@ ul.no-decoration {
 \*------------------------------------*/
 .a-boxBtnList {
   list-style: none; }
+
+/*------------------------------------*    Ordered list with circled numbers
+\*------------------------------------*/
+.a-circle-list {
+  margin-left: 0;
+  padding-right: 0;
+  list-style-type: none;
+  counter-reset: step; }
+  .a-circle-list li {
+    margin-bottom: 14px;
+    font-weight: bold; }
+    .a-circle-list li::before {
+      counter-increment: step;
+      content: counter(step);
+      margin-right: 10px;
+      font-weight: bold;
+      padding: 5px 9px 5px 9px;
+      border: 2px solid #1eaef7;
+      border-radius: 50%; }
+    .a-circle-list li span {
+      margin-left: 10px;
+      font-weight: normal; }
+
+/*------------------------------------*    Unordered list with icons
+\*------------------------------------*/
+.a-icon-list {
+  list-style-type: none; }
+  .a-icon-list li {
+    padding-bottom: 15px; }
+  .a-icon-list i {
+    vertical-align: middle;
+    padding-right: 5px; }
+  .a-icon-list b {
+    padding-right: 5px; }
 
 .tooltip.a-tooltip {
   opacity: 1; }
