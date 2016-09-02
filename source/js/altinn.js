@@ -1,119 +1,81 @@
-/* globals $ */
-
+/* globals anchors, jQuery, $, localStorage */
 window.altinnInit = function () {
-  //Breakpoint-variabler
-  var bpXsmall=0, bpSmall=544, bpMed=768, bpLarge=992, bpXlarge=1200;
-
-  options = undefined
-  /* globals jQuery */
-  /*!
-   * TOGGLE elements with the same parent + add "open"-class
-   */
-  ; (function ($, undefined) {
-      $(function () {
-          $('.js-toggle').click(function () {
-              var self = $(this);
-              if (self.hasClass('open')) {
-                  self.parent().find('.js-hide').slideUp(300);
-                  self.removeClass('open');
-              } else {
-                  self.addClass('open');
-                  self.parent().find('.js-hide').slideDown(300);
-              }
-              return false;
-          })
-      });
-  }(jQuery));
-
-
-  // Add dim class to panels
-
-  ; (function ($, undefined) {
-      $(function () {
-
-          $('.index-heading').click(function () {
-             if ($(this).hasClass('expanded')) {
-                 $(this).removeClass('expanded');
-                 if ($('.panel-heading.expanded').length === 0) {
-                     $('.panel-heading').removeClass('dim');
-                 }
-                 else {
-                     $(this).addClass('dim')
-                 }
-             } else {
-                 $('.panel-heading').removeClass('expanded');
-                 $(this).addClass('expanded');
-                 $('.panel-heading').addClass('dim');
-                 $('.panel-heading.expanded').removeClass('dim');
-             }
-         });
-      });
-  }(jQuery));
-
-  // Hide second level column menu when clicking on the active upper level item:
-  // (function ($) {
-  //   $(function () {
-  //     var upperLvlClicked = false; var stopPropagationNextClick = false
-  //     function handleClick (event) {
-  //       if (upperLvlClicked && !stopPropagationNextClick) {
-  //         stopPropagationNextClick = true
-  //         console.log($('.a-colnav.dropdown').children('li').eq(4).find('a'))
-  //         $('.a-colnav.dropdown').children('li').eq(4).find('a').click()
-  //       } else {
-  //         upperLvlClicked = true; stopPropagationNextClick = false
-  //       }
-  //     }
-  //     $('li.a-colnav').on('click', handleClick)
-  //     $('a.a-colnav-item').on('click', handleClick)
-  //   })
-  // }(jQuery))
-
-  (function ($) {
-    // Handle theme toggle:
-    $(function () {
-      var toggleStuff = function () {
-        $('body', $('iframe').contents()[0]).toggleClass('business');
-        $('body', $('iframe').contents()[0]).toggleClass('private-person');
-        $('html', $('iframe').contents()[0]).toggleClass('business');
-        $('html', $('iframe').contents()[0]).toggleClass('private-person');
-        localStorage.setItem('theme', $('body', $('iframe').contents()[0]).attr('class'))
-        $('body', '.ap-profile').attr('class', '')
-      }
-      $('#sg-switchtheme-blue', $('iframe').contents()[0]).off('change')
-      $('#sg-switchtheme-grey', $('iframe').contents()[0]).off('change')
-
-      if (localStorage.getItem('theme') && localStorage.getItem('theme') === 'business') {
-        $('body', $('iframe').contents()[0]).attr('class', 'business');
-        $('#sg-switchtheme-blue', $('iframe').contents()[0]).prop('checked', true)
+  var bpLarge = 992; var options
+  // Toggle elements with the same parent + add 'open'-class
+  $(function () {
+    $('.js-toggle').click(function () {
+      var self = $(this)
+      if (self.hasClass('open')) {
+        self.parent().find('.js-hide').slideUp(300); self.removeClass('open')
       } else {
-        $('body', $('iframe').contents()[0]).attr('class', 'private-person');
-        $('#sg-switchtheme-grey', $('iframe').contents()[1]).prop('checked', true)
+        self.addClass('open'); self.parent().find('.js-hide').slideDown(300)
       }
-      $('#sg-switchtheme-blue', $('iframe').contents()[0]).on('change', toggleStuff)
-      $('#sg-switchtheme-grey', $('iframe').contents()[0]).on('change', toggleStuff)
+      return false
+    })
+  })
+  // Add dim class to panels
+  $(function () {
+    $('.index-heading').click(function () {
+      if ($(this).hasClass('expanded')) {
+        $(this).removeClass('expanded')
+        if ($('.panel-heading.expanded').length === 0) {
+          $('.panel-heading').removeClass('dim')
+        } else $(this).addClass('dim')
+      } else {
+        $('.panel-heading').removeClass('expanded')
+        $(this).addClass('expanded'); $('.panel-heading').addClass('dim')
+        $('.panel-heading.expanded').removeClass('dim')
+      }
+    })
+  })
+  // Handle theme toggle
+  $(function () {
+    var toggleStuff = function () {
+      $('body', $('iframe').contents()[0]).toggleClass('business')
+      $('body', $('iframe').contents()[0]).toggleClass('private-person')
+      $('html', $('iframe').contents()[0]).toggleClass('business')
+      $('html', $('iframe').contents()[0]).toggleClass('private-person')
+      localStorage
+        .setItem('theme', $('body', $('iframe').contents()[0]).attr('class'))
       $('body', '.ap-profile').attr('class', '')
-    })
-    // Handle filter toggle:
-    $(function () {
-      $('.a-collapseFilter').on('mouseup', function () {
-          var actionRow = $(this).attr('data-target')
-        if (!$(this).hasClass('collapsed')) {
-          $(this).addClass('collapsed')
-          if($(this).parent().is('td')) {
-              $(actionRow).prev().removeClass('open')
-              $(actionRow).css('display', 'none')
-          }
-        } else {
-          $('.a-collapseContent').removeClass('in')
-          $('.a-collapseFilter').addClass('collapsed')
-          $(this).removeClass('collapsed')
-          if($(this).parent().is('td')) {
-              $(actionRow).css('display', 'table-row')
-              $(actionRow).prev().addClass('open')
-          }
+    }
+    $('#sg-switchtheme-blue', $('iframe').contents()[0]).off('change')
+    $('#sg-switchtheme-grey', $('iframe').contents()[0]).off('change')
+    if (localStorage.getItem('theme') &&
+      localStorage.getItem('theme') === 'business') {
+      $('body', $('iframe').contents()[0]).attr('class', 'business')
+      $('#sg-switchtheme-blue', $('iframe').contents()[0]).prop('checked', true)
+    } else {
+      $('body', $('iframe').contents()[0]).attr('class', 'private-person')
+      $('#sg-switchtheme-grey', $('iframe').contents()[1]).prop('checked', true)
+    }
+    $('#sg-switchtheme-blue', $('iframe').contents()[0])
+      .on('change', toggleStuff)
+    $('#sg-switchtheme-grey', $('iframe').contents()[0])
+      .on('change', toggleStuff)
+    $('body', '.ap-profile').attr('class', '')
+  })
+  // Handle filter toggle
+  $(function () {
+    $('.a-collapseFilter').on('mouseup', function () {
+      var actionRow = $(this).attr('data-target')
+      if (!$(this).hasClass('collapsed')) {
+        $(this).addClass('collapsed')
+        if($(this).parent().is('td')) {
+            $(actionRow).prev().removeClass('open')
+            $(actionRow).css('display', 'none')
         }
-      })
+      } else {
+        $('.a-collapseContent').removeClass('in')
+        $('.a-collapseFilter').addClass('collapsed')
+        $(this).removeClass('collapsed')
+        if($(this).parent().is('td')) {
+            $(actionRow).css('display', 'table-row')
+            $(actionRow).prev().addClass('open')
+        }
+      }
     })
+  })
 
     //Make all cards in the same group the same height.
 
@@ -185,7 +147,6 @@ window.altinnInit = function () {
         }
       })
     })
-  }(jQuery))
 
   // INPUT Focus style
   // If state on input is "focus", add class to a-input : "a-input-focus"
@@ -276,34 +237,26 @@ window.altinnInit = function () {
   }(jQuery));
 
   // Add dim class to colnav SECOND LEVEL
-
-  ; (function ($, undefined) {
-      $(function () {
-
-          $('.a-colnav-item-second').click(function () {
-            $(this).parent().find('.a-colnav-item-third').eq(0).focus() // Repairs drilldown navigation (keyboard/screen reader)
-             if ($(this).hasClass('expanded-second') && $(window).width() >= bpLarge) {
-                 $(this).removeClass('expanded-second');
-                 if ($('.a-colnav-item-second.expanded-second').length === 0) {
-                     $('.a-colnav-item-second').removeClass('dim-second-no');
-                 }
-                 else {
-                     $(this).addClass('dim-second')
-                 }
-             } else if($(window).width() >= bpLarge){
-                 $('.a-colnav-item-second').removeClass('expanded-second');
-                 $(this).addClass('expanded-second');
-                 $('.a-colnav-item-second').addClass('dim-second');
-                 $('.a-colnav-item-second.expanded-second').removeClass('dim-second');
-             }
-         });
-      });
-  }(jQuery));
-
-
-  /**
-   * Repair drilldown navigation (keyboard/screen reader)
-   */
+  $(function () {
+    $('.a-colnav-item-second').click(function () {
+      $(this).parent().find('.a-colnav-item-third').eq(0).focus() // Repairs drilldown navigation (keyboard/screen reader)
+           if ($(this).hasClass('expanded-second') && $(window).width() >= bpLarge) {
+               $(this).removeClass('expanded-second');
+               if ($('.a-colnav-item-second.expanded-second').length === 0) {
+                   $('.a-colnav-item-second').removeClass('dim-second-no');
+               }
+               else {
+                   $(this).addClass('dim-second')
+               }
+           } else if($(window).width() >= bpLarge){
+               $('.a-colnav-item-second').removeClass('expanded-second');
+               $(this).addClass('expanded-second');
+               $('.a-colnav-item-second').addClass('dim-second');
+               $('.a-colnav-item-second.expanded-second').removeClass('dim-second');
+      }
+    })
+  })
+  // Repair drilldown navigation (keyboard/screen reader)
   $(function () {
     $('.a-colnav-item').attr('tabindex', '0')
     $('.a-colnav-item').attr('href', '#')
@@ -317,35 +270,22 @@ window.altinnInit = function () {
         $(this).parent().find('.a-colnav-item-second').eq(0).focus()
       }
     })
-    // $('.a-colnav-item-second').on('focus', function () {
-    //   if ($('.a-colnav-thirdLevel.submenu.is-active').length === 1) {
-    //     $(this).off('keydown.zf.drilldown')
-    //     $(this).parent().find('.a-colnav-item-third').eq(0).focus()
-    //   }
-    // })
   })
-
-    /**
-    * Proxy content propagator, for inclusion of content in more than one place
-    */
-    $(function () {
-      $('.propagated-content-destination').each(function () {
-        if ($(this).hasClass('replace-me')) {
-          $(this).before($('#propagated-content-origin').html())
-          $(this).remove()
-        } else {
-          $(this).html($('#propagated-content-origin').html())
-        }
-      })
+  // Proxy content propagator, for inclusion of content in more than one place
+  $(function () {
+    $('.propagated-content-destination').each(function () {
+      if ($(this).hasClass('replace-me')) {
+        $(this).before($('.propagated-content-origin.' +
+          $(this).attr('data-refclass')).html())
+        $(this).remove()
+      } else {
+        $(this).html($('.propagated-content-origin.' +
+          $(this).attr('data-refclass')).html())
+      }
     })
-
-    /**
-    * Anchor js
-    * Add anchors to all h1s, h2s, h3s and h4s inside of .ap-content.
-    */
-    anchors.options.placement = 'left';
-    anchors.options.class = 'a-anchor';
-    anchors.add('.ap-content h1, .ap-content h2, .ap-content h3, .ap-content h4');
+  })
+  // Add anchors to all h1s, h2s, h3s and h4s inside of .ap-content.
+  anchors.options.placement = 'left'; anchors.options.class = 'a-anchor'
+  anchors.add('.ap-content h1, .ap-content h2, .ap-content h3, .ap-content h4')
 }
-
-altinnInit()
+window.altinnInit()
