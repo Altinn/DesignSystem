@@ -303,10 +303,17 @@ window.altinnInit = function () {
   })
 
   /**
-  * ...
+  * Proxy content propagator, for inclusion of content in more than one place
   */
   $(function () {
-    $('.propagated-content-destination').html($('#propagated-content-origin').html())
+    $('.propagated-content-destination').each(function () {
+      if ($(this).hasClass('replace-me')) {
+        $(this).before($('#propagated-content-origin').html())
+        $(this).remove()
+      } else {
+        $(this).html($('#propagated-content-origin').html())
+      }
+    })
   })
 
   /**
