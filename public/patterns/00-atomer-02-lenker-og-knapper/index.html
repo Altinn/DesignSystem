@@ -1,0 +1,1383 @@
+<!DOCTYPE html>
+<html lang="no" class="">
+
+  <head>
+    <title>Altinn</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width" />
+
+    <!-- Favicons -->
+    <link rel="apple-touch-icon" sizes="57x57" href="../../images/favicons/apple-touch-icon-57x57.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="../../images/favicons/apple-touch-icon-60x60.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="../../images/favicons/apple-touch-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="../../images/favicons/apple-touch-icon-76x76.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="../../images/favicons/apple-touch-icon-114x114.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="../../images/favicons/apple-touch-icon-120x120.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="../../images/favicons/apple-touch-icon-144x144.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="../../images/favicons/apple-touch-icon-152x152.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="../../images/favicons/apple-touch-icon-180x180.png">
+    <link rel="icon" type="image/png" href="../../images/favicons/favicon-32x32.png" sizes="32x32">
+    <link rel="icon" type="image/png" href="../../images/favicons/android-chrome-192x192.png" sizes="192x192">
+    <link rel="icon" type="image/png" href="../../images/favicons/favicon-96x96.png" sizes="96x96">
+    <link rel="icon" type="image/png" href="../../images/favicons/favicon-16x16.png" sizes="16x16">
+    <link rel="manifest" href="../../images/favicons/manifest.json">
+    <link rel="mask-icon" href="../../images/favicons/safari-pinned-tab.svg">
+    <meta name="apple-mobile-web-app-title" content="Altinn">
+    <meta name="application-name" content="Altinn">
+    <meta name="msapplication-TileColor" content="#da532c">
+    <meta name="msapplication-TileImage" content="/mstile-144x144.png">
+    <meta name="theme-color" content="#ffffff">
+
+    <!-- Material icons-->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!-- FortAwesome icons-->
+    <script src="https://use.fonticons.com/b2e1f56d.js"></script>
+
+    <!-- Altinn stylesheet -->
+    <link rel="stylesheet" href="../../css/style.css?" media="all" />
+    <link rel="stylesheet" href="../../css/pattern-scaffolding.css?" media="all" />
+
+    <!-- Begin Pattern Lab (Required for Pattern Lab to run properly) -->
+    <!-- never cache patterns -->
+<meta http-equiv="cache-control" content="max-age=0" />
+<meta http-equiv="cache-control" content="no-cache" />
+<meta http-equiv="expires" content="0" />
+<meta http-equiv="expires" content="Tue, 01 Jan 1980 1:00:00 GMT" />
+<meta http-equiv="pragma" content="no-cache" />
+
+<link rel="stylesheet" href="../../styleguide/css/styleguide.min.css?1472819203323" media="all">
+<style type="text/css">
+  /* PRESENTATION OF STYLE GUIDE */
+  #sg-viewport {
+    max-width: 100%;
+  }
+  .sg-top {
+    background: #cff0ff;
+    color: #000;
+    padding: 100px 0 120px 0;
+    border-bottom: 6px solid #ffffff;
+  }
+  .sg-top h1, .sg-top h2 {
+    color: #000;
+  }
+  .sg-top img {
+    float: right;
+    padding-top: 30px;
+  }
+  .sg-atom {
+    display: block;
+    width: 250px;
+    height: 250px;
+    float: right;
+    margin-top: 24px;
+    margin-right: 0.5rem;
+    background: url(../images/lab5.svg) no-repeat;
+    background-size: 100% 100%;
+    animation: rotation 30s linear infinite;
+  }
+  @-webkit-keyframes rotation {
+    0% {
+      -webkit-transform: rotate(0deg);
+    }
+    100% {
+      -webkit-transform: rotate(360deg);
+    }
+  }
+  @-moz-keyframes rotation {
+    0% {
+      -moz-transform: rotate(0deg);
+    }
+    100% {
+      -moz-transform: rotate(360deg);
+    }
+  }
+  @-o-keyframes rotation {
+    0% {
+      -o-transform: rotate(0deg);
+    }
+    100% {
+      -o-transform: rotate(360deg);
+    }
+  }
+  @keyframes rotation {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+  .sg-statesExplanation {
+    background: #ffffff;
+    padding: 24px 0;
+  }
+  .sg-pattern-state,
+  .sg-pattern-state:hover {
+    border: none;
+  }
+  .sg-statesExplanation .sg-pattern-state-inprogress {
+    color: #e23b53;
+  }
+  .sg-statesExplanation .sg-pattern-state-inreview {
+    color: #FFA900;
+  }
+  .sg-statesExplanation .sg-pattern-state-complete {
+    color: #17c96b;
+  }
+  .sg-pattern-state:before {
+    margin-bottom: 0;
+  }
+  .sg-pattern-state:before {
+    font-size: 30px;
+  }
+  #sg-patterns .sg-pattern-head .sg-pattern-state:before {
+    font-size: 30px;
+    margin-bottom: -10px;
+  }
+  #sg-patterns .sg-pattern-extra-info .sg-pattern-state:before {
+    font-size: 30px;
+    margin-bottom: 0px;
+  }
+  #sg-code-lineager-fill .sg-pattern-state:before {
+    margin-bottom: -2px !important;
+  }
+  span.sg-pattern-state:before {
+    margin-bottom: -12px;
+    /* margin-left: 4px; */;
+  }
+  .sg-pattern-head {
+    margin: 18px 0 0 0;
+    padding: 6px 0;
+  }
+  .sg-pattern-head .patternLink,
+  .sg-pattern-head .patternLink:hover {
+    border: none;
+    text-decoration: none;
+    font-size: 14px;
+    text-transform: uppercase;
+    font-family: 'DIN-light';
+  }
+
+
+  /* view info */
+  .sg-pattern-extra {
+    background: #fff;
+  }
+  .sg-pattern-extra a,
+  .sg-pattern-extra a:hover {
+    text-decoration: none;
+    color: #0062ba;
+  }
+  .sg-pattern-extra a:hover {
+    color: #1eaef7;
+  }
+  .sg-annotations {
+    padding: 12px;
+    background-color: #fbf6bd;
+  }
+  .sg-annotations p {
+    color: #000;
+  }
+  .sg-annotations a {
+    text-decoration: none;
+  }
+
+  .has-annotation,
+  .has-annotation:hover {
+    cursor: inherit;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+  }
+
+  .sg-pattern-desc {
+    border-bottom: none;
+    color: #000;
+  }
+
+  /* Code view height minimum 300px */
+
+  .sg-pattern-extra-code {
+    width: 60%;
+    padding: 1em;
+    min-height: 300px;
+  }
+
+  .sg-pattern-extra-code .language-html{
+    margin-top: -12px;
+  }
+
+
+
+  /* Toggle comments code in V2 */
+
+  .sg-pattern-extra-toggle,
+  .sg-pattern-extra-toggle.active,
+  .sg-pattern-extra-toggle:hover {
+      font-size: 14px;
+      background: #fff;
+      border: 1px solid #ddd;
+    }
+  .sg-pattern-extra-toggle.active {
+      border-bottom: 1px solid #fff;
+  }
+
+  .sg-pattern-extra-toggle span {
+      font-size: 9px;
+  }
+
+  .sg-pattern-extra-toggle.active span {
+      height: 6px;
+  }
+
+  .sg-pattern-extra-toggle:before {
+      content: 'Vis ';
+  }
+
+  .sg-pattern-extra-toggle.active:before {
+      content: 'Skjul ';
+  }
+
+  .sg-code {
+    background: #000;
+  }
+  .sg-code pre {
+    color: #fff;
+    margin-bottom: -20px;
+  }
+  .sg-code .sg-code-head {
+    margin: 0;
+  }
+  .sg-switchtheme {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    background: #ffffff;
+    z-index: 9999;
+    padding: 12px 0;
+    border-top: 2px solid #efefef;
+  }
+  .sg-switchtheme .a-radioButtons .c-input {
+      margin-bottom: 3px;
+  }
+</style>
+<link rel="stylesheet" href="../../styleguide/css/prism-typeahead.min.css?1472819203323" media="all" />
+
+    <!-- End Pattern Lab -->
+
+
+
+  </head>
+  <body class="">
+<div class="sg-top">
+	<div class="container">
+		<div class="row">
+	    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-8 col-xl-8">
+				<h1><span class="a-textSize4">PATTERN LAB</span><br>Levende designsystem og prototypeverktøy <br>for Altinns webløsninger </h1>
+				<p class="a-leadText">Designsystemet er laget med Patternlab, basert på atomisk designtankegang. Vi bruker dette systemet til å opprettholde frontend-kode og visuell konsistens på tvers av løsningene. Målet er å skape et felles sted for UI-mønstre og stilsett, som etterhvert skal benyttes av alle løsningene til Altinn.</p>
+				<!-- Button trigger modal -->
+				<a href="http://altinn-dev.dev.bouvet.no/en/profil/web/retningslinjer-for-web2/" class="a-link" id="linkStandalone" target="_blank">Les mer om designsystemet <i class="material-icons a-link-external">&#xE0B2;</i></a>
+			</div>
+			<div class="col-xs-12 col-sm-12 col-md-12 col-lg-4 col-xl-4">
+			  <span class="sg-atom hidden-md-down"></span>
+		  </div>
+		</div>
+	</div>
+</div>
+<div class="sg-statesExplanation">
+	<div class="container">
+
+		<span class="sg-pattern-state inprogress">
+			<span class="sg-pattern-state-inprogress">ARBEID PÅGÅR</span> - komponenten er under utvikling, og blir jobbet på for øyeblikket. <br />
+		</span>
+
+		<span class="sg-pattern-state inreview">
+				<span class="sg-pattern-state-inreview">KLAR TIL GJENNOMGANG</span> - komponenten er klar for gjennomgang/diskusjon, og venter på godkjenning. <br />
+		</span>
+
+		<span class="sg-pattern-state complete">
+			<span class="sg-pattern-state-complete">FERDIG</span> - komponenten anses som ferdig og klar for bruk.<br />
+		</span>
+
+	</div>
+</div>
+
+
+
+
+<div class="container">
+  <!-- View All Patterns in a Pattern Sub-Type -->
+  <div class="sg-main" role="main">
+    <!-- Patterns -->
+    <div id="sg-patterns">
+<div id="viewall-viewall-atomer-lenker-og-knapper" class="sg-pattern-category">
+  <h2 class="sg-pattern-category-title"><a href="../../patterns/00-atomer-02-lenker-og-knapper&#x2F;index.html" class="patternLink" data-patternpartial="viewall-viewall-atomer-lenker-og-knapper">lenker-og-knapper</a></h2>
+
+  <div class="sg-pattern-category-body">
+    
+  </div><!--end sg-pattern-category-body-->
+  
+</div><!--end sg-pattern-category-->
+<div id="atomer-link" class="sg-pattern">
+  <div class="sg-pattern-head">
+    <h3 class="sg-pattern-title">
+      <a href="../../patterns/00-atomer-02-lenker-og-knapper-00-link&#x2F;00-atomer-02-lenker-og-knapper-00-link.html" class="patternLink" data-patternpartial="atomer-link" title="Link to Pattern">
+          Link
+            <span class="sg-pattern-state complete">complete</span>
+      </a>
+    </h3>
+    <div class="sg-pattern-breadcrumb"></div>
+    <a href="#" data-patternpartial="atomer-link" title="View Pattern Info" id="sg-pattern-extra-toggle-atomer-link" class="sg-pattern-extra-toggle">Info <span>&#9660;</span></a>
+  </div>
+  <div class="sg-pattern-extra" id="sg-pattern-extra-atomer-link">
+
+  </div>
+  <div class="sg-pattern-example">
+    <a href="../.." class="">Lenke som står i løpende tekst</a>
+
+  </div>
+  <script type="text/json" id="sg-pattern-data-atomer-link" class="sg-pattern-data">
+    {"cssEnabled":false,"patternLineageExists":false,"patternLineages":[],"lineage":[],"patternLineageRExists":true,"patternLineagesR":[{"lineagePattern":"atomer-♺-link-ekstern","lineagePath":"../../patterns/00-atomer-02-lenker-og-knapper-01-♺-link-ekstern/00-atomer-02-lenker-og-knapper-01-♺-link-ekstern.html","lineageState":"complete"},{"lineagePattern":"atomer-♺-link-selvstendig-sidebytte","lineagePath":"../../patterns/00-atomer-02-lenker-og-knapper-02-♺-link-selvstendig-sidebytte/00-atomer-02-lenker-og-knapper-02-♺-link-selvstendig-sidebytte.html","lineageState":"complete"},{"lineagePattern":"atomer-♺-link-selvstendig","lineagePath":"../../patterns/00-atomer-02-lenker-og-knapper-02-♺-link-selvstendig/00-atomer-02-lenker-og-knapper-02-♺-link-selvstendig.html","lineageState":"complete"},{"lineagePattern":"atomer-♺-link-ekstern-selvstendig","lineagePath":"../../patterns/00-atomer-02-lenker-og-knapper-03-♺-link-ekstern-selvstendig/00-atomer-02-lenker-og-knapper-03-♺-link-ekstern-selvstendig.html","lineageState":"complete"},{"lineagePattern":"atomer-♺-link-ekstern-fare","lineagePath":"../../patterns/00-atomer-02-lenker-og-knapper-04-♺-link-ekstern-fare/00-atomer-02-lenker-og-knapper-04-♺-link-ekstern-fare.html","lineageState":"complete"},{"lineagePattern":"atomer-♺-link-knapp","lineagePath":"../../patterns/00-atomer-02-lenker-og-knapper-05-♺-link-knapp/00-atomer-02-lenker-og-knapper-05-♺-link-knapp.html","lineageState":"complete"},{"lineagePattern":"atomer-♺-link-knapp-suksess","lineagePath":"../../patterns/00-atomer-02-lenker-og-knapper-06-♺-link-knapp-suksess/00-atomer-02-lenker-og-knapper-06-♺-link-knapp-suksess.html","lineageState":"complete"},{"lineagePattern":"atomer-♺-link-knapp-fare","lineagePath":"../../patterns/00-atomer-02-lenker-og-knapper-07-♺-link-knapp-fare/00-atomer-02-lenker-og-knapper-07-♺-link-knapp-fare.html","lineageState":"complete"},{"lineagePattern":"atomer-♺-link-knapp-deaktivert","lineagePath":"../../patterns/00-atomer-02-lenker-og-knapper-08-♺-link-knapp-deaktivert/00-atomer-02-lenker-og-knapper-08-♺-link-knapp-deaktivert.html","lineageState":"complete"},{"lineagePattern":"atomer-♺-link-knapp-stor","lineagePath":"../../patterns/00-atomer-02-lenker-og-knapper-09-♺-link-knapp-stor/00-atomer-02-lenker-og-knapper-09-♺-link-knapp-stor.html","lineageState":"complete"},{"lineagePattern":"atomer-link-helpfunction","lineagePath":"../../patterns/00-atomer-02-lenker-og-knapper-38-link-helpfunction/00-atomer-02-lenker-og-knapper-38-link-helpfunction.html","lineageState":"complete"},{"lineagePattern":"atomer-♺-link-external","lineagePath":"../../patterns/00-atomer-02-links-and-buttons-01-♺-link-external/00-atomer-02-links-and-buttons-01-♺-link-external.html","lineageState":"complete"},{"lineagePattern":"atomer-compare-element","lineagePath":"../../patterns/00-atomer-09-text-06-compare-element/00-atomer-09-text-06-compare-element.html","lineageState":"inprogress"},{"lineagePattern":"molekyler-card","lineagePath":"../../patterns/01-molekyler-01-blocks-01-card/01-molekyler-01-blocks-01-card.html","lineageState":"inprogress"},{"lineagePattern":"molekyler-main-card","lineagePath":"../../patterns/01-molekyler-01-blocks-02-main-card/01-molekyler-01-blocks-02-main-card.html","lineageState":"inprogress"},{"lineagePattern":"molekyler-dropdown-menu-personSwitch-large","lineagePath":"../../patterns/01-molekyler-02-navigation-04-dropdown-menu-personSwitch-large/01-molekyler-02-navigation-04-dropdown-menu-personSwitch-large.html","lineageState":"inprogress"},{"lineagePattern":"molekyler-dropdown-menu-personSwitch","lineagePath":"../../patterns/01-molekyler-02-navigation-04-dropdown-menu-personSwitch/01-molekyler-02-navigation-04-dropdown-menu-personSwitch.html","lineageState":"inreview"},{"lineagePattern":"organismer-modal","lineagePath":"../../patterns/02-organismer-01-components-01-modal/02-organismer-01-components-01-modal.html","lineageState":"complete"}],"lineageR":[{"lineagePattern":"atomer-♺-link-ekstern","lineagePath":"../../patterns/00-atomer-02-lenker-og-knapper-01-♺-link-ekstern/00-atomer-02-lenker-og-knapper-01-♺-link-ekstern.html","lineageState":"complete"},{"lineagePattern":"atomer-♺-link-selvstendig-sidebytte","lineagePath":"../../patterns/00-atomer-02-lenker-og-knapper-02-♺-link-selvstendig-sidebytte/00-atomer-02-lenker-og-knapper-02-♺-link-selvstendig-sidebytte.html","lineageState":"complete"},{"lineagePattern":"atomer-♺-link-selvstendig","lineagePath":"../../patterns/00-atomer-02-lenker-og-knapper-02-♺-link-selvstendig/00-atomer-02-lenker-og-knapper-02-♺-link-selvstendig.html","lineageState":"complete"},{"lineagePattern":"atomer-♺-link-ekstern-selvstendig","lineagePath":"../../patterns/00-atomer-02-lenker-og-knapper-03-♺-link-ekstern-selvstendig/00-atomer-02-lenker-og-knapper-03-♺-link-ekstern-selvstendig.html","lineageState":"complete"},{"lineagePattern":"atomer-♺-link-ekstern-fare","lineagePath":"../../patterns/00-atomer-02-lenker-og-knapper-04-♺-link-ekstern-fare/00-atomer-02-lenker-og-knapper-04-♺-link-ekstern-fare.html","lineageState":"complete"},{"lineagePattern":"atomer-♺-link-knapp","lineagePath":"../../patterns/00-atomer-02-lenker-og-knapper-05-♺-link-knapp/00-atomer-02-lenker-og-knapper-05-♺-link-knapp.html","lineageState":"complete"},{"lineagePattern":"atomer-♺-link-knapp-suksess","lineagePath":"../../patterns/00-atomer-02-lenker-og-knapper-06-♺-link-knapp-suksess/00-atomer-02-lenker-og-knapper-06-♺-link-knapp-suksess.html","lineageState":"complete"},{"lineagePattern":"atomer-♺-link-knapp-fare","lineagePath":"../../patterns/00-atomer-02-lenker-og-knapper-07-♺-link-knapp-fare/00-atomer-02-lenker-og-knapper-07-♺-link-knapp-fare.html","lineageState":"complete"},{"lineagePattern":"atomer-♺-link-knapp-deaktivert","lineagePath":"../../patterns/00-atomer-02-lenker-og-knapper-08-♺-link-knapp-deaktivert/00-atomer-02-lenker-og-knapper-08-♺-link-knapp-deaktivert.html","lineageState":"complete"},{"lineagePattern":"atomer-♺-link-knapp-stor","lineagePath":"../../patterns/00-atomer-02-lenker-og-knapper-09-♺-link-knapp-stor/00-atomer-02-lenker-og-knapper-09-♺-link-knapp-stor.html","lineageState":"complete"},{"lineagePattern":"atomer-link-helpfunction","lineagePath":"../../patterns/00-atomer-02-lenker-og-knapper-38-link-helpfunction/00-atomer-02-lenker-og-knapper-38-link-helpfunction.html","lineageState":"complete"},{"lineagePattern":"atomer-♺-link-external","lineagePath":"../../patterns/00-atomer-02-links-and-buttons-01-♺-link-external/00-atomer-02-links-and-buttons-01-♺-link-external.html","lineageState":"complete"},{"lineagePattern":"atomer-compare-element","lineagePath":"../../patterns/00-atomer-09-text-06-compare-element/00-atomer-09-text-06-compare-element.html","lineageState":"inprogress"},{"lineagePattern":"molekyler-card","lineagePath":"../../patterns/01-molekyler-01-blocks-01-card/01-molekyler-01-blocks-01-card.html","lineageState":"inprogress"},{"lineagePattern":"molekyler-main-card","lineagePath":"../../patterns/01-molekyler-01-blocks-02-main-card/01-molekyler-01-blocks-02-main-card.html","lineageState":"inprogress"},{"lineagePattern":"molekyler-dropdown-menu-personSwitch-large","lineagePath":"../../patterns/01-molekyler-02-navigation-04-dropdown-menu-personSwitch-large/01-molekyler-02-navigation-04-dropdown-menu-personSwitch-large.html","lineageState":"inprogress"},{"lineagePattern":"molekyler-dropdown-menu-personSwitch","lineagePath":"../../patterns/01-molekyler-02-navigation-04-dropdown-menu-personSwitch/01-molekyler-02-navigation-04-dropdown-menu-personSwitch.html","lineageState":"inreview"},{"lineagePattern":"organismer-modal","lineagePath":"../../patterns/02-organismer-01-components-01-modal/02-organismer-01-components-01-modal.html","lineageState":"complete"}],"patternLineageEExists":true,"patternDesc":"<p>En vanlig lenke som benytter &lt; a &gt;...&lt; /a &gt; vil se slik ut. Denne skal brukes i løpende tekst.</p>\n","patternBreadcrumb":{"patternType":"atomer","patternSubtype":"lenker-og-knapper"},"patternExtension":"mustache","patternName":"Link","patternPartial":"atomer-link","patternState":"complete","extraOutput":{}}
+  </script>
+</div><!--end .sg-pattern-->
+<div id="atomer-♺-link-ekstern" class="sg-pattern">
+  <div class="sg-pattern-head">
+    <h3 class="sg-pattern-title">
+      <a href="../../patterns/00-atomer-02-lenker-og-knapper-01-♺-link-ekstern&#x2F;00-atomer-02-lenker-og-knapper-01-♺-link-ekstern.html" class="patternLink" data-patternpartial="atomer-♺-link-ekstern" title="Link to Pattern">
+          ♺ Link Ekstern
+            <span class="sg-pattern-state complete">complete</span>
+      </a>
+    </h3>
+    <div class="sg-pattern-breadcrumb"></div>
+    <a href="#" data-patternpartial="atomer-♺-link-ekstern" title="View Pattern Info" id="sg-pattern-extra-toggle-atomer-♺-link-ekstern" class="sg-pattern-extra-toggle">Info <span>&#9660;</span></a>
+  </div>
+  <div class="sg-pattern-extra" id="sg-pattern-extra-atomer-♺-link-ekstern">
+
+  </div>
+  <div class="sg-pattern-example">
+    <a href="../.." class="">Ekstern lenke som står i løpende tekst</a><i class="material-icons a-link-external">&#xE0B2;</i>
+
+
+  </div>
+  <script type="text/json" id="sg-pattern-data-atomer-♺-link-ekstern" class="sg-pattern-data">
+    {"cssEnabled":false,"patternLineageExists":true,"patternLineages":[{"lineagePattern":"atomer-link","lineagePath":"../../patterns/00-atomer-02-lenker-og-knapper-00-link/00-atomer-02-lenker-og-knapper-00-link.html","lineageState":"complete"}],"lineage":[{"lineagePattern":"atomer-link","lineagePath":"../../patterns/00-atomer-02-lenker-og-knapper-00-link/00-atomer-02-lenker-og-knapper-00-link.html","lineageState":"complete"}],"patternLineageRExists":false,"patternLineagesR":[],"lineageR":[],"patternLineageEExists":true,"patternDesc":"<p>NB: Dette er en variant av  <a href=\"../../patterns/00-atomer-02-lenker-og-knapper-00-link/00-atomer-02-lenker-og-knapper-00-link.html\">link.mustache</a></p>\n<p>Denne varianten skal benyttes når man lenker til eksterne sider i løpende tekst.</p>\n","patternBreadcrumb":{"patternType":"atomer","patternSubtype":"lenker-og-knapper"},"patternExtension":"mustache","patternName":"♺ Link Ekstern","patternPartial":"atomer-♺-link-ekstern","patternState":"complete","extraOutput":{}}
+  </script>
+</div><!--end .sg-pattern-->
+<div id="atomer-♺-link-selvstendig" class="sg-pattern">
+  <div class="sg-pattern-head">
+    <h3 class="sg-pattern-title">
+      <a href="../../patterns/00-atomer-02-lenker-og-knapper-02-♺-link-selvstendig&#x2F;00-atomer-02-lenker-og-knapper-02-♺-link-selvstendig.html" class="patternLink" data-patternpartial="atomer-♺-link-selvstendig" title="Link to Pattern">
+          ♺ Link Selvstendig
+            <span class="sg-pattern-state complete">complete</span>
+      </a>
+    </h3>
+    <div class="sg-pattern-breadcrumb"></div>
+    <a href="#" data-patternpartial="atomer-♺-link-selvstendig" title="View Pattern Info" id="sg-pattern-extra-toggle-atomer-♺-link-selvstendig" class="sg-pattern-extra-toggle">Info <span>&#9660;</span></a>
+  </div>
+  <div class="sg-pattern-extra" id="sg-pattern-extra-atomer-♺-link-selvstendig">
+
+  </div>
+  <div class="sg-pattern-example">
+    <a href="../.." class="a-link">Lenke som står alene</a>
+
+
+  </div>
+  <script type="text/json" id="sg-pattern-data-atomer-♺-link-selvstendig" class="sg-pattern-data">
+    {"cssEnabled":false,"patternLineageExists":true,"patternLineages":[{"lineagePattern":"atomer-link","lineagePath":"../../patterns/00-atomer-02-lenker-og-knapper-00-link/00-atomer-02-lenker-og-knapper-00-link.html","lineageState":"complete"}],"lineage":[{"lineagePattern":"atomer-link","lineagePath":"../../patterns/00-atomer-02-lenker-og-knapper-00-link/00-atomer-02-lenker-og-knapper-00-link.html","lineageState":"complete"}],"patternLineageRExists":false,"patternLineagesR":[],"lineageR":[],"patternLineageEExists":true,"patternDesc":"<p>NB: Dette er en variant av  <a href=\"../../patterns/00-atomer-02-lenker-og-knapper-00-link/00-atomer-02-lenker-og-knapper-00-link.html\">link.mustache</a></p>\n<p>Lenker som ikke står i løpende tekst, men er adskilte, skal være stylet med en ensfarget understrek. Dersom lenken tar deg til en ny side skal pilen → benyttes i slutten av teksten. Dersom lenken åpner et modalvindu eller valg, skal det ikke være pil.</p>\n","patternBreadcrumb":{"patternType":"atomer","patternSubtype":"lenker-og-knapper"},"patternExtension":"mustache","patternName":"♺ Link Selvstendig","patternPartial":"atomer-♺-link-selvstendig","patternState":"complete","extraOutput":{}}
+  </script>
+</div><!--end .sg-pattern-->
+<div id="atomer-♺-link-selvstendig-sidebytte" class="sg-pattern">
+  <div class="sg-pattern-head">
+    <h3 class="sg-pattern-title">
+      <a href="../../patterns/00-atomer-02-lenker-og-knapper-02-♺-link-selvstendig-sidebytte&#x2F;00-atomer-02-lenker-og-knapper-02-♺-link-selvstendig-sidebytte.html" class="patternLink" data-patternpartial="atomer-♺-link-selvstendig-sidebytte" title="Link to Pattern">
+          ♺ Link Selvstendig Sidebytte
+            <span class="sg-pattern-state complete">complete</span>
+      </a>
+    </h3>
+    <div class="sg-pattern-breadcrumb"></div>
+    <a href="#" data-patternpartial="atomer-♺-link-selvstendig-sidebytte" title="View Pattern Info" id="sg-pattern-extra-toggle-atomer-♺-link-selvstendig-sidebytte" class="sg-pattern-extra-toggle">Info <span>&#9660;</span></a>
+  </div>
+  <div class="sg-pattern-extra" id="sg-pattern-extra-atomer-♺-link-selvstendig-sidebytte">
+
+  </div>
+  <div class="sg-pattern-example">
+    <a href="../.." class="a-link">Lenke som står alene og sender deg til en annen side på Altinn</a> →
+
+
+  </div>
+  <script type="text/json" id="sg-pattern-data-atomer-♺-link-selvstendig-sidebytte" class="sg-pattern-data">
+    {"cssEnabled":false,"patternLineageExists":true,"patternLineages":[{"lineagePattern":"atomer-link","lineagePath":"../../patterns/00-atomer-02-lenker-og-knapper-00-link/00-atomer-02-lenker-og-knapper-00-link.html","lineageState":"complete"}],"lineage":[{"lineagePattern":"atomer-link","lineagePath":"../../patterns/00-atomer-02-lenker-og-knapper-00-link/00-atomer-02-lenker-og-knapper-00-link.html","lineageState":"complete"}],"patternLineageRExists":false,"patternLineagesR":[],"lineageR":[],"patternLineageEExists":true,"patternDesc":"<p>NB: Dette er en variant av  <a href=\"../../patterns/00-atomer-02-lenker-og-knapper-00-link/00-atomer-02-lenker-og-knapper-00-link.html\">link.mustache</a></p>\n<p>Lenker som ikke står i løpende tekst, men er adskilte, skal være stylet med en ensfarget understrek. Dersom lenken tar deg til en ny side skal pilen → benyttes i slutten av teksten. Dersom lenken åpner et modalvindu eller valg, skal det ikke være pil.</p>\n","patternBreadcrumb":{"patternType":"atomer","patternSubtype":"lenker-og-knapper"},"patternExtension":"mustache","patternName":"♺ Link Selvstendig Sidebytte","patternPartial":"atomer-♺-link-selvstendig-sidebytte","patternState":"complete","extraOutput":{}}
+  </script>
+</div><!--end .sg-pattern-->
+<div id="atomer-♺-link-ekstern-selvstendig" class="sg-pattern">
+  <div class="sg-pattern-head">
+    <h3 class="sg-pattern-title">
+      <a href="../../patterns/00-atomer-02-lenker-og-knapper-03-♺-link-ekstern-selvstendig&#x2F;00-atomer-02-lenker-og-knapper-03-♺-link-ekstern-selvstendig.html" class="patternLink" data-patternpartial="atomer-♺-link-ekstern-selvstendig" title="Link to Pattern">
+          ♺ Link Ekstern Selvstendig
+            <span class="sg-pattern-state complete">complete</span>
+      </a>
+    </h3>
+    <div class="sg-pattern-breadcrumb"></div>
+    <a href="#" data-patternpartial="atomer-♺-link-ekstern-selvstendig" title="View Pattern Info" id="sg-pattern-extra-toggle-atomer-♺-link-ekstern-selvstendig" class="sg-pattern-extra-toggle">Info <span>&#9660;</span></a>
+  </div>
+  <div class="sg-pattern-extra" id="sg-pattern-extra-atomer-♺-link-ekstern-selvstendig">
+
+  </div>
+  <div class="sg-pattern-example">
+    <a href="../.." class="a-link">Ekstern lenke som står alene</a><i class="material-icons a-link-external">&#xE0B2;</i>
+
+
+  </div>
+  <script type="text/json" id="sg-pattern-data-atomer-♺-link-ekstern-selvstendig" class="sg-pattern-data">
+    {"cssEnabled":false,"patternLineageExists":true,"patternLineages":[{"lineagePattern":"atomer-link","lineagePath":"../../patterns/00-atomer-02-lenker-og-knapper-00-link/00-atomer-02-lenker-og-knapper-00-link.html","lineageState":"complete"}],"lineage":[{"lineagePattern":"atomer-link","lineagePath":"../../patterns/00-atomer-02-lenker-og-knapper-00-link/00-atomer-02-lenker-og-knapper-00-link.html","lineageState":"complete"}],"patternLineageRExists":false,"patternLineagesR":[],"lineageR":[],"patternLineageEExists":true,"patternDesc":"<p>NB: Dette er en variant av  <a href=\"../../patterns/00-atomer-02-lenker-og-knapper-00-link/00-atomer-02-lenker-og-knapper-00-link.html\">link.mustache</a></p>\n<p>Eksterne lenker som står alene skal ha diagonal pil bak teksten.</p>\n","patternBreadcrumb":{"patternType":"atomer","patternSubtype":"lenker-og-knapper"},"patternExtension":"mustache","patternName":"♺ Link Ekstern Selvstendig","patternPartial":"atomer-♺-link-ekstern-selvstendig","patternState":"complete","extraOutput":{}}
+  </script>
+</div><!--end .sg-pattern-->
+<div id="atomer-♺-link-ekstern-fare" class="sg-pattern">
+  <div class="sg-pattern-head">
+    <h3 class="sg-pattern-title">
+      <a href="../../patterns/00-atomer-02-lenker-og-knapper-04-♺-link-ekstern-fare&#x2F;00-atomer-02-lenker-og-knapper-04-♺-link-ekstern-fare.html" class="patternLink" data-patternpartial="atomer-♺-link-ekstern-fare" title="Link to Pattern">
+          ♺ Link Ekstern Fare
+            <span class="sg-pattern-state complete">complete</span>
+      </a>
+    </h3>
+    <div class="sg-pattern-breadcrumb"></div>
+    <a href="#" data-patternpartial="atomer-♺-link-ekstern-fare" title="View Pattern Info" id="sg-pattern-extra-toggle-atomer-♺-link-ekstern-fare" class="sg-pattern-extra-toggle">Info <span>&#9660;</span></a>
+  </div>
+  <div class="sg-pattern-extra" id="sg-pattern-extra-atomer-♺-link-ekstern-fare">
+
+  </div>
+  <div class="sg-pattern-example">
+    <a href="../.." class="a-link a-link-danger">Lenke som står alene og antyder fare</a>
+
+
+  </div>
+  <script type="text/json" id="sg-pattern-data-atomer-♺-link-ekstern-fare" class="sg-pattern-data">
+    {"cssEnabled":false,"patternLineageExists":true,"patternLineages":[{"lineagePattern":"atomer-link","lineagePath":"../../patterns/00-atomer-02-lenker-og-knapper-00-link/00-atomer-02-lenker-og-knapper-00-link.html","lineageState":"complete"}],"lineage":[{"lineagePattern":"atomer-link","lineagePath":"../../patterns/00-atomer-02-lenker-og-knapper-00-link/00-atomer-02-lenker-og-knapper-00-link.html","lineageState":"complete"}],"patternLineageRExists":false,"patternLineagesR":[],"lineageR":[],"patternLineageEExists":true,"patternDesc":"<p>NB: Dette er en variant av  <a href=\"../../patterns/00-atomer-02-lenker-og-knapper-00-link/00-atomer-02-lenker-og-knapper-00-link.html\">link.mustache</a></p>\n<p>Lenker som antyder fare skal ha rød linje under teksten.</p>\n","patternBreadcrumb":{"patternType":"atomer","patternSubtype":"lenker-og-knapper"},"patternExtension":"mustache","patternName":"♺ Link Ekstern Fare","patternPartial":"atomer-♺-link-ekstern-fare","patternState":"complete","extraOutput":{}}
+  </script>
+</div><!--end .sg-pattern-->
+<div id="atomer-♺-link-knapp" class="sg-pattern">
+  <div class="sg-pattern-head">
+    <h3 class="sg-pattern-title">
+      <a href="../../patterns/00-atomer-02-lenker-og-knapper-05-♺-link-knapp&#x2F;00-atomer-02-lenker-og-knapper-05-♺-link-knapp.html" class="patternLink" data-patternpartial="atomer-♺-link-knapp" title="Link to Pattern">
+          ♺ Link Knapp
+            <span class="sg-pattern-state complete">complete</span>
+      </a>
+    </h3>
+    <div class="sg-pattern-breadcrumb"></div>
+    <a href="#" data-patternpartial="atomer-♺-link-knapp" title="View Pattern Info" id="sg-pattern-extra-toggle-atomer-♺-link-knapp" class="sg-pattern-extra-toggle">Info <span>&#9660;</span></a>
+  </div>
+  <div class="sg-pattern-extra" id="sg-pattern-extra-atomer-♺-link-knapp">
+
+  </div>
+  <div class="sg-pattern-example">
+    <a href="../.." class="a-btn">En lenke stylet som en standard knapp</a>
+
+
+  </div>
+  <script type="text/json" id="sg-pattern-data-atomer-♺-link-knapp" class="sg-pattern-data">
+    {"cssEnabled":false,"patternLineageExists":true,"patternLineages":[{"lineagePattern":"atomer-link","lineagePath":"../../patterns/00-atomer-02-lenker-og-knapper-00-link/00-atomer-02-lenker-og-knapper-00-link.html","lineageState":"complete"}],"lineage":[{"lineagePattern":"atomer-link","lineagePath":"../../patterns/00-atomer-02-lenker-og-knapper-00-link/00-atomer-02-lenker-og-knapper-00-link.html","lineageState":"complete"}],"patternLineageRExists":false,"patternLineagesR":[],"lineageR":[],"patternLineageEExists":true,"patternDesc":"<p>NB: Dette er en variant av  <a href=\"../../patterns/00-atomer-02-lenker-og-knapper-00-link/00-atomer-02-lenker-og-knapper-00-link.html\">link.mustache</a></p>\n<p>Denne varianten er en link som er stylet som en knapp. En standard knapp brukes for handlinger, f.eks 'Lagre', 'Send', osv. Siden knappen er kun 36 px høy er det avsatt et område over og under, slik at touch target er 48px. Det skal være minimum 12px mellomrom mellom hver knapp/lenke.</p>\n","patternBreadcrumb":{"patternType":"atomer","patternSubtype":"lenker-og-knapper"},"patternExtension":"mustache","patternName":"♺ Link Knapp","patternPartial":"atomer-♺-link-knapp","patternState":"complete","extraOutput":{}}
+  </script>
+</div><!--end .sg-pattern-->
+<div id="atomer-♺-link-knapp-suksess" class="sg-pattern">
+  <div class="sg-pattern-head">
+    <h3 class="sg-pattern-title">
+      <a href="../../patterns/00-atomer-02-lenker-og-knapper-06-♺-link-knapp-suksess&#x2F;00-atomer-02-lenker-og-knapper-06-♺-link-knapp-suksess.html" class="patternLink" data-patternpartial="atomer-♺-link-knapp-suksess" title="Link to Pattern">
+          ♺ Link Knapp Suksess
+            <span class="sg-pattern-state complete">complete</span>
+      </a>
+    </h3>
+    <div class="sg-pattern-breadcrumb"></div>
+    <a href="#" data-patternpartial="atomer-♺-link-knapp-suksess" title="View Pattern Info" id="sg-pattern-extra-toggle-atomer-♺-link-knapp-suksess" class="sg-pattern-extra-toggle">Info <span>&#9660;</span></a>
+  </div>
+  <div class="sg-pattern-extra" id="sg-pattern-extra-atomer-♺-link-knapp-suksess">
+
+  </div>
+  <div class="sg-pattern-example">
+    <a href="../.." class="a-btn a-btn-success">En lenke stylet som en suksess-knapp</a>
+
+
+  </div>
+  <script type="text/json" id="sg-pattern-data-atomer-♺-link-knapp-suksess" class="sg-pattern-data">
+    {"cssEnabled":false,"patternLineageExists":true,"patternLineages":[{"lineagePattern":"atomer-link","lineagePath":"../../patterns/00-atomer-02-lenker-og-knapper-00-link/00-atomer-02-lenker-og-knapper-00-link.html","lineageState":"complete"}],"lineage":[{"lineagePattern":"atomer-link","lineagePath":"../../patterns/00-atomer-02-lenker-og-knapper-00-link/00-atomer-02-lenker-og-knapper-00-link.html","lineageState":"complete"}],"patternLineageRExists":false,"patternLineagesR":[],"lineageR":[],"patternLineageEExists":true,"patternDesc":"<p>NB: Dette er en variant av  <a href=\"../../patterns/00-atomer-02-lenker-og-knapper-00-link/00-atomer-02-lenker-og-knapper-00-link.html\">link.mustache</a></p>\n<p>Denne varianten er en link som er stylet som en knapp. Grønn knapp brukes for å motivere brukeren til å trykke, eller antyde suksess.</p>\n","patternBreadcrumb":{"patternType":"atomer","patternSubtype":"lenker-og-knapper"},"patternExtension":"mustache","patternName":"♺ Link Knapp Suksess","patternPartial":"atomer-♺-link-knapp-suksess","patternState":"complete","extraOutput":{}}
+  </script>
+</div><!--end .sg-pattern-->
+<div id="atomer-♺-link-knapp-fare" class="sg-pattern">
+  <div class="sg-pattern-head">
+    <h3 class="sg-pattern-title">
+      <a href="../../patterns/00-atomer-02-lenker-og-knapper-07-♺-link-knapp-fare&#x2F;00-atomer-02-lenker-og-knapper-07-♺-link-knapp-fare.html" class="patternLink" data-patternpartial="atomer-♺-link-knapp-fare" title="Link to Pattern">
+          ♺ Link Knapp Fare
+            <span class="sg-pattern-state complete">complete</span>
+      </a>
+    </h3>
+    <div class="sg-pattern-breadcrumb"></div>
+    <a href="#" data-patternpartial="atomer-♺-link-knapp-fare" title="View Pattern Info" id="sg-pattern-extra-toggle-atomer-♺-link-knapp-fare" class="sg-pattern-extra-toggle">Info <span>&#9660;</span></a>
+  </div>
+  <div class="sg-pattern-extra" id="sg-pattern-extra-atomer-♺-link-knapp-fare">
+
+  </div>
+  <div class="sg-pattern-example">
+    <a href="../.." class="a-btn a-btn-danger">En lenke stylet som en fare-knapp</a>
+
+
+  </div>
+  <script type="text/json" id="sg-pattern-data-atomer-♺-link-knapp-fare" class="sg-pattern-data">
+    {"cssEnabled":false,"patternLineageExists":true,"patternLineages":[{"lineagePattern":"atomer-link","lineagePath":"../../patterns/00-atomer-02-lenker-og-knapper-00-link/00-atomer-02-lenker-og-knapper-00-link.html","lineageState":"complete"}],"lineage":[{"lineagePattern":"atomer-link","lineagePath":"../../patterns/00-atomer-02-lenker-og-knapper-00-link/00-atomer-02-lenker-og-knapper-00-link.html","lineageState":"complete"}],"patternLineageRExists":false,"patternLineagesR":[],"lineageR":[],"patternLineageEExists":true,"patternDesc":"<p>NB: Dette er en variant av  <a href=\"../../patterns/00-atomer-02-lenker-og-knapper-00-link/00-atomer-02-lenker-og-knapper-00-link.html\">link.mustache</a></p>\n<p>Denne varianten er en link som er stylet som en knapp. Rød knapp brukes for å advare brukeren mot handlingen. F.eks: 'Slett', 'Avbryt', osv.</p>\n","patternBreadcrumb":{"patternType":"atomer","patternSubtype":"lenker-og-knapper"},"patternExtension":"mustache","patternName":"♺ Link Knapp Fare","patternPartial":"atomer-♺-link-knapp-fare","patternState":"complete","extraOutput":{}}
+  </script>
+</div><!--end .sg-pattern-->
+<div id="atomer-♺-link-knapp-deaktivert" class="sg-pattern">
+  <div class="sg-pattern-head">
+    <h3 class="sg-pattern-title">
+      <a href="../../patterns/00-atomer-02-lenker-og-knapper-08-♺-link-knapp-deaktivert&#x2F;00-atomer-02-lenker-og-knapper-08-♺-link-knapp-deaktivert.html" class="patternLink" data-patternpartial="atomer-♺-link-knapp-deaktivert" title="Link to Pattern">
+          ♺ Link Knapp Deaktivert
+            <span class="sg-pattern-state complete">complete</span>
+      </a>
+    </h3>
+    <div class="sg-pattern-breadcrumb"></div>
+    <a href="#" data-patternpartial="atomer-♺-link-knapp-deaktivert" title="View Pattern Info" id="sg-pattern-extra-toggle-atomer-♺-link-knapp-deaktivert" class="sg-pattern-extra-toggle">Info <span>&#9660;</span></a>
+  </div>
+  <div class="sg-pattern-extra" id="sg-pattern-extra-atomer-♺-link-knapp-deaktivert">
+
+  </div>
+  <div class="sg-pattern-example">
+    <a href="../.." class="a-btn disabled">En lenke stylet som en deaktivert knapp</a>
+
+
+  </div>
+  <script type="text/json" id="sg-pattern-data-atomer-♺-link-knapp-deaktivert" class="sg-pattern-data">
+    {"cssEnabled":false,"patternLineageExists":true,"patternLineages":[{"lineagePattern":"atomer-link","lineagePath":"../../patterns/00-atomer-02-lenker-og-knapper-00-link/00-atomer-02-lenker-og-knapper-00-link.html","lineageState":"complete"}],"lineage":[{"lineagePattern":"atomer-link","lineagePath":"../../patterns/00-atomer-02-lenker-og-knapper-00-link/00-atomer-02-lenker-og-knapper-00-link.html","lineageState":"complete"}],"patternLineageRExists":false,"patternLineagesR":[],"lineageR":[],"patternLineageEExists":true,"patternDesc":"<p>NB: Dette er en variant av  <a href=\"../../patterns/00-atomer-02-lenker-og-knapper-00-link/00-atomer-02-lenker-og-knapper-00-link.html\">link.mustache</a></p>\n<p>Denne varianten er en link som er stylet som en knapp. Deaktivert knapp brukes i tilfeller der knappen ikke er aktiv. F.eks før bukeren har fylt ut nødvendig info, osv.</p>\n","patternBreadcrumb":{"patternType":"atomer","patternSubtype":"lenker-og-knapper"},"patternExtension":"mustache","patternName":"♺ Link Knapp Deaktivert","patternPartial":"atomer-♺-link-knapp-deaktivert","patternState":"complete","extraOutput":{}}
+  </script>
+</div><!--end .sg-pattern-->
+<div id="atomer-♺-link-knapp-stor" class="sg-pattern">
+  <div class="sg-pattern-head">
+    <h3 class="sg-pattern-title">
+      <a href="../../patterns/00-atomer-02-lenker-og-knapper-09-♺-link-knapp-stor&#x2F;00-atomer-02-lenker-og-knapper-09-♺-link-knapp-stor.html" class="patternLink" data-patternpartial="atomer-♺-link-knapp-stor" title="Link to Pattern">
+          ♺ Link Knapp Stor
+            <span class="sg-pattern-state complete">complete</span>
+      </a>
+    </h3>
+    <div class="sg-pattern-breadcrumb"></div>
+    <a href="#" data-patternpartial="atomer-♺-link-knapp-stor" title="View Pattern Info" id="sg-pattern-extra-toggle-atomer-♺-link-knapp-stor" class="sg-pattern-extra-toggle">Info <span>&#9660;</span></a>
+  </div>
+  <div class="sg-pattern-extra" id="sg-pattern-extra-atomer-♺-link-knapp-stor">
+
+  </div>
+  <div class="sg-pattern-example">
+    <a href="../.." class="a-btn a-btn-border">En lenke stylet som en stor knapp</a>
+
+
+  </div>
+  <script type="text/json" id="sg-pattern-data-atomer-♺-link-knapp-stor" class="sg-pattern-data">
+    {"cssEnabled":false,"patternLineageExists":true,"patternLineages":[{"lineagePattern":"atomer-link","lineagePath":"../../patterns/00-atomer-02-lenker-og-knapper-00-link/00-atomer-02-lenker-og-knapper-00-link.html","lineageState":"complete"}],"lineage":[{"lineagePattern":"atomer-link","lineagePath":"../../patterns/00-atomer-02-lenker-og-knapper-00-link/00-atomer-02-lenker-og-knapper-00-link.html","lineageState":"complete"}],"patternLineageRExists":false,"patternLineagesR":[],"lineageR":[],"patternLineageEExists":true,"patternDesc":"<p>NB: Dette er en variant av  <a href=\"../../patterns/00-atomer-02-lenker-og-knapper-00-link/00-atomer-02-lenker-og-knapper-00-link.html\">link.mustache</a></p>\n<p>Denne varianten er en link som er stylet som en knapp. Den store knappen brukes for å fremheve en oppgave, f.eks en lenke til et viktig skjema.</p>\n","patternBreadcrumb":{"patternType":"atomer","patternSubtype":"lenker-og-knapper"},"patternExtension":"mustache","patternName":"♺ Link Knapp Stor","patternPartial":"atomer-♺-link-knapp-stor","patternState":"complete","extraOutput":{}}
+  </script>
+</div><!--end .sg-pattern-->
+<div id="atomer-knapp" class="sg-pattern">
+  <div class="sg-pattern-head">
+    <h3 class="sg-pattern-title">
+      <a href="../../patterns/00-atomer-02-lenker-og-knapper-10-knapp&#x2F;00-atomer-02-lenker-og-knapper-10-knapp.html" class="patternLink" data-patternpartial="atomer-knapp" title="Link to Pattern">
+          Knapp
+            <span class="sg-pattern-state complete">complete</span>
+      </a>
+    </h3>
+    <div class="sg-pattern-breadcrumb"></div>
+    <a href="#" data-patternpartial="atomer-knapp" title="View Pattern Info" id="sg-pattern-extra-toggle-atomer-knapp" class="sg-pattern-extra-toggle">Info <span>&#9660;</span></a>
+  </div>
+  <div class="sg-pattern-extra" id="sg-pattern-extra-atomer-knapp">
+
+  </div>
+  <div class="sg-pattern-example">
+    <button type="button" class="a-btn" >En standard knapp</button>  
+
+  </div>
+  <script type="text/json" id="sg-pattern-data-atomer-knapp" class="sg-pattern-data">
+    {"cssEnabled":false,"patternLineageExists":false,"patternLineages":[],"lineage":[],"patternLineageRExists":true,"patternLineagesR":[{"lineagePattern":"atomer-♺-knapp-suksess","lineagePath":"../../patterns/00-atomer-02-lenker-og-knapper-11-♺-knapp-suksess/00-atomer-02-lenker-og-knapper-11-♺-knapp-suksess.html","lineageState":"complete"},{"lineagePattern":"atomer-♺-knapp-fare","lineagePath":"../../patterns/00-atomer-02-lenker-og-knapper-12-♺-knapp-fare/00-atomer-02-lenker-og-knapper-12-♺-knapp-fare.html","lineageState":"complete"},{"lineagePattern":"atomer-♺-knapp-deaktivert","lineagePath":"../../patterns/00-atomer-02-lenker-og-knapper-13-♺-knapp-deaktivert/00-atomer-02-lenker-og-knapper-13-♺-knapp-deaktivert.html","lineageState":"complete"},{"lineagePattern":"atomer-♺-knapp-stor","lineagePath":"../../patterns/00-atomer-02-lenker-og-knapper-14-♺-knapp-stor/00-atomer-02-lenker-og-knapper-14-♺-knapp-stor.html","lineageState":"complete"},{"lineagePattern":"atomer-♺-knapp-link","lineagePath":"../../patterns/00-atomer-02-lenker-og-knapper-15-♺-knapp-link/00-atomer-02-lenker-og-knapper-15-♺-knapp-link.html","lineageState":"complete"},{"lineagePattern":"atomer-♺-knapp-link-fare","lineagePath":"../../patterns/00-atomer-02-lenker-og-knapper-16-♺-knapp-link-fare/00-atomer-02-lenker-og-knapper-16-♺-knapp-link-fare.html","lineageState":"complete"},{"lineagePattern":"molekyler-main-card","lineagePath":"../../patterns/01-molekyler-01-blocks-02-main-card/01-molekyler-01-blocks-02-main-card.html","lineageState":"inprogress"},{"lineagePattern":"molekyler-button-groups","lineagePath":"../../patterns/01-molekyler-04-forms-00-button-groups/01-molekyler-04-forms-00-button-groups.html","lineageState":"complete"}],"lineageR":[{"lineagePattern":"atomer-♺-knapp-suksess","lineagePath":"../../patterns/00-atomer-02-lenker-og-knapper-11-♺-knapp-suksess/00-atomer-02-lenker-og-knapper-11-♺-knapp-suksess.html","lineageState":"complete"},{"lineagePattern":"atomer-♺-knapp-fare","lineagePath":"../../patterns/00-atomer-02-lenker-og-knapper-12-♺-knapp-fare/00-atomer-02-lenker-og-knapper-12-♺-knapp-fare.html","lineageState":"complete"},{"lineagePattern":"atomer-♺-knapp-deaktivert","lineagePath":"../../patterns/00-atomer-02-lenker-og-knapper-13-♺-knapp-deaktivert/00-atomer-02-lenker-og-knapper-13-♺-knapp-deaktivert.html","lineageState":"complete"},{"lineagePattern":"atomer-♺-knapp-stor","lineagePath":"../../patterns/00-atomer-02-lenker-og-knapper-14-♺-knapp-stor/00-atomer-02-lenker-og-knapper-14-♺-knapp-stor.html","lineageState":"complete"},{"lineagePattern":"atomer-♺-knapp-link","lineagePath":"../../patterns/00-atomer-02-lenker-og-knapper-15-♺-knapp-link/00-atomer-02-lenker-og-knapper-15-♺-knapp-link.html","lineageState":"complete"},{"lineagePattern":"atomer-♺-knapp-link-fare","lineagePath":"../../patterns/00-atomer-02-lenker-og-knapper-16-♺-knapp-link-fare/00-atomer-02-lenker-og-knapper-16-♺-knapp-link-fare.html","lineageState":"complete"},{"lineagePattern":"molekyler-main-card","lineagePath":"../../patterns/01-molekyler-01-blocks-02-main-card/01-molekyler-01-blocks-02-main-card.html","lineageState":"inprogress"},{"lineagePattern":"molekyler-button-groups","lineagePath":"../../patterns/01-molekyler-04-forms-00-button-groups/01-molekyler-04-forms-00-button-groups.html","lineageState":"complete"}],"patternLineageEExists":true,"patternDesc":"<p>Brukes for handlinger, f.eks 'Lagre', 'Send', osv. Siden knappen er kun 36px høy, er det avsatt et område over og under, slik at touch target er 48px. Det skal være minimum 12px mellomrom mellom hver knapp/lenke.</p>\n","patternBreadcrumb":{"patternType":"atomer","patternSubtype":"lenker-og-knapper"},"patternExtension":"mustache","patternName":"Knapp","patternPartial":"atomer-knapp","patternState":"complete","extraOutput":{}}
+  </script>
+</div><!--end .sg-pattern-->
+<div id="atomer-♺-knapp-suksess" class="sg-pattern">
+  <div class="sg-pattern-head">
+    <h3 class="sg-pattern-title">
+      <a href="../../patterns/00-atomer-02-lenker-og-knapper-11-♺-knapp-suksess&#x2F;00-atomer-02-lenker-og-knapper-11-♺-knapp-suksess.html" class="patternLink" data-patternpartial="atomer-♺-knapp-suksess" title="Link to Pattern">
+          ♺ Knapp Suksess
+            <span class="sg-pattern-state complete">complete</span>
+      </a>
+    </h3>
+    <div class="sg-pattern-breadcrumb"></div>
+    <a href="#" data-patternpartial="atomer-♺-knapp-suksess" title="View Pattern Info" id="sg-pattern-extra-toggle-atomer-♺-knapp-suksess" class="sg-pattern-extra-toggle">Info <span>&#9660;</span></a>
+  </div>
+  <div class="sg-pattern-extra" id="sg-pattern-extra-atomer-♺-knapp-suksess">
+
+  </div>
+  <div class="sg-pattern-example">
+    <button type="button" class="a-btn a-btn-success" >En knapp som antyder suksess</button>  
+
+
+  </div>
+  <script type="text/json" id="sg-pattern-data-atomer-♺-knapp-suksess" class="sg-pattern-data">
+    {"cssEnabled":false,"patternLineageExists":true,"patternLineages":[{"lineagePattern":"atomer-knapp","lineagePath":"../../patterns/00-atomer-02-lenker-og-knapper-10-knapp/00-atomer-02-lenker-og-knapper-10-knapp.html","lineageState":"complete"}],"lineage":[{"lineagePattern":"atomer-knapp","lineagePath":"../../patterns/00-atomer-02-lenker-og-knapper-10-knapp/00-atomer-02-lenker-og-knapper-10-knapp.html","lineageState":"complete"}],"patternLineageRExists":false,"patternLineagesR":[],"lineageR":[],"patternLineageEExists":true,"patternDesc":"<p>NB: Dette er en variant av  <a href=\"../../patterns/00-atomer-02-lenker-og-knapper-10-knapp/00-atomer-02-lenker-og-knapper-10-knapp.html\">knapp.mustache</a></p>\n<p>Grønn knapp brukes for å motivere brukeren til å trykke, eller antyde suksess.</p>\n","patternBreadcrumb":{"patternType":"atomer","patternSubtype":"lenker-og-knapper"},"patternExtension":"mustache","patternName":"♺ Knapp Suksess","patternPartial":"atomer-♺-knapp-suksess","patternState":"complete","extraOutput":{}}
+  </script>
+</div><!--end .sg-pattern-->
+<div id="atomer-♺-knapp-fare" class="sg-pattern">
+  <div class="sg-pattern-head">
+    <h3 class="sg-pattern-title">
+      <a href="../../patterns/00-atomer-02-lenker-og-knapper-12-♺-knapp-fare&#x2F;00-atomer-02-lenker-og-knapper-12-♺-knapp-fare.html" class="patternLink" data-patternpartial="atomer-♺-knapp-fare" title="Link to Pattern">
+          ♺ Knapp Fare
+            <span class="sg-pattern-state complete">complete</span>
+      </a>
+    </h3>
+    <div class="sg-pattern-breadcrumb"></div>
+    <a href="#" data-patternpartial="atomer-♺-knapp-fare" title="View Pattern Info" id="sg-pattern-extra-toggle-atomer-♺-knapp-fare" class="sg-pattern-extra-toggle">Info <span>&#9660;</span></a>
+  </div>
+  <div class="sg-pattern-extra" id="sg-pattern-extra-atomer-♺-knapp-fare">
+
+  </div>
+  <div class="sg-pattern-example">
+    <button type="button" class="a-btn a-btn-danger" >En knapp som antyder fare</button>  
+
+
+  </div>
+  <script type="text/json" id="sg-pattern-data-atomer-♺-knapp-fare" class="sg-pattern-data">
+    {"cssEnabled":false,"patternLineageExists":true,"patternLineages":[{"lineagePattern":"atomer-knapp","lineagePath":"../../patterns/00-atomer-02-lenker-og-knapper-10-knapp/00-atomer-02-lenker-og-knapper-10-knapp.html","lineageState":"complete"}],"lineage":[{"lineagePattern":"atomer-knapp","lineagePath":"../../patterns/00-atomer-02-lenker-og-knapper-10-knapp/00-atomer-02-lenker-og-knapper-10-knapp.html","lineageState":"complete"}],"patternLineageRExists":false,"patternLineagesR":[],"lineageR":[],"patternLineageEExists":true,"patternDesc":"<p>NB: Dette er en variant av  <a href=\"../../patterns/00-atomer-02-lenker-og-knapper-10-knapp/00-atomer-02-lenker-og-knapper-10-knapp.html\">knapp.mustache</a></p>\n<p>Rød knapp brukes for å advare brukeren mot handlingen. F.eks: 'Slett', 'Avbryt', osv.</p>\n","patternBreadcrumb":{"patternType":"atomer","patternSubtype":"lenker-og-knapper"},"patternExtension":"mustache","patternName":"♺ Knapp Fare","patternPartial":"atomer-♺-knapp-fare","patternState":"complete","extraOutput":{}}
+  </script>
+</div><!--end .sg-pattern-->
+<div id="atomer-♺-knapp-deaktivert" class="sg-pattern">
+  <div class="sg-pattern-head">
+    <h3 class="sg-pattern-title">
+      <a href="../../patterns/00-atomer-02-lenker-og-knapper-13-♺-knapp-deaktivert&#x2F;00-atomer-02-lenker-og-knapper-13-♺-knapp-deaktivert.html" class="patternLink" data-patternpartial="atomer-♺-knapp-deaktivert" title="Link to Pattern">
+          ♺ Knapp Deaktivert
+            <span class="sg-pattern-state complete">complete</span>
+      </a>
+    </h3>
+    <div class="sg-pattern-breadcrumb"></div>
+    <a href="#" data-patternpartial="atomer-♺-knapp-deaktivert" title="View Pattern Info" id="sg-pattern-extra-toggle-atomer-♺-knapp-deaktivert" class="sg-pattern-extra-toggle">Info <span>&#9660;</span></a>
+  </div>
+  <div class="sg-pattern-extra" id="sg-pattern-extra-atomer-♺-knapp-deaktivert">
+
+  </div>
+  <div class="sg-pattern-example">
+    <button type="button" class="a-btn disabled" disabled>En deaktivert knapp</button>  
+
+
+  </div>
+  <script type="text/json" id="sg-pattern-data-atomer-♺-knapp-deaktivert" class="sg-pattern-data">
+    {"cssEnabled":false,"patternLineageExists":true,"patternLineages":[{"lineagePattern":"atomer-knapp","lineagePath":"../../patterns/00-atomer-02-lenker-og-knapper-10-knapp/00-atomer-02-lenker-og-knapper-10-knapp.html","lineageState":"complete"}],"lineage":[{"lineagePattern":"atomer-knapp","lineagePath":"../../patterns/00-atomer-02-lenker-og-knapper-10-knapp/00-atomer-02-lenker-og-knapper-10-knapp.html","lineageState":"complete"}],"patternLineageRExists":false,"patternLineagesR":[],"lineageR":[],"patternLineageEExists":true,"patternDesc":"<p>NB: Dette er en variant av  <a href=\"../../patterns/00-atomer-02-lenker-og-knapper-10-knapp/00-atomer-02-lenker-og-knapper-10-knapp.html\">knapp.mustache</a></p>\n<p>Deaktivert knapp brukes i tilfeller der knappen ikke er aktiv. F.eks før bukeren har fylt ut nødvendig info, osv.</p>\n","patternBreadcrumb":{"patternType":"atomer","patternSubtype":"lenker-og-knapper"},"patternExtension":"mustache","patternName":"♺ Knapp Deaktivert","patternPartial":"atomer-♺-knapp-deaktivert","patternState":"complete","extraOutput":{}}
+  </script>
+</div><!--end .sg-pattern-->
+<div id="atomer-♺-knapp-stor" class="sg-pattern">
+  <div class="sg-pattern-head">
+    <h3 class="sg-pattern-title">
+      <a href="../../patterns/00-atomer-02-lenker-og-knapper-14-♺-knapp-stor&#x2F;00-atomer-02-lenker-og-knapper-14-♺-knapp-stor.html" class="patternLink" data-patternpartial="atomer-♺-knapp-stor" title="Link to Pattern">
+          ♺ Knapp Stor
+            <span class="sg-pattern-state complete">complete</span>
+      </a>
+    </h3>
+    <div class="sg-pattern-breadcrumb"></div>
+    <a href="#" data-patternpartial="atomer-♺-knapp-stor" title="View Pattern Info" id="sg-pattern-extra-toggle-atomer-♺-knapp-stor" class="sg-pattern-extra-toggle">Info <span>&#9660;</span></a>
+  </div>
+  <div class="sg-pattern-extra" id="sg-pattern-extra-atomer-♺-knapp-stor">
+
+  </div>
+  <div class="sg-pattern-example">
+    <button type="button" class="a-btn a-btn-border" >En stor knapp</button>  
+
+
+  </div>
+  <script type="text/json" id="sg-pattern-data-atomer-♺-knapp-stor" class="sg-pattern-data">
+    {"cssEnabled":false,"patternLineageExists":true,"patternLineages":[{"lineagePattern":"atomer-knapp","lineagePath":"../../patterns/00-atomer-02-lenker-og-knapper-10-knapp/00-atomer-02-lenker-og-knapper-10-knapp.html","lineageState":"complete"}],"lineage":[{"lineagePattern":"atomer-knapp","lineagePath":"../../patterns/00-atomer-02-lenker-og-knapper-10-knapp/00-atomer-02-lenker-og-knapper-10-knapp.html","lineageState":"complete"}],"patternLineageRExists":false,"patternLineagesR":[],"lineageR":[],"patternLineageEExists":true,"patternDesc":"<p>NB: Dette er en variant av  <a href=\"../../patterns/00-atomer-02-lenker-og-knapper-10-knapp/00-atomer-02-lenker-og-knapper-10-knapp.html\">knapp.mustache</a></p>\n<p>Den store knappen brukes for å fremheve en oppgave, f.eks en lenke til et viktig skjema.</p>\n","patternBreadcrumb":{"patternType":"atomer","patternSubtype":"lenker-og-knapper"},"patternExtension":"mustache","patternName":"♺ Knapp Stor","patternPartial":"atomer-♺-knapp-stor","patternState":"complete","extraOutput":{}}
+  </script>
+</div><!--end .sg-pattern-->
+<div id="atomer-♺-knapp-link" class="sg-pattern">
+  <div class="sg-pattern-head">
+    <h3 class="sg-pattern-title">
+      <a href="../../patterns/00-atomer-02-lenker-og-knapper-15-♺-knapp-link&#x2F;00-atomer-02-lenker-og-knapper-15-♺-knapp-link.html" class="patternLink" data-patternpartial="atomer-♺-knapp-link" title="Link to Pattern">
+          ♺ Knapp Link
+            <span class="sg-pattern-state complete">complete</span>
+      </a>
+    </h3>
+    <div class="sg-pattern-breadcrumb"></div>
+    <a href="#" data-patternpartial="atomer-♺-knapp-link" title="View Pattern Info" id="sg-pattern-extra-toggle-atomer-♺-knapp-link" class="sg-pattern-extra-toggle">Info <span>&#9660;</span></a>
+  </div>
+  <div class="sg-pattern-extra" id="sg-pattern-extra-atomer-♺-knapp-link">
+
+  </div>
+  <div class="sg-pattern-example">
+    <button type="button" class="a-btn-link" >En knapp som er stylet som en lenke</button>  → 
+
+
+  </div>
+  <script type="text/json" id="sg-pattern-data-atomer-♺-knapp-link" class="sg-pattern-data">
+    {"cssEnabled":false,"patternLineageExists":true,"patternLineages":[{"lineagePattern":"atomer-knapp","lineagePath":"../../patterns/00-atomer-02-lenker-og-knapper-10-knapp/00-atomer-02-lenker-og-knapper-10-knapp.html","lineageState":"complete"}],"lineage":[{"lineagePattern":"atomer-knapp","lineagePath":"../../patterns/00-atomer-02-lenker-og-knapper-10-knapp/00-atomer-02-lenker-og-knapper-10-knapp.html","lineageState":"complete"}],"patternLineageRExists":false,"patternLineagesR":[],"lineageR":[],"patternLineageEExists":true,"patternDesc":"<p>NB: Dette er en variant av  <a href=\"../../patterns/00-atomer-02-lenker-og-knapper-10-knapp/00-atomer-02-lenker-og-knapper-10-knapp.html\">knapp.mustache</a></p>\n<p>Dette er en knapp som er stylet som en lenke. Lenker som ikke står i løpende tekst, men er adskilte, skal være stylet med en ensfarget understrek. Dersom lenken tar deg til en ny side skal pilen → benyttes i slutten av teksten. Dersom lenken åpner et modalvindu eller valg, skal det ikke være pil.</p>\n","patternBreadcrumb":{"patternType":"atomer","patternSubtype":"lenker-og-knapper"},"patternExtension":"mustache","patternName":"♺ Knapp Link","patternPartial":"atomer-♺-knapp-link","patternState":"complete","extraOutput":{}}
+  </script>
+</div><!--end .sg-pattern-->
+<div id="atomer-♺-knapp-link-fare" class="sg-pattern">
+  <div class="sg-pattern-head">
+    <h3 class="sg-pattern-title">
+      <a href="../../patterns/00-atomer-02-lenker-og-knapper-16-♺-knapp-link-fare&#x2F;00-atomer-02-lenker-og-knapper-16-♺-knapp-link-fare.html" class="patternLink" data-patternpartial="atomer-♺-knapp-link-fare" title="Link to Pattern">
+          ♺ Knapp Link Fare
+            <span class="sg-pattern-state complete">complete</span>
+      </a>
+    </h3>
+    <div class="sg-pattern-breadcrumb"></div>
+    <a href="#" data-patternpartial="atomer-♺-knapp-link-fare" title="View Pattern Info" id="sg-pattern-extra-toggle-atomer-♺-knapp-link-fare" class="sg-pattern-extra-toggle">Info <span>&#9660;</span></a>
+  </div>
+  <div class="sg-pattern-extra" id="sg-pattern-extra-atomer-♺-knapp-link-fare">
+
+  </div>
+  <div class="sg-pattern-example">
+    <button type="button" class="a-btn-link a-link a-link-danger" >En knapp som er stylet som en fare-lenke</button>  
+
+
+  </div>
+  <script type="text/json" id="sg-pattern-data-atomer-♺-knapp-link-fare" class="sg-pattern-data">
+    {"cssEnabled":false,"patternLineageExists":true,"patternLineages":[{"lineagePattern":"atomer-knapp","lineagePath":"../../patterns/00-atomer-02-lenker-og-knapper-10-knapp/00-atomer-02-lenker-og-knapper-10-knapp.html","lineageState":"complete"}],"lineage":[{"lineagePattern":"atomer-knapp","lineagePath":"../../patterns/00-atomer-02-lenker-og-knapper-10-knapp/00-atomer-02-lenker-og-knapper-10-knapp.html","lineageState":"complete"}],"patternLineageRExists":false,"patternLineagesR":[],"lineageR":[],"patternLineageEExists":true,"patternDesc":"<p>NB: Dette er en variant av  <a href=\"../../patterns/00-atomer-02-lenker-og-knapper-10-knapp/00-atomer-02-lenker-og-knapper-10-knapp.html\">knapp.mustache</a></p>\n<p>Denne knappen er stylet som en lenke. Lenker som antyder fare skal ha rød linje under teksten.</p>\n","patternBreadcrumb":{"patternType":"atomer","patternSubtype":"lenker-og-knapper"},"patternExtension":"mustache","patternName":"♺ Knapp Link Fare","patternPartial":"atomer-♺-knapp-link-fare","patternState":"complete","extraOutput":{}}
+  </script>
+</div><!--end .sg-pattern-->
+<div id="atomer-handlingsknapp" class="sg-pattern">
+  <div class="sg-pattern-head">
+    <h3 class="sg-pattern-title">
+      <a href="../../patterns/00-atomer-02-lenker-og-knapper-17-handlingsknapp&#x2F;00-atomer-02-lenker-og-knapper-17-handlingsknapp.html" class="patternLink" data-patternpartial="atomer-handlingsknapp" title="Link to Pattern">
+          Handlingsknapp
+            <span class="sg-pattern-state complete">complete</span>
+      </a>
+    </h3>
+    <div class="sg-pattern-breadcrumb"></div>
+    <a href="#" data-patternpartial="atomer-handlingsknapp" title="View Pattern Info" id="sg-pattern-extra-toggle-atomer-handlingsknapp" class="sg-pattern-extra-toggle">Info <span>&#9660;</span></a>
+  </div>
+  <div class="sg-pattern-extra" id="sg-pattern-extra-atomer-handlingsknapp">
+
+  </div>
+  <div class="sg-pattern-example">
+    
+<button type="button" class="a-btn a-btn-action">
+    <i class="material-icons a-btn-action-icon">&#xE145;</i> En knapp for å legge til
+</button>
+
+  </div>
+  <script type="text/json" id="sg-pattern-data-atomer-handlingsknapp" class="sg-pattern-data">
+    {"cssEnabled":false,"patternLineageExists":false,"patternLineages":[],"lineage":[],"patternLineageRExists":true,"patternLineagesR":[{"lineagePattern":"atomer-♺-handlingsknapp-variasjoner","lineagePath":"../../patterns/00-atomer-02-lenker-og-knapper-18-♺-handlingsknapp-variasjoner/00-atomer-02-lenker-og-knapper-18-♺-handlingsknapp-variasjoner.html","lineageState":"complete"}],"lineageR":[{"lineagePattern":"atomer-♺-handlingsknapp-variasjoner","lineagePath":"../../patterns/00-atomer-02-lenker-og-knapper-18-♺-handlingsknapp-variasjoner/00-atomer-02-lenker-og-knapper-18-♺-handlingsknapp-variasjoner.html","lineageState":"complete"}],"patternLineageEExists":true,"patternDesc":"<p>En handlingsknapp som består av ikon og beskrivende tekst.</p>\n","patternBreadcrumb":{"patternType":"atomer","patternSubtype":"lenker-og-knapper"},"patternExtension":"mustache","patternName":"Handlingsknapp","patternPartial":"atomer-handlingsknapp","patternState":"complete","extraOutput":{}}
+  </script>
+</div><!--end .sg-pattern-->
+<div id="atomer-♺-handlingsknapp-variasjoner" class="sg-pattern">
+  <div class="sg-pattern-head">
+    <h3 class="sg-pattern-title">
+      <a href="../../patterns/00-atomer-02-lenker-og-knapper-18-♺-handlingsknapp-variasjoner&#x2F;00-atomer-02-lenker-og-knapper-18-♺-handlingsknapp-variasjoner.html" class="patternLink" data-patternpartial="atomer-♺-handlingsknapp-variasjoner" title="Link to Pattern">
+          ♺ Handlingsknapp Variasjoner
+            <span class="sg-pattern-state complete">complete</span>
+      </a>
+    </h3>
+    <div class="sg-pattern-breadcrumb"></div>
+    <a href="#" data-patternpartial="atomer-♺-handlingsknapp-variasjoner" title="View Pattern Info" id="sg-pattern-extra-toggle-atomer-♺-handlingsknapp-variasjoner" class="sg-pattern-extra-toggle">Info <span>&#9660;</span></a>
+  </div>
+  <div class="sg-pattern-extra" id="sg-pattern-extra-atomer-♺-handlingsknapp-variasjoner">
+
+  </div>
+  <div class="sg-pattern-example">
+    <div class="a-btn-group">
+
+    
+<button type="button" class="a-btn a-btn-action">
+    <i class="material-icons a-btn-action-icon">&#xE145;</i> En knapp for å legge til
+</button>
+
+
+    
+<button type="button" class="a-btn a-btn-action">
+    <i class="fa fa-download a-btn-action-icon a-btn-action-icon"></i> En knapp for å laste ned
+</button>
+
+
+    
+<button type="button" class="a-btn a-btn-action">
+    <i class="fa fa-upload a-btn-action-icon a-btn-action-icon"></i> En knapp for å laste opp
+</button>
+
+
+</div>
+
+  </div>
+  <script type="text/json" id="sg-pattern-data-atomer-♺-handlingsknapp-variasjoner" class="sg-pattern-data">
+    {"cssEnabled":false,"patternLineageExists":true,"patternLineages":[{"lineagePattern":"atomer-handlingsknapp","lineagePath":"../../patterns/00-atomer-02-lenker-og-knapper-17-handlingsknapp/00-atomer-02-lenker-og-knapper-17-handlingsknapp.html","lineageState":"complete"}],"lineage":[{"lineagePattern":"atomer-handlingsknapp","lineagePath":"../../patterns/00-atomer-02-lenker-og-knapper-17-handlingsknapp/00-atomer-02-lenker-og-knapper-17-handlingsknapp.html","lineageState":"complete"}],"patternLineageRExists":false,"patternLineagesR":[],"lineageR":[],"patternLineageEExists":true,"patternDesc":"<p>I tilfeller der brukeren kan legge til noe, f.eks: en en person, en rettighet, etc, skal man bruke plussikonet.</p>\n<p>I tilfeller der brukeren kan laste ned noe, skal man bruke nedlastingsikonet.</p>\n<p>I tilfeller der brukeren kan laste opp noe, skal man bruke opplastingsikonet.</p>\n","patternBreadcrumb":{"patternType":"atomer","patternSubtype":"lenker-og-knapper"},"patternExtension":"mustache","patternName":"♺ Handlingsknapp Variasjoner","patternPartial":"atomer-♺-handlingsknapp-variasjoner","patternState":"complete","extraOutput":{}}
+  </script>
+</div><!--end .sg-pattern-->
+<div id="atomer-handlingsknapp-stor" class="sg-pattern">
+  <div class="sg-pattern-head">
+    <h3 class="sg-pattern-title">
+      <a href="../../patterns/00-atomer-02-lenker-og-knapper-21-handlingsknapp-stor&#x2F;00-atomer-02-lenker-og-knapper-21-handlingsknapp-stor.html" class="patternLink" data-patternpartial="atomer-handlingsknapp-stor" title="Link to Pattern">
+          Handlingsknapp Stor
+            <span class="sg-pattern-state inreview">inreview</span>
+      </a>
+    </h3>
+    <div class="sg-pattern-breadcrumb"></div>
+    <a href="#" data-patternpartial="atomer-handlingsknapp-stor" title="View Pattern Info" id="sg-pattern-extra-toggle-atomer-handlingsknapp-stor" class="sg-pattern-extra-toggle">Info <span>&#9660;</span></a>
+  </div>
+  <div class="sg-pattern-extra" id="sg-pattern-extra-atomer-handlingsknapp-stor">
+
+  </div>
+  <div class="sg-pattern-example">
+    <button type="button" class="a-boxAddBtn">
+
+  <span class="a-boxAddBtn-inner">
+       Legg til ny person
+
+    <i class="material-icons a-boxAddBtn-icon">add_circle</i>
+
+       eller virksomhet
+  </span>
+
+</button>
+
+  </div>
+  <script type="text/json" id="sg-pattern-data-atomer-handlingsknapp-stor" class="sg-pattern-data">
+    {"cssEnabled":false,"patternLineageExists":false,"patternLineages":[],"lineage":[],"patternLineageRExists":true,"patternLineagesR":[{"lineagePattern":"molekyler-boxBtnlist","lineagePath":"../../patterns/01-molekyler-08-lists-00-boxBtnlist/01-molekyler-08-lists-00-boxBtnlist.html","lineageState":"inreview"}],"lineageR":[{"lineagePattern":"molekyler-boxBtnlist","lineagePath":"../../patterns/01-molekyler-08-lists-00-boxBtnlist/01-molekyler-08-lists-00-boxBtnlist.html","lineageState":"inreview"}],"patternLineageEExists":true,"patternDesc":"<p>Brukes i tilfeller der brukeren kan legge til noe, f.eks: en en person, virksomhet, etc.</p>\n","patternBreadcrumb":{"patternType":"atomer","patternSubtype":"lenker-og-knapper"},"patternExtension":"mustache","patternName":"Handlingsknapp Stor","patternPartial":"atomer-handlingsknapp-stor","patternState":"inreview","extraOutput":{}}
+  </script>
+</div><!--end .sg-pattern-->
+<div id="atomer-ekspanderbar-tekst" class="sg-pattern">
+  <div class="sg-pattern-head">
+    <h3 class="sg-pattern-title">
+      <a href="../../patterns/00-atomer-02-lenker-og-knapper-26-ekspanderbar-tekst&#x2F;00-atomer-02-lenker-og-knapper-26-ekspanderbar-tekst.html" class="patternLink" data-patternpartial="atomer-ekspanderbar-tekst" title="Link to Pattern">
+          Ekspanderbar Tekst
+            <span class="sg-pattern-state inprogress">inprogress</span>
+      </a>
+    </h3>
+    <div class="sg-pattern-breadcrumb"></div>
+    <a href="#" data-patternpartial="atomer-ekspanderbar-tekst" title="View Pattern Info" id="sg-pattern-extra-toggle-atomer-ekspanderbar-tekst" class="sg-pattern-extra-toggle">Info <span>&#9660;</span></a>
+  </div>
+  <div class="sg-pattern-extra" id="sg-pattern-extra-atomer-ekspanderbar-tekst">
+
+  </div>
+  <div class="sg-pattern-example">
+    <a data-toggle="collapse" data-parent="#filterSkjema" data-target="#" href="#" aria-expanded="false" class="a-collapseFilter no-decoration collapsed">
+    <span class="a-dropdownArrow"></span> Denne teksten vil ekspandere innhold
+</a>
+
+  </div>
+  <script type="text/json" id="sg-pattern-data-atomer-ekspanderbar-tekst" class="sg-pattern-data">
+    {"cssEnabled":false,"patternLineageExists":false,"patternLineages":[],"lineage":[],"patternLineageRExists":true,"patternLineagesR":[{"lineagePattern":"atomer-sortable-table","lineagePath":"../../patterns/00-atomer-04-tables-02-sortable-table/00-atomer-04-tables-02-sortable-table.html","lineageState":"inprogress"},{"lineagePattern":"molekyler-accordion-small","lineagePath":"../../patterns/01-molekyler-02-navigation-02-accordion-small/01-molekyler-02-navigation-02-accordion-small.html","lineageState":"inprogress"},{"lineagePattern":"maler-skjema","lineagePath":"../../patterns/03-maler-02-skjema/03-maler-02-skjema.html","lineageState":"inprogress"}],"lineageR":[{"lineagePattern":"atomer-sortable-table","lineagePath":"../../patterns/00-atomer-04-tables-02-sortable-table/00-atomer-04-tables-02-sortable-table.html","lineageState":"inprogress"},{"lineagePattern":"molekyler-accordion-small","lineagePath":"../../patterns/01-molekyler-02-navigation-02-accordion-small/01-molekyler-02-navigation-02-accordion-small.html","lineageState":"inprogress"},{"lineagePattern":"maler-skjema","lineagePath":"../../patterns/03-maler-02-skjema/03-maler-02-skjema.html","lineageState":"inprogress"}],"patternLineageEExists":true,"patternDesc":"<p>Brukes til mindre prioritert innhold som må være tilgjengelig, men som ikke skal ta fokus bort fra resten av innholdet. Kan settes sammen til et trekkspill, se\n[trekkspill.mustache] (../../patterns/01-molekyler-02-navigation-02-trekkspill/01-molekyler-02-navigation-02-trekkspill.html)</p>\n","patternBreadcrumb":{"patternType":"atomer","patternSubtype":"lenker-og-knapper"},"patternExtension":"mustache","patternName":"Ekspanderbar Tekst","patternPartial":"atomer-ekspanderbar-tekst","patternState":"inprogress","extraOutput":{}}
+  </script>
+</div><!--end .sg-pattern-->
+<div id="atomer-ekspanderbar-tittel" class="sg-pattern">
+  <div class="sg-pattern-head">
+    <h3 class="sg-pattern-title">
+      <a href="../../patterns/00-atomer-02-lenker-og-knapper-27-ekspanderbar-tittel&#x2F;00-atomer-02-lenker-og-knapper-27-ekspanderbar-tittel.html" class="patternLink" data-patternpartial="atomer-ekspanderbar-tittel" title="Link to Pattern">
+          Ekspanderbar Tittel
+            <span class="sg-pattern-state complete">complete</span>
+      </a>
+    </h3>
+    <div class="sg-pattern-breadcrumb"></div>
+    <a href="#" data-patternpartial="atomer-ekspanderbar-tittel" title="View Pattern Info" id="sg-pattern-extra-toggle-atomer-ekspanderbar-tittel" class="sg-pattern-extra-toggle">Info <span>&#9660;</span></a>
+  </div>
+  <div class="sg-pattern-extra" id="sg-pattern-extra-atomer-ekspanderbar-tittel">
+
+  </div>
+  <div class="sg-pattern-example">
+    
+<div class="a-collapse">
+
+  <h3 class="a-collapseHeader">
+      <a data-toggle="collapse" data-parent="#accessToRoles" data-target="#collapseHeader-example" href="#" aria-expanded="false" aria-controls="DirectRoles" class="no-decoration collapsed">
+          <span class="a-dropdownArrow"></span> Denne utvidbare tittelen kan brukes både med <span class='label label-primary a-label label-pill'>1</span> og uten label
+      </a>
+  </h3>
+
+
+  <div id="collapseHeader-example" class="a-collapseContent collapse" role="tabpanel" aria-expanded="true">
+      <br>
+      Innhold som vises&#x2F;skjules
+      <br>
+  </div>
+
+
+</div>
+
+  </div>
+  <script type="text/json" id="sg-pattern-data-atomer-ekspanderbar-tittel" class="sg-pattern-data">
+    {"cssEnabled":false,"patternLineageExists":false,"patternLineages":[],"lineage":[],"patternLineageRExists":false,"patternLineagesR":[],"lineageR":[],"patternLineageEExists":false,"patternDesc":"<p>Brukes i tilfeller der det er skal være mulig å ekspandere en liste. Skal ikke settes sammen i trekkspill, brukes kun for selvstendige ekspanderingslister.</p>\n","patternBreadcrumb":{"patternType":"atomer","patternSubtype":"lenker-og-knapper"},"patternExtension":"mustache","patternName":"Ekspanderbar Tittel","patternPartial":"atomer-ekspanderbar-tittel","patternState":"complete","extraOutput":{}}
+  </script>
+</div><!--end .sg-pattern-->
+<div id="atomer-ekspanderbart-panel" class="sg-pattern">
+  <div class="sg-pattern-head">
+    <h3 class="sg-pattern-title">
+      <a href="../../patterns/00-atomer-02-lenker-og-knapper-28-ekspanderbart-panel&#x2F;00-atomer-02-lenker-og-knapper-28-ekspanderbart-panel.html" class="patternLink" data-patternpartial="atomer-ekspanderbart-panel" title="Link to Pattern">
+          Ekspanderbart Panel
+            <span class="sg-pattern-state complete">complete</span>
+      </a>
+    </h3>
+    <div class="sg-pattern-breadcrumb"></div>
+    <a href="#" data-patternpartial="atomer-ekspanderbart-panel" title="View Pattern Info" id="sg-pattern-extra-toggle-atomer-ekspanderbart-panel" class="sg-pattern-extra-toggle">Info <span>&#9660;</span></a>
+  </div>
+  <div class="sg-pattern-extra" id="sg-pattern-extra-atomer-ekspanderbart-panel">
+
+  </div>
+  <div class="sg-pattern-example">
+    
+<div class="panel panel-default a-collapse" role="tablist">
+
+    <div class="panel-heading index-heading clearfix collapsed a-collapse-heading" role="tab">
+
+        <a class="a-collapseBtn collapsed center-table-text" data-toggle="collapse" data-parent="#accordion" data-target="#collapseExample" href="#" aria-expanded="false" aria-controls="collapseExample">
+
+			  <i class="material-icons a-collapse-icon">get_app</i>
+
+          Denne knappen vil ekspandere mer informasjon
+          <i class="material-icons a-collapse-arrowDown">&#xE313;</i><i class="material-icons a-collapse-arrowUp">&#xE316;</i>
+		    </a>
+    </div>
+
+    <div id="collapseExample" class="panel-collapse a-collapsePanel collapse" role="tabpanel" aria-labelledby="collapseExample">
+     <p class="a-text a-collapsePanel-content">
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quisquam excepturi sit natus pariatur consequuntur labore magnam aperiam non iusto itaque cumque iste ipsum, sed molestias! Placeat quia velit dolor doloremque?
+      </p>
+    </div>
+
+</div>
+
+  </div>
+  <script type="text/json" id="sg-pattern-data-atomer-ekspanderbart-panel" class="sg-pattern-data">
+    {"cssEnabled":false,"patternLineageExists":false,"patternLineages":[],"lineage":[],"patternLineageRExists":true,"patternLineagesR":[{"lineagePattern":"molekyler-trekkspill-stort","lineagePath":"../../patterns/01-molekyler-02-navigation-02-trekkspill-stort/01-molekyler-02-navigation-02-trekkspill-stort.html","lineageState":"complete"}],"lineageR":[{"lineagePattern":"molekyler-trekkspill-stort","lineagePath":"../../patterns/01-molekyler-02-navigation-02-trekkspill-stort/01-molekyler-02-navigation-02-trekkspill-stort.html","lineageState":"complete"}],"patternLineageEExists":true,"patternDesc":"<p>Brukes i tilfeller der det er ønskelig å gi brukeren oversikt over det som finnes, for deretter å dykke ned i temaer (ved å ekspandere mer informasjon). Kan settes sammen til trekkspill (stor variant), se <a href=\"../../patterns/01-molekyler-02-navigation-02-trekkspill-stort/01-molekyler-02-navigation-02-trekkspill-stort.html\">trekkspill stort</a></p>\n","patternBreadcrumb":{"patternType":"atomer","patternSubtype":"lenker-og-knapper"},"patternExtension":"mustache","patternName":"Ekspanderbart Panel","patternPartial":"atomer-ekspanderbart-panel","patternState":"complete","extraOutput":{}}
+  </script>
+</div><!--end .sg-pattern-->
+<div id="atomer-knapp-fremhevet" class="sg-pattern">
+  <div class="sg-pattern-head">
+    <h3 class="sg-pattern-title">
+      <a href="../../patterns/00-atomer-02-lenker-og-knapper-30-knapp-fremhevet&#x2F;00-atomer-02-lenker-og-knapper-30-knapp-fremhevet.html" class="patternLink" data-patternpartial="atomer-knapp-fremhevet" title="Link to Pattern">
+          Knapp Fremhevet
+            <span class="sg-pattern-state inreview">inreview</span>
+      </a>
+    </h3>
+    <div class="sg-pattern-breadcrumb"></div>
+    <a href="#" data-patternpartial="atomer-knapp-fremhevet" title="View Pattern Info" id="sg-pattern-extra-toggle-atomer-knapp-fremhevet" class="sg-pattern-extra-toggle">Info <span>&#9660;</span></a>
+  </div>
+  <div class="sg-pattern-extra" id="sg-pattern-extra-atomer-knapp-fremhevet">
+
+  </div>
+  <div class="sg-pattern-example">
+    <button type="button" class="a-btn a-btn-shadow " onclick="location.href='';">
+	<i class="material-icons a-btn-shadow-icon">&#xE7F1;</i>
+
+	En knapp med skygge
+		<span class="label label-primary a-label label-pill" id=label>4</span>
+
+
+</button>
+
+  </div>
+  <script type="text/json" id="sg-pattern-data-atomer-knapp-fremhevet" class="sg-pattern-data">
+    {"cssEnabled":false,"patternLineageExists":true,"patternLineages":[{"lineagePattern":"atomer-label","lineagePath":"../../patterns/00-atomer-09-text-04-label/00-atomer-09-text-04-label.html","lineageState":"complete"}],"lineage":[{"lineagePattern":"atomer-label","lineagePath":"../../patterns/00-atomer-09-text-04-label/00-atomer-09-text-04-label.html","lineageState":"complete"}],"patternLineageRExists":true,"patternLineagesR":[{"lineagePattern":"molekyler-dropdown-menu-personSwitch","lineagePath":"../../patterns/01-molekyler-02-navigation-04-dropdown-menu-personSwitch/01-molekyler-02-navigation-04-dropdown-menu-personSwitch.html","lineageState":"inreview"}],"lineageR":[{"lineagePattern":"molekyler-dropdown-menu-personSwitch","lineagePath":"../../patterns/01-molekyler-02-navigation-04-dropdown-menu-personSwitch/01-molekyler-02-navigation-04-dropdown-menu-personSwitch.html","lineageState":"inreview"}],"patternLineageEExists":true,"patternDesc":"<p>Denne knappen inneholder et ikon og en beskrivende tekst. I de tilfeller det er aktuelt kan man også ha en label, ved å velge button-shadow-label: true, og definere label-content.</p>\n","patternBreadcrumb":{"patternType":"atomer","patternSubtype":"lenker-og-knapper"},"patternExtension":"mustache","patternName":"Knapp Fremhevet","patternPartial":"atomer-knapp-fremhevet","patternState":"inreview","extraOutput":{}}
+  </script>
+</div><!--end .sg-pattern-->
+<div id="atomer-knapp-fremhevet-stor" class="sg-pattern">
+  <div class="sg-pattern-head">
+    <h3 class="sg-pattern-title">
+      <a href="../../patterns/00-atomer-02-lenker-og-knapper-31-knapp-fremhevet-stor&#x2F;00-atomer-02-lenker-og-knapper-31-knapp-fremhevet-stor.html" class="patternLink" data-patternpartial="atomer-knapp-fremhevet-stor" title="Link to Pattern">
+          Knapp Fremhevet Stor
+            <span class="sg-pattern-state inreview">inreview</span>
+      </a>
+    </h3>
+    <div class="sg-pattern-breadcrumb"></div>
+    <a href="#" data-patternpartial="atomer-knapp-fremhevet-stor" title="View Pattern Info" id="sg-pattern-extra-toggle-atomer-knapp-fremhevet-stor" class="sg-pattern-extra-toggle">Info <span>&#9660;</span></a>
+  </div>
+  <div class="sg-pattern-extra" id="sg-pattern-extra-atomer-knapp-fremhevet-stor">
+
+  </div>
+  <div class="sg-pattern-example">
+    
+  <button type="button" class="a-boxBtn">
+
+      <span class="a-metaText">
+          STYRETS LEDER
+      </span>
+
+      <span class="a-boxBtn-name">
+          WILHELM MJELDE
+      </span>
+
+      <i class="material-icons a-boxBtn-icon a-blueText">people</i>
+
+      <b class="a-boxBtn-action a-blueText">
+          Gi og fjerne rettigheter ›
+      </b>
+
+  </button>
+
+  </div>
+  <script type="text/json" id="sg-pattern-data-atomer-knapp-fremhevet-stor" class="sg-pattern-data">
+    {"cssEnabled":false,"patternLineageExists":false,"patternLineages":[],"lineage":[],"patternLineageRExists":true,"patternLineagesR":[{"lineagePattern":"molekyler-boxBtnlist","lineagePath":"../../patterns/01-molekyler-08-lists-00-boxBtnlist/01-molekyler-08-lists-00-boxBtnlist.html","lineageState":"inreview"}],"lineageR":[{"lineagePattern":"molekyler-boxBtnlist","lineagePath":"../../patterns/01-molekyler-08-lists-00-boxBtnlist/01-molekyler-08-lists-00-boxBtnlist.html","lineageState":"inreview"}],"patternLineageEExists":true,"patternDesc":"<p>Stor knapp stylet som en boks med tittel, ikon og lenketekst/handling.</p>\n","patternBreadcrumb":{"patternType":"atomer","patternSubtype":"lenker-og-knapper"},"patternExtension":"mustache","patternName":"Knapp Fremhevet Stor","patternPartial":"atomer-knapp-fremhevet-stor","patternState":"inreview","extraOutput":{}}
+  </script>
+</div><!--end .sg-pattern-->
+<div id="atomer-link-with-popover" class="sg-pattern">
+  <div class="sg-pattern-head">
+    <h3 class="sg-pattern-title">
+      <a href="../../patterns/00-atomer-02-lenker-og-knapper-32-link-with-popover&#x2F;00-atomer-02-lenker-og-knapper-32-link-with-popover.html" class="patternLink" data-patternpartial="atomer-link-with-popover" title="Link to Pattern">
+          Link With Popover
+            <span class="sg-pattern-state inreview">inreview</span>
+      </a>
+    </h3>
+    <div class="sg-pattern-breadcrumb"></div>
+    <a href="#" data-patternpartial="atomer-link-with-popover" title="View Pattern Info" id="sg-pattern-extra-toggle-atomer-link-with-popover" class="sg-pattern-extra-toggle">Info <span>&#9660;</span></a>
+  </div>
+  <div class="sg-pattern-extra" id="sg-pattern-extra-atomer-link-with-popover">
+
+  </div>
+  <div class="sg-pattern-example">
+    <a href="javascript:;" aria-label="valid" tabindex="0" class="a-link" role="button" data-toggle="popover" data-template='<div class="popover popover-valid" role="tooltip"><div class="popover-arrow"></div><h3 class="popover-title"></h3><div class="popover-content"></div></div>' data-target="#myPopup" data-placement="bottom" data-trigger="focus" title="Tittel på popover" data-content="Og her kommer innholdet..">
+    Klikk for å se popover
+</a>
+
+  </div>
+  <script type="text/json" id="sg-pattern-data-atomer-link-with-popover" class="sg-pattern-data">
+    {"cssEnabled":false,"patternLineageExists":false,"patternLineages":[],"lineage":[],"patternLineageRExists":true,"patternLineagesR":[{"lineagePattern":"atomer-♺-link-with-popover-variations","lineagePath":"../../patterns/00-atomer-02-lenker-og-knapper-33-♺-link-with-popover-variations/00-atomer-02-lenker-og-knapper-33-♺-link-with-popover-variations.html","lineageState":"inreview"}],"lineageR":[{"lineagePattern":"atomer-♺-link-with-popover-variations","lineagePath":"../../patterns/00-atomer-02-lenker-og-knapper-33-♺-link-with-popover-variations/00-atomer-02-lenker-og-knapper-33-♺-link-with-popover-variations.html","lineageState":"inreview"}],"patternLineageEExists":true,"patternDesc":"<p>Brukes når tips skal gis brukeren idet han trykker. Popover har tre fargevarianter. Gul er standard informasjon, grønn brukes for å bekrefte/oppfordre til handling, rød brukes for å advare.</p>\n","patternBreadcrumb":{"patternType":"atomer","patternSubtype":"lenker-og-knapper"},"patternExtension":"mustache","patternName":"Link With Popover","patternPartial":"atomer-link-with-popover","patternState":"inreview","extraOutput":{}}
+  </script>
+</div><!--end .sg-pattern-->
+<div id="atomer-♺-link-with-popover-variations" class="sg-pattern">
+  <div class="sg-pattern-head">
+    <h3 class="sg-pattern-title">
+      <a href="../../patterns/00-atomer-02-lenker-og-knapper-33-♺-link-with-popover-variations&#x2F;00-atomer-02-lenker-og-knapper-33-♺-link-with-popover-variations.html" class="patternLink" data-patternpartial="atomer-♺-link-with-popover-variations" title="Link to Pattern">
+          ♺ Link With Popover Variations
+            <span class="sg-pattern-state inreview">inreview</span>
+      </a>
+    </h3>
+    <div class="sg-pattern-breadcrumb"></div>
+    <a href="#" data-patternpartial="atomer-♺-link-with-popover-variations" title="View Pattern Info" id="sg-pattern-extra-toggle-atomer-♺-link-with-popover-variations" class="sg-pattern-extra-toggle">Info <span>&#9660;</span></a>
+  </div>
+  <div class="sg-pattern-extra" id="sg-pattern-extra-atomer-♺-link-with-popover-variations">
+
+  </div>
+  <div class="sg-pattern-example">
+    
+<div class="a-btn-group">
+
+        <a href="javascript:;" aria-label="valid" tabindex="0" class="a-link" role="button" data-toggle="popover" data-template='<div class="popover popover-valid" role="tooltip"><div class="popover-arrow"></div><h3 class="popover-title"></h3><div class="popover-content"></div></div>' data-target="#myPopup" data-placement="bottom" data-trigger="focus" title="Tittel på popover" data-content="Og her kommer innholdet..">
+    Klikk for å se grønn popover
+</a>
+
+        <a href="javascript:;" aria-label="warning" tabindex="0" class="a-link" role="button" data-toggle="popover" data-template='<div class="popover popover-warning" role="tooltip"><div class="popover-arrow"></div><h3 class="popover-title"></h3><div class="popover-content"></div></div>' data-target="#myPopup2" data-placement="bottom" data-trigger="focus" title="Tittel på popover" data-content="Og her kommer innholdet..">
+    Klikk for å se rød popover
+</a>
+
+        <a href="javascript:;" aria-label="info" tabindex="0" class="a-link" role="button" data-toggle="popover" data-template='<div class="popover " role="tooltip"><div class="popover-arrow"></div><h3 class="popover-title"></h3><div class="popover-content"></div></div>' data-target="#myPopup3" data-placement="bottom" data-trigger="focus" title="Tittel på popover" data-content="Og her kommer innholdet..">
+    Klikk for å se gul popover
+</a>
+
+
+</div>
+
+  </div>
+  <script type="text/json" id="sg-pattern-data-atomer-♺-link-with-popover-variations" class="sg-pattern-data">
+    {"cssEnabled":false,"patternLineageExists":true,"patternLineages":[{"lineagePattern":"atomer-link-with-popover","lineagePath":"../../patterns/00-atomer-02-lenker-og-knapper-32-link-with-popover/00-atomer-02-lenker-og-knapper-32-link-with-popover.html","lineageState":"inreview"}],"lineage":[{"lineagePattern":"atomer-link-with-popover","lineagePath":"../../patterns/00-atomer-02-lenker-og-knapper-32-link-with-popover/00-atomer-02-lenker-og-knapper-32-link-with-popover.html","lineageState":"inreview"}],"patternLineageRExists":false,"patternLineagesR":[],"lineageR":[],"patternLineageEExists":true,"patternDesc":"<p>Brukes når tips skal gis brukeren idet han trykker. Popover har tre fargevarianter. Gul er standard informasjon, grønn brukes for å bekrefte/oppfordre til handling, rød brukes for å advare.</p>\n","patternBreadcrumb":{"patternType":"atomer","patternSubtype":"lenker-og-knapper"},"patternExtension":"mustache","patternName":"♺ Link With Popover Variations","patternPartial":"atomer-♺-link-with-popover-variations","patternState":"inreview","extraOutput":{}}
+  </script>
+</div><!--end .sg-pattern-->
+<div id="atomer-link-with-tooltip" class="sg-pattern">
+  <div class="sg-pattern-head">
+    <h3 class="sg-pattern-title">
+      <a href="../../patterns/00-atomer-02-lenker-og-knapper-35-link-with-tooltip&#x2F;00-atomer-02-lenker-og-knapper-35-link-with-tooltip.html" class="patternLink" data-patternpartial="atomer-link-with-tooltip" title="Link to Pattern">
+          Link With Tooltip
+            <span class="sg-pattern-state inreview">inreview</span>
+      </a>
+    </h3>
+    <div class="sg-pattern-breadcrumb"></div>
+    <a href="#" data-patternpartial="atomer-link-with-tooltip" title="View Pattern Info" id="sg-pattern-extra-toggle-atomer-link-with-tooltip" class="sg-pattern-extra-toggle">Info <span>&#9660;</span></a>
+  </div>
+  <div class="sg-pattern-extra" id="sg-pattern-extra-atomer-link-with-tooltip">
+
+  </div>
+  <div class="sg-pattern-example">
+    <a href="javascript:;" tabindex="0" class="a-link a-button-link" role="button" data-toggle="tooltip" data-template='<div class="tooltip a-tooltip a-tooltip-valid" role="tooltip"><div class="tooltip-arrow"></div><div class="tooltip-inner"></div></div>' data-placement="top" title="Grønn tooltip på toppen ved mouseover">
+    Hold over for å se grønn tooltip
+</a>
+
+  </div>
+  <script type="text/json" id="sg-pattern-data-atomer-link-with-tooltip" class="sg-pattern-data">
+    {"cssEnabled":false,"patternLineageExists":false,"patternLineages":[],"lineage":[],"patternLineageRExists":false,"patternLineagesR":[],"lineageR":[],"patternLineageEExists":false,"patternDesc":"<p>Brukes når tips skal gis brukeren før han trykker (ved mouseover). Tooltip har tre fargevarianter. Gul er standard informasjon, grønn brukes for å bekrefte/oppfordre til handling, rød brukes for å advare.</p>\n","patternBreadcrumb":{"patternType":"atomer","patternSubtype":"lenker-og-knapper"},"patternExtension":"mustache","patternName":"Link With Tooltip","patternPartial":"atomer-link-with-tooltip","patternState":"inreview","extraOutput":{}}
+  </script>
+</div><!--end .sg-pattern-->
+<div id="atomer-♺-link-with-tooltip-variations" class="sg-pattern">
+  <div class="sg-pattern-head">
+    <h3 class="sg-pattern-title">
+      <a href="../../patterns/00-atomer-02-lenker-og-knapper-36-♺-link-with-tooltip-variations&#x2F;00-atomer-02-lenker-og-knapper-36-♺-link-with-tooltip-variations.html" class="patternLink" data-patternpartial="atomer-♺-link-with-tooltip-variations" title="Link to Pattern">
+          ♺ Link With Tooltip Variations
+            <span class="sg-pattern-state inreview">inreview</span>
+      </a>
+    </h3>
+    <div class="sg-pattern-breadcrumb"></div>
+    <a href="#" data-patternpartial="atomer-♺-link-with-tooltip-variations" title="View Pattern Info" id="sg-pattern-extra-toggle-atomer-♺-link-with-tooltip-variations" class="sg-pattern-extra-toggle">Info <span>&#9660;</span></a>
+  </div>
+  <div class="sg-pattern-extra" id="sg-pattern-extra-atomer-♺-link-with-tooltip-variations">
+
+  </div>
+  <div class="sg-pattern-example">
+    
+<div class="a-btn-group">
+
+        <a href="javascript:;" tabindex="0" class="a-link a-button-link" role="button" data-toggle="tooltip" data-template='<div class="tooltip a-tooltip a-tooltip-valid" role="tooltip"><div class="tooltip-arrow"></div><div class="tooltip-inner"></div></div>' data-placement="top" title="Grønn tooltip på toppen ved mouseover">
+            Hold over for å se grønn tooltip
+        </a>
+        <a href="javascript:;" tabindex="0" class="a-link a-button-link" role="button" data-toggle="tooltip" data-template='<div class="tooltip a-tooltip a-tooltip-warning" role="tooltip"><div class="tooltip-arrow"></div><div class="tooltip-inner"></div></div>' data-placement="top" title="Rød tooltip på toppen ved mouseover">
+            Hold over for å se rød tooltip
+        </a>
+        <a href="javascript:;" tabindex="0" class="a-link a-button-link" role="button" data-toggle="tooltip" data-template='<div class="tooltip a-tooltip " role="tooltip"><div class="tooltip-arrow"></div><div class="tooltip-inner"></div></div>' data-placement="top" title="Gul tooltip på toppen ved mouseover">
+            Hold over for å se gul tooltip
+        </a>
+
+</div>
+
+  </div>
+  <script type="text/json" id="sg-pattern-data-atomer-♺-link-with-tooltip-variations" class="sg-pattern-data">
+    {"cssEnabled":false,"patternLineageExists":false,"patternLineages":[],"lineage":[],"patternLineageRExists":false,"patternLineagesR":[],"lineageR":[],"patternLineageEExists":false,"patternDesc":"<p>Brukes når tips skal gis brukeren før han trykker (ved mouseover). Tooltip har tre fargevarianter. Gul er standard informasjon, grønn brukes for å bekrefte/oppfordre til handling, rød brukes for å advare.</p>\n","patternBreadcrumb":{"patternType":"atomer","patternSubtype":"lenker-og-knapper"},"patternExtension":"mustache","patternName":"♺ Link With Tooltip Variations","patternPartial":"atomer-♺-link-with-tooltip-variations","patternState":"inreview","extraOutput":{}}
+  </script>
+</div><!--end .sg-pattern-->
+<div id="atomer-tel" class="sg-pattern">
+  <div class="sg-pattern-head">
+    <h3 class="sg-pattern-title">
+      <a href="../../patterns/00-atomer-02-lenker-og-knapper-37-tel&#x2F;00-atomer-02-lenker-og-knapper-37-tel.html" class="patternLink" data-patternpartial="atomer-tel" title="Link to Pattern">
+          Tel
+            <span class="sg-pattern-state inreview">inreview</span>
+      </a>
+    </h3>
+    <div class="sg-pattern-breadcrumb"></div>
+    <a href="#" data-patternpartial="atomer-tel" title="View Pattern Info" id="sg-pattern-extra-toggle-atomer-tel" class="sg-pattern-extra-toggle">Info <span>&#9660;</span></a>
+  </div>
+  <div class="sg-pattern-extra" id="sg-pattern-extra-atomer-tel">
+
+  </div>
+  <div class="sg-pattern-example">
+    <a href="tel:+4775006000" class="a-tel"><i class="material-icons">&#xE324;</i>  75 00 60 00</a>
+
+  </div>
+  <script type="text/json" id="sg-pattern-data-atomer-tel" class="sg-pattern-data">
+    {"cssEnabled":false,"patternLineageExists":false,"patternLineages":[],"lineage":[],"patternLineageRExists":true,"patternLineagesR":[{"lineagePattern":"organismer-header","lineagePath":"../../patterns/02-organismer-00-global-00-header/02-organismer-00-global-00-header.html","lineageState":"inreview"},{"lineagePattern":"organismer-footer","lineagePath":"../../patterns/02-organismer-00-global-01-footer/02-organismer-00-global-01-footer.html","lineageState":"inreview"}],"lineageR":[{"lineagePattern":"organismer-header","lineagePath":"../../patterns/02-organismer-00-global-00-header/02-organismer-00-global-00-header.html","lineageState":"inreview"},{"lineagePattern":"organismer-footer","lineagePath":"../../patterns/02-organismer-00-global-01-footer/02-organismer-00-global-01-footer.html","lineageState":"inreview"}],"patternLineageEExists":true,"patternDesc":"<p>Mobiltelefoner kan utføre telefonoppringinger. <a href=\"http://bradfrostweb.com/blog/mobile/a-tel-tale-sign/\">Telefonnummer</a> skal derfor være klikkbare, for å spare brukeren for å måtte kopiere og lime inn nummeret. Hva skjer når desktop-brukere klikker på nummeret? Noen enheter (iPad'er ++) spør brukeren om de vil legge nummeret i kontaktlisten sin, andre åpner programmer som Skype, eller liknende.</p>\n","patternBreadcrumb":{"patternType":"atomer","patternSubtype":"lenker-og-knapper"},"patternExtension":"mustache","patternName":"Tel","patternPartial":"atomer-tel","patternState":"inreview","extraOutput":{}}
+  </script>
+</div><!--end .sg-pattern-->
+<div id="atomer-link-helpfunction" class="sg-pattern">
+  <div class="sg-pattern-head">
+    <h3 class="sg-pattern-title">
+      <a href="../../patterns/00-atomer-02-lenker-og-knapper-38-link-helpfunction&#x2F;00-atomer-02-lenker-og-knapper-38-link-helpfunction.html" class="patternLink" data-patternpartial="atomer-link-helpfunction" title="Link to Pattern">
+          Link Helpfunction
+            <span class="sg-pattern-state complete">complete</span>
+      </a>
+    </h3>
+    <div class="sg-pattern-breadcrumb"></div>
+    <a href="#" data-patternpartial="atomer-link-helpfunction" title="View Pattern Info" id="sg-pattern-extra-toggle-atomer-link-helpfunction" class="sg-pattern-extra-toggle">Info <span>&#9660;</span></a>
+  </div>
+  <div class="sg-pattern-extra" id="sg-pattern-extra-atomer-link-helpfunction">
+
+  </div>
+  <div class="sg-pattern-example">
+    <div class="a-link-helpfunction">
+
+  <i class="fa fa-life-ring"></i> Står du fast? <a href="../.." class="">Sjekk hjelpesidene</a>
+ eller ring Altinn brukerservice 75 00 60 00
+
+</div>
+
+  </div>
+  <script type="text/json" id="sg-pattern-data-atomer-link-helpfunction" class="sg-pattern-data">
+    {"cssEnabled":false,"patternLineageExists":true,"patternLineages":[{"lineagePattern":"atomer-link","lineagePath":"../../patterns/00-atomer-02-lenker-og-knapper-00-link/00-atomer-02-lenker-og-knapper-00-link.html","lineageState":"complete"}],"lineage":[{"lineagePattern":"atomer-link","lineagePath":"../../patterns/00-atomer-02-lenker-og-knapper-00-link/00-atomer-02-lenker-og-knapper-00-link.html","lineageState":"complete"}],"patternLineageRExists":false,"patternLineagesR":[],"lineageR":[],"patternLineageEExists":true,"patternDesc":"<p>Hjelpelenker skal alltid benytte dette ikonet foran teksten. Hele teksten trenger ikke være klikkbar.</p>\n","patternBreadcrumb":{"patternType":"atomer","patternSubtype":"lenker-og-knapper"},"patternExtension":"mustache","patternName":"Link Helpfunction","patternPartial":"atomer-link-helpfunction","patternState":"complete","extraOutput":{}}
+  </script>
+</div><!--end .sg-pattern-->
+<div id="atomer-link-icon" class="sg-pattern">
+  <div class="sg-pattern-head">
+    <h3 class="sg-pattern-title">
+      <a href="../../patterns/00-atomer-02-lenker-og-knapper-39-link-icon&#x2F;00-atomer-02-lenker-og-knapper-39-link-icon.html" class="patternLink" data-patternpartial="atomer-link-icon" title="Link to Pattern">
+          Link Icon
+            <span class="sg-pattern-state complete">complete</span>
+      </a>
+    </h3>
+    <div class="sg-pattern-breadcrumb"></div>
+    <a href="#" data-patternpartial="atomer-link-icon" title="View Pattern Info" id="sg-pattern-extra-toggle-atomer-link-icon" class="sg-pattern-extra-toggle">Info <span>&#9660;</span></a>
+  </div>
+  <div class="sg-pattern-extra" id="sg-pattern-extra-atomer-link-icon">
+
+  </div>
+  <div class="sg-pattern-example">
+    <a href="../.." class="a-btn a-btn-withIcon ">
+	<i class="material-icons a-btn-withIcon-icon">&#xE0E1;</i>
+
+	1 ny melding fra Skatteetaten: Selvangivelsen din er klar. Du får penger igjen!
+
+</a>
+
+  </div>
+  <script type="text/json" id="sg-pattern-data-atomer-link-icon" class="sg-pattern-data">
+    {"cssEnabled":false,"patternLineageExists":false,"patternLineages":[],"lineage":[],"patternLineageRExists":true,"patternLineagesR":[{"lineagePattern":"molekyler-dropdown-menu-personSwitch-large","lineagePath":"../../patterns/01-molekyler-02-navigation-04-dropdown-menu-personSwitch-large/01-molekyler-02-navigation-04-dropdown-menu-personSwitch-large.html","lineageState":"inprogress"},{"lineagePattern":"molekyler-dropdown-menu-personSwitch","lineagePath":"../../patterns/01-molekyler-02-navigation-04-dropdown-menu-personSwitch/01-molekyler-02-navigation-04-dropdown-menu-personSwitch.html","lineageState":"inreview"}],"lineageR":[{"lineagePattern":"molekyler-dropdown-menu-personSwitch-large","lineagePath":"../../patterns/01-molekyler-02-navigation-04-dropdown-menu-personSwitch-large/01-molekyler-02-navigation-04-dropdown-menu-personSwitch-large.html","lineageState":"inprogress"},{"lineagePattern":"molekyler-dropdown-menu-personSwitch","lineagePath":"../../patterns/01-molekyler-02-navigation-04-dropdown-menu-personSwitch/01-molekyler-02-navigation-04-dropdown-menu-personSwitch.html","lineageState":"inreview"}],"patternLineageEExists":true,"patternDesc":"<p>Foreløpig ingen retningslinjer.</p>\n","patternBreadcrumb":{"patternType":"atomer","patternSubtype":"lenker-og-knapper"},"patternExtension":"mustache","patternName":"Link Icon","patternPartial":"atomer-link-icon","patternState":"complete","extraOutput":{}}
+  </script>
+</div><!--end .sg-pattern-->
+    </div> <!--end #sg-patterns-->
+  </div> <!--end .sg-main-->
+</div> <!--end .container-->
+    <!--DO NOT REMOVE-->
+    <div class="sg-switchtheme">
+	<div class="container">
+
+		<div class="a-radioButtons">
+		<span style="margin-right: 12px;"> Bytt tema: </span>
+
+			<label class="c-input c-radio">
+			  <input id="sg-switchtheme-blue" name="radio" type="radio" ><span class="c-indicator"></span>
+			  Bedrift
+			</label>
+			<label class="c-input c-radio">
+			  <input id="sg-switchtheme-grey" name="radio" type="radio" ><span class="c-indicator"></span>
+			  Privat
+			</label>
+
+		</div>
+	</div>
+</div>
+
+<script type="text/json" id="sg-pattern-data-footer" class="sg-pattern-data">
+  {"patternPartial":"viewall-atomer-lenker-og-knapper"}
+</script>
+
+<script>
+  /*!
+   * scriptLoader - v0.1
+   *
+   * Copyright (c) 2014 Dave Olsen, http://dmolsen.com
+   * Licensed under the MIT license
+   *
+   */
+
+  var scriptLoader = {
+
+    run: function(js,cb,target) {
+      var s  = document.getElementById(target+'-'+cb);
+      for (var i = 0; i < js.length; i++) {
+        var src = (typeof js[i] != 'string') ? js[i].src : js[i];
+        var c   = document.createElement('script');
+        c.src   = '../../'+src+'?'+cb;
+        if (typeof js[i] != 'string') {
+          if (js[i].dep !== undefined) {
+            c.onload = function(dep,cb,target) {
+              return function() {
+                scriptLoader.run(dep,cb,target);
+              }
+            }(js[i].dep,cb,target);
+          }
+        }
+        s.parentNode.insertBefore(c,s);
+      }
+    }
+
+  }
+</script>
+
+<script id="pl-js-polyfill-insert-1472819203323">
+  (function() {
+    if (self != top) {
+      var cb = '1472819203323';
+      var js = [];
+      if (typeof document !== 'undefined' && !('classList' in document.documentElement)) {
+        js.push('styleguide/bower_components/classList.min.js');
+      }
+      scriptLoader.run(js,cb,'pl-js-polyfill-insert');
+    }
+  })();
+</script>
+
+<script id="pl-js-insert-1472819203323">
+  (function() {
+    if (self != top) {
+      var cb = '1472819203323';
+      var js = [ { 'src': 'styleguide/bower_components/jwerty.min.js', 'dep': [ 'styleguide/js/patternlab-pattern.min.js' ] } ];
+      scriptLoader.run(js,cb,'pl-js-insert');
+    }
+  })();
+</script>
+
+
+
+    <!-- Javascript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+
+
+	   <!-- Jquery library -->
+    <script src="../../js/jquery.min.js"></script>
+
+    <!-- TETHER: Bootstrap need this? -->
+    <script src="../../js/tether.min.js"></script>
+
+    <!-- BOOTSTRAP
+    http://v4-alpha.getbootstrap.com/getting-started/introduction/ -->
+    <script src="../../js/bootstrap.min.js"></script>
+
+    <!-- CODE PRETTIFY: Prettify code snippets in HTML -->
+    <script src="https://cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js?lang=css&amp;skin=sunburst"></script>
+
+    <script>
+      $('.html-escape').each(function () {
+        $(this).text($(this).html())
+      })
+    </script>
+
+    <!-- VALIDATOR: Used for input field feedback
+    http://1000hz.github.io/bootstrap-validator/#validator-usage -->
+    <script src="../../js/validator.min.js"></script>
+
+    <!-- SMOOTH STATE: Prevent links from triggering a full page load
+    https://github.com/miguel-perez/smoothState.js -->
+    <script src="../../js/jquery.smoothState.min.js"></script>
+
+    <!-- ANCHOR LINKS: Generate deep anchor links on titles
+    http://bryanbraun.github.io/anchorjs/#basic-link-left -->
+    <script src="../../js/anchor.min.js"></script>
+
+    <!-- Foundation Interchange
+    http://foundation.zurb.com/sites/docs/interchange.html  -->
+    <script src="../../js/foundationInterchange.min.js"></script>
+
+    <!-- Foundation Responsive menu-->
+    <script src="../../js/foundationNavigation.min.js"></script>
+
+    <!-- Altinn custom javascript -->
+    <script src="../../js/altinn.js"></script>
+
+
+    <script>
+      $(document).foundation();
+      var smoothStateMod = function () {
+        $('#page').find('a').on('click', function (e) {
+          if (location.pathname.replace(/\//g, '') === $(this).attr('href').replace(/\//g, '').replace(/\.\./g, '')) {
+            e.preventDefault(); e.stopPropagation(); e.stopImmediatePropagation()
+            return false
+          } else if ($(this).attr('href') !== '#') {
+            e.preventDefault(); e.stopPropagation(); e.stopImmediatePropagation()
+            smoothState.load($(this).attr('href'));
+          }
+        })
+      }
+      var options = {
+        prefetch: true,
+        debug: true,
+        anchors: 'blink',
+        cacheLength: 9,
+        onStart: {
+          duration: 0, // Duration of our animation
+          render: function ($container) {
+            // Add your CSS animation reversing class
+            $container.addClass('is-exiting');
+
+            // Restart your animation
+            smoothState.restartCSSAnimations();
+          }
+        },
+        onReady: {
+          duration: 0,
+          render: function ($container, $newContent) {
+            // Remove your CSS animation reversing class
+            $container.removeClass('is-exiting');
+
+            // Inject the new content
+            $container.html($newContent);
+
+          }
+        },
+        onAfter: function () {
+          $(document).foundation();
+          altinnInit();
+          smoothStateMod()
+        }
+      };
+      var smoothState = $('#page').smoothState(options).data('smoothState');
+      smoothStateMod()
+    </script>
+
+  </body>
+</html>
