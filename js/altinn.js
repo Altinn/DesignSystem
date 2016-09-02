@@ -331,10 +331,10 @@ window.altinnInit = function () {
     $(function () {
       $('.propagated-content-destination').each(function () {
         if ($(this).hasClass('replace-me')) {
-          $(this).before($('#propagated-content-origin').html())
+          $(this).before($('.propagated-content-origin.' + $(this).attr('data-refclass')).html())
           $(this).remove()
         } else {
-          $(this).html($('#propagated-content-origin').html())
+          $(this).html($('.propagated-content-origin.' + $(this).attr('data-refclass')).html())
         }
       })
     })
