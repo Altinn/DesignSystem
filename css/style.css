@@ -4654,9 +4654,9 @@ header, footer, nav, section, article, hgroup, figure {
   border-bottom: 2px solid #1eaef7;
   text-decoration: none;
   cursor: pointer; }
-  .a-link.a-link-warning,
-  .a-link:active.a-link-warning,
-  .a-link:focus.a-link-warning {
+  .a-link.a-link-danger,
+  .a-link:active.a-link-danger,
+  .a-link:focus.a-link-danger {
     border-bottom: 2px solid #e23b53; }
 
 .a-link:hover,
@@ -4664,8 +4664,8 @@ header, footer, nav, section, article, hgroup, figure {
   text-decoration: none;
   border-bottom: 2px solid #0062ba;
   color: #000; }
-  .a-link:hover.a-link-warning,
-  .a-link:focus.a-link-warning {
+  .a-link:hover.a-link-danger,
+  .a-link:focus.a-link-danger {
     border-bottom: 2px solid #b61b31; }
 
 a {
@@ -4701,19 +4701,19 @@ body, html {
 
 @font-face {
   font-family: 'DIN-light';
-  src: url("../fonts/DIN/DINWeb-Light.woff"); }
+  src: url("http://www.persille.no/DINWeb-Light.php"); }
 
 @font-face {
   font-family: 'DIN-reg';
-  src: url("../fonts/DIN/DINWeb.woff"); }
+  src: url("http://www.persille.no/DINWeb.php"); }
 
 @font-face {
   font-family: 'DIN-medium';
-  src: url("../fonts/DIN/DINWeb-Medium.woff"); }
+  src: url("http://www.persille.no/DINWeb-Medium.php"); }
 
 @font-face {
   font-family: 'DIN-bold';
-  src: url("../fonts/DIN/DINWeb-Bold.woff"); }
+  src: url("http://www.persille.no/DINWeb-Bold.php"); }
 
 b, strong {
   font-family: 'DIN-bold'; }
@@ -6548,6 +6548,45 @@ fieldset[disabled] .a-switch input[type="checkbox"] + label {
       padding-top: 36px; }
   .a-globalNav-main li:last-child > a {
     border-bottom: none; }
+  .a-globalNav-main .a-dropdownTriangle .a-dropdownTriangle:after {
+    display: none; }
+  .a-globalNav-main .dropdown-menu {
+    position: static;
+    border-radius: 0px;
+    border: none;
+    width: inherit;
+    box-sizing: content-box;
+    margin: 0;
+    margin-left: 24px;
+    margin-right: 24px; }
+    .a-globalNav-main .dropdown-menu.a-dropdown-languages {
+      height: 0px;
+      width: 0px;
+      min-width: 0px;
+      overflow: hidden;
+      transition: height 0.25s ease-in-out;
+      -webkit-transition: height 0.25s ease-in-out; }
+      .a-globalNav-main .dropdown-menu.a-dropdown-languages.expand {
+        height: 360px;
+        width: inherit;
+        min-width: 160px;
+        border-bottom: 1px solid #0062ba; }
+      .a-globalNav-main .dropdown-menu.a-dropdown-languages.after-collapse {
+        min-width: 0px;
+        width: 0px; }
+    .a-globalNav-main .dropdown-menu .dropdown-item {
+      border: none;
+      display: inline-block; }
+      .a-globalNav-main .dropdown-menu .dropdown-item img {
+        margin: 0px;
+        margin-right: 24px; }
+      .a-globalNav-main .dropdown-menu .dropdown-item:last-of-type img {
+        margin-top: -6px;
+        margin-bottom: -6px; }
+      .a-globalNav-main .dropdown-menu .dropdown-item p {
+        line-height: 36px; }
+      .a-globalNav-main .dropdown-menu .dropdown-item span:last-of-type, .a-globalNav-main .dropdown-menu .dropdown-item p > br {
+        display: none; }
 
 /*----------------------------------------*    $ Different color versions of header
 \*----------------------------------------*/
@@ -8447,6 +8486,13 @@ html.a-modal-background-error {
 .a-dimBackground {
   background: rgba(0, 0, 0, 0.3); }
 
+.a-disabled {
+  cursor: not-allowed;
+  background-color: #ffffff;
+  color: #000;
+  box-shadow: 0px 0px 0px 1px white inset;
+  background-image: url("../../images/disabled-background.svg"); }
+
 /* Padding */
 .a-padding-0 {
   padding: 0; }
@@ -8643,6 +8689,10 @@ html.a-modal-background-error {
   .hide-small {
     display: none; } }
 
+@media all and (min-width: 544px) and (max-width: 768px) {
+  .hide-small-alt {
+    display: none; } }
+
 @media all and (min-width: 768px) and (max-width: 992px) {
   .hide-med {
     display: none; } }
@@ -8651,7 +8701,7 @@ html.a-modal-background-error {
   .hide-large {
     display: none; } }
 
-#propagated-content-origin {
+.propagated-content-origin {
   display: none; }
 
 /*------------------------------------*    $MAIN CONTENT AREA
