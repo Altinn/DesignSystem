@@ -200,12 +200,9 @@ window.altinnInit = function () {
   })
   // Repair drilldown navigation (keyboard/screen reader)
   $(function () {
-    $('.a-colnav-item').attr('tabindex', '0')
-    $('.a-colnav-item').attr('href', '#')
-    $('.a-colnav-item-second').attr('tabindex', '0')
-    $('.a-colnav-item-second').attr('href', '#')
-    $('.a-colnav-item-third').attr('tabindex', '0')
-    $('.a-colnav-item-third').attr('href', '#')
+    $('.a-colnav-item').attr('tabindex', '0').attr('href', '#')
+    $('.a-colnav-item-second').attr('tabindex', '0').attr('href', '#')
+    $('.a-colnav-item-third').attr('tabindex', '0').attr('href', '#')
     $('.a-colnav-item').on('focus', function () {
       if ($('.a-colnav-secondLevel.submenu.is-active').length === 1) {
         $(this).off('keydown.zf.drilldown')
@@ -216,14 +213,11 @@ window.altinnInit = function () {
   // Proxy content propagator, for inclusion of content in more than one place
   $(function () {
     $('.propagated-content-destination').each(function () {
+      var prefix = '.propagated-content-origin.'
       if ($(this).hasClass('replace-me')) {
-        $(this).before($('.propagated-content-origin.' +
-          $(this).attr('data-refclass')).html())
+        $(this).before($(prefix + $(this).attr('data-refclass')).html())
         $(this).remove()
-      } else {
-        $(this).html($('.propagated-content-origin.' +
-          $(this).attr('data-refclass')).html())
-      }
+      } else $(this).html($(prefix + $(this).attr('data-refclass')).html())
     })
   })
   // Add anchors to all h1s, h2s, h3s and h4s inside of .ap-content.
