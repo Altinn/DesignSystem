@@ -187,7 +187,7 @@ var comments = {
 		"comment": ""
 	},
 	{
-		"el": ".a-boxBtn",
+		"el": ".a-box-button",
 		"title" : "Stor knapp",
 		"comment": ""
 	},
@@ -202,7 +202,7 @@ var comments = {
 	 	"comment": ""
 	},
 	{
-		"el": ".a-itemList",
+		"el": ".a-item-list",
 	 	"title" : "Liste",
 	 	"comment": ""
 	},
