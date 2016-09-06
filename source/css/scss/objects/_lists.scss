@@ -10,37 +10,32 @@ ul.no-decoration {
 .a-item-list {
 	list-style: none;
 
-	a.a-listItem-title {
-		cursor: pointer;
-		&:hover {
-			background-color: $blue-light;
-			color: $black;
-		}
+	div.a-dotted {
+		position: absolute;
+		top: 0;
+		left: 0;
+		z-index: 1;
+		width: 100%;
+		height: 100%;
 	}
 
+	.a-disabled {
+		box-shadow: none;
+	}
 	.a-item-list-item {
 		position: relative;
-		border-bottom: 2px dotted #1eaef7;
 		width: 100%;
 
-		&:first-child {
-			border-top: 2px dotted #1eaef7;
+		a:hover {
+			cursor: pointer;
 		}
 
-		&.a-item-list-item-deactivated,
-		&.a-item-list-item-deactivated:hover {
-			background-image: url('../images/disabled-background.svg');
-			background-color: $white;
-
-			a.a-listItem-title {
-				cursor: default;
-				background-color: transparent;
-			}
-
+		&.a-clickable:hover {
+			background-color: $blue-light;
 		}
 
 		.a-listItem-title {
-			  display: block;
+			display: block;
 		    border: none;
 		    padding: 5px 0;
 		    font-size: 14px;
@@ -63,29 +58,20 @@ ul.no-decoration {
 			padding: 5px 0;
 		}
 
-		.a-item-list-item:hover {
-			background-color: $blue-light;
-		}
+    	.a-listItem-title {
+			display: inline-block;
+			width: 85%;
+			vertical-align: top;
+			padding: 0;
 
-    .a-item-list-item-deactivated:hover {
-			background-image: url('../images/disabled-background.svg');
-			background-color: $white;
-		}
-
-		.a-listItem-title {
-			  display: inline-block;
-				width: 85%;
-				vertical-align: top;
-				padding: 0;
-
-				&:after {
-					content:'';
-					position:absolute;
-					top:-5px;
-					bottom:-5px;
-					left:-5px;
-					right:-5px;
-				}
+			&:after {
+				content:'';
+				position:absolute;
+				top:-5px;
+				bottom:-5px;
+				left:-5px;
+				right:-5px;
+			}
 		}
 
 	}
@@ -95,10 +81,9 @@ ul.no-decoration {
 // If business, change hover color on list
 .business {
 
-	.a-item-list-ordered {
+	.a-item-list {
 
-		.a-item-list-item:hover,
-		.a-listItem-title:hover {
+		.a-item-list-item.a-clickable:hover {
 			background-color: $blue-light-hover-color-dark;
 		}
 
