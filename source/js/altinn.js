@@ -261,7 +261,7 @@ window.altinnInit = function () {
   $(function () {
     $('.sg-pattern').each(function () {
       if ($(this).attr('id').indexOf('♺') !== -1) {
-        $(this).css('margin-left', '24px')
+        $(this).css('margin-left', '40px')
       }
     })
   })
