@@ -257,5 +257,13 @@ window.altinnInit = function () {
         .on('keydown', CustomShortcut)
     }, 500)
   })
+  // Inset varation elements
+  $(function () {
+    $('.sg-pattern').each(function () {
+      if ($(this).attr('id').indexOf('♺') !== -1) {
+        $(this).css('margin-left', '24px')
+      }
+    })
+  })
 }
 window.altinnInit()
