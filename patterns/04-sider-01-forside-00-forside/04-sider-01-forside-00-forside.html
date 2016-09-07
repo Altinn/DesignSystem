@@ -34,8 +34,8 @@
     <script src="https://use.fonticons.com/b2e1f56d.js"></script>
 
     <!-- Altinn stylesheet -->
-    <link rel="stylesheet" href="../../css/style.css?1473064291766" media="all" />
-    <link rel="stylesheet" href="../../css/pattern-scaffolding.css?1473064291766" media="all" />
+    <link rel="stylesheet" href="../../css/style.css?1473237876621" media="all" />
+    <link rel="stylesheet" href="../../css/pattern-scaffolding.css?1473237876621" media="all" />
 
     <!-- Begin Pattern Lab (Required for Pattern Lab to run properly) -->
     <!-- never cache patterns -->
@@ -45,7 +45,7 @@
 <meta http-equiv="expires" content="Tue, 01 Jan 1980 1:00:00 GMT" />
 <meta http-equiv="pragma" content="no-cache" />
 
-<link rel="stylesheet" href="../../styleguide/css/styleguide.min.css?1473064291766" media="all">
+<link rel="stylesheet" href="../../styleguide/css/styleguide.min.css?1473237876621" media="all">
 <style type="text/css">
   /* PRESENTATION OF STYLE GUIDE */
   #sg-viewport {
@@ -124,12 +124,23 @@
   .sg-statesExplanation .sg-pattern-state-complete {
     color: #17c96b;
   }
+  .sg-statesExplanation .sg-pattern-state-variations {
+    padding-right: 6px;
+  }
   .sg-pattern-state:before {
     margin-bottom: 0;
   }
   .sg-pattern-state:before {
     font-size: 30px;
   }
+  .sg-pattern-variations {
+    color: #666;
+  }
+
+  #sg-patterns {
+    margin-bottom: 400px;
+}
+
   #sg-patterns .sg-pattern-head .sg-pattern-state:before {
     font-size: 30px;
     margin-bottom: -10px;
@@ -260,7 +271,7 @@
       margin-bottom: 3px;
   }
 </style>
-<link rel="stylesheet" href="../../styleguide/css/prism-typeahead.min.css?1473064291766" media="all" />
+<link rel="stylesheet" href="../../styleguide/css/prism-typeahead.min.css?1473237876621" media="all" />
 
     <!-- End Pattern Lab -->
 
@@ -271,7 +282,7 @@
 
 <div class="page" id="page">
 
-		<!-- Begin .header -->
+	<!-- Begin .header -->
 <a href="#hovedinnhold" class="snarvei">Hopp til hovedinnholdet</a>
 <!-- Meny og navigasjon som skal hoppes over legges her -->
 
@@ -328,14 +339,13 @@
 
 			<li class="nav-item dropdown hide-xsmall">
         <!-- Dropdown toggle -->
-        <a class="nav-link dropdown-toggle a-languageSwitcher" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false"> <i class="material-icons hidden-md-up">&#xE894;</i><span class="sr-only">Bytt språk</span> <span class="hidden-sm-down">Language</span></a>
+        <a class="nav-link dropdown-toggle a-languageSwitcher" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false"> <i class="material-icons hidden-md-up">&#xE894;</i><span class="sr-only">Bytt språk</span> <span class="hidden-sm-down" aria-hidden="true">Language</span></a>
         <span class="propagated-content-destination replace-me" data-refclass="droplang"></span>
       </li>
 
 			<li class="nav-item dropdown">
 				<!-- Dropdown toggle -->
-				<a class="nav-link a-personSwitcher" data-toggle="" href="../../patterns/04-sider-01-forside-00-forside-innlogget/04-sider-01-forside-00-forside-innlogget.html" role="button" aria-haspopup="true" aria-expanded="false"> <span class="a-personSwitcher-name hidden-sm-down" title="Logg inn  "> Logg inn <br>  </span> <i class="material-icons  a-personSwitcher-icon">&#xE853;</i><span class="sr-only">Logg inn
-        </span></a>
+				<a class="nav-link a-personSwitcher" data-toggle="" href="../../patterns/04-sider-01-forside-00-forside-innlogget/04-sider-01-forside-00-forside-innlogget.html" role="button" aria-haspopup="true" aria-expanded="false"> <span class="a-personSwitcher-name hidden-sm-down" title="Logg inn "> Logg inn <br>  </span> <i class="material-icons  a-personSwitcher-icon">&#xE853;</i></a>
 
 					<!-- Begin #a-dropdown-personswitchList - -->
 <div class="dropdown-menu a-dropdown-personswitchList a-dropdownTriangle">
@@ -468,7 +478,7 @@
 		<nav class="a-globalNav">
 			<a href="../../&#x2F;patterns&#x2F;04-sider-01-forside-00-forside&#x2F;04-sider-01-forside-00-forside.html"> 
 <img src="..&#x2F;..&#x2F;images&#x2F;a-logo-white.svg" alt="Altinn logo" class="a-logo ">
- </a>
+ <span class="sr-only">Til forsiden</span></a>
 
 			  <button class="navbar-toggler hidden-sm-up" type="button" data-toggle="collapse" data-target="#exCollapsingNavbar2">
 			  </button>
@@ -494,7 +504,7 @@
 
       <div class="input-group-btn">
         <button class="btn btn-secondary" type="button">
-          <i class="material-icons a-input-icon">&#xE8B6;</i>
+          <i class="material-icons a-input-icon"><span class="sr-only">Utfør søk</span>&#xE8B6;</i>
         </button>
       </div>
 
@@ -532,7 +542,7 @@
 						<li class="hidden-sm-up"><a class="hvr-underline-from-center" href="#">om altinn</a></li>
 						<li class="hidden-sm-up"><a class="hvr-underline-from-center" href="#">hjelpesider</a></li>
 						<li class="hidden-sm-up">
-							<a href="tel:+4775006000" class="a-tel"><i class="material-icons">&#xE324;</i>  75 00 60 00</a>
+							<a href="tel:+4775006000" class="a-tel"><i class="material-icons">&#xE324;</i><span class="sr-only">Telefonnummer til Altinn kundestøtte</span>75 00 60 00</a>
 
 						</li>
 					</ul>
@@ -543,11 +553,13 @@
 </header> <!-- End .header -->
 
 
+	<section id="hovedinnhold" tabindex="-1">
+
 
 		<div class="jumbotron jumbotron-fluid a-jumbotron-header a-jumbotron-header-dark">
 		  <div class="container">
 				<div class="row">
-					<div class="col-sm-10 col-sm-offset-1 col-md-10 col-lg-8 col-lg-offset-2 col-xl-8 col-xl-offset-2">
+					<div class="col-sm-10 col-sm-offset-1 col-md-10 col-lg-8 col-lg-offset-2 col-xl-8 col-xl-offset-2" tabindex="0">
 						<p>
 							<span class="a-jumbotron-title"> Seint ute? Fristen går ut klokken 24.  </span> Du kan fortsatt rekke det!
 						</p>
@@ -585,7 +597,7 @@
 
       <div class="input-group-btn">
         <button class="btn btn-secondary" type="button">
-          <i class="material-icons a-input-icon">&#xE8B6;</i>
+          <i class="material-icons a-input-icon"><span class="sr-only">Utfør søk</span>&#xE8B6;</i>
         </button>
       </div>
 
@@ -602,36 +614,42 @@
 
 		<div class="row a-marginBottom-x5">
 			<div class="col-sm-8 col-sm-offset-2 col-lg-6 col-lg-offset-3">
-				<h2 class="a-textSize3">
+				<h2 class="a-textSize3" tabindex="0">
 					De fem siste skjemaene brukt av Nidar AS:
 
 				</h2>
 
 					
 	<ol class="a-item-list a-item-list-ordered">
+		<div class="a-dotted-line"></div>
 
-		<li class="a-item-list-item ">
+		<li class="a-item-list-item a-dotted a-clickable">
 			<a class="a-listItem-title">Samordnet registermelding</a>
+
 		</li>
 
 
-		<li class="a-item-list-item ">
+		<li class="a-item-list-item a-dotted a-clickable">
 			<a class="a-listItem-title">Selvangivelse for næringsdrivende</a>
+
 		</li>
 
 
-		<li class="a-item-list-item ">
+		<li class="a-item-list-item a-dotted a-clickable">
 			<a class="a-listItem-title">A-melding</a>
+
 		</li>
 
 
-		<li class="a-item-list-item ">
+		<li class="a-item-list-item a-dotted a-clickable">
 			<a class="a-listItem-title">Skattetrekksmelding/Melding om forskuddskatt</a>
+
 		</li>
 
 
-		<li class="a-item-list-item ">
+		<li class="a-item-list-item a-dotted a-clickable">
 			<a class="a-listItem-title">Merverdiavgift - alminnelig omsetningsoppgave. Med veldig lang tittel på dette punktet for å teste lange setninger.</a>
+
 		</li>
 
 
@@ -641,7 +659,7 @@
 		</div>
 
 		<div class="row a-marginTop-x5 a-marginBottom-x3">
-			<div class="col-sm-6 col-lg-4 col-lg-offset-2">
+			<div class="col-sm-6 col-lg-4 col-lg-offset-2" tabindex="0">
 
 				<figure class="a-mediaBlock">
 
@@ -652,7 +670,7 @@
 
 			</div>
 
-			<div class="col-sm-6 col-lg-4">
+			<div class="col-sm-6 col-lg-4" tabindex="0">
 				<figure class="a-mediaBlock">
 
 					<img src="../../images/placeholder.png" alt="Landscape Image" class="a-mediaBlock-illustration">
@@ -667,8 +685,6 @@
 
 		<!-- Begin Footer -->
 <footer class="a-footer">
-	<!-- Begin .container -->
-  <div class="container">
 
 		<div class="row">
 			<div class="col-lg-3 col-xl-offset-1 hidden-xs-down">
@@ -690,7 +706,7 @@
 
       <div class="input-group-btn">
         <button class="btn btn-secondary" type="button">
-          <i class="material-icons a-input-icon">&#xE8B6;</i>
+          <i class="material-icons a-input-icon"><span class="sr-only">Utfør søk</span>&#xE8B6;</i>
         </button>
       </div>
 
@@ -710,7 +726,7 @@
 							<i class="material-icons">&#xE7F1;</i> starte og drive bedrift</a></li>
 						<li><a class="hvr-underline-from-center" href="#">
 							<i class="fa fa-life-ring"></i> hjelpesider</a></li>
-						<li><a href="tel:+4775006000" class="a-tel"><i class="material-icons">&#xE324;</i>  75 00 60 00</a>
+						<li><a href="tel:+4775006000" class="a-tel"><i class="material-icons">&#xE324;</i><span class="sr-only">Telefonnummer til Altinn kundestøtte</span>75 00 60 00</a>
 </li>
 					</ul>
 
@@ -732,7 +748,7 @@
 						<li><a class="" href="#">
 							Cookies</a></li>
 						<li><a class="" href="#">
-								Personvern</a></li>
+								Personvern</a></li>  
 					</ul>
 					<div class="hidden-sm-up">
 						<button type="button" class="a-btn" >til toppen</button>  
@@ -742,15 +758,13 @@
 	    </div>
 
 		</div>
-
-	</div> <!-- End .container -->
 </footer>
 <!-- End Footer -->
 
 
-	</div>
+		</div>
 
-
+	</section>
 
 </div>
 
@@ -811,10 +825,10 @@
   }
 </script>
 
-<script id="pl-js-polyfill-insert-1473064291766">
+<script id="pl-js-polyfill-insert-1473237876621">
   (function() {
     if (self != top) {
-      var cb = '1473064291766';
+      var cb = '1473237876621';
       var js = [];
       if (typeof document !== 'undefined' && !('classList' in document.documentElement)) {
         js.push('styleguide/bower_components/classList.min.js');
@@ -824,10 +838,10 @@
   })();
 </script>
 
-<script id="pl-js-insert-1473064291766">
+<script id="pl-js-insert-1473237876621">
   (function() {
     if (self != top) {
-      var cb = '1473064291766';
+      var cb = '1473237876621';
       var js = [ { 'src': 'styleguide/bower_components/jwerty.min.js', 'dep': [ 'styleguide/js/patternlab-pattern.min.js' ] } ];
       scriptLoader.run(js,cb,'pl-js-insert');
     }
