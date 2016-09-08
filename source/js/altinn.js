@@ -90,6 +90,8 @@ window.altinnInit = function () {
         $('.a-collapseFilter').addClass('collapsed')
         $(this).removeClass('collapsed')
         if ($(this).parent().is('td')) {
+          $('.open').next().css('display', 'none')
+          $('.open').removeClass('open')
           $(actionRow).css('display', 'table-row')
           $(actionRow).prev().addClass('open')
         }
