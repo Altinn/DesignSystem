@@ -113,7 +113,7 @@ ul.no-decoration {
 	counter-reset: step;
 
 	li {
-		margin-bottom: 14px;
+		margin-bottom: 20px;
 		font-weight: bold;
 
 		&::before {
@@ -161,4 +161,60 @@ ul.no-decoration {
 	b {
 		padding-right: 5px;
 	}
+}
+
+
+/*------------------------------------*\
+    Unordered bullet list with connection
+\*------------------------------------*/
+
+ul.connectedBullets {
+    padding-left: 0;
+    margin-top: -1px;
+}
+ul.connectedBullets li {
+    padding-left: 0;
+    margin-bottom: $space-x2;
+    list-style: none;
+}
+
+ul.connectedBullets li {
+    position:relative;
+    margin-bottom: 0;
+    padding-bottom: $space-x2;
+}
+
+ul.connectedBullets li:after {
+	content: '';
+	position: absolute;
+	left: -36px;
+  top: -1px;
+	font-size: 39px;
+	font-weight: bold;
+	height: 25px;
+	width: 25px;
+	border: 3px solid $blue;
+	border-radius: 50%;
+	background: $grey-light;
+}
+
+ul.connectedBullets li:before {
+    /* lines */
+    content:"";
+    position: absolute;
+
+		left: -25px;
+    border-left: 3px solid $blue;
+    height: 100%;
+    width: 3px;
+}
+
+ul.connectedBullets li:first-child:before {
+   /* first li's line */
+   top: 6px; /* moves the line down so that it disappears under the bullet. Adjust manually */
+}
+
+ul.connectedBullets li:last-child:before {
+    /* last li's line */
+   height: 6px; /* shorten the line so it goes only up to the bullet. Is equal to first-child:before's top */
 }
