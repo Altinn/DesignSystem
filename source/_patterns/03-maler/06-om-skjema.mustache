@@ -1,0 +1,44 @@
+<div class="page" id="{{page-id}}">
+	{{> organismer-header }}
+	<section id="{{section-id}}" class="container" tabindex="-1">
+		<div class="row">
+			<div class="col-sm-12 col-lg-6 col-lg-offset-3 a-paddingTop-x3 a-paddingBottom-x3">
+				{{> atomer-sok-stor }}
+			</div>
+		</div>
+		<div class="a-card a-main-card">
+			{{#main-card-content}}
+					<div class="a-textSize2">{{main-card-title}} <span>{{main-card-code}}</span></div>
+					<p class="subtext">Fra {{#main-card-links}}{{> atomer-link}}{{/main-card-links}}</p>
+					<b>{{main-card-secondary-title}}</b>
+					<p>{{{main-card-description}}}</p>
+					{{> atomer-knapp(button-class: "a-btn a-btn-success", button-text: "Start utfylling") }}
+			{{/main-card-content}}
+		</div>
+		<div class="row">
+			<div class="col-sm-12 col-lg-10 col-lg-offset-1 a-paddingTop-x3 a-paddingBottom-x3">
+				<h2>{{{ header-2 }}}</h2>
+				{{> molekyler-trekkspill }}
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-sm-6 col-lg-5 col-lg-offset-1 a-paddingTop-x3 a-paddingBottom-x3">
+				<h2>{{{ header-3 }}}</h2>
+				{{{ help }}} <a href="#" class="{{{ help-link-cls }}}">{{{ help-link-text }}}</a>{{{ help-link-icon }}}
+			</div>
+			<div class="col-sm-6 col-lg-5 col-lg-offset-0 a-paddingTop-x3 a-paddingBottom-x3">
+				<h2>{{{ header-4 }}}</h2>
+				<a href="{{{ help-tel-href }}}" class="a-btn a-btn-withIcon">
+					<i class="material-icons a-btn-withIcon-icon">{{{ help-tel-icon }}}</i>
+					{{{ help-tel-text }}}
+				</a>
+				<br />
+				<a href="#" class="a-btn a-btn-withIcon">
+					<i class="material-icons a-btn-withIcon-icon">{{{ help-mail-icon }}}</i>
+					{{{ help-mail-text }}}
+				</a>
+			</div>
+		</div>
+		{{> organismer-footer }}
+	</section>
+</div>

@@ -1,6 +1,28 @@
 /* globals anchors, $, localStorage */
 window.altinnInit = function () {
-  var bpLarge = 992; var options
+  var bpLarge = 992; var options; var ctrlDown = false; var ctrlKey = 17
+  var cmdKey = 91; var aKey = 65
+  var SelectText = function (element) {
+    var doc = document; var text = $(element)
+    var range, selection
+    text.each(function (index, text) {
+      if ($(text).is(':visible')) {
+        if (doc.body.createTextRange) {
+          range = document.body.createTextRange(); range.moveToElementText(text)
+          range.select()
+        } else if (window.getSelection) {
+          selection = window.getSelection(); range = document.createRange()
+          range.selectNodeContents(text); selection.removeAllRanges()
+          selection.addRange(range)
+        }
+      }
+    })
+  }
+  var CustomShortcut = function (e) {
+    if (ctrlDown && (e.keyCode === aKey)) {
+      e.preventDefault(); e.stopPropagation(); SelectText('.language-markup code')
+    }
+  }
   // Toggle elements with the same parent + add 'open'-class
   $(function () {
     $('.js-toggle').click(function () {
@@ -68,6 +90,8 @@ window.altinnInit = function () {
         $('.a-collapseFilter').addClass('collapsed')
         $(this).removeClass('collapsed')
         if ($(this).parent().is('td')) {
+          $('.open').next().css('display', 'none')
+          $('.open').removeClass('open')
           $(actionRow).css('display', 'table-row')
           $(actionRow).prev().addClass('open')
         }
@@ -220,8 +244,28 @@ window.altinnInit = function () {
       } else $(this).html($(prefix + $(this).attr('data-refclass')).html())
     })
   })
-  // Add anchors to all h1s, h2s, h3s and h4s inside of .ap-content.
+  // Add anchors to all h1s, h2s, h3s and h4s inside of .ap-content
   anchors.options.placement = 'left'; anchors.options.class = 'a-anchor'
   anchors.add('.ap-content h1, .ap-content h2, .ap-content h3, .ap-content h4')
+  // Select all within code box
+  $(document).keydown(function (e) {
+    if (e.keyCode === ctrlKey || e.keyCode === cmdKey) ctrlDown = true
+  }).keyup(function (e) {
+    if (e.keyCode === ctrlKey || e.keyCode === cmdKey) ctrlDown = false
+  })
+  $('body').on('click', '.sg-pattern-extra-toggle', function () {
+    setTimeout(function () {
+      $('.language-markup').off('keydown', CustomShortcut).attr('tabindex', '1')
+        .on('keydown', CustomShortcut)
+    }, 500)
+  })
+  // Inset varation elements
+  $(function () {
+    $('.sg-pattern').each(function () {
+      if ($(this).attr('id').indexOf('♺') !== -1) {
+        $(this).css('margin-left', '40px')
+      }
+    })
+  })
 }
 window.altinnInit()
