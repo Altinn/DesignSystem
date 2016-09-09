@@ -1,3 +1,4 @@
+@charset "UTF-8";
 /*------------------------------------*    $VARIABLES
 \*------------------------------------*/
 /*------------------------------------*    $VARIABLES
@@ -5038,6 +5039,14 @@ html.a-modal-background-error {
 .sg-tabs-list li.sg-tab-title-active a {
   background: #f5f2f0; }
 
+.stack a {
+  display: block; }
+
+body pre.language-markup {
+  overflow-x: hidden !important; }
+  body pre.language-markup code {
+    white-space: pre-line !important; }
+
 /*------------------------------------*    $MAIN CONTENT AREA
 \*------------------------------------*/
 /* Links */
@@ -5594,7 +5603,8 @@ fieldset[disabled] .a-switch input[type="checkbox"] + label {
     border: 2px solid #1eaef7;
     border-left: 0;
     padding: 4px 0px;
-    height: 36px; }
+    height: 36px;
+    border-radius: 0; }
   .a-form-group .form-control.form-control-noleft {
     border-radius: 0;
     border-left: 2px solid #1eaef7;
@@ -6770,6 +6780,21 @@ fieldset[disabled] .a-switch input[type="checkbox"] + label {
   width: 100%;
   margin-bottom: 0; }
 
+.placeholder {
+  width: 256px;
+  float: left;
+  margin-right: 30px; }
+  @media all and (max-width: 768px) {
+    .placeholder {
+      width: 128px; } }
+  @media all and (max-width: 544px) {
+    .placeholder {
+      float: none;
+      margin-left: auto;
+      margin-right: auto;
+      display: block;
+      margin-bottom: 30px; } }
+
 /*------------------------------------*    $GLOBAL NAVIGATION (in header)
 \*------------------------------------*/
 .a-globalNav .navbar-toggler {
@@ -7843,7 +7868,8 @@ fieldset[disabled] .a-switch input[type="checkbox"] + label {
   background: transparent;
   color: #000;
   padding: 6px 12px;
-  margin-bottom: 0; }
+  margin-bottom: 0;
+  display: block; }
   .a-btn-withIcon:hover, .a-btn-withIcon:active, .a-btn-withIcon:focus {
     background: transparent;
     color: #1eaef7;
@@ -8025,6 +8051,19 @@ fieldset[disabled] .a-switch input[type="checkbox"] + label {
     margin-bottom: 24px; }
     .a-card .a-textSize3 span {
       font-family: 'DIN-reg'; }
+  .a-card.transparent {
+    background: transparent;
+    box-shadow: none; }
+    .a-card.transparent p {
+      display: inline; }
+    .a-card.transparent p:before, .a-card.transparent p:after {
+      content: "\A\A";
+      display: block; }
+    .a-card.transparent p:after {
+      margin-bottom: 20px; }
+    @media all and (max-width: 768px) {
+      .a-card.transparent .a-paddingTop-x4 {
+        padding-top: 0px; } }
 
 .a-main-card .a-textSize2 {
   margin-bottom: 6px;
@@ -8118,6 +8157,24 @@ ul.no-decoration {
 .a-box-button-list {
   list-style: none; }
 
+/*------------------------------------*    $Bullet list
+\*------------------------------------*/
+ul.a-bullet-list {
+  color: #000;
+  list-style: none; }
+  ul.a-bullet-list li {
+    position: relative;
+    margin-bottom: 24px;
+    padding-left: 24px; }
+  ul.a-bullet-list li:before {
+    content: "•";
+    font-size: 36px;
+    padding-right: 5px;
+    color: #1eaef7;
+    top: -14px;
+    left: -3px;
+    position: absolute; }
+
 /*------------------------------------*    Ordered list with circled numbers
 \*------------------------------------*/
 .a-circle-list {
@@ -8126,7 +8183,7 @@ ul.no-decoration {
   list-style-type: none;
   counter-reset: step; }
   .a-circle-list li {
-    margin-bottom: 20px;
+    margin-bottom: 18px;
     font-weight: bold; }
     .a-circle-list li::before {
       counter-increment: step;
@@ -8145,7 +8202,7 @@ ul.no-decoration {
 .a-icon-list {
   list-style-type: none; }
   .a-icon-list li {
-    padding-bottom: 15px; }
+    margin-bottom: 18px; }
   .a-icon-list a {
     border: none;
     color: #000; }
@@ -8164,9 +8221,12 @@ ul.connectedBullets {
   margin-top: -1px; }
 
 ul.connectedBullets li {
-  padding-left: 0;
+  padding-left: 36px;
   margin-bottom: 24px;
   list-style: none; }
+  @media all and (min-width: 768px) {
+    ul.connectedBullets li {
+      padding-left: 0; } }
 
 ul.connectedBullets li {
   position: relative;
@@ -8176,7 +8236,7 @@ ul.connectedBullets li {
 ul.connectedBullets li:after {
   content: '';
   position: absolute;
-  left: -36px;
+  left: 0px;
   top: -1px;
   font-size: 39px;
   font-weight: bold;
@@ -8185,15 +8245,21 @@ ul.connectedBullets li:after {
   border: 3px solid #1eaef7;
   border-radius: 50%;
   background: #efefef; }
+  @media all and (min-width: 768px) {
+    ul.connectedBullets li:after {
+      left: -36px; } }
 
 ul.connectedBullets li:before {
   /* lines */
   content: "";
   position: absolute;
-  left: -25px;
+  left: 12px;
   border-left: 3px solid #1eaef7;
   height: 100%;
   width: 3px; }
+  @media all and (min-width: 768px) {
+    ul.connectedBullets li:before {
+      left: -25px; } }
 
 ul.connectedBullets li:first-child:before {
   /* first li's line */
@@ -8759,11 +8825,14 @@ a.a-modal-close {
   .a-text ol.no-decoration li {
     margin: 0; }
 
+.a-text ul.a-bullet-list li {
+  margin-bottom: 18px; }
+
 .a-text ol.a-circle-list li {
-  margin-bottom: 20px; }
+  margin-bottom: 24px; }
 
 .a-text ul.a-icon-list li {
-  padding-bottom: 15px; }
+  margin-bottom: 18px; }
 
 .a-text ul.connectedBullets li {
   margin: 0; }
