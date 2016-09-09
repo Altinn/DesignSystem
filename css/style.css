@@ -5279,9 +5279,8 @@ p {
   line-height: 20px; }
 
 /* Blockquote */
-blockquote {
+.a-blockquote {
   font-family: "DIN-light";
-  font-style: italic;
   border-left: none;
   text-align: left;
   color: #000;
@@ -5289,19 +5288,26 @@ blockquote {
   line-height: 28px;
   padding-left: 0em;
   margin: 40px 0;
-  padding: 30px 50px;
+  padding: 0px 50px;
   max-width: 760px;
-  background: #efefef;
-  border-left: 5px solid #B3B3B3; }
+  border-left: 6px solid #fff; }
   @media all and (max-width: 768px) {
-    blockquote {
+    .a-blockquote {
       padding: 30px 20px;
       font-size: 16px; } }
-  blockquote p {
+  .a-blockquote p {
     font-size: 18px;
     line-height: 28px; }
-  blockquote .citation {
-    font-size: 18px; }
+  .a-blockquote .a-citation {
+    font-size: 18px;
+    font-family: 'din-bold';
+    font-style: normal; }
+  @media all and (min-width: 768px) {
+    .a-blockquote.a-blockquote-right {
+      float: right;
+      max-width: 50%;
+      margin-left: 5%;
+      margin-top: 0; } }
 
 blockquote:before, blockquote:after {
   content: ''; }
@@ -6780,21 +6786,6 @@ fieldset[disabled] .a-switch input[type="checkbox"] + label {
   width: 100%;
   margin-bottom: 0; }
 
-.placeholder {
-  width: 256px;
-  float: left;
-  margin-right: 30px; }
-  @media all and (max-width: 768px) {
-    .placeholder {
-      width: 128px; } }
-  @media all and (max-width: 544px) {
-    .placeholder {
-      float: none;
-      margin-left: auto;
-      margin-right: auto;
-      display: block;
-      margin-bottom: 30px; } }
-
 /*------------------------------------*    $GLOBAL NAVIGATION (in header)
 \*------------------------------------*/
 .a-globalNav .navbar-toggler {
@@ -8031,11 +8022,11 @@ fieldset[disabled] .a-switch input[type="checkbox"] + label {
 
 .a-mediaBlock {
   text-align: center; }
-  .a-mediaBlock .a-mediaBlock-illustration {
+  .a-mediaBlock img {
     width: 40%;
     margin: 0 auto; }
     @media all and (min-width: 544px) {
-      .a-mediaBlock .a-mediaBlock-illustration {
+      .a-mediaBlock img {
         width: 60%; } }
   .a-mediaBlock .a-mediaBlock-caption {
     text-align: left;
@@ -8064,6 +8055,21 @@ fieldset[disabled] .a-switch input[type="checkbox"] + label {
     @media all and (max-width: 768px) {
       .a-card.transparent .a-paddingTop-x4 {
         padding-top: 0px; } }
+
+.a-card-image img {
+  width: 256px;
+  float: left;
+  margin-right: 30px; }
+  @media all and (max-width: 768px) {
+    .a-card-image img {
+      width: 128px; } }
+  @media all and (max-width: 544px) {
+    .a-card-image img {
+      float: none;
+      margin-left: auto;
+      margin-right: auto;
+      display: block;
+      margin-bottom: 30px; } }
 
 .a-main-card .a-textSize2 {
   margin-bottom: 6px;
@@ -8270,6 +8276,9 @@ ul.connectedBullets li:last-child:before {
   /* last li's line */
   height: 6px;
   /* shorten the line so it goes only up to the bullet. Is equal to first-child:before's top */ }
+
+.business ul.connectedBullets li:after {
+  background: #cff0ff; }
 
 .tooltip.a-tooltip {
   opacity: 1; }
