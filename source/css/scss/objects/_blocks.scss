@@ -110,6 +110,30 @@
 			font-family: 'DIN-reg';
 		}
 	}
+
+	&.transparent {
+		background: transparent;
+		box-shadow: none;
+
+		p {
+			display: inline
+		}
+
+		p:before, p:after {
+			content: "\A\A";
+			display: block
+		}
+
+		p:after {
+			margin-bottom: 20px
+		}
+
+		@media all and (max-width: $bp-med) {
+			.a-paddingTop-x4 {
+				padding-top: 0px
+			}
+		}
+	}
 }
 
 .a-main-card {
