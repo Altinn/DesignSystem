@@ -77,7 +77,7 @@ window.altinnInit = function () {
   })
   // Handle filter toggle
   $(function () {
-    $('.a-collapseFilter').on('mouseup', function () {
+    $('.a-collapseTitle').on('mouseup', function () {
       var actionRow = $(this).attr('data-target')
       if (!$(this).hasClass('collapsed')) {
         $(this).addClass('collapsed')
@@ -87,7 +87,7 @@ window.altinnInit = function () {
         }
       } else {
         $('.a-collapseContent').removeClass('in')
-        $('.a-collapseFilter').addClass('collapsed')
+        $('.a-collapseTitle').addClass('collapsed')
         $(this).removeClass('collapsed')
         if ($(this).parent().is('td')) {
           $('.open').next().css('display', 'none')
