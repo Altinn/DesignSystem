@@ -103,6 +103,32 @@ ul.no-decoration {
 }
 
 /*------------------------------------*\
+    $Bullet list
+\*------------------------------------*/
+
+ul.a-bullet-list {
+	color: $black;
+	list-style: none;
+
+	li {
+		position: relative;
+		margin-bottom: $space-x2;
+		padding-left: $space-x2;
+	}
+
+	li:before {
+		content: "•";
+   	font-size: 36px;
+   	padding-right: 5px;
+		color: $blue;
+		top: -14px;
+    left: -3px;
+		position: absolute;
+	}
+}
+
+
+/*------------------------------------*\
     Ordered list with circled numbers
 \*------------------------------------*/
 
@@ -113,7 +139,7 @@ ul.no-decoration {
 	counter-reset: step;
 
 	li {
-		margin-bottom: 20px;
+		margin-bottom: $space-and-half;
 		font-weight: bold;
 
 		&::before {
@@ -133,6 +159,8 @@ ul.no-decoration {
 	}
 }
 
+
+
 /*------------------------------------*\
     Unordered list with icons
 \*------------------------------------*/
@@ -141,7 +169,7 @@ ul.no-decoration {
 	list-style-type: none;
 
 	li {
-		padding-bottom: 15px;
+		margin-bottom: $space-and-half;
 	}
 
 	a {
@@ -173,9 +201,13 @@ ul.connectedBullets {
     margin-top: -1px;
 }
 ul.connectedBullets li {
-    padding-left: 0;
+    padding-left: 36px;
     margin-bottom: $space-x2;
     list-style: none;
+
+		@media all and (min-width: $bp-med) {
+			padding-left: 0;
+		}
 }
 
 ul.connectedBullets li {
@@ -187,7 +219,7 @@ ul.connectedBullets li {
 ul.connectedBullets li:after {
 	content: '';
 	position: absolute;
-	left: -36px;
+	left: 0px;
   top: -1px;
 	font-size: 39px;
 	font-weight: bold;
@@ -196,17 +228,24 @@ ul.connectedBullets li:after {
 	border: 3px solid $blue;
 	border-radius: 50%;
 	background: $grey-light;
+
+	@media all and (min-width: $bp-med) {
+		left: -36px;
+	}
 }
 
 ul.connectedBullets li:before {
     /* lines */
     content:"";
     position: absolute;
-
-		left: -25px;
+		left: 12px;
     border-left: 3px solid $blue;
     height: 100%;
     width: 3px;
+
+		@media all and (min-width: $bp-med) {
+			left: -25px;
+		}
 }
 
 ul.connectedBullets li:first-child:before {
@@ -217,4 +256,13 @@ ul.connectedBullets li:first-child:before {
 ul.connectedBullets li:last-child:before {
     /* last li's line */
    height: 6px; /* shorten the line so it goes only up to the bullet. Is equal to first-child:before's top */
+}
+
+
+
+.business {
+	ul.connectedBullets li:after {
+		background: $blue-light;
+
+	}
 }

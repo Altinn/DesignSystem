@@ -190,9 +190,8 @@ p {
 
 /* Blockquote */
 
-blockquote {
+.a-blockquote {
     font-family: $font-secondary;
-    font-style: italic;
     border-left:none;
     text-align: left;
     color: $black;
@@ -200,10 +199,9 @@ blockquote {
     line-height: 28px;
     padding-left: 0em;
     margin: 40px 0;
-    padding: 30px 50px;
+    padding: 0px 50px;
     max-width: 760px;
-    background: $grey-light;
-    border-left: 5px solid $grey-medium;
+    border-left: 6px solid #fff;
 
 
     @media all and (max-width: $bp-med) {
@@ -216,8 +214,20 @@ blockquote {
         line-height: 28px;
     }
 
-    .citation {
+    .a-citation {
         font-size: 18px;
+        font-family: 'din-bold';
+        font-style: normal;
+    }
+
+    &.a-blockquote-right {
+
+      @media all and (min-width: $bp-med) {
+        float: right;
+        max-width: 50%;
+        margin-left: 5%;
+        margin-top: 0;
+      }
     }
 
 }
