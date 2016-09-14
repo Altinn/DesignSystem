@@ -224,9 +224,9 @@ window.altinnInit = function () {
   })
   // Repair drilldown navigation (keyboard/screen reader)
   $(function () {
-    $('.a-colnav-item').attr('tabindex', '0').attr('href', '#')
-    $('.a-colnav-item-second').attr('tabindex', '0').attr('href', '#')
-    $('.a-colnav-item-third').attr('tabindex', '0').attr('href', '#')
+    $('.a-colnav-item').attr('tabindex', '0')
+    $('.a-colnav-item-second').attr('tabindex', '0')
+    $('.a-colnav-item-third').attr('tabindex', '0')
     $('.a-colnav-item').on('focus', function () {
       if ($('.a-colnav-secondLevel.submenu.is-active').length === 1) {
         $(this).off('keydown.zf.drilldown')

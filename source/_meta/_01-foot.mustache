@@ -52,7 +52,7 @@
     <script>
       $(document).foundation();
       var smoothStateMod = function () {
-        $('#page').find('a').on('click', function (e) {
+        $('.a-page').find('a').on('click', function (e) {
           if (location.pathname.replace(/\//g, '') === $(this).attr('href').replace(/\//g, '').replace(/\.\./g, '')) {
             e.preventDefault(); e.stopPropagation(); e.stopImmediatePropagation()
             return false
@@ -94,7 +94,7 @@
           smoothStateMod()
         }
       };
-      var smoothState = $('#page').smoothState(options).data('smoothState');
+      var smoothState = $('.a-page').smoothState(options).data('smoothState');
       smoothStateMod()
     </script>
 
