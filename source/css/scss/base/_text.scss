@@ -306,9 +306,26 @@ abbr {
   font-family: 'DIN-bold';
   border-bottom: none;
   font-size: 18px;
+  position: relative;
 
   &:hover {
     border: none;
+  }
+
+  &:focus {
+    box-shadow: none;
+    border:none;
+  }
+
+  &:before {
+    content: "";
+    width: calc(100% + 40px);
+    min-height: 48px;
+    position: absolute;
+    left: -20px;
+    top: -11px;
+    cursor: pointer;
+    z-index: -1;
   }
 
   i {

@@ -3,7 +3,7 @@
 \*------------------------------------*/
 
 .a-footer {
-  border-top: 1px solid $grey-medium;
+  border-top: 1px solid $grey-light;
   margin-top: $space-x4;
   padding-top: $space-x4;
   margin-bottom: $space-x6;
@@ -84,6 +84,22 @@
 				font-size: 14px;
 				font-family: 'DIN-reg';
 				color: $black;
+        position: relative;
+
+        &:focus {
+          box-shadow: none;
+        }
+
+        &:before {
+          content: "";
+          width: calc(100% + 24px);
+          min-height: 44px;
+          position: absolute;
+          left: -12px;
+          top: -15px;
+          cursor: pointer;
+          z-index: -1;
+        }
 
 				i {
 					vertical-align: middle;

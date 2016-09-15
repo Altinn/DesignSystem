@@ -56,6 +56,22 @@ ul.no-decoration {
 		// Because list bullets is going to be INSIDE, and we cannot have a as block (firefox-bug), we need to add padding to li instead of a.
 		.a-item-list-item {
 			padding: 5px 0;
+
+			a {
+				position: relative;
+				box-shadow: none !important;
+				&:before {
+					content: "";
+			    width: 117%;
+			    min-height: 36px;
+			    position: absolute; 
+			    left: -15px;
+			    top: -7px;
+			    cursor: pointer;
+			    z-index: -1;
+				}
+			}
+
 		}
 
     	.a-listItem-title {

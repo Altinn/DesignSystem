@@ -2,65 +2,82 @@
     $BUTTONS
 \*------------------------------------*/
 
+
+button {
+	&:before {
+		box-shadow: none !important;
+	}
+}
 .a-btn {
-		display: inline-block;
-    font-weight: normal;
-    position: relative;
-    cursor: pointer;
-    border: 0px solid transparent;
-    padding: $space-half $space-x2;
-    font-size: 16px;
-    line-height: 24px;
-    background: $blue;
-    color: $black;
-    font-family: 'DIN-reg';
-    margin-bottom: 12px;
+	display: inline-block;
+  font-weight: normal;
+  position: relative;
+  cursor: pointer;
+  border: 0px solid transparent;
+  padding: $space-half $space-x2;
+  font-size: 16px;
+  line-height: 24px;
+  background: $blue;
+  color: $black;
+  font-family: 'DIN-reg';
+  margin-bottom: 12px;
 
 
-    &:hover {
-        background: $blue-hover-color;
-        text-decoration: none;
-        color: $black;
-        border: 0;
-    }
+  &:hover {
+      background: $blue-hover-color;
+      text-decoration: none;
+      color: $black;
+      border: 0;
+  }
 
-    &:focus{
-        text-decoration: none;
-        outline: 0;
-        background: $black;
-        color: $white;
-    }
+  &:focus{
+      text-decoration: none;
+      outline: 0;
+      background: $black;
+      color: $white;
+			border-bottom: none;
+  }
 
-    &:active,
-    &.active {
-        background-image: none;
-        outline: 0;
-        @include box-shadow(inset 0 3px 5px rgba(0,0,0,.125));
-        background: $blue;
-        color: $black;
-    }
+  &:active,
+  &.active {
+      background-image: none;
+      outline: 0;
+      @include box-shadow(inset 0 3px 5px rgba(0,0,0,.125));
+      background: $blue;
+      color: $black;
+  }
 
-    &.disabled,
-    &:disabled {
-        cursor: $cursor-disabled;
-        background-color: $white;
-        color: $black;
-        @include box-shadow(none);
-				box-shadow: 0px 0px 0px 1px white inset;
-				background-image: url('../images/disabled-background.svg');
-    }
+  &.disabled,
+  &:disabled {
+      cursor: $cursor-disabled;
+      background-color: $white;
+      color: $black;
+      @include box-shadow(none);
+			box-shadow: 0px 0px 0px 1px white inset;
+			background-image: url('../images/disabled-background.svg');
+  }
 
-    &:after {
-        // Making the touch target area bigger without affecting the layout
-        content: "";
-        width: 100%;
-        height: 48px;
-        position: absolute;
-        left: 0;
-        top: -6px;
-    }
+  &:after {
+      // Making the touch target area bigger without affecting the layout
+      content: "";
+      width: 100%;
+      height: 48px;
+      position: absolute;
+      left: 0;
+      top: -6px;
+  }
+
+  &:before {
+    content: "";
+    width: auto;
+    min-height: auto;
+    position: absolute;
+    left: 0;
+    top: 0;
+  }
 
 }
+
 
 // disabled on business theme
 
@@ -115,6 +132,9 @@
 			border: 2px solid $blue-darker;
 			color: $white;
 	}
+	&:focus {
+			border: 2px solid $blue-darker;
+	}
 
 	@media all and (min-width: $bp-large) {
 		font-size: 36px;
@@ -129,7 +149,13 @@
 	text-align: left;
 
 	&:hover {
-			background: darken($blue-light, 5%);
+		background: darken($blue-light, 5%);
+	}
+
+	&:focus {
+		background: darken($blue-light, 5%);
+		color: $black;
+		box-shadow: 1px 1px 4px 0px rgba(137, 137, 137, 0.5);
 	}
 
 	.a-btn-shadow-icon {
@@ -145,6 +171,9 @@
 	padding: $space-half $space;
 	margin-bottom: 0;
 	display: block;
+	position: relative;
+	z-index: 1;
+	box-shadow: none !important;
 
 	&:hover,
 	&:active,
@@ -153,6 +182,17 @@
 			color: $blue;
 			border: none;
 	}
+
+	&:before {
+    content: "";
+    width: calc(100% + 48px);
+    min-height: 48px;
+    position: absolute;
+    left: -24px;
+    top: -8px;
+    cursor: pointer;
+    z-index: -1;
+  }
 
 	.a-btn-withIcon-icon {
 		font-weight: bold;
@@ -165,24 +205,42 @@
 
 // Make button look like link
 
-.a-btn-link,
-.a-btn-link:active,
-.a-btn-link:focus {
-    background: none;
-    border: none;
-    color: $black;
-    padding: 0;
-    padding-bottom: 2px;
-    border-bottom: 2px solid $link-color;
-    text-decoration: none;
-    cursor: pointer;
+.a-btn-link {
+  background: none;
+  border: none;
+  color: $black;
+  padding: 0;
+  padding-bottom: 2px;
+  border-bottom: 2px solid $link-color;
+  text-decoration: none;
+  cursor: pointer;
+	position: relative;
+	z-index: 1;
+	box-shadow: none !important;
 }
 
-.a-btn-link:hover,
-.a-btn-link:focus {
-    text-decoration: none;
-    border-bottom: 2px solid $blue-dark;
-    color: $black;
+.a-btn-link:hover {
+  text-decoration: none;
+  border-bottom: 2px solid $blue-dark;
+  color: $black;
+}
+
+button.a-btn-link:focus {
+  box-shadow: inset rgba(30, 174, 247, 0.125) 0px -1000px 0px;
+}
+button.a-btn-link:focus:before {
+  box-shadow: inset rgba(30, 174, 247, 0.125) 0px -1000px 0px;
+}
+
+.a-btn-link:before {
+	content: "";
+	width: calc(100% + 48px);
+	min-height: 48px;
+	position: absolute;
+	left: -24px;
+	top: -15px;
+	cursor: pointer;
+	z-index: -1;
 }
 
 // add btn
@@ -194,9 +252,11 @@
     color: #000;
     text-align: left;
 
-    &:hover {
+    &:hover,
+		&:focus {
         background: $blue-light;
         border: 2px dotted $blue;
+				color: $black;
     }
 
     .a-btn-action-icon,

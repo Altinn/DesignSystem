@@ -39,6 +39,7 @@
 
 	.nav-link {
     padding: 12px 8px;
+		border-radius: 0;
 
 		@media all and (min-width: $bp-small) {
 			padding: 12px 3px;
@@ -288,6 +289,29 @@
     $GLOBAL NAVIGATION (in header)
 \*------------------------------------*/
 .a-globalNav {
+	.a-globalNav-logo {
+		float: left;
+		border: none;
+		position: relative;
+		display: block;
+		z-index: 1;
+
+		&:focus {
+			border: none;
+			box-shadow: none !important;
+		}
+
+		&:before {
+		  content: "";
+		  width: 124%;
+		  height: 48px;
+		  position: absolute;
+		  left: -11%;
+		  top: -10px;
+		  cursor: pointer;
+		  z-index: -1;
+		}
+	}
 	.navbar-toggler {
     background: $blue-dark;
     color: $white;
