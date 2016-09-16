@@ -217,7 +217,9 @@ fieldset[disabled] .a-switch input[type="checkbox"] + label {
 	.c-input {
 	    padding-left: 30px;
 			margin-bottom: 12px;
-			display: inline-block;
+			display: inline !important;
+      padding-top: 4px;
+      padding-bottom: 4px;
 	}
 	.c-input > input:checked ~ .c-indicator {
 	    color: #fff;
@@ -230,12 +232,16 @@ fieldset[disabled] .a-switch input[type="checkbox"] + label {
 
   input[type="radio"]:focus+span {
     width: 100%;
-    display: block;
+    display: inline;
     height: 24px;
     position: absolute;
     background: rgba(30, 174, 247, 0.125);
     margin-left: -18px;
     margin-top: -1px;
+  }
+
+  .c-input::after {
+    margin-bottom: 12px !important;
   }
 
 	.c-input > input:focus ~ .c-indicator {
