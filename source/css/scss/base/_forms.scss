@@ -131,8 +131,13 @@ textarea {
 		padding-left: 36px;
 	}
 
-  input[type="checkbox"]:focus {
-    background: red;
+  input[type="checkbox"]:focus+span {
+    width: 100%;
+    display: block;
+    height: 24px;
+    position: absolute;
+    background: rgba(30, 174, 247, 0.125);
+    margin-left: 12px;
   }
 
 
@@ -172,6 +177,9 @@ fieldset[disabled] .a-switch input[type="checkbox"] + label {
   border: 2px dotted #1eaef7;
 }
 
+.a-switch input[type="checkbox"]:focus + label {
+  background: rgba(30, 174, 247, 0.125) !important;
+}
 .a-switch input[type="checkbox"]:checked + label {
   background-color: rgba(30, 174, 247, 0.2);
   border-radius: 36px;
@@ -219,6 +227,16 @@ fieldset[disabled] .a-switch input[type="checkbox"] + label {
     	top: -1px;
     	border: 2px solid $blue;
 	}
+
+  input[type="radio"]:focus+span {
+    width: 100%;
+    display: block;
+    height: 24px;
+    position: absolute;
+    background: rgba(30, 174, 247, 0.125);
+    margin-left: -18px;
+    margin-top: -1px;
+  }
 
 	.c-input > input:focus ~ .c-indicator {
       // box-shadow: 0 0 0 .075rem #fff, 0 0 0 .2rem $blue-light;
