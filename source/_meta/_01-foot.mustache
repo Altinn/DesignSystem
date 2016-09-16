@@ -1,0 +1,102 @@
+    <!--DO NOT REMOVE-->
+    {{{ patternLabFoot }}}
+
+
+    <!-- Javascript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+
+
+	   <!-- Jquery library -->
+    <script src="../../js/jquery.min.js"></script>
+
+    <!-- TETHER: Bootstrap need this? -->
+    <script src="../../js/tether.min.js"></script>
+
+    <!-- BOOTSTRAP
+    http://v4-alpha.getbootstrap.com/getting-started/introduction/ -->
+    <script src="../../js/bootstrap.min.js"></script>
+
+    <!-- CODE PRETTIFY: Prettify code snippets in HTML -->
+    <script src="https://cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js?lang=css&amp;skin=sunburst"></script>
+
+    <script>
+      $('.html-escape').each(function () {
+        $(this).text($(this).html())
+      })
+    </script>
+
+    <!-- VALIDATOR: Used for input field feedback
+    http://1000hz.github.io/bootstrap-validator/#validator-usage -->
+    <script src="../../js/validator.min.js"></script>
+
+    <!-- SMOOTH STATE: Prevent links from triggering a full page load
+    https://github.com/miguel-perez/smoothState.js -->
+    <script src="../../js/jquery.smoothState.min.js"></script>
+
+    <!-- ANCHOR LINKS: Generate deep anchor links on titles
+    http://bryanbraun.github.io/anchorjs/#basic-link-left -->
+    <script src="../../js/anchor.min.js"></script>
+
+    <!-- Foundation Interchange
+    http://foundation.zurb.com/sites/docs/interchange.html  -->
+    <script src="../../js/foundationInterchange.min.js"></script>
+
+    <!-- Foundation Responsive menu-->
+    <script src="../../js/foundationNavigation.min.js"></script>
+
+    <!-- Altinn custom javascript -->
+    <script src="../../js/altinn.js"></script>
+
+
+    <script>
+      $(document).foundation();
+      var smoothStateMod = function () {
+        $('#smoothState').find('a').on('click', function (e) {
+          if (location.pathname.replace(/\//g, '') === $(this).attr('href').replace(/\//g, '').replace(/\.\./g, '')) {
+            e.preventDefault(); e.stopPropagation(); e.stopImmediatePropagation()
+            return false
+          } else if ($(this).attr('href') !== '#') {
+            e.preventDefault(); e.stopPropagation(); e.stopImmediatePropagation()
+            smoothState.load($(this).attr('href'));
+          }
+        })
+      }
+      var options = {
+        prefetch: true,
+        debug: true,
+        anchors: 'blink',
+        cacheLength: 9,
+        onStart: {
+          duration: 0, // Duration of our animation
+          render: function ($container) {
+            // Add your CSS animation reversing class
+            $container.addClass('is-exiting');
+
+            // Restart your animation
+            smoothState.restartCSSAnimations();
+          }
+        },
+        onReady: {
+          duration: 0,
+          render: function ($container, $newContent) {
+            // Remove your CSS animation reversing class
+            $container.removeClass('is-exiting');
+
+            // Inject the new content
+            $container.html($newContent);
+
+          }
+        },
+        onAfter: function () {
+          $(document).foundation();
+          altinnInit();
+          smoothStateMod()
+        }
+      };
+      var smoothState = $('#smoothState').smoothState(options).data('smoothState');
+      smoothStateMod()
+    </script>
+
+  </body>
+</html>

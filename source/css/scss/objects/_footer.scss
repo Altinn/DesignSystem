@@ -1,0 +1,117 @@
+/*------------------------------------*\
+    $FOOTER
+\*------------------------------------*/
+
+.a-footer {
+  border-top: 1px solid $grey-light;
+  margin-top: $space-x4;
+  padding-top: $space-x4;
+  margin-bottom: $space-x6;
+}
+
+
+/*------------------------------------*\
+    $FOOTER NAVIGATION
+\*------------------------------------*/
+
+.a-footerNav,
+.a-footerExtraNav  {
+  padding-top: 4px;
+  text-align: center;
+  @media all and (min-width: $bp-large) {
+    text-align: left;
+  }
+	ul {
+		li {
+			display: inline;
+			padding-left: $space-x3;
+
+      &:first-child {
+        padding-left: 0;
+        @media all and (min-width: $bp-large) {
+          padding-left: $space-x2;
+  			}
+      }
+
+			a {
+				border: none;
+				font-size: 16px;
+				font-family: 'DIN-bold';
+        color: $blue-darker;
+
+        @media all and (min-width: $bp-med) {
+          font-size: 20px;
+  			}
+
+        &:hover {
+          color: $blue-dark;
+        }
+
+				i {
+					vertical-align: middle;
+					margin-top: -3px;
+				}
+			}
+		}
+	}
+}
+
+.a-footerNav {
+  display: none;
+  @media all and (min-width: $bp-small) {
+    display: block;
+  }
+}
+
+.a-footerExtraNav  {
+	margin-top: $space-x2;
+	color: $grey;
+	font-size: 14px;
+	text-align: center;
+
+	ul {
+    padding-top: $space;
+    padding-bottom: $space-x2;
+    @media all and (min-width: $bp-large) {
+      display: inline;
+      padding-top: 0;
+    }
+
+		li {
+      display: block;
+      padding-left: 0;
+			a {
+				font-size: 14px;
+				font-family: 'DIN-reg';
+				color: $black;
+        position: relative;
+
+        &:focus {
+          box-shadow: none;
+        }
+
+        &:before {
+          content: "";
+          width: calc(100% + 24px);
+          min-height: 44px;
+          position: absolute;
+          left: -12px;
+          top: -15px;
+          cursor: pointer;
+          z-index: -1;
+        }
+
+				i {
+					vertical-align: middle;
+					margin-top: -3px;
+				}
+			}
+      @media all and (min-width: $bp-small) {
+        display: inline;
+        padding-left: $space-x2;
+      }
+		}
+
+	}
+
+}

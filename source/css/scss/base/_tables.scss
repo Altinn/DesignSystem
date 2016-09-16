@@ -1,0 +1,145 @@
+/*------------------------------------*\
+    $Table
+\*------------------------------------*/
+
+.a-table {
+
+	thead th {
+	    border-bottom: 2px solid $blue;
+	    font-family: 'DIN-bold';
+	}
+	td, th{
+		border-top: none;
+		border-bottom: 1px solid #ccc;
+		padding: 6px 0 5px 0;
+	}
+
+}
+
+/*------------------------------------*\
+    $Sortable table
+\*------------------------------------*/
+
+.a-sortable-table {
+	.a-sortable-row {
+		background: $grey-light;
+
+		td {
+			border-bottom: 1px solid $grey-medium;
+			padding: 6px 0 5px 0;
+
+			i {
+				vertical-align: middle;
+			}
+		}
+
+		&.open {
+			background: $white;
+			td {
+				border-bottom: 1px solid $white;
+			}
+		}
+	}
+
+	thead {
+		th {
+			text-transform: uppercase;
+			font-size: 12px;
+			border-bottom: 1px solid $grey;
+			padding: 0.4rem;
+			bottom: 0;
+		}
+		.a-dropdownArrow {
+			transform: scale(0.75) rotate(90deg) translate(-50%);
+
+		}
+	}
+
+// If collapse inside table, set display to table-row.
+	.collapse.in {
+		display: table-row;
+	}
+
+	.a-sortable-action-row {
+		background: $white;
+		td {
+			border-bottom: 1px solid $grey-medium;
+		}
+	}
+}
+
+/*------------------------------------*\
+    $Table list
+\*------------------------------------*/
+
+.a-table-list {
+	width: 100%;
+	thead tr th {
+		border: none;
+	}
+	td, th {
+		border: none;
+		display: table-cell;
+		vertical-align: middle;
+		padding: 6px;
+		height: 36px;
+	}
+
+	tr {
+		width: 100%;
+		min-height: 36px;
+		word-wrap: break-word;
+
+		&.a-tableClick:hover {
+			background-color: #cff0ff;
+			cursor: pointer;
+		}
+	}
+	td {
+		font-size: 14px;
+	}
+
+	.a-table-icon {
+		width: 24px;
+		height: 24px;
+		vertical-align: middle;
+		margin-left: $space;
+		border: none;
+		margin-top: -3px;
+	}
+
+	.a-table-list-green {
+		background-color: $green-light;
+	}
+
+	.a-table-list-red {
+		background-color: $red-light;
+	}
+
+	.help-icon {
+		color: $grey-medium;
+		&:hover {
+			color: $grey;
+			cursor: pointer;
+		}
+	}
+
+	.add-icon {
+		color: $blue;
+		margin-left: 0;
+		margin-right: $space-half;
+	}
+
+	.remove-icon {
+		color: $red;
+	}
+
+	.read-icon, .fill-out-icon, .approve-icon {
+		color: $grey-medium;
+	}
+
+	.edit-icon {
+		color: $grey;
+	}
+
+}

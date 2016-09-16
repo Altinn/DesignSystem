@@ -1,0 +1,361 @@
+/*------------------------------------*\
+    $BUTTONS
+\*------------------------------------*/
+
+
+button {
+	&:before {
+		box-shadow: none !important;
+	}
+}
+.a-btn {
+	display: inline-block;
+  font-weight: normal;
+  position: relative;
+  cursor: pointer;
+  border: 0px solid transparent;
+  padding: $space-half $space-x2;
+  font-size: 16px;
+  line-height: 24px;
+  background: $blue;
+  color: $black;
+  font-family: 'DIN-reg';
+  margin-bottom: 12px;
+
+
+  &:hover {
+      background: $blue-hover-color;
+      text-decoration: none;
+      color: $black;
+      border: 0;
+  }
+
+  &:focus{
+      text-decoration: none;
+      outline: 0;
+      background: $black;
+      color: $white;
+			border-bottom: none;
+  }
+
+  &:active,
+  &.active {
+      background-image: none;
+      outline: 0;
+      @include box-shadow(inset 0 3px 5px rgba(0,0,0,.125));
+      background: $blue;
+      color: $black;
+  }
+
+  &.disabled,
+  &:disabled {
+      cursor: $cursor-disabled;
+      background-color: $white;
+      color: $black;
+      @include box-shadow(none);
+			box-shadow: 0px 0px 0px 1px white inset;
+			background-image: url('../images/disabled-background.svg');
+  }
+
+  &:after {
+      // Making the touch target area bigger without affecting the layout
+      content: "";
+      width: 100%;
+      height: 48px;
+      position: absolute;
+      left: 0;
+      top: -6px;
+  }
+
+  &:before {
+    content: "";
+    width: auto;
+    min-height: auto;
+    position: absolute;
+    left: 0;
+    top: 0;
+  }
+
+}
+
+
+// disabled on business theme
+
+.business {
+	.a-btn {
+	    &.disabled,
+	    &:disabled {
+	        background: $blue-light;
+	    }
+		}
+
+}
+
+.a-btn-secondary {
+    background-color: $white;
+
+    &:hover {
+        background: $grey-light;
+    }
+}
+
+
+.a-btn-success {
+    background-color: $green;
+    color: $black;
+
+    &:hover {
+        background: $green-hover-color;
+        border: none;
+    }
+}
+
+.a-btn-danger {
+    background-color: $red;
+    &:hover {
+        background: $red-hover-color;
+        border: none;
+    }
+}
+
+.a-btn-border {
+	background: transparent;
+	border: 2px solid $blue-darker;
+	color: $blue-darker;
+	padding: 16px 24px;
+  font-size: 24px;
+  font-family: 'DIN-medium';
+	background: rgba(255,255,255,0.5);
+
+	&:hover {
+			background: $blue-darker;
+			border: 2px solid $blue-darker;
+			color: $white;
+	}
+	&:focus {
+			border: 2px solid $blue-darker;
+	}
+
+	@media all and (min-width: $bp-large) {
+		font-size: 36px;
+	}
+}
+
+.a-btn-shadow {
+	background: $blue-light;
+	box-shadow: 1px 1px 4px 0px rgba(137, 137, 137, 0.5);
+	height: 60px;
+	width: 100%;
+	text-align: left;
+
+	&:hover {
+		background: darken($blue-light, 5%);
+	}
+
+	&:focus {
+		background: darken($blue-light, 5%);
+		color: $black;
+		box-shadow: 1px 1px 4px 0px rgba(137, 137, 137, 0.5);
+	}
+
+	.a-btn-shadow-icon {
+		font-size: 30px;
+		padding-right: $space;
+		vertical-align: middle;
+	}
+}
+
+.a-btn-withIcon {
+	background: transparent;
+	color: $black;
+	padding: $space-half $space;
+	margin-bottom: 0;
+	display: block;
+	position: relative;
+	z-index: 1;
+	box-shadow: none !important;
+
+	&:hover,
+	&:active,
+	&:focus {
+			background: transparent;
+			color: $blue;
+			border: none;
+	}
+
+	&:before {
+    content: "";
+    width: calc(100% + 48px);
+    min-height: 48px;
+    position: absolute;
+    left: -24px;
+    top: -8px;
+    cursor: pointer;
+    z-index: -1;
+  }
+
+	.a-btn-withIcon-icon {
+		font-weight: bold;
+		vertical-align: middle;
+		margin-right: 12px;
+		font-size: 28px;
+		margin-top: -4px;
+	}
+}
+
+// Make button look like link
+
+.a-btn-link {
+  background: none;
+  border: none;
+  color: $black;
+  padding: 0;
+  padding-bottom: 2px;
+  border-bottom: 2px solid $link-color;
+  text-decoration: none;
+  cursor: pointer;
+	position: relative;
+	z-index: 1;
+	box-shadow: none !important;
+}
+
+.a-btn-link:hover {
+  text-decoration: none;
+  border-bottom: 2px solid $blue-dark;
+  color: $black;
+}
+
+.a-btn-link:focus:before {
+  box-shadow: inset rgba(30, 174, 247, 0.125) 0px -1000px 0px !important;
+}
+
+.a-btn-link:before {
+	content: "";
+	width: calc(100% + 48px);
+	min-height: 48px;
+	position: absolute;
+	left: -24px;
+	top: -15px;
+	cursor: pointer;
+	z-index: -1;
+}
+
+// add btn
+
+.a-btn-action {
+    border: 2px dotted $blue;
+    padding: 4px 24px 4px 36px;
+    background-color: transparent;
+    color: #000;
+    text-align: left;
+
+    &:hover,
+		&:focus {
+        background: $blue-light;
+        border: 2px dotted $blue;
+				color: $black;
+    }
+
+    .a-btn-action-icon,
+    .a-btn-action-iconPlus {
+        font-size: 16px;
+        position: absolute;
+        top: 7px;
+        left: 12px;
+    }
+
+    .a-btn-action-iconPlus {
+        font-size: 24px;
+        top: 4px;
+    }
+}
+
+// BOX BUTTON
+
+.a-box-button {
+    border: 1px solid $grey-medium;
+    padding: 12px;
+    cursor: pointer;
+    width: 100%;
+    max-width: 400px;
+    background: #fff;
+    position: relative;
+    height: 200px;
+
+    p {
+            margin-bottom: 0px;
+    }
+
+
+    .a-box-button-icon {
+        display: block;
+        font-size: 60px;
+    }
+
+    .a-box-button-action {
+        max-width: 140px;
+        display: inline-block;
+        font-size: 14px;
+    }
+
+    .a-box-button-action-arrow {
+        font-size: 16px;
+    }
+
+    &:hover {
+        background: $blue-light;
+        border: 1px solid $blue;
+    }
+
+		.a-box-button-name {
+			display: block;
+		}
+}
+
+
+// BOX ADD BUTTON
+
+.a-boxAddBtn {
+    border: none;
+    padding: 12px;
+    background: transparent;
+    width: 100%;
+    max-width: 400px;
+    cursor: pointer;
+
+
+    .a-boxAddBtn-inner {
+        border: 2px dotted $blue;
+        padding: 24px 12px;
+        height: 172px;
+				display: block;
+
+        .a-boxAddBtn-icon {
+            display: block;
+            font-size: 36px;
+            padding: 12px;
+        }
+
+        &:hover {
+            background: $blue-light;
+        }
+    }
+
+}
+
+
+
+// Buttons groups
+
+.a-btn-group {
+    a,
+    button {
+        margin-right: 12px;
+
+        &:last-child {
+            margin-right: 0;
+        }
+    }
+
+
+}

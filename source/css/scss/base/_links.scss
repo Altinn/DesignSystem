@@ -1,0 +1,144 @@
+/* Links in text */
+
+
+a {
+	color: $blue-dark;
+	border-bottom: 1px solid $blue-dark;
+  padding-bottom: 2px;
+  position: relative;
+  z-index: 1;
+
+    &:hover,
+    &:focus {
+        text-decoration: none;
+        border-bottom: 1px solid $link-color;
+        color: $link-color;
+    }
+}
+
+a.no-decoration {
+    text-decoration: none;
+    color: $black;
+    border: none;
+    padding-bottom: 0;
+}
+
+.a-link-helpfunction {
+    color: $black;
+
+    a {
+        color: $blue-dark;
+        border-color: $blue-dark;
+
+        &:hover {
+            border-bottom: 1px solid $link-color;
+            color: $link-color;
+        }
+    }
+}
+
+
+/* Set the touch and focus area of the link */
+
+.a-linkArea {
+  position: relative;
+  z-index: 1;
+  box-shadow: none !important;
+
+  &:before {
+    content: "";
+    width: calc(100% + 40px);
+    min-height: 48px;
+    position: absolute;
+    left: -20px;
+    top: -15px;
+    cursor: pointer;
+    z-index: -1;
+  }
+
+}
+
+/* Links standalone */
+
+.a-link {
+  position: relative;
+  z-index: 1;
+}
+
+.a-link,
+.a-link:active,
+.a-link:focus {
+    color: $black;
+    padding-bottom: 4px;
+    border-bottom: 2px solid $link-color;
+    text-decoration: none;
+    cursor: pointer;
+
+    &.a-link-danger {
+        border-bottom: 2px solid $red;
+    }
+
+}
+.a-link:hover,
+.a-link:focus {
+    text-decoration: none;
+    border-bottom: 2px solid $blue-dark;
+    color: $black;
+    box-shadow: none !important;
+
+    &.a-link-danger {
+        border-bottom: 2px solid darken($red, 15%);
+    }
+}
+
+.a-link:before {
+  content: "";
+  width: 124%;
+  height: 48px;
+  position: absolute;
+  left: -11%;
+  top: -15px;
+  cursor: text;
+  z-index: -1;
+}
+
+.a-textSize3 {
+  .a-link {
+    line-height: 29px;
+    padding-bottom: 2px;
+  }
+}
+
+
+// EXTERNAL AND INTERNAL LINKS
+// Use to add correct arrow-icons
+// a[href*="/"] { color: red !important; } // EXTERNAL
+// a[href*="altinn"] { color: yellow !important; } // INTERNAL
+
+
+.a-link-external {
+  position: absolute;
+	font-style: normal;
+	padding-left: 5px;
+}
+
+
+// Help icon
+.a-helpIconButton {
+  border: none;
+  color: #666;
+
+  &:hover {
+    text-decoration: none;
+    border-bottom: none;
+  }
+  &:focus {
+    border-bottom: none;
+  }
+
+  i {
+    vertical-align: middle;
+    font-size: 22px;
+    margin-top: -4px;
+  }
+}

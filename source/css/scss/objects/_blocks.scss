@@ -1,0 +1,223 @@
+
+// HERO
+.a-jumbotron-header {
+	background-color: $white;
+	background-size: cover;
+	background-position: center;
+	background-repeat: no-repeat;
+	margin-top: -110px;
+	padding-top: 170px;
+	padding-bottom: 134px;
+	p {
+		font-size: 28px;
+		line-height: 30px;
+		color: $blue-darker;
+	}
+	.a-jumbotron-title {
+		font-family: 'din-bold';
+		display: block;
+		padding-bottom: $space;
+	}
+	.a-jumbotron-btn-textright {
+		display: block;
+
+		@media all and (min-width: $bp-small) {
+			padding-left: $space;
+			display: inline;
+		}
+	}
+}
+
+.a-jumbotron-header-light {
+	background-image: url('../images/header-bg1.svg');
+}
+
+.a-jumbotron-header-dark {
+	background-image: url('../images/header-bg0.svg');
+	color: $white;
+	a,
+	p,
+	.a-jumbotron-btn-textright,
+	.a-jumbotron-btn-textright {
+		color: $white;
+	}
+	.a-btn-border {
+    border: 2px solid $white;
+    color: $white;
+    background: transparent;
+		&:hover {
+			background: rgba(255, 255, 255, 0.1);
+		}
+	}
+}
+
+// PERSON ROLE
+
+.a-personRole {
+	display: block;
+	float: left;
+	width: 100%;
+	.a-personRole-icon {
+		float: left;
+		font-size: 48px;
+		padding-right: 12px;
+	}
+	.a-personRole-text {
+		float: left;
+
+		.a-personRole-role {
+		    font-size: 12px;
+		    text-transform: uppercase;
+		    display: block;
+		}
+		.a-personRole-name {
+			font-size: 20px;
+			font-family: 'DIN-bold';
+		}
+	}
+}
+
+// Media block
+
+.a-mediaBlock {
+	text-align: center;
+	img {
+		width: 40%;
+		margin: 0 auto;
+
+		@media all and (min-width: $bp-small) {
+      width: 60%;
+    }
+	}
+	.a-mediaBlock-caption {
+		text-align: left;
+		padding-top: $space-x2;
+	}
+}
+
+//Skjema-kort
+
+.a-card {
+	background: $white;
+	width: 100%;
+	padding: 40px 50px;
+	box-shadow: $shadow;
+	margin-bottom: 10px;
+
+	.a-textSize3 {
+		margin-bottom: $space-x2;
+		span {
+			font-family: 'DIN-reg';
+		}
+	}
+
+	&.transparent {
+		background: transparent;
+		box-shadow: none;
+
+		p {
+			display: inline
+		}
+
+		p:before, p:after {
+			content: "\A\A";
+			display: block
+		}
+
+		p:after {
+			margin-bottom: 20px
+		}
+
+		@media all and (max-width: $bp-med) {
+			.a-paddingTop-x4 {
+				padding-top: 0px
+			}
+		}
+	}
+}
+
+.a-card-image {
+	>* {
+		margin-left: 286px;
+		display: block !important;
+
+		@media all and (max-width: $bp-med) {
+			margin-left: 158px;
+		}
+
+		@media all and (max-width: $bp-small) {
+			margin-left: 0;
+		}
+	}
+	img {
+		width: 256px;
+		float: left;
+		margin-left: 0;
+
+		@media all and (max-width: $bp-med) {
+			width: 128px;
+		}
+
+		@media all and (max-width: $bp-small) {
+			float: none;
+			margin-left: auto;
+			margin-right: auto;
+			display: block;
+			margin-bottom: 30px
+		}
+	}
+}
+
+.a-main-card {
+	.a-textSize2 {
+		margin-bottom: $space-half;
+		font-family: 'DIN-bold';
+
+		@media all and (min-width: $bp-med) {
+			margin-bottom: -5px;
+		}
+
+		span {
+			font-family: 'DIN-reg';
+		}
+	}
+
+	.subtext {
+		font-size: 12px;
+		a {
+			padding-bottom: 2px;
+			border-bottom: 1px solid $blue;
+		}
+	}
+}
+
+//Sammenligning av selskapstyper
+
+.a-compare-element {
+	width: 100%;
+	padding: 10px 20px;
+}
+
+.a-compare-category {
+	h3 {
+		padding-bottom: 10px;
+		border-bottom: 1px solid $grey-medium;
+	}
+
+	.a-compare-container {
+		margin-bottom: 20px;
+
+		@media all and (min-width: $bp-med) {
+
+			&:not(:nth-of-type(even)) {
+				border-right: 1px solid $grey-medium;
+			}
+		}
+
+		@media all and (min-width: $bp-large) {
+			&:not(:last-of-type) {
+				border-right: 1px solid $grey-medium;
+			}
+		}
+	}
+}

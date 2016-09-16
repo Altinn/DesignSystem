@@ -1,0 +1,16 @@
+<!-- TODO: data-patternpartial="all" is this necessary on all-link? -->
+<li><a href="#" onclick="location.reload()" class="sg-pop">Alle komponenter</a></li>
+{{# patternTypes }}
+  <li><a class="sg-acc-handle">{{ patternTypeUC }}</a><ol class="sg-acc-panel">
+  {{# patternTypeItems }}
+    <li><a class="sg-acc-handle">{{ patternSubtypeUC }}</a><ol class="sg-acc-panel sg-sub-nav">
+    {{# patternSubtypeItems }}
+      <li><a href="patterns/{{ patternPath }}" target="_parent" class="sg-pop  {{# patternState }}sg-pattern-state {{ patternState }}{{/ patternState }}" data-patternpartial="{{ patternPartial }}">{{ patternName }}</a></li>
+    {{/ patternSubtypeItems }}
+    </ol></li>
+  {{/ patternTypeItems }}
+  {{# patternItems }}
+    <li><a href="patterns/{{ patternPath }}" target="_parent" class="sg-pop {{# patternState }}sg-pattern-state {{ patternState }}{{/ patternState }}" data-patternpartial="{{ patternPartial }}">{{ patternName }}</a></li>
+  {{/ patternItems }}
+  </ol></li>
+{{/ patternTypes }}

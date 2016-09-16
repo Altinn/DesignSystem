@@ -1,0 +1,67 @@
+<div class="sg-top">
+	<div class="container">
+		<div class="row">
+	    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-8 col-xl-8">
+				<h1><span class="a-textSize4">PATTERN LAB</span><br>Levende designsystem og prototypeverktøy <br>for Altinns webløsninger </h1>
+				<p class="a-leadText">Designsystemet er laget med Patternlab, basert på atomisk designtankegang. Vi bruker dette systemet til å opprettholde frontend-kode og visuell konsistens på tvers av løsningene. Målet er å skape et felles sted for UI-mønstre og stilsett, som etterhvert skal benyttes av alle løsningene til Altinn.</p>
+				<!-- Button trigger modal -->
+				<a href="http://altinn-dev.dev.bouvet.no/en/profil/web/retningslinjer-for-web2/" class="a-link" id="linkStandalone" target="_blank">Les mer om designsystemet <i class="material-icons a-link-external">&#xE0B2;</i></a>
+			</div>
+			<div class="col-xs-12 col-sm-12 col-md-12 col-lg-4 col-xl-4">
+			  <span class="sg-atom hidden-md-down"></span>
+		  </div>
+		</div>
+	</div>
+</div>
+<div class="sg-statesExplanation">
+	<div class="container">
+
+		<span class="sg-pattern-state inprogress">
+			<span class="sg-pattern-state-inprogress">ARBEID PÅGÅR</span> - komponenten er under utvikling, og blir jobbet på for øyeblikket. <br />
+		</span>
+
+		<span class="sg-pattern-state inreview">
+				<span class="sg-pattern-state-inreview">KLAR TIL GJENNOMGANG</span> - komponenten er klar for gjennomgang/diskusjon, og venter på godkjenning. <br />
+		</span>
+
+		<span class="sg-pattern-state complete">
+			<span class="sg-pattern-state-complete">FERDIG</span> - komponenten anses som ferdig og klar for bruk.<br />
+		</span>
+
+		<br>
+
+		<span class="sg-pattern-variations">
+			<span class="sg-pattern-state-variations">♺</span> VARIASJONER - En variasjon av en annen komponent
+
+			<a href="javascript:;" aria-label="info" tabindex="0" class="a-helpIconButton" role="button" data-toggle="popover" data-template='<div class="popover " role="tooltip"><div class="popover-arrow"></div><h3 class="popover-title"></h3><div class="popover-content"></div></div>' data-target="#myPopup3" data-placement="bottom" data-trigger="focus" title="Variasjoner" data-content="Variasjonskomponentene har samme HTML-struktur som sin hovedkomponent, men viser ulike variasjoner av stilsetting man kan oppnå ved å benytte ulike CSS-klasser etc.">
+				<i class="material-icons">&#xE887;</i>
+			</a>
+
+
+		</span>
+
+
+
+
+	</div>
+</div>
+
+
+
+
+<div class="container">
+  <!-- View All Patterns in a Pattern Sub-Type -->
+  <div class="sg-main" role="main">
+    <!-- Patterns -->
+    <div id="sg-patterns">
+      {{# partials }}
+        {{# patternSectionSubtype }}
+          {{> patternSectionSubtype }}
+        {{/ patternSectionSubtype }}
+        {{^ patternSectionSubtype }}
+          {{> patternSection }}
+        {{/ patternSectionSubtype }}
+      {{/ partials }}
+    </div> <!--end #sg-patterns-->
+  </div> <!--end .sg-main-->
+</div> <!--end .container-->
