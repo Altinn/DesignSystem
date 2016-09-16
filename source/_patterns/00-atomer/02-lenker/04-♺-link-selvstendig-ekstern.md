@@ -3,4 +3,6 @@
 ---
 NB: Dette er en variant av  [link.mustache](../../patterns/00-atomer-02-lenker-og-knapper-00-link/00-atomer-02-lenker-og-knapper-00-link.html)
 
-Eksterne lenker som står alene skal ha diagonal pil bak teksten.
+Denne varianten skal benyttes når:
+- Lenken står alene og
+- Man lenker til en ekstern side, altså en side utenfor altinn.no.

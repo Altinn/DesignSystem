@@ -1,4 +1,4 @@
 ---
-state: complete
+state: inreview
 ---
-Avkrysningsbokser brukes i tilfeller der brukeren kan velge flere verdier fra et lite sett med alternativer.
+Avkrysningsbokser brukes i tilfeller der brukeren får et spørsmål og kan svare med et eller flere alternativer.
