@@ -1,4 +1,4 @@
-<div class="page" id="page">
+<div class="a-page" id="smoothState">
 	<!-- Begin .header -->
 <a href="#hovedinnhold" class="snarvei">Hopp til hovedinnholdet</a>
 <!-- Meny og navigasjon som skal hoppes over legges her -->
@@ -6,7 +6,7 @@
 <header class="a-header " role="banner">
 	<!-- Begin .container -->
   <div class="container">
-    <!-- Proxy content container, for inclusion in more than one place -->
+    <!-- Begin Proxy content container, for inclusion in more than one place -->
     <div class="propagated-content-origin droplang">
         <!-- Begin #a-dropdown-languages - -->
 <div class="dropdown-menu a-dropdown-languages a-dropdownTriangle">
@@ -49,7 +49,22 @@
 
 </div>
 
-    </div>
+    </div><!-- End Proxy content container -->
+
+    <script type="text/javascript">
+      function langTriggerClick(e) {
+        var key = e.which;
+        if(key === 13) {
+          $(e.target).trigger('mousedown')
+        } else if (key === 9) {
+          if (!$('#exCollapsingNavbar').find('.a-dropdown-languages').hasClass('expand')) {
+            $('#exCollapsingNavbar').find('.a-dropdown-languages').find('a').attr('tabindex', '-1');
+          } else {
+            $('#exCollapsingNavbar').find('.a-dropdown-languages').find('a').attr('tabindex', '0');
+          }
+        }
+      }
+    </script>
 
 		<!-- Begin .a-globalNav-options -->
 		<ul class="nav nav-pills a-header-options">
@@ -89,7 +104,7 @@
 
     <div class="row">
       <div class="col-sm-12 a-marginBottom-x2">
-        <a href="../.." class="a-link">Innstillinger og profil</a>
+        <a href="../.." class="a-linkArea a-link">Innstillinger og profil </a> 
 
       </div>
     </div>
@@ -193,9 +208,10 @@
 
 		<!-- Begin .a-globalNav -->
 		<nav class="a-globalNav">
-			<a href="../../&#x2F;patterns&#x2F;04-sider-00-forside&#x2F;04-sider-00-forside.html"> 
+			<a href="../../&#x2F;patterns&#x2F;04-sider-00-forside&#x2F;04-sider-00-forside.html" class="a-globalNav-logo"> 
 <img src="..&#x2F;..&#x2F;images&#x2F;a-logo-blue.svg" alt="Altinn logo" class="a-logo ">
- <span class="sr-only">Til forsiden</span></a>
+ <span class="sr-only">Til forsiden</span>
+      </a> 
 
 			  <button class="navbar-toggler hidden-sm-up" type="button" data-toggle="collapse" data-target="#exCollapsingNavbar2">
 			  </button>
@@ -234,10 +250,13 @@
 </section>
 
 						</li>
-            <li class="hide-small-alt hide-med hide-large"><a class="hvr-underline-from-center" onmousedown="
+            <li class="hide-small-alt hide-med hide-large"><a class="hvr-underline-from-center"
+              onkeyup="langTriggerClick(event)" onmousedown="
+              $('#exCollapsingNavbar').find('.a-dropdown-languages').find('a').attr('tabindex', '-1');
               if (!$('#exCollapsingNavbar').find('.a-dropdown-languages').hasClass('expand')) {
                 $('#exCollapsingNavbar').find('.a-dropdown-languages').css('width', 'inherit').css('min-width', '160px');
                 $('#exCollapsingNavbar').find('.a-dropdown-languages').removeClass('after-collapse');
+                $('#exCollapsingNavbar').find('.a-dropdown-languages').find('a').attr('tabindex', '0')
               } else {
                 setTimeout(function () {
                   if (!$('#exCollapsingNavbar').find('.a-dropdown-languages').hasClass('expand')) {
@@ -246,18 +265,19 @@
                   if (!$('#exCollapsingNavbar').find('.a-dropdown-languages').hasClass('after-collapse')) {
                     $('#exCollapsingNavbar').find('.a-dropdown-languages').css('width', '0px').css('min-width', '0px');
                   }
+                  $('#exCollapsingNavbar').find('.a-dropdown-languages').find('a').attr('tabindex', '-1')
                 }, 250)
               }
               $('#exCollapsingNavbar').find('.a-dropdown-languages').toggleClass('expand');
               $('#exCollapsingNavbar').find('.indicator').toggleClass('flip');
               " href="#"><b>language</b><span class="indicator">▼</span></a></li>
             <span class="propagated-content-destination replace-me" data-refclass="droplang"></span>
-						<li><a class="hvr-underline-from-center" href="#">innboks</a></li>
+						<li><a class="hvr-underline-from-center" href="../..&#x2F;patterns&#x2F;04-sider-00-skjemagruppe&#x2F;04-sider-00-skjemagruppe.html">innboks</a></li>
 						<li><a class="hvr-underline-from-center " href="../..&#x2F;patterns&#x2F;04-sider-00-skjema&#x2F;04-sider-00-skjema.html">alle skjema</a></li>
-						<li><a class="hvr-underline-from-center" href="#">profil</a></li>
-						<li class="hidden-sm-up"><a class="a-nav-link hvr-underline-from-center" href="#">starte og drive  bedrift</a></li>
-						<li class="hidden-sm-up"><a class="hvr-underline-from-center" href="#">om altinn</a></li>
-						<li class="hidden-sm-up"><a class="hvr-underline-from-center" href="#">hjelpesider</a></li>
+						<li><a class="hvr-underline-from-center" href="../..&#x2F;patterns&#x2F;04-sider-01-om-skjema&#x2F;04-sider-01-om-skjema.html">profil</a></li>
+						<li class="hidden-sm-up"><a class="a-nav-link hvr-underline-from-center" href="#">starte og drive bedrift</a></li>
+						<li class="hidden-sm-up"><a class="hvr-underline-from-center" href="../..&#x2F;patterns&#x2F;04-sider-00-artikkel&#x2F;04-sider-00-artikkel.html">om altinn</a></li>
+						<li class="hidden-sm-up"><a class="hvr-underline-from-center" href="../..&#x2F;patterns&#x2F;04-sider-00-artikkel&#x2F;04-sider-00-artikkel.html">hjelpesider</a></li>
 						<li class="hidden-sm-up">
 							<a href="tel:+4775 00 60 00" class="a-tel"><i class="material-icons">&#xE324;</i><span class="sr-only">Telefonnummer til Altinn kundestøtte</span>75 00 60 00</a>
 
@@ -269,12 +289,15 @@
 	</div> <!-- End .container -->
 </header> <!-- End .header -->
 
-	<div role="main" class="container">
 
-		<div class="row">
-			<div class="col-sm-12 a-paddingBottom-x3">
+	<div class="container">
 
-					<!-- Begin #a-dropdown-languages - -->
+		<section id="hovedinnhold" tabindex="-1">
+
+			<div class="row">
+					<div class="col-sm-12 a-paddingBottom-x3">
+
+						<!-- Begin #a-dropdown-languages - -->
 <div class="dropdown-menu a-dropdown-personswitchList a-dropdown-personswitchList-large a-dropdownTriangle">
 
   <div class="a-padding-x3 a-paddingBottom-0">
@@ -306,7 +329,7 @@
       </div>
 
       <div class="a-paddingSide-x5">
-        <a href="../.." class="a-link">Innstillinger og profil</a>
+        <a href="../.." class="a-linkArea a-link">Innstillinger og profil </a> 
 
       </div>
 
@@ -473,13 +496,14 @@
 
 
 </div>
-   
 
-		</div>
-	</div>
 
-	</div><!--End role=main-->
-	<!-- Begin Footer -->
+					</div>
+			</div>
+
+		</section>
+
+		<!-- Begin Footer -->
 <footer class="a-footer">
 
 		<div class="row">
@@ -520,14 +544,14 @@
 					<ul>
 						<li><a class="hvr-underline-from-center" href="#">
 							<i class="material-icons">&#xE7F1;</i> starte og drive bedrift</a></li>
-						<li><a class="hvr-underline-from-center" href="#">
+						<li><a class="hvr-underline-from-center" href="../..&#x2F;patterns&#x2F;04-sider-00-artikkel&#x2F;04-sider-00-artikkel.html">
 							<i class="fa fa-life-ring"></i> hjelpesider</a></li>
 						<li><a href="tel:+4775 00 60 00" class="a-tel"><i class="material-icons">&#xE324;</i><span class="sr-only">Telefonnummer til Altinn kundestøtte</span>75 00 60 00</a>
 </li>
 					</ul>
 
 	      </nav>
-	    </div>
+	    </div> 
 
 		</div>
 
@@ -537,14 +561,10 @@
 	      <nav class="a-footerExtraNav">
 					Brønnøysundregistrene, 8910 Brønnøysund
 					<ul>
-						<li><a class="" href="#">
-							Om Altinn</a></li>
-						<li><a class="" href="#">
-							Følg oss</a></li>
-						<li><a class="" href="#">
-							Cookies</a></li>
-						<li><a class="" href="#">
-								Personvern</a></li>  
+						<li><a class="" href="../..&#x2F;patterns&#x2F;04-sider-00-artikkel&#x2F;04-sider-00-artikkel.html">Om Altinn</a></li>
+						<li><a class="" href="../..&#x2F;patterns&#x2F;04-sider-00-artikkel&#x2F;04-sider-00-artikkel.html">Følg oss</a></li>
+						<li><a class="" href="../..&#x2F;patterns&#x2F;04-sider-00-artikkel&#x2F;04-sider-00-artikkel.html">Cookies</a></li>
+						<li><a class="" href="../..&#x2F;patterns&#x2F;04-sider-00-artikkel&#x2F;04-sider-00-artikkel.html">Personvern</a></li>
 					</ul>
 					<div class="hidden-sm-up">
 						<button type="button" class="a-btn" >til toppen</button>  
@@ -556,6 +576,9 @@
 		</div>
 </footer>
 <!-- End Footer -->
+
+
+	</div> <!-- END Container -->
 
 </div>
 

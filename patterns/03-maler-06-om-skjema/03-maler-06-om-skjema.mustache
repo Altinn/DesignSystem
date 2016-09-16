@@ -1,33 +1,40 @@
-<div class="page" id="{{page-id}}">
+<div class="a-page" id="smoothState">
+
 	{{> organismer-header }}
-	<section id="{{section-id}}" class="container" tabindex="-1">
-		<div class="row">
-			<div class="col-sm-12 col-lg-6 col-lg-offset-3 a-paddingTop-x3 a-paddingBottom-x3">
-				{{> atomer-sok-stor }}
+
+	<div class="container">
+
+		<section id="hovedinnhold" tabindex="-1">
+			<div class="row">
+				<div class="col-sm-12 col-lg-6 col-lg-offset-3 a-paddingTop-x3 a-paddingBottom-x3">
+					{{> atomer-sok-stor }}
+				</div>
 			</div>
-		</div>
-		{{> molekyler-kort-hoved }}
-		<div class="row">
-			<div class="col-sm-12 col-lg-10 col-lg-offset-1 a-paddingTop-x3 a-paddingBottom-x3">
-				<h2>{{{ header-2 }}}</h2>
-				{{> molekyler-trekkspill }}
+			{{> molekyler-kort-hoved }}
+			<div class="row">
+				<div class="col-sm-12 col-lg-10 col-lg-offset-1 a-paddingTop-x3 a-paddingBottom-x3">
+					<h2>{{{ header-2 }}}</h2>
+					{{> molekyler-trekkspill }}
+				</div>
 			</div>
-		</div>
-		<div class="row">
-			<div class="col-sm-6 col-lg-5 col-lg-offset-1 a-paddingTop-x3 a-paddingBottom-x3">
-				<h2>{{{ header-3 }}}</h2>
-				{{# help }}
-					{{{ help-prefix }}}
-					{{> atomer-link }}
-				{{/ help }}
+			<div class="row">
+				<div class="col-sm-6 col-lg-5 col-lg-offset-1 a-paddingTop-x3 a-paddingBottom-x3">
+					<h2>{{{ header-3 }}}</h2>
+					{{# help }}
+						{{{ help-prefix }}}
+						{{> atomer-link }}
+					{{/ help }}
+				</div>
+				<div class="col-sm-6 col-lg-5 col-lg-offset-0 a-paddingTop-x3 a-paddingBottom-x3">
+					<h2>{{{ header-4 }}}</h2>
+					{{# help-links }}
+					  {{> atomer-handlingslink }}
+				  {{/ help-links }}
+				</div>
 			</div>
-			<div class="col-sm-6 col-lg-5 col-lg-offset-0 a-paddingTop-x3 a-paddingBottom-x3">
-				<h2>{{{ header-4 }}}</h2>
-				{{# help-links }}
-				  {{> atomer-handlingslink }}
-			  {{/ help-links }}
-			</div>
-		</div>
+		</section>
+
 		{{> organismer-footer }}
-	</section>
+	</div> <!-- END Container -->
+
 </div>

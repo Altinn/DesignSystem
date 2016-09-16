@@ -34,8 +34,8 @@
     <script src="https://use.fonticons.com/b2e1f56d.js"></script>
 
     <!-- Altinn stylesheet -->
-    <link rel="stylesheet" href="../../css/style.css?1473751123686" media="all" />
-    <link rel="stylesheet" href="../../css/pattern-scaffolding.css?1473751123686" media="all" />
+    <link rel="stylesheet" href="../../css/style.css?1473943342410" media="all" />
+    <link rel="stylesheet" href="../../css/pattern-scaffolding.css?1473943342410" media="all" />
 
     <!-- Begin Pattern Lab (Required for Pattern Lab to run properly) -->
     <!-- never cache patterns -->
@@ -45,7 +45,7 @@
 <meta http-equiv="expires" content="Tue, 01 Jan 1980 1:00:00 GMT" />
 <meta http-equiv="pragma" content="no-cache" />
 
-<link rel="stylesheet" href="../../styleguide/css/styleguide.min.css?1473751123686" media="all">
+<link rel="stylesheet" href="../../styleguide/css/styleguide.min.css?1473943342410" media="all">
 <style type="text/css">
   /* PRESENTATION OF STYLE GUIDE */
   #sg-viewport {
@@ -169,6 +169,10 @@
     font-family: 'DIN-light';
   }
 
+  .sg-pattern-title a {
+    padding: 6px 0px;
+  }
+
 
   /* view info */
   .sg-pattern-extra {
@@ -281,7 +285,7 @@
     padding-top: 0;
   }
 </style>
-<link rel="stylesheet" href="../../styleguide/css/prism-typeahead.min.css?1473751123686" media="all" />
+<link rel="stylesheet" href="../../styleguide/css/prism-typeahead.min.css?1473943342410" media="all" />
 
     <!-- End Pattern Lab -->
 
@@ -289,7 +293,8 @@
 
   </head>
   <body class="">
-<div class="page" id="page">
+<div class="a-page" id="smoothState">
+
 	<!-- Begin .header -->
 <a href="#hovedinnhold" class="snarvei">Hopp til hovedinnholdet</a>
 <!-- Meny og navigasjon som skal hoppes over legges her -->
@@ -297,7 +302,7 @@
 <header class="a-header " role="banner">
 	<!-- Begin .container -->
   <div class="container">
-    <!-- Proxy content container, for inclusion in more than one place -->
+    <!-- Begin Proxy content container, for inclusion in more than one place -->
     <div class="propagated-content-origin droplang">
         <!-- Begin #a-dropdown-languages - -->
 <div class="dropdown-menu a-dropdown-languages a-dropdownTriangle">
@@ -340,7 +345,22 @@
 
 </div>
 
-    </div>
+    </div><!-- End Proxy content container -->
+
+    <script type="text/javascript">
+      function langTriggerClick(e) {
+        var key = e.which;
+        if(key === 13) {
+          $(e.target).trigger('mousedown')
+        } else if (key === 9) {
+          if (!$('#exCollapsingNavbar').find('.a-dropdown-languages').hasClass('expand')) {
+            $('#exCollapsingNavbar').find('.a-dropdown-languages').find('a').attr('tabindex', '-1');
+          } else {
+            $('#exCollapsingNavbar').find('.a-dropdown-languages').find('a').attr('tabindex', '0');
+          }
+        }
+      }
+    </script>
 
 		<!-- Begin .a-globalNav-options -->
 		<ul class="nav nav-pills a-header-options">
@@ -380,7 +400,7 @@
 
     <div class="row">
       <div class="col-sm-12 a-marginBottom-x2">
-        <a href="../.." class="a-link">Innstillinger og profil</a>
+        <a href="../.." class="a-linkArea a-link">Innstillinger og profil </a> 
 
       </div>
     </div>
@@ -484,9 +504,10 @@
 
 		<!-- Begin .a-globalNav -->
 		<nav class="a-globalNav">
-			<a href="../../&#x2F;patterns&#x2F;04-sider-00-forside&#x2F;04-sider-00-forside.html"> 
+			<a href="../../&#x2F;patterns&#x2F;04-sider-00-forside&#x2F;04-sider-00-forside.html" class="a-globalNav-logo"> 
 <img src="..&#x2F;..&#x2F;images&#x2F;a-logo-blue.svg" alt="Altinn logo" class="a-logo ">
- <span class="sr-only">Til forsiden</span></a>
+ <span class="sr-only">Til forsiden</span>
+      </a> 
 
 			  <button class="navbar-toggler hidden-sm-up" type="button" data-toggle="collapse" data-target="#exCollapsingNavbar2">
 			  </button>
@@ -525,10 +546,13 @@
 </section>
 
 						</li>
-            <li class="hide-small-alt hide-med hide-large"><a class="hvr-underline-from-center" onmousedown="
+            <li class="hide-small-alt hide-med hide-large"><a class="hvr-underline-from-center"
+              onkeyup="langTriggerClick(event)" onmousedown="
+              $('#exCollapsingNavbar').find('.a-dropdown-languages').find('a').attr('tabindex', '-1');
               if (!$('#exCollapsingNavbar').find('.a-dropdown-languages').hasClass('expand')) {
                 $('#exCollapsingNavbar').find('.a-dropdown-languages').css('width', 'inherit').css('min-width', '160px');
                 $('#exCollapsingNavbar').find('.a-dropdown-languages').removeClass('after-collapse');
+                $('#exCollapsingNavbar').find('.a-dropdown-languages').find('a').attr('tabindex', '0')
               } else {
                 setTimeout(function () {
                   if (!$('#exCollapsingNavbar').find('.a-dropdown-languages').hasClass('expand')) {
@@ -537,18 +561,19 @@
                   if (!$('#exCollapsingNavbar').find('.a-dropdown-languages').hasClass('after-collapse')) {
                     $('#exCollapsingNavbar').find('.a-dropdown-languages').css('width', '0px').css('min-width', '0px');
                   }
+                  $('#exCollapsingNavbar').find('.a-dropdown-languages').find('a').attr('tabindex', '-1')
                 }, 250)
               }
               $('#exCollapsingNavbar').find('.a-dropdown-languages').toggleClass('expand');
               $('#exCollapsingNavbar').find('.indicator').toggleClass('flip');
               " href="#"><b>language</b><span class="indicator">▼</span></a></li>
             <span class="propagated-content-destination replace-me" data-refclass="droplang"></span>
-						<li><a class="hvr-underline-from-center" href="#">innboks</a></li>
+						<li><a class="hvr-underline-from-center" href="../..&#x2F;patterns&#x2F;04-sider-00-skjemagruppe&#x2F;04-sider-00-skjemagruppe.html">innboks</a></li>
 						<li><a class="hvr-underline-from-center globalNav-active" href="../..&#x2F;patterns&#x2F;04-sider-00-skjema&#x2F;04-sider-00-skjema.html">alle skjema</a></li>
-						<li><a class="hvr-underline-from-center" href="#">profil</a></li>
-						<li class="hidden-sm-up"><a class="a-nav-link hvr-underline-from-center" href="#">starte og drive  bedrift</a></li>
-						<li class="hidden-sm-up"><a class="hvr-underline-from-center" href="#">om altinn</a></li>
-						<li class="hidden-sm-up"><a class="hvr-underline-from-center" href="#">hjelpesider</a></li>
+						<li><a class="hvr-underline-from-center" href="../..&#x2F;patterns&#x2F;04-sider-01-om-skjema&#x2F;04-sider-01-om-skjema.html">profil</a></li>
+						<li class="hidden-sm-up"><a class="a-nav-link hvr-underline-from-center" href="#">starte og drive bedrift</a></li>
+						<li class="hidden-sm-up"><a class="hvr-underline-from-center" href="../..&#x2F;patterns&#x2F;04-sider-00-artikkel&#x2F;04-sider-00-artikkel.html">om altinn</a></li>
+						<li class="hidden-sm-up"><a class="hvr-underline-from-center" href="../..&#x2F;patterns&#x2F;04-sider-00-artikkel&#x2F;04-sider-00-artikkel.html">hjelpesider</a></li>
 						<li class="hidden-sm-up">
 							<a href="tel:+4775 00 60 00" class="a-tel"><i class="material-icons">&#xE324;</i><span class="sr-only">Telefonnummer til Altinn kundestøtte</span>75 00 60 00</a>
 
@@ -560,7 +585,9 @@
 	</div> <!-- End .container -->
 </header> <!-- End .header -->
 
-	<section id="hovedinnhold" class="container" tabindex="-1">
+
+	<div class="container">
+
 		<div class="row">
 			<div class="col-sm-12 col-lg-6 col-lg-offset-3 a-paddingTop-x3 a-paddingBottom-x3">
 				<section role="search">
@@ -595,21 +622,24 @@
 
 			</div>
 		</div>
-		<div class="row">
-			<div class="col-sm-12 col-lg-10 col-lg-offset-1 a-paddingTop-x3 a-paddingBottom-x3">
-				<h1>A-meldingen</h1>
-				<small>Fra Skatteetaten, NAV og SSB</small>
-				<br /><br />
-				<p id="paragraphId">Rapportering av lønns- og ansettelsesforhold til Skatteetaten, NAV og Statistisk sentralbyrå (SSB) er samlet i a-meldingen og skal sendes inn hver måned. Alle som utbetaler lønn, pensjon og ytelser skal levere a-melding hver måned.<br /><br />Det finnes forskjellige typer a-melding. Hvilken du skal bruke avhenger av hvilken type virksomhet du har og hvilket system du bruker for å utbetale lønn:</p>
 
+		<section id="hovedinnhold" tabindex="-1">
+
+			<div class="row">
+				<div class="col-sm-12 col-lg-10 col-lg-offset-1 a-paddingTop-x3 a-paddingBottom-x3">
+					<h1>A-meldingen</h1>
+					<small>Fra Skatteetaten, NAV og SSB</small>
+					<br /><br />
+					<p id="paragraphId">Rapportering av lønns- og ansettelsesforhold til Skatteetaten, NAV og Statistisk sentralbyrå (SSB) er samlet i a-meldingen og skal sendes inn hver måned. Alle som utbetaler lønn, pensjon og ytelser skal levere a-melding hver måned.<br /><br />Det finnes forskjellige typer a-melding. Hvilken du skal bruke avhenger av hvilken type virksomhet du har og hvilket system du bruker for å utbetale lønn:</p>
+
+				</div>
 			</div>
-		</div>
-		<div class="row">
-			<div class="col-sm-12 col-lg-12 col-lg-offset-0 a-paddingTop-x0 a-paddingBottom-x3">
-				<div class="a-card-group">
+			<div class="row">
+				<div class="col-sm-12 col-lg-12 col-lg-offset-0 a-paddingTop-x0 a-paddingBottom-x3">
+					<div class="a-card-group">
         <div class="col-sm-12 col-lg-6">
             <div class="a-card">
-        <div class="a-textSize3"><a href="../.." class="a-link">Direkte registrering i Altinn</a>
+        <div class="a-textSize3"><a href="../.." class="a-linkArea a-link">Direkte registrering i Altinn </a> 
 <span>(A01)</span></div>
         <b>For mindre virksomheter</b>
         <p>Direkte registrering i Altinn er tilpasset virksomheter med ca 1 - 8 ansatte med enkle arbeidsforhold</p>
@@ -618,7 +648,7 @@
         </div>
         <div class="col-sm-12 col-lg-6">
             <div class="a-card">
-        <div class="a-textSize3"><a href="../.." class="a-link">A-melding - innsending fra system</a>
+        <div class="a-textSize3"><a href="../.." class="a-linkArea a-link">A-melding - innsending fra system </a> 
 <span>(A02)</span></div>
         <b>Automatisk innsending gjennom lønnsystemet</b>
         <p>Mange lønnssystemer åpner for automatisk innsending gjennom systemet. Dette er den enkleste måten å levere a-melding. Les hvordan du går frem.</p>
@@ -627,7 +657,7 @@
         </div>
         <div class="col-sm-12 col-lg-6">
             <div class="a-card">
-        <div class="a-textSize3"><a href="../.." class="a-link">Melding om lønnet arbeid i hjemmet</a>
+        <div class="a-textSize3"><a href="../.." class="a-linkArea a-link">Melding om lønnet arbeid i hjemmet </a> 
 <span>(A04)</span></div>
         <b>For deg som har lønnet ansatt i hjemmet</b>
         <p>Har du vaskehjelp eller vurderer au pair? Privatpersoner som utbetaler lønn skal levere dette skjemaet.</p>
@@ -636,7 +666,7 @@
         </div>
         <div class="col-sm-12 col-lg-6">
             <div class="a-card">
-        <div class="a-textSize3"><a href="../.." class="a-link">Forenklet a-melding for veldedig eller allmennyttig organisasjon</a>
+        <div class="a-textSize3"><a href="../.." class="a-linkArea a-link">Forenklet a-melding for veldedig eller allmennyttig organisasjon </a> 
 <span>(A05)</span></div>
         <b>For organisasjoner som utbetaler lønn</b>
         <p>Skjemaet brukes sammen med forenklet oppgjørsordning når en veldedig eller allmennyttig organisasjon engasjerer en privatperson til arbeidsoppdrag.</p>
@@ -645,34 +675,34 @@
         </div>
 </div>
 
+				</div>
 			</div>
-		</div>
-		<div class="row">
-			<div class="col-sm-12 col-lg-10 col-lg-offset-1 a-paddingTop-x0 a-paddingBottom-x3">
-				<h2>Om A-ordningen</h2>
-				<div class="a-accordion-small stack" id="accordion-small" role="tablist" aria-multiselectable="true">
+			<div class="row">
+				<div class="col-sm-12 col-lg-10 col-lg-offset-1 a-paddingTop-x0 a-paddingBottom-x3">
+					<h2>Om A-ordningen</h2>
+					<div class="a-accordion-small stack" id="accordion-small" role="tablist" aria-multiselectable="true">
 
-        <a data-toggle="collapse" data-parent="#filterSkjema" data-target="#accordionSmallItem1" href="#" aria-expanded="false" class="a-collapseFilter no-decoration collapsed">
+        <a data-toggle="collapse" data-parent="#filterSkjema" data-target="#accordionSmallItem1" href="#" aria-expanded="false" class="a-collapseTitle no-decoration collapsed">
     <span class="a-dropdownArrow"></span> Hvem kan fylle ut på papir?
 </a>
 
         <div id=accordionSmallItem1 class="a-collapseContent collapse">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus cumque maxime, quam commodi doloremque adipisci deserunt atque non unde rem blanditiis quos veritatis suscipit, omnis animi labore nobis delectus eaque.<br /><br /></div>
-        <a data-toggle="collapse" data-parent="#filterSkjema" data-target="#accordionSmallItem2" href="#" aria-expanded="false" class="a-collapseFilter no-decoration collapsed">
+        <a data-toggle="collapse" data-parent="#filterSkjema" data-target="#accordionSmallItem2" href="#" aria-expanded="false" class="a-collapseTitle no-decoration collapsed">
     <span class="a-dropdownArrow"></span> Svalbard og Jan Mayen, pensjon og næringsinntekter, kontinentalsokke og sjøfolk
 </a>
 
         <div id=accordionSmallItem2 class="a-collapseContent collapse">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus cumque maxime, quam commodi doloremque adipisci deserunt atque non unde rem blanditiis quos veritatis suscipit, omnis animi labore nobis delectus eaque.<br /><br /></div>
-        <a data-toggle="collapse" data-parent="#filterSkjema" data-target="#accordionSmallItem3" href="#" aria-expanded="false" class="a-collapseFilter no-decoration collapsed">
+        <a data-toggle="collapse" data-parent="#filterSkjema" data-target="#accordionSmallItem3" href="#" aria-expanded="false" class="a-collapseTitle no-decoration collapsed">
     <span class="a-dropdownArrow"></span> Utenlandsk arbeidsgiver i Norge
 </a>
 
         <div id=accordionSmallItem3 class="a-collapseContent collapse">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus cumque maxime, quam commodi doloremque adipisci deserunt atque non unde rem blanditiis quos veritatis suscipit, omnis animi labore nobis delectus eaque.<br /><br /></div>
-        <a data-toggle="collapse" data-parent="#filterSkjema" data-target="#accordionSmallItem4" href="#" aria-expanded="false" class="a-collapseFilter no-decoration collapsed">
+        <a data-toggle="collapse" data-parent="#filterSkjema" data-target="#accordionSmallItem4" href="#" aria-expanded="false" class="a-collapseTitle no-decoration collapsed">
     <span class="a-dropdownArrow"></span> For arbeidstakere
 </a>
 
         <div id=accordionSmallItem4 class="a-collapseContent collapse">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus cumque maxime, quam commodi doloremque adipisci deserunt atque non unde rem blanditiis quos veritatis suscipit, omnis animi labore nobis delectus eaque.<br /><br /></div>
-        <a data-toggle="collapse" data-parent="#filterSkjema" data-target="#accordionSmallItem5" href="#" aria-expanded="false" class="a-collapseFilter no-decoration collapsed">
+        <a data-toggle="collapse" data-parent="#filterSkjema" data-target="#accordionSmallItem5" href="#" aria-expanded="false" class="a-collapseTitle no-decoration collapsed">
     <span class="a-dropdownArrow"></span> Hva skjer hvis du ikke leverer?
 </a>
 
@@ -680,33 +710,36 @@
 
 </div>
 
+				</div>
 			</div>
-		</div>
-		<div class="row">
-			<div class="col-sm-6 col-lg-5 col-lg-offset-1 a-paddingTop-x3 a-paddingBottom-x3">
-				<h2>Har du spørsmål om tjenesten?</h2>
-					Se
-					<a href="../.." class="a-link">hjelpesidene for a-ordningen</a><i class="material-icons a-link-external">&#xE0B2;</i>
+			<div class="row">
+				<div class="col-sm-6 col-lg-5 col-lg-offset-1 a-paddingTop-x3 a-paddingBottom-x3">
+					<h2>Har du spørsmål om tjenesten?</h2>
+						Se
+						<a href="../.." class="a-linkArea a-link">hjelpesidene for a-ordningen<i class="material-icons a-link-external">&#xE0B2;</i> </a> 
 
-			</div>
-			<div class="col-sm-6 col-lg-5 col-lg-offset-0 a-paddingTop-x3 a-paddingBottom-x3">
-				<h2>Hjelp til bruk av Altinn</h2>
-				  <a href="tel:+4775006000" class="a-btn a-btn-withIcon ">
+				</div>
+				<div class="col-sm-6 col-lg-5 col-lg-offset-0 a-paddingTop-x3 a-paddingBottom-x3">
+					<h2>Hjelp til bruk av Altinn</h2>
+					  <a href="tel:+4775006000" class="a-btn a-btn-withIcon ">
 	<i class="material-icons a-btn-withIcon-icon">&#xE324;</i>
 
 	75 00 60 00
 
 </a>
 
-				  <a href="#" class="a-btn a-btn-withIcon ">
+					  <a href="#" class="a-btn a-btn-withIcon ">
 	<i class="material-icons a-btn-withIcon-icon">&#xE0E1;</i>
 
 	Send oss en e-post
 
 </a>
 
+				</div>
 			</div>
-		</div>
+
+		</section>
+
 		<!-- Begin Footer -->
 <footer class="a-footer">
 
@@ -748,14 +781,14 @@
 					<ul>
 						<li><a class="hvr-underline-from-center" href="#">
 							<i class="material-icons">&#xE7F1;</i> starte og drive bedrift</a></li>
-						<li><a class="hvr-underline-from-center" href="#">
+						<li><a class="hvr-underline-from-center" href="../..&#x2F;patterns&#x2F;04-sider-00-artikkel&#x2F;04-sider-00-artikkel.html">
 							<i class="fa fa-life-ring"></i> hjelpesider</a></li>
 						<li><a href="tel:+4775 00 60 00" class="a-tel"><i class="material-icons">&#xE324;</i><span class="sr-only">Telefonnummer til Altinn kundestøtte</span>75 00 60 00</a>
 </li>
 					</ul>
 
 	      </nav>
-	    </div>
+	    </div> 
 
 		</div>
 
@@ -765,14 +798,10 @@
 	      <nav class="a-footerExtraNav">
 					Brønnøysundregistrene, 8910 Brønnøysund
 					<ul>
-						<li><a class="" href="#">
-							Om Altinn</a></li>
-						<li><a class="" href="#">
-							Følg oss</a></li>
-						<li><a class="" href="#">
-							Cookies</a></li>
-						<li><a class="" href="#">
-								Personvern</a></li>  
+						<li><a class="" href="../..&#x2F;patterns&#x2F;04-sider-00-artikkel&#x2F;04-sider-00-artikkel.html">Om Altinn</a></li>
+						<li><a class="" href="../..&#x2F;patterns&#x2F;04-sider-00-artikkel&#x2F;04-sider-00-artikkel.html">Følg oss</a></li>
+						<li><a class="" href="../..&#x2F;patterns&#x2F;04-sider-00-artikkel&#x2F;04-sider-00-artikkel.html">Cookies</a></li>
+						<li><a class="" href="../..&#x2F;patterns&#x2F;04-sider-00-artikkel&#x2F;04-sider-00-artikkel.html">Personvern</a></li>
 					</ul>
 					<div class="hidden-sm-up">
 						<button type="button" class="a-btn" >til toppen</button>  
@@ -785,7 +814,9 @@
 </footer>
 <!-- End Footer -->
 
-	</section>
+
+	</div> <!-- END Container -->
+
 </div>
 
     <!--DO NOT REMOVE-->
@@ -845,10 +876,10 @@
   }
 </script>
 
-<script id="pl-js-polyfill-insert-1473751123686">
+<script id="pl-js-polyfill-insert-1473943342410">
   (function() {
     if (self != top) {
-      var cb = '1473751123686';
+      var cb = '1473943342410';
       var js = [];
       if (typeof document !== 'undefined' && !('classList' in document.documentElement)) {
         js.push('styleguide/bower_components/classList.min.js');
@@ -858,10 +889,10 @@
   })();
 </script>
 
-<script id="pl-js-insert-1473751123686">
+<script id="pl-js-insert-1473943342410">
   (function() {
     if (self != top) {
-      var cb = '1473751123686';
+      var cb = '1473943342410';
       var js = [ { 'src': 'styleguide/bower_components/jwerty.min.js', 'dep': [ 'styleguide/js/patternlab-pattern.min.js' ] } ];
       scriptLoader.run(js,cb,'pl-js-insert');
     }
@@ -920,7 +951,7 @@
     <script>
       $(document).foundation();
       var smoothStateMod = function () {
-        $('#page').find('a').on('click', function (e) {
+        $('#smoothState').find('a').on('click', function (e) {
           if (location.pathname.replace(/\//g, '') === $(this).attr('href').replace(/\//g, '').replace(/\.\./g, '')) {
             e.preventDefault(); e.stopPropagation(); e.stopImmediatePropagation()
             return false
@@ -962,7 +993,7 @@
           smoothStateMod()
         }
       };
-      var smoothState = $('#page').smoothState(options).data('smoothState');
+      var smoothState = $('#smoothState').smoothState(options).data('smoothState');
       smoothStateMod()
     </script>
 

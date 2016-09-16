@@ -1,19 +1,15 @@
-<div class="page" id="{{page-id}}">
+<div class="a-page" id="smoothState">
 
 	<!-- Proxy content container, for inclusion in more than one place -->
 	<div class="propagated-content-origin suggest">
 		<h2 class="a-paddingTop-x5" tabindex="0">Forslag til deg:</h2>
 		{{> atomer-liste-nummerert }}
 	</div>
-	<style type="text/css">
-		#a-js-suggestionList-mobile>h2 {
-			padding-top: 0px
-		}
-	</style>
+	<!-- END Proxy content container -->
 
 	{{> organismer-header }}
 
-	<section id="{{section-id}}" class="container" tabindex="-1">
+	<div class="container">
 
 			<div class="row">
 				<div class="col-sm-12 col-lg-6 col-lg-offset-3 a-paddingTop-x3 a-paddingBottom-x3">
@@ -21,74 +17,77 @@
 				</div>
 			</div>
 
-			<div class="row hidden-lg-up">
+			<section id="hovedinnhold" tabindex="-1">
 
-					<div id="a-js-suggestionList-mobile" class="col-sm-12 a-marginBottom-x5 propagated-content-destination" data-refclass="suggest"></div>
+				<div class="row hidden-lg-up">
 
-			</div>
+						<div id="a-js-suggestionList-mobile" class="col-sm-12 a-marginBottom-x5 propagated-content-destination" data-refclass="suggest"></div>
 
-			<div class="row a-filter-container">
-				<div class="col-sm-12 col-md-4" tabindex="0">
-					<span class="a-textSize2">
-						<span class="din-bold">1287</span> skjemaer
-					</span>
 				</div>
-				<div class="col-sm-12 col-md-8">
-					<div class="a-filter">
 
-					  <div class="a-btn-group" id="filterSkjema">
+				<div class="row a-filter-container">
+					<div class="col-sm-12 col-md-4">
+						<span class="a-textSize2">
+							<span class="din-bold">1287</span> skjemaer
+						</span>
+					</div>
+					<div class="col-sm-12 col-md-8">
+						<div class="a-filter">
 
-									{{> atomer-ekspanderbar-tekst(collapse-filter-text: "Alle typer skjema", collapse-filter-id: "filter-type") }}
+						  <div class="a-btn-group" id="filterSkjema">
 
-									{{> atomer-ekspanderbar-tekst(collapse-filter-text: "Alle etater", collapse-filter-id: "filter-etat") }}
+										{{> atomer-ekspanderbar-tekst(collapse-filter-text: "Alle typer skjema", collapse-filter-id: "filter-type") }}
 
-									{{> atomer-ekspanderbar-tekst(collapse-filter-text: "Alle frister", collapse-filter-id: "filter-frist") }}
+										{{> atomer-ekspanderbar-tekst(collapse-filter-text: "Alle etater", collapse-filter-id: "filter-etat") }}
 
-					  </div><!-- /btn-group -->
+										{{> atomer-ekspanderbar-tekst(collapse-filter-text: "Alle frister", collapse-filter-id: "filter-frist") }}
+
+						  </div><!-- /btn-group -->
+
+						</div>
+
+					</div>
+				</div>
+
+				<div class="row a-filter-container">
+
+					<div id="filter-type" class="a-collapseContent collapse" role="tabpanel" aria-expanded="true">
+						{{# filterType }}
+							{{> atomer-valgknapp }}
+						{{/ filterType }}
+					</div>
+
+					<div id="filter-etat" class="a-collapseContent collapse" role="tabpanel" aria-expanded="true">
+						{{# filterEtat }}
+							{{> atomer-valgknapp }}
+						{{/ filterEtat }}
+					</div>
+
+					<div id="filter-frist" class="a-collapseContent collapse" role="tabpanel" aria-expanded="true">
+						{{# filterFrist }}
+							{{> atomer-valgknapp }}
+						{{/ filterFrist }}
 
 					</div>
 
 				</div>
-			</div>
 
-			<div class="row a-filter-container">
+				<div class="a-colnav-container">
 
-				<div id="filter-type" class="a-collapseContent collapse" role="tabpanel" aria-expanded="true">
-					{{# filterType }}
-						{{> atomer-valgknapp }}
-					{{/ filterType }}
-				</div>
+					<div class="row">
 
-				<div id="filter-etat" class="a-collapseContent collapse" role="tabpanel" aria-expanded="true">
-					{{# filterEtat }}
-						{{> atomer-valgknapp }}
-					{{/ filterEtat }}
-				</div>
+							{{> molekyler-meny-kolonner }}
 
-				<div id="filter-frist" class="a-collapseContent collapse" role="tabpanel" aria-expanded="true">
-					{{# filterFrist }}
-						{{> atomer-valgknapp }}
-					{{/ filterFrist }}
+						<div id="a-js-suggestionList" class="col-sm-12 col-lg-6 col-lg-offset-1 hidden-md-down propagated-content-destination" data-refclass="suggest"></div>
+					</div>
 
 				</div>
 
-			</div>
-
-			<div class="a-colnav-container">
-
-				<div class="row">
-
-						{{> molekyler-meny-kolonner }}
-
-					<div id="a-js-suggestionList" class="col-sm-12 col-lg-6 col-lg-offset-1 hidden-md-down propagated-content-destination" data-refclass="suggest"></div>
-				</div>
-
-			</div>
-
+		</section>
 
 		{{> organismer-footer }}
 
-	</section>
+	</div> <!-- END Container -->
 
 
 

@@ -77,7 +77,7 @@ window.altinnInit = function () {
   })
   // Handle filter toggle
   $(function () {
-    $('.a-collapseFilter').on('mouseup', function () {
+    $('.a-collapseTitle').on('mouseup', function () {
       var actionRow = $(this).attr('data-target')
       if (!$(this).hasClass('collapsed')) {
         $(this).addClass('collapsed')
@@ -87,13 +87,27 @@ window.altinnInit = function () {
         }
       } else {
         $('.a-collapseContent').removeClass('in')
-        $('.a-collapseFilter').addClass('collapsed')
+        $('.a-collapseTitle').addClass('collapsed')
         $(this).removeClass('collapsed')
         if ($(this).parent().is('td')) {
           $('.open').next().css('display', 'none')
           $('.open').removeClass('open')
           $(actionRow).css('display', 'table-row')
           $(actionRow).prev().addClass('open')
+        }
+      }
+    })
+    $('.a-collapseTitle').on('keyup', function (e) {
+      var key = e.which
+      if (key === 13) {
+        console.log('A')
+        e.stopImmediatePropagation(); e.stopPropagation(); e.preventDefault()
+        $(e.target).trigger('mouseup')
+      } else if (key === 9) {
+        console.log('B', $(e.target).attr('data-target'))
+        if ($($(e.target).attr('data-target')).hasClass('in')) {
+          console.log('C')
+          $($(e.target).attr('data-target')).find('.a-switch').eq(0).trigger('focus')
         }
       }
     })
@@ -224,9 +238,9 @@ window.altinnInit = function () {
   })
   // Repair drilldown navigation (keyboard/screen reader)
   $(function () {
-    $('.a-colnav-item').attr('tabindex', '0').attr('href', '#')
-    $('.a-colnav-item-second').attr('tabindex', '0').attr('href', '#')
-    $('.a-colnav-item-third').attr('tabindex', '0').attr('href', '#')
+    $('.a-colnav-item').attr('tabindex', '0')
+    $('.a-colnav-item-second').attr('tabindex', '0')
+    $('.a-colnav-item-third').attr('tabindex', '0')
     $('.a-colnav-item').on('focus', function () {
       if ($('.a-colnav-secondLevel.submenu.is-active').length === 1) {
         $(this).off('keydown.zf.drilldown')

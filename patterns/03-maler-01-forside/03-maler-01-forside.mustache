@@ -1,22 +1,20 @@
-
-<div class="page" id="{{page-id}}">
+<div class="a-page" id="smoothState">
 
 	{{> organismer-header }}
 
 	<section id="hovedinnhold" tabindex="-1">
 
-
 		<div class="jumbotron jumbotron-fluid a-jumbotron-header {{{ jumbotron-image }}}">
 		  <div class="container">
 				<div class="row">
-					<div class="col-sm-10 col-sm-offset-1 col-md-10 col-lg-8 col-lg-offset-2 col-xl-8 col-xl-offset-2" tabindex="0">
+					<div class="col-sm-10 col-sm-offset-1 col-md-10 col-lg-8 col-lg-offset-2 col-xl-8 col-xl-offset-2">
 						<p>
 							<span class="a-jumbotron-title"> {{{ front-jumbotron-title }}} </span> {{{ front-text }}}
 						</p>
 						{{# front-main-button }}
 							{{> atomer-knapp }}
 						{{/ front-main-button }}
-						<span class="a-jumbotron-btn-textright a-textSize1">
+						<span class="a-jumbotron-btn-textright a-textSize1"> 
 							{{{ front-main-button-text-right }}}
 						</span>
 
@@ -36,7 +34,7 @@
 
 		<div class="row a-marginBottom-x5">
 			<div class="col-sm-8 col-sm-offset-2 col-lg-6 col-lg-offset-3">
-				<h2 class="a-textSize3" tabindex="0">
+				<h2 class="a-textSize3">
 					{{{ list-header }}}
 
 				</h2>
@@ -48,34 +46,41 @@
 		</div>
 
 		<div class="row a-marginTop-x5 a-marginBottom-x3">
-			<div class="col-sm-6 col-lg-4 col-lg-offset-2" tabindex="0">
+			<div class="col-sm-6 col-lg-4 col-lg-offset-2">
 
 				<figure class="a-mediaBlock">
-						
+
 					{{> atomer-placeholder }}
 
-					<figcaption class="a-mediaBlock-caption">Informasjon om alt de offentlige krever av næringsdrivende finner du på <a href="bedin.no">bedin.no<i class="material-icons a-link-external"></i></a></figcaption>
+					<figcaption class="a-mediaBlock-caption">Informasjon om alt de offentlige krever av næringsdrivende finner du på
+
+						{{> atomer-link(link-text: "bedin.no", link-icon: "<i class=\"material-icons a-link-external\">&#xE0B2;</i>")}}
+
+
+					</figcaption>
 				</figure>
 
 			</div>
 
-			<div class="col-sm-6 col-lg-4" tabindex="0">
+			<div class="col-sm-6 col-lg-4">
 				<figure class="a-mediaBlock">
 
 					{{> atomer-placeholder }}
 
-					<figcaption class="a-mediaBlock-caption">Informasjon om alt de offentlige krever av deg som privatperson finner du på <a href="bedin.no">norge.no<i class="material-icons a-link-external"></i></a>
+					<figcaption class="a-mediaBlock-caption">Informasjon om alt de offentlige krever av deg som privatperson finner du på
+						{{> atomer-link(link-text: "norge.no", link-icon: "<i class=\"material-icons a-link-external\">&#xE0B2;</i>")}}
+
 					</figcaption>
 				</figure>
 			</div>
 		</div>
 
-
-
-		{{> organismer-footer }}
-
 		</div>
 
 	</section>
+
+	<div class="container">
+		{{> organismer-footer }}
+	</div>
 
 </div>
