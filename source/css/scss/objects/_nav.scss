@@ -14,8 +14,8 @@
 			margin-right: 12px;
 			margin-bottom: 12px;
 			border-radius: 0;
-			padding: 6px 14px;
-
+			padding: 4px 14px 4px 14px;
+			border:2px solid #fff;
 		}
 
 		.page-link:focus, .page-link:hover {
@@ -23,6 +23,7 @@
 		    background-color: $blue;
 		    text-decoration: none;
 		    color: $white;
+				border-color: $blue;
 		}
 
 		&.active .page-link,
@@ -32,6 +33,23 @@
 		}
 	}
 }
+
+.private-person,
+.business {
+
+	.page-item {
+
+		.page-link {
+			background-color: $white;
+		}
+
+		&.active .page-link,
+		&.active .page-link:hover {
+			border: 2px solid #fff;
+		}
+	}
+}
+
 
 // Breadcrumb
 
@@ -100,18 +118,10 @@
 		clear: both;
 		border-top: 1px solid $grey-medium;
 		padding-top: 24px;
-		box-shadow: none !important;
-
-		&:focus {
-			.a-dropdownCircleArrow {
-		    border: 3px solid #fff;
-				box-sizing: content-box;
-				margin-left: -3px;
-    		margin-top: -9px;
-			}
-		}
 	}
+	border-bottom: 1px solid $grey-medium;
 }
+
 
 /*------------------------------------*\
     COLUMN NAVIGATION (DRILLDOWN ON MOBILE)
@@ -181,6 +191,7 @@
 			color: $black;
 			border-bottom: 1px solid $grey-medium;
 			display: block;
+			box-shadow: none !important;
 
 			@media all and (min-width: $bp-large) {
 				border-right: 1px solid $grey-medium;

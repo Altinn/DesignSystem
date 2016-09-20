@@ -44,6 +44,7 @@
     display: table-cell;
     margin: 0;
     vertical-align: middle;
+    box-shadow: none !important;
 
     @media all and (min-width: $bp-med) {
         font-size: 24px;
@@ -58,6 +59,9 @@
         border-color: #ddd;
     }
 
+    &:focus {
+      font-family: 'DIN-medium';
+    }
 
     .a-collapse-arrowDown,
     .a-collapse-arrowUp {
@@ -176,7 +180,9 @@
 }
 
 .a-dropdownCircleArrow {
-    width: 36px;
+    width: 30px;
+    border: 3px solid $blue;
+    box-sizing: content-box;
     border-radius: 50%;
     background: $blue;
     color: #fff;
@@ -188,7 +194,7 @@
     -webkit-transform: rotate(90deg);
     margin-top: -6px;
     margin-right: 12px;
-    padding: 6px 0;
+    padding: 3px 0;
     text-align: center;
 }
 .a-dropdownCircleArrow:before {
@@ -211,17 +217,28 @@
 
 
 .a-collapseTitle  {
-    margin-bottom: 0;
-    padding-bottom: 3px;
-    display: inline-block;
+  margin-bottom: 0;
+  padding-bottom: 3px;
+  display: inline-block;
+  box-shadow: none !important;
 
-    a {
-        border: none;
+  &:focus {
+    .a-dropdownArrow {
+      border-left: 10px solid $blue-dark;
     }
+    .a-dropdownCircleArrow {
+      border: 3px solid #fff;
+      box-sizing: content-box;
+    }
+  }
 
-    // focus 
-    &:before {
-      margin-top: 3px;
-    }
+  a {
+      border: none;
+  }
+
+  // focus
+  &:before {
+    margin-top: 3px;
+  }
 
 }

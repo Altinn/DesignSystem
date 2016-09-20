@@ -1,4 +1,8 @@
 ---
  state: complete
 ---
-En vanlig lenke som benytter < a >...< /a > vil se slik ut. Denne skal brukes i løpende tekst.
+NB: Dette er en variant av  [link.mustache](../../patterns/00-atomer-02-lenker-og-knapper-00-link/00-atomer-02-lenker-og-knapper-00-link.html)
+
+Denne varianten skal benyttes når:
+- Lenken står i løpende tekst og
+- Man lenker til en ekstern side, altså en side utenfor altinn.no.
