@@ -52,27 +52,33 @@ window.altinnInit = function () {
   })
   // Handle theme toggle
   $(function () {
-    var toggleStuff = function () {
-      $('body', $('iframe').contents()[0]).toggleClass('business')
-      $('body', $('iframe').contents()[0]).toggleClass('private-person')
-      localStorage
-        .setItem('theme', $('body', $('iframe').contents()[0]).attr('class'))
+    var toggleStuff = function (className) {
+      $('body', $('iframe').contents()[0]).attr('class', className)
+      localStorage.setItem('theme', className)
       $('body', '.ap-profile').attr('class', '')
     }
     $('#sg-switchtheme-blue', $('iframe').contents()[0]).off('change')
     $('#sg-switchtheme-grey', $('iframe').contents()[0]).off('change')
+    $('#sg-switchtheme-white', $('iframe').contents()[0]).off('change')
     if (localStorage.getItem('theme') &&
       localStorage.getItem('theme') === 'business') {
       $('body', $('iframe').contents()[0]).attr('class', 'business')
       $('#sg-switchtheme-blue', $('iframe').contents()[0]).prop('checked', true)
-    } else {
+    } else if (localStorage.getItem('theme') &&
+      localStorage.getItem('theme') === 'private-person') {
       $('body', $('iframe').contents()[0]).attr('class', 'private-person')
-      $('#sg-switchtheme-grey', $('iframe').contents()[1]).prop('checked', true)
+      $('#sg-switchtheme-grey', $('iframe').contents()[0]).prop('checked', true)
+    } else {
+      $('body', $('iframe').contents()[0]).attr('class', 'neutral')
+      $('#sg-switchtheme-white', $('iframe').contents()[0])
+        .prop('checked', true)
     }
-    $('#sg-switchtheme-blue', $('iframe').contents()[0])
-      .on('change', toggleStuff)
-    $('#sg-switchtheme-grey', $('iframe').contents()[0])
-      .on('change', toggleStuff)
+    $('#sg-switchtheme-blue', $('iframe').contents()[0]).on('change',
+      function () { toggleStuff('business') })
+    $('#sg-switchtheme-grey', $('iframe').contents()[0]).on('change',
+      function () { toggleStuff('private-person') })
+    $('#sg-switchtheme-white', $('iframe').contents()[0]).on('change',
+      function () { toggleStuff('neutral') })
     $('body', '.ap-profile').attr('class', '')
   })
   // Handle filter toggle
