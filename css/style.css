@@ -4565,28 +4565,28 @@ a.bg-danger:focus, a.bg-danger:hover {
 /*------------------------------------*    $RESET FOCUS
 \*------------------------------------*/
 /* Remove all default focus styles, add common style to all elements */
-*:focus:not(section):not(button):not(canvas):not(input):not(progress) {
+*:focus:not(.override-focus):not(section):not(button):not(canvas):not(input):not(progress) {
   box-shadow: inset rgba(30, 174, 247, 0.125) 0px -1000px 0px;
   outline: none !important; }
 
-*:focus:not(section):not(button):not(canvas):not(input):not(progress):before {
+*:focus:not(.override-focus):not(section):not(button):not(canvas):not(input):not(progress):before {
   box-shadow: inset rgba(30, 174, 247, 0.125) 0px -1000px 0px;
   outline: none !important; }
 
-button:focus, canvas:focus, progress:focus {
+button:not(.override-focus):focus, canvas:not(.override-focus):focus, progress:not(.override-focus):focus {
   box-shadow: inset rgba(30, 174, 247, 0.125) 0px -1000px 0px;
   outline: none !important; }
 
 *focus {
   outline: none !important; }
 
-button:focus:before, canvas:focus:before, progress:focus:before {
+button:not(.override-focus):focus:before, canvas:not(.override-focus):focus:before, progress:not(.override-focus):focus:before {
   box-shadow: inset #fff 0px -1000px 0px;
   outline: none !important; }
 
-*focus {
-  outline: none !important; }
-
+/*.a-switch label { outline: solid 2px rgba(30,174,247,0) !important; outline-offset: 1px; }
+.a-switch input[type='checkbox']:focus + label { outline: solid 2px rgba(30,174,247,1) !important; outline-offset: 1px; }
+*/
 /*
 
   ___  _ _   _              ______          _               _____           _
@@ -5161,12 +5161,12 @@ textarea {
 .a-options .c-indicator {
   width: 24px;
   height: 24px;
-  top: -4px; }
+  top: -5px; }
 
 .a-options .c-input {
   padding-left: 36px; }
 
-.a-options input[type="checkbox"]:focus + span {
+.a-options input[type="checkbox"]:focus + span:not(.override-focus) {
   background-color: rgba(30, 174, 247, 0.125) !important; }
 
 .a-switch {
@@ -5196,9 +5196,6 @@ fieldset[disabled] .a-switch input[type="checkbox"] + label {
   -webkit-border-radius: 36px 36px 36px 36px;
   border: 2px dotted #1eaef7; }
 
-.a-switch input[type="checkbox"]:focus + label {
-  background: rgba(30, 174, 247, 0.125) !important; }
-
 .a-switch input[type="checkbox"]:checked + label {
   background-color: rgba(30, 174, 247, 0.2);
   border-radius: 36px;
@@ -5208,18 +5205,19 @@ fieldset[disabled] .a-switch input[type="checkbox"] + label {
 .a-switch input[type="checkbox"]:checked + label {
   transition: all .2s; }
 
-.a-switch .disabled {
-  display: inline-block;
-  height: 36px;
-  border-radius: 36px;
-  padding: 6px 18px;
-  background-color: transparent;
-  background-image: url("../images/disabled-background.svg"); }
+.a-switch input[type='checkbox']:focus + label:not(.override-focus) {
+  border-color: #0062ba; }
 
 .a-switch-icon {
   font-size: 20px;
   vertical-align: middle;
   margin-top: -3px; }
+
+.a-switch .a-switch-label.disabled {
+  padding: 8px 18px;
+  background-color: #fff !important;
+  background-image: url("../images/disabled-background.svg") !important;
+  border: none !important; }
 
 .a-radioButtons .c-indicator {
   width: 24px;
@@ -5229,7 +5227,7 @@ fieldset[disabled] .a-switch input[type="checkbox"] + label {
   background-color: #fff; }
 
 .a-radioButtons .c-input {
-  padding-left: 30px;
+  padding-left: 36px;
   margin-bottom: 12px;
   display: inline !important;
   padding-top: 4px;
@@ -5243,7 +5241,7 @@ fieldset[disabled] .a-switch input[type="checkbox"] + label {
   top: -1px;
   border: 2px solid #1eaef7; }
 
-.a-radioButtons input[type="radio"]:focus + span {
+.a-radioButtons input[type="radio"]:focus + span:not(.override-focus) {
   background-color: rgba(30, 174, 247, 0.125) !important; }
 
 .a-radioButtons .c-input::after {
@@ -8275,6 +8273,9 @@ ul.connectedBullets li:last-child:before {
 .private-person .a-tabs {
   background: #efefef; }
 
+.neutral .a-tabs {
+  background: #ffffff; }
+
 .section {
   margin: 0 0 12px; }
 
@@ -8366,7 +8367,7 @@ ul.connectedBullets li:last-child:before {
   padding-bottom: 40px; }
   .a-modal .modal-lg {
     width: auto;
-    max-width: 900px;
+    max-width: 970px;
     margin: 10px; }
     @media screen and (min-width: 920px) {
       .a-modal .modal-lg {
@@ -8402,7 +8403,7 @@ ul.connectedBullets li:last-child:before {
       padding-left: 36px; }
 
 .a-modal-navbar {
-  margin-top: 24px; }
+  margin-top: 36px; }
 
 .a-modal-header {
   background: #6a6a6a;
@@ -8595,7 +8596,7 @@ a.a-modal-close {
       height: 72px;
       width: 72px;
       font-size: 36px;
-      padding-top: 16px; } }
+      padding-top: 18px; } }
 
 .a-collapsePanel {
   background: #ffffff;
@@ -10411,6 +10412,10 @@ body.business,
 html.business {
   background-color: #cff0ff; }
 
+body.neutral,
+html.neutral {
+  background-color: #ffffff; }
+
 body.a-modal-background,
 html.a-modal-background {
   background: #1eaef7; }
@@ -10435,17 +10440,6 @@ html.a-modal-background-error {
 ::selection {
   background: #e0daf7;
   color: #000; }
-
-/* Styles for screen readers only */
-.sr-only {
-  position: absolute;
-  width: 1px;
-  height: 1px;
-  padding: 0;
-  margin: -1px;
-  overflow: hidden;
-  clip: rect(0, 0, 0, 0);
-  border: 0; }
 
 /* White panel */
 .a-panel {
