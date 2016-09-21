@@ -1,7 +1,11 @@
 /* globals anchors, $, localStorage */
 window.altinnInit = function () {
-  var bpLarge = 992; var options; var ctrlDown = false; var ctrlKey = 17
+  var bpLarge = 992; var options
+  // DESIGN SYSTEM SPECIFIC:
+  var ctrlDown = false; var ctrlKey = 17
+  // DESIGN SYSTEM SPECIFIC:
   var cmdKey = 91; var aKey = 65
+  // DESIGN SYSTEM SPECIFIC:
   var SelectText = function (element) {
     var doc = document; var text = $(element)
     var range, selection
@@ -18,12 +22,14 @@ window.altinnInit = function () {
       }
     })
   }
+  // DESIGN SYSTEM SPECIFIC:
   var CustomShortcut = function (e) {
     if (ctrlDown && (e.keyCode === aKey)) {
-      e.preventDefault(); e.stopPropagation(); SelectText('.language-markup code')
+      e.preventDefault(); e.stopPropagation()
+      SelectText('.language-markup code')
     }
   }
-  // Toggle elements with the same parent + add 'open'-class
+  // Toggle elements with the same parent + add 'open'-class ???
   $(function () {
     $('.js-toggle').click(function () {
       var self = $(this)
@@ -50,7 +56,7 @@ window.altinnInit = function () {
       }
     })
   })
-  // Handle theme toggle
+  // DESIGN SYSTEM SPECIFIC: Handle theme toggle
   $(function () {
     var toggleStuff = function (className) {
       $('body', $('iframe').contents()[0]).attr('class', className)
@@ -106,14 +112,12 @@ window.altinnInit = function () {
     $('.a-collapseTitle').on('keyup', function (e) {
       var key = e.which
       if (key === 13) {
-        console.log('A')
         e.stopImmediatePropagation(); e.stopPropagation(); e.preventDefault()
         $(e.target).trigger('mouseup')
       } else if (key === 9) {
-        console.log('B', $(e.target).attr('data-target'))
         if ($($(e.target).attr('data-target')).hasClass('in')) {
-          console.log('C')
-          $($(e.target).attr('data-target')).find('.a-switch').eq(0).trigger('focus')
+          $($(e.target).attr('data-target')).find('.a-switch').eq(0)
+            .trigger('focus')
         }
       }
     })
@@ -188,7 +192,7 @@ window.altinnInit = function () {
       $(this).parent().addClass('a-input-focus')
     }).blur(function () { $(this).parent().removeClass('a-input-focus') })
   })
-  // Tooltip and popovers
+  // Tooltip and popovers ???
   $(function () {
     $('[data-toggle="tooltip"]').tooltip()
     $('[data-toggle="popover"]').popover(); $('#example').popover(options)
@@ -264,10 +268,10 @@ window.altinnInit = function () {
       } else $(this).html($(prefix + $(this).attr('data-refclass')).html())
     })
   })
-  // Add anchors to all h1s, h2s, h3s and h4s inside of .ap-content
+  // DESIGN SYSTEM SPECIFIC: Add anchors to all h1s, h2s, h3s and h4s inside of .ap-content
   anchors.options.placement = 'left'; anchors.options.class = 'a-anchor'
   anchors.add('.ap-content h1, .ap-content h2, .ap-content h3, .ap-content h4')
-  // Select all within code box
+  // DESIGN SYSTEM SPECIFIC: Select all within code box
   $(document).keydown(function (e) {
     if (e.keyCode === ctrlKey || e.keyCode === cmdKey) ctrlDown = true
   }).keyup(function (e) {
@@ -279,7 +283,7 @@ window.altinnInit = function () {
         .on('keydown', CustomShortcut)
     }, 500)
   })
-  // Inset varation elements
+  // DESIGN SYSTEM SPECIFIC: Inset variation elements
   $(function () {
     $('.sg-pattern').each(function () {
       if ($(this).attr('id').indexOf('♺') !== -1) {
@@ -293,6 +297,27 @@ window.altinnInit = function () {
       $(this).find('input').on('change', function () {
         $(this).parent().parent().parent().next().show()
       })
+    })
+  })
+  // Prevent focus state styling on click
+  $(function () {
+    $('body').on('mousedown', '*', function () {
+      var me = $(this)
+      me.addClass('override-focus')
+      setTimeout(function () {
+        me.blur()
+        me.removeClass('override-focus')
+      }, 1500)
+      me.children('.c-indicator').addClass('override-focus')
+      setTimeout(function () {
+        me.children('.c-indicator').prev().blur()
+        me.children('.c-indicator').removeClass('override-focus')
+      }, 1500)
+      me.children('.a-switch-label').addClass('override-focus')
+      setTimeout(function () {
+        me.children('.a-switch-label').prev().blur()
+        me.children('.a-switch-label').removeClass('override-focus')
+      }, 1500)
     })
   })
 }
