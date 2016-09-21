@@ -307,12 +307,17 @@ window.altinnInit = function () {
       setTimeout(function () {
         me.blur()
         me.removeClass('override-focus')
-      }, 500)
+      }, 1500)
       me.children('.c-indicator').addClass('override-focus')
       setTimeout(function () {
         me.children('.c-indicator').prev().blur()
         me.children('.c-indicator').removeClass('override-focus')
-      }, 500)
+      }, 1500)
+      me.children('.a-switch-label').addClass('override-focus')
+      setTimeout(function () {
+        me.children('.a-switch-label').prev().blur()
+        me.children('.a-switch-label').removeClass('override-focus')
+      }, 1500)
     })
   })
 }
