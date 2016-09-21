@@ -305,12 +305,14 @@ window.altinnInit = function () {
       var me = $(this)
       me.addClass('override-focus')
       setTimeout(function () {
+        me.blur()
         me.removeClass('override-focus')
-      }, 1500)
+      }, 500)
       me.children('.c-indicator').addClass('override-focus')
       setTimeout(function () {
+        me.children('.c-indicator').prev().blur()
         me.children('.c-indicator').removeClass('override-focus')
-      }, 1500)
+      }, 500)
     })
   })
 }
