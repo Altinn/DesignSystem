@@ -3,11 +3,11 @@
 \*------------------------------------*/
 
 
-button {
+/* button {
 	&:before {
 		box-shadow: none !important;
 	}
-}
+} */
 .a-btn {
 	display: inline-block;
   font-weight: normal;
@@ -88,7 +88,6 @@ button {
 	        background: $blue-light;
 	    }
 		}
-
 }
 
 .a-btn-secondary {
@@ -108,14 +107,22 @@ button {
         background: $green-hover-color;
         border: none;
     }
+		&:active,
+	  &.active {
+	      background: $green;
+	  }
 }
 
 .a-btn-danger {
     background-color: $red;
     &:hover {
-        background: $red-hover-color;
+        background: $green-hover-color;
         border: none;
     }
+		&:active,
+	  &.active {
+	      background: $red-hover-color;
+	  }
 }
 
 .a-btn-border {
@@ -134,6 +141,11 @@ button {
 	}
 	&:focus {
 			border: 2px solid $blue-darker;
+	}
+	&:active,
+	&.active {
+			background: $blue-darker;
+			color: $white;
 	}
 
 	@media all and (min-width: $bp-large) {
@@ -221,7 +233,7 @@ button {
   cursor: pointer;
 	position: relative;
 	z-index: 1;
-	box-shadow: none !important;
+	box-shadow: none;
 }
 
 .a-btn-link:hover {
@@ -230,8 +242,9 @@ button {
   color: $black;
 }
 
-.a-btn-link:focus:before {
-  box-shadow: inset rgba(30, 174, 247, 0.125) 0px -1000px 0px !important;
+.a-btn-link:not(.override-focus):focus:before {
+	outline: none !important;
+  box-shadow: $focusColor;
 }
 
 .a-btn-link:before {
@@ -314,6 +327,9 @@ button {
 
 		.a-box-button-name {
 			display: block;
+		}
+		&:focus {
+			background: $blue-light;
 		}
 }
 

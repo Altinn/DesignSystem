@@ -72,9 +72,107 @@
 
 }
 
-// Date
 
-.a-date {
+
+// Box
+
+.a-box {
+	background: $white;
+	border: 10px solid $blue-light;
+	padding: $space-x4;
+	float: left;
+
+	.a-box-heading {
+		float: left;
+		padding-bottom: $space-x2;
+	}
+	.a-box-body {
+		float: left;
+	}
+	.a-box-footer {
+		padding-top: $space;
+		float: left;
+	}
+
+	&.a-articleListDates {
+		@media all and (min-width: $bp-med) {
+			.a-box-heading,
+			.a-box-footer  {
+				margin-left: 84px; // When a-box is used for date list, push heading and footer
+			}
+		}
+	}
+}
+
+
+// Article teaser
+
+.a-articleTeaser {
+	float: left;
+	width: 100%;
+	margin-bottom: $space;
+
+	a {
+		display: block;
+	}
+	a:hover,
+	a:focus {
+		.a-date {
+			background: $blue-dark;
+		}
+	}
+}
+
+.a-articleTeaser-text {
+	width: calc(100% - 60px);
+
+	@media all and (min-width: $bp-small) {
+		float: left;
+		padding-left: $space-x2;
+	}
+	@media all and (min-width: $bp-med) {
+		margin-top: -2px;
+	}
+	@media all and (min-width: $bp-large) {
+		margin-top: -5px;
+	}
+	@media all and (min-width: $bp-xlarge) {
+		margin-top: -8px;
+	}
+	h2 {
+		font-size: 20px;
+		font-family: 'DIN-bold';
+		margin-bottom: 0;
+	}
+}
+
+// Byline
+
+.a-byline {
 	margin-top: -$space-half;
 	margin-bottom: $space-x2;
+}
+
+// Date
+.a-date {
+	background: $blue;
+	color: $white;
+	text-align: center;
+	width: $space-x5;
+	height: $space-x5;
+	margin-bottom: $space;
+
+	@media all and (min-width: $bp-small) {
+		float: left;
+		margin-bottom: $space-x3;
+	}
+
+	.a-date-day {
+		font-size: $font-size-large-2;
+		padding-top: 5px;
+	}
+	.a-date-month {
+		font-size: $font-size-small;
+		margin-top: -5px;
+	}
 }
