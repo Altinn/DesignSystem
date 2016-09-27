@@ -88,7 +88,7 @@ gulp.task('pl-copy:designsystemdev-js', function () {
 })
 // Create flat distribution CSS file (no Patternlab CSS or styleguide UI CSS)
 // and copy into distribution folder:
-gulp.task('pl-copy:distribution-css', function () {
+gulp.task('pl-copy:distribution-css', function (done) {
   fs.readFile('./source/css/style.scss', 'utf-8',
     function (err, custom) {
       if (err) console.log(err)
@@ -97,10 +97,11 @@ gulp.task('pl-copy:distribution-css', function () {
       src = src.replace('@import "scss/patternlab/_presentation"; ',
         '// Automatically removed')
       fs.writeFileSync('./source/css/style.min.scss', src)
-      return gulp.src(path.resolve(paths().source.css, 'style.min.scss'))
+      gulp.src(path.resolve(paths().source.css, 'style.min.scss'))
         .pipe(sass().on('error', sass.logError))
         .pipe(gulp.dest('public/distributions/v' + version))
         .pipe(browserSync.stream())
+      done()
     }
     // TODO: Delete style.min.scss from source folder
   )
@@ -125,12 +126,9 @@ gulp.task('pl-assets', gulp.series(
   gulp.parallel('pl-copy:js', 'pl-copy:bs', 'pl-copy:th', 'pl-copy:jq',
     'pl-copy:bv', 'pl-copy:ss', 'pl-copy:an', 'pl-copy:img', 'pl-copy:favicon',
     'pl-copy:css', 'pl-copy:styleguide', 'pl-copy:designsystemdev-js',
-    'pl-copy:designsystemprod-js'
+    'pl-copy:designsystemprod-js', 'pl-copy:distribution-js',
+    'pl-copy:distribution-css'
   ), function (done) { done() })
-)
-gulp.task('pl-distr', gulp.series(
-  gulp.parallel('pl-copy:distribution-css', 'pl-copy:distribution-js'),
-  function (done) { done() })
 )
 gulp.task('patternlab:version', function (done) {
   patternlab.version(); done()
@@ -194,7 +192,7 @@ gulp.task('patternlab:connect', gulp.series(function (done) {
   }, function () { console.log('PATTERN LAB NODE WATCHING FOR CHANGES') })
   done()
 }))
-gulp.task('default', gulp.series('patternlab:build'))
 gulp.task('patternlab:watch', gulp.series('patternlab:build', watch))
 gulp.task('patternlab:serve',
-  gulp.series('patternlab:build', 'patternlab:connect', 'pl-distr', watch))
+  gulp.series('patternlab:build', 'patternlab:connect', watch))
+gulp.task('default', gulp.series('patternlab:serve'))

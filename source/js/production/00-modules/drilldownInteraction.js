@@ -14,45 +14,6 @@ var drilldownInteraction = function () {
       $('.panel-heading.expanded').removeClass('dim')
     }
   })
-  // Add dim class to colnav first level (the panels that are not active)
-  $('.a-colnav-item').click(function () {
-    $(this).parent().find('.a-colnav-item-second').eq(0).focus()
-    if ($(this).hasClass('expanded') && $(window).width() >= bpLarge) {
-      $(this).removeClass('expanded')
-      if ($('.a-colnav-item.expanded').length === 0) {
-        $('.a-colnav-item').removeClass('dim-second-no')
-      } else $(this).addClass('dim')
-    } else if ($(window).width() >= bpLarge) {
-      $('.a-colnav-item').removeClass('expanded')
-      $(this).addClass('expanded'); $('.a-colnav-item').addClass('dim')
-      $('.a-colnav-item.expanded').removeClass('dim')
-    }
-  })
-  // Add dim class to colnav second level
-  $('.a-colnav-item-second').click(function () {
-    $(this).parent().find('.a-colnav-item-third').eq(0).focus()
-    if ($(this).hasClass('expanded-second') && $(window).width() >= bpLarge) {
-      $(this).removeClass('expanded-second')
-      if ($('.a-colnav-item-second.expanded-second').length === 0) {
-        $('.a-colnav-item-second').removeClass('dim-second-no')
-      } else $(this).addClass('dim-second')
-    } else if ($(window).width() >= bpLarge) {
-      $('.a-colnav-item-second').removeClass('expanded-second')
-      $(this).addClass('expanded-second')
-      $('.a-colnav-item-second').addClass('dim-second')
-      $('.a-colnav-item-second.expanded-second').removeClass('dim-second')
-    }
-  })
-  // Repair drilldown navigation (keyboard/screen reader)
-  $('.a-colnav-item').attr('tabindex', '0')
-  $('.a-colnav-item-second').attr('tabindex', '0')
-  $('.a-colnav-item-third').attr('tabindex', '0')
-  $('.a-colnav-item').on('focus', function () {
-    if ($('.a-colnav-secondLevel.submenu.is-active').length === 1) {
-      $(this).off('keydown.zf.drilldown')
-      $(this).parent().find('.a-colnav-item-second').eq(0).focus()
-    }
-  })
   // Adjust position of second level menu upon click:
   $('#colnav').on('mouseup', function (event) {
     var target = $(event.target); var second = $('.a-colnav-secondLevel')
@@ -106,6 +67,45 @@ var drilldownInteraction = function () {
       $('.dim-second').removeClass('dim-second')
       $('.col-md-6').removeClass('col-md-6').addClass('col-md-3')
         .removeClass('col-md-offset-1').addClass('col-md-offset-4')
+    }
+  })
+  // Add dim class to colnav first level (the panels that are not active)
+  $('.a-colnav-item').click(function () {
+    $(this).parent().find('.a-colnav-item-second').eq(0).focus()
+    if ($(this).hasClass('expanded') && $(window).width() >= bpLarge) {
+      $(this).removeClass('expanded')
+      if ($('.a-colnav-item.expanded').length === 0) {
+        $('.a-colnav-item').removeClass('dim-second-no')
+      } else $(this).addClass('dim')
+    } else if ($(window).width() >= bpLarge) {
+      $('.a-colnav-item').removeClass('expanded')
+      $(this).addClass('expanded'); $('.a-colnav-item').addClass('dim')
+      $('.a-colnav-item.expanded').removeClass('dim')
+    }
+  })
+  // Add dim class to colnav second level
+  $('.a-colnav-item-second').click(function () {
+    $(this).parent().find('.a-colnav-item-third').eq(0).focus()
+    if ($(this).hasClass('expanded-second') && $(window).width() >= bpLarge) {
+      $(this).removeClass('expanded-second')
+      if ($('.a-colnav-item-second.expanded-second').length === 0) {
+        $('.a-colnav-item-second').removeClass('dim-second-no')
+      } else $(this).addClass('dim-second')
+    } else if ($(window).width() >= bpLarge) {
+      $('.a-colnav-item-second').removeClass('expanded-second')
+      $(this).addClass('expanded-second')
+      $('.a-colnav-item-second').addClass('dim-second')
+      $('.a-colnav-item-second.expanded-second').removeClass('dim-second')
+    }
+  })
+  // Repair drilldown navigation (keyboard/screen reader)
+  $('.a-colnav-item').attr('tabindex', '0')
+  $('.a-colnav-item-second').attr('tabindex', '0')
+  $('.a-colnav-item-third').attr('tabindex', '0')
+  $('.a-colnav-item').on('focus', function () {
+    if ($('.a-colnav-secondLevel.submenu.is-active').length === 1) {
+      $(this).off('keydown.zf.drilldown')
+      $(this).parent().find('.a-colnav-item-second').eq(0).focus()
     }
   })
 }

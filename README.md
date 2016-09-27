@@ -15,5 +15,5 @@ npm install
 For å bygge distribusjonsfiler og kjøre koden lokalt, kjør følgende kommando (vil serve filene over localhost, og automatisk bygge på nytt ved endringer i kildekoden):
 
 ```
-gulp patternlab:serve
+gulp
 ```
