@@ -1,22 +1,36 @@
 
-// HERO
-.a-jumbotron-header {
-	background-color: $white;
-	background-size: cover;
-	background-position: center;
+// JUMBOTRON
+.a-jumbotron {
+	background-color: $blue-darker;
+
+	background-size: 60%;
+	background-position: bottom right;
 	background-repeat: no-repeat;
-	margin-top: -110px;
 	padding-top: 170px;
 	padding-bottom: 134px;
+
+	@media all and (min-width: $bp-large) {
+		background-size: cover;
+		background-position: center;
+
+	}
+
 	p {
-		font-size: 28px;
-		line-height: 30px;
+		font-size: 20px;
+		line-height: 28px;
 		color: $blue-darker;
 	}
 	.a-jumbotron-title {
+		font-size: 36px;
+		line-height: 42px;
 		font-family: 'din-bold';
 		display: block;
 		padding-bottom: $space;
+	}
+	.a-jumbotron-ingress {
+		font-size: 28px;
+		line-height: 36px;
+		color: $blue-darker;
 	}
 	.a-jumbotron-btn-textright {
 		display: block;
@@ -28,17 +42,22 @@
 	}
 }
 
-.a-jumbotron-header-light {
+.a-jumbotron-header {
+	margin-top: -110px;
+}
+
+.a-jumbotron-light {
 	background-image: url('../images/header-bg1.svg');
 }
 
-.a-jumbotron-header-dark {
+.a-jumbotron-dark {
 	background-image: url('../images/header-bg0.svg');
 	color: $white;
 	a,
 	p,
 	.a-jumbotron-btn-textright,
-	.a-jumbotron-btn-textright {
+	.a-jumbotron-btn-textright,
+	.a-jumbotron-ingress, {
 		color: $white;
 	}
 	.a-btn-border {
@@ -53,9 +72,21 @@
 		.a-link:hover {
 			color: $white;
 		}
+		li.active {
+	    color: $white;
+		}
 	}
 	.a-breadcrumb  > li + li::before {
 		color: $white;
+	}
+}
+
+.a-jumbotron-large {
+	@media all and (min-width: $bp-med) {
+		height: 600px;
+	}
+	@media all and (min-width: $bp-large) {
+		height: 700px;
 	}
 }
 

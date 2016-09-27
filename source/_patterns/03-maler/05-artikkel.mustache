@@ -7,20 +7,26 @@
 
 	<div class="container">
 
-		<div class="row">
-			<div class="col-sm-12 col-lg-6 col-lg-offset-3 a-paddingTop-x3 a-marginBottom-x5">
-				{{> atomer-sok:input-group-large(search-label-id: "searchLarge-front", search-label: "Søk etter innhold")}}
+		{{# artikkelsok }}
+			<div class="row">
+				<div class="col-sm-12 col-lg-6 col-lg-offset-3 a-paddingTop-x3 a-marginBottom-x5">
+						{{> atomer-sok:input-group-large(search-label-id: "searchLarge-front", search-label: "Søk etter innhold")}}
+				</div>
 			</div>
-		</div>
+		{{/ artikkelsok }}
 
 		<section id="hovedinnhold" class="container" tabindex="-1">
 
 			<div class="row">
 				<div class="col-sm-12 col-lg-10 col-lg-offset-1 a-paddingBottom-x3">
 
-					{{> molekyler-smulesti }}
+					{{# smulesti }}
+						{{> molekyler-smulesti }}
+					{{/ smulesti }}
 
-					{{> organismer-artikkel }}
+					{{# artikkeltekst }}
+						{{> organismer-artikkel }}
+					{{/ artikkeltekst }}
 
 				</div>
 
