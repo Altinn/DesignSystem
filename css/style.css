@@ -4562,31 +4562,6 @@ a.bg-danger:focus, a.bg-danger:hover {
   .hidden-print {
     display: none !important; } }
 
-/*------------------------------------*    $RESET FOCUS
-\*------------------------------------*/
-/* Remove all default focus styles, add common style to all elements */
-*:focus:not(.override-focus):not(section):not(button):not(canvas):not(input):not(progress) {
-  box-shadow: inset rgba(30, 174, 247, 0.125) 0px -1000px 0px;
-  outline: none !important; }
-
-*:focus:not(.override-focus):not(section):not(button):not(canvas):not(input):not(progress):before {
-  box-shadow: inset rgba(30, 174, 247, 0.125) 0px -1000px 0px;
-  outline: none !important; }
-
-button:not(.override-focus):focus, canvas:not(.override-focus):focus, progress:not(.override-focus):focus {
-  box-shadow: inset rgba(30, 174, 247, 0.125) 0px -1000px 0px;
-  outline: none !important; }
-
-*focus {
-  outline: none !important; }
-
-button:not(.override-focus):focus:before, canvas:not(.override-focus):focus:before, progress:not(.override-focus):focus:before {
-  box-shadow: inset #fff 0px -1000px 0px;
-  outline: none !important; }
-
-/*.a-switch label { outline: solid 2px rgba(30,174,247,0) !important; outline-offset: 1px; }
-.a-switch input[type='checkbox']:focus + label { outline: solid 2px rgba(30,174,247,1) !important; outline-offset: 1px; }
-*/
 /*
 
   ___  _ _   _              ______          _               _____           _
@@ -4670,6 +4645,28 @@ html, body, div, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, ol, ul, 
 
 header, footer, nav, section, article, hgroup, figure {
   display: block; }
+
+/* Remove all default focus styles, add common style to all elements */
+/* Styler focus state på alt, bortsett fra .overide-focus, section, button, canvas, input, progress. */
+*:focus:not(.override-focus):not(section):not(button):not(canvas):not(input):not(progress) {
+  box-shadow: inset rgba(30, 174, 247, 0.125) 0px -1000px 0px;
+  outline: none !important; }
+
+/* Styler focus state på alle BEFORE, bortsett fra .overide-focus, section, button, canvas, input, progress. */
+*:focus:not(.override-focus):not(section):not(button):not(canvas):not(input):not(progress):before {
+  box-shadow: inset rgba(30, 174, 247, 0.125) 0px -1000px 0px;
+  outline: none !important; }
+
+/* Styler focus state på button, canvas, progress, så lenge de ikke har klassen override-focus. */
+button:not(.override-focus):focus, canvas:not(.override-focus):focus, progress:not(.override-focus):focus {
+  outline: none !important; }
+
+/* Styler focus state på BEFORE for button, canvas, progress, så lenge de ikke har klassen override-focus. */
+button:not(.override-focus):focus:before, canvas:not(.override-focus):focus:before, progress:not(.override-focus):focus:before {
+  outline: none !important; }
+
+.override-focus {
+  outline: none !important; }
 
 /* Links in text */
 a {
@@ -5022,7 +5019,7 @@ abbr {
   position: relative; }
   .a-tel:hover {
     border: none; }
-  .a-tel:focus {
+  .a-tel:focus:not(.override-focus) {
     box-shadow: none;
     border: none; }
   .a-tel:before {
@@ -5101,8 +5098,13 @@ textarea {
 
 .a-dropdown-toggle:hover {
   color: #333;
-  background-color: #cff0ff;
-  border-color: #1eaef7; }
+  border-color: #0062ba; }
+
+.open .a-dropdown-toggle:hover {
+  border-color: #0062ba; }
+
+.open .a-dropdown-toggle {
+  border-color: #0062ba; }
 
 .a-dropdown-toggle:after {
   position: absolute;
@@ -5118,7 +5120,7 @@ textarea {
   top: -6px; }
 
 .a-dropdown-menu {
-  border: 2px solid #1eaef7;
+  border: 2px solid #0062ba;
   border-radius: 0;
   padding: 0;
   width: 100%;
@@ -5127,14 +5129,14 @@ textarea {
 
 .a-dropdown-item {
   position: relative;
-  border-bottom: 2px dotted #1eaef7;
+  border-bottom: 2px dotted #0062ba;
   padding: 0; }
 
 .a-dropdown-item-active,
 .a-dropdown-item:hover,
 .a-dropdown-item:focus {
-  background-color: #efefef;
-  border-bottom: 2px dotted #1eaef7; }
+  background-color: #cff0ff;
+  border-bottom: 2px dotted #0062ba; }
 
 .a-dropdown-item:last-child {
   border-bottom: none; }
@@ -7155,7 +7157,7 @@ fieldset[disabled] .a-switch input[type="checkbox"] + label {
   margin-right: 12px;
   margin-bottom: 12px;
   border-radius: 0;
-  padding: 4px 14px 4px 14px;
+  padding: 5px 14px 3px 14px;
   border: 2px solid #fff; }
 
 .a-pagination .page-item .page-link:focus, .a-pagination .page-item .page-link:hover {
@@ -7415,7 +7417,7 @@ fieldset[disabled] .a-switch input[type="checkbox"] + label {
 /*------------------------------------*    $FOOTER
 \*------------------------------------*/
 .a-footer {
-  border-top: 1px solid #efefef;
+  border-top: 1px solid #B3B3B3;
   margin-top: 48px;
   padding-top: 48px;
   margin-bottom: 72px; }
@@ -7510,9 +7512,11 @@ fieldset[disabled] .a-switch input[type="checkbox"] + label {
 
 /*------------------------------------*    $BUTTONS
 \*------------------------------------*/
-button:before {
-  box-shadow: none !important; }
-
+/* button {
+	&:before {
+		box-shadow: none !important;
+	}
+} */
 .a-btn {
   display: inline-block;
   font-weight: normal;
@@ -7577,12 +7581,16 @@ button:before {
   .a-btn-success:hover {
     background: rgba(23, 201, 107, 0.8);
     border: none; }
+  .a-btn-success:active, .a-btn-success.active {
+    background: #17c96b; }
 
 .a-btn-danger {
   background-color: #e23b53; }
   .a-btn-danger:hover {
-    background: #e55166;
+    background: rgba(23, 201, 107, 0.8);
     border: none; }
+  .a-btn-danger:active, .a-btn-danger.active {
+    background: #e55166; }
 
 .a-btn-border {
   background: transparent;
@@ -7598,6 +7606,9 @@ button:before {
     color: #ffffff; }
   .a-btn-border:focus {
     border: 2px solid #022F51; }
+  .a-btn-border:active, .a-btn-border.active {
+    background: #022F51;
+    color: #ffffff; }
   @media all and (min-width: 992px) {
     .a-btn-border {
       font-size: 36px; } }
@@ -7660,15 +7671,16 @@ button:before {
   cursor: pointer;
   position: relative;
   z-index: 1;
-  box-shadow: none !important; }
+  box-shadow: none; }
 
 .a-btn-link:hover {
   text-decoration: none;
   border-bottom: 2px solid #0062ba;
   color: #000; }
 
-.a-btn-link:focus:before {
-  box-shadow: inset rgba(30, 174, 247, 0.125) 0px -1000px 0px !important; }
+.a-btn-link:not(.override-focus):focus:before {
+  outline: none !important;
+  box-shadow: inset rgba(30, 174, 247, 0.125) 0px -1000px 0px; }
 
 .a-btn-link:before {
   content: "";
@@ -7725,6 +7737,8 @@ button:before {
     border: 1px solid #1eaef7; }
   .a-box-button .a-box-button-name {
     display: block; }
+  .a-box-button:focus {
+    background: #cff0ff; }
 
 .a-boxAddBtn {
   border: none;
@@ -8309,7 +8323,7 @@ ul.connectedBullets li:last-child:before {
 .a-message {
   background-color: #B3B3B3;
   padding: 12px 15px;
-  border: 3px solid #ffffff;
+  box-shadow: 1px 1px 4px 0px rgba(137, 137, 137, 0.5);
   margin-top: 20px;
   position: relative;
   float: left;
@@ -8319,38 +8333,29 @@ ul.connectedBullets li:last-child:before {
 .a-message:after {
   bottom: 100%;
   left: 24px;
-  border: solid transparent;
   content: " ";
   height: 0;
   width: 0;
   position: absolute;
-  border-color: rgba(136, 183, 213, 0);
-  border-bottom-color: #B3B3B3;
   border-width: 10px;
-  margin-left: -10px; }
-
-.a-message:before {
-  bottom: 100%;
-  left: 24px;
-  border: solid transparent;
-  content: " ";
-  height: 0;
-  width: 0;
-  position: absolute;
-  border-color: rgba(136, 183, 213, 0);
-  border-bottom-color: #ffffff;
-  border-width: 14px;
-  margin-left: -14px; }
+  margin-left: 12px;
+  box-sizing: border-box;
+  border: 8px solid black;
+  border-color: transparent transparent #fbf6bd #fbf6bd;
+  transform-origin: 0 0;
+  transform: rotate(135deg);
+  box-shadow: -2px 2px 3px 0 rgba(0, 0, 0, 0.04);
+  top: 1px; }
 
 .a-message-error {
   background-color: #f9cad3; }
   .a-message-error:after {
-    border-bottom-color: #f9cad3; }
+    border-color: transparent transparent #f9cad3 #f9cad3; }
 
 .a-message-success {
   background-color: #d4f9e4; }
   .a-message-success:after {
-    border-bottom-color: #d4f9e4; }
+    border-color: transparent transparent #d4f9e4 #d4f9e4; }
 
 .a-message-info {
   background-color: #fbf6bd; }
@@ -8734,9 +8739,75 @@ a.a-modal-close {
 .a-text ul.connectedBullets li {
   margin: 0; }
 
-.a-date {
+.a-box {
+  background: #ffffff;
+  border: 10px solid #cff0ff;
+  padding: 48px;
+  float: left; }
+  .a-box .a-box-heading {
+    float: left;
+    padding-bottom: 24px; }
+  .a-box .a-box-body {
+    float: left; }
+  .a-box .a-box-footer {
+    padding-top: 12px;
+    float: left; }
+  @media all and (min-width: 768px) {
+    .a-box.a-articleListDates .a-box-heading,
+    .a-box.a-articleListDates .a-box-footer {
+      margin-left: 84px; } }
+
+.a-articleTeaser {
+  float: left;
+  width: 100%;
+  margin-bottom: 12px; }
+  .a-articleTeaser a {
+    display: block; }
+  .a-articleTeaser a:hover .a-date,
+  .a-articleTeaser a:focus .a-date {
+    background: #0062ba; }
+
+.a-articleTeaser-text {
+  width: calc(100% - 60px); }
+  @media all and (min-width: 544px) {
+    .a-articleTeaser-text {
+      float: left;
+      padding-left: 24px; } }
+  @media all and (min-width: 768px) {
+    .a-articleTeaser-text {
+      margin-top: -2px; } }
+  @media all and (min-width: 992px) {
+    .a-articleTeaser-text {
+      margin-top: -5px; } }
+  @media all and (min-width: 1200px) {
+    .a-articleTeaser-text {
+      margin-top: -8px; } }
+  .a-articleTeaser-text h2 {
+    font-size: 20px;
+    font-family: 'DIN-bold';
+    margin-bottom: 0; }
+
+.a-byline {
   margin-top: -6px;
   margin-bottom: 24px; }
+
+.a-date {
+  background: #1eaef7;
+  color: #ffffff;
+  text-align: center;
+  width: 60px;
+  height: 60px;
+  margin-bottom: 12px; }
+  @media all and (min-width: 544px) {
+    .a-date {
+      float: left;
+      margin-bottom: 36px; } }
+  .a-date .a-date-day {
+    font-size: 24px;
+    padding-top: 5px; }
+  .a-date .a-date-month {
+    font-size: 12px;
+    margin-top: -5px; }
 
 .a-logo-anim {
   transform: scale(0.4) translateZ(0);
@@ -10555,7 +10626,7 @@ html.a-modal-background-error {
 .a-dotted.a-disabled {
   cursor: not-allowed;
   color: #000;
-  box-shadow: 0px 0px 0px 1px white inset;
+  box-shadow: none;
   background-image: url("../images/disabled-background.svg"), linear-gradient(to right, #1eaef7 50%, rgba(255, 255, 255, 0) 0%);
   background-color: #fff, transparent;
   background-position: 25px bottom;
