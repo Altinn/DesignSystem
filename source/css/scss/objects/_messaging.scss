@@ -4,9 +4,9 @@
 
 .a-message {
 	background-color: $grey-medium;
-    padding: 12px 15px;
-	border: 3px solid $white;
-    margin-top: 20px;
+  padding: 12px 15px;
+	box-shadow: $shadow;
+  margin-top: 20px;
 	position: relative;
 	float: left;
 	display: block;
@@ -16,36 +16,27 @@
 .a-message:after {
 	bottom: 100%;
 	left: 24px;
-	border: solid transparent;
 	content: " ";
 	height: 0;
 	width: 0;
 	position: absolute;
-	border-color: rgba(136, 183, 213, 0);
-	border-bottom-color: $grey-medium;
 	border-width: 10px;
-	margin-left: -10px;
+	margin-left: 12px;
+
+  box-sizing: border-box;
+  border: 8px solid black;
+  border-color: transparent transparent $yellow-light $yellow-light;
+  transform-origin: 0 0;
+  transform: rotate(135deg);
+  box-shadow: -2px 2px 3px 0 rgba(0, 0, 0, 0.04);
+  top: 1px;
 }
 
-.a-message:before {
-	bottom: 100%;
-	left: 24px;
-	border: solid transparent;
-	content: " ";
-	height: 0;
-	width: 0;
-	position: absolute;
-	border-color: rgba(136, 183, 213, 0);
-
-	border-bottom-color: $white;
-	border-width: 14px;
-	margin-left: -14px;
-}
 .a-message-error {
     background-color: $red-light;
 
     &:after {
-		border-bottom-color: $red-light;
+			border-color: transparent transparent $red-light $red-light;
 	}
 }
 
@@ -53,7 +44,7 @@
 	background-color: $green-light;
 
 	&:after {
-		border-bottom-color: $green-light;
+		border-color: transparent transparent $green-light $green-light;
 	}
 }
 
