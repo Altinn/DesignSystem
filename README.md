@@ -12,8 +12,14 @@ npm install
 
 ## Bruk
 
-For å bygge distribusjonsfiler og kjøre koden lokalt, kjør følgende kommando (vil serve filene over localhost, og automatisk bygge på nytt ved endringer i kildekoden):
+For å kjøre koden lokalt, bruk følgende kommando (vil serve filene over localhost, og automatisk bygge på nytt ved endringer i kildekoden):
 
 ```
 gulp
+```
+
+For å bygge distribusjonsfiler, bruk følgende kommando:
+
+```
+gulp dist
 ```
