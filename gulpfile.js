@@ -126,8 +126,7 @@ gulp.task('pl-assets', gulp.series(
   gulp.parallel('pl-copy:js', 'pl-copy:bs', 'pl-copy:th', 'pl-copy:jq',
     'pl-copy:bv', 'pl-copy:ss', 'pl-copy:an', 'pl-copy:img', 'pl-copy:favicon',
     'pl-copy:css', 'pl-copy:styleguide', 'pl-copy:designsystemdev-js',
-    'pl-copy:designsystemprod-js', 'pl-copy:distribution-js',
-    'pl-copy:distribution-css'
+    'pl-copy:designsystemprod-js'
   ), function (done) { done() })
 )
 gulp.task('patternlab:version', function (done) {
@@ -196,3 +195,5 @@ gulp.task('patternlab:watch', gulp.series('patternlab:build', watch))
 gulp.task('patternlab:serve',
   gulp.series('patternlab:build', 'patternlab:connect', watch))
 gulp.task('default', gulp.series('patternlab:serve'))
+gulp.task('dist', gulp.series('pl-copy:distribution-js',
+  'pl-copy:distribution-css'))
