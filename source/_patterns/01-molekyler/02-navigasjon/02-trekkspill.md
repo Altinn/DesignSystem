@@ -1,4 +1,4 @@
 ---
- state: inprogress
+ state: inreview
 ---
 Foreløpig ingen retningslinjer.

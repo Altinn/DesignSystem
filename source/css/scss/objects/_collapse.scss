@@ -24,31 +24,44 @@
   display: table;
   width: 100%;
   min-height: 72px;
+  box-shadow: $shadow2;
 
   @media all and (min-width: $bp-med) {
     min-height: 100px;
+  }
+
+  &.expanded,
+  &.expanded + .panel-collapse{
+    @media all and (min-width: $bp-med) {
+      margin-left: -12px;
+      width: calc(100% + 24px);
+      // transition: all 300ms; // Only works on header, why?
+    }
   }
 }
 
 .a-collapseBtn {
     background-color: #fff;
-    border: 1px solid #ddd;
+    border: none;
     width: 100%;
-    padding: 12px 70px 12px 72px;
+    padding: 12px 70px 12px 0px;
     border-radius: 2px;
     font-size: 18px;
     line-height: 24px;
     position: relative;
     color: $black;
-    height: 100px;
+    height: 72px;
     display: table-cell;
     margin: 0;
     vertical-align: middle;
     box-shadow: none !important;
 
+
     @media all and (min-width: $bp-med) {
         font-size: 24px;
-        padding: 12px 70px 12px 96px;
+    }
+    @media all and (min-width: $bp-large) {
+        height: 100px;
     }
 
     &:hover,
@@ -56,10 +69,10 @@
     &:active {
         text-decoration: none;
         color: $black;
-        border-color: #ddd;
+        border: none;
     }
 
-    &:focus {
+    &:focus:focus:not(.override-focus) {
       font-family: 'DIN-medium';
     }
 
@@ -95,6 +108,10 @@
 
 .a-collapse .dim .a-collapseBtn {
     background-color: rgba(255,255,255,.5);
+
+    .a-collapse-icon {
+      background-color: $white;
+    }
 }
 
 .a-collapse-icon {
@@ -105,9 +122,10 @@
     font-size: 24px;
     text-align: center;
     padding-top: 12px;
-    position: absolute;
-    top: 12px;
+    position: relative;
+    margin-right: 20px;
     left: 12px;
+    vertical-align: middle;
 
     @media all and (min-width: $bp-med) {
         height: 72px;
@@ -117,14 +135,28 @@
     }
 }
 
+.a-collapse-heading-text {
+  margin: 0;
+  width: calc(100% - 104px);
+  overflow: hidden;
+  display: inline-block;
+  vertical-align: middle;
+
+  h2 {
+    margin-bottom: 0;
+  }
+}
+
 .a-collapsePanel {
     background: $white;
-    border: 1px solid #ddd;
-    margin-top: -2px;
+    border: none;
+    border-top: 2px solid #d7eaf4;
+    box-shadow: $shadow2;
 }
 
 .a-collapsePanel-content {
-    padding: 24px 12px;
+    padding: 24px 72px;
+    margin: 0;
 
     @media all and (min-width: $bp-med) {
         padding: 40px 100px;
@@ -222,7 +254,7 @@
   display: inline-block;
   box-shadow: none !important;
 
-  &:focus {
+  &:focus:not(.override-focus) {
     .a-dropdownArrow {
       border-left: 10px solid $blue-dark;
     }
