@@ -58,7 +58,7 @@ var drilldownInteraction = function () {
       getThird(ul).css('margin-left', '-10000px')
         .attr('data-ignore', 'true')
       $('.col-md-3').removeClass('col-md-3').addClass('col-md-6')
-        .removeClass('col-md-offset-4').addClass('col-md-offset-1')
+        .removeClass('offset-md-4').addClass('offset-md-1')
     } else {
       second.each(function () {
         getThird($(this)).attr('data-ignore', 'true')
@@ -66,7 +66,7 @@ var drilldownInteraction = function () {
       $('#a-js-suggestionList').css('display', 'none')
       $('.dim-second').removeClass('dim-second')
       $('.col-md-6').removeClass('col-md-6').addClass('col-md-3')
-        .removeClass('col-md-offset-1').addClass('col-md-offset-4')
+        .removeClass('offset-md-1').addClass('offset-md-4')
     }
   })
   // Add dim class to colnav first level (the panels that are not active)

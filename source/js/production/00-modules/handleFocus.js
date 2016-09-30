@@ -10,10 +10,10 @@ var handleFocus = function () {
     setTimeout(function () {
       this.blur(); this.removeClass('override-focus')
     }.bind($(this)), 1500)
-    $(this).children('.c-indicator').addClass('override-focus')
+    $(this).children('.custom-control-indicator').addClass('override-focus')
     setTimeout(function () {
-      this.children('.c-indicator').prev().blur()
-      this.children('.c-indicator').removeClass('override-focus')
+      this.children('.custom-control-indicator').prev().blur()
+      this.children('.custom-control-indicator').removeClass('override-focus')
     }.bind($(this)), 1500)
     $(this).children('.a-switch-label').addClass('override-focus')
     setTimeout(function () {
