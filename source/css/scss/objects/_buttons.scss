@@ -3,18 +3,13 @@
 \*------------------------------------*/
 
 
-/* button {
-	&:before {
-		box-shadow: none !important;
-	}
-} */
 .a-btn {
 	display: inline-block;
   font-weight: normal;
   position: relative;
   cursor: pointer;
   border: 0px solid transparent;
-  padding: $space-half $space-x2;
+  padding: 7px $space-x2 5px $space-x2;
   font-size: 16px;
   line-height: 24px;
   background: $blue;
@@ -33,8 +28,7 @@
   &:focus{
       text-decoration: none;
       outline: 0;
-      background: $black;
-      color: $white;
+      background: $blue-hover-color;
 			border-bottom: none;
   }
 
@@ -50,11 +44,11 @@
   &.disabled,
   &:disabled {
       cursor: $cursor-disabled;
-      background-color: $white;
+      background-color: $grey-light;
+			border: 1px solid $white inset;
       color: $black;
       @include box-shadow(none);
 			box-shadow: 0px 0px 0px 1px white inset;
-			background-image: url('../images/disabled-background.svg');
   }
 
   &:after {
@@ -111,18 +105,24 @@
 	  &.active {
 	      background: $green;
 	  }
+		&:focus {
+			background: $green-hover-color;
+		}
 }
 
 .a-btn-danger {
     background-color: $red;
     &:hover {
-        background: $green-hover-color;
+        background: $red-hover-color;
         border: none;
     }
 		&:active,
 	  &.active {
 	      background: $red-hover-color;
 	  }
+		&:focus {
+			background: $red-hover-color;
+		}
 }
 
 .a-btn-border {
@@ -174,12 +174,18 @@
 		font-size: 30px;
 		padding-right: $space;
 		vertical-align: middle;
+		margin-top: -3px;
 	}
 
 	&.a-bgGreyLight {
 		&:focus {
 			background: darken($grey-light, 5%);
 		}
+	}
+
+	.a-label {
+		margin-top: -1px;
+		margin-left: 12px;
 	}
 }
 

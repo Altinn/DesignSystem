@@ -1,5 +1,5 @@
 ---
- state: complete
+ state: inreview
 ---
 
 I tilfeller der brukeren kan legge til noe, f.eks: en en person, en rettighet, etc, skal man bruke plussikonet.

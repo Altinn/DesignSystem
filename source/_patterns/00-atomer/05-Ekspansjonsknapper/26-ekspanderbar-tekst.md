@@ -1,3 +1,3 @@
 ---
- state: inprogress
+ state: inreview
 ---

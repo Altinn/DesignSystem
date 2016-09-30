@@ -46,6 +46,9 @@ textarea {
     color: #333;
     border-color: $blue-dark;
 }
+.a-dropdown-toggle:focus {
+    border-color: $blue-dark;
+}
 .open .a-dropdown-toggle:hover {
     border-color: $blue-dark;
 }
@@ -91,6 +94,13 @@ textarea {
 .a-dropdown-item:focus {
 	background-color: $blue-light;
 	border-bottom: 2px dotted $blue-dark;
+  box-shadow: none !important;
+}
+.a-dropdown-item-active {
+  background-color: $grey-light;
+  &:hover {
+    background-color: $grey-light;
+  }
 }
 .a-dropdown-item:last-child {
 	border-bottom: none;
@@ -110,6 +120,13 @@ textarea {
 	    border: 2px solid $blue;
 	    border-radius: 0;
 	    background-color: #fff;
+      width: 24px;
+	    height: 24px;
+	    top: -5px;
+	}
+
+  .c-input {
+		padding-left: 36px;
 	}
 
 	.c-input > input:checked ~ .c-indicator {
@@ -127,22 +144,9 @@ textarea {
 	    }
 	}
 
-	.c-indicator {
-	    width: 24px;
-	    height: 24px;
-	    top: -5px;
-	}
-
-	.c-input {
-		padding-left: 36px;
-	}
-
   input[type="checkbox"]:focus+span:not(.override-focus) {
-    background-color: rgba(30, 174, 247, 0.125) !important;
+    border: 2px solid $blue-dark;
   }
-
-
-
 }
 
 // Altinn Check buttons / Switch
@@ -157,7 +161,7 @@ textarea {
 .a-switch-label {
     font-family: DIN-reg;
     font-size: 14px;
-    padding: 6px 12px 6px 12px;
+    padding: 7px 12px 5px 12px;
     cursor: pointer;
 }
 
@@ -233,7 +237,7 @@ fieldset[disabled] .a-switch input[type="checkbox"] + label {
 	}
 
   input[type="radio"]:focus+span:not(.override-focus) {
-    background-color: rgba(30, 174, 247, 0.125) !important;
+    border: 2px solid $blue-dark;
   }
 
   .c-input::after {
@@ -260,13 +264,19 @@ fieldset[disabled] .a-switch input[type="checkbox"] + label {
 // Altinn select menu
 
 .a-c-select {
-    padding: 4px 36px 4px 24px;
+    padding: 0px 36px 0px 24px;
     color: $black;
     border: 2px solid $blue;
     cursor: pointer;
+    height: 36px;
 
     &:hover {
-    	background-color: $blue-light;
+    	background-color: $white;
+      border: 2px solid $blue-dark;
+    }
+    &:focus {
+      border: 2px solid $blue-dark;
+      box-shadow: none !important;
     }
 
 }
