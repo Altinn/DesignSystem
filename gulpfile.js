@@ -123,10 +123,7 @@ gulp.task('pl-copy:distribution-js', function () {
 function getConfiguredCleanOption () { return config.cleanPublic }
 function build (done) { patternlab.build(done, getConfiguredCleanOption()) }
 gulp.task('pl-assets', gulp.series(
-  gulp.parallel('pl-copy:js', 'pl-copy:bs', 'pl-copy:th', 'pl-copy:jq',
-    'pl-copy:bv', 'pl-copy:ss', 'pl-copy:an', 'pl-copy:img', 'pl-copy:favicon',
-    'pl-copy:css', 'pl-copy:styleguide', 'pl-copy:designsystemdev-js',
-    'pl-copy:designsystemprod-js'
+  gulp.parallel('pl-copy:designsystemdev-js', 'pl-copy:designsystemprod-js'
   ), function (done) { done() })
 )
 gulp.task('patternlab:version', function (done) {
@@ -145,6 +142,11 @@ gulp.task('patternlab:loadstarterkit', function (done) {
 gulp.task('patternlab:build', gulp.series('pl-assets', build, function (done) {
   done()
 }))
+gulp.task('patternlab:prebuild', gulp.series(
+  'pl-copy:js', 'pl-copy:bs', 'pl-copy:th', 'pl-copy:jq',
+  'pl-copy:bv', 'pl-copy:ss', 'pl-copy:an', 'pl-copy:img', 'pl-copy:favicon',
+  'pl-copy:css', 'pl-copy:styleguide', function (done) { done() })
+)
 function getSupportedTemplateExtensions () {
   var engines =
     require('./node_modules/patternlab-node/core/lib/pattern_engines')
@@ -193,7 +195,7 @@ gulp.task('patternlab:connect', gulp.series(function (done) {
 }))
 gulp.task('patternlab:watch', gulp.series('patternlab:build', watch))
 gulp.task('patternlab:serve',
-  gulp.series('patternlab:build', 'patternlab:connect', watch))
+  gulp.series('patternlab:prebuild', 'patternlab:build', 'patternlab:connect', watch))
 gulp.task('default', gulp.series('patternlab:serve'))
 gulp.task('dist', gulp.series('pl-copy:distribution-js',
   'pl-copy:distribution-css'))
