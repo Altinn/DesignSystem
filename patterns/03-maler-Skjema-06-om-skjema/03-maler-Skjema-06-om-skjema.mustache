@@ -1,0 +1,40 @@
+<div class="a-page" id="smoothState">
+
+	{{> organismer-header }}
+
+	<div class="container">
+
+		<section id="hovedinnhold" tabindex="-1">
+			<div class="row">
+				<div class="col-sm-12 col-lg-6 offset-lg-3 a-paddingTop-x3 a-paddingBottom-x3">
+					{{> atomer-sok:input-group-large(search-label-id: "searchLarge-front", search-label: "Søk etter skjema og annet innhold")}}
+				</div>
+			</div>
+			{{> molekyler-kort-hoved }}
+			<div class="row">
+				<div class="col-sm-12 col-lg-10 offset-lg-1 a-paddingTop-x3 a-paddingBottom-x3">
+					<h2>{{{ header-2 }}}</h2>
+					{{> molekyler-trekkspill }}
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-sm-6 col-lg-5 offset-lg-1 a-paddingTop-x3 a-paddingBottom-x3">
+					<h2>{{{ header-3 }}}</h2>
+					{{# help }}
+						{{{ help-prefix }}}
+						{{> atomer-link }}
+					{{/ help }}
+				</div>
+				<div class="col-sm-6 col-lg-5 offset-lg-0 a-paddingTop-x3 a-paddingBottom-x3">
+					<h2>{{{ header-4 }}}</h2>
+					{{# help-links }}
+					  {{> atomer-handlingslink }}
+				  {{/ help-links }}
+				</div>
+			</div>
+		</section>
+
+		{{> organismer-footer }}
+	</div> <!-- END Container -->
+
+</div>

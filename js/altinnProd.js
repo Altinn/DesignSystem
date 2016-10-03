@@ -1,4 +1,17 @@
 /* globals $ */
+var aTagSpaceExpand = function () {
+  $('a.collapsed').each(function () {
+    $(this).on('keydown', function (e) {
+      if (e.keyCode === 32 || e.keycode === 13 || e.which === 32 || e.which === 13) {
+        console.log('hhh')
+        e.stopPropagation(); e.preventDefault()
+        $(e.target).trigger($.Event('click'))
+      }
+    })
+  })
+}
+
+/* globals $ */
 var drilldownInteraction = function () {
   var bpLarge = 992
   // Add dim class to panels
@@ -58,7 +71,7 @@ var drilldownInteraction = function () {
       getThird(ul).css('margin-left', '-10000px')
         .attr('data-ignore', 'true')
       $('.col-md-3').removeClass('col-md-3').addClass('col-md-6')
-        .removeClass('col-md-offset-4').addClass('col-md-offset-1')
+        .removeClass('offset-md-4').addClass('offset-md-1')
     } else {
       second.each(function () {
         getThird($(this)).attr('data-ignore', 'true')
@@ -66,7 +79,7 @@ var drilldownInteraction = function () {
       $('#a-js-suggestionList').css('display', 'none')
       $('.dim-second').removeClass('dim-second')
       $('.col-md-6').removeClass('col-md-6').addClass('col-md-3')
-        .removeClass('col-md-offset-1').addClass('col-md-offset-4')
+        .removeClass('offset-md-1').addClass('offset-md-4')
     }
   })
   // Add dim class to colnav first level (the panels that are not active)
@@ -125,10 +138,10 @@ var handleFocus = function () {
     setTimeout(function () {
       this.blur(); this.removeClass('override-focus')
     }.bind($(this)), 1500)
-    $(this).children('.c-indicator').addClass('override-focus')
+    $(this).children('.custom-control-indicator').addClass('override-focus')
     setTimeout(function () {
-      this.children('.c-indicator').prev().blur()
-      this.children('.c-indicator').removeClass('override-focus')
+      this.children('.custom-control-indicator').prev().blur()
+      this.children('.custom-control-indicator').removeClass('override-focus')
     }.bind($(this)), 1500)
     $(this).children('.a-switch-label').addClass('override-focus')
     setTimeout(function () {
@@ -231,7 +244,7 @@ var tooltip = function () { $('[data-toggle="tooltip"]').tooltip() }
 
 /* globals $ */
 var uniformHeight = function () {
-  var cardGroup = $('.a-card-group'); var maxheight = 0
+  var cardGroup = $('.a-card-group .container .row'); var maxheight = 0
   cardGroup.children().each(function () {
     if ($(this).height() > maxheight) maxheight = $(this).height()
   })
@@ -240,10 +253,10 @@ var uniformHeight = function () {
 
 /* globals questionnaireInteraction, drilldownInteraction, handleFocus,
 mobileNavigation, propagateContent, toggleExpand, toggleFilter, uniformHeight,
-tooltip, popover */
+tooltip, popover, aTagSpaceExpand */
 window.altinnInit = function () {
   drilldownInteraction(); handleFocus(); mobileNavigation(); popover()
   propagateContent(); questionnaireInteraction(); toggleExpand(); toggleFilter()
-  tooltip(); uniformHeight()
+  tooltip(); uniformHeight(); aTagSpaceExpand()
 }
 window.altinnInit()

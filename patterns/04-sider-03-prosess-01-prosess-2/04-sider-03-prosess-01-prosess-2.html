@@ -34,8 +34,8 @@
     <script src="https://use.fonticons.com/b2e1f56d.js"></script>
 
     <!-- Altinn stylesheet -->
-    <link rel="stylesheet" href="../../css/style.css?1475044288360" media="all" />
-    <link rel="stylesheet" href="../../css/pattern-scaffolding.css?1475044288360" media="all" />
+    <link rel="stylesheet" href="../../css/style.css?1475504827120" media="all" />
+    <link rel="stylesheet" href="../../css/pattern-scaffolding.css?1475504827120" media="all" />
 
     <!-- Begin Pattern Lab (Required for Pattern Lab to run properly) -->
     <!-- never cache patterns -->
@@ -45,7 +45,7 @@
 <meta http-equiv="expires" content="Tue, 01 Jan 1980 1:00:00 GMT" />
 <meta http-equiv="pragma" content="no-cache" />
 
-<link rel="stylesheet" href="../../styleguide/css/styleguide.min.css?1475044288360" media="all">
+<link rel="stylesheet" href="../../styleguide/css/styleguide.min.css?1475504827120" media="all">
 <style type="text/css">
   /* PRESENTATION OF STYLE GUIDE */
   #sg-viewport {
@@ -137,6 +137,77 @@
   .sg-pattern-variations {
     color: #666;
   }
+
+
+  /* Category */
+
+  [id^=viewall-atomer] a:before {
+    content: 'Atomer: ';
+    color: #333;
+  }
+
+  [id^=viewall-molekyler] a:before {
+    content: 'Molekyler: ';
+    color: #333;
+  }
+
+  [id^=viewall-organismer] a:before {
+    content: 'Organismer: ';
+    color: #333;
+  }
+
+  .sg-pattern-category {
+    margin-top: 36px;
+    font-family: 'DIN-bold';
+    float: left;
+    background: rgba(255, 255, 255, 0.5);
+    border: 2px dashed #B3B3B3;
+    width:100%;
+  }
+
+  @media all and (min-width: 768px) {
+    .sg-pattern-category {
+      width: calc(100% + 96px);
+      margin-left: -48px;
+    }
+  }
+
+  .sg-pattern-category-title {
+    margin: 0;
+    padding: 0;
+  }
+
+  .sg-pattern-category-title a{
+    color: #6a6a6a;
+    text-transform: uppercase;
+    font-size: 18px;
+    text-decoration: none;
+    border-bottom: none;
+    margin: 0;
+    display: block;
+    padding: 12px 12px 8px 12px;
+  }
+  @media all and (min-width: 768px) {
+    .sg-pattern-category-title a{
+      padding: 12px 12px 8px 45px;
+      font-size: 24px;
+    }
+  }
+  @media all and (min-width: 768px) {
+    .sg-pattern-category-title a:hover:after{
+      content: 'Vis alle i denne kategorien';
+      color: #1eaef7;
+      font-size: 14px;
+      text-transform: none;
+      padding: 0 0 0 24px;
+      margin-top: -3px;
+      display: inline-block;
+      vertical-align: middle;
+      text-decoration: underline;
+    }
+  }
+
+  /* Pattern */
 
 
   #sg-patterns .sg-pattern-head .sg-pattern-state:before {
@@ -312,7 +383,7 @@
     padding-top: 0;
   }
 </style>
-<link rel="stylesheet" href="../../styleguide/css/prism-typeahead.min.css?1475044288360" media="all" />
+<link rel="stylesheet" href="../../styleguide/css/prism-typeahead.min.css?1475504827120" media="all" />
 
     <!-- End Pattern Lab -->
 
@@ -372,8 +443,11 @@
       <div class="modal-content">
         <div class="modal-header a-modal-header">
 
-          <i class="material-icons a-collapse-icon">devices</i>
-          <h2 class="modal-title a-modal-title" id="myModalLabel">Gi og fjerne rettigheter (2)</h2>
+          <i class="material-icons a-panel-heading-icon">devices</i>
+
+          <div class="a-panel-heading-text" id="myModalLabel">
+            <h2 class="modal-title a-modal-title">Gi og fjerne rettigheter (2)</h2>
+          </div>
 
         </div>
         <div class="modal-body a-modal-body a-text">
@@ -412,28 +486,33 @@
     <div class="sg-switchtheme">
 	<div class="container">
 
+
 		<div class="a-radioButtons">
 		<span style="margin-right: 12px;"> Bytt tema: </span>
 
-			<label class="c-input c-radio">
-			  <input id="sg-switchtheme-blue" name="radio" type="radio" ><span class="c-indicator"></span>
+
+			<label class="custom-control custom-radio">
+			  <input id="sg-switchtheme-blue" name="radio" type="radio" class="custom-control-input"><span class="custom-control-indicator"></span>
 			  Bedrift
 			</label>
-			<label class="c-input c-radio">
-			  <input id="sg-switchtheme-grey" name="radio" type="radio" ><span class="c-indicator"></span>
-			  Privat
+
+			<label class="custom-control custom-radio">
+				<input id="sg-switchtheme-grey" name="radio" type="radio" class="custom-control-input"><span class="custom-control-indicator"></span>
+				Privat
 			</label>
-			<label class="c-input c-radio">
-			  <input id="sg-switchtheme-white" name="radio" type="radio" ><span class="c-indicator"></span>
+
+			<label class="custom-control custom-radio">
+			  <input id="sg-switchtheme-white" name="radio" type="radio" class="custom-control-input"><span class="custom-control-indicator"></span>
 			  Nøytral
 			</label>
 
 		</div>
+
 	</div>
 </div>
 
 <script type="text/json" id="sg-pattern-data-footer" class="sg-pattern-data">
-  {"cssEnabled":false,"patternLineageExists":true,"patternLineages":[{"lineagePattern":"maler-prosess","lineagePath":"../../patterns/03-maler-03-prosess/03-maler-03-prosess.html","lineageState":"complete"}],"lineage":[{"lineagePattern":"maler-prosess","lineagePath":"../../patterns/03-maler-03-prosess/03-maler-03-prosess.html","lineageState":"complete"}],"patternLineageRExists":false,"patternLineagesR":[],"lineageR":[],"patternLineageEExists":true,"patternDesc":"","patternBreadcrumb":{"patternType":"sider","patternSubtype":"prosess"},"patternExtension":"mustache","patternName":"Prosess 2","patternPartial":"sider-prosess-2","patternState":"complete","extraOutput":{}}
+  {"cssEnabled":false,"patternLineageExists":true,"patternLineages":[{"lineagePattern":"maler-prosess","lineagePath":"../../patterns/03-maler-03-prosess/03-maler-03-prosess.html","lineageState":"inreview"}],"lineage":[{"lineagePattern":"maler-prosess","lineagePath":"../../patterns/03-maler-03-prosess/03-maler-03-prosess.html","lineageState":"inreview"}],"patternLineageRExists":false,"patternLineagesR":[],"lineageR":[],"patternLineageEExists":true,"patternDesc":"","patternBreadcrumb":{"patternType":"sider","patternSubtype":"prosess"},"patternExtension":"mustache","patternName":"Prosess 2","patternPartial":"sider-prosess-2","patternState":"inreview","patternEngineName":"mustache","extraOutput":{}}
 </script>
 
 <script>
@@ -469,10 +548,10 @@
   }
 </script>
 
-<script id="pl-js-polyfill-insert-1475044288360">
+<script id="pl-js-polyfill-insert-1475504827120">
   (function() {
     if (self != top) {
-      var cb = '1475044288360';
+      var cb = '1475504827120';
       var js = [];
       if (typeof document !== 'undefined' && !('classList' in document.documentElement)) {
         js.push('styleguide/bower_components/classList.min.js');
@@ -482,10 +561,10 @@
   })();
 </script>
 
-<script id="pl-js-insert-1475044288360">
+<script id="pl-js-insert-1475504827120">
   (function() {
     if (self != top) {
-      var cb = '1475044288360';
+      var cb = '1475504827120';
       var js = [ { 'src': 'styleguide/bower_components/jwerty.min.js', 'dep': [ 'styleguide/js/patternlab-pattern.min.js' ] } ];
       scriptLoader.run(js,cb,'pl-js-insert');
     }

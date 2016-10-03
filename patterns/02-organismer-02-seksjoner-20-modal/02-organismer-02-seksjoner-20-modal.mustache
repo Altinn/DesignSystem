@@ -1,0 +1,95 @@
+<!-- Modal -->
+<span class="a-scene a-page">
+  <div class="a-modal fade in {{ bodyClass }}" id="{{modal-id}}" tabindex="-1" role="dialog" aria-labelledby="{{modal-label}}" aria-hidden="true">
+    <div class="modal-dialog modal-lg" role="document">
+
+      <!-- Modal Top -->
+      <div class="a-modal-top">
+
+        {{# modal-top-logo }}
+          {{> atomer-logo}}
+        {{/ modal-top-logo }}
+
+
+        <div id="represented-by-user" class="a-modal-top-user hidden-xs">
+
+          <i class="material-icons a-modal-top-user-icon">person</i>
+
+            <span class="a-modal-top-user-name">
+              {{ modal-username }}
+            </span>
+        </div>
+
+        <div class="a-modal-navbar">
+
+          {{# modalBack }}
+          <button type="button" class="a-modal-back" onclick="goBack()" data-dismiss="modal" aria-label="Lukk">
+            <i class="material-icons a-modal-back-icon">keyboard_backspace</i>
+          </button>
+          {{/ modalBack }}
+
+          <script>
+          function goBack() {
+              // window.history.back();
+              var arr = []
+              for (key in smoothState.cache) { arr.push(key) }
+              delete smoothState.cache[arr[arr.length - 1]]
+              arr.splice(-1,1)
+              smoothState.load(arr[arr.length - 1])
+          }
+          </script>
+
+          <button type="button" class="a-modal-close" data-dismiss="modal" aria-label="Lukk">
+            <i class="material-icons a-modal-close-icon">close</i>
+          </button>
+
+        </div>
+      </div>
+
+      <span class="a-right-panel a-page a-scene_element {{ animationClass }}">
+      <!-- Modal content -->
+      <div class="modal-content">
+        <div class="modal-header a-modal-header">
+
+          <i class="material-icons a-panel-heading-icon">{{ modal-icon }}</i>
+
+          <div class="a-panel-heading-text" id="{{ modal-label }}">
+            <h2 class="modal-title a-modal-title">{{ modal-title }}</h2>
+          </div>
+
+        </div>
+        <div class="modal-body a-modal-body a-text">
+          <p> {{{ modal-content }}}</p>
+
+          <div class="a-btn-group">
+
+              {{# modal-nextbutton }}
+                {{> atomer-link }}
+              {{/ modal-nextbutton }}
+
+              {{# modal-successbutton }}
+                {{> atomer-link }}
+              {{/ modal-successbutton }}
+
+              {{# modal-startover }}
+                {{> atomer-link }}
+              {{/ modal-startover }}
+
+              {{# modal-errorbutton }}
+                {{> atomer-link }}
+              {{/ modal-errorbutton }}
+
+              {{# modal-discard }}
+                {{> atomer-link }}
+              {{/ modal-discard }}
+
+          </div>
+
+        </div>
+
+
+      </div>
+      </span>
+    </div>
+  </div>
+</span>
