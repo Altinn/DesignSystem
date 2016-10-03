@@ -2,7 +2,24 @@
 
     {{# accordion-header-items }}
         {{> atomer-ekspanderbar-overskrift }}
-        <div id={{collapse-header-id}} class="a-collapseContent collapse">{{collapse-header-content}}<br /><br /></div>
+
+        <div id={{collapse-header-id}} class="a-collapseContent collapse">
+          <div class="a-collapseContent-inside">
+
+            {{collapse-header-content}}
+
+
+
+            {{# collapse-panel-list }}
+              {{> atomer-liste-unummerert:a-item-list-large|a-paddingBottom-x2 }}
+            {{/ collapse-panel-list }}
+
+            {{# collapse-panel-link }}
+              {{> atomer-link:a-link-large }}
+            {{/ collapse-panel-link }}
+          </div>
+
+        </div>
     {{/ accordion-header-items }}
 
 </div>
