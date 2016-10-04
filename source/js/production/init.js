@@ -2,8 +2,16 @@
 mobileNavigation, propagateContent, toggleExpand, toggleFilter, uniformHeight,
 tooltip, popover, aTagSpaceExpand */
 window.altinnInit = function () {
-  drilldownInteraction(); handleFocus(); mobileNavigation(); popover()
-  propagateContent(); questionnaireInteraction(); toggleExpand(); toggleFilter()
-  tooltip(); uniformHeight(); aTagSpaceExpand()
+  toggleExpand()
+  drilldownInteraction()
+  toggleFilter()
+  uniformHeight()
+  handleFocus()
+  tooltip()
+  popover()
+  mobileNavigation()
+  propagateContent()
+  questionnaireInteraction()
+  aTagSpaceExpand()
 }
 window.altinnInit()
