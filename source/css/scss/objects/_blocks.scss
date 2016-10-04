@@ -156,7 +156,7 @@
 .a-card {
 	background: $white;
 	width: 100%;
-	padding: 40px 50px;
+	padding: 18px 24px;
 	box-shadow: $shadow;
 	margin-bottom: 10px;
 
@@ -165,12 +165,6 @@
 		span {
 			font-family: 'DIN-reg';
 		}
-	}
-
-  .material-icons {
-		float: left;
-		font-size: $space-x8;
-		padding-right: $space;
 	}
 
 	&.transparent {
@@ -198,13 +192,26 @@
 	}
 }
 
+.a-card-largeIcon {
+	i {
+		float: left;
+		padding-right: $space;
+		font-size: 60px;
+		margin-top: 7px;
+	}
+}
+
+.neutral .a-card:not(.transparent) {
+	background: $grey-light;
+}
+
 .a-card-image {
 	>* {
-		margin-left: 286px;
+		margin-left: calc(180px + 24px);
 		display: block !important;
 
 		@media all and (max-width: $bp-med) {
-			margin-left: 158px;
+			margin-left: calc(128px + 24px);
 		}
 
 		@media all and (max-width: $bp-small) {
@@ -212,7 +219,7 @@
 		}
 	}
 	img {
-		width: 256px;
+		width: 180px;
 		float: left;
 		margin-left: 0;
 
