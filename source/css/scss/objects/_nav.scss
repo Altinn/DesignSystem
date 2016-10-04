@@ -62,8 +62,10 @@
 
 		}
 
-		&.active {
+		&.active a{
 			color: $grey;
+			cursor: default;
+			border: none;
 		}
 	}
 }
@@ -113,13 +115,19 @@
 \*------------------------------------*/
 
 .a-accordion-large {
-	a {
+	a:not(.a-link) {
 		padding-bottom: 24px;
 		clear: both;
-		border-top: 1px solid $grey-medium;
+		border-top: 1px solid $blue-line;
 		padding-top: 24px;
+		@media all and (min-width: $bp-med) {
+			padding-left: 48px;
+		}
 	}
-	border-bottom: 1px solid $grey-medium;
+	.a-link {
+		display:inline;
+	}
+	border-bottom: 1px solid $blue-line;
 }
 
 

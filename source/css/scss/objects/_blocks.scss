@@ -4,7 +4,6 @@
 	background-size: cover;
 	background-position: center;
 	background-repeat: no-repeat;
-	padding-top: 170px;
 	padding-bottom: 134px;
 
 	p {
@@ -13,9 +12,6 @@
 		color: $blue-darker;
 	}
 	.a-jumbotron-title {
-		font-size: 36px;
-		line-height: 42px;
-		font-family: 'din-bold';
 		display: block;
 		padding-bottom: $space;
 	}
@@ -32,16 +28,22 @@
 			display: inline;
 		}
 	}
+	.a-link:hover, .a-link:focus {
+		color: #fff;
+    border-bottom: 2px solid #fff;
+	}
 }
 
 .a-jumbotron-header {
 	margin-top: -110px;
+	padding-top: 170px;
 }
 
 .a-jumbotron-light {
 	background-image: url('../images/header-bg1.svg');
 }
 
+// If dark background, make text white
 .a-jumbotron-dark {
 	background-image: url('../images/header-bg0.svg');
 	color: $white;
@@ -71,6 +73,23 @@
 	.a-breadcrumb  > li + li::before {
 		color: $white;
 	}
+	.a-dotted-line {
+    background-image: linear-gradient(to right, #fff 50%, rgba(255, 255, 255, 0) 0%);
+	}
+	.a-dotted {
+    background-image: linear-gradient(to right, #fff 50%, rgba(255, 255, 255, 0) 0%);
+	}
+	.a-item-list .a-item-list-item .a-listItem-title {
+		color: #fff;
+	}
+	.a-item-list .a-item-list-item.a-clickable:hover,
+	.a-listItem-title:focus {
+    background-color: rgba(255, 255, 255, 0.1)
+	}
+	.a-link {
+		border-bottom: 2px solid #fff;
+	}
+
 }
 
 .a-jumbotron-large {
@@ -141,7 +160,7 @@
 .a-card {
 	background: $white;
 	width: 100%;
-	padding: 40px 50px;
+	padding: 60px 48px;
 	box-shadow: $shadow;
 	margin-bottom: 10px;
 
@@ -150,12 +169,6 @@
 		span {
 			font-family: 'DIN-reg';
 		}
-	}
-
-  .material-icons {
-		float: left;
-		font-size: $space-x8;
-		padding-right: $space;
 	}
 
 	&.transparent {
@@ -183,13 +196,27 @@
 	}
 }
 
+.a-card-largeIcon {
+	padding: 18px 24px;
+	i {
+		float: left;
+		padding-right: $space;
+		font-size: 60px;
+		margin-top: 7px;
+	}
+}
+
+.neutral .a-card:not(.transparent) {
+	background: $grey-light;
+}
+
 .a-card-image {
 	>* {
-		margin-left: 286px;
+		margin-left: calc(180px + 24px);
 		display: block !important;
 
 		@media all and (max-width: $bp-med) {
-			margin-left: 158px;
+			margin-left: calc(128px + 24px);
 		}
 
 		@media all and (max-width: $bp-small) {
@@ -197,7 +224,7 @@
 		}
 	}
 	img {
-		width: 256px;
+		width: 180px;
 		float: left;
 		margin-left: 0;
 

@@ -187,7 +187,31 @@
 }
 
 .a-collapseContent{
+  padding-left: 48px;
+  padding-right: 48px;
+  @media all and (min-width: $bp-med) {
+    padding-left: calc(48px *2);
+    padding-right: calc(48px *2);
+  }
 
+  .a-collapseContent-inside {
+    padding-bottom: 36px;
+  }
+  .a-collapseContent-img {
+    margin-top: -36px;
+    opacity:0;
+  }
+}
+
+.a-collapseContent.collapse.in {
+  .a-collapseContent-img {
+    opacity:1;
+    -webkit-transition: all 200ms ease-in;
+    -moz-transition: all 200ms ease-in;
+    -ms-transition: all 200ms ease-in;
+    -o-transition: all 200ms ease-in;
+    transition: all 200ms ease-in;
+  }
 }
 
 .a-dropdownArrow {
