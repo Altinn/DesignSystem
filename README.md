@@ -15,11 +15,17 @@ npm install
 For å kjøre koden lokalt, bruk følgende kommando (vil serve filene over localhost, og automatisk bygge på nytt ved endringer i kildekoden):
 
 ```
-gulp
+gulp // npm start
 ```
 
 For å bygge distribusjonsfiler, bruk følgende kommando:
 
 ```
-gulp dist
+gulp dist // npm run dist
+```
+
+For å bygge patterns og snippets:
+
+```
+npm run patterns
 ```
