@@ -38,16 +38,14 @@
   <div class="sg-main" role="main">
     <!-- Patterns -->
     <div id="sg-patterns">
-      {{# partials }}
-			  {{# patternSectionSubtype }}
-					<div id="{{ patternPartial }}" class="sg-pattern-category">
-						<h2 class="sg-pattern-category-title"><a href="../../patterns/{{ patternLink }}" class="patternLink" data-patternpartial="{{ patternPartial }}">{{ patternName }}</a></h2>
-					</div>
-				{{/ patternSectionSubtype }}
-				{{^ patternSectionSubtype }}
-					{{> patternSection }}
-				{{/ patternSectionSubtype }}
-      {{/ partials }}
+			{{# partials }}
+	      {{# patternSectionSubtype }}
+	        {{> patternSectionSubtype }}
+	      {{/ patternSectionSubtype }}
+	      {{^ patternSectionSubtype }}
+	        {{> patternSection }}
+	      {{/ patternSectionSubtype }}
+	    {{/ partials }}
     </div> <!--end #sg-patterns-->
   </div> <!--end .sg-main-->
 </div> <!--end .container-->

@@ -1,5 +1,5 @@
-/* globals anchors, insetVariations, selectAll, toggleTheme */
+/* globals anchors, hideIntroInSubs, insetVariations, selectAll, toggleTheme */
 window.altinnDev = function () {
-  anchors(); insetVariations(); selectAll(); toggleTheme()
+  anchors(); hideIntroInSubs(); insetVariations(); selectAll(); toggleTheme()
 }
 window.altinnDev()
