@@ -15,22 +15,6 @@
     src: url('http://www.persille.no/DINWeb-Bold.php');
 }
 
-.din-reg {
-    font-family: 'DIN-reg';
-}
-.din-light {
-    font-family: 'DIN-light';
-}
-.din-medium {
-    font-family: 'DIN-medium';
-}
-.din-bold,
-.a-textSizeBold,
-b,
-strong {
-    font-family: 'DIN-bold';
-}
-
 h1,
 .a-pageTitle,
 .a-textSize1   {
@@ -41,19 +25,19 @@ h1,
     margin-bottom:$space-half;
 
     // Tablet
-    @media all and (min-width: $bp-med) {
+    @include media-breakpoint-up(md) {
         font-size: 28px;
         line-height: 36px;
     }
 
     // Laptop
-    @media all and (min-width: $bp-large) {
+    @include media-breakpoint-up(lg) {
         font-size: 36px;
         line-height: 42px;
     }
 
     // Desktop
-    @media all and (min-width: $bp-xlarge) {
+    @include media-breakpoint-up(xl) {
         font-size: 36px;
         line-height: 42px;
     }
@@ -69,19 +53,19 @@ h2,
     margin-bottom:$space-half;
 
     // Tablet
-    @media all and (min-width: $bp-med) {
+    @include media-breakpoint-up(md) {
         font-size: 22px;
         line-height: 24px;
     }
 
     // Laptop
-    @media all and (min-width: $bp-large) {
+    @include media-breakpoint-up(lg) {
         font-size: 24px;
         line-height: 30px;
     }
 
     // Desktop
-    @media all and (min-width: $bp-xlarge) {
+    @include media-breakpoint-up(xl) {
         font-size: 28px;
         line-height: 36px;
     }
@@ -97,19 +81,19 @@ h3,
     margin-bottom:$space-half;
 
     // Tablet
-    @media all and (min-width: $bp-med) {
+    @include media-breakpoint-up(md) {
         font-size: 18px;
         line-height: 24px;
     }
 
     // Laptop
-    @media all and (min-width: $bp-large) {
+    @include media-breakpoint-up(lg) {
         font-size: 20px;
         line-height: 24px;
     }
 
     // Desktop
-    @media all and (min-width: $bp-xlarge) {
+    @include media-breakpoint-up(xl) {
         font-size: 20px;
         line-height: 24px;
     }
@@ -125,24 +109,40 @@ h4,
     margin-bottom: $space-half;
 
     // Tablet
-    @media all and (min-width: $bp-med) {
+    @include media-breakpoint-up(md) {
         font-size: 16px;
         line-height: 24px;
     }
 
     // Laptop
-    @media all and (min-width: $bp-large) {
+    @include media-breakpoint-up(lg) {
         font-size: 16px;
         line-height: 24px;
     }
 
     // Desktop
-    @media all and (min-width: $bp-xlarge) {
+    @include media-breakpoint-up(xl) {
         font-size: 16px;
         line-height: 24px;
     }
 }
 
+// Font weights
+.din-reg {
+    font-family: 'DIN-reg';
+}
+.din-light {
+    font-family: 'DIN-light';
+}
+.din-medium {
+    font-family: 'DIN-medium';
+}
+.din-bold,
+.a-textSizeBold,
+b,
+strong {
+    font-family: 'DIN-bold';
+}
 
 
 /* Text-Related Elements */
@@ -185,7 +185,7 @@ p {
     border-left: 6px solid #fff;
 
 
-    @media all and (max-width: $bp-med) {
+    @include media-breakpoint-down(md) {
         padding: 30px 20px;
         font-size: 16px;
     }
@@ -203,7 +203,7 @@ p {
 
     &.a-blockquote-right {
 
-      @media all and (min-width: $bp-med) {
+      @include media-breakpoint-up(md) {
         float: right;
         max-width: 50%;
         margin-left: 5%;
@@ -239,7 +239,6 @@ blockquote:before, blockquote:after {
 
 
 // Label
-
 .a-label {
     vertical-align: top;
     font-family: 'DIN-reg';
@@ -262,40 +261,4 @@ blockquote:before, blockquote:after {
     border: none;
     margin-top: -3px;
     color: #000;
-}
-
-
-/* Telephone */
-
-.a-tel {
-  font-family: 'DIN-bold';
-  border-bottom: none;
-  font-size: 18px;
-  position: relative;
-
-  &:hover {
-    border: none;
-  }
-
-  &:focus:not(.override-focus) {
-    box-shadow: none;
-    border:none;
-  }
-
-  &:before {
-    content: "";
-    width: calc(100% + 40px);
-    min-height: 48px;
-    position: absolute;
-    left: -20px;
-    top: -11px;
-    cursor: pointer;
-    z-index: -1;
-  }
-
-  i {
-    vertical-align: middle;
-    margin-left: -5px;
-    margin-top: -3px;
-  }
 }

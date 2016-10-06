@@ -17,7 +17,6 @@
   font-family: 'DIN-reg';
   margin-bottom: $space;
 
-
   &:hover {
       background: $blue-hover-color;
       text-decoration: none;
@@ -30,6 +29,7 @@
       outline: 0;
       background: $blue-hover-color;
 			border-bottom: none;
+			color: $black;
   }
 
   &:active,
@@ -134,13 +134,11 @@
   font-family: 'DIN-medium';
 	background: rgba(255,255,255,0.5);
 
-	&:hover {
+	&:hover,
+	&:focus {
 			background: $blue-darker;
 			border: 2px solid $blue-darker;
 			color: $white;
-	}
-	&:focus {
-			border: 2px solid $blue-darker;
 	}
 	&:active,
 	&.active {
@@ -148,7 +146,7 @@
 			color: $white;
 	}
 
-	@media all and (min-width: $bp-large) {
+	@include media-breakpoint-up(lg) {
 		font-size: 36px;
 	}
 }
