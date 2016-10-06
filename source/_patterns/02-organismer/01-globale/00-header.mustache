@@ -1,12 +1,12 @@
 <!-- Begin .header -->
-<a href="#hovedinnhold" class="snarvei">Hopp til hovedinnholdet</a>
-<!-- Meny og navigasjon som skal hoppes over legges her -->
+<a href="#content" class="sr-only sr-only-focusable">Hopp til hovedinnholdet</a>
+<!-- Skip to main content -->
 
 <header class="a-header {{{ header-color }}}" role="banner">
 	<!-- Begin .container -->
   <div class="container">
     <!-- Begin Proxy content container, for inclusion in more than one place -->
-    <div class="propagated-content-origin droplang">
+    <div class="a-js-propagatedContentOrigin droplang">
       {{# dropdown-languages }}
         {{> organismer-meny-nedrulling}}
       {{/ dropdown-languages }}
@@ -30,7 +30,7 @@
 		<!-- Begin .a-globalNav-options -->
 		<ul class="nav nav-pills a-header-options">
 
-			<li class="nav-item dropdown hide-xsmall">
+			<li class="nav-item dropdown hidden-xs-down">
         <!-- Dropdown toggle -->
         <a class="nav-link dropdown-toggle a-languageSwitcher" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false"> <i class="material-icons hidden-md-up">&#xE894;</i><span class="sr-only">Bytt språk</span> <span class="hidden-sm-down" aria-hidden="true">Language</span></a>
         <span class="propagated-content-destination replace-me" data-refclass="droplang"></span>
@@ -61,7 +61,7 @@
 						<li class="hidden-sm-up">
 							{{> atomer-sok }}
 						</li>
-            <li class="hide-small-alt hide-med hide-large"><a class="hvr-underline-from-center"
+            <li class="hidden-sm-up"><a class="hvr-underline-from-center"
               onkeyup="langTriggerClick(event)" onmousedown="
               $('#exCollapsingNavbar').find('.a-dropdown-languages').find('a').attr('tabindex', '-1');
               if (!$('#exCollapsingNavbar').find('.a-dropdown-languages').hasClass('expand')) {

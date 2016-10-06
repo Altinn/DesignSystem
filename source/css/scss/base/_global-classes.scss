@@ -9,117 +9,60 @@ html {
 }
 
 html, body {
-    font-size: 16px;
-    font-family: $font;
-    color: $black;
-    background-color: $white;
+  font-size: 16px;
+  font-family: 'DIN-reg';
+  font-weight:  normal;
+  color: $black;
+  background-color: $white;
+}
+
+/* Backround colors */
+
+body.neutral,
+html.neutral{
+  background-color: $white;
 }
 
 body.private-person,
 html.private-person {
-    background-color: $grey-light;
+  background-color: $grey-light;
 }
-
 
 body.business,
 html.business{
-    background-color: $blue-light;
-}
-
-
-body.neutral,
-html.neutral{
-    background-color: $white;
+  background-color: $blue-light;
 }
 
 body.a-modal-background,
 html.a-modal-background {
-    background: $blue;
-}
-body.a-modal-background-success,
-html.a-modal-background-success {
-    background: $green-light;
-}
-body.a-modal-background-error,
-html.a-modal-background-error {
-    background: $red-light;
+  background: $blue;
 }
 
-// Hopp til hovedinnhold
-.snarvei {
-  position: absolute;
-  left: -2000px;
-  top: 0px;
+body.a-modal-background-success,
+html.a-modal-background-success {
+  background: $green-light;
 }
-.snarvei:focus {
-  left: 0px;
+
+body.a-modal-background-error,
+html.a-modal-background-error {
+  background: $red-light;
 }
 
 /* Selection style */
 ::selection {
-    background: #e0daf7;
-    color: #000;
+  background: #e0daf7;
+  color: #000;
 }
-
-
-/* White panel */
-.a-bgPanel {
-    padding: $pad-double;
-    background-color: #fff;
-    border-radius: 2px;
-    margin-bottom: $pad;
-}
-
-/* Grey panel */
-.a-bgPanel-grey {
-    padding: $pad-double;
-    background-color: $grey-light;
-    border-radius: 2px;
-    margin-bottom: $pad;
-    box-shadow: $shadow;
-}
-
-/* Blue light panel */
-.a-bgPanel-blueLight {
-    padding: $pad-double;
-    background-color: $blue-light;
-    border-radius: 2px;
-    margin-bottom: $pad;
-    box-shadow: $shadow;
-}
-
-/* Text colors */
-
-.a-dimText {
-    color: rgba(0,0,0,0.4)
-}
-.a-whiteText {
-    color: $white;
-
-    a, a:hover {
-        color: $white;
-        border-color: $white;
-    }
-}
-.a-blueDarkText {
-    color: $blue-dark;
-}
-
-.a-blueDarkerText {
-    color: $blue-darker;
-}
-
-
 
 /* Background colors */
 
 .a-bgGreyLight {
-   background-color: $grey-light;
-   color: $black;
+  background-color: $grey-light;
+  color: $black;
 
-   &:hover {
-     background: darken($grey-light, 2%)
-   }
+  &:hover {
+    background: darken($grey-light, 2%)
+  }
 }
 
 .a-bgPurple {
@@ -128,18 +71,18 @@ html.a-modal-background-error {
 }
 
 .a-bgPurpleLight {
-   background-color: $purple-light;
-   color: $black;
+  background-color: $purple-light;
+  color: $black;
 }
 
 .a-bgYellow {
-    background-color: $yellow;
-    color: $black;
+  background-color: $yellow;
+  color: $black;
 }
 
 .a-bgYellowLight {
-    background-color: $yellow-light;
-    color: $black;
+  background-color: $yellow-light;
+  color: $black;
 }
 
 .a-bgBlue {
@@ -158,34 +101,87 @@ html.a-modal-background-error {
 }
 
 .a-bgRed {
-    background-color: $red;
-    color: $black;
+  background-color: $red;
+  color: $black;
 }
 
 .a-bgRedLight {
-    background-color: $red-light;
-    color: $black;
+  background-color: $red-light;
+  color: $black;
 }
 
 .a-bgGreen {
-    background-color: $green;
-    color: $black;
+  background-color: $green;
+  color: $black;
 }
 .a-bgGreenLight {
-    background-color: $green-light;
-    color: $black;
+  background-color: $green-light;
+  color: $black;
 }
 
 .a-dimBackground {
     background: rgba(0,0,0,0.3)
 }
 
+/* Disabled background */
+.a-disabled {
+  cursor: not-allowed;
+  background-color: #ffffff;
+  color: #000;
+  box-shadow: 0px 0px 0px 1px white inset;
+  background-image: url("../images/disabled-background.svg");
+  background-repeat: repeat;
+  background-size: auto;
+}
+
+/* Panels with backbround-color */
+.a-bgPanel {
+    padding: $pad-double;
+    background-color: #fff;
+    border-radius: 2px;
+    margin-bottom: $pad;
+    box-shadow: $shadow;
+
+    &.a-bgPanel-grey {
+        background-color: $grey-light;
+    }
+    &.a-bgPanel-blueLight {
+        background-color: $blue-light;
+    }
+}
 
 
+/* Horizontal Rule */
+hr {
+    border: 0;
+    height: 2px;
+    background: transparent;
+    margin: 40px 0;
+    border-bottom: 1px solid $grey-medium;
+    width: 100%;
+    float: left;
+}
+hr.a-hr-smallPadding {
+    margin: 24px 0;
+}
+hr.a-hrLight {
+    border-bottom: 1px solid $grey-light;
+}
 
-//Dotted border fix
+hr.a-hrDotted {
+  border:0;
+  width: 100%;
+  height: 2px;
+  display: block;
+  background-image: linear-gradient(to right, $blue 50%, rgba(255,255,255,0) 0%);
+  background-position: bottom;
+  background-size: 4px 2px;
+  background-repeat: repeat-x;
+}
+
+// Horizontal Rule - Dotted border
 .a-dotted {
-    background-image: linear-gradient(to right, $blue 50%, rgba(255,255,255,0) 0%);
+  background-image: linear-gradient(to right, $blue 50%, rgba(255,255,255,0) 0%);
 	background-position: 25px bottom; // Must be either top or bottom, not both. If both are needed, add a div with class "a-dotted-line" before or after the element.
 	background-size: 4px 2px;
 	background-repeat: repeat-x;
@@ -200,21 +196,7 @@ html.a-modal-background-error {
     background-repeat: repeat-x;
 }
 
-
-// Disabled background
-
-.a-disabled {
- cursor: not-allowed;
- background-color: #ffffff;
- color: #000;
- box-shadow: 0px 0px 0px 1px white inset;
- background-image: url("../images/disabled-background.svg");
- background-repeat: repeat;
- background-size: auto;
-}
-
-// Dotted AND disabled
-
+/* Horizontal Rule - Dotted AND disabled */
 .a-dotted.a-disabled {
   cursor: not-allowed;
   color: #000;
@@ -227,172 +209,7 @@ html.a-modal-background-error {
   background-blend-mode: darken;
 }
 
-
-/* Padding */
-
-
-.a-padding-0 {
-  padding: 0;
-}
-.a-padding {
-  padding: $space;
-}
-.a-padding-half {
-  padding: $space/2;
-}
-.a-padding-x2 {
-  padding: $space*2;
-}
-.a-padding-x3 {
-  padding: $space*3;
-}
-.a-padding-x4 {
-  padding: $space*4;
-}
-.a-padding-x5 {
-  padding: $space*5;
-}
-.a-padding-x6 {
-  padding: $space*6;
-}
-
-
-.a-paddingTop {
-  padding-top: $space;
-}
-.a-paddingTop-x2 {
-  padding-top: $space-x2;
-}
-.a-paddingTop-x3 {
-  padding-top: $space-x3;
-}
-.a-paddingTop-x4 {
-  padding-top: $space-x4;
-}
-.a-paddingTop-x5 {
-  padding-top: $space-x5;
-}
-.a-paddingBottom-0 {
-  padding-bottom: 0;
-}
-
-.a-paddingRight {
-  padding-right: $space;
-}
-
-.a-paddingBottom {
-  padding-bottom: $space;
-}
-.a-paddingBottom-x2 {
-  padding-bottom: $space-x2;
-}
-.a-paddingBottom-x3 {
-  padding-bottom: $space-x3;
-}
-
-
-.a-paddingLeft {
-  padding-left: $space;
-}
-
-.a-paddingSide {
-  padding-right: $space;
-  padding-left: $space;
-}
-.a-paddingSide-x2 {
-  padding-right: $space-x2;
-  padding-left: $space-x2;
-}
-.a-paddingSide-x3 {
-  padding-right: $space-x3;
-  padding-left: $space-x3;
-}
-.a-paddingSide-x4 {
-  padding-right: $space-x4;
-  padding-left: $space-x4;
-}
-.a-paddingSide-x5 {
-  padding-right: $space-x5;
-  padding-left: $space-x5;
-}
-.a-paddingSide-x6 {
-  padding-right: $space-x6;
-  padding-left: $space-x6;
-}
-
-/*  Margin */
-
-.a-margin-0 {
-  margin: 0;
-}
-.a-margin {
-  margin: $space;
-}
-.a-margin-half {
-  margin: $space/2;
-}
-.a-margin-x2 {
-  margin: $space*2;
-}
-.a-margin-x3 {
-  margin: $space*3;
-}
-.a-margin-x4 {
-  margin: $space*4;
-}
-.a-margin-x5 {
-  margin: $space*5;
-}
-.a-margin-x6 {
-  margin: $space*6;
-}
-
-
-.a-marginTop {
-  margin-top: $space;
-}
-.a-marginTop-andhalf {
-  margin-top: $space-and-half;
-}
-.a-marginTop-x2 {
-  margin-top: $space-x2;
-}
-.a-marginTop-x3 {
-  margin-top: $space-x3;
-}
-.a-marginTop-x4 {
-  margin-top: $space-x4;
-}
-.a-marginTop-x5 {
-  margin-top: $space-x5;
-}
-.a-marginRight {
-  margin-right: $space;
-}
-.a-marginBottom {
-  margin-bottom: $space;
-}
-.a-marginBottom-x2 {
-  margin-bottom: $space-x2;
-}
-.a-marginBottom-x3 {
-  margin-bottom: $space-x3;
-}
-.a-marginBottom-x4 {
-  margin-bottom: $space-x4;
-}
-.a-marginBottom-x5 {
-  margin-bottom: $space-x5;
-}
-.a-marginBottom-x6 {
-  margin-bottom: $space-x6;
-}
-.a-marginLeft {
-  margin-left: $space;
-}
-
-
-/* Grid */
+/* Grid Edit */
 .container-fluid {
   padding: 0;
 }
@@ -403,121 +220,4 @@ html.a-modal-background-error {
         padding-left: 0;
         padding-right: 0;
     }
-}
-
-.a-center {
-    text-align: center;
-}
-
-/* Completely remove from the flow and screen readers. */
-.is-hidden {
-    display: none !important;
-    visibility: hidden !important;
-}
-
-/* Completely remove from the flow but leave available to screen readers. */
-.is-vishidden {
-    position: absolute !important;
-    overflow: hidden;
-    width: 1px;
-    height: 1px;
-    padding: 0;
-    border: 0;
-    clip: rect(1px, 1px, 1px, 1px);
-}
-
-/* Floats */
-.right {
-	float: right;
-	padding: 0 0 $pad $pad;
-}
-
-.right-search {
-	float: right;
-	padding: 0 0 $pad 0;
-}
-
-.left {
-	float: left;
-	padding: 0 $pad $pad 0;
-}
-
-/* Text-Align */
-.align-right {
-	text-align: right;
-}
-
-.align-center {
-	text-align: center;
-}
-
-.align-left {
-	text-align: left;
-}
-
-/* Display Classes */
-
-.hide-xsmall {
-    @media all and (max-width: $bp-small) {
-        display: none;
-    }
-}
-
-.hide-small {
-    @media all and (max-width: $bp-med) {
-        display: none;
-    }
-}
-
-.hide-small-alt {
-  @media all and (min-width: $bp-small) and (max-width: $bp-med) {
-    display: none;
-  }
-}
-
-.hide-med {
-    @media all and (min-width: $bp-med) and (max-width: $bp-large) {
-        display: none;
-    }
-}
-
-.hide-large {
-    @media all and (min-width: $bp-large) {
-        display: none;
-    }
-}
-
-// Propagated content selectors
-.propagated-content-origin {
-  display: none;
-}
-
-// Select all for code boxes
-.language-markup:focus {
-  outline: none
-}
-
-.sg-tabs-list {
-  li a {
-    background: #e5e2e0
-  }
-  li.sg-tab-title-active a {
-    background: #f5f2f0
-  }
-}
-
-// Accordion stacking
-.stack {
-  a {
-    display: block;
-  }
-}
-
-// Line breaking in code boxes
-body pre.language-markup {
-  overflow-x: hidden !important;
-
-  code {
-    white-space: pre-line !important;
-  }
 }

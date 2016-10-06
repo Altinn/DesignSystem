@@ -1,33 +1,37 @@
 <div class="a-page" id="smoothState">
 	{{> organismer-header }}
 
-	<div class="container">
+	<div class="container" id="content" tabindex="-1">
 
 		<div class="row">
-			<div class="col-sm-12 col-lg-6 offset-lg-3 a-paddingTop-x3 a-marginBottom-x5">
+			<div class="col-sm-12 col-lg-6 offset-lg-3 p-t-3 m-b-5">
 				{{> atomer-sok:input-group-large(search-label-id: "searchLarge-front", search-label: "Søk etter skjema og annet innhold")}}
 			</div>
 		</div>
 
-		<section id="hovedinnhold" tabindex="-1">
-
 			<div class="row">
-				<div class="col-sm-12 col-lg-10 offset-lg-1 a-paddingBottom-x3">
+				<div class="col-sm-12 col-lg-10 offset-lg-1 p-b-3">
 
 					{{# smulesti }}
 						{{> molekyler-smulesti }}
-					{{/ smulesti }} 
+					{{/ smulesti }}
 
-					{{# artikkeltekst }}
-						{{> organismer-artikkel }}
-					{{/ artikkeltekst }}
+					{{> atomer-sidetittel:a-blueDarkerText|p-b-2 }}
+
+					{{# first-list }}
+						{{> atomer-seksjonstittel:a-textSize3 }}
+						{{> atomer-liste-unummerert:a-item-list-2col|clearfix|m-b-3 }}
+					{{/ first-list }}
+
+					{{# second-list }}
+						{{> atomer-seksjonstittel:a-textSize3 }}
+						{{> atomer-liste-unummerert:a-item-list-2col|clearfix }}
+					{{/ second-list }}
+
 
 				</div>
 
 			</div>
-
-		</section>
-
 
 
 		{{> organismer-footer }}
