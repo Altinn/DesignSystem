@@ -2,12 +2,19 @@
   "name": "altinn-designsystem",
   "description": "Designsystemet er bygget med Pattern Lab. Dette repoet inneholder kildekoden, Pattern Lab-konfigurasjon og Gulp-konfigurasjon for å kjøre koden lokalt, samt for å bygge distribusjonsfiler.",
   "version": "0.2.0",
+  "scripts": {
+    "start": "gulp",
+    "patterns": "gulp patternlab:patternsonly",
+    "dist": "gulp dist",
+    "testplugin": "npm uninstall plugin-node-custom-output && npm install plugin-node-custom-output && npm run patterns"
+  },
   "dependencies": {
     "browser-sync": "^2.11.2",
     "gulp": "gulpjs/gulp#4.0",
     "gulp-cli": "",
     "minimist": "^1.2.0",
-    "patternlab-node": "2.5.1"
+    "patternlab-node": "2.6.0-alpha",
+    "plugin-node-custom-output": "git+https://github.com/Altinn/plugin-node-custom-output.git"
   },
   "devDependencies": {
     "gulp-sass": "^2.2.0",

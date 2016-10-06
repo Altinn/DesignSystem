@@ -1,5 +1,6 @@
 ---
  state: inreview
+ version: 0
 ---
 
-Label kan ha ulike farger basert på hva den representerer. 
+Label kan ha ulike farger basert på hva den representerer.

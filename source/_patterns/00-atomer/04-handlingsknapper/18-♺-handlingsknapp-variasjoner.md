@@ -1,5 +1,6 @@
 ---
  state: inreview
+ version: 0
 ---
 
 I tilfeller der brukeren kan legge til noe, f.eks: en en person, en rettighet, etc, skal man bruke plussikonet.
