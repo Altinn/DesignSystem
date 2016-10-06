@@ -9,108 +9,60 @@ html {
 }
 
 html, body {
-    font-size: 16px;
-    font-family: $font;
-    color: $black;
-    background-color: $white;
+  font-size: 16px;
+  font-family: 'DIN-reg';
+  font-weight:  normal;
+  color: $black;
+  background-color: $white;
 }
 
 /* Backround colors */
 
 body.neutral,
 html.neutral{
-    background-color: $white;
+  background-color: $white;
 }
 
 body.private-person,
 html.private-person {
-    background-color: $grey-light;
+  background-color: $grey-light;
 }
 
 body.business,
 html.business{
-    background-color: $blue-light;
+  background-color: $blue-light;
 }
 
 body.a-modal-background,
 html.a-modal-background {
-    background: $blue;
+  background: $blue;
 }
 
 body.a-modal-background-success,
 html.a-modal-background-success {
-    background: $green-light;
+  background: $green-light;
 }
 
 body.a-modal-background-error,
 html.a-modal-background-error {
-    background: $red-light;
+  background: $red-light;
 }
 
 /* Selection style */
 ::selection {
-    background: #e0daf7;
-    color: #000;
+  background: #e0daf7;
+  color: #000;
 }
-
-/* White panel */
-.a-bgPanel {
-    padding: $pad-double;
-    background-color: #fff;
-    border-radius: 2px;
-    margin-bottom: $pad;
-}
-
-/* Grey panel */
-.a-bgPanel-grey {
-    padding: $pad-double;
-    background-color: $grey-light;
-    border-radius: 2px;
-    margin-bottom: $pad;
-    box-shadow: $shadow;
-}
-
-/* Blue light panel */
-.a-bgPanel-blueLight {
-    padding: $pad-double;
-    background-color: $blue-light;
-    border-radius: 2px;
-    margin-bottom: $pad;
-    box-shadow: $shadow;
-}
-
-/* Text colors */
-
-.a-dimText {
-    color: rgba(0,0,0,0.4)
-}
-.a-whiteText {
-    color: $white;
-
-    a, a:hover {
-        color: $white;
-        border-color: $white;
-    }
-}
-.a-blueDarkText {
-    color: $blue-dark;
-}
-
-.a-blueDarkerText {
-    color: $blue-darker;
-}
-
-
 
 /* Background colors */
 
 .a-bgGreyLight {
-   background-color: $grey-light;
-   color: $black;
+  background-color: $grey-light;
+  color: $black;
 
-   &:hover {
-     background: darken($grey-light, 2%)
-   }
+  &:hover {
+    background: darken($grey-light, 2%)
+  }
 }
 
 .a-bgPurple {
@@ -119,18 +71,18 @@ html.a-modal-background-error {
 }
 
 .a-bgPurpleLight {
-   background-color: $purple-light;
-   color: $black;
+  background-color: $purple-light;
+  color: $black;
 }
 
 .a-bgYellow {
-    background-color: $yellow;
-    color: $black;
+  background-color: $yellow;
+  color: $black;
 }
 
 .a-bgYellowLight {
-    background-color: $yellow-light;
-    color: $black;
+  background-color: $yellow-light;
+  color: $black;
 }
 
 .a-bgBlue {
@@ -149,33 +101,87 @@ html.a-modal-background-error {
 }
 
 .a-bgRed {
-    background-color: $red;
-    color: $black;
+  background-color: $red;
+  color: $black;
 }
 
 .a-bgRedLight {
-    background-color: $red-light;
-    color: $black;
+  background-color: $red-light;
+  color: $black;
 }
 
 .a-bgGreen {
-    background-color: $green;
-    color: $black;
+  background-color: $green;
+  color: $black;
 }
 .a-bgGreenLight {
-    background-color: $green-light;
-    color: $black;
+  background-color: $green-light;
+  color: $black;
 }
 
 .a-dimBackground {
     background: rgba(0,0,0,0.3)
 }
 
+/* Disabled background */
+.a-disabled {
+  cursor: not-allowed;
+  background-color: #ffffff;
+  color: #000;
+  box-shadow: 0px 0px 0px 1px white inset;
+  background-image: url("../images/disabled-background.svg");
+  background-repeat: repeat;
+  background-size: auto;
+}
+
+/* Panels with backbround-color */
+.a-bgPanel {
+    padding: $pad-double;
+    background-color: #fff;
+    border-radius: 2px;
+    margin-bottom: $pad;
+    box-shadow: $shadow;
+
+    &.a-bgPanel-grey {
+        background-color: $grey-light;
+    }
+    &.a-bgPanel-blueLight {
+        background-color: $blue-light;
+    }
+}
 
 
-//Dotted border fix
+/* Horizontal Rule */
+hr {
+    border: 0;
+    height: 2px;
+    background: transparent;
+    margin: 40px 0;
+    border-bottom: 1px solid $grey-medium;
+    width: 100%;
+    float: left;
+}
+hr.a-hr-smallPadding {
+    margin: 24px 0;
+}
+hr.a-hrLight {
+    border-bottom: 1px solid $grey-light;
+}
+
+hr.a-hrDotted {
+  border:0;
+  width: 100%;
+  height: 2px;
+  display: block;
+  background-image: linear-gradient(to right, $blue 50%, rgba(255,255,255,0) 0%);
+  background-position: bottom;
+  background-size: 4px 2px;
+  background-repeat: repeat-x;
+}
+
+// Horizontal Rule - Dotted border
 .a-dotted {
-    background-image: linear-gradient(to right, $blue 50%, rgba(255,255,255,0) 0%);
+  background-image: linear-gradient(to right, $blue 50%, rgba(255,255,255,0) 0%);
 	background-position: 25px bottom; // Must be either top or bottom, not both. If both are needed, add a div with class "a-dotted-line" before or after the element.
 	background-size: 4px 2px;
 	background-repeat: repeat-x;
@@ -190,21 +196,7 @@ html.a-modal-background-error {
     background-repeat: repeat-x;
 }
 
-
-// Disabled background
-
-.a-disabled {
- cursor: not-allowed;
- background-color: #ffffff;
- color: #000;
- box-shadow: 0px 0px 0px 1px white inset;
- background-image: url("../images/disabled-background.svg");
- background-repeat: repeat;
- background-size: auto;
-}
-
-// Dotted AND disabled
-
+/* Horizontal Rule - Dotted AND disabled */
 .a-dotted.a-disabled {
   cursor: not-allowed;
   color: #000;
@@ -217,8 +209,7 @@ html.a-modal-background-error {
   background-blend-mode: darken;
 }
 
-
-/* Grid */
+/* Grid Edit */
 .container-fluid {
   padding: 0;
 }
@@ -229,89 +220,4 @@ html.a-modal-background-error {
         padding-left: 0;
         padding-right: 0;
     }
-}
-
-.a-center {
-    text-align: center;
-}
-
-/* Completely remove from the flow and screen readers. */
-.is-hidden {
-    display: none !important;
-    visibility: hidden !important;
-}
-
-/* Completely remove from the flow but leave available to screen readers. */
-.is-vishidden {
-  position: absolute !important;
-  overflow: hidden;
-  width: 1px;
-  height: 1px;
-  padding: 0;
-  border: 0;
-  clip: rect(1px, 1px, 1px, 1px);
-}
-
-/* Floats */
-.right {
-	float: right;
-	padding: 0 0 $pad $pad;
-}
-
-.right-search {
-	float: right;
-	padding: 0 0 $pad 0;
-}
-
-.left {
-	float: left;
-	padding: 0 $pad $pad 0;
-}
-
-/* Text-Align */
-.align-right {
-	text-align: right;
-}
-
-.align-center {
-	text-align: center;
-}
-
-.align-left {
-	text-align: left;
-}
-
-// Propagated content selectors
-.propagated-content-origin {
-  display: none;
-}
-
-// Select all for code boxes
-.language-markup:focus {
-  outline: none
-}
-
-.sg-tabs-list {
-  li a {
-    background: #e5e2e0
-  }
-  li.sg-tab-title-active a {
-    background: #f5f2f0
-  }
-}
-
-// Accordion stacking
-.stack {
-  a {
-    display: block;
-  }
-}
-
-// Line breaking in code boxes
-body pre.language-markup {
-  overflow-x: hidden !important;
-
-  code {
-    white-space: pre-line !important;
-  }
 }

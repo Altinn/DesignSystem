@@ -1,9 +1,3 @@
-
-body, html {
-    font-family: 'DIN-reg';
-    font-weight:  normal;
-}
-
 @font-face {
     font-family: 'DIN-light';
     src: url('http://www.persille.no/DINWeb-Light.php');
@@ -21,10 +15,6 @@ body, html {
     src: url('http://www.persille.no/DINWeb-Bold.php');
 }
 
-b, strong {
-    font-family: 'DIN-bold';
-}
-
 .din-reg {
     font-family: 'DIN-reg';
 }
@@ -34,14 +24,17 @@ b, strong {
 .din-medium {
     font-family: 'DIN-medium';
 }
-.din-bold {
+.din-bold,
+.a-textSizeBold,
+b,
+strong {
     font-family: 'DIN-bold';
 }
 
 h1,
 .a-pageTitle,
 .a-textSize1   {
-    // Mobile
+    // Mobile and all
     font-size: 24px;
     line-height: 30px;
     font-family: 'DIN-reg';
@@ -69,7 +62,7 @@ h1,
 h2,
 .a-sectionTitle,
 .a-textSize2    {
-    // Mobile
+    // Mobile and all
     font-size: 18px;
     line-height: 24px;
     font-family: 'DIN-reg';
@@ -97,7 +90,7 @@ h2,
 h3,
 .a-sectionSubTitle,
 .a-textSize3   {
-    // Mobile
+    // Mobile and all
     font-size: 16px;
     line-height: 24px;
     font-family: 'DIN-bold';
@@ -125,7 +118,7 @@ h3,
 h4,
 .a-sectionSubSubTitle,
 .a-textSize4    {
-    // Mobile
+    // Mobile and all
     font-size: 16px;
     line-height: 24px;
     font-family: 'DIN-bold';
@@ -148,12 +141,6 @@ h4,
         font-size: 16px;
         line-height: 24px;
     }
-}
-
-// Bold
-
-.a-textSizeBold {
-  font-family: 'DIN-bold';
 }
 
 
@@ -180,8 +167,6 @@ p {
     font-size: 14px;
     line-height: 20px;
 }
-
-
 
 
 /* Blockquote */
@@ -231,43 +216,27 @@ blockquote:before, blockquote:after {
     content: '';
 }
 
-/* Horizontal Rule */
-hr {
-    border: 0;
-    height: 2px;
-    background: transparent;
-    margin: 40px 0;
-    border-bottom: 1px solid $grey-medium;
-    width: 100%;
-    float: left;
+/* Text colors */
+.a-dimText {
+    color: rgba(0,0,0,0.4)
 }
-hr.a-hr-smallPadding {
-    margin: 24px 0;
+.a-whiteText {
+    color: $white;
+    a, a:hover {
+        color: $white;
+        border-color: $white;
+    }
 }
-hr.a-hrLight {
-    border-bottom: 1px solid $grey-light;
-}
-
-hr.a-hrDotted {
-  border:0;
-  width: 100%;
-  height: 2px;
-  display: block;
-  background-image: linear-gradient(to right, $blue 50%, rgba(255,255,255,0) 0%);
-  background-position: bottom;
-  background-size: 4px 2px;
-  background-repeat: repeat-x;
-}
-abbr {
-    cursor: help;
-}
-
-
-// Color on text
-
 .a-blueText {
+    color: $blue;
+}
+.a-blueDarkText {
     color: $blue-dark;
 }
+.a-blueDarkerText {
+    color: $blue-darker;
+}
+
 
 // Label
 
