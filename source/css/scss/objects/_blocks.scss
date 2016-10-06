@@ -23,7 +23,7 @@
 	.a-jumbotron-btn-textright {
 		display: block;
 
-		@media all and (min-width: $bp-small) {
+		@include media-breakpoint-up(sm) {
 			padding-left: $space;
 			display: inline;
 		}
@@ -93,10 +93,10 @@
 }
 
 .a-jumbotron-large {
-	@media all and (min-width: $bp-med) {
+	@include media-breakpoint-up(md) {
 		height: 600px;
 	}
-	@media all and (min-width: $bp-large) {
+	@include media-breakpoint-up(lg) {
 		height: 700px;
 	}
 }
@@ -105,7 +105,7 @@
 	background-color: $blue-darker;
 	background-size: 60%;
 	background-position: bottom right;
-	@media all and (min-width: $bp-large) {
+	@include media-breakpoint-up(lg) {
 		background-size: cover;
 		background-position: center;
 	}
@@ -145,7 +145,7 @@
 		width: 40%;
 		margin: 0 auto;
 
-		@media all and (min-width: $bp-small) {
+		@include media-breakpoint-up(sm) {
       width: 60%;
     }
 	}
@@ -210,11 +210,11 @@
 		margin-left: calc(180px + 24px);
 		display: block !important;
 
-		@media all and (max-width: $bp-med) {
+		@include media-breakpoint-down(md) {
 			margin-left: calc(128px + 24px);
 		}
 
-		@media all and (max-width: $bp-small) {
+		@include media-breakpoint-down(sm) {
 			margin-left: 0;
 		}
 	}
@@ -223,11 +223,11 @@
 		float: left;
 		margin-left: 0;
 
-		@media all and (max-width: $bp-med) {
+		@include media-breakpoint-down(md) {
 			width: 128px;
 		}
 
-		@media all and (max-width: $bp-small) {
+		@include media-breakpoint-down(sm) {
 			float: none;
 			margin-left: auto;
 			margin-right: auto;
@@ -279,7 +279,7 @@
 		margin-bottom: $space-half;
 		font-family: 'DIN-bold';
 
-		@media all and (min-width: $bp-med) {
+		@include media-breakpoint-up(md) {
 			margin-bottom: -5px;
 		}
 
@@ -313,14 +313,14 @@
 	.a-compare-container {
 		margin-bottom: 20px;
 
-		@media all and (min-width: $bp-med) {
+		@include media-breakpoint-up(md) {
 
 			&:not(:nth-of-type(even)) {
 				border-right: 1px solid $grey-medium;
 			}
 		}
 
-		@media all and (min-width: $bp-large) {
+		@include media-breakpoint-up(lg) {
 			&:not(:last-of-type) {
 				border-right: 1px solid $grey-medium;
 			}
