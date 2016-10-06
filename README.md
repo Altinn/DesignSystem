@@ -10,6 +10,15 @@ Naviger til kodebasens plassering på disk og kjør følgende kommando (krever a
 npm install
 ```
 
+Installer avhengigheter for styleguidekit-assets-altinn mappen (innebærer både NPM og Bower), samt gjør en Gulp for å bygge styleguidekit-filer:
+
+```
+cd styleguidekit-assets-altinn
+npm install
+bower install
+gulp
+```
+
 ## Bruk
 
 For å kjøre koden lokalt, bruk følgende kommando (vil serve filene over localhost, og automatisk bygge på nytt ved endringer i kildekoden):
