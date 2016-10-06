@@ -17,7 +17,7 @@
 \*------------------------------------*/
 
 .a-collapse {
-    margin-bottom: $pad;
+    margin-bottom: $spacer;
 }
 
 .a-collapse-heading {
@@ -26,13 +26,13 @@
   min-height: 72px;
   box-shadow: $shadow2;
 
-  @media all and (min-width: $bp-med) {
+  @include media-breakpoint-up(md) {
     min-height: 100px;
   }
 
   &.expanded,
   &.expanded + .panel-collapse{
-    @media all and (min-width: $bp-med) {
+    @include media-breakpoint-up(md) {
       margin-left: -12px;
       width: calc(100% + 24px);
       // transition: all 300ms; // Only works on header, why?
@@ -57,10 +57,10 @@
     box-shadow: none !important;
 
 
-    @media all and (min-width: $bp-med) {
+    @include media-breakpoint-up(md) {
         font-size: 24px;
     }
-    @media all and (min-width: $bp-large) {
+    @include media-breakpoint-up(lg) {
         height: 100px;
     }
 
@@ -83,7 +83,7 @@
         right: 30px;
         top: 20px;
 
-        @media all and (min-width: $bp-med) {
+        @include media-breakpoint-up(md) {
             top: 30px;
         }
     }
@@ -126,7 +126,7 @@
     margin-left: 12px;
     vertical-align: middle;
 
-    @media all and (min-width: $bp-med) {
+    @include media-breakpoint-up(md) {
         height: 72px;
         width: 72px;
         font-size: 36px;
@@ -158,7 +158,7 @@
     padding: 24px 72px;
     margin: 0;
 
-    @media all and (min-width: $bp-med) {
+    @include media-breakpoint-up(md) {
         padding: 40px 96px;
     }
 }
@@ -172,7 +172,7 @@
 
 .a-collapseHeader  {
     margin-bottom: 0;
-    padding-bottom: $space-half;
+    padding-bottom: $spacer/2;
     display: inline-block;
     width: 100%;
 
@@ -194,7 +194,7 @@
     padding-left: 48px;
     padding-right: 48px;
 
-    @media all and (min-width: $bp-med) {
+    @include media-breakpoint-up(md) {
       padding-left: calc(48px *2);
       padding-right: calc(48px *2);
     }

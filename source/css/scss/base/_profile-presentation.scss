@@ -22,7 +22,7 @@ iframe.ap-showPatternlab {
 }
 
 .ap-navbarLeft-contentContainer {
-  @media screen and (min-width: $bp-med) {
+  @include media-breakpoint-up(md) {
     margin-left: 300px;
   }
 }
@@ -32,7 +32,7 @@ iframe.ap-showPatternlab {
   margin: auto;
   padding: 24px;
 
-  @media screen and (min-width: $bp-med) {
+  @include media-breakpoint-up(md) {
     margin-top: 60px;
   }
 }
@@ -44,7 +44,7 @@ iframe.ap-showPatternlab {
   width: 100%;
   display: block;
 
-  @media screen and (min-width: $bp-med) {
+  @include media-breakpoint-up(md) {
     width: 300px;
   }
 
@@ -55,7 +55,7 @@ iframe.ap-showPatternlab {
     text-align: center;
     border-bottom: 1px solid $grey-light;
 
-    @media screen and (min-width: $bp-med) {
+    @include media-breakpoint-up(md) {
       position: fixed;
       top: 0;
       left: 0;
@@ -85,7 +85,7 @@ iframe.ap-showPatternlab {
     cursor: pointer;
     position: relative;
 
-    @media screen and (min-width: $bp-med) {
+    @include media-breakpoint-up(md) {
       display: none !important;
     }
 
@@ -146,7 +146,7 @@ iframe.ap-showPatternlab {
     padding: 0;
     display: none;
 
-    @media screen and (min-width: $bp-med) {
+    @include media-breakpoint-up(md) {
       display: block !important;
       position: fixed;
       overflow-y: scroll;;
@@ -157,7 +157,7 @@ iframe.ap-showPatternlab {
 
     ul {
       background: $white;
-      padding-bottom: 139px + $space;
+      padding-bottom: 139px + $spacer;
     }
     .menu>li>a {
       line-height: inherit;
@@ -242,7 +242,7 @@ iframe.ap-showPatternlab {
 
 // Content next to sidenav
 
-@media screen and (max-width: $bp-med) {
+@include media-breakpoint-down(md) {
 
   .ap-collapse-content {
     position: absolute;
@@ -329,7 +329,7 @@ pre.prettyprint {
     margin:0;
     float: left;
 
-    @media screen and (min-width: $bp-med) {
+    @include media-breakpoint-up(md) {
   	  width: 25%;
 
       &:last-child {
@@ -381,8 +381,8 @@ pre.prettyprint {
   display: inline;
   float: left;
   text-align: center;
-  margin-bottom: $pad;
-  padding: $pad;
+  margin-bottom: $spacer;
+  padding: $spacer;
   padding-top: 0;
   &:hover {
     background-color: $grey-light;
@@ -458,27 +458,27 @@ pre.prettyprint {
 }
 
 .ap-typo-activeSize-m { // mobile
-    @media all and (max-width: $bp-med) {
+    @include media-breakpoint-down(md) {
         color: $green;
         font-family: 'DIN-bold';
     }
 }
 .ap-typo-activeSize-t { // tablet
-    @media all and (min-width: $bp-med) and (max-width: $bp-large) {
+    @include media-breakpoint-only(lg) {
         color: $green;
         font-family: 'DIN-bold';
     }
 }
 
 .ap-typo-activeSize-l { // laptop
-    @media all and (min-width: $bp-large) and (max-width: $bp-xlarge) {
+    @include media-breakpoint-only(xl) {
         color: $green;
         font-family: 'DIN-bold';
     }
 }
 
 .ap-typo-activeSize-d { // desktop
-    @media all and (min-width: $bp-xlarge) {
+    @include media-breakpoint-up(xl) {
         color: $green;
         font-family: 'DIN-bold';
     }

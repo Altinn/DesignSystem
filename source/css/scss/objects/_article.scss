@@ -6,7 +6,7 @@
 	h1,h2,h3,h4 {
 		margin: 12px 0 12px 0;
 
-		@media all and (min-width: $bp-med) {
+		@include media-breakpoint-up(md) {
 			margin: 24px 0 12px 0;
 		}
 	}
@@ -43,14 +43,14 @@
 	// Bullet list
 	ul.a-bullet-list {
 		li {
-			margin-bottom: $space-and-half;
+			margin-bottom: $spacer*1.5;
 		}
 	}
 	// Circle list inside article
 	ol.a-circle-list {
 
 		li {
-			margin-bottom: $space-x2;
+			margin-bottom: $spacer*2;
 		}
 	}
 
@@ -58,7 +58,7 @@
 
 	ul.a-icon-list {
 		li {
-			margin-bottom: $space-and-half;
+			margin-bottom: $spacer*1.5;
 		}
 	}
 
@@ -79,23 +79,23 @@
 .a-box {
 	background: $white;
 	border: 10px solid $blue-light;
-	padding: $space-x4;
+	padding: $spacer*4;
 	float: left;
 
 	.a-box-heading {
 		float: left;
-		padding-bottom: $space-x2;
+		padding-bottom: $spacer*2;
 	}
 	.a-box-body {
 		float: left;
 	}
 	.a-box-footer {
-		padding-top: $space;
+		padding-top: $spacer;
 		float: left;
 	}
 
 	&.a-articleListDates {
-		@media all and (min-width: $bp-med) {
+		@include media-breakpoint-up(md) {
 			.a-box-heading,
 			.a-box-footer  {
 				margin-left: 84px; // When a-box is used for date list, push heading and footer
@@ -110,7 +110,7 @@
 .a-articleTeaser {
 	float: left;
 	width: 100%;
-	margin-bottom: $space;
+	margin-bottom: $spacer;
 
 	a {
 		display: block;
@@ -126,17 +126,17 @@
 .a-articleTeaser-text {
 	width: calc(100% - 60px);
 
-	@media all and (min-width: $bp-small) {
+	@include media-breakpoint-up(sm) {
 		float: left;
-		padding-left: $space-x2;
+		padding-left: $spacer*2;
 	}
-	@media all and (min-width: $bp-med) {
+	@include media-breakpoint-up(md) {
 		margin-top: -2px;
 	}
-	@media all and (min-width: $bp-large) {
+	@include media-breakpoint-up(lg) {
 		margin-top: -5px;
 	}
-	@media all and (min-width: $bp-xlarge) {
+	@include media-breakpoint-up(xl) {
 		margin-top: -8px;
 	}
 	h2 {
@@ -149,8 +149,8 @@
 // Byline
 
 .a-byline {
-	margin-top: -$space-half;
-	margin-bottom: $space-x2;
+	margin-top: -$spacer/2;
+	margin-bottom: $spacer*2;
 }
 
 // Date
@@ -158,13 +158,13 @@
 	background: $blue;
 	color: $white;
 	text-align: center;
-	width: $space-x5;
-	height: $space-x5;
-	margin-bottom: $space;
+	width: $spacer*5;
+	height: $spacer*5;
+	margin-bottom: $spacer;
 
-	@media all and (min-width: $bp-small) {
+	@include media-breakpoint-up(sm) {
 		float: left;
-		margin-bottom: $space-x3;
+		margin-bottom: $spacer*3;
 	}
 
 	.a-date-day {

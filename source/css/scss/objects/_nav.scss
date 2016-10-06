@@ -120,7 +120,7 @@
 		clear: both;
 		border-top: 1px solid $blue-line;
 		padding-top: 24px;
-		@media all and (min-width: $bp-med) {
+		@include media-breakpoint-up(md) {
 			padding-left: 48px;
 		}
 	}
@@ -137,19 +137,19 @@
 \*------------------------------------*/
 
 .a-filter-container {
-	padding: $space-half 0;
+	padding: $spacer/2 0;
 
-	@media all and (min-width: $bp-large) {
-		padding: $space-half $space-x4;
+	@include media-breakpoint-up(lg) {
+		padding: $spacer/2 $spacer*4;
 	}
 }
 .a-filter {
-	padding-top: $space;
-	@media all and (min-width: $bp-med) {
+	padding-top: $spacer;
+	@include media-breakpoint-up(md) {
 		text-align: right;
 		padding-top: 0px;
 	}
-	@media all and (min-width: $bp-large) {
+	@include media-breakpoint-up(lg) {
 		padding-top: 5px;
 	}
 
@@ -178,7 +178,7 @@
 .a-colnav-container {
 	border-top: 1px solid $grey-medium;
 
-	@media all and (min-width: $bp-large) {
+	@include media-breakpoint-up(lg) {
 		border-bottom: 1px solid $grey-medium;
 	}
 }
@@ -186,7 +186,7 @@
 .a-colnav {
 	width: 100%;
 
-	@media all and (min-width: $bp-large) {
+	@include media-breakpoint-up(lg) {
 		max-width: 550px;
 	}
 
@@ -201,9 +201,9 @@
 			display: block;
 			box-shadow: none !important;
 
-			@media all and (min-width: $bp-large) {
+			@include media-breakpoint-up(lg) {
 				border-right: 1px solid $grey-medium;
-				padding: $space $space-x4;
+				padding: $spacer $spacer*4;
 			}
 
 			&:hover,
@@ -257,18 +257,18 @@
 			transition: margin-left .5s ease-in-out;
 		}
 
-		@media all and (min-width: $bp-large) {
+		@include media-breakpoint-up(lg) {
 			margin-left: -1px;
 		}
 
-		@media all and (min-width: $bp-xlarge) {
+		@include media-breakpoint-up(xl) {
 			width: 300px;
 		}
 
 		.is-dropdown-submenu-item {
 			a {
 				border-bottom: 1px solid $grey-medium;
-				padding: 18px $space-x2 17px $space-x2;
+				padding: 18px $spacer*2 17px $spacer*2;
 				position: relative;
 
 				&:hover {
@@ -279,7 +279,7 @@
 					font-family: 'din-reg';
 					margin-bottom: 0;
 				}
-				@media all and (min-width: $bp-med) {
+				@include media-breakpoint-up(md) {
 					border-right: none;
 				}
 			}
@@ -321,19 +321,19 @@
 		background: $white;
 
 
-		@media all and (min-width: $bp-large) {
+		@include media-breakpoint-up(lg) {
 			width: 469px;
 			min-height: 100.3%;
 		}
 
-		@media all and (min-width: $bp-xlarge) {
+		@include media-breakpoint-up(xl) {
 			width: 517px;
 		}
 
 		.is-dropdown-submenu-item {
 			a {
 				border-bottom: 1px solid $grey-light;
-				padding: 6px $space-x2 3px $space-x2;
+				padding: 6px $spacer*2 3px $spacer*2;
 				position: relative;
 				border-right: none;
 				&:hover {
@@ -347,7 +347,7 @@
 				}
 				.a-colnav-rightText {
 					position: absolute;
-					right: $space;
+					right: $spacer;
 					top:11px;
 					display: block;
 					font-size: 14px;
@@ -410,7 +410,7 @@
 } */
 
 /*
-@media all and (max-width: $bp-med) {
+@include media-breakpoint-down(md) {
 	.is-drilldown {
 		min-height: initial !important
 	}
