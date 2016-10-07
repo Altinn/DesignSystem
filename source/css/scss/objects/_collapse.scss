@@ -35,7 +35,7 @@
     @include media-breakpoint-up(md) {
       margin-left: -12px;
       width: calc(100% + 24px);
-      // transition: all 300ms; // Only works on header, why?
+      transition: all 300ms;
     }
   }
 }
@@ -152,6 +152,16 @@
     border: none;
     border-top: 2px solid #d7eaf4;
     box-shadow: $shadow2;
+    width: 100%;
+    transition: all 300ms;
+
+    &.expanded,
+    &.expanded + .panel-collapse{
+      @include media-breakpoint-up(md) {
+        margin-left: -12px;
+        width: calc(100% + 24px);
+      }
+    }
 }
 
 .a-panel-collapse-content {
