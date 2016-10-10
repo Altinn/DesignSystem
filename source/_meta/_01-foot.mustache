@@ -30,7 +30,7 @@
     <script>
       $(document).foundation();
       var smoothStateMod = function () {
-        $('#smoothState').find('a').on('click', function (e) {
+        $('#smoothState').find('a:not(.sr-only-focusable)').on('click', function (e) {
           if (location.pathname.replace(/\//g, '')
             === $(this).attr('href').replace(/\//g, '').replace(/\.\./g, '')) {
             e.preventDefault(); e.stopPropagation()

@@ -25,6 +25,7 @@
   width: 100%;
   min-height: 72px;
   box-shadow: $shadow2;
+  transition: margin 300ms, width 300ms, height 300ms !important;
 
   @include media-breakpoint-up(md) {
     min-height: 100px;
@@ -36,6 +37,10 @@
       margin-left: -12px;
       width: calc(100% + 24px);
       transition: all 300ms;
+    }
+
+    .a-collapseBtn {
+      border-radius: 2px 2px 0 0 !important;
     }
   }
 }
@@ -153,13 +158,26 @@
     border-top: 2px solid #d7eaf4;
     box-shadow: $shadow2;
     width: 100%;
-    transition: all 300ms;
+    transition: margin 300ms, width 300ms, height 300ms !important;
+    height: 0px;
+    overflow: hidden;
+    display: block !important;
+
+    &.collapse {
+      border-top: none;
+    }
+
+    &.in {
+      height: auto;
+      border-top: 2px solid #d7eaf4;
+    }
 
     &.expanded,
     &.expanded + .panel-collapse{
       @include media-breakpoint-up(md) {
         margin-left: -12px;
         width: calc(100% + 24px);
+        height: auto;
       }
     }
 }
