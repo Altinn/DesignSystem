@@ -1,5 +1,5 @@
 ---
- state: variations
+ state: needsrevalidation
  version: 0
 ---
 

@@ -1,4 +1,4 @@
 ---
- state: inreview
+ state: needsrevalidation
 ---
 Foreløpig ingen retningslinjer.
