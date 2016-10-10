@@ -8,6 +8,7 @@ module.exports = {
     "node": true
   },
   "rules": {
+    "indent": ["error", 2],
     "brace-style": ["error", "1tbs"],
     "curly": ["error", "all"],
     "func-call-spacing": ["error", "never"],
