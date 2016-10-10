@@ -15,6 +15,7 @@ module.exports = {
     "linebreak-style": ["error", "windows"],
     "quotes": ["error", "single"],
     "semi": ["error", "always"],
-    "space-before-function-paren": ["error", "never"]
+    "space-before-function-paren": ["error", "never"],
+    "func-names": ["error", "never"]
   }
 };
