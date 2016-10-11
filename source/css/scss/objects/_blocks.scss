@@ -55,19 +55,26 @@
 		color: $white;
 	}
 	.a-btn-border {
-    border: 2px solid $white;
     color: $white;
     background: transparent;
+		border: 2px solid $white;
 		&:hover {
 			background: rgba(255, 255, 255, 0.1);
 		}
 	}
 	.a-breadcrumb {
+		.a-link {
+			border-bottom: 2px solid $blue;
+		}
 		.a-link:hover {
 			color: $white;
 		}
-		li.active {
+		li.active a{
 	    color: $white;
+			border-bottom: none;
+			&:hover {
+				border: none;
+			}
 		}
 	}
 	.a-breadcrumb  > li + li::before {
@@ -199,13 +206,21 @@
 		font-size: 60px;
 		margin-top: 7px;
 	}
+	p {
+		margin-bottom: 0;
+		padding: $spacer/2 0;
+	}
 }
 
 .neutral .a-card:not(.transparent) {
 	background: $grey-light;
+	hr.a-hrLight {
+    border-bottom: 1px solid darken($grey-light,6%);
+	}
 }
 
 .a-card-image {
+	padding: 0;
 	>* {
 		margin-left: calc(180px + 24px);
 		display: block !important;
@@ -299,30 +314,42 @@
 
 //Sammenligning av selskapstyper
 
+.a-compare-header {
+	border-bottom: 1px solid $blue-line;
+	margin-bottom: $spacer*4;
+
+	h2 {
+		font-family: 'DIN-bold';
+		padding: 0 $spacer*2;
+	}
+}
+
+
 .a-compare-element {
 	width: 100%;
-	padding: 10px 20px;
+	padding: 0 $spacer*2;
 }
 
 .a-compare-category {
-	h3 {
-		padding-bottom: 10px;
-		border-bottom: 1px solid $grey-medium;
+
+	h2 {
+		padding: 0 $spacer*2;
 	}
 
 	.a-compare-container {
-		margin-bottom: 20px;
+		margin-bottom: $spacer*4;
+		border-top: 1px solid $blue-line;
 
 		@include media-breakpoint-up(md) {
 
-			&:not(:nth-of-type(even)) {
-				border-right: 1px solid $grey-medium;
+			&:not(:nth-of-type) {
+				border-right: 1px solid $blue-line;
 			}
 		}
 
 		@include media-breakpoint-up(lg) {
 			&:not(:last-of-type) {
-				border-right: 1px solid $grey-medium;
+				border-right: 1px solid $blue-line;
 			}
 		}
 	}

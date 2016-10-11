@@ -1,2 +1,4 @@
 /* globals $ */
-var preOpenModals = function () { $('#modalExample').addClass('in') }
+var preOpenModals = function() {
+  $('#modalExample').addClass('in');
+};
