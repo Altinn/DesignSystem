@@ -1,6 +1,6 @@
-/* globals anchors, hideIntroInSubs, insetVariations, selectAll, toggleTheme, preOpenModals */
+/* globals _anchors, hideIntroInSubs, insetVariations, selectAll, toggleTheme, preOpenModals */
 window.altinnDev = function() {
-  anchors(); hideIntroInSubs(); insetVariations(); selectAll(); toggleTheme();
+  _anchors(); hideIntroInSubs(); insetVariations(); selectAll(); toggleTheme();
   preOpenModals();
 };
 window.altinnDev();
