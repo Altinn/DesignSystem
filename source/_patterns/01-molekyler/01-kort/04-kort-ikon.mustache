@@ -1,9 +1,15 @@
 <div class="a-card a-card-largeIcon {{ styleModifier }}">
   {{#card-content}}
     <i class="material-icons">{{{ card-icon }}}</i>
-    {{> atomer-avsnitt }}
-    <div class="a-textSize3">{{> atomer-link}}
-      <span>{{card-code}}</span>
+
+    <div class="a-card-largeIcon-body">
+      {{#isIntroText}}
+      <span class="a-card-introText">
+         {{{ card-introText }}}
+        </span>
+      {{/isIntroText}}
+      {{> atomer-link:a-link }}
+      <span class="a-card-code">{{card-code}}</span>
     </div>
   {{/card-content}}
 </div>
