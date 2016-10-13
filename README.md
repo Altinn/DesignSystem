@@ -37,4 +37,6 @@ For å bygge patterns og snippets:
 
 ```
 npm run patterns
+
+end readme
 ```
