@@ -5308,7 +5308,7 @@ a.no-decoration {
   .a-link:focus.a-link-danger {
     border-bottom: 2px solid #b61b31; }
 
-.a-textSize3 .a-link {
+.a-textSize3 .a-link, .a-card-largeIcon a .a-link, .a-card-largeIcon .a-card-code .a-link {
   line-height: 29px;
   padding-bottom: 2px; }
 
@@ -5376,12 +5376,13 @@ h1,
 .a-textSize1 {
   font-size: 24px;
   line-height: 30px;
-  font-family: 'DIN-reg';
+  font-family: 'DIN-bold';
   margin-bottom: 12px; }
   @media (min-width: 768px) {
     h1,
     .a-pageTitle,
     .a-textSize1 {
+      font-family: 'DIN-reg';
       font-size: 28px;
       line-height: 36px; } }
   @media (min-width: 992px) {
@@ -5402,14 +5403,15 @@ h2,
 .a-textSize2 {
   font-size: 18px;
   line-height: 24px;
-  font-family: 'DIN-reg';
+  font-family: 'DIN-bold';
   margin-bottom: 6px; }
   @media (min-width: 768px) {
     h2,
     .a-sectionTitle,
     .a-textSize2 {
       font-size: 22px;
-      line-height: 24px; } }
+      line-height: 24px;
+      font-family: 'DIN-reg'; } }
   @media (min-width: 992px) {
     h2,
     .a-sectionTitle,
@@ -5425,7 +5427,9 @@ h2,
 
 h3,
 .a-sectionSubTitle,
-.a-textSize3 {
+.a-textSize3,
+.a-card-largeIcon a,
+.a-card-largeIcon .a-card-code {
   font-size: 16px;
   line-height: 24px;
   font-family: 'DIN-bold';
@@ -5433,19 +5437,25 @@ h3,
   @media (min-width: 768px) {
     h3,
     .a-sectionSubTitle,
-    .a-textSize3 {
+    .a-textSize3,
+    .a-card-largeIcon a,
+    .a-card-largeIcon .a-card-code {
       font-size: 18px;
       line-height: 24px; } }
   @media (min-width: 992px) {
     h3,
     .a-sectionSubTitle,
-    .a-textSize3 {
+    .a-textSize3,
+    .a-card-largeIcon a,
+    .a-card-largeIcon .a-card-code {
       font-size: 20px;
       line-height: 24px; } }
   @media (min-width: 1200px) {
     h3,
     .a-sectionSubTitle,
-    .a-textSize3 {
+    .a-textSize3,
+    .a-card-largeIcon a,
+    .a-card-largeIcon .a-card-code {
       font-size: 20px;
       line-height: 24px; } }
 
@@ -5585,13 +5595,13 @@ blockquote:before, blockquote:after {
 
 /*------------------------------------*    $MEDIA ELEMENTS
 \*------------------------------------*/
-/* Flexible Media 
+/* Flexible Media */
 img, video, object {
-	max-width: 100%;
-	height: auto;
-	border: none;
-}
+  max-width: 100%;
+  height: auto;
+  border: none; }
 
+/*
 img {
 	margin-bottom: $spacer;
 }
@@ -7436,7 +7446,11 @@ fieldset[disabled] .a-switch input[type="radio"] + labe {
   .a-footerNav ul li,
   .a-footerExtraNav ul li {
     display: inline;
-    padding-left: 36px; }
+    padding-left: 36px;
+    padding-bottom: 12px; }
+    .a-footerNav ul li:last-child,
+    .a-footerExtraNav ul li:last-child {
+      padding-bottom: 0px; }
     .a-footerNav ul li:first-child,
     .a-footerExtraNav ul li:first-child {
       padding-left: 0; }
@@ -7892,9 +7906,9 @@ fieldset[disabled] .a-switch input[type="radio"] + labe {
   padding: 60px 48px;
   box-shadow: 1px 1px 4px 0px rgba(137, 137, 137, 0.5);
   margin-bottom: 10px; }
-  .a-card .a-textSize3 {
+  .a-card .a-textSize3, .a-card .a-card-largeIcon a, .a-card-largeIcon .a-card a, .a-card .a-card-largeIcon .a-card-code, .a-card-largeIcon .a-card .a-card-code {
     margin-bottom: 24px; }
-    .a-card .a-textSize3 span {
+    .a-card .a-textSize3 span, .a-card .a-card-largeIcon a span, .a-card-largeIcon .a-card a span, .a-card .a-card-largeIcon .a-card-code span, .a-card-largeIcon .a-card .a-card-code span {
       font-family: 'DIN-reg'; }
   .a-card.transparent {
     background: transparent;
@@ -7910,13 +7924,19 @@ fieldset[disabled] .a-switch input[type="radio"] + labe {
 .a-card-largeIcon {
   padding: 18px 24px; }
   .a-card-largeIcon i {
-    float: left;
-    padding-right: 12px;
+    padding-right: 8px;
     font-size: 60px;
-    margin-top: 7px; }
-  .a-card-largeIcon p {
-    margin-bottom: 0;
-    padding: 6px 0; }
+    display: inline;
+    vertical-align: middle; }
+  .a-card-largeIcon .a-card-largeIcon-body {
+    display: inline-block;
+    vertical-align: middle;
+    margin-top: -5px; }
+  .a-card-largeIcon .a-card-introText {
+    display: block;
+    padding-bottom: 6px; }
+  .a-card-largeIcon .a-card-code {
+    font-family: 'DIN-reg'; }
 
 @media (min-width: 768px) {
   .a-card-right {
@@ -11152,12 +11172,12 @@ pre.prettyprint {
     color: #17c96b;
     font-family: 'DIN-bold'; } }
 
-@media (min-width: 992px) and (max-width: 1199px) {
+@media (min-width: 768px) and (max-width: 991px) {
   .ap-typo-activeSize-t {
     color: #17c96b;
     font-family: 'DIN-bold'; } }
 
-@media (min-width: 1200px) {
+@media (min-width: 992px) and (max-width: 1199px) {
   .ap-typo-activeSize-l {
     color: #17c96b;
     font-family: 'DIN-bold'; } }
@@ -11166,12 +11186,5 @@ pre.prettyprint {
   .ap-typo-activeSize-d {
     color: #17c96b;
     font-family: 'DIN-bold'; } }
-
-/*------------------------------------*    $ALTINN PATTERNLAB PRESENTATION
-\*------------------------------------*/
-/*------------------------------------**  PRESENTATION OF STYLE GUIDE
-*  NB: Was moved to Stylekit in V2 of Patternlab
-*
-\*------------------------------------*/
 
 /*# sourceMappingURL=maps/style.css.map */
