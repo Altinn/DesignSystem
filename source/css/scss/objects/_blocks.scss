@@ -167,9 +167,14 @@
 .a-card {
 	background: $white;
 	width: 100%;
-	padding: 60px 48px;
+	padding: $spacer*4 $spacer*4;
 	box-shadow: $shadow;
-	margin-bottom: 10px;
+	margin-bottom: $spacer*2;
+
+	@include media-breakpoint-up(lg) {
+		padding: $spacer*4 $spacer*8;
+		margin-bottom: $spacer*4;
+	}
 
 	.a-textSize3 {
 		margin-bottom: $spacer*2;
@@ -224,14 +229,6 @@
 	}
 }
 
-.a-card-right {
-	@include media-breakpoint-up(md) {
-		max-width: 70%;
-		margin-right: -192px;
-		float: right;
-		margin-left: 24px;
-	}
-}
 
 
 .neutral .a-card:not(.transparent) {

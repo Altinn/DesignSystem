@@ -1,15 +1,30 @@
 
 /* List in textarticle */
 
-.a-text {
+
+.a-articleRightOff {
+  @include media-breakpoint-up(md) {
+		max-width: 75%;
+		margin-right: -192px;
+		float: right;
+		margin-left: 24px;
+	}
+}
+
+.a-textInArticle {
 
 	h1,h2,h3,h4 {
-		margin: 12px 0 12px 0;
+		margin: $spacer 0 $spacer 0;
 
 		@include media-breakpoint-up(md) {
-			margin: 24px 0 12px 0;
+			margin: $spacer*2 0 $spacer 0;
+		}
+    @include media-breakpoint-up(lg) {
+			margin: $spacer*3 0 $spacer 0;
 		}
 	}
+
+	/*
 	ul {
 	    list-style: disc;
 	    max-width: 760px;
@@ -40,6 +55,8 @@
 			margin: 0;
 		}
 	}
+	*/
+
 	// Circle list inside article
 	ol.a-circle-list {
 
@@ -72,8 +89,8 @@
 
 .a-box {
 	background: $white;
-	border: 10px solid $blue-light;
-	padding: $spacer*4;
+	border: 12px solid $blue-light;
+	padding: $spacer*4 $spacer*7;
 	float: left;
 
 	.a-box-heading {
@@ -92,7 +109,7 @@
 		@include media-breakpoint-up(md) {
 			.a-box-heading,
 			.a-box-footer  {
-				margin-left: 84px; // When a-box is used for date list, push heading and footer
+				margin-left: $spacer*8; // When a-box is used for date list, push heading and footer
 			}
 		}
 	}
@@ -122,7 +139,7 @@
 
 	@include media-breakpoint-up(sm) {
 		float: left;
-		padding-left: $spacer*2;
+		padding-left: $spacer*3;
 	}
 	@include media-breakpoint-up(md) {
 		margin-top: -2px;
