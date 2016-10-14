@@ -269,7 +269,7 @@
 			margin-left: auto;
 			margin-right: auto;
 			display: block;
-			margin-bottom: 30px
+			margin-bottom: 30px;
 		}
 	}
 }
@@ -279,21 +279,46 @@
 	padding: 0px;
 
 	.a-trigger-question {
-		display: none
+		display: none;
+		position: relative;
 	}
 	.a-trigger-question:nth-of-type(1) {
-		display: block
+		display: block;
+	}
+
+	.a-circle-list li:before {
+		padding: 5px 11px 2px 11px;
+		position: absolute;
+		left: $spacer*2;
+		top: $spacer*1.5;
+
+		@include media-breakpoint-up(md) {
+			left: $spacer*3;
+			top: $spacer*2.5;
+		}
 	}
 
 	li {
-		padding-top: 40px;
-		padding-left: 50px;
-		padding-right: 50px;
+		padding-top: $spacer*2;
+		padding-left: $spacer*6;
+		padding-right: $spacer*2;
+
+		@include media-breakpoint-up(md) {
+			padding-top: $spacer*3;
+			padding-left: $spacer*7;
+			padding-right: $spacer*4;
+		}
 	}
 
 	.hidewhenempty {
-		margin-left: 90px;
+		margin-left: $spacer*2;
 		margin-bottom: 15px;
+		@include media-breakpoint-up(sm) {
+				margin-left: $spacer*6;
+		}
+		@include media-breakpoint-up(md) {
+				margin-left: $spacer*7;
+		}
 	}
 
 	hr {
@@ -301,13 +326,14 @@
     -webkit-margin-after: 0;
 	}
 
-	button {
+	.a-btn {
 		margin-bottom: 0;
 		margin-top: -1px;
 		width: 100%;
 		line-height: 36px;
-		font-weight: 900;
-		display: none
+		display: none;
+		float: left;
+		text-align: center;
 	}
 }
 

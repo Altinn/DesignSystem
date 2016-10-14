@@ -54,10 +54,26 @@
 // Breadcrumb
 
 .a-breadcrumb {
-	padding: 0;
+	padding: 0px;
 	background: transparent;
 	li {
 		line-height: 36px;
+		display: none;
+
+		&.breadcrumb-mobile {
+			@include media-breakpoint-down(xs) {
+				display: block;
+
+				&:before {
+					content:'←';
+					padding-right: $spacer/2; 
+				}
+			}
+		}
+
+		@include media-breakpoint-up(sm) {
+			display: block;
+		}
 
 		&.active a{
 			color: $grey;
@@ -65,6 +81,7 @@
 			border: none;
 		}
 	}
+
 }
 
 // Dropdown-menu with arrow
