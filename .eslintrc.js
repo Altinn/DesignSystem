@@ -16,6 +16,7 @@ module.exports = {
     "quotes": ["error", "single"],
     "semi": ["error", "always"],
     "space-before-function-paren": ["error", "never"],
-    "func-names": ["error", "never"]
+    "func-names": ["error", "never"],
+    "no-unused-vars": "off"
   }
 };
