@@ -1,18 +1,18 @@
 @font-face {
     font-family: 'DIN-light';
-    src: url('http://www.persille.no/DINWeb-Light.php');
+    src: url('http://localhost:3000/fonts/DINWeb-Light.woff');
 }
 @font-face {
     font-family: 'DIN-reg';
-    src: url('http://www.persille.no/DINWeb.php');
+    src: url('http://localhost:3000/fonts/DINWeb.woff');
 }
 @font-face {
     font-family: 'DIN-medium';
-    src: url('http://www.persille.no/DINWeb-Medium.php');
+    src: url('http://localhost:3000/fonts/DINWeb-Medium.woff');
 }
 @font-face {
     font-family: 'DIN-bold';
-    src: url('http://www.persille.no/DINWeb-Bold.php');
+    src: url('http://localhost:3000/fonts/DINWeb-Bold.woff');
 }
 
 
@@ -52,7 +52,6 @@
 
 .sg-nav .sg-pattern-state:before {
   margin-top: 0;
-
 }
 .sg-header .sg-icon {
     padding: 9px 12px 11px 12px;
@@ -252,8 +251,12 @@ a.a-sg-header-title:hover {
     color: #e23b53 !important;
 }
 
+.sg-pattern-head .specification, .sg-pattern-head .inprogress, .sg-pattern-head .intechnicalreview, .sg-pattern-head .indesignreview, .sg-pattern-head .complete, .sg-pattern-head .needsrevalidation {
+  display: inline-block;
+}
+
 /* Hacky hide */
-#atomer-popover, #atomer-tooltip {
+#atomer-popover, #atomer-tooltip, #atomer-footnote {
   display: none;
 }
 
@@ -272,4 +275,18 @@ pre .tag, code .tag {
 
 .sg-pattern-title {
   display: inline-block;
+}
+
+/* Anchors */
+
+.a-sg-anchor,
+.a-sg-anchor:hover {
+  border: none;
+  margin-top: -3px;
+  color: #000;
+}
+
+.sg-pattern-title a:focus,
+.sg-pattern-title a:hover {
+    border: none;
 }

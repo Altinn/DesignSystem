@@ -19,6 +19,8 @@
 		font-size: 28px;
 		line-height: 36px;
 		color: $blue-darker;
+		display: block;
+		margin-bottom: $spacer*2;
 	}
 	.a-jumbotron-btn-textright {
 		display: block;
@@ -115,6 +117,7 @@
 	@include media-breakpoint-up(lg) {
 		background-size: cover;
 		background-position: center;
+		min-height: 580px;
 	}
 }
 
@@ -167,9 +170,14 @@
 .a-card {
 	background: $white;
 	width: 100%;
-	padding: 60px 48px;
+	padding: $spacer*4 $spacer*4;
 	box-shadow: $shadow;
-	margin-bottom: 10px;
+	margin-bottom: $spacer*2;
+
+	@include media-breakpoint-up(lg) {
+		padding: $spacer*4 $spacer*8;
+		margin-bottom: $spacer*4;
+	}
 
 	.a-textSize3 {
 		margin-bottom: $spacer*2;
@@ -201,16 +209,30 @@
 .a-card-largeIcon {
 	padding: 18px 24px;
 	i {
-		float: left;
-		padding-right: $spacer;
+		padding-right: 8px;
 		font-size: 60px;
-		margin-top: 7px;
+		display: inline;
+		vertical-align: middle;
 	}
-	p {
-		margin-bottom: 0;
-		padding: $spacer/2 0;
+	.a-card-largeIcon-body {
+		display: inline-block;
+		vertical-align: middle;
+		margin-top: -5px;
+	}
+	.a-card-introText {
+		display: block;
+		padding-bottom: $spacer/2;
+	}
+	a {
+		@extend .a-textSize3;
+	}
+	.a-card-code {
+		@extend .a-textSize3;
+		font-family: 'DIN-reg';
 	}
 }
+
+
 
 .neutral .a-card:not(.transparent) {
 	background: $grey-light;
@@ -247,7 +269,7 @@
 			margin-left: auto;
 			margin-right: auto;
 			display: block;
-			margin-bottom: 30px
+			margin-bottom: 30px;
 		}
 	}
 }
@@ -257,21 +279,46 @@
 	padding: 0px;
 
 	.a-trigger-question {
-		display: none
+		display: none;
+		position: relative;
 	}
 	.a-trigger-question:nth-of-type(1) {
-		display: block
+		display: block;
+	}
+
+	.a-circle-list li:before {
+		padding: 5px 11px 2px 11px;
+		position: absolute;
+		left: $spacer*2;
+		top: $spacer*1.5;
+
+		@include media-breakpoint-up(md) {
+			left: $spacer*3;
+			top: $spacer*2.5;
+		}
 	}
 
 	li {
-		padding-top: 40px;
-		padding-left: 50px;
-		padding-right: 50px;
+		padding-top: $spacer*2;
+		padding-left: $spacer*6;
+		padding-right: $spacer*2;
+
+		@include media-breakpoint-up(md) {
+			padding-top: $spacer*3;
+			padding-left: $spacer*7;
+			padding-right: $spacer*4;
+		}
 	}
 
 	.hidewhenempty {
-		margin-left: 90px;
+		margin-left: $spacer*2;
 		margin-bottom: 15px;
+		@include media-breakpoint-up(sm) {
+				margin-left: $spacer*6;
+		}
+		@include media-breakpoint-up(md) {
+				margin-left: $spacer*7;
+		}
 	}
 
 	hr {
@@ -279,13 +326,14 @@
     -webkit-margin-after: 0;
 	}
 
-	button {
+	.a-btn {
 		margin-bottom: 0;
 		margin-top: -1px;
 		width: 100%;
 		line-height: 36px;
-		font-weight: 900;
-		display: none
+		display: none;
+		float: left;
+		text-align: center;
 	}
 }
 
@@ -320,8 +368,13 @@
 
 	h2 {
 		font-family: 'DIN-bold';
-		padding: 0 $spacer*2;
+
 	}
+
+	.a-compare-container:first-child h2 {
+		padding-left: $spacer*2;
+	}
+
 }
 
 
