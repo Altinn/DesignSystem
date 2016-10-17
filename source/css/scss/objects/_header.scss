@@ -89,56 +89,61 @@
 		}
 	}
 
-	// Person switcher (Button)
 	.a-personSwitcher {
-		margin-top: -6px;
-		font-size: 14px;
-		font-family: 'DIN-medium';
-		border: none;
 		padding-right: 0;
-		position: absolute;
-		right: -12px;
+	}
+
+
+}
+
+// Person switcher (Button)
+.a-personSwitcher {
+	margin-top: -6px;
+	font-size: 14px;
+	font-family: 'DIN-medium';
+	border: none;
+	position: absolute;
+	right: -12px;
+	text-align: right;
+
+	@include media-breakpoint-up(sm) {
+		position: relative;
+		right: 0px;
+	}
+
+	&:hover,
+	&:focus,
+	&:active {
+		color: $blue-dark;
+		border: none;
+	}
+	.a-personSwitcher-name {
 		text-align: right;
+		vertical-align: middle;
 
-		@include media-breakpoint-up(sm) {
-			position: relative;
-			right: 0px;
+		display:inline-block;
+		max-width:90px;
+		white-space: nowrap;
+		overflow:hidden !important;
+		text-overflow: ellipsis;
+
+		@include media-breakpoint-up(lg) {
+			max-width:120px;
 		}
 
-		&:hover,
-		&:focus,
-		&:active {
-			color: $blue-dark;
-			border: none;
+		@include media-breakpoint-up(xl) {
+			max-width:220px;
 		}
-		.a-personSwitcher-name {
-			text-align: right;
-			vertical-align: middle;
-
-			display:inline-block;
-	    max-width:90px;
-	    white-space: nowrap;
-	    overflow:hidden !important;
-	    text-overflow: ellipsis;
-
-			@include media-breakpoint-up(lg) {
-				max-width:120px;
-			}
-
-			@include media-breakpoint-up(xl) {
-				max-width:220px;
-			}
-		}
-		.a-personSwitcher-icon {
-			font-size: 34px;
-			margin-top: -1px;
-			vertical-align: middle;
+	}
+	.a-personSwitcher-icon {
+		font-size: 34px;
+		margin-top: -1px;
+		vertical-align: middle;
 
 
-			@include media-breakpoint-up(md) {
-				font-size: 36px;
-				margin-top: 0px;
-			}
+		@include media-breakpoint-up(md) {
+			font-size: 36px;
+			margin-top: 0px;
 		}
 	}
 }
@@ -203,7 +208,7 @@
 
 		@include media-breakpoint-up(md) {
 			width: 420px;
-			right: -77px;
+			right: -80px;
 			top: 55px;
 		}
 

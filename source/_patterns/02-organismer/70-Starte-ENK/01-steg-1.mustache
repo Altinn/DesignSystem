@@ -3,6 +3,7 @@
   <div class="a-modal {{ bodyClass }}" id="{{modal-id}}" tabindex="-1" role="dialog" aria-labelledby="{{modal-label}}" aria-hidden="true">
     <div class="modal-dialog modal-lg" role="document">
 
+
       <div class="container">
         <div class="row">
           <div class="col-md-12">
@@ -23,7 +24,6 @@
 
         <div class="row">
           <div class="col-md-10 offset-md-1">
-
             <!-- Modal NavBar -->
             <div class="a-modal-navbar">
 
@@ -56,25 +56,33 @@
         <div class="row">
           <div class="col-md-10 offset-md-1">
 
+            <!-- Modal window -->
             <span class="a-right-panel a-page a-scene_element {{ animationClass }}">
 
-              <!-- Modal window -->
               <div class="modal-content">
 
                 <!-- Modal header -->
-                <div class="modal-header a-modal-header">
+                <div class="a-panelIconLeft a-bgBlueDarker">
+                    <i class="material-icons">{{{ modalHeader-icon }}}</i>
 
-                  <i class="material-icons a-panel-heading-icon">{{ modal-icon }}</i>
-
-                  <div class="a-panel-heading-text" id="{{ modal-label }}">
-                    <h2 class="modal-title a-modal-title">{{ modal-title }}</h2>
-                  </div>
-
-                </div><!-- END Modal header -->
+                    <div class="a-panelIconLeft-body">
+                      {{#isIntroText}}
+                      <span class="a-panelIconLeft-introText">
+                         {{{ modalHeader-introText }}}
+                        </span>
+                      {{/isIntroText}}
+                      <h1 class="a-textSize3">{{{ modalHeader-title }}}
+                        <span class="a-panelIconLeft-code">{{modalHeader-title-code}}</span>
+                      </h1>
+                    </div>
+                </div> <!-- END Modal header -->
 
                 <!-- Modal body -->
                 <div class="modal-body a-modal-body a-text">
+                  <h2>Hva skal firmaet hete?</h2>
                   <p> {{{ modal-content }}}</p>
+
+                  {{> atomer-tekst-input:input-group-large }}
 
                   <div class="a-btn-group">
 
@@ -82,27 +90,13 @@
                         {{> atomer-link }}
                       {{/ modal-nextbutton }}
 
-                      {{# modal-successbutton }}
-                        {{> atomer-link }}
-                      {{/ modal-successbutton }}
-
-                      {{# modal-startover }}
-                        {{> atomer-link }}
-                      {{/ modal-startover }}
-
-                      {{# modal-errorbutton }}
-                        {{> atomer-link }}
-                      {{/ modal-errorbutton }}
-
-                      {{# modal-discard }}
-                        {{> atomer-link }}
-                      {{/ modal-discard }}
-
                   </div>
 
                 </div><!-- END Modal body -->
-              </div><!-- END Modal window -->
-            </span>
+
+              </div>
+            </span>  <!-- END Modal window -->
+
           </div>
         </div>
       </div>
