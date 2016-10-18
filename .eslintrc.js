@@ -17,7 +17,8 @@ module.exports = {
     "semi": ["error", "always"],
     "space-before-function-paren": ["error", "never"],
     "func-names": ["error", "never"],
-    "no-unused-vars": "off"
+    "no-unused-vars": "off",
+    "no-underscore-dangle": "off"
   },
   "globals": {
     "chai": true,
