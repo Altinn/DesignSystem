@@ -100,14 +100,21 @@ ul.no-decoration {
 		}
 	}
 
+	// TODO: Make a script to check if there is more than 3 items in list. If less then 3, use 1col, if more than 3, use 2col
+	&.a-item-list-1col {
+		@include media-breakpoint-up(md) {
+			width: calc(50% - 24px);
+		}
+	}
+
 	&.a-item-list-2col {
 		@include media-breakpoint-up(md) {
 			column-count: 2;
-	  	column-gap: 24px;
+	  	column-gap: $spacer*4;
 				-moz-column-count: 2;
-	       -moz-column-gap: 24px;
+	       -moz-column-gap: $spacer*4;
 	       -webkit-column-count: 2;
-	       -webkit-column-gap: 24px;
+	       -webkit-column-gap: $spacer*4;
 
 			li {
 				-webkit-column-break-inside: avoid;

@@ -3,35 +3,31 @@
     <div class="row">
       <div class="col-sm-10 offset-sm-1 col-md-10 {{ jumbo-md-offset-class }} {{ jumbo-lg-class }} {{ jumbo-lg-offset-class }} {{ jumbo-xl-class }} {{ jumbo-xl-offset-class }}">
 
-        {{# jumbo-smulesti }}
-      		{{> molekyler-smulesti:m-b-2 }}
-      	{{/ jumbo-smulesti }}
-        <p>
-          <span class="{{{ jumbotron-title-size }}} a-jumbotron-title"> {{{ jumbotron-title }}} </span>
-          <span class="a-jumbotron-ingress"> {{{ jumbotron-ingress }}} </span>
-          {{{ jumbotron-text }}}
+        {{# articlestart }}
+      		{{> organismer-artikkel-start }}
+      	{{/ articlestart }}
 
-          {{# jumbo-byline }}
-        		{{> atomer-byline }}
-        	{{/ jumbo-byline }}
+        {{# pagestart }}
+          {{> atomer-sidetittel }}
+          <span class="a-jumbotron-ingress">{{{jumbo-intro}}}</span>
 
-          {{# jumbo-list }}
-        		{{> atomer-liste-unummerert:a-item-list-large|p-b-3 }}
-        	{{/ jumbo-list }}
+          {{# front-main-button }}
+            {{> atomer-knapp }}
+          {{/ front-main-button }}
 
-          {{# jumbo-link }}
-            {{> atomer-link:a-link-large }}
-          {{/ jumbo-link }}
+          <span class="a-jumbotron-btn-textright a-textSize1">
+            {{{ front-main-button-text-right }}}
+          </span>
+      	{{/ pagestart }}
 
-        </p>
+        {{# jumbo-list }}
+          <span class="a-jumbotron-ingress">{{{jumbo-intro}}}</span>
+      		{{> atomer-liste-unummerert:a-item-list-large|p-b-3 }}
+      	{{/ jumbo-list }}
 
-        {{# front-main-button }}
-          {{> atomer-knapp }}
-        {{/ front-main-button }}
-
-        <span class="a-jumbotron-btn-textright a-textSize1">
-          {{{ front-main-button-text-right }}}
-        </span>
+        {{# jumbo-link }}
+          {{> atomer-link:a-link-large }}
+        {{/ jumbo-link }}
 
 
       </div>

@@ -1,6 +1,6 @@
 /* globals $ */
 var uniformHeight = function() {
-  var cardGroup = $('.a-card-group .container .row');
+  var cardGroup = $('.a-card-group .row');
   var maxheight;
   if ($(window).width() >= 768) {
     maxheight = 0;
