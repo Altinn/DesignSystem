@@ -149,11 +149,12 @@ strong {
 // Paragraph
 
 p {
-    font-size: 16px;
-    line-height: 24px;
+    font-size: 18px;
+    line-height: 26px;
     font-family: 'DIN-reg';
     margin-bottom: $spacer*1.5;
     max-width: 760px;
+    letter-spacing: 0.2px;
 }
 
 .a-leadText {
@@ -164,16 +165,36 @@ p {
 }
 
 .a-metaText {
-    font-size: 14px;
-    line-height: 20px;
+    font-size: 16px;
+    line-height: 22px;
 }
 
 
 /* Media */
 
 .a-media {
+  display: block;
+
+  @include media-breakpoint-up(md) {
+      display: flex;
+  }
   img {
-    max-width: 500px;
+    width: 100%;
+    max-width: 100%;
+    margin-bottom: $spacer*3;
+
+    @include media-breakpoint-up(md) {
+        max-width: 300px;
+        margin-bottom: 0;
+    }
+
+    @include media-breakpoint-up(lg) {
+        max-width: 400px;
+    }
+
+    @include media-breakpoint-up(xl) {
+        max-width: 500px;
+    }
   }
 }
 
@@ -181,20 +202,33 @@ p {
 
 .a-blockquote {
     font-family: $font-secondary;
-    border-left:none;
+    border-left: 6px solid $blue;
     text-align: left;
     color: $black;
-    padding-left: 0em;
-    padding: 0px 50px;
+    padding-left: $spacer*2;
     max-width: 760px;
 
-    @include media-breakpoint-down(md) {
-        font-size: 16px;
+    @include media-breakpoint-up(md) {
+      border-left: none;
+    }
+
+    @include media-breakpoint-up(lg) {
+      padding-left: $spacer*4;
     }
 
     p {
-        font-size: 28px;
-        line-height: 36px;
+        font-size: 18px;
+        line-height: 24px;
+
+        @include media-breakpoint-up(md) {
+          font-size: 22px;
+          line-height: 28px;
+        }
+
+        @include media-breakpoint-up(lg) {
+          font-size: 28px;
+          line-height: 36px;
+        }
     }
 
     .a-citation {
