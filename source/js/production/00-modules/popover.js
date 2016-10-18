@@ -11,21 +11,34 @@ var popover = function() {
   $('.a-js-persistPopover').on('shown.bs.popover', function() {
     $('.a-js-persistPopover').find('i').eq(0).hide();
     $('.a-js-persistPopover').find('i').eq(1).show();
-    // $('.a-js-persistPopover').blur();
     $('.popover-big').attr('style',
       $('.popover-big').attr('style').replace(
         /translateX\(.*?\)/, 'translateX(0px)'
       )
     );
     $('.popover-big').find('.popover-arrow').css(
-      'left', ($(this).offset().left + 11) + 'px'
+      'left', ($(this).offset().left + 9) + 'px'
     );
+    $('html, body').animate({
+      scrollTop: $('.a-js-persistPopover').offset().top - 50
+    }, 250);
   })
   $('.a-js-persistPopover').on('hidden.bs.popover', function() {
     $('.a-js-persistPopover').find('i').eq(0).show();
     $('.a-js-persistPopover').find('i').eq(1).hide();
   })
-  $('window').on('scroll', function() {
-    console.log('scrolling...')
+  $(window).scroll(function() {
+    $('.popover-big').attr('style',
+      $('.popover-big').attr('style').replace(
+        /translateX\(.*?\)/, 'translateX(0px)'
+      )
+    );
+  })
+  $(window).resize(function() {
+    $('.popover-big').attr('style',
+      $('.popover-big').attr('style').replace(
+        /translateX\(.*?\)/, 'translateX(0px)'
+      )
+    );
   })
 };
