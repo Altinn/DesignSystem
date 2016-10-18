@@ -2,6 +2,6 @@
  state: needsrevalidation
  version: 0
 ---
-NB: Dette er en variant av  [knapp.mustache](../../patterns/00-atomer-02-lenker-og-knapper-10-knapp/00-atomer-02-lenker-og-knapper-10-knapp.html)
+NB: Dette er en variant av [knapp.mustache]
 
 Deaktivert knapp brukes i tilfeller der knappen ikke er aktiv. F.eks før bukeren har fylt ut nødvendig info, osv.
