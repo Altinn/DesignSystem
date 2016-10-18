@@ -8,9 +8,10 @@
     "dist": "gulp dist",
     "testplugin": "npm uninstall plugin-node-custom-output && npm install plugin-node-custom-output && npm run patterns",
     "lint": "eslint source/",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "precommit-msg": "echo 'Pre-commit checks... Linting code...' && exit 0"
   },
-  "pre-commit": ["lint"],
+  "pre-commit": ["precommit-msg", "lint"],
   "dependencies": {
     "browser-sync": "^2.11.2",
     "gulp": "gulpjs/gulp#4.0",
