@@ -244,7 +244,7 @@ var popover = function() {
 
 /* globals $ */
 var propagateContent = function() {
-  $('.propagated-content-destination').each(function() {
+  $('.a-js-propagatedContentDestination').each(function() {
     var prefix = '.a-js-propagatedContentOrigin.';
     if ($(this).hasClass('replace-me')) {
       $(this).before($(prefix + $(this).attr('data-refclass')).html());
@@ -323,7 +323,7 @@ var tooltip = function() {
 
 /* globals $ */
 var uniformHeight = function() {
-  var cardGroup = $('.a-card-group .container .row');
+  var cardGroup = $('.a-card-group .row');
   var maxheight;
   if ($(window).width() >= 768) {
     maxheight = 0;

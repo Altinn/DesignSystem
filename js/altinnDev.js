@@ -1,7 +1,8 @@
 var _anchors = function() {
   window.anchors.options.placement = 'left'
-  window.anchors.options.class = 'a-anchor'
+  window.anchors.options.class = 'a-sg-anchor'
   window.anchors.add('h3')
+  window.anchors.remove('.sg-pattern-example h3')
 };
 
 /* globals $ */
@@ -22,15 +23,17 @@ var insetVariations = function() {
 };
 
 /* globals $ */
-window.openGitMD = function (target) {
+window.openGitMD = function(target) {
   window.open('https://github.com/Altinn/DesignSystem/edit/master/source' +
     $(target).closest('.sg-pattern').find('.patternLink')
-      .attr('href').replace(/\.\.\//g, '')
+      .attr('href')
+      .replace(/\.\.\//g, '')
       .replace('patterns', '/_patterns')
-      .replace(/(?:[^/*]*)$/, '').slice(0, -1)
+      .replace(/(?:[^/*]*)$/, '')
+      .slice(0, -1)
       .replace(/-([0-9]{2})/g, '/$1') + '.md', '_blank'
-  )
-}
+  );
+};
 
 /* globals $ */
 var preOpenModals = function() {
