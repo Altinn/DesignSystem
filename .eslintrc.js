@@ -19,5 +19,12 @@ module.exports = {
     "func-names": ["error", "never"],
     "no-unused-vars": "off",
     "no-underscore-dangle": "off"
+  },
+  "globals": {
+    "chai": true,
+    "describe": true,
+    "expect": true,
+    "assert": true,
+    "it": true
   }
 };
