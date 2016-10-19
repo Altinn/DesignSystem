@@ -1,6 +1,6 @@
 /* globals questionnaireInteraction, drilldownInteraction, handleFocus,
 mobileNavigation, propagateContent, toggleExpand, toggleFilter, uniformHeight,
-tooltip, popover, aTagSpaceExpand */
+tooltip, popover, aTagSpaceExpand, initializeDatepicker */
 window.altinnInit = function() {
   toggleExpand();
   drilldownInteraction();
@@ -13,5 +13,6 @@ window.altinnInit = function() {
   propagateContent();
   questionnaireInteraction();
   aTagSpaceExpand();
+  initializeDatepicker();
 };
 window.altinnInit();

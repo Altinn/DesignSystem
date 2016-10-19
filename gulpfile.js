@@ -1,11 +1,11 @@
 // Dependencies:
-var browserSync = require('browser-sync').create(); 
+var browserSync = require('browser-sync').create();
 var fs = require('fs');
-var gulp = require('gulp'); 
+var gulp = require('gulp');
 var gulp_concat = require('gulp-concat');
-var gulp_rename = require('gulp-rename'); 
+var gulp_rename = require('gulp-rename');
 var path = require('path');
-var pjson = require('./package.json'); 
+var pjson = require('./package.json');
 var sass = require('gulp-sass');
 var version = pjson.version;
 var argv = require('minimist')(process.argv.slice(2));
@@ -53,6 +53,12 @@ gulp.task('pl-copy:th', function () {
 // Copy Validator distribution from installed package into public JS folder:
 gulp.task('pl-copy:bv', function () {
   return gulp.src('node_modules/bootstrap-validator/dist/validator.min.js')
+    .pipe(gulp.dest(path.resolve(paths().public.js)))
+});
+
+// Copy Datepicker distribution from installed package into public JS folder:
+gulp.task('pl-copy:dp', function () {
+  return gulp.src('node_modules/bootstrap-datepicker/dist/js/bootstrap-datepicker.min.js')
     .pipe(gulp.dest(path.resolve(paths().public.js)))
 });
 
@@ -122,7 +128,7 @@ gulp.task('pl-copy:distribution-css', function (done) {
     function (err, custom) {
       if (err) {
         console.log(err);
-      } 
+      }
 
       var src = custom.replace('@import "scss/base/profile-presentation"; ',
         '// Automatically removed');
@@ -148,36 +154,37 @@ gulp.task('pl-copy:distribution-js', function () {
       'node_modules/anchor-js/anchor.min.js',
       'source/js/production/00-modules/foundationNavigation.min.js',
       'node_modules/bootstrap-validator/dist/validator.min.js',
+      'node_modules/bootstrap-datepicker/dist/js/bootstrap-datepicker.min.js',
       'node_modules/smoothstate/jquery.smoothState.min.js',
       'source/js/production/*']
     ).pipe(gulp_concat('concat.js')).pipe(gulp_rename('plugins.min.js'))
     .pipe(gulp.dest('public/distributions/v' + version));
 });
 
-function getConfiguredCleanOption () { 
-  return config.cleanPublic 
+function getConfiguredCleanOption () {
+  return config.cleanPublic
 }
 
-function build (done) { 
-  patternlab.build(done, getConfiguredCleanOption()) 
+function build (done) {
+  patternlab.build(done, getConfiguredCleanOption())
 }
 
 gulp.task('pl-assets', gulp.series(
-  gulp.parallel('pl-copy:designsystemdev-js', 
-    'pl-copy:designsystemprod-js'), 
-    function (done) { 
-      done(); 
+  gulp.parallel('pl-copy:designsystemdev-js',
+    'pl-copy:designsystemprod-js'),
+    function (done) {
+      done();
     }
   )
 );
 
 gulp.task('patternlab:version', function (done) {
-  patternlab.version(); 
+  patternlab.version();
   done();
 });
 
-gulp.task('patternlab:help', function (done) { 
-  patternlab.help(); 
+gulp.task('patternlab:help', function (done) {
+  patternlab.help();
   done();
 });
 
@@ -186,12 +193,12 @@ gulp.task('patternlab:patternsonly', function (done) {
 })
 
 gulp.task('patternlab:liststarterkits', function (done) {
-  patternlab.liststarterkits(); 
+  patternlab.liststarterkits();
   done();
 })
 
 gulp.task('patternlab:loadstarterkit', function (done) {
-  patternlab.loadstarterkit(argv.kit, argv.clean); 
+  patternlab.loadstarterkit(argv.kit, argv.clean);
   done();
 })
 
@@ -200,8 +207,8 @@ gulp.task('patternlab:build', gulp.series('pl-assets', build, function (done) {
 }));
 
 gulp.task('patternlab:prebuild', gulp.series(
-  'pl-copy:js', 'pl-copy:bs', 'pl-copy:th', 'pl-copy:jq',
-  'pl-copy:bv', 'pl-copy:ss', 'pl-copy:an', 'pl-copy:img', 'pl-copy:favicon',
+  'pl-copy:js', 'pl-copy:bs', 'pl-copy:th', 'pl-copy:jq', 'pl-copy:bv',
+  'pl-copy:dp', 'pl-copy:ss', 'pl-copy:an', 'pl-copy:img', 'pl-copy:favicon',
   'pl-copy:css', 'pl-copy:styleguide', function (done) { done(); })
 );
 
