@@ -6,7 +6,7 @@
 
 	thead th {
 	    border-bottom: 2px solid $blue;
-	    font-family: 'DIN-bold';
+	    font-family: $font-bold; font-weight: $font-weight-bold;
 	}
 	td, th{
 		border-top: none;
@@ -23,11 +23,15 @@
 		padding: 2px 0 2px 0;
 	}
 	td {
-		font-family: 'DIN-medium';
+		font-family: $font-medium; font-weight: $font-weight-medium;
+		width: 20%;
+		@include media-breakpoint-up(md) {
+			width: auto;
+		}
 	}
 	tfoot {
 		border-top: 3px solid $blue;
-		font-family: 'DIN-medium';
+		font-family: $font-medium; font-weight: $font-weight-medium;
 
 		td, th {
 			padding-top: $spacer;

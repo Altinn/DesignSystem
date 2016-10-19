@@ -9,6 +9,7 @@ Naviger til kodebasens plassering på disk og kjør følgende kommando (krever a
 ```
 npm install
 ```
+Når denne kommandoen er kjørt vil du bli spurt om hvilke ekstra filtyper du ønsker å få tabs for i Patternlab. Her skal du kun oppgi 'json'. Dette vil gi en tab som viser data fra json-filen for hvert enkelt pattern i tillegg til Mustache og HTML.
 
 Installer avhengigheter for styleguidekit-assets-altinn mappen (innebærer både NPM og Bower), samt gjør en Gulp for å bygge styleguidekit-filer:
 
