@@ -32,7 +32,6 @@ gulp
 ```
 
 ## Bruk
-
 For å kjøre koden lokalt, bruk følgende kommando (vil serve filene over localhost, og automatisk bygge på nytt ved endringer i kildekoden):
 
 ```
