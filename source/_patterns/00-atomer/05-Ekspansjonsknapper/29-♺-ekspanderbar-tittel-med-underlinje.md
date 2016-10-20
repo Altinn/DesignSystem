@@ -1,6 +1,6 @@
 ---
- state: inprogress
+ state: intechnicalreview
  version: 1
 ---
 
-Ekspanderbar tittel uten underlinje
+Ekspanderbar tittel med underlinje
