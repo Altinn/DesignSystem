@@ -38,8 +38,8 @@
     <script src="https://use.fonticons.com/b2e1f56d.js"></script>
 
     <!-- Altinn stylesheet -->
-    <link rel="stylesheet" href="../../css/style.css?1476878159591" media="all" />
-    <link rel="stylesheet" href="../../css/pattern-scaffolding.css?1476878159591" media="all" />
+    <link rel="stylesheet" href="../../css/style.css?1476942399239" media="all" />
+    <link rel="stylesheet" href="../../css/pattern-scaffolding.css?1476942399239" media="all" />
 
     <!-- Begin Pattern Lab (Required for Pattern Lab to run properly) -->
     <!-- never cache patterns -->
@@ -49,7 +49,7 @@
 <meta http-equiv="expires" content="Tue, 01 Jan 1980 1:00:00 GMT" />
 <meta http-equiv="pragma" content="no-cache" />
 
-<link rel="stylesheet" href="../../styleguide/css/styleguide.min.css?1476878159591" media="all">
+<link rel="stylesheet" href="../../styleguide/css/styleguide.min.css?1476942399239" media="all">
 <style type="text/css">
   /* PRESENTATION OF STYLE GUIDE */
   #sg-viewport {
@@ -410,7 +410,7 @@
 
 
 </style>
-<link rel="stylesheet" href="../../styleguide/css/prism-typeahead.min.css?1476878159591" media="all" />
+<link rel="stylesheet" href="../../styleguide/css/prism-typeahead.min.css?1476942399239" media="all" />
 
     <!-- End Pattern Lab -->
 
@@ -548,10 +548,10 @@
   }
 </script>
 
-<script id="pl-js-polyfill-insert-1476878159591">
+<script id="pl-js-polyfill-insert-1476942399239">
   (function() {
     if (self != top) {
-      var cb = '1476878159591';
+      var cb = '1476942399239';
       var js = [];
       if (typeof document !== 'undefined' && !('classList' in document.documentElement)) {
         js.push('styleguide/bower_components/classList.min.js');
@@ -561,10 +561,10 @@
   })();
 </script>
 
-<script id="pl-js-insert-1476878159591">
+<script id="pl-js-insert-1476942399239">
   (function() {
     if (self != top) {
-      var cb = '1476878159591';
+      var cb = '1476942399239';
       var js = [ { 'src': 'styleguide/bower_components/jwerty.min.js', 'dep': [ 'styleguide/js/patternlab-pattern.min.js' ] } ];
       scriptLoader.run(js,cb,'pl-js-insert');
     }
@@ -579,9 +579,6 @@
     <script src="../../js/bootstrap.min.js"></script>
     <!-- CODE PRETTIFY: Prettify code snippets in HTML -->
     <script src="https://cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js?lang=css&amp;skin=sunburst"></script>
-    <script>
-      $('.html-escape').each(function () { $(this).text($(this).html()) })
-    </script>
     <!-- VALIDATOR: Used for input field feedback -->
     <!-- http://1000hz.github.io/bootstrap-validator/#validator-usage -->
     <script src="../../js/validator.min.js"></script>
@@ -600,68 +597,5 @@
     <!-- ALTINN custom JavaScript -->
     <script src="../../js/altinnProd.js"></script>
     <script src="../../js/altinnDev.js"></script>
-    <script>
-      $(document).foundation();
-      var smoothStateMod = function () {
-        $('#smoothState').find('a:not(.sr-only-focusable)').on('click', function (e) {
-          if (location.pathname.replace(/\//g, '')
-            === $(this).attr('href').replace(/\//g, '').replace(/\.\./g, '')) {
-            e.preventDefault(); e.stopPropagation()
-            e.stopImmediatePropagation()
-            return false
-          } else if ($(this).attr('href') !== '#') {
-            e.preventDefault(); e.stopPropagation()
-            e.stopImmediatePropagation()
-            smoothState.load($(this).attr('href'));
-          }
-        })
-      }
-      var options = {
-        prefetch: true, debug: true, anchors: 'blink', cacheLength: 9,
-        onStart: {
-          duration: 250, // Duration of our animation
-          render: function ($container) {
-            // Add your CSS animation reversing class
-            $container.addClass('is-exiting');
-            // Restart your animation
-            smoothState.restartCSSAnimations();
-            if ($container.find('.a-tempAnim').length > 0) {
-              $container.find('.a-scene_element')
-                .removeClass('a-scene_element--fadeinright')
-                .removeClass('a-scene_element--fadeinleft')
-                .addClass('a-scene_element--fadeoutright')
-            } else {
-              $container.find('.a-scene_element')
-                .removeClass('a-scene_element--fadeinright')
-                .removeClass('a-scene_element--fadeinleft')
-                .addClass('a-scene_element--fadeoutleft')
-            }
-          }
-        },
-        onReady: {
-          duration: 0,
-          render: function ($container, $newContent) {
-            // Remove your CSS animation reversing class
-            $container.removeClass('is-exiting');
-            // Inject the new content
-            $newContent.find('.a-scene_element--fadeinright').hide()
-            if ($container.find('.a-tempAnim').length > 0) {
-              $newContent.find('.a-scene_element')
-                .removeClass('a-scene_element--fadeinright')
-                .addClass('a-scene_element--fadeinleft')
-                .removeClass('a-tempAnim')
-            }
-            $container.html($newContent);
-          }
-        },
-        onAfter: function () {
-          $(document).foundation(); altinnInit(); altinnDev(); smoothStateMod()
-          $('.a-scene_element').show()
-        }
-      }
-      var smoothState = $('#smoothState').smoothState(options)
-        .data('smoothState')
-      smoothStateMod()
-    </script>
   </body>
 </html>

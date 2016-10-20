@@ -257,6 +257,29 @@ var mobileNavigation = function() {
     }
     return false;
   });
+  window.langTriggerClick = function(e) {
+    var key = e.which;
+    if (key === 13) {
+      $(e.target).trigger('mousedown');
+    } else if (key === 9) {
+      if (!$('#exCollapsingNavbar').find('.a-dropdown-languages').hasClass('expand')) {
+        $('#exCollapsingNavbar').find('.a-dropdown-languages').find('a').attr('tabindex', '-1');
+      } else {
+        $('#exCollapsingNavbar').find('.a-dropdown-languages').find('a').attr('tabindex', '0');
+      }
+    }
+  };
+};
+
+/* globals $, smoothState */
+var goBack = function() {
+  var arr = [];
+  Object.keys(smoothState.cache).forEach(function(key, index) {
+    arr.push(key);
+  });
+  delete smoothState.cache[arr[arr.length - 1]];
+  arr.splice(-1, 1);
+  smoothState.load(arr[arr.length - 1]);
 };
 
 /* globals $ */
