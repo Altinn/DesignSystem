@@ -11,6 +11,17 @@ npm install
 ```
 Når denne kommandoen er kjørt vil du bli spurt om hvilke ekstra filtyper du ønsker å få tabs for i Patternlab. Her skal du kun oppgi 'json'. Dette vil gi en tab som viser data fra json-filen for hvert enkelt pattern i tillegg til Mustache og HTML.
 
+```
+npm install pre-commit
+```
+
+Dersom denne kommandoen feiler med en feilmelding av typen `pre-commit: Failed to symlink the hook file in your .git/hooks folder` må symlink settes opp i et kommandovindu kjørt som administrator. I et kommandovindu med root eller administratorrettigheter, kjør fra rotmappen til repositoriet.
+```
+node ./node_modules/pre-commit/install.js
+```
+
+Dersom dette også feiler eller om du ikke har administratorrettigheter på maskinen du jobber på må hook-filen legges ut manuelt. Dette gjøres ved å kopiere filen `./node_modules/pre-commit/hook` til `./.git/hooks`, for så å rename denne til `pre-commit`.
+
 Installer avhengigheter for styleguidekit-assets-altinn mappen (innebærer både NPM og Bower), samt gjør en Gulp for å bygge styleguidekit-filer:
 
 ```
