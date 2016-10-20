@@ -1,19 +1,38 @@
-<span class="a-scene a-page">
-  <div class="a-modal {{ bodyClass }}" id="{{ modal-id }}" tabindex="-1" role="dialog" aria-labelledby="{{ modal-label }}" aria-hidden="true">
+<!--<span class="a-scene a-page">-->
+<div class="container">
+  <div class="a-modal fade in {{ bodyClass }}"
+    id="{{ modal-id }}"
+    tabindex="-1"
+    role="dialog"
+    aria-labelledby="{{ modal-label }}"
+    aria-hidden="true">
     <div class="modal-dialog modal-lg" role="document">
-      <div class="row">
-        <div class="col-md-10 offset-md-1">
-          {{> molekyler-modal-header }}
-
-          {{> molekyler-modal-navbar }}
-
-          <span class="a-right-panel a-page a-scene_element">
-            <!-- Modal content -->
-            <div class="modal-content">
-              {{> molekyler-modal-body-header }}
+      {{> molekyler-modal-header }}
+      {{> molekyler-modal-navbar }}
+      <span class="a-right-panel a-page a-scene_element">
+        <div class="modal-content">
+          {{> molekyler-modal-body-header }}
+          <div class="modal-body a-modal-body a-text">
+            <div class="row">
+              <div class="col-xs-8">
+                {{> molekyler-person-rolle }}
+              </div>
+              <div class="col-xs p-t-1">
+                {{# cancel-link }}
+                  {{> atomer-knapp-link-fare }}
+                {{/ cancel-link }}
+              </div>
             </div>
-          </span>
+            <div class="row">
+              <div class="col-xs-12 col-md-12 col-lg-6 m-t-2 m-b-1">
+                {{> atomer-sok-tema }}
+              </div>
+            </div>
+            {{> atomer-ekspanderbar-tittel-uten-underlinje }}
+          </div>
         </div>
-      </div>
+      </span>
+    </div>
   </div>
-</span>
+</div>
+<!--</span>-->

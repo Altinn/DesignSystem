@@ -3,4 +3,4 @@
  version: 1
 ---
 
-Ekspanderbar tittel uten underlinje
+Header for selve modalen.
