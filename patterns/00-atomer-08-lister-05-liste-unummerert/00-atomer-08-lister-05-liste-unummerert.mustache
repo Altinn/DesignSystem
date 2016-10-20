@@ -8,7 +8,17 @@
 				{{# list-item-disabled }}
 					<div class="a-dotted"></div>
 				{{/ list-item-disabled }}
-				{{{ item-list-title }}}
+
+				{{# list-item-nolink }}
+					{{{ item-list-title }}}
+				{{/ list-item-nolink }}
+
+				{{# list-item-link }}
+				<a href="{{ url }}" class="a-listItem-title">
+					{{{ item-list-linkTitle }}}
+				</a>
+				{{/ list-item-link }}
+
 			</li>
 		{{/ item-list }}
 	</ul>
