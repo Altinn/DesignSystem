@@ -283,10 +283,67 @@ fieldset[disabled] .a-switch input[type="radio"] + labe {
 
 }
 
+
 .custom-controls-stacked {
-	.custom-control {
+  .a-legend {
+    display: block;
+    margin-bottom: $spacer;
+  }
+}
+
+.a-radioButtons-stackedList {
+  .a-legend {
+    font-size: 24px;
+    color: $black;
+  }
+	.custom-radio {
 			display: block;
+      padding: $spacer $spacer*3;
+
+      &:hover {
+        background: $grey-light;
+      }
+      .custom-control-indicator {
+        top: 17px;
+      }
+      .a-radioButtons-title {
+        display: block;
+        font-size: 20px;
+        padding-bottom: $spacer;
+      }
+      .a-radioButtons-excerpt {
+        display: block;
+      }
+
 	}
+}
+
+.a-radioButtons-searchResult {
+  .custom-radio {
+
+      &:hover,
+      &:focus,
+      &:active {
+        .a-radioButtons-excerpt {
+          color: $grey-medium;
+        }
+      }
+
+      .a-radioButtons-title {
+        color: $grey-medium;
+
+        strong {
+          color: $black;
+        }
+      }
+      .a-radioButtons-excerpt {
+        color: $grey-medium;
+      }
+	}
+
+  .custom-control > input:checked ~ .a-radioButtons-excerpt{
+      color: $black;
+    }
 }
 
 // Altinn select menu
@@ -329,6 +386,7 @@ fieldset[disabled] .a-switch input[type="radio"] + labe {
 	position: relative;
 	clear: both;
 
+
 	.input-group {
 
 		// Label
@@ -367,6 +425,7 @@ fieldset[disabled] .a-switch input[type="radio"] + labe {
 			}
 	}
 
+
 	// Hover state on label and input
 	// + JS: If state on input is "focus",
 	// add class to a-input : "a-input-focus"
@@ -389,6 +448,24 @@ fieldset[disabled] .a-switch input[type="radio"] + labe {
 			border-left: 2px solid $blue-dark;
 		}
 	}
+
+  // Text area
+
+  .a-textarea-label {
+    font-size: 18px;
+    font-family: $font-medium;
+    font-weight: $font-weight-medium;
+    display: block;
+    margin-bottom: $spacer/2;
+  }
+  .a-textarea {
+    border: 2px solid $blue;
+    border-radius: 0;
+    &:hover,
+    &:focus {
+      border: 2px solid $blue-dark;
+    }
+  }
 
 	// Icon
 	.form-control-feedback {
@@ -546,4 +623,19 @@ fieldset[disabled] .a-switch input[type="radio"] + labe {
 	}
 
 
+}
+
+
+
+
+/*------------------------------------*\
+ * Validator info
+\*------------------------------------*/
+
+.a-validatorInfo {
+  font-size: 16px;
+}
+.a-validatorInfo-icon {
+  vertical-align: middle;
+  color: $blue;
 }
