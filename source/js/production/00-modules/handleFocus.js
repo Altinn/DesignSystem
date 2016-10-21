@@ -7,6 +7,18 @@ var handleFocus = function() {
     $(this).parent().removeClass('a-input-focus');
   });
 
+  $('.a-radioButtons-stackedList').find('input[type=radio]').change(function() {
+    var me = $(this);
+    if (me.is(':checked')) {
+      me.parent().addClass('a-js-radioParentGray');
+      $('input[type=radio]').each(function() {
+        if ($(this).attr('id') !== me.attr('id') && $(this).attr('name') === me.attr('name')) {
+          $(this).parent().removeClass('a-js-radioParentGray');
+        }
+      });
+    }
+  });
+
   // Prevent focus state styling on click
   $('body').on('mousedown', '*:not(input):not(textarea)', function() {
     // Accomodate for popovers
