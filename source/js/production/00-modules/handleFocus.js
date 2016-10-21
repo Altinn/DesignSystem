@@ -8,7 +8,7 @@ var handleFocus = function() {
   });
 
   // Prevent focus state styling on click
-  $('body').on('mousedown', '*:not(input)', function() {
+  $('body').on('mousedown', '*:not(input):not(textarea)', function() {
     // Accomodate for popovers
     if ($(this).attr('data-toggle') !== 'popover' && !$(this).is('i')) {
       $(this).addClass('override-focus');
