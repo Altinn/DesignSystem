@@ -1,22 +1,29 @@
-<!-- Table -->
 <div class="table-responsive">
-  <table class="table a-table">
+  <table class="table a-sortable-table">
     <thead>
-      <tr>
-        {{# table-thead-items }}
-          <th>{{{ table-thead-text }}}</th>
-        {{/ table-thead-items }}
-      </tr>
+      {{# sortable-has-head }}
+        <tr>
+          {{# sortable-head-items }}
+            <th {{# cell-align }} class="text-xs-right" {{/ cell-align }} >
+              {{# sortable }}
+                <span class="a-dropdownArrow"></span>
+              {{/ sortable }}
+              {{ sortable-head-text }}
+            </th>
+          {{/ sortable-head-items }}
+        </tr>
+      {{/ sortable-has-head }}
     </thead>
     <tbody>
-      {{# table-tbody-items }}
-        <tr>
-          <th scope="row">{{{ table-tbody-text.0 }}}</th>
-          <td>{{{ table-tbody-text.1 }}}</td>
-          <td>{{{ table-tbody-text.2 }}}</td>
-          <td>{{{ table-tbody-text.3 }}}</td>
+      {{# sortable-table-items }}
+        <tr class="a-sortable-row">
+          {{# sortable-row-items }}
+            <td {{# cell-align }} class="text-xs-right" {{/ cell-align }}>
+              {{{ sortable-row-text }}}
+            </td>
+          {{/ sortable-row-items }}
         </tr>
-      {{/ table-tbody-items }}
+      {{/ sortable-table-items }}
     </tbody>
   </table>
 </div>
