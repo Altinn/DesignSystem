@@ -4,7 +4,6 @@ var fs = require('fs');
 var gulp = require('gulp');
 var gulp_concat = require('gulp-concat');
 var gulp_rename = require('gulp-rename');
-var path = require('path');
 var pjson = require('./package.json');
 var sass = require('gulp-sass');
 var version = pjson.version;
@@ -86,18 +85,9 @@ gulp.task('pl-copy:css', function () {
     .pipe(browserSync.stream());
 });
 
-// gulp.task('pl-copy:sourcemaps', function () {
-//  return gulp.src(path.resolve(paths().source.css, '*.scss'))
-//   .pipe(sourcemaps.init())
-//   .pipe(sourcemaps().on('error', sourcemaps.logError))
-//   .pipe(sourcemaps.write('./maps'))
-//   .pipe(gulp.dest(path.resolve(paths().public.css)));
-// });
-
 // Copy Styleguide distribution folder from installed package into public
 // styleguide folder:
 gulp.task('pl-copy:styleguide', function () {
-  // return gulp.src(path.resolve(paths().source.styleguide, '**/!(*.css)'))
   return gulp.src(paths().source.styleguide + '**/*')
     .pipe(gulp.dest(paths().public.root))
     .pipe(browserSync.stream()).on('end', function () {
