@@ -7,8 +7,8 @@
     "patterns": "gulp patternlab:patternsonly",
     "dist": "gulp dist",
     "testplugin": "npm uninstall plugin-node-custom-output && npm install plugin-node-custom-output && npm run patterns",
-    "lint": "eslint source/ mocha_test/",
-    "test": "mocha ./mocha_test/mocha_runner.js -c --reporter spec",
+    "lint": "eslint source/ unit_test/",
+    "test": "mocha ./test/unit_test/mocha_runner.js -c --reporter spec",
     "precommit-msg": "echo 'Pre-commit: Linting code and running mocha tests' && exit 0"
   },
   "pre-commit": ["precommit-msg", "lint", "test"],
@@ -17,9 +17,10 @@
     "gulp": "gulpjs/gulp#4.0",
     "gulp-cli": "",
     "minimist": "^1.2.0",
-    "patternlab-node": "2.6.0-alpha",
-    "plugin-node-tab": "1.0.0-alpha",
-    "plugin-node-custom-output": "git+https://github.com/Altinn/plugin-node-custom-output.git"
+    "patternlab-node": "git+https://github.com/DavidEmanuelsen/patternlab-node.git",
+    "plugin-node-flippi": "git+https://github.com/DavidEmanuelsen/plugin-node-flippi.git",
+    "plugin-node-custom-output": "git+https://github.com/Altinn/plugin-node-custom-output.git",
+    "plugin-node-data-inheritance": "git+https://github.com/Altinn/plugin-node-data-inheritance.git"
   },
   "devDependencies": {
     "anchor-js": "3.2.0",
