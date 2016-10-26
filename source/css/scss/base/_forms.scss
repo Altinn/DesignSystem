@@ -14,12 +14,33 @@ textarea {
     -webkit-appearance: none;
 }
 
+@include media-breakpoint-up(sm) {
+  .a-form-inline .form-group {
+      padding-right: 12px;
+  }
+}
+.a-form-inline .form-group {
+    .input-group {
+      display: inline-table;
+    }
+}
+
+.a-input-placecode {
+  position: absolute;
+  right: -45px;
+  top: 36px;
+
+  &:before {
+    content: 'Oslo';
+  }
+}
+
 /*------------------------------------*\
  * Dropdown
 \*------------------------------------*/
 
 .a-form-icon {
-	top: 7px;
+	  top: 7px;
     position: absolute;
     left: 12px;
 }
@@ -385,7 +406,6 @@ fieldset[disabled] .a-switch input[type="radio"] + labe {
 	position: relative;
 	clear: both;
 
-
 	.input-group {
 
 		// Label
@@ -407,10 +427,10 @@ fieldset[disabled] .a-switch input[type="radio"] + labe {
 		.form-control {
 		    color: $grey;
 		    border: 2px solid $blue;
-				border-left: 0;
-				padding: 5px 0px 3px 0px;
+				padding: 5px 12px 3px 12px;
 				height: 36px;
 				border-radius: 0;
+        margin-left: -1px;
 		}
 
 	}
@@ -418,9 +438,8 @@ fieldset[disabled] .a-switch input[type="radio"] + labe {
 	// If there is no label or icon on the left of the input..
 	.form-control {
 			&.form-control-noleft{
-				border-radius: 0;
-				border-left: 2px solid $blue;
-				padding: 5px 12px 3px 12px;
+				border-left: 0;
+				padding-left: 0;
 			}
 	}
 
@@ -432,26 +451,29 @@ fieldset[disabled] .a-switch input[type="radio"] + labe {
 	.a-input-focus {
 		.input-group-addon {
 		    border: 2px solid $blue-dark;
-		    border-right: 0;
+        &.form-control-noleft {
+		      border-right: 0;
+        }
 		}
 		.form-control {
 		    border: 2px solid $blue-dark;
-		    border-left: 0;
+        &.form-control-noleft {
+  		    border-left: 0;
+        }
 		}
 
 		.input-group-btn .btn {
 		    border: 2px solid $blue-dark;
-		    border-left: 0;
-		}
-		.form-control-noleft {
-			border-left: 2px solid $blue-dark;
+        &.form-control-noleft {
+		      border-left: 0;
+        }
 		}
 	}
 
   // Text area
 
-  .a-textarea-label {
-    font-size: 18px;
+  .a-input-label {
+    font-size: 16px;
     font-family: $font-medium;
     font-weight: $font-weight-medium;
     display: block;
@@ -624,7 +646,11 @@ fieldset[disabled] .a-switch input[type="radio"] + labe {
 
 }
 
+// Postnumber
 
+.a-input-postnumber {
+  max-width: 100px;
+}
 
 
 /*------------------------------------*\
