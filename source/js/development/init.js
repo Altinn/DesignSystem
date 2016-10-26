@@ -14,7 +14,7 @@ $('.html-escape').each(function() {
   $(this).text($(this).html());
 });
 window.smoothStateMod = function() {
-  $('#smoothState').find('a:not(.sr-only-focusable)').on('click', function(e) {
+  $('#smoothState').find('a:not(.sr-only-focusable):not(.a-colnav-item):not(.a-colnav-item-second):not(.a-colnav-item-third)').on('click', function(e) {
     if (location.pathname.replace(/\//g, '')
       === $(this).attr('href').replace(/\//g, '').replace(/\.\./g, '')) {
       e.preventDefault(); e.stopPropagation();
