@@ -3,7 +3,7 @@
 	"_commentText": "MODALWINDOW",
 	"_commentEnd":  "--------------------------------------------------------------",
 
-	"bodyClass": "a-modal-background",
+	"bodyClass": "a-modal-background a-js-validator",
 	"logo" : "../../images/a-logo-white.svg",
 	"login-name" : "Jan Pettersen",
 	"animationClass" : "a-scene_element--fadeinright",
@@ -27,20 +27,36 @@
 	"_commentText": "TITLE",
 	"_commentEnd":  "--------------------------------------------------------------",
 
-	"section-title": "Hva skal firmaet hete?",
-  "titleExtra" : {
-    "titleExtra-text" : "(Sjekk om navnet er ledig og gyldig)"
-  },
+	"modal-title" : {
+		"section-title": "Hva skal firmaet hete?",
+	  "titleExtra" : {
+	    "titleExtra-text" : "(Sjekk om navnet er ledig og gyldig)"
+	  }
+	},
+
 	"modal-lead" : false,
   "modal-input-orgName" : {
+	  "input-type" : "text",
+		"isHidden" : "sr-only",
+		"isLarge" : "a-form-group-large",
     "text-input-label" : "Firmanavn:",
-    "text-input-placeholder" : "f.eks navnet ditt og bransje"
+    "text-input-placeholder" : "f.eks navnet ditt og bransjen",
+		"validatorInfo-icon" : "&#xE88E;",
+		"isValidator" : "validator",
+		"validator-errorMessage" : "Navnet inneholder ikke etternavnet ditt.",
+		"extra-help" : {
+	    "extra-helpText" : "Navnet må inneholde etternavnet ditt. Du kan markedsføre deg med et annet navn enn foretaksnavnet, men det kan være smart om disse samsvarer. Tips til navnevalget. <a href=\"#\">Tips til navnevalget</a>",
+	    "validatorInfo-icon" : "&#xE88E;"
+	  }
   },
 	"modal-validatorInfo" : {
-    "validatorInfo-text" : "Navnet må inneholde etternavnet ditt. Du kan markedsføre deg med et annet navn enn foretaksnavnet, men det kan være smart om disse samsvarer. Tips til navnevalget. <a href=\"#\">Tips til navnevalget</a>",
-    "validatorInfo-icon" : "&#xE88E;"
+    "validatorInfo-text" : "Navnet må inneholde etternavnet ditt. Du kan markedsføre deg med et annet navn enn foretaksnavnet, men det kan være smart om disse samsvarer. Tips til navnevalget. <a href=\"#\">Tips til navnevalget</a>"
+
   },
-  "modal-validatorInfoOK" : false,
+  "modal-validatorInfoOK" : {
+    "validatorInfo-text" : "Navnet må inneholde etternavnet ditt. Du kan markedsføre deg med et annet navn enn foretaksnavnet, men det kan være smart om disse samsvarer. Tips til navnevalget. <a href=\"#\">Tips til navnevalget</a>",
+    "validatorInfo-icon" : "&#xE86C;"
+  },
   "modal-input-textArea" : false,
   "modal-input-radio" : false,
   "modal-date" : false,
@@ -57,7 +73,8 @@
 
   "modal-nextbutton" : {
     "button-text" : "Sjekk navnet",
-    "link-url" : "link.sider-starte-enk-2"
+    "link-url" : "link.sider-starte-enk-2",
+		"button-class" : "a-btn"
   },
   "modal-successbutton" : false,
   "modal-deactivated" : {

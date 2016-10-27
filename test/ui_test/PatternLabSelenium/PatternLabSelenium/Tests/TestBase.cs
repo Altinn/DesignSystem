@@ -17,8 +17,10 @@ namespace PatternLabSelenium.Tests
     /// </summary>
     public abstract class TestBase
     {
+        //private const string ScreenshotPath = @"..\..\Screenshots";
+        //private const string DriverPath = @"..\..\SeleniumDriver";
         private const string ScreenshotPath = @"..\..\Screenshots";
-        private const string DriverPath = @"..\..\SeleniumDriver";
+        private const string DriverPath = @"SeleniumDriver";
 
         private static IWebDriver _driverChrome;
         private static IWebDriver _driverFirefox;
@@ -33,18 +35,19 @@ namespace PatternLabSelenium.Tests
         {
             try
             {
-                //set up drivers
+                // set up drivers
                 _driverChrome = new ChromeDriver();
 
                 // TODO: Task 1468 remove driver binary from project
-                _driverOpera = new OperaDriver(DriverPath);
+                //_driverOpera = new OperaDriver(DriverPath);
 
                 // TODO: Task 1468 remove driver binary from project + find a way not to reference firefox binary path
                 FirefoxDriverService firefoxDriverService = FirefoxDriverService.CreateDefaultService(DriverPath);
                 firefoxDriverService.FirefoxBinaryPath = @"C:\Program Files (x86)\Mozilla Firefox\firefox.exe";
                 _driverFirefox = new FirefoxDriver(firefoxDriverService);
 
-                _driverExplorer = new InternetExplorerDriver();
+                InternetExplorerOptions options = new InternetExplorerOptions { IgnoreZoomLevel = true };
+                _driverExplorer = new InternetExplorerDriver(options);
             }
             catch (Exception ex)
             {
@@ -60,7 +63,7 @@ namespace PatternLabSelenium.Tests
         public void RunTestInBrowsers(Action<IWebDriver> testToRun)
         {
             testToRun(_driverChrome);
-            testToRun(_driverOpera);
+            //testToRun(_driverOpera);
             testToRun(_driverFirefox);
             testToRun(_driverExplorer);
         }
@@ -71,27 +74,10 @@ namespace PatternLabSelenium.Tests
         [TestCleanup]
         public void TearDown()
         {
-            _driverChrome.Quit();
-            _driverOpera.Quit();
-            _driverFirefox.Quit();
-            _driverExplorer.Quit();
-        }
-
-        /// <summary>
-        /// Common setup for all tests. Navigate to url for testing, take initial screenshots
-        /// </summary>
-        /// <param name="driver">current driver running the test</param>
-        public virtual void SetUpBrowser(IWebDriver driver)
-        {
-            driver.Navigate().GoToUrl("http://altinn.github.io/DesignSystem/");
-            Thread.Sleep(1000);
-            IWebElement pagesNav = driver.FindElement(By.CssSelector("#pl-pattern-nav-target > li:last-of-type a")); // find nav tab pages item
-            ScreenshotCapture(driver, this.GetType().Name, this.GetCurrentMethod(), "1-SystemLaunch");
-
-            Thread.Sleep(1000);
-            pagesNav.Click();
-            Thread.Sleep(1000);
-            ScreenshotCapture(driver, this.GetType().Name, this.GetCurrentMethod(), "2-OpenPagesMenu");
+            _driverChrome?.Quit();
+            _driverOpera?.Quit();
+            _driverFirefox?.Quit();
+            _driverExplorer?.Quit();
         }
 
         /// <summary>
