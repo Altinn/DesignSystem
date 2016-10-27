@@ -28,17 +28,21 @@ var popover = function() {
     $('.a-js-persistPopover').find('i').eq(1).hide();
   });
   $(window).scroll(function() {
-    $('.popover-big').attr('style',
-      $('.popover-big').attr('style').replace(
-        /translateX\(.*?\)/, 'translateX(0px)'
-      )
-    );
+    if ($('.popover-big').length > 0) {
+      $('.popover-big').attr('style',
+        $('.popover-big').attr('style').replace(
+          /translateX\(.*?\)/, 'translateX(0px)'
+        )
+      );
+    }
   });
   $(window).resize(function() {
-    $('.popover-big').attr('style',
-      $('.popover-big').attr('style').replace(
-        /translateX\(.*?\)/, 'translateX(0px)'
-      )
-    );
+    if ($('.popover-big').length > 0) {
+      $('.popover-big').attr('style',
+        $('.popover-big').attr('style').replace(
+          /translateX\(.*?\)/, 'translateX(0px)'
+        )
+      );
+    }
   });
 };
