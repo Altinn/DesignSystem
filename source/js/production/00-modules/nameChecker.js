@@ -29,11 +29,7 @@ var nameChecker = function() {
       .html(btnText)
       .attr('onclick', initAction);
   });
-  $('.a-js-validator').find('.a-message-error').append(
-    '<ul class="list-unstyled"><li>' +
-      'Navnet inneholder ikke etternavnet ditt.' +
-    '</li></ul>'
-  ).css('margin-bottom', '10px');
+  $('.a-js-validator').find('.a-message-error').css('margin-bottom', '10px');
   function toggleBtns(el) {
     if ($(el).length > 0 && $(el).val().length > 0) {
       $('.a-js-validator').find('.a-btn-group').find('.a-btn').eq(0)
@@ -51,8 +47,7 @@ var nameChecker = function() {
         $('.a-js-validator').find('.a-btn-group').find('.a-btn').eq(0)
           .addClass('a-js-hideFromSmoothState');
         $('.a-js-validator').find('.a-btn-group').find('.a-btn').eq(0)
-          .attr('onclick',
-            '$(".a-js-validator").find(".a-message-error").show();');
+          .attr('onclick', '');
       }
     } else {
       $('.a-js-validator').find('.a-btn-group').find('.a-btn').eq(0)
