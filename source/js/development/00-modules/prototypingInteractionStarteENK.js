@@ -1,3 +1,4 @@
+/* globals $ */
 var prototypingInteractionStarteENK = function() {
   /* Prototyping that place will be visible after typing in postnumber */
   $('#postnummer').keyup(function() {
