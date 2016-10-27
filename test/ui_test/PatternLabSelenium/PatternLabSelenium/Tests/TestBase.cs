@@ -35,8 +35,7 @@ namespace PatternLabSelenium.Tests
         {
             try
             {
-                string driverFullPath = Path.GetFullPath(DriverPath);
-                //set up drivers
+                // set up drivers
                 _driverChrome = new ChromeDriver();
 
                 // TODO: Task 1468 remove driver binary from project
