@@ -23,7 +23,9 @@ var nameChecker = function() {
   }).appendTo('.a-btn-group', '.a-js-validator');
   $('.a-js-tryAnother').hide().on('click', function() {
     $('.a-js-validator').find('input[type=text]').removeAttr('disabled')
-      .parent().removeClass('disabled').removeClass('a-input-approved');
+      .parent()
+      .removeClass('disabled')
+      .removeClass('a-input-approved');
     $('.a-js-tryAnother').hide();
     $('.a-js-validator').find('.a-validatorInfo').eq(0).show();
     $('.a-js-validator').find('.a-validatorInfo').eq(1).hide();
