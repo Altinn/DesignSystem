@@ -20,7 +20,7 @@ namespace PatternLabSelenium.Tests
         //private const string ScreenshotPath = @"..\..\Screenshots";
         //private const string DriverPath = @"..\..\SeleniumDriver";
         private const string ScreenshotPath = @"..\..\Screenshots";
-        private const string DriverPath = @"SeleniumDriver";
+        private const string DriverPath = @"..\..\SeleniumDriver";
 
         private static IWebDriver _driverChrome;
         private static IWebDriver _driverFirefox;
