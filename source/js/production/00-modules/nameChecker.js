@@ -13,6 +13,8 @@ var nameChecker = function() {
     '$(".a-js-validator").find(".a-btn-group").find(".a-btn").eq(0)' +
       '.html("Velg navn").attr("onclick", "' + nextAction + '");' +
     '$(".a-js-tryAnother").show();';
+  $('.a-js-validator').find('.a-validatorInfo').eq(1).find('i')
+    .addClass('a-validatorInfo-icon-approved');
   $('.a-js-validator').find('.a-validatorInfo').css('display', 'inline-block')
     .eq(1)
     .hide();
