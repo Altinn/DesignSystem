@@ -11,7 +11,7 @@
       </label>
 
       <!-- Input  -->
-      <input type="{{ input-type }}" class="form-control {{ form-input-hasButton-class }}" id="{{ text-input-id }}"  pattern="{{validator-pattern}}" {{ isRequired }} placeholder="{{text-input-placeholder}}" value="{{text-input-value}}" data-error="{{validator-errorMessage}}" {{ isDisabled }}>
+      <input type="{{ input-type }}" class="form-control {{form-control-class}} {{ form-input-hasButton-class }}" id="{{ text-input-id }}"  pattern="{{validator-pattern}}" {{ isRequired }} placeholder="{{text-input-placeholder}}" value="{{text-input-value}}" maxlength="{{maxlength}}" data-error="{{validator-errorMessage}}" {{ isDisabled }}>
       <i class="fa fa-check-circle form-control-feedback"></i><span class="sr-only">Icon showing if input is valid or not</span>
 
       <!-- button -->
@@ -23,6 +23,10 @@
       </div>
       {{/ form-input-hasButton }}
 
+      {{# postal-code }}
+        <span id="a-js-place" class="a-input-placecode" style="display:none;" ></span>
+      {{/ postal-code }}
+
     </div>
 
     {{# extra-help }}
@@ -31,6 +35,7 @@
       {{{ extra-helpText }}}
     </small>
     {{/ extra-help }}
+
 
     {{# validator-check }}
       <div class="help-block with-errors a-message a-message-error">{{{ validator-errorMessage }}}</div>

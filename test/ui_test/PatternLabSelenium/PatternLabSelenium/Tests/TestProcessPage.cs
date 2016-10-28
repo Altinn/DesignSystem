@@ -32,7 +32,6 @@ namespace PatternLabSelenium.Tests
         {
             try
             {
-                SetUpBrowser(driver);
                 NavigateToTestPage(driver);
 
                 //Given
@@ -75,19 +74,8 @@ namespace PatternLabSelenium.Tests
         /// <param name="driver">currently running driver</param>
         private void NavigateToTestPage(IWebDriver driver)
         {
-            IWebElement processMenuItem = driver.FindElement(By.CssSelector("#pl-pattern-nav-target > li:last-of-type > .sg-acc-panel > li:nth-of-type(5) > a"));
+            driver.Navigate().GoToUrl("http://altinn.github.io/DesignSystem/patterns/04-sider-80-prosess-70-prosess/04-sider-80-prosess-70-prosess.html");
             Thread.Sleep(1000);
-
-            processMenuItem.Click();
-            ScreenshotCapture(driver, this.GetType().Name, GetCurrentMethod(), "3-OpenSubmenu");
-            IWebElement process1Page = driver.FindElement(By.CssSelector("a[data-patternpartial=sider-prosess]"));
-
-            Thread.Sleep(1000);
-
-            process1Page.Click();
-
-            Thread.Sleep(1000);
-            driver.SwitchTo().Frame("sg-viewport"); //required to load dom of iframe
             ScreenshotCapture(driver, this.GetType().Name, GetCurrentMethod(), "4-PageLaunch");
         }
 
