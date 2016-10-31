@@ -30,7 +30,7 @@ var executeSearch = function($searchInput, $targetTable) {
       if (matches && matches.length > 0) {
         srcString = srcString.replace(pattern, '<mark>$1</mark>');
 
-        // If a search for "test testing" made a hit in "<span>test</span> testing", the resulting
+        // If a search for "test testing" made a hit in "<span>test</span> testing", the resulting 
         // html would look like "<span><mark>test</span> testing</mark>", but we want
         // "<span><mark>test</mark></span><mark> testing</mark>"
         srcString = srcString.replace(/(<mark>[^<>]*)((<[^>]+>)+)([^<>]*<\/mark>)/, '$1</mark>$2<mark>$4');
