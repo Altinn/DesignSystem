@@ -73,6 +73,12 @@
 			i {
 				vertical-align: middle;
 			}
+			&:first-of-type {
+				text-align: center;
+			}
+			&:nth-of-type(even) {
+				font-weight: bold;
+			}
 		}
 
 		&.open {
@@ -82,28 +88,37 @@
 			}
 		}
 
-		&.red-light {
+		&.deleted {
 			background: $red-light;
-			td {
-				border-bottom: 1px solid $red-light;
+
+			& td:last-of-type {
+				@extend .p-r-5;
 			}
 		}
+
+		&.selected td:nth-child(2) {
+            text-decoration: line-through;
+        }
 	}
 
 	thead {
 		th {
 			text-transform: uppercase;
 			font-size: 12px;
-			border-bottom: 1px solid $grey;
 			padding: 0.4rem;
 			bottom: 0;
+		}
+		tr {
+			border-bottom: 1px solid $grey;
 		}
 		.a-dropdownArrow {
 			transform: scale(0.75) rotate(90deg) translate(-50%);
 
 		}
 	}
-
+	.test {
+		color: blue;
+	}
 // If collapse inside table, set display to table-row.
 	.collapse.in {
 		display: table-row;
