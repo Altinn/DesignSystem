@@ -2,13 +2,12 @@
   <table class="table a-sortable-table a-table-list" id="{{ table-remove-undo-id }}">
     <thead>
       {{# sortable-has-head }}
-        <tr>
+        <tr class="a-sortable-row a-table-list">
           {{# sortable-head-items }}
-            <th {{# cell-align }} class="text-xs-right" {{/ cell-align }} >
-              {{# sortable }}
+            <th class="{{# is-first-column }} first {{/ is-first-column }} {{# cell-align }} text-xs-right col-pd-4 p-r-2 {{/ cell-align }}">              {{# sortable }}
                 <span class="a-dropdownArrow"></span>
               {{/ sortable }}
-              {{ sortable-head-text }}
+              {{{ sortable-head-text }}}
             </th>
           {{/ sortable-head-items }}
         </tr>
@@ -16,9 +15,9 @@
     </thead>
     <tbody>
       {{# sortable-table-items }}
-        <tr class="a-sortable-row">
+        <tr class="a-sortable-row {{# red-light }} red-light {{/ red-light }}">
           {{# sortable-row-items }}
-            <td {{# cell-align }} class="text-xs-right" {{/ cell-align }} {{# searchable }} data-searchable="true" {{/ searchable }}>
+            <td {{# cell-align }} class="text-xs-right p-r-2" {{/ cell-align }} {{# searchable }} data-searchable="true" {{/ searchable }}>
               {{{ sortable-row-text }}}
             </td>
           {{/ sortable-row-items }}
