@@ -364,8 +364,41 @@
             background: $blue-light;
         }
     }
-
 }
+
+// SWITCH ACTION (RADIO) BUTTON
+.switch-container {
+    position: absolute;
+    width: 208px;
+    height: $spacer*3; /*36px*/
+    border: 2px solid $blue; 
+
+    .radio {
+        position: relative;
+        width: 50%;
+        height: 100%;
+    }
+    .radio:first-of-type {
+        float:left;
+    }
+    .radio:last-of-type {
+        float: right;
+    }
+    .radio input {
+        display: none;
+    }
+    .radio label {
+        display: block;
+        width: 100%;
+        height: 100%;
+        text-align: center;
+        line-height: $spacer*3-4px; /*parent height - border*/
+        background-color: $grey-light;
+    }
+    input[type="radio"]:checked + label {
+    background-color: $blue; 
+}
+}    
 
 
 
