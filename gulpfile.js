@@ -13,6 +13,12 @@ var patternlab = require('patternlab-node')(config);
 var sourcemaps = require('gulp-sourcemaps');
 
 function paths () { return config.paths }
+// Copy SSB data file from source into public folder:
+gulp.task('pl-copy:ssb', function () {
+  return gulp.src('source/ssb.json')
+    .pipe(gulp.dest(paths().public.root));
+});
+
 // Copy Foundation Navigation file from source into public JS folder:
 gulp.task('pl-copy:js', function () {
   return gulp.src('source/js/production/00-modules/foundationNavigation.min.js')
@@ -199,7 +205,7 @@ gulp.task('patternlab:build', gulp.series('pl-assets', build, function (done) {
 gulp.task('patternlab:prebuild', gulp.series(
   'pl-copy:js', 'pl-copy:bs', 'pl-copy:th', 'pl-copy:jq', 'pl-copy:bv',
   'pl-copy:dp', 'pl-copy:ss', 'pl-copy:an', 'pl-copy:img', 'pl-copy:favicon',
-  'pl-copy:css', 'pl-copy:styleguide', function (done) { done(); })
+  'pl-copy:css', 'pl-copy:styleguide', 'pl-copy:ssb', function (done) { done(); })
 );
 
 function getSupportedTemplateExtensions () {
