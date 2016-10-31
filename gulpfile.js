@@ -220,7 +220,10 @@ function getTemplateWatches () {
   });
 }
 
-function reload () { browserSync.reload(); }
+function reload () {
+  console.log('reloading with browsersync - truls');
+  browserSync.reload();
+}
 
 function watch () {
   gulp.watch(paths().source.css + '**/*.scss')
