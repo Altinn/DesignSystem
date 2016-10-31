@@ -25,6 +25,7 @@ module.exports = {
     "describe": true,
     "expect": true,
     "assert": true,
-    "it": true
+    "it": true,
+    "$": true
   }
 };
