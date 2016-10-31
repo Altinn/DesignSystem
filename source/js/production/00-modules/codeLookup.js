@@ -32,9 +32,12 @@ var codeLookup = function() {
           iterate = false;
           Object.keys(data).forEach(function(item) {
             if (
-              data[item].name.indexOf(query) !== -1 ||
-              data[item].shortName.indexOf(query) !== -1 ||
-              data[item].notes.indexOf(query) !== -1
+              (
+                data[item].name.indexOf(query) !== -1 ||
+                data[item].shortName.indexOf(query) !== -1 ||
+                data[item].notes.indexOf(query) !== -1
+              ) &&
+              data[item].level === 5
             ) {
               container.append(base
                 .replace('%NAME%', data[item].name)
