@@ -1,6 +1,11 @@
 $(document).on('ready', function() {
-  $('table[data-table-eventhandler="tableRowToggle"]').on('click', 'tr', function() {
+  var $table = $('table[data-table-eventhandler="tableRowToggle"]');
+  $table.on('click', 'tbody>tr', function() {
     $(this).toggleClass('selected');
-    $('.test').toggle();
+    if ($table.find('tr.selected').length > 0) {
+      $('.segment-done').show();
+    } else {
+      $('.segment-done').hide();
+    }
   });
 });
