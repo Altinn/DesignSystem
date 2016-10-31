@@ -13,10 +13,10 @@ var executeSearch = function($searchInput, $targetTable) {
   $targetTable.find('tbody>tr').each(function() {
     var $currentRow = $(this);
     var match = false;
-
+    
     $(this).find('td[data-searchable]').each(function() {
       var src_str = $(this).html();
-      var term = searchTerm;
+      var term = $searchInput.val();
 
       // Create a regex with the search term that ignores tags,
       // this enables the search text "test testing" to hit "<span>test</span> testing"
