@@ -3,7 +3,7 @@
 	"_commentText": "MODALWINDOW",
 	"_commentEnd":  "--------------------------------------------------------------",
 
-	"bodyClass": "a-modal-background",
+	"bodyClass": "a-modal-background a-js-lookup",
 	"logo" : "../../images/a-logo-white.svg",
 	"login-name" : "Jan Pettersen",
 	"animationClass" : "a-scene_element--fadeinright",
@@ -27,18 +27,29 @@
 	"_commentText": "TITLE",
 	"_commentEnd":  "--------------------------------------------------------------",
 
-
-	"section-title": "Hva skal du drive med?",
-	"titleExtra" : {
-		"titleExtra-text" : "(Skriv stikkord så foreslår vi næringskoder)"
+	"modal-title" : {
+		"section-title": "Hva skal du drive med?",
+		"titleExtra" : {
+			"titleExtra-text" : "(Skriv stikkord så foreslår vi næringskoder)"
+		}
 	},
+
+
 	"modal-lead" : false,
   "modal-input-orgName" : {
 		"isValidator" : "",
+		"input-label-class" : "sr-only",
+		"input-type" : "text",
 		"text-input-id" : "bransje",
+		"isLarge" : "a-form-group-large",
+		"isHidden" : "sr-only",
     "text-input-label" : "Bransje:",
     "text-input-placeholder" : "f.eks tekstil, fotografering, webdesign.."
   },
+	"modal-loader" : true,
+	"modal-empty" : {
+		"paragraph-content": "Ingen treff."
+	},
 	"modal-validatorInfo" : false,
 	"modal-validatorInfoOK" : false,
   "modal-input-textArea" : false,
@@ -61,24 +72,10 @@
     "radio-class" : "a-radioButtons-stackedList a-radioButtons-searchResult",
     "radiobuttons" : [
       {
-        "radiobutton-title" : "Industri / Produksjon av tekstiler/ <strong>Bearbeiding og spinning av tekstilfibrer</strong>",
-        "radiobutton-id" : "radio20",
+        "radiobutton-title" : "%PATH% <strong>%NAME%</strong>",
+        "radiobutton-id" : "%ID%",
         "radiobuttons-excerpt" : {
-          "radiobuttons-excerptText" : "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
-        }
-      },
-      {
-        "radiobutton-title" : "Industri / Produksjon av tekstiler/ <strong>Veving av tekstiler</strong>",
-      	"radiobutton-id" : "radio21",
-        "radiobuttons-excerpt" : {
-          "radiobuttons-excerptText" : "Mer lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
-        }
-      },
-			{
-        "radiobutton-title" : "Industri / Produksjon av tekstiler/ <strong>Etterbehandling av tekstiler</strong>",
-      	"radiobutton-id" : "radio22",
-        "radiobuttons-excerpt" : {
-          "radiobuttons-excerptText" : "Mer lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
+          "radiobuttons-excerptText" : "%DESCRIPTION%"
         }
       }
     ]
@@ -96,7 +93,8 @@
 
 	"modal-nextbutton" : {
     "button-text" : "Velg næringskode",
-		"link-url" : "link.sider-starte-enk-3"
+		"link-url" : "link.sider-starte-enk-3",
+		"button-class" : "a-btn"
   },
   "modal-successbutton" : false,
   "modal-deactivated" : false,

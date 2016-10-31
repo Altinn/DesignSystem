@@ -1,5 +1,5 @@
 <div class="{{ full-width-table }}">
-  <table id="fjern-angre" class="table a-sortable-table a-table-list">
+  <table class="table a-sortable-table a-table-list" id="{{ table-remove-undo-id }}">
     <thead>
       {{# sortable-has-head }}
         <tr>
@@ -18,7 +18,7 @@
       {{# sortable-table-items }}
         <tr class="a-sortable-row">
           {{# sortable-row-items }}
-            <td {{# cell-align }} class="text-xs-right" {{/ cell-align }}>
+            <td {{# cell-align }} class="text-xs-right" {{/ cell-align }} {{# searchable }} data-searchable="true" {{/ searchable }}>
               {{{ sortable-row-text }}}
             </td>
           {{/ sortable-row-items }}

@@ -1,8 +1,7 @@
-
 /*------------------------------------*\
+ **************************************
  * FORMS
- * DIFI Guidelines: https://uu.difi.no/artikkel/2015/07/skjema
- *
+ **************************************
 \*------------------------------------*/
 
 // Remove input-styles from iOS
@@ -14,15 +13,450 @@ textarea {
     -webkit-appearance: none;
 }
 
-@include media-breakpoint-up(sm) {
-  .a-form-inline .form-group {
-      padding-right: 12px;
+/*------------------------------------*\
+ * FORM GROUP
+\*------------------------------------*/
+
+.form-inline {
+  .a-form-group {
+    padding-right: 12px;
   }
 }
-.a-form-inline .form-group {
-    .input-group {
-      display: inline-table;
+
+.a-form-group {
+  position: relative;
+  // Form group items (Container for Label and Input)
+  .a-form-group-items {
+    position: relative !important;
+
+    /* Making the touch target area bigger without affecting the layout
+    &:after {
+        content: "";
+        width: 100%;
+        height: 48px;
+        position: absolute;
+        left: 0;
+        top: -8px;
+        cursor:text;
+        z-index: 2;
+    } */
+  }
+  // Label
+  .a-form-label {
+    font-size: 16px;
+    font-family: $font-medium;
+    font-weight: $font-weight-medium;
+    display: block;
+    margin-bottom: $spacer/2;
+  }
+
+  // Input
+  .form-control {
+    color: $grey;
+    border: 2px solid $blue;
+    padding: 5px 12px 3px 12px;
+    height: 36px;
+    border-radius: 0;
+    margin-left: -1px;
+
+    &:focus {
+      border: 2px solid $blue-dark;
     }
+  }
+  // Button right to input
+  .input-group-btn .btn {
+		border-style: none;
+    padding: 0;
+    width: 48px;
+    height: 36px;
+    border: 2px solid #1eaef7;
+    padding-top: 4px;
+    border-left: 0px;
+
+    &:hover,
+    &:active,
+    &:focus  {
+    	outline: none;
+    	background: $blue-light;
+    }
+	}
+
+	// Form group with LARGE input field
+	&.a-form-group-large {
+			.form-control {
+				padding: 13px 12px;
+				font-size: 20px;
+				height: 60px;
+			}
+			.input-group-btn .btn {
+		    height: 60px;
+				width: 60px;
+			}
+			i {
+				top: 12px;
+				font-size: 30px;
+				left: 14px;
+			}
+      .input-group-addon {
+        padding: 18px 12px 18px 12px;
+        font-size: 20px;
+      }
+	}
+
+  // VALIDATOR: Show help message if error
+	.a-message {
+		display: none;
+    margin-top: 12px;
+	}
+  .a-message-absolute {
+    position: absolute;
+    top: 60px;
+  }
+	&.has-error {
+		.a-message {
+			display: block;
+			clear: both;
+			margin-bottom: 24px;
+		}
+	}
+  // VALIDATOR: Icon
+	.form-control-feedback {
+	    position: absolute;
+	    bottom: 8px;
+    	right: 12px;
+	    z-index: 9999;
+	    display: block;
+	    text-align: center;
+	    pointer-events: none;
+	    font-size: 20px;
+	}
+	// VALIDATOR: Display icon only when feedback
+	.form-control-feedback {
+	    display: none;
+	}
+	.form-control-feedback.glyphicon-ok,
+	.form-control-feedback.glyphicon-remove {
+	    display: block;
+	}
+
+	// VALIDATOR: Input has error
+	&.has-danger {
+    // Label
+    .input-group-addon {
+      border: 2px solid $red !important;
+    }
+		// Input
+		.form-control {
+		    border: 2px solid $red !important;
+		}
+		// Icon
+		.form-control-feedback:before {
+		    content: '\f00f';
+		}
+    // When inside input-group
+    .input-group {
+      .input-group-addon {
+        border-right: none !important;
+      }
+      .form-control {
+  		  border-left: none !important;
+  		}
+    }
+
+	}
+	// VALIDATOR: Input has success
+	&.has-success {
+    .input-group-addon {
+      border: 2px solid $green !important;
+    }
+		// Input
+		.form-control {
+		  border: 2px solid $green !important;
+		}
+    // When inside input-group
+    .input-group {
+      .input-group-addon {
+        border-right: none !important;
+      }
+      .form-control {
+  		  border-left: none !important;
+  		}
+    }
+	}
+
+  // INPUT GROUPS (Putting label inside of textarea)
+  .input-group {
+    // Label
+    .input-group-addon {
+		    padding: 9px 12px 6px 12px;
+		    font-size: 16px;
+		    font-weight: normal;
+		    line-height: 1;
+		    color: $black;
+		    text-align: left;
+		    background-color: $white;
+		    border: 2px solid $blue;
+		    border-right: none;
+		    min-width: 44px;
+        border-radius: 0;
+        height: 36px;
+        margin-bottom: 0;
+        i {
+          vertical-align: middle;
+          margin-top: -4px;
+        }
+		}
+    // input: Hide border left if there is a addon
+    .form-control:not(.form-control-noAddon) {
+      border-left: none;
+    }
+    // If there is buttons inside the input group..
+  	.a-form-control-withBtn {
+  		border-right: 0;
+  	}
+    // Validator message
+    &+.a-message {
+      margin-top: 12px;
+    }
+
+    // Focus state on label and input
+  	// JS: If state on input is "focus",
+  	// add class to input-group : "a-input-focus"
+  	&:hover,
+  	&.a-input-focus {
+  		.input-group-addon,
+      .form-control,
+      .input-group-btn .btn {
+  		  border-color: $blue-dark;
+        z-index: 4;
+  		}
+  	}
+  }
+  // Disabled input
+  .input-group.disabled {
+    .input-group-addon,
+    .form-control  {
+        background-image: url('../images/disabled-background.svg');
+        background-color: #fff;
+        color: $grey;
+    }
+    .input-group-addon {
+        border: 2px solid $grey-medium;
+        border-right: 0;
+    }
+    // Input
+    .form-control {
+        border: 2px solid $grey-medium;
+        border-left: 0;
+    }
+  }
+  // Approved input
+  .disabled.a-input-approved {
+    .input-group-addon,
+    .form-control  {
+        background-image: url('../images/approved-background.svg');
+        background-color: #c8e9d6;
+        color: $black !important;
+        border: none !important;
+
+    }
+  }
+}
+
+/*------------------------------------*\
+ * FORM HELP TEXT / VALIDATOR INFO
+\*------------------------------------*/
+
+.a-validatorInfo {
+  font-size: 14px;
+  color: $black;
+  margin-top: $spacer;
+}
+.a-validatorInfo-icon {
+  vertical-align: middle;
+  color: $blue;
+  margin-top: -2px;
+
+  &.a-validatorInfo-icon-approved {
+    color: $green;
+  }
+}
+
+/*------------------------------------*\
+ * FORM LEGEND
+\*------------------------------------*/
+
+.a-legend {
+  display: block;
+  margin-bottom: $spacer;
+  font-size: 20px;
+  font-family: $font-medium;
+  font-weight: $font-weight-medium;
+  color: $blue-darker;
+  padding-right: $spacer*2;
+}
+
+
+/*------------------------------------*\
+ * FORM CHECKBOXES
+\*------------------------------------*/
+
+.a-form-checkboxes {
+  .custom-control-indicator {
+	    border: 2px solid $blue;
+	    border-radius: 0;
+	    background-color: #fff;
+      width: 24px;
+	    height: 24px;
+	    top: -5px;
+	}
+  .custom-control {
+		padding-left: 36px;
+	}
+	.custom-control > input:checked ~ .custom-control-indicator {
+		background-color: #fff;
+		background-image: url('../images/checkbox-checked.svg');
+		background-size: 100%;
+	}
+	.custom-control > input {
+	    &:focus ~ .custom-control-indicator {
+	      box-shadow: none;
+	    }
+	}
+  input[type="checkbox"]:focus+span:not(.override-focus), input[type="radio"]:focus+span:not(.override-focus) {
+    border: 2px solid $blue-dark;
+  }
+}
+
+/*------------------------------------*\
+ * FORM RADIOBUTTONS
+\*------------------------------------*/
+
+.a-radioButtons {
+  .custom-control-indicator {
+	    width: 24px;
+	    height: 24px;
+	    top: -1px;
+			border: 2px solid $blue;
+			background-color: #fff;
+	}
+	.custom-control {
+	    padding-left: 36px;
+			margin-bottom: 12px;
+      padding-top: 4px;
+      padding-bottom: 4px;
+	}
+	.custom-control > input:checked ~ .custom-control-indicator {
+	    color: #fff;
+	    background-color: $white;
+	    width: 24px;
+    	height: 24px;
+    	border: 2px solid $blue;
+	}
+
+  input[type="radio"]:focus+span:not(.override-focus) {
+    border: 2px solid $blue-dark;
+  }
+
+  .custom-control::after {
+    margin-bottom: 12px !important;
+  }
+
+	.custom-control > input:focus ~ .custom-control-indicator {
+    box-shadow: none;
+  }
+
+  .custom-radio input:checked ~ .custom-control-indicator {
+  	background-image: url(data:image/gif;base64,R0lGODlhAAIAAsYAAAQCBISChERCRMTCxCQiJKSipGRiZOTi5BQSFJSSlFRSVNTS1DQyNLSytHRydPTy9AwKDIyKjExKTMzKzCwqLKyqrGxqbOzq7BwaHJyanFxaXNza3Dw6PLy6vHx6fPz6/AQGBISGhERGRMTGxCQmJKSmpGRmZOTm5BQWFJSWlFRWVNTW1DQ2NLS2tHR2dPT29AwODIyOjExOTMzOzCwuLKyurGxubOzu7BweHJyenFxeXNze3Dw+PLy+vHx+fPz+/P///wAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACH5BAEAAEAALAAAAAAAAgACAAf+gECCg4SFhoeIiYqLjI2Oj5CRkpOUlZaXmJmam5ydnp+goaKjpKWmhxc7Iz0FGT4uBjICPLMCFAQ4uLq5OLS0AgY6Bj4BORU9Mwcvp8zNzs/Q0dLT1JU/H9cvGx05AQYCBAgA4+Tl5ufo6ek4JMA+GS0rN9fX1fb3+Pn6+/yP9B8rGsRwoIIDBnUIEypciA4GDREmQtRY8YBev4sYM2rcyFHQvxMdYuhgAYGhyZMoGYKgocJHiRkPsGHrSLOmzZs4F137cGNCCgcCUKQcSrQoQhAkFPhoceLDzJxQo0qdymznixUZdFAAYbSr16/lkOpIMCLmU6po06pdW2jngxn+MVTgAEu3Ll0YHGyU2PDiLNu/gAPvy3ajRwgZ4uwqXvwVqYkSyvwKnky58qdrNwb4EACDsefPjWnYaHDA6Q/LqFOr1vnhxYESGuaCnk27KwgWHjrccLq6t2/B1x5MiMC5tvHjRlFogNz39O/n0G22vtDAAgmuyLNrTwlDRoIND144j06+/L3WBzIoSLy9vXuTIHiEmBB+vPn7+Ee1PlFh/fv/AKpEQwAz9PVBfggmeMl0DZhwUIAQRogQBDxkwNeBCmaoISI/vFCYAyRIKOKI6SCgQg0n9LXhigkGN4EPDGBH4ow0jkOABT3shiGLPP7W2g4pcCBjjUTSCAIDMaz+oGKPTFrG0wA2EFDklFSiYIBuvDWppVo/PHBCASJ0RuWYU4LAQQI7xLTlmlDxNIMPIZIp55g44Lgbm3hu1OEFNajA3pyATgmBAAWkaF+eiFbT5QYxxBjoo3LSgOaSiVb6TJdvSgnppnKSEAFFh1oqKig8LeCCppymSiYOHsC046iwasLTCBY8qOqtZGJgwwh3xuorJTz14CCuxM6JgA49qPnrsox8cEEPOvxZ7LRVmlDWq8xmCwRPDSggJrXg5mqDq9oy2+UA0Yar7pyswhRquYh2aaps69ZLJgUhKIktvGy+sEMCNNgr8JyS8sUvnh98ycOQAzc8JQuF7nvwhjz+taDCtw5nPCUMCuj27sT5dUmrUBqXPCYGLixQEcgKahNAnCbHTCUNKSjDMn7OlsCDzDyPCYIIDVwg8c2qnWuAtD0nTSMKFpT1MdGUaRMBzEpXTSQFaA4NNWA/8ClCSVaHTSQIMni8ddSm2ir22jQSEICSZ3N9QQUCMMz23SL+XIPQcav1Qtp4B14jyir3PVXXdNst+OIRslBCU4bndJUHJDNu+YgI2DDBMpHX9EALClwu+owclHDB053nk3ACVI/uOoQY+AB36he9MIEFGL+uO4Bkt6As7fh0XcPOuxcfIQlZA3/eBiGgavzz/8FgQFnKU/MAtGBDr/1/jvNdvTP+P3zJwvbkA4iCByto/f0nk1de/vvbgaDBAJyvP8r1CigO//7GlT6P/aDoWgk4wL8CtocAESgNADvxgQPEwHkGjKBxYGCDBdRvgQsylfskyEHagEAFA3gABi/xggGoQH8dTCFjeNAAEY5wEg+oQd1USMPa0KAAF3hhJG5QAAbU8Ie0wUECIKdDnZwgARAEohIVgwAfbEB9OvzABgKwwSVasS4QMIEFi3iID8zABtm7ohjrAgIDbI6LhLCdBlA4xjYWBYQX1GEJVeDGOtqlbHHE4As6IAM7+pEuIvCdDj8ngj8a8issqIELFxhDARzykV1hQAluwMgKjA+SmCQKBXL+QMn13SAHAcukKFOyyf8pj4cUGKUqUUKBFHgvdahcpSxNIsQToO5mPGzdLHe5jgS8Mm6x5KUwEVLLW/Irl8NMpjqKebZgKvOZ5hDiL0GGTGhasxzMZJkzr8nNbB7sASVIJTfHOQ5pQhFWMSQgOdeJgxR0slwxvOQ610kCTpbrBTVQ5zznWcps7ZF4+9wnBQrwzljtsZABTSgNKrDIUX1gAH1MqERZ0IA8IsqLOpCoRgHAgw409KIrsAEbN3pNEfTAolv6wQ48kDuS7lMGIzgniy4QgSq6dJ8qOCOebpACet1UozpIH5vAKc6fbhQEDtiBMRP0ggbI06gbhUEATqD+pYciFKouxYA7meRFDWDVqCRgKI9+cAAHjPSr82RBB1CanwvEAGlo3agIdJohcCYxriQ1wAaW+psX9ECfeP0pCHyQwwR5MXSBxSoGcvDR8qjUAmdNbEBpsNa2hgCuknWpBGYgU9Q8oAA+zSxUbXAA83ygBz4ULVphkIGC/uYHK/CqauNKgx50VjAX8EFkZytRDezgtn95QQlCy1uogiAGrk3NB0YA2OJ+lQAtYCtwdmAA5yZWAivgq1puEIGWWte4hFVNU+/6XahioAbSXYsXHVnexAqAs5a5gA3am1kHUDVqJbApfbGKggKkdypebO5+48qCCQD3JvIdsGgNcN/+4OZXwZmFQQoaS5UAQ1i0FIgpWy7gggur1gINRgs+1ebhwCIAvWn5wQLYW+LMimCvaLlBh1ss2uNS+CYfaACJaRxYEhhYKiqNKI9Fa4LCQuUBKQjjkBN74v9i5AMTCOWSRSuC3+YkwVNWLQgicGON4FO/WY6rjw9sD5VKIMy8LbJNHhCD3aL5p02myXKL+mbRCkCpHbmBBerMWxtz5LSY5TNeKSBUjVxAtoKebQi6jI8XtMC7ie7xAsjsjAsIOdKq9QCjq/GCCkAa03jFwQy0+4wDXBXUmd60NF6QAyWjWrI4+LE+yCrgV0vWAsmtBpLdbOufokDDwdtBans9Wxv+qLoZL8gAsYv7a0qH4gBPXbZodXBsU7ygALyW9k0RYFt7XACg2latBnLtjE67OtxM7vY0bnBqdE+72qHI8afdHVcEwDcaN7g0vUXrAieTqgfz3jdaCWDlZzygugLnbQL83QkVBzrhcWWAkZnxghBAvM81cLYlLjDsi4tWAuSOdwOy7XGSwgDYpngAHUs+WwvAGxMqBjPL0YqC7Frb4jOfbQQYfokLSDnnmaVAiEVOcqBvtAQ8p4TKjT5bHrx8Ej+YwcOZjlUIqBsULwgA1Vue9EhcQJdbD/XEGViBooddohnHur7PHlgNdL0RKg44242KAgUyMAZzV20ONJ6IB4D+O++BFcHbFfGDDcgd8DeFgc038YEUIF60C+fEA9r9eAIP/hCFP3zlSQqCe2PiA8revGQ9wPc0rl30X6VAyCNxgKmj3qUguHolPpCD19/68oN4AWJtH+qnH+IEruc9SXtAakN8oALCTyzpLfECRCcfrSzA/Qlk/nySQmAHs0d+9fG6d0q8wATbx6vbvU/n8EMVBb4HgorNbn5uEl8SoG9/XH1A5hdkVP5fZUH9d4x/2GMfEj8wAf2HVjlAah+AdwOIVSoAXB+wcglIdy93A9T3gAH1fnA3AhSIVT7AVx8QARkIVQLQWR9wZh/4UzDgbzcQfCVITjMAdz2wgkaVAcb+9AFaB4M3ZQIzyGI2uFH6xwgvoHk7aE0QsHqCsAJBeFMDoBPad4QbFQGo8wEewIQkpQJPeHpSuE4EoD4fQFxXOE9DVwgn0IUb1QCJ8AMdIIYa5QEf04FoKFEi8DE/cH9tuE8IsIY/N4frtAGI8ADsh4ej1AKIMAN+GFAJgHmhN4jrZAOh8gHzhYjrJAGh8gM66IjXRACLqIKUOEt5dAGZuE4rYAiC2InjRIaFsISiaE0xYAgIeIrWZAJt4QCseE08UAgNGIvWhAFt0XG2mEwN9QETuIuj1IKDcAPACE0VQAhGWIzKFAKE0ADKqEw2QAiO94zDpAOEMGPUyEsCQAj+DpiNs8QAhBBt3qhKBEAIvziOfwQChICOvDQInMiOszQIOwCP8ViE9ChLg/CC96hK+biP/CgIJeCPozQItSeQmTQICWCQBykIPqCQmDQIDemQjzQICCeRhjQIcmiRfjQIu6eRdjQIf+eRbQSSIrmRgsCFJWlFg0BeKalEg4CSLQlEKxmTI3mSNDlGM3mTVzQI5aeTP0SSPrlEgzCJQUlDQFmUPykIRImUHXSUTKlCQ/mUNeSUUslBUVmVKUSVWGlAV7mVEjQIlOeV+4ORYvmVggCLZcmVDJmWagkEBcmWYykIpgiX5dOPdAk/g5CMd1mXghCGe8mXgvCXgAkEmCj+mItDCCxpmKNDCCGpmK6DAIRghY55OeBIkZNZPApACBF5ma/jAISAc5zpOqk4CAUQmq9TA4QwAKbpOhNACH65mpdTUD9QmLDJMzDQFuJYm2xDA23hfLp5NzJgCDX4m3gTjaVInIETAYYggMh5N8dYCMTYnGzTmm3Bf9LZM1/4AY15nTKDAZFYkdyZNG9oCD/ggeGpNC7wLjVwnkpTAoHInknziYfAh/ApMyeICB8AdvU5MCwAh765nw2DgxySkACqMQnwNBhYoBmThH13bgoaLiCweh+Qmw8KLiSgPj+AlhVaL1RIeKW5ofUSALeklyAaLg1wSy9wjiX6KP+nCB/+IJkryik4cE4/MJwxSiwacE45dqPTkgJLdQB9yKMjAgIL4AgvoJ9CCigX6ggf8J9JGigG0Fk/QKBPuikF6AhRF6RV+h8goIePkJ9b+ig0wICNGKZzYgHA9QPOaKZzUgLFdwFAyKYBAgJf6IMwKqci0oORcIB4SiUOQGbr16dFUgPFJwgv0JOCKiEQMHaP8AJlmqgjwgPOpqaQOiMBoHEXQJuV6kGjVgkvcKebmh0MgHt8GqoQQn+WEKimyqUTUKiF8AB3uKraQQLpVwgvsJmyuh0uUHrqNwEOmquzAQIoZwkPUGvAOhsUUKuG8AKreKzGsauakHnOehwd4Kp7SIL+0zobBECEe/qW2foZNsCrhKBSKvqtRFGtnWB/5uoZOMCon7ee67oYJoB7iXABMBmvRAECDSCuy/qo+OoVNMCtwNIDWvqv4xAC/HoINxCrBssdi8c+NtqwQ6EC9LoIUBanEhsW+3o/oJqx6MAAArsgNVCw6xoDCasIF0ChHpsONXeyiZBsK2sS1GYKKpWYMTsOINACLqsILxCFN4sQEscMXqSp/xoDFRsJD5CRP1sONWets9cCvxqzM+sMN7CdMZuzO9sIH/ChS0sOHOCupnAAiBqzKZC1RgqaS0sDB+C0MLcA99qwRjsND7BnS0sCDwsNy1Wu2eoDR4sJevazODD+adWwXNb5rx4QsqXwAOC3sqLGtgw0Am/7rZqWDw/gsxLbuPkQdZHrrJOrD5UrsSTQqbM2A0g6rXHLDw+AtuvKAnY3GAswtscKAUiHEamLrzIAtsGzArArqyigsxrBZuuKa3qyAQwrqwQwrBiRbCTLo4vWEQ0UlqbKAnfrZS2gt2EKAhnQt81wAxoqqxKwttIxA8WbqHF2E7smqyaAuPvQQNi6qTQgazjhaNZ7oyAwYVLBvaGqAuAbFVA2vmGKA5U1FeebqAGgvhkRZInKA9MbFU1VuEmKABWgvfiAv3hqA7jbJiOgi1X6vmarazmAsQVav8q6ESdAt1uqvx1sD1D+ZqwrSgABHBjCNb/nCQIhYMBXho08qgIwRhkqBr0VSgKyNxlNtbnwCQExMMI4cQMBsLym6VuOexOF15EVWlspnLwdULrsyVpIHBU3kAAg/Js2UKeooVJKu58CAL++8VAazJ44gGLR8QA5QLShScM2HBgHIFL7qQM7TB6HVZ88QD/4sUdrjJwE4Mb4AccODJswgFwKcgEhELWmiVT7iyCFt7jNqQCCmyG20766yQEntSJ7pLKXSQKKxCOdhsWGiQOtxSQ8lch/CQMRIMYacgIh8MVbCQIu0Lo9olJmFZoGUGhVtQLgqZgyQFdbYjvdKJgiAMh5UkKcfJc8IEiJ4lf+PiyWFLXFh9wALLyVYVXHGxJPdFlP2JwgNxBObNlO3swjN5ABNhuUKDBE2dLFRByTCBACsiwq4ZMA81yS9TzJ5uJW+6yR9Yxn8OIs+syUA/3EWhI+b1WUEOAD/swvZBUAckyPEOACewwyZOUDMsyOFw3MNzPRFe2NH63QiaJSVJSSJW044RMBAe2NTVRwhrM6L/2MCU07+VzTwHjTwNM1MaDTscjTytM1B+2PKBACEQ08zpIDqFyMOBADtoRBPOS/xUgCrjRIlsSOJIBDXPQ5SwmMLFAB6dw3D9AB1XyKPFDKaGSoJvSMgSTBW/MCI6ADTLyCMhBCa218C2ADtnz+hGVkzHk9CB+wAwHgymgIAy4A0oE9rkfU1FeIAwlUxcBUAqLchRSQAVG92IvwOc+MhhxQA2MtR3MNyTZINsmi2ZAgRT5g2B8IAw6wRagNgBeQAVT9gQQA1ZLtSS3QsQmY1qYU25PwAjOAOzsIAjrAzMA9ewfAOjCIQDsA14v9AzfAR3V9diAgAS3w28mNCX9DOQ+IArID3ckdPgM0gDxQAdO03ZvwACNgAn19dplTIOotCg2UArVdeSyQA0Q036JwPRpA2nknPdTD36Uw2DHg2GGHNbpM4KPQJR2gAgDOdB+UIybN4I16ACkwyGEH2TJt4VXB3jbQ0e4GAxqQLLn+7eH4yR8Lc3YcoN8njuI8O0VATWw4EN4wrsKFAeE5R+IUfuP4UN/3LW0Qs98+fg9dMgEmIOJ1VuOzU+TrSx0SUN0exuO/4+T88AInkAOVjWlDLt5W7gmLcuDLhgNv4+VfHkDC4QBKrmA44ALucuY1ESwXE2kosCtVDudyxicz9GZ1zisvjueh4Bq0HWbHYuKAThVXEQIIbl2F3iuHXmGJvuiq1R3Z/eePLrSRrmCU7uiXzhatsQEREOR4xTENwOmdDhg/kgEsIOXXhAEWMAA3YOanzg/7UQJ7Lln4Ig8VPutxXhgWMOPXBAKEYii8/hwf8AAbECSsLkrHohuyXuz+NdEhvs7a1lTjMPHs0I4TP6LsAXUbNUMp2R4yPNEBSU5OVlLqWRLuGnLs/7Lqz9Qdj3Pn6k4xL1DWUcJLFPId4D7vTdIaNzACLrAVorQSBFIf/J4oTvHvMLLs2kMANgDr6X7wltIatrPwboQCOlDq4iHx5tIacEESSrQSDtACF7DvHN/xfxMBIjDSjykDKaAvln7y+EEYLeADPBDhriPyJN8cMt832XACNeAA7v483fHyBtLzQ/0jFWABNMDw4YIXLlDpEY/039MaUpQDBoADTs8pK2EAKVAWPE/1XJQNB9ACIaABTd8zGKAAAUDyrVEPYo/aP7ATPZECNsAB7z2ZJzDAAy5QAc8997se99+zEwBRAy6gAMA+IjggAhYQAxNhGjEv+Dg99xcwARUQATagAgzA8seBAhygAxFQA65iEZIP7fQg3TPQAAngAirAAmtuFDhAAwKgASYQAAXAK3Mf+aXP4A+gCj3QAjmQAyHgAw6gAzowCzSAAzsGATjQ/M7//CTAAzIwDCGQAy0wADsQ2ru//dxvCoEAADs=);
+	}
+}
+
+/*------------------------------------*\
+ * RADIOBUTTONS WITH EXCERPT
+\*------------------------------------*/
+
+.a-radioButtons-stackedList {
+  .custom-control + .custom-control {
+    margin-left: 0;
+  }
+  .a-legend {
+    font-size: 24px;
+    color: $black;
+  }
+	.custom-radio {
+			display: block;
+      padding: $spacer $spacer*3;
+
+      &:hover {
+        background: $grey-light;
+      }
+      .custom-control-indicator {
+        top: 17px;
+      }
+      .a-radioButtons-title {
+        display: block;
+        font-size: 20px;
+        padding-bottom: $spacer;
+      }
+      .a-radioButtons-excerpt {
+        display: block;
+      }
+	}
+}
+
+.a-radioButtons-searchResult {
+  .custom-radio {
+      &:hover,
+      &:focus,
+      &:active {
+        .a-radioButtons-excerpt {
+          color: $grey-medium;
+        }
+      }
+      .a-radioButtons-title {
+        color: $grey-medium;
+
+        strong {
+          color: $black;
+        }
+      }
+      .a-radioButtons-excerpt {
+        color: $grey-medium;
+      }
+	}
+
+  .custom-control > input:checked ~ .a-radioButtons-excerpt{
+    color: $black;
+  }
+}
+
+.a-js-radioParentGray {
+  background-color: $grey-light;
+}
+
+/*------------------------------------*\
+ * TEXT AREA
+\*------------------------------------*/
+
+.a-textarea {
+  border: 2px solid $blue;
+  border-radius: 0;
+  min-height: $spacer*11;
+  padding: $spacer;
+  &:hover,
+  &:focus {
+    border: 2px solid $blue-dark;
+    box-shadow: none !important;
+  }
+}
+
+
+/*------------------------------------*\
+ * Postal code
+\*------------------------------------*/
+
+.a-input-postnumber {
+  max-width: 100px;
 }
 
 .a-input-placecode {
@@ -35,163 +469,11 @@ textarea {
   }
 }
 
+
+
 /*------------------------------------*\
- * Dropdown
+ * FORM SWITCH BUTTONS
 \*------------------------------------*/
-
-.a-form-icon {
-	  top: 7px;
-    position: absolute;
-    left: 12px;
-}
-
-.a-form-text {
-	padding: 7px 50px 5px 50px;
-	display: block;
-}
-
-// Toggle btn
-
-.a-dropdown-toggle {
-    width: 100%;
-    text-align: left;
-    border: 2px solid $blue;
-    background-color: #fff;
-    border-radius: 0;
-    padding:0;
-    white-space: normal;
-    height: 36px;
-}
-
-.a-dropdown-toggle:hover {
-    color: #333;
-    border-color: $blue-dark;
-}
-.a-dropdown-toggle:focus {
-    border-color: $blue-dark;
-}
-.open .a-dropdown-toggle:hover {
-    border-color: $blue-dark;
-}
-.open .a-dropdown-toggle {
-    border-color: $blue-dark;
-}
-
-
-.a-dropdown-toggle:after {
-    position: absolute;
-    right: 12px;
-    top: 16px;
-}
-
-.a-dropdown-toggle:before {
-    // Making the touch target area bigger without affecting the layout
-    content: "";
-    width: 100%;
-    height: 48px;
-    position: absolute;
-    left: 0;
-    top: -6px;
-}
-
-// Choises
-
-.a-dropdown-menu {
-	border: 2px solid $blue-dark;
-	border-radius: 0;
-	padding: 0;
-	width: 100%;
-	margin-top: 0;
-	border-top: 0;
-}
-
-.a-dropdown-item {
-	position: relative;
-	border-bottom: 2px dotted $blue-dark;
-	padding: 0;
-}
-.a-dropdown-item-active,
-.a-dropdown-item:hover,
-.a-dropdown-item:focus {
-	background-color: $blue-light;
-	border-bottom: 2px dotted $blue-dark;
-  box-shadow: none !important;
-}
-.a-dropdown-item-active {
-  background-color: $grey-light;
-  &:hover {
-    background-color: $grey-light;
-  }
-}
-.a-dropdown-item:last-child {
-	border-bottom: none;
-}
-
-
-
-// Legend
-
-.a-legend {
-  display: block;
-  margin-bottom: $spacer;
-  font-size: 20px;
-  font-family: $font-medium;
-  font-weight: $font-weight-medium;
-  color: $blue-darker;
-  padding-right: $spacer*2;
-}
-
-.a-control-inline {
-  display: inline;
-
-  .a-radioButtons .custom-control {
-    font-size: 20px;
-  }
-}
-
-// Altinn checkbox
-
-.a-options {
-	ul {
-		list-style: none !important;
-	}
-	li {
-		margin-bottom: 12px;
-	}
-	.custom-control-indicator {
-	    border: 2px solid $blue;
-	    border-radius: 0;
-	    background-color: #fff;
-      width: 24px;
-	    height: 24px;
-	    top: -5px;
-	}
-
-  .custom-control {
-		padding-left: 36px;
-	}
-
-	.custom-control > input:checked ~ .custom-control-indicator {
-		background-color: #fff;
-		background-image: url('../images/checkbox-checked.svg');
-		background-size: 100%;
-	}
-	.custom-control > input:indeterminate ~ .custom-control-indicator {
-	}
-
-	.custom-control > input {
-	    &:focus ~ .custom-control-indicator {
-	      // box-shadow: 0 0 0 .075rem #fff, 0 0 0 .2rem $blue-light;
-	      box-shadow: none;
-	    }
-	}
-
-  input[type="checkbox"]:focus+span:not(.override-focus), input[type="radio"]:focus+span:not(.override-focus) {
-    border: 2px solid $blue-dark;
-  }
-}
-
-// Altinn Check buttons / Switch
 
 .a-switch {
 	position: relative;
@@ -254,119 +536,102 @@ fieldset[disabled] .a-switch input[type="radio"] + labe {
 }
 
 
-// Altinn Radio buttons
+/*------------------------------------*\
+ * Dropdown
+\*------------------------------------*/
 
-.a-radioButtons {
-  display: inline;
-
-	.custom-control-indicator {
-	    width: 24px;
-	    height: 24px;
-	    top: -1px;
-			border: 2px solid $blue;
-			background-color: #fff;
-	}
-	.custom-control {
-	    padding-left: 36px;
-			margin-bottom: 12px;
-      padding-top: 4px;
-      padding-bottom: 4px;
-	}
-	.custom-control > input:checked ~ .custom-control-indicator {
-	    color: #fff;
-	    background-color: $white;
-	    width: 24px;
-    	height: 24px;
-    	border: 2px solid $blue;
-	}
-
-  input[type="radio"]:focus+span:not(.override-focus) {
-    border: 2px solid $blue-dark;
-  }
-
-  .custom-control::after {
-    margin-bottom: 12px !important;
-  }
-
-	.custom-control > input:focus ~ .custom-control-indicator {
-      // box-shadow: 0 0 0 .075rem #fff, 0 0 0 .2rem $blue-light;
-      box-shadow: none;
-    }
-
-    .custom-radio input:checked ~ .custom-control-indicator {
-    	background-image: url(data:image/gif;base64,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);
-	}
-
+.a-input-icon {
+	position: absolute;
+	top: 7px;
+	left: 12px;
+	font-size: 20px;
 }
 
-
-.custom-controls-stacked {
-  .a-legend {
-    display: block;
-    margin-bottom: $spacer;
-  }
+.a-form-text {
+	padding: 7px 50px 5px 50px;
+	display: block;
 }
 
-.a-radioButtons-stackedList {
-  .a-legend {
-    font-size: 24px;
-    color: $black;
-  }
-	.custom-radio {
-			display: block;
-      padding: $spacer $spacer*3;
+// Toggle btn
 
-      &:hover {
-        background: $grey-light;
-      }
-      .custom-control-indicator {
-        top: 17px;
-      }
-      .a-radioButtons-title {
-        display: block;
-        font-size: 20px;
-        padding-bottom: $spacer;
-      }
-      .a-radioButtons-excerpt {
-        display: block;
-      }
-
-	}
+.a-dropdown-toggle {
+    width: 100%;
+    text-align: left;
+    border: 2px solid $blue;
+    background-color: #fff;
+    border-radius: 0;
+    padding:0;
+    white-space: normal;
+    height: 36px;
 }
 
-.a-radioButtons-searchResult {
-  .custom-radio {
-
-      &:hover,
-      &:focus,
-      &:active {
-        .a-radioButtons-excerpt {
-          color: $grey-medium;
-        }
-      }
-
-      .a-radioButtons-title {
-        color: $grey-medium;
-
-        strong {
-          color: $black;
-        }
-      }
-      .a-radioButtons-excerpt {
-        color: $grey-medium;
-      }
-	}
-
-  .custom-control > input:checked ~ .a-radioButtons-excerpt{
-      color: $black;
-    }
+.a-dropdown-toggle:hover {
+    color: #333;
+    border-color: $blue-dark;
+}
+.a-dropdown-toggle:focus {
+    border-color: $blue-dark;
+}
+.open .a-dropdown-toggle:hover {
+    border-color: $blue-dark;
+}
+.open .a-dropdown-toggle {
+    border-color: $blue-dark;
 }
 
-.a-js-radioParentGray {
+.a-dropdown-toggle:after {
+    position: absolute;
+    right: 12px;
+    top: 16px;
+}
+
+.a-dropdown-toggle:before {
+    // Making the touch target area bigger without affecting the layout
+    content: "";
+    width: 100%;
+    height: 48px;
+    position: absolute;
+    left: 0;
+    top: -6px;
+}
+
+// Choises
+
+.a-dropdown-menu {
+	border: 2px solid $blue-dark;
+	border-radius: 0;
+	padding: 0;
+	width: 100%;
+	margin-top: 0;
+	border-top: 0;
+}
+
+.a-dropdown-item {
+	position: relative;
+	border-bottom: 2px dotted $blue-dark;
+	padding: 0;
+}
+.a-dropdown-item-active,
+.a-dropdown-item:hover,
+.a-dropdown-item:focus {
+	background-color: $blue-light;
+	border-bottom: 2px dotted $blue-dark;
+  box-shadow: none !important;
+}
+.a-dropdown-item-active {
   background-color: $grey-light;
+  &:hover {
+    background-color: $grey-light;
+  }
+}
+.a-dropdown-item:last-child {
+	border-bottom: none;
 }
 
-// Altinn select menu
+
+/*------------------------------------*\
+ * SELECT MENU
+\*------------------------------------*/
 
 .a-custom-select {
     padding: 0px 36px 0px 24px;
@@ -385,282 +650,4 @@ fieldset[disabled] .a-switch input[type="radio"] + labe {
       box-shadow: none !important;
     }
 
-}
-
-// Altinn
-// INPUT FIELDS
-
-// Icons inside a field
-.a-input-icon {
-	position: absolute;
-	top: 7px;
-	left: 12px;
-	font-size: 20px;
-}
-.a-input-labelText {
-	padding-left: 30px;
-}
-
-// Form group
-.a-form-group {
-	position: relative;
-	clear: both;
-
-	.input-group {
-
-		// Label
-		.input-group-addon {
-		    padding: 9px 12px 3px 12px;
-		    font-size: 1rem;
-		    font-weight: normal;
-		    line-height: 1;
-		    color: $black;
-		    text-align: left;
-		    background-color: $white;
-		    border: 2px solid $blue;
-		    border-radius: 0;
-		    border-right: 0;
-		    min-width: 44px;
-		}
-
-		// Input
-		.form-control {
-		    color: $grey;
-		    border: 2px solid $blue;
-				padding: 5px 12px 3px 12px;
-				height: 36px;
-				border-radius: 0;
-        margin-left: -1px;
-		}
-
-	}
-
-	// If there is no label or icon on the left of the input..
-	.form-control {
-			&.form-control-noleft{
-				border-left: 0;
-				padding-left: 0;
-			}
-	}
-
-
-	// Hover state on label and input
-	// + JS: If state on input is "focus",
-	// add class to a-input : "a-input-focus"
-	&:hover,
-	.a-input-focus {
-		.input-group-addon {
-		    border: 2px solid $blue-dark;
-        &.form-control-noleft {
-		      border-right: 0;
-        }
-		}
-		.form-control {
-		    border: 2px solid $blue-dark;
-        &.form-control-noleft {
-  		    border-left: 0;
-        }
-		}
-
-		.input-group-btn .btn {
-		    border: 2px solid $blue-dark;
-        &.form-control-noleft {
-		      border-left: 0;
-        }
-		}
-	}
-
-  // Text area
-
-  .a-input-label {
-    font-size: 16px;
-    font-family: $font-medium;
-    font-weight: $font-weight-medium;
-    display: block;
-    margin-bottom: $spacer/2;
-  }
-  .a-textarea {
-    border: 2px solid $blue;
-    border-radius: 0;
-    &:hover,
-    &:focus {
-      border: 2px solid $blue-dark;
-    }
-  }
-
-	// Icon
-	.form-control-feedback {
-	    position: absolute;
-	    top: 7px;
-    	right: 12px;
-	    z-index: 9999;
-	    display: block;
-	    text-align: center;
-	    pointer-events: none;
-	    font-size: 20px;
-	}
-	// (Display icon only when feedback)
-	.form-control-feedback {
-	    display: none;
-	}
-
-	.form-control-feedback.glyphicon-ok,
-	.form-control-feedback.glyphicon-remove {
-	    display: block;
-	}
-
-	// Input has error
-	&.has-danger {
-		.input-group-addon {
-		    border: 2px solid $red;
-		    border-right: 0;
-		}
-
-		// Input
-		.form-control {
-		    border: 2px solid $red;
-		    border-left: 0;
-		}
-
-		// Icon
-		.form-control-feedback:before {
-		    content: '\f00f';
-		}
-	}
-
-	// Input has success
-	&.has-success {
-		.input-group-addon {
-		    border: 2px solid $green;
-		    border-right: 0;
-		}
-
-		// Input
-		.form-control {
-		    border: 2px solid $green;
-		    border-left: 0;
-		}
-
-	}
-
-	label:after {
-	    // Making the touch target area bigger without affecting the layout
-	    content: "";
-	    width: 100%;
-	    height: 48px;
-	    position: absolute;
-	    left: 0;
-	    top: -8px;
-	    cursor:text;
-	}
-
-
-	// Show help message if error
-
-	.a-message {
-		display: none;
-	}
-
-	&.has-error {
-		.a-message {
-			display: block;
-			clear: both;
-			margin-bottom: 24px;
-		}
-
-	}
-
-
-	// Altinn disabled input
-	.input-group.disabled {
-
-		.input-group-addon,
-		.form-control  {
-		    background-image: url('../images/disabled-background.svg');
-		    background-color: #fff;
-		    color: $grey;
-		}
-
-		.input-group-addon {
-		    border: 2px solid $grey-medium;
-		    border-right: 0;
-		}
-
-		// Input
-		.form-control {
-		    border: 2px solid $grey-medium;
-		    border-left: 0;
-		}
-	}
-
-
-	// If there is buttons inside the input group..
-
-	.input-group .form-control-withBtn {
-		border-right: 0;
-	}
-
-	.input-group-btn .btn {
-		border-style: none;
-	    padding: 0;
-	    width: 48px;
-	    height: 36px;
-	    border: 2px solid #1eaef7;
-	    padding-top: 4px;
-	    border-left: 0px;
-
-	    &:hover,
-	    &:active,
-	    &:focus  {
-	    	outline: none;
-	    	background: $blue-light;
-	    }
-	}
-
-
-	// For large input fields
-
-	.input-group-large {
-			.form-control {
-				padding: 13px 12px;
-				font-size: 20px;
-				height: 60px;
-			}
-			.input-group-btn .btn {
-		    height: 60px;
-				width: 60px;
-			}
-
-			.a-input-icon {
-				top: 12px;
-				font-size: 30px;
-				left: 14px;
-			}
-
-      .input-group-addon {
-        padding: 18px 12px 18px 12px;
-        font-size: 20px;
-      }
-	}
-
-
-}
-
-// Postnumber
-
-.a-input-postnumber {
-  max-width: 100px;
-}
-
-
-/*------------------------------------*\
- * Validator info
-\*------------------------------------*/
-
-.a-validatorInfo {
-  font-size: 16px;
-}
-.a-validatorInfo-icon {
-  vertical-align: middle;
-  color: $blue;
 }
