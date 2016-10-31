@@ -322,3 +322,65 @@ blockquote:before, blockquote:after {
   padding: 5px;
   padding-left: 10px;
 }
+
+// Speech-bubbles
+
+.a-textBubble {
+  height: auto;
+  max-width: 300px;
+  min-width: 48px;
+  position: relative;
+  float: left;
+  clear: both;
+  font-size: 16px;
+  padding: $spacer;
+  background-color: $grey-light;
+  margin-bottom: $spacer*3;
+
+  &:after {
+    content: "";
+    position: absolute;
+    bottom: -$spacer;
+    left: $spacer;
+    border: 0;
+    border-left-width: $spacer;
+    border-bottom-width: $spacer;
+    border-style: solid;
+    border-color: transparent $grey-light;
+    display: block;
+    width: 0;
+  }
+
+  .a-textBubble-metaText {
+    font-size: 10px;
+    position: absolute;
+    text-align: right;
+    right: 0;
+    bottom: -$spacer*4;
+    color: $grey-medium;
+  }
+}
+
+.a-textBubble-from {
+    background-color: $blue-light;
+    float: right;
+    clear: both;
+    min-width: 80px;
+
+    &:after {
+      position: absolute;
+      border-color: transparent $blue-light;
+      border-right-width: $spacer;
+      border-left-width: 0;
+      right: $spacer;
+      left: auto;
+      bottom: -$spacer;
+    }
+
+  .a-textBubble-metaText {
+    text-align: left;
+    position: absolute;
+    left: 0;
+    bottom: -$spacer*4;
+  }
+}
