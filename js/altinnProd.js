@@ -11,6 +11,65 @@ var aTagSpaceExpand = function() {
 };
 
 /* globals $ */
+var codeLookup = function() {
+  var lastKeypress; var now; var iterate;
+  var loader = $('.a-js-lookup').find('.modal-body').find('.a-logo-anim');
+  var empty = $('.a-js-lookup').find('.modal-body').find('.a-logo-anim').next();
+  var container = $('.a-js-lookup').find('.modal-body').find('.a-radioButtons');
+  var query; var base = container.html(); container.html(''); loader.hide();
+  empty.show();
+  if ($('.a-js-lookup').length > 0) {
+    $.getJSON('../../ssb.json', function(data) {
+      function createPath(dest, str) {
+        var _str = str; var _dest = data[dest.parentCode];
+        if (_dest !== undefined) {
+          if (dest.name === _dest.name) {
+            return createPath(_dest, _str);
+          }
+          if (str.indexOf(_dest.name) !== -1) {
+            return str;
+          }
+          _str = _dest.name + ' / ' + _str; return createPath(_dest, _str);
+        }
+        return str;
+      }
+      $('.a-js-lookup').find('input[type=text]').on('keypress', function() {
+        lastKeypress = new Date().getTime(); iterate = true;
+        loader.show(); empty.hide(); container.html('');
+      });
+      setInterval(function() {
+        query = $('.a-js-lookup').find('input[type=text]').val();
+        now = new Date().getTime();
+        if (query.length > 0 && (now - lastKeypress > 1500) && iterate) {
+          iterate = false;
+          Object.keys(data).forEach(function(item) {
+            if (
+              (
+                data[item].name.indexOf(query) !== -1 ||
+                data[item].shortName.indexOf(query) !== -1 ||
+                data[item].notes.indexOf(query) !== -1
+              ) &&
+              data[item].level === 5
+            ) {
+              container.append(base
+                .replace('%NAME%', data[item].name)
+                .replace('%DESCRIPTION%', data[item].notes)
+                .replace('%ID%', data[item].shortName)
+                .replace('%PATH%', createPath(data[item], ''))
+              );
+            }
+          });
+          loader.hide();
+          if (container.html() === '') {
+            empty.show();
+          }
+        }
+      }, 2000);
+    });
+  }
+};
+
+/* globals $ */
 var drilldownInteraction = function() {
   var bpLarge = 992;
 
@@ -221,6 +280,17 @@ var handleFocus = function() {
 };
 
 /* globals $ */
+var handleValidatorLibrary = function() {
+  $('.form-group').each(function() {
+    var self = $(this);
+    if (self.attr('data-toggle') === 'validator') {
+      self.parent().attr('data-toggle', 'validator')
+        .attr('data-delay', self.attr('data-delay')).validator();
+    }
+  });
+};
+
+/* globals $ */
 var initializeDatepicker = function() {
   $('.form-control.date').datepicker({
     format: 'dd.mm.yyyy',
@@ -283,15 +353,93 @@ var mobileNavigation = function() {
   };
 };
 
-/* globals $, smoothState */
-var goBack = function() {
-  var arr = [];
-  Object.keys(smoothState.cache).forEach(function(key, index) {
-    arr.push(key);
+/* globals $ */
+var nameChecker = function() {
+  var btnText = $('.a-js-validator').find('.a-btn-group').find('.a-btn').eq(0)
+    .text();
+  var nextAction = $('.a-js-validator').find('.a-btn-group')
+    .find('.a-btn').eq(0)
+    .attr('onclick');
+  var initAction = '$(".a-js-validator").find("input[type=text]")' +
+      '.attr("disabled", "disabled").parent().addClass("disabled")' +
+      '.addClass("a-input-approved");' +
+    '$(".a-js-validator").find(".a-validatorInfo").eq(0).hide();' +
+    '$(".a-js-validator").find(".a-validatorInfo").eq(1).show();' +
+    '$(".a-js-validator").find(".a-btn-group").find(".a-btn").eq(0)' +
+      '.html("Velg navn").attr("onclick", "' + nextAction + '");' +
+    '$(".a-js-tryAnother").show();';
+  $('.a-js-validator').find('.a-validatorInfo').eq(1).find('i')
+    .addClass('a-validatorInfo-icon-approved');
+  $('.a-js-validator').find('.a-validatorInfo').css('display', 'inline-block')
+    .eq(1)
+    .hide();
+  $('<button/>', {
+    type: 'button',
+    class: 'a-btn-link a-js-tryAnother',
+    text: 'Prøv et annet navn'
+  }).appendTo('.a-btn-group', '.a-js-validator');
+  $('.a-js-tryAnother').hide().on('click', function() {
+    $('.a-js-validator').find('input[type=text]').removeAttr('disabled')
+      .parent()
+      .removeClass('disabled')
+      .removeClass('a-input-approved');
+    $('.a-js-tryAnother').hide();
+    $('.a-js-validator').find('.a-validatorInfo').eq(0).show();
+    $('.a-js-validator').find('.a-validatorInfo').eq(1).hide();
+    $('.a-js-validator').find('.a-btn-group').find('.a-btn').eq(0)
+      .html(btnText)
+      .attr('onclick', initAction);
   });
-  delete smoothState.cache[arr[arr.length - 1]];
-  arr.splice(-1, 1);
-  smoothState.load(arr[arr.length - 1]);
+  $('.a-js-validator').find('.a-message-error');
+  function toggleBtns(el) {
+    if ($(el).length > 0 && $(el).val().length > 0) {
+      $('.a-js-validator').find('.a-btn-group').find('.a-btn').eq(0)
+        .show();
+      $('.a-js-validator').find('.a-btn-group').find('.a-btn').eq(1)
+        .hide();
+      if ($('.a-js-validator').find('input[type=text]').val()
+        .indexOf($('.a-personSwitcher-name').attr('title').split(' ')[1]) !== -1
+      ) {
+        $('.a-js-validator').find('.a-btn-group').find('.a-btn').eq(0)
+          .removeClass('a-js-hideFromSmoothState');
+        $('.a-js-validator').find('.a-btn-group').find('.a-btn').eq(0)
+          .attr('onclick', initAction);
+      } else {
+        $('.a-js-validator').find('.a-btn-group').find('.a-btn').eq(0)
+          .addClass('a-js-hideFromSmoothState');
+        $('.a-js-validator').find('.a-btn-group').find('.a-btn').eq(0)
+          .attr('onclick',
+            '$(".a-js-validator").find(".a-message-error").show()');
+      }
+    } else {
+      $('.a-js-validator').find('.a-btn-group').find('.a-btn').eq(0)
+        .hide();
+      $('.a-js-validator').find('.a-btn-group').find('.a-btn').eq(1)
+        .show();
+    }
+  }
+  toggleBtns($('.a-js-validator').find('input[type=text]'));
+  $('.a-js-validator').find('input[type=text]').on('keyup', function(e) {
+    if (e.which !== 13) {
+      $('.a-js-validator').find('.a-message-error').hide();
+    }
+    toggleBtns(this);
+  });
+  $('.a-js-validator').find('input[type=text]').on('keydown', function(e) {
+    $('.a-js-validator').find('.a-message-error').hide();
+    if (e.which === 13) {
+      e.preventDefault(); e.stopPropagation();
+      if ($('.a-js-validator').find('.a-btn-group').find('.a-btn').eq(0)
+        .is(':visible')) {
+        $('.a-js-validator').find('.a-btn-group').find('.a-btn').eq(0)
+          .click();
+      }
+    }
+  });
+  $('.a-js-validator').find('input[type=text]').on('change', function() {
+    $('.a-js-validator').find('.a-message-error').hide();
+    toggleBtns(this);
+  });
 };
 
 /* globals $ */
@@ -370,18 +518,22 @@ var popover = function() {
     $('.a-js-persistPopover').find('i').eq(1).hide();
   });
   $(window).scroll(function() {
-    $('.popover-big').attr('style',
-      $('.popover-big').attr('style').replace(
-        /translateX\(.*?\)/, 'translateX(0px)'
-      )
-    );
+    if ($('.popover-big').length > 0) {
+      $('.popover-big').attr('style',
+        $('.popover-big').attr('style').replace(
+          /translateX\(.*?\)/, 'translateX(0px)'
+        )
+      );
+    }
   });
   $(window).resize(function() {
-    $('.popover-big').attr('style',
-      $('.popover-big').attr('style').replace(
-        /translateX\(.*?\)/, 'translateX(0px)'
-      )
-    );
+    if ($('.popover-big').length > 0) {
+      $('.popover-big').attr('style',
+        $('.popover-big').attr('style').replace(
+          /translateX\(.*?\)/, 'translateX(0px)'
+        )
+      );
+    }
   });
 };
 
@@ -408,6 +560,7 @@ var questionnaireInteraction = function() {
     });
   });
 };
+
 
 /* globals $ */
 var toggleExpand = function() {
@@ -483,7 +636,8 @@ var uniformHeight = function() {
 
 /* globals questionnaireInteraction, drilldownInteraction, handleFocus,
 mobileNavigation, propagateContent, toggleExpand, toggleFilter, uniformHeight,
-tooltip, popover, aTagSpaceExpand, initializeDatepicker, onboarding */
+tooltip, popover, aTagSpaceExpand, initializeDatepicker, onboarding,
+nameChecker, codeLookup, handleValidatorLibrary */
 window.altinnInit = function() {
   toggleExpand();
   drilldownInteraction();
@@ -498,5 +652,8 @@ window.altinnInit = function() {
   aTagSpaceExpand();
   initializeDatepicker();
   onboarding();
+  nameChecker();
+  codeLookup();
+  handleValidatorLibrary();
 };
 window.altinnInit();
