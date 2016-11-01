@@ -221,7 +221,6 @@ function getTemplateWatches () {
 }
 
 function reload () {
-  console.log('reloading with browsersync - truls');
   browserSync.reload();
 }
 
@@ -230,9 +229,9 @@ function watch () {
     .on('change', gulp.series('pl-copy:css', reload));
   gulp.watch(paths().source.styleguide + '**/*.*')
     .on('change', gulp.series('pl-copy:styleguide', reload));
-  gulp.watch(paths().source.js + '**/*.js')
+  gulp.watch(paths().source.js + 'production/**/*.js')
     .on('change', gulp.series('pl-copy:designsystemprod-js', reload));
-  gulp.watch(paths().source.js + '**/*.js')
+  gulp.watch(paths().source.js + 'development/**/*.js')
     .on('change', gulp.series('pl-copy:designsystemdev-js', reload));
 
   var patternWatches = [
