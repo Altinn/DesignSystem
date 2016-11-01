@@ -4,12 +4,14 @@
       {{# sortable-has-head }}
         <tr class="a-sortable-row a-table-list">
           {{# sortable-head-items }}
-            <th class="add-remove-all {{# is-first-column }} first {{/ is-first-column }} {{# cell-align }} text-xs-right col-pd-4 p-r-2 {{/ cell-align }}">
+            <th class="add-remove-all {{# is-first-column }} first {{/ is-first-column }} {{# cell-padding }} text-xs-right col-pd-4 p-r-2 {{/ cell-padding }}">
               {{# sortable }}
                 <span class="a-dropdownArrow"></span>
               {{/ sortable }}
-              {{{ sortable-head-text }}}
-              <i class="material-icons a-table-icon remove-icon">{{{sortable-head-icon-type}}} </i>
+              {{# last-column }}<span class="normal-casing">{{/ last-column }}
+                {{ sortable-head-text }}
+              {{# last-column }}</span>{{/ last-column }}
+              <i class="material-icons a-table-icon remove-icon">{{{ sortable-head-icon-type }}} </i>
             </th>
           {{/ sortable-head-items }}
         </tr>
@@ -17,19 +19,13 @@
     </thead>
     <tbody>
       {{# sortable-table-items }}
-        <tr class="a-sortable-row {{sortable-row-class}}">
+        <tr class="a-sortable-row {{ sortable-row-class }}">
           {{# sortable-row-items }}
-            <td {{# cell-align }} class="text-xs-right p-r-2" {{/ cell-align }} {{# searchable }} data-searchable="true" {{/ searchable }}>
-              {{# is-bold-text }}
-                <strong>
-              {{/ is-bold-text }}
-                {{{ sortable-row-text }}}
-              {{# is-bold-text }}
-                </strong>
-              {{/ is-bold-text }}
-              {{#sortable-row-icon-type}}
-              <i class="material-icons {{sortable-row-icon-class}}">{{{sortable-row-icon-type}}} </i>
-              {{/sortable-row-icon-type}}
+            <td {{# cell-padding }} class="text-xs-right p-r-2" {{/ cell-padding }} {{# searchable }} data-searchable="true" {{/ searchable }}>
+                    {{{ sortable-row-text }}}
+              {{# sortable-row-icon-type }}
+              <i class="material-icons {{ sortable-row-icon-class }}">{{{ sortable-row-icon-type }}}</i>
+              {{/ sortable-row-icon-type }}
             </td>
           {{/ sortable-row-items }}
         </tr>
