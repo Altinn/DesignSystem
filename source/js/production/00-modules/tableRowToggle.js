@@ -8,4 +8,13 @@ $(document).on('ready', function() {
       $('.segment-done').hide();
     }
   });
+  $('.add-remove-all').on('click', function() {
+    if ($table.find('tbody>tr.selected').length === $table.find('tbody>tr').length) {
+      $table.find('tbody>tr').removeClass('selected');
+      $('.segment-done').hide();
+    } else {
+      $table.find('tbody>tr').addClass('selected');
+      $('.segment-done').show();
+    }
+  });
 });
