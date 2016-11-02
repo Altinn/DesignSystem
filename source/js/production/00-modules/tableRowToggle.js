@@ -1,5 +1,6 @@
 $(document).on('ready', function() {
   var $table = $('table[data-table-eventhandler="tableRowToggle"]');
+  var $selectedRows;
   $table.on('click', 'tbody>tr', function() {
     $(this).toggleClass('selected');
     if ($(this).hasClass('selected')) {
@@ -26,6 +27,16 @@ $(document).on('ready', function() {
       $table.find('td:last-child span').hide();
       $table.find('td:last-child span.undo-action').show();
       $('.segment-done').show();
+    }
+  });
+  $('#confirm-deletion').on('click', function() {
+    if ($table.find('tbody>tr.selected').length === $table.find('tbody>tr').length) {
+      // redirect to receipt
+    } else {
+      $selectedRows = $table.find('tbody>tr.selected');
+      $selectedRows.removeClass('selected');
+      $selectedRows.find('td:last-child span').hide();
+      $selectedRows.find('td:last-child span.deleted-action').show();
     }
   });
 });
