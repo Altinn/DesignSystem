@@ -56,12 +56,28 @@
 	}
 }
 
+.a-link-chat {
+	color: $blue-dark;
+	width: auto;
+	display: inline;
+	border-bottom: 1px solid $blue-dark;
+	padding-bottom: 2px;
+	position: relative;
+	z-index: 1;
+	cursor: pointer;
+}
+
 .a-chat {
 	background-color: $white;
 	width: 500px;
 	height: 500px;
 	position: relative;
-	border: 1px solid $grey-medium;
+	display: none;
+	width: 400px;
+	height: 440px;
+	position: fixed;
+	bottom: 50px;
+	right: 0;
 
 	&>p {
 		background-color: $blue-darker;
@@ -71,16 +87,32 @@
 		text-align: center;
 		padding: $spacer;
 		margin: 0;
+
+		i {
+			float: right;
+			color: $white;
+		}
 	}
 
 	.a-chat-scrollarea {
 		position: absolute;
 		top: 48px;
 		left: 0;
-		height: 418px;
+		height: 355px;
 		width: 100%;
 		overflow-y: scroll;
 		padding: $spacer;
+		border-left: 1px solid $grey-light;
+		border-right: 1px solid $grey-light;
+	}
+
+	.a-form-group .form-control,
+	.a-form-group .form-control:hover {
+    border: none;
+		border-left: 1px solid $grey-light;
+	}
+	.a-form-group .input-group-btn .btn {
+    border: none;
 	}
 
 	.a-form-group {
@@ -88,8 +120,9 @@
 		bottom: 0;
 		left: 0;
 		width: 100%;
-		border-top: 1px solid $grey-medium;
+		border-top: 1px solid $grey-light;
 		margin-bottom: 0;
+		left: 1px;
 
 		.input-group-btn {
 			position: absolute;
@@ -100,7 +133,7 @@
 	.a-form-group .form-control,
 	.a-form-group .form-control:hover {
     border: none;
-		border-left: 1px solid $grey-medium;
+		border-left: 1px solid $grey-light;
 	}
 	.a-form-group .input-group-btn .btn {
     border: none;

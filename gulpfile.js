@@ -220,16 +220,18 @@ function getTemplateWatches () {
   });
 }
 
-function reload () { browserSync.reload(); }
+function reload () {
+  browserSync.reload();
+}
 
 function watch () {
   gulp.watch(paths().source.css + '**/*.scss')
     .on('change', gulp.series('pl-copy:css', reload));
   gulp.watch(paths().source.styleguide + '**/*.*')
     .on('change', gulp.series('pl-copy:styleguide', reload));
-  gulp.watch(paths().source.js + '**/*.js')
+  gulp.watch(paths().source.js + 'production/**/*.js')
     .on('change', gulp.series('pl-copy:designsystemprod-js', reload));
-  gulp.watch(paths().source.js + '**/*.js')
+  gulp.watch(paths().source.js + 'development/**/*.js')
     .on('change', gulp.series('pl-copy:designsystemdev-js', reload));
 
   var patternWatches = [

@@ -51,6 +51,18 @@
 \*------------------------------------*/
 
 .a-sortable-table {
+	.remove-icon {
+		color: $red;
+	}
+	.red {
+	  color: $red;
+	}
+	.first {
+		width: 96px;
+		padding-left: 0;
+		padding-right: 0;
+		text-align: center;
+	}
 	.a-sortable-row {
 		background: $grey-light;
 
@@ -61,6 +73,12 @@
 			i {
 				vertical-align: middle;
 			}
+			&:first-of-type {
+				text-align: center;
+			}
+			&:nth-of-type(even) {
+				font-weight: bold;
+			}
 		}
 
 		&.open {
@@ -69,22 +87,42 @@
 				border-bottom: 1px solid $white;
 			}
 		}
+
+		&.deleted {
+			background: $red-light;
+
+			& td:last-of-type {
+				@extend .p-r-5;
+			}
+		}
+
+		&.selected td:nth-child(2) {
+            text-decoration: line-through;
+        }
 	}
 
 	thead {
 		th {
 			text-transform: uppercase;
 			font-size: 12px;
-			border-bottom: 1px solid $grey;
 			padding: 0.4rem;
 			bottom: 0;
+		}
+		tr {
+			border-bottom: 1px solid $grey-medium;
+		}
+		.normal-casing {
+			text-transform: none;
+			font-size: 14px;
 		}
 		.a-dropdownArrow {
 			transform: scale(0.75) rotate(90deg) translate(-50%);
 
 		}
 	}
-
+	.test {
+		color: blue;
+	}
 // If collapse inside table, set display to table-row.
 	.collapse.in {
 		display: table-row;

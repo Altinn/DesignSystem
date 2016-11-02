@@ -9,7 +9,7 @@
 
             <!-- Modal Top -->
             <div class="a-modal-top">
-              <a href="{{ link.sider-forside }}" class="no-decoration">
+              <a href="../../{{ link.sider-forside }}" class="no-decoration">
                 {{> atomer-logo }}
               </a>
               <div class="a-modal-top-user">
@@ -21,15 +21,17 @@
         </div>
 
         <div class="row">
-          <div class="col-md-10 offset-md-1">
+          <div class="col-xl-10 offset-xl-1">
 
             <!-- Modal NavBar -->
             <div class="a-modal-navbar">
-              <button type="button" class="a-modal-back" onclick="location.href='{{{ btn-url }}}';" data-dismiss="modal" aria-label="Lukk">
-                <i class="material-icons a-modal-back-icon">keyboard_backspace</i>
-              </button>
+              {{#starteenk-back}}
+                <button type="button" class="a-modal-back" onclick="location.href='../../{{{ btn-url }}}';" data-dismiss="modal" aria-label="Lukk">
+                  <i class="material-icons a-modal-back-icon">keyboard_backspace</i>
+                </button>
+              {{/starteenk-back}}
 
-              <button type="button" class="a-modal-close" onclick="location.href='{{ link.sider-starteogdrive }}';" data-dismiss="modal" aria-label="Lukk">
+              <button type="button" class="a-modal-close" onclick="location.href='../../{{ link.sider-starteogdrive }}';" data-dismiss="modal" aria-label="Lukk">
                 <i class="material-icons a-modal-close-icon">close</i>
               </button>
 
@@ -38,7 +40,7 @@
         </div>
 
         <div class="row">
-          <div class="col-md-10 offset-md-1">
+          <div class="col-xl-10 offset-xl-1">
 
             <!-- Modal window -->
             <span class="a-right-panel a-page a-scene_element {{ animationClass }}">
@@ -91,14 +93,6 @@
                     {{> atomer-radioknapp }}
                   {{/ modal-input-radio }}
 
-                  {{# modal-input-adress }}
-                    {{> organismer-adresse }}
-                  {{/ modal-input-adress }}
-
-                  {{# modal-date }}
-                    {{> atomer-datovelger:m-t-3 }}
-                  {{/ modal-date }}
-
                   {{# modal-loader }}
                     {{> atomer-laster-inn }}
                   {{/ modal-loader }}
@@ -106,6 +100,15 @@
                   {{# modal-empty }}
                     {{> atomer-avsnitt }}
                   {{/ modal-empty }}
+
+
+                  {{# modal-input-adress }}
+                    {{> organismer-adresse }}
+                  {{/ modal-input-adress }}
+
+                  {{# modal-date }}
+                    {{> atomer-datovelger:m-t-3 }}
+                  {{/ modal-date }}
 
                   <div class="a-btn-group m-t-2">
                     {{# modal-nextbutton }}
@@ -136,10 +139,13 @@
               {{> atomer-link-hjelpefunksjon }}
 
             </span>  <!-- END Modal window -->
-
+            {{> organismer-chat }}
           </div>
         </div>
+
       </div>
+
+
     </div>
   </div>
 </span>

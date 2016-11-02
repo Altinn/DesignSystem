@@ -26,4 +26,11 @@ var prototypingInteractionStarteENK = function() {
       location.href = '/patterns/04-sider-90-starte-enk-00-starte-enk-3/04-sider-90-starte-enk-00-starte-enk-3.html';
     }
   });
+  /* Toggling chat */
+  $('#link-chat').on('click', function() {
+    $('#chat').css('display', 'block');
+  });
+  $('#close-chat').on('click', function() {
+    $('#chat').css('display', 'none');
+  });
 };

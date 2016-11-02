@@ -132,6 +132,7 @@
   font-size: 24px;
   font-family: $font-medium; font-weight: $font-weight-medium;
 	background: rgba(255,255,255,0.5);
+	line-height: 36px;
 
 	&:hover,
 	&:focus {
@@ -194,6 +195,7 @@
 	position: relative;
 	z-index: 1;
 	box-shadow: none !important;
+	clear: both;
 
 	&:hover,
 	&:active,
@@ -330,6 +332,8 @@
 
 		.a-box-button-name {
 			display: block;
+			max-height: 50px;
+			overflow-y: hidden;
 		}
 		&:focus {
 			background: $blue-light;
@@ -364,7 +368,40 @@
             background: $blue-light;
         }
     }
+}
 
+// SWITCH ACTION (RADIO) BUTTON
+.switch-container {
+    position: absolute;
+    width: 100%;
+    height: $spacer*3; /*36px*/
+    border: 2px solid $blue;
+
+    .radio {
+        position: relative;
+        width: 50%;
+        height: 100%;
+    }
+    .radio:first-of-type {
+        float:left;
+    }
+    .radio:last-of-type {
+        float: right;
+    }
+    .radio input {
+        display: none;
+    }
+    .radio label {
+        display: block;
+        width: 100%;
+        height: 100%;
+        text-align: center;
+        line-height: $spacer*3-4px; /*parent height - border*/
+        background-color: $grey-light;
+    }
+    input[type="radio"]:checked + label {
+    background-color: $blue;
+}
 }
 
 
