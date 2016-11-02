@@ -1,6 +1,6 @@
-<form class="form-inline a-form-inline {{ styleModifier }}">
+<form data-toggle="validator" role="form" action="{{link.sider-starte-enk-5}}" class="form-inline a-form-inline {{ styleModifier }}">
 
-  <div class="clearfix m-b-2">
+  <span class="clearfix d-block m-b-2">
 
     {{# text-input-adress }}
       {{> atomer-tekst-input }}
@@ -10,9 +10,17 @@
       {{> atomer-tekst-input }}
     {{/ text-input-postalcode }}
 
-  </div>
+  </span>
 
-  {{> atomer-avkrysningsboks }}
+  <span class="clearfix d-block m-b-2">
 
+    {{# checkbox-private }}
+      {{> atomer-avkrysningsboks }}
+    {{/ checkbox-private }}
 
+  </span>
+
+  {{# adress-submit }}
+    {{> atomer-knapp }}
+  {{/ adress-submit }}
 </form>
