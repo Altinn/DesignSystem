@@ -22,9 +22,23 @@
         <tr class="a-sortable-row {{ sortable-row-class }}">
           {{# sortable-row-items }}
             <td {{# cell-padding }} class="text-xs-right p-r-2" {{/ cell-padding }} {{# searchable }} data-searchable="true" {{/ searchable }}>
+              {{# show-actions }}
+                {{# sortable-row-actions }}
+                  <span class="{{ sortable-row-action-type }}" {{# hidden }} style="display:none" {{/ hidden }}>
                     {{{ sortable-row-text }}}
+                    {{# sortable-row-icon-type }}
+                      <i class="material-icons {{ sortable-row-icon-class }}">
+                        {{{ sortable-row-icon-type }}}
+                      </i>
+                    {{/ sortable-row-icon-type }}
+                  </span>
+                {{/ sortable-row-actions }}
+              {{/ show-actions }}
+              {{{ sortable-row-text }}}
               {{# sortable-row-icon-type }}
-              <i class="material-icons {{ sortable-row-icon-class }}">{{{ sortable-row-icon-type }}}</i>
+                <i class="material-icons {{ sortable-row-icon-class }}">
+                  {{{ sortable-row-icon-type }}}
+                </i>
               {{/ sortable-row-icon-type }}
             </td>
           {{/ sortable-row-items }}
