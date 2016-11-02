@@ -1,7 +1,10 @@
 <div class="a-page" id="smoothState">
 	{{> organismer-header }}
 
-	{{> molekyler-jumbotron }}
+	{{# article-jumbotron }}
+		{{> molekyler-jumbotron }}
+	{{/ article-jumbotron }}
+
 
 	<div class="container" id="content" tabindex="-1">
 
@@ -44,7 +47,9 @@
 
 						{{> atomer-seksjonstittel(section-title:"Krav til enkeltpersonforetak") }}
 
-						{{> atomer-liste-unummerert-kuler }}
+						{{# first-list }}
+							{{> atomer-liste-unummerert-kuler }}
+						{{/ first-list }}
 
 						{{> atomer-avsnitt(paragraph-content:"Er du over 15 år kan du og din verge få samtykke fra Fylkesmannen om å drive en bestemt næringsvirksomhet. For mer informasjon og vilkår, ta kontakt med Fylkesmannen i ditt fylke.") }}
 
