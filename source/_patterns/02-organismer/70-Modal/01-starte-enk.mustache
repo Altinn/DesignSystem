@@ -21,7 +21,7 @@
         </div>
 
         <div class="row">
-          <div class="col-md-10 offset-md-1">
+          <div class="col-xl-10 offset-xl-1">
 
             <!-- Modal NavBar -->
             <div class="a-modal-navbar">
@@ -40,7 +40,7 @@
         </div>
 
         <div class="row">
-          <div class="col-md-10 offset-md-1">
+          <div class="col-xl-10 offset-xl-1">
 
             <!-- Modal window -->
             <span class="a-right-panel a-page a-scene_element {{ animationClass }}">
@@ -66,7 +66,6 @@
                 <!-- Modal body -->
                 <div class="modal-body a-modal-body">
 
-
                   {{# modal-title }}
                     {{> atomer-seksjonstittel:m-b-2 }}
                   {{/ modal-title }}
@@ -76,13 +75,15 @@
                   {{/ modal-lead }}
 
                   {{# modal-input-orgName }}
-                    {{> atomer-tekst-input }}
+                    {{> organismer-skjema-navn }}
                   {{/ modal-input-orgName }}
 
+                  {{# modal-input-keyword }}
+                    {{> atomer-tekst-input }}
+                  {{/ modal-input-keyword }}
+
                   {{# modal-chooseCategory }}
-                    <div class="a-modal-contentFullWidth m-t-4">
-                      {{> atomer-radioknapp }}
-                    </div>
+                    {{> organismer-skjema-radio }}
                   {{/ modal-chooseCategory }}
 
                   {{# modal-input-textArea }}
@@ -93,14 +94,6 @@
                     {{> atomer-radioknapp }}
                   {{/ modal-input-radio }}
 
-                  {{# modal-input-adress }}
-                    {{> organismer-adresse }}
-                  {{/ modal-input-adress }}
-
-                  {{# modal-date }}
-                    {{> atomer-datovelger:m-t-3 }}
-                  {{/ modal-date }}
-
                   {{# modal-loader }}
                     {{> atomer-laster-inn }}
                   {{/ modal-loader }}
@@ -109,9 +102,19 @@
                     {{> atomer-avsnitt }}
                   {{/ modal-empty }}
 
+
+                  {{# modal-input-adress }}
+                    {{> organismer-adresse }}
+                  {{/ modal-input-adress }}
+
+                  {{# modal-date }}
+                    {{> organismer-dato }}
+                  {{/ modal-date }}
+
                   <div class="a-btn-group m-t-2">
+
                     {{# modal-nextbutton }}
-                      {{> atomer-knapp }}
+                      {{> atomer-link }}
                     {{/ modal-nextbutton }}
 
                     {{# modal-successbutton }}
