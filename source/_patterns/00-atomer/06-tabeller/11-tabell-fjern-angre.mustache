@@ -1,5 +1,5 @@
 <div class="{{ full-width-table }}">
-  <table class="table a-sortable-table a-table-list" id="{{ table-remove-undo-id }}" data-table-eventhandler="{{ table-eventhandler }}">
+  <table class="table a-sortable-table a-table-list clickable" id="{{ table-remove-undo-id }}" data-table-eventhandler="{{ table-eventhandler }}">
     <thead>
       {{# sortable-has-head }}
         <tr class="a-sortable-row a-table-list">
@@ -8,10 +8,27 @@
               {{# sortable }}
                 <span class="a-dropdownArrow"></span>
               {{/ sortable }}
+              {{# show-head-actions }}
+                {{# sortable-head-actions }}
+                  <span class="{{# last-column }} normal-casing {{/ last-column }}{{ sortable-head-action-type }}"
+                    {{# hidden }} style="display:none" {{/ hidden }}>
+                    {{ sortable-head-text }}
+                    {{# sortable-head-icon-type }}
+                      <i class="material-icons {{ sortable-head-icon-class }}">
+                        {{{ sortable-head-icon-type }}}
+                      </i>
+                    {{/ sortable-head-icon-type }}
+                  </span>
+                {{/ sortable-head-actions }}
+              {{/ show-head-actions }}
               {{# last-column }}<span class="normal-casing">{{/ last-column }}
                 {{ sortable-head-text }}
               {{# last-column }}</span>{{/ last-column }}
-              <i class="material-icons a-table-icon remove-icon">{{{ sortable-head-icon-type }}} </i>
+              {{# sortable-head-icon-type }}
+                <i class="material-icons {{ sortable-head-icon-class }}">
+                  {{{ sortable-head-icon-type }}}
+                </i>
+              {{/ sortable-head-icon-type }}
             </th>
           {{/ sortable-head-items }}
         </tr>
