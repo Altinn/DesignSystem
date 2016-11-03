@@ -1,0 +1,20 @@
+<div class="{{ full-width-table }}">
+  <table class="table a-sortable-table a-table-list" id="{{ table-remove-undo-id }}" data-table-eventhandler="{{ table-eventhandler }}">
+    <thead>
+    </thead>
+      <tbody>
+        {{# sortable-table-items }}
+          <tr class="a-sortable-row {{ sortable-row-class }} white">
+            {{# sortable-row-items }}
+              <td {{# cell-padding }} class="text-xs-right p-r-2" {{/ cell-padding }} {{# searchable }} data-searchable="true" {{/ searchable }}>
+                      {{{ sortable-row-text }}}
+                {{# sortable-row-icon-type }}
+                <i class="material-icons {{ sortable-row-icon-class }}">{{{ sortable-row-icon-type }}}</i>
+                {{/ sortable-row-icon-type }}
+              </td>
+            {{/ sortable-row-items }}
+          </tr>
+        {{/ sortable-table-items }}
+      </tbody>
+  </table>
+</div>

@@ -1,3 +1,23 @@
+var onConfirmDeletionClick = function() {
+  var $table = $('table[data-table-eventhandler="tableRowToggle"]');
+  var $segmentDone = $('.segment-done');
+  var $selectedRows;
+  var goToReceipt = false;
+
+  if ($table.find('tbody>tr.selected').length === $table.find('tbody>tr').length) {
+    goToReceipt = true;
+  } else {
+    console.log("kommer jeg fortsatt hit?");
+    $selectedRows = $table.find('tbody>tr.selected');
+    $selectedRows.removeClass('selected').addClass('deleted');
+    $selectedRows.find('td:last-child span').hide();
+    $selectedRows.find('td:last-child span.deleted-action').show();
+    $segmentDone.hide();
+  }
+
+  return goToReceipt;
+};
+
 $(document).on('ready', function() {
   var $table = $('table[data-table-eventhandler="tableRowToggle"]');
   var $segmentDone = $('.segment-done');
@@ -21,24 +41,24 @@ $(document).on('ready', function() {
     if ($table.find('tbody>tr.selected').length === $table.find('tbody>tr').length) {
       $table.find('tbody>tr').removeClass('selected');
       $table.find('td:last-child span').hide();
+      $table.find('th:last-child span').hide();
       $table.find('td:last-child span.remove-action').show();
+      $table.find('th:last-child span.remove-action').show();
       $segmentDone.hide();
     } else {
       $table.find('tbody>tr').addClass('selected');
       $table.find('td:last-child span').hide();
+      $table.find('th:last-child span').hide();
       $table.find('td:last-child span.undo-action').show();
+      $table.find('th:last-child span.undo-action').show();
       $segmentDone.show();
     }
   });
-  $('#confirm-deletion').on('click', function() {
-    if ($table.find('tbody>tr.selected').length === $table.find('tbody>tr').length) {
-      // redirect to receipt
-    } else {
-      $selectedRows = $table.find('tbody>tr.selected');
-      $selectedRows.removeClass('selected').addClass('deleted');
-      $selectedRows.find('td:last-child span').hide();
-      $selectedRows.find('td:last-child span.deleted-action').show();
-      $segmentDone.hide();
-    }
+  $('#cancel-deletion').on('click', function() {
+    $table.find('tbody>tr').removeClass('selected').removeClass('deleted');
+    $table.find('td:last-child span').hide();
+    $table.find('th:last-child span').hide();
+    $table.find('td:last-child span.remove-action').show();
+    $table.find('th:last-child span.remove-action').show();
   });
 });
