@@ -7,6 +7,7 @@ var onConfirmDeletionClick = function() {
   if ($table.find('tbody>tr.selected').length === $table.find('tbody>tr').length) {
     goToReceipt = true;
   } else {
+    console.log("kommer jeg fortsatt hit?");
     $selectedRows = $table.find('tbody>tr.selected');
     $selectedRows.removeClass('selected').addClass('deleted');
     $selectedRows.find('td:last-child span').hide();
@@ -52,5 +53,12 @@ $(document).on('ready', function() {
       $table.find('th:last-child span.undo-action').show();
       $segmentDone.show();
     }
+  });
+  $('#cancel-deletion').on('click', function() {
+    $table.find('tbody>tr').removeClass('selected').removeClass('deleted');
+    $table.find('td:last-child span').hide();
+    $table.find('th:last-child span').hide();
+    $table.find('td:last-child span.remove-action').show();
+    $table.find('th:last-child span.remove-action').show();
   });
 });
