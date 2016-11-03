@@ -66,70 +66,78 @@
                 <!-- Modal body -->
                 <div class="modal-body a-modal-body">
 
+                  <!-- TITLE -->
                   {{# modal-title }}
                     {{> atomer-seksjonstittel:m-b-2 }}
                   {{/ modal-title }}
 
+                  <!-- INTROTEKST -->
                   {{# modal-lead }}
                     {{> atomer-intro-tekst }}
                   {{/ modal-lead }}
 
-                  {{# modal-input-orgName }}
-                    {{> organismer-skjema-navn }}
-                  {{/ modal-input-orgName }}
-
-                  {{# modal-input-keyword }}
-                    {{> atomer-tekst-input }}
-                  {{/ modal-input-keyword }}
-
-                  {{# modal-chooseCategory }}
-                    {{> organismer-skjema-radio }}
-                  {{/ modal-chooseCategory }}
-
-                  {{# modal-input-textArea }}
-                     {{> atomer-tekstfelt:m-y-4 }}
-                  {{/ modal-input-textArea }}
-
-                  {{# modal-input-radio }}
-                    {{> atomer-radioknapp }}
-                  {{/ modal-input-radio }}
-
-                  {{# modal-loader }}
-                    {{> atomer-laster-inn }}
-                  {{/ modal-loader }}
-
-                  {{# modal-empty }}
-                    {{> atomer-avsnitt }}
-                  {{/ modal-empty }}
-
-
-                  {{# modal-input-adress }}
-                    {{> organismer-adresse }}
-                  {{/ modal-input-adress }}
-
-                  {{# modal-date }}
-                    {{> organismer-dato }}
-                  {{/ modal-date }}
-
+                  <!-- BUTTON -->
                   <div class="a-btn-group m-t-2">
 
                     {{# modal-nextbutton }}
                       {{> atomer-link }}
                     {{/ modal-nextbutton }}
 
-                    {{# modal-successbutton }}
-                      {{> atomer-knapp }}
-                    {{/ modal-successbutton }}
-
-                    {{# modal-deactivated }}
-                      {{> atomer-knapp }}
-                    {{/ modal-deactivated }}
-
                     {{# modal-discard }}
-                      {{> atomer-knapp }}
+                      {{> atomer-link }}
                     {{/ modal-discard }}
                   </div>
 
+                  <!-- INPUT: OWNER INFO -->
+                  {{# modal-input-owner }}
+                    {{> organismer-skjema-innehaver }}
+                  {{/ modal-input-owner }}
+
+                  <!-- INPUT: ORG NAME -->
+                  {{# modal-input-orgName }}
+                    {{> organismer-skjema-navn }}
+                  {{/ modal-input-orgName }}
+
+                  <!-- FIND INDUSTY CODE -->
+
+                    <!-- INPUT: KEYWORD -->
+                    {{# modal-input-keyword }}
+                      {{> atomer-tekst-input }}
+                    {{/ modal-input-keyword }}
+
+                    <!-- LOADER -->
+                    {{# modal-loader }}
+                      {{> atomer-laster-inn }}
+                    {{/ modal-loader }}
+
+                    <!-- IF NO RESULTS -->
+                    {{# modal-empty }}
+                      {{> atomer-avsnitt }}
+                    {{/ modal-empty }}
+
+                    <!-- INPUT: CATEGORY -->
+                    {{# modal-chooseCategory }}
+                      {{> organismer-skjema-radio }}
+                    {{/ modal-chooseCategory }}
+
+                  <!-- END FIND INDUSTY CODE -->
+
+                  <!-- INPUT: DESCRIPTION -->
+                  {{# modal-input-description }}
+                     {{> organismer-skjema-beskrivelse }}
+                  {{/ modal-input-description }}
+
+                  <!-- INPUT: ADRESS -->
+                  {{# modal-input-adress }}
+                    {{> organismer-adresse }}
+                  {{/ modal-input-adress }}
+
+                  <!-- INPUT: DATE -->
+                  {{# modal-date }}
+                    {{> organismer-dato }}
+                  {{/ modal-date }}
+
+                  <!-- EXTRA INFO (Footer) -->
                   {{# modal-extraInfo }}
                     {{> atomer-liste-unummerert-kuler:m-x-1|m-t-4|a-bulletList-light }}
                   {{/ modal-extraInfo }}
