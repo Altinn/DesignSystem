@@ -11,6 +11,12 @@
 
 }
 
+.datepicker {
+  @include media-breakpoint-down(sm) {
+    border-top: 1px solid #fff;
+  }
+}
+
 .datepicker.datepicker-dropdown {
   border-radius: 0px;
   margin-top: 0px;
@@ -18,7 +24,8 @@
   padding: 0;
 
   @include media-breakpoint-down(sm) {
-    left: 46px !important;
+    left: 0px !important;
+    width: 100%;
   }
 
   &:before, &:after {
@@ -35,10 +42,21 @@
     }
   }
 
+  table {
+    @include media-breakpoint-down(sm) {
+      width: 100%;
+    }
+  }
+
   table tr td, table tr th {
     width: $spacer * 4;
     height: $spacer * 4;
     border-radius: 0px;
+  }
+
+  table tr td span {
+    float: none;
+    margin: auto !important;
   }
 
   table tr th:hover:not(.dow), table tr th:focus:not(.dow) {

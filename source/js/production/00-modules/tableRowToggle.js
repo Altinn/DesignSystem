@@ -7,7 +7,7 @@ var onConfirmDeletionClick = function() {
   if ($table.find('tbody>tr.selected').length === $table.find('tbody>tr').length) {
     goToReceipt = true;
   } else {
-    console.log("kommer jeg fortsatt hit?");
+    console.log('kommer jeg fortsatt hit?');
     $selectedRows = $table.find('tbody>tr.selected');
     $selectedRows.removeClass('selected').addClass('deleted');
     $selectedRows.find('td:last-child span').hide();

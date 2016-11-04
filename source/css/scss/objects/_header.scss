@@ -21,17 +21,18 @@
 .a-header-options {
 	margin-top: -10px;
 	position: absolute;
-	right: 100px;
+	right: 112px;
 	z-index: 9999;
 
 	@include media-breakpoint-up(sm) {
+		right: 100px;
+	}
+
+	@include media-breakpoint-up(md) {
 		float: right;
 		position: relative;
 		right: 0px;
 		left: auto;
-	}
-
-	@include media-breakpoint-up(md) {
 		margin-top: -12px;
 	}
 	@include media-breakpoint-up(lg) {
@@ -41,10 +42,6 @@
 	.nav-link {
     padding: 12px 8px;
 		border-radius: 0;
-
-		@include media-breakpoint-up(sm) {
-			padding: 12px 3px;
-		}
 
 		@include media-breakpoint-up(lg) {
 			padding: 12px;
@@ -107,7 +104,7 @@
 	font-weight: $font-weight-medium;
 	border: none;
 	position: absolute;
-	right: -12px;
+	right: 0;
 	text-align: right;
 	background: transparent;
 	color: $blue-dark;
@@ -130,12 +127,15 @@
 	.a-personSwitcher-name {
 		text-align: right;
 		vertical-align: middle;
-
-		display:inline-block;
 		max-width:90px;
 		white-space: nowrap;
 		overflow:hidden !important;
 		text-overflow: ellipsis;
+		display: none;
+
+		@include media-breakpoint-up(sm) {
+			display: inline-block;
+		}
 
 		@include media-breakpoint-up(lg) {
 			max-width:120px;

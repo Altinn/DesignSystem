@@ -2,6 +2,16 @@
     $MODAL
 \*------------------------------------*/
 
+.a-modalPage + .sg-switchtheme {
+	display: none;
+}
+
+.sg-switchtheme {
+	@include media-breakpoint-down(lg) {
+		display: none;
+	}
+}
+
 .a-page {
 	.a-modal  {
 		min-height: 100vh;
@@ -11,6 +21,13 @@
 .a-modal  {
 	background: $blue;
 	padding-bottom: $spacer*5;
+
+	.container {
+		@include media-breakpoint-down(lg) {
+			padding: 0;
+		}
+	}
+
 	.modal-lg {
 		width: auto;
 		max-width: none;
@@ -21,7 +38,7 @@
 		}
 	}
 	.modal-content {
-		margin-bottom: $spacer;
+		margin-bottom: $spacer*5;
 		border: none;
     border-radius: 0;
 		box-shadow: 1px 1px 4px 0px rgba(137,137,137,0.50);
@@ -38,9 +55,23 @@
 
 	}
 
+
 	.a-modal-contentFullWidth {
-		width: calc(100% + 192px);
-		margin-left: -$spacer*8;
+		width: calc(100% + 24px);
+		margin-left: -$spacer;
+		.a-legend {
+			padding: 0 $spacer;
+		}
+		.custom-radio {
+			padding: $spacer $spacer $spacer $spacer*4;
+		}
+		.custom-control-indicator {
+				left: $spacer;
+		}
+
+		@include media-breakpoint-up(md) {
+			width: calc(100% + 192px);
+			margin-left: -$spacer*8;
 			.a-legend {
 				padding: 0 $spacer*8;
 			}
@@ -50,13 +81,16 @@
 			.custom-control-indicator {
 			    left: $spacer*8;
 			}
-
+		}
 	}
 
 	.a-link-helpfunction {
 		text-align: center;
 	}
 
+	.a-personSwitcher-name {
+		display: inline-block;
+	}
 }
 
 // Modal top
@@ -66,7 +100,14 @@
 	padding-top: $spacer*3;
 
 	.a-logo {
-		width: 140px;
+		max-width: 110px;
+		float: left;
+		margin-right: $spacer;
+
+		@include media-breakpoint-up(lg) {
+			max-width: 142px;
+			margin-top: 2px;
+		}
 	}
 
 	.a-modal-top-user {
@@ -78,7 +119,11 @@
 			padding: 0;
 			margin-right: -3px;
 			width: 200px;
-			margin-top: 3px;
+			margin-top: -2px;
+
+			@include media-breakpoint-up(lg) {
+				margin-top: 2px;
+			}
 		}
 	}
 }
