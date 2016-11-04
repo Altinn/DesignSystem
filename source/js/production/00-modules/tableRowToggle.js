@@ -1,3 +1,4 @@
+/* globals goBack */
 var onConfirmDeletionClick = function() {
   var $table = $('table[data-table-eventhandler="tableRowToggle"]');
   var $segmentDone = $('.segment-done');
@@ -7,7 +8,6 @@ var onConfirmDeletionClick = function() {
   if ($table.find('tbody>tr.selected').length === $table.find('tbody>tr').length) {
     goToReceipt = true;
   } else {
-    console.log('kommer jeg fortsatt hit?');
     $selectedRows = $table.find('tbody>tr.selected');
     $selectedRows.removeClass('selected').addClass('deleted');
     $selectedRows.find('td:last-child span').hide();
@@ -18,7 +18,15 @@ var onConfirmDeletionClick = function() {
   return goToReceipt;
 };
 
-$(document).on('ready', function() {
+var handleModalClose = function(src) {
+  var hasSelectedRows = $('table[data-table-eventhandler="tableRowToggle"] tr.selected').length > 0;
+  if (!hasSelectedRows) {
+    $(src).popover('disable');
+    goBack();
+  }
+};
+
+var setupDeletableRowsTable = function() {
   var $table = $('table[data-table-eventhandler="tableRowToggle"]');
   var $segmentDone = $('.segment-done');
   var $selectedRows;
@@ -61,4 +69,4 @@ $(document).on('ready', function() {
     $table.find('td:last-child span.remove-action').show();
     $table.find('th:last-child span.remove-action').show();
   });
-});
+};
