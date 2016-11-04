@@ -6,9 +6,12 @@ $(document).on('ready', function() {
   });
 
   $allWithTarget.on('click', function() {
+    var $currentSwitch = $(this);
+    $('#' + $currentSwitch.data('switch-target')).show();
     $.each(allTargets, function() {
-      $('#' + this).hide();
+      if ($currentSwitch.data('switch-target') !== this + '') {
+        $('#' + this).hide();
+      }
     });
-    $('#' + $(this).data('switch-target')).show();
   });
 });
