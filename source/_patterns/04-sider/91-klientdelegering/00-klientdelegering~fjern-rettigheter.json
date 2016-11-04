@@ -4,25 +4,71 @@
   "show-remove-rights": true,
   "show-success-receipt": false,
 
-  "link-url-start" : "onclick=\"if (onConfirmDeletionClick()) { location.href='",
-  "link-url" : "link.sider-klientdelegering-kvittering-gyldig",
-  "link-url-end" : "' }\"",
-
-  "button-list": [
-    {
-      "button-class": "a-modal-back",
-      "aria-label":  "Tilbake",
-      "button-icon-class": "material-icons a-modal-back-icon",
-      "button-icon-text": "keyboard_backspace",
-      "button-onclick": "onclick=\"goBack()\""
-    },
-    {
-      "button-class": "a-modal-close",
-      "aria-label":  "Lukk",
-      "button-icon-class": "material-icons a-modal-close-icon",
-      "button-icon-text": "close"
-    }
-  ],
+  "done-segment" : {
+    "link-url-start" : "onclick=\"if (onConfirmDeletionClick()) { location.href='",
+    "link-url" : "link.sider-klientdelegering-kvittering-gyldig",
+    "link-url-end" : "' }\""
+  },
+  "modal-navbar-override": {
+    "button-list": [
+      {
+        "button-class": "a-modal-back",
+        "aria-label": "Tilbake",
+        "button-icon-class": "material-icons a-modal-back-icon",
+        "button-icon-text": "keyboard_backspace",
+        "button-onclick": "onclick=\"handleModalClose(this);\"",
+        "enable-popover": true,
+        "popover-placement": "bottom",
+        "popover-content-id": "backPopoverContent",
+        "popover-class": "popover-warning",
+        "popover-text": "Du har gjort endringer som ikke vil lagres",
+        "popover-buttons": [
+          {
+            "button-text" : "Ok",
+            "button-class" : "a-btn a-btn-danger",
+            "link-url-start" : "onclick=\"$('button[aria-describedby=' + $(this).parent().parent().attr('id') + ']').popover('hide'); goBack();\"",
+            "link-url" : "",
+            "link-url-end" : ""
+          },
+          {
+            "button-text": "Avbryt",
+            "button-class": "a-btn-link a-link a-link-danger",
+            "link-url-start" : "onclick=\"$('button[aria-describedby=' + $(this).parent().parent().attr('id') + ']').popover('hide');\"",
+            "link-url" : "",
+            "link-url-end" : ""
+          }
+        ]
+      },
+      {
+        "button-class": "a-modal-close",
+        "aria-label":  "Lukk",
+        "button-icon-class": "material-icons a-modal-close-icon",
+        "button-icon-text": "close",
+        "button-onclick": "onclick=\"handleModalClose(this);\"",
+        "enable-popover": true,
+        "popover-placement": "bottom",
+        "popover-content-id": "closePopoverContent",
+        "popover-class": "popover-warning",
+        "popover-text": "Du har gjort endringer som ikke vil lagres",
+        "popover-buttons": [
+          {
+            "button-text" : "Ok",
+            "button-class" : "a-btn a-btn-danger",
+            "link-url-start" : "onclick=\"$('button[aria-describedby=' + $(this).parent().parent().attr('id') + ']').popover('hide'); goBack();\"",
+            "link-url" : "",
+            "link-url-end" : ""
+          },
+          {
+            "button-text": "Avbryt",
+            "button-class": "a-btn-link a-link a-link-danger",
+            "link-url-start" : "onclick=\"$('button[aria-describedby=' + $(this).parent().parent().attr('id') + ']').popover('hide');\"",
+            "link-url" : "",
+            "link-url-end" : ""
+          }
+        ]
+      }
+    ]
+  },
   "form-label-hasIcon": {
     "form-label-iconClass": "material-icons",
     "form-label-icon": "&#xE1DB;"
