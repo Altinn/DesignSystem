@@ -8,7 +8,7 @@
           <div class="col-md-12">
 
             <!-- Modal Header -->
-              {{> molekyler-modal-header}} 
+              {{> molekyler-modal-header}}
             <!-- END Modal Header -->
 
           </div>
@@ -61,16 +61,19 @@
                   {{/ modal-lead }}
 
                   <!-- BUTTON -->
-                  <div class="a-btn-group m-t-2">
+                  {{# modal-lonelyButtons }}
+                    <div class="a-btn-group m-t-2 hei">
 
-                    {{# modal-nextbutton }}
-                      {{> atomer-link }}
-                    {{/ modal-nextbutton }}
+                      {{# modal-nextbutton }}
+                        {{> atomer-link }}
+                      {{/ modal-nextbutton }}
 
-                    {{# modal-discard }}
-                      {{> atomer-link }}
-                    {{/ modal-discard }}
-                  </div>
+                      {{# modal-discard }}
+                        {{> atomer-link }}
+                      {{/ modal-discard }}
+
+                    </div>
+                  {{/ modal-lonelyButtons }}
 
                   <!-- INPUT: OWNER INFO -->
                   {{# modal-input-owner }}
@@ -78,10 +81,29 @@
                   {{/ modal-input-owner }}
 
 
-                  <!-- INPUT: ORG NAME -->
-                  {{# modal-input-orgName }}
-                    {{> organismer-skjema-navn }}
-                  {{/ modal-input-orgName }}
+                  <!-- *********************** --->
+                  <!-- OLD INPUT: ORG NAME REMOVE--->
+                  <!-- *********************** --->
+                  {{# modal-input-orgName-Old }}
+                    {{> atomer-tekst-input }}
+                  {{/ modal-input-orgName-Old }}
+                  <div class="a-btn-group m-t-2">
+                    {{# modal-nextbutton-Old }}
+                      {{> atomer-knapp }}
+                    {{/ modal-nextbutton-Old }}
+                    {{# modal-successbutton-Old }}
+                      {{> atomer-knapp }}
+                    {{/ modal-successbutton-Old }}
+                    {{# modal-deactivated-Old }}
+                      {{> atomer-knapp }}
+                    {{/ modal-deactivated-Old }}
+                    {{# modal-discard-Old }}
+                      {{> atomer-knapp }}
+                    {{/ modal-discard-Old }}
+                  </div>
+                  <!-- *********************** --->
+                  <!-- END OLD INPUT: ORG NAME REMOVE--->
+                  <!-- *********************** --->
 
 
 

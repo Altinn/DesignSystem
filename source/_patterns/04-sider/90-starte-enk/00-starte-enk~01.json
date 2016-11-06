@@ -10,13 +10,18 @@
 			"logo" : "../../images/a-logo-white.svg",
 			"login-name" : "Jan Pettersen",
 			"animationClass" : "a-scene_element--fadeinright",
-			"modalBack": false,
+			"modalBack": true,
+			"btn-url" : "link.sider-starteogdrive",
+			"starteenk-back": {
+				"btn-url" : "link.sider-starte-enk"
+			},
 
 			"_commentStart":"--------------------------------------------------------------",
 			"_commentText": "HEADER",
 			"_commentEnd":  "--------------------------------------------------------------",
 
 			"header-color" : "a-darkBackground",
+			"modalBack": false,
 			"modalHeader-icon" : "&#xE0AF;",
 			"isIntroText" : {
 				"modalHeader-introText" : "Brønnøysundregistrene"
@@ -29,40 +34,59 @@
 			"_commentEnd":  "--------------------------------------------------------------",
 
 			"modal-title" : {
-				"section-title": "Hei Jan Pettersen!",
+				"section-title": "Hvem skal være innehaver av enkeltpersonforetaket?",
 			  "titleExtra" : false
 			},
 
 			"modal-lead" : {
-				  "lead-text-content" : "Er det du som starter enkeltpersonforetak eller hjelper du noen andre med registreringen?"
+				  "lead-text-content" : "Fyll inn fødelsnummer og etternavn på den du hjelper med registreringen"
 			},
 
 			"_commentStart":"--------------------------------------------------------------",
 		  "_commentText": "BUTTONS",
 		  "_commentEnd":  "--------------------------------------------------------------",
 
-			"modal-lonelyButtons" : {
-				"modal-nextbutton" : {
-					"link-text" : "Det er meg",
-					"link-class" : "a-btn",
-					"link-url" :"link.sider-starte-enk-1"
-				},
-				"modal-discard" : {
-			    "link-text" : "Jeg hjelper en annen med registreringen",
-			    "link-class": "a-link",
-					"link-url" :"link.sider-starte-enk-01"
-			  }
-			},
 
-
-			"_commentStart":"--------------------------------------------------------------",
-			"_commentText": " INPUTS ",
-			"_commentEnd":  "--------------------------------------------------------------",
+			"modal-nextbutton" : false,
+			"modal-discard" : false,
 
 		  "modal-input-orgName" : false,
 		  "modal-input-textArea" : false,
 		  "modal-input-radio" : false,
 		  "modal-date" : false,
+
+			"modal-input-owner" : {
+				"text-input-personnumber" : {
+			    "text-input-id" : "Fødselsnummer",
+			    "text-input-label" : "Fødselsnummer",
+			    "text-input-placeholder" : "11 siffer",
+			    "maxlength" : "11",
+			    "input-type" : "text",
+			    "isRequired" : "required",
+
+			    "isValidator" : "",
+			    "validator-delay" : "",
+			    "validator-check" : false,
+			    "validator-pattern" : "pattern= \"[0-9]{11}\""
+			  },
+
+			  "text-input-lastname" : {
+			    "text-input-id" : "Etternavn",
+			    "text-input-label" : "Etternavn",
+			    "text-input-placeholder" : "F.eks Olsen",
+			    "input-type" : "text",
+			    "isRequired" : "required"
+			  },
+			  "adress-submit" : {
+			    "button-text" : "Neste",
+					"button-class" : "a-btn",
+			    "button-type" : "submit",
+			    "link-url-start" : "",
+			    "link-url" : "",
+			    "link-url-end" : ""
+			  },
+			  "url" : "link.sider-starte-enk-1"
+			},
 
 		  "_commentStart":"--------------------------------------------------------------",
 		  "_commentText": "CHOOSE CATEGORY (RADIOBUTTONS)",
@@ -77,20 +101,6 @@
 
 		  "modal-extraInfo" : false,
 
-
-			"_commentStart":"--------------------------------------------------------------",
-			"_commentText": "HELP TEXT",
-			"_commentEnd":  "--------------------------------------------------------------",
-
-			"help-text-1": "Står du fast? Start en",
-			"is-chat" : true,
-			"help-text-2" : " eller ring oss på",
-
-			"help-text-icon": "<i class='fa fa-life-ring'>",
-			"help-link-2" : {
-				"link-text" : "75 00 60 00",
-				"link-url" : "tel:+47 75 00 60 00"
-			},
 
 		"_commentStart":"--------------------------------------------------------------",
 		"_commentText": "CHAT",
