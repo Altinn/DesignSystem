@@ -1,13 +1,34 @@
 <div class="{{ full-width-table }}">
-  <table class="table a-sortable-table a-table-list" id="{{ table-remove-undo-id }}">
+  <table class="table a-sortable-table a-table-list clickable" id="{{ table-remove-undo-id }}" data-table-eventhandler="{{ table-eventhandler }}">
     <thead>
       {{# sortable-has-head }}
         <tr class="a-sortable-row a-table-list">
           {{# sortable-head-items }}
-            <th class="{{# is-first-column }} first {{/ is-first-column }} {{# cell-align }} text-xs-right col-pd-4 p-r-2 {{/ cell-align }}">              {{# sortable }}
+            <th class="add-remove-all {{# is-first-column }} first {{/ is-first-column }} {{# cell-padding }} text-xs-right col-pd-4 p-r-2 {{/ cell-padding }}">
+              {{# sortable }}
                 <span class="a-dropdownArrow"></span>
               {{/ sortable }}
-              {{{ sortable-head-text }}}
+              {{# show-head-actions }}
+                {{# sortable-head-actions }}
+                  <span class="{{# last-column }} normal-casing {{/ last-column }}{{ sortable-head-action-type }}"
+                    {{# hidden }} style="display:none" {{/ hidden }}>
+                    {{ sortable-head-text }}
+                    {{# sortable-head-icon-type }}
+                      <i class="material-icons {{ sortable-head-icon-class }}">
+                        {{{ sortable-head-icon-type }}}
+                      </i>
+                    {{/ sortable-head-icon-type }}
+                  </span>
+                {{/ sortable-head-actions }}
+              {{/ show-head-actions }}
+              {{# last-column }}<span class="normal-casing">{{/ last-column }}
+                {{ sortable-head-text }}
+              {{# last-column }}</span>{{/ last-column }}
+              {{# sortable-head-icon-type }}
+                <i class="material-icons {{ sortable-head-icon-class }}">
+                  {{{ sortable-head-icon-type }}}
+                </i>
+              {{/ sortable-head-icon-type }}
             </th>
           {{/ sortable-head-items }}
         </tr>
@@ -15,10 +36,27 @@
     </thead>
     <tbody>
       {{# sortable-table-items }}
-        <tr class="a-sortable-row {{# red-light }} red-light {{/ red-light }}">
+        <tr class="a-sortable-row {{ sortable-row-class }}">
           {{# sortable-row-items }}
-            <td {{# cell-align }} class="text-xs-right p-r-2" {{/ cell-align }} {{# searchable }} data-searchable="true" {{/ searchable }}>
+            <td {{# cell-padding }} class="text-xs-right p-r-2" {{/ cell-padding }} {{# searchable }} data-searchable="true" {{/ searchable }}>
+              {{# show-actions }}
+                {{# sortable-row-actions }}
+                  <span class="{{ sortable-row-action-type }}" {{# hidden }} style="display:none" {{/ hidden }}>
+                    {{{ sortable-row-text }}}
+                    {{# sortable-row-icon-type }}
+                      <i class="material-icons {{ sortable-row-icon-class }}">
+                        {{{ sortable-row-icon-type }}}
+                      </i>
+                    {{/ sortable-row-icon-type }}
+                  </span>
+                {{/ sortable-row-actions }}
+              {{/ show-actions }}
               {{{ sortable-row-text }}}
+              {{# sortable-row-icon-type }}
+                <i class="material-icons {{ sortable-row-icon-class }}">
+                  {{{ sortable-row-icon-type }}}
+                </i>
+              {{/ sortable-row-icon-type }}
             </td>
           {{/ sortable-row-items }}
         </tr>

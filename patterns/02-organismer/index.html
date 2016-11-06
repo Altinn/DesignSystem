@@ -38,8 +38,8 @@
     <script src="https://use.fonticons.com/b2e1f56d.js"></script>
 
     <!-- Altinn stylesheet -->
-    <link rel="stylesheet" href="../../css/style.css?1477919168025" media="all" />
-    <!-- <link rel="stylesheet" href="../../css/pattern-scaffolding.css?1477919168025" media="all" /> -->
+    <link rel="stylesheet" href="../../css/style.css?1478470592412" media="all" />
+    <!-- <link rel="stylesheet" href="../../css/pattern-scaffolding.css?1478470592412" media="all" /> -->
 
     <!-- Begin Pattern Lab (Required for Pattern Lab to run properly) -->
     <!-- never cache patterns -->
@@ -49,7 +49,7 @@
 <meta http-equiv="expires" content="Tue, 01 Jan 1980 1:00:00 GMT" />
 <meta http-equiv="pragma" content="no-cache" />
 
-<link rel="stylesheet" href="../../styleguide/css/styleguide.min.css?1477919168025" media="all">
+<link rel="stylesheet" href="../../styleguide/css/styleguide.min.css?1478470592412" media="all">
 <style type="text/css">
   /* PRESENTATION OF STYLE GUIDE */
   #sg-viewport {
@@ -318,6 +318,14 @@
     clear: both;
   }
 
+  /* View patterns that in is context is display none from start */
+
+  #organismer-chat .sg-pattern-example .a-chat {
+    display: block;
+    position: relative;
+    bottom: 0;
+  }
+
 
   /* Code view height minimum 300px */
 
@@ -379,6 +387,7 @@
     background: #ffffff;
     z-index: 9999;
     padding: 12px 0;
+        height: 52px;
     border-top: 2px solid #efefef;
   }
   .sg-switchtheme .a-radioButtons .c-input {
@@ -410,7 +419,7 @@
 
 
 </style>
-<link rel="stylesheet" href="../../styleguide/css/prism-typeahead.min.css?1477919168025" media="all" />
+<link rel="stylesheet" href="../../styleguide/css/prism-typeahead.min.css?1478470592412" media="all" />
 
     <!-- End Pattern Lab -->
 
@@ -548,32 +557,28 @@
 
     			<li class="nav-item dropdown hidden-xs-down">
             <!-- Dropdown toggle -->
-            <a class="nav-link dropdown-toggle a-languageSwitcher" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false"> <i class="material-icons hidden-md-up">&#xE894;</i><span class="sr-only">Bytt språk</span> <span class="hidden-sm-down" aria-hidden="true">Language</span></a>
+            <button class="nav-link dropdown-toggle a-languageSwitcher hidden-sm-down" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Language
+            </button>
             <span class="a-js-propagatedContentDestination replace-me" data-refclass="droplang"></span>
           </li>
 
     			<li class="nav-item dropdown">
     				<!-- Dropdown toggle -->
-    				<a
-  class="nav-link a-personSwitcher"
-  data-toggle=""
-  href=""
-  role="button"
-  aria-haspopup="true"
-  aria-expanded="false">
+    				
+<button class="nav-link dropdown-toggle a-personSwitcher" type="button" id="dropdownMenuButton" data-toggle="dropdown"  data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
   <span
-    class="a-personSwitcher-name hidden-sm-down"
+    class="a-personSwitcher-name"
     title="Logg inn ">
     Logg inn
     <br>
     
   </span>
   <i class="material-icons a-personSwitcher-icon">&#xE853;</i>
-</a>
+</button>
 
-
-    					<!-- Begin #a-dropdown-personswitchList - -->
-<div class="dropdown-menu a-dropdown-personswitchList a-dropdownTriangle">
+            <!-- Begin #a-dropdown-personswitchList - -->
+<div class="dropdown-menu a-dropdown-languages a-dropdownTriangle">
 
   <div class="p-t-3 p-l-3 p-r-3">
 
@@ -582,9 +587,9 @@
         <div class="a-personRole">
   <i class="material-icons a-personRole-icon">&#xE7FD;</i>
   <div class="a-personRole-text">
-    <span class="a-personRole-name">Jan Pettersen</span>
-    <span class="tag tag-primary a-label label-pill">8</span>
-    <span class="a-personRole-role">Personnr. 241287 12345</span>
+    <span class="a-personRole-name">Olga Organisme</span>
+    <span class="tag tag-primary a-label label-pill">9</span>
+    <span class="a-personRole-role">Personnr. 123456 12345</span>
   </div>
 </div>
 
@@ -603,54 +608,85 @@
         Andre du kan representere:
     </p>
 
+      <div class="form-group a-form-group  " data-toggle="" data-delay="">
+
+    <div class="a-form-group-items input-group  ">
+
+      <!-- Label -->
+      <label class="a-form-label  input-group-addon" for="text-input-find-13">
+            <i class="material-icons"> &#xE7EF; </i>
+          <span class="sr-only">Finn skjema eller tjeneste</span>
+      </label>
+
+      <!-- Input  -->
+        <input type="search" 
+          class="form-control  a-form-control-withBtn " 
+          id="text-input-find-13" 
+          
+           
+          placeholder="Hvem leter du etter?" 
+          value="" 
+          maxlength=""
+          data-error="" 
+          
+          data-search-algorithm=""
+          data-search-target="">
+        <i class="fa fa-check-circle form-control-feedback"></i><span class="sr-only">Icon showing if input is valid or not</span>
+
+        <!-- button -->
+        <div class="input-group-btn">
+          <button class="btn btn-secondary" type="button">
+            <i class="material-icons"><span class="sr-only">Utfør søk</span>&#xE8B6;</i>
+          </button>
+        </div>
+
+
+    </div>
+
+
+
+
+  </div>
+
 
   </div>
 
   <div class="p-t-1 p-l-1 p-r-1">
 
-    <button type="button" class="a-btn a-btn-shadow " onclick="location.href='';">
+      <button type="button" class="a-btn a-btn-shadow " onclick="location.href='';">
 	<i class="material-icons a-btn-shadow-icon">&#xE85C;</i>
 
 	Effektive timer AS
-<span class="tag tag-primary a-label tag-pill" id=label>3</span>
+		<span class="tag  a-label tag-pill" id=>3</span>
+
 
 </button>
 
-
-    <button type="button" class="a-btn a-btn-shadow " onclick="location.href='/patterns/04-sider-01-forside-00-forside-innlogget-med-langt-navn/04-sider-01-forside-00-forside-innlogget-med-langt-navn.html';">
+      <button type="button" class="a-btn a-btn-shadow " onclick="location.href='/patterns/04-sider-01-forside-00-forside-innlogget-med-langt-navn/04-sider-01-forside-00-forside-innlogget-med-langt-navn.html';">
 	<i class="material-icons a-btn-shadow-icon">&#xE85C;</i>
 
 	Johansen Regnskap AS
 
 </button>
 
-
-    <button type="button" class="a-btn a-btn-shadow " onclick="location.href='';">
+      <button type="button" class="a-btn a-btn-shadow " onclick="location.href='';">
 	<i class="material-icons a-btn-shadow-icon">&#xE85C;</i>
 
 	Nidar AS
 
 </button>
 
-
-    <button type="button" class="a-btn a-btn-shadow a-bgGreyLight" onclick="location.href='';">
+      <button type="button" class="a-btn a-btn-shadow a-bgGreyLight" onclick="location.href='';">
 	<i class="material-icons a-btn-shadow-icon">&#xE85C;</i>
 
 	Filip Gran
-<span class="tag tag-primary a-label tag-pill" id=label>3</span>
+		<span class="tag  a-label tag-pill" id=>3</span>
+
 
 </button>
 
 
-    <button type="button" class="a-btn a-btn-shadow " onclick="location.href='';">
-	<i class="material-icons a-btn-shadow-icon">&#xE85C;</i>
-
-	Pritt AS
-
-</button>
-
-
-    <a href="" class="a-btn a-btn-withIcon p-y-1 p-x-2">
+    <a href="" class="a-btn a-btn-withIcon p-t-1 p-x-2">
 	<i class="material-icons a-btn-withIcon-icon">&#xE145;</i>
 	Last flere
 </a>
@@ -668,19 +704,19 @@
     		<!-- Begin .a-globalNav -->
     		<nav class="a-globalNav">
     			<a href="../../&#x2F;patterns&#x2F;04-sider-01-forside-00-forside&#x2F;04-sider-01-forside-00-forside.html" class="a-globalNav-logo"> 
-<img src="..&#x2F;..&#x2F;images&#x2F;a-logo-blue.svg" alt="Altinn logo" class="a-logo  ">
+<img src="..&#x2F;..&#x2F;images&#x2F;a-logo-blue.svg" alt="Altinn logo" class="a-logo a-modal-top-logo ">
  <span class="sr-only">Til forsiden</span>
           </a>
 
-    			  <button class="navbar-toggler hidden-sm-up" type="button" data-toggle="collapse" data-target="#exCollapsingNavbar2">
+    			  <button class="navbar-toggler hidden-md-up" type="button" data-toggle="collapse" data-target="#exCollapsingNavbar2">
     			  </button>
-    			  <div class="collapse navbar-toggleable-xs a-globalNav-main" id="exCollapsingNavbar2">
+    			  <div class="collapse navbar-toggleable-sm a-globalNav-main" id="exCollapsingNavbar2">
     					<ul class="a-dropdownTriangle" id="exCollapsingNavbar">
 
-    						<li class="hidden-sm-up">
+    						<li class="hidden-md-up">
     							    <div class="form-group a-form-group  " data-toggle="" data-delay="">
 
-    <div class="a-form-group-items input-group ">
+    <div class="a-form-group-items input-group  ">
 
       <!-- Label -->
       <label class="a-form-label sr-only input-group-addon" for="text-input-search-12">
@@ -688,26 +724,26 @@
       </label>
 
       <!-- Input  -->
-      <input type="search" 
-        class="form-control  a-form-control-withBtn form-control-noAddon " 
-        id="text-input-search-12" 
-        
+        <input type="search" 
+          class="form-control  a-form-control-withBtn form-control-noAddon " 
+          id="text-input-search-12" 
           
-         placeholder="Søk etter innhold (footer)" 
-         value="" 
-         maxlength=""
-         data-error="" 
-         
-        data-search-algorithm=""
-        data-search-target="">
-      <i class="fa fa-check-circle form-control-feedback"></i><span class="sr-only">Icon showing if input is valid or not</span>
+           
+          placeholder="Søk etter innhold" 
+          value="" 
+          maxlength=""
+          data-error="" 
+          
+          data-search-algorithm=""
+          data-search-target="">
+        <i class="fa fa-check-circle form-control-feedback"></i><span class="sr-only">Icon showing if input is valid or not</span>
 
-      <!-- button -->
-      <div class="input-group-btn">
-        <button class="btn btn-secondary" type="button">
-          <i class="material-icons"><span class="sr-only">Utfør søk</span>&#xE8B6;</i>
-        </button>
-      </div>
+        <!-- button -->
+        <div class="input-group-btn">
+          <button class="btn btn-secondary" type="button">
+            <i class="material-icons"><span class="sr-only">Utfør søk</span>&#xE8B6;</i>
+          </button>
+        </div>
 
 
     </div>
@@ -718,7 +754,7 @@
   </div>
 
     						</li>
-                <li class="hidden-sm-up"><a class="hvr-underline-from-center"
+                <li class="hidden-md-up"><a class="hvr-underline-from-center"
                   onkeyup="langTriggerClick(event)" onmousedown="
                   $('#exCollapsingNavbar').find('.a-dropdown-languages').find('a').attr('tabindex', '-1');
                   if (!$('#exCollapsingNavbar').find('.a-dropdown-languages').hasClass('expand')) {
@@ -743,10 +779,10 @@
     						<li><a class="hvr-underline-from-center" href="../..&#x2F;patterns&#x2F;04-sider-40-skjema-51-skjemagruppe&#x2F;04-sider-40-skjema-51-skjemagruppe.html">innboks</a></li>
     						<li><a class="hvr-underline-from-center " href="../..&#x2F;patterns&#x2F;04-sider-40-skjema-50-skjema&#x2F;04-sider-40-skjema-50-skjema.html">alle skjema</a></li>
     						<li><a class="hvr-underline-from-center" href="../..&#x2F;patterns&#x2F;04-sider-40-skjema-52-om-skjema&#x2F;04-sider-40-skjema-52-om-skjema.html">profil</a></li>
-    						<li class="hidden-sm-up"><a class="a-nav-link hvr-underline-from-center" href="#">starte og drive bedrift</a></li>
-    						<li class="hidden-sm-up"><a class="hvr-underline-from-center" href="../..&#x2F;patterns&#x2F;04-sider-05-artikkel-10-artikkel&#x2F;04-sider-05-artikkel-10-artikkel.html">om altinn</a></li>
-    						<li class="hidden-sm-up"><a class="hvr-underline-from-center" href="../..&#x2F;patterns&#x2F;04-sider-05-artikkel-10-artikkel&#x2F;04-sider-05-artikkel-10-artikkel.html">hjelpesider</a></li>
-    						<li class="hidden-sm-up">
+    						<li class="hidden-md-up"><a class="a-nav-link hvr-underline-from-center" href="../..&#x2F;patterns&#x2F;04-sider-30-starte-og-drive-30-starteogdrive&#x2F;04-sider-30-starte-og-drive-30-starteogdrive.html">starte og drive bedrift</a></li>
+    						<li class="hidden-md-up"><a class="hvr-underline-from-center" href="../..&#x2F;patterns&#x2F;04-sider-05-artikkel-10-artikkel&#x2F;04-sider-05-artikkel-10-artikkel.html">om altinn</a></li>
+    						<li class="hidden-md-up"><a class="hvr-underline-from-center" href="../..&#x2F;patterns&#x2F;04-sider-05-artikkel-10-artikkel&#x2F;04-sider-05-artikkel-10-artikkel.html">hjelpesider</a></li>
+    						<li class="hidden-md-up">
     							<a href="tel:+4775 00 60 00" class="a-tel">
   <i class="material-icons">&#xE324;</i>
   <span class="sr-only">Telefonnummer til Altinn kundestøtte</span>
@@ -767,7 +803,7 @@
 
   </div>
   <script type="text/json" id="sg-pattern-data-organismer-header" class="sg-pattern-data">
-    {"cssEnabled":false,"patternLineageExists":true,"patternLineages":[{"lineagePattern":"organismer-meny-nedrulling","lineagePath":"../../patterns/02-organismer-30-seksjoner-29-meny-nedrulling/02-organismer-30-seksjoner-29-meny-nedrulling.html","lineageState":"needsrevalidation"},{"lineagePattern":"atomer-innlogget","lineagePath":"../../patterns/00-atomer-07-tekst-40-innlogget/00-atomer-07-tekst-40-innlogget.html","lineageState":"needsrevalidation"},{"lineagePattern":"organismer-meny-personbytte","lineagePath":"../../patterns/02-organismer-30-seksjoner-30-meny-personbytte/02-organismer-30-seksjoner-30-meny-personbytte.html","lineageState":"needsrevalidation"},{"lineagePattern":"atomer-logo","lineagePath":"../../patterns/00-atomer-09-bilder-og-media-01-logo/00-atomer-09-bilder-og-media-01-logo.html","lineageState":"needsrevalidation"},{"lineagePattern":"atomer-tekst-input","lineagePath":"../../patterns/00-atomer-01-forms-09-tekst-input/00-atomer-01-forms-09-tekst-input.html","lineageState":"needsrevalidation"},{"lineagePattern":"atomer-link-telefonnummer","lineagePath":"../../patterns/00-atomer-02-lenker-37-link-telefonnummer/00-atomer-02-lenker-37-link-telefonnummer.html","lineageState":"needsrevalidation"}],"lineage":[{"lineagePattern":"organismer-meny-nedrulling","lineagePath":"../../patterns/02-organismer-30-seksjoner-29-meny-nedrulling/02-organismer-30-seksjoner-29-meny-nedrulling.html","lineageState":"needsrevalidation"},{"lineagePattern":"atomer-innlogget","lineagePath":"../../patterns/00-atomer-07-tekst-40-innlogget/00-atomer-07-tekst-40-innlogget.html","lineageState":"needsrevalidation"},{"lineagePattern":"organismer-meny-personbytte","lineagePath":"../../patterns/02-organismer-30-seksjoner-30-meny-personbytte/02-organismer-30-seksjoner-30-meny-personbytte.html","lineageState":"needsrevalidation"},{"lineagePattern":"atomer-logo","lineagePath":"../../patterns/00-atomer-09-bilder-og-media-01-logo/00-atomer-09-bilder-og-media-01-logo.html","lineageState":"needsrevalidation"},{"lineagePattern":"atomer-tekst-input","lineagePath":"../../patterns/00-atomer-01-forms-09-tekst-input/00-atomer-01-forms-09-tekst-input.html","lineageState":"needsrevalidation"},{"lineagePattern":"atomer-link-telefonnummer","lineagePath":"../../patterns/00-atomer-02-lenker-37-link-telefonnummer/00-atomer-02-lenker-37-link-telefonnummer.html","lineageState":"needsrevalidation"}],"patternLineageRExists":true,"patternLineagesR":[{"lineagePattern":"maler-forside","lineagePath":"../../patterns/03-maler-01-forside-01-forside/03-maler-01-forside-01-forside.html","lineageState":"needsrevalidation"},{"lineagePattern":"maler-aktorvalg","lineagePath":"../../patterns/03-maler-01-forside-02-aktorvalg/03-maler-01-forside-02-aktorvalg.html","lineageState":"needsrevalidation"},{"lineagePattern":"maler-artikkel","lineagePath":"../../patterns/03-maler-05-artikkel-10-artikkel/03-maler-05-artikkel-10-artikkel.html","lineageState":"needsrevalidation"},{"lineagePattern":"maler-artikkel-jumbo","lineagePath":"../../patterns/03-maler-05-artikkel-11-artikkel-jumbo/03-maler-05-artikkel-11-artikkel-jumbo.html","lineageState":"needsrevalidation"},{"lineagePattern":"maler-guide","lineagePath":"../../patterns/03-maler-05-artikkel-20-guide/03-maler-05-artikkel-20-guide.html","lineageState":"needsrevalidation"},{"lineagePattern":"maler-guide-resultat","lineagePath":"../../patterns/03-maler-05-artikkel-21-guide-resultat/03-maler-05-artikkel-21-guide-resultat.html","lineageState":"needsrevalidation"},{"lineagePattern":"maler-starteogdrive","lineagePath":"../../patterns/03-maler-30-starte-og-drive-30-starteogdrive/03-maler-30-starte-og-drive-30-starteogdrive.html","lineageState":"needsrevalidation"},{"lineagePattern":"maler-starteogdrive-temaside","lineagePath":"../../patterns/03-maler-30-starte-og-drive-32-starteogdrive-temaside/03-maler-30-starte-og-drive-32-starteogdrive-temaside.html","lineageState":"needsrevalidation"},{"lineagePattern":"maler-skjema","lineagePath":"../../patterns/03-maler-40-skjema-50-skjema/03-maler-40-skjema-50-skjema.html","lineageState":"needsrevalidation"},{"lineagePattern":"maler-skjemagruppe","lineagePath":"../../patterns/03-maler-40-skjema-51-skjemagruppe/03-maler-40-skjema-51-skjemagruppe.html","lineageState":"needsrevalidation"},{"lineagePattern":"maler-om-skjema","lineagePath":"../../patterns/03-maler-40-skjema-52-om-skjema/03-maler-40-skjema-52-om-skjema.html","lineageState":"needsrevalidation"},{"lineagePattern":"maler-inboks-mva","lineagePath":"../../patterns/03-maler-50-inboks-00-inboks-mva/03-maler-50-inboks-00-inboks-mva.html","lineageState":"needsrevalidation"},{"lineagePattern":"maler-klientdelegering","lineagePath":"../../patterns/03-maler-60-profil-roller-rettigheter-50-klientdelegering/03-maler-60-profil-roller-rettigheter-50-klientdelegering.html","lineageState":"needsrevalidation"}],"lineageR":[{"lineagePattern":"maler-forside","lineagePath":"../../patterns/03-maler-01-forside-01-forside/03-maler-01-forside-01-forside.html","lineageState":"needsrevalidation"},{"lineagePattern":"maler-aktorvalg","lineagePath":"../../patterns/03-maler-01-forside-02-aktorvalg/03-maler-01-forside-02-aktorvalg.html","lineageState":"needsrevalidation"},{"lineagePattern":"maler-artikkel","lineagePath":"../../patterns/03-maler-05-artikkel-10-artikkel/03-maler-05-artikkel-10-artikkel.html","lineageState":"needsrevalidation"},{"lineagePattern":"maler-artikkel-jumbo","lineagePath":"../../patterns/03-maler-05-artikkel-11-artikkel-jumbo/03-maler-05-artikkel-11-artikkel-jumbo.html","lineageState":"needsrevalidation"},{"lineagePattern":"maler-guide","lineagePath":"../../patterns/03-maler-05-artikkel-20-guide/03-maler-05-artikkel-20-guide.html","lineageState":"needsrevalidation"},{"lineagePattern":"maler-guide-resultat","lineagePath":"../../patterns/03-maler-05-artikkel-21-guide-resultat/03-maler-05-artikkel-21-guide-resultat.html","lineageState":"needsrevalidation"},{"lineagePattern":"maler-starteogdrive","lineagePath":"../../patterns/03-maler-30-starte-og-drive-30-starteogdrive/03-maler-30-starte-og-drive-30-starteogdrive.html","lineageState":"needsrevalidation"},{"lineagePattern":"maler-starteogdrive-temaside","lineagePath":"../../patterns/03-maler-30-starte-og-drive-32-starteogdrive-temaside/03-maler-30-starte-og-drive-32-starteogdrive-temaside.html","lineageState":"needsrevalidation"},{"lineagePattern":"maler-skjema","lineagePath":"../../patterns/03-maler-40-skjema-50-skjema/03-maler-40-skjema-50-skjema.html","lineageState":"needsrevalidation"},{"lineagePattern":"maler-skjemagruppe","lineagePath":"../../patterns/03-maler-40-skjema-51-skjemagruppe/03-maler-40-skjema-51-skjemagruppe.html","lineageState":"needsrevalidation"},{"lineagePattern":"maler-om-skjema","lineagePath":"../../patterns/03-maler-40-skjema-52-om-skjema/03-maler-40-skjema-52-om-skjema.html","lineageState":"needsrevalidation"},{"lineagePattern":"maler-inboks-mva","lineagePath":"../../patterns/03-maler-50-inboks-00-inboks-mva/03-maler-50-inboks-00-inboks-mva.html","lineageState":"needsrevalidation"},{"lineagePattern":"maler-klientdelegering","lineagePath":"../../patterns/03-maler-60-profil-roller-rettigheter-50-klientdelegering/03-maler-60-profil-roller-rettigheter-50-klientdelegering.html","lineageState":"needsrevalidation"}],"patternLineageEExists":true,"patternDesc":"<p>Den globale toppen på siden tar lite plass i høyden, for å holde fokus på innholdet på siden. Headeren tilpasser seg mindre skjermer, og gjemmer menyen under en meny-knapp. Headeren skal være synlig på alle sider på altinn.no.</p>\n","patternBreadcrumb":{"patternType":"organismer","patternSubtype":"globale"},"patternExtension":"mustache","patternName":"Header","patternPartial":"organismer-header","patternState":"needsrevalidation","patternEngineName":"mustache","extraOutput":{}}
+    {"cssEnabled":false,"patternLineageExists":true,"patternLineages":[{"lineagePattern":"organismer-meny-nedrulling","lineagePath":"../../patterns/02-organismer-30-seksjoner-29-meny-nedrulling/02-organismer-30-seksjoner-29-meny-nedrulling.html","lineageState":"needsrevalidation"},{"lineagePattern":"atomer-innlogget","lineagePath":"../../patterns/00-atomer-07-tekst-40-innlogget/00-atomer-07-tekst-40-innlogget.html","lineageState":"needsrevalidation"},{"lineagePattern":"organismer-meny-personbytte","lineagePath":"../../patterns/02-organismer-30-seksjoner-30-meny-personbytte/02-organismer-30-seksjoner-30-meny-personbytte.html","lineageState":"needsrevalidation"},{"lineagePattern":"atomer-logo","lineagePath":"../../patterns/00-atomer-09-bilder-og-media-01-logo/00-atomer-09-bilder-og-media-01-logo.html","lineageState":"needsrevalidation"},{"lineagePattern":"atomer-tekst-input","lineagePath":"../../patterns/00-atomer-01-forms-09-tekst-input/00-atomer-01-forms-09-tekst-input.html","lineageState":"needsrevalidation"},{"lineagePattern":"atomer-link-telefonnummer","lineagePath":"../../patterns/00-atomer-02-lenker-37-link-telefonnummer/00-atomer-02-lenker-37-link-telefonnummer.html","lineageState":"needsrevalidation"}],"lineage":[{"lineagePattern":"organismer-meny-nedrulling","lineagePath":"../../patterns/02-organismer-30-seksjoner-29-meny-nedrulling/02-organismer-30-seksjoner-29-meny-nedrulling.html","lineageState":"needsrevalidation"},{"lineagePattern":"atomer-innlogget","lineagePath":"../../patterns/00-atomer-07-tekst-40-innlogget/00-atomer-07-tekst-40-innlogget.html","lineageState":"needsrevalidation"},{"lineagePattern":"organismer-meny-personbytte","lineagePath":"../../patterns/02-organismer-30-seksjoner-30-meny-personbytte/02-organismer-30-seksjoner-30-meny-personbytte.html","lineageState":"needsrevalidation"},{"lineagePattern":"atomer-logo","lineagePath":"../../patterns/00-atomer-09-bilder-og-media-01-logo/00-atomer-09-bilder-og-media-01-logo.html","lineageState":"needsrevalidation"},{"lineagePattern":"atomer-tekst-input","lineagePath":"../../patterns/00-atomer-01-forms-09-tekst-input/00-atomer-01-forms-09-tekst-input.html","lineageState":"needsrevalidation"},{"lineagePattern":"atomer-link-telefonnummer","lineagePath":"../../patterns/00-atomer-02-lenker-37-link-telefonnummer/00-atomer-02-lenker-37-link-telefonnummer.html","lineageState":"needsrevalidation"}],"patternLineageRExists":true,"patternLineagesR":[{"lineagePattern":"maler-forside","lineagePath":"../../patterns/03-maler-01-forside-01-forside/03-maler-01-forside-01-forside.html","lineageState":"needsrevalidation"},{"lineagePattern":"maler-aktorvalg","lineagePath":"../../patterns/03-maler-01-forside-02-aktorvalg/03-maler-01-forside-02-aktorvalg.html","lineageState":"needsrevalidation"},{"lineagePattern":"maler-artikkel","lineagePath":"../../patterns/03-maler-05-artikkel-10-artikkel/03-maler-05-artikkel-10-artikkel.html","lineageState":"needsrevalidation"},{"lineagePattern":"maler-artikkel-jumbo","lineagePath":"../../patterns/03-maler-05-artikkel-11-artikkel-jumbo/03-maler-05-artikkel-11-artikkel-jumbo.html","lineageState":"inreview"},{"lineagePattern":"maler-guide","lineagePath":"../../patterns/03-maler-05-artikkel-20-guide/03-maler-05-artikkel-20-guide.html","lineageState":"needsrevalidation"},{"lineagePattern":"maler-guide-resultat","lineagePath":"../../patterns/03-maler-05-artikkel-21-guide-resultat/03-maler-05-artikkel-21-guide-resultat.html","lineageState":"inreview"},{"lineagePattern":"maler-artikkel-jumbo-starte-enk","lineagePath":"../../patterns/03-maler-30-starte-og-drive-11-artikkel-jumbo-starte-enk/03-maler-30-starte-og-drive-11-artikkel-jumbo-starte-enk.html","lineageState":"inreview"},{"lineagePattern":"maler-starteogdrive","lineagePath":"../../patterns/03-maler-30-starte-og-drive-30-starteogdrive/03-maler-30-starte-og-drive-30-starteogdrive.html","lineageState":"needsrevalidation"},{"lineagePattern":"maler-starteogdrive-temaside","lineagePath":"../../patterns/03-maler-30-starte-og-drive-32-starteogdrive-temaside/03-maler-30-starte-og-drive-32-starteogdrive-temaside.html","lineageState":"needsrevalidation"},{"lineagePattern":"maler-skjema","lineagePath":"../../patterns/03-maler-40-skjema-50-skjema/03-maler-40-skjema-50-skjema.html","lineageState":"needsrevalidation"},{"lineagePattern":"maler-skjemagruppe","lineagePath":"../../patterns/03-maler-40-skjema-51-skjemagruppe/03-maler-40-skjema-51-skjemagruppe.html","lineageState":"needsrevalidation"},{"lineagePattern":"maler-om-skjema","lineagePath":"../../patterns/03-maler-40-skjema-52-om-skjema/03-maler-40-skjema-52-om-skjema.html","lineageState":"needsrevalidation"},{"lineagePattern":"maler-inboks-mva","lineagePath":"../../patterns/03-maler-50-inboks-00-inboks-mva/03-maler-50-inboks-00-inboks-mva.html","lineageState":"inreview"},{"lineagePattern":"maler-klientdelegering","lineagePath":"../../patterns/03-maler-60-profil-roller-rettigheter-50-klientdelegering/03-maler-60-profil-roller-rettigheter-50-klientdelegering.html","lineageState":"inprogress"}],"lineageR":[{"lineagePattern":"maler-forside","lineagePath":"../../patterns/03-maler-01-forside-01-forside/03-maler-01-forside-01-forside.html","lineageState":"needsrevalidation"},{"lineagePattern":"maler-aktorvalg","lineagePath":"../../patterns/03-maler-01-forside-02-aktorvalg/03-maler-01-forside-02-aktorvalg.html","lineageState":"needsrevalidation"},{"lineagePattern":"maler-artikkel","lineagePath":"../../patterns/03-maler-05-artikkel-10-artikkel/03-maler-05-artikkel-10-artikkel.html","lineageState":"needsrevalidation"},{"lineagePattern":"maler-artikkel-jumbo","lineagePath":"../../patterns/03-maler-05-artikkel-11-artikkel-jumbo/03-maler-05-artikkel-11-artikkel-jumbo.html","lineageState":"inreview"},{"lineagePattern":"maler-guide","lineagePath":"../../patterns/03-maler-05-artikkel-20-guide/03-maler-05-artikkel-20-guide.html","lineageState":"needsrevalidation"},{"lineagePattern":"maler-guide-resultat","lineagePath":"../../patterns/03-maler-05-artikkel-21-guide-resultat/03-maler-05-artikkel-21-guide-resultat.html","lineageState":"inreview"},{"lineagePattern":"maler-artikkel-jumbo-starte-enk","lineagePath":"../../patterns/03-maler-30-starte-og-drive-11-artikkel-jumbo-starte-enk/03-maler-30-starte-og-drive-11-artikkel-jumbo-starte-enk.html","lineageState":"inreview"},{"lineagePattern":"maler-starteogdrive","lineagePath":"../../patterns/03-maler-30-starte-og-drive-30-starteogdrive/03-maler-30-starte-og-drive-30-starteogdrive.html","lineageState":"needsrevalidation"},{"lineagePattern":"maler-starteogdrive-temaside","lineagePath":"../../patterns/03-maler-30-starte-og-drive-32-starteogdrive-temaside/03-maler-30-starte-og-drive-32-starteogdrive-temaside.html","lineageState":"needsrevalidation"},{"lineagePattern":"maler-skjema","lineagePath":"../../patterns/03-maler-40-skjema-50-skjema/03-maler-40-skjema-50-skjema.html","lineageState":"needsrevalidation"},{"lineagePattern":"maler-skjemagruppe","lineagePath":"../../patterns/03-maler-40-skjema-51-skjemagruppe/03-maler-40-skjema-51-skjemagruppe.html","lineageState":"needsrevalidation"},{"lineagePattern":"maler-om-skjema","lineagePath":"../../patterns/03-maler-40-skjema-52-om-skjema/03-maler-40-skjema-52-om-skjema.html","lineageState":"needsrevalidation"},{"lineagePattern":"maler-inboks-mva","lineagePath":"../../patterns/03-maler-50-inboks-00-inboks-mva/03-maler-50-inboks-00-inboks-mva.html","lineageState":"inreview"},{"lineagePattern":"maler-klientdelegering","lineagePath":"../../patterns/03-maler-60-profil-roller-rettigheter-50-klientdelegering/03-maler-60-profil-roller-rettigheter-50-klientdelegering.html","lineageState":"inprogress"}],"patternLineageEExists":true,"patternDesc":"<p>Den globale toppen på siden tar lite plass i høyden, for å holde fokus på innholdet på siden. Headeren tilpasser seg mindre skjermer, og gjemmer menyen under en meny-knapp. Headeren skal være synlig på alle sider på altinn.no.</p>\n","patternBreadcrumb":{"patternType":"organismer","patternSubtype":"globale"},"patternExtension":"mustache","patternName":"Header","patternPartial":"organismer-header","patternState":"needsrevalidation","patternEngineName":"mustache","extraOutput":{}}
   </script>
 </div><!--end .sg-pattern-->
 <div id="organismer-footer" class="sg-pattern">
@@ -792,7 +828,7 @@
 			<div class="col-lg-3 offset-xl-1 hidden-xs-down">
 					<div class="form-group a-form-group  " data-toggle="" data-delay="">
 
-    <div class="a-form-group-items input-group ">
+    <div class="a-form-group-items input-group  ">
 
       <!-- Label -->
       <label class="a-form-label sr-only input-group-addon" for="text-input-search-11">
@@ -800,26 +836,26 @@
       </label>
 
       <!-- Input  -->
-      <input type="search" 
-        class="form-control  a-form-control-withBtn form-control-noAddon " 
-        id="text-input-search-11" 
-        
+        <input type="search" 
+          class="form-control  a-form-control-withBtn form-control-noAddon " 
+          id="text-input-search-11" 
           
-         placeholder="Søk etter innhold (footer)" 
-         value="" 
-         maxlength=""
-         data-error="" 
-         
-        data-search-algorithm=""
-        data-search-target="">
-      <i class="fa fa-check-circle form-control-feedback"></i><span class="sr-only">Icon showing if input is valid or not</span>
+           
+          placeholder="Søk etter innhold" 
+          value="" 
+          maxlength=""
+          data-error="" 
+          
+          data-search-algorithm=""
+          data-search-target="">
+        <i class="fa fa-check-circle form-control-feedback"></i><span class="sr-only">Icon showing if input is valid or not</span>
 
-      <!-- button -->
-      <div class="input-group-btn">
-        <button class="btn btn-secondary" type="button">
-          <i class="material-icons"><span class="sr-only">Utfør søk</span>&#xE8B6;</i>
-        </button>
-      </div>
+        <!-- button -->
+        <div class="input-group-btn">
+          <button class="btn btn-secondary" type="button">
+            <i class="material-icons"><span class="sr-only">Utfør søk</span>&#xE8B6;</i>
+          </button>
+        </div>
 
 
     </div>
@@ -864,7 +900,7 @@
 						<li><a class="" href="../..&#x2F;patterns&#x2F;04-sider-05-artikkel-10-artikkel&#x2F;04-sider-05-artikkel-10-artikkel.html">Personvern</a></li>
 					</ul>
 					<div class="hidden-sm-up">
-						<button type="button" class="a-btn" id="" onclick="location.href='../..';" >til toppen</button> 
+						<button type="button" class="a-btn " id="" onclick="location.href='../.."/patterns/04-sider-01-forside-00-forside/04-sider-01-forside-00-forside.html'" false>til toppen</button> 
 
 					</div>
 	      </nav>
@@ -876,7 +912,7 @@
 
   </div>
   <script type="text/json" id="sg-pattern-data-organismer-footer" class="sg-pattern-data">
-    {"cssEnabled":false,"patternLineageExists":true,"patternLineages":[{"lineagePattern":"atomer-tekst-input","lineagePath":"../../patterns/00-atomer-01-forms-09-tekst-input/00-atomer-01-forms-09-tekst-input.html","lineageState":"needsrevalidation"},{"lineagePattern":"atomer-link-telefonnummer","lineagePath":"../../patterns/00-atomer-02-lenker-37-link-telefonnummer/00-atomer-02-lenker-37-link-telefonnummer.html","lineageState":"needsrevalidation"},{"lineagePattern":"atomer-knapp","lineagePath":"../../patterns/00-atomer-03-knapper-10-knapp/00-atomer-03-knapper-10-knapp.html","lineageState":"needsrevalidation"}],"lineage":[{"lineagePattern":"atomer-tekst-input","lineagePath":"../../patterns/00-atomer-01-forms-09-tekst-input/00-atomer-01-forms-09-tekst-input.html","lineageState":"needsrevalidation"},{"lineagePattern":"atomer-link-telefonnummer","lineagePath":"../../patterns/00-atomer-02-lenker-37-link-telefonnummer/00-atomer-02-lenker-37-link-telefonnummer.html","lineageState":"needsrevalidation"},{"lineagePattern":"atomer-knapp","lineagePath":"../../patterns/00-atomer-03-knapper-10-knapp/00-atomer-03-knapper-10-knapp.html","lineageState":"needsrevalidation"}],"patternLineageRExists":true,"patternLineagesR":[{"lineagePattern":"maler-forside","lineagePath":"../../patterns/03-maler-01-forside-01-forside/03-maler-01-forside-01-forside.html","lineageState":"needsrevalidation"},{"lineagePattern":"maler-aktorvalg","lineagePath":"../../patterns/03-maler-01-forside-02-aktorvalg/03-maler-01-forside-02-aktorvalg.html","lineageState":"needsrevalidation"},{"lineagePattern":"maler-artikkel","lineagePath":"../../patterns/03-maler-05-artikkel-10-artikkel/03-maler-05-artikkel-10-artikkel.html","lineageState":"needsrevalidation"},{"lineagePattern":"maler-artikkel-jumbo","lineagePath":"../../patterns/03-maler-05-artikkel-11-artikkel-jumbo/03-maler-05-artikkel-11-artikkel-jumbo.html","lineageState":"needsrevalidation"},{"lineagePattern":"maler-guide","lineagePath":"../../patterns/03-maler-05-artikkel-20-guide/03-maler-05-artikkel-20-guide.html","lineageState":"needsrevalidation"},{"lineagePattern":"maler-guide-resultat","lineagePath":"../../patterns/03-maler-05-artikkel-21-guide-resultat/03-maler-05-artikkel-21-guide-resultat.html","lineageState":"needsrevalidation"},{"lineagePattern":"maler-starteogdrive","lineagePath":"../../patterns/03-maler-30-starte-og-drive-30-starteogdrive/03-maler-30-starte-og-drive-30-starteogdrive.html","lineageState":"needsrevalidation"},{"lineagePattern":"maler-starteogdrive-temaside","lineagePath":"../../patterns/03-maler-30-starte-og-drive-32-starteogdrive-temaside/03-maler-30-starte-og-drive-32-starteogdrive-temaside.html","lineageState":"needsrevalidation"},{"lineagePattern":"maler-skjema","lineagePath":"../../patterns/03-maler-40-skjema-50-skjema/03-maler-40-skjema-50-skjema.html","lineageState":"needsrevalidation"},{"lineagePattern":"maler-skjemagruppe","lineagePath":"../../patterns/03-maler-40-skjema-51-skjemagruppe/03-maler-40-skjema-51-skjemagruppe.html","lineageState":"needsrevalidation"},{"lineagePattern":"maler-om-skjema","lineagePath":"../../patterns/03-maler-40-skjema-52-om-skjema/03-maler-40-skjema-52-om-skjema.html","lineageState":"needsrevalidation"},{"lineagePattern":"maler-inboks-mva","lineagePath":"../../patterns/03-maler-50-inboks-00-inboks-mva/03-maler-50-inboks-00-inboks-mva.html","lineageState":"needsrevalidation"}],"lineageR":[{"lineagePattern":"maler-forside","lineagePath":"../../patterns/03-maler-01-forside-01-forside/03-maler-01-forside-01-forside.html","lineageState":"needsrevalidation"},{"lineagePattern":"maler-aktorvalg","lineagePath":"../../patterns/03-maler-01-forside-02-aktorvalg/03-maler-01-forside-02-aktorvalg.html","lineageState":"needsrevalidation"},{"lineagePattern":"maler-artikkel","lineagePath":"../../patterns/03-maler-05-artikkel-10-artikkel/03-maler-05-artikkel-10-artikkel.html","lineageState":"needsrevalidation"},{"lineagePattern":"maler-artikkel-jumbo","lineagePath":"../../patterns/03-maler-05-artikkel-11-artikkel-jumbo/03-maler-05-artikkel-11-artikkel-jumbo.html","lineageState":"needsrevalidation"},{"lineagePattern":"maler-guide","lineagePath":"../../patterns/03-maler-05-artikkel-20-guide/03-maler-05-artikkel-20-guide.html","lineageState":"needsrevalidation"},{"lineagePattern":"maler-guide-resultat","lineagePath":"../../patterns/03-maler-05-artikkel-21-guide-resultat/03-maler-05-artikkel-21-guide-resultat.html","lineageState":"needsrevalidation"},{"lineagePattern":"maler-starteogdrive","lineagePath":"../../patterns/03-maler-30-starte-og-drive-30-starteogdrive/03-maler-30-starte-og-drive-30-starteogdrive.html","lineageState":"needsrevalidation"},{"lineagePattern":"maler-starteogdrive-temaside","lineagePath":"../../patterns/03-maler-30-starte-og-drive-32-starteogdrive-temaside/03-maler-30-starte-og-drive-32-starteogdrive-temaside.html","lineageState":"needsrevalidation"},{"lineagePattern":"maler-skjema","lineagePath":"../../patterns/03-maler-40-skjema-50-skjema/03-maler-40-skjema-50-skjema.html","lineageState":"needsrevalidation"},{"lineagePattern":"maler-skjemagruppe","lineagePath":"../../patterns/03-maler-40-skjema-51-skjemagruppe/03-maler-40-skjema-51-skjemagruppe.html","lineageState":"needsrevalidation"},{"lineagePattern":"maler-om-skjema","lineagePath":"../../patterns/03-maler-40-skjema-52-om-skjema/03-maler-40-skjema-52-om-skjema.html","lineageState":"needsrevalidation"},{"lineagePattern":"maler-inboks-mva","lineagePath":"../../patterns/03-maler-50-inboks-00-inboks-mva/03-maler-50-inboks-00-inboks-mva.html","lineageState":"needsrevalidation"}],"patternLineageEExists":true,"patternDesc":"<p>Footeren inneholder ekstra navigasjonsmuligheter samt kontaktinformasjon. Den tilpasser seg skjermstørrelser. På de minste skjermene legges footer-menypunktene opp i toppmenyen. Footeren skal være synlig på alle sider på altinn.no.</p>\n","patternBreadcrumb":{"patternType":"organismer","patternSubtype":"globale"},"patternExtension":"mustache","patternName":"Footer","patternPartial":"organismer-footer","patternState":"needsrevalidation","patternEngineName":"mustache","extraOutput":{}}
+    {"cssEnabled":false,"patternLineageExists":true,"patternLineages":[{"lineagePattern":"atomer-tekst-input","lineagePath":"../../patterns/00-atomer-01-forms-09-tekst-input/00-atomer-01-forms-09-tekst-input.html","lineageState":"needsrevalidation"},{"lineagePattern":"atomer-link-telefonnummer","lineagePath":"../../patterns/00-atomer-02-lenker-37-link-telefonnummer/00-atomer-02-lenker-37-link-telefonnummer.html","lineageState":"needsrevalidation"},{"lineagePattern":"atomer-knapp","lineagePath":"../../patterns/00-atomer-03-knapper-10-knapp/00-atomer-03-knapper-10-knapp.html","lineageState":"needsrevalidation"}],"lineage":[{"lineagePattern":"atomer-tekst-input","lineagePath":"../../patterns/00-atomer-01-forms-09-tekst-input/00-atomer-01-forms-09-tekst-input.html","lineageState":"needsrevalidation"},{"lineagePattern":"atomer-link-telefonnummer","lineagePath":"../../patterns/00-atomer-02-lenker-37-link-telefonnummer/00-atomer-02-lenker-37-link-telefonnummer.html","lineageState":"needsrevalidation"},{"lineagePattern":"atomer-knapp","lineagePath":"../../patterns/00-atomer-03-knapper-10-knapp/00-atomer-03-knapper-10-knapp.html","lineageState":"needsrevalidation"}],"patternLineageRExists":true,"patternLineagesR":[{"lineagePattern":"maler-forside","lineagePath":"../../patterns/03-maler-01-forside-01-forside/03-maler-01-forside-01-forside.html","lineageState":"needsrevalidation"},{"lineagePattern":"maler-aktorvalg","lineagePath":"../../patterns/03-maler-01-forside-02-aktorvalg/03-maler-01-forside-02-aktorvalg.html","lineageState":"needsrevalidation"},{"lineagePattern":"maler-artikkel","lineagePath":"../../patterns/03-maler-05-artikkel-10-artikkel/03-maler-05-artikkel-10-artikkel.html","lineageState":"needsrevalidation"},{"lineagePattern":"maler-artikkel-jumbo","lineagePath":"../../patterns/03-maler-05-artikkel-11-artikkel-jumbo/03-maler-05-artikkel-11-artikkel-jumbo.html","lineageState":"inreview"},{"lineagePattern":"maler-guide","lineagePath":"../../patterns/03-maler-05-artikkel-20-guide/03-maler-05-artikkel-20-guide.html","lineageState":"needsrevalidation"},{"lineagePattern":"maler-guide-resultat","lineagePath":"../../patterns/03-maler-05-artikkel-21-guide-resultat/03-maler-05-artikkel-21-guide-resultat.html","lineageState":"inreview"},{"lineagePattern":"maler-artikkel-jumbo-starte-enk","lineagePath":"../../patterns/03-maler-30-starte-og-drive-11-artikkel-jumbo-starte-enk/03-maler-30-starte-og-drive-11-artikkel-jumbo-starte-enk.html","lineageState":"inreview"},{"lineagePattern":"maler-starteogdrive","lineagePath":"../../patterns/03-maler-30-starte-og-drive-30-starteogdrive/03-maler-30-starte-og-drive-30-starteogdrive.html","lineageState":"needsrevalidation"},{"lineagePattern":"maler-starteogdrive-temaside","lineagePath":"../../patterns/03-maler-30-starte-og-drive-32-starteogdrive-temaside/03-maler-30-starte-og-drive-32-starteogdrive-temaside.html","lineageState":"needsrevalidation"},{"lineagePattern":"maler-skjema","lineagePath":"../../patterns/03-maler-40-skjema-50-skjema/03-maler-40-skjema-50-skjema.html","lineageState":"needsrevalidation"},{"lineagePattern":"maler-skjemagruppe","lineagePath":"../../patterns/03-maler-40-skjema-51-skjemagruppe/03-maler-40-skjema-51-skjemagruppe.html","lineageState":"needsrevalidation"},{"lineagePattern":"maler-om-skjema","lineagePath":"../../patterns/03-maler-40-skjema-52-om-skjema/03-maler-40-skjema-52-om-skjema.html","lineageState":"needsrevalidation"},{"lineagePattern":"maler-inboks-mva","lineagePath":"../../patterns/03-maler-50-inboks-00-inboks-mva/03-maler-50-inboks-00-inboks-mva.html","lineageState":"inreview"}],"lineageR":[{"lineagePattern":"maler-forside","lineagePath":"../../patterns/03-maler-01-forside-01-forside/03-maler-01-forside-01-forside.html","lineageState":"needsrevalidation"},{"lineagePattern":"maler-aktorvalg","lineagePath":"../../patterns/03-maler-01-forside-02-aktorvalg/03-maler-01-forside-02-aktorvalg.html","lineageState":"needsrevalidation"},{"lineagePattern":"maler-artikkel","lineagePath":"../../patterns/03-maler-05-artikkel-10-artikkel/03-maler-05-artikkel-10-artikkel.html","lineageState":"needsrevalidation"},{"lineagePattern":"maler-artikkel-jumbo","lineagePath":"../../patterns/03-maler-05-artikkel-11-artikkel-jumbo/03-maler-05-artikkel-11-artikkel-jumbo.html","lineageState":"inreview"},{"lineagePattern":"maler-guide","lineagePath":"../../patterns/03-maler-05-artikkel-20-guide/03-maler-05-artikkel-20-guide.html","lineageState":"needsrevalidation"},{"lineagePattern":"maler-guide-resultat","lineagePath":"../../patterns/03-maler-05-artikkel-21-guide-resultat/03-maler-05-artikkel-21-guide-resultat.html","lineageState":"inreview"},{"lineagePattern":"maler-artikkel-jumbo-starte-enk","lineagePath":"../../patterns/03-maler-30-starte-og-drive-11-artikkel-jumbo-starte-enk/03-maler-30-starte-og-drive-11-artikkel-jumbo-starte-enk.html","lineageState":"inreview"},{"lineagePattern":"maler-starteogdrive","lineagePath":"../../patterns/03-maler-30-starte-og-drive-30-starteogdrive/03-maler-30-starte-og-drive-30-starteogdrive.html","lineageState":"needsrevalidation"},{"lineagePattern":"maler-starteogdrive-temaside","lineagePath":"../../patterns/03-maler-30-starte-og-drive-32-starteogdrive-temaside/03-maler-30-starte-og-drive-32-starteogdrive-temaside.html","lineageState":"needsrevalidation"},{"lineagePattern":"maler-skjema","lineagePath":"../../patterns/03-maler-40-skjema-50-skjema/03-maler-40-skjema-50-skjema.html","lineageState":"needsrevalidation"},{"lineagePattern":"maler-skjemagruppe","lineagePath":"../../patterns/03-maler-40-skjema-51-skjemagruppe/03-maler-40-skjema-51-skjemagruppe.html","lineageState":"needsrevalidation"},{"lineagePattern":"maler-om-skjema","lineagePath":"../../patterns/03-maler-40-skjema-52-om-skjema/03-maler-40-skjema-52-om-skjema.html","lineageState":"needsrevalidation"},{"lineagePattern":"maler-inboks-mva","lineagePath":"../../patterns/03-maler-50-inboks-00-inboks-mva/03-maler-50-inboks-00-inboks-mva.html","lineageState":"inreview"}],"patternLineageEExists":true,"patternDesc":"<p>Footeren inneholder ekstra navigasjonsmuligheter samt kontaktinformasjon. Den tilpasser seg skjermstørrelser. På de minste skjermene legges footer-menypunktene opp i toppmenyen. Footeren skal være synlig på alle sider på altinn.no.</p>\n","patternBreadcrumb":{"patternType":"organismer","patternSubtype":"globale"},"patternExtension":"mustache","patternName":"Footer","patternPartial":"organismer-footer","patternState":"needsrevalidation","patternEngineName":"mustache","extraOutput":{}}
   </script>
 </div><!--end .sg-pattern-->
 <div id="viewall-organismer-forms" class="sg-pattern-category">
@@ -887,28 +923,206 @@
   </div><!--end sg-pattern-category-body-->
 
 </div><!--end sg-pattern-category-->
-<div id="organismer-adresse" class="sg-pattern">
+<div id="organismer-skjema-innehaver" class="sg-pattern">
   <div class="sg-pattern-head">
     <h3 class="sg-pattern-title">
-      <a href="../../patterns/02-organismer-20-forms-30-adresse&#x2F;02-organismer-20-forms-30-adresse.html" class="patternLink" data-patternpartial="organismer-adresse" title="Link to Pattern">
-          Adresse
+      <a href="../../patterns/02-organismer-20-forms-10-skjema-innehaver&#x2F;02-organismer-20-forms-10-skjema-innehaver.html" class="patternLink" data-patternpartial="organismer-skjema-innehaver" title="Link to Pattern">
+          Skjema Innehaver
       </a>
     </h3>
       <span class="sg-pattern-state needsrevalidation">needsrevalidation</span>
     <div class="sg-pattern-breadcrumb"></div>
-    <a href="#" data-patternpartial="organismer-adresse" title="View Pattern Info" id="sg-pattern-extra-toggle-organismer-adresse" class="sg-pattern-extra-toggle">Info <span>&#9660;</span></a>
+    <a href="#" data-patternpartial="organismer-skjema-innehaver" title="View Pattern Info" id="sg-pattern-extra-toggle-organismer-skjema-innehaver" class="sg-pattern-extra-toggle">Info <span>&#9660;</span></a>
   </div>
-  <div class="sg-pattern-extra" id="sg-pattern-extra-organismer-adresse">
+  <div class="sg-pattern-extra" id="sg-pattern-extra-organismer-skjema-innehaver">
 
   </div>
   <div class="sg-pattern-example">
-    <form class="form-inline a-form-inline ">
+    <form data-toggle="validator" role="form" action="/patterns/04-sider-90-starte-enk-00-starte-enk-1/04-sider-90-starte-enk-00-starte-enk-1.html" class="form-inline a-form-inline ">
 
-  <div class="clearfix m-b-2">
+  <span class="clearfix d-block m-b-2">
 
       <div class="form-group a-form-group  " data-toggle="" data-delay="">
 
-    <div class="a-form-group-items  ">
+    <div class="a-form-group-items   ">
+
+      <!-- Label -->
+      <label class="a-form-label  " for="Fødselsnummer">
+          Fødselsnummer
+      </label>
+
+      <!-- Input  -->
+        <input type="text" 
+          class="form-control   " 
+          id="Fødselsnummer" 
+          pattern= "[0-9]{11}"
+          required 
+          placeholder="11 siffer" 
+          value="" 
+          maxlength="11"
+          data-error="" 
+          
+          data-search-algorithm=""
+          data-search-target="">
+        <i class="fa fa-check-circle form-control-feedback"></i><span class="sr-only">Icon showing if input is valid or not</span>
+
+        <!-- button -->
+
+
+    </div>
+
+
+
+
+  </div>
+
+
+      <div class="form-group a-form-group  " data-toggle="" data-delay="">
+
+    <div class="a-form-group-items   ">
+
+      <!-- Label -->
+      <label class="a-form-label  " for="Etternavn">
+          Etternavn:
+      </label>
+
+      <!-- Input  -->
+        <input type="text" 
+          class="form-control   " 
+          id="Etternavn" 
+          
+          required 
+          placeholder="" 
+          value="" 
+          maxlength=""
+          data-error="" 
+          
+          data-search-algorithm=""
+          data-search-target="">
+        <i class="fa fa-check-circle form-control-feedback"></i><span class="sr-only">Icon showing if input is valid or not</span>
+
+        <!-- button -->
+
+
+    </div>
+
+
+
+
+  </div>
+
+
+  </span>
+
+    <button type="submit" class="a-btn " id=""  false>Neste</button> 
+
+</form>
+
+  </div>
+  <script type="text/json" id="sg-pattern-data-organismer-skjema-innehaver" class="sg-pattern-data">
+    {"cssEnabled":false,"patternLineageExists":true,"patternLineages":[{"lineagePattern":"atomer-tekst-input","lineagePath":"../../patterns/00-atomer-01-forms-09-tekst-input/00-atomer-01-forms-09-tekst-input.html","lineageState":"needsrevalidation"},{"lineagePattern":"atomer-knapp","lineagePath":"../../patterns/00-atomer-03-knapper-10-knapp/00-atomer-03-knapper-10-knapp.html","lineageState":"needsrevalidation"}],"lineage":[{"lineagePattern":"atomer-tekst-input","lineagePath":"../../patterns/00-atomer-01-forms-09-tekst-input/00-atomer-01-forms-09-tekst-input.html","lineageState":"needsrevalidation"},{"lineagePattern":"atomer-knapp","lineagePath":"../../patterns/00-atomer-03-knapper-10-knapp/00-atomer-03-knapper-10-knapp.html","lineageState":"needsrevalidation"}],"patternLineageRExists":true,"patternLineagesR":[{"lineagePattern":"organismer-starte-enk","lineagePath":"../../patterns/02-organismer-70-Modal-01-starte-enk/02-organismer-70-Modal-01-starte-enk.html","lineageState":"needsrevalidation"}],"lineageR":[{"lineagePattern":"organismer-starte-enk","lineagePath":"../../patterns/02-organismer-70-Modal-01-starte-enk/02-organismer-70-Modal-01-starte-enk.html","lineageState":"needsrevalidation"}],"patternLineageEExists":true,"patternDesc":"<p>Felt for å fylle inn gatenavn og postnummer</p>\n","patternBreadcrumb":{"patternType":"organismer","patternSubtype":"forms"},"patternExtension":"mustache","patternName":"Skjema Innehaver","patternPartial":"organismer-skjema-innehaver","patternState":"needsrevalidation","patternEngineName":"mustache","extraOutput":{}}
+  </script>
+</div><!--end .sg-pattern-->
+<div id="organismer-skjema-navn" class="sg-pattern">
+  <div class="sg-pattern-head">
+    <h3 class="sg-pattern-title">
+      <a href="../../patterns/02-organismer-20-forms-20-skjema-navn&#x2F;02-organismer-20-forms-20-skjema-navn.html" class="patternLink" data-patternpartial="organismer-skjema-navn" title="Link to Pattern">
+          Skjema Navn
+      </a>
+    </h3>
+      <span class="sg-pattern-state needsrevalidation">needsrevalidation</span>
+    <div class="sg-pattern-breadcrumb"></div>
+    <a href="#" data-patternpartial="organismer-skjema-navn" title="View Pattern Info" id="sg-pattern-extra-toggle-organismer-skjema-navn" class="sg-pattern-extra-toggle">Info <span>&#9660;</span></a>
+  </div>
+  <div class="sg-pattern-extra" id="sg-pattern-extra-organismer-skjema-navn">
+
+  </div>
+  <div class="sg-pattern-example">
+    <form data-toggle="validator" role="form" action="/patterns/04-sider-50-inboks-00-inboks-mva/04-sider-50-inboks-00-inboks-mva.html" class="">
+
+      <div class="form-group a-form-group  a-form-group-large" data-toggle="validator" data-delay="">
+
+    <div class="a-form-group-items   ">
+
+      <!-- Label -->
+      <label class="a-form-label sr-only " for="text-input-1">
+          Foretaksnavn:
+      </label>
+
+      <!-- Input  -->
+        <input type="text" 
+          class="form-control   " 
+          id="text-input-1" 
+          
+          required 
+          placeholder="f.eks navnet ditt og bransjen" 
+          value="" 
+          maxlength=""
+          data-error="Navnet inneholder ikke etternavnet ditt." 
+          
+          data-search-algorithm=""
+          data-search-target="">
+        <i class="fa fa-check-circle form-control-feedback"></i><span class="sr-only">Icon showing if input is valid or not</span>
+
+        <!-- button -->
+
+
+    </div>
+
+    <small id="help" class="form-text a-validatorInfo">
+      <i class="material-icons a-validatorInfo-icon "> &#xE88E;</i>
+      Navnet må inneholde etternavnet ditt. Du kan markedsføre deg med et annet navn enn foretaksnavnet, men det kan være smart om disse samsvarer. <a href="#">Tips til navnevalget</a>
+    </small>
+    <small id="help" class="form-text a-validatorInfo">
+      <i class="material-icons a-validatorInfo-icon "> &#xE86C;</i>
+      Navnet er gyldig! Obs: Det finnes allerede et enkeltpersonforetak med dette navnet. Det er ingentingsom hindrer deg fra å bruke det, men om du vil ha et unikt navn kan du prøve noe annet.
+    </small>
+
+
+      <div class="help-block with-errors a-message a-message-error a-message-absolute">Navnet inneholder ikke etternavnet ditt.</div>
+
+  </div>
+
+
+    <div class="a-btn-group m-t-2">
+
+        <button type="submit" class="a-btn " id=""  false>Sjekk navnet</button> 
+
+
+        <button type="reset" class="a-btn-link " id=""  false>Prøv et annet navn</button> 
+
+
+    </div>
+
+</form>
+
+  </div>
+  <script type="text/json" id="sg-pattern-data-organismer-skjema-navn" class="sg-pattern-data">
+    {"cssEnabled":false,"patternLineageExists":true,"patternLineages":[{"lineagePattern":"atomer-tekst-input","lineagePath":"../../patterns/00-atomer-01-forms-09-tekst-input/00-atomer-01-forms-09-tekst-input.html","lineageState":"needsrevalidation"},{"lineagePattern":"atomer-knapp","lineagePath":"../../patterns/00-atomer-03-knapper-10-knapp/00-atomer-03-knapper-10-knapp.html","lineageState":"needsrevalidation"}],"lineage":[{"lineagePattern":"atomer-tekst-input","lineagePath":"../../patterns/00-atomer-01-forms-09-tekst-input/00-atomer-01-forms-09-tekst-input.html","lineageState":"needsrevalidation"},{"lineagePattern":"atomer-knapp","lineagePath":"../../patterns/00-atomer-03-knapper-10-knapp/00-atomer-03-knapper-10-knapp.html","lineageState":"needsrevalidation"}],"patternLineageRExists":false,"patternLineagesR":[],"lineageR":[],"patternLineageEExists":true,"patternDesc":"<p>Felt for å fylle inn gatenavn og postnummer</p>\n","patternBreadcrumb":{"patternType":"organismer","patternSubtype":"forms"},"patternExtension":"mustache","patternName":"Skjema Navn","patternPartial":"organismer-skjema-navn","patternState":"needsrevalidation","patternEngineName":"mustache","extraOutput":{}}
+  </script>
+</div><!--end .sg-pattern-->
+<div id="organismer-skjema-adresse" class="sg-pattern">
+  <div class="sg-pattern-head">
+    <h3 class="sg-pattern-title">
+      <a href="../../patterns/02-organismer-20-forms-30-skjema-adresse&#x2F;02-organismer-20-forms-30-skjema-adresse.html" class="patternLink" data-patternpartial="organismer-skjema-adresse" title="Link to Pattern">
+          Skjema Adresse
+      </a>
+    </h3>
+      <span class="sg-pattern-state needsrevalidation">needsrevalidation</span>
+    <div class="sg-pattern-breadcrumb"></div>
+    <a href="#" data-patternpartial="organismer-skjema-adresse" title="View Pattern Info" id="sg-pattern-extra-toggle-organismer-skjema-adresse" class="sg-pattern-extra-toggle">Info <span>&#9660;</span></a>
+  </div>
+  <div class="sg-pattern-extra" id="sg-pattern-extra-organismer-skjema-adresse">
+
+  </div>
+  <div class="sg-pattern-example">
+    <form data-toggle="validator" role="form" action="" class="form-inline a-form-inline ">
+
+  <span class="clearfix d-block m-b-2">
+
+      <div class="form-group a-form-group  " data-toggle="" data-delay="">
+
+    <div class="a-form-group-items   ">
 
       <!-- Label -->
       <label class="a-form-label  " for="text-input-100">
@@ -916,21 +1130,21 @@
       </label>
 
       <!-- Input  -->
-      <input type="text" 
-        class="form-control   " 
-        id="text-input-100" 
-        
+        <input type="text" 
+          class="form-control   " 
+          id="text-input-100" 
           
-         placeholder="F.eks Storgata 12" 
-         value="" 
-         maxlength=""
-         data-error="" 
-         
-        data-search-algorithm=""
-        data-search-target="">
-      <i class="fa fa-check-circle form-control-feedback"></i><span class="sr-only">Icon showing if input is valid or not</span>
+          required 
+          placeholder="F.eks Storgata 12" 
+          value="" 
+          maxlength=""
+          data-error="" 
+          
+          data-search-algorithm=""
+          data-search-target="">
+        <i class="fa fa-check-circle form-control-feedback"></i><span class="sr-only">Icon showing if input is valid or not</span>
 
-      <!-- button -->
+        <!-- button -->
 
 
     </div>
@@ -943,7 +1157,7 @@
 
       <div class="form-group a-form-group  " data-toggle="" data-delay="">
 
-    <div class="a-form-group-items  ">
+    <div class="a-form-group-items   ">
 
       <!-- Label -->
       <label class="a-form-label  " for="postnummer">
@@ -951,23 +1165,23 @@
       </label>
 
       <!-- Input  -->
-      <input type="text" 
-        class="form-control a-input-postnumber  " 
-        id="postnummer" 
-        
+        <input type="text" 
+          class="form-control a-input-postnumber  " 
+          id="postnummer" 
           
-         placeholder="4 siffer" 
-         value="" 
-         maxlength="4"
-         data-error="" 
-         
-        data-search-algorithm=""
-        data-search-target="">
-      <i class="fa fa-check-circle form-control-feedback"></i><span class="sr-only">Icon showing if input is valid or not</span>
+          required 
+          placeholder="4 siffer" 
+          value="" 
+          maxlength="4"
+          data-error="" 
+          
+          data-search-algorithm=""
+          data-search-target="">
+        <i class="fa fa-check-circle form-control-feedback"></i><span class="sr-only">Icon showing if input is valid or not</span>
 
-      <!-- button -->
+        <!-- button -->
 
-        <span id="a-js-place" class="a-input-placecode" style="display:none;" ></span>
+          <span id="a-js-place" class="a-input-placecode" style="display:none;" ></span>
 
     </div>
 
@@ -977,20 +1191,213 @@
   </div>
 
 
-  </div>
+  </span>
 
-  <fieldset class="form-group">
+  <span class="clearfix d-block m-b-2">
 
-    <div class="form-check a-form-checkboxes ">
+      <fieldset class="form-group">
+
+    <div class="form-check a-form-checkboxes custom-controls-stacked">
+				<label class="custom-control custom-checkbox">
+					<input type="checkbox" class="custom-control-input">
+					<span class="custom-control-indicator"></span>
+					<p>Gjør adressen privat</p>
+				</label>
     </div>
 </fieldset>
+
+
+  </span>
+
+    <button type="submit" class="a-btn " id=""  false>Neste</button> 
+
+</form>
+
+  </div>
+  <script type="text/json" id="sg-pattern-data-organismer-skjema-adresse" class="sg-pattern-data">
+    {"cssEnabled":false,"patternLineageExists":true,"patternLineages":[{"lineagePattern":"atomer-tekst-input","lineagePath":"../../patterns/00-atomer-01-forms-09-tekst-input/00-atomer-01-forms-09-tekst-input.html","lineageState":"needsrevalidation"},{"lineagePattern":"atomer-avkrysningsboks","lineagePath":"../../patterns/00-atomer-01-forms-00-avkrysningsboks/00-atomer-01-forms-00-avkrysningsboks.html","lineageState":"needsrevalidation"},{"lineagePattern":"atomer-knapp","lineagePath":"../../patterns/00-atomer-03-knapper-10-knapp/00-atomer-03-knapper-10-knapp.html","lineageState":"needsrevalidation"}],"lineage":[{"lineagePattern":"atomer-tekst-input","lineagePath":"../../patterns/00-atomer-01-forms-09-tekst-input/00-atomer-01-forms-09-tekst-input.html","lineageState":"needsrevalidation"},{"lineagePattern":"atomer-avkrysningsboks","lineagePath":"../../patterns/00-atomer-01-forms-00-avkrysningsboks/00-atomer-01-forms-00-avkrysningsboks.html","lineageState":"needsrevalidation"},{"lineagePattern":"atomer-knapp","lineagePath":"../../patterns/00-atomer-03-knapper-10-knapp/00-atomer-03-knapper-10-knapp.html","lineageState":"needsrevalidation"}],"patternLineageRExists":true,"patternLineagesR":[{"lineagePattern":"organismer-starte-enk","lineagePath":"../../patterns/02-organismer-70-Modal-01-starte-enk/02-organismer-70-Modal-01-starte-enk.html","lineageState":"needsrevalidation"}],"lineageR":[{"lineagePattern":"organismer-starte-enk","lineagePath":"../../patterns/02-organismer-70-Modal-01-starte-enk/02-organismer-70-Modal-01-starte-enk.html","lineageState":"needsrevalidation"}],"patternLineageEExists":true,"patternDesc":"<p>Felt for å fylle inn gatenavn og postnummer</p>\n","patternBreadcrumb":{"patternType":"organismer","patternSubtype":"forms"},"patternExtension":"mustache","patternName":"Skjema Adresse","patternPartial":"organismer-skjema-adresse","patternState":"needsrevalidation","patternEngineName":"mustache","extraOutput":{}}
+  </script>
+</div><!--end .sg-pattern-->
+<div id="organismer-skjema-dato" class="sg-pattern">
+  <div class="sg-pattern-head">
+    <h3 class="sg-pattern-title">
+      <a href="../../patterns/02-organismer-20-forms-40-skjema-dato&#x2F;02-organismer-20-forms-40-skjema-dato.html" class="patternLink" data-patternpartial="organismer-skjema-dato" title="Link to Pattern">
+          Skjema Dato
+      </a>
+    </h3>
+      <span class="sg-pattern-state needsrevalidation">needsrevalidation</span>
+    <div class="sg-pattern-breadcrumb"></div>
+    <a href="#" data-patternpartial="organismer-skjema-dato" title="View Pattern Info" id="sg-pattern-extra-toggle-organismer-skjema-dato" class="sg-pattern-extra-toggle">Info <span>&#9660;</span></a>
+  </div>
+  <div class="sg-pattern-extra" id="sg-pattern-extra-organismer-skjema-dato">
+
+  </div>
+  <div class="sg-pattern-example">
+    <form data-toggle="validator" role="form" action="/patterns/04-sider-50-inboks-00-inboks-mva/04-sider-50-inboks-00-inboks-mva.html" class="">
+
+      <div class="form-group a-form-group a-form-group-datepicker">
+  <div class="input-group ">
+    <!-- Label -->
+    <label class="input-group-addon form-control-noleft" for="inputDate">
+      <i class="material-icons">today</i>
+      <span class="a-input-labelText control-label"> Oppstartdato: </span>
+    </label>
+    <!-- Input  -->
+    <input type="text" id="inputDate" class="form-control form-control-noleft date" required/>
+  </div>
+</div>
+
+
+      <button type="submit" class="a-btn m-t-2" id=""  false>Neste</button> 
+
+</form>
+
+  </div>
+  <script type="text/json" id="sg-pattern-data-organismer-skjema-dato" class="sg-pattern-data">
+    {"cssEnabled":false,"patternLineageExists":true,"patternLineages":[{"lineagePattern":"atomer-datovelger","lineagePath":"../../patterns/00-atomer-01-forms-60-datovelger/00-atomer-01-forms-60-datovelger.html","lineageState":"needsrevalidation"},{"lineagePattern":"atomer-knapp","lineagePath":"../../patterns/00-atomer-03-knapper-10-knapp/00-atomer-03-knapper-10-knapp.html","lineageState":"needsrevalidation"}],"lineage":[{"lineagePattern":"atomer-datovelger","lineagePath":"../../patterns/00-atomer-01-forms-60-datovelger/00-atomer-01-forms-60-datovelger.html","lineageState":"needsrevalidation"},{"lineagePattern":"atomer-knapp","lineagePath":"../../patterns/00-atomer-03-knapper-10-knapp/00-atomer-03-knapper-10-knapp.html","lineageState":"needsrevalidation"}],"patternLineageRExists":true,"patternLineagesR":[{"lineagePattern":"organismer-starte-enk","lineagePath":"../../patterns/02-organismer-70-Modal-01-starte-enk/02-organismer-70-Modal-01-starte-enk.html","lineageState":"needsrevalidation"}],"lineageR":[{"lineagePattern":"organismer-starte-enk","lineagePath":"../../patterns/02-organismer-70-Modal-01-starte-enk/02-organismer-70-Modal-01-starte-enk.html","lineageState":"needsrevalidation"}],"patternLineageEExists":true,"patternDesc":"<p>Felt for å fylle inn gatenavn og postnummer</p>\n","patternBreadcrumb":{"patternType":"organismer","patternSubtype":"forms"},"patternExtension":"mustache","patternName":"Skjema Dato","patternPartial":"organismer-skjema-dato","patternState":"needsrevalidation","patternEngineName":"mustache","extraOutput":{}}
+  </script>
+</div><!--end .sg-pattern-->
+<div id="organismer-skjema-radio" class="sg-pattern">
+  <div class="sg-pattern-head">
+    <h3 class="sg-pattern-title">
+      <a href="../../patterns/02-organismer-20-forms-50-skjema-radio&#x2F;02-organismer-20-forms-50-skjema-radio.html" class="patternLink" data-patternpartial="organismer-skjema-radio" title="Link to Pattern">
+          Skjema Radio
+      </a>
+    </h3>
+      <span class="sg-pattern-state needsrevalidation">needsrevalidation</span>
+    <div class="sg-pattern-breadcrumb"></div>
+    <a href="#" data-patternpartial="organismer-skjema-radio" title="View Pattern Info" id="sg-pattern-extra-toggle-organismer-skjema-radio" class="sg-pattern-extra-toggle">Info <span>&#9660;</span></a>
+  </div>
+  <div class="sg-pattern-extra" id="sg-pattern-extra-organismer-skjema-radio">
+
+  </div>
+  <div class="sg-pattern-example">
+    <form data-toggle="validator" role="form" action="" class="">
+
+  <div class="a-modal-contentFullWidth m-t-4">
+    <fieldset class="form-group">
+
+		<legend class="a-legend">Velg en kategori
+		</legend>
+
+	<div class="form-check a-radioButtons  a-radioButtons-stackedList a-radioButtons-searchResult">
+
+			<label class="custom-control custom-radio">
+				<input id="%ID%" value="%ID%" type="radio" required name="radioish" class="custom-control-input"/>
+				<span class="custom-control-indicator"></span>
+				<span class="a-radioButtons-title">
+					%PATH% <span style='color: #000'>%NAME%</span>
+				</span>
+
+					<span class="a-radioButtons-excerpt a-maxThreeLines">
+						%DESCRIPTION%
+					</span>
+
+			</label>
+
+			<label class="custom-control custom-radio">
+				<input id="radio32" value="radio32" type="radio" required name="radioish" class="custom-control-input"/>
+				<span class="custom-control-indicator"></span>
+				<span class="a-radioButtons-title">
+					Enda en radioknapp som inneholder mye tekst
+				</span>
+
+
+			</label>
+
+
+	</div>
+
+<!--</div>-->
+</fieldset>
+
+  </div>
+
+
+
+  <div class="a-btn-group m-t-2">
+
+      <button type="submit" class="a-btn " id=""  false>Velg denne radioknappen</button> 
+
+
+      
+<a href="../../patterns/04-sider-90-starte-enk-00-starte-enk-2/04-sider-90-starte-enk-00-starte-enk-2.html" id="" class="a-linkArea a-link ">Finn næringskode selv</a>
+
+
+  </div>
+
+</form>
+
+  </div>
+  <script type="text/json" id="sg-pattern-data-organismer-skjema-radio" class="sg-pattern-data">
+    {"cssEnabled":false,"patternLineageExists":true,"patternLineages":[{"lineagePattern":"atomer-radioknapp","lineagePath":"../../patterns/00-atomer-01-forms-03-radioknapp/00-atomer-01-forms-03-radioknapp.html","lineageState":"needsrevalidation"},{"lineagePattern":"atomer-knapp","lineagePath":"../../patterns/00-atomer-03-knapper-10-knapp/00-atomer-03-knapper-10-knapp.html","lineageState":"needsrevalidation"},{"lineagePattern":"atomer-link","lineagePath":"../../patterns/00-atomer-02-lenker-00-link/00-atomer-02-lenker-00-link.html","lineageState":"needsrevalidation"}],"lineage":[{"lineagePattern":"atomer-radioknapp","lineagePath":"../../patterns/00-atomer-01-forms-03-radioknapp/00-atomer-01-forms-03-radioknapp.html","lineageState":"needsrevalidation"},{"lineagePattern":"atomer-knapp","lineagePath":"../../patterns/00-atomer-03-knapper-10-knapp/00-atomer-03-knapper-10-knapp.html","lineageState":"needsrevalidation"},{"lineagePattern":"atomer-link","lineagePath":"../../patterns/00-atomer-02-lenker-00-link/00-atomer-02-lenker-00-link.html","lineageState":"needsrevalidation"}],"patternLineageRExists":true,"patternLineagesR":[{"lineagePattern":"organismer-starte-enk","lineagePath":"../../patterns/02-organismer-70-Modal-01-starte-enk/02-organismer-70-Modal-01-starte-enk.html","lineageState":"needsrevalidation"}],"lineageR":[{"lineagePattern":"organismer-starte-enk","lineagePath":"../../patterns/02-organismer-70-Modal-01-starte-enk/02-organismer-70-Modal-01-starte-enk.html","lineageState":"needsrevalidation"}],"patternLineageEExists":true,"patternDesc":"<p>Felt for å fylle inn gatenavn og postnummer</p>\n","patternBreadcrumb":{"patternType":"organismer","patternSubtype":"forms"},"patternExtension":"mustache","patternName":"Skjema Radio","patternPartial":"organismer-skjema-radio","patternState":"needsrevalidation","patternEngineName":"mustache","extraOutput":{}}
+  </script>
+</div><!--end .sg-pattern-->
+<div id="organismer-skjema-beskrivelse" class="sg-pattern">
+  <div class="sg-pattern-head">
+    <h3 class="sg-pattern-title">
+      <a href="../../patterns/02-organismer-20-forms-60-skjema-beskrivelse&#x2F;02-organismer-20-forms-60-skjema-beskrivelse.html" class="patternLink" data-patternpartial="organismer-skjema-beskrivelse" title="Link to Pattern">
+          Skjema Beskrivelse
+      </a>
+    </h3>
+      <span class="sg-pattern-state needsrevalidation">needsrevalidation</span>
+    <div class="sg-pattern-breadcrumb"></div>
+    <a href="#" data-patternpartial="organismer-skjema-beskrivelse" title="View Pattern Info" id="sg-pattern-extra-toggle-organismer-skjema-beskrivelse" class="sg-pattern-extra-toggle">Info <span>&#9660;</span></a>
+  </div>
+  <div class="sg-pattern-extra" id="sg-pattern-extra-organismer-skjema-beskrivelse">
+
+  </div>
+  <div class="sg-pattern-example">
+    <form data-toggle="validator" role="form" action="" class="">
+
+      <div class="form-group a-form-group m-y-3">
+	  <label for="exampleTextarea" class="a-form-label">Fyll inn tekst:</label>
+	  <textarea class="form-control a-textarea" id="exampleTextarea" rows="3" placeholder="Forklarende hjelpetekst med forslag" required></textarea>
+</div>
+
+
+      <fieldset class="form-group">
+
+		<legend class="a-legend">Hvilken knapp vil du velge?
+		</legend>
+
+	<div class="form-check a-radioButtons  ">
+
+			<label class="custom-control custom-radio">
+				<input id="radio26" value="radio26" type="radio"  name="radioish" class="custom-control-input"/>
+				<span class="custom-control-indicator"></span>
+				<span class="a-radioButtons-title">
+					En radioknapp
+				</span>
+
+
+			</label>
+
+			<label class="custom-control custom-radio">
+				<input id="radio27" value="radio27" type="radio"  name="radioish" class="custom-control-input"/>
+				<span class="custom-control-indicator"></span>
+				<span class="a-radioButtons-title">
+					Enda en radioknapp
+				</span>
+
+
+			</label>
+
+
+	</div>
+
+<!--</div>-->
+</fieldset>
+
+
+      <button type="submit" class="a-btn " id=""  false>Sjekk navnet</button> 
 
 
 </form>
 
   </div>
-  <script type="text/json" id="sg-pattern-data-organismer-adresse" class="sg-pattern-data">
-    {"cssEnabled":false,"patternLineageExists":true,"patternLineages":[{"lineagePattern":"atomer-tekst-input","lineagePath":"../../patterns/00-atomer-01-forms-09-tekst-input/00-atomer-01-forms-09-tekst-input.html","lineageState":"needsrevalidation"},{"lineagePattern":"atomer-avkrysningsboks","lineagePath":"../../patterns/00-atomer-01-forms-00-avkrysningsboks/00-atomer-01-forms-00-avkrysningsboks.html","lineageState":"needsrevalidation"}],"lineage":[{"lineagePattern":"atomer-tekst-input","lineagePath":"../../patterns/00-atomer-01-forms-09-tekst-input/00-atomer-01-forms-09-tekst-input.html","lineageState":"needsrevalidation"},{"lineagePattern":"atomer-avkrysningsboks","lineagePath":"../../patterns/00-atomer-01-forms-00-avkrysningsboks/00-atomer-01-forms-00-avkrysningsboks.html","lineageState":"needsrevalidation"}],"patternLineageRExists":true,"patternLineagesR":[{"lineagePattern":"organismer-starte-enk","lineagePath":"../../patterns/02-organismer-70-Modal-01-starte-enk/02-organismer-70-Modal-01-starte-enk.html","lineageState":"needsrevalidation"}],"lineageR":[{"lineagePattern":"organismer-starte-enk","lineagePath":"../../patterns/02-organismer-70-Modal-01-starte-enk/02-organismer-70-Modal-01-starte-enk.html","lineageState":"needsrevalidation"}],"patternLineageEExists":true,"patternDesc":"<p>Felt for å fylle inn gatenavn og postnummer</p>\n","patternBreadcrumb":{"patternType":"organismer","patternSubtype":"forms"},"patternExtension":"mustache","patternName":"Adresse","patternPartial":"organismer-adresse","patternState":"needsrevalidation","patternEngineName":"mustache","extraOutput":{}}
+  <script type="text/json" id="sg-pattern-data-organismer-skjema-beskrivelse" class="sg-pattern-data">
+    {"cssEnabled":false,"patternLineageExists":true,"patternLineages":[{"lineagePattern":"atomer-tekstfelt","lineagePath":"../../patterns/00-atomer-01-forms-35-tekstfelt/00-atomer-01-forms-35-tekstfelt.html","lineageState":"needsrevalidation"},{"lineagePattern":"atomer-radioknapp","lineagePath":"../../patterns/00-atomer-01-forms-03-radioknapp/00-atomer-01-forms-03-radioknapp.html","lineageState":"needsrevalidation"},{"lineagePattern":"atomer-knapp","lineagePath":"../../patterns/00-atomer-03-knapper-10-knapp/00-atomer-03-knapper-10-knapp.html","lineageState":"needsrevalidation"}],"lineage":[{"lineagePattern":"atomer-tekstfelt","lineagePath":"../../patterns/00-atomer-01-forms-35-tekstfelt/00-atomer-01-forms-35-tekstfelt.html","lineageState":"needsrevalidation"},{"lineagePattern":"atomer-radioknapp","lineagePath":"../../patterns/00-atomer-01-forms-03-radioknapp/00-atomer-01-forms-03-radioknapp.html","lineageState":"needsrevalidation"},{"lineagePattern":"atomer-knapp","lineagePath":"../../patterns/00-atomer-03-knapper-10-knapp/00-atomer-03-knapper-10-knapp.html","lineageState":"needsrevalidation"}],"patternLineageRExists":true,"patternLineagesR":[{"lineagePattern":"organismer-starte-enk","lineagePath":"../../patterns/02-organismer-70-Modal-01-starte-enk/02-organismer-70-Modal-01-starte-enk.html","lineageState":"needsrevalidation"}],"lineageR":[{"lineagePattern":"organismer-starte-enk","lineagePath":"../../patterns/02-organismer-70-Modal-01-starte-enk/02-organismer-70-Modal-01-starte-enk.html","lineageState":"needsrevalidation"}],"patternLineageEExists":true,"patternDesc":"<p>Felt for å fylle inn gatenavn og postnummer</p>\n","patternBreadcrumb":{"patternType":"organismer","patternSubtype":"forms"},"patternExtension":"mustache","patternName":"Skjema Beskrivelse","patternPartial":"organismer-skjema-beskrivelse","patternState":"needsrevalidation","patternEngineName":"mustache","extraOutput":{}}
   </script>
 </div><!--end .sg-pattern-->
 <div id="viewall-organismer-seksjoner" class="sg-pattern-category">
@@ -1077,7 +1484,7 @@
 
   </div>
   <script type="text/json" id="sg-pattern-data-organismer-artikkel-liste" class="sg-pattern-data">
-    {"cssEnabled":false,"patternLineageExists":true,"patternLineages":[{"lineagePattern":"molekyler-artikkel-teaser","lineagePath":"../../patterns/01-molekyler-03-media-20-artikkel-teaser/01-molekyler-03-media-20-artikkel-teaser.html","lineageState":"needsrevalidation"},{"lineagePattern":"atomer-link","lineagePath":"../../patterns/00-atomer-02-lenker-00-link/00-atomer-02-lenker-00-link.html","lineageState":"needsrevalidation"}],"lineage":[{"lineagePattern":"molekyler-artikkel-teaser","lineagePath":"../../patterns/01-molekyler-03-media-20-artikkel-teaser/01-molekyler-03-media-20-artikkel-teaser.html","lineageState":"needsrevalidation"},{"lineagePattern":"atomer-link","lineagePath":"../../patterns/00-atomer-02-lenker-00-link/00-atomer-02-lenker-00-link.html","lineageState":"needsrevalidation"}],"patternLineageRExists":true,"patternLineagesR":[{"lineagePattern":"maler-artikkel","lineagePath":"../../patterns/03-maler-05-artikkel-10-artikkel/03-maler-05-artikkel-10-artikkel.html","lineageState":"needsrevalidation"},{"lineagePattern":"maler-artikkel-jumbo","lineagePath":"../../patterns/03-maler-05-artikkel-11-artikkel-jumbo/03-maler-05-artikkel-11-artikkel-jumbo.html","lineageState":"needsrevalidation"}],"lineageR":[{"lineagePattern":"maler-artikkel","lineagePath":"../../patterns/03-maler-05-artikkel-10-artikkel/03-maler-05-artikkel-10-artikkel.html","lineageState":"needsrevalidation"},{"lineagePattern":"maler-artikkel-jumbo","lineagePath":"../../patterns/03-maler-05-artikkel-11-artikkel-jumbo/03-maler-05-artikkel-11-artikkel-jumbo.html","lineageState":"needsrevalidation"}],"patternLineageEExists":true,"patternDesc":"","patternBreadcrumb":{"patternType":"organismer","patternSubtype":"seksjoner"},"patternExtension":"mustache","patternName":"Artikkel Liste","patternPartial":"organismer-artikkel-liste","patternState":"needsrevalidation","patternEngineName":"mustache","extraOutput":{}}
+    {"cssEnabled":false,"patternLineageExists":true,"patternLineages":[{"lineagePattern":"molekyler-artikkel-teaser","lineagePath":"../../patterns/01-molekyler-03-media-20-artikkel-teaser/01-molekyler-03-media-20-artikkel-teaser.html","lineageState":"needsrevalidation"},{"lineagePattern":"atomer-link","lineagePath":"../../patterns/00-atomer-02-lenker-00-link/00-atomer-02-lenker-00-link.html","lineageState":"needsrevalidation"}],"lineage":[{"lineagePattern":"molekyler-artikkel-teaser","lineagePath":"../../patterns/01-molekyler-03-media-20-artikkel-teaser/01-molekyler-03-media-20-artikkel-teaser.html","lineageState":"needsrevalidation"},{"lineagePattern":"atomer-link","lineagePath":"../../patterns/00-atomer-02-lenker-00-link/00-atomer-02-lenker-00-link.html","lineageState":"needsrevalidation"}],"patternLineageRExists":true,"patternLineagesR":[{"lineagePattern":"maler-artikkel","lineagePath":"../../patterns/03-maler-05-artikkel-10-artikkel/03-maler-05-artikkel-10-artikkel.html","lineageState":"needsrevalidation"},{"lineagePattern":"maler-artikkel-jumbo","lineagePath":"../../patterns/03-maler-05-artikkel-11-artikkel-jumbo/03-maler-05-artikkel-11-artikkel-jumbo.html","lineageState":"inreview"}],"lineageR":[{"lineagePattern":"maler-artikkel","lineagePath":"../../patterns/03-maler-05-artikkel-10-artikkel/03-maler-05-artikkel-10-artikkel.html","lineageState":"needsrevalidation"},{"lineagePattern":"maler-artikkel-jumbo","lineagePath":"../../patterns/03-maler-05-artikkel-11-artikkel-jumbo/03-maler-05-artikkel-11-artikkel-jumbo.html","lineageState":"inreview"}],"patternLineageEExists":true,"patternDesc":"","patternBreadcrumb":{"patternType":"organismer","patternSubtype":"seksjoner"},"patternExtension":"mustache","patternName":"Artikkel Liste","patternPartial":"organismer-artikkel-liste","patternState":"needsrevalidation","patternEngineName":"mustache","extraOutput":{}}
   </script>
 </div><!--end .sg-pattern-->
 <div id="organismer-sammenligning" class="sg-pattern">
@@ -1096,7 +1503,7 @@
   </div>
   <div class="sg-pattern-example">
     <div class="a-compare-category">
-  <h2>Kategori</h2>
+    <h2>Kategori</h2>
   <div class="container">
     <div class="row">
         <div class="a-compare-container col-md col-max-4">
@@ -1145,7 +1552,7 @@
 
   </div>
   <script type="text/json" id="sg-pattern-data-organismer-sammenligning" class="sg-pattern-data">
-    {"cssEnabled":false,"patternLineageExists":true,"patternLineages":[{"lineagePattern":"molekyler-sammenligningselement","lineagePath":"../../patterns/01-molekyler-00-tekst-06-sammenligningselement/01-molekyler-00-tekst-06-sammenligningselement.html"}],"lineage":[{"lineagePattern":"molekyler-sammenligningselement","lineagePath":"../../patterns/01-molekyler-00-tekst-06-sammenligningselement/01-molekyler-00-tekst-06-sammenligningselement.html"}],"patternLineageRExists":true,"patternLineagesR":[{"lineagePattern":"maler-guide","lineagePath":"../../patterns/03-maler-05-artikkel-20-guide/03-maler-05-artikkel-20-guide.html","lineageState":"needsrevalidation"},{"lineagePattern":"maler-guide-resultat","lineagePath":"../../patterns/03-maler-05-artikkel-21-guide-resultat/03-maler-05-artikkel-21-guide-resultat.html","lineageState":"needsrevalidation"}],"lineageR":[{"lineagePattern":"maler-guide","lineagePath":"../../patterns/03-maler-05-artikkel-20-guide/03-maler-05-artikkel-20-guide.html","lineageState":"needsrevalidation"},{"lineagePattern":"maler-guide-resultat","lineagePath":"../../patterns/03-maler-05-artikkel-21-guide-resultat/03-maler-05-artikkel-21-guide-resultat.html","lineageState":"needsrevalidation"}],"patternLineageEExists":true,"patternDesc":"<p>Foreløpig ingen retningslinjer.</p>\n","patternBreadcrumb":{"patternType":"organismer","patternSubtype":"seksjoner"},"patternExtension":"mustache","patternName":"Sammenligning","patternPartial":"organismer-sammenligning","patternState":"needsrevalidation","patternEngineName":"mustache","extraOutput":{}}
+    {"cssEnabled":false,"patternLineageExists":true,"patternLineages":[{"lineagePattern":"molekyler-sammenligningselement","lineagePath":"../../patterns/01-molekyler-00-tekst-06-sammenligningselement/01-molekyler-00-tekst-06-sammenligningselement.html"}],"lineage":[{"lineagePattern":"molekyler-sammenligningselement","lineagePath":"../../patterns/01-molekyler-00-tekst-06-sammenligningselement/01-molekyler-00-tekst-06-sammenligningselement.html"}],"patternLineageRExists":true,"patternLineagesR":[{"lineagePattern":"maler-guide","lineagePath":"../../patterns/03-maler-05-artikkel-20-guide/03-maler-05-artikkel-20-guide.html","lineageState":"needsrevalidation"},{"lineagePattern":"maler-guide-resultat","lineagePath":"../../patterns/03-maler-05-artikkel-21-guide-resultat/03-maler-05-artikkel-21-guide-resultat.html","lineageState":"inreview"},{"lineagePattern":"maler-artikkel-jumbo-starte-enk","lineagePath":"../../patterns/03-maler-30-starte-og-drive-11-artikkel-jumbo-starte-enk/03-maler-30-starte-og-drive-11-artikkel-jumbo-starte-enk.html","lineageState":"inreview"}],"lineageR":[{"lineagePattern":"maler-guide","lineagePath":"../../patterns/03-maler-05-artikkel-20-guide/03-maler-05-artikkel-20-guide.html","lineageState":"needsrevalidation"},{"lineagePattern":"maler-guide-resultat","lineagePath":"../../patterns/03-maler-05-artikkel-21-guide-resultat/03-maler-05-artikkel-21-guide-resultat.html","lineageState":"inreview"},{"lineagePattern":"maler-artikkel-jumbo-starte-enk","lineagePath":"../../patterns/03-maler-30-starte-og-drive-11-artikkel-jumbo-starte-enk/03-maler-30-starte-og-drive-11-artikkel-jumbo-starte-enk.html","lineageState":"inreview"}],"patternLineageEExists":true,"patternDesc":"<p>Foreløpig ingen retningslinjer.</p>\n","patternBreadcrumb":{"patternType":"organismer","patternSubtype":"seksjoner"},"patternExtension":"mustache","patternName":"Sammenligning","patternPartial":"organismer-sammenligning","patternState":"needsrevalidation","patternEngineName":"mustache","extraOutput":{}}
   </script>
 </div><!--end .sg-pattern-->
 <div id="organismer-grupperte-kort" class="sg-pattern">
@@ -1313,8 +1720,8 @@
 
   </div>
   <div class="sg-pattern-example">
-    <div class="a-chat">
-    <p>Chat</p>
+    <div class="a-chat" id="chat">
+    <p>Chat<i class="material-icons a-modal-close-icon" id="close-chat">close</i></p>
     <div class="a-chat-scrollarea">
         <div class="a-textBubble ">
     Hei! Kan jeg hjelpe deg?
@@ -1367,34 +1774,34 @@
 
       <div class="form-group a-form-group  " data-toggle="" data-delay="">
 
-    <div class="a-form-group-items input-group ">
+    <div class="a-form-group-items input-group  ">
 
       <!-- Label -->
-      <label class="a-form-label sr-only input-group-addon" for="text-input-search-11">
-          Ditt spørsmål her
+      <label class="a-form-label sr-only input-group-addon" for="chat">
+          Skriv her
       </label>
 
       <!-- Input  -->
-      <input type="text" 
-        class="form-control  form-control-noAddon " 
-        id="text-input-search-11" 
-        
+        <input type="text" 
+          class="form-control  form-control-noAddon " 
+          id="chat" 
           
-         placeholder="Ditt spørsmål her" 
-         value="" 
-         maxlength=""
-         data-error="" 
-         
-        data-search-algorithm=""
-        data-search-target="">
-      <i class="fa fa-check-circle form-control-feedback"></i><span class="sr-only">Icon showing if input is valid or not</span>
+           
+          placeholder="Skriv her" 
+          value="" 
+          maxlength=""
+          data-error="" 
+          
+          data-search-algorithm=""
+          data-search-target="">
+        <i class="fa fa-check-circle form-control-feedback"></i><span class="sr-only">Icon showing if input is valid or not</span>
 
-      <!-- button -->
-      <div class="input-group-btn">
-        <button class="btn btn-secondary" type="button">
-          <i class="material-icons"><span class="sr-only">Send</span>&#xE163;</i>
-        </button>
-      </div>
+        <!-- button -->
+        <div class="input-group-btn">
+          <button class="btn btn-secondary" type="button">
+            <i class="material-icons"><span class="sr-only">Send</span>&#xE163;</i>
+          </button>
+        </div>
 
 
     </div>
@@ -1496,9 +1903,9 @@
         <div class="a-personRole">
   <i class="material-icons a-personRole-icon">&#xE7FD;</i>
   <div class="a-personRole-text">
-    <span class="a-personRole-name">Jan Pettersen</span>
-    <span class="tag tag-primary a-label label-pill">8</span>
-    <span class="a-personRole-role">Personnr. 241287 12345</span>
+    <span class="a-personRole-name">Olga Organisme</span>
+    <span class="tag tag-primary a-label label-pill">9</span>
+    <span class="a-personRole-role">Personnr. 123456 12345</span>
   </div>
 </div>
 
@@ -1519,7 +1926,7 @@
 
       <div class="form-group a-form-group  " data-toggle="" data-delay="">
 
-    <div class="a-form-group-items input-group ">
+    <div class="a-form-group-items input-group  ">
 
       <!-- Label -->
       <label class="a-form-label  input-group-addon" for="text-input-find-13">
@@ -1528,26 +1935,26 @@
       </label>
 
       <!-- Input  -->
-      <input type="search" 
-        class="form-control  a-form-control-withBtn " 
-        id="text-input-find-13" 
-        
+        <input type="search" 
+          class="form-control  a-form-control-withBtn " 
+          id="text-input-find-13" 
           
-         placeholder="Hvem leter du etter?" 
-         value="" 
-         maxlength=""
-         data-error="" 
-         
-        data-search-algorithm=""
-        data-search-target="">
-      <i class="fa fa-check-circle form-control-feedback"></i><span class="sr-only">Icon showing if input is valid or not</span>
+           
+          placeholder="Hvem leter du etter?" 
+          value="" 
+          maxlength=""
+          data-error="" 
+          
+          data-search-algorithm=""
+          data-search-target="">
+        <i class="fa fa-check-circle form-control-feedback"></i><span class="sr-only">Icon showing if input is valid or not</span>
 
-      <!-- button -->
-      <div class="input-group-btn">
-        <button class="btn btn-secondary" type="button">
-          <i class="material-icons"><span class="sr-only">Utfør søk</span>&#xE8B6;</i>
-        </button>
-      </div>
+        <!-- button -->
+        <div class="input-group-btn">
+          <button class="btn btn-secondary" type="button">
+            <i class="material-icons"><span class="sr-only">Utfør søk</span>&#xE8B6;</i>
+          </button>
+        </div>
 
 
     </div>
@@ -1562,49 +1969,40 @@
 
   <div class="p-t-1 p-l-1 p-r-1">
 
-    <button type="button" class="a-btn a-btn-shadow " onclick="location.href='';">
+      <button type="button" class="a-btn a-btn-shadow " onclick="location.href='';">
 	<i class="material-icons a-btn-shadow-icon">&#xE85C;</i>
 
 	Effektive timer AS
-<span class="tag tag-primary a-label tag-pill" id=label>3</span>
+		<span class="tag tag-primary a-label tag-pill" id=label>3</span>
+
 
 </button>
 
-
-    <button type="button" class="a-btn a-btn-shadow " onclick="location.href='/patterns/04-sider-01-forside-00-forside-innlogget-med-langt-navn/04-sider-01-forside-00-forside-innlogget-med-langt-navn.html';">
+      <button type="button" class="a-btn a-btn-shadow " onclick="location.href='/patterns/04-sider-01-forside-00-forside-innlogget-med-langt-navn/04-sider-01-forside-00-forside-innlogget-med-langt-navn.html';">
 	<i class="material-icons a-btn-shadow-icon">&#xE85C;</i>
 
 	Johansen Regnskap AS
 
 </button>
 
-
-    <button type="button" class="a-btn a-btn-shadow " onclick="location.href='';">
+      <button type="button" class="a-btn a-btn-shadow " onclick="location.href='';">
 	<i class="material-icons a-btn-shadow-icon">&#xE85C;</i>
 
 	Nidar AS
 
 </button>
 
-
-    <button type="button" class="a-btn a-btn-shadow a-bgGreyLight" onclick="location.href='';">
+      <button type="button" class="a-btn a-btn-shadow a-bgGreyLight" onclick="location.href='';">
 	<i class="material-icons a-btn-shadow-icon">&#xE85C;</i>
 
 	Filip Gran
-<span class="tag tag-primary a-label tag-pill" id=label>3</span>
+		<span class="tag tag-primary a-label tag-pill" id=label>3</span>
+
 
 </button>
 
 
-    <button type="button" class="a-btn a-btn-shadow " onclick="location.href='';">
-	<i class="material-icons a-btn-shadow-icon">&#xE85C;</i>
-
-	Pritt AS
-
-</button>
-
-
-    <a href="" class="a-btn a-btn-withIcon p-y-1 p-x-2">
+    <a href="" class="a-btn a-btn-withIcon p-t-1 p-x-2">
 	<i class="material-icons a-btn-withIcon-icon">&#xE145;</i>
 	Last flere
 </a>
@@ -1652,9 +2050,9 @@
               <div class="a-personRole">
   <i class="material-icons a-personRole-icon">&#xE7FD;</i>
   <div class="a-personRole-text">
-    <span class="a-personRole-name">Jan Pettersen</span>
-    <span class="tag tag-primary a-label label-pill">8</span>
-    <span class="a-personRole-role">Personnr. 241287 12345</span>
+    <span class="a-personRole-name">Olga Organisme</span>
+    <span class="tag tag-primary a-label label-pill">9</span>
+    <span class="a-personRole-role">Personnr. 123456 12345</span>
   </div>
 </div>
 
@@ -1685,7 +2083,7 @@
 
         <div class="form-group a-form-group  " data-toggle="" data-delay="">
 
-    <div class="a-form-group-items input-group ">
+    <div class="a-form-group-items input-group  ">
 
       <!-- Label -->
       <label class="a-form-label  input-group-addon" for="text-input-find-13">
@@ -1694,26 +2092,26 @@
       </label>
 
       <!-- Input  -->
-      <input type="search" 
-        class="form-control  a-form-control-withBtn " 
-        id="text-input-find-13" 
-        
+        <input type="search" 
+          class="form-control  a-form-control-withBtn " 
+          id="text-input-find-13" 
           
-         placeholder="Hvem leter du etter?" 
-         value="" 
-         maxlength=""
-         data-error="" 
-         
-        data-search-algorithm=""
-        data-search-target="">
-      <i class="fa fa-check-circle form-control-feedback"></i><span class="sr-only">Icon showing if input is valid or not</span>
+           
+          placeholder="Hvem leter du etter?" 
+          value="" 
+          maxlength=""
+          data-error="" 
+          
+          data-search-algorithm=""
+          data-search-target="">
+        <i class="fa fa-check-circle form-control-feedback"></i><span class="sr-only">Icon showing if input is valid or not</span>
 
-      <!-- button -->
-      <div class="input-group-btn">
-        <button class="btn btn-secondary" type="button">
-          <i class="material-icons"><span class="sr-only">Utfør søk</span>&#xE8B6;</i>
-        </button>
-      </div>
+        <!-- button -->
+        <div class="input-group-btn">
+          <button class="btn btn-secondary" type="button">
+            <i class="material-icons"><span class="sr-only">Utfør søk</span>&#xE8B6;</i>
+          </button>
+        </div>
 
 
     </div>
@@ -1872,15 +2270,15 @@
 </ol>
 
 
-<h1 class="din-bold ">Tittelen på siden</h1>
+<h1 class="din-bold ">Tittel på siden</h1>
 
 
-<p class="a-leadText" id="leadText"></p>
+<p class="a-leadText" id="leadText">Ingress er et kort innledende avsnitt som vanligvis plasseres mellom overskriften og brødteksten. Ingressen brukes ofte til å &quot;gripe&quot; fatt i leseren, for at personen skal bli interessert i å lese resten av teksten. Den fungerer også som et visuelt skille mellom resten av teksten. Ingressen bør være lettlest og fri for vanskelige faguttrykk.</p>
 
 
 
 <div class="a-byline">
-   
+  Sist oppdatert 11.10.2016
 </div>
 
 
@@ -1913,26 +2311,95 @@
   </div>
   <div class="sg-pattern-example">
     <div class="panel panel-default a-panel a-collapse" role="tablist">
-  <div class="panel-heading index-heading clearfix collapsed a-collapse-heading a-panel-heading" role="tab">
+	<div class="panel-heading index-heading clearfix collapsed a-collapse-heading a-panel-heading" role="tab">
   <a class="a-collapseBtn collapsed center-table-text" data-toggle="collapse" data-parent="#accordion" data-target="#klientdelegering" href="#" aria-expanded="false" aria-controls="klientdelegering">
     <i class="material-icons a-panel-heading-icon">dashboard</i>
     <div class="a-panel-heading-text"><h2>Klientdelegering</h2></div>
   </a>
 </div>
 
-  <div id="klientdelegering" class="panel-collapse a-panel-collapse collapse" role="tabpanel" aria-labelledby="klientdelegering">
-   <p class="a-text a-panel-collapse-content">
+	<div id="klientdelegering" class="panel-collapse a-panel-collapse collapse" role="tabpanel" aria-labelledby="klientdelegering">
+		<div class="panel-collapse-content-section p-x-2 p-b-2">
+			<div class="first-action p-t-3">
+				<div class="switch-container">
+        <div class="radio">
+            <input type="radio" id=switch-cb1 name=switch-cb checked> 
+            <label for=switch-cb1>Valg1</label>
+        </div>
+        <div class="radio">
+            <input type="radio" id=switch-cb2 name=switch-cb > 
+            <label for=switch-cb2>Valg2</label>
+        </div>
+</div>
+
+
+			</div>
+				<div class="third-action p-t-3">
+					<button type="button" class="a-btn-link " id="" onclick="location.href='../.."/patterns/04-sider-01-forside-00-forside/04-sider-01-forside-00-forside.html'" false>Klientdelegering på fil</button> 
+
+				</div>
+			<div class="second-action p-t-3">
+					<div class="form-group a-form-group  " data-toggle="" data-delay="">
+
+    <div class="a-form-group-items input-group   transparent ">
+
+      <!-- Label -->
+      <label class="a-form-label  input-group-addon" for="text-input-find-13">
+            <i class="material-icons"> &#xE1DB; </i>
+          <span class="sr-only">Finn skjema eller tjeneste</span>
+      </label>
+
+      <!-- Input  -->
+        <input type="search" 
+          class="form-control  a-form-control-withBtn p-l-0" 
+          id="text-input-find-13" 
+          
+           
+          placeholder="Hvem leter du etter?" 
+          value="" 
+          maxlength=""
+          data-error="" 
+          
+          data-search-algorithm=""
+          data-search-target="">
+        <i class="fa fa-check-circle form-control-feedback"></i><span class="sr-only">Icon showing if input is valid or not</span>
+
+        <!-- button -->
+        <div class="input-group-btn">
+          <button class="btn btn-secondary" type="button">
+            <i class="material-icons"><span class="sr-only">Utfør søk</span>&#xE8B6;</i>
+          </button>
+        </div>
+
+
+    </div>
 
 
 
 
-    </p>
   </div>
+
+			</div>
+
+			<div class="fourth-action m-t-3">
+					<button type="button" class="a-btn a-btn-action a-fullWidthBtn">
+    <i class="material-icons a-btn-action-icon">&#xE145;</i> En knapp for å legge til
+</button>
+ 
+			</div>
+		</div>
+		<div>
+			<div id="firstTable">
+			</div>
+			<div id="secondTable" style="display: none">
+			</div>
+		</div>
+	</div>
 </div>
 
   </div>
   <script type="text/json" id="sg-pattern-data-organismer-klientdelegering" class="sg-pattern-data">
-    {"cssEnabled":false,"patternLineageExists":true,"patternLineages":[{"lineagePattern":"molekyler-panel-header","lineagePath":"../../patterns/01-molekyler-30-ekspanderbart-panel-elementer-10-panel-header/01-molekyler-30-ekspanderbart-panel-elementer-10-panel-header.html","lineageState":"inprogress"}],"lineage":[{"lineagePattern":"molekyler-panel-header","lineagePath":"../../patterns/01-molekyler-30-ekspanderbart-panel-elementer-10-panel-header/01-molekyler-30-ekspanderbart-panel-elementer-10-panel-header.html","lineageState":"inprogress"}],"patternLineageRExists":true,"patternLineagesR":[{"lineagePattern":"maler-klientdelegering","lineagePath":"../../patterns/03-maler-60-profil-roller-rettigheter-50-klientdelegering/03-maler-60-profil-roller-rettigheter-50-klientdelegering.html","lineageState":"needsrevalidation"}],"lineageR":[{"lineagePattern":"maler-klientdelegering","lineagePath":"../../patterns/03-maler-60-profil-roller-rettigheter-50-klientdelegering/03-maler-60-profil-roller-rettigheter-50-klientdelegering.html","lineageState":"needsrevalidation"}],"patternLineageEExists":true,"patternDesc":"<p>Ekspanderbart panel for klientdelegering.</p>\n","patternBreadcrumb":{"patternType":"organismer","patternSubtype":"ekspanderbart-panel"},"patternExtension":"mustache","patternName":"Klientdelegering","patternPartial":"organismer-klientdelegering","patternState":"inprogress","patternEngineName":"mustache","extraOutput":{}}
+    {"cssEnabled":false,"patternLineageExists":true,"patternLineages":[{"lineagePattern":"molekyler-panel-header","lineagePath":"../../patterns/01-molekyler-30-ekspanderbart-panel-elementer-10-panel-header/01-molekyler-30-ekspanderbart-panel-elementer-10-panel-header.html","lineageState":"inprogress"},{"lineagePattern":"atomer-knapp-veksle","lineagePath":"../../patterns/00-atomer-04-handlingsknapper-23-knapp-veksle/00-atomer-04-handlingsknapper-23-knapp-veksle.html","lineageState":"indesignreview"},{"lineagePattern":"atomer-knapp","lineagePath":"../../patterns/00-atomer-03-knapper-10-knapp/00-atomer-03-knapper-10-knapp.html","lineageState":"needsrevalidation"},{"lineagePattern":"atomer-tekst-input","lineagePath":"../../patterns/00-atomer-01-forms-09-tekst-input/00-atomer-01-forms-09-tekst-input.html","lineageState":"needsrevalidation"},{"lineagePattern":"atomer-handlingsknapp","lineagePath":"../../patterns/00-atomer-04-handlingsknapper-17-handlingsknapp/00-atomer-04-handlingsknapper-17-handlingsknapp.html","lineageState":"needsrevalidation"},{"lineagePattern":"atomer-tabell-sorterbar-variant","lineagePath":"../../patterns/00-atomer-06-tabeller-12-tabell-sorterbar-variant/00-atomer-06-tabeller-12-tabell-sorterbar-variant.html","lineageState":"indesignreview"}],"lineage":[{"lineagePattern":"molekyler-panel-header","lineagePath":"../../patterns/01-molekyler-30-ekspanderbart-panel-elementer-10-panel-header/01-molekyler-30-ekspanderbart-panel-elementer-10-panel-header.html","lineageState":"inprogress"},{"lineagePattern":"atomer-knapp-veksle","lineagePath":"../../patterns/00-atomer-04-handlingsknapper-23-knapp-veksle/00-atomer-04-handlingsknapper-23-knapp-veksle.html","lineageState":"indesignreview"},{"lineagePattern":"atomer-knapp","lineagePath":"../../patterns/00-atomer-03-knapper-10-knapp/00-atomer-03-knapper-10-knapp.html","lineageState":"needsrevalidation"},{"lineagePattern":"atomer-tekst-input","lineagePath":"../../patterns/00-atomer-01-forms-09-tekst-input/00-atomer-01-forms-09-tekst-input.html","lineageState":"needsrevalidation"},{"lineagePattern":"atomer-handlingsknapp","lineagePath":"../../patterns/00-atomer-04-handlingsknapper-17-handlingsknapp/00-atomer-04-handlingsknapper-17-handlingsknapp.html","lineageState":"needsrevalidation"},{"lineagePattern":"atomer-tabell-sorterbar-variant","lineagePath":"../../patterns/00-atomer-06-tabeller-12-tabell-sorterbar-variant/00-atomer-06-tabeller-12-tabell-sorterbar-variant.html","lineageState":"indesignreview"}],"patternLineageRExists":true,"patternLineagesR":[{"lineagePattern":"maler-klientdelegering","lineagePath":"../../patterns/03-maler-60-profil-roller-rettigheter-50-klientdelegering/03-maler-60-profil-roller-rettigheter-50-klientdelegering.html","lineageState":"inprogress"}],"lineageR":[{"lineagePattern":"maler-klientdelegering","lineagePath":"../../patterns/03-maler-60-profil-roller-rettigheter-50-klientdelegering/03-maler-60-profil-roller-rettigheter-50-klientdelegering.html","lineageState":"inprogress"}],"patternLineageEExists":true,"patternDesc":"<p>Ekspanderbart panel for klientdelegering.</p>\n","patternBreadcrumb":{"patternType":"organismer","patternSubtype":"ekspanderbart-panel"},"patternExtension":"mustache","patternName":"Klientdelegering","patternPartial":"organismer-klientdelegering","patternState":"inprogress","patternEngineName":"mustache","extraOutput":{}}
   </script>
 </div><!--end .sg-pattern-->
 <div id="viewall-organismer-Modal" class="sg-pattern-category">
@@ -1960,67 +2427,128 @@
   <div class="sg-pattern-example">
     <!-- Modal -->
 <span class="a-scene a-page">
-  <div class="a-modal " id="modalExample" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="a-modal " id="" tabindex="-1" role="dialog" aria-labelledby="" aria-hidden="true">
     <div class="modal-dialog modal-lg" role="document">
 
       <div class="container">
         <div class="row">
           <div class="col-md-12">
 
-            <!-- Modal Top -->
-            <div class="a-modal-top">
-              <a href="../../&#x2F;patterns&#x2F;04-sider-01-forside-00-forside&#x2F;04-sider-01-forside-00-forside.html" class="no-decoration">
-                
-<img src="..&#x2F;..&#x2F;images&#x2F;a-logo-white.svg" alt="Altinn logo" class="a-logo  ">
+            <!-- Modal Header -->
+              <div class="a-modal-top">
+  <a href="../../&#x2F;patterns&#x2F;04-sider-01-forside-00-forside&#x2F;04-sider-01-forside-00-forside.html" class="no-decoration">
+    
+<img src="..&#x2F;..&#x2F;images&#x2F;a-logo-white.svg" alt="Altinn logo" class="a-logo a-modal-top-logo ">
 
-              </a>
-              <div class="a-modal-top-user">
-                <a
-  class="nav-link a-personSwitcher"
-  data-toggle=""
-  href=""
-  role="button"
-  aria-haspopup="true"
-  aria-expanded="false">
+  </a>
+    <div class="a-modal-top-user">
+      
+<button class="nav-link dropdown-toggle a-personSwitcher" type="button" id="dropdownMenuButton" data-toggle="dropdown"  data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
   <span
-    class="a-personSwitcher-name hidden-sm-down"
-    title="Logg inn ">
-    Logg inn
+    class="a-personSwitcher-name"
+    title="Jan Pettersen ">
+    Jan Pettersen
     <br>
     
   </span>
   <i class="material-icons a-personSwitcher-icon">&#xE853;</i>
-</a>
+</button>
 
-              </div>
-            </div><!-- END Modal Top -->
+    </div>
+</div>
+
+            <!-- END Modal Header -->
 
           </div>
         </div>
 
         <div class="row">
-          <div class="col-md-10 offset-md-1">
+          <div class="col-xl-10 offset-xl-1">
 
             <!-- Modal NavBar -->
-            <div class="a-modal-navbar">
+                <div class="a-modal-navbar">
+        <button
+  type="button"
+  class="a-modal-back"
+  data-dismiss="modal"
+  onclick="goBack()"
+  aria-label="Lukk"
+    data-toggle="popover"
+    data-placement="bottom"
+    data-popover-content="sampleIdPopover"
+    data-template="<div class='popover popover-warning' role='tooltip'>
+  <div class='popover-arrow'></div>
+  <h3 class='popover-title'></h3>
+  <div class='popover-content'></div>
+</div>
+"
+  >
+  <i class="material-icons a-modal-back-icon">keyboard_backspace</i>
+</button>
 
-              <button type="button" class="a-modal-close" onclick="location.href='../../&#x2F;patterns&#x2F;04-sider-30-starte-og-drive-30-starteogdrive&#x2F;04-sider-30-starte-og-drive-30-starteogdrive.html';" data-dismiss="modal" aria-label="Lukk">
-                <i class="material-icons a-modal-close-icon">close</i>
-              </button>
+  <div id="sampleIdPopover" class="hidden-xs-up">
+    <div class="p-y-1">Dette er en popover tekst</div>
+      <button type="button" class="a-btn a-btn-danger m-r-1" id="" onclick="location.href='../.."/patterns/04-sider-01-forside-00-forside/04-sider-01-forside-00-forside.html'" false>knapp</button> 
 
-            </div><!-- END Modal NavBar -->
+      <button type="button" class="a-btn-link a-link a-link-danger m-r-1" id="" onclick="location.href='../.."/patterns/04-sider-01-forside-00-forside/04-sider-01-forside-00-forside.html'" false>link</button> 
+
+  </div>
+
+        <button
+  type="button"
+  class="a-modal-close"
+  data-dismiss="modal"
+  onclick="location.href='../../patterns/04-sider-30-starte-og-drive-30-starteogdrive/04-sider-30-starte-og-drive-30-starteogdrive.html';"
+  aria-label="Lukk"
+    data-toggle="popover"
+    data-placement="bottom"
+    data-popover-content="sampleIdPopover"
+    data-template="<div class='popover popover-warning' role='tooltip'>
+  <div class='popover-arrow'></div>
+  <h3 class='popover-title'></h3>
+  <div class='popover-content'></div>
+</div>
+"
+  >
+  <i class="material-icons a-modal-close-icon">close</i>
+</button>
+
+  <div id="sampleIdPopover" class="hidden-xs-up">
+    <div class="p-y-1">Dette er en popover tekst</div>
+      <button type="button" class="a-btn a-btn-danger m-r-1" id="" onclick="location.href='../.."/patterns/04-sider-01-forside-00-forside/04-sider-01-forside-00-forside.html'" false>knapp</button> 
+
+      <button type="button" class="a-btn-link a-link a-link-danger m-r-1" id="" onclick="location.href='../.."/patterns/04-sider-01-forside-00-forside/04-sider-01-forside-00-forside.html'" false>link</button> 
+
+  </div>
+
+
+      <script>
+        function goBack() {
+          // window.history.back();
+          var arr = []
+          for (key in smoothState.cache) { arr.push(key) }
+          delete smoothState.cache[arr[arr.length - 1]]
+          arr.splice(-1,1)
+          $('.a-scene_element').addClass('a-tempAnim')
+          smoothState.load(arr[arr.length - 1])
+        }
+      </script>
+
+    </div>
+
+            <!-- END Modal NavBar -->
           </div>
         </div>
 
         <div class="row">
-          <div class="col-md-10 offset-md-1">
+          <div class="col-xl-10 offset-xl-1">
 
             <!-- Modal window -->
-            <span class="a-right-panel a-page a-scene_element a-scene_element--fadeinright">
+            <span class="a-right-panel a-page a-scene_element ">
 
               <div class="modal-content">
 
-                <!-- Modal header -->
+                <!-- Modal Body header -->
                 <div class="a-panelIconLeft a-bgBlueDarker">
                     <i class="material-icons">&#xE0AF;</i>
 
@@ -2032,58 +2560,48 @@
                         <span class="a-panelIconLeft-code">(ENK)</span>
                       </h1>
                     </div>
-                </div> <!-- END Modal header -->
+                </div> <!-- END Modal Body header -->
 
                 <!-- Modal body -->
                 <div class="modal-body a-modal-body">
 
+                  <!-- TITLE -->
 
-                    <h2 class="m-b-2">Tittel på steget
-</h2>
-
-
+                  <!-- INTROTEKST -->
                     <p class="a-leadText" id="leadText">Ingress er et kort innledende avsnitt som vanligvis plasseres mellom overskriften og brødteksten.</p>
 
 
-                    <div class="form-group a-form-group  " data-toggle="" data-delay="">
+                  <!-- BUTTON -->
 
-    <div class="a-form-group-items  ">
-
-      <!-- Label -->
-      <label class="a-form-label  " for="">
-          Firmanavn:
-      </label>
-
-      <!-- Input  -->
-      <input type="" 
-        class="form-control   " 
-        id="" 
-        
-          
-         placeholder="f.eks navnet ditt og bransje" 
-         value="" 
-         maxlength=""
-         data-error="" 
-         
-        data-search-algorithm=""
-        data-search-target="">
-      <i class="fa fa-check-circle form-control-feedback"></i><span class="sr-only">Icon showing if input is valid or not</span>
-
-      <!-- button -->
+                  <!-- INPUT: OWNER INFO -->
 
 
-    </div>
+                  <!-- *********************** --->
+                  <!-- OLD INPUT: ORG NAME REMOVE--->
+                  <!-- *********************** --->
+                  <div class="a-btn-group m-t-2">
+                  </div>
+                  <!-- *********************** --->
+                  <!-- END OLD INPUT: ORG NAME REMOVE--->
+                  <!-- *********************** --->
 
 
 
 
-  </div>
 
+                  <!-- FIND INDUSTY CODE -->
 
-                    <div class="a-modal-contentFullWidth m-t-4">
-                      <fieldset class="form-group">
+                    <!-- INPUT: KEYWORD -->
 
-<!--<div id="" class="custom-controls-stacked a-radioButtons a-radioButtons-stackedList"> -->
+                    <!-- LOADER -->
+
+                    <!-- IF NO RESULTS -->
+
+                    <!-- INPUT: CATEGORY -->
+                      <form data-toggle="validator" role="form" action="/patterns/04-sider-90-starte-enk-00-starte-enk-1/04-sider-90-starte-enk-00-starte-enk-1.html" class="">
+
+  <div class="a-modal-contentFullWidth m-t-4">
+    <fieldset class="form-group">
 
 		<legend class="a-legend">Hvilken knapp vil du velge?
 		</legend>
@@ -2091,7 +2609,7 @@
 	<div class="form-check a-radioButtons  a-radioButtons-stackedList">
 
 			<label class="custom-control custom-radio">
-				<input id="radio20" value="radio20" type="radio" name="radioish" class="custom-control-input"/>
+				<input id="radio20" value="radio20" type="radio" required name="radioish" class="custom-control-input"/>
 				<span class="custom-control-indicator"></span>
 				<span class="a-radioButtons-title">
 					En radioknapp
@@ -2104,7 +2622,7 @@
 			</label>
 
 			<label class="custom-control custom-radio">
-				<input id="radio21" value="radio21" type="radio" name="radioish" class="custom-control-input"/>
+				<input id="radio21" value="radio21" type="radio" required name="radioish" class="custom-control-input"/>
 				<span class="custom-control-indicator"></span>
 				<span class="a-radioButtons-title">
 					Enda en radioknapp som inneholder <strong>mye tekst</strong>
@@ -2122,89 +2640,61 @@
 <!--</div>-->
 </fieldset>
 
-                    </div>
-
-                     <div class="form-group a-form-group m-y-4">
-	  <label for="exampleTextarea" class="a-form-label">Fyll inn tekst:</label>
-	  <textarea class="form-control a-textarea" id="exampleTextarea" rows="3" placeholder="Forklarende hjelpetekst med forslag"></textarea>
-</div>
-
-
-                    <fieldset class="form-group">
-
-<!--<div id="" class=" a-radioButtons "> -->
-
-		<legend class="a-legend">Hvilken knapp vil du velge?
-		</legend>
-
-	<div class="form-check a-radioButtons  ">
-
-			<label class="custom-control custom-radio">
-				<input id="radio26" value="radio26" type="radio" name="radioish" class="custom-control-input"/>
-				<span class="custom-control-indicator"></span>
-				<span class="a-radioButtons-title">
-					En radioknapp
-				</span>
-
-
-			</label>
-
-			<label class="custom-control custom-radio">
-				<input id="radio27" value="radio27" type="radio" name="radioish" class="custom-control-input"/>
-				<span class="custom-control-indicator"></span>
-				<span class="a-radioButtons-title">
-					Enda en radioknapp
-				</span>
-
-
-			</label>
-
-
-	</div>
-
-<!--</div>-->
-</fieldset>
+  </div>
 
 
 
-                    <div class="form-group a-form-group a-form-group-datepicker">
-  <div class="input-group m-t-3">
+  <div class="a-btn-group m-t-2">
+
+      <button type="submit" class="a-btn " id=""  false>Velg denne radioknappen</button> 
+
+
+      
+<a href="../../patterns/04-sider-90-starte-enk-00-starte-enk-2/04-sider-90-starte-enk-00-starte-enk-2.html" id="" class="a-linkArea a-link ">Finn næringskode selv</a>
+
+
+  </div>
+
+</form>
+
+
+                  <!-- END FIND INDUSTY CODE -->
+
+                  <!-- INPUT: DESCRIPTION -->
+
+                  <!-- INPUT: ADRESS -->
+
+                  <!-- INPUT: DATE -->
+                    <form data-toggle="validator" role="form" action="/patterns/04-sider-90-starte-enk-00-starte-enk-1/04-sider-90-starte-enk-00-starte-enk-1.html" class="">
+
+      <div class="form-group a-form-group a-form-group-datepicker">
+  <div class="input-group ">
     <!-- Label -->
     <label class="input-group-addon form-control-noleft" for="inputDate">
       <i class="material-icons">today</i>
       <span class="a-input-labelText control-label"> Oppstartdato: </span>
     </label>
     <!-- Input  -->
-    <input type="text" id="inputDate" class="form-control form-control-noleft date" />
+    <input type="text" id="inputDate" class="form-control form-control-noleft date" required/>
   </div>
 </div>
 
 
+      <button type="submit" class="a-btn m-t-2" id=""  false>Neste</button> 
+
+</form>
 
 
-                  <div class="a-btn-group m-t-2">
-                      <button type="button" class="a-btn" id="" onclick="location.href='../../patterns/04-sider-80-prosess-70-prosess-2/04-sider-80-prosess-70-prosess-2.html';" >Knapp</button> 
-
-
-                      <button type="button" class="a-btn a-btn-success" id="" onclick="location.href='../..';" >Knapp</button> 
-
-
-                      <button type="button" class="a-btn disabled" id="" onclick="location.href='../..';" disabled>Knapp</button> 
-
-
-                      <button type="button" class="a-btn-link" id="" onclick="location.href='../..';" >Knapp</button> 
-
-                  </div>
-
+                  <!-- EXTRA INFO (Footer) -->
                     <ul class="a-bulletList m-x-1 m-t-4 a-bulletList-light">
     <li>
-      Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+      En plan for selskapets vekst og utvikling gir deg noe å styre etter.
     </li>
     <li>
-      Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+      Hvis du selger tjenester bør du signere en avtale med kjøper.
     </li>
     <li>
-      Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+      For å disponere oppstartskapitalen din og prioritere innkjøpene riktig.
     </li>
 </ul>
 
@@ -2214,17 +2704,25 @@
               </div><!-- END .modal-Content -->
 
               <div class="a-link-helpfunction">
-  </i>
-  
-  
+  <i class='fa fa-life-ring'></i>
+
+  Står du fast? Start en
+
+
+    <div class="a-link-chat" id="link-chat">chat</div>
+
+   eller ring oss på
+
+    
+<a href="../..tel:+47 75 00 60 00" id="" class="a-linkArea  ">75 00 60 00</a>
 
 
 </div>
 
 
             </span>  <!-- END Modal window -->
-            <div class="a-chat">
-    <p>Chat</p>
+            <div class="a-chat" id="chat">
+    <p>Chat<i class="material-icons a-modal-close-icon" id="close-chat">close</i></p>
     <div class="a-chat-scrollarea">
         <div class="a-textBubble ">
     Hei! Kan jeg hjelpe deg?
@@ -2275,6 +2773,45 @@
 
     </div>
 
+      <div class="form-group a-form-group  " data-toggle="" data-delay="">
+
+    <div class="a-form-group-items input-group  ">
+
+      <!-- Label -->
+      <label class="a-form-label sr-only input-group-addon" for="chat">
+          Skriv her
+      </label>
+
+      <!-- Input  -->
+        <input type="text" 
+          class="form-control  form-control-noAddon " 
+          id="chat" 
+          
+          required 
+          placeholder="Skriv her" 
+          value="" 
+          maxlength=""
+          data-error="" 
+          
+          data-search-algorithm=""
+          data-search-target="">
+        <i class="fa fa-check-circle form-control-feedback"></i><span class="sr-only">Icon showing if input is valid or not</span>
+
+        <!-- button -->
+        <div class="input-group-btn">
+          <button class="btn btn-secondary" type="button">
+            <i class="material-icons"><span class="sr-only">Send</span>&#xE163;</i>
+          </button>
+        </div>
+
+
+    </div>
+
+
+
+
+  </div>
+
 
 </div>
 
@@ -2290,407 +2827,7 @@
 
   </div>
   <script type="text/json" id="sg-pattern-data-organismer-starte-enk" class="sg-pattern-data">
-    {"cssEnabled":false,"patternLineageExists":true,"patternLineages":[{"lineagePattern":"atomer-logo","lineagePath":"../../patterns/00-atomer-09-bilder-og-media-01-logo/00-atomer-09-bilder-og-media-01-logo.html","lineageState":"needsrevalidation"},{"lineagePattern":"atomer-innlogget","lineagePath":"../../patterns/00-atomer-07-tekst-40-innlogget/00-atomer-07-tekst-40-innlogget.html","lineageState":"needsrevalidation"},{"lineagePattern":"atomer-seksjonstittel","lineagePath":"../../patterns/00-atomer-07-tekst-10-seksjonstittel/00-atomer-07-tekst-10-seksjonstittel.html","lineageState":"needsrevalidation"},{"lineagePattern":"atomer-intro-tekst","lineagePath":"../../patterns/00-atomer-07-tekst-02-intro-tekst/00-atomer-07-tekst-02-intro-tekst.html","lineageState":"needsrevalidation"},{"lineagePattern":"atomer-tekst-input","lineagePath":"../../patterns/00-atomer-01-forms-09-tekst-input/00-atomer-01-forms-09-tekst-input.html","lineageState":"needsrevalidation"},{"lineagePattern":"atomer-radioknapp","lineagePath":"../../patterns/00-atomer-01-forms-03-radioknapp/00-atomer-01-forms-03-radioknapp.html","lineageState":"needsrevalidation"},{"lineagePattern":"atomer-tekstfelt","lineagePath":"../../patterns/00-atomer-01-forms-35-tekstfelt/00-atomer-01-forms-35-tekstfelt.html","lineageState":"needsrevalidation"},{"lineagePattern":"organismer-adresse","lineagePath":"../../patterns/02-organismer-20-forms-30-adresse/02-organismer-20-forms-30-adresse.html","lineageState":"needsrevalidation"},{"lineagePattern":"atomer-datovelger","lineagePath":"../../patterns/00-atomer-01-forms-60-datovelger/00-atomer-01-forms-60-datovelger.html","lineageState":"needsrevalidation"},{"lineagePattern":"atomer-laster-inn","lineagePath":"../../patterns/00-atomer-09-bilder-og-media-07-laster-inn/00-atomer-09-bilder-og-media-07-laster-inn.html","lineageState":"needsrevalidation"},{"lineagePattern":"atomer-avsnitt","lineagePath":"../../patterns/00-atomer-07-tekst-03-avsnitt/00-atomer-07-tekst-03-avsnitt.html","lineageState":"needsrevalidation"},{"lineagePattern":"atomer-knapp","lineagePath":"../../patterns/00-atomer-03-knapper-10-knapp/00-atomer-03-knapper-10-knapp.html","lineageState":"needsrevalidation"},{"lineagePattern":"atomer-liste-unummerert-kuler","lineagePath":"../../patterns/00-atomer-08-lister-07-liste-unummerert-kuler/00-atomer-08-lister-07-liste-unummerert-kuler.html","lineageState":"needsrevalidation"},{"lineagePattern":"atomer-link-hjelpefunksjon","lineagePath":"../../patterns/00-atomer-05-Ekspansjonsknapper-38-link-hjelpefunksjon/00-atomer-05-Ekspansjonsknapper-38-link-hjelpefunksjon.html","lineageState":"needsrevalidation"},{"lineagePattern":"organismer-chat","lineagePath":"../../patterns/02-organismer-30-seksjoner-28-chat/02-organismer-30-seksjoner-28-chat.html"}],"lineage":[{"lineagePattern":"atomer-logo","lineagePath":"../../patterns/00-atomer-09-bilder-og-media-01-logo/00-atomer-09-bilder-og-media-01-logo.html","lineageState":"needsrevalidation"},{"lineagePattern":"atomer-innlogget","lineagePath":"../../patterns/00-atomer-07-tekst-40-innlogget/00-atomer-07-tekst-40-innlogget.html","lineageState":"needsrevalidation"},{"lineagePattern":"atomer-seksjonstittel","lineagePath":"../../patterns/00-atomer-07-tekst-10-seksjonstittel/00-atomer-07-tekst-10-seksjonstittel.html","lineageState":"needsrevalidation"},{"lineagePattern":"atomer-intro-tekst","lineagePath":"../../patterns/00-atomer-07-tekst-02-intro-tekst/00-atomer-07-tekst-02-intro-tekst.html","lineageState":"needsrevalidation"},{"lineagePattern":"atomer-tekst-input","lineagePath":"../../patterns/00-atomer-01-forms-09-tekst-input/00-atomer-01-forms-09-tekst-input.html","lineageState":"needsrevalidation"},{"lineagePattern":"atomer-radioknapp","lineagePath":"../../patterns/00-atomer-01-forms-03-radioknapp/00-atomer-01-forms-03-radioknapp.html","lineageState":"needsrevalidation"},{"lineagePattern":"atomer-tekstfelt","lineagePath":"../../patterns/00-atomer-01-forms-35-tekstfelt/00-atomer-01-forms-35-tekstfelt.html","lineageState":"needsrevalidation"},{"lineagePattern":"organismer-adresse","lineagePath":"../../patterns/02-organismer-20-forms-30-adresse/02-organismer-20-forms-30-adresse.html","lineageState":"needsrevalidation"},{"lineagePattern":"atomer-datovelger","lineagePath":"../../patterns/00-atomer-01-forms-60-datovelger/00-atomer-01-forms-60-datovelger.html","lineageState":"needsrevalidation"},{"lineagePattern":"atomer-laster-inn","lineagePath":"../../patterns/00-atomer-09-bilder-og-media-07-laster-inn/00-atomer-09-bilder-og-media-07-laster-inn.html","lineageState":"needsrevalidation"},{"lineagePattern":"atomer-avsnitt","lineagePath":"../../patterns/00-atomer-07-tekst-03-avsnitt/00-atomer-07-tekst-03-avsnitt.html","lineageState":"needsrevalidation"},{"lineagePattern":"atomer-knapp","lineagePath":"../../patterns/00-atomer-03-knapper-10-knapp/00-atomer-03-knapper-10-knapp.html","lineageState":"needsrevalidation"},{"lineagePattern":"atomer-liste-unummerert-kuler","lineagePath":"../../patterns/00-atomer-08-lister-07-liste-unummerert-kuler/00-atomer-08-lister-07-liste-unummerert-kuler.html","lineageState":"needsrevalidation"},{"lineagePattern":"atomer-link-hjelpefunksjon","lineagePath":"../../patterns/00-atomer-05-Ekspansjonsknapper-38-link-hjelpefunksjon/00-atomer-05-Ekspansjonsknapper-38-link-hjelpefunksjon.html","lineageState":"needsrevalidation"},{"lineagePattern":"organismer-chat","lineagePath":"../../patterns/02-organismer-30-seksjoner-28-chat/02-organismer-30-seksjoner-28-chat.html"}],"patternLineageRExists":true,"patternLineagesR":[{"lineagePattern":"maler-starte-enk","lineagePath":"../../patterns/03-maler-90-Starte-ENK-00-starte-enk/03-maler-90-Starte-ENK-00-starte-enk.html","lineageState":"needsrevalidation"}],"lineageR":[{"lineagePattern":"maler-starte-enk","lineagePath":"../../patterns/03-maler-90-Starte-ENK-00-starte-enk/03-maler-90-Starte-ENK-00-starte-enk.html","lineageState":"needsrevalidation"}],"patternLineageEExists":true,"patternDesc":"<p>Brukes i tilfeller der brukeren skal gjennom en prosess for å utføre endringer innefor et område. Modalvinduet kan bestå av flere steg. Når prosessen er fullført vises grønn bakgrunn i modalvinduet. Dersom prosessen mislykkes, vises rød bakgrunn i modalvinduet. Modalvinduet kan også brukes for å vise mer informasjon om et tema.</p>\n","patternBreadcrumb":{"patternType":"organismer","patternSubtype":"Modal"},"patternExtension":"mustache","patternName":"Starte Enk","patternPartial":"organismer-starte-enk","patternState":"needsrevalidation","patternEngineName":"mustache","extraOutput":{}}
-  </script>
-</div><!--end .sg-pattern-->
-<div id="organismer-fjern-rettigheter" class="sg-pattern">
-  <div class="sg-pattern-head">
-    <h3 class="sg-pattern-title">
-      <a href="../../patterns/02-organismer-70-Modal-10-fjern-rettigheter&#x2F;02-organismer-70-Modal-10-fjern-rettigheter.html" class="patternLink" data-patternpartial="organismer-fjern-rettigheter" title="Link to Pattern">
-          Fjern Rettigheter
-      </a>
-    </h3>
-      <span class="sg-pattern-state needsrevalidation">needsrevalidation</span>
-    <div class="sg-pattern-breadcrumb"></div>
-    <a href="#" data-patternpartial="organismer-fjern-rettigheter" title="View Pattern Info" id="sg-pattern-extra-toggle-organismer-fjern-rettigheter" class="sg-pattern-extra-toggle">Info <span>&#9660;</span></a>
-  </div>
-  <div class="sg-pattern-extra" id="sg-pattern-extra-organismer-fjern-rettigheter">
-
-  </div>
-  <div class="sg-pattern-example">
-    <span class="a-scene a-page">
-    <div class="a-modal fade in " id="modalExample" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-      <div class="modal-dialog modal-lg" role="document">
-        <div class="container">
-          <div class="a-modal-top">
-  
-<img src="..&#x2F;..&#x2F;images&#x2F;a-logo-white.svg" alt="Altinn logo" class="a-logo a-modal-top-logo ">
-
-</div>
-
-              <div class="a-modal-navbar">
-        <button
-  type="button"
-  class="a-modal-back"
-  data-dismiss="modal"
-  onclick="goBack()" 
-  aria-label="Tilbake">
-  <i class="material-icons a-modal-back-icon">keyboard_backspace</i>
-</button>
-
-        <button
-  type="button"
-  class="a-modal-close"
-  data-dismiss="modal"
-   
-  aria-label="Lukk">
-  <i class="material-icons a-modal-close-icon">close</i>
-</button>
-
-
-      <script>
-        function goBack() {
-          // window.history.back();
-          var arr = []
-          for (key in smoothState.cache) { arr.push(key) }
-          delete smoothState.cache[arr[arr.length - 1]]
-          arr.splice(-1,1)
-          $('.a-scene_element').addClass('a-tempAnim')
-          smoothState.load(arr[arr.length - 1])
-        }
-      </script>
-
-    </div>
-
-          <span class="a-right-panel a-page a-scene_element">
-            <div class="modal-content">
-              <div class="modal-header a-modal-header">
-  <i class="material-icons a-panel-heading-icon">group_add</i>
-  <div class="a-panel-heading-text" id="myModalLabel">
-    <h2 class="modal-title a-modal-title">Gi og fjerne rettigheter</h2>
-  </div>
-</div>
-
-              <div class="modal-body a-modal-body a-text">
-                <div class="row">
-                  <div class="col-xs-8">
-                    <div class="a-personRole">
-  <i class="material-icons a-personRole-icon">person</i>
-  <div class="a-personRole-text">
-    <span class="a-personRole-role">STYREMEDLEM</span>
-    <span class="a-personRole-name">WILLIAM MJELDE</span>
-  </div>
-</div>
-
-                  </div>
-                  <div class="col-xs p-t-1">
-                      <button type="button" class="a-btn-link a-link a-link-danger pull-right" id="" onclick="location.href='../..';" >Avbryt</button> 
-
-
-                  </div>
-                </div>
-                <div class="row">
-                  <div class="col-xs-12 col-md-12 col-lg-6 m-t-2 m-b-1">
-                    <div class="form-group a-form-group  " data-toggle="" data-delay="">
-
-    <div class="a-form-group-items input-group ">
-
-      <!-- Label -->
-      <label class="a-form-label  input-group-addon" for="">
-            <i class="material-icons"> &#xE1DB; </i>
-          <span class="sr-only">Finn klient</span>
-      </label>
-
-      <!-- Input  -->
-      <input type="search" 
-        class="form-control  a-form-control-withBtn p-l-0" 
-        id="" 
-        
-          
-         placeholder="Hvilken klient ser du etter?" 
-         value="" 
-         maxlength=""
-         data-error="" 
-         
-        data-search-algorithm="show-and-highlight"
-        data-search-target="employee-table">
-      <i class="fa fa-check-circle form-control-feedback"></i><span class="sr-only">Icon showing if input is valid or not</span>
-
-      <!-- button -->
-      <div class="input-group-btn">
-        <button class="btn btn-secondary" type="button">
-          <i class="material-icons"><span class="sr-only">Utfør søk</span>&#xE8B6;</i>
-        </button>
-      </div>
-
-
-    </div>
-
-
-
-
-  </div>
-
-                  </div>
-                </div>
-                
-<div class="a-collapse">
-  <h3 class="a-collapseHeader ">
-      <a data-toggle="collapse" data-parent="#accessToRoles" data-target="#collapseHeader-example" href="#" aria-expanded="false" aria-controls="DirectRoles" class="a-collapseTitle no-decoration collapsed">
-          <span class="a-dropdownArrow"></span> Denne utvidbare tittelen kan brukes både med <span class='tag tag-primary a-label tag-pill'>1</span> og uten label
-      </a>
-  </h3>
-</div>
-
-                <div class="full-width-table">
-  <table class="table a-sortable-table a-table-list" id="employee-table">
-    <thead>
-        <tr class="a-sortable-row a-table-list">
-            <th class=" ">                            
-            </th>
-            <th class=" ">              
-                <span class="a-dropdownArrow"></span>
-              Selskapsnavn
-            </th>
-            <th class=" ">              
-                <span class="a-dropdownArrow"></span>
-              Org.nr
-            </th>
-            <th class="  text-xs-right col-pd-4 p-r-2 ">                            Fjern alle klienter
-            </th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr class="a-sortable-row ">
-            <td  >
-              <i class="material-icons a-personRole-icon">person</i>
-            </td>
-            <td   data-searchable="true" >
-              Finn Skapen
-            </td>
-            <td   data-searchable="true" >
-              1234 56789
-            </td>
-            <td  class="text-xs-right p-r-2"  >
-              Fjern <i class='material-icons a-table-icon remove-icon'>remove_circle</i>
-            </td>
-        </tr>
-        <tr class="a-sortable-row ">
-            <td  >
-              <i class="material-icons a-personRole-icon">person</i>
-            </td>
-            <td   data-searchable="true" >
-              Advokatselskapet langt navnesen og partnere
-            </td>
-            <td   data-searchable="true" >
-              1456 56789
-            </td>
-            <td  class="text-xs-right p-r-2"  >
-              Fjern <i class='material-icons a-table-icon remove-icon'>remove_circle</i>
-            </td>
-        </tr>
-        <tr class="a-sortable-row ">
-            <td  >
-              <i class="material-icons a-personRole-icon">person</i>
-            </td>
-            <td   data-searchable="true" >
-              Per Øverås Karlsen
-            </td>
-            <td   data-searchable="true" >
-              1331 56789
-            </td>
-            <td  class="text-xs-right p-r-2"  >
-              Fjern <i class='material-icons a-table-icon remove-icon'>remove_circle</i>
-            </td>
-        </tr>
-        <tr class="a-sortable-row ">
-            <td  >
-              <i class="material-icons a-personRole-icon">person</i>
-            </td>
-            <td   data-searchable="true" >
-              Advokartnere
-            </td>
-            <td   data-searchable="true" >
-              1636 56789
-            </td>
-            <td  class="text-xs-right p-r-2"  >
-              Fjern <i class='material-icons a-table-icon remove-icon'>remove_circle</i>
-            </td>
-        </tr>
-        <tr class="a-sortable-row ">
-            <td  >
-              <i class="material-icons a-personRole-icon">person</i>
-            </td>
-            <td   data-searchable="true" >
-              Advokartnere
-            </td>
-            <td   data-searchable="true" >
-              1636 56789
-            </td>
-            <td  class="text-xs-right p-r-2"  >
-              Fjern <i class='material-icons a-table-icon remove-icon'>remove_circle</i>
-            </td>
-        </tr>
-        <tr class="a-sortable-row ">
-            <td  >
-              <i class="material-icons a-personRole-icon">person</i>
-            </td>
-            <td   data-searchable="true" >
-              Advokartnere
-            </td>
-            <td   data-searchable="true" >
-              1636 56789
-            </td>
-            <td  class="text-xs-right p-r-2"  >
-              Fjern <i class='material-icons a-table-icon remove-icon'>remove_circle</i>
-            </td>
-        </tr>
-        <tr class="a-sortable-row ">
-            <td  >
-              <i class="material-icons a-personRole-icon">person</i>
-            </td>
-            <td   data-searchable="true" >
-              Advokartnere
-            </td>
-            <td   data-searchable="true" >
-              1636 56789
-            </td>
-            <td  class="text-xs-right p-r-2"  >
-              Fjern <i class='material-icons a-table-icon remove-icon'>remove_circle</i>
-            </td>
-        </tr>
-        <tr class="a-sortable-row ">
-            <td  >
-              <i class="material-icons a-personRole-icon">person</i>
-            </td>
-            <td   data-searchable="true" >
-              Advokartnere
-            </td>
-            <td   data-searchable="true" >
-              1636 56789
-            </td>
-            <td  class="text-xs-right p-r-2"  >
-              Fjern <i class='material-icons a-table-icon remove-icon'>remove_circle</i>
-            </td>
-        </tr>
-        <tr class="a-sortable-row ">
-            <td  >
-              <i class="material-icons a-personRole-icon">person</i>
-            </td>
-            <td   data-searchable="true" >
-              Advokartnere
-            </td>
-            <td   data-searchable="true" >
-              1636 56789
-            </td>
-            <td  class="text-xs-right p-r-2"  >
-              Fjern <i class='material-icons a-table-icon remove-icon'>remove_circle</i>
-            </td>
-        </tr>
-        <tr class="a-sortable-row ">
-            <td  >
-              <i class="material-icons a-personRole-icon">person</i>
-            </td>
-            <td   data-searchable="true" >
-              Advokatselskapet langt navnesen og partnere
-            </td>
-            <td   data-searchable="true" >
-              1456 56789
-            </td>
-            <td  class="text-xs-right p-r-2"  >
-              Fjern <i class='material-icons a-table-icon remove-icon'>remove_circle</i>
-            </td>
-        </tr>
-        <tr class="a-sortable-row ">
-            <td  >
-              <i class="material-icons a-personRole-icon">person</i>
-            </td>
-            <td   data-searchable="true" >
-              Advokatselskapet langt navnesen og partnere
-            </td>
-            <td   data-searchable="true" >
-              1456 56789
-            </td>
-            <td  class="text-xs-right p-r-2"  >
-              Fjern <i class='material-icons a-table-icon remove-icon'>remove_circle</i>
-            </td>
-        </tr>
-        <tr class="a-sortable-row ">
-            <td  >
-              <i class="material-icons a-personRole-icon">person</i>
-            </td>
-            <td   data-searchable="true" >
-              Advokatselskapet langt navnesen og partnere
-            </td>
-            <td   data-searchable="true" >
-              1456 56789
-            </td>
-            <td  class="text-xs-right p-r-2"  >
-              Fjern <i class='material-icons a-table-icon remove-icon'>remove_circle</i>
-            </td>
-        </tr>
-        <tr class="a-sortable-row ">
-            <td  >
-              <i class="material-icons a-personRole-icon">person</i>
-            </td>
-            <td   data-searchable="true" >
-              Advokatselskapet langt navnesen og partnere
-            </td>
-            <td   data-searchable="true" >
-              1456 56789
-            </td>
-            <td  class="text-xs-right p-r-2"  >
-              Fjern <i class='material-icons a-table-icon remove-icon'>remove_circle</i>
-            </td>
-        </tr>
-        <tr class="a-sortable-row ">
-            <td  >
-              <i class="material-icons a-personRole-icon">person</i>
-            </td>
-            <td   data-searchable="true" >
-              Advokatselskapet langt navnesen og partnere
-            </td>
-            <td   data-searchable="true" >
-              1456 56789
-            </td>
-            <td  class="text-xs-right p-r-2"  >
-              Fjern <i class='material-icons a-table-icon remove-icon'>remove_circle</i>
-            </td>
-        </tr>
-        <tr class="a-sortable-row ">
-            <td  >
-              <i class="material-icons a-personRole-icon">person</i>
-            </td>
-            <td   data-searchable="true" >
-              Advokatselskapet langt navnesen og partnere
-            </td>
-            <td   data-searchable="true" >
-              1456 56789
-            </td>
-            <td  class="text-xs-right p-r-2"  >
-              Fjern <i class='material-icons a-table-icon remove-icon'>remove_circle</i>
-            </td>
-        </tr>
-        <tr class="a-sortable-row ">
-            <td  >
-              <i class="material-icons a-personRole-icon">person</i>
-            </td>
-            <td   data-searchable="true" >
-              Advokatselskapet langt navnesen og partnere
-            </td>
-            <td   data-searchable="true" >
-              1456 56789
-            </td>
-            <td  class="text-xs-right p-r-2"  >
-              Fjern <i class='material-icons a-table-icon remove-icon'>remove_circle</i>
-            </td>
-        </tr>
-    </tbody>
-  </table>
-</div>
-
-              </div>
-            </div>
-          </span>
-        </div>
-      </div>
-    </div>
-  </div>
-</span>
-
-  </div>
-  <script type="text/json" id="sg-pattern-data-organismer-fjern-rettigheter" class="sg-pattern-data">
-    {"cssEnabled":false,"patternLineageExists":true,"patternLineages":[{"lineagePattern":"molekyler-modal-header","lineagePath":"../../patterns/01-molekyler-20-modalelementer-05-modal-header/01-molekyler-20-modalelementer-05-modal-header.html","lineageState":"inprogress"},{"lineagePattern":"molekyler-modal-navbar","lineagePath":"../../patterns/01-molekyler-20-modalelementer-10-modal-navbar/01-molekyler-20-modalelementer-10-modal-navbar.html","lineageState":"inprogress"},{"lineagePattern":"molekyler-modal-body-header","lineagePath":"../../patterns/01-molekyler-20-modalelementer-15-modal-body-header/01-molekyler-20-modalelementer-15-modal-body-header.html","lineageState":"inprogress"},{"lineagePattern":"molekyler-person-rolle","lineagePath":"../../patterns/01-molekyler-00-tekst-02-person-rolle/01-molekyler-00-tekst-02-person-rolle.html","lineageState":"needsrevalidation"},{"lineagePattern":"atomer-♺-knapp-link-fare","lineagePath":"../../patterns/00-atomer-03-knapper-16-♺-knapp-link-fare/00-atomer-03-knapper-16-♺-knapp-link-fare.html","lineageState":"indesignreview"},{"lineagePattern":"atomer-tekst-input","lineagePath":"../../patterns/00-atomer-01-forms-09-tekst-input/00-atomer-01-forms-09-tekst-input.html","lineageState":"needsrevalidation"},{"lineagePattern":"atomer-ekspanderbar-tittel","lineagePath":"../../patterns/00-atomer-05-Ekspansjonsknapper-27-ekspanderbar-tittel/00-atomer-05-Ekspansjonsknapper-27-ekspanderbar-tittel.html","lineageState":"intechnicalreview"},{"lineagePattern":"atomer-tabell-fjern-angre","lineagePath":"../../patterns/00-atomer-06-tabeller-11-tabell-fjern-angre/00-atomer-06-tabeller-11-tabell-fjern-angre.html","lineageState":"needsrevalidation"}],"lineage":[{"lineagePattern":"molekyler-modal-header","lineagePath":"../../patterns/01-molekyler-20-modalelementer-05-modal-header/01-molekyler-20-modalelementer-05-modal-header.html","lineageState":"inprogress"},{"lineagePattern":"molekyler-modal-navbar","lineagePath":"../../patterns/01-molekyler-20-modalelementer-10-modal-navbar/01-molekyler-20-modalelementer-10-modal-navbar.html","lineageState":"inprogress"},{"lineagePattern":"molekyler-modal-body-header","lineagePath":"../../patterns/01-molekyler-20-modalelementer-15-modal-body-header/01-molekyler-20-modalelementer-15-modal-body-header.html","lineageState":"inprogress"},{"lineagePattern":"molekyler-person-rolle","lineagePath":"../../patterns/01-molekyler-00-tekst-02-person-rolle/01-molekyler-00-tekst-02-person-rolle.html","lineageState":"needsrevalidation"},{"lineagePattern":"atomer-♺-knapp-link-fare","lineagePath":"../../patterns/00-atomer-03-knapper-16-♺-knapp-link-fare/00-atomer-03-knapper-16-♺-knapp-link-fare.html","lineageState":"indesignreview"},{"lineagePattern":"atomer-tekst-input","lineagePath":"../../patterns/00-atomer-01-forms-09-tekst-input/00-atomer-01-forms-09-tekst-input.html","lineageState":"needsrevalidation"},{"lineagePattern":"atomer-ekspanderbar-tittel","lineagePath":"../../patterns/00-atomer-05-Ekspansjonsknapper-27-ekspanderbar-tittel/00-atomer-05-Ekspansjonsknapper-27-ekspanderbar-tittel.html","lineageState":"intechnicalreview"},{"lineagePattern":"atomer-tabell-fjern-angre","lineagePath":"../../patterns/00-atomer-06-tabeller-11-tabell-fjern-angre/00-atomer-06-tabeller-11-tabell-fjern-angre.html","lineageState":"needsrevalidation"}],"patternLineageRExists":false,"patternLineagesR":[],"lineageR":[],"patternLineageEExists":true,"patternDesc":"<p>Modal for klientdelegering - fjern rettigheter</p>\n","patternBreadcrumb":{"patternType":"organismer","patternSubtype":"Modal"},"patternExtension":"mustache","patternName":"Fjern Rettigheter","patternPartial":"organismer-fjern-rettigheter","patternState":"needsrevalidation","patternEngineName":"mustache","extraOutput":{}}
+    {"cssEnabled":false,"patternLineageExists":true,"patternLineages":[{"lineagePattern":"molekyler-modal-header","lineagePath":"../../patterns/01-molekyler-20-modalelementer-05-modal-header/01-molekyler-20-modalelementer-05-modal-header.html","lineageState":"inprogress"},{"lineagePattern":"molekyler-modal-navbar","lineagePath":"../../patterns/01-molekyler-20-modalelementer-10-modal-navbar/01-molekyler-20-modalelementer-10-modal-navbar.html","lineageState":"inprogress"},{"lineagePattern":"atomer-seksjonstittel","lineagePath":"../../patterns/00-atomer-07-tekst-10-seksjonstittel/00-atomer-07-tekst-10-seksjonstittel.html","lineageState":"needsrevalidation"},{"lineagePattern":"atomer-intro-tekst","lineagePath":"../../patterns/00-atomer-07-tekst-02-intro-tekst/00-atomer-07-tekst-02-intro-tekst.html","lineageState":"needsrevalidation"},{"lineagePattern":"atomer-link","lineagePath":"../../patterns/00-atomer-02-lenker-00-link/00-atomer-02-lenker-00-link.html","lineageState":"needsrevalidation"},{"lineagePattern":"organismer-skjema-innehaver","lineagePath":"../../patterns/02-organismer-20-forms-10-skjema-innehaver/02-organismer-20-forms-10-skjema-innehaver.html","lineageState":"needsrevalidation"},{"lineagePattern":"atomer-tekst-input","lineagePath":"../../patterns/00-atomer-01-forms-09-tekst-input/00-atomer-01-forms-09-tekst-input.html","lineageState":"needsrevalidation"},{"lineagePattern":"atomer-knapp","lineagePath":"../../patterns/00-atomer-03-knapper-10-knapp/00-atomer-03-knapper-10-knapp.html","lineageState":"needsrevalidation"},{"lineagePattern":"atomer-laster-inn","lineagePath":"../../patterns/00-atomer-09-bilder-og-media-07-laster-inn/00-atomer-09-bilder-og-media-07-laster-inn.html","lineageState":"needsrevalidation"},{"lineagePattern":"atomer-avsnitt","lineagePath":"../../patterns/00-atomer-07-tekst-03-avsnitt/00-atomer-07-tekst-03-avsnitt.html","lineageState":"needsrevalidation"},{"lineagePattern":"organismer-skjema-radio","lineagePath":"../../patterns/02-organismer-20-forms-50-skjema-radio/02-organismer-20-forms-50-skjema-radio.html","lineageState":"needsrevalidation"},{"lineagePattern":"organismer-skjema-beskrivelse","lineagePath":"../../patterns/02-organismer-20-forms-60-skjema-beskrivelse/02-organismer-20-forms-60-skjema-beskrivelse.html","lineageState":"needsrevalidation"},{"lineagePattern":"organismer-skjema-adresse","lineagePath":"../../patterns/02-organismer-20-forms-30-skjema-adresse/02-organismer-20-forms-30-skjema-adresse.html","lineageState":"needsrevalidation"},{"lineagePattern":"organismer-skjema-dato","lineagePath":"../../patterns/02-organismer-20-forms-40-skjema-dato/02-organismer-20-forms-40-skjema-dato.html","lineageState":"needsrevalidation"},{"lineagePattern":"atomer-liste-unummerert-kuler","lineagePath":"../../patterns/00-atomer-08-lister-07-liste-unummerert-kuler/00-atomer-08-lister-07-liste-unummerert-kuler.html","lineageState":"needsrevalidation"},{"lineagePattern":"atomer-link-hjelpefunksjon","lineagePath":"../../patterns/00-atomer-05-Ekspansjonsknapper-38-link-hjelpefunksjon/00-atomer-05-Ekspansjonsknapper-38-link-hjelpefunksjon.html","lineageState":"needsrevalidation"},{"lineagePattern":"organismer-chat","lineagePath":"../../patterns/02-organismer-30-seksjoner-28-chat/02-organismer-30-seksjoner-28-chat.html"}],"lineage":[{"lineagePattern":"molekyler-modal-header","lineagePath":"../../patterns/01-molekyler-20-modalelementer-05-modal-header/01-molekyler-20-modalelementer-05-modal-header.html","lineageState":"inprogress"},{"lineagePattern":"molekyler-modal-navbar","lineagePath":"../../patterns/01-molekyler-20-modalelementer-10-modal-navbar/01-molekyler-20-modalelementer-10-modal-navbar.html","lineageState":"inprogress"},{"lineagePattern":"atomer-seksjonstittel","lineagePath":"../../patterns/00-atomer-07-tekst-10-seksjonstittel/00-atomer-07-tekst-10-seksjonstittel.html","lineageState":"needsrevalidation"},{"lineagePattern":"atomer-intro-tekst","lineagePath":"../../patterns/00-atomer-07-tekst-02-intro-tekst/00-atomer-07-tekst-02-intro-tekst.html","lineageState":"needsrevalidation"},{"lineagePattern":"atomer-link","lineagePath":"../../patterns/00-atomer-02-lenker-00-link/00-atomer-02-lenker-00-link.html","lineageState":"needsrevalidation"},{"lineagePattern":"organismer-skjema-innehaver","lineagePath":"../../patterns/02-organismer-20-forms-10-skjema-innehaver/02-organismer-20-forms-10-skjema-innehaver.html","lineageState":"needsrevalidation"},{"lineagePattern":"atomer-tekst-input","lineagePath":"../../patterns/00-atomer-01-forms-09-tekst-input/00-atomer-01-forms-09-tekst-input.html","lineageState":"needsrevalidation"},{"lineagePattern":"atomer-knapp","lineagePath":"../../patterns/00-atomer-03-knapper-10-knapp/00-atomer-03-knapper-10-knapp.html","lineageState":"needsrevalidation"},{"lineagePattern":"atomer-laster-inn","lineagePath":"../../patterns/00-atomer-09-bilder-og-media-07-laster-inn/00-atomer-09-bilder-og-media-07-laster-inn.html","lineageState":"needsrevalidation"},{"lineagePattern":"atomer-avsnitt","lineagePath":"../../patterns/00-atomer-07-tekst-03-avsnitt/00-atomer-07-tekst-03-avsnitt.html","lineageState":"needsrevalidation"},{"lineagePattern":"organismer-skjema-radio","lineagePath":"../../patterns/02-organismer-20-forms-50-skjema-radio/02-organismer-20-forms-50-skjema-radio.html","lineageState":"needsrevalidation"},{"lineagePattern":"organismer-skjema-beskrivelse","lineagePath":"../../patterns/02-organismer-20-forms-60-skjema-beskrivelse/02-organismer-20-forms-60-skjema-beskrivelse.html","lineageState":"needsrevalidation"},{"lineagePattern":"organismer-skjema-adresse","lineagePath":"../../patterns/02-organismer-20-forms-30-skjema-adresse/02-organismer-20-forms-30-skjema-adresse.html","lineageState":"needsrevalidation"},{"lineagePattern":"organismer-skjema-dato","lineagePath":"../../patterns/02-organismer-20-forms-40-skjema-dato/02-organismer-20-forms-40-skjema-dato.html","lineageState":"needsrevalidation"},{"lineagePattern":"atomer-liste-unummerert-kuler","lineagePath":"../../patterns/00-atomer-08-lister-07-liste-unummerert-kuler/00-atomer-08-lister-07-liste-unummerert-kuler.html","lineageState":"needsrevalidation"},{"lineagePattern":"atomer-link-hjelpefunksjon","lineagePath":"../../patterns/00-atomer-05-Ekspansjonsknapper-38-link-hjelpefunksjon/00-atomer-05-Ekspansjonsknapper-38-link-hjelpefunksjon.html","lineageState":"needsrevalidation"},{"lineagePattern":"organismer-chat","lineagePath":"../../patterns/02-organismer-30-seksjoner-28-chat/02-organismer-30-seksjoner-28-chat.html"}],"patternLineageRExists":true,"patternLineagesR":[{"lineagePattern":"maler-starte-enk","lineagePath":"../../patterns/03-maler-90-Starte-ENK-00-starte-enk/03-maler-90-Starte-ENK-00-starte-enk.html","lineageState":"needsrevalidation"}],"lineageR":[{"lineagePattern":"maler-starte-enk","lineagePath":"../../patterns/03-maler-90-Starte-ENK-00-starte-enk/03-maler-90-Starte-ENK-00-starte-enk.html","lineageState":"needsrevalidation"}],"patternLineageEExists":true,"patternDesc":"<p>Brukes i tilfeller der brukeren skal gjennom en prosess for å utføre endringer innefor et område. Modalvinduet kan bestå av flere steg. Når prosessen er fullført vises grønn bakgrunn i modalvinduet. Dersom prosessen mislykkes, vises rød bakgrunn i modalvinduet. Modalvinduet kan også brukes for å vise mer informasjon om et tema.</p>\n","patternBreadcrumb":{"patternType":"organismer","patternSubtype":"Modal"},"patternExtension":"mustache","patternName":"Starte Enk","patternPartial":"organismer-starte-enk","patternState":"needsrevalidation","patternEngineName":"mustache","extraOutput":{}}
   </script>
 </div><!--end .sg-pattern-->
 <div id="organismer-modal" class="sg-pattern">
@@ -2722,7 +2859,7 @@
         <div id="represented-by-user" class="a-modal-top-user hidden-xs">
           <i class="material-icons a-modal-top-user-icon">person</i>
           <span class="a-modal-top-user-name">
-            Stephan Isdahl
+            STEPHAN ISDAHL
           </span>
         </div>
 
@@ -2740,7 +2877,7 @@
           <div class="modal-header a-modal-header">
             <i class="material-icons a-panel-heading-icon">devices</i>
             <div class="a-panel-heading-text" id="myModalLabel">
-              <h2 class="modal-title a-modal-title">Eksempel på et modalvindu med egen JSON</h2>
+              <h2 class="modal-title a-modal-title">Eksempel på et modalvindu</h2>
             </div>
           </div>
           <div class="modal-body a-modal-body a-text">
@@ -2748,12 +2885,6 @@
 
             <!--
             <div class="a-btn-group">
-            
-<a href="../../patterns/04-sider-80-prosess-70-prosess-2/04-sider-80-prosess-70-prosess-2.html" id="" class="a-linkArea a-btn ">Start</a>
-
-            
-<a href="../.." id="" class="a-linkArea a-link ">Avbryt</a>
-
             </div>
             -->
           </div>
@@ -2785,39 +2916,38 @@
   <div class="sg-pattern-example">
     <!-- Modal -->
 <span class="a-scene a-page">
-  <div class="a-modal " id="modalProcessExample" tabindex="-1" role="dialog" aria-labelledby="myModalProcessLabel" aria-hidden="true">
+  <div class="a-modal " id="modalExample" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-lg" role="document">
 
       <div class="container">
         <div class="row">
           <div class="col-md-12">
 
-            <!-- Modal Top -->
-            <div class="a-modal-top">
-              
-<img src="..&#x2F;..&#x2F;images&#x2F;a-logo-blue.svg" alt="Altinn logo" class="a-logo  ">
+            <!-- Modal Header -->
+              <div class="a-modal-top">
+  <a href="../../&#x2F;patterns&#x2F;04-sider-01-forside-00-forside&#x2F;04-sider-01-forside-00-forside.html" class="no-decoration">
+    
+<img src="..&#x2F;..&#x2F;images&#x2F;a-logo-blue.svg" alt="Altinn logo" class="a-logo a-modal-top-logo ">
 
-              <div class="a-modal-top-user">
-                <a
-  class="nav-link a-personSwitcher"
-  data-toggle=""
-  href=""
-  role="button"
-  aria-haspopup="true"
-  aria-expanded="false">
+  </a>
+    <div class="a-modal-top-user">
+      
+<button class="nav-link dropdown-toggle a-personSwitcher" type="button" id="dropdownMenuButton" data-toggle="dropdown"  data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
   <span
-    class="a-personSwitcher-name hidden-sm-down"
-    title="Logg inn ">
-    Logg inn
+    class="a-personSwitcher-name"
+    title="Jan Pettersen ">
+    Jan Pettersen
     <br>
     
   </span>
   <i class="material-icons a-personSwitcher-icon">&#xE853;</i>
-</a>
+</button>
 
-              </div>
-            </div>
-            <!-- END Modal Top -->
+    </div>
+</div>
+
+            <!-- END Modal Header -->
+            
           </div>
         </div>
 
@@ -2825,15 +2955,76 @@
           <div class="col-md-10 offset-md-1">
 
             <!-- Modal NavBar -->
-            <div class="a-modal-navbar">
+                <div class="a-modal-navbar">
+        <button
+  type="button"
+  class="a-modal-back"
+  data-dismiss="modal"
+  false
+  aria-label="Gå tilbake"
+    data-toggle="popover"
+    data-placement="bottom"
+    data-popover-content="sampleIdPopover"
+    data-template="<div class='popover popover-warning' role='tooltip'>
+  <div class='popover-arrow'></div>
+  <h3 class='popover-title'></h3>
+  <div class='popover-content'></div>
+</div>
+"
+  >
+  <i class="material-icons a-modal-back-icon">keyboard_backspace</i>
+</button>
+
+  <div id="sampleIdPopover" class="hidden-xs-up">
+    <div class="p-y-1">Dette er en popover tekst</div>
+      <button type="button" class="a-btn a-btn-danger m-r-1" id="" onclick="location.href='../.."/patterns/04-sider-01-forside-00-forside/04-sider-01-forside-00-forside.html'" false>knapp</button> 
+
+      <button type="button" class="a-btn-link a-link a-link-danger m-r-1" id="" onclick="location.href='../.."/patterns/04-sider-01-forside-00-forside/04-sider-01-forside-00-forside.html'" false>link</button> 
+
+  </div>
+
+        <button
+  type="button"
+  class="a-modal-close"
+  data-dismiss="modal"
+  false
+  aria-label="Lukk"
+    data-toggle="popover"
+    data-placement="bottom"
+    data-popover-content="sampleIdPopover"
+    data-template="<div class='popover popover-warning' role='tooltip'>
+  <div class='popover-arrow'></div>
+  <h3 class='popover-title'></h3>
+  <div class='popover-content'></div>
+</div>
+"
+  >
+  <i class="material-icons a-modal-close-icon">close</i>
+</button>
+
+  <div id="sampleIdPopover" class="hidden-xs-up">
+    <div class="p-y-1">Dette er en popover tekst</div>
+      <button type="button" class="a-btn a-btn-danger m-r-1" id="" onclick="location.href='../.."/patterns/04-sider-01-forside-00-forside/04-sider-01-forside-00-forside.html'" false>knapp</button> 
+
+      <button type="button" class="a-btn-link a-link a-link-danger m-r-1" id="" onclick="location.href='../.."/patterns/04-sider-01-forside-00-forside/04-sider-01-forside-00-forside.html'" false>link</button> 
+
+  </div>
 
 
-              <button type="button" class="a-modal-close" data-dismiss="modal" aria-label="Lukk">
-                <i class="material-icons a-modal-close-icon">close</i>
-              </button>
+      <script>
+        function goBack() {
+          // window.history.back();
+          var arr = []
+          for (key in smoothState.cache) { arr.push(key) }
+          delete smoothState.cache[arr[arr.length - 1]]
+          arr.splice(-1,1)
+          $('.a-scene_element').addClass('a-tempAnim')
+          smoothState.load(arr[arr.length - 1])
+        }
+      </script>
 
-            </div>
-            <!-- END Modal NavBar -->
+    </div>
+
           </div>
         </div>
 
@@ -2847,8 +3038,8 @@
                 <!-- Modal header -->
                 <div class="modal-header a-modal-header">
                   <i class="material-icons a-panel-heading-icon">devices</i>
-                  <div class="a-panel-heading-text" id="myModalProcessLabel">
-                    <h2 class="modal-title a-modal-title">Eksempel på et modalprosessvindu</h2>
+                  <div class="a-panel-heading-text" id="myModalLabel">
+                    <h2 class="modal-title a-modal-title">Eksempel på et modalvindu</h2>
                   </div>
                 </div>
                 <!-- END Modal header -->
@@ -2865,7 +3056,7 @@
 
 
                       
-<a href="../.." id="" class="a-linkArea a-link ">Avbryt</a>
+<a href="../../patterns/04-sider-01-forside-00-forside/04-sider-01-forside-00-forside.html" id="" class="a-linkArea a-link ">Avbryt</a>
 
                   </div>
                 </div><!-- END Modal body -->
@@ -2880,7 +3071,7 @@
 
   </div>
   <script type="text/json" id="sg-pattern-data-organismer-modalprosess" class="sg-pattern-data">
-    {"cssEnabled":false,"patternLineageExists":true,"patternLineages":[{"lineagePattern":"atomer-logo","lineagePath":"../../patterns/00-atomer-09-bilder-og-media-01-logo/00-atomer-09-bilder-og-media-01-logo.html","lineageState":"needsrevalidation"},{"lineagePattern":"atomer-innlogget","lineagePath":"../../patterns/00-atomer-07-tekst-40-innlogget/00-atomer-07-tekst-40-innlogget.html","lineageState":"needsrevalidation"},{"lineagePattern":"atomer-link","lineagePath":"../../patterns/00-atomer-02-lenker-00-link/00-atomer-02-lenker-00-link.html","lineageState":"needsrevalidation"}],"lineage":[{"lineagePattern":"atomer-logo","lineagePath":"../../patterns/00-atomer-09-bilder-og-media-01-logo/00-atomer-09-bilder-og-media-01-logo.html","lineageState":"needsrevalidation"},{"lineagePattern":"atomer-innlogget","lineagePath":"../../patterns/00-atomer-07-tekst-40-innlogget/00-atomer-07-tekst-40-innlogget.html","lineageState":"needsrevalidation"},{"lineagePattern":"atomer-link","lineagePath":"../../patterns/00-atomer-02-lenker-00-link/00-atomer-02-lenker-00-link.html","lineageState":"needsrevalidation"}],"patternLineageRExists":true,"patternLineagesR":[{"lineagePattern":"maler-prosess","lineagePath":"../../patterns/03-maler-80-prosess-70-prosess/03-maler-80-prosess-70-prosess.html","lineageState":"needsrevalidation"}],"lineageR":[{"lineagePattern":"maler-prosess","lineagePath":"../../patterns/03-maler-80-prosess-70-prosess/03-maler-80-prosess-70-prosess.html","lineageState":"needsrevalidation"}],"patternLineageEExists":true,"patternDesc":"<p>Brukes i tilfeller der brukeren skal gjennom en prosess for å utføre endringer innefor et område. Modalvinduet kan bestå av flere steg. Når prosessen er fullført vises grønn bakgrunn i modalvinduet. Dersom prosessen mislykkes, vises rød bakgrunn i modalvinduet. Modalvinduet kan også brukes for å vise mer informasjon om et tema.</p>\n","patternBreadcrumb":{"patternType":"organismer","patternSubtype":"Modal"},"patternExtension":"mustache","patternName":"Modalprosess","patternPartial":"organismer-modalprosess","patternState":"needsrevalidation","patternEngineName":"mustache","extraOutput":{}}
+    {"cssEnabled":false,"patternLineageExists":true,"patternLineages":[{"lineagePattern":"molekyler-modal-header","lineagePath":"../../patterns/01-molekyler-20-modalelementer-05-modal-header/01-molekyler-20-modalelementer-05-modal-header.html","lineageState":"inprogress"},{"lineagePattern":"molekyler-modal-navbar","lineagePath":"../../patterns/01-molekyler-20-modalelementer-10-modal-navbar/01-molekyler-20-modalelementer-10-modal-navbar.html","lineageState":"inprogress"},{"lineagePattern":"atomer-link","lineagePath":"../../patterns/00-atomer-02-lenker-00-link/00-atomer-02-lenker-00-link.html","lineageState":"needsrevalidation"}],"lineage":[{"lineagePattern":"molekyler-modal-header","lineagePath":"../../patterns/01-molekyler-20-modalelementer-05-modal-header/01-molekyler-20-modalelementer-05-modal-header.html","lineageState":"inprogress"},{"lineagePattern":"molekyler-modal-navbar","lineagePath":"../../patterns/01-molekyler-20-modalelementer-10-modal-navbar/01-molekyler-20-modalelementer-10-modal-navbar.html","lineageState":"inprogress"},{"lineagePattern":"atomer-link","lineagePath":"../../patterns/00-atomer-02-lenker-00-link/00-atomer-02-lenker-00-link.html","lineageState":"needsrevalidation"}],"patternLineageRExists":true,"patternLineagesR":[{"lineagePattern":"maler-prosess","lineagePath":"../../patterns/03-maler-80-prosess-70-prosess/03-maler-80-prosess-70-prosess.html","lineageState":"needsrevalidation"}],"lineageR":[{"lineagePattern":"maler-prosess","lineagePath":"../../patterns/03-maler-80-prosess-70-prosess/03-maler-80-prosess-70-prosess.html","lineageState":"needsrevalidation"}],"patternLineageEExists":true,"patternDesc":"<p>Brukes i tilfeller der brukeren skal gjennom en prosess for å utføre endringer innefor et område. Modalvinduet kan bestå av flere steg. Når prosessen er fullført vises grønn bakgrunn i modalvinduet. Dersom prosessen mislykkes, vises rød bakgrunn i modalvinduet. Modalvinduet kan også brukes for å vise mer informasjon om et tema.</p>\n","patternBreadcrumb":{"patternType":"organismer","patternSubtype":"Modal"},"patternExtension":"mustache","patternName":"Modalprosess","patternPartial":"organismer-modalprosess","patternState":"needsrevalidation","patternEngineName":"mustache","extraOutput":{}}
   </script>
 </div><!--end .sg-pattern-->
 <div id="organismer-modal-startknapp" class="sg-pattern">
@@ -2942,12 +3133,6 @@
 
             <!--
             <div class="a-btn-group">
-            
-<a href="../../patterns/04-sider-80-prosess-70-prosess-2/04-sider-80-prosess-70-prosess-2.html" id="" class="a-linkArea a-btn ">Start</a>
-
-            
-<a href="../.." id="" class="a-linkArea a-link ">Avbryt</a>
-
             </div>
             -->
           </div>
@@ -2961,6 +3146,307 @@
   </div>
   <script type="text/json" id="sg-pattern-data-organismer-modal-startknapp" class="sg-pattern-data">
     {"cssEnabled":false,"patternLineageExists":true,"patternLineages":[{"lineagePattern":"organismer-modal","lineagePath":"../../patterns/02-organismer-70-Modal-20-modal/02-organismer-70-Modal-20-modal.html","lineageState":"needsrevalidation"}],"lineage":[{"lineagePattern":"organismer-modal","lineagePath":"../../patterns/02-organismer-70-Modal-20-modal/02-organismer-70-Modal-20-modal.html","lineageState":"needsrevalidation"}],"patternLineageRExists":false,"patternLineagesR":[],"lineageR":[],"patternLineageEExists":true,"patternDesc":"<p>Denne knappen brukes når et modalvindu skal utløses. Modalvindu brukes i tilfeller der brukeren skal gjennom en prosess for å utføre endringer innefor et område. Modalvinduet kan bestå av flere steg. Når prosessen er fullført vises grønn bakgrunn i modalvinduet. Dersom prosessen mislykkes, vises rød bakgrunn i modalvinduet. Modalvinduet kan også brukes for å vise mer informasjon om et tema.</p>\n","patternBreadcrumb":{"patternType":"organismer","patternSubtype":"Modal"},"patternExtension":"mustache","patternName":"Modal Startknapp","patternPartial":"organismer-modal-startknapp","patternState":"needsrevalidation","patternEngineName":"mustache","extraOutput":{}}
+  </script>
+</div><!--end .sg-pattern-->
+<div id="organismer-klientdelegering-ferdig" class="sg-pattern">
+  <div class="sg-pattern-head">
+    <h3 class="sg-pattern-title">
+      <a href="../../patterns/02-organismer-70-Modal-97-klientdelegering-ferdig&#x2F;02-organismer-70-Modal-97-klientdelegering-ferdig.html" class="patternLink" data-patternpartial="organismer-klientdelegering-ferdig" title="Link to Pattern">
+          Klientdelegering Ferdig
+      </a>
+    </h3>
+      <span class="sg-pattern-state intechnicalreview">intechnicalreview</span>
+    <div class="sg-pattern-breadcrumb"></div>
+    <a href="#" data-patternpartial="organismer-klientdelegering-ferdig" title="View Pattern Info" id="sg-pattern-extra-toggle-organismer-klientdelegering-ferdig" class="sg-pattern-extra-toggle">Info <span>&#9660;</span></a>
+  </div>
+  <div class="sg-pattern-extra" id="sg-pattern-extra-organismer-klientdelegering-ferdig">
+
+  </div>
+  <div class="sg-pattern-example">
+    <p> 
+    Du klarte det! Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quas modi doloribus officia incidunt nostrum, blanditiis a suscipit unde neque fuga corporis, nisi quia maxime explicabo at harum? Rerum, obcaecati perferendis!
+</p>
+<div class="a-btn-group">
+
+        
+<a href="../..link.sider-oversikt" id="" class="a-linkArea a-btn a-btn-success ">Ferdig</a>
+
+
+        
+<a href="../../patterns/04-sider-80-prosess-70-prosess/04-sider-80-prosess-70-prosess.html" id="" class="a-linkArea a-link ">Tildel flere rettigheter</a>
+
+
+
+</div>
+  </div>
+  <script type="text/json" id="sg-pattern-data-organismer-klientdelegering-ferdig" class="sg-pattern-data">
+    {"cssEnabled":false,"patternLineageExists":true,"patternLineages":[{"lineagePattern":"atomer-link","lineagePath":"../../patterns/00-atomer-02-lenker-00-link/00-atomer-02-lenker-00-link.html","lineageState":"needsrevalidation"}],"lineage":[{"lineagePattern":"atomer-link","lineagePath":"../../patterns/00-atomer-02-lenker-00-link/00-atomer-02-lenker-00-link.html","lineageState":"needsrevalidation"}],"patternLineageRExists":true,"patternLineagesR":[{"lineagePattern":"maler-klientdelegering-modal","lineagePath":"../../patterns/03-maler-91-klientdelegering-99-klientdelegering-modal/03-maler-91-klientdelegering-99-klientdelegering-modal.html","lineageState":"needsrevalidation"}],"lineageR":[{"lineagePattern":"maler-klientdelegering-modal","lineagePath":"../../patterns/03-maler-91-klientdelegering-99-klientdelegering-modal/03-maler-91-klientdelegering-99-klientdelegering-modal.html","lineageState":"needsrevalidation"}],"patternLineageEExists":true,"patternDesc":"<p>Innholdet til modal klientdelegering for kvitteringsside.</p>\n","patternBreadcrumb":{"patternType":"organismer","patternSubtype":"Modal"},"patternExtension":"mustache","patternName":"Klientdelegering Ferdig","patternPartial":"organismer-klientdelegering-ferdig","patternState":"intechnicalreview","patternEngineName":"mustache","extraOutput":{}}
+  </script>
+</div><!--end .sg-pattern-->
+<div id="organismer-klientdelegering-fjern-rettigheter" class="sg-pattern">
+  <div class="sg-pattern-head">
+    <h3 class="sg-pattern-title">
+      <a href="../../patterns/02-organismer-70-Modal-98-klientdelegering-fjern-rettigheter&#x2F;02-organismer-70-Modal-98-klientdelegering-fjern-rettigheter.html" class="patternLink" data-patternpartial="organismer-klientdelegering-fjern-rettigheter" title="Link to Pattern">
+          Klientdelegering Fjern Rettigheter
+      </a>
+    </h3>
+      <span class="sg-pattern-state intechnicalreview">intechnicalreview</span>
+    <div class="sg-pattern-breadcrumb"></div>
+    <a href="#" data-patternpartial="organismer-klientdelegering-fjern-rettigheter" title="View Pattern Info" id="sg-pattern-extra-toggle-organismer-klientdelegering-fjern-rettigheter" class="sg-pattern-extra-toggle">Info <span>&#9660;</span></a>
+  </div>
+  <div class="sg-pattern-extra" id="sg-pattern-extra-organismer-klientdelegering-fjern-rettigheter">
+
+  </div>
+  <div class="sg-pattern-example">
+    <div class="row">
+	<div class="col-xs-8">
+		<div class="a-personRole">
+  <i class="material-icons a-personRole-icon">person</i>
+  <div class="a-personRole-text">
+    <span class="a-personRole-role">Styremedlem</span>
+    <span class="a-personRole-name">William Mjelde</span>
+  </div>
+</div>
+
+	</div>
+	<div class="col-xs p-t-1">
+      <button type="button" class="a-btn-link a-link a-link-danger pull-right " id="" onclick="location.href='../.."/patterns/04-sider-01-forside-00-forside/04-sider-01-forside-00-forside.html'" false>Avbryt</button> 
+
+
+	</div>
+</div>
+<div class="row">
+	<div class="col-xs-12 col-md-12 col-lg-6 m-t-2 m-b-1">
+		<div class="form-group a-form-group  " data-toggle="" data-delay="">
+
+    <div class="a-form-group-items input-group  ">
+
+      <!-- Label -->
+      <label class="a-form-label  input-group-addon" for="text-input-1">
+            <i class="material-icons"> &#xE1DB; </i>
+          <span class="sr-only">Finn klient</span>
+      </label>
+
+      <!-- Input  -->
+        <input type="search" 
+          class="form-control  a-form-control-withBtn p-l-0" 
+          id="text-input-1" 
+          
+           
+          placeholder="Hvilken klient ser du etter?" 
+          value="" 
+          maxlength=""
+          data-error="" 
+          
+          data-search-algorithm="show-and-highlight"
+          data-search-target="employee-table">
+        <i class="fa fa-check-circle form-control-feedback"></i><span class="sr-only">Icon showing if input is valid or not</span>
+
+        <!-- button -->
+        <div class="input-group-btn">
+          <button class="btn btn-secondary" type="button">
+            <i class="material-icons"><span class="sr-only">Utfør søk</span>&#xE8B6;</i>
+          </button>
+        </div>
+
+
+    </div>
+
+
+
+
+  </div>
+
+	</div>
+</div>
+
+<div class="a-collapse">
+  <h3 class="a-collapseHeader ">
+      <a data-toggle="collapse" data-parent="#accessToRoles" data-target="#" href="#" aria-expanded="false" aria-controls="DirectRoles" class="a-collapseTitle no-decoration collapsed">
+          <span class="a-dropdownArrow"></span> Denne utvidbare tittelen kan brukes både med <span class='tag tag-primary a-label tag-pill'>1</span> og uten label
+      </a>
+  </h3>
+</div>
+
+	<div class="full-width-table">
+  <table class="table a-sortable-table a-table-list clickable" id="employee-table" data-table-eventhandler="tableRowToggle">
+    <thead>
+        <tr class="a-sortable-row a-table-list">
+            <th class="add-remove-all  first   text-xs-right col-pd-4 p-r-2 ">
+              
+                
+              
+            </th>
+            <th class="add-remove-all  ">
+                <span class="a-dropdownArrow"></span>
+              
+                Selskapsnavn
+              
+            </th>
+            <th class="add-remove-all  ">
+                <span class="a-dropdownArrow"></span>
+              
+                Org.nr
+              
+            </th>
+            <th class="add-remove-all   text-xs-right col-pd-4 p-r-2 ">
+                  <span class=" normal-casing remove-action"
+                    >
+                    Fjern alle klienter
+                      <i class="material-icons a-table-icon remove-icon">
+                        remove_circle
+                      </i>
+                  </span>
+                  <span class=" normal-casing undo-action"
+                     style="display:none" >
+                    Angre alle klienter
+                      <i class="material-icons a-table-icon undo-icon red">
+                        history
+                      </i>
+                  </span>
+              <span class="normal-casing">
+                
+              </span>
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr class="a-sortable-row ">
+            <td  >
+              
+                <i class="material-icons ">
+                  view_headline
+                </i>
+            </td>
+            <td  >
+              Finn Skapen
+            </td>
+            <td  >
+              1234 56789
+            </td>
+            <td  class="text-xs-right p-r-2"  >
+                  <span class="remove-action" >
+                    Fjern
+                      <i class="material-icons a-table-icon remove-icon">
+                        remove_circle
+                      </i>
+                  </span>
+                  <span class="undo-action"  style="display:none" >
+                    Angre
+                      <i class="material-icons a-table-icon undo-icon red">
+                        history
+                      </i>
+                  </span>
+                  <span class="deleted-action"  style="display:none" >
+                    Slettet
+                  </span>
+              
+            </td>
+        </tr>
+        <tr class="a-sortable-row ">
+            <td  >
+              
+                <i class="material-icons ">
+                  view_headline
+                </i>
+            </td>
+            <td  >
+              Advokatselskapet langt navnesen og partnere
+            </td>
+            <td  >
+              1234 56789
+            </td>
+            <td  class="text-xs-right p-r-2"  >
+                  <span class="remove-action" >
+                    Fjern
+                      <i class="material-icons a-table-icon remove-icon">
+                        remove_circle
+                      </i>
+                  </span>
+                  <span class="undo-action"  style="display:none" >
+                    Angre
+                      <i class="material-icons a-table-icon undo-icon red">
+                        history
+                      </i>
+                  </span>
+                  <span class="deleted-action"  style="display:none" >
+                    Slettet
+                  </span>
+              
+            </td>
+        </tr>
+        <tr class="a-sortable-row ">
+            <td  >
+              
+                <i class="material-icons ">
+                  view_headline
+                </i>
+            </td>
+            <td  >
+              Rema 1000 AS
+            </td>
+            <td  >
+              815 493 00
+            </td>
+            <td  class="text-xs-right p-r-2"  >
+                  <span class="remove-action" >
+                    Fjern
+                      <i class="material-icons a-table-icon remove-icon">
+                        remove_circle
+                      </i>
+                  </span>
+                  <span class="undo-action"  style="display:none" >
+                    Angre
+                      <i class="material-icons a-table-icon undo-icon red">
+                        history
+                      </i>
+                  </span>
+                  <span class="deleted-action"  style="display:none" >
+                    Slettet
+                  </span>
+              
+            </td>
+        </tr>
+        <tr class="a-sortable-row ">
+            <td  >
+              
+                <i class="material-icons ">
+                  view_headline
+                </i>
+            </td>
+            <td  >
+              Eksempel på angre-symbol i samme tabell
+            </td>
+            <td  >
+              1234 56789
+            </td>
+            <td  class="text-xs-right p-r-2"  >
+                  <span class="remove-action" >
+                    Fjern
+                      <i class="material-icons a-table-icon remove-icon">
+                        remove_circle
+                      </i>
+                  </span>
+                  <span class="undo-action"  style="display:none" >
+                    Angre
+                      <i class="material-icons a-table-icon undo-icon red">
+                        history
+                      </i>
+                  </span>
+                  <span class="deleted-action"  style="display:none" >
+                    Slettet
+                  </span>
+              
+            </td>
+        </tr>
+    </tbody>
+  </table>
+</div>
+
+
+  </div>
+  <script type="text/json" id="sg-pattern-data-organismer-klientdelegering-fjern-rettigheter" class="sg-pattern-data">
+    {"cssEnabled":false,"patternLineageExists":true,"patternLineages":[{"lineagePattern":"molekyler-person-rolle","lineagePath":"../../patterns/01-molekyler-00-tekst-02-person-rolle/01-molekyler-00-tekst-02-person-rolle.html","lineageState":"needsrevalidation"},{"lineagePattern":"atomer-♺-knapp-link-fare","lineagePath":"../../patterns/00-atomer-03-knapper-16-♺-knapp-link-fare/00-atomer-03-knapper-16-♺-knapp-link-fare.html","lineageState":"indesignreview"},{"lineagePattern":"atomer-tekst-input","lineagePath":"../../patterns/00-atomer-01-forms-09-tekst-input/00-atomer-01-forms-09-tekst-input.html","lineageState":"needsrevalidation"},{"lineagePattern":"atomer-ekspanderbar-tittel","lineagePath":"../../patterns/00-atomer-05-Ekspansjonsknapper-27-ekspanderbar-tittel/00-atomer-05-Ekspansjonsknapper-27-ekspanderbar-tittel.html","lineageState":"intechnicalreview"},{"lineagePattern":"atomer-tabell-fjern-angre","lineagePath":"../../patterns/00-atomer-06-tabeller-11-tabell-fjern-angre/00-atomer-06-tabeller-11-tabell-fjern-angre.html","lineageState":"indesignreview"},{"lineagePattern":"molekyler-ferdigsegment","lineagePath":"../../patterns/01-molekyler-20-modalelementer-20-ferdigsegment/01-molekyler-20-modalelementer-20-ferdigsegment.html","lineageState":"inprogress"}],"lineage":[{"lineagePattern":"molekyler-person-rolle","lineagePath":"../../patterns/01-molekyler-00-tekst-02-person-rolle/01-molekyler-00-tekst-02-person-rolle.html","lineageState":"needsrevalidation"},{"lineagePattern":"atomer-♺-knapp-link-fare","lineagePath":"../../patterns/00-atomer-03-knapper-16-♺-knapp-link-fare/00-atomer-03-knapper-16-♺-knapp-link-fare.html","lineageState":"indesignreview"},{"lineagePattern":"atomer-tekst-input","lineagePath":"../../patterns/00-atomer-01-forms-09-tekst-input/00-atomer-01-forms-09-tekst-input.html","lineageState":"needsrevalidation"},{"lineagePattern":"atomer-ekspanderbar-tittel","lineagePath":"../../patterns/00-atomer-05-Ekspansjonsknapper-27-ekspanderbar-tittel/00-atomer-05-Ekspansjonsknapper-27-ekspanderbar-tittel.html","lineageState":"intechnicalreview"},{"lineagePattern":"atomer-tabell-fjern-angre","lineagePath":"../../patterns/00-atomer-06-tabeller-11-tabell-fjern-angre/00-atomer-06-tabeller-11-tabell-fjern-angre.html","lineageState":"indesignreview"},{"lineagePattern":"molekyler-ferdigsegment","lineagePath":"../../patterns/01-molekyler-20-modalelementer-20-ferdigsegment/01-molekyler-20-modalelementer-20-ferdigsegment.html","lineageState":"inprogress"}],"patternLineageRExists":true,"patternLineagesR":[{"lineagePattern":"maler-klientdelegering-modal","lineagePath":"../../patterns/03-maler-91-klientdelegering-99-klientdelegering-modal/03-maler-91-klientdelegering-99-klientdelegering-modal.html","lineageState":"needsrevalidation"}],"lineageR":[{"lineagePattern":"maler-klientdelegering-modal","lineagePath":"../../patterns/03-maler-91-klientdelegering-99-klientdelegering-modal/03-maler-91-klientdelegering-99-klientdelegering-modal.html","lineageState":"needsrevalidation"}],"patternLineageEExists":true,"patternDesc":"<p>Innholdet til modal klientdelegering for sletting av rettigheter.</p>\n","patternBreadcrumb":{"patternType":"organismer","patternSubtype":"Modal"},"patternExtension":"mustache","patternName":"Klientdelegering Fjern Rettigheter","patternPartial":"organismer-klientdelegering-fjern-rettigheter","patternState":"intechnicalreview","patternEngineName":"mustache","extraOutput":{}}
   </script>
 </div><!--end .sg-pattern-->
     </div> <!--end #sg-patterns-->
@@ -3032,10 +3518,10 @@
   }
 </script>
 
-<script id="pl-js-polyfill-insert-1477919168025">
+<script id="pl-js-polyfill-insert-1478470592412">
   (function() {
     if (self != top) {
-      var cb = '1477919168025';
+      var cb = '1478470592412';
       var js = [];
       if (typeof document !== 'undefined' && !('classList' in document.documentElement)) {
         js.push('styleguide/bower_components/classList.min.js');
@@ -3045,10 +3531,10 @@
   })();
 </script>
 
-<script id="pl-js-insert-1477919168025">
+<script id="pl-js-insert-1478470592412">
   (function() {
     if (self != top) {
-      var cb = '1477919168025';
+      var cb = '1478470592412';
       var js = [ { 'src': 'styleguide/bower_components/jwerty.min.js', 'dep': [ 'styleguide/js/patternlab-pattern.min.js' ] } ];
       scriptLoader.run(js,cb,'pl-js-insert');
     }

@@ -12,12 +12,16 @@ var aTagSpaceExpand = function() {
 
 /* globals $ */
 var codeLookup = function() {
+  var capIt = function(string) {
+    return string.charAt(0).toUpperCase() + string.slice(1);
+  };
   var lastKeypress; var now; var iterate;
+  var legend = $('.a-js-lookup').find('.a-legend');
   var loader = $('.a-js-lookup').find('.modal-body').find('.a-logo-anim');
-  var empty = $('.a-js-lookup').find('.modal-body').find('.a-logo-anim').next();
+  var empty = $('.a-js-lookup').find('.a-js-noResults');
   var container = $('.a-js-lookup').find('.modal-body').find('.a-radioButtons');
   var query; var base = container.html(); container.html(''); loader.hide();
-  empty.show();
+  empty.hide(); legend.hide();
   if ($('.a-js-lookup').length > 0) {
     $.getJSON('../../ssb.json', function(data) {
       function createPath(dest, str) {
@@ -43,23 +47,85 @@ var codeLookup = function() {
         if (query.length > 0 && (now - lastKeypress > 1500) && iterate) {
           iterate = false;
           Object.keys(data).forEach(function(item) {
+            var method; var var1 = ' ' + query + ' ';
+            var var2 = '-' + query + ' '; var var3 = ' ' + query + '-';
+            var var4 = ' ' + query; var var5 = query + ' ';
+            var var6 = capIt(query); var re1 = new RegExp(var1, 'g');
+            var re2 = new RegExp(var2, 'g'); var re3 = new RegExp(var3, 'g');
+            var re4 = new RegExp(var4, 'g'); var re5 = new RegExp(var5, 'g');
+            var re6 = new RegExp(var6, 'g');
+            var out1 = ' <strong style="color:inherit">' + query + '</strong> ';
+            var out2 = '-<strong style="color:inherit">' + query + '</strong> ';
+            var out3 = ' <strong style="color:inherit">' + query + '</strong>-';
+            var out4 = ' <strong style="color:inherit">' + query + '</strong>';
+            var out5 = '<strong style="color:inherit">' + query + '</strong> ';
+            var out6 = '<strong style="color:inherit">' + capIt(query) +
+              '</strong>';
             if (
               (
-                data[item].name.indexOf(query) !== -1 ||
-                data[item].shortName.indexOf(query) !== -1 ||
-                data[item].notes.indexOf(query) !== -1
+                data[item].name.indexOf(var1) !== -1 ||
+                data[item].name.indexOf(var2) !== -1 ||
+                data[item].name.indexOf(var3) !== -1 ||
+                data[item].name.indexOf(var4) !== -1 ||
+                data[item].name.indexOf(var5) !== -1 ||
+                data[item].name.indexOf(var6) !== -1 ||
+                data[item].shortName.indexOf(var1) !== -1 ||
+                data[item].shortName.indexOf(var2) !== -1 ||
+                data[item].shortName.indexOf(var3) !== -1 ||
+                data[item].shortName.indexOf(var4) !== -1 ||
+                data[item].shortName.indexOf(var5) !== -1 ||
+                data[item].shortName.indexOf(var6) !== -1 ||
+                data[item].notes.indexOf(var1) !== -1 ||
+                data[item].notes.indexOf(var2) !== -1 ||
+                data[item].notes.indexOf(var3) !== -1 ||
+                data[item].notes.indexOf(var4) !== -1 ||
+                data[item].notes.indexOf(var5) !== -1 ||
+                data[item].notes.indexOf(var6) !== -1
               ) &&
               data[item].level === 5
             ) {
-              container.append(base
-                .replace('%NAME%', data[item].name)
-                .replace('%DESCRIPTION%', data[item].notes)
+              if (
+                data[item].name.indexOf(var1) !== -1 ||
+                data[item].name.indexOf(var2) !== -1 ||
+                data[item].name.indexOf(var3) !== -1 ||
+                data[item].name.indexOf(var4) !== -1 ||
+                data[item].name.indexOf(var5) !== -1 ||
+                data[item].name.indexOf(var6) !== -1
+              ) {
+                method = 'prepend';
+              } else {
+                method = 'append';
+              }
+              container[method](base
+                .replace('%NAME%', data[item].name
+                  .replace(re1, out1)
+                  .replace(re2, out2)
+                  .replace(re3, out3)
+                  .replace(re4, out4)
+                  .replace(re5, out5)
+                  .replace(re6, out6)
+                )
+                .replace('%DESCRIPTION%', data[item].notes
+                  .replace(re1, out1)
+                  .replace(re2, out2)
+                  .replace(re3, out3)
+                  .replace(re4, out4)
+                  .replace(re5, out5)
+                  .replace(re6, out6)
+                )
                 .replace('%ID%', data[item].shortName)
-                .replace('%PATH%', createPath(data[item], ''))
+                .replace('%PATH%', createPath(data[item], '')
+                  .replace(re1, out1)
+                  .replace(re2, out2)
+                  .replace(re3, out3)
+                  .replace(re4, out4)
+                  .replace(re5, out5)
+                  .replace(re6, out6)
+                )
               );
             }
           });
-          loader.hide();
+          loader.hide(); legend.show();
           if (container.html() === '') {
             empty.show();
           }
@@ -490,6 +556,12 @@ var onboarding = function() {
 
 /* globals $ */
 var popover = function() {
+  $('[data-popover-content]').popover({
+    html: true,
+    content: function() {
+      return $('#' + $(this).data('popover-content')).html();
+    }
+  });
   $('[data-toggle="popover"]').popover(); $('#example').popover();
   $('.a-js-persistPopover').find('i').eq(1).hide();
   $('.a-js-persistPopover').find('i').eq(0).on('click', function() {
@@ -635,6 +707,79 @@ $(document).on('ready', function() {
   });
 });
 
+/* globals goBack */
+var onConfirmDeletionClick = function() {
+  var $table = $('table[data-table-eventhandler="tableRowToggle"]');
+  var $segmentDone = $('.segment-done');
+  var $selectedRows;
+  var goToReceipt = false;
+
+  if ($table.find('tbody>tr.selected').length === $table.find('tbody>tr').length) {
+    goToReceipt = true;
+  } else {
+    $selectedRows = $table.find('tbody>tr.selected');
+    $selectedRows.removeClass('selected').addClass('deleted');
+    $selectedRows.find('td:last-child span').hide();
+    $selectedRows.find('td:last-child span.deleted-action').show();
+    $segmentDone.hide();
+  }
+
+  return goToReceipt;
+};
+
+var handleModalClose = function(src) {
+  var hasSelectedRows = $('table[data-table-eventhandler="tableRowToggle"] tr.selected').length > 0;
+  if (!hasSelectedRows) {
+    $(src).popover('disable');
+    goBack();
+  }
+};
+
+var setupDeletableRowsTable = function() {
+  var $table = $('table[data-table-eventhandler="tableRowToggle"]');
+  var $segmentDone = $('.segment-done');
+  var $selectedRows;
+  $table.on('click', 'tbody>tr', function() {
+    $(this).toggleClass('selected');
+    if ($(this).hasClass('selected')) {
+      $(this).find('td:last-child span').hide();
+      $(this).find('td:last-child span.undo-action').show();
+    } else {
+      $(this).find('td:last-child span').hide();
+      $(this).find('td:last-child span.remove-action').show();
+    }
+    if ($table.find('tr.selected').length > 0) {
+      $segmentDone.show();
+    } else {
+      $segmentDone.hide();
+    }
+  });
+  $('.add-remove-all').on('click', function() {
+    if ($table.find('tbody>tr.selected').length === $table.find('tbody>tr').length) {
+      $table.find('tbody>tr').removeClass('selected');
+      $table.find('td:last-child span').hide();
+      $table.find('th:last-child span').hide();
+      $table.find('td:last-child span.remove-action').show();
+      $table.find('th:last-child span.remove-action').show();
+      $segmentDone.hide();
+    } else {
+      $table.find('tbody>tr').addClass('selected');
+      $table.find('td:last-child span').hide();
+      $table.find('th:last-child span').hide();
+      $table.find('td:last-child span.undo-action').show();
+      $table.find('th:last-child span.undo-action').show();
+      $segmentDone.show();
+    }
+  });
+  $('#cancel-deletion').on('click', function() {
+    $table.find('tbody>tr').removeClass('selected').removeClass('deleted');
+    $table.find('td:last-child span').hide();
+    $table.find('th:last-child span').hide();
+    $table.find('td:last-child span.remove-action').show();
+    $table.find('th:last-child span.remove-action').show();
+  });
+};
+
 /* globals $ */
 var toggleExpand = function() {
   $('.js-toggle').click(function() {
@@ -685,6 +830,24 @@ var toggleFilter = function() {
   });
 };
 
+$(document).on('ready', function() {
+  var $allWithTarget = $('.switch-container input[data-switch-target]');
+  var allTargets = [];
+  $.each($allWithTarget, function() {
+    allTargets.push($(this).data('switch-target'));
+  });
+
+  $allWithTarget.on('click', function() {
+    var $currentSwitch = $(this);
+    $('#' + $currentSwitch.data('switch-target')).show();
+    $.each(allTargets, function() {
+      if ($currentSwitch.data('switch-target') !== this + '') {
+        $('#' + this).hide();
+      }
+    });
+  });
+});
+
 /* globals $ */
 var tooltip = function() {
   $('[data-toggle="tooltip"]').tooltip();
@@ -710,7 +873,7 @@ var uniformHeight = function() {
 /* globals questionnaireInteraction, drilldownInteraction, handleFocus,
 mobileNavigation, propagateContent, toggleExpand, toggleFilter, uniformHeight,
 tooltip, popover, aTagSpaceExpand, initializeDatepicker, onboarding,
-nameChecker, codeLookup, handleValidatorLibrary */
+nameChecker, codeLookup, handleValidatorLibrary, setupDeletableRowsTable */
 window.altinnInit = function() {
   toggleExpand();
   drilldownInteraction();
@@ -728,5 +891,6 @@ window.altinnInit = function() {
   nameChecker();
   codeLookup();
   handleValidatorLibrary();
+  setupDeletableRowsTable();
 };
 window.altinnInit();

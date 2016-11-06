@@ -1,11 +1,38 @@
 <div class="panel panel-default a-panel a-collapse" role="tablist">
-  {{> molekyler-panel-header }}
-  <div id="{{ collapse-panel-id }}" class="panel-collapse a-panel-collapse collapse" role="tabpanel" aria-labelledby="{{ collapse-panel-id }}">
-   <p class="a-text a-panel-collapse-content">
+	{{> molekyler-panel-header }}
+	<div id="{{ collapse-panel-id }}" class="panel-collapse a-panel-collapse collapse" role="tabpanel" aria-labelledby="{{ collapse-panel-id }}">
+		<div class="panel-collapse-content-section p-x-2 p-b-2">
+			<div class="first-action p-t-3">
+				{{> atomer-knapp-veksle }}
+			</div>
+			{{# klientdelegering-file }}
+				<div class="third-action p-t-3">
+					{{> atomer-knapp }}
+				</div>
+			{{/ klientdelegering-file }}
+			<div class="second-action p-t-3">
+				{{# sok-etter-klient }}
+					{{> atomer-tekst-input }}
+				{{/ sok-etter-klient }}
+			</div>
 
-
-
-
-    </p>
-  </div>
+			<div class="fourth-action m-t-3">
+				{{# klientdelegering-add }} 
+					{{> atomer-handlingsknapp }} 
+				{{/ klientdelegering-add}}
+			</div>
+		</div>
+		<div>
+			<div id="firstTable">
+				{{# employee-table }}
+					{{> atomer-tabell-sorterbar-variant }}
+				{{/ employee-table }}
+			</div>
+			<div id="secondTable" style="display: none">
+				{{# clients-table }}
+					{{> atomer-tabell-sorterbar-variant }}
+				{{/ clients-table }}
+			</div>
+		</div>
+	</div>
 </div>

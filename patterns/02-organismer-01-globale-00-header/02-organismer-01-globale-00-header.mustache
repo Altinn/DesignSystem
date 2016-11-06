@@ -20,17 +20,16 @@
 
     			<li class="nav-item dropdown hidden-xs-down">
             <!-- Dropdown toggle -->
-            <a class="nav-link dropdown-toggle a-languageSwitcher" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false"> <i class="material-icons hidden-md-up">&#xE894;</i><span class="sr-only">Bytt språk</span> <span class="hidden-sm-down" aria-hidden="true">Language</span></a>
+            <button class="nav-link dropdown-toggle a-languageSwitcher hidden-sm-down" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Language
+            </button>
             <span class="a-js-propagatedContentDestination replace-me" data-refclass="droplang"></span>
           </li>
 
     			<li class="nav-item dropdown">
     				<!-- Dropdown toggle -->
     				{{> atomer-innlogget }}
-
-    				{{# dropdown-personswitch-list }}
-    					{{> organismer-meny-personbytte }}
-    				{{/ dropdown-personswitch-list }}
+            {{> organismer-meny-personbytte }}
     			</li>
 
     		</ul> <!-- End .a-globalNav-options -->
@@ -41,17 +40,17 @@
     			<a href="../../{{ link.sider-forside }}" class="a-globalNav-logo"> {{> atomer-logo }} <span class="sr-only">Til forsiden</span>
           </a>
 
-    			  <button class="navbar-toggler hidden-sm-up" type="button" data-toggle="collapse" data-target="#exCollapsingNavbar2">
+    			  <button class="navbar-toggler hidden-md-up" type="button" data-toggle="collapse" data-target="#exCollapsingNavbar2">
     			  </button>
-    			  <div class="collapse navbar-toggleable-xs a-globalNav-main" id="exCollapsingNavbar2">
+    			  <div class="collapse navbar-toggleable-sm a-globalNav-main" id="exCollapsingNavbar2">
     					<ul class="a-dropdownTriangle" id="exCollapsingNavbar">
 
-    						<li class="hidden-sm-up">
+    						<li class="hidden-md-up">
                   {{# header-mobilesearch }}
     							    {{> atomer-tekst-input }}
                   {{/ header-mobilesearch }}
     						</li>
-                <li class="hidden-sm-up"><a class="hvr-underline-from-center"
+                <li class="hidden-md-up"><a class="hvr-underline-from-center"
                   onkeyup="langTriggerClick(event)" onmousedown="
                   $('#exCollapsingNavbar').find('.a-dropdown-languages').find('a').attr('tabindex', '-1');
                   if (!$('#exCollapsingNavbar').find('.a-dropdown-languages').hasClass('expand')) {
@@ -76,10 +75,10 @@
     						<li><a class="hvr-underline-from-center" href="../..{{ link.sider-skjemagruppe }}">innboks</a></li>
     						<li><a class="hvr-underline-from-center {{{ globalNav-active }}}" href="../..{{ link.sider-skjema }}">alle skjema</a></li>
     						<li><a class="hvr-underline-from-center" href="../..{{ link.sider-om-skjema }}">profil</a></li>
-    						<li class="hidden-sm-up"><a class="a-nav-link hvr-underline-from-center" href="#">starte og drive bedrift</a></li>
-    						<li class="hidden-sm-up"><a class="hvr-underline-from-center" href="../..{{ link.sider-artikkel }}">om altinn</a></li>
-    						<li class="hidden-sm-up"><a class="hvr-underline-from-center" href="../..{{ link.sider-artikkel }}">hjelpesider</a></li>
-    						<li class="hidden-sm-up">
+    						<li class="hidden-md-up"><a class="a-nav-link hvr-underline-from-center" href="../..{{ link.sider-starteogdrive }}">starte og drive bedrift</a></li>
+    						<li class="hidden-md-up"><a class="hvr-underline-from-center" href="../..{{ link.sider-artikkel }}">om altinn</a></li>
+    						<li class="hidden-md-up"><a class="hvr-underline-from-center" href="../..{{ link.sider-artikkel }}">hjelpesider</a></li>
+    						<li class="hidden-md-up">
     							{{> atomer-link-telefonnummer }}
     						</li>
     					</ul>

@@ -88,10 +88,10 @@ var prototypingInteractionStarteENK = function() {
   });
   /* Toggling chat */
   $('#link-chat').on('click', function() {
-    $('#chatten').css('display', 'block');
+    $('#chat').css('display', 'block');
   });
   $('#close-chat').on('click', function() {
-    $('#chatten').css('display', 'none');
+    $('#chat').css('display', 'none');
   });
 };
 

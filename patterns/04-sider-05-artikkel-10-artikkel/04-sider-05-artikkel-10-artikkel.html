@@ -38,8 +38,8 @@
     <script src="https://use.fonticons.com/b2e1f56d.js"></script>
 
     <!-- Altinn stylesheet -->
-    <link rel="stylesheet" href="../../css/style.css?1477919168025" media="all" />
-    <!-- <link rel="stylesheet" href="../../css/pattern-scaffolding.css?1477919168025" media="all" /> -->
+    <link rel="stylesheet" href="../../css/style.css?1478470592412" media="all" />
+    <!-- <link rel="stylesheet" href="../../css/pattern-scaffolding.css?1478470592412" media="all" /> -->
 
     <!-- Begin Pattern Lab (Required for Pattern Lab to run properly) -->
     <!-- never cache patterns -->
@@ -49,7 +49,7 @@
 <meta http-equiv="expires" content="Tue, 01 Jan 1980 1:00:00 GMT" />
 <meta http-equiv="pragma" content="no-cache" />
 
-<link rel="stylesheet" href="../../styleguide/css/styleguide.min.css?1477919168025" media="all">
+<link rel="stylesheet" href="../../styleguide/css/styleguide.min.css?1478470592412" media="all">
 <style type="text/css">
   /* PRESENTATION OF STYLE GUIDE */
   #sg-viewport {
@@ -318,6 +318,14 @@
     clear: both;
   }
 
+  /* View patterns that in is context is display none from start */
+
+  #organismer-chat .sg-pattern-example .a-chat {
+    display: block;
+    position: relative;
+    bottom: 0;
+  }
+
 
   /* Code view height minimum 300px */
 
@@ -379,6 +387,7 @@
     background: #ffffff;
     z-index: 9999;
     padding: 12px 0;
+        height: 52px;
     border-top: 2px solid #efefef;
   }
   .sg-switchtheme .a-radioButtons .c-input {
@@ -410,7 +419,7 @@
 
 
 </style>
-<link rel="stylesheet" href="../../styleguide/css/prism-typeahead.min.css?1477919168025" media="all" />
+<link rel="stylesheet" href="../../styleguide/css/prism-typeahead.min.css?1478470592412" media="all" />
 
     <!-- End Pattern Lab -->
 
@@ -477,32 +486,28 @@
 
     			<li class="nav-item dropdown hidden-xs-down">
             <!-- Dropdown toggle -->
-            <a class="nav-link dropdown-toggle a-languageSwitcher" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false"> <i class="material-icons hidden-md-up">&#xE894;</i><span class="sr-only">Bytt språk</span> <span class="hidden-sm-down" aria-hidden="true">Language</span></a>
+            <button class="nav-link dropdown-toggle a-languageSwitcher hidden-sm-down" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Language
+            </button>
             <span class="a-js-propagatedContentDestination replace-me" data-refclass="droplang"></span>
           </li>
 
     			<li class="nav-item dropdown">
     				<!-- Dropdown toggle -->
-    				<a
-  class="nav-link a-personSwitcher"
-  data-toggle=""
-  href=""
-  role="button"
-  aria-haspopup="true"
-  aria-expanded="false">
+    				
+<button class="nav-link dropdown-toggle a-personSwitcher" type="button" id="dropdownMenuButton" data-toggle="dropdown"  data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
   <span
-    class="a-personSwitcher-name hidden-sm-down"
+    class="a-personSwitcher-name"
     title="Logg inn ">
     Logg inn
     <br>
     
   </span>
   <i class="material-icons a-personSwitcher-icon">&#xE853;</i>
-</a>
+</button>
 
-
-    					<!-- Begin #a-dropdown-personswitchList - -->
-<div class="dropdown-menu a-dropdown-personswitchList a-dropdownTriangle">
+            <!-- Begin #a-dropdown-personswitchList - -->
+<div class="dropdown-menu a-dropdown-languages a-dropdownTriangle">
 
   <div class="p-t-3 p-l-3 p-r-3">
 
@@ -511,9 +516,9 @@
         <div class="a-personRole">
   <i class="material-icons a-personRole-icon">&#xE7FD;</i>
   <div class="a-personRole-text">
-    <span class="a-personRole-name">Jan Pettersen</span>
-    <span class="tag tag-primary a-label label-pill">8</span>
-    <span class="a-personRole-role">Personnr. 241287 12345</span>
+    <span class="a-personRole-name">Olga Organisme</span>
+    <span class="tag tag-primary a-label label-pill">9</span>
+    <span class="a-personRole-role">Personnr. 123456 12345</span>
   </div>
 </div>
 
@@ -532,54 +537,85 @@
         Andre du kan representere:
     </p>
 
+      <div class="form-group a-form-group  " data-toggle="" data-delay="">
+
+    <div class="a-form-group-items input-group  ">
+
+      <!-- Label -->
+      <label class="a-form-label  input-group-addon" for="text-input-find-13">
+            <i class="material-icons"> &#xE7EF; </i>
+          <span class="sr-only">Finn skjema eller tjeneste</span>
+      </label>
+
+      <!-- Input  -->
+        <input type="search" 
+          class="form-control  a-form-control-withBtn " 
+          id="text-input-find-13" 
+          
+           
+          placeholder="Hvem leter du etter?" 
+          value="" 
+          maxlength=""
+          data-error="" 
+          
+          data-search-algorithm=""
+          data-search-target="">
+        <i class="fa fa-check-circle form-control-feedback"></i><span class="sr-only">Icon showing if input is valid or not</span>
+
+        <!-- button -->
+        <div class="input-group-btn">
+          <button class="btn btn-secondary" type="button">
+            <i class="material-icons"><span class="sr-only">Utfør søk</span>&#xE8B6;</i>
+          </button>
+        </div>
+
+
+    </div>
+
+
+
+
+  </div>
+
 
   </div>
 
   <div class="p-t-1 p-l-1 p-r-1">
 
-    <button type="button" class="a-btn a-btn-shadow " onclick="location.href='';">
+      <button type="button" class="a-btn a-btn-shadow " onclick="location.href='';">
 	<i class="material-icons a-btn-shadow-icon">&#xE85C;</i>
 
 	Effektive timer AS
-<span class="tag tag-primary a-label tag-pill" id=label>3</span>
+		<span class="tag tag-primary a-label tag-pill" id=label>3</span>
+
 
 </button>
 
-
-    <button type="button" class="a-btn a-btn-shadow " onclick="location.href='/patterns/04-sider-01-forside-00-forside-innlogget-med-langt-navn/04-sider-01-forside-00-forside-innlogget-med-langt-navn.html';">
+      <button type="button" class="a-btn a-btn-shadow " onclick="location.href='/patterns/04-sider-01-forside-00-forside-innlogget-med-langt-navn/04-sider-01-forside-00-forside-innlogget-med-langt-navn.html';">
 	<i class="material-icons a-btn-shadow-icon">&#xE85C;</i>
 
 	Johansen Regnskap AS
 
 </button>
 
-
-    <button type="button" class="a-btn a-btn-shadow " onclick="location.href='';">
+      <button type="button" class="a-btn a-btn-shadow " onclick="location.href='';">
 	<i class="material-icons a-btn-shadow-icon">&#xE85C;</i>
 
 	Nidar AS
 
 </button>
 
-
-    <button type="button" class="a-btn a-btn-shadow a-bgGreyLight" onclick="location.href='';">
+      <button type="button" class="a-btn a-btn-shadow a-bgGreyLight" onclick="location.href='';">
 	<i class="material-icons a-btn-shadow-icon">&#xE85C;</i>
 
 	Filip Gran
-<span class="tag tag-primary a-label tag-pill" id=label>3</span>
+		<span class="tag tag-primary a-label tag-pill" id=label>3</span>
+
 
 </button>
 
 
-    <button type="button" class="a-btn a-btn-shadow " onclick="location.href='';">
-	<i class="material-icons a-btn-shadow-icon">&#xE85C;</i>
-
-	Pritt AS
-
-</button>
-
-
-    <a href="" class="a-btn a-btn-withIcon p-y-1 p-x-2">
+    <a href="" class="a-btn a-btn-withIcon p-t-1 p-x-2">
 	<i class="material-icons a-btn-withIcon-icon">&#xE145;</i>
 	Last flere
 </a>
@@ -597,18 +633,57 @@
     		<!-- Begin .a-globalNav -->
     		<nav class="a-globalNav">
     			<a href="../../&#x2F;patterns&#x2F;04-sider-01-forside-00-forside&#x2F;04-sider-01-forside-00-forside.html" class="a-globalNav-logo"> 
-<img src="..&#x2F;..&#x2F;images&#x2F;a-logo-blue.svg" alt="Altinn logo" class="a-logo  ">
+<img src="..&#x2F;..&#x2F;images&#x2F;a-logo-blue.svg" alt="Altinn logo" class="a-logo a-modal-top-logo ">
  <span class="sr-only">Til forsiden</span>
           </a>
 
-    			  <button class="navbar-toggler hidden-sm-up" type="button" data-toggle="collapse" data-target="#exCollapsingNavbar2">
+    			  <button class="navbar-toggler hidden-md-up" type="button" data-toggle="collapse" data-target="#exCollapsingNavbar2">
     			  </button>
-    			  <div class="collapse navbar-toggleable-xs a-globalNav-main" id="exCollapsingNavbar2">
+    			  <div class="collapse navbar-toggleable-sm a-globalNav-main" id="exCollapsingNavbar2">
     					<ul class="a-dropdownTriangle" id="exCollapsingNavbar">
 
-    						<li class="hidden-sm-up">
+    						<li class="hidden-md-up">
+    							    <div class="form-group a-form-group  " data-toggle="" data-delay="">
+
+    <div class="a-form-group-items input-group  ">
+
+      <!-- Label -->
+      <label class="a-form-label sr-only input-group-addon" for="text-input-search-12">
+          Søk etter innhold
+      </label>
+
+      <!-- Input  -->
+        <input type="search" 
+          class="form-control  a-form-control-withBtn form-control-noAddon " 
+          id="text-input-search-12" 
+          
+           
+          placeholder="Søk etter innhold" 
+          value="" 
+          maxlength=""
+          data-error="" 
+          
+          data-search-algorithm=""
+          data-search-target="">
+        <i class="fa fa-check-circle form-control-feedback"></i><span class="sr-only">Icon showing if input is valid or not</span>
+
+        <!-- button -->
+        <div class="input-group-btn">
+          <button class="btn btn-secondary" type="button">
+            <i class="material-icons"><span class="sr-only">Utfør søk</span>&#xE8B6;</i>
+          </button>
+        </div>
+
+
+    </div>
+
+
+
+
+  </div>
+
     						</li>
-                <li class="hidden-sm-up"><a class="hvr-underline-from-center"
+                <li class="hidden-md-up"><a class="hvr-underline-from-center"
                   onkeyup="langTriggerClick(event)" onmousedown="
                   $('#exCollapsingNavbar').find('.a-dropdown-languages').find('a').attr('tabindex', '-1');
                   if (!$('#exCollapsingNavbar').find('.a-dropdown-languages').hasClass('expand')) {
@@ -633,10 +708,10 @@
     						<li><a class="hvr-underline-from-center" href="../..&#x2F;patterns&#x2F;04-sider-40-skjema-51-skjemagruppe&#x2F;04-sider-40-skjema-51-skjemagruppe.html">innboks</a></li>
     						<li><a class="hvr-underline-from-center " href="../..&#x2F;patterns&#x2F;04-sider-40-skjema-50-skjema&#x2F;04-sider-40-skjema-50-skjema.html">alle skjema</a></li>
     						<li><a class="hvr-underline-from-center" href="../..&#x2F;patterns&#x2F;04-sider-40-skjema-52-om-skjema&#x2F;04-sider-40-skjema-52-om-skjema.html">profil</a></li>
-    						<li class="hidden-sm-up"><a class="a-nav-link hvr-underline-from-center" href="#">starte og drive bedrift</a></li>
-    						<li class="hidden-sm-up"><a class="hvr-underline-from-center" href="../..&#x2F;patterns&#x2F;04-sider-05-artikkel-10-artikkel&#x2F;04-sider-05-artikkel-10-artikkel.html">om altinn</a></li>
-    						<li class="hidden-sm-up"><a class="hvr-underline-from-center" href="../..&#x2F;patterns&#x2F;04-sider-05-artikkel-10-artikkel&#x2F;04-sider-05-artikkel-10-artikkel.html">hjelpesider</a></li>
-    						<li class="hidden-sm-up">
+    						<li class="hidden-md-up"><a class="a-nav-link hvr-underline-from-center" href="../..&#x2F;patterns&#x2F;04-sider-30-starte-og-drive-30-starteogdrive&#x2F;04-sider-30-starte-og-drive-30-starteogdrive.html">starte og drive bedrift</a></li>
+    						<li class="hidden-md-up"><a class="hvr-underline-from-center" href="../..&#x2F;patterns&#x2F;04-sider-05-artikkel-10-artikkel&#x2F;04-sider-05-artikkel-10-artikkel.html">om altinn</a></li>
+    						<li class="hidden-md-up"><a class="hvr-underline-from-center" href="../..&#x2F;patterns&#x2F;04-sider-05-artikkel-10-artikkel&#x2F;04-sider-05-artikkel-10-artikkel.html">hjelpesider</a></li>
+    						<li class="hidden-md-up">
     							<a href="tel:+4775 00 60 00" class="a-tel">
   <i class="material-icons">&#xE324;</i>
   <span class="sr-only">Telefonnummer til Altinn kundestøtte</span>
@@ -660,45 +735,6 @@
 
 		<div class="row">
 			<div class="col-sm-12 col-lg-6 offset-lg-3 p-t-3 m-b-5">
-					<div class="form-group a-form-group  a-form-group-large" data-toggle="" data-delay="">
-
-    <div class="a-form-group-items input-group ">
-
-      <!-- Label -->
-      <label class="a-form-label sr-only input-group-addon" for="">
-          Søk etter guider og annet innhold
-      </label>
-
-      <!-- Input  -->
-      <input type="" 
-        class="form-control  a-form-control-withBtn form-control-noAddon " 
-        id="" 
-        
-          
-         placeholder="Søk etter guider og annet innhold" 
-         value="" 
-         maxlength=""
-         data-error="" 
-         
-        data-search-algorithm=""
-        data-search-target="">
-      <i class="fa fa-check-circle form-control-feedback"></i><span class="sr-only">Icon showing if input is valid or not</span>
-
-      <!-- button -->
-      <div class="input-group-btn">
-        <button class="btn btn-secondary" type="button">
-          <i class="material-icons"><span class="sr-only">Utfør søk</span>&#xE8B6;</i>
-        </button>
-      </div>
-
-
-    </div>
-
-
-
-
-  </div>
-
 			</div>
 		</div>
 
@@ -721,7 +757,7 @@
 </ol>
 
 
-<h1 class="din-bold ">Tittelen på siden</h1>
+<h1 class="din-bold ">Tittel på siden</h1>
 
 
 <p class="a-leadText" id="leadText">Ingress er et kort innledende avsnitt som vanligvis plasseres mellom overskriften og brødteksten. Ingressen brukes ofte til å &quot;gripe&quot; fatt i leseren, for at personen skal bli interessert i å lese resten av teksten.</p>
@@ -740,21 +776,21 @@
 		<div class="row">
 			<div class="col-sm-12 col-lg-8 offset-lg-2 a-text m-t-2 m-b-4">
 
-					<p>Introtekst før første overskrift kommer. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
+					<p class="">Introtekst før første overskrift kommer. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
 
 
 					<h2 class="">Økonomi
 </h2>
 
 
-					<p>Som eier av et enkeltpersonsforetak står du økonomisk ansvarlig for din virksomhets gjeld og forpliktelser. Dette betyr at du driver virksomheten din for egen regning og risiko. Skattemessig lignes virksomheten din sammen med deg personlig. Dette betyr at nettooverskuddet er skattepliktig sammen med dine andre inntekter, for eksempel dine lønnsinntekter. På samme måte vil nettotapet være fradragsberettiget. Du er ikke forpliktet å investere kapital i selskapet, siden du uansett er personlig ansvarlig, i motsetning til krav om kaptial i aksjeselskap.</p>
+					<p class="">Som eier av et enkeltpersonsforetak står du økonomisk ansvarlig for din virksomhets gjeld og forpliktelser. Dette betyr at du driver virksomheten din for egen regning og risiko. Skattemessig lignes virksomheten din sammen med deg personlig. Dette betyr at nettooverskuddet er skattepliktig sammen med dine andre inntekter, for eksempel dine lønnsinntekter. På samme måte vil nettotapet være fradragsberettiget. Du er ikke forpliktet å investere kapital i selskapet, siden du uansett er personlig ansvarlig, i motsetning til krav om kaptial i aksjeselskap.</p>
 
 
 					<h2 class="">Organisasjonsnummer
 </h2>
 
 
-					<p>Du får tildelt et organisasjonsnummer når ditt foretak blir registrert via Samordna registermelding. Organisasjonsnummeret blir brukt av det offentlige for å samordne informasjon om foretaket.</p>
+					<p class="">Du får tildelt et organisasjonsnummer når ditt foretak blir registrert via Samordna registermelding. Organisasjonsnummeret blir brukt av det offentlige for å samordne informasjon om foretaket.</p>
 
 
 			</div><!-- END .col-... -->
@@ -765,7 +801,7 @@
 
 				<div class="media a-media m-b-2">
   <div class="media-left">
-    <img class="media-object" src="..&#x2F;..&#x2F;images&#x2F;placeholder-16x9.jpg" alt="16x9 Image">
+    <img class="media-object" src="..&#x2F;..&#x2F;images&#x2F;img2.jpg" alt="Post Thumbnail">
   </div>
   <div class="media-body">
     <blockquote class="a-blockquote  ">
@@ -787,7 +823,7 @@
 </h2>
 
 
-					<p>Foretaket ditt kan registreres i ulike register - Enhetsregisteret og Foretaksregisteret. Registrering i Enhetsregisteret gjør at du kan opprette en bankkonto tilknyttet ditt foretak. Registreringen er gratis og skjer automatisk når du leverer Samordna registermelding.</p>
+					<p class="">Foretaket ditt kan registreres i ulike register - Enhetsregisteret og Foretaksregisteret. Registrering i Enhetsregisteret gjør at du kan opprette en bankkonto tilknyttet ditt foretak. Registreringen er gratis og skjer automatisk når du leverer Samordna registermelding.</p>
 
 
 						<div class="a-card a-panelIconLeft a-articleRightOff">
@@ -799,7 +835,7 @@
       </span>
 
       
-<a href="../../patterns/04-sider-90-starte-enk-00-starte-enk-1/04-sider-90-starte-enk-00-starte-enk-1.html" id="" class="a-linkArea  a-link">Registrer enkeltpersonforetak</a>
+<a href="../../patterns/04-sider-90-starte-enk-00-starte-enk/04-sider-90-starte-enk-00-starte-enk.html" id="" class="a-linkArea  a-link">Registrer enkeltpersonforetak</a>
 
 
       <span class="a-panelIconLeft-code">(BR123)</span>
@@ -808,14 +844,14 @@
 </div>
 
 
-					<p>Du har også rett til å registrere ditt foretak i Foretaksregisteret. Ved registrering i Foretaksregisteret vil foretaket få en firmaattest. Hvis foretaket ditt har minst fem ansatte eller driver videresalg av innkjøpte varer, har det registreringsplikt i	Foretaksregisteret. Registrering koster ---- kroner og betales etterskuddsvis.</p>
+					<p class="">Du har også rett til å registrere ditt foretak i Foretaksregisteret. Ved registrering i Foretaksregisteret vil foretaket få en firmaattest. Hvis foretaket ditt har minst fem ansatte eller driver videresalg av innkjøpte varer, har det registreringsplikt i	Foretaksregisteret. Registrering koster ---- kroner og betales etterskuddsvis.</p>
 
 
 					<h2 class="">Krav til enkeltpersonforetak
 </h2>
 
 
-					<ul class="a-bulletList ">
+						<ul class="a-bulletList ">
     <li>
       Du må være fylt 18 år
     </li>
@@ -825,7 +861,7 @@
 </ul>
 
 
-					<p>Er du over 15 år kan du og din verge få samtykke fra Fylkesmannen om å drive en bestemt næringsvirksomhet. For mer informasjon og vilkår, ta kontakt med Fylkesmannen i ditt fylke.</p>
+					<p class="">Er du over 15 år kan du og din verge få samtykke fra Fylkesmannen om å drive en bestemt næringsvirksomhet. For mer informasjon og vilkår, ta kontakt med Fylkesmannen i ditt fylke.</p>
 
 
 						<blockquote class="a-blockquote  a-articleRightOff a-blockquote-right">
@@ -834,20 +870,20 @@
 </blockquote>
 
 
-					<h3 class="">Store enkeltpersonforetak</h31>
+					<h3 class="">Store enkeltpersonforetak</h3>
 
 
-					<p>Har ditt foretak hatt mer enn 30 ansatte de tre siste regnskapsårene, gjelder enkelte krav som for ansvarlige selskaper. Disse kravene dreier seg om ansattes adgang til representasjon i selskapsmøter og eventuelt styre.</p>
+					<p class="">Har ditt foretak hatt mer enn 30 ansatte de tre siste regnskapsårene, gjelder enkelte krav som for ansvarlige selskaper. Disse kravene dreier seg om ansattes adgang til representasjon i selskapsmøter og eventuelt styre.</p>
 
 
 					<h2 class="">Skatt for enkeltpersonforetak
 </h2>
 
 
-					<p>Som eier av et enkeltpersonforetak er du ansvarlig for innbetaling av foretakets skatt. Foretaket er ikke et eget skattesubjekt. Du betaler forskuddsskatt for hver enkelt periode så snart inntekten oppstår, og vil få tilsendt innbetalingsblanketter for dette fire ganger i året. Du må søke om å få utskrevet forskuddsskatt.</p>
+					<p class="">Som eier av et enkeltpersonforetak er du ansvarlig for innbetaling av foretakets skatt. Foretaket er ikke et eget skattesubjekt. Du betaler forskuddsskatt for hver enkelt periode så snart inntekten oppstår, og vil få tilsendt innbetalingsblanketter for dette fire ganger i året. Du må søke om å få utskrevet forskuddsskatt.</p>
 
 
-					<h3 class="">Dette koster en lønnskjøring på 100 000 </h31>
+					<h3 class="">Dette koster en lønnskjøring på 100 000 </h3>
 
 			</div><!-- END .col-... -->
 		</div><!-- END .row -->
@@ -954,10 +990,10 @@
 			<div class="col-sm-12 col-lg-8 offset-lg-2 a-text m-b-5">
 
 
-				<p>Du betaler forskuddsskatt for hver enkelt periode så snart inntekten oppstår, og vil få tilsendt innbetalingsblanketter for dette fire ganger i året. Du må søke om å få utskrevet forskuddsskatt.</p>
+				<p class="">Du betaler forskuddsskatt for hver enkelt periode så snart inntekten oppstår, og vil få tilsendt innbetalingsblanketter for dette fire ganger i året. Du må søke om å få utskrevet forskuddsskatt.</p>
 
 
-				<p>Dette gjør du ved å søke om endring av skattekortet ditt. Når du endrer skattekortet, skal du påføre det overskuddet du forventer å få inneværende år. Du må også huske å føre opp eventuell annen inntekt, som for eksempel lønnsinntekt.</p>
+				<p class="">Dette gjør du ved å søke om endring av skattekortet ditt. Når du endrer skattekortet, skal du påføre det overskuddet du forventer å få inneværende år. Du må også huske å føre opp eventuell annen inntekt, som for eksempel lønnsinntekt.</p>
 
 
 
@@ -965,12 +1001,10 @@
 <a href="../../patterns/04-sider-80-prosess-70-prosess/04-sider-80-prosess-70-prosess.html" id="" class="a-linkArea a-link d-inline-block m-b-2 ">Mer informasjon om forskuddsskatt<i class="a-link-external"> →</i></a>
 
 
-				<p>Det er viktig å huske på at overføringer av penger som du overfører fra foretaket til deg selv som betaling for arbeidsinnsatsen, ikke regnes som kostnad for foretaket. Slik utbetaling vil ikke påvirke det skattbare resultatet for foretaket.</p>
+				<p class="">Det er viktig å huske på at overføringer av penger som du overfører fra foretaket til deg selv som betaling for arbeidsinnsatsen, ikke regnes som kostnad for foretaket. Slik utbetaling vil ikke påvirke det skattbare resultatet for foretaket.</p>
 
 
 				<fieldset class="form-group">
-
-<!--<div id="" class=" a-radioButtons "> -->
 
 		<legend class="a-legend">Fant du det du lette etter?
 		</legend>
@@ -978,7 +1012,7 @@
 	<div class="form-check a-radioButtons  ">
 
 			<label class="custom-control custom-radio">
-				<input id="radio1" value="radio1" type="radio" name="radioish" class="custom-control-input"/>
+				<input id="radio1" value="radio1" type="radio"  name="radioish" class="custom-control-input"/>
 				<span class="custom-control-indicator"></span>
 				<span class="a-radioButtons-title">
 					Ja
@@ -988,7 +1022,7 @@
 			</label>
 
 			<label class="custom-control custom-radio">
-				<input id="radio2" value="radio2" type="radio" name="radioish" class="custom-control-input"/>
+				<input id="radio2" value="radio2" type="radio"  name="radioish" class="custom-control-input"/>
 				<span class="custom-control-indicator"></span>
 				<span class="a-radioButtons-title">
 					Nei
@@ -1051,7 +1085,7 @@
 			<div class="col-lg-3 offset-xl-1 hidden-xs-down">
 					<div class="form-group a-form-group  " data-toggle="" data-delay="">
 
-    <div class="a-form-group-items input-group ">
+    <div class="a-form-group-items input-group  ">
 
       <!-- Label -->
       <label class="a-form-label sr-only input-group-addon" for="text-input-search-11">
@@ -1059,26 +1093,26 @@
       </label>
 
       <!-- Input  -->
-      <input type="search" 
-        class="form-control  a-form-control-withBtn form-control-noAddon " 
-        id="text-input-search-11" 
-        
+        <input type="search" 
+          class="form-control  a-form-control-withBtn form-control-noAddon " 
+          id="text-input-search-11" 
           
-         placeholder="Søk etter innhold (footer)" 
-         value="" 
-         maxlength=""
-         data-error="" 
-         
-        data-search-algorithm=""
-        data-search-target="">
-      <i class="fa fa-check-circle form-control-feedback"></i><span class="sr-only">Icon showing if input is valid or not</span>
+           
+          placeholder="Søk etter innhold" 
+          value="" 
+          maxlength=""
+          data-error="" 
+          
+          data-search-algorithm=""
+          data-search-target="">
+        <i class="fa fa-check-circle form-control-feedback"></i><span class="sr-only">Icon showing if input is valid or not</span>
 
-      <!-- button -->
-      <div class="input-group-btn">
-        <button class="btn btn-secondary" type="button">
-          <i class="material-icons"><span class="sr-only">Utfør søk</span>&#xE8B6;</i>
-        </button>
-      </div>
+        <!-- button -->
+        <div class="input-group-btn">
+          <button class="btn btn-secondary" type="button">
+            <i class="material-icons"><span class="sr-only">Utfør søk</span>&#xE8B6;</i>
+          </button>
+        </div>
 
 
     </div>
@@ -1123,7 +1157,7 @@
 						<li><a class="" href="../..&#x2F;patterns&#x2F;04-sider-05-artikkel-10-artikkel&#x2F;04-sider-05-artikkel-10-artikkel.html">Personvern</a></li>
 					</ul>
 					<div class="hidden-sm-up">
-						<button type="button" class="a-btn" id="" onclick="location.href='../..';" >En standard knapp</button> 
+						<button type="button" class="a-btn a-btn-shadow " id="" onclick="location.href='../.."'" false>En stor knapp</button> 
 
 					</div>
 	      </nav>
@@ -1204,10 +1238,10 @@
   }
 </script>
 
-<script id="pl-js-polyfill-insert-1477919168025">
+<script id="pl-js-polyfill-insert-1478470592412">
   (function() {
     if (self != top) {
-      var cb = '1477919168025';
+      var cb = '1478470592412';
       var js = [];
       if (typeof document !== 'undefined' && !('classList' in document.documentElement)) {
         js.push('styleguide/bower_components/classList.min.js');
@@ -1217,10 +1251,10 @@
   })();
 </script>
 
-<script id="pl-js-insert-1477919168025">
+<script id="pl-js-insert-1478470592412">
   (function() {
     if (self != top) {
-      var cb = '1477919168025';
+      var cb = '1478470592412';
       var js = [ { 'src': 'styleguide/bower_components/jwerty.min.js', 'dep': [ 'styleguide/js/patternlab-pattern.min.js' ] } ];
       scriptLoader.run(js,cb,'pl-js-insert');
     }

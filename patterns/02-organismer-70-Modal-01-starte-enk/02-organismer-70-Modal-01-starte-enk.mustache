@@ -7,47 +7,31 @@
         <div class="row">
           <div class="col-md-12">
 
-            <!-- Modal Top -->
-            <div class="a-modal-top">
-              <a href="../../{{ link.sider-forside }}" class="no-decoration">
-                {{> atomer-logo }}
-              </a>
-              <div class="a-modal-top-user">
-                {{> atomer-innlogget }}
-              </div>
-            </div><!-- END Modal Top -->
+            <!-- Modal Header -->
+              {{> molekyler-modal-header}}
+            <!-- END Modal Header -->
 
           </div>
         </div>
 
         <div class="row">
-          <div class="col-md-10 offset-md-1">
+          <div class="col-xl-10 offset-xl-1">
 
             <!-- Modal NavBar -->
-            <div class="a-modal-navbar">
-              {{#starteenk-back}}
-                <button type="button" class="a-modal-back" onclick="location.href='../../{{{ btn-url }}}';" data-dismiss="modal" aria-label="Lukk">
-                  <i class="material-icons a-modal-back-icon">keyboard_backspace</i>
-                </button>
-              {{/starteenk-back}}
-
-              <button type="button" class="a-modal-close" onclick="location.href='../../{{ link.sider-starteogdrive }}';" data-dismiss="modal" aria-label="Lukk">
-                <i class="material-icons a-modal-close-icon">close</i>
-              </button>
-
-            </div><!-- END Modal NavBar -->
+            {{> molekyler-modal-navbar}}
+            <!-- END Modal NavBar -->
           </div>
         </div>
 
         <div class="row">
-          <div class="col-md-10 offset-md-1">
+          <div class="col-xl-10 offset-xl-1">
 
             <!-- Modal window -->
             <span class="a-right-panel a-page a-scene_element {{ animationClass }}">
 
               <div class="modal-content">
 
-                <!-- Modal header -->
+                <!-- Modal Body header -->
                 <div class="a-panelIconLeft a-bgBlueDarker">
                     <i class="material-icons">{{{ modalHeader-icon }}}</i>
 
@@ -61,72 +45,110 @@
                         <span class="a-panelIconLeft-code">{{modalHeader-title-code}}</span>
                       </h1>
                     </div>
-                </div> <!-- END Modal header -->
+                </div> <!-- END Modal Body header -->
 
                 <!-- Modal body -->
                 <div class="modal-body a-modal-body">
 
-
+                  <!-- TITLE -->
                   {{# modal-title }}
                     {{> atomer-seksjonstittel:m-b-2 }}
                   {{/ modal-title }}
 
+                  <!-- INTROTEKST -->
                   {{# modal-lead }}
                     {{> atomer-intro-tekst }}
                   {{/ modal-lead }}
 
-                  {{# modal-input-orgName }}
-                    {{> atomer-tekst-input }}
-                  {{/ modal-input-orgName }}
+                  <!-- BUTTON -->
+                  {{# modal-lonelyButtons }}
+                    <div class="a-btn-group m-t-2 hei">
 
-                  {{# modal-chooseCategory }}
-                    <div class="a-modal-contentFullWidth m-t-4">
-                      {{> atomer-radioknapp }}
+                      {{# modal-nextbutton }}
+                        {{> atomer-link }}
+                      {{/ modal-nextbutton }}
+
+                      {{# modal-discard }}
+                        {{> atomer-link }}
+                      {{/ modal-discard }}
+
                     </div>
-                  {{/ modal-chooseCategory }}
+                  {{/ modal-lonelyButtons }}
 
-                  {{# modal-input-textArea }}
-                     {{> atomer-tekstfelt:m-y-4 }}
-                  {{/ modal-input-textArea }}
+                  <!-- INPUT: OWNER INFO -->
+                  {{# modal-input-owner }}
+                    {{> organismer-skjema-innehaver }}
+                  {{/ modal-input-owner }}
 
-                  {{# modal-input-radio }}
-                    {{> atomer-radioknapp }}
-                  {{/ modal-input-radio }}
 
+                  <!-- *********************** --->
+                  <!-- OLD INPUT: ORG NAME REMOVE--->
+                  <!-- *********************** --->
+                  {{# modal-input-orgName-Old }}
+                    {{> atomer-tekst-input }}
+                  {{/ modal-input-orgName-Old }}
+                  <div class="a-btn-group m-t-2">
+                    {{# modal-nextbutton-Old }}
+                      {{> atomer-knapp }}
+                    {{/ modal-nextbutton-Old }}
+                    {{# modal-successbutton-Old }}
+                      {{> atomer-knapp }}
+                    {{/ modal-successbutton-Old }}
+                    {{# modal-deactivated-Old }}
+                      {{> atomer-knapp }}
+                    {{/ modal-deactivated-Old }}
+                    {{# modal-discard-Old }}
+                      {{> atomer-knapp }}
+                    {{/ modal-discard-Old }}
+                  </div>
+                  <!-- *********************** --->
+                  <!-- END OLD INPUT: ORG NAME REMOVE--->
+                  <!-- *********************** --->
+
+
+
+
+
+                  <!-- FIND INDUSTY CODE -->
+
+                    <!-- INPUT: KEYWORD -->
+                    {{# modal-input-keyword }}
+                      {{> atomer-tekst-input }}
+                    {{/ modal-input-keyword }}
+
+                    <!-- LOADER -->
+                    {{# modal-loader }}
+                      {{> atomer-laster-inn }}
+                    {{/ modal-loader }}
+
+                    <!-- IF NO RESULTS -->
+                    {{# modal-empty }}
+                      {{> atomer-avsnitt }}
+                    {{/ modal-empty }}
+
+                    <!-- INPUT: CATEGORY -->
+                    {{# modal-chooseCategory }}
+                      {{> organismer-skjema-radio }}
+                    {{/ modal-chooseCategory }}
+
+                  <!-- END FIND INDUSTY CODE -->
+
+                  <!-- INPUT: DESCRIPTION -->
+                  {{# modal-input-description }}
+                     {{> organismer-skjema-beskrivelse }}
+                  {{/ modal-input-description }}
+
+                  <!-- INPUT: ADRESS -->
                   {{# modal-input-adress }}
                     {{> organismer-adresse }}
                   {{/ modal-input-adress }}
 
+                  <!-- INPUT: DATE -->
                   {{# modal-date }}
-                    {{> atomer-datovelger:m-t-3 }}
+                    {{> organismer-dato }}
                   {{/ modal-date }}
 
-                  {{# modal-loader }}
-                    {{> atomer-laster-inn }}
-                  {{/ modal-loader }}
-
-                  {{# modal-empty }}
-                    {{> atomer-avsnitt }}
-                  {{/ modal-empty }}
-
-                  <div class="a-btn-group m-t-2">
-                    {{# modal-nextbutton }}
-                      {{> atomer-knapp }}
-                    {{/ modal-nextbutton }}
-
-                    {{# modal-successbutton }}
-                      {{> atomer-knapp }}
-                    {{/ modal-successbutton }}
-
-                    {{# modal-deactivated }}
-                      {{> atomer-knapp }}
-                    {{/ modal-deactivated }}
-
-                    {{# modal-discard }}
-                      {{> atomer-knapp }}
-                    {{/ modal-discard }}
-                  </div>
-
+                  <!-- EXTRA INFO (Footer) -->
                   {{# modal-extraInfo }}
                     {{> atomer-liste-unummerert-kuler:m-x-1|m-t-4|a-bulletList-light }}
                   {{/ modal-extraInfo }}
