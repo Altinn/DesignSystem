@@ -1,5 +1,11 @@
 /* globals $ */
 var popover = function() {
+  $('[data-popover-content]').popover({
+    html: true,
+    content: function() {
+      return $('#' + $(this).data('popover-content')).html();
+    }
+  });
   $('[data-toggle="popover"]').popover(); $('#example').popover();
   $('.a-js-persistPopover').find('i').eq(1).hide();
   $('.a-js-persistPopover').find('i').eq(0).on('click', function() {
