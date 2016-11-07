@@ -9,7 +9,7 @@ var prototypingInteractionStarteENK = function() {
       $('#a-js-place').css('display', 'none');
     }
   });
-  /* Prototyping that radiobuttons for "Bransje" will be visible after typing in keywords */
+  /* Prototyping that radiobuttons for "Virksomhet" will be visible after typing in keywords */
   $('#bransje').keyup(function() {
     if (this.value === 'tekstil') {
       $('#a-js-radio-bransje').css('display', 'inline');

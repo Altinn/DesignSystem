@@ -46,8 +46,13 @@ var nameChecker = function() {
         .show();
       $('.a-js-validator').find('.a-btn-group').find('.a-btn').eq(1)
         .hide();
-      if ($('.a-js-validator').find('input[type=text]').val()
-        .indexOf($('.a-personSwitcher-name').attr('title').split(' ')[1]) !== -1
+      if (
+        $('.a-js-validator').find('input[type=text]').val()
+          .indexOf($('.a-personSwitcher-name').attr('title').toLowerCase()
+          .split(' ')[1]) !== -1 ||
+        $('.a-js-validator').find('input[type=text]').val()
+          .indexOf($('.a-personSwitcher-name').attr('title')
+          .split(' ')[1]) !== -1
       ) {
         $('.a-js-validator').find('.a-btn-group').find('.a-btn').eq(0)
           .attr('onclick', initAction);
