@@ -8422,6 +8422,11 @@ button.button-blue-no-underline:hover {
     background: #17c96b; }
   .a-btn-success:focus {
     background: rgba(23, 201, 107, 0.8); }
+  .a-btn-success.disabled, .a-btn-success:disabled {
+    cursor: not-allowed;
+    background-color: #efefef;
+    color: #000;
+    box-shadow: 0px 0px 0px 1px white; }
 
 .a-btn-danger {
   background-color: #e23b53; }
@@ -8799,9 +8804,11 @@ button.button-blue-no-underline:hover {
     .a-card.transparent p:after {
       margin-bottom: 20px; }
 
-.neutral .a-card:not(.transparent) {
+.neutral .a-card:not(.transparent),
+.a-bgWhite .a-card:not(.transparent) {
   background: #efefef; }
-  .neutral .a-card:not(.transparent) hr.a-hrLight {
+  .neutral .a-card:not(.transparent) hr.a-hrLight,
+  .a-bgWhite .a-card:not(.transparent) hr.a-hrLight {
     border-bottom: 1px solid #e0e0e0; }
 
 .a-card-image {
@@ -9292,6 +9299,19 @@ ul.connectedBullets li:last-child:before {
       .popover.footnote .popover-arrow.popover-arrow::after {
         border-bottom-color: #ffffff; }
 
+body.a-bgWhite .popover.footnote,
+body.neutral .popover.footnote {
+  background-color: #efefef; }
+  body.a-bgWhite .popover.footnote .popover-title,
+  body.neutral .popover.footnote .popover-title {
+    background-color: #efefef; }
+  body.a-bgWhite .popover.footnote .popover-arrow.popover-arrow,
+  body.neutral .popover.footnote .popover-arrow.popover-arrow {
+    border-bottom-color: #efefef; }
+    body.a-bgWhite .popover.footnote .popover-arrow.popover-arrow::after,
+    body.neutral .popover.footnote .popover-arrow.popover-arrow::after {
+      border-bottom-color: #efefef; }
+
 .a-tabs {
   float: left;
   width: 100%;
@@ -9496,9 +9516,6 @@ ul.connectedBullets li:last-child:before {
 
 /*------------------------------------*    $MODAL
 \*------------------------------------*/
-.a-modalPage + .sg-switchtheme {
-  display: none; }
-
 @media (max-width: 1199px) {
   .sg-switchtheme {
     display: none; } }
@@ -11907,6 +11924,10 @@ a.a-modal-close {
 
 /*------------------------------------*    $GLOBAL CLASSES
 \*------------------------------------*/
+/* While usertesting */
+.sg-switchtheme {
+  display: none !important; }
+
 html {
   width: 1px;
   min-width: 100%;
@@ -11925,11 +11946,6 @@ html, body {
   color: #000; }
 
 /* Backround colors */
-body.neutral,
-html.neutral {
-  background-color: #ffffff;
-  overflow-y: scroll; }
-
 body.private-person,
 html.private-person {
   background-color: #efefef;
@@ -11939,6 +11955,14 @@ body.business,
 html.business {
   background-color: #cff0ff;
   overflow-y: scroll; }
+
+body.neutral,
+html.neutral {
+  background-color: #ffffff;
+  overflow-y: scroll; }
+
+body.a-bgWhite {
+  background-color: #ffffff; }
 
 body.a-modal-background,
 html.a-modal-background {
