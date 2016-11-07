@@ -8,9 +8,22 @@ var codeLookup = function() {
   var loader = $('.a-js-lookup').find('.modal-body').find('.a-logo-anim');
   var empty = $('.a-js-lookup').find('.a-js-noResults');
   var container = $('.a-js-lookup').find('.modal-body').find('.a-radioButtons');
+  var check = function() {
+    if ($('form').find('input[type=radio]:checked').length > 0) {
+      $('form').find('button[type=submit]').removeClass('disabled');
+    } else {
+      $('form').find('button[type=submit]').addClass('disabled');
+    }
+  };
   var query; var base = container.html(); container.html(''); loader.hide();
   empty.hide(); legend.hide();
   if ($('.a-js-lookup').length > 0) {
+    $('form').hide();
+    setTimeout(function() {
+      check();
+      $('form').show();
+    }, 750);
+    $('form').on('change', check);
     $.getJSON('../../ssb.json', function(data) {
       function createPath(dest, str) {
         var _str = str; var _dest = data[dest.parentCode];
@@ -27,10 +40,14 @@ var codeLookup = function() {
       }
       $('.a-js-lookup').find('input[type=text]').on('keypress', function() {
         lastKeypress = new Date().getTime(); iterate = true;
-        loader.show(); empty.hide(); container.html('');
+        loader.show(); empty.hide(); container.html(''); check();
       });
       setInterval(function() {
-        query = $('.a-js-lookup').find('input[type=text]').val();
+        if ($('.a-js-lookup').find('input[type=text]').val() !== undefined) {
+          query = $('.a-js-lookup').find('input[type=text]').val();
+        } else {
+          query = '';
+        }
         now = new Date().getTime();
         if (query.length > 0 && (now - lastKeypress > 1500) && iterate) {
           iterate = false;
