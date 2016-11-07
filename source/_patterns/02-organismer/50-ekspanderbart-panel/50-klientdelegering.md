@@ -1,5 +1,5 @@
 ---
- state: inprogress
+ state: indesignreview
  version: 1
 ---
 
