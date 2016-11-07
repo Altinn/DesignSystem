@@ -46,12 +46,12 @@ var nameChecker = function() {
         .indexOf($('.a-personSwitcher-name').attr('title').split(' ')[1]) !== -1
       ) {
         $('.a-js-validator').find('.a-btn-group').find('.a-btn').eq(0)
-          .removeClass('a-js-hideFromSmoothState');
+          .addClass('a-js-smoothStateEnabled');
         $('.a-js-validator').find('.a-btn-group').find('.a-btn').eq(0)
           .attr('onclick', initAction);
       } else {
         $('.a-js-validator').find('.a-btn-group').find('.a-btn').eq(0)
-          .addClass('a-js-hideFromSmoothState');
+          .removeClass('a-js-smoothStateEnabled');
         $('.a-js-validator').find('.a-btn-group').find('.a-btn').eq(0)
           .attr('onclick',
             '$(".a-js-validator").find(".a-message-error").show()');
