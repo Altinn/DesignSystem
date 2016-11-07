@@ -297,6 +297,7 @@ window.smoothState = $('#smoothState').smoothState({
     window.altinnDev();
     window.smoothStateMod();
     $('.a-scene_element').show();
+    $('form').validator();
   }
 }).data('smoothState');
 window.smoothStateMod();
