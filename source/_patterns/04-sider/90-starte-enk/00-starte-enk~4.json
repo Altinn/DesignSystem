@@ -9,10 +9,46 @@
 			"logo" : "../../images/a-logo-white.svg",
 			"login-name" : "Jan Pettersen",
 			"animationClass" : "a-scene_element--fadeinright",
-			"modalBack": true,
-			"starteenk-back": {
-				"btn-url" : "link.sider-starte-enk-2"
-			},
+
+			"button-list": [
+		    {
+		      "button-class": "a-modal-back",
+		      "aria-label":  "Gå tilbake",
+		      "button-icon-class": "material-icons a-modal-back-icon",
+		      "button-icon-text": "keyboard_backspace",
+		      "button-onclick": "onclick=\"goBack()\"",
+		      "enable-popover": false
+		    },
+		    {
+		      "button-class": "a-modal-close",
+		      "aria-label":  "Lukk",
+		      "button-icon-class": "material-icons a-modal-close-icon",
+		      "button-icon-text": "close",
+		      "button-onclick": false,
+		      "enable-popover": true,
+		      "popover-placement": "bottom",
+		      "popover-content-id": "sampleIdPopover",
+		      "popover-class": "popover-warning",
+					"popover-text": "Er du sikker på at du vil avslutte registrering av Enkeltpersonforetak?",
+					"popover-buttons": [
+						{
+		          "button-text" : "Ja, avslutt.",
+		          "button-class" : "a-btn a-btn-danger",
+							"link-url-start" : "",
+						  "link-url" : "onclick=\"location.href='../../patterns/04-sider-30-starte-og-drive-30-starteogdrive/04-sider-30-starte-og-drive-30-starteogdrive.html'\"",
+						  "link-url-end" : ""
+		        },
+		        {
+		          "button-text": "Fortsett",
+		          "button-class": "a-btn-link a-link a-link-danger",
+							"link-url-start" : "onclick=\"$('button[aria-describedby=' + $(this).parent().parent().attr('id') + ']').popover('hide');\"",
+	            "link-url" : "",
+	            "link-url-end" : ""
+		        }
+		      ]
+		    }
+		  ],
+
 
 			"_commentStart":"--------------------------------------------------------------",
 			"_commentText": "HEADER",
