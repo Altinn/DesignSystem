@@ -30,4 +30,5 @@ var initializeDatepicker = function() {
       }
     });
   });
+  $('.form-control.date').datepicker('setDate', new Date());
 };

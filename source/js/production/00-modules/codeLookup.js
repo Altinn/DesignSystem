@@ -10,19 +10,14 @@ var codeLookup = function() {
   var container = $('.a-js-lookup').find('.modal-body').find('.a-radioButtons');
   var check = function() {
     if ($('form').find('input[type=radio]:checked').length > 0) {
-      $('form').find('button[type=submit]').removeClass('disabled');
+      $('form').find('button[type=submit]').removeAttr('disabled');
     } else {
-      $('form').find('button[type=submit]').addClass('disabled');
+      $('form').find('button[type=submit]').attr('disabled', 'disabled');
     }
   };
   var query; var base = container.html(); container.html(''); loader.hide();
   empty.hide(); legend.hide();
   if ($('.a-js-lookup').length > 0) {
-    $('form').hide();
-    setTimeout(function() {
-      check();
-      $('form').show();
-    }, 750);
     $('form').on('change', check);
     $.getJSON('../../ssb.json', function(data) {
       function createPath(dest, str) {
@@ -40,7 +35,7 @@ var codeLookup = function() {
       }
       $('.a-js-lookup').find('input[type=text]').on('keypress', function() {
         lastKeypress = new Date().getTime(); iterate = true;
-        loader.show(); empty.hide(); container.html(''); check();
+        loader.show(); legend.hide(); empty.hide(); container.html(''); check();
       });
       setInterval(function() {
         if ($('.a-js-lookup').find('input[type=text]').val() !== undefined) {
@@ -132,7 +127,7 @@ var codeLookup = function() {
           });
           loader.hide(); legend.show();
           if (container.html() === '') {
-            empty.show();
+            empty.show(); legend.hide();
           }
         }
       }, 2000);
