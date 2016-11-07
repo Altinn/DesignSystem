@@ -26,8 +26,16 @@ window.smoothStateMod = function() {
   // .on('click', function(e) {
   // New variant, using explicit targeting:
   $('#smoothState').find('.a-js-smoothStateEnabled').on('click', function(e) {
-    if (location.pathname.replace(/\//g, '')
-      === $(this).attr('href').replace(/\//g, '').replace(/\.\./g, '')) {
+    if (
+      !$(this).hasClass('a-js-smoothStateEnabled') ||
+      $(this).hasClass('disabled')
+    ) {
+      return false;
+    }
+    if (
+      location.pathname.replace(/\//g, '')
+        === $(this).attr('href').replace(/\//g, '').replace(/\.\./g, '')
+    ) {
       e.preventDefault(); e.stopPropagation();
       e.stopImmediatePropagation();
       return false;
