@@ -20,9 +20,22 @@ var codeLookup = function() {
   var loader = $('.a-js-lookup').find('.modal-body').find('.a-logo-anim');
   var empty = $('.a-js-lookup').find('.a-js-noResults');
   var container = $('.a-js-lookup').find('.modal-body').find('.a-radioButtons');
+  var check = function() {
+    if ($('form').find('input[type=radio]:checked').length > 0) {
+      $('form').find('button[type=submit]').removeClass('disabled');
+    } else {
+      $('form').find('button[type=submit]').addClass('disabled');
+    }
+  };
   var query; var base = container.html(); container.html(''); loader.hide();
   empty.hide(); legend.hide();
   if ($('.a-js-lookup').length > 0) {
+    $('form').hide();
+    setTimeout(function() {
+      check();
+      $('form').show();
+    }, 750);
+    $('form').on('change', check);
     $.getJSON('../../ssb.json', function(data) {
       function createPath(dest, str) {
         var _str = str; var _dest = data[dest.parentCode];
@@ -39,10 +52,14 @@ var codeLookup = function() {
       }
       $('.a-js-lookup').find('input[type=text]').on('keypress', function() {
         lastKeypress = new Date().getTime(); iterate = true;
-        loader.show(); empty.hide(); container.html('');
+        loader.show(); empty.hide(); container.html(''); check();
       });
       setInterval(function() {
-        query = $('.a-js-lookup').find('input[type=text]').val();
+        if ($('.a-js-lookup').find('input[type=text]').val() !== undefined) {
+          query = $('.a-js-lookup').find('input[type=text]').val();
+        } else {
+          query = '';
+        }
         now = new Date().getTime();
         if (query.length > 0 && (now - lastKeypress > 1500) && iterate) {
           iterate = false;
@@ -423,17 +440,16 @@ var mobileNavigation = function() {
 var nameChecker = function() {
   var btnText = $('.a-js-validator').find('.a-btn-group').find('.a-btn').eq(0)
     .text();
-  var nextAction = $('.a-js-validator').find('.a-btn-group')
-    .find('.a-btn').eq(0)
-    .attr('onclick');
   var initAction = '$(".a-js-validator").find("input[type=text]")' +
       '.attr("disabled", "disabled").parent().addClass("disabled")' +
       '.addClass("a-input-approved");' +
     '$(".a-js-validator").find(".a-validatorInfo").eq(0).hide();' +
     '$(".a-js-validator").find(".a-validatorInfo").eq(1).show();' +
     '$(".a-js-validator").find(".a-btn-group").find(".a-btn").eq(0)' +
-      '.html("Velg navn").attr("onclick", "' + nextAction + '");' +
-    '$(".a-js-tryAnother").show();';
+      '.html("Velg navn").removeAttr("onclick")' +
+      '.addClass("a-js-smoothStateEnabled");' +
+    '$(".a-js-tryAnother").show();' +
+    'window.smoothStateMod();';
   $('.a-js-validator').find('.a-validatorInfo').eq(1).find('i')
     .addClass('a-validatorInfo-icon-approved');
   $('.a-js-validator').find('.a-validatorInfo').css('display', 'inline-block')
@@ -454,7 +470,12 @@ var nameChecker = function() {
     $('.a-js-validator').find('.a-validatorInfo').eq(1).hide();
     $('.a-js-validator').find('.a-btn-group').find('.a-btn').eq(0)
       .html(btnText)
-      .attr('onclick', initAction);
+      .removeClass('a-js-smoothStateEnabled')
+      .attr('onclick', '$(".a-js-validator").find(".a-message-error").show()')
+      .hide();
+    $('.a-js-validator').find('input[type=text]').val('');
+    $('.a-js-validator').find('.a-btn-group').find('.a-btn').eq(1)
+      .show();
   });
   $('.a-js-validator').find('.a-message-error');
   function toggleBtns(el) {
@@ -463,16 +484,17 @@ var nameChecker = function() {
         .show();
       $('.a-js-validator').find('.a-btn-group').find('.a-btn').eq(1)
         .hide();
-      if ($('.a-js-validator').find('input[type=text]').val()
-        .indexOf($('.a-personSwitcher-name').attr('title').split(' ')[1]) !== -1
+      if (
+        $('.a-js-validator').find('input[type=text]').val()
+          .indexOf($('.a-personSwitcher-name').attr('title').toLowerCase()
+          .split(' ')[1]) !== -1 ||
+        $('.a-js-validator').find('input[type=text]').val()
+          .indexOf($('.a-personSwitcher-name').attr('title')
+          .split(' ')[1]) !== -1
       ) {
-        $('.a-js-validator').find('.a-btn-group').find('.a-btn').eq(0)
-          .removeClass('a-js-hideFromSmoothState');
         $('.a-js-validator').find('.a-btn-group').find('.a-btn').eq(0)
           .attr('onclick', initAction);
       } else {
-        $('.a-js-validator').find('.a-btn-group').find('.a-btn').eq(0)
-          .addClass('a-js-hideFromSmoothState');
         $('.a-js-validator').find('.a-btn-group').find('.a-btn').eq(0)
           .attr('onclick',
             '$(".a-js-validator").find(".a-message-error").show()');

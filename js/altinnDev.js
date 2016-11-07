@@ -69,7 +69,7 @@ var prototypingInteractionStarteENK = function() {
       $('#a-js-place').css('display', 'none');
     }
   });
-  /* Prototyping that radiobuttons for "Bransje" will be visible after typing in keywords */
+  /* Prototyping that radiobuttons for "Virksomhet" will be visible after typing in keywords */
   $('#bransje').keyup(function() {
     if (this.value === 'tekstil') {
       $('#a-js-radio-bransje').css('display', 'inline');
@@ -220,9 +220,28 @@ $('.html-escape').each(function() {
   $(this).text($(this).html());
 });
 window.smoothStateMod = function() {
-  $('#smoothState').find('a:not(.a-js-hideFromSmoothState):not(.a-collapseTitle):not(.a-collapseBtn):not(.sr-only-focusable):not(.a-colnav-item):not(.a-colnav-item-second):not(.a-colnav-item-third)').on('click', function(e) {
-    if (location.pathname.replace(/\//g, '')
-      === $(this).attr('href').replace(/\//g, '').replace(/\.\./g, '')) {
+  // Old variant, targeting all a-tags and excluding specific ones:
+  // $('#smoothState').find(
+  //   'a:not(.a-js-hideFromSmoothState)' +
+  //   ':not(.a-collapseTitle)' +
+  //   ':not(.a-collapseBtn)' +
+  //   ':not(.sr-only-focusable)' +
+  //   ':not(.a-colnav-item)' +
+  //   ':not(.a-colnav-item-second)' +
+  //   ':not(.a-colnav-item-third)')
+  // .on('click', function(e) {
+  // New variant, using explicit targeting:
+  $('#smoothState').find('.a-js-smoothStateEnabled').on('click', function(e) {
+    if (
+      !$(this).hasClass('a-js-smoothStateEnabled') ||
+      $(this).hasClass('disabled')
+    ) {
+      return false;
+    }
+    if (
+      location.pathname.replace(/\//g, '')
+        === $(this).attr('href').replace(/\//g, '').replace(/\.\./g, '')
+    ) {
       e.preventDefault(); e.stopPropagation();
       e.stopImmediatePropagation();
       return false;
