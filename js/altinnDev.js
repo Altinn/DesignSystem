@@ -83,7 +83,7 @@ var prototypingInteractionStarteENK = function() {
       emptyField += 1;
     }
     if (emptyField >= 3) {
-      location.href = '/patterns/04-sider-90-starte-enk-00-starte-enk-3/04-sider-90-starte-enk-00-starte-enk-3.html';
+      location.href = '../../patterns/04-sider-90-starte-enk-00-starte-enk-3/04-sider-90-starte-enk-00-starte-enk-3.html';
     }
   });
   /* Toggling chat */
