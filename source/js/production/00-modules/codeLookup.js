@@ -11,6 +11,9 @@ var codeLookup = function() {
   var check = function() {
     if ($('form').find('input[type=radio]:checked').length > 0) {
       $('form').find('button[type=submit]').removeAttr('disabled');
+      $('form').find('input[type=radio]').parent().removeClass('a-js-radioParentGray');
+      $('form').find('input[type=radio]:checked').parent()
+        .addClass('a-js-radioParentGray');
     } else {
       $('form').find('button[type=submit]').attr('disabled', 'disabled');
     }
