@@ -1,9 +1,5 @@
-<img src="../../images/gratulerer.png" alt="" />
-
-
 <div class="a-page" id="smoothState">
 	{{> organismer-header }}
-
 
 	<div class="container" id="content" tabindex="-1">
 
@@ -12,6 +8,11 @@
 				{{# article-search }}
 					{{> atomer-tekst-input }}
 				{{/ article-search }}
+
+				{{# inbox-starteenk-onboarding }}
+					{{> organismer-onboarding-start }}
+				{{/ inbox-starteenk-onboarding }}
+
 			</div>
 		</div>
 
@@ -38,13 +39,19 @@
 				</div><!-- END .col-... -->
 			</div><!-- END .row -->
 
+			<div class="row">
+				<div class="col-sm-12 offset-lg-1 col-lg-10 m-t-4">
+						{{> atomer-sidetittel:a-textSize2|a-textSizeReg }}
+				</div><!-- END .col-... -->
+			</div><!-- END .row -->
+
 
 			<div class="row">
 				<div class="col-sm-12 col-lg-12 m-b-4">
 
-					{{# card-bottom }}
-						{{> molekyler-kort }}
-					{{/ card-bottom }}
+					{{# messages }}
+						{{> molekyler-trekkspill-panel:a-inbox-messageList }}
+					{{/ messages }}
 
 				</div><!-- END .col-... -->
 			</div><!-- END .row -->
