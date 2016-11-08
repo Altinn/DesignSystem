@@ -14,9 +14,28 @@ $('.html-escape').each(function() {
   $(this).text($(this).html());
 });
 window.smoothStateMod = function() {
-  $('#smoothState').find('a:not(.a-js-hideFromSmoothState):not(.a-collapseTitle):not(.a-collapseBtn):not(.sr-only-focusable):not(.a-colnav-item):not(.a-colnav-item-second):not(.a-colnav-item-third)').on('click', function(e) {
-    if (location.pathname.replace(/\//g, '')
-      === $(this).attr('href').replace(/\//g, '').replace(/\.\./g, '')) {
+  // Old variant, targeting all a-tags and excluding specific ones:
+  // $('#smoothState').find(
+  //   'a:not(.a-js-hideFromSmoothState)' +
+  //   ':not(.a-collapseTitle)' +
+  //   ':not(.a-collapseBtn)' +
+  //   ':not(.sr-only-focusable)' +
+  //   ':not(.a-colnav-item)' +
+  //   ':not(.a-colnav-item-second)' +
+  //   ':not(.a-colnav-item-third)')
+  // .on('click', function(e) {
+  // New variant, using explicit targeting:
+  $('#smoothState').find('.a-js-smoothStateEnabled').on('click', function(e) {
+    if (
+      !$(this).hasClass('a-js-smoothStateEnabled') ||
+      $(this).hasClass('disabled')
+    ) {
+      return false;
+    }
+    if (
+      location.pathname.replace(/\//g, '')
+        === $(this).attr('href').replace(/\//g, '').replace(/\.\./g, '')
+    ) {
       e.preventDefault(); e.stopPropagation();
       e.stopImmediatePropagation();
       return false;
@@ -72,6 +91,7 @@ window.smoothState = $('#smoothState').smoothState({
     window.altinnDev();
     window.smoothStateMod();
     $('.a-scene_element').show();
+    $('form').validator();
   }
 }).data('smoothState');
 window.smoothStateMod();

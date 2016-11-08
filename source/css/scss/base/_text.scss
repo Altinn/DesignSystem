@@ -159,13 +159,18 @@ strong {
 // Paragraph
 
 p {
-    font-size: 18px;
-    line-height: 26px;
+    font-size: $articleText-size-mobile;
+    line-height: $articleText-lineHeight-mobile;
     font-family: $font-reg;
     font-weight: $font-weight-reg;
     margin-bottom: $spacer*1.5;
     max-width: 760px;
     letter-spacing: 0.2px;
+
+    @include media-breakpoint-up(md) {
+      font-size: $articleText-size;
+      line-height: $articleText-lineHeight;
+    }
 }
 
 .a-leadText {
@@ -180,8 +185,13 @@ p {
 }
 
 .a-metaText {
-    font-size: 16px;
-    line-height: 22px;
+    font-size: 14px;
+    line-height: 20px;
+
+    @include media-breakpoint-up(md) {
+      font-size: 16px;
+      line-height: 22px;
+    }
 }
 
 .a-titleExtra {

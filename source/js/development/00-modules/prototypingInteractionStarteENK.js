@@ -9,7 +9,7 @@ var prototypingInteractionStarteENK = function() {
       $('#a-js-place').css('display', 'none');
     }
   });
-  /* Prototyping that radiobuttons for "Bransje" will be visible after typing in keywords */
+  /* Prototyping that radiobuttons for "Virksomhet" will be visible after typing in keywords */
   $('#bransje').keyup(function() {
     if (this.value === 'tekstil') {
       $('#a-js-radio-bransje').css('display', 'inline');
@@ -23,7 +23,7 @@ var prototypingInteractionStarteENK = function() {
       emptyField += 1;
     }
     if (emptyField >= 3) {
-      location.href = '/patterns/04-sider-90-starte-enk-00-starte-enk-3/04-sider-90-starte-enk-00-starte-enk-3.html';
+      location.href = '../../patterns/04-sider-90-starte-enk-00-starte-enk-3/04-sider-90-starte-enk-00-starte-enk-3.html';
     }
   });
   /* Toggling chat */

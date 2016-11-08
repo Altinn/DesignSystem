@@ -10,7 +10,45 @@
 			"logo" : "../../images/a-logo-white.svg",
 			"login-name" : "Jan Pettersen",
 			"animationClass" : "a-scene_element--fadeinright",
-			"modalBack": true,
+
+			"button-list": [
+		    {
+		      "button-class": "a-modal-back",
+		      "aria-label":  "Gå tilbake",
+		      "button-icon-class": "material-icons a-modal-back-icon",
+		      "button-icon-text": "keyboard_backspace",
+		      "button-onclick": "onclick=\"goBack()\"",
+		      "enable-popover": false
+		    },
+		    {
+		      "button-class": "a-modal-close",
+		      "aria-label":  "Lukk",
+		      "button-icon-class": "material-icons a-modal-close-icon",
+		      "button-icon-text": "close",
+		      "button-onclick": false,
+		      "enable-popover": true,
+		      "popover-placement": "bottom",
+		      "popover-content-id": "sampleIdPopover",
+		      "popover-class": "popover-warning",
+					"popover-text": "Er du sikker på at du vil avslutte registrering av Enkeltpersonforetak?",
+					"popover-buttons": [
+						{
+		          "button-text" : "Ja, avslutt.",
+		          "button-class" : "a-btn a-btn-danger",
+							"link-url-start" : "",
+						  "link-url" : "onclick=\"location.href='../../patterns/04-sider-30-starte-og-drive-30-starteogdrive/04-sider-30-starte-og-drive-30-starteogdrive.html'\"",
+						  "link-url-end" : ""
+		        },
+		        {
+		          "button-text": "Fortsett",
+		          "button-class": "a-btn-link a-link a-link-danger",
+							"link-url-start" : "onclick=\"$('button[aria-describedby=' + $(this).parent().parent().attr('id') + ']').popover('hide');\"",
+	            "link-url" : "",
+	            "link-url-end" : ""
+		        }
+		      ]
+		    }
+		  ],
 
 			"_commentStart":"--------------------------------------------------------------",
 			"_commentText": "HEADER",
@@ -56,13 +94,13 @@
 				"text-input-id" : "bransje",
 				"isLarge" : "a-form-group-large",
 				"isHidden" : "sr-only",
-		    "text-input-label" : "Bransje:",
-		    "text-input-placeholder" : "søk med stikkord som kjeks, malerarbeid, campingplasser.."
+		    "text-input-label" : "Virksomhet:",
+		    "text-input-placeholder" : "søk med stikkord som tapetsering, fotografering, campingplasser.."
 		  },
 			"modal-loader" : true,
 			"modal-empty" : {
 				"paragraph-class" : "a-js-noResults",
-				"paragraph-content": "Ingen treff."
+				"paragraph-content": "Ingen treff. Prøv å søke med andre stikkord."
 			},
 			"modal-validatorInfo" : false,
 			"modal-validatorInfoOK" : false,
@@ -96,11 +134,13 @@
 		    ],
 				"chooseCategory-submit" : {
 					"button-text" : "Velg denne næringskoden",
-					"button-class" : "a-btn",
+					"button-class" : "a-btn a-js-smoothStateEnabled",
+					"button-disabled": "disabled",
 			    "button-type" : "submit",
 			    "link-url-start" : "",
 			    "link-url" : "",
-			    "link-url-end" : ""
+			    "link-url-end" : "",
+					"button-href" : "link.sider-starte-enk-4"
 				},
 				"chooseCategory-findself" : {
 			    "link-text" : "Finn næringskode selv",
@@ -123,7 +163,7 @@
 		  "modal-extraInfo" : {
 				"bullet-list-items" : [
 			    {
-			      "list-item-description" : "Her finner vi riktig kode for den bransjen du skal drive med. Dette kan påvirke hva slags støtte og fradrag du kan ha krav på. Benyttes også til statistiske formål i det offentlige."
+			      "list-item-description" : "Her finner vi riktig kode for den virksomheten du skal drive med. Dette kan påvirke hva slags støtte og fradrag du kan ha krav på. Benyttes også til statistiske formål i det offentlige."
 			    },
 			    {
 			      "list-item-description" : "Mange driver med forskjellige ting som passer i flere kategorier. Velg derfor stikkord som beskriver hovedaktiviteten du skal drive med."
