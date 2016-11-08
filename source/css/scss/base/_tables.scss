@@ -3,46 +3,48 @@
 \*------------------------------------*/
 
 .a-table {
-
-	thead th {
-	    border-bottom: 2px solid $blue;
-	    font-family: $font-bold; font-weight: $font-weight-bold;
-	}
-	td, th{
-		border-top: none;
-		border-bottom: 1px solid #ccc;
-		padding: 6px 0 5px 0;
-	}
-
+  thead th {
+    border-bottom: 2px solid $blue;
+    font-family: $font-bold;
+    font-weight: $font-weight-bold;
+  }
+  td,
+  th {
+    border-top: none;
+    border-bottom: 1px solid #ccc;
+    padding: 6px 0 5px 0;
+  }
 }
 
 .a-table-calculation {
-	td, th{
-		border-bottom: none;
-		font-weight: normal;
-		padding: 2px 0 2px 0;
-	}
-	td {
-		font-family: $font-medium; font-weight: $font-weight-medium;
-		width: 20%;
-		@include media-breakpoint-up(md) {
-			width: auto;
-		}
-	}
-	tfoot {
-		border-top: 3px solid $blue;
-		font-family: $font-medium; font-weight: $font-weight-medium;
-
-		td, th {
-			padding-top: $spacer;
-		}
-	}
-	tbody  {
-		tr:last-child th{
-			padding-bottom: $spacer;
-		}
-	}
-
+  td,
+  th {
+    border-bottom: none;
+    font-weight: normal;
+    padding: 2px 0 2px 0;
+  }
+  td {
+    font-family: $font-medium;
+    font-weight: $font-weight-medium;
+    width: 20%;
+    @include media-breakpoint-up(md) {
+      width: auto;
+    }
+  }
+  tfoot {
+    border-top: 3px solid $blue;
+    font-family: $font-medium;
+    font-weight: $font-weight-medium;
+    td,
+    th {
+      padding-top: $spacer;
+    }
+  }
+  tbody {
+    tr:last-child th {
+      padding-bottom: $spacer;
+    }
+  }
 }
 
 
@@ -50,191 +52,173 @@
     $Sortable table
 \*------------------------------------*/
 
-.a-sortable-table, .a-table-list-non-sortable {
-	&.white tr {
-		background-color: $white;
-	}
-
-	&.white {
-		margin-bottom: 0;
-	}
-
-	.remove-icon {
-		color: $red;
-	}
-	.red {
-	  color: $red;
-	}
-	.first {
-		width: 96px;
-		padding-left: 0;
-		padding-right: 0;
-		text-align: center;
-	}
-	.a-sortable-row {
-		background: $grey-light;
-
-		td {
-			border-bottom: 1px solid $grey-medium;
-			padding: 6px 0 5px 0;
-
-			i {
-				vertical-align: middle;
-			}
-			&:first-of-type {
-				text-align: center;
-			}
-			&:nth-of-type(even) {
-				font-weight: bold;
-			}
-		}
-
-		&.open {
-			background: $white;
-			td {
-				border-bottom: 1px solid $white;
-			}
-		}
-
-		&.deleted {
-			background: $red-light;
-
-			& td:last-of-type {
-				@extend .p-r-5;
-			}
-		}
-
-		&.selected td:nth-child(2) {
+.a-sortable-table,
+.a-table-list-non-sortable {
+  &.white tr {
+    background-color: $white;
+  }
+  &.white {
+    margin-bottom: 0;
+  }
+  .remove-icon {
+    color: $red;
+  }
+  .red {
+    color: $red;
+  }
+  .first {
+    width: 96px;
+    padding-left: 0;
+    padding-right: 0;
+    text-align: center;
+  }
+  .a-sortable-row {
+    background: $grey-light;
+    td {
+      border-bottom: 1px solid $grey-medium;
+      padding: 6px 0 5px 0;
+      i {
+        vertical-align: middle;
+      }
+      &:first-of-type {
+        text-align: center;
+      }
+      &:nth-of-type(even) {
+        font-weight: bold;
+      }
+    }
+    &.open {
+      background: $white;
+      td {
+        border-bottom: 1px solid $white;
+      }
+    }
+    &.deleted {
+      background: $red-light;
+      & td:last-of-type {
+        @extend .p-r-5;
+      }
+    }
+    &.selected td:nth-child(2) {
       text-decoration: line-through;
     }
-	}
-
-	&.clickable {
-		tbody > tr:hover {
-			cursor: pointer;
-			background-color: $red-light;
-		}
-	}
-
-	thead {
-		th {
-			text-transform: uppercase;
-			font-size: 12px;
-			padding: 0.4rem;
-			bottom: 0;
-		}
-		tr {
-			border-bottom: 1px solid $grey-medium;
-		}
-		.normal-casing {
-			text-transform: none;
-			font-size: 14px;
-		}
-		.a-dropdownArrow {
-			transform: scale(0.75) rotate(90deg) translate(-50%);
-
-		}
-	}
-	.test {
-		color: blue;
-	}
-// If collapse inside table, set display to table-row.
-	.collapse.in {
-		display: table-row;
-	}
-
-	.a-sortable-action-row {
-		background: $white;
-		td {
-			border-bottom: 1px solid $grey-medium;
-		}
-	}
+  }
+  &.clickable {
+    tbody>tr:hover {
+      cursor: pointer;
+      background-color: $red-light;
+    }
+  }
+  thead {
+    th {
+      text-transform: uppercase;
+      font-size: 12px;
+      padding: 0.4rem;
+      bottom: 0;
+    }
+    tr {
+      border-bottom: 1px solid $grey-medium;
+    }
+    .normal-casing {
+      text-transform: none;
+      font-size: 14px;
+    }
+    .a-dropdownArrow {
+      transform: scale(0.75) rotate(90deg) translate(-50%);
+    }
+  }
+  .test {
+    color: blue;
+  }
+  // If collapse inside table, set display to table-row.
+  .collapse.in {
+    display: table-row;
+  }
+  .a-sortable-action-row {
+    background: $white;
+    td {
+      border-bottom: 1px solid $grey-medium;
+    }
+  }
 }
+
 
 /*------------------------------------*\
     $Table list
 \*------------------------------------*/
 
 .a-table-list {
-	width: 100%;
-	thead tr th {
-		border: none;
-	}
-	td, th {
-		border: none;
-		display: table-cell;
-		vertical-align: middle;
-		padding: 6px;
-		height: 36px;
-	}
-
-	tr {
-		width: 100%;
-		min-height: 36px;
-		word-wrap: break-word;
-
-		&.a-tableClick:hover {
-			background-color: #cff0ff;
-			cursor: pointer;
-		}
-	}
-	td {
-		font-size: 14px;
-	}
-
-	.a-table-icon {
-		width: 24px;
-		height: 24px;
-		vertical-align: middle;
-		margin-left: $spacer;
-		border: none;
-		margin-top: -3px;
-	}
-
-	.a-table-list-green {
-		background-color: $green-light;
-	}
-
-	.a-table-list-red {
-		background-color: $red-light;
-	}
-
-	.help-icon {
-		color: $grey-medium;
-		&:hover {
-			color: $grey;
-			cursor: pointer;
-		}
-	}
-
-	.add-icon {
-		color: $blue;
-		margin-left: 0;
-		margin-right: $spacer/2;
-	}
-
-	.remove-icon {
-		color: $red;
-	}
-
-	.read-icon, .fill-out-icon, .approve-icon {
-		color: $grey-medium;
-	}
-
-	.edit-icon {
-		color: $grey;
-	}
-
+  width: 100%;
+  thead tr th {
+    border: none;
+  }
+  td,
+  th {
+    border: none;
+    display: table-cell;
+    vertical-align: middle;
+    padding: 6px;
+    height: 36px;
+  }
+  tr {
+    width: 100%;
+    min-height: 36px;
+    word-wrap: break-word;
+    &.a-tableClick:hover {
+      background-color: #cff0ff;
+      cursor: pointer;
+    }
+  }
+  td {
+    font-size: 14px;
+  }
+  .a-table-icon {
+    width: 24px;
+    height: 24px;
+    vertical-align: middle;
+    margin-left: $spacer;
+    border: none;
+    margin-top: -3px;
+  }
+  .a-table-list-green {
+    background-color: $green-light;
+  }
+  .a-table-list-red {
+    background-color: $red-light;
+  }
+  .help-icon {
+    color: $grey-medium;
+    &:hover {
+      color: $grey;
+      cursor: pointer;
+    }
+  }
+  .add-icon {
+    color: $blue;
+    margin-left: 0;
+    margin-right: $spacer/2;
+  }
+  .remove-icon {
+    color: $red;
+  }
+  .read-icon,
+  .fill-out-icon,
+  .approve-icon {
+    color: $grey-medium;
+  }
+  .edit-icon {
+    color: $grey;
+  }
 }
 
 
 /*------------------------------------*\
     $Full width table
 \*------------------------------------*/
-.full-width-table {
-	margin: 0 -96px -48px -96px;
 
-	@include media-breakpoint-down(sm){
-		margin: 0 -12px -36px -12px;
-	}
+.full-width-table {
+  margin: 0 -96px -48px -96px;
+  @include media-breakpoint-down(sm) {
+    margin: 0 -12px -36px -12px;
+  }
 }
