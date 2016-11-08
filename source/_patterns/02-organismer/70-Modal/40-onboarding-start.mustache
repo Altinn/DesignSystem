@@ -1,0 +1,55 @@
+<!-- Button trigger modal -->
+<button type="button" class="a-btn" data-toggle="modal" data-target="#{{modal-id}}">
+    {{ modal-launch-title }}
+</button>
+
+<!-- Modal -->
+<div class="modal a-modal fade {{ modalClass }}" id="{{modal-id}}" tabindex="-1" role="dialog" aria-labelledby="{{ modal-label }}" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+
+
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+        <h4 class="modal-title" id="myModalLabel">Modal title</h4>
+      </div>
+      <div class="modal-body">
+
+        <div class="container">
+          <div class="row">
+            <div class="col-md-12 p-t-5">
+
+                {{# onboarding-steps }}
+
+                  <div class="clearfix">
+                    {{{ step-counter }}}
+
+                    {{> atomer-intro-tekst }}
+
+                    {{{ organisasjonsnummer }}}
+
+                    {{> atomer-knapp }}
+                    {{> atomer-knapp }}
+                  </div>
+
+                {{/ onboarding-steps }}
+
+            </div>
+          </div>
+        </div>
+
+
+
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
+    </div>
+
+
+
+  </div>
+</div>

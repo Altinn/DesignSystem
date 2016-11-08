@@ -22,3 +22,4 @@ window.altinnInit = function() {
   setupDeletableRowsTable();
 };
 window.altinnInit();
+$('#modalOnboarding').modal('show');
