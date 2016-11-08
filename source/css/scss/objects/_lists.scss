@@ -1,7 +1,8 @@
 ul.no-decoration {
 	list-style: none;
-	margin:none;
+	margin: none;
 }
+
 
 /*------------------------------------*\
     $Item list
@@ -9,7 +10,6 @@ ul.no-decoration {
 
 .a-item-list {
 	list-style: none;
-
 	div.a-dotted {
 		position: absolute;
 		top: 0;
@@ -18,11 +18,9 @@ ul.no-decoration {
 		width: 100%;
 		height: 100%;
 	}
-
 	.a-inactive {
 		padding: $spacer/2 0;
 	}
-
 	.a-disabled {
 		box-shadow: none;
 		padding: $spacer/2 0;
@@ -30,118 +28,98 @@ ul.no-decoration {
 	.a-item-list-item {
 		position: relative;
 		width: 100%;
-
 		a:hover {
 			cursor: pointer;
 		}
-
 		&.a-clickable:hover {
 			background-color: $blue-light;
 		}
-
 		.a-listItem-title {
 			display: block;
-		    border: none;
-		    padding: 6px 0;
-		    font-size: 16px;
-		    color: $black;
-		    text-decoration: none;
-
-		    @include media-breakpoint-up(md) {
-		    	font-size: 16px;
-		    }
+			border: none;
+			padding: 6px 0;
+			font-size: 16px;
+			color: $black;
+			text-decoration: none;
+			@include media-breakpoint-up(md) {
+				font-size: 16px;
+			}
 		}
-
 	}
-
 	&.a-item-list-ordered {
 		list-style: decimal;
 		list-style-position: inside;
-
 		// Because list bullets is going to be INSIDE, and we cannot have a as block (firefox-bug), we need to add padding to li instead of a.
 		.a-item-list-item {
 			padding: 5px 0;
-
 			a {
 				position: relative;
 				box-shadow: none !important;
 				&:before {
 					content: "";
-			    width: 117%;
-			    min-height: 36px;
-			    position: absolute;
-			    left: -15px;
-			    top: -7px;
-			    cursor: pointer;
-			    z-index: -1;
+					width: 117%;
+					min-height: 36px;
+					position: absolute;
+					left: -15px;
+					top: -7px;
+					cursor: pointer;
+					z-index: -1;
 				}
 			}
-
 		}
-
-    .a-listItem-title {
+		.a-listItem-title {
 			display: inline-block;
 			width: 85%;
 			vertical-align: top;
 			padding: 0;
-
 			&:after {
-				content:'';
-				position:absolute;
-				top:-5px;
-				bottom:-5px;
-				left:-5px;
-				right:-5px;
+				content: '';
+				position: absolute;
+				top: -5px;
+				bottom: -5px;
+				left: -5px;
+				right: -5px;
 			}
 		}
-
 	}
-
 	&.a-item-list-large {
 		.a-listItem-title {
 			@include media-breakpoint-up(md) {
-	    	font-size: 20px;
+				font-size: 20px;
 			}
 		}
 	}
-
 	// TODO: Make a script to check if there is more than 3 items in list. If less then 3, use 1col, if more than 3, use 2col
 	&.a-item-list-1col {
 		@include media-breakpoint-up(md) {
 			width: calc(50% - 24px);
 		}
 	}
-
 	&.a-item-list-2col {
 		@include media-breakpoint-up(md) {
 			column-count: 2;
-	  	column-gap: $spacer*4;
-				-moz-column-count: 2;
-	       -moz-column-gap: $spacer*4;
-	       -webkit-column-count: 2;
-	       -webkit-column-gap: $spacer*4;
-
+			column-gap: $spacer*4;
+			-moz-column-count: 2;
+			-moz-column-gap: $spacer*4;
+			-webkit-column-count: 2;
+			-webkit-column-gap: $spacer*4;
 			li {
 				-webkit-column-break-inside: avoid;
-						page-break-inside: avoid;
-								 break-inside: avoid;
+				page-break-inside: avoid;
+				break-inside: avoid;
 			}
 		}
 	}
-
 }
-
 
 // If business, change hover color on list
 .business {
 	.a-item-list {
-
 		.a-item-list-item.a-clickable:hover {
 			background-color: $blue-light-hover-color-dark;
 		}
 	}
 }
-
 
 
 /*------------------------------------*\
@@ -152,6 +130,7 @@ ul.no-decoration {
 	list-style: none;
 }
 
+
 /*------------------------------------*\
     $Bullet list
 \*------------------------------------*/
@@ -161,11 +140,9 @@ ul.a-bulletList {
 	list-style: none;
 	margin-top: $spacer;
 	margin-left: 0;
-
 	@include media-breakpoint-up(md) {
 		margin-left: -$spacer*2;
 	}
-
 	li {
 		position: relative;
 		margin-bottom: $spacer;
@@ -173,27 +150,24 @@ ul.a-bulletList {
 		font-family: $font-medium;
 		font-weight: $font-weight-medium;
 		font-size: $articleText-size-mobile;
-
 		@include media-breakpoint-up(md) {
 			font-size: $articleText-size;
 		}
 	}
-
 	li:before {
 		content: "•";
-   	font-size: 36px;
-   	padding-right: 5px;
+		font-size: 36px;
+		padding-right: 5px;
 		color: $blue;
 		top: -11px;
-    left: -3px;
+		left: -3px;
 		position: absolute;
 	}
-
 	&.a-bulletList-light {
 		li:before {
 			color: $grey-medium;
 			font-size: 48px;
-	    top: -23px;
+			top: -23px;
 		}
 		li {
 			font-family: $font-light;
@@ -213,11 +187,9 @@ ul.a-bulletList {
 	padding-right: 0;
 	list-style-type: none;
 	counter-reset: step;
-
 	li {
 		margin-bottom: $spacer*1.5;
 		font-weight: bold;
-
 		&::before {
 			counter-increment: step;
 			content: counter(step);
@@ -227,7 +199,6 @@ ul.a-bulletList {
 			border: 2px solid $blue;
 			border-radius: 50%;
 		}
-
 		span {
 			margin-left: 10px;
 			font-weight: normal;
@@ -236,32 +207,26 @@ ul.a-bulletList {
 }
 
 
-
 /*------------------------------------*\
     Unordered list with icons
 \*------------------------------------*/
 
 .a-icon-list {
 	list-style-type: none;
-
 	li {
 		margin-bottom: $spacer*1.5;
 	}
-
 	a {
 		border: none;
 		color: $black;
-
 		&:hover {
 			color: $blue;
 		}
 	}
-
 	i {
 		vertical-align: middle;
 		padding-right: 5px;
 	}
-
 	b {
 		padding-right: 5px;
 	}
@@ -273,30 +238,30 @@ ul.a-bulletList {
 \*------------------------------------*/
 
 ul.connectedBullets {
-    padding-left: 0;
-    margin-top: -1px;
-}
-ul.connectedBullets li {
-    padding-left: 36px;
-    margin-bottom: $spacer*2;
-    list-style: none;
-
-		@include media-breakpoint-up(md) {
-			padding-left: 0;
-		}
+	padding-left: 0;
+	margin-top: -1px;
 }
 
 ul.connectedBullets li {
-    position:relative;
-    margin-bottom: 0;
-    padding-bottom: $spacer*2;
+	padding-left: 36px;
+	margin-bottom: $spacer*2;
+	list-style: none;
+	@include media-breakpoint-up(md) {
+		padding-left: 0;
+	}
+}
+
+ul.connectedBullets li {
+	position: relative;
+	margin-bottom: 0;
+	padding-bottom: $spacer*2;
 }
 
 ul.connectedBullets li:after {
 	content: '';
 	position: absolute;
 	left: 0px;
-  top: -1px;
+	top: -1px;
 	font-size: 39px;
 	font-weight: bold;
 	height: 25px;
@@ -304,42 +269,42 @@ ul.connectedBullets li:after {
 	border: 3px solid $blue;
 	border-radius: 50%;
 	background: $grey-light;
-
 	@include media-breakpoint-up(md) {
 		left: -36px;
 	}
 }
 
 ul.connectedBullets li:before {
-    /* lines */
-    content:"";
-    position: absolute;
-		left: 12px;
-    border-left: 3px solid $blue;
-    height: 100%;
-    width: 3px;
-
-		@include media-breakpoint-up(md) {
-			left: -25px;
-		}
+	/* lines */
+	content: "";
+	position: absolute;
+	left: 12px;
+	border-left: 3px solid $blue;
+	height: 100%;
+	width: 3px;
+	@include media-breakpoint-up(md) {
+		left: -25px;
+	}
 }
 
 ul.connectedBullets li:first-child:before {
-   /* first li's line */
-   top: 6px; /* moves the line down so that it disappears under the bullet. Adjust manually */
+	/* first li's line */
+	top: 6px;
+	/* moves the line down so that it disappears under the bullet. Adjust manually */
 }
 
 ul.connectedBullets li:last-child:before {
-    /* last li's line */
-   height: 6px; /* shorten the line so it goes only up to the bullet. Is equal to first-child:before's top */
+	/* last li's line */
+	height: 6px;
+	/* shorten the line so it goes only up to the bullet. Is equal to first-child:before's top */
 }
 
 .business {
 	ul.connectedBullets li:after {
 		background: $blue-light;
-
 	}
 }
+
 
 /*------------------------------------*\
     $Suggestion List

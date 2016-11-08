@@ -1,32 +1,29 @@
-
 .a-tabs {
     float: left;
     width: 100%;
     padding: 24px 12px 0 12px;
-    display: -webkit-flex; /* Safari */
+    display: -webkit-flex;
+    /* Safari */
     display: flex;
     overflow-x: auto;
     overflow-y: hidden;
-
     @include media-breakpoint-up(md) {
         padding: 24px 72px 0 72px;
     }
     .a-tab {
         margin-right: 12px;
-
-         @include media-breakpoint-up(sm) {
+        @include media-breakpoint-up(sm) {
             margin-right: 24px;
         }
-
         @include media-breakpoint-up(md) {
             margin-right: 36px;
         }
-
-        -webkit-flex: 1; /* Safari 6.1+ */
-        -ms-flex: 1; /* IE 10 */
+        -webkit-flex: 1;
+        /* Safari 6.1+ */
+        -ms-flex: 1;
+        /* IE 10 */
         flex: 1;
     }
-
     .a-tab-btn {
         position: relative;
         cursor: pointer;
@@ -36,62 +33,53 @@
         border-bottom: 2px solid transparent;
         padding: 6px 0 6px 28px;
         font-size: 14px;
-
         // VERTICAL CENTERING
         display: flex;
         justify-content: center;
         flex-direction: column;
         height: 50px;
-
-
         @include media-breakpoint-up(md) {
             font-size: 16px;
             padding: 6px 0 6px 36px;
         }
-
     }
-
     .a-tab-btn.active,
     .a-tab-btn :focus.active,
     .a-tab-btn :hover.active,
     .a-tab-btn :active.active {
         border-bottom-color: #1eaef7;
     }
-
-
     .a-tab-btn-icon {
-            position: absolute;
-            left: 0;
-            vertical-align: middle;
+        position: absolute;
+        left: 0;
+        vertical-align: middle;
     }
 }
-
 
 .a-tabs-content {
     clear: both;
     padding: 24px 12px;
     background: $white;
-
     @include media-breakpoint-up(md) {
         padding: 24px 72px;
     }
 }
 
 // Background for different themes
-
-
 .business {
-  .a-tabs {
-      background: $blue-light;
-  }
+    .a-tabs {
+        background: $blue-light;
+    }
 }
+
 .private-person {
-  .a-tabs {
-      background: $grey-light;
-  }
+    .a-tabs {
+        background: $grey-light;
+    }
 }
+
 .neutral {
-  .a-tabs {
-      background: $white;
-  }
+    .a-tabs {
+        background: $white;
+    }
 }
