@@ -10,16 +10,24 @@
 					{{> atomer-knapp }}
 				</div>
 			{{/ klientdelegering-file }}
-			<div class="second-action p-t-3">
+			<div class="second-action p-t-3" id="searchForClient" style="display: none;">
 				{{# sok-etter-klient }}
-					{{> atomer-tekst-input }}
+					{{# display }}
+						{{> atomer-tekst-input }}
+					{{/ display }}
 				{{/ sok-etter-klient }}
 			</div>
-
-			<div class="fourth-action m-t-3">
-				{{# klientdelegering-add }} 
-					{{> atomer-handlingsknapp }} 
-				{{/ klientdelegering-add}}
+			<div class="second-action p-t-3" id="searchForPerson">
+				{{# sok-etter-person }}
+					{{# display }}
+						{{> atomer-tekst-input }}
+					{{/ display }}
+				{{/ sok-etter-person }}
+			</div>
+			<div class="fourth-action m-t-3" id="searchHiddenForClient">
+					{{# klientdelegering-add }} 
+						{{> atomer-handlingsknapp }} 
+					{{/ klientdelegering-add}}
 			</div>
 		</div>
 		<div>
@@ -28,7 +36,7 @@
 					{{> atomer-tabell-sorterbar-variant }}
 				{{/ employee-table }}
 			</div>
-			<div id="secondTable" style="display: none">
+			<div id="secondTable" style="display: none;">
 				{{# clients-table }}
 					{{> atomer-tabell-sorterbar-variant }}
 				{{/ clients-table }}
