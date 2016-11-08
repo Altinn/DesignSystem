@@ -160,7 +160,11 @@ ul.a-bulletList {
 	color: $black;
 	list-style: none;
 	margin-top: $spacer;
-	margin-left: -$spacer*2;
+	margin-left: 0;
+
+	@include media-breakpoint-up(md) {
+		margin-left: -$spacer*2;
+	}
 
 	li {
 		position: relative;
@@ -168,7 +172,11 @@ ul.a-bulletList {
 		padding-left: $spacer*2;
 		font-family: $font-medium;
 		font-weight: $font-weight-medium;
-		font-size: $articleText-size;
+		font-size: $articleText-size-mobile;
+
+		@include media-breakpoint-up(md) {
+			font-size: $articleText-size;
+		}
 	}
 
 	li:before {
