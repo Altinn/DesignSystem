@@ -1,7 +1,81 @@
 /* globals $ */
 var onboarding = function() {
-  var x = 400; var y = 600; var r = 64;
-  var _r = r - 8;
+  var ratio; var count = -1; var originalWidth; var steps = [];
+  var horizontalJiggle; var verticalJiggle;
+  $('.sg-main').find('*:nth-child(5n)').each(function() {
+    if ($(this).width() > 0) {
+      steps.push({
+        element: $(this)
+      });
+    }
+  });
+  function seek(e) {
+    ratio = (steps[count].element.width() / 15);
+    e.preventDefault(); e.stopPropagation();
+    if (steps[count - 1]) {
+      if (
+        steps[count - 1].element.offset().left <
+        steps[count].element.offset().left
+      ) {
+        horizontalJiggle = 10;
+      } else if (
+        steps[count - 1].element.offset().left >
+        steps[count].element.offset().left
+      ) {
+        horizontalJiggle = -10;
+      } else {
+        horizontalJiggle = 0;
+      }
+      if (
+        steps[count - 1].element.offset().top <
+        steps[count].element.offset().top
+      ) {
+        verticalJiggle = 10;
+      } else if (
+        steps[count - 1].element.offset().top >
+        steps[count].element.offset().top
+      ) {
+        verticalJiggle = -10;
+      } else {
+        verticalJiggle = 0;
+      }
+    } else {
+      horizontalJiggle = 0; verticalJiggle = 0;
+    }
+    $('.onboarding-wrapper').css(
+      'transform',
+      'matrix(' + ratio + ', 0, 0, ' + ratio + ',' +
+        (
+          steps[count].element.offset().left +
+          (steps[count].element.width() / 2)
+        ) + ',' +
+        (
+          steps[count].element.offset().top +
+          (steps[count].element.height() / 2)
+        )
+    ).css('top', verticalJiggle + 'px').css('left', horizontalJiggle + 'px');
+    setTimeout(function() {
+      $('.onboarding-wrapper')
+        .css('top', (verticalJiggle * -0.5) + 'px')
+        .css('left', (horizontalJiggle * -0.5) + 'px');
+      setTimeout(function() {
+        $('.onboarding-wrapper')
+          .css('top', (verticalJiggle * 0.25) + 'px')
+          .css('left', (horizontalJiggle * 0.25) + 'px');
+        setTimeout(function() {
+          $('.onboarding-wrapper')
+            .css('top', (verticalJiggle * -0.125) + 'px')
+            .css('left', (horizontalJiggle * -0.125) + 'px');
+          setTimeout(function() {
+            $('.onboarding-wrapper').css('top', '0px').css('left', '0px');
+          }, 100);
+        }, 100);
+      }, 100);
+    }, 450);
+    $('html, body').animate({
+      scrollTop: steps[count].element.offset().top - (200)
+    }, 200);
+  }
   $(document).keydown(function(e) {
     /* CTRL + O keydown combo */
     if (e.ctrlKey && e.keyCode === 79) {
@@ -20,26 +94,14 @@ var onboarding = function() {
             '</svg>' +
           '</span>'
         );
+        setInterval(function() {
+          count += 1; seek(e);
+        }, 1000);
       }
     } else if (e.keyCode === 39 && $('.onboarding-wrapper').length > 0) {
-      e.preventDefault(); e.stopPropagation();
-      $('.onboarding-wrapper').html(
-        $('.onboarding-wrapper').html()
-          .replace(/570 562/g, '5@7@0 5@5@6')
-          .replace(/578 570/g, '5@8@6 5@7@0')
-          .replace(/570 578/g, '5@7@0 5@8@6')
-          .replace(/562 570/g, '5@5@6 5@7@0')
-          .replace(/ 8 /g, ' 16 ')
-        ).css('left', x + 'px').css('top', y + 'px');
-      $('.onboarding-wrapper').html(
-        $('.onboarding-wrapper').html().replace(/@/g, '')
-      );
+      count += 1; seek(e);
     } else if (e.keyCode === 37 && $('.onboarding-wrapper').length > 0) {
-      e.preventDefault(); e.stopPropagation();
-      $('.onboarding-wrapper').html(
-        $('.onboarding-wrapper').html()
-          .replace(/570/g, '570')
-        ).css('left', 0 + 'px').css('top', 0 + 'px');
+      count += -1; seek(e);
     }
   });
 };
