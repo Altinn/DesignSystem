@@ -170,12 +170,58 @@ button.button-blue-no-underline:hover {
 	}
 }
 
-.a-btn-shadow {
-	background: $blue-light;
-	box-shadow: 1px 1px 4px 0px rgba(137, 137, 137, 0.5);
+// BTN WITH ICON
+.a-btn-icon {
 	height: 60px;
 	width: 100%;
 	text-align: left;
+	background: transparent;
+
+	&:hover,
+	&:focus {
+			background: transparent;
+			color: $blue;
+	}
+
+	.a-btn-icon-symbol {
+		font-size: 30px;
+		padding-right: $spacer;
+		vertical-align: middle;
+		margin-top: -3px;
+	}
+}
+// BTN WITH WHITE TRANSPARENCY
+
+.a-btn-transparentWhite {
+	background: $white-opacity;
+	padding: $spacer;
+
+	&:hover,
+	&:focus {
+			background: $white;
+			color: $black;
+	}
+
+	.a-btn-icon-symbol {
+		background: $blue;
+		border-radius: 50px;
+		color: $white;
+		height: $spacer*3;
+		width: $spacer*3;
+    font-size: 22px;
+    text-align: center;
+    padding: 0px;
+		padding-top: $spacer/2;
+	}
+	.a-btn-icon-text {
+		padding-left: $spacer/2;
+	}
+}
+
+// BTN WITH SHADOW
+.a-btn-shadow {
+	background: $blue-light;
+	box-shadow: 1px 1px 4px 0px rgba(137, 137, 137, 0.5);
 
 	&:hover {
 		background: darken($blue-light, 5%);
@@ -185,13 +231,6 @@ button.button-blue-no-underline:hover {
 		background: darken($blue-light, 5%);
 		color: $black;
 		box-shadow: 1px 1px 4px 0px rgba(137, 137, 137, 0.5);
-	}
-
-	.a-btn-shadow-icon {
-		font-size: 30px;
-		padding-right: $spacer;
-		vertical-align: middle;
-		margin-top: -3px;
 	}
 
 	&.a-bgGreyLight {
@@ -206,43 +245,6 @@ button.button-blue-no-underline:hover {
 	}
 }
 
-.a-btn-withIcon {
-	background: transparent;
-	color: $black;
-	padding: $spacer/2 $spacer;
-	display: block;
-	position: relative;
-	z-index: 1;
-	box-shadow: none !important;
-	clear: both;
-
-	&:hover,
-	&:active,
-	&:focus {
-			background: transparent;
-			color: $blue;
-			border: none;
-	}
-
-	&:before {
-    content: "";
-    width: calc(100% + 48px);
-    min-height: 48px;
-    position: absolute;
-    left: -24px;
-    top: -8px;
-    cursor: pointer;
-    z-index: -1;
-  }
-
-	.a-btn-withIcon-icon {
-		font-weight: bold;
-		vertical-align: middle;
-		margin-right: 12px;
-		font-size: 28px;
-		margin-top: -4px;
-	}
-}
 
 // Make button look like link
 
