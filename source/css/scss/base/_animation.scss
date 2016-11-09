@@ -2,8 +2,8 @@
     HOVER EFFECTS
     Underline from center
 \*------------------------------------*/
-@include media-breakpoint-up(md) {
 
+@include media-breakpoint-up(md) {
   .hvr-underline-from-center {
     display: inline-block;
     vertical-align: middle;
@@ -15,7 +15,6 @@
     -moz-osx-font-smoothing: grayscale;
     position: relative;
     overflow: hidden;
-
     &:focus {
       box-shadow: none;
     }
@@ -36,17 +35,20 @@
     -webkit-transition-timing-function: ease-out;
     transition-timing-function: ease-out;
   }
-  .hvr-underline-from-center:hover:before, .hvr-underline-from-center:focus:before, .hvr-underline-from-center:active:before {
+  .hvr-underline-from-center:hover:before,
+  .hvr-underline-from-center:focus:before,
+  .hvr-underline-from-center:active:before {
     left: 0;
     right: 0;
   }
-
 }
+
 
 /*------------------------------------*\
     HOVER EFFECTS
     Fade
 \*------------------------------------*/
+
 .hvr-fade {
   display: inline-block;
   vertical-align: middle;
@@ -62,7 +64,10 @@
   -webkit-transition-property: color, background-color;
   transition-property: color, background-color;
 }
-.hvr-fade:hover, .hvr-fade:focus, .hvr-fade:active {
+
+.hvr-fade:hover,
+.hvr-fade:focus,
+.hvr-fade:active {
   background-color: $blue-light;
 }
 
@@ -70,6 +75,7 @@
 /*------------------------------------*\
     Page Transitions
 \*------------------------------------*/
+
 
 /*
  * Keyframes
@@ -79,7 +85,6 @@
   0% {
     opacity: 0;
   }
-
   100% {
     opacity: 1;
   }
@@ -90,7 +95,6 @@
     opacity: 0;
     transform: translate3d(0, 100%, 0);
   }
-
   100% {
     opacity: 1;
     transform: none;
@@ -102,7 +106,6 @@
     opacity: 0;
     transform: translate3d(125%, 0, 0);
   }
-
   100% {
     opacity: 1;
     transform: none;
@@ -114,7 +117,6 @@
     opacity: 0;
     transform: none;
   }
-
   100% {
     opacity: 1;
     transform: translate3d(125%, 0, 0);
@@ -126,7 +128,6 @@
     opacity: 0;
     transform: none;
   }
-
   100% {
     opacity: 1;
     transform: translate3d(-125%, 0, 0);
@@ -138,7 +139,6 @@
     opacity: 0;
     transform: translate3d(-125%, 0, 0);
   }
-
   100% {
     opacity: 1;
     transform: none;
@@ -146,48 +146,40 @@
 }
 
 
-
- /*------------------------------------*\
+/*------------------------------------*\
      CSS Page Transitions
  \*------------------------------------*/
+
 .a-scene {
   display: block;
   overflow: hidden;
-
   /** Basic styles for an animated element */
   .a-scene_element {
     display: block;
     animation-duration: 0.25s;
     transition-timing-function: ease-in;
     animation-fill-mode: both;
-
   }
-
   /** An element that fades in */
   .a-scene_element--fadein {
     animation-name: fadeIn;
   }
-
   /** An element that fades in and slides up */
   .a-scene_element--fadeinup {
     animation-name: fadeInUp;
   }
-
   /** An element that fades in and slides from the right */
   .a-scene_element--fadeinright {
     animation-name: fadeInRight;
   }
-
   /** An element that fades in and slides from the right */
   .a-scene_element--fadeoutright {
     animation-name: fadeOutRight;
   }
-
   /** An element that fades out and slides to the left */
   .a-scene_element--fadeoutleft {
     animation-name: fadeOutLeft;
   }
-
   /** An element that fades out and slides to the left */
   .a-scene_element--fadeinleft {
     animation-name: fadeInLeft;

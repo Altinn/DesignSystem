@@ -1,17 +1,17 @@
 <div class="{{ full-width-table }}">
-  <table class="table a-sortable-table a-table-list {{# clickable }}clickable {{/ clickable }}{{# white-table }}white {{/ white-table }}" id="{{ table-remove-undo-id }}" data-table-eventhandler="{{ table-eventhandler }}">
+  <table class="table a-table a-sortable-table a-table-list {{# clickable }}clickable {{/ clickable }}{{# white-table }}white {{/ white-table }}" id="{{ table-remove-undo-id }}" data-table-eventhandler="{{ table-eventhandler }}">
     <thead>
       {{# sortable-has-head }}
-        <tr class="a-sortable-row a-table-list">
+        <tr class="a-sortable-row a-table-list add-remove-all">
           {{# sortable-head-items }}
-            <th class="add-remove-all {{# is-first-column }} first {{/ is-first-column }} {{# cell-padding }} text-xs-right col-pd-4 p-r-2 {{/ cell-padding }}"
+            <th class="{{# cell-padding }} text-xs-right col-pd-4 p-r-2 {{/ cell-padding }}"
               {{# column-width }}style="width: {{ column-width}}%;"{{/ column-width }}>
               {{# sortable }}
                 <span class="a-dropdownArrow"></span>
               {{/ sortable }}
               {{# show-head-actions }}
                 {{# sortable-head-actions }}
-                  <span class="{{# last-column }} normal-casing {{/ last-column }}{{ sortable-head-action-type }}"
+                  <span class="{{# last-column }} normal-casing {{/ last-column }}{{# bold }} din-bold {{/ bold }}{{ sortable-head-action-type }}"
                     {{# hidden }} style="display:none" {{/ hidden }}>
                     {{ sortable-head-text }}
                     {{# sortable-head-icon-type }}
@@ -22,9 +22,7 @@
                   </span>
                 {{/ sortable-head-actions }}
               {{/ show-head-actions }}
-              {{# last-column }}<span class="normal-casing">{{/ last-column }}
-                {{ sortable-head-text }}
-              {{# last-column }}</span>{{/ last-column }}
+              {{ sortable-head-text }}
               {{# sortable-head-icon-type }}
                 <i class="material-icons {{ sortable-head-icon-class }}">
                   {{{ sortable-head-icon-type }}}

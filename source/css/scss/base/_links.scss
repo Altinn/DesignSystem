@@ -1,44 +1,41 @@
 /* Links in text */
+
 a {
-	color: $blue-dark;
-	border-bottom: 1px solid $blue-dark;
+  color: $blue-dark;
+  border-bottom: 1px solid $blue-dark;
   padding-bottom: 2px;
   position: relative;
   // z-index: 1;
-
-    &:hover,
-    &:focus {
-        text-decoration: none;
-        border-bottom: 1px solid $link-color;
-        color: $link-color;
-    }
+  &:hover,
+  &:focus {
+    text-decoration: none;
+    border-bottom: 1px solid $link-color;
+    color: $link-color;
+  }
 }
 
 a.no-decoration {
+  text-decoration: none;
+  color: $black;
+  border: none;
+  padding-bottom: 0;
+  &:hover,
+  &:focus {
     text-decoration: none;
-    color: $black;
-    border: none;
-    padding-bottom: 0;
-
-		&:hover,
-		&:focus {
-				text-decoration: none;
-				border-bottom: none;
-		}
+    border-bottom: none;
+  }
 }
 
 .a-link-helpfunction {
-    color: $black;
-
-    a {
-        color: $blue-dark;
-        border-color: $blue-dark;
-
-        &:hover {
-            border-bottom: 1px solid $link-color;
-            color: $link-color;
-        }
+  color: $black;
+  a {
+    color: $blue-dark;
+    border-color: $blue-dark;
+    &:hover {
+      border-bottom: 1px solid $link-color;
+      color: $link-color;
     }
+  }
 }
 
 
@@ -48,7 +45,6 @@ a.no-decoration {
   position: relative;
   z-index: 1;
   box-shadow: none !important;
-
   &:before {
     content: "";
     width: calc(100% + 24px);
@@ -62,55 +58,53 @@ a.no-decoration {
 }
 
 [data-toggle="popover"]:before {
-	box-shadow: none !important
+  box-shadow: none !important;
 }
+
 
 /* Links standalone */
 
 .a-link {
   position: relative;
   z-index: 1;
-	padding-bottom: 4px;
-	&.a-link-large {
-		@include media-breakpoint-up(md) {
-			font-size: 20px;
-		}
-	}
-
-	&.a-link-title {
+  padding-bottom: 4px;
+  &.a-link-large {
+    @include media-breakpoint-up(md) {
+      font-size: 20px;
+    }
+  }
+  &.a-link-title {
     font-size: 20px;
     margin-bottom: 12px;
     display: inline-block;
     padding-bottom: 0;
-    font-family: $font-bold; font-weight: $font-weight-bold;
-	}
+    font-family: $font-bold;
+    font-weight: $font-weight-bold;
+  }
 }
 
 .a-link,
 .a-link:active,
 .a-link:focus {
-    color: $black;
-    border-bottom: 2px solid $link-color;
-    text-decoration: none;
-    cursor: pointer;
-
-    &.a-link-danger {
-        border-bottom: 2px solid $red;
-    }
-
+  color: $black;
+  border-bottom: 2px solid $link-color;
+  text-decoration: none;
+  cursor: pointer;
+  &.a-link-danger {
+    border-bottom: 2px solid $red;
+  }
 }
+
 .a-link:hover,
 .a-link:focus {
-    text-decoration: none;
-    border-bottom: 2px solid $blue-dark;
-    color: $black;
-    box-shadow: none !important;
-
-    &.a-link-danger {
-        border-bottom: 2px solid darken($red, 15%);
-    }
+  text-decoration: none;
+  border-bottom: 2px solid $blue-dark;
+  color: $black;
+  box-shadow: none !important;
+  &.a-link-danger {
+    border-bottom: 2px solid darken($red, 15%);
+  }
 }
-
 
 .a-textSize3 {
   .a-link {
@@ -119,25 +113,20 @@ a.no-decoration {
   }
 }
 
-
 // EXTERNAL AND INTERNAL LINKS
 // Use to add correct arrow-icons
 // a[href*="/"] { color: red !important; } // EXTERNAL
 // a[href*="altinn"] { color: yellow !important; } // INTERNAL
-
-
 .a-link-external {
   position: absolute;
-	font-style: normal;
-	padding-left: 5px;
+  font-style: normal;
+  padding-left: 5px;
 }
-
 
 // Help icon
 .a-helpIconButton {
   border: none;
   color: #666;
-
   &:hover {
     text-decoration: none;
     border-bottom: none;
@@ -145,7 +134,6 @@ a.no-decoration {
   &:focus {
     border-bottom: none;
   }
-
   i {
     vertical-align: middle;
     font-size: 22px;
@@ -154,23 +142,21 @@ a.no-decoration {
 }
 
 
-
 /* Telephone Link */
+
 .a-tel {
-  font-family: $font-bold; font-weight: $font-weight-bold;
+  font-family: $font-bold;
+  font-weight: $font-weight-bold;
   border-bottom: none;
   font-size: 18px;
   position: relative;
-
   &:hover {
     border: none;
   }
-
   &:focus:not(.override-focus) {
     box-shadow: none;
-    border:none;
+    border: none;
   }
-
   &:before {
     content: "";
     width: calc(100% + 40px);
@@ -181,7 +167,6 @@ a.no-decoration {
     cursor: pointer;
     z-index: -1;
   }
-
   i {
     vertical-align: middle;
     margin-left: -5px;
