@@ -14,7 +14,7 @@
   td,
   th {
     border-top: none;
-    border-bottom: 1px solid #CCCCCC;
+    border-bottom: 1px solid $grey-medium;
     padding: 6px 0 5px 0;
   }
 }
@@ -31,7 +31,7 @@
     font-family: $font-medium;
     font-weight: $font-weight-medium;
     width: 20%;
-    @include media-breakpoint-up(md) {
+    @include media-breakpoint-up( md ) {
       width: auto;
     }
   }
@@ -108,7 +108,7 @@
         text-align: center;
       }
 
-      &:nth-of-type(even) {
+      &:nth-of-type( even ) {
         font-weight: bold;
       }
     }
@@ -135,6 +135,10 @@
   }
 
   &.clickable {
+    thead>tr:hover{
+      cursor: pointer;
+    }
+
     tbody>tr:hover {
       cursor: pointer;
       background-color: $red-light;
@@ -144,11 +148,22 @@
   thead {
 
     th {
-      text-transform: uppercase;
-      font-size: 12px;
-      padding: 0.4rem;
       bottom: 0;
+      font-size: 12px;
       font-weight: $font-weight-reg;
+      padding: .4rem;
+      text-transform: uppercase;
+
+      &:hover {
+        .a-dropdownArrow {
+          border-left: 10px solid $blue;
+        }
+      }
+    }
+
+    .a-dropdownArrow {
+      border-left: 10px solid $black;
+      transform: scale( .75 ) rotate( 90deg ) translate( -50% );
     }
 
     tr {
@@ -156,12 +171,8 @@
     }
 
     .normal-casing {
-      text-transform: none;
       font-size: 16px;
-    }
-
-    .a-dropdownArrow {
-      transform: scale(0.75) rotate(90deg) translate(-50%);
+      text-transform: none;
     }
   }
 
