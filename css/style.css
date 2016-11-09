@@ -6154,6 +6154,16 @@ blockquote:before, blockquote:after {
   /* number of lines to show */
   -webkit-box-orient: vertical; }
 
+/* Text with pattern */
+.patternLine {
+  background-image: url(../images/disabled-background_blue.svg);
+  background-color: transparent;
+  color: #fff;
+  font-size: 36px;
+  height: 60px;
+  padding: 4px 12px;
+  display: inline-block; }
+
 /*------------------------------------*    $MEDIA ELEMENTS
 \*------------------------------------*/
 /* Flexible Media */
@@ -9902,7 +9912,7 @@ a.a-modal-close {
   margin: 0; }
   @media (min-width: 768px) {
     .a-panel-collapse-content {
-      padding: 40px 96px; } }
+      padding: 40px 108px; } }
 
 .panel-collapse-content-section {
   background-color: #efefef;
@@ -10006,6 +10016,17 @@ a.a-modal-close {
 .collapsed .a-dropdownCircleArrow {
   transform: rotate(0deg);
   -webkit-transform: rotate(0deg); }
+
+.a-collapseContent-delay {
+  opacity: 0; }
+
+.panel-collapse.collapse.in .a-collapseContent-delay {
+  opacity: 1;
+  -webkit-transition: all 100ms ease-in;
+  -moz-transition: all 100ms ease-in;
+  -ms-transition: all 100ms ease-in;
+  -o-transition: all 100ms ease-in;
+  transition: all 100ms ease-in; }
 
 /*------------------------------------*    $COLLAPSE BTN
 \*------------------------------------*/
@@ -11830,6 +11851,7 @@ a.a-modal-close {
   margin-right: auto; }
 
 .onboarding-wrapper {
+  transition: transform 0.45s ease-in, top 0.1s ease-in-out, left 0.1s ease-in-out;
   width: 1140px;
   height: 1140px;
   position: absolute;
@@ -11837,24 +11859,43 @@ a.a-modal-close {
   left: 0px;
   margin-left: -570px;
   margin-top: -570px;
-  z-index: 999;
-  box-shadow: rgba(0, 0, 0, 0.5) 0px -1140px 0px, rgba(0, 0, 0, 0.5) 0px 1140px 0px; }
+  z-index: 999; }
   .onboarding-wrapper svg {
     overflow: visible; }
-  .onboarding-wrapper:before {
-    content: '';
-    width: 100%;
-    height: 99999%;
-    position: absolute;
-    left: -1140px;
-    background-color: rgba(0, 0, 0, 0.5); }
-  .onboarding-wrapper:after {
-    content: '';
-    width: 100%;
-    height: 99999%;
-    position: absolute;
-    left: 1140px;
-    background-color: rgba(0, 0, 0, 0.5); }
+
+/*------------------------------------*    $MODAL ONBOARDING
+\*------------------------------------*/
+.a-onboarding {
+  background: rgba(2, 47, 81, 0.8) !important;
+  color: #fff; }
+  @media (min-width: 768px) {
+    .a-onboarding .modal-dialog {
+      max-width: 800px; } }
+  .a-onboarding .modal-dialog {
+    margin: 310px auto; }
+  .a-onboarding .modal-content {
+    background: transparent;
+    box-shadow: none; }
+    .a-onboarding .modal-content .modal-header {
+      padding: 0;
+      padding-bottom: 24px;
+      border-bottom: none; }
+      .a-onboarding .modal-content .modal-header .modal-title {
+        font-size: 36px; }
+    .a-onboarding .modal-content .modal-body {
+      padding: 0; }
+      .a-onboarding .modal-content .modal-body .a-leadText {
+        font-size: 28px;
+        line-height: 38px;
+        font-weight: 300;
+        margin-bottom: 0; }
+      .a-onboarding .modal-content .modal-body .patternLine {
+        margin-top: 24px; }
+    .a-onboarding .modal-content .modal-footer {
+      margin-top: 36px;
+      border-top: none;
+      text-align: left;
+      padding: 0; }
 
 /*------------------------------------*    $DATEPICKER
 \*------------------------------------*/
@@ -12105,6 +12146,9 @@ mark, .mark {
 /* Text colors */
 .a-textGreen {
   color: #17c96b; }
+
+.a-textWhite {
+  color: #ffffff !important; }
 
 .a-textBlue {
   color: #1eaef7; }
