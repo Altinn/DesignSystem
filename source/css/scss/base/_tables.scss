@@ -14,7 +14,7 @@
   td,
   th {
     border-top: none;
-    border-bottom: 1px solid #CCCCCC;
+    border-bottom: 1px solid $grey-medium;
     padding: 6px 0 5px 0;
   }
 }
@@ -31,7 +31,7 @@
     font-family: $font-medium;
     font-weight: $font-weight-medium;
     width: 20%;
-    @include media-breakpoint-up(md) {
+    @include media-breakpoint-up( md ) {
       width: auto;
     }
   }
@@ -88,11 +88,6 @@
     text-align: center;
   }
 
-  .add-remove-all > th:last-of-type {
-    font: $font-bold;
-    font-weight: $font-weight-bold;
-  }
-
   .a-sortable-row {
     background: $grey-light;
 
@@ -108,7 +103,7 @@
         text-align: center;
       }
 
-      &:nth-of-type(even) {
+      &:nth-of-type( even ) {
         font-weight: bold;
       }
     }
@@ -135,6 +130,10 @@
   }
 
   &.clickable {
+    thead>tr:hover{
+      cursor: pointer;
+    }
+
     tbody>tr:hover {
       cursor: pointer;
       background-color: $red-light;
@@ -148,20 +147,31 @@
       padding: 0;
       padding-top: ($spacer - 1);
       padding-bottom: 0;
-      bottom: 0;
       font-weight: $font-weight-reg;
       background: $grey-light;
+      border: 0;
+
+      &:hover {
+        .a-dropdownArrow {
+          border-left: 10px solid $blue;
+        }
+      }
+    }
+
+    .a-dropdownArrow {
+      border-left: 10px solid $black;
+      transform: scale( .75 ) rotate( 90deg ) translate( -50% );
+    }
+
+    tr, 
+    th {
       border-bottom: 1px solid $grey-medium;
       border-top: 1px solid $grey-medium
     }
 
     .normal-casing {
-      text-transform: none;
       font-size: 16px;
-    }
-
-    .a-dropdownArrow {
-      transform: scale(0.75) rotate(90deg) translate(-50%);
+      text-transform: none;
     }
   }
 
