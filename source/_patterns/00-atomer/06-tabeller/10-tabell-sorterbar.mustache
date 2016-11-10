@@ -21,20 +21,23 @@
             <td>
               {{{sortable-row-text}}} 
               {{#is-sortable-collapse-link}} 
-                {{> atomer-ekspanderbar-tekst}} 
+                {{> atomer-ekspanderbar-tekst }} 
               {{/is-sortable-collapse-link}}
             </td>
           {{/sortable-row-items}}
         </tr>
         {{# sortable-action-items }}
           <tr class="a-sortable-action-row a-collapseContent collapse" id="{{ sortable-action-id }}">
-            <td colspan="4">
-              <span class="m-l-4 p-l-3">Velg rolle den ansatte skal ha:</span>
+            <td colspan="4" class="p-t-0">
+              <span class="m-l-4 p-l-3">
+               {{ sortable-action-text }}
+              </span>
               <div class="text-xs-center">
                 {{# sortable-action-items }}
                   {{> atomer-valgknapp}} 
                 {{/ sortable-action-items }}
               </div>
+              {{> molekyler-ferdigsegment:within-table }}
             </td>
           </tr>
         {{/ sortable-action-items }}
