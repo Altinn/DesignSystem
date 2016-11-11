@@ -5794,6 +5794,10 @@ a.no-decoration {
     margin-left: -5px;
     margin-top: -3px; }
 
+/* Hover underline */
+.a-hvr-underline:hover {
+  border-bottom: 3px solid #0062ba; }
+
 @font-face {
   font-family: 'DIN-light';
   src: url("../../fonts/DINWeb-Light.woff"); }
@@ -7085,7 +7089,7 @@ fieldset[disabled] .a-switch input[type="radio"] + labe {
   margin-top: -10px;
   position: absolute;
   right: 112px;
-  z-index: 9999; }
+  z-index: 100; }
   @media (min-width: 544px) {
     .a-header-options {
       right: 100px; } }
@@ -7429,19 +7433,19 @@ fieldset[disabled] .a-switch input[type="radio"] + labe {
       @media (min-width: 768px) {
         .a-globalNav-main li a {
           padding: 0;
-          padding-bottom: 6px;
+          padding-bottom: 3px;
           display: inline;
           border-bottom: none; }
           .a-globalNav-main li a:hover, .a-globalNav-main li a:active, .a-globalNav-main li a:focus {
             color: #0062ba; }
           .a-globalNav-main li a.globalNav-active {
             border-bottom: 3px solid #0062ba;
-            padding-bottom: 5px;
+            padding-bottom: 3px;
             color: #0062ba; } }
       @media (min-width: 992px) {
         .a-globalNav-main li a {
           font-size: 24px;
-          padding-bottom: 8px; } }
+          padding-bottom: 3px; } }
       .a-globalNav-main li a.globalNav-active:before {
         content: "";
         position: absolute;
@@ -7503,8 +7507,8 @@ fieldset[disabled] .a-switch input[type="radio"] + labe {
 
 /*----------------------------------------*    $ Different color versions of header
 \*----------------------------------------*/
-.a-darkBackground .hvr-underline-from-center:before {
-  background: #ffffff; }
+.a-darkBackground .a-hvr-underline:hover {
+  border-color: #ffffff; }
 
 @media (min-width: 768px) {
   .a-darkBackground .a-globalNav-main li a {
@@ -8264,6 +8268,11 @@ fieldset[disabled] .a-switch input[type="radio"] + labe {
 	}
 }
 */
+/* Top tasks */
+@media (min-width: 1200px) {
+  .a-topTasks {
+    margin: 0 72px 0 72px; } }
+
 /*------------------------------------*    $FOOTER
 \*------------------------------------*/
 .a-footer {
@@ -8481,57 +8490,62 @@ button.button-blue-no-underline:hover {
     .a-btn-border {
       font-size: 36px; } }
 
-.a-btn-shadow {
-  background: #cff0ff;
-  box-shadow: 1px 1px 4px 0px rgba(137, 137, 137, 0.5);
+.a-btn-icon {
   height: 60px;
   width: 100%;
-  text-align: left; }
+  text-align: left;
+  background: transparent; }
+  .a-btn-icon:hover, .a-btn-icon:focus {
+    background: transparent;
+    color: #1eaef7; }
+  .a-btn-icon .a-btn-icon-symbol {
+    font-size: 30px;
+    padding-right: 12px;
+    vertical-align: middle;
+    margin-top: -3px; }
+
+.a-btn-transparentWhite {
+  background: rgba(255, 255, 255, 0.5);
+  padding: 12px; }
+  .a-btn-transparentWhite:hover, .a-btn-transparentWhite:focus {
+    background: #ffffff;
+    color: #000; }
+  .a-btn-transparentWhite .a-btn-icon-symbol {
+    background: #1eaef7;
+    border-radius: 50px;
+    color: #ffffff;
+    height: 36px;
+    width: 36px;
+    font-size: 22px;
+    text-align: center;
+    padding: 0px;
+    padding-top: 6px; }
+  .a-btn-transparentWhite .a-btn-icon-text {
+    padding-left: 6px; }
+
+.a-btn-transparentWhite-active,
+.a-btn-transparentWhite-active:hover {
+  background: #1eaef7;
+  color: #ffffff; }
+  .a-btn-transparentWhite-active .a-btn-icon-symbol,
+  .a-btn-transparentWhite-active:hover .a-btn-icon-symbol {
+    background: #ffffff;
+    color: #1eaef7; }
+
+.a-btn-shadow {
+  background: #cff0ff;
+  box-shadow: 1px 1px 4px 0px rgba(137, 137, 137, 0.5); }
   .a-btn-shadow:hover {
     background: #b6e8ff; }
   .a-btn-shadow:focus {
     background: #b6e8ff;
     color: #000;
     box-shadow: 1px 1px 4px 0px rgba(137, 137, 137, 0.5); }
-  .a-btn-shadow .a-btn-shadow-icon {
-    font-size: 30px;
-    padding-right: 12px;
-    vertical-align: middle;
-    margin-top: -3px; }
   .a-btn-shadow.a-bgGreyLight:focus {
     background: #e2e2e2; }
   .a-btn-shadow .a-label {
     margin-top: -1px;
     margin-left: 12px; }
-
-.a-btn-withIcon {
-  background: transparent;
-  color: #000;
-  padding: 6px 12px;
-  display: block;
-  position: relative;
-  z-index: 1;
-  box-shadow: none !important;
-  clear: both; }
-  .a-btn-withIcon:hover, .a-btn-withIcon:active, .a-btn-withIcon:focus {
-    background: transparent;
-    color: #1eaef7;
-    border: none; }
-  .a-btn-withIcon:before {
-    content: "";
-    width: calc(100% + 48px);
-    min-height: 48px;
-    position: absolute;
-    left: -24px;
-    top: -8px;
-    cursor: pointer;
-    z-index: -1; }
-  .a-btn-withIcon .a-btn-withIcon-icon {
-    font-weight: bold;
-    vertical-align: middle;
-    margin-right: 12px;
-    font-size: 28px;
-    margin-top: -4px; }
 
 .a-btn-link {
   background: none;
@@ -8999,6 +9013,8 @@ button.button-blue-no-underline:hover {
       padding: 0 24px; }
       .a-compare-category .a-compare-container:not(:nth-of-type) {
         border-right: 1px solid #A5BCC4; }
+      .a-compare-category .a-compare-container:first-child {
+        padding-right: 24px; }
       .a-compare-category .a-compare-container p {
         font-size: 18px;
         line-height: 24px; } }
@@ -9776,6 +9792,14 @@ a.a-modal-close {
   -o-transition: width 0.35s ease;
   transition: width 0.35s ease; }
 
+/* Title above collapse
+(Make it align with icon/text) */
+.a-collapse-heading-titleAbove {
+  margin-bottom: 12px; }
+  @media (min-width: 1200px) {
+    .a-collapse-heading-titleAbove {
+      margin-left: 96px; } }
+
 /*------------------------------------*    $COLLAPSE PANEL
 \*------------------------------------*/
 .a-collapse {
@@ -9787,7 +9811,7 @@ a.a-modal-close {
   min-height: 72px;
   box-shadow: 0 1px 5px -2px #000;
   transition: margin 300ms, width 300ms, height 300ms !important; }
-  @media (min-width: 768px) {
+  @media (min-width: 992px) {
     .a-collapse-heading {
       min-height: 100px; } }
   @media (min-width: 768px) {
@@ -11866,13 +11890,15 @@ a.a-modal-close {
 /*------------------------------------*    $MODAL ONBOARDING
 \*------------------------------------*/
 .a-onboarding {
-  background: rgba(2, 47, 81, 0.8) !important;
+  background: rgba(2, 47, 81, 0.9) !important;
   color: #fff; }
   @media (min-width: 768px) {
     .a-onboarding .modal-dialog {
       max-width: 800px; } }
-  .a-onboarding .modal-dialog {
+  .a-onboarding .a-modal-bottomBG {
     margin: 310px auto; }
+  .a-onboarding .modal-dialog {
+    margin: 0 auto; }
   .a-onboarding .modal-content {
     background: transparent;
     box-shadow: none; }
@@ -12087,8 +12113,8 @@ mark, .mark {
   color: #000; }
 
 .a-bgBlue {
-  background-color: #1eaef7;
-  color: #ffffff; }
+  background-color: #1eaef7 !important;
+  color: #ffffff !important; }
 
 .a-bgBlueLight {
   background-color: #cff0ff;

@@ -4,49 +4,50 @@
 </button>
 
 <!-- Modal -->
-<div class="modal a-modal fade {{ modalClass }}" id="{{modal-id}}" tabindex="-1" role="dialog" aria-labelledby="{{ modal-label }}" aria-hidden="true">
-  <div class="modal-dialog" role="document">
+<div class="modal a-modal fade {{ modalClass }}" id="{{modal-id}}" tabindex="-1" role="dialog" aria-labelledby="{{ modal-label }}" aria-hidden="true" data-backdrop="false">
 
+  <div class="a-modal-bottomBG">
 
-    {{# onboarding-steps }}
+    <div class="modal-dialog" role="document">
 
-    <div class="modal-content">
+      {{# onboarding-steps }}
 
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-        <h4 class="modal-title" id="myModalLabel">{{{step-counter}}}</h4>
-      </div>
+      <div class="modal-content">
 
-      <div class="modal-body">
-
-          <div class="clearfix">
-
-            {{> atomer-intro-tekst }}
-
-
-            {{# viewOrgnr}}
-              <span class="patternLine clearfix">{{{ orgnr }}}</span>
-            {{/ viewOrgnr}}
-
-          </div>
-
-      </div>
-
-      <div class="modal-footer">
-        <div class="a-btn-group">
-          {{# buttons}}
-            {{> atomer-knapp }}
-          {{/ buttons}}
+        <div class="modal-header">
+          <!--<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>-->
+          <h4 class="modal-title" id="myModalLabel">{{{step-counter}}}</h4>
         </div>
+
+        <div class="modal-body">
+
+            <div class="clearfix">
+
+              {{> atomer-intro-tekst }}
+
+
+              {{# viewOrgnr}}
+                <span class="patternLine clearfix">{{{ orgnr }}}</span>
+              {{/ viewOrgnr}}
+
+            </div>
+
+        </div>
+
+        <div class="modal-footer">
+          <div class="a-btn-group">
+            {{# buttons}}
+              {{> atomer-knapp }}
+            {{/ buttons}}
+          </div>
+        </div>
+
       </div>
+
+      {{/ onboarding-steps }}
 
     </div>
-
-    {{/ onboarding-steps }}
-
-
-
   </div>
 </div>
