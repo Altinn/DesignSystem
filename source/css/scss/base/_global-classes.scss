@@ -234,6 +234,17 @@ hr.a-hrDotted {
   background-position: 25px bottom; // Must be either top or bottom, not both. If both are needed, add a div with class "a-dotted-line" before or after the element.
   background-size: 4px 2px;
   background-repeat: repeat-x;
+
+  /* Horizontal Rule - Dotted AND disabled */
+  &.a-disabled {
+    box-shadow: none;
+    background-image: url("../images/disabled-background.svg"), linear-gradient(to right, $blue 50%, rgba(255, 255, 255, 0) 0%);
+    background-color: $white, transparent;
+    background-position: 25px bottom;
+    background-repeat: repeat, repeat-x;
+    background-size: auto, 4px 2px;
+    background-blend-mode: darken;
+  }
 }
 
 .a-dotted-line {
@@ -245,22 +256,6 @@ hr.a-hrDotted {
   background-size: 4px 2px;
   background-repeat: repeat-x;
 }
-
-
-/* Horizontal Rule - Dotted AND disabled */
-
-.a-dotted.a-disabled {
-  cursor: not-allowed;
-  color: #000;
-  box-shadow: none;
-  background-image: url("../images/disabled-background.svg"), linear-gradient(to right, $blue 50%, rgba(255, 255, 255, 0) 0%);
-  background-color: #fff, transparent;
-  background-position: 25px bottom;
-  background-repeat: repeat, repeat-x;
-  background-size: auto, 4px 2px;
-  background-blend-mode: darken;
-}
-
 
 /* Grid Edit */
 
