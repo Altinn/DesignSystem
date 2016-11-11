@@ -7016,16 +7016,13 @@ fieldset[disabled] .a-switch input[type="radio"] + labe {
 .a-js-propagatedContentOrigin {
   display: none; }
 
-/*
-.container {
-    padding-left: 12px;
-    padding-right: 12px;
+/* Padding 96px for large screens */
+.p-x-8-xl {
+  margin-bottom: 12px; }
+  @media (min-width: 1200px) {
+    .p-x-8-xl {
+      margin-left: 96px; } }
 
-    @include media-breakpoint-up(sm) {
-      padding-left: 24px;
-      padding-right: 24px;
-    }
-} */
 .col-max-2 {
   min-width: 50%; }
   .col-max-2:nth-of-type(n+3) {
@@ -9817,14 +9814,6 @@ a.a-modal-close {
   -o-transition: width 0.35s ease;
   transition: width 0.35s ease; }
 
-/* Title above collapse
-(Make it align with icon/text) */
-.a-collapse-heading-titleAbove {
-  margin-bottom: 12px; }
-  @media (min-width: 1200px) {
-    .a-collapse-heading-titleAbove {
-      margin-left: 96px; } }
-
 /*------------------------------------*    $COLLAPSE PANEL
 \*------------------------------------*/
 .a-collapse {
@@ -9960,8 +9949,11 @@ a.a-modal-close {
       height: auto; } }
 
 .a-panel-collapse-content {
-  padding: 24px 72px;
+  padding: 24px 12px;
   margin: 0; }
+  @media (min-width: 544px) {
+    .a-panel-collapse-content {
+      padding: 24px 72px; } }
   @media (min-width: 768px) {
     .a-panel-collapse-content {
       padding: 40px 108px; } }
@@ -11918,13 +11910,16 @@ a.a-modal-close {
 /*------------------------------------*    $MODAL ONBOARDING
 \*------------------------------------*/
 .a-onboarding {
-  background: rgba(2, 47, 81, 0.9) !important;
-  color: #fff; }
+  background: transparent !important;
+  color: #fff;
+  overflow: hidden !important;
+  box-shadow: none !important; }
   @media (min-width: 768px) {
     .a-onboarding .modal-dialog {
       max-width: 800px; } }
   .a-onboarding .a-modal-bottomBG {
-    margin: 310px auto; }
+    margin: auto;
+    margin-top: 310px; }
   .a-onboarding .modal-dialog {
     margin: 0 auto; }
   .a-onboarding .modal-content {
