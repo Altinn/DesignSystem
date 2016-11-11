@@ -11,6 +11,15 @@
     transition: width 0.35s ease;
 }
 
+/* Title above collapse
+(Make it align with icon/text) */
+
+.a-collapse-heading-titleAbove {
+  margin-bottom: $spacer;
+    @include media-breakpoint-up(xl) {
+      margin-left: $spacer*8;
+    }
+}
 
 /*------------------------------------*\
     $COLLAPSE PANEL
@@ -27,7 +36,7 @@
   box-shadow: $shadow2;
   transition: margin 300ms, width 300ms, height 300ms !important;
 
-  @include media-breakpoint-up(md) {
+  @include media-breakpoint-up(lg) {
     min-height: 100px;
   }
 
@@ -37,12 +46,12 @@
       margin-left: -12px;
       width: calc(100% + 24px);
       transition: all 300ms;
-    }
 
-    .a-collapseBtn {
-      border-radius: 2px 2px 0 0 !important;
-      padding-left: 12px;
-      transition: all 300ms;
+      .a-collapseBtn {
+        border-radius: 2px 2px 0 0 !important;
+        padding-left: 12px;
+        transition: all 300ms;
+      }
     }
   }
 }
@@ -51,7 +60,7 @@
     background-color: #fff;
     border: none;
     width: 100%;
-    padding: 12px 70px 12px 0px;
+    padding: 12px 0px 12px 0px;
     border-radius: 2px;
     font-size: 18px;
     line-height: 24px;
@@ -147,7 +156,11 @@
   overflow: hidden;
   display: inline-block;
   vertical-align: middle;
-  padding-top: 7px;
+  padding-top: 1px;
+
+  @include media-breakpoint-up(md) {
+      padding-top: 7px;
+  }
 
   h2 {
     margin-bottom: 0;
@@ -222,14 +235,6 @@
         }
     }
 }
-
-
-
-
-
-
-
-
 
 
 /*------------------------------------*\
