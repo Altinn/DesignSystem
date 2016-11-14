@@ -11,13 +11,12 @@
   transition: width 0.35s ease;
 }
 
-
 /*------------------------------------*\
     $COLLAPSE PANEL
 \*------------------------------------*/
 
 .a-collapse {
-  margin-bottom: $spacer;
+    margin-bottom: $spacer;
 }
 
 .a-collapse-heading {
@@ -30,8 +29,9 @@
   @include media-breakpoint-up(lg) {
     min-height: 100px;
   }
+
   &.expanded,
-  &.expanded+.panel-collapse {
+  &.expanded + .panel-collapse{
     @include media-breakpoint-up(md) {
       margin-left: -12px;
       width: calc(100% + 24px);
@@ -56,63 +56,88 @@
     line-height: 24px;
     position: relative;
     color: $black;
-    border: none;
-  &:focus:focus:not(.override-focus) {
-    font-family: $font-medium;
-    font-weight: $font-weight-medium;
-  }
-  .a-collapse-arrowDown,
-  .a-collapse-arrowUp {
-    position: absolute;
-    font-size: 36px;
-    right: 30px;
-    top: 20px;
-    @include media-breakpoint-up(md) {
-      top: 30px;
-    }
-  }
-  .a-collapse-arrowDown {
-    display: none;
-  }
-  .a-collapse-arrowUp {
-    display: block;
-  }
+    height: 72px;
+    display: table;
+    margin: 0;
+    vertical-align: middle;
+    box-shadow: none !important;
+    transition: all 300ms;
 
-  &.collapsed {
-    background-color: $white;
+    @include media-breakpoint-up(md) {
+        font-size: 24px;
+    }
+    @include media-breakpoint-up(lg) {
+        height: 100px;
+    }
+
+    &:hover,
+    &:focus,
+    &:active {
+        text-decoration: none;
+        color: $black;
+        border: none;
+    }
+
+    &:focus:focus:not(.override-focus) {
+      font-family: $font-medium; font-weight: $font-weight-medium;
+    }
+
+    .a-collapse-arrowDown,
     .a-collapse-arrowUp {
-      display: none;
+        position: absolute;
+        font-size: 36px;
+        right: 30px;
+        top: 20px;
+
+        @include media-breakpoint-up(md) {
+            top: 30px;
+        }
     }
     .a-collapse-arrowDown {
-      display: block;
+        display: none;
     }
-  }
+    .a-collapse-arrowUp {
+        display: block;
+    }
+
+    &.collapsed {
+    background-color:$white;
+
+        .a-collapse-arrowUp {
+            display: none;
+        }
+        .a-collapse-arrowDown {
+            display: block;
+        }
+    }
 }
 
 .a-collapse .dim .a-collapseBtn {
-  background-color: rgba(255, 255, 255, .5);
-  .a-panel-heading-icon {
-    background-color: $white;
-  }
+    background-color: rgba(255,255,255,.5);
+
+    .a-panel-heading-icon {
+      background-color: $white;
+    }
 }
 
 .a-panel-heading-icon {
-  background-color: #eee;
-  width: 48px;
-  height: 48px;
-  border-radius: 50%;
-  font-size: 24px;
-  text-align: center;
-  padding-top: 12px;
-  margin-right: 12px;
-  margin-left: 12px;
-  vertical-align: middle;
-  @include media-breakpoint-up(md) {
-    height: 72px;
-    width: 72px;
-    font-size: 36px;
-    padding-top: 18px;
-  }
+    background-color: #eee;
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    font-size: 24px;
+    text-align: center;
+    padding-top: 12px;
+    margin-right: 12px;
+    margin-left: 12px;
+    vertical-align: middle;
+
+    @include media-breakpoint-up(md) {
+        height: 72px;
+        width: 72px;
+        font-size: 36px;
+        padding-top: 18px;
+    }
 }
 
 .a-panel-heading-text {
@@ -133,30 +158,33 @@
 }
 
 .a-panel-collapse {
-  background: $white;
-  border: none;
-  border-top: 1px solid $grey-light;
-  box-shadow: $shadow2;
-  width: 100%;
-  transition: margin 300ms, width 300ms, height 300ms !important;
-  height: 0px;
-  overflow: hidden;
-  display: block !important;
-  &.collapse {
-    border-top: none;
-  }
-  &.in {
-    height: auto;
+    background: $white;
+    border: none;
     border-top: 1px solid $grey-light;
-  }
-  &.expanded,
-  &.expanded+.panel-collapse {
-    @include media-breakpoint-up(md) {
-      margin-left: -12px;
-      width: calc(100% + 24px);
-      height: auto;
+    box-shadow: $shadow2;
+    width: 100%;
+    transition: margin 300ms, width 300ms, height 300ms !important;
+    height: 0px;
+    overflow: hidden;
+    display: block !important;
+
+    &.collapse {
+      border-top: none;
     }
-  }
+
+    &.in {
+      height: auto;
+      border-top: 1px solid $grey-light;
+    }
+
+    &.expanded,
+    &.expanded + .panel-collapse{
+      @include media-breakpoint-up(md) {
+        margin-left: -12px;
+        width: calc(100% + 24px);
+        height: auto;
+      }
+    }
 }
 
 .a-panel-collapse-content {
@@ -173,34 +201,34 @@
 }
 
 .panel-collapse-content-section {
-  background-color: $grey-light;
-  border-top: 1px solid $grey-medium;
-  .first-action {
-    width: $spacer*17;
-    @include media-breakpoint-up(lg) {
-      float: left;
-    }
-  }
-  .second-action {
-    width: $spacer*24;
-    @include media-breakpoint-up(lg) {
-      display: block;
-      margin: auto;
-    }
-  }
-  .third-action {
-    @include media-breakpoint-up(lg) {
-      padding-right: $spacer*3;
-      float: right;
-    }
-  }
-  .fourth-action {
-    button {
-      width: 100%;
-    }
-  }
-}
+    background-color: $grey-light;
+    border-top: 1px solid $grey-medium;
 
+    .first-action {
+        width: $spacer*17;
+        @include media-breakpoint-up(lg) {
+            float: left;
+        }
+    }
+    .second-action {
+        width: $spacer*24;
+        @include media-breakpoint-up(lg) {
+            display: block;
+            margin: auto;
+        }
+    }
+    .third-action {
+        @include media-breakpoint-up(lg) {
+            padding-right: $spacer*3;
+            float: right;
+        }
+    }
+    .fourth-action {
+        button {
+            width: 100%;
+        }
+    }
+}
 
 /*------------------------------------*\
     $COLLAPSE HEADER
