@@ -45,7 +45,7 @@ sortAlphanumerically = function(src, sortIndex) {
 };
 
 defaultSort = function() {
-  var tables = $('table');
+  var tables = $('table.a-js-sortable');
   tables.each(function() {
     sortAlphanumerically($(this).find('th')[1], 1);
   });
