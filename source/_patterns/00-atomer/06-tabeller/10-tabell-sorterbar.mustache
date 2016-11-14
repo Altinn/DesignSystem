@@ -1,30 +1,30 @@
 <div class="table-responsive">
   <table class="table a-table-list a-sortable-table">
     <thead>
-      {{#sortable-has-head}}
+      {{# sortable-has-head }}
         <tr>
-          {{#sortable-head-items}}
+          {{# sortable-head-items }}
             <th {{# column-width }} style="width:{{ column-width }}" {{/ column-width }}>
-              {{#sortable}}
+              {{# sortable }}
                 <span class="a-dropdownArrow"></span> 
-              {{/sortable}}
-              {{sortable-head-text}}
+              {{/ sortable }}
+              {{ sortable-head-text }}
             </th>
-          {{/sortable-head-items}}
+          {{/ sortable-head-items }}
         </tr>
-      {{/sortable-has-head}}
+      {{/ sortable-has-head }}
     </thead>
     <tbody>
-      {{#sortable-table-items}}
+      {{# sortable-table-items }}
         <tr class="a-sortable-row {{# isActionPerformed }}a-sortable-row-complete{{/ isActionPerformed }}">
-          {{#sortable-row-items}}
-            <td>
-              {{{sortable-row-text}}} 
-              {{#is-sortable-collapse-link}} 
+          {{# sortable-row-items }}
+            <td>              
+              {{# is-sortable-collapse-link }} 
                 {{> atomer-ekspanderbar-tekst }} 
-              {{/is-sortable-collapse-link}}
+              {{/ is-sortable-collapse-link }}
+              {{{ sortable-row-text }}} 
             </td>
-          {{/sortable-row-items}}
+          {{/ sortable-row-items }}
         </tr>
         {{# sortable-action-items }}
           <tr class="a-sortable-action-row a-collapseContent collapse" id="{{ sortable-action-id }}">
@@ -41,7 +41,7 @@
             </td>
           </tr>
         {{/ sortable-action-items }}
-      {{/sortable-table-items}}
+      {{/ sortable-table-items }}
     </tbody>
   </table>
 </div>

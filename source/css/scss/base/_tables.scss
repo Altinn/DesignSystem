@@ -65,12 +65,12 @@
 
 .a-sortable-table,
 .a-table-list-non-sortable {
-  &.white tr {
-    background-color: $white;
-  }
-
   &.white {
     margin-bottom: 0;
+
+    tr {
+      background-color: $white;
+    }
   }
 
   .remove-icon {
@@ -97,6 +97,12 @@
 
       i {
         vertical-align: middle;
+      }
+
+      .action-confirmation {
+        float: right;
+        margin-right: $spacer * 5;
+        visibility: hidden;
       }
 
       &:first-of-type {
@@ -130,7 +136,7 @@
   }
 
   &.clickable {
-    thead>tr:hover{
+    thead>tr:hover {
       cursor: pointer;
     }
 
@@ -149,11 +155,11 @@
       padding-bottom: 0;
       font-weight: $font-weight-reg;
       background: $grey-light;
-      border: 0;
+      border: none;
 
       &:last-of-type {
-        padding-top: $spacer/2;
-        padding-bottom: $spacer/2;
+        padding-top: $spacer / 2;
+        padding-bottom: $spacer / 2;
       }
       
       &:hover {
@@ -168,10 +174,10 @@
       transform: scale( .75 ) rotate( 90deg ) translate( -50% );
     }
 
-    tr, 
+    tr,
     th {
+      border-top: 1px solid $grey-medium;
       border-bottom: 1px solid $grey-medium;
-      border-top: 1px solid $grey-medium
     }
 
     .normal-casing {
@@ -230,6 +236,13 @@
 
     &.a-table-list-row-red {
       background-color: $red-light;
+    }
+    
+    &.a-sortable-row-complete {
+      @extend .a-table-list-row-green;
+      color: $grey;
+      cursor: not-allowed;
+      background-image: url('../images/disabled-background.svg');
     }
   }
 
