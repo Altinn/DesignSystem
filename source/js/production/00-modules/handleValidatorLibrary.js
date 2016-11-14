@@ -7,4 +7,22 @@ var handleValidatorLibrary = function() {
         .attr('data-delay', self.attr('data-delay')).validator();
     }
   });
+
+  $('form[data-toggle="validator"]').each(function() {
+    var $form = $(this);
+    $form.on('validate.bs.validator', function() {
+      var allValid = true;
+      $form.find('input').each(function() {
+        if (!this.validity.valid) {
+          allValid = false;
+        }
+      });
+
+      if (allValid) {
+        $form.find('.a-js-hideWhenInvalid').show();
+      } else {
+        $form.find('.a-js-hideWhenInvalid').hide();
+      }
+    });
+  });
 };

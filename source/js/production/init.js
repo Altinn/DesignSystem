@@ -1,7 +1,8 @@
 /* globals questionnaireInteraction, drilldownInteraction, handleFocus,
 mobileNavigation, propagateContent, toggleExpand, toggleFilter, uniformHeight,
 tooltip, popover, aTagSpaceExpand, initializeDatepicker, onboarding,
-nameChecker, codeLookup, handleValidatorLibrary, setupDeletableRowsTable */
+nameChecker, codeLookup, handleValidatorLibrary, setupDeletableRowsTable,
+defaultSort, setupAddRightsHandler */
 window.altinnInit = function() {
   toggleExpand();
   drilldownInteraction();
@@ -20,6 +21,8 @@ window.altinnInit = function() {
   codeLookup();
   handleValidatorLibrary();
   setupDeletableRowsTable();
+  defaultSort();
+  setupAddRightsHandler();
 };
 window.altinnInit();
 $('#modalOnboarding').modal('show');
