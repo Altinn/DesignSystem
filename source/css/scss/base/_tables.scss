@@ -91,6 +91,20 @@
   .a-sortable-row {
     background: $grey-light;
 
+    &.a-sortable-row-complete {
+      @include disabled-background( $grey, $green-light, none, url( '../images/disabled-background.svg' ) );
+
+      .action-confirmation {
+        display: block;
+        float: right;
+        margin-right: $spacer * 5;
+      }
+
+      .a-collapseTitle {
+        display: none;
+      }
+    }
+
     td {
       border-bottom: 1px solid $grey-medium;
       padding: ($spacer - 2) 0;
@@ -100,9 +114,7 @@
       }
 
       .action-confirmation {
-        float: right;
-        margin-right: $spacer * 5;
-        visibility: hidden;
+        display: none;
       }
 
       &:first-of-type {
@@ -236,14 +248,7 @@
 
     &.a-table-list-row-red {
       background-color: $red-light;
-    }
-    
-    &.a-sortable-row-complete {
-      @extend .a-table-list-row-green;
-      color: $grey;
-      cursor: not-allowed;
-      background-image: url('../images/disabled-background.svg');
-    }
+    }    
   }
 
   .a-table-icon {

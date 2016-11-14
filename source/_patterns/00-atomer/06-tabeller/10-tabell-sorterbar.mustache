@@ -1,5 +1,5 @@
 <div class="table-responsive">
-  <table class="table a-table-list a-sortable-table">
+  <table class="table a-sortable-table">
     <thead>
       {{# sortable-has-head }}
         <tr>
@@ -16,13 +16,16 @@
     </thead>
     <tbody>
       {{# sortable-table-items }}
-        <tr class="a-sortable-row {{# isActionPerformed }}a-sortable-row-complete{{/ isActionPerformed }}">
+        <tr class="a-sortable-row {{# is-action-performed }}a-sortable-row-complete{{/ is-action-performed }}">
           {{# sortable-row-items }}
-            <td>              
-              {{# is-sortable-collapse-link }} 
-                {{> atomer-ekspanderbar-tekst }} 
-              {{/ is-sortable-collapse-link }}
+            <td>         
               {{{ sortable-row-text }}} 
+              {{# is-sortable-collapse-link }} 
+                <span class="action-confirmation">{{ action-performed-confirmation }}</span>
+              
+                {{> atomer-ekspanderbar-tekst }} 
+
+              {{/ is-sortable-collapse-link }}
             </td>
           {{/ sortable-row-items }}
         </tr>
