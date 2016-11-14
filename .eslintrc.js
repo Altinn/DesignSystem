@@ -22,6 +22,7 @@ module.exports = {
   },
   "globals": {
     "chai": true,
+    "rewire": true,
     "describe": true,
     "expect": true,
     "assert": true,
