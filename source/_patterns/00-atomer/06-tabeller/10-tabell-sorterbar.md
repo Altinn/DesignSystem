@@ -1,5 +1,5 @@
 ---
- state: needsrevalidation
- version: 0
+ state: intechnicalreview
+ version: 1
 ---
 Foreløpig ingen retningslinjer.

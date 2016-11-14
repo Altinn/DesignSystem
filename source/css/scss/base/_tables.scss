@@ -93,7 +93,7 @@
 
     td {
       border-bottom: 1px solid $grey-medium;
-      padding: 12px 0;
+      padding: ($spacer - 2) 0;
 
       i {
         vertical-align: middle;
@@ -141,13 +141,20 @@
   }
 
   thead {
-
     th {
-      bottom: 0;
-      font-size: 12px;
-      font-weight: $font-weight-reg;
-      padding: .4rem;
       text-transform: uppercase;
+      font-size: 12px;
+      padding: 0;
+      padding-top: ($spacer - 1);
+      padding-bottom: 0;
+      font-weight: $font-weight-reg;
+      background: $grey-light;
+      border: 0;
+
+      &:last-of-type {
+        padding-top: $spacer / 2;
+        padding-bottom: $spacer / 2;
+      }
 
       &.active {
         .a-dropdownArrow {
@@ -161,8 +168,10 @@
       transform: scale( .75 ) rotate( 90deg ) translate( -50% );
     }
 
-    tr {
+    tr, 
+    th {
       border-bottom: 1px solid $grey-medium;
+      border-top: 1px solid $grey-medium
     }
 
     .normal-casing {

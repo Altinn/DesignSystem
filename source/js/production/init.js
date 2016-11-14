@@ -23,3 +23,4 @@ window.altinnInit = function() {
   defaultSort();
 };
 window.altinnInit();
+$('#modalOnboarding').modal('show');
