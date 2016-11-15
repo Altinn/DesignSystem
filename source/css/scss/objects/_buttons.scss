@@ -297,13 +297,22 @@
 // BOX BUTTON
 .a-box-button {
   border: 1px solid $grey-medium;
-  padding: 12px;
+  padding: 12px 6px;
   cursor: pointer;
   width: 100%;
-  max-width: 400px;
   background: #fff;
   position: relative;
-  height: 200px;
+  height: 182px;
+
+  @include media-breakpoint-up(xl) {
+    max-width: 182px;
+  }
+  .a-box-button-text {
+    @include media-breakpoint-up(sm) {
+      height: 66px;
+      overflow: hidden;
+    }
+  }
   p {
     margin-bottom: 0px;
   }
@@ -311,8 +320,22 @@
     display: block;
     font-size: 60px;
   }
+  .a-box-button-info {
+    font-size: 20px;
+    font-weight: bold;
+    font-style: normal;
+    color: #000;
+    padding: $spacer/2 $spacer;
+    margin: $spacer auto $spacer auto;
+    background:  $grey-light;
+    border-radius: 50px;
+    width: auto;
+    clear: both;
+    text-align: center;
+    display: table;
+  }
   .a-box-button-action {
-    max-width: 140px;
+    // max-width: 182px;
     display: inline-block;
     font-size: 14px;
   }
@@ -320,13 +343,25 @@
     font-size: 16px;
   }
   &:hover {
-    background: $blue-light;
-    border: 1px solid $blue;
+    background: $white-opacity;
+    border: 4px solid $blue;
+    border-collapse: separate;
+    box-sizing: border-box;
+    padding: 9px;
+
+    .a-box-button-info {
+      background: $white;
+    }
+  }
+  .a-metaText {
+    font-size: 14px;
   }
   .a-box-button-name {
     display: block;
     max-height: 50px;
     overflow-y: hidden;
+    text-transform: uppercase;
+    font-size: 14px;
   }
   &:focus {
     background: $blue-light;
@@ -344,7 +379,7 @@
   .a-boxAddBtn-inner {
     border: 2px dotted $blue;
     padding: 24px 12px;
-    height: 172px;
+    height: 160px;
     display: block;
     .a-boxAddBtn-icon {
       display: block;
@@ -352,7 +387,7 @@
       padding: 12px;
     }
     &:hover {
-      background: $blue-light;
+      background: $white-opacity;
     }
   }
 }

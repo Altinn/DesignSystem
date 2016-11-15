@@ -128,6 +128,25 @@ ul.no-decoration {
 
 .a-box-button-list {
   list-style: none;
+
+  &.a-box-button-list--xs1sm2md3lg4xl6 {
+    @include media-breakpoint-up(xl) {
+      .a-box-button {
+        border: 1px solid $grey-medium;
+        border-left: none;
+      }
+
+      li:first-child .a-box-button {
+        border: 1px solid $grey-medium;
+      }
+      li:nth-child(1n+7) .a-box-button {
+        border-top: none;
+      }
+      li:nth-child(7n+7) .a-box-button {
+        border-left: 1px solid $grey-medium;
+      }
+    }
+  }
 }
 
 
