@@ -45,7 +45,7 @@ var onboardingOnShow = function(el, fn) {
     }
   });
 };
-var onboardingHide = function(el, fn) {
+var onboardingHide = function(fn) {
   if (fn) {
     setTimeout(function() {
       $('body').css('overflow-x', 'auto');
@@ -56,7 +56,9 @@ var onboardingHide = function(el, fn) {
       $('body').css('overflow-x', 'auto');
     }, 200);
   }
-  $(el).modal('hide'); $('.onboarding-wrapper').hide();
+  $('.a-js-modalLauncher').each(function() {
+    $($(this).attr('data-target')).modal('hide'); $('.onboarding-wrapper').hide();
+  });
   $('.onboarding-neutral').fadeOut(200, 'linear');
   $('body').css('overflow-x', 'hidden');
   $('body').css('overflow-y', 'scroll');
