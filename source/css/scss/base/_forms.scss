@@ -5,9 +5,14 @@
 \*------------------------------------*/
 
 // Remove input-styles from iOS
-input[type=text],
-input[type=email],
-input[type=password],
+input {
+  &[type='text'],
+  &[type='email'],
+  &[type='password'] {
+    -webkit-appearance: none;
+  }
+}
+
 textarea {
   -webkit-appearance: none;
 }
@@ -19,228 +24,253 @@ textarea {
 
 .form-inline {
   .a-form-group {
-    padding-right: 12px;
+    padding-right: $spacer;
   }
 }
 
 .a-form-group {
   position: relative;
+
   // Form group items (Container for Label and Input)
   .a-form-group-items,
   .input-group {
     position: relative !important;
-    /* Making the touch target area bigger without affecting the layout
-    &:after {
-        content: "";
-        width: 100%;
-        height: 48px;
-        position: absolute;
-        left: 0;
-        top: -8px;
-        cursor:text;
-        z-index: 2;
-    } */
+
     &.transparent {
       input,
       button,
       .input-group-addon {
         background-color: transparent;
       }
+
       input {
         &::-webkit-input-placeholder {
           color: $grey;
         }
+
         &::-moz-placeholder {
           color: $grey;
         }
-        &:-ms-input-placeholder {
-          color: $grey;
-        }
+
         &:-ms-input-placeholder {
           color: $grey;
         }
       }
     }
   }
+
   // Label
   .a-form-label-inline {
     @extend label;
-    font-family: $font-medium;
-    font-weight: $font-weight-medium;
     display: inline-block;
-    line-height: $spacer*3;
-    margin-right: $spacer*0.5;
-  }
-  .a-form-label {
-    font-size: 16px;
+    margin-right: $spacer * .5;
     font-family: $font-medium;
     font-weight: $font-weight-medium;
-    display: block;
-    margin-bottom: $spacer/2;
+    line-height: $spacer * 3;
   }
+
+  .a-form-label {
+    display: block;
+    margin-bottom: $spacer / 2;
+    font-family: $font-medium;
+    font-size: 16px;
+    font-weight: $font-weight-medium;
+  }
+
   // Input
   .form-control {
+    height: $spacer * 3;
+    padding: 5px $spacer 3px $spacer;
+    margin-left: $spacer / 12 * -1;
     color: $grey;
-    border: 2px solid $blue;
-    padding: 5px 12px 3px 12px;
-    height: 36px;
+    border: $spacer / 6 solid $blue;
     border-radius: 0;
-    margin-left: -1px;
+
     &:focus {
-      border: 2px solid $blue-dark;
+      border: $spacer / 6 solid $blue-dark;
     }
   }
+
   // Button right to input
-  .input-group-btn .btn {
-    border-style: none;
-    padding: 0;
-    width: 48px;
-    height: 36px;
-    border: 2px solid #1eaef7;
-    padding-top: 4px;
-    border-left: 0px;
-    &:hover,
-    &:active,
-    &:focus {
-      outline: none;
-      background: $blue-light;
+  .input-group-btn {
+    .btn {
+      width: $spacer * 4;
+      height: $spacer * 3;
+      padding: 0;
+      padding-top: $spacer / 3;
+      border: $spacer / 6 solid $blue;
+      border-style: none;
+      border-left: none;
+
+      &:hover,
+      &:active,
+      &:focus {
+        background: $blue-light;
+        outline: none;
+      }
     }
   }
+
   // Form group with LARGE input field
   &.a-form-group-large {
     .form-control {
-      padding: 13px 12px;
+      height: $spacer * 5;
+      padding: 13px $spacer;
       font-size: 20px;
-      height: 60px;
     }
-    .input-group-btn .btn {
-      height: 60px;
-      width: 60px;
+
+    .input-group-btn {
+      .btn {
+        width: $spacer * 5;
+        height: $spacer * 5;
+      }
     }
+
     i {
-      top: 12px;
-      font-size: 30px;
+      top: $spacer;
       left: 14px;
+      font-size: 30px;
     }
+
     .input-group-addon {
-      padding: 18px 12px 18px 12px;
+      padding: 18px $spacer 18px $spacer;
       font-size: 20px;
     }
   }
+
   // VALIDATOR: Show help message if error
   .a-message {
     display: none;
-    margin-top: 12px;
+    margin-top: $spacer;
   }
+
   .a-message-absolute {
     position: absolute;
-    top: 60px;
+    top: $spacer * 5;
   }
+
   &.has-error {
     .a-message {
       display: block;
+      margin-bottom: $spacer * 2;
       clear: both;
-      margin-bottom: 24px;
     }
   }
-  // VALIDATOR: Icon
+
+  // VALIDATOR: Icon, Display icon only when feedback
   .form-control-feedback {
     position: absolute;
+    right: $spacer;
     bottom: 8px;
-    right: 12px;
     z-index: 9999;
-    display: block;
+    display: none;
+    font-size: 20px;
     text-align: center;
     pointer-events: none;
-    font-size: 20px;
+
+    &.glyphicon-ok,
+    &.glyphicon-remove {
+      display: block;
+    }
   }
-  // VALIDATOR: Display icon only when feedback
-  .form-control-feedback {
-    display: none;
-  }
-  .form-control-feedback.glyphicon-ok,
-  .form-control-feedback.glyphicon-remove {
-    display: block;
-  }
+
   // VALIDATOR: Input has error
   &.has-danger {
     // Label
     .input-group-addon {
-      border: 2px solid $red !important;
+      border: $spacer / 6 solid $red !important;
     }
+
     // Input
     .form-control {
-      border: 2px solid $red !important;
+      border: $spacer / 6 solid $red !important;
     }
+
     // Icon
-    .form-control-feedback:before {
-      content: '\f00f';
+    .form-control-feedback {
+      &::before {
+        content: '\f00f';
+      }
     }
+
     // When inside input-group
     .input-group {
       .input-group-addon {
         border-right: none !important;
       }
+
       .form-control {
         border-left: none !important;
       }
     }
   }
+
   // VALIDATOR: Input has success
   &.has-success {
     .input-group-addon {
-      border: 2px solid $green !important;
+      border: $spacer / 6 solid $green !important;
     }
+
     // Input
     .form-control {
-      border: 2px solid $green !important;
+      border: $spacer / 6 solid $green !important;
     }
+
     // When inside input-group
     .input-group {
       .input-group-addon {
         border-right: none !important;
       }
+
       .form-control {
         border-left: none !important;
       }
     }
   }
+
   // INPUT GROUPS (Putting label inside of textarea)
   .input-group {
     // Label
     .input-group-addon {
+      min-width: 44px;
+      height: $spacer * 3;
       padding: 9px $spacer / 2 $spacer $spacer;
+      margin-bottom: 0;
       font-size: 16px;
       font-weight: normal;
       line-height: 1;
       color: $black;
       text-align: left;
       background-color: $white;
-      border: 2px solid $blue;
+      border: $spacer / 6 solid $blue;
       border-right: none;
-      min-width: 44px;
       border-radius: 0;
-      height: 36px;
-      margin-bottom: 0;
+
       i {
-        vertical-align: middle;
-        margin-top: -4px;
+        margin-top: $spacer / 3 * -1;
         margin-left: $spacer / 2 * -1;
+        vertical-align: middle;
       }
     }
+
     // input: Hide border left if there is a addon
-    .form-control:not(.form-control-noAddon) {
-      border-left: none;
-      padding-left: 0;
+    .form-control {
+      &:not(.form-control-noAddon) {
+        padding-left: 0;
+        border-left: none;
+      }
     }
+
     // If there is buttons inside the input group..
     .a-form-control-withBtn {
-      border-right: 0;
+      border-right: none;
     }
+
     // Validator message
     &+.a-message {
-      margin-top: 12px;
+      margin-top: $spacer;
     }
+
     // Focus state on label and input
     // JS: If state on input is "focus",
     // add class to input-group : "a-input-focus".
@@ -250,51 +280,59 @@ textarea {
       .input-group-addon,
       .form-control,
       .input-group-btn .btn {
-        border-color: $blue-dark;
         z-index: 4;
-        background-color: #FFFFFF;
+        background-color: $white;
+        border-color: $blue-dark;
+      }
+    }
+
+    // Disabled input
+    &.disabled {
+      .input-group-addon,
+      .form-control {
+        color: $grey;
+        background-color: $white;
+        background-image: url('../images/disabled-background.svg');
+      }
+
+      .input-group-addon {
+        border: $spacer / 6 solid $grey-medium;
+        border-right: none;
+      }
+
+      // Input
+      .form-control {
+        border: $spacer / 6 solid $grey-medium;
+        border-left: none;
       }
     }
   }
-  // Disabled input
-  .input-group.disabled {
-    .input-group-addon,
-    .form-control {
-      background-image: url('../images/disabled-background.svg');
-      background-color: #fff;
-      color: $grey;
-    }
-    .input-group-addon {
-      border: 2px solid $grey-medium;
-      border-right: 0;
-    }
-    // Input
-    .form-control {
-      border: 2px solid $grey-medium;
-      border-left: 0;
-    }
-  }
+
   // Approved input
-  .disabled.a-input-approved {
-    .input-group-addon,
-    .form-control {
-      background-image: url('../images/approved-background.svg');
-      background-color: #c8e9d6;
-      color: $black !important;
-      border: none !important;
+  .disabled {
+    &.a-input-approved {
+      .input-group-addon,
+      .form-control {
+        color: $black !important;
+        background-color: #c8e9d6;
+        background-image: url('../images/approved-background.svg');
+        border: none !important;
+      }
     }
   }
+
   /*------------------------------------*\
    * TEXT AREA
   \*------------------------------------*/
   .a-textarea {
-    border: 2px solid $blue;
-    border-radius: 0;
-    min-height: $spacer*11;
+    min-height: $spacer * 11;
     padding: $spacer;
+    border: $spacer / 6 solid $blue;
+    border-radius: 0;
+
     &:hover,
     &:focus {
-      border: 2px solid $blue-dark;
+      border: $spacer / 6 solid $blue-dark;
       box-shadow: none !important;
     }
   }
@@ -306,15 +344,16 @@ textarea {
 \*------------------------------------*/
 
 .a-validatorInfo {
+  margin-top: $spacer;
   font-size: 14px;
   color: $black;
-  margin-top: $spacer;
 }
 
 .a-validatorInfo-icon {
-  vertical-align: middle;
+  margin-top: $spacer / 6 * -1;
   color: $blue;
-  margin-top: -2px;
+  vertical-align: middle;
+
   &.a-validatorInfo-icon-approved {
     color: $green;
   }
@@ -327,12 +366,12 @@ textarea {
 
 .a-legend {
   display: block;
+  padding-right: $spacer * 2;
   margin-bottom: $spacer;
-  font-size: 20px;
   font-family: $font-medium;
+  font-size: 20px;
   font-weight: $font-weight-medium;
   color: $blue-darker;
-  padding-right: $spacer*2;
 }
 
 
@@ -343,49 +382,60 @@ textarea {
 .a-form-checkboxes {
   p {
     display: inline;
-    margin-left: 12px;
+    margin-left: $spacer;
   }
+
   .custom-control-indicator {
-    border: 2px solid $blue;
+    width: $spacer * 2;
+    height: $spacer * 2;
+    background-color: $white;
+    border: $spacer / 6 solid $blue;
     border-radius: 0;
-    background-color: #fff;
-    width: 24px;
-    height: 24px;
   }
-  .custom-control+.custom-control {
-    margin-left: 0;
-  }
+
   .custom-control {
     display: block;
     margin-bottom: $spacer;
-    @include media-breakpoint-up(lg) {
+    @include media-breakpoint-up( lg ) {
       display: inline-block;
-      margin-right: 36px;
+      margin-right: $spacer * 3;
+    }
+
+    &+.custom-control {
+      margin-left: 0;
+    }
+
+    >input {
+      &:checked~.custom-control-indicator {
+        background-color: $white;
+        background-image: url('../images/checkbox-checked.svg');
+        background-size: 100%;
+      }
+
+      &:focus~.custom-control-indicator {
+        box-shadow: none;
+      }
     }
   }
-  .custom-control>input:checked~.custom-control-indicator {
-    background-color: #fff;
-    background-image: url('../images/checkbox-checked.svg');
-    background-size: 100%;
-  }
-  .custom-control>input {
-    &:focus~.custom-control-indicator {
-      box-shadow: none;
+
+  input {
+    &[type='checkbox'],
+    &[type='radio'] {
+      &:focus+span {
+        &:not(.override-focus) {
+          border: $spacer / 6 solid $blue-dark;
+        }
+      }
     }
   }
-  input[type="checkbox"]:focus+span:not(.override-focus),
-  input[type="radio"]:focus+span:not(.override-focus) {
-    border: 2px solid $blue-dark;
+
+  .custom-controls-stacked {
+    .custom-control {
+      display: block;
+      margin-right: 0;
+    }
   }
 }
-
-.a-form-checkboxes.custom-controls-stacked {
-  .custom-control {
-    margin-right: 0;
-    display: block;
-  }
-}
-
 
 /*------------------------------------*\
  * FORM RADIOBUTTONS
@@ -393,43 +443,62 @@ textarea {
 
 .a-radioButtons {
   .custom-control-indicator {
-    width: 24px;
-    height: 24px;
-    top: -1px;
-    border: 2px solid $blue;
-    background-color: #fff;
+    top: $spacer / 12 * -1;
+    width: $spacer * 2;
+    height: $spacer * 2;
+    background-color: $white;
+    border: $spacer / 6 solid $blue;
   }
+
   .custom-control+.custom-control {
     margin-left: 0;
   }
+
   .custom-control {
-    padding-left: $spacer*3;
-    padding-bottom: 4px;
     display: block;
+    padding-bottom: $spacer / 3;
+    padding-left: $spacer * 3;
     margin-bottom: $spacer;
-    @include media-breakpoint-up(lg) {
+    @include media-breakpoint-up( lg ) {
       display: inline-block;
       margin-right: $spacer;
     }
+
+    >input {
+      &:checked~.custom-control-indicator {
+        width: $spacer * 2;
+        height: $spacer * 2;
+        color: $white;
+        background-color: $white;
+        border: $spacer / 6 solid $blue;
+      }
+
+      &:focus~.custom-control-indicator {
+        box-shadow: none;
+      }
+    }
+
+    &::after {
+      margin-bottom: $spacer !important;
+    }
   }
-  .custom-control>input:checked~.custom-control-indicator {
-    color: #fff;
-    background-color: $white;
-    width: 24px;
-    height: 24px;
-    border: 2px solid $blue;
+
+  input {
+    &[type='radio'] {
+      &:focus+span {
+        :not(.override-focus) {
+          border: $spacer / 6 solid $blue-dark;
+        }
+      }
+    }
   }
-  input[type="radio"]:focus+span:not(.override-focus) {
-    border: 2px solid $blue-dark;
-  }
-  .custom-control::after {
-    margin-bottom: 12px !important;
-  }
-  .custom-control>input:focus~.custom-control-indicator {
-    box-shadow: none;
-  }
-  .custom-radio input:checked~.custom-control-indicator {
-    background-image: url(data:image/gif;base64,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);
+
+  .custom-radio {
+    input {
+      &:checked~.custom-control-indicator {
+        background-image: url('data:image/gif;base64,R0lGODlhAAIAAsYAAAQCBISChERCRMTCxCQiJKSipGRiZOTi5BQSFJSSlFRSVNTS1DQyNLSytHRydPTy9AwKDIyKjExKTMzKzCwqLKyqrGxqbOzq7BwaHJyanFxaXNza3Dw6PLy6vHx6fPz6/AQGBISGhERGRMTGxCQmJKSmpGRmZOTm5BQWFJSWlFRWVNTW1DQ2NLS2tHR2dPT29AwODIyOjExOTMzOzCwuLKyurGxubOzu7BweHJyenFxeXNze3Dw+PLy+vHx+fPz+/P///wAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACH5BAEAAEAALAAAAAAAAgACAAf+gECCg4SFhoeIiYqLjI2Oj5CRkpOUlZaXmJmam5ydnp+goaKjpKWmhxc7Iz0FGT4uBjICPLMCFAQ4uLq5OLS0AgY6Bj4BORU9Mwcvp8zNzs/Q0dLT1JU/H9cvGx05AQYCBAgA4+Tl5ufo6ek4JMA+GS0rN9fX1fb3+Pn6+/yP9B8rGsRwoIIDBnUIEypciA4GDREmQtRY8YBev4sYM2rcyFHQvxMdYuhgAYGhyZMoGYKgocJHiRkPsGHrSLOmzZs4F137cGNCCgcCUKQcSrQoQhAkFPhoceLDzJxQo0qdymznixUZdFAAYbSr16/lkOpIMCLmU6po06pdW2jngxn+MVTgAEu3Ll0YHGyU2PDiLNu/gAPvy3ajRwgZ4uwqXvwVqYkSyvwKnky58qdrNwb4EACDsefPjWnYaHDA6Q/LqFOr1vnhxYESGuaCnk27KwgWHjrccLq6t2/B1x5MiMC5tvHjRlFogNz39O/n0G22vtDAAgmuyLNrTwlDRoIND144j06+/L3WBzIoSLy9vXuTIHiEmBB+vPn7+Ee1PlFh/fv/AKpEQwAz9PVBfggmeMl0DZhwUIAQRogQBDxkwNeBCmaoISI/vFCYAyRIKOKI6SCgQg0n9LXhigkGN4EPDGBH4ow0jkOABT3shiGLPP7W2g4pcCBjjUTSCAIDMaz+oGKPTFrG0wA2EFDklFSiYIBuvDWppVo/PHBCASJ0RuWYU4LAQQI7xLTlmlDxNIMPIZIp55g44Lgbm3hu1OEFNajA3pyATgmBAAWkaF+eiFbT5QYxxBjoo3LSgOaSiVb6TJdvSgnppnKSEAFFh1oqKig8LeCCppymSiYOHsC046iwasLTCBY8qOqtZGJgwwh3xuorJTz14CCuxM6JgA49qPnrsox8cEEPOvxZ7LRVmlDWq8xmCwRPDSggJrXg5mqDq9oy2+UA0Yar7pyswhRquYh2aaps69ZLJgUhKIktvGy+sEMCNNgr8JyS8sUvnh98ycOQAzc8JQuF7nvwhjz+taDCtw5nPCUMCuj27sT5dUmrUBqXPCYGLixQEcgKahNAnCbHTCUNKSjDMn7OlsCDzDyPCYIIDVwg8c2qnWuAtD0nTSMKFpT1MdGUaRMBzEpXTSQFaA4NNWA/8ClCSVaHTSQIMni8ddSm2ir22jQSEICSZ3N9QQUCMMz23SL+XIPQcav1Qtp4B14jyir3PVXXdNst+OIRslBCU4bndJUHJDNu+YgI2DDBMpHX9EALClwu+owclHDB053nk3ACVI/uOoQY+AB36he9MIEFGL+uO4Bkt6As7fh0XcPOuxcfIQlZA3/eBiGgavzz/8FgQFnKU/MAtGBDr/1/jvNdvTP+P3zJwvbkA4iCByto/f0nk1de/vvbgaDBAJyvP8r1CigO//7GlT6P/aDoWgk4wL8CtocAESgNADvxgQPEwHkGjKBxYGCDBdRvgQsylfskyEHagEAFA3gABi/xggGoQH8dTCFjeNAAEY5wEg+oQd1USMPa0KAAF3hhJG5QAAbU8Ie0wUECIKdDnZwgARAEohIVgwAfbEB9OvzABgKwwSVasS4QMIEFi3iID8zABtm7ohjrAgIDbI6LhLCdBlA4xjYWBYQX1GEJVeDGOtqlbHHE4As6IAM7+pEuIvCdDj8ngj8a8issqIELFxhDARzykV1hQAluwMgKjA+SmCQKBXL+QMn13SAHAcukKFOyyf8pj4cUGKUqUUKBFHgvdahcpSxNIsQToO5mPGzdLHe5jgS8Mm6x5KUwEVLLW/Irl8NMpjqKebZgKvOZ5hDiL0GGTGhasxzMZJkzr8nNbB7sASVIJTfHOQ5pQhFWMSQgOdeJgxR0slwxvOQ610kCTpbrBTVQ5zznWcps7ZF4+9wnBQrwzljtsZABTSgNKrDIUX1gAH1MqERZ0IA8IsqLOpCoRgHAgw409KIrsAEbN3pNEfTAolv6wQ48kDuS7lMGIzgniy4QgSq6dJ8qOCOebpACet1UozpIH5vAKc6fbhQEDtiBMRP0ggbI06gbhUEATqD+pYciFKouxYA7meRFDWDVqCRgKI9+cAAHjPSr82RBB1CanwvEAGlo3agIdJohcCYxriQ1wAaW+psX9ECfeP0pCHyQwwR5MXSBxSoGcvDR8qjUAmdNbEBpsNa2hgCuknWpBGYgU9Q8oAA+zSxUbXAA83ygBz4ULVphkIGC/uYHK/CqauNKgx50VjAX8EFkZytRDezgtn95QQlCy1uogiAGrk3NB0YA2OJ+lQAtYCtwdmAA5yZWAivgq1puEIGWWte4hFVNU+/6XahioAbSXYsXHVnexAqAs5a5gA3am1kHUDVqJbApfbGKggKkdypebO5+48qCCQD3JvIdsGgNcN/+4OZXwZmFQQoaS5UAQ1i0FIgpWy7gggur1gINRgs+1ebhwCIAvWn5wQLYW+LMimCvaLlBh1ss2uNS+CYfaACJaRxYEhhYKiqNKI9Fa4LCQuUBKQjjkBN74v9i5AMTCOWSRSuC3+YkwVNWLQgicGON4FO/WY6rjw9sD5VKIMy8LbJNHhCD3aL5p02myXKL+mbRCkCpHbmBBerMWxtz5LSY5TNeKSBUjVxAtoKebQi6jI8XtMC7ie7xAsjsjAsIOdKq9QCjq/GCCkAa03jFwQy0+4wDXBXUmd60NF6QAyWjWrI4+LE+yCrgV0vWAsmtBpLdbOufokDDwdtBans9Wxv+qLoZL8gAsYv7a0qH4gBPXbZodXBsU7ygALyW9k0RYFt7XACg2latBnLtjE67OtxM7vY0bnBqdE+72qHI8afdHVcEwDcaN7g0vUXrAieTqgfz3jdaCWDlZzygugLnbQL83QkVBzrhcWWAkZnxghBAvM81cLYlLjDsi4tWAuSOdwOy7XGSwgDYpngAHUs+WwvAGxMqBjPL0YqC7Frb4jOfbQQYfokLSDnnmaVAiEVOcqBvtAQ8p4TKjT5bHrx8Ej+YwcOZjlUIqBsULwgA1Vue9EhcQJdbD/XEGViBooddohnHur7PHlgNdL0RKg44242KAgUyMAZzV20ONJ6IB4D+O++BFcHbFfGDDcgd8DeFgc038YEUIF60C+fEA9r9eAIP/hCFP3zlSQqCe2PiA8revGQ9wPc0rl30X6VAyCNxgKmj3qUguHolPpCD19/68oN4AWJtH+qnH+IEruc9SXtAakN8oALCTyzpLfECRCcfrSzA/Qlk/nySQmAHs0d+9fG6d0q8wATbx6vbvU/n8EMVBb4HgorNbn5uEl8SoG9/XH1A5hdkVP5fZUH9d4x/2GMfEj8wAf2HVjlAah+AdwOIVSoAXB+wcglIdy93A9T3gAH1fnA3AhSIVT7AVx8QARkIVQLQWR9wZh/4UzDgbzcQfCVITjMAdz2wgkaVAcb+9AFaB4M3ZQIzyGI2uFH6xwgvoHk7aE0QsHqCsAJBeFMDoBPad4QbFQGo8wEewIQkpQJPeHpSuE4EoD4fQFxXOE9DVwgn0IUb1QCJ8AMdIIYa5QEf04FoKFEi8DE/cH9tuE8IsIY/N4frtAGI8ADsh4ej1AKIMAN+GFAJgHmhN4jrZAOh8gHzhYjrJAGh8gM66IjXRACLqIKUOEt5dAGZuE4rYAiC2InjRIaFsISiaE0xYAgIeIrWZAJt4QCseE08UAgNGIvWhAFt0XG2mEwN9QETuIuj1IKDcAPACE0VQAhGWIzKFAKE0ADKqEw2QAiO94zDpAOEMGPUyEsCQAj+DpiNs8QAhBBt3qhKBEAIvziOfwQChICOvDQInMiOszQIOwCP8ViE9ChLg/CC96hK+biP/CgIJeCPozQItSeQmTQICWCQBykIPqCQmDQIDemQjzQICCeRhjQIcmiRfjQIu6eRdjQIf+eRbQSSIrmRgsCFJWlFg0BeKalEg4CSLQlEKxmTI3mSNDlGM3mTVzQI5aeTP0SSPrlEgzCJQUlDQFmUPykIRImUHXSUTKlCQ/mUNeSUUslBUVmVKUSVWGlAV7mVEjQIlOeV+4ORYvmVggCLZcmVDJmWagkEBcmWYykIpgiX5dOPdAk/g5CMd1mXghCGe8mXgvCXgAkEmCj+mItDCCxpmKNDCCGpmK6DAIRghY55OeBIkZNZPApACBF5ma/jAISAc5zpOqk4CAUQmq9TA4QwAKbpOhNACH65mpdTUD9QmLDJMzDQFuJYm2xDA23hfLp5NzJgCDX4m3gTjaVInIETAYYggMh5N8dYCMTYnGzTmm3Bf9LZM1/4AY15nTKDAZFYkdyZNG9oCD/ggeGpNC7wLjVwnkpTAoHInknziYfAh/ApMyeICB8AdvU5MCwAh765nw2DgxySkACqMQnwNBhYoBmThH13bgoaLiCweh+Qmw8KLiSgPj+AlhVaL1RIeKW5ofUSALeklyAaLg1wSy9wjiX6KP+nCB/+IJkryik4cE4/MJwxSiwacE45dqPTkgJLdQB9yKMjAgIL4AgvoJ9CCigX6ggf8J9JGigG0Fk/QKBPuikF6AhRF6RV+h8goIePkJ9b+ig0wICNGKZzYgHA9QPOaKZzUgLFdwFAyKYBAgJf6IMwKqci0oORcIB4SiUOQGbr16dFUgPFJwgv0JOCKiEQMHaP8AJlmqgjwgPOpqaQOiMBoHEXQJuV6kGjVgkvcKebmh0MgHt8GqoQQn+WEKimyqUTUKiF8AB3uKraQQLpVwgvsJmyuh0uUHrqNwEOmquzAQIoZwkPUGvAOhsUUKuG8AKreKzGsauakHnOehwd4Kp7SIL+0zobBECEe/qW2foZNsCrhKBSKvqtRFGtnWB/5uoZOMCon7ee67oYJoB7iXABMBmvRAECDSCuy/qo+OoVNMCtwNIDWvqv4xAC/HoINxCrBssdi8c+NtqwQ6EC9LoIUBanEhsW+3o/oJqx6MAAArsgNVCw6xoDCasIF0ChHpsONXeyiZBsK2sS1GYKKpWYMTsOINACLqsILxCFN4sQEscMXqSp/xoDFRsJD5CRP1sONWets9cCvxqzM+sMN7CdMZuzO9sIH/ChS0sOHOCupnAAiBqzKZC1RgqaS0sDB+C0MLcA99qwRjsND7BnS0sCDwsNy1Wu2eoDR4sJevazODD+adWwXNb5rx4QsqXwAOC3sqLGtgw0Am/7rZqWDw/gsxLbuPkQdZHrrJOrD5UrsSTQqbM2A0g6rXHLDw+AtuvKAnY3GAswtscKAUiHEamLrzIAtsGzArArqyigsxrBZuuKa3qyAQwrqwQwrBiRbCTLo4vWEQ0UlqbKAnfrZS2gt2EKAhnQt81wAxoqqxKwttIxA8WbqHF2E7smqyaAuPvQQNi6qTQgazjhaNZ7oyAwYVLBvaGqAuAbFVA2vmGKA5U1FeebqAGgvhkRZInKA9MbFU1VuEmKABWgvfiAv3hqA7jbJiOgi1X6vmarazmAsQVav8q6ESdAt1uqvx1sD1D+ZqwrSgABHBjCNb/nCQIhYMBXho08qgIwRhkqBr0VSgKyNxlNtbnwCQExMMI4cQMBsLym6VuOexOF15EVWlspnLwdULrsyVpIHBU3kAAg/Js2UKeooVJKu58CAL++8VAazJ44gGLR8QA5QLShScM2HBgHIFL7qQM7TB6HVZ88QD/4sUdrjJwE4Mb4AccODJswgFwKcgEhELWmiVT7iyCFt7jNqQCCmyG20766yQEntSJ7pLKXSQKKxCOdhsWGiQOtxSQ8lch/CQMRIMYacgIh8MVbCQIu0Lo9olJmFZoGUGhVtQLgqZgyQFdbYjvdKJgiAMh5UkKcfJc8IEiJ4lf+PiyWFLXFh9wALLyVYVXHGxJPdFlP2JwgNxBObNlO3swjN5ABNhuUKDBE2dLFRByTCBACsiwq4ZMA81yS9TzJ5uJW+6yR9Yxn8OIs+syUA/3EWhI+b1WUEOAD/swvZBUAckyPEOACewwyZOUDMsyOFw3MNzPRFe2NH63QiaJSVJSSJW044RMBAe2NTVRwhrM6L/2MCU07+VzTwHjTwNM1MaDTscjTytM1B+2PKBACEQ08zpIDqFyMOBADtoRBPOS/xUgCrjRIlsSOJIBDXPQ5SwmMLFAB6dw3D9AB1XyKPFDKaGSoJvSMgSTBW/MCI6ADTLyCMhBCa218C2ADtnz+hGVkzHk9CB+wAwHgymgIAy4A0oE9rkfU1FeIAwlUxcBUAqLchRSQAVG92IvwOc+MhhxQA2MtR3MNyTZINsmi2ZAgRT5g2B8IAw6wRagNgBeQAVT9gQQA1ZLtSS3QsQmY1qYU25PwAjOAOzsIAjrAzMA9ewfAOjCIQDsA14v9AzfAR3V9diAgAS3w28mNCX9DOQ+IArID3ckdPgM0gDxQAdO03ZvwACNgAn19dplTIOotCg2UArVdeSyQA0Q036JwPRpA2nknPdTD36Uw2DHg2GGHNbpM4KPQJR2gAgDOdB+UIybN4I16ACkwyGEH2TJt4VXB3jbQ0e4GAxqQLLn+7eH4yR8Lc3YcoN8njuI8O0VATWw4EN4wrsKFAeE5R+IUfuP4UN/3LW0Qs98+fg9dMgEmIOJ1VuOzU+TrSx0SUN0exuO/4+T88AInkAOVjWlDLt5W7gmLcuDLhgNv4+VfHkDC4QBKrmA44ALucuY1ESwXE2kosCtVDudyxicz9GZ1zisvjueh4Bq0HWbHYuKAThVXEQIIbl2F3iuHXmGJvuiq1R3Z/eePLrSRrmCU7uiXzhatsQEREOR4xTENwOmdDhg/kgEsIOXXhAEWMAA3YOanzg/7UQJ7Lln4Ig8VPutxXhgWMOPXBAKEYii8/hwf8AAbECSsLkrHohuyXuz+NdEhvs7a1lTjMPHs0I4TP6LsAXUbNUMp2R4yPNEBSU5OVlLqWRLuGnLs/7Lqz9Qdj3Pn6k4xL1DWUcJLFPId4D7vTdIaNzACLrAVorQSBFIf/J4oTvHvMLLs2kMANgDr6X7wltIatrPwboQCOlDq4iHx5tIacEESSrQSDtACF7DvHN/xfxMBIjDSjykDKaAvln7y+EEYLeADPBDhriPyJN8cMt832XACNeAA7v483fHyBtLzQ/0jFWABNMDw4YIXLlDpEY/039MaUpQDBoADTs8pK2EAKVAWPE/1XJQNB9ACIaABTd8zGKAAAUDyrVEPYo/aP7ATPZECNsAB7z2ZJzDAAy5QAc8997se99+zEwBRAy6gAMA+IjggAhYQAxNhGjEv+Dg99xcwARUQATagAgzA8seBAhygAxFQA65iEZIP7fQg3TPQAAngAirAAmtuFDhAAwKgASYQAAXAK3Mf+aXP4A+gCj3QAjmQAyHgAw6gAzowCzSAAzsGATjQ/M7//CTAAzIwDCGQAy0wADsQ2ru//dxvCoEAADs=');
+      }
+    }
   }
 }
 
@@ -438,13 +507,15 @@ textarea {
  * RADIOBUTTONS WITH EXCERPT
 \*------------------------------------*/
 
-.a-radioButtons.a-radioButtons-stackedList {
-  .custom-control {
-    margin-right: 0;
-    display: block;
-    margin-bottom: 0;
-    @include media-breakpoint-up(lg) {
+.a-radioButtons {
+  &.a-radioButtons-stackedList {
+    .custom-control {
+      display: block;
       margin-right: 0;
+      margin-bottom: 0;
+      @include media-breakpoint-up( lg ) {
+        margin-right: 0;
+      }
     }
   }
 }
@@ -458,26 +529,32 @@ textarea {
   .custom-control+.custom-control {
     margin-left: 0;
   }
+
   .a-legend {
     font-size: 24px;
     color: $black;
   }
+
   .custom-radio {
     display: block;
-    padding: $spacer $spacer*3;
+    padding: $spacer $spacer * 3;
+
     &:hover,
     &:active,
     &:focus {
       background: $grey-light;
     }
+
     .custom-control-indicator {
       top: 17px;
     }
+
     .a-radioButtons-title {
       display: block;
-      font-size: 20px;
       padding-bottom: $spacer;
+      font-size: 20px;
     }
+
     .a-radioButtons-excerpt {
       display: block;
     }
@@ -493,18 +570,26 @@ textarea {
         color: $grey-medium;
       }
     }
+
     .a-radioButtons-title {
       color: $grey-medium;
+
       strong {
         color: $black;
       }
     }
+
     .a-radioButtons-excerpt {
       color: $grey-medium;
     }
   }
-  .custom-control>input:checked~.a-radioButtons-excerpt {
-    color: $black;
+
+  .custom-control {
+    >input {
+      :checked~.a-radioButtons-excerpt {
+        color: $black;
+      }
+    }
   }
 }
 
@@ -523,9 +608,10 @@ textarea {
 
 .a-input-placecode {
   position: absolute;
+  top: $spacer * 3;
   right: -45px;
-  top: 36px;
-  &:before {
+
+  &::before {
     content: 'Oslo';
   }
 }
@@ -542,72 +628,81 @@ textarea {
 .a-switch {
   position: relative;
   display: inline-block;
-  margin-right: 6px;
-  margin-bottom: 12px;
+  margin-right: $spacer / 2;
+  margin-bottom: $spacer;
   cursor: pointer;
+
+  input {
+    &[type='checkbox'],
+    &[type='radio'] {
+      &+label {
+        &.focused {
+          // -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px #1eaef7;
+          // box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px #1eaef7;
+          -webkit-box-shadow: 0;
+          box-shadow: 0;
+        }
+
+        &.disabled {
+          cursor: not-allowed;
+        }
+      }
+
+      &:not(:checked) {
+        &+label {
+          background: none;
+          border: $spacer / 6 dotted $blue;
+          border-radius: $spacer * 3;
+          -webkit-border-radius: $spacer * 3 $spacer * 3 $spacer * 3 $spacer * 3;
+          transition: all .2s;
+        }
+      }
+
+      &:checked {
+        &+label {
+          background-color: rgba( 30, 174, 247, .2 );
+          border: $spacer / 6 solid $blue;
+          border-radius: $spacer * 3;
+          transition: all .2s;
+        }
+      }
+
+      &:focus {
+        &+label {
+          &:not(.override-focus) {
+            border-color: $blue-dark;
+          }
+        }
+      }
+    }
+  }
+
+  .a-switch-label {
+    padding: 7px $spacer 5px $spacer;
+    font-family: $font-reg;
+    font-size: 14px;
+    font-weight: $font-weight-reg;
+    cursor: pointer;
+
+    &.disabled {
+      padding: 8px 18px;
+      background-color: $white !important;
+      background-image: url('../images/disabled-background.svg') !important;
+      border: none !important;
+    }
+  }
+
+  .a-switch-icon {
+    margin-top: $spacer / 4 * -1;
+    font-size: 20px;
+    vertical-align: middle;
+  }
 }
 
-.a-switch-label {
-  font-family: $font-reg;
-  font-weight: $font-weight-reg;
-  font-size: 14px;
-  padding: 7px 12px 5px 12px;
-  cursor: pointer;
-}
-
-.a-switch input[type="checkbox"]+label.disabled,
-fieldset[disabled] .a-switch input[type="checkbox"]+label,
-.a-switch input[type="radio"]+label.disabled,
-fieldset[disabled] .a-switch input[type="radio"]+labe {
+// TODO: merge with .a-switch with & revert selector?
+fieldset[disabled] .a-switch input[type='checkbox']+label,
+fieldset[disabled] .a-switch input[type='radio']+label {
   cursor: not-allowed;
-}
-
-.a-switch input[type="checkbox"]+label.focused,
-.a-switch input[type="radio"]+label.focused {
-  // -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px #1eaef7;
-  // box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px #1eaef7;
-  -webkit-box-shadow: 0;
-  box-shadow: 0;
-}
-
-.a-switch input[type="checkbox"]:not(:checked)+label,
-.a-switch input[type="radio"]:not(:checked)+label {
-  background: none;
-  border-radius: 36px;
-  -webkit-border-radius: 36px 36px 36px 36px;
-  border: 2px dotted #1eaef7;
-}
-
-.a-switch input[type="checkbox"]:checked+label,
-.a-switch input[type="radio"]:checked+label {
-  background-color: rgba(30, 174, 247, 0.2);
-  border-radius: 36px;
-  border: 2px solid #1eaef7;
-}
-
-.a-switch input[type="checkbox"]:not(:checked)+label,
-.a-switch input[type="checkbox"]:checked+label,
-.a-switch input[type="radio"]:not(:checked)+label,
-.a-switch input[type="radio"]:checked+label {
-  transition: all .2s;
-}
-
-.a-switch input[type='checkbox']:focus+label:not(.override-focus),
-.a-switch input[type='radio']:focus+label:not(.override-focus) {
-  border-color: $blue-dark;
-}
-
-.a-switch-icon {
-  font-size: 20px;
-  vertical-align: middle;
-  margin-top: -3px;
-}
-
-.a-switch .a-switch-label.disabled {
-  padding: 8px 18px;
-  background-color: #fff !important;
-  background-image: url('../images/disabled-background.svg') !important;
-  border: none !important;
 }
 
 
@@ -618,116 +713,123 @@ fieldset[disabled] .a-switch input[type="radio"]+labe {
 .a-input-icon {
   position: absolute;
   top: 7px;
-  left: 12px;
+  left: $spacer;
   font-size: 20px;
 }
 
 .a-form-text {
-  padding: 7px 50px 5px 50px;
   display: block;
+  padding: 7px 50px 5px 50px;
 }
 
 // Toggle btn
 .a-dropdown-toggle {
   width: 100%;
-  text-align: left;
-  border: 2px solid $blue;
-  background-color: #fff;
-  border-radius: 0;
+  min-height: $spacer * 3;
   padding: 0;
+  text-align: left;
   white-space: normal;
-  min-height: 36px;
+  background-color: $white;
+  border: $spacer / 6 solid $blue;
+  border-radius: 0;
+
+  &:hover {
+    color: #333;
+    border-color: $blue-dark;
+  }
+
+  &:focus {
+    border-color: $blue-dark;
+  }
+
+  &::after {
+    position: absolute;
+    top: 16px;
+    right: $spacer;
+  }
+
+  &::before {
+    // Making the touch target area bigger without affecting the layout
+    position: absolute;
+    top: $spacer / 2 * -1;
+    left: 0;
+    width: 100%;
+    height: $spacer * 4;
+    content: '';
+  }
 }
 
-.a-dropdown-toggle:hover {
-  color: #333;
-  border-color: $blue-dark;
-}
+// TODO: merge with .a-dropdown-toggle with & revert selector? .a-dropdown-toggle { .open & {...} }
+.open {
+  .a-dropdown-toggle {
+    border-color: $blue-dark;
 
-.a-dropdown-toggle:focus {
-  border-color: $blue-dark;
-}
-
-.open .a-dropdown-toggle:hover {
-  border-color: $blue-dark;
-}
-
-.open .a-dropdown-toggle {
-  border-color: $blue-dark;
-}
-
-.a-dropdown-toggle:after {
-  position: absolute;
-  right: 12px;
-  top: 16px;
-}
-
-.a-dropdown-toggle:before {
-  // Making the touch target area bigger without affecting the layout
-  content: "";
-  width: 100%;
-  height: 48px;
-  position: absolute;
-  left: 0;
-  top: -6px;
+    :hover {
+      border-color: $blue-dark;
+    }
+  }
 }
 
 // Choises
 .a-dropdown-menu {
-  border: 2px solid $blue-dark;
-  border-radius: 0;
-  padding: 0;
   width: 100%;
+  padding: 0;
   margin-top: 0;
-  border-top: 0;
+  border: $spacer / 6 solid $blue-dark;
+  border-top: none;
+  border-radius: 0;
 }
 
 .a-dropdown-item {
   position: relative;
-  border-bottom: 2px dotted $blue-dark;
+  min-height: $spacer * 3;
   padding: 0;
   white-space: normal;
-  min-height: 36px;
-}
+  border-bottom: $spacer / 2 dotted $blue-dark;
 
-.a-dropdown-item-active,
-.a-dropdown-item:hover,
-.a-dropdown-item:focus {
-  background-color: $blue-light;
-  border-bottom: 2px dotted $blue-dark;
-  box-shadow: none !important;
+  &:hover,
+  &:focus {
+    background-color: $blue-light;
+    border-bottom: $spacer / 6 dotted $blue-dark;
+    box-shadow: none !important;
+  }
+
+  &:last-child {
+    border-bottom: none;
+  }
 }
 
 .a-dropdown-item-active {
   background-color: $grey-light;
+  border-bottom: $spacer / 6 dotted $blue-dark;
+  box-shadow: none !important;
+
   &:hover {
     background-color: $grey-light;
   }
 }
-
-.a-dropdown-item:last-child {
-  border-bottom: none;
-}
-
 
 /*------------------------------------*\
  * SELECT MENU
 \*------------------------------------*/
 
 .a-custom-select {
-  padding: 0px 36px 0px 24px;
+  height: $spacer * 3;
+  padding: 0 $spacer * 3 0 $spacer * 2;
   color: $black;
-  border: 2px solid $blue;
   cursor: pointer;
-  height: 36px;
+  background: $white url('data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiIHN0YW5kYWxvbmU9Im5vIj8+Cjxzdmcgd2lkdGg9IjhweCIgaGVpZ2h0PSI0cHgiIHZpZXdCb3g9IjAgMCA4IDQiIHZlcnNpb249IjEuMSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayI+CiAgICA8IS0tIEdlbmVyYXRvcjogU2tldGNoIDQwLjIgKDMzODI2KSAtIGh0dHA6Ly93d3cuYm9oZW1pYW5jb2RpbmcuY29tL3NrZXRjaCAtLT4KICAgIDx0aXRsZT5UcmlhbmdsZTwvdGl0bGU+CiAgICA8ZGVzYz5DcmVhdGVkIHdpdGggU2tldGNoLjwvZGVzYz4KICAgIDxkZWZzPjwvZGVmcz4KICAgIDxnIGlkPSJQYWdlLTEiIHN0cm9rZT0ibm9uZSIgc3Ryb2tlLXdpZHRoPSIxIiBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPgogICAgICAgIDxwb2x5Z29uIGlkPSJUcmlhbmdsZSIgZmlsbD0iIzAwMDAwMCIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoNC4wMDAwMDAsIDIuMDAwMDAwKSBzY2FsZSgxLCAtMSkgdHJhbnNsYXRlKC00LjAwMDAwMCwgLTIuMDAwMDAwKSAiIHBvaW50cz0iNCAwIDggNCAwIDQiPjwvcG9seWdvbj4KICAgIDwvZz4KPC9zdmc+') no-repeat right .75rem center;
+
+  border: $spacer / 6 solid $blue;
   border-radius: 0;
-  background: $white url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiIHN0YW5kYWxvbmU9Im5vIj8+Cjxzdmcgd2lkdGg9IjhweCIgaGVpZ2h0PSI0cHgiIHZpZXdCb3g9IjAgMCA4IDQiIHZlcnNpb249IjEuMSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayI+CiAgICA8IS0tIEdlbmVyYXRvcjogU2tldGNoIDQwLjIgKDMzODI2KSAtIGh0dHA6Ly93d3cuYm9oZW1pYW5jb2RpbmcuY29tL3NrZXRjaCAtLT4KICAgIDx0aXRsZT5UcmlhbmdsZTwvdGl0bGU+CiAgICA8ZGVzYz5DcmVhdGVkIHdpdGggU2tldGNoLjwvZGVzYz4KICAgIDxkZWZzPjwvZGVmcz4KICAgIDxnIGlkPSJQYWdlLTEiIHN0cm9rZT0ibm9uZSIgc3Ryb2tlLXdpZHRoPSIxIiBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPgogICAgICAgIDxwb2x5Z29uIGlkPSJUcmlhbmdsZSIgZmlsbD0iIzAwMDAwMCIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoNC4wMDAwMDAsIDIuMDAwMDAwKSBzY2FsZSgxLCAtMSkgdHJhbnNsYXRlKC00LjAwMDAwMCwgLTIuMDAwMDAwKSAiIHBvaW50cz0iNCAwIDggNCAwIDQiPjwvcG9seWdvbj4KICAgIDwvZz4KPC9zdmc+) no-repeat right 0.75rem center;
+
   &:hover {
     background-color: $white;
-    border: 2px solid $blue-dark;
+    border: $spacer / 6 solid $blue-dark;
   }
+
   &:focus {
-    border: 2px solid $blue-dark;
+    border: $spacer / 6 solid $blue-dark;
     box-shadow: none !important;
   }
 }
