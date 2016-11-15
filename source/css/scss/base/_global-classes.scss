@@ -159,7 +159,7 @@ mark,
 /* Disabled background */
 
 .a-disabled {
-  @include disabled-background ( url( '../images/disabled-background.svg' ) );
+  @include disabled-background ( $background-image: url( '../images/disabled-background.svg' ) );
 }
 
 /* Panels with backbround-color */
@@ -232,7 +232,7 @@ hr {
 
   /* Horizontal Rule - Dotted AND disabled */
   &.a-disabled {
-    @include disabled-background( null, null, none, url( '../images/disabled-background.svg' ), linear-gradient( to right, $blue 50%, rgba( 255, 255, 255, 0 ) 0% ) );
+    @include disabled-background( $box-shadow: none, $background-image: url( '../images/disabled-background.svg' ), $background-image-extra: linear-gradient( to right, $blue 50%, rgba( 255, 255, 255, 0 ) 0% ) );
 
     background-repeat: repeat, repeat-x;
     background-position: 25px bottom;

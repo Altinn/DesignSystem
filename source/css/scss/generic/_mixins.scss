@@ -33,20 +33,30 @@
 
 /* Decide responsive width of container */
 
-@mixin make-container-widths($widths: $container-widths) {
+@mixin make-container-widths( $widths: $container-widths ) {
   @each $breakpoint,
   $container-width in $widths {
-    @include media-breakpoint-up($breakpoint) {
+    @include media-breakpoint-up( $breakpoint ) {
       width: $container-width;
     }
   }
 }
 
-@mixin disabled-background( $color: $black, $background-color: $white, $box-shadow: 0 0 0 1px $white inset, $background-image... ) {
+/*@mixin disabled-background( $color: $black, $background-color: $white, $box-shadow: 0 0 0 1px $white inset, $background-image... ) {
   color: $color;
   cursor: not-allowed;
   background-color: $background-color;
   background-image: $background-image;
+  background-repeat: repeat;
+  background-size: auto;
+  box-shadow: $box-shadow;
+}*/
+
+@mixin disabled-background( $color: $black, $background-color: $white, $box-shadow: 0 0 0 1px $white inset, $background-image: url( '../images/disabled-background.svg' ), $background-image-extra: null ) {
+  color: $color;
+  cursor: not-allowed;
+  background-color: $background-color;
+  background-image: $background-image, $background-image-extra;
   background-repeat: repeat;
   background-size: auto;
   box-shadow: $box-shadow;
