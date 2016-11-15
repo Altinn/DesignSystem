@@ -25,4 +25,3 @@ window.altinnInit = function() {
   setupAddRightsHandler();
 };
 window.altinnInit();
-$('#modalOnboarding').modal('show');
