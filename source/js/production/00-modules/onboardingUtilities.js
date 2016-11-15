@@ -9,7 +9,7 @@ var xmlToString = function(xmlData) {
 };
 var onboardingBlank = function(bool, delay) {
   $('.onboarding-wrapper')
-    .css('transform', 'matrix(3, 0, 0, 3, 285, 570)');
+    .css('transform', 'translate3d(0, 0, 0) matrix(3, 0, 0, 3, 570, 700)');
   setTimeout(function() {
     if (bool) {
       $('.onboarding-neutral').css('opacity', '1');
@@ -102,7 +102,7 @@ var onboardingSeek = function(_count, _steps) {
   }
   $('.onboarding-wrapper').css(
     'transform',
-      'matrix(' + ratio + ', 0, 0, ' + ratio + ',' +
+      'translate3d(0, 0, 0) matrix(' + ratio + ', 0, 0, ' + ratio + ',' +
         (
           ratio === 15 ?
             steps[count].offset().left + 95 :
