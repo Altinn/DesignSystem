@@ -22,7 +22,7 @@
 
 		{{# firstpart }}
 		<div class="row">
-			<div class="col-sm-12 col-lg-8 offset-lg-2 a-text m-t-2 m-b-4">
+			<div class="col-sm-12 col-lg-8 offset-lg-2 a-text">
 					{{# paragraph1 }}
 						{{> atomer-avsnitt }}
 					{{/ paragraph1 }}
@@ -42,6 +42,14 @@
 					{{# paragraph3 }}
 						{{> atomer-avsnitt }}
 					{{/ paragraph3 }}
+
+					{{# sectiontitle2b }}
+						{{> atomer-seksjonstittel }}
+					{{/ sectiontitle2b }}
+
+					{{# paragraph3b }}
+						{{> atomer-avsnitt }}
+					{{/ paragraph3b }}
 
 			</div><!-- END .col-... -->
 		</div><!-- END .row -->
@@ -66,9 +74,17 @@
 					{{> atomer-avsnitt }}
 				{{/ paragraph4 }}
 
+				{{# listconnected }}
+					{{> atomer-liste-unummerert-sammenkoblet }}
+				{{/ listconnected }}
+
 				{{# cardright }}
 					{{> molekyler-kort-ikon:a-article-right-off }}
 				{{/ cardright }}
+
+				{{# imageright }}
+						{{> atomer-bilde:a-articleImage-right }}
+				{{/ imageright }}
 
 				{{# paragraph5 }}
 					{{> atomer-avsnitt }}
@@ -78,9 +94,13 @@
 					{{> atomer-seksjonstittel }}
 				{{/ sectiontitle4 }}
 
-				{{# first-list }}
+				{{# firstlist }}
 					{{> atomer-liste-unummerert-kuler }}
-				{{/ first-list }}
+				{{/ firstlist }}
+
+				{{# sectiontitle4b }}
+					{{> atomer-seksjonstittel }}
+				{{/ sectiontitle4b }}
 
 				{{# paragraph6 }}
 					{{> atomer-avsnitt }}
@@ -125,13 +145,7 @@
 			</div><!-- END .col-... -->
 		</div><!-- END .row -->
 
-		{{# calculation }}
-		<div class="row">
-			<div class="col-sm-12 col-lg-8 offset-lg-2 a-text m-b-5">
-					{{> atomer-tabell-regnestykke }}
-			</div><!-- END .col-... -->
-		</div><!-- END .row -->
-		{{/ calculation }}
+
 
 		{{# articlelist }}
 		<div class="row">
@@ -160,10 +174,15 @@
 					{{> atomer-avsnitt }}
 				{{/ paragraph13 }}
 
+				{{# calculation }}
+						{{> atomer-tabell-regnestykke }}
+				{{/ calculation }}
+
 				{{> atomer-radioknapp:m-t-2 }}
 
 			</div><!-- END .col-... -->
 		</div><!-- END .row -->
+
 
 		{{# cardbottom }}
 		<div class="row">

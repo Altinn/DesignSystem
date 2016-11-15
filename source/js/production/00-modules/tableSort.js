@@ -1,5 +1,7 @@
 var sortAlphanumerically;
 var defaultSort;
+var reappendChildRows;
+
 var compareTo = function(firstItem, secondItem) {
   var first;
   var second;
@@ -27,7 +29,7 @@ var compareTo = function(firstItem, secondItem) {
 
 sortAlphanumerically = function(src, sortIndex) {
   var $table = $(src).closest('table');
-  var rows = $table.find('tbody tr');
+  var rows = $table.find('tbody tr:not(.a-sortable-action-row)');
   $($table.find('th')).removeClass('active');
   $(src).addClass('active');
   rows.sort(function(a, b) {
@@ -38,9 +40,14 @@ sortAlphanumerically = function(src, sortIndex) {
     return compareTo(A, B);
   });
 
+  reappendChildRows($table, rows);
+};
 
+reappendChildRows = function($table, rows) {
   $.each(rows, function(index, row) {
+    var prev = $(row).next('.a-sortable-action-row');
     $table.children('tbody').append(row);
+    $table.children('tbody').append(prev);
   });
 };
 
