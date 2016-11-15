@@ -1,5 +1,5 @@
 ---
- state: inprogress
+ state: intechnicalreview
  version: 1
 ---
-Innholdet til modal klientdelegering for legg til ny ansatt. Javascript brukes for å skjule / vise elementer basert på om inputfeltene er gyldige.
+Innholdet til modal klientdelegering for å gi rettigheter til nye eller eksisterende ansatte. 

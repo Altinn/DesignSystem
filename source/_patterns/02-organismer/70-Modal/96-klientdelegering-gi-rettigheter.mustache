@@ -11,15 +11,21 @@
 	</div>
 </div>
 <div class="row">
-	<div class="col-xs-12 col-md-12 col-lg-5 m-t-2 m-b-1">
+	<div class="col-xs-12 col-md-12 col-lg-5 m-t-3 m-b-1">
 		{{> atomer-tekst-input }}
 	</div>
 </div>
-{{> atomer-ekspanderbar-tittel }}
-{{# sortable-table-override }}
+{{# existing-clients-title }}
+	{{> atomer-ekspanderbar-tittel }}
+{{/ existing-clients-title }}
+{{# existing-clients-table }}
 	{{> atomer-tabell-sorterbar }}
-{{/ sortable-table-override }}
-{{> atomer-ekspanderbar-tittel }}
-{{# sortable-table-override }}
+{{/ existing-clients-table }}
+{{# new-clients-title }}
+	<div class="m-t-2">
+		{{> atomer-ekspanderbar-tittel }}
+	</div>
+{{/ new-clients-title }}
+{{# new-clients-table }}
 	{{> atomer-tabell-sorterbar }}
-{{/ sortable-table-override }}
+{{/ new-clients-table }}
