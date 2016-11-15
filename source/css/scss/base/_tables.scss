@@ -90,7 +90,6 @@
 
   .a-sortable-row {
     background: $grey-light;
-
     &.a-sortable-row-complete {
       @include disabled-background( $color: $grey, $background-color: $green-light, $box-shadow: none, $background-image: url( '../images/disabled-background.svg' ) );
 
@@ -158,6 +157,14 @@
     }
   }
 
+  tbody {
+    tr {
+      &.a-sortable-row {
+        height: $spacer * 4;
+      }
+    }
+  }
+
   thead {
     th {
       text-transform: uppercase;
@@ -168,6 +175,7 @@
       font-weight: $font-weight-reg;
       background: $grey-light;
       border: none;
+      cursor: pointer;
 
       &:last-of-type {
         padding-top: $spacer / 2;
