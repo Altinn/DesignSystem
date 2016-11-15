@@ -1,5 +1,5 @@
 .onboarding-wrapper {
-  transition: transform 0.45s ease-in, top 0.1s ease-in-out, left 0.1s ease-in-out;
+  transition: transform 0.45s ease-in, top 0.1s ease-out, left 0.1s ease-out;
   width: 1140px;
   height: 1140px;
   position: absolute;
@@ -8,10 +8,39 @@
   margin-left: -570px;
   margin-top: -570px;
   z-index: 999;
+  opacity: 0;
 
   svg {
     overflow: visible;
   }
+}
+
+.onboarding-neutral {
+  width: 1140px;
+  height: 1140px;
+  position: absolute;
+  z-index: 999;
+  transform: scale(10);
+  opacity: 1;
+
+  svg {
+    overflow: visible;
+  }
+}
+
+
+.a-js-circle {
+  width: 16px;
+  height: 16px;
+  background-color: #022f51;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  border-radius: 8px;
+  margin-left: -8px;
+  margin-top: -8px;
+  opacity: 0.9;
+  transition: opacity 0.35s ease-in;
 }
 
 
@@ -21,7 +50,7 @@
 
 .a-onboarding {
 	// background: $blue-darker-opacity !important;
-  background: transparent !important;
+  background: transparent;
 	color: #fff;
   overflow: hidden !important;
   box-shadow: none !important;
