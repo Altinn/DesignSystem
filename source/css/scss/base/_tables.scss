@@ -65,12 +65,12 @@
 
 .a-sortable-table,
 .a-table-list-non-sortable {
-  &.white tr {
-    background-color: $white;
-  }
-
   &.white {
     margin-bottom: 0;
+
+    tr {
+      background-color: $white;
+    }
   }
 
   .remove-icon {
@@ -91,12 +91,30 @@
   .a-sortable-row {
     background: $grey-light;
 
+    &.a-sortable-row-complete {
+      @include disabled-background( $color: $grey, $background-color: $green-light, $box-shadow: none, $background-image: url( '../images/disabled-background.svg' ) );
+
+      .action-confirmation {
+        display: block;
+        float: right;
+        margin-right: $spacer * 5;
+      }
+
+      .a-collapseTitle {
+        display: none;
+      }
+    }
+
     td {
       border-bottom: 1px solid $grey-medium;
       padding: ($spacer - 2) 0;
 
       i {
         vertical-align: middle;
+      }
+
+      .action-confirmation {
+        display: none;
       }
 
       &:first-of-type {
@@ -130,7 +148,7 @@
   }
 
   &.clickable {
-    thead>tr:hover{
+    thead>tr:hover {
       cursor: pointer;
     }
 
@@ -149,7 +167,7 @@
       padding-bottom: 0;
       font-weight: $font-weight-reg;
       background: $grey-light;
-      border: 0;
+      border: none;
 
       &:last-of-type {
         padding-top: $spacer / 2;
@@ -168,10 +186,10 @@
       transform: scale( .75 ) rotate( 90deg ) translate( -50% );
     }
 
-    tr, 
+    tr,
     th {
+      border-top: 1px solid $grey-medium;
       border-bottom: 1px solid $grey-medium;
-      border-top: 1px solid $grey-medium
     }
 
     .normal-casing {
@@ -211,7 +229,7 @@
     border: none;
     display: table-cell;
     vertical-align: middle;
-    padding: 6px;
+    padding: $spacer / 2;
     height: 36px;
   }
 
@@ -221,26 +239,25 @@
     word-wrap: break-word;
 
     &.a-tableClick:hover {
-      background-color: #cff0ff;
+      background-color: $blue-light;
       cursor: pointer;
     }
+    &.a-table-list-row-green {
+      background-color: $green-light;
+    }
+
+    &.a-table-list-row-red {
+      background-color: $red-light;
+    }    
   }
 
   .a-table-icon {
     width: 24px;
     height: 24px;
     vertical-align: middle;
-    margin-left: $spacer/2;
+    margin-left: $spacer / 2;
     border: none;
-    margin-top: -3px;
-  }
-
-  .a-table-list-green {
-    background-color: $green-light;
-  }
-
-  .a-table-list-red {
-    background-color: $red-light;
+    margin-top: $spacer / 4 * -1;
   }
 
   .help-icon {
