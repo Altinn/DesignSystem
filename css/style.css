@@ -5625,6 +5625,15 @@ Atomic Designsystem built with Pattern Lab (http://patternlab.io/)
 	Usage: @include font-size(1, large);
 */
 /* Decide responsive width of container */
+/*@mixin disabled-background( $color: $black, $background-color: $white, $box-shadow: 0 0 0 1px $white inset, $background-image... ) {
+  color: $color;
+  cursor: not-allowed;
+  background-color: $background-color;
+  background-image: $background-image;
+  background-repeat: repeat;
+  background-size: auto;
+  box-shadow: $box-shadow;
+}*/
 /*------------------------------------*    $RESET
 \*------------------------------------*/
 /* Border-Box http:/paulirish.com/2012/box-sizing-border-box-ftw/ */
@@ -6802,13 +6811,12 @@ fieldset[disabled] .a-switch input[type="radio"] + labe {
 
 /*------------------------------------*    $Sortable table
 \*------------------------------------*/
-.a-sortable-table.white tr,
-.a-table-list-non-sortable.white tr {
-  background-color: #ffffff; }
-
 .a-sortable-table.white,
 .a-table-list-non-sortable.white {
   margin-bottom: 0; }
+  .a-sortable-table.white tr,
+  .a-table-list-non-sortable.white tr {
+    background-color: #ffffff; }
 
 .a-sortable-table .remove-icon,
 .a-table-list-non-sortable .remove-icon {
@@ -6828,6 +6836,23 @@ fieldset[disabled] .a-switch input[type="radio"] + labe {
 .a-sortable-table .a-sortable-row,
 .a-table-list-non-sortable .a-sortable-row {
   background: #efefef; }
+  .a-sortable-table .a-sortable-row.a-sortable-row-complete,
+  .a-table-list-non-sortable .a-sortable-row.a-sortable-row-complete {
+    color: #6a6a6a;
+    cursor: not-allowed;
+    background-color: #d4f9e4;
+    background-image: url("../images/disabled-background.svg");
+    background-repeat: repeat;
+    background-size: auto;
+    box-shadow: none; }
+    .a-sortable-table .a-sortable-row.a-sortable-row-complete .action-confirmation,
+    .a-table-list-non-sortable .a-sortable-row.a-sortable-row-complete .action-confirmation {
+      display: block;
+      float: right;
+      margin-right: 60px; }
+    .a-sortable-table .a-sortable-row.a-sortable-row-complete .a-collapseTitle,
+    .a-table-list-non-sortable .a-sortable-row.a-sortable-row-complete .a-collapseTitle {
+      display: none; }
   .a-sortable-table .a-sortable-row td,
   .a-table-list-non-sortable .a-sortable-row td {
     border-bottom: 1px solid #B3B3B3;
@@ -6835,6 +6860,9 @@ fieldset[disabled] .a-switch input[type="radio"] + labe {
     .a-sortable-table .a-sortable-row td i,
     .a-table-list-non-sortable .a-sortable-row td i {
       vertical-align: middle; }
+    .a-sortable-table .a-sortable-row td .action-confirmation,
+    .a-table-list-non-sortable .a-sortable-row td .action-confirmation {
+      display: none; }
     .a-sortable-table .a-sortable-row td:first-of-type,
     .a-table-list-non-sortable .a-sortable-row td:first-of-type {
       text-align: center; }
@@ -6872,7 +6900,7 @@ fieldset[disabled] .a-switch input[type="radio"] + labe {
   padding-bottom: 0;
   font-weight: 400;
   background: #efefef;
-  border: 0; }
+  border: none; }
   .a-sortable-table thead th:last-of-type,
   .a-table-list-non-sortable thead th:last-of-type {
     padding-top: 6px;
@@ -6890,8 +6918,8 @@ fieldset[disabled] .a-switch input[type="radio"] + labe {
 .a-sortable-table thead th,
 .a-table-list-non-sortable thead tr,
 .a-table-list-non-sortable thead th {
-  border-bottom: 1px solid #B3B3B3;
-  border-top: 1px solid #B3B3B3; }
+  border-top: 1px solid #B3B3B3;
+  border-bottom: 1px solid #B3B3B3; }
 
 .a-sortable-table thead .normal-casing,
 .a-table-list-non-sortable thead .normal-casing {
@@ -6929,6 +6957,10 @@ fieldset[disabled] .a-switch input[type="radio"] + labe {
     .a-table-list tr.a-tableClick:hover {
       background-color: #cff0ff;
       cursor: pointer; }
+    .a-table-list tr.a-table-list-row-green {
+      background-color: #d4f9e4; }
+    .a-table-list tr.a-table-list-row-red {
+      background-color: #f9cad3; }
   .a-table-list .a-table-icon {
     width: 24px;
     height: 24px;
@@ -6936,10 +6968,6 @@ fieldset[disabled] .a-switch input[type="radio"] + labe {
     margin-left: 6px;
     border: none;
     margin-top: -3px; }
-  .a-table-list .a-table-list-green {
-    background-color: #d4f9e4; }
-  .a-table-list .a-table-list-red {
-    background-color: #f9cad3; }
   .a-table-list .help-icon {
     color: #B3B3B3; }
     .a-table-list .help-icon:hover {
@@ -8752,10 +8780,8 @@ fieldset[disabled] .a-switch input[type="radio"] + labe {
     font-size: 16px; }
   .a-box-button:hover {
     background: rgba(255, 255, 255, 0.5);
-    border: 4px solid #1eaef7;
-    border-collapse: separate;
-    box-sizing: border-box;
-    padding: 9px; }
+    border: 4px solid #1eaef7 !important;
+    padding: 9px 1px 9px 0px; }
     .a-box-button:hover .a-box-button-info {
       background: #ffffff; }
   .a-box-button .a-metaText {
@@ -9281,10 +9307,14 @@ ul.no-decoration {
       border-left: none; }
     .a-box-button-list.a-box-button-list--xs1sm2md3lg4xl6 li:first-child .a-box-button {
       border: 1px solid #B3B3B3; }
+      .a-box-button-list.a-box-button-list--xs1sm2md3lg4xl6 li:first-child .a-box-button:hover {
+        padding: 9px 0px 9px 0px; }
     .a-box-button-list.a-box-button-list--xs1sm2md3lg4xl6 li:nth-child(1n+7) .a-box-button {
       border-top: none; }
     .a-box-button-list.a-box-button-list--xs1sm2md3lg4xl6 li:nth-child(7n+7) .a-box-button {
-      border-left: 1px solid #B3B3B3; } }
+      border-left: 1px solid #B3B3B3; }
+      .a-box-button-list.a-box-button-list--xs1sm2md3lg4xl6 li:nth-child(7n+7) .a-box-button:hover {
+        padding: 9px 0px 9px 0px; } }
 
 /*------------------------------------*    $Bullet list
 \*------------------------------------*/
@@ -12443,19 +12473,19 @@ mark,
 
 /* Disabled background */
 .a-disabled {
+  color: #000;
   cursor: not-allowed;
   background-color: #ffffff;
-  color: #000;
-  box-shadow: 0px 0px 0px 1px white inset;
   background-image: url("../images/disabled-background.svg");
   background-repeat: repeat;
-  background-size: auto; }
+  background-size: auto;
+  box-shadow: 0 0 0 1px #ffffff inset; }
 
 /* Panels with backbround-color */
 .a-bgPanel {
   padding: 24px;
   background-color: #ffffff;
-  border-radius: 0px;
+  border-radius: 0;
   margin-bottom: 12px;
   box-shadow: 1px 1px 4px 0px rgba(137, 137, 137, 0.5); }
   .a-bgPanel.a-bgPanel-grey {
@@ -12503,7 +12533,20 @@ hr.a-hrDotted {
   background-image: linear-gradient(to right, #1eaef7 50%, rgba(255, 255, 255, 0) 0%);
   background-position: 25px bottom;
   background-size: 4px 2px;
-  background-repeat: repeat-x; }
+  background-repeat: repeat-x;
+  /* Horizontal Rule - Dotted AND disabled */ }
+  .a-dotted.a-disabled {
+    color: #000;
+    cursor: not-allowed;
+    background-color: #ffffff;
+    background-image: url("../images/disabled-background.svg"), linear-gradient(to right, #1eaef7 50%, rgba(255, 255, 255, 0) 0%);
+    background-repeat: repeat;
+    background-size: auto;
+    box-shadow: none;
+    background-repeat: repeat, repeat-x;
+    background-position: 25px bottom;
+    background-size: auto, 4px 2px;
+    background-blend-mode: darken; }
 
 .a-dotted-line {
   width: 100%;
@@ -12513,18 +12556,6 @@ hr.a-hrDotted {
   background-position: bottom;
   background-size: 4px 2px;
   background-repeat: repeat-x; }
-
-/* Horizontal Rule - Dotted AND disabled */
-.a-dotted.a-disabled {
-  cursor: not-allowed;
-  color: #000;
-  box-shadow: none;
-  background-image: url("../images/disabled-background.svg"), linear-gradient(to right, #1eaef7 50%, rgba(255, 255, 255, 0) 0%);
-  background-color: #fff, transparent;
-  background-position: 25px bottom;
-  background-repeat: repeat, repeat-x;
-  background-size: auto, 4px 2px;
-  background-blend-mode: darken; }
 
 /* Grid Edit */
 .container-fluid {
