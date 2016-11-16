@@ -5,41 +5,41 @@
 .a-table {
   thead {
     th {
-      border-bottom: 2px solid $blue;
       font-family: $font;
       font-weight: normal;
+      border-bottom: 2px solid $blue;
     }
   }
 
   td,
   th {
+    padding: 6px 0 5px 0;
     border-top: none;
     border-bottom: 1px solid $grey-medium;
-    padding: 6px 0 5px 0;
   }
 }
 
 .a-table-calculation {
   td,
   th {
-    border-bottom: none;
-    font-weight: normal;
     padding: 2px 0 2px 0;
+    font-weight: normal;
+    border-bottom: none;
   }
 
   td {
-    font-family: $font-medium;
-    font-weight: $font-weight-medium;
     width: 20%;
     @include media-breakpoint-up( md ) {
       width: auto;
     }
+    font-family: $font-medium;
+    font-weight: $font-weight-medium;
   }
 
   tfoot {
-    border-top: 3px solid $blue;
     font-family: $font-medium;
     font-weight: $font-weight-medium;
+    border-top: 3px solid $blue;
 
     td,
     th {
@@ -81,11 +81,15 @@
     color: $red;
   }
 
-  tr >th:first-of-type {
-    width: 96px;
-    padding-left: 0;
-    padding-right: 0;
-    text-align: center;
+  tr {
+    > th {
+      &:first-of-type {
+        width: 96px;
+        padding-right: 0;
+        padding-left: 0;
+        text-align: center;
+      }
+    }
   }
 
   .a-sortable-row {
@@ -100,14 +104,14 @@
         margin-right: $spacer * 5;
       }
 
-      .a-collapseTitle {
+      .a-collapse-title {
         display: none;
       }
     }
 
     td {
-      border-bottom: 1px solid $grey-medium;
       padding: ($spacer - 2) 0;
+      border-bottom: 1px solid $grey-medium;
 
       i {
         vertical-align: middle;
@@ -137,37 +141,48 @@
     &.deleted {
       background: $red-light;
 
-      & td:last-of-type {
-        @extend .p-r-5;
+
+      td {
+        &:last-of-type {
+          @extend .p-r-5;
+        }
+      }
+    }
+  
+    &.selected td:nth-child(2) {
+        text-decoration: line-through;
+    }
+  }
+  
+  &.clickable {
+    thead {
+      > tr { 
+        &:hover {
+          cursor: pointer;
+        }
       }
     }
 
-    &.selected td:nth-child(2) {
-      text-decoration: line-through;
-    }
-  }
-
-  &.clickable {
-    thead>tr:hover {
-      cursor: pointer;
-    }
-
-    tbody>tr:hover {
-      cursor: pointer;
-      background-color: $red-light;
+    tbody {
+      > tr {
+        &:hover {
+          cursor: pointer;
+          background-color: $red-light;
+        }
+      }
     }
   }
 
   thead {
     th {
-      text-transform: uppercase;
-      font-size: 12px;
+      background: $grey-light;
       padding: 0;
       padding-top: ($spacer - 1);
       padding-bottom: 0;
-      font-weight: $font-weight-reg;
-      background: $grey-light;
       border: none;
+      font-size: 12px;
+      font-weight: $font-weight-reg;
+      text-transform: uppercase;
 
       &:last-of-type {
         padding-top: $spacer / 2;
@@ -199,8 +214,10 @@
   }
 
   // If collapse inside table, set display to table-row.
-  .collapse.in {
-    display: table-row;
+  .collapse {
+    &.in {
+      display: table-row;
+    }
   }
 
   .a-sortable-action-row {
@@ -212,7 +229,6 @@
   }
 }
 
-
 /*------------------------------------*\
     $Table list
 \*------------------------------------*/
@@ -220,44 +236,50 @@
 .a-table-list {
   width: 100%;
 
-  thead tr th {
-    border: none;
+  thead {
+    tr {
+      th {
+        border: none;
+      }
+    }
   }
 
   td,
   th {
+    height: 36px;
+    padding: $spacer / 2;
+    padding: $spacer / 2;
     border: none;
     display: table-cell;
     vertical-align: middle;
-    padding: $spacer / 2;
-    height: 36px;
   }
 
   tr {
     width: 100%;
     min-height: 36px;
     word-wrap: break-word;
-
+    
     &.a-tableClick:hover {
       background-color: $blue-light;
       cursor: pointer;
     }
+    
     &.a-table-list-row-green {
       background-color: $green-light;
     }
 
     &.a-table-list-row-red {
       background-color: $red-light;
-    }    
+    }
   }
 
   .a-table-icon {
     width: 24px;
     height: 24px;
-    vertical-align: middle;
-    margin-left: $spacer / 2;
     border: none;
     margin-top: $spacer / 4 * -1;
+    margin-left: $spacer / 2;
+    vertical-align: middle;
   }
 
   .help-icon {
@@ -271,8 +293,8 @@
 
   .add-icon {
     color: $blue;
-    margin-left: 0;
     margin-right: $spacer / 2;
+    margin-left: 0;
   }
 
   .remove-icon {
