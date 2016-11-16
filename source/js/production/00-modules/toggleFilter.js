@@ -11,7 +11,7 @@ var toggleFilter = function() {
       $('.a-collapseTitle').addClass('collapsed');
       $(this).removeClass('collapsed');
       $('.open').next().css('display', 'none'); $('.open').removeClass('open');
-      $(actionRow).css('display', 'table-row');
+      $(actionRow).css('display', 'initial');
       $(actionRow).prev().addClass('open');
     }
   });

@@ -15,16 +15,26 @@
     {{> atomer-tekst-input }}
   </div>
 </div>
-{{# existing-clients-title }} 
-  {{> atomer-ekspanderbar-tittel }} 
-{{/ existing-clients-title }}
-<div id={{ collapse-header-contentID }} class="a-collapseContent collapse" role="tabpanel" aria-expanded="true">
-  {{# existing-clients-table }} 
-    {{> atomer-tabell-sorterbar }} 
-  {{/ existing-clients-table }}
-</div>
-{{# new-clients-title }}
-<div class="m-t-2">
-  {{> atomer-ekspanderbar-tittel }}
-</div>
-{{/ new-clients-title }} {{# new-clients-table }} {{> atomer-tabell-sorterbar }} {{/ new-clients-table }}
+{{# expandable-table-existing-clients }}
+  {{# existing-clients-title }} 
+    {{> atomer-ekspanderbar-tittel }} 
+  {{/ existing-clients-title }}
+  <div id={{ collapse-header-contentID }} class="a-collapseContent collapse in disable-animation" role="tabpanel" aria-expanded=" {{ area-expanded }}">
+    {{# existing-clients-table }} 
+      {{> atomer-tabell-sorterbar }} 
+    {{/ existing-clients-table }}
+  </div>
+{{/ expandable-table-existing-clients }}
+{{# expandable-table-new-clients }}
+  {{# new-clients-title }} 
+    <div class="m-t-2">
+      {{> atomer-ekspanderbar-tittel }}
+    </div>
+  {{/ new-clients-title }}
+  <div id={{ collapse-header-contentID }} class="a-collapseContent collapse in disable-animation" role="tabpanel" aria-expanded=" {{ area-expanded }}">
+    {{# new-clients-table }} 
+      {{> atomer-tabell-sorterbar }} 
+    {{/ new-clients-table }}
+  </div>
+{{/ expandable-table-new-clients }}
+
