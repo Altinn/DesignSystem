@@ -44,11 +44,11 @@ textarea {
       }
 
       input {
-        &::-webkit-input-placeholder {
+        &:-webkit-input-placeholder {
           color: $grey;
         }
 
-        &::-moz-placeholder {
+        &:-moz-placeholder {
           color: $grey;
         }
 
@@ -83,11 +83,11 @@ textarea {
     padding: 5px $spacer 3px $spacer;
     margin-left: $spacer / 12 * -1;
     color: $grey;
-    border: $spacer / 6 solid $blue;
+    border: 2px solid $blue;
     border-radius: 0;
 
     &:focus {
-      border: $spacer / 6 solid $blue-dark;
+      border: 2px solid $blue-dark;
     }
   }
 
@@ -98,7 +98,7 @@ textarea {
       height: $spacer * 3;
       padding: 0;
       padding-top: $spacer / 3;
-      border: $spacer / 6 solid $blue;
+      border: 2px solid $blue;
       border-style: none;
       border-left: none;
 
@@ -133,7 +133,7 @@ textarea {
     }
 
     .input-group-addon {
-      padding: 18px $spacer 18px $spacer;
+      padding: 18px $spacer;
       font-size: 20px;
     }
   }
@@ -178,12 +178,12 @@ textarea {
   &.has-danger {
     // Label
     .input-group-addon {
-      border: $spacer / 6 solid $red !important;
+      border: 2px solid $red !important;
     }
 
     // Input
     .form-control {
-      border: $spacer / 6 solid $red !important;
+      border: 2px solid $red !important;
     }
 
     // Icon
@@ -208,12 +208,12 @@ textarea {
   // VALIDATOR: Input has success
   &.has-success {
     .input-group-addon {
-      border: $spacer / 6 solid $green !important;
+      border: 2px solid $green !important;
     }
 
     // Input
     .form-control {
-      border: $spacer / 6 solid $green !important;
+      border: 2px solid $green !important;
     }
 
     // When inside input-group
@@ -242,7 +242,7 @@ textarea {
       color: $black;
       text-align: left;
       background-color: $white;
-      border: $spacer / 6 solid $blue;
+      border: 2px solid $blue;
       border-right: none;
       border-radius: 0;
 
@@ -296,13 +296,13 @@ textarea {
       }
 
       .input-group-addon {
-        border: $spacer / 6 solid $grey-medium;
+        border: 2px solid $grey-medium;
         border-right: none;
       }
 
       // Input
       .form-control {
-        border: $spacer / 6 solid $grey-medium;
+        border: 2px solid $grey-medium;
         border-left: none;
       }
     }
@@ -327,12 +327,12 @@ textarea {
   .a-textarea {
     min-height: $spacer * 11;
     padding: $spacer;
-    border: $spacer / 6 solid $blue;
+    border: 2px solid $blue;
     border-radius: 0;
 
     &:hover,
     &:focus {
-      border: $spacer / 6 solid $blue-dark;
+      border: 2px solid $blue-dark;
       box-shadow: none !important;
     }
   }
@@ -389,7 +389,7 @@ textarea {
     width: $spacer * 2;
     height: $spacer * 2;
     background-color: $white;
-    border: $spacer / 6 solid $blue;
+    border: 2px solid $blue;
     border-radius: 0;
   }
 
@@ -423,7 +423,7 @@ textarea {
     &[type='radio'] {
       &:focus+span {
         &:not(.override-focus) {
-          border: $spacer / 6 solid $blue-dark;
+          border: 2px solid $blue-dark;
         }
       }
     }
@@ -470,7 +470,7 @@ textarea {
         height: $spacer * 2;
         color: $white;
         background-color: $white;
-        border: $spacer / 6 solid $blue;
+        border: 2px solid $blue;
       }
 
       &:focus~.custom-control-indicator {
@@ -486,8 +486,8 @@ textarea {
   input {
     &[type='radio'] {
       &:focus+span {
-        :not(.override-focus) {
-          border: $spacer / 6 solid $blue-dark;
+        &:not(.override-focus) {
+          border: 2px solid $blue-dark;
         }
       }
     }
@@ -586,7 +586,7 @@ textarea {
 
   .custom-control {
     >input {
-      :checked~.a-radioButtons-excerpt {
+      &:checked~.a-radioButtons-excerpt {
         color: $black;
       }
     }
@@ -651,7 +651,7 @@ textarea {
       &:not(:checked) {
         &+label {
           background: none;
-          border: $spacer / 6 dotted $blue;
+          border: 2px dotted $blue;
           border-radius: $spacer * 3;
           -webkit-border-radius: $spacer * 3 $spacer * 3 $spacer * 3 $spacer * 3;
           transition: all .2s;
@@ -661,7 +661,7 @@ textarea {
       &:checked {
         &+label {
           background-color: rgba( 30, 174, 247, .2 );
-          border: $spacer / 6 solid $blue;
+          border: 2px solid $blue;
           border-radius: $spacer * 3;
           transition: all .2s;
         }
@@ -730,7 +730,7 @@ fieldset[disabled] .a-switch input[type='radio']+label {
   text-align: left;
   white-space: normal;
   background-color: $white;
-  border: $spacer / 6 solid $blue;
+  border: 2px solid $blue;
   border-radius: 0;
 
   &:hover {
@@ -775,7 +775,7 @@ fieldset[disabled] .a-switch input[type='radio']+label {
   width: 100%;
   padding: 0;
   margin-top: 0;
-  border: $spacer / 6 solid $blue-dark;
+  border: 2px solid $blue-dark;
   border-top: none;
   border-radius: 0;
 }
@@ -785,12 +785,12 @@ fieldset[disabled] .a-switch input[type='radio']+label {
   min-height: $spacer * 3;
   padding: 0;
   white-space: normal;
-  border-bottom: $spacer / 2 dotted $blue-dark;
+  border-bottom: 2px dotted $blue-dark;
 
   &:hover,
   &:focus {
     background-color: $blue-light;
-    border-bottom: $spacer / 6 dotted $blue-dark;
+    border-bottom: 2px dotted $blue-dark;
     box-shadow: none !important;
   }
 
@@ -801,7 +801,7 @@ fieldset[disabled] .a-switch input[type='radio']+label {
 
 .a-dropdown-item-active {
   background-color: $grey-light;
-  border-bottom: $spacer / 6 dotted $blue-dark;
+  border-bottom: 2px dotted $blue-dark;
   box-shadow: none !important;
 
   &:hover {
@@ -820,16 +820,16 @@ fieldset[disabled] .a-switch input[type='radio']+label {
   cursor: pointer;
   background: $white url('data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiIHN0YW5kYWxvbmU9Im5vIj8+Cjxzdmcgd2lkdGg9IjhweCIgaGVpZ2h0PSI0cHgiIHZpZXdCb3g9IjAgMCA4IDQiIHZlcnNpb249IjEuMSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayI+CiAgICA8IS0tIEdlbmVyYXRvcjogU2tldGNoIDQwLjIgKDMzODI2KSAtIGh0dHA6Ly93d3cuYm9oZW1pYW5jb2RpbmcuY29tL3NrZXRjaCAtLT4KICAgIDx0aXRsZT5UcmlhbmdsZTwvdGl0bGU+CiAgICA8ZGVzYz5DcmVhdGVkIHdpdGggU2tldGNoLjwvZGVzYz4KICAgIDxkZWZzPjwvZGVmcz4KICAgIDxnIGlkPSJQYWdlLTEiIHN0cm9rZT0ibm9uZSIgc3Ryb2tlLXdpZHRoPSIxIiBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPgogICAgICAgIDxwb2x5Z29uIGlkPSJUcmlhbmdsZSIgZmlsbD0iIzAwMDAwMCIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoNC4wMDAwMDAsIDIuMDAwMDAwKSBzY2FsZSgxLCAtMSkgdHJhbnNsYXRlKC00LjAwMDAwMCwgLTIuMDAwMDAwKSAiIHBvaW50cz0iNCAwIDggNCAwIDQiPjwvcG9seWdvbj4KICAgIDwvZz4KPC9zdmc+') no-repeat right .75rem center;
 
-  border: $spacer / 6 solid $blue;
+  border: 2px solid $blue;
   border-radius: 0;
 
   &:hover {
     background-color: $white;
-    border: $spacer / 6 solid $blue-dark;
+    border: 2px solid $blue-dark;
   }
 
   &:focus {
-    border: $spacer / 6 solid $blue-dark;
+    border: 2px solid $blue-dark;
     box-shadow: none !important;
   }
 }
