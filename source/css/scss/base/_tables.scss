@@ -148,15 +148,19 @@
         }
       }
     }
-  
-    &.selected td:nth-child(2) {
-        text-decoration: line-through;
+
+    &.selected {
+      td {
+        &:nth-child( 2 ) {
+          text-decoration: line-through;
+        }
+      }
     }
   }
-  
+
   &.clickable {
     thead {
-      > tr { 
+      > tr {
         &:hover {
           cursor: pointer;
         }
@@ -246,24 +250,23 @@
 
   td,
   th {
+    display: table-cell;
     height: 36px;
     padding: $spacer / 2;
-    padding: $spacer / 2;
-    border: none;
-    display: table-cell;
     vertical-align: middle;
+    border: none;
   }
 
   tr {
     width: 100%;
     min-height: 36px;
     word-wrap: break-word;
-    
+
     &.a-tableClick:hover {
       background-color: $blue-light;
       cursor: pointer;
     }
-    
+
     &.a-table-list-row-green {
       background-color: $green-light;
     }
