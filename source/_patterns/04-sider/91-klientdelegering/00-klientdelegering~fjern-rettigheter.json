@@ -4,6 +4,7 @@
   "show-remove-rights": true,
   "show-success-receipt": false,
   "show-add-employee": false,
+  "show-add-rights": false,
   "done-segment" : {
     "link-url-start" : "onclick=\"if (onConfirmDeletionClick()) { location.href='",
     "link-url" : "link.sider-klientdelegering-kvittering-gyldig",
@@ -16,7 +17,7 @@
         "aria-label": "Tilbake",
         "button-icon-class": "material-icons a-modal-back-icon",
         "button-icon-text": "keyboard_backspace",
-        "button-onclick": "onclick=\"handleModalClose(this);\"",
+        "button-onclick": "onclick=\"handleModalClose(this, 'link.sider-klientdelegering-gi-rettigheter');\"",
         "enable-popover": true,
         "popover-placement": "bottom",
         "popover-content-id": "backPopoverContent",
@@ -26,7 +27,7 @@
           {
             "button-text" : "Ok",
             "button-class" : "a-btn a-btn-danger",
-            "link-url-start" : "onclick=\"$('button[aria-describedby=' + $(this).parent().parent().attr('id') + ']').popover('hide'); goBack();\"",
+            "link-url-start" : "onclick=\"$('button[aria-describedby=' + $(this).parent().parent().attr('id') + ']').popover('hide'); location.href='link.sider-klientdelegering-gi-rettigheter'\"",
             "link-url" : "",
             "link-url-end" : ""
           },
@@ -44,7 +45,7 @@
         "aria-label":  "Lukk",
         "button-icon-class": "material-icons a-modal-close-icon",
         "button-icon-text": "close",
-        "button-onclick": "onclick=\"handleModalClose(this);\"",
+        "button-onclick": "onclick=\"handleModalClose(this, 'link.sider-profil-roller-rettigheter');\"",
         "enable-popover": true,
         "popover-placement": "bottom",
         "popover-content-id": "closePopoverContent",
@@ -54,7 +55,7 @@
           {
             "button-text" : "Ok",
             "button-class" : "a-btn a-btn-danger",
-            "link-url-start" : "onclick=\"$('button[aria-describedby=' + $(this).parent().parent().attr('id') + ']').popover('hide'); goBack();\"",
+            "link-url-start" : "onclick=\"$('button[aria-describedby=' + $(this).parent().parent().attr('id') + ']').popover('hide'); location.href='link.sider-profil-roller-rettigheter'\"",
             "link-url" : "",
             "link-url-end" : ""
           },
@@ -96,10 +97,12 @@
   "input-find-text": "Hvilken klient ser du etter?",
   "cancel-link": {
     "button-text": "Avbryt",
-    "button-class": "a-btn-link a-link a-link-danger pull-right"
+    "button-class": "a-btn-link a-link a-link-danger pull-right",
+    "link-url-start": "onclick=\"location.href='link.sider-klientdelegering-gi-rettigheter'\"\""
   },
   "segment-fixed": "segment-fixed",
-  "full-width-table": "full-width-table",
+  "full-width-table": true,
+  "full-height-table": true,
   "ferdigsegment-done": {
     "button-text": "Ferdig",
     "button-class": "a-btn a-btn-success"
