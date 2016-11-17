@@ -1,6 +1,6 @@
 /* globals $ */
 var toggleFilter = function() {
-  $('button[data-toggle="collapse"], .a-collapse-title').on('mouseup', function() {
+  $(document).on('mouseup', 'button[data-toggle="collapse"], .a-collapseTitle', function() {
     var actionRow = $(this).attr('data-target');
     if (!$(this).hasClass('collapsed')) {
       $(this).addClass('collapsed');

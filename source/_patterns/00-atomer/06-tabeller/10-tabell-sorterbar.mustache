@@ -1,5 +1,6 @@
 <div class="{{# table-responsive }} table-responsive {{/ table-responsive}} {{# full-width-table }} a-full-width-table {{/ full-width-table }} {{# full-height-table }} a-full-height-table {{/ full-height-table }}">
-  <table class="table a-sortable-table a-js-sortable">
+  <table class="table a-sortable-table a-js-sortable"
+    {{# sortable-table-id }} id="{{ sortable-table-id }}" {{/ sortable-table-id }}>
     <thead>
       {{# sortable-has-head }}
         <tr>
@@ -19,7 +20,7 @@
       {{# sortable-table-items }}
         <tr class="a-sortable-row {{# is-action-performed }}a-sortable-row-complete{{/ is-action-performed }}">
           {{# sortable-row-items }}
-            <td>         
+            <td {{# searchable }} data-searchable="true" {{/ searchable }}>         
               {{{ sortable-row-text }}} 
               {{# is-sortable-collapse-link }} 
                 <span class="action-confirmation">{{ action-performed-confirmation }}</span>
@@ -31,7 +32,9 @@
           {{/ sortable-row-items }}
         </tr>
         {{# sortable-action-items }}
-          <tr class="a-sortable-action-row a-collapseContent collapse" id="{{ sortable-action-id }}">
+          <tr class="a-sortable-action-row a-collapseContent collapse a-js-ignoreDuringSearch" 
+            {{# target-table }} data-target-table="{{ target-table }}" {{/ target-table }}
+            id="{{ sortable-action-id }}">
             <td colspan="4" class="p-t-0">
               <span class="m-l-4 p-l-3">
                {{ sortable-action-text }}
