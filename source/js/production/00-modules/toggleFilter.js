@@ -1,6 +1,23 @@
 /* globals $ */
 var toggleFilter = function() {
-  $('button[data-toggle="collapse"], .a-collapseTitle').on('mouseup', function() {
+  $('.a-sortable-action-row.a-collapseContent').on('hide.bs.collapse', function(e) {
+    $(e.currentTarget).hide();
+    $(e.currentTarget).prev().removeClass('open');
+  });
+  $('.a-sortable-action-row.a-collapseContent').on('show.bs.collapse', function(e) {
+    $(e.currentTarget).show();
+    $(e.currentTarget).prev().addClass('open');
+    $('.a-sortable-action-row.a-collapseContent').each(function() {
+      if ($(this)[0].id !== e.currentTarget.id) {
+        $(this).hide();
+        $(this).collapse('hide');
+        $(this).prev().removeClass('open');
+        $(this).prev().find('.a-collapse-title').addClass('collapsed');
+      }
+    });
+  });
+
+  $('.a-collapse-title').on('mouseup', function() {
     var actionRow = $(this).attr('data-target');
     if (!$(this).hasClass('collapsed')) {
       $(this).addClass('collapsed');
@@ -8,14 +25,15 @@ var toggleFilter = function() {
       $(actionRow).css('display', 'none');
     } else {
       $('.a-collapseContent').removeClass('in');
-      $('.a-collapseTitle').addClass('collapsed');
+      $('.a-collapse-title').addClass('collapsed');
       $(this).removeClass('collapsed');
-      $('.open').next().css('display', 'none'); $('.open').removeClass('open');
+      $('.open').next().css('display', 'none');
+      $('.open').removeClass('open');
       $(actionRow).css('display', 'initial');
       $(actionRow).prev().addClass('open');
     }
   });
-  $('.a-collapseTitle').on('keyup', function(e) {
+  $('.a-collapse-title').on('keyup', function(e) {
     var key = e.which;
     if (key === 13) {
       e.stopImmediatePropagation(); e.stopPropagation(); e.preventDefault();

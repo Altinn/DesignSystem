@@ -17,7 +17,7 @@ window.smoothStateMod = function() {
   // Old variant, targeting all a-tags and excluding specific ones:
   // $('#smoothState').find(
   //   'a:not(.a-js-hideFromSmoothState)' +
-  //   ':not(.a-collapseTitle)' +
+  //   ':not(.a-collapse-title)' +
   //   ':not(.a-collapseBtn)' +
   //   ':not(.sr-only-focusable)' +
   //   ':not(.a-colnav-item)' +
