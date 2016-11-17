@@ -1,16 +1,16 @@
 var setupAddRightsHandler = function() {
+  var $actionsRow;
+  var targetTable;
+  var toBeCopied;
   $('.a-js-confirmAddRightBtn').on('click', function() {
     $(this).closest('.a-collapseContent').prev().addClass('a-sortable-row-complete');
 
-    var $actionsRow = $($(this).closest('tr'));
-    console.log($actionsRow[0].dataset);
-    var targetTable = $actionsRow[0].dataset.targetTable;
-      console.log(targetTable);
+    $actionsRow = $($(this).closest('tr'));
+    targetTable = $actionsRow[0].dataset.targetTable;
     if (targetTable) {
-      console.log(targetTable);
-
-      var toBeCopied = $actionsRow.prev().clone();
+      toBeCopied = $actionsRow.prev().clone();
       $(toBeCopied).find('.a-collapseTitle').toggleClass('toggle-collapse-text');
+      $(toBeCopied).find('.a-collapseTitle').addClass('collapsed');
 
       $actionsRow.prev().addClass('a-sortable-row-complete');
 
@@ -19,6 +19,5 @@ var setupAddRightsHandler = function() {
 
       toBeCopied.removeClass('a-sortable-row-complete');
     }
-    toggleFilter();
   });
 };
