@@ -1,5 +1,5 @@
 var resetSearchTarget = function($targetTable) {
-  $targetTable.find('tr').each(function() {
+  $targetTable.find('tr:not(.a-js-ignoreDuringSearch)').each(function() {
     $(this).show();
     $(this).find('td[data-searchable]').each(function() {
       var columnValue = $(this).text();
@@ -42,7 +42,7 @@ var executeSearch = function($searchInput, $targetTable) {
     });
 
     // If there was no match in any of the searchable columns, hide the current row
-    if (!match) {
+    if (!match && !$currentRow.hasClass('a-js-ignoreDuringSearch')) {
       $currentRow.hide();
     }
   });
@@ -68,6 +68,9 @@ var searchTableWithHighlight = function($searchInput, $targetTable) {
 // "search-algorithm" set to "show-and-highlight"
 $(document).on('ready', function() {
   $('input[data-search-algorithm="show-and-highlight"]').each(function() {
-    searchTableWithHighlight($(this), $('#' + this.dataset.searchTarget));
+    var input = this;
+    $.each(this.dataset.searchTarget.split(','), function() {
+      searchTableWithHighlight($(input), $('#' + this.toString()));
+    });
   });
 });
