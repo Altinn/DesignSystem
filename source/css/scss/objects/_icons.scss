@@ -54,17 +54,29 @@
 
   // The text
   .a-iconText-text {
-    .a-iconText-text-large {
-      margin-bottom: 0;
-      font-size: 24px;
-      line-height: 30px;
-      font-family: $font-medium;
-      font-weight: $font-weight-medium;
-    }
     .a-iconText-text-small {
      font-size: 16px;
      display: block;
      margin-bottom: 0;
+    }
+    .a-iconText-text-large {
+      margin-bottom: 0;
+      font-size: 18px;
+      line-height: 24px;
+      font-family: $font-medium;
+      font-weight: $font-weight-medium;
+
+      @include media-breakpoint-up(lg) {
+        font-size: 24px;
+        line-height: 30px;
+      }
+    }
+    // If there is a small text above, large text should be smaller
+    .a-iconText-text-small +.a-iconText-text-large{
+      @include media-breakpoint-up(lg) {
+        font-size: 22px;
+        line-height: 28px;
+      }
     }
     .a-link {
       font-size: 20px;
