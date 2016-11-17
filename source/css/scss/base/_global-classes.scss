@@ -10,67 +10,66 @@ html {
 html,
 body {
   font-size: 16px;
-  font-family: $font-reg;
   font-weight: $font-weight-reg;
   color: $black;
   background-color: $white;
-  // padding-bottom: 50px;
 }
 
 /* Selection style */
 
 ::selection {
-  background: #e0daf7;
-  color: #000;
+  color: $black;
+  background: $purple-light;
 }
 
 
 /* Backround colors */
 
-body.private-person,
-html.private-person {
-  background-color: $grey-light;
-  overflow-y: scroll;
+body,
+html {
+  &.private-person {
+    overflow-y: scroll;
+    background-color: $grey-light;
+  }
+
+  &.business {
+    overflow-y: scroll;
+    background-color: $blue-light;
+  }
+
+  &.neutral {
+    overflow-y: scroll;
+    background-color: $white;
+  }
+
+  &.a-modal-background-success {
+    background: $green-light;
+  }
+
+  &.a-modal-background {
+    overflow-y: scroll;
+    background: $blue;
+  }
+
+  &.a-modal-background-error {
+    background: $red-light;
+  }
 }
 
-body.business,
-html.business {
-  background-color: $blue-light;
-  overflow-y: scroll;
+body {
+  &.a-bgWhite {
+    background-color: $white;
+  }
+
+  &.a-bgGreyLight {
+    background-color: $grey-light;
+  }
+
+  &.a-body-bgBlueLight {
+    background-color: $blue-light !important;
+  }
 }
 
-body.neutral,
-html.neutral {
-  background-color: $white;
-  overflow-y: scroll;
-}
-
-body.a-bgWhite {
-  background-color: $white;
-}
-
-body.a-bgGreyLight {
-  background-color: $grey-light;
-}
-body.a-body-bgBlueLight {
-   background-color: $blue-light !important;
-}
-
-body.a-modal-background,
-html.a-modal-background {
-  background: $blue;
-  overflow-y: scroll;
-}
-
-body.a-modal-background-success,
-html.a-modal-background-success {
-  background: $green-light;
-}
-
-body.a-modal-background-error,
-html.a-modal-background-error {
-  background: $red-light;
-}
 
 mark,
 .mark {
@@ -79,75 +78,76 @@ mark,
 }
 
 .a-bgGreyLight {
-  background-color: $grey-light;
   color: $black;
+  background-color: $grey-light;
+
   &:hover {
-    background: darken($grey-light, 2%)
+    background: darken( $grey-light, 2% );
   }
 }
 
 .a-bgPurple {
-  background-color: $purple;
   color: $white;
+  background-color: $purple;
 }
 
 .a-bgPurpleLight {
-  background-color: $purple-light;
   color: $black;
+  background-color: $purple-light;
 }
 
 .a-bgYellow {
-  background-color: $yellow;
   color: $black;
+  background-color: $yellow;
 }
 
 .a-bgYellowLight {
-  background-color: $yellow-light;
   color: $black;
+  background-color: $yellow-light;
 }
 
 .a-bgBlue {
-   background-color: $blue !important;
-   color: $white !important;
+  color: $white !important;
+  background-color: $blue !important;
 }
 
 .a-bgBlueLight {
-  background-color: $blue-light;
   color: $white;
+  background-color: $blue-light;
 }
 
 .a-bgBlueDark {
-  background-color: $blue-dark;
   color: $white;
+  background-color: $blue-dark;
 }
 
 .a-bgBlueDarker {
-  background-color: $blue-darker;
   color: $white;
+  background-color: $blue-darker;
 }
 
 .a-bgRed {
-  background-color: $red;
   color: $black;
+  background-color: $red;
 }
 
 .a-bgRedLight {
-  background-color: $red-light;
   color: $black;
+  background-color: $red-light;
 }
 
 .a-bgGreen {
-  background-color: $green;
   color: $black;
+  background-color: $green;
 }
 
 .a-bgGreenLight {
-  background-color: $green-light;
   color: $black;
+  background-color: $green-light;
 }
 
 .a-dimBackground {
-  background: rgba(0, 0, 0, 0.3)
+  background: rgba( $black, 0.3 );
 }
 
 
@@ -161,13 +161,15 @@ mark,
 
 .a-bgPanel {
   padding: $spacer * 2;
+  margin-bottom: $spacer;
   background-color: $white;
   border-radius: 0;
-  margin-bottom: $spacer;
   box-shadow: $shadow;
+
   &.a-bgPanel-grey {
     background-color: $grey-light;
   }
+
   &.a-bgPanel-blueLight {
     background-color: $blue-light;
   }
@@ -177,8 +179,9 @@ mark,
 
 .a-placeholderBackground {
   background-image: url('../../images/brick_pattern.svg');
-  background-size: 13%;
   background-repeat: repeat;
+  background-size: 13%;
+
   background-blend-mode: multiply;
 }
 
@@ -187,9 +190,11 @@ mark,
 .a-textGreen {
   color: $green;
 }
+
 .a-textWhite {
   color: $white !important;
 }
+
 .a-textBlue {
   color: $blue;
 }
@@ -198,42 +203,42 @@ mark,
 /* Horizontal Rule */
 
 hr {
-  border: 0;
-  height: 2px;
-  background: transparent;
-  margin: 40px 0;
-  border-bottom: 1px solid $grey-medium;
-  width: 100%;
   float: left;
-}
+  width: 100%;
+  height: 2px;
+  margin: 40px 0;
+  background: transparent;
+  border: none;
+  border-bottom: 1px solid $grey-medium;
 
-hr.a-hr-smallPadding {
-  margin: 24px 0;
-}
+  &.a-hr-smallPadding {
+    margin: 24px 0;
+  }
 
-hr.a-hrLight {
-  border-bottom: 1px solid $grey-light;
-}
+  &.a-hrLight {
+    border-bottom: 1px solid $grey-light;
+  }
 
-hr {
   &.a-hrDotted {
-    border: 0;
+    display: block;
     width: 100%;
     height: 2px;
-    display: block;
-    background-image: linear-gradient(to right, $blue 50%, rgba(255, 255, 255, 0) 0%);
+    background-image: linear-gradient( to right, $blue 50%, rgba( 255, 255, 255, 0 ) 0% );
+    background-repeat: repeat-x;
     background-position: bottom;
     background-size: 4px 2px;
-    background-repeat: repeat-x;
+    border: none;
   }
 }
 
+
+
 // Horizontal Rule - Dotted border
 .a-dotted {
-  background-image: linear-gradient(to right, $blue 50%, rgba(255, 255, 255, 0) 0%);
+  background-image: linear-gradient( to right, $blue 50%, rgba( 255, 255, 255, 0 ) 0% );
+  background-repeat: repeat-x;
   background-position: 25px bottom; // Must be either top or bottom, not both. If both are needed, add a div with class "a-dotted-line" before or after the element.
   background-size: 4px 2px;
-  background-repeat: repeat-x;
 
   /* Horizontal Rule - Dotted AND disabled */
   &.a-disabled {
@@ -242,18 +247,19 @@ hr {
     background-repeat: repeat, repeat-x;
     background-position: 25px bottom;
     background-size: auto, 4px 2px;
+
     background-blend-mode: darken;
   }
 }
 
 .a-dotted-line {
+  display: block;
   width: 100%;
   height: 2px;
-  display: block;
-  background-image: linear-gradient(to right, $blue 50%, rgba(255, 255, 255, 0) 0%);
+  background-image: linear-gradient( to right, $blue 50%, rgba( 255, 255, 255, 0 ) 0% );
+  background-repeat: repeat-x;
   background-position: bottom;
   background-size: 4px 2px;
-  background-repeat: repeat-x;
 }
 
 /* Grid Edit */
@@ -263,7 +269,8 @@ hr {
 }
 
 .a-noColPadding {
-  margin: 0;
+  margin: none;
+
   .col-xs-1,
   .col-xs-2,
   .col-xs-3,
@@ -329,7 +336,7 @@ hr {
   .col-md,
   .col-lg,
   .col-xl {
-    padding-left: 0;
     padding-right: 0;
+    padding-left: 0;
   }
 }
