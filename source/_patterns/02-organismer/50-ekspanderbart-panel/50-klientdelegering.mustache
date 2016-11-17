@@ -1,6 +1,13 @@
-<div class="panel panel-default a-panel a-collapse" role="tablist">
-	{{> molekyler-panel-header }}
-	<div id="{{ collapse-panel-id }}" class="panel-collapse a-panel-collapse collapse" role="tabpanel" aria-labelledby="{{ collapse-panel-id }}">
+<div class="panel a-collapsePanel {{{isLarge}}} {{{ styleModifier }}}" role="tablist">
+
+	<div class="panel-heading index-heading collapsed a-collapsePanel-heading {{isExpanded}}" role="tab" tabindex="0" data-toggle="collapse" data-target="#{{{collapseID}}}" aria-expanded="false" aria-controls="#{{{collapseID}}}" {{{dataParent}}}>
+		{{# collapseHeader }}
+				{{> molekyler-ikon-tekst }}
+		{{/ collapseHeader }}
+	</div>
+
+	<div id="{{ collapseID }}" class="panel-collapse a-collapsePanel-body collapse {{{ isVisibleFromStart }}}" role="tabpanel" aria-labelledby="{{ collapse-panel-id }}"> 
+
 		<div class="panel-collapse-content-section p-x-2 p-b-2">
 			<div class="first-action p-t-3">
 				{{> atomer-knapp-veksle }}
@@ -25,8 +32,8 @@
 				{{/ sok-etter-person }}
 			</div>
 			<div class="fourth-action m-t-3" id="searchHiddenForClient">
-					{{# klientdelegering-add }} 
-						{{> atomer-handlingsknapp-full-bredde }} 
+					{{# klientdelegering-add }}
+						{{> atomer-handlingsknapp-full-bredde }}
 					{{/ klientdelegering-add}}
 			</div>
 		</div>

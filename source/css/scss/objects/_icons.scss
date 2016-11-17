@@ -1,6 +1,141 @@
-.a-icon {}
+
+/*------------------------------------*\
+    ICON
+\*------------------------------------*/
+.a-icon {
+ display: table-cell;
+ vertical-align: middle;
+ text-align: center;
+ width: 60px;
+ min-width: 60px;
+ height: 60px;
+ font-size: 48px;
+ &.a-icon-circle {
+   font-size: 36px;
+ }
+}
+
+// Small icon
+.a-icon-small {
+ width: 48px;
+ height: 48px;
+ font-size: 36px;
+ &.a-icon-circle {
+   font-size: 24px;
+ }
+}
+
+// Icon inside circle
+.a-icon-circle {
+ border-radius: 50%;
+ background-color: $grey-light;
+}
+
+
+/*------------------------------------*\
+    ICON WITH TEXT NEXT TO IT
+\*------------------------------------*/
+// The container
+.a-iconText {
+  width: 100%;
+  min-height: 84px;
+  display: flex;
+  -webkit-box-align: center;
+  align-items: center;
+
+  // The icon
+  .a-iconText-icon {
+    width: 60px;
+    margin-right: $spacer;
+    .a-date {
+      margin: 0;
+    }
+  }
+
+  // The text
+  .a-iconText-text {
+    .a-iconText-text-large {
+      margin-bottom: 0;
+      font-size: 24px;
+      line-height: 30px;
+      font-family: $font-medium;
+      font-weight: $font-weight-medium;
+    }
+    .a-iconText-text-small {
+     font-size: 16px;
+     display: block;
+     margin-bottom: 0;
+    }
+    .a-link {
+      font-size: 20px;
+      line-height: 28px;
+      font-family: $font-bold;
+      font-weight: $font-weight-bold;
+    }
+  }
+
+  // VARIATION: Shadow
+  &.a-iconText-shadow {
+    box-shadow: $shadow;
+    padding: $spacer;
+  }
+
+  // VARIATION: Backgrounds
+  &.a-iconText-background {
+    background: #6a6a6a;
+    padding: $spacer;
+    color: $white;
+    .a-icon-circle {
+      color: $black;
+    }
+    &.a-iconText-background--blueDarker {
+      background: $blue-darker;
+      color: $white;
+    }
+    &.a-iconText-background--greyLight {
+      background: $grey-light;
+      color: $black;
+    }
+  }
+}
+// VARIATION: Change background colors based on body background
+.private-person {
+  .a-iconText.a-iconText-background {
+    &.a-iconText-background--greyLight {
+      background: $white;
+    }
+  }
+}
+
+// VARIATION: Large
+.a-iconText-large {
+  @include media-breakpoint-up(lg) {
+    min-height: 100px;
+
+    .a-iconText-icon {
+      width: 76px; // ( 100px - 24px)
+    }
+    .a-icon {
+      width: 76px;
+      min-width: 76px;
+      height: 76px;
+      font-size: 60px;
+
+      &.a-icon-circle {
+       font-size: 36px;
+      }
+    }
+  }
+}
+
+
+
+
+
+
+// Profilmanual css? (TODO: move to ap-css)
 
 .a-icon-right {
-  float: right;
-  display: inline;
+ float: right;
+ display: inline;
 }
