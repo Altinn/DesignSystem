@@ -3,43 +3,49 @@
     Underline from center
 \*------------------------------------*/
 
-@include media-breakpoint-up(md) {
+@include media-breakpoint-up( md ) {
   .hvr-underline-from-center {
+    position: relative;
     display: inline-block;
+    overflow: hidden;
     vertical-align: middle;
-    -webkit-transform: translateZ(0);
-    transform: translateZ(0);
-    box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+    box-shadow: 0 0 1px $black;
+    -webkit-transform: translateZ( 0 );
+    transform: translateZ( 0 );
     -webkit-backface-visibility: hidden;
     backface-visibility: hidden;
     -moz-osx-font-smoothing: grayscale;
-    position: relative;
-    overflow: hidden;
+
     &:focus {
       box-shadow: none;
     }
-  }
-  .hvr-underline-from-center:before {
-    content: "";
-    position: absolute;
-    z-index: -1;
-    left: 50%;
-    right: 50%;
-    bottom: 0;
-    background: $blue-dark;
-    height: 3px;
-    -webkit-transition-property: left, right;
-    transition-property: left, right;
-    -webkit-transition-duration: 0.3s;
-    transition-duration: 0.3s;
-    -webkit-transition-timing-function: ease-out;
-    transition-timing-function: ease-out;
-  }
-  .hvr-underline-from-center:hover:before,
-  .hvr-underline-from-center:focus:before,
-  .hvr-underline-from-center:active:before {
-    left: 0;
-    right: 0;
+
+    &::before {
+      position: absolute;
+      right: 50%;
+      bottom: 0;
+      left: 50%;
+      z-index: -1;
+      height: 3px;
+      content: '';
+      background: $blue-dark;
+      -webkit-transition-property: left, right;
+      transition-property: left, right;
+      -webkit-transition-duration: .3s;
+      transition-duration: .3s;
+      -webkit-transition-timing-function: ease-out;
+      transition-timing-function: ease-out;
+    }
+
+    &:hover,
+    &:focus,
+    &:active {
+      &::before {
+        right: 0;
+        left: 0;
+      }
+    }
+
   }
 }
 
@@ -51,24 +57,24 @@
 
 .hvr-fade {
   display: inline-block;
+  overflow: hidden;
   vertical-align: middle;
-  -webkit-transform: translateZ(0);
-  transform: translateZ(0);
-  box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+  box-shadow: 0 0 1px $black;
+  -webkit-transition-duration: .3s;
+  transition-duration: .3s;
+  -webkit-transform: translateZ( 0 );
+  transform: translateZ( 0 );
   -webkit-backface-visibility: hidden;
   backface-visibility: hidden;
   -moz-osx-font-smoothing: grayscale;
-  overflow: hidden;
-  -webkit-transition-duration: 0.3s;
-  transition-duration: 0.3s;
   -webkit-transition-property: color, background-color;
   transition-property: color, background-color;
-}
 
-.hvr-fade:hover,
-.hvr-fade:focus,
-.hvr-fade:active {
-  background-color: $blue-light;
+  &:hover,
+  &:focus,
+  &:active {
+    background-color: $blue-light;
+  }
 }
 
 
@@ -85,6 +91,7 @@
   0% {
     opacity: 0;
   }
+
   100% {
     opacity: 1;
   }
@@ -93,8 +100,9 @@
 @keyframes fadeInUp {
   0% {
     opacity: 0;
-    transform: translate3d(0, 100%, 0);
+    transform: translate3d( 0, 100%, 0 );
   }
+
   100% {
     opacity: 1;
     transform: none;
@@ -104,8 +112,9 @@
 @keyframes fadeInRight {
   0% {
     opacity: 0;
-    transform: translate3d(125%, 0, 0);
+    transform: translate3d( 125%, 0, 0 );
   }
+
   100% {
     opacity: 1;
     transform: none;
@@ -117,9 +126,10 @@
     opacity: 0;
     transform: none;
   }
+
   100% {
     opacity: 1;
-    transform: translate3d(125%, 0, 0);
+    transform: translate3d( 125%, 0, 0 );
   }
 }
 
@@ -128,17 +138,19 @@
     opacity: 0;
     transform: none;
   }
+
   100% {
     opacity: 1;
-    transform: translate3d(-125%, 0, 0);
+    transform: translate3d( -125%, 0, 0 );
   }
 }
 
 @keyframes fadeInLeft {
   0% {
     opacity: 0;
-    transform: translate3d(-125%, 0, 0);
+    transform: translate3d( -125%, 0, 0 );
   }
+
   100% {
     opacity: 1;
     transform: none;
@@ -153,33 +165,40 @@
 .a-scene {
   display: block;
   overflow: hidden;
+
   /** Basic styles for an animated element */
   .a-scene_element {
     display: block;
-    animation-duration: 0.25s;
     transition-timing-function: ease-in;
+    animation-duration: .25s;
     animation-fill-mode: both;
   }
+
   /** An element that fades in */
   .a-scene_element--fadein {
     animation-name: fadeIn;
   }
+
   /** An element that fades in and slides up */
   .a-scene_element--fadeinup {
     animation-name: fadeInUp;
   }
+
   /** An element that fades in and slides from the right */
   .a-scene_element--fadeinright {
     animation-name: fadeInRight;
   }
+
   /** An element that fades in and slides from the right */
   .a-scene_element--fadeoutright {
     animation-name: fadeOutRight;
   }
+
   /** An element that fades out and slides to the left */
   .a-scene_element--fadeoutleft {
     animation-name: fadeOutLeft;
   }
+
   /** An element that fades out and slides to the left */
   .a-scene_element--fadeinleft {
     animation-name: fadeInLeft;

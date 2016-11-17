@@ -18,11 +18,11 @@ var onConfirmDeletionClick = function() {
   return goToReceipt;
 };
 
-var handleModalClose = function(src) {
+var handleModalClose = function(src, targetUrl) {
   var hasSelectedRows = $('table[data-table-eventhandler="tableRowToggle"] tr.selected').length > 0;
   if (!hasSelectedRows) {
     $(src).popover('disable');
-    goBack();
+    location.href = targetUrl;
   }
 };
 
