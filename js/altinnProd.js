@@ -11,8 +11,27 @@ var aTagSpaceExpand = function() {
 };
 
 var setupAddRightsHandler = function() {
+  var $actionsRow;
+  var targetTable;
+  var toBeCopied;
   $('.a-js-confirmAddRightBtn').on('click', function() {
+    $(this).closest('.a-collapseContent').collapse('hide');
     $(this).closest('.a-collapseContent').prev().addClass('a-sortable-row-complete');
+
+    $actionsRow = $($(this).closest('tr'));
+    targetTable = $actionsRow[0].dataset.targetTable;
+    if (targetTable) {
+      toBeCopied = $actionsRow.prev().clone();
+      $(toBeCopied).find('.a-collapseTitle').toggleClass('toggle-collapse-text');
+      $(toBeCopied).find('.a-collapseTitle').addClass('collapsed');
+
+      $actionsRow.prev().addClass('a-sortable-row-complete');
+
+      $('#' + targetTable + ' tbody').append(toBeCopied);
+      $('#' + targetTable + ' tbody').append($actionsRow);
+
+      toBeCopied.removeClass('a-sortable-row-complete');
+    }
   });
 };
 
@@ -827,7 +846,7 @@ var questionnaireInteraction = function() {
 };
 
 var resetSearchTarget = function($targetTable) {
-  $targetTable.find('tr').each(function() {
+  $targetTable.find('tr:not(.a-js-ignoreDuringSearch)').each(function() {
     $(this).show();
     $(this).find('td[data-searchable]').each(function() {
       var columnValue = $(this).text();
@@ -870,7 +889,7 @@ var executeSearch = function($searchInput, $targetTable) {
     });
 
     // If there was no match in any of the searchable columns, hide the current row
-    if (!match) {
+    if (!match && !$currentRow.hasClass('a-js-ignoreDuringSearch')) {
       $currentRow.hide();
     }
   });
@@ -896,7 +915,10 @@ var searchTableWithHighlight = function($searchInput, $targetTable) {
 // "search-algorithm" set to "show-and-highlight"
 $(document).on('ready', function() {
   $('input[data-search-algorithm="show-and-highlight"]').each(function() {
-    searchTableWithHighlight($(this), $('#' + this.dataset.searchTarget));
+    var input = this;
+    $.each(this.dataset.searchTarget.split(','), function() {
+      searchTableWithHighlight($(input), $('#' + this.toString()));
+    });
   });
 });
 
@@ -920,11 +942,11 @@ var onConfirmDeletionClick = function() {
   return goToReceipt;
 };
 
-var handleModalClose = function(src) {
+var handleModalClose = function(src, targetUrl) {
   var hasSelectedRows = $('table[data-table-eventhandler="tableRowToggle"] tr.selected').length > 0;
   if (!hasSelectedRows) {
     $(src).popover('disable');
-    goBack();
+    location.href = targetUrl;
   }
 };
 
@@ -975,6 +997,8 @@ var setupDeletableRowsTable = function() {
 
 var sortAlphanumerically;
 var defaultSort;
+var reappendChildRows;
+
 var compareTo = function(firstItem, secondItem) {
   var first;
   var second;
@@ -1002,7 +1026,7 @@ var compareTo = function(firstItem, secondItem) {
 
 sortAlphanumerically = function(src, sortIndex) {
   var $table = $(src).closest('table');
-  var rows = $table.find('tbody tr');
+  var rows = $table.find('tbody tr:not(.a-sortable-action-row)');
   $($table.find('th')).removeClass('active');
   $(src).addClass('active');
   rows.sort(function(a, b) {
@@ -1013,9 +1037,14 @@ sortAlphanumerically = function(src, sortIndex) {
     return compareTo(A, B);
   });
 
+  reappendChildRows($table, rows);
+};
 
+reappendChildRows = function($table, rows) {
   $.each(rows, function(index, row) {
+    var prev = $(row).next('.a-sortable-action-row');
     $table.children('tbody').append(row);
+    $table.children('tbody').append(prev);
   });
 };
 
@@ -1043,7 +1072,24 @@ var toggleExpand = function() {
 
 /* globals $ */
 var toggleFilter = function() {
-  $('button[data-toggle="collapse"], .a-collapseTitle').on('mouseup', function() {
+  $('.a-sortable-action-row.a-collapseContent').on('hide.bs.collapse', function(e) {
+    $(e.currentTarget).hide();
+    $(e.currentTarget).prev().removeClass('open');
+  });
+  $('.a-sortable-action-row.a-collapseContent').on('show.bs.collapse', function(e) {
+    $(e.currentTarget).show();
+    $(e.currentTarget).prev().addClass('open');
+    $('.a-sortable-action-row.a-collapseContent').each(function() {
+      if ($(this)[0].id !== e.currentTarget.id) {
+        $(this).hide();
+        $(this).collapse('hide');
+        $(this).prev().removeClass('open');
+        $(this).prev().find('.a-collapse-title').addClass('collapsed');
+      }
+    });
+  });
+
+  $('.a-collapseTitle').on('mouseup', function() {
     var actionRow = $(this).attr('data-target');
     if (!$(this).hasClass('collapsed')) {
       $(this).addClass('collapsed');
@@ -1051,14 +1097,15 @@ var toggleFilter = function() {
       $(actionRow).css('display', 'none');
     } else {
       $('.a-collapseContent').removeClass('in');
-      $('.a-collapseTitle').addClass('collapsed');
+      $('.a-collapse-title').addClass('collapsed');
       $(this).removeClass('collapsed');
-      $('.open').next().css('display', 'none'); $('.open').removeClass('open');
+      $('.open').next().css('display', 'none');
+      $('.open').removeClass('open');
       $(actionRow).css('display', 'table-row');
       $(actionRow).prev().addClass('open');
     }
   });
-  $('.a-collapseTitle').on('keyup', function(e) {
+  $('.a-collapse-title').on('keyup', function(e) {
     var key = e.which;
     if (key === 13) {
       e.stopImmediatePropagation(); e.stopPropagation(); e.preventDefault();
