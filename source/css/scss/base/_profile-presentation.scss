@@ -5,20 +5,24 @@
 *  ap = Altinn Profile
 \*------------------------------------*/
 
-body.ap-profile {
-  background: $white;
-  overflow-x: hidden;
+body {
+  &.ap-profile {
+    overflow-x: hidden;
+    background: $white;
+  }
+
+  &.ap-profile-pattern {
+    overflow: hidden;
+  }
 }
 
-body.ap-profile-pattern {
-  overflow: hidden;
-}
-
-iframe.ap-showPatternlab {
-  width: 100%;
-  height: 100vh;
-  margin: 0;
-  border: 0;
+iframe {
+  .ap-showPatternlab {
+    width: 100%;
+    height: 100vh;
+    margin: 0;
+    border: none;
+  }
 }
 
 .ap-navbarLeft-contentContainer {
@@ -28,12 +32,13 @@ iframe.ap-showPatternlab {
 }
 
 .ap-content {
-  max-width: 900px;
-  margin: auto;
-  padding: 24px;
   @include media-breakpoint-up(md) {
     margin-top: 60px;
   }
+
+  max-width: 900px;
+  padding: 24px;
+  margin: auto;
   .col-xs-1,
   .col-xs-2,
   .col-xs-3,
@@ -102,110 +107,128 @@ iframe.ap-showPatternlab {
 // SIDE NAV FOR ALTINN PROFILE MANUAL
 // TODO: Could possibly be global and reused for other sites of Altinn
 .ap-sideNav {
-  padding: 0;
-  width: 100%;
   display: block;
+  width: 100%;
+  padding: 0;
+
   @include media-breakpoint-up(md) {
     width: 300px;
   }
+
   .ap-sideNav-top {
     display: block;
-    padding: 36px 12px;
     width: 100%;
+    padding: 36px 12px;
     text-align: center;
     border-bottom: 1px solid $grey-light;
+
     @include media-breakpoint-up(md) {
       position: fixed;
       top: 0;
       left: 0;
-      border-right: 1px solid $grey-light;
       width: 300px;
+      border-right: 1px solid $grey-light;
     }
+
     img {
       width: 160px;
       margin: auto;
       margin-bottom: 12px;
     }
+
     h1 {
-      color: $grey-medium;
-      font-family: $font-light;
-      font-weight: $font-weight-light;
-      font-size: 16px;
-      line-height: 30px;
       margin-bottom: 0;
+      font-family: $font-light;
+      font-size: 16px;
+      font-weight: $font-weight-light;
+      line-height: 30px;
+      color: $grey-medium;
     }
   }
+
   // Titlebar (Shows only for small screens)
   .ap-sideNav-mobilebar {
-    background: $blue-dark;
-    color: $white;
-    cursor: pointer;
-    position: relative;
     @include media-breakpoint-up(md) {
       display: none !important;
     }
+
+    position: relative;
+    color: $white;
+    cursor: pointer;
+
+    background: $blue-dark;
     :after {
-      content: '';
+      position: absolute;
+      top: 50%;
+      right: 1rem;
       display: block;
       width: 0;
       height: 0;
+      margin-top: -4px;
+
+      content: '';
       border: inset 6px;
       border-color: $white transparent transparent;
       border-top-style: solid;
       border-bottom-width: 0;
-      position: absolute;
-      top: 50%;
-      margin-top: -4px;
-      right: 1rem;
+      transition: all 300ms ease;
+
       -webkit-transition: all 300ms ease;
       -moz-transition: all 300ms ease;
       -ms-transition: all 300ms ease;
       -o-transition: all 300ms ease;
-      transition: all 300ms ease;
     }
     &.open {
       :after {
-        -webkit-transform-origin: 50% 50%;
-        -ms-transform-origin: 50% 50%;
+        transition: all 300ms ease;
+        transform: scaleY(-1);
         transform-origin: 50% 50%;
+
         -webkit-transform: scaleY(-1);
         -ms-transform: scaleY(-1);
-        transform: scaleY(-1);
+
+        -webkit-transform-origin: 50% 50%;
+        -ms-transform-origin: 50% 50%;
         -webkit-transition: all 300ms ease;
         -moz-transition: all 300ms ease;
         -ms-transition: all 300ms ease;
         -o-transition: all 300ms ease;
-        transition: all 300ms ease;
       }
     }
     .ap-sideNav-mobilebar-toggle {
       display: block;
       padding: 12px 24px;
       i {
-        vertical-align: middle;
         margin-top: -3px;
         margin-right: 7px;
+
+        vertical-align: middle;
       }
     }
   }
   .ap-sideNav-collapse {
+    @include media-breakpoint-up(md) {
+      position: fixed;
+      top: 139px;
+
+      display: block !important;
+
+      width: 300px;
+      overflow-y: scroll;
+      border-right: 1px solid $grey-light;
+      ;
+    }
+
+    display: none;
+
     width: 100%;
     height: 100%;
-    background: $white;
     padding: 0;
-    display: none;
-    @include media-breakpoint-up(md) {
-      display: block !important;
-      position: fixed;
-      overflow-y: scroll;
-      ;
-      width: 300px;
-      top: 139px;
-      border-right: 1px solid $grey-light;
-    }
+    background: $white;
     ul {
-      background: $white;
       padding-bottom: 139px + $spacer;
+
+      background: $white;
     }
     .menu>li>a {
       line-height: inherit;
@@ -213,12 +236,13 @@ iframe.ap-showPatternlab {
     }
     //Link
     .ap-sideNav-link {
+      display: block;
+
       padding: 17px 24px;
-      color: $black;
       font-family: $font-reg;
       font-weight: $font-weight-reg;
+      color: $black;
       border-bottom: 1px solid $grey-light;
-      display: block;
       &:hover {
         background: $grey-light;
       }
@@ -240,10 +264,11 @@ iframe.ap-showPatternlab {
     }
     // Level 2
     ul.nested {
-      margin-left: 0;
       padding-bottom: 0;
+
+      margin-left: 0;
       li {
-        background: #f9f9f9;
+        background: #F9F9F9;
         .ap-sideNav-link {
           padding: 11px 24px 11px 36px;
           font-family: $font-light;
@@ -255,8 +280,9 @@ iframe.ap-showPatternlab {
           border-bottom: 1px solid $white;
         }
         &:first-child {
-          margin-top: -1px;
           z-index: 1000;
+
+          margin-top: -1px;
         }
         &.ap-nav-active,
         &.ap-nav-active:hover {
@@ -270,8 +296,9 @@ iframe.ap-showPatternlab {
   }
   // ARROW
   .is-accordion-submenu-parent>a:after {
-    border-color: $grey-medium transparent transparent;
     right: 24px;
+
+    border-color: $grey-medium transparent transparent;
   }
 }
 
@@ -279,18 +306,19 @@ iframe.ap-showPatternlab {
 @include media-breakpoint-down(md) {
   .ap-collapse-content {
     position: absolute;
-    height: 100%;
     width: 0%;
+    height: 100%;
     overflow: hidden;
   }
 }
 
 // Standard Code view, highlight code lines
 .ap-highlight {
-  background: $grey-light;
   padding: 12px;
-  border-radius: 5px;
   margin: 12px 0;
+
+  background: $grey-light;
+  border-radius: 5px;
   pre {
     margin: 0;
   }
@@ -303,24 +331,27 @@ pre.prettyprint {
 
 // Color combinations
 .ap-colorCircle {
+  display: inline-block;
+
   width: 48px;
   height: 48px;
-  display: inline-block;
-  border-radius: 999px;
+  padding-top: 8px;
   margin-right: 1rem;
   font-size: 24px;
-  padding-top: 8px;
   text-align: center;
   vertical-align: middle;
+  border-radius: 999px;
 }
 
 // Shadows
 .ap-shadowBox {
-  height: 100px;
-  width: 100px;
   display: block;
-  background: #fff;
+  width: 100px;
+
+  height: 100px;
+  background: #FFFFFF;
   box-shadow: 1px 1px 4px 0px rgba(137, 137, 137, 0.5);
+
   -webkit-box-shadow: 1px 1px 4px 0 rgba(137, 137, 137, 0.5);
 }
 
@@ -335,29 +366,33 @@ pre.prettyprint {
 }
 
 .ap-gridExample-col {
-  padding: 12px 0;
-  background-color: rgba(86, 61, 124, .15);
-  width: 100%;
-  text-align: center;
   float: left;
+  width: 100%;
+
+  padding: 12px 0;
+  text-align: center;
+  background-color: rgba(86, 61, 124, .15);
 }
 
 // Patternlab Color palette
 .ap-colors {
-  list-style: none;
   clear: both;
+
+  list-style: none;
   li {
-    border: none;
-    width: 100%;
-    padding: 0 10px 0 0;
-    margin: 0;
-    float: left;
     @include media-breakpoint-up(md) {
       width: 25%;
       &:last-child {
         padding-right: 0;
       }
     }
+
+    float: left;
+    width: 100%;
+    padding: 0 10px 0 0;
+    margin: 0;
+
+    border: none;
   }
 }
 
@@ -367,14 +402,15 @@ pre.prettyprint {
 }
 
 .ap-swatch {
-  border-radius: 2px;
-  width: 100%;
-  text-align: center;
-  padding-top: 15px;
-  display: block;
-  height: 72px;
-  margin-bottom: 10px;
   position: relative;
+  display: block;
+  width: 100%;
+  height: 72px;
+  padding-top: 15px;
+  margin-bottom: 10px;
+  text-align: center;
+
+  border-radius: 2px;
   .ap-colorLabel {
     position: absolute;
     top: 12px;
@@ -383,12 +419,14 @@ pre.prettyprint {
     left: 0;
     display: block;
     opacity: 0;
-    -webkit-transition: 0.2s all;
     transition: 0.2s all;
+
+    -webkit-transition: 0.2s all;
   }
   &:hover .ap-colorLabel {
-    display: block;
     right: 0;
+
+    display: block;
     opacity: 1;
   }
 }
@@ -397,10 +435,10 @@ pre.prettyprint {
 .ap-iconPreview {
   display: inline;
   float: left;
-  text-align: center;
-  margin-bottom: $spacer;
   padding: $spacer;
   padding-top: 0;
+  margin-bottom: $spacer;
+  text-align: center;
   &:hover {
     background-color: $grey-light;
   }
@@ -423,30 +461,34 @@ pre.prettyprint {
 }
 
 .material-icons.ap-fonticon {
-  color: $black;
   font-size: 36px;
+
+  color: $black;
 }
 
 // Icons Fort Awesome
 .ap-kitIcons {
   margin-bottom: 24px;
   .ap-kitIcons-icon {
-    text-align: center;
     display: inline-block;
     padding: 12px 24px;
     color: $grey-medium;
+
+    text-align: center;
     border: none;
     border-radius: 5px;
     &:hover {
-      background: $blue;
       color: $white;
+
+      background: $blue;
     }
   }
   .ap-kitIcons-name {
-    font-size: 14px;
-    font-family: $font-light;
-    font-weight: $font-weight-light;
     display: block;
+    font-family: $font-light;
+
+    font-size: 14px;
+    font-weight: $font-weight-light;
   }
 }
 
@@ -456,9 +498,10 @@ pre.prettyprint {
 }
 
 .ap-typo {
-  border-bottom: 1px dotted rgba(0, 0, 0, 0.1);
-  background: $white;
   padding: 30px 0 30px 40px;
+  background: $white;
+
+  border-bottom: 1px dotted rgba(0, 0, 0, 0.1);
   &:hover {
     background: #F9F9F9;
   }
@@ -473,35 +516,39 @@ pre.prettyprint {
 .ap-typo-activeSize-m {
   // mobile
   @include media-breakpoint-down(sm) {
-    color: $green;
     font-family: $font-bold;
     font-weight: $font-weight-bold;
+
+    color: $green;
   }
 }
 
 .ap-typo-activeSize-t {
   // tablet
   @include media-breakpoint-only(md) {
-    color: $green;
     font-family: $font-bold;
     font-weight: $font-weight-bold;
+
+    color: $green;
   }
 }
 
 .ap-typo-activeSize-l {
   // laptop
   @include media-breakpoint-only(lg) {
-    color: $green;
     font-family: $font-bold;
     font-weight: $font-weight-bold;
+
+    color: $green;
   }
 }
 
 .ap-typo-activeSize-d {
   // desktop
   @include media-breakpoint-up(xl) {
-    color: $green;
     font-family: $font-bold;
     font-weight: $font-weight-bold;
+
+    color: $green;
   }
 }
