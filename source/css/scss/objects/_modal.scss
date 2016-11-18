@@ -58,16 +58,16 @@
       left: $spacer;
     }
     @include media-breakpoint-up(md) {
-      width: calc(100% + 192px);
-      margin-left: -$spacer*8;
+      width: calc(100% + 200px);
+      margin-left: -100px;
       .a-legend {
-        padding: 0 $spacer*8;
+        padding: 0 100px;
       }
       .custom-radio {
         padding: $spacer $spacer*11;
       }
       .custom-control-indicator {
-        left: $spacer*8;
+        left: 100px;
       }
     }
   }
@@ -114,16 +114,7 @@
 }
 
 .a-modal-header {
-  background: $grey;
-  padding: 12px;
-  padding-left: 0;
-  border-bottom: 0;
-  width: 100%;
-  min-height: 72px;
-  @include media-breakpoint-up(md) {
-    min-height: 100px;
-    padding-left: 0px;
-  }
+  padding: 0px;
 }
 
 .a-modal-title {
@@ -145,7 +136,10 @@
 .a-modal-body {
   padding: 24px 12px;
   @include media-breakpoint-up(md) {
-    padding: 36px 96px;
+    padding: 36px 84px;
+  }
+  @include media-breakpoint-up(lg) {
+    padding: $spacer * 3 $spacer * 8;
   }
   .a-btn-group {
     margin-top: $spacer*3;
@@ -210,9 +204,9 @@ a.a-modal-close {
       color: $black;
     }
   }
-  .a-modal-header {
+  .a-iconText-background {
     background: $green;
-    .a-modal-title {
+    .a-iconText-text  {
       color: $black;
     }
   }
@@ -233,9 +227,9 @@ a.a-modal-close {
       color: $black;
     }
   }
-  .a-modal-header {
+  .a-iconText-background {
     background: $red;
-    .a-modal-title {
+    .a-iconText-text {
       color: $black;
     }
   }
@@ -280,7 +274,7 @@ a.a-modal-close {
     margin-right: -$spacer;
     margin-bottom: -$spacer;
   }
-  
+
   .modal-table-segment {
     height: $spacer * 7;
   }
