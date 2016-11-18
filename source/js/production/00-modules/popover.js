@@ -1,12 +1,30 @@
 /* globals $ */
 var popover = function() {
+  var options = {
+    placement: function(context, source) {
+      var position = $(source).offset();
+      if ($(source).hasClass('a-js-popoverBig')) {
+        return 'bottom';
+      }
+      window.console.log(position);
+      if (position.left < 125) {
+        return 'right';
+      }
+      if (position.left > ($(document).width() - $(source).width() - 125)) {
+        return 'left';
+      }
+      return 'bottom';
+    },
+    trigger: 'click'
+  };
   $('[data-popover-content]').popover({
     html: true,
     content: function() {
       return $('#' + $(this).data('popover-content')).html();
     }
   });
-  $('[data-toggle="popover"]').popover(); $('#example').popover();
+  $('[data-toggle="popover"]').popover(options);
+  $('#example').popover();
   $('.a-js-persistPopover').find('i').eq(1).hide();
   $('.a-js-persistPopover').find('i').eq(0).on('click', function() {
     $('.a-js-persistPopover').popover('show');

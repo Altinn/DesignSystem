@@ -2,6 +2,7 @@
   xmlToString, onboardingCrawl, onboardingBlank */
 var onboarding = function() {
   var count = -1;
+  $('body').addClass($('.a-js-bodyClassPersist').attr('data-body'));
   $.get('../../images/flashlight.svg', function(data) {
     var steps = onboardingCrawl();
     $('.a-page').append('<span class="onboarding-wrapper"><span ' +

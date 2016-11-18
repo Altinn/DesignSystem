@@ -1,115 +1,116 @@
 /* Links in text */
 
 a {
+  position: relative;
+  padding-bottom: 2px;
   color: $blue-dark;
   border-bottom: 1px solid $blue-dark;
-  padding-bottom: 2px;
-  position: relative;
-  // z-index: 1;
+
   &:hover,
   &:focus {
+    color: $link-color;
     text-decoration: none;
     border-bottom: 1px solid $link-color;
-    color: $link-color;
   }
-}
 
-a.no-decoration {
-  text-decoration: none;
-  color: $black;
-  border: none;
-  padding-bottom: 0;
-  &:hover,
-  &:focus {
+  &.no-decoration {
+    padding-bottom: 0;
+    color: $black;
     text-decoration: none;
-    border-bottom: none;
-  }
-}
+    border: none;
 
-.a-link-helpfunction {
-  color: $black;
-  a {
-    color: $blue-dark;
-    border-color: $blue-dark;
-    &:hover {
-      border-bottom: 1px solid $link-color;
-      color: $link-color;
+    &:hover,
+    &:focus {
+      text-decoration: none;
+      border-bottom: none;
+    }
+  }
+
+  .a-link-helpfunction {
+    color: $black;
+
+    a {
+      color: $blue-dark;
+      border-color: $blue-dark;
+
+      &:hover {
+        color: $link-color;
+        border-bottom: 1px solid $link-color;
+      }
     }
   }
 }
 
-
 /* Set the touch and focus area of the link */
-
 .a-linkArea {
   position: relative;
   z-index: 1;
   box-shadow: none !important;
-  &:before {
-    content: "";
+
+  &::before {
+    position: absolute;
+    top: -15px;
+    left: -12px;
+    z-index: -1;
     width: calc(100% + 24px);
     min-height: 48px;
-    position: absolute;
-    left: -12px;
-    top: -15px;
     cursor: pointer;
-    z-index: -1;
+    content: '';
   }
 }
 
-[data-toggle="popover"]:before {
-  box-shadow: none !important;
+[data-toggle='popover'] {
+  &::before {
+    box-shadow: none !important;
+  }
 }
 
-
 /* Links standalone */
-
 .a-link {
   position: relative;
   z-index: 1;
   padding-bottom: 4px;
+  color: $black;
+  text-decoration: none;
+  cursor: pointer;
+  border-bottom: 2px solid $link-color;
+
+  &:active,
+  &:focus,
+  &:hover {
+    color: $black;
+    text-decoration: none;
+    cursor: pointer;
+    border-bottom: 2px solid $blue-dark;
+    box-shadow: none !important;
+
+    &.a-link-danger {
+      border-bottom: 2px solid darken( $red, 15% );
+    }
+  }
+
   &.a-link-large {
-    @include media-breakpoint-up(md) {
+    @include media-breakpoint-up( md ) {
       font-size: 20px;
     }
   }
+
   &.a-link-title {
-    font-size: 20px;
-    margin-bottom: 12px;
     display: inline-block;
     padding-bottom: 0;
+    margin-bottom: 12px;
     font-family: $font-bold;
+    font-size: 20px;
     font-weight: $font-weight-bold;
   }
-}
 
-.a-link,
-.a-link:active,
-.a-link:focus {
-  color: $black;
-  border-bottom: 2px solid $link-color;
-  text-decoration: none;
-  cursor: pointer;
   &.a-link-danger {
     border-bottom: 2px solid $red;
   }
-}
 
-.a-link:hover,
-.a-link:focus {
-  text-decoration: none;
-  border-bottom: 2px solid $blue-dark;
-  color: $black;
-  box-shadow: none !important;
-  &.a-link-danger {
-    border-bottom: 2px solid darken($red, 15%);
-  }
-}
-
-.a-textSize3 {
-  .a-link {
-    line-height: 29px;
+  .a-textSize3 & {
     padding-bottom: 2px;
+    line-height: 29px;
   }
 }
 
@@ -123,19 +124,22 @@ a.no-decoration {
 
 // Help icon
 .a-helpIconButton {
+  color: #666666;
   border: none;
-  color: #666;
+
   &:hover {
     text-decoration: none;
     border-bottom: none;
   }
+
   &:focus {
     border-bottom: none;
   }
+
   i {
-    vertical-align: middle;
-    font-size: 22px;
     margin-top: -4px;
+    font-size: 22px;
+    vertical-align: middle;
   }
 }
 
@@ -143,39 +147,47 @@ a.no-decoration {
 /* Telephone Link */
 
 .a-tel {
+  position: relative;
   font-family: $font-bold;
+  font-size: 18px;
   font-weight: $font-weight-bold;
   border-bottom: none;
-  font-size: 18px;
-  position: relative;
+
+  &:focus {
+    &:not(.override-focus) {
+      border: none;
+      box-shadow: none;
+    }
+  }
+
   &:hover {
     border: none;
   }
-  &:focus:not(.override-focus) {
-    box-shadow: none;
-    border: none;
-  }
-  &:before {
-    content: "";
+
+  &::before {
+    position: absolute;
+    top: -15px;
+    left: -20px;
+    z-index: -1;
     width: calc(100% + 40px);
     min-height: 48px;
-    position: absolute;
-    left: -20px;
-    top: -15px;
     cursor: pointer;
-    z-index: -1;
+    content: '';
   }
+
   i {
-    vertical-align: middle;
-    margin-left: -5px;
     margin-top: -3px;
+    margin-left: -5px;
+    vertical-align: middle;
   }
 }
 
 /* Hover underline */
 
-.a-hvr-underline:hover {
-	@include media-breakpoint-up(md) {
-		border-bottom: 3px solid $blue-dark;
-	}
+.a-hvr-underline {
+  &:hover {
+    @include media-breakpoint-up( md ) {
+      border-bottom: 3px solid $blue-dark;
+    }
+  }
 }
