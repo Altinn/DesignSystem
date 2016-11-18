@@ -3,6 +3,7 @@ var setupAddRightsHandler = function() {
   var targetTable;
   var toBeCopied;
   $('.a-js-confirmAddRightBtn').on('click', function() {
+    $(this).closest('.a-collapseContent').collapse('hide');
     $(this).closest('.a-collapseContent').prev().addClass('a-sortable-row-complete');
 
     $actionsRow = $($(this).closest('tr'));

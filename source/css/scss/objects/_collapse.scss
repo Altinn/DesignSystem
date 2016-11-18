@@ -38,9 +38,15 @@
       }
     }
     .a-iconText-text-large {
-      font-size: 28px;
+      font-size: 20px;
+      line-height: 28px;
       font-family: $font-reg;
       font-weight: $font-weight-reg;
+
+      @include media-breakpoint-up(lg) {
+        font-size: 28px;
+        line-height: 36px;
+      }
     }
   }
 
@@ -285,10 +291,16 @@
   -webkit-transform: rotate(0deg);
 }
 
+
+/*------------------------------------*\
+    $COLLAPSE IN DELAY
+\*------------------------------------*/
+
 .a-collapseContent-delay {
   opacity:0;
 }
-.a-collapsePanel-body.collapse.in {
+.a-collapsePanel-body.collapse.in,
+.a-onboarding.in {
   .a-collapseContent-delay {
     opacity:1;
     -webkit-transition: all 100ms ease-in;
@@ -296,6 +308,9 @@
     -ms-transition: all 100ms ease-in;
     -o-transition: all 100ms ease-in;
     transition: all 100ms ease-in;
+  }
+  .a-collapseContent-delay--long {
+    transition-delay: 800ms;
   }
 }
 
