@@ -362,9 +362,11 @@ var handleFocus = function() {
   $('body').on('mousedown', '*:not(input):not(textarea)', function(e) {
     e.stopPropagation();
     if ($(e.target).prop('nodeName') !== 'A' &&
-      $(e.target).prop('nodeName') !== 'BUTTON') {
+      $(e.target).prop('nodeName') !== 'BUTTON' &&
+      $(e.target).prop('nodeName') !== 'LABEL') {
       if ($(e.target).parent().prop('nodeName') === 'A' ||
-        $(e.target).parent().prop('nodeName') === 'BUTTON') {
+        $(e.target).parent().prop('nodeName') === 'BUTTON' ||
+        $(e.target).parent().prop('nodeName') === 'LABEL') {
         $(e.target).parent().trigger('mousedown');
       }
     }
@@ -385,6 +387,10 @@ var handleFocus = function() {
       this.children('.a-switch-label').prev().blur();
       this.children('.a-switch-label').removeClass('override-focus');
     }.bind($(this)), 1500);
+    setTimeout(function() {
+      $('.a-switch-label').prev().blur();
+      $('.a-switch-label').removeClass('override-focus');
+    }, 1500);
   });
 };
 
@@ -424,6 +430,7 @@ var initializeDatepicker = function() {
     language: 'no',
     todayHighlight: true,
     orientation: 'bottom left',
+    autoclose: true,
     maxViewMode: 0
   }).on('show', function(e) {
     $('.datepicker').find('.next').html('');
@@ -432,24 +439,37 @@ var initializeDatepicker = function() {
     $('.datepicker').find('table').attr('cellspacing', '0');
     $('.datepicker').each(function() {
       if ($(this).find('.today').html().indexOf('<span') === -1) {
-        $(this).find('.today').html('<span>' + $(this).find('.today').html() + '</span>');
+        $(this).find('.today')
+          .html('<span>' + $(this).find('.today').html() + '</span>');
       }
       if ($(this).find('.active').html().indexOf('<span') === -1) {
-        $(this).find('.active').html('<span>' + $(this).find('.active').html() + '</span>');
+        $(this).find('.active')
+          .html('<span>' + $(this).find('.active').html() + '</span>');
       }
     });
+  });
+  $('body').on('click', function(e) {
+    $('.datepicker').hide();
   });
   $('.form-control.date').on('change', function() {
     $('.datepicker').each(function() {
       if ($(this).find('.today').html().indexOf('<span') === -1) {
-        $(this).find('.today').html('<span>' + $(this).find('.today').html() + '</span>');
+        $(this).find('.today')
+          .html('<span>' + $(this).find('.today').html() + '</span>');
       }
       if ($(this).find('.active').html().indexOf('<span') === -1) {
-        $(this).find('.active').html('<span>' + $(this).find('.active').html() + '</span>');
+        $(this).find('.active')
+          .html('<span>' + $(this).find('.active').html() + '</span>');
       }
     });
   });
   $('.form-control.date').datepicker('setDate', new Date());
+  $('.form-control.date').on('click', function(e) {
+    e.stopPropagation(); e.preventDefault();
+  });
+  $('.datepicker').on('click', function(e) {
+    e.stopPropagation(); e.preventDefault();
+  });
 };
 
 /* globals $ */
@@ -581,6 +601,7 @@ var nameChecker = function() {
   xmlToString, onboardingCrawl, onboardingBlank */
 var onboarding = function() {
   var count = -1;
+  $('body').addClass($('.a-js-bodyClassPersist').attr('data-body'));
   $.get('../../images/flashlight.svg', function(data) {
     var steps = onboardingCrawl();
     $('.a-page').append('<span class="onboarding-wrapper"><span ' +
@@ -768,13 +789,31 @@ var onboardingSeek = function(_count, _steps) {
 
 /* globals $ */
 var popover = function() {
+  var options = {
+    placement: function(context, source) {
+      var position = $(source).offset();
+      if ($(source).hasClass('a-js-popoverBig')) {
+        return 'bottom';
+      }
+      window.console.log(position);
+      if (position.left < 125) {
+        return 'right';
+      }
+      if (position.left > ($(document).width() - $(source).width() - 125)) {
+        return 'left';
+      }
+      return 'bottom';
+    },
+    trigger: 'click'
+  };
   $('[data-popover-content]').popover({
     html: true,
     content: function() {
       return $('#' + $(this).data('popover-content')).html();
     }
   });
-  $('[data-toggle="popover"]').popover(); $('#example').popover();
+  $('[data-toggle="popover"]').popover(options);
+  $('#example').popover();
   $('.a-js-persistPopover').find('i').eq(1).hide();
   $('.a-js-persistPopover').find('i').eq(0).on('click', function() {
     $('.a-js-persistPopover').popover('show');
