@@ -2207,7 +2207,7 @@ input[type="button"].btn-block {
   background: none;
   border: 0; }
   .dropdown-item:focus, .dropdown-item:hover {
-    color: #5d5d5d;
+    color: #000;
     text-decoration: none;
     background-color: #f5f5f5; }
   .dropdown-item.active, .dropdown-item.active:focus, .dropdown-item.active:hover {
@@ -8883,10 +8883,16 @@ fieldset[disabled] .a-switch input[type='radio'] + .a-form-label-inline {
 
 .a-btn-group a,
 .a-btn-group button {
-  margin-right: 12px; }
+  margin-right: 12px;
+  display: inline-block; }
   .a-btn-group a:last-child,
   .a-btn-group button:last-child {
     margin-right: 0; }
+
+.a-btn-group.a-btn-group-exLinks a,
+.a-btn-group.a-btn-group-exLinks button {
+  margin-right: 36px;
+  margin-bottom: 12px; }
 
 .button-blue-no-underline {
   color: #0062ba;
@@ -8894,6 +8900,13 @@ fieldset[disabled] .a-switch input[type='radio'] + .a-form-label-inline {
   .button-blue-no-underline:hover, .button-blue-no-underline:focus {
     color: #1eaef7;
     border: none; }
+
+.a-btn-noStyle {
+  background: none;
+  border: none;
+  padding: 0;
+  margin: 0;
+  color: #fff; }
 
 .a-jumbotron {
   background-size: cover;
@@ -9811,7 +9824,7 @@ body.neutral .popover.footnote {
   .a-modal .modal-lg {
     width: auto;
     max-width: none;
-    margin: 10px; }
+    margin: 0 12px; }
     @media screen and (min-width: 920px) {
       .a-modal .modal-lg {
         margin: auto; } }
@@ -9827,28 +9840,39 @@ body.neutral .popover.footnote {
       color: #ffffff;
       border-color: #ffffff; }
   .a-modal .a-modal-contentFullWidth {
-    width: calc(100% + 24px);
-    margin-left: -12px; }
+    width: calc(100% + 47px);
+    margin-left: -24px; }
     .a-modal .a-modal-contentFullWidth .a-legend {
-      padding: 0 12px; }
+      padding: 0 24px; }
     .a-modal .a-modal-contentFullWidth .custom-radio {
-      padding: 12px 12px 12px 48px; }
+      padding: 12px 12px 12px 60px; }
     .a-modal .a-modal-contentFullWidth .custom-control-indicator {
-      left: 12px; }
+      left: 24px; }
     @media (min-width: 768px) {
       .a-modal .a-modal-contentFullWidth {
-        width: calc(100% + 200px);
-        margin-left: -100px; }
+        width: calc(100% + 168px);
+        margin-left: -84px; }
         .a-modal .a-modal-contentFullWidth .a-legend {
-          padding: 0 100px; }
+          padding: 0 84px; }
+        .a-modal .a-modal-contentFullWidth .custom-radio {
+          padding: 12px 120px; }
+        .a-modal .a-modal-contentFullWidth .custom-control-indicator {
+          left: 84px; } }
+    @media (min-width: 992px) {
+      .a-modal .a-modal-contentFullWidth {
+        width: calc(100% + 191px);
+        margin-left: -95px; }
+        .a-modal .a-modal-contentFullWidth .a-legend {
+          padding: 0 96px; }
         .a-modal .a-modal-contentFullWidth .custom-radio {
           padding: 12px 132px; }
         .a-modal .a-modal-contentFullWidth .custom-control-indicator {
-          left: 100px; } }
+          left: 96px; } }
   .a-modal .a-link-helpfunction {
     text-align: center; }
   .a-modal .a-personSwitcher-name {
-    display: inline-block; }
+    display: inline-block;
+    max-width: 160px; }
 
 .a-modal-top {
   min-height: 48px;
@@ -9888,7 +9912,7 @@ body.neutral .popover.footnote {
   font-size: 18px;
   line-height: 24px;
   position: relative;
-  min-height: 100px;
+  min-height: 96px;
   display: table-cell;
   margin: 0;
   vertical-align: middle; }
@@ -9897,7 +9921,7 @@ body.neutral .popover.footnote {
       font-size: 24px; } }
 
 .a-modal-body {
-  padding: 24px 12px; }
+  padding: 24px; }
   @media (min-width: 768px) {
     .a-modal-body {
       padding: 36px 84px; } }
@@ -12613,6 +12637,12 @@ hr {
   .a-noColPadding .col-xl {
     padding-right: 0;
     padding-left: 0; }
+
+.a-rwd-break {
+  display: block; }
+  @media (min-width: 544px) {
+    .a-rwd-break {
+      display: none; } }
 
 /*------------------------------------*    $ALTINN PROFILE MANUAL PRESENTATION
 \*------------------------------------*/
