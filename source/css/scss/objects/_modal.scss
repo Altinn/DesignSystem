@@ -53,6 +53,9 @@
   }
 
   .a-modal-contentFullWidth {
+    width: calc( 100% + 24px );
+    margin-left: -$spacer;
+
     @include media-breakpoint-up( md ) {
       width: calc( 100% + 200px );
       margin-left: -100px;
@@ -69,9 +72,6 @@
         left: 100px;
       }
     }
-
-    width: calc( 100% + 24px );
-    margin-left: -$spacer;
 
     .a-legend {
       padding: 0 $spacer;
@@ -97,14 +97,14 @@
   padding-top: $spacer * 3;
 
   .a-logo {
+    float: left;
+    max-width: 110px;
+    margin-right: $spacer;
+
     @include media-breakpoint-up( lg ) {
       max-width: 142px;
       margin-top: 2px;
     }
-
-    float: left;
-    max-width: 110px;
-    margin-right: $spacer;
   }
 
   .a-modal-top-user {
@@ -112,15 +112,15 @@
     float: right;
 
     .a-personSwitcher {
-      @include media-breakpoint-up( lg ) {
-        margin-top: 2px;
-      }
-
       width: 200px;
       padding: 0;
       margin-top: -2px;
       margin-right: -3px;
       color: $white;
+
+      @include media-breakpoint-up( lg ) {
+        margin-top: 2px;
+      }
     }
   }
 }
@@ -135,10 +135,6 @@
 }
 
 .a-modal-title {
-  @include media-breakpoint-up( md ) {
-    font-size: 24px;
-  }
-
   position: relative;
   display: table-cell;
   width: 100%;
@@ -148,17 +144,21 @@
   line-height: 24px;
   color: $white;
   vertical-align: middle;
+
+  @include media-breakpoint-up( md ) {
+    font-size: 24px;
+  }
 }
 
 .a-modal-body {
+  padding: $spacer * 2 $spacer;
+
   @include media-breakpoint-up( md ) {
-    padding: 36px 84px;
+    padding: $spacer * 3 $spacer * 7;
   }
   @include media-breakpoint-up( lg ) {
     padding: $spacer * 3 $spacer * 8;
   }
-
-  padding: 24px 12px;
 
   .a-btn-group {
     margin-top: $spacer * 3;
