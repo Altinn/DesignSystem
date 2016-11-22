@@ -35,6 +35,7 @@ var setupAddRightsHandler = function() {
   });
 };
 
+/*
 $(document).on('ready', function() {
   var clipboard = new Clipboard('.a-js-btnCopy');
   clipboard.on('success', function(e) {
@@ -44,6 +45,7 @@ $(document).on('ready', function() {
       console.log(e);
   });
 });
+*/
 
 /* globals $ */
 var codeLookup = function() {
@@ -889,7 +891,7 @@ var questionnaireInteraction = function() {
     $(this).find('input').on('change', function() {
       $(this).parent().parent().parent()
         .next()
-        .css('display','block');
+        .css('display', 'block');
     });
   });
 };
