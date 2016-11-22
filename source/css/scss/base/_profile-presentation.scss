@@ -26,19 +26,20 @@ iframe {
 }
 
 .ap-navbarLeft-contentContainer {
-  @include media-breakpoint-up(md) {
+  @include media-breakpoint-up( md ) {
     margin-left: 300px;
   }
 }
 
 .ap-content {
-  @include media-breakpoint-up(md) {
-    margin-top: 60px;
+  max-width: 900px;
+  padding: $spacer * 2;
+  margin: auto;
+
+  @include media-breakpoint-up( md ) {
+    margin-top: $spacer * 5;
   }
 
-  max-width: 900px;
-  padding: 24px;
-  margin: auto;
   .col-xs-1,
   .col-xs-2,
   .col-xs-3,
@@ -99,8 +100,8 @@ iframe {
   .col-xl-10,
   .col-xl-11,
   .col-xl-12 {
-    padding-right: 6px;
-    padding-left: 6px;
+    padding-right: $spacer / 2;
+    padding-left: $spacer / 2;
   }
 }
 
@@ -111,22 +112,22 @@ iframe {
   width: 100%;
   padding: 0;
 
-  @include media-breakpoint-up(md) {
-    width: 300px;
+  @include media-breakpoint-up( md ) {
+    width: $spacer * 25;
   }
 
   .ap-sideNav-top {
     display: block;
     width: 100%;
-    padding: 36px 12px;
+    padding: $spacer * 3 $spacer;
     text-align: center;
     border-bottom: 1px solid $grey-light;
 
-    @include media-breakpoint-up(md) {
+    @include media-breakpoint-up( md ) {
       position: fixed;
       top: 0;
       left: 0;
-      width: 300px;
+      width: $spacer * 25;
       border-right: 1px solid $grey-light;
     }
 
@@ -148,45 +149,42 @@ iframe {
 
   // Titlebar (Shows only for small screens)
   .ap-sideNav-mobilebar {
-    @include media-breakpoint-up(md) {
-      display: none !important;
-    }
-
     position: relative;
     color: $white;
     cursor: pointer;
-
     background: $blue-dark;
-    :after {
+
+    @include media-breakpoint-up( md ) {
+      display: none !important;
+    }
+
+    ::after {
       position: absolute;
       top: 50%;
       right: 1rem;
       display: block;
       width: 0;
       height: 0;
-      margin-top: -4px;
-
+      margin-top: $spacer / -3;
       content: '';
-      border: inset 6px;
+      border: inset $spacer / 2;
       border-color: $white transparent transparent;
       border-top-style: solid;
       border-bottom-width: 0;
       transition: all 300ms ease;
-
       -webkit-transition: all 300ms ease;
       -moz-transition: all 300ms ease;
       -ms-transition: all 300ms ease;
       -o-transition: all 300ms ease;
     }
+
     &.open {
-      :after {
+      ::after {
         transition: all 300ms ease;
         transform: scaleY(-1);
         transform-origin: 50% 50%;
-
         -webkit-transform: scaleY(-1);
         -ms-transform: scaleY(-1);
-
         -webkit-transform-origin: 50% 50%;
         -ms-transform-origin: 50% 50%;
         -webkit-transition: all 300ms ease;
@@ -195,115 +193,134 @@ iframe {
         -o-transition: all 300ms ease;
       }
     }
+
     .ap-sideNav-mobilebar-toggle {
       display: block;
-      padding: 12px 24px;
-      i {
-        margin-top: -3px;
-        margin-right: 7px;
+      padding: $spacer $spacer * 2;
 
+      i {
+        margin-top: $spacer / -4;
+        margin-right: 7px;
         vertical-align: middle;
       }
     }
   }
+
   .ap-sideNav-collapse {
-    @include media-breakpoint-up(md) {
+    display: none;
+    width: 100%;
+    height: 100%;
+    padding: 0;
+    background: $white;
+
+    @include media-breakpoint-up( md ) {
       position: fixed;
       top: 139px;
-
       display: block !important;
-
-      width: 300px;
+      width: $spacer * 25;
       overflow-y: scroll;
       border-right: 1px solid $grey-light;
       ;
     }
 
-    display: none;
-
-    width: 100%;
-    height: 100%;
-    padding: 0;
-    background: $white;
     ul {
       padding-bottom: 139px + $spacer;
-
       background: $white;
-    }
-    .menu>li>a {
-      line-height: inherit;
-      text-decoration: none;
-    }
-    //Link
-    .ap-sideNav-link {
-      display: block;
 
-      padding: 17px 24px;
-      font-family: $font-reg;
-      font-weight: $font-weight-reg;
-      color: $black;
-      border-bottom: 1px solid $grey-light;
-      &:hover {
-        background: $grey-light;
-      }
-      &.nav-link-hassub {
-        border: 0;
-      }
-      .a-icon {
-        color: $grey-medium;
-      }
-    }
-    // Active item
-    .ap-nav-active,
-    .ap-nav-active:hover {
-      background: lighten($grey-light, 4%);
-      border-left: 6px solid $blue-dark;
-      .ap-sideNav-link {
-        padding: 17px 19px;
-      }
-    }
-    // Level 2
-    ul.nested {
-      padding-bottom: 0;
+      // Level 2
+      &.nested {
+        padding-bottom: 0;
+        margin-left: 0;
 
-      margin-left: 0;
-      li {
-        background: #F9F9F9;
-        .ap-sideNav-link {
-          padding: 11px 24px 11px 36px;
-          font-family: $font-light;
-          font-weight: $font-weight-light;
-          border-top: 1px solid transparent;
-          border-bottom: 1px solid $white;
-        }
-        &:last-child {
-          border-bottom: 1px solid $white;
-        }
-        &:first-child {
-          z-index: 1000;
+        li {
+          background: #F9F9F9;
 
-          margin-top: -1px;
-        }
-        &.ap-nav-active,
-        &.ap-nav-active:hover {
-          background: lighten($grey-light, 2%);
           .ap-sideNav-link {
-            padding: 11px 24px 11px 30px;
+            padding: 11px $spacer * 2 11px $spacer * 3;
+            font-family: $font-light;
+            font-weight: $font-weight-light;
+            border-top: 1px solid transparent;
+            border-bottom: 1px solid $white;
+          }
+
+          &:last-child {
+            border-bottom: 1px solid $white;
+          }
+
+          &:first-child {
+            z-index: 1000;
+            margin-top: -1px;
+          }
+
+          &.ap-nav-active,
+          &.ap-nav-active {
+            &:hover {
+              background: lighten( $grey-light, 2% );
+
+              .ap-sideNav-link {
+                padding: 11px $spacer * 2 11px 30px;
+              }
+            }
           }
         }
       }
     }
-  }
-  // ARROW
-  .is-accordion-submenu-parent>a:after {
-    right: 24px;
 
-    border-color: $grey-medium transparent transparent;
+    .menu>li>a {
+      line-height: inherit;
+      text-decoration: none;
+    }
+
+    //Link
+    .ap-sideNav-link {
+      display: block;
+      padding: 17px $spacer * 2;
+      font-family: $font-reg;
+      font-weight: $font-weight-reg;
+      color: $black;
+      border-bottom: 1px solid $grey-light;
+
+      &:hover {
+        background: $grey-light;
+      }
+
+      &.nav-link-hassub {
+        border: none;
+      }
+
+      .a-icon {
+        color: $grey-medium;
+      }
+    }
+
+    // Active item
+    .ap-nav-active,
+    .ap-nav-active {
+      &:hover {
+        background: lighten($grey-light, 4%);
+        border-left: $spacer / 2 solid $blue-dark;
+
+        .ap-sideNav-link {
+          padding: 17px 19px;
+        }
+      }
+    }
+  }
+
+  // ARROW
+  .is-accordion-submenu-parent {
+    > a {
+      &::after {
+        right: $spacer * 2;
+        border-color: $grey-medium transparent transparent;
+      }
+    }
   }
 }
 
+
 // Content next to sidenav
-@include media-breakpoint-down(md) {
+@include media-breakpoint-down( md ) {
   .ap-collapse-content {
     position: absolute;
     width: 0%;
@@ -314,30 +331,31 @@ iframe {
 
 // Standard Code view, highlight code lines
 .ap-highlight {
-  padding: 12px;
-  margin: 12px 0;
-
+  padding: $spacer;
+  margin: $spacer 0;
   background: $grey-light;
   border-radius: 5px;
+
   pre {
     margin: 0;
   }
 }
 
 // Black code snippets view with PRETTYPRINT
-pre.prettyprint {
-  width: 100% !important;
+pre {
+  &.prettyprint {
+    width: 100% !important;
+  }
 }
 
 // Color combinations
 .ap-colorCircle {
   display: inline-block;
-
-  width: 48px;
-  height: 48px;
+  width: $spacer * 4;
+  height: $spacer * 4;
   padding-top: 8px;
   margin-right: 1rem;
-  font-size: 24px;
+  font-size: $spacer * 2;
   text-align: center;
   vertical-align: middle;
   border-radius: 999px;
@@ -347,98 +365,97 @@ pre.prettyprint {
 .ap-shadowBox {
   display: block;
   width: 100px;
-
   height: 100px;
-  background: #FFFFFF;
-  box-shadow: 1px 1px 4px 0px rgba(137, 137, 137, 0.5);
-
-  -webkit-box-shadow: 1px 1px 4px 0 rgba(137, 137, 137, 0.5);
+  background: $white;
+  box-shadow: 1px 1px 4px 0 rgba( 137, 137, 137, 0.5 );
+  -webkit-box-shadow: 1px 1px $spacer / 3 0 rgba( 137, 137, 137, 0.5 );
 }
 
 // Patternlab Grid examples
-.ap-gridExample .row {
-  margin-bottom: 24px;
-}
+.ap-gridExample {
+  .row {
+    margin-bottom: $spacer * 2;
 
-.ap-gridExample .row .row {
-  margin-top: 1rem;
-  margin-bottom: 0;
+    .row {
+      margin-top: 1rem;
+      margin-bottom: 0;
+    }
+  }
 }
 
 .ap-gridExample-col {
   float: left;
   width: 100%;
-
-  padding: 12px 0;
+  padding: $spacer 0;
   text-align: center;
-  background-color: rgba(86, 61, 124, .15);
+  background-color: rgba( 86, 61, 124, 0.15 );
 }
 
 // Patternlab Color palette
 .ap-colors {
   clear: both;
-
   list-style: none;
-  li {
-    @include media-breakpoint-up(md) {
-      width: 25%;
-      &:last-child {
-        padding-right: 0;
-      }
-    }
 
+  li {
     float: left;
     width: 100%;
     padding: 0 10px 0 0;
     margin: 0;
-
     border: none;
+
+    @include media-breakpoint-up( md ) {
+      width: 25%;
+
+      &:last-child {
+        padding-right: 0;
+      }
+    }
   }
 }
 
 .ap-colorLabel {
   display: none;
-  line-height: 24px;
+  line-height: $spacer * 2;
 }
 
 .ap-swatch {
   position: relative;
   display: block;
   width: 100%;
-  height: 72px;
+  height: $spacer * 6;
   padding-top: 15px;
   margin-bottom: 10px;
   text-align: center;
-
   border-radius: 2px;
+
   .ap-colorLabel {
     position: absolute;
-    top: 12px;
+    top: $spacer;
     right: -100%;
     bottom: 0;
     left: 0;
     display: block;
     opacity: 0;
     transition: 0.2s all;
-
     -webkit-transition: 0.2s all;
   }
-  &:hover .ap-colorLabel {
-    right: 0;
 
-    display: block;
-    opacity: 1;
+  &:hover {
+    .ap-colorLabel {
+      right: 0;
+      display: block;
+      opacity: 1;
+    }
   }
 }
 
 // Patternlab multiple color icons
 .ap-iconPreview {
   display: inline;
-  float: left;
   padding: $spacer;
   padding-top: 0;
-  margin-bottom: $spacer;
   text-align: center;
+
   &:hover {
     background-color: $grey-light;
   }
@@ -460,33 +477,34 @@ pre.prettyprint {
   width: 50px;
 }
 
-.material-icons.ap-fonticon {
-  font-size: 36px;
-
-  color: $black;
+.material-icons {
+  &.ap-fonticon {
+    font-size: $spacer * 3;
+    color: $black;
+  }
 }
 
 // Icons Fort Awesome
 .ap-kitIcons {
-  margin-bottom: 24px;
+  margin-bottom: $spacer * 2;
+
   .ap-kitIcons-icon {
     display: inline-block;
-    padding: 12px 24px;
+    padding: $spacer $spacer * 2;
     color: $grey-medium;
-
     text-align: center;
     border: none;
     border-radius: 5px;
+
     &:hover {
       color: $white;
-
       background: $blue;
     }
   }
+
   .ap-kitIcons-name {
     display: block;
     font-family: $font-light;
-
     font-size: 14px;
     font-weight: $font-weight-light;
   }
@@ -494,17 +512,18 @@ pre.prettyprint {
 
 // Patternlab TYPO
 .ap-typo-container {
-  border-top: 1px dotted rgba(0, 0, 0, 0.1);
+  border-top: 1px dotted rgba( 0, 0, 0, 0.1 );
 }
 
 .ap-typo {
   padding: 30px 0 30px 40px;
   background: $white;
+  border-bottom: 1px dotted rgba( 0, 0, 0, 0.1);
 
-  border-bottom: 1px dotted rgba(0, 0, 0, 0.1);
   &:hover {
     background: #F9F9F9;
   }
+
   h1,
   h2,
   h3,
@@ -515,27 +534,25 @@ pre.prettyprint {
 
 .ap-typo-activeSize-m {
   // mobile
-  @include media-breakpoint-down(sm) {
+  @include media-breakpoint-down( sm ) {
     font-family: $font-bold;
     font-weight: $font-weight-bold;
-
     color: $green;
   }
 }
 
 .ap-typo-activeSize-t {
   // tablet
-  @include media-breakpoint-only(md) {
+  @include media-breakpoint-only( md ) {
     font-family: $font-bold;
     font-weight: $font-weight-bold;
-
     color: $green;
   }
 }
 
 .ap-typo-activeSize-l {
   // laptop
-  @include media-breakpoint-only(lg) {
+  @include media-breakpoint-only( lg ) {
     font-family: $font-bold;
     font-weight: $font-weight-bold;
 
@@ -545,7 +562,7 @@ pre.prettyprint {
 
 .ap-typo-activeSize-d {
   // desktop
-  @include media-breakpoint-up(xl) {
+  @include media-breakpoint-up( xl ) {
     font-family: $font-bold;
     font-weight: $font-weight-bold;
 
