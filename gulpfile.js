@@ -2,8 +2,10 @@
 var browserSync = require('browser-sync').create();
 var fs = require('fs');
 var gulp = require('gulp');
+var autoprefixer = require('gulp-autoprefixer');
 var gulp_concat = require('gulp-concat');
 var gulp_rename = require('gulp-rename');
+var purify = require('gulp-purifycss');
 var pjson = require('./package.json');
 var sass = require('gulp-sass');
 var version = pjson.version;
@@ -92,6 +94,12 @@ gulp.task('pl-copy:css', function () {
   return gulp.src(paths().source.css + 'style.scss')
     .pipe(sourcemaps.init())
     .pipe(sass().on('error', sass.logError))
+    // We will add this line after removing most of the unused css.
+    // .pipe(purify(['./public/js/**/*.js', './public/patterns/**/*.html']))
+    .pipe(autoprefixer({
+        browsers: ['last 2 versions'],
+        cascade: false
+    }))
     .pipe(sourcemaps.write('./maps'))
     .pipe(gulp.dest(paths().public.css))
     .pipe(browserSync.stream());

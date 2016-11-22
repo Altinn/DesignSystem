@@ -1,3 +1,4 @@
+/*
 $(document).on('ready', function() {
   var clipboard = new Clipboard('.a-js-btnCopy');
   clipboard.on('success', function(e) {
@@ -7,3 +8,4 @@ $(document).on('ready', function() {
       console.log(e);
   });
 });
+*/
