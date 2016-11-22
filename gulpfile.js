@@ -31,6 +31,12 @@ gulp.task('pl-copy:an', function () {
   .pipe(gulp.dest(paths().public.js));
 });
 
+// Copy Clipboard distribution from installed package into public JS folder:
+gulp.task('pl-copy:cl', function () {
+  return gulp.src('node_modules/clipboard/dist/clipboard.min.js')
+  .pipe(gulp.dest(paths().public.js));
+});
+
 // Copy Bootstrap distribution from installed package into public JS folder:
 gulp.task('pl-copy:bs', function () {
   return gulp.src('node_modules/bootstrap/dist/js/bootstrap.min.js')
@@ -97,7 +103,7 @@ gulp.task('pl-copy:styleguide', function () {
   return gulp.src(paths().source.styleguide + '**/*')
     .pipe(gulp.dest(paths().public.root))
     .pipe(browserSync.stream()).on('end', function () {
-      gulp.src('./source/images/lab5.svg')
+      gulp.src('./source/images/lab5.png')
         .pipe(gulp.dest('./public/styleguide/images'))
     });
 });
@@ -204,8 +210,9 @@ gulp.task('patternlab:build', gulp.series('pl-assets', build, function (done) {
 
 gulp.task('patternlab:prebuild', gulp.series(
   'pl-copy:js', 'pl-copy:bs', 'pl-copy:th', 'pl-copy:jq', 'pl-copy:bv',
-  'pl-copy:dp', 'pl-copy:ss', 'pl-copy:an', 'pl-copy:img', 'pl-copy:favicon',
-  'pl-copy:css', 'pl-copy:styleguide', 'pl-copy:ssb', function (done) { done(); })
+  'pl-copy:dp', 'pl-copy:ss', 'pl-copy:an', 'pl-copy:cl', 'pl-copy:img',
+  'pl-copy:favicon', 'pl-copy:css', 'pl-copy:styleguide', 'pl-copy:ssb',
+  function (done) { done(); })
 );
 
 function getSupportedTemplateExtensions () {

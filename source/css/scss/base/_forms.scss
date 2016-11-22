@@ -17,6 +17,23 @@ textarea {
   -webkit-appearance: none;
 }
 
+// Style placeholder text in inputs
+input::-webkit-input-placeholder {
+color: $grey !important;
+}
+
+input:-moz-placeholder { /* Firefox 18- */
+color: $grey !important;
+}
+
+input::-moz-placeholder {  /* Firefox 19+ */
+color: $grey !important;
+}
+
+input:-ms-input-placeholder {
+color: $grey !important;
+}
+
 
 /*------------------------------------*\
  * FORM GROUP
@@ -155,6 +172,8 @@ textarea {
       display: block;
       margin-bottom: $spacer * 2;
       clear: both;
+      position: absolute;
+      z-index: 9999;
     }
   }
 
