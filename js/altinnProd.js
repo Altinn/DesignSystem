@@ -889,7 +889,7 @@ var questionnaireInteraction = function() {
     $(this).find('input').on('change', function() {
       $(this).parent().parent().parent()
         .next()
-        .show();
+        .css('display','block');
     });
   });
 };

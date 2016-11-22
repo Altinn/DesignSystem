@@ -6212,6 +6212,20 @@ input[type='text'], input[type='email'], input[type='password'] {
 textarea {
   -webkit-appearance: none; }
 
+input::-webkit-input-placeholder {
+  color: #6a6a6a !important; }
+
+input:-moz-placeholder {
+  /* Firefox 18- */
+  color: #6a6a6a !important; }
+
+input::-moz-placeholder {
+  /* Firefox 19+ */
+  color: #6a6a6a !important; }
+
+input:-ms-input-placeholder {
+  color: #6a6a6a !important; }
+
 /*------------------------------------* * FORM GROUP
 \*------------------------------------*/
 .form-inline .a-form-group {
@@ -6296,7 +6310,9 @@ textarea {
   .a-form-group.has-error .a-message {
     display: block;
     margin-bottom: 24px;
-    clear: both; }
+    clear: both;
+    position: absolute;
+    z-index: 9999; }
   .a-form-group .form-control-feedback {
     position: absolute;
     right: 12px;
@@ -7064,6 +7080,86 @@ fieldset[disabled] .a-switch input[type='radio'] + .a-form-label-inline {
 .container:focus, .row:focus {
   box-shadow: none !important; }
 
+/* Grid Edit */
+.container-fluid {
+  padding: 0; }
+
+.a-noColPadding {
+  margin: none; }
+  .a-noColPadding .col-xs-1,
+  .a-noColPadding .col-xs-2,
+  .a-noColPadding .col-xs-3,
+  .a-noColPadding .col-xs-4,
+  .a-noColPadding .col-xs-5,
+  .a-noColPadding .col-xs-6,
+  .a-noColPadding .col-xs-7,
+  .a-noColPadding .col-xs-8,
+  .a-noColPadding .col-xs-9,
+  .a-noColPadding .col-xs-10,
+  .a-noColPadding .col-xs-11,
+  .a-noColPadding .col-xs-12,
+  .a-noColPadding .col-sm-1,
+  .a-noColPadding .col-sm-2,
+  .a-noColPadding .col-sm-3,
+  .a-noColPadding .col-sm-4,
+  .a-noColPadding .col-sm-5,
+  .a-noColPadding .col-sm-6,
+  .a-noColPadding .col-sm-7,
+  .a-noColPadding .col-sm-8,
+  .a-noColPadding .col-sm-9,
+  .a-noColPadding .col-sm-10,
+  .a-noColPadding .col-sm-11,
+  .a-noColPadding .col-sm-12,
+  .a-noColPadding .col-md-1,
+  .a-noColPadding .col-md-2,
+  .a-noColPadding .col-md-3,
+  .a-noColPadding .col-md-4,
+  .a-noColPadding .col-md-5,
+  .a-noColPadding .col-md-6,
+  .a-noColPadding .col-md-7,
+  .a-noColPadding .col-md-8,
+  .a-noColPadding .col-md-9,
+  .a-noColPadding .col-md-10,
+  .a-noColPadding .col-md-11,
+  .a-noColPadding .col-md-12,
+  .a-noColPadding .col-lg-1,
+  .a-noColPadding .col-lg-2,
+  .a-noColPadding .col-lg-3,
+  .a-noColPadding .col-lg-4,
+  .a-noColPadding .col-lg-5,
+  .a-noColPadding .col-lg-6,
+  .a-noColPadding .col-lg-7,
+  .a-noColPadding .col-lg-8,
+  .a-noColPadding .col-lg-9,
+  .a-noColPadding .col-lg-10,
+  .a-noColPadding .col-lg-11,
+  .a-noColPadding .col-lg-12,
+  .a-noColPadding .col-xl-1,
+  .a-noColPadding .col-xl-2,
+  .a-noColPadding .col-xl-3,
+  .a-noColPadding .col-xl-4,
+  .a-noColPadding .col-xl-5,
+  .a-noColPadding .col-xl-6,
+  .a-noColPadding .col-xl-7,
+  .a-noColPadding .col-xl-8,
+  .a-noColPadding .col-xl-9,
+  .a-noColPadding .col-xl-10,
+  .a-noColPadding .col-xl-11,
+  .a-noColPadding .col-xl-12,
+  .a-noColPadding .col-xs,
+  .a-noColPadding .col-sm,
+  .a-noColPadding .col-md,
+  .a-noColPadding .col-lg,
+  .a-noColPadding .col-xl {
+    padding-right: 0;
+    padding-left: 0; }
+
+.a-rwd-break {
+  display: block; }
+  @media (min-width: 544px) {
+    .a-rwd-break {
+      display: none; } }
+
 /* Padding 96px for large screens */
 .a-p-x-8-xl {
   margin-bottom: 12px; }
@@ -7134,7 +7230,8 @@ fieldset[disabled] .a-switch input[type='radio'] + .a-form-label-inline {
 /*------------------------------------*    $HEADER
 \*------------------------------------*/
 .a-header {
-  padding: 36px 0 24px 0; }
+  height: 108px;
+  padding-top: 36px; }
   .a-header .a-logo {
     max-width: 110px;
     float: left;
@@ -7163,7 +7260,7 @@ fieldset[disabled] .a-switch input[type='radio'] + .a-form-label-inline {
     .a-header-options {
       margin-top: -3px; } }
   .a-header-options .nav-link {
-    padding: 12px 8px;
+    padding: 10px 8px;
     border-radius: 0; }
     @media (min-width: 992px) {
       .a-header-options .nav-link {
@@ -7237,12 +7334,22 @@ fieldset[disabled] .a-switch input[type='radio'] + .a-form-label-inline {
       .a-personSwitcher .a-personSwitcher-name {
         max-width: 220px; } }
   .a-personSwitcher .a-personSwitcher-icon {
-    font-size: 34px;
+    border: 1px solid #0062ba;
+    border-radius: 36px;
     margin-top: -1px;
-    vertical-align: middle; }
+    vertical-align: middle;
+    font-size: 18px;
+    margin-top: 0px;
+    padding-top: 7px;
+    text-align: center;
+    height: 36px;
+    width: 36px; }
+    .a-personSwitcher .a-personSwitcher-icon.fa-location-city {
+      padding-top: 4px;
+      font-size: 21px; }
     @media (min-width: 768px) {
       .a-personSwitcher .a-personSwitcher-icon {
-        font-size: 36px;
+        font-size: 18px;
         margin-top: 0px; } }
 
 .a-dropdown-languages,
@@ -7568,6 +7675,9 @@ fieldset[disabled] .a-switch input[type='radio'] + .a-form-label-inline {
 \*----------------------------------------*/
 .a-darkBackground .a-hvr-underline:hover {
   border-color: #ffffff; }
+
+.a-darkBackground .a-personSwitcher-icon {
+  border: 1px solid #ffffff; }
 
 @media (min-width: 768px) {
   .a-darkBackground .a-globalNav-main li a {
@@ -8081,8 +8191,16 @@ fieldset[disabled] .a-switch input[type='radio'] + .a-form-label-inline {
       .a-breadcrumb li.breadcrumb-mobile {
         display: block; }
         .a-breadcrumb li.breadcrumb-mobile:before {
-          content: '←';
-          padding-right: 6px; } }
+          content: '\f00a';
+          display: inline-block;
+          font: normal normal normal 14px/1 'AltinnNo';
+          font-size: inherit;
+          text-rendering: auto;
+          -webkit-font-smoothing: antialiased;
+          -moz-osx-font-smoothing: grayscale;
+          transform: rotate(180deg);
+          padding-right: 0px;
+          padding-bottom: 2px; } }
     @media (min-width: 768px) {
       .a-breadcrumb li {
         display: block; } }
@@ -8706,7 +8824,8 @@ fieldset[disabled] .a-switch input[type='radio'] + .a-form-label-inline {
   background: #cff0ff;
   box-shadow: 1px 1px 4px 0px rgba(137, 137, 137, 0.5); }
   .a-btn-shadow:hover {
-    background: #b6e8ff; }
+    background: #b6e8ff;
+    color: #000; }
   .a-btn-shadow:focus {
     background: #b6e8ff;
     color: #000;
@@ -9109,10 +9228,13 @@ fieldset[disabled] .a-switch input[type='radio'] + .a-form-label-inline {
   .a-question-wrapper .a-trigger-question:nth-of-type(1) {
     display: block; }
   .a-question-wrapper .a-circle-list li:before {
-    padding: 5px 11px 2px 11px;
+    padding: 3px 0 0 0;
     position: absolute;
     left: 24px;
-    top: 18px; }
+    top: 18px;
+    height: 36px;
+    width: 36px;
+    text-align: center; }
     @media (min-width: 768px) {
       .a-question-wrapper .a-circle-list li:before {
         left: 36px;
@@ -9136,8 +9258,7 @@ fieldset[disabled] .a-switch input[type='radio'] + .a-form-label-inline {
       .a-question-wrapper .hidewhenempty {
         margin-left: 84px; } }
   .a-question-wrapper hr {
-    -webkit-margin-before: 0;
-    -webkit-margin-after: 0; }
+    margin: 0; }
   .a-question-wrapper .a-btn {
     margin-bottom: 0;
     margin-top: -1px;
@@ -9491,19 +9612,19 @@ ul {
   border: none;
   box-shadow: 0 1px 5px -2px #000; }
   .popover .popover-arrow {
-    border-right-color: rgba(0, 0, 0, 0.125) !important;
-    border-left-color: rgba(0, 0, 0, 0.125) !important; }
+    border-right-color: rgba(0, 0, 0, 0.125);
+    border-left-color: rgba(0, 0, 0, 0.125); }
     .popover .popover-arrow::after {
-      border-right-color: #fbf6bd !important;
-      border-left-color: #fbf6bd !important; }
+      border-right-color: #fbf6bd;
+      border-left-color: #fbf6bd; }
   .popover.bs-tether-element-attached-top .popover-arrow.popover-arrow {
-    border-right-color: transparent !important;
-    border-left-color: transparent !important;
-    border-bottom-color: rgba(0, 0, 0, 0.0625) !important; }
+    border-right-color: transparent;
+    border-left-color: transparent;
+    border-bottom-color: rgba(0, 0, 0, 0.0625); }
     .popover.bs-tether-element-attached-top .popover-arrow.popover-arrow::after {
-      border-right-color: transparent !important;
-      border-left-color: transparent !important;
-      border-bottom-color: #fbf6bd !important; }
+      border-right-color: transparent;
+      border-left-color: transparent;
+      border-bottom-color: #fbf6bd; }
   .popover .popover-left {
     left: 10px; }
   .popover .popover-title {
@@ -9516,16 +9637,16 @@ ul {
   .popover.popover-valid {
     background-color: #d4f9e4; }
     .popover.popover-valid .popover-arrow.popover-arrow::after {
-      border-right-color: #d4f9e4 !important;
-      border-left-color: #d4f9e4 !important; }
+      border-right-color: #d4f9e4;
+      border-left-color: #d4f9e4; }
     .popover.popover-valid .popover-title {
       background-color: #d4f9e4; }
     .popover.popover-valid.bs-tether-element-attached-top .popover-arrow.popover-arrow {
-      border-right-color: transparent !important;
-      border-left-color: transparent !important !important;
+      border-right-color: transparent;
+      border-left-color: transparent;
       border-bottom-color: rgba(0, 0, 0, 0.0625); }
       .popover.popover-valid.bs-tether-element-attached-top .popover-arrow.popover-arrow::after {
-        border-right-color: transparent !important;
+        border-right-color: transparent;
         border-left-color: transparent !important;
         border-bottom-color: #d4f9e4 !important; }
   .popover.popover-warning {
@@ -9897,6 +10018,8 @@ body.neutral .popover.footnote {
       @media (min-width: 992px) {
         .a-modal-top .a-modal-top-user .a-personSwitcher {
           margin-top: 2px; } }
+    .a-modal-top .a-modal-top-user .a-personSwitcher-icon {
+      border: 1px solid #ffffff; }
 
 .a-modal-navbar {
   margin-top: 36px;
@@ -10281,7 +10404,7 @@ a.a-modal-close {
 /*------------------------------------*    $PROGRESS
 \*------------------------------------*/
 .a-progress-bg {
-  background: url(../../images/disabled-background_white.svg) !important; }
+  background: url(../images/disabled-background_white.svg) !important; }
 
 .a-progress {
   height: 48px; }
@@ -12154,7 +12277,7 @@ a.a-modal-close {
   margin-right: auto; }
 
 .onboarding-wrapper {
-  transition: transform 0.45s ease-in, top 0.1s ease-out, left 0.1s ease-out;
+  transition: transform 0.45s ease-in, top 0.1s ease-out, left 0.1s, ease-out;
   width: 1140px;
   height: 1140px;
   position: absolute;
@@ -12208,7 +12331,8 @@ a.a-modal-close {
     margin: 0 auto; }
   .a-onboarding .modal-content {
     background: transparent;
-    box-shadow: none; }
+    box-shadow: none;
+    padding: 0 24px; }
     .a-onboarding .modal-content .modal-header {
       padding: 0;
       padding-bottom: 24px;
@@ -12290,7 +12414,14 @@ a.a-modal-close {
   .datepicker.datepicker-dropdown .prev {
     color: transparent; }
     .datepicker.datepicker-dropdown .prev:before {
-      content: '←';
+      content: '\f00a';
+      display: inline-block;
+      font: normal normal normal 14px/1 'AltinnNo';
+      font-size: inherit;
+      text-rendering: auto;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      transform: rotate(180deg);
       color: #ffffff;
       text-align: center;
       line-height: 48px;
@@ -12298,7 +12429,13 @@ a.a-modal-close {
   .datepicker.datepicker-dropdown .next {
     color: transparent; }
     .datepicker.datepicker-dropdown .next:before {
-      content: '';
+      content: '\f00a';
+      display: inline-block;
+      font: normal normal normal 14px/1 'AltinnNo';
+      font-size: inherit;
+      text-rendering: auto;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
       color: #ffffff;
       text-align: center;
       line-height: 48px;
@@ -12367,7 +12504,8 @@ body {
   font-size: 16px;
   font-weight: 400;
   color: #000;
-  background-color: #ffffff; }
+  background-color: #ffffff;
+  overflow-x: hidden; }
 
 /* Selection style */
 ::selection {
@@ -12563,86 +12701,6 @@ hr {
   background-repeat: repeat-x;
   background-position: bottom;
   background-size: 4px 2px; }
-
-/* Grid Edit */
-.container-fluid {
-  padding: 0; }
-
-.a-noColPadding {
-  margin: none; }
-  .a-noColPadding .col-xs-1,
-  .a-noColPadding .col-xs-2,
-  .a-noColPadding .col-xs-3,
-  .a-noColPadding .col-xs-4,
-  .a-noColPadding .col-xs-5,
-  .a-noColPadding .col-xs-6,
-  .a-noColPadding .col-xs-7,
-  .a-noColPadding .col-xs-8,
-  .a-noColPadding .col-xs-9,
-  .a-noColPadding .col-xs-10,
-  .a-noColPadding .col-xs-11,
-  .a-noColPadding .col-xs-12,
-  .a-noColPadding .col-sm-1,
-  .a-noColPadding .col-sm-2,
-  .a-noColPadding .col-sm-3,
-  .a-noColPadding .col-sm-4,
-  .a-noColPadding .col-sm-5,
-  .a-noColPadding .col-sm-6,
-  .a-noColPadding .col-sm-7,
-  .a-noColPadding .col-sm-8,
-  .a-noColPadding .col-sm-9,
-  .a-noColPadding .col-sm-10,
-  .a-noColPadding .col-sm-11,
-  .a-noColPadding .col-sm-12,
-  .a-noColPadding .col-md-1,
-  .a-noColPadding .col-md-2,
-  .a-noColPadding .col-md-3,
-  .a-noColPadding .col-md-4,
-  .a-noColPadding .col-md-5,
-  .a-noColPadding .col-md-6,
-  .a-noColPadding .col-md-7,
-  .a-noColPadding .col-md-8,
-  .a-noColPadding .col-md-9,
-  .a-noColPadding .col-md-10,
-  .a-noColPadding .col-md-11,
-  .a-noColPadding .col-md-12,
-  .a-noColPadding .col-lg-1,
-  .a-noColPadding .col-lg-2,
-  .a-noColPadding .col-lg-3,
-  .a-noColPadding .col-lg-4,
-  .a-noColPadding .col-lg-5,
-  .a-noColPadding .col-lg-6,
-  .a-noColPadding .col-lg-7,
-  .a-noColPadding .col-lg-8,
-  .a-noColPadding .col-lg-9,
-  .a-noColPadding .col-lg-10,
-  .a-noColPadding .col-lg-11,
-  .a-noColPadding .col-lg-12,
-  .a-noColPadding .col-xl-1,
-  .a-noColPadding .col-xl-2,
-  .a-noColPadding .col-xl-3,
-  .a-noColPadding .col-xl-4,
-  .a-noColPadding .col-xl-5,
-  .a-noColPadding .col-xl-6,
-  .a-noColPadding .col-xl-7,
-  .a-noColPadding .col-xl-8,
-  .a-noColPadding .col-xl-9,
-  .a-noColPadding .col-xl-10,
-  .a-noColPadding .col-xl-11,
-  .a-noColPadding .col-xl-12,
-  .a-noColPadding .col-xs,
-  .a-noColPadding .col-sm,
-  .a-noColPadding .col-md,
-  .a-noColPadding .col-lg,
-  .a-noColPadding .col-xl {
-    padding-right: 0;
-    padding-left: 0; }
-
-.a-rwd-break {
-  display: block; }
-  @media (min-width: 544px) {
-    .a-rwd-break {
-      display: none; } }
 
 /*------------------------------------*    $ALTINN PROFILE MANUAL PRESENTATION
 \*------------------------------------*/
