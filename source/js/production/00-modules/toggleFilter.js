@@ -18,11 +18,11 @@ var toggleFilter = function() {
   });
 
   $('.a-collapseContent.a-js-instantCollapse').on('hide.bs.collapse', function(e) {
-    $(e.currentTarget).hide();
+    $(e.target).hide();
   });
 
   $('.a-collapseContent.a-js-instantCollapse').on('show.bs.collapse', function(e) {
-    $(e.currentTarget).show();
+    $(e.target).show();
     $(e.currentTarget).css('display', 'initial');
   });
 
