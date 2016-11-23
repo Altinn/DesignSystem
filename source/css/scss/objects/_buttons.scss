@@ -211,6 +211,7 @@
 
 	&:hover {
 		background: darken($blue-light, 5%);
+    color: $black;
 	}
 
 	&:focus {
@@ -302,10 +303,10 @@
   width: 100%;
   background: #fff;
   position: relative;
-  height: 182px;
+  height: 190px;
 
   @include media-breakpoint-up(xl) {
-    max-width: 182px;
+    max-width: 190px;
   }
   .a-box-button-text {
     @include media-breakpoint-up(sm) {
@@ -345,7 +346,7 @@
   &:hover {
     background: $white-opacity;
     border: 4px solid $blue !important;
-    padding: 9px 1px 9px 0px; 
+    padding: 9px 1px 9px 0px;
 
     .a-box-button-info {
       background: $white;
@@ -449,9 +450,17 @@
 .a-btn-group {
   a,
   button {
-    margin-right: 12px;
+    margin-right: $spacer;
+    display: inline-block;
     &:last-child {
       margin-right: 0;
+    }
+  }
+  &.a-btn-group-exLinks {
+    a,
+    button {
+      margin-right: $spacer*3;
+      margin-bottom: $spacer;
     }
   }
 }
@@ -459,11 +468,21 @@
 .button-blue-no-underline {
   color: $blue-dark;
   border: none;
-  padding-right: 3 * $spacer;
 
   &:hover, &:focus {
-    color: $blue-darker;
-    border: none;    
+    color: $blue;
+    border: none;
   }
 
+}
+
+
+
+// No style
+.a-btn-noStyle {
+  background: none;
+  border: none;
+  padding: 0;
+  margin: 0;
+  color: #fff;
 }

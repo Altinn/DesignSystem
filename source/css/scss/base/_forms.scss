@@ -17,6 +17,23 @@ textarea {
   -webkit-appearance: none;
 }
 
+// Style placeholder text in inputs
+input::-webkit-input-placeholder {
+color: $grey !important;
+}
+
+input:-moz-placeholder { /* Firefox 18- */
+color: $grey !important;
+}
+
+input::-moz-placeholder {  /* Firefox 19+ */
+color: $grey !important;
+}
+
+input:-ms-input-placeholder {
+color: $grey !important;
+}
+
 
 /*------------------------------------*\
  * FORM GROUP
@@ -98,6 +115,8 @@ textarea {
       height: $spacer * 3;
       padding: 0;
       padding-top: $spacer / 3;
+      padding-right: 6px;
+      text-align: right;
       border: 2px solid $blue;
       border-left: none;
 
@@ -153,6 +172,8 @@ textarea {
       display: block;
       margin-bottom: $spacer * 2;
       clear: both;
+      position: absolute;
+      z-index: 9999;
     }
   }
 

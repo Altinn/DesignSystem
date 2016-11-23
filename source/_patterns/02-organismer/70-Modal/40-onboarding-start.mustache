@@ -1,5 +1,5 @@
-<!-- Button trigger modal -->
-<button type="button" class="a-btn a-js-modalLauncher" data-toggle="modal" data-target="#{{modal-id}}">
+<!-- Button trigger modal-->
+<button type="button" class="a-btn a-js-modalLauncher hidden-xl-down" data-toggle="modal" data-target="#{{modal-id}}">
     {{ modal-launch-title }}
 </button>
 
@@ -8,7 +8,7 @@
 
   <div class="a-modal-bottomBG">
 
-    <div class="modal-dialog" role="document">
+    <div class="modal-dialog a-collapseContent-delay a-collapseContent-delay--long" role="document">
 
       {{# onboarding-steps }}
 
@@ -29,7 +29,11 @@
 
 
               {{# viewOrgnr}}
-                <span class="patternLine clearfix">{{{ orgnr }}}</span>
+                <div class="patternLine clearfix">
+                  <button class="a-js-btnCopy a-btn-noStyle" data-clipboard-text="{{{ orgnr }}}"> 
+                    {{{ orgnr }}}
+                  </button>
+                </div>
               {{/ viewOrgnr}}
 
             </div>

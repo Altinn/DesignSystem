@@ -54,21 +54,33 @@
 
   // The text
   .a-iconText-text {
-    .a-iconText-text-large {
-      margin-bottom: 0;
-      font-size: 24px;
-      line-height: 30px;
-      font-family: $font-medium;
-      font-weight: $font-weight-medium;
-    }
     .a-iconText-text-small {
      font-size: 16px;
      display: block;
      margin-bottom: 0;
     }
+    .a-iconText-text-large {
+      margin-bottom: 0;
+      font-size: 18px;
+      line-height: 24px;
+      font-family: $font-medium;
+      font-weight: $font-weight-medium;
+
+      @include media-breakpoint-up(lg) {
+        font-size: 24px;
+        line-height: 30px;
+      }
+    }
+    // If there is a small text above, large text should be smaller
+    .a-iconText-text-small +.a-iconText-text-large{
+      @include media-breakpoint-up(lg) {
+        font-size: 22px;
+        line-height: 28px;
+      }
+    }
     .a-link {
       font-size: 20px;
-      line-height: 28px;
+      line-height: 36px;
       font-family: $font-bold;
       font-weight: $font-weight-bold;
     }
@@ -92,17 +104,18 @@
       background: $blue-darker;
       color: $white;
     }
-    &.a-iconText-background--greyLight {
-      background: $grey-light;
-      color: $black;
+    &.a-iconText-background--white {
+      background: $white;
     }
   }
 }
 // VARIATION: Change background colors based on body background
-.private-person {
+.neutral,
+.a-bgWhite {
   .a-iconText.a-iconText-background {
-    &.a-iconText-background--greyLight {
-      background: $white;
+    &.a-iconText-background--white {
+      background: $grey-light;
+      color: $black;
     }
   }
 }

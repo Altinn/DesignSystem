@@ -22,9 +22,11 @@ var handleFocus = function() {
   $('body').on('mousedown', '*:not(input):not(textarea)', function(e) {
     e.stopPropagation();
     if ($(e.target).prop('nodeName') !== 'A' &&
-      $(e.target).prop('nodeName') !== 'BUTTON') {
+      $(e.target).prop('nodeName') !== 'BUTTON' &&
+      $(e.target).prop('nodeName') !== 'LABEL') {
       if ($(e.target).parent().prop('nodeName') === 'A' ||
-        $(e.target).parent().prop('nodeName') === 'BUTTON') {
+        $(e.target).parent().prop('nodeName') === 'BUTTON' ||
+        $(e.target).parent().prop('nodeName') === 'LABEL') {
         $(e.target).parent().trigger('mousedown');
       }
     }
@@ -45,5 +47,9 @@ var handleFocus = function() {
       this.children('.a-switch-label').prev().blur();
       this.children('.a-switch-label').removeClass('override-focus');
     }.bind($(this)), 1500);
+    setTimeout(function() {
+      $('.a-switch-label').prev().blur();
+      $('.a-switch-label').removeClass('override-focus');
+    }, 1500);
   });
 };

@@ -57,12 +57,25 @@
   box-shadow: none;
   border: none;
   box-shadow: $shadow2;
-  &.popover-bottom,
+  .popover-arrow {
+    border-right-color: rgba(0, 0, 0, 0.125);
+    border-left-color: rgba(0, 0, 0, 0.125);
+    &::after {
+      border-right-color: $yellow-light;
+      border-left-color: $yellow-light;
+    }
+  }
   &.bs-tether-element-attached-top {
     .popover-arrow {
-      border-bottom-color: $yellow-light;
-      &::after {
-        border-bottom-color: $yellow-light;
+      &.popover-arrow {
+        border-right-color: transparent;
+        border-left-color: transparent;
+        border-bottom-color: rgba(0, 0, 0, 0.0625);
+        &::after {
+          border-right-color: transparent;
+          border-left-color: transparent;
+          border-bottom-color: $yellow-light;
+        }
       }
     }
   }
@@ -83,14 +96,29 @@
     background-color: $green-light;
     .popover-arrow {
       &.popover-arrow {
-        border-bottom-color: $green-light;
         &::after {
-          border-bottom-color: $green-light;
+          border-right-color: $green-light;
+          border-left-color: $green-light;
+          //border-bottom-color: $green-light;
         }
       }
     }
     .popover-title {
       background-color: $green-light;
+    }
+    &.bs-tether-element-attached-top {
+      .popover-arrow {
+        &.popover-arrow {
+          border-right-color: transparent;
+          border-left-color: transparent;
+          border-bottom-color: rgba(0, 0, 0, 0.0625);
+          &::after {
+            border-right-color: transparent;
+            border-left-color: transparent !important;
+            border-bottom-color: $green-light !important;
+          }
+        }
+      }
     }
   }
   // RED POPOVER
@@ -98,16 +126,33 @@
     background-color: $red-light;
     .popover-arrow {
       &.popover-arrow {
-        border-bottom-color: $red-light;
         &::after {
-          border-bottom-color: $red-light;
+          border-right-color: $red-light !important;
+          border-left-color: $red-light !important;
+          //border-bottom-color: $red-light;
         }
       }
     }
     .popover-title {
       background-color: $red-light;
     }
+    &.bs-tether-element-attached-top {
+      .popover-arrow {
+        &.popover-arrow {
+          border-right-color: transparent !important;
+          border-left-color: transparent !important;
+          border-bottom-color: rgba(0, 0, 0, 0.0625) !important;
+          &::after {
+            border-right-color: transparent !important;
+            border-left-color: transparent !important;
+            border-bottom-color: $red-light !important;
+          }
+        }
+      }
+    }
   }
+
+
   // BIG POPOVER
   &.popover-big {
     background-color: $yellow-light;
@@ -127,7 +172,7 @@
     .popover-arrow {
       &.popover-arrow {
         border-bottom-color: transparent;
-        border-bottom-color: $white;
+        // border-bottom-color: $white;
         border-top-width: 0px;
         border-bottom-width: 12px;
         border-left-width: 12px;
@@ -158,9 +203,23 @@
     }
     .popover-arrow {
       &.popover-arrow {
-        border-bottom-color: $white;
         &::after {
-          border-bottom-color: $white;
+          border-right-color: $white !important;
+          border-left-color: $white !important;
+        }
+      }
+    }
+    &.bs-tether-element-attached-top {
+      .popover-arrow {
+        &.popover-arrow {
+          border-right-color: transparent !important;
+          border-left-color: transparent !important;
+          border-bottom-color: rgba(0, 0, 0, 0.0625) !important;
+          &::after {
+            border-right-color: transparent !important;
+            border-left-color: transparent !important;
+            border-bottom-color: $white !important;
+          }
         }
       }
     }
