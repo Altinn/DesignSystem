@@ -1,112 +1,130 @@
-ul.no-decoration {
-  list-style: none;
-  margin: none;
-}
-
-
 /*------------------------------------*\
     $Item list
 \*------------------------------------*/
 
 .a-item-list {
   list-style: none;
-  div.a-dotted {
-    position: absolute;
-    top: 0;
-    left: 0;
-    z-index: 1;
-    width: 100%;
-    height: 100%;
+
+  div {
+    &.a-dotted {
+      position: absolute;
+      top: 0;
+      left: 0;
+      z-index: 1;
+      width: 100%;
+      height: 100%;
+    }
   }
+
   .a-inactive {
-    padding: $spacer/2 0;
+    padding: $spacer / 2 0;
   }
+
   .a-disabled {
+    padding: $spacer / 2 0;
     box-shadow: none;
-    padding: $spacer/2 0;
   }
+
   .a-item-list-item {
     position: relative;
     width: 100%;
-    a:hover {
-      cursor: pointer;
+
+    a {
+      &:hover {
+        cursor: pointer;
+      }
     }
-    &.a-clickable:hover {
-      background-color: $blue-light;
+
+    &.a-clickable {
+      &:hover {
+        background-color: $blue-light;
+      }
     }
+
     .a-listItem-title {
       display: block;
-      border: none;
       padding: 6px 0;
       font-size: 16px;
       color: $black;
       text-decoration: none;
-      @include media-breakpoint-up(md) {
+      border: none;
+
+      @include media-breakpoint-up( md ) {
         font-size: 16px;
       }
     }
   }
+
   &.a-item-list-ordered {
     list-style: decimal;
     list-style-position: inside;
+
     // Because list bullets is going to be INSIDE, and we cannot have a as block (firefox-bug), we need to add padding to li instead of a.
     .a-item-list-item {
       padding: 5px 0;
+
       a {
         position: relative;
         box-shadow: none !important;
-        &:before {
-          content: "";
+
+        &::before {
+          position: absolute;
+          top: -7px;
+          left: -15px;
+          z-index: -1;
           width: 117%;
           min-height: 36px;
-          position: absolute;
-          left: -15px;
-          top: -7px;
           cursor: pointer;
-          z-index: -1;
+          content: '';
         }
       }
     }
+
     .a-listItem-title {
       display: inline-block;
       width: 85%;
-      vertical-align: top;
       padding: 0;
-      &:after {
-        content: '';
+      vertical-align: top;
+
+      &::after {
         position: absolute;
         top: -5px;
+        right: -5px;
         bottom: -5px;
         left: -5px;
-        right: -5px;
+        content: '';
       }
     }
   }
+
   &.a-item-list-large {
     .a-listItem-title {
-      @include media-breakpoint-up(md) {
+      @include media-breakpoint-up( md ) {
         font-size: 20px;
       }
     }
   }
+
   // TODO: Make a script to check if there is more than 3 items in list. If less then 3, use 1col, if more than 3, use 2col
   &.a-item-list-1col {
-    @include media-breakpoint-up(md) {
-      width: calc(50% - 24px);
+    @include media-breakpoint-up( md ) {
+      width: calc( 50% - 24px );
     }
   }
+
   &.a-item-list-2col {
-    @include media-breakpoint-up(md) {
-      column-count: 2;
-      column-gap: $spacer*4;
-      -moz-column-count: 2;
-      -moz-column-gap: $spacer*4;
+    @include media-breakpoint-up( md ) {
       -webkit-column-count: 2;
-      -webkit-column-gap: $spacer*4;
+      -moz-column-count: 2;
+      column-count: 2;
+      -webkit-column-gap: $spacer * 4;
+      -moz-column-gap: $spacer * 4;
+      column-gap: $spacer * 4;
+
       li {
+        break-inside: avoid;
         -webkit-column-break-inside: avoid;
         page-break-inside: avoid;
-        break-inside: avoid;
       }
     }
   }
@@ -115,12 +133,25 @@ ul.no-decoration {
 // If business, change hover color on list
 .business {
   .a-item-list {
-    .a-item-list-item.a-clickable:hover {
-      background-color: $blue-light-hover-color-dark;
+    .a-item-list-item {
+      &.a-clickable {
+        &:hover {
+          background-color: $blue-light-hover-color-dark;
+        }
+      }
+    }
+  }
+
+  ul {
+    &.connected-bullets {
+      li {
+        &::after {
+          background: $blue-light;
+        }
+      }
     }
   }
 }
-
 
 /*------------------------------------*\
     $Box btn list
@@ -130,75 +161,168 @@ ul.no-decoration {
   list-style: none;
 
   &.a-box-button-list--xs1sm2md3lg4xl6 {
-    @include media-breakpoint-up(xl) {
+    @include media-breakpoint-up( xl ) {
       .a-box-button {
         border: 1px solid $grey-medium;
         border-left: none;
       }
 
-      li:first-child .a-box-button {
-        border: 1px solid $grey-medium;
+      li {
+        &:first-child {
+          .a-box-button {
+            border: 1px solid $grey-medium;
 
-        &:hover {
-          padding: 9px 0px 9px 0px;
+            &:hover {
+              padding: 9px 0 9px 0;
+            }
+          }
         }
-      }
-      li:nth-child(1n+7) .a-box-button {
-        border-top: none;
-      }
-      li:nth-child(7n+7) .a-box-button {
-        border-left: 1px solid $grey-medium;
-        &:hover {
-          padding: 9px 0px 9px 0px;
+
+        &:nth-child(1n+7) {
+          .a-box-button {
+            border-top: none;
+          }
+        }
+
+        &:nth-child(7n+7) {
+          .a-box-button {
+            border-left: 1px solid $grey-medium;
+
+            &:hover {
+              padding: 9px 0 9px 0;
+            }
+          }
         }
       }
     }
   }
 }
 
+ul {
 
-/*------------------------------------*\
-    $Bullet list
-\*------------------------------------*/
+  &.no-decoration {
+    margin: none;
+    list-style: none;
+  }
 
-ul.a-bullet-list {
-  color: $black;
-  list-style: none;
-  margin-top: $spacer;
-  margin-left: 0;
-  @include media-breakpoint-up(md) {
-    margin-left: -$spacer*2;
-  }
-  li {
-    position: relative;
-    margin-bottom: $spacer;
-    padding-left: $spacer*2;
-    font-family: $font-medium;
-    font-weight: $font-weight-medium;
-    font-size: $articleText-size-mobile;
-    @include media-breakpoint-up(md) {
-      font-size: $articleText-size;
+  /*------------------------------------*\
+      $Bullet list
+  \*------------------------------------*/
+  &.a-bullet-list {
+    margin-top: $spacer;
+    margin-left: 0;
+    color: $black;
+    list-style: none;
+
+    @include media-breakpoint-up( md ) {
+      margin-left: -$spacer * 2;
     }
-  }
-  li:before {
-    content: "•";
-    font-size: 36px;
-    padding-right: 5px;
-    color: $blue;
-    top: -11px;
-    left: -3px;
-    position: absolute;
-  }
-  &.a-bulletList-light {
-    li:before {
-      color: $grey-medium;
-      font-size: 48px;
-      top: -23px;
-    }
+
     li {
-      font-family: $font-light;
-      font-weight: $font-weight-light;
-      font-size: 16px;
+      position: relative;
+      padding-left: $spacer * 2;
+      margin-bottom: $spacer;
+      font-family: $font-medium;
+      font-size: $articleText-size-mobile;
+      font-weight: $font-weight-medium;
+
+      @include media-breakpoint-up( md ) {
+        font-size: $articleText-size;
+      }
+
+      &::before {
+        position: absolute;
+        top: -11px;
+        left: -3px;
+        padding-right: 5px;
+        font-size: 36px;
+        color: $blue;
+        content: '•';
+      }
+    }
+
+    &.a-bulletList-light {
+      li {
+        font-family: $font-light;
+        font-size: 16px;
+        font-weight: $font-weight-light;
+
+        &::before {
+          top: -23px;
+          font-size: 48px;
+          color: $grey-medium;
+        }
+      }
+    }
+  }
+
+  /*------------------------------------*\
+    Unordered bullet list with connection
+  \*------------------------------------*/
+  &.connected-bullets {
+    padding-left: 0;
+    margin-top: -1px;
+
+    li {
+      position: relative;
+      padding-bottom: $spacer * 2;
+      padding-left: 36px;
+      margin-bottom: 0;
+      list-style: none;
+
+      @include media-breakpoint-up( md ) {
+        padding-left: 0;
+      }
+
+      &::before {
+        position: absolute;
+        left: 12px;
+        width: 3px;
+        height: 100%;
+        /* lines */
+        content: '';
+        border-left: 3px solid $blue;
+
+        @include media-breakpoint-up( md ) {
+          left: -25px;
+        }
+
+      }
+
+      &::after {
+        position: absolute;
+        top: -1px;
+        left: 0;
+        width: 25px;
+        height: 25px;
+        font-size: 39px;
+        font-weight: bold;
+        content: '';
+        background: $grey-light;
+        border: 3px solid $blue;
+        border-radius: 50%;
+
+        @include media-breakpoint-up( md ) {
+          left: -36px;
+        }
+
+      }
+
+      &:first-child {
+        &::before {
+          /* first li's line */
+          top: 6px;
+          /* moves the line down so that it disappears under the bullet. Adjust manually */
+        }
+      }
+
+      &:last-child {
+        &::before {
+          /* last li's line */
+          height: 6px;
+          /* shorten the line so it goes only up to the bullet. Is equal to first-child:before's top */
+        }
+      }
     }
   }
 }
@@ -209,22 +333,25 @@ ul.a-bullet-list {
 \*------------------------------------*/
 
 .a-circle-list {
-  margin-left: 0;
   padding-right: 0;
+  margin-left: 0;
   list-style-type: none;
   counter-reset: step;
+
   li {
-    margin-bottom: $spacer*1.5;
+    margin-bottom: $spacer * 1.5;
     font-weight: bold;
+
     &::before {
-      counter-increment: step;
-      content: counter(step);
+      padding: 5px 9px 4px 9px;
       margin-right: 10px;
       font-weight: bold;
-      padding: 5px 9px 4px 9px;
+      content: counter( step );
+      counter-increment: step;
       border: 2px solid $blue;
       border-radius: 50%;
     }
+
     span {
       margin-left: 10px;
       font-weight: normal;
@@ -239,103 +366,34 @@ ul.a-bullet-list {
 
 .a-icon-list {
   list-style-type: none;
+
   li {
-    margin-bottom: $spacer*1.5;
+    margin-bottom: $spacer * 1.5;
   }
+
   a {
-    border: none;
     color: $black;
+    border: none;
+
     &:hover {
       color: $blue;
     }
   }
+
   i {
-    vertical-align: middle;
     padding-right: 5px;
+    vertical-align: middle;
   }
+
   b {
     padding-right: 5px;
   }
 }
-
-
-/*------------------------------------*\
-    Unordered bullet list with connection
-\*------------------------------------*/
-
-ul.connected-bullets {
-  padding-left: 0;
-  margin-top: -1px;
-}
-
-ul.connected-bullets li {
-  padding-left: 36px;
-  margin-bottom: $spacer*2;
-  list-style: none;
-  @include media-breakpoint-up(md) {
-    padding-left: 0;
-  }
-}
-
-ul.connected-bullets li {
-  position: relative;
-  margin-bottom: 0;
-  padding-bottom: $spacer*2;
-}
-
-ul.connected-bullets li:after {
-  content: '';
-  position: absolute;
-  left: 0px;
-  top: -1px;
-  font-size: 39px;
-  font-weight: bold;
-  height: 25px;
-  width: 25px;
-  border: 3px solid $blue;
-  border-radius: 50%;
-  background: $grey-light;
-  @include media-breakpoint-up(md) {
-    left: -36px;
-  }
-}
-
-ul.connected-bullets li:before {
-  /* lines */
-  content: "";
-  position: absolute;
-  left: 12px;
-  border-left: 3px solid $blue;
-  height: 100%;
-  width: 3px;
-  @include media-breakpoint-up(md) {
-    left: -25px;
-  }
-}
-
-ul.connected-bullets li:first-child:before {
-  /* first li's line */
-  top: 6px;
-  /* moves the line down so that it disappears under the bullet. Adjust manually */
-}
-
-ul.connected-bullets li:last-child:before {
-  /* last li's line */
-  height: 6px;
-  /* shorten the line so it goes only up to the bullet. Is equal to first-child:before's top */
-}
-
-.business {
-  ul.connected-bullets li:after {
-    background: $blue-light;
-  }
-}
-
 
 /*------------------------------------*\
     $Suggestion List
 \*------------------------------------*/
 
 #a-js-suggestionList-mobile>h2 {
-  padding-top: 0px
+  padding-top: 0;
 }

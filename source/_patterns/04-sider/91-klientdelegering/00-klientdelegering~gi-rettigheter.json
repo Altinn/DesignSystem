@@ -42,11 +42,14 @@
   "input-type": "search",
   "no-left-padding": true,
   "search-algorithm": "show-and-highlight",
-  "search-target": "employee-table",
-  "table-actions-id": "employee-table",
+  "search-target": "existingClientsTable,newClientsTable",
+  "target-table": "existingClientsTable",
   "logo-class": "a-modal-top-logo",
-  "modal-title": "Gi og fjerne rettigheter",
-  "modal-icon": "group_add",
+  "icon": "group_add",
+  "hasTextSmall": {
+    "textSmall": ""
+  },
+  "icontext": "Gi og fjerne rettigheter",
   "input-find-id": "input-find",
   "input-find-icon": "&#xE1DB;",
   "input-find-text": "Hvilken klient ser du etter?",
@@ -56,926 +59,942 @@
     "link-url-start": "onclick=\"location.href='link.sider-klientdelegering-fjern-rettigheter'\"\""
   },
   "existing-clients-title": {
-    "collapse-header-title": "Har disse <span class='tag tag-primary a-label tag-pill'>3</span> klientene"
+    "collapse-header-title": "Har disse <span class='tag tag-primary a-label tag-pill'>3</span> klientene",
+    "collapse-header-contentID": "exp-tab-table-existing-clients"
   },
   "new-clients-title": {
-    "collapse-header-title": "Kan få disse <span class='tag tag-primary a-label tag-pill'>5</span> klientene"
+    "collapse-header-title": "Kan få disse <span class='tag tag-primary a-label tag-pill'>5</span> klientene",
+    "collapse-header-contentID": "exp-tab-table-new-clients"
   },
-  "expandable-table-existing-clients": {
+  "existing-clients-table": {
     "collapse-header-contentID": "exp-tab-table-existing-clients",
     "collapsed": false,
     "aria-expanded": true,
-    "existing-clients-table": {
-      "full-width-table": true,
-      "full-height-table": false,
-      "sortable-has-head": {
-        "sortable-head-items": [
+    "sortable-table-id": "existingClientsTable",
+    "full-width-table": true,
+    "full-height-table": false,
+    "sortable-has-head": {
+      "sortable-head-items": [
+        {
+          "sortable-head-text": "",
+          "sortable": false
+        },
+        {
+          "column-width": "51.5%",
+          "sortable-head-text": "Selskapsnavn",
+          "sortable": true,
+          "on-header-click": "sortAlphanumerically(this, 1);"
+        },
+        {
+          "column-width": "20%",
+          "sortable-head-text": "Org.nr.",
+          "sortable": true,
+          "on-header-click": "sortAlphanumerically(this, 2);"
+        },
+        {
+          "sortable-head-text": "",
+          "sortable": false
+        }
+      ]
+    },
+    "sortable-table-items": [
+      {
+        "sortable-row-items": [
           {
-            "sortable-head-text": "",
-            "sortable": false
+            "sortable-row-text": "<i class=\"material-icons a-personRole-icon\">person</i>",
+            "is-sortable-collapse-link": false
           },
           {
-            "column-width": "51.5%",
-            "sortable-head-text": "Selskapsnavn",
-            "sortable": true,
-            "on-header-click": "sortAlphanumerically(this, 1);"
+            "sortable-row-text": "Finn Skapen",
+            "is-sortable-collapse-link": false,
+            "searchable": true
           },
           {
-            "column-width": "20%",
-            "sortable-head-text": "Org.nr.",
-            "sortable": true,
-            "on-header-click": "sortAlphanumerically(this, 2);"
+            "sortable-row-text": "948469316",
+            "is-sortable-collapse-link": false,
+            "searchable": true
           },
           {
-            "sortable-head-text": "",
-            "sortable": false
+            "sortable-row-text": "",
+            "is-sortable-collapse-link": {
+              "collapse-filter-id": "eksempelID1",
+              "collapse-primary-text": "Gi rettigheter",
+              "collapse-secondary-text": "",
+              "show-arrow": false,
+              "toggle-texts": true,
+              "no-decoration": false,
+              "blue-text-right": true,
+              "action-performed-confirmation": "Lagt til"
+            }
+          }
+        ],
+        "sortable-action-id": "eksempelID1",
+        "sortable-action-items": [
+          {
+            "segment-fixed": "",
+            "ferdigsegment-done": {
+              "button-text": "Ferdig",
+              "button-class": "a-btn a-btn-success a-js-confirmAddRightBtn",
+              "data-toggle": "collapse",
+              "data-target": "#eksempelID1",
+              "aria-expanded": false
+            },
+            "ferdigsegment-cancel": {
+              "button-text": "Avbryt",
+              "button-class": "a-btn-link",
+              "button-id": "cancel-deletion",
+              "margin-right-multiplier": 3,
+              "data-toggle": "collapse",
+              "data-target": "#eksempelID1",
+              "aria-expanded": false
+            },
+            "sortable-action-text": "Velg roller den ansatte skal ha:",
+            "checkbuttons": [
+              {
+                "checkbuttons-id": "filterID1",
+                "checkbuttons-title": "Begrenset signeringsrett"
+              },
+              {
+                "checkbuttons-id": "filterID2",
+                "checkbuttons-title": "Lønn og personalmedarbeider"
+              },
+              {
+                "checkbuttons-id": "filterID3",
+                "checkbuttons-title": "Primærnæring og næringsmidler"
+              },
+              {
+                "checkbuttons-id": "filterID4",
+                "checkbuttons-title": "Regnskapsfører med signeringsrett"
+              },
+              {
+                "checkbuttons-id": "filterID5",
+                "checkbuttons-title": "Regnskapsfører lønn"
+              },
+              {
+                "checkbuttons-id": "filterID6",
+                "checkbuttons-title": "Basisrolle"
+              },
+              {
+                "checkbuttons-id": "filterID7",
+                "checkbuttons-title": "Regnskapsfører uten signeringsrett"
+              },
+              {
+                "checkbuttons-id": "filterID8",
+                "checkbuttons-title": "Revisorattester - MVA kompensasjon"
+              },
+              {
+                "checkbuttons-id": "filterID9",
+                "checkbuttons-title": "Utfyller/Innsender"
+              },
+              {
+                "checkbuttons-id": "filterID10",
+                "checkbuttons-title": "Ansvarlig revisor"
+              },
+              {
+                "checkbuttons-id": "filterID11",
+                "checkbuttons-title": "Revisormedarbeider"
+              },
+              {
+                "checkbuttons-id": "filterID12",
+                "checkbuttons-title": "Revisorrettighet"
+              },
+              {
+                "checkbuttons-id": "filterID13",
+                "checkbuttons-title": "Regnskapsmedarbeider"
+              }
+            ]
           }
         ]
       },
-      "sortable-table-items": [
-        {
-          "sortable-row-items": [
-            {
-              "sortable-row-text": "<i class=\"material-icons a-personRole-icon\">person</i>",
-              "is-sortable-collapse-link": false
+      {
+        "sortable-row-items": [
+          {
+            "sortable-row-text": "<i class=\"material-icons a-personRole-icon\">person</i>",
+            "is-sortable-collapse-link": false
+          },
+          {
+            "sortable-row-text": "Stephan Isdahl",
+            "is-sortable-collapse-link": false,
+            "searchable": true
+          },
+          {
+            "sortable-row-text": "999157033",
+            "is-sortable-collapse-link": false,
+            "searchable": true
+          },
+          {
+            "sortable-row-text": "",
+            "is-sortable-collapse-link": {
+              "collapse-filter-id": "eksempelID2",
+              "collapse-primary-text": "Gi rettigheter",
+              "collapse-secondary-text": "",
+              "show-arrow": false,
+              "toggle-texts": true,
+              "no-decoration": false,
+              "blue-text-right": true,
+              "action-performed-confirmation": "Lagt til"
+            }
+          }
+        ],
+        "sortable-action-id": "eksempelID2",
+        "sortable-action-items": [
+          {
+            "segment-fixed": "",
+            "ferdigsegment-done": {
+              "button-text": "Ferdig",
+              "button-class": "a-btn a-btn-success a-js-confirmAddRightBtn",
+              "data-toggle": "collapse",
+              "data-target": "#eksempelID2",
+              "aria-expanded": false
             },
-            {
-              "sortable-row-text": "Finn Skapen",
-              "is-sortable-collapse-link": false
+            "ferdigsegment-cancel": {
+              "button-text": "Avbryt",
+              "button-class": "a-btn-link",
+              "margin-right-multiplier": 3,
+              "data-toggle": "collapse",
+              "data-target": "#eksempelID2",
+              "aria-expanded": false
             },
-            {
-              "sortable-row-text": "948469316",
-              "is-sortable-collapse-link": false
-            },
-            {
-              "sortable-row-text": "",
-              "is-sortable-collapse-link": {
-                "collapse-filter-id": "eksempelID1",
-                "collapse-primary-text": "Gi rettigheter",
-                "collapse-secondary-text": "",
-                "show-arrow": false,
-                "toggle-texts": true,
-                "no-decoration": false,
-                "blue-text-right": true,
-                "action-performed-confirmation": "Lagt til"
+            "sortable-action-text": "Velg roller den ansatte skal ha:",
+            "checkbuttons": [
+              {
+                "checkbuttons-id": "filterID14",
+                "checkbuttons-title": "Begrenset signeringsrett"
+              },
+              {
+                "checkbuttons-id": "filterID15",
+                "checkbuttons-title": "Lønn og personalmedarbeider"
+              },
+              {
+                "checkbuttons-id": "filterID16",
+                "checkbuttons-title": "Primærnæring og næringsmidler"
+              },
+              {
+                "checkbuttons-id": "filterID17",
+                "checkbuttons-title": "Regnskapsfører med signeringsrett"
+              },
+              {
+                "checkbuttons-id": "filterID18",
+                "checkbuttons-title": "Regnskapsfører lønn"
+              },
+              {
+                "checkbuttons-id": "filterID19",
+                "checkbuttons-title": "Basisrolle"
+              },
+              {
+                "checkbuttons-id": "filterID20",
+                "checkbuttons-title": "Regnskapsfører uten signeringsrett"
+              },
+              {
+                "checkbuttons-id": "filterID21",
+                "checkbuttons-title": "Revisorattester - MVA kompensasjon"
+              },
+              {
+                "checkbuttons-id": "filterID22",
+                "checkbuttons-title": "Utfyller/Innsender"
+              },
+              {
+                "checkbuttons-id": "filterID23",
+                "checkbuttons-title": "Ansvarlig revisor"
+              },
+              {
+                "checkbuttons-id": "filterID24",
+                "checkbuttons-title": "Revisormedarbeider"
+              },
+              {
+                "checkbuttons-id": "filterID25",
+                "checkbuttons-title": "Revisorrettighet"
+              },
+              {
+                "checkbuttons-id": "filterID26",
+                "checkbuttons-title": "Regnskapsmedarbeider"
               }
+            ]
+          }
+        ]
+      },
+      {
+        "sortable-row-items": [
+          {
+            "sortable-row-text": "<i class=\"material-icons a-personRole-icon\">person</i>",
+            "is-sortable-collapse-link": false
+          },
+          {
+            "sortable-row-text": "Daniel Fagerheim",
+            "is-sortable-collapse-link": false,
+            "searchable": true
+          },
+          {
+            "sortable-row-text": "916689780",
+            "is-sortable-collapse-link": false,
+            "searchable": true
+          },
+          {
+            "sortable-row-text": "",
+            "is-sortable-collapse-link": {
+              "collapse-filter-id": "eksempelID3",
+              "collapse-primary-text": "Gi rettigheter",
+              "collapse-secondary-text": "",
+              "show-arrow": false,
+              "toggle-texts": true,
+              "no-decoration": false,
+              "blue-text-right": true,
+              "action-performed-confirmation": "Lagt til"
             }
-          ],
-          "sortable-action-id": "eksempelID1",
-          "sortable-action-items": [
-            {
-              "segment-fixed": "",
-              "ferdigsegment-done": {
-                "button-text": "Ferdig",
-                "button-class": "a-btn a-btn-success a-js-confirmAddRightBtn",
-                "data-toggle": "collapse",
-                "data-target": "#eksempelID1",
-                "aria-expanded": false
+          }
+        ],
+        "sortable-action-id": "eksempelID3",
+        "sortable-action-items": [
+          {
+            "segment-fixed": "",
+            "ferdigsegment-done": {
+              "button-text": "Ferdig",
+              "button-class": "a-btn a-btn-success a-js-confirmAddRightBtn",
+              "data-toggle": "collapse",
+              "data-target": "#eksempelID3",
+              "aria-expanded": false
+            },
+            "ferdigsegment-cancel": {
+              "button-text": "Avbryt",
+              "button-class": "a-btn-link",
+              "button-id": "cancel-deletion",
+              "margin-right-multiplier": 3,
+              "data-toggle": "collapse",
+              "data-target": "#eksempelID3",
+              "aria-expanded": false
+            },
+            "sortable-action-text": "Velg roller den ansatte skal ha:",
+            "checkbuttons": [
+              {
+                "checkbuttons-id": "filterID27",
+                "checkbuttons-title": "Begrenset signeringsrett"
               },
-              "ferdigsegment-cancel": {
-                "button-text": "Avbryt",
-                "button-class": "a-btn-link",
-                "button-id": "cancel-deletion",
-                "margin-right-multiplier": 3,
-                "data-toggle": "collapse",
-                "data-target": "#eksempelID1",
-                "aria-expanded": false
+              {
+                "checkbuttons-id": "filterID28",
+                "checkbuttons-title": "Lønn og personalmedarbeider"
               },
-              "sortable-action-text": "Velg roller den ansatte skal ha:",
-              "checkbuttons": [
-                {
-                  "checkbuttons-id": "filterID1",
-                  "checkbuttons-title": "Begrenset signeringsrett"
-                },
-                {
-                  "checkbuttons-id": "filterID2",
-                  "checkbuttons-title": "Lønn og personalmedarbeider"
-                },
-                {
-                  "checkbuttons-id": "filterID3",
-                  "checkbuttons-title": "Primærnæring og næringsmidler"
-                },
-                {
-                  "checkbuttons-id": "filterID4",
-                  "checkbuttons-title": "Regnskapsfører med signeringsrett"
-                },
-                {
-                  "checkbuttons-id": "filterID5",
-                  "checkbuttons-title": "Regnskapsfører lønn"
-                },
-                {
-                  "checkbuttons-id": "filterID6",
-                  "checkbuttons-title": "Basisrolle"
-                },
-                {
-                  "checkbuttons-id": "filterID7",
-                  "checkbuttons-title": "Regnskapsfører uten signeringsrett"
-                },
-                {
-                  "checkbuttons-id": "filterID8",
-                  "checkbuttons-title": "Revisorattester - MVA kompensasjon"
-                },
-                {
-                  "checkbuttons-id": "filterID9",
-                  "checkbuttons-title": "Utfyller/Innsender"
-                },
-                {
-                  "checkbuttons-id": "filterID10",
-                  "checkbuttons-title": "Ansvarlig revisor"
-                },
-                {
-                  "checkbuttons-id": "filterID11",
-                  "checkbuttons-title": "Revisormedarbeider"
-                },
-                {
-                  "checkbuttons-id": "filterID12",
-                  "checkbuttons-title": "Revisorrettighet"
-                },
-                {
-                  "checkbuttons-id": "filterID13",
-                  "checkbuttons-title": "Regnskapsmedarbeider"
-                }
-              ]
-            }
-          ]
-        },
-        {
-          "sortable-row-items": [
-            {
-              "sortable-row-text": "<i class=\"material-icons a-personRole-icon\">person</i>",
-              "is-sortable-collapse-link": false
-            },
-            {
-              "sortable-row-text": "Stephan Isdahl",
-              "is-sortable-collapse-link": false
-            },
-            {
-              "sortable-row-text": "999157033",
-              "is-sortable-collapse-link": false
-            },
-            {
-              "sortable-row-text": "",
-              "is-sortable-collapse-link": {
-                "collapse-filter-id": "eksempelID2",
-                "collapse-primary-text": "Gi rettigheter",
-                "collapse-secondary-text": "",
-                "show-arrow": false,
-                "toggle-texts": true,
-                "no-decoration": false,
-                "blue-text-right": true,
-                "action-performed-confirmation": "Lagt til"
+              {
+                "checkbuttons-id": "filterID29",
+                "checkbuttons-title": "Primærnæring og næringsmidler"
+              },
+              {
+                "checkbuttons-id": "filterID30",
+                "checkbuttons-title": "Regnskapsfører med signeringsrett"
+              },
+              {
+                "checkbuttons-id": "filterID31",
+                "checkbuttons-title": "Regnskapsfører lønn"
+              },
+              {
+                "checkbuttons-id": "filterID32",
+                "checkbuttons-title": "Basisrolle"
+              },
+              {
+                "checkbuttons-id": "filterID33",
+                "checkbuttons-title": "Regnskapsfører uten signeringsrett"
+              },
+              {
+                "checkbuttons-id": "filterID34",
+                "checkbuttons-title": "Revisorattester - MVA kompensasjon"
+              },
+              {
+                "checkbuttons-id": "filterID35",
+                "checkbuttons-title": "Utfyller/Innsender"
+              },
+              {
+                "checkbuttons-id": "filterID36",
+                "checkbuttons-title": "Ansvarlig revisor"
+              },
+              {
+                "checkbuttons-id": "filterID37",
+                "checkbuttons-title": "Revisormedarbeider"
+              },
+              {
+                "checkbuttons-id": "filterID38",
+                "checkbuttons-title": "Revisorrettighet"
+              },
+              {
+                "checkbuttons-id": "filterID39",
+                "checkbuttons-title": "Regnskapsmedarbeider"
               }
-            }
-          ],
-          "sortable-action-id": "eksempelID2",
-          "sortable-action-items": [
-            {
-              "segment-fixed": "",
-              "ferdigsegment-done": {
-                "button-text": "Ferdig",
-                "button-class": "a-btn a-btn-success a-js-confirmAddRightBtn",
-                "data-toggle": "collapse",
-                "data-target": "#eksempelID2",
-                "aria-expanded": false
-              },
-              "ferdigsegment-cancel": {
-                "button-text": "Avbryt",
-                "button-class": "a-btn-link",
-                "margin-right-multiplier": 3,
-                "data-toggle": "collapse",
-                "data-target": "#eksempelID2",
-                "aria-expanded": false
-              },
-              "sortable-action-text": "Velg roller den ansatte skal ha:",
-              "checkbuttons": [
-                {
-                  "checkbuttons-id": "filterID14",
-                  "checkbuttons-title": "Begrenset signeringsrett"
-                },
-                {
-                  "checkbuttons-id": "filterID15",
-                  "checkbuttons-title": "Lønn og personalmedarbeider"
-                },
-                {
-                  "checkbuttons-id": "filterID16",
-                  "checkbuttons-title": "Primærnæring og næringsmidler"
-                },
-                {
-                  "checkbuttons-id": "filterID17",
-                  "checkbuttons-title": "Regnskapsfører med signeringsrett"
-                },
-                {
-                  "checkbuttons-id": "filterID18",
-                  "checkbuttons-title": "Regnskapsfører lønn"
-                },
-                {
-                  "checkbuttons-id": "filterID19",
-                  "checkbuttons-title": "Basisrolle"
-                },
-                {
-                  "checkbuttons-id": "filterID20",
-                  "checkbuttons-title": "Regnskapsfører uten signeringsrett"
-                },
-                {
-                  "checkbuttons-id": "filterID21",
-                  "checkbuttons-title": "Revisorattester - MVA kompensasjon"
-                },
-                {
-                  "checkbuttons-id": "filterID22",
-                  "checkbuttons-title": "Utfyller/Innsender"
-                },
-                {
-                  "checkbuttons-id": "filterID23",
-                  "checkbuttons-title": "Ansvarlig revisor"
-                },
-                {
-                  "checkbuttons-id": "filterID24",
-                  "checkbuttons-title": "Revisormedarbeider"
-                },
-                {
-                  "checkbuttons-id": "filterID25",
-                  "checkbuttons-title": "Revisorrettighet"
-                },
-                {
-                  "checkbuttons-id": "filterID26",
-                  "checkbuttons-title": "Regnskapsmedarbeider"
-                }
-              ]
-            }
-          ]
-        },
-        {
-          "sortable-row-items": [
-            {
-              "sortable-row-text": "<i class=\"material-icons a-personRole-icon\">person</i>",
-              "is-sortable-collapse-link": false
-            },
-            {
-              "sortable-row-text": "Daniel Fagerheim",
-              "is-sortable-collapse-link": false
-            },
-            {
-              "sortable-row-text": "916689780",
-              "is-sortable-collapse-link": false
-            },
-            {
-              "sortable-row-text": "",
-              "is-sortable-collapse-link": {
-                "collapse-filter-id": "eksempelID3",
-                "collapse-primary-text": "Gi rettigheter",
-                "collapse-secondary-text": "",
-                "show-arrow": false,
-                "toggle-texts": true,
-                "no-decoration": false,
-                "blue-text-right": true,
-                "action-performed-confirmation": "Lagt til"
-              }
-            }
-          ],
-          "sortable-action-id": "eksempelID3",
-          "sortable-action-items": [
-            {
-              "segment-fixed": "",
-              "ferdigsegment-done": {
-                "button-text": "Ferdig",
-                "button-class": "a-btn a-btn-success a-js-confirmAddRightBtn",
-                "data-toggle": "collapse",
-                "data-target": "#eksempelID3",
-                "aria-expanded": false
-              },
-              "ferdigsegment-cancel": {
-                "button-text": "Avbryt",
-                "button-class": "a-btn-link",
-                "button-id": "cancel-deletion",
-                "margin-right-multiplier": 3,
-                "data-toggle": "collapse",
-                "data-target": "#eksempelID3",
-                "aria-expanded": false
-              },
-              "sortable-action-text": "Velg roller den ansatte skal ha:",
-              "checkbuttons": [
-                {
-                  "checkbuttons-id": "filterID27",
-                  "checkbuttons-title": "Begrenset signeringsrett"
-                },
-                {
-                  "checkbuttons-id": "filterID28",
-                  "checkbuttons-title": "Lønn og personalmedarbeider"
-                },
-                {
-                  "checkbuttons-id": "filterID29",
-                  "checkbuttons-title": "Primærnæring og næringsmidler"
-                },
-                {
-                  "checkbuttons-id": "filterID30",
-                  "checkbuttons-title": "Regnskapsfører med signeringsrett"
-                },
-                {
-                  "checkbuttons-id": "filterID31",
-                  "checkbuttons-title": "Regnskapsfører lønn"
-                },
-                {
-                  "checkbuttons-id": "filterID32",
-                  "checkbuttons-title": "Basisrolle"
-                },
-                {
-                  "checkbuttons-id": "filterID33",
-                  "checkbuttons-title": "Regnskapsfører uten signeringsrett"
-                },
-                {
-                  "checkbuttons-id": "filterID34",
-                  "checkbuttons-title": "Revisorattester - MVA kompensasjon"
-                },
-                {
-                  "checkbuttons-id": "filterID35",
-                  "checkbuttons-title": "Utfyller/Innsender"
-                },
-                {
-                  "checkbuttons-id": "filterID36",
-                  "checkbuttons-title": "Ansvarlig revisor"
-                },
-                {
-                  "checkbuttons-id": "filterID37",
-                  "checkbuttons-title": "Revisormedarbeider"
-                },
-                {
-                  "checkbuttons-id": "filterID38",
-                  "checkbuttons-title": "Revisorrettighet"
-                },
-                {
-                  "checkbuttons-id": "filterID39",
-                  "checkbuttons-title": "Regnskapsmedarbeider"
-                }
-              ]
-            }
-          ]
-        }
-      ]
-    }
+            ]
+          }
+        ]
+      }
+    ]
   },
-  "expandable-table-new-clients": {
+  "new-clients-table": {
     "collapse-header-contentID": "exp-tab-table-new-clients",
     "collapsed": false,
     "aria-expanded": true,
-    "new-clients-table": {
-      "full-width-table": true,
-      "full-height-table": true,
-      "sortable-has-head": {
-        "sortable-head-items": [
+    "sortable-table-id": "newClientsTable",
+    "full-width-table": true,
+    "full-height-table": true,
+    "sortable-has-head": {
+      "sortable-head-items": [
+        {
+          "sortable-head-text": "",
+          "sortable": false
+        },
+        {
+          "column-width": "51.5%",
+          "sortable-head-text": "Selskapsnavn",
+          "sortable": true,
+          "on-header-click": "sortAlphanumerically(this, 1);"
+        },
+        {
+          "column-width": "20%",
+          "sortable-head-text": "Org.nr.",
+          "sortable": true,
+          "on-header-click": "sortAlphanumerically(this, 2);"
+        },
+        {
+          "sortable-head-text": "",
+          "sortable": false
+        }
+      ]
+    },
+    "sortable-table-items": [
+      {
+        "sortable-row-items": [
           {
-            "sortable-head-text": "",
-            "sortable": false
+            "sortable-row-text": "<i class=\"material-icons a-personRole-icon\">person</i>",
+            "is-sortable-collapse-link": false
           },
           {
-            "column-width": "51.5%",
-            "sortable-head-text": "Selskapsnavn",
-            "sortable": true,
-            "on-header-click": "sortAlphanumerically(this, 1);"
+            "sortable-row-text": "Advokat Renningsen ANS",
+            "is-sortable-collapse-link": false,
+            "searchable": true
           },
           {
-            "column-width": "20%",
-            "sortable-head-text": "Org.nr.",
-            "sortable": true,
-            "on-header-click": "sortAlphanumerically(this, 2);"
+            "sortable-row-text": "999157033",
+            "is-sortable-collapse-link": false,
+            "searchable": true
           },
           {
-            "sortable-head-text": "",
-            "sortable": false
+            "sortable-row-text": "",
+            "is-sortable-collapse-link": {
+              "collapse-filter-id": "eksempelID4",
+              "collapse-primary-text": "Gi rettigheter",
+              "collapse-secondary-text": "",
+              "show-arrow": false,
+              "toggle-texts": true,
+              "no-decoration": false,
+              "blue-text-right": true,
+              "action-performed-confirmation": "Lagt til"
+            }
+          }
+        ],
+        "sortable-action-id": "eksempelID4",
+        "sortable-action-items": [
+          {
+            "segment-fixed": "",
+            "ferdigsegment-done": {
+              "button-text": "Ferdig",
+              "button-class": "a-btn a-btn-success a-js-confirmAddRightBtn",
+              "data-toggle": "collapse",
+              "data-target": "#eksempelID4",
+              "aria-expanded": false
+            },
+            "ferdigsegment-cancel": {
+              "button-text": "Avbryt",
+              "button-class": "a-btn-link",
+              "button-id": "cancel-deletion",
+              "margin-right-multiplier": 3,
+              "data-toggle": "collapse",
+              "data-target": "#eksempelID4",
+              "aria-expanded": false
+            },
+            "sortable-action-text": "Velg roller den ansatte skal ha:",
+            "checkbuttons": [
+              {
+                "checkbuttons-id": "filterID101",
+                "checkbuttons-title": "Begrenset signeringsrett"
+              },
+              {
+                "checkbuttons-id": "filterID102",
+                "checkbuttons-title": "Lønn og personalmedarbeider"
+              },
+              {
+                "checkbuttons-id": "filterID103",
+                "checkbuttons-title": "Primærnæring og næringsmidler"
+              },
+              {
+                "checkbuttons-id": "filterID104",
+                "checkbuttons-title": "Regnskapsfører med signeringsrett"
+              },
+              {
+                "checkbuttons-id": "filterID105",
+                "checkbuttons-title": "Regnskapsfører lønn"
+              },
+              {
+                "checkbuttons-id": "filterID106",
+                "checkbuttons-title": "Basisrolle"
+              },
+              {
+                "checkbuttons-id": "filterID107",
+                "checkbuttons-title": "Regnskapsfører uten signeringsrett"
+              },
+              {
+                "checkbuttons-id": "filterID108",
+                "checkbuttons-title": "Revisorattester - MVA kompensasjon"
+              },
+              {
+                "checkbuttons-id": "filterID109",
+                "checkbuttons-title": "Utfyller/Innsender"
+              },
+              {
+                "checkbuttons-id": "filterID110",
+                "checkbuttons-title": "Ansvarlig revisor"
+              },
+              {
+                "checkbuttons-id": "filterID111",
+                "checkbuttons-title": "Revisormedarbeider"
+              },
+              {
+                "checkbuttons-id": "filterID112",
+                "checkbuttons-title": "Revisorrettighet"
+              },
+              {
+                "checkbuttons-id": "filterID113",
+                "checkbuttons-title": "Regnskapsmedarbeider"
+              }
+            ]
           }
         ]
       },
-      "sortable-table-items": [
-        {
-          "sortable-row-items": [
-            {
-              "sortable-row-text": "<i class=\"material-icons a-personRole-icon\">person</i>",
-              "is-sortable-collapse-link": false
+      {
+        "sortable-row-items": [
+          {
+            "sortable-row-text": "<i class=\"material-icons a-personRole-icon\">person</i>",
+            "is-sortable-collapse-link": false
+          },
+          {
+            "sortable-row-text": "Kajakk og Ski AS",
+            "is-sortable-collapse-link": false,
+            "searchable": true
+          },
+          {
+            "sortable-row-text": "979465483",
+            "is-sortable-collapse-link": false,
+            "searchable": true
+          },
+          {
+            "sortable-row-text": "",
+            "is-sortable-collapse-link": {
+              "collapse-filter-id": "eksempelID5",
+              "collapse-primary-text": "Gi rettigheter",
+              "collapse-secondary-text": "",
+              "show-arrow": false,
+              "toggle-texts": true,
+              "no-decoration": false,
+              "blue-text-right": true,
+              "action-performed-confirmation": "Lagt til"
+            }
+          }
+        ],
+        "sortable-action-id": "eksempelID5",
+        "sortable-action-items": [
+          {
+            "segment-fixed": "",
+            "ferdigsegment-done": {
+              "button-text": "Ferdig",
+              "button-class": "a-btn a-btn-success a-js-confirmAddRightBtn",
+              "data-toggle": "collapse",
+              "data-target": "#eksempelID5",
+              "aria-expanded": false
             },
-            {
-              "sortable-row-text": "Advokat Renningsen ANS",
-              "is-sortable-collapse-link": false
+            "ferdigsegment-cancel": {
+              "button-text": "Avbryt",
+              "button-class": "a-btn-link",
+              "margin-right-multiplier": 3,
+              "data-toggle": "collapse",
+              "data-target": "#eksempelID5",
+              "aria-expanded": false
             },
-            {
-              "sortable-row-text": "999157033",
-              "is-sortable-collapse-link": false
-            },
-            {
-              "sortable-row-text": "",
-              "is-sortable-collapse-link": {
-                "collapse-filter-id": "eksempelID4",
-                "collapse-primary-text": "Gi rettigheter",
-                "collapse-secondary-text": "",
-                "show-arrow": false,
-                "toggle-texts": true,
-                "no-decoration": false,
-                "blue-text-right": true,
-                "action-performed-confirmation": "Lagt til"
+            "sortable-action-text": "Velg roller den ansatte skal ha:",
+            "checkbuttons": [
+              {
+                "checkbuttons-id": "filterID114",
+                "checkbuttons-title": "Begrenset signeringsrett"
+              },
+              {
+                "checkbuttons-id": "filterID115",
+                "checkbuttons-title": "Lønn og personalmedarbeider"
+              },
+              {
+                "checkbuttons-id": "filterID116",
+                "checkbuttons-title": "Primærnæring og næringsmidler"
+              },
+              {
+                "checkbuttons-id": "filterID117",
+                "checkbuttons-title": "Regnskapsfører med signeringsrett"
+              },
+              {
+                "checkbuttons-id": "filterID118",
+                "checkbuttons-title": "Regnskapsfører lønn"
+              },
+              {
+                "checkbuttons-id": "filterID119",
+                "checkbuttons-title": "Basisrolle"
+              },
+              {
+                "checkbuttons-id": "filterID120",
+                "checkbuttons-title": "Regnskapsfører uten signeringsrett"
+              },
+              {
+                "checkbuttons-id": "filterID121",
+                "checkbuttons-title": "Revisorattester - MVA kompensasjon"
+              },
+              {
+                "checkbuttons-id": "filterID122",
+                "checkbuttons-title": "Utfyller/Innsender"
+              },
+              {
+                "checkbuttons-id": "filterID123",
+                "checkbuttons-title": "Ansvarlig revisor"
+              },
+              {
+                "checkbuttons-id": "filterID124",
+                "checkbuttons-title": "Revisormedarbeider"
+              },
+              {
+                "checkbuttons-id": "filterID125",
+                "checkbuttons-title": "Revisorrettighet"
+              },
+              {
+                "checkbuttons-id": "filterID126",
+                "checkbuttons-title": "Regnskapsmedarbeider"
               }
+            ]
+          }
+        ]
+      },
+      {
+        "sortable-row-items": [
+          {
+            "sortable-row-text": "<i class=\"material-icons a-personRole-icon\">person</i>",
+            "is-sortable-collapse-link": false
+          },
+          {
+            "sortable-row-text": "Pedro Lasten ENK",
+            "is-sortable-collapse-link": false,
+            "searchable": true
+          },
+          {
+            "sortable-row-text": "963179715",
+            "is-sortable-collapse-link": false,
+            "searchable": true
+          },
+          {
+            "sortable-row-text": "",
+            "is-sortable-collapse-link": {
+              "collapse-filter-id": "eksempelID6",
+              "collapse-primary-text": "Gi rettigheter",
+              "collapse-secondary-text": "",
+              "show-arrow": false,
+              "toggle-texts": true,
+              "no-decoration": false,
+              "blue-text-right": true,
+              "action-performed-confirmation": "Lagt til"
             }
-          ],
-          "sortable-action-id": "eksempelID4",
-          "sortable-action-items": [
-            {
-              "segment-fixed": "",
-              "ferdigsegment-done": {
-                "button-text": "Ferdig",
-                "button-class": "a-btn a-btn-success a-js-confirmAddRightBtn",
-                "data-toggle": "collapse",
-                "data-target": "#eksempelID4",
-                "aria-expanded": false
+          }
+        ],
+        "sortable-action-id": "eksempelID6",
+        "sortable-action-items": [
+          {
+            "segment-fixed": "",
+            "ferdigsegment-done": {
+              "button-text": "Ferdig",
+              "button-class": "a-btn a-btn-success a-js-confirmAddRightBtn",
+              "data-toggle": "collapse",
+              "data-target": "#eksempelID6",
+              "aria-expanded": false
+            },
+            "ferdigsegment-cancel": {
+              "button-text": "Avbryt",
+              "button-class": "a-btn-link",
+              "button-id": "cancel-deletion",
+              "margin-right-multiplier": 3,
+              "data-toggle": "collapse",
+              "data-target": "#eksempelID6",
+              "aria-expanded": false
+            },
+            "sortable-action-text": "Velg roller den ansatte skal ha:",
+            "checkbuttons": [
+              {
+                "checkbuttons-id": "filterID127",
+                "checkbuttons-title": "Begrenset signeringsrett"
               },
-              "ferdigsegment-cancel": {
-                "button-text": "Avbryt",
-                "button-class": "a-btn-link",
-                "button-id": "cancel-deletion",
-                "margin-right-multiplier": 3,
-                "data-toggle": "collapse",
-                "data-target": "#eksempelID4",
-                "aria-expanded": false
+              {
+                "checkbuttons-id": "filterID128",
+                "checkbuttons-title": "Lønn og personalmedarbeider"
               },
-              "sortable-action-text": "Velg roller den ansatte skal ha:",
-              "checkbuttons": [
-                {
-                  "checkbuttons-id": "filterID101",
-                  "checkbuttons-title": "Begrenset signeringsrett"
-                },
-                {
-                  "checkbuttons-id": "filterID102",
-                  "checkbuttons-title": "Lønn og personalmedarbeider"
-                },
-                {
-                  "checkbuttons-id": "filterID103",
-                  "checkbuttons-title": "Primærnæring og næringsmidler"
-                },
-                {
-                  "checkbuttons-id": "filterID104",
-                  "checkbuttons-title": "Regnskapsfører med signeringsrett"
-                },
-                {
-                  "checkbuttons-id": "filterID105",
-                  "checkbuttons-title": "Regnskapsfører lønn"
-                },
-                {
-                  "checkbuttons-id": "filterID106",
-                  "checkbuttons-title": "Basisrolle"
-                },
-                {
-                  "checkbuttons-id": "filterID107",
-                  "checkbuttons-title": "Regnskapsfører uten signeringsrett"
-                },
-                {
-                  "checkbuttons-id": "filterID108",
-                  "checkbuttons-title": "Revisorattester - MVA kompensasjon"
-                },
-                {
-                  "checkbuttons-id": "filterID109",
-                  "checkbuttons-title": "Utfyller/Innsender"
-                },
-                {
-                  "checkbuttons-id": "filterID110",
-                  "checkbuttons-title": "Ansvarlig revisor"
-                },
-                {
-                  "checkbuttons-id": "filterID111",
-                  "checkbuttons-title": "Revisormedarbeider"
-                },
-                {
-                  "checkbuttons-id": "filterID112",
-                  "checkbuttons-title": "Revisorrettighet"
-                },
-                {
-                  "checkbuttons-id": "filterID113",
-                  "checkbuttons-title": "Regnskapsmedarbeider"
-                }
-              ]
-            }
-          ]
-        },
-        {
-          "sortable-row-items": [
-            {
-              "sortable-row-text": "<i class=\"material-icons a-personRole-icon\">person</i>",
-              "is-sortable-collapse-link": false
-            },
-            {
-              "sortable-row-text": "Kajakk og Ski AS",
-              "is-sortable-collapse-link": false
-            },
-            {
-              "sortable-row-text": "979465483",
-              "is-sortable-collapse-link": false
-            },
-            {
-              "sortable-row-text": "",
-              "is-sortable-collapse-link": {
-                "collapse-filter-id": "eksempelID5",
-                "collapse-primary-text": "Gi rettigheter",
-                "collapse-secondary-text": "",
-                "show-arrow": false,
-                "toggle-texts": true,
-                "no-decoration": false,
-                "blue-text-right": true,
-                "action-performed-confirmation": "Lagt til"
+              {
+                "checkbuttons-id": "filterID129",
+                "checkbuttons-title": "Primærnæring og næringsmidler"
+              },
+              {
+                "checkbuttons-id": "filterID130",
+                "checkbuttons-title": "Regnskapsfører med signeringsrett"
+              },
+              {
+                "checkbuttons-id": "filterID131",
+                "checkbuttons-title": "Regnskapsfører lønn"
+              },
+              {
+                "checkbuttons-id": "filterID132",
+                "checkbuttons-title": "Basisrolle"
+              },
+              {
+                "checkbuttons-id": "filterID133",
+                "checkbuttons-title": "Regnskapsfører uten signeringsrett"
+              },
+              {
+                "checkbuttons-id": "filterID134",
+                "checkbuttons-title": "Revisorattester - MVA kompensasjon"
+              },
+              {
+                "checkbuttons-id": "filterID135",
+                "checkbuttons-title": "Utfyller/Innsender"
+              },
+              {
+                "checkbuttons-id": "filterID136",
+                "checkbuttons-title": "Ansvarlig revisor"
+              },
+              {
+                "checkbuttons-id": "filterID137",
+                "checkbuttons-title": "Revisormedarbeider"
+              },
+              {
+                "checkbuttons-id": "filterID138",
+                "checkbuttons-title": "Revisorrettighet"
+              },
+              {
+                "checkbuttons-id": "filterID139",
+                "checkbuttons-title": "Regnskapsmedarbeider"
               }
+            ]
+          }
+        ]
+      },
+      {
+        "sortable-row-items": [
+          {
+            "sortable-row-text": "<i class=\"material-icons a-personRole-icon\">person</i>",
+            "is-sortable-collapse-link": false
+          },
+          {
+            "sortable-row-text": "Kabelkonsulentene AS",
+            "is-sortable-collapse-link": false,
+            "searchable": true
+          },
+          {
+            "sortable-row-text": "915897983",
+            "is-sortable-collapse-link": false,
+            "searchable": true
+          },
+          {
+            "sortable-row-text": "",
+            "is-sortable-collapse-link": {
+              "collapse-filter-id": "eksempelID7",
+              "collapse-primary-text": "Gi rettigheter",
+              "collapse-secondary-text": "",
+              "show-arrow": false,
+              "toggle-texts": true,
+              "no-decoration": false,
+              "blue-text-right": true,
+              "action-performed-confirmation": "Lagt til"
             }
-          ],
-          "sortable-action-id": "eksempelID5",
-          "sortable-action-items": [
-            {
-              "segment-fixed": "",
-              "ferdigsegment-done": {
-                "button-text": "Ferdig",
-                "button-class": "a-btn a-btn-success a-js-confirmAddRightBtn",
-                "data-toggle": "collapse",
-                "data-target": "#eksempelID5",
-                "aria-expanded": false
+          }
+        ],
+        "sortable-action-id": "eksempelID7",
+        "sortable-action-items": [
+          {
+            "segment-fixed": "",
+            "ferdigsegment-done": {
+              "button-text": "Ferdig",
+              "button-class": "a-btn a-btn-success a-js-confirmAddRightBtn",
+              "data-toggle": "collapse",
+              "data-target": "#eksempelID7",
+              "aria-expanded": false
+            },
+            "ferdigsegment-cancel": {
+              "button-text": "Avbryt",
+              "button-class": "a-btn-link",
+              "button-id": "cancel-deletion",
+              "margin-right-multiplier": 3,
+              "data-toggle": "collapse",
+              "data-target": "#eksempelID7",
+              "aria-expanded": false
+            },
+            "sortable-action-text": "Velg roller den ansatte skal ha:",
+            "checkbuttons": [
+              {
+                "checkbuttons-id": "filterID140",
+                "checkbuttons-title": "Begrenset signeringsrett"
               },
-              "ferdigsegment-cancel": {
-                "button-text": "Avbryt",
-                "button-class": "a-btn-link",
-                "margin-right-multiplier": 3,
-                "data-toggle": "collapse",
-                "data-target": "#eksempelID5",
-                "aria-expanded": false
+              {
+                "checkbuttons-id": "filterID141",
+                "checkbuttons-title": "Lønn og personalmedarbeider"
               },
-              "sortable-action-text": "Velg roller den ansatte skal ha:",
-              "checkbuttons": [
-                {
-                  "checkbuttons-id": "filterID114",
-                  "checkbuttons-title": "Begrenset signeringsrett"
-                },
-                {
-                  "checkbuttons-id": "filterID115",
-                  "checkbuttons-title": "Lønn og personalmedarbeider"
-                },
-                {
-                  "checkbuttons-id": "filterID116",
-                  "checkbuttons-title": "Primærnæring og næringsmidler"
-                },
-                {
-                  "checkbuttons-id": "filterID117",
-                  "checkbuttons-title": "Regnskapsfører med signeringsrett"
-                },
-                {
-                  "checkbuttons-id": "filterID118",
-                  "checkbuttons-title": "Regnskapsfører lønn"
-                },
-                {
-                  "checkbuttons-id": "filterID119",
-                  "checkbuttons-title": "Basisrolle"
-                },
-                {
-                  "checkbuttons-id": "filterID120",
-                  "checkbuttons-title": "Regnskapsfører uten signeringsrett"
-                },
-                {
-                  "checkbuttons-id": "filterID121",
-                  "checkbuttons-title": "Revisorattester - MVA kompensasjon"
-                },
-                {
-                  "checkbuttons-id": "filterID122",
-                  "checkbuttons-title": "Utfyller/Innsender"
-                },
-                {
-                  "checkbuttons-id": "filterID123",
-                  "checkbuttons-title": "Ansvarlig revisor"
-                },
-                {
-                  "checkbuttons-id": "filterID124",
-                  "checkbuttons-title": "Revisormedarbeider"
-                },
-                {
-                  "checkbuttons-id": "filterID125",
-                  "checkbuttons-title": "Revisorrettighet"
-                },
-                {
-                  "checkbuttons-id": "filterID126",
-                  "checkbuttons-title": "Regnskapsmedarbeider"
-                }
-              ]
-            }
-          ]
-        },
-        {
-          "sortable-row-items": [
-            {
-              "sortable-row-text": "<i class=\"material-icons a-personRole-icon\">person</i>",
-              "is-sortable-collapse-link": false
-            },
-            {
-              "sortable-row-text": "Pedro Lasten ENK",
-              "is-sortable-collapse-link": false
-            },
-            {
-              "sortable-row-text": "963179715",
-              "is-sortable-collapse-link": false
-            },
-            {
-              "sortable-row-text": "",
-              "is-sortable-collapse-link": {
-                "collapse-filter-id": "eksempelID6",
-                "collapse-primary-text": "Gi rettigheter",
-                "collapse-secondary-text": "",
-                "show-arrow": false,
-                "toggle-texts": true,
-                "no-decoration": false,
-                "blue-text-right": true,
-                "action-performed-confirmation": "Lagt til"
+              {
+                "checkbuttons-id": "filterID142",
+                "checkbuttons-title": "Primærnæring og næringsmidler"
+              },
+              {
+                "checkbuttons-id": "filterID143",
+                "checkbuttons-title": "Regnskapsfører med signeringsrett"
+              },
+              {
+                "checkbuttons-id": "filterID144",
+                "checkbuttons-title": "Regnskapsfører lønn"
+              },
+              {
+                "checkbuttons-id": "filterID145",
+                "checkbuttons-title": "Basisrolle"
+              },
+              {
+                "checkbuttons-id": "filterID146",
+                "checkbuttons-title": "Regnskapsfører uten signeringsrett"
+              },
+              {
+                "checkbuttons-id": "filterID147",
+                "checkbuttons-title": "Revisorattester - MVA kompensasjon"
+              },
+              {
+                "checkbuttons-id": "filterID148",
+                "checkbuttons-title": "Utfyller/Innsender"
+              },
+              {
+                "checkbuttons-id": "filterID149",
+                "checkbuttons-title": "Ansvarlig revisor"
+              },
+              {
+                "checkbuttons-id": "filterID150",
+                "checkbuttons-title": "Revisormedarbeider"
+              },
+              {
+                "checkbuttons-id": "filterID151",
+                "checkbuttons-title": "Revisorrettighet"
+              },
+              {
+                "checkbuttons-id": "filterID152",
+                "checkbuttons-title": "Regnskapsmedarbeider"
               }
+            ]
+          }
+        ]
+      },
+      {
+        "sortable-row-items": [
+          {
+            "sortable-row-text": "<i class=\"material-icons a-personRole-icon\">person</i>",
+            "is-sortable-collapse-link": false
+          },
+          {
+            "sortable-row-text": "Adrian Frutiger ENK",
+            "is-sortable-collapse-link": false,
+            "searchable": true
+          },
+          {
+            "sortable-row-text": "916689780",
+            "is-sortable-collapse-link": false,
+            "searchable": true
+          },
+          {
+            "sortable-row-text": "",
+            "is-sortable-collapse-link": {
+              "collapse-filter-id": "eksempelID8",
+              "collapse-primary-text": "Gi rettigheter",
+              "collapse-secondary-text": "",
+              "show-arrow": false,
+              "toggle-texts": true,
+              "no-decoration": false,
+              "blue-text-right": true,
+              "action-performed-confirmation": "Lagt til"
             }
-          ],
-          "sortable-action-id": "eksempelID6",
-          "sortable-action-items": [
-            {
-              "segment-fixed": "",
-              "ferdigsegment-done": {
-                "button-text": "Ferdig",
-                "button-class": "a-btn a-btn-success a-js-confirmAddRightBtn",
-                "data-toggle": "collapse",
-                "data-target": "#eksempelID6",
-                "aria-expanded": false
+          }
+        ],
+        "sortable-action-id": "eksempelID8",
+        "sortable-action-items": [
+          {
+            "segment-fixed": "",
+            "ferdigsegment-done": {
+              "button-text": "Ferdig",
+              "button-class": "a-btn a-btn-success a-js-confirmAddRightBtn",
+              "data-toggle": "collapse",
+              "data-target": "#eksempelID8",
+              "aria-expanded": false
+            },
+            "ferdigsegment-cancel": {
+              "button-text": "Avbryt",
+              "button-class": "a-btn-link",
+              "button-id": "cancel-deletion",
+              "margin-right-multiplier": 3,
+              "data-toggle": "collapse",
+              "data-target": "#eksempelID8",
+              "aria-expanded": false
+            },
+            "sortable-action-text": "Velg roller den ansatte skal ha:",
+            "checkbuttons": [
+              {
+                "checkbuttons-id": "filterID153",
+                "checkbuttons-title": "Begrenset signeringsrett"
               },
-              "ferdigsegment-cancel": {
-                "button-text": "Avbryt",
-                "button-class": "a-btn-link",
-                "button-id": "cancel-deletion",
-                "margin-right-multiplier": 3,
-                "data-toggle": "collapse",
-                "data-target": "#eksempelID6",
-                "aria-expanded": false
+              {
+                "checkbuttons-id": "filterID154",
+                "checkbuttons-title": "Lønn og personalmedarbeider"
               },
-              "sortable-action-text": "Velg roller den ansatte skal ha:",
-              "checkbuttons": [
-                {
-                  "checkbuttons-id": "filterID127",
-                  "checkbuttons-title": "Begrenset signeringsrett"
-                },
-                {
-                  "checkbuttons-id": "filterID128",
-                  "checkbuttons-title": "Lønn og personalmedarbeider"
-                },
-                {
-                  "checkbuttons-id": "filterID129",
-                  "checkbuttons-title": "Primærnæring og næringsmidler"
-                },
-                {
-                  "checkbuttons-id": "filterID130",
-                  "checkbuttons-title": "Regnskapsfører med signeringsrett"
-                },
-                {
-                  "checkbuttons-id": "filterID131",
-                  "checkbuttons-title": "Regnskapsfører lønn"
-                },
-                {
-                  "checkbuttons-id": "filterID132",
-                  "checkbuttons-title": "Basisrolle"
-                },
-                {
-                  "checkbuttons-id": "filterID133",
-                  "checkbuttons-title": "Regnskapsfører uten signeringsrett"
-                },
-                {
-                  "checkbuttons-id": "filterID134",
-                  "checkbuttons-title": "Revisorattester - MVA kompensasjon"
-                },
-                {
-                  "checkbuttons-id": "filterID135",
-                  "checkbuttons-title": "Utfyller/Innsender"
-                },
-                {
-                  "checkbuttons-id": "filterID136",
-                  "checkbuttons-title": "Ansvarlig revisor"
-                },
-                {
-                  "checkbuttons-id": "filterID137",
-                  "checkbuttons-title": "Revisormedarbeider"
-                },
-                {
-                  "checkbuttons-id": "filterID138",
-                  "checkbuttons-title": "Revisorrettighet"
-                },
-                {
-                  "checkbuttons-id": "filterID139",
-                  "checkbuttons-title": "Regnskapsmedarbeider"
-                }
-              ]
-            }
-          ]
-        },
-        {
-          "sortable-row-items": [
-            {
-              "sortable-row-text": "<i class=\"material-icons a-personRole-icon\">person</i>",
-              "is-sortable-collapse-link": false
-            },
-            {
-              "sortable-row-text": "Kabelkonsulentene AS",
-              "is-sortable-collapse-link": false
-            },
-            {
-              "sortable-row-text": "915897983",
-              "is-sortable-collapse-link": false
-            },
-            {
-              "sortable-row-text": "",
-              "is-sortable-collapse-link": {
-                "collapse-filter-id": "eksempelID7",
-                "collapse-primary-text": "Gi rettigheter",
-                "collapse-secondary-text": "",
-                "show-arrow": false,
-                "toggle-texts": true,
-                "no-decoration": false,
-                "blue-text-right": true,
-                "action-performed-confirmation": "Lagt til"
+              {
+                "checkbuttons-id": "filterID155",
+                "checkbuttons-title": "Primærnæring og næringsmidler"
+              },
+              {
+                "checkbuttons-id": "filterID156",
+                "checkbuttons-title": "Regnskapsfører med signeringsrett"
+              },
+              {
+                "checkbuttons-id": "filterID157",
+                "checkbuttons-title": "Regnskapsfører lønn"
+              },
+              {
+                "checkbuttons-id": "filterID158",
+                "checkbuttons-title": "Basisrolle"
+              },
+              {
+                "checkbuttons-id": "filterID1459",
+                "checkbuttons-title": "Regnskapsfører uten signeringsrett"
+              },
+              {
+                "checkbuttons-id": "filterID160",
+                "checkbuttons-title": "Revisorattester - MVA kompensasjon"
+              },
+              {
+                "checkbuttons-id": "filterID161",
+                "checkbuttons-title": "Utfyller/Innsender"
+              },
+              {
+                "checkbuttons-id": "filterID162",
+                "checkbuttons-title": "Ansvarlig revisor"
+              },
+              {
+                "checkbuttons-id": "filterID163",
+                "checkbuttons-title": "Revisormedarbeider"
+              },
+              {
+                "checkbuttons-id": "filterID164",
+                "checkbuttons-title": "Revisorrettighet"
+              },
+              {
+                "checkbuttons-id": "filterID165",
+                "checkbuttons-title": "Regnskapsmedarbeider"
               }
-            }
-          ],
-          "sortable-action-id": "eksempelID7",
-          "sortable-action-items": [
-            {
-              "segment-fixed": "",
-              "ferdigsegment-done": {
-                "button-text": "Ferdig",
-                "button-class": "a-btn a-btn-success a-js-confirmAddRightBtn",
-                "data-toggle": "collapse",
-                "data-target": "#eksempelID7",
-                "aria-expanded": false
-              },
-              "ferdigsegment-cancel": {
-                "button-text": "Avbryt",
-                "button-class": "a-btn-link",
-                "button-id": "cancel-deletion",
-                "margin-right-multiplier": 3,
-                "data-toggle": "collapse",
-                "data-target": "#eksempelID7",
-                "aria-expanded": false
-              },
-              "sortable-action-text": "Velg roller den ansatte skal ha:",
-              "checkbuttons": [
-                {
-                  "checkbuttons-id": "filterID140",
-                  "checkbuttons-title": "Begrenset signeringsrett"
-                },
-                {
-                  "checkbuttons-id": "filterID141",
-                  "checkbuttons-title": "Lønn og personalmedarbeider"
-                },
-                {
-                  "checkbuttons-id": "filterID142",
-                  "checkbuttons-title": "Primærnæring og næringsmidler"
-                },
-                {
-                  "checkbuttons-id": "filterID143",
-                  "checkbuttons-title": "Regnskapsfører med signeringsrett"
-                },
-                {
-                  "checkbuttons-id": "filterID144",
-                  "checkbuttons-title": "Regnskapsfører lønn"
-                },
-                {
-                  "checkbuttons-id": "filterID145",
-                  "checkbuttons-title": "Basisrolle"
-                },
-                {
-                  "checkbuttons-id": "filterID146",
-                  "checkbuttons-title": "Regnskapsfører uten signeringsrett"
-                },
-                {
-                  "checkbuttons-id": "filterID147",
-                  "checkbuttons-title": "Revisorattester - MVA kompensasjon"
-                },
-                {
-                  "checkbuttons-id": "filterID148",
-                  "checkbuttons-title": "Utfyller/Innsender"
-                },
-                {
-                  "checkbuttons-id": "filterID149",
-                  "checkbuttons-title": "Ansvarlig revisor"
-                },
-                {
-                  "checkbuttons-id": "filterID150",
-                  "checkbuttons-title": "Revisormedarbeider"
-                },
-                {
-                  "checkbuttons-id": "filterID151",
-                  "checkbuttons-title": "Revisorrettighet"
-                },
-                {
-                  "checkbuttons-id": "filterID152",
-                  "checkbuttons-title": "Regnskapsmedarbeider"
-                }
-              ]
-            }
-          ]
-        },
-        {
-          "sortable-row-items": [
-            {
-              "sortable-row-text": "<i class=\"material-icons a-personRole-icon\">person</i>",
-              "is-sortable-collapse-link": false
-            },
-            {
-              "sortable-row-text": "Adrian Frutiger ENK",
-              "is-sortable-collapse-link": false
-            },
-            {
-              "sortable-row-text": "916689780",
-              "is-sortable-collapse-link": false
-            },
-            {
-              "sortable-row-text": "",
-              "is-sortable-collapse-link": {
-                "collapse-filter-id": "eksempelID8",
-                "collapse-primary-text": "Gi rettigheter",
-                "collapse-secondary-text": "",
-                "show-arrow": false,
-                "toggle-texts": true,
-                "no-decoration": false,
-                "blue-text-right": true,
-                "action-performed-confirmation": "Lagt til"
-              }
-            }
-          ],
-          "sortable-action-id": "eksempelID8",
-          "sortable-action-items": [
-            {
-              "segment-fixed": "",
-              "ferdigsegment-done": {
-                "button-text": "Ferdig",
-                "button-class": "a-btn a-btn-success a-js-confirmAddRightBtn",
-                "data-toggle": "collapse",
-                "data-target": "#eksempelID8",
-                "aria-expanded": false
-              },
-              "ferdigsegment-cancel": {
-                "button-text": "Avbryt",
-                "button-class": "a-btn-link",
-                "button-id": "cancel-deletion",
-                "margin-right-multiplier": 3,
-                "data-toggle": "collapse",
-                "data-target": "#eksempelID8",
-                "aria-expanded": false
-              },
-              "sortable-action-text": "Velg roller den ansatte skal ha:",
-              "checkbuttons": [
-                {
-                  "checkbuttons-id": "filterID153",
-                  "checkbuttons-title": "Begrenset signeringsrett"
-                },
-                {
-                  "checkbuttons-id": "filterID154",
-                  "checkbuttons-title": "Lønn og personalmedarbeider"
-                },
-                {
-                  "checkbuttons-id": "filterID155",
-                  "checkbuttons-title": "Primærnæring og næringsmidler"
-                },
-                {
-                  "checkbuttons-id": "filterID156",
-                  "checkbuttons-title": "Regnskapsfører med signeringsrett"
-                },
-                {
-                  "checkbuttons-id": "filterID157",
-                  "checkbuttons-title": "Regnskapsfører lønn"
-                },
-                {
-                  "checkbuttons-id": "filterID158",
-                  "checkbuttons-title": "Basisrolle"
-                },
-                {
-                  "checkbuttons-id": "filterID1459",
-                  "checkbuttons-title": "Regnskapsfører uten signeringsrett"
-                },
-                {
-                  "checkbuttons-id": "filterID160",
-                  "checkbuttons-title": "Revisorattester - MVA kompensasjon"
-                },
-                {
-                  "checkbuttons-id": "filterID161",
-                  "checkbuttons-title": "Utfyller/Innsender"
-                },
-                {
-                  "checkbuttons-id": "filterID162",
-                  "checkbuttons-title": "Ansvarlig revisor"
-                },
-                {
-                  "checkbuttons-id": "filterID163",
-                  "checkbuttons-title": "Revisormedarbeider"
-                },
-                {
-                  "checkbuttons-id": "filterID164",
-                  "checkbuttons-title": "Revisorrettighet"
-                },
-                {
-                  "checkbuttons-id": "filterID165",
-                  "checkbuttons-title": "Regnskapsmedarbeider"
-                }
-              ]
-            }
-          ]
-        }
-      ]
-    }
+            ]
+          }
+        ]
+      }
+    ]
   },
   "isTransparent": true
 }
