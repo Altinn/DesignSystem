@@ -348,31 +348,54 @@ ul {
 
 /*------------------------------------*\
     Ordered list with circled numbers
+    with regular or yellow dots
 \*------------------------------------*/
 
-.a-circle-list {
+ol {
   padding-right: 0;
   margin-left: 0;
   list-style-type: none;
   counter-reset: step;
 
-  li {
-    margin-bottom: $spacer * 1.5;
-    font-weight: bold;
+  &.a-circle-list {
+    li {
+      margin-bottom: $spacer * 1.5;
 
-    &::before {
-      padding: 5px 9px 4px 9px;
-      margin-right: 10px;
-      font-weight: bold;
-      content: counter( step );
-      counter-increment: step;
-      border: 2px solid $blue;
-      border-radius: 50%;
+      span {
+        padding: 0;
+        padding-left: $spacer * 2.5;
+        margin: 0;
+        margin-left: 10px;
+        margin-top: $spacer * -2;
+        font-weight: normal;
+        display: block;
+
+        span {
+          font-weight: bold;
+          padding: 0;
+          margin: 0;
+          display: inline;
+        }
+      }
+
+      &::before {
+        padding: 5px 9px 4px 9px;
+        margin-right: 10px;
+        font-weight: bold;
+        content: counter( step );
+        counter-increment: step;
+        border-radius: 50%;
+        border: 2px solid $blue;
+      }
     }
+  }
 
-    span {
-      margin-left: 10px;
-      font-weight: normal;
+  &.a-circle-list-yellow {
+    li {
+      &::before {
+        background-color: $yellow;
+        border-color: $yellow;
+      }
     }
   }
 }
