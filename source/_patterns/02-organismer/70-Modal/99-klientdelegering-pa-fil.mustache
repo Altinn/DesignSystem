@@ -1,0 +1,67 @@
+<!-- Modal -->
+<span class="a-scene a-page">
+  <div class="a-modal {{ bodyClass }}" id="{{ modal-id }}" tabindex="-1" role="dialog" aria-labelledby="{{ modal-label }}" aria-hidden="true">
+    <div class="modal-dialog modal-lg" role="document">
+
+      <div class="container">
+        <div class="row">
+          <div class="col-md-12">
+
+            <!-- Modal Header -->
+              {{> molekyler-modal-header }}
+            <!-- END Modal Header -->
+
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-md-10 offset-md-1">
+
+            <!-- Modal NavBar -->
+            {{# modalprosess-navbar }}
+              {{> molekyler-modal-navbar }}
+            {{/ modalprosess-navbar }}
+            <!-- END Modal NavBar -->
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-xl-10 offset-xl-1">
+
+            <!-- Modal window -->
+            <span class="a-right-panel a-page a-scene_element {{ animationClass }}">
+
+              <div class="modal-content">
+
+                <!-- Modal Body header -->
+                {{> molekyler-modal-body-header }}
+                {{ modal-temp }}
+                <!-- Modal Body content -->
+                <div class="modal-body a-modal-body a-text">
+                  <h2>Hvem er dette for?</h2>
+                  <p> {{{ modal-content }}}</p>
+
+                  <h3>1. Først må du laste ned filen som inneholder dagens klientdelegering</h3>
+
+                    {{> atomer-handlingsknapp(action-button-class: "fa fa-download a-btn-action-icon",
+                        button-class: "a-btn a-btn-action", action-button-icon: "", action-button-text: "Last ned fil")
+                    }}
+
+                    <h3>2. Så gjør du de justeringene du ønsker i filen</h3>
+
+                    <h3>2. Til slutt laster du opp den redigerte filen</h3>
+
+                    {{> atomer-handlingsknapp(action-button-class: "fa fa-publish a-btn-action-icon",
+                        button-class: "a-btn a-btn-action", action-button-icon: "", action-button-text: "Last opp fil")
+                    }}
+
+                  </div>
+                </div><!-- END Modal body -->
+              </div><!-- END Modal window -->
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</span>
