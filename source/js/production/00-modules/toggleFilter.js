@@ -4,6 +4,7 @@ var toggleFilter = function() {
     $(e.currentTarget).hide();
     $(e.currentTarget).prev().removeClass('open');
   });
+
   $('.a-sortable-action-row.a-collapseContent').on('show.bs.collapse', function(e) {
     $(e.currentTarget).show();
     $(e.currentTarget).prev().addClass('open');
@@ -30,16 +31,8 @@ var toggleFilter = function() {
     var actionRow = $(this).attr('data-target');
     if (!$(this).hasClass('collapsed')) {
       $(this).addClass('collapsed');
-      // $(actionRow).prev().removeClass('open');
-      // $(actionRow).css('display', 'none');
     } else {
-      // $('.a-collapseContent').removeClass('in');
-      // $('.a-collapse-title').addClass('collapsed');
       $(this).removeClass('collapsed');
-      // $('.open').next().css('display', 'none');
-      // $('.open').removeClass('open');
-      // $(actionRow).css('display', 'initial');
-      // $(actionRow).prev().addClass('open');
     }
   });
 
