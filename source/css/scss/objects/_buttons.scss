@@ -55,7 +55,7 @@
     top: -6px;
     left: 0;
     width: 100%;
-    height: 48px;
+    height: $spacer * 4;
     // Making the touch target area bigger without affecting the layout
     content: '';
   }
@@ -167,7 +167,7 @@
 // BTN WITH ICON
 .a-btn-icon {
   width: 100%;
-  height: 60px;
+  height: $spacer * 5;
   text-align: left;
   background: transparent;
 
@@ -214,7 +214,8 @@
   }
 }
 
-.a-btn-transparentWhite-active {
+.a-btn-transparentWhite-active,
+.a-btn-transparentWhite-active:hover {
   color: $white;
   background: $blue;
 
@@ -269,10 +270,10 @@
   &::before {
     position: absolute;
     top: -11px;
-    left: -12px;
+    left: -$spacer;
     z-index: -1;
     width: calc( 100% + 24px );
-    min-height: 48px;
+    min-height: $spacer * 4;
     cursor: pointer;
     content: '';
   }
@@ -324,9 +325,6 @@
 
 // BOX BUTTON
 .a-box-button {
-  @include media-breakpoint-up( xl ) {
-    max-width: 190px;
-  }
 
   position: relative;
   width: 100%;
@@ -335,6 +333,10 @@
   cursor: pointer;
   background: $white;
   border: 1px solid $grey-medium;
+
+  @include media-breakpoint-up( xl ) {
+    max-width: 190px;
+  }
 
   .a-box-button-text {
     @include media-breakpoint-up( sm ) {
