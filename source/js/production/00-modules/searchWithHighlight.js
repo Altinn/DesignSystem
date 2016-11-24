@@ -2,9 +2,9 @@ var resetSearchTarget = function($targetTable) {
   $targetTable.find('tr:not(.a-js-ignoreDuringSearch)').each(function() {
     $(this).show();
     $(this).find('td[data-searchable]').each(function() {
-      var columnValue = $(this).text();
-      columnValue = columnValue.replace('<mark>', '').replace('</mark>', '');
-      $(this).text(columnValue);
+      var columnValue = $(this).html();
+      columnValue = columnValue.replace(/<mark>/g, '').replace(/<\/mark>/g, '');
+      $(this).html(columnValue);
     });
   });
 };
@@ -23,12 +23,18 @@ var executeSearch = function($searchInput, $targetTable) {
       // Create a regex with the search term that ignores tags,
       // this enables the search text "test testing" to hit "<span>test</span> testing"
       term = term.replace(/(\s+)/, '(<[^>]+>)*$1(<[^>]+>)*');
-      pattern = new RegExp('(' + term + ')', 'gi');
+      pattern = new RegExp('(\<.*?\>)|(' + term + ')', 'gi');
 
       // Only perform the highlighting if there are matches
       matches = pattern.exec(srcString);
       if (matches && matches.length > 0) {
-        srcString = srcString.replace(pattern, '<mark>$1</mark>');
+        srcString = srcString.replace(pattern, function(a, b, c) {
+          if (c) {
+            return '<mark>' + c + '</mark>';
+          } else {
+              return a;
+          }
+          });
 
         // If a search for "test testing" made a hit in "<span>test</span> testing", the resulting
         // html would look like "<span><mark>test</span> testing</mark>", but we want
