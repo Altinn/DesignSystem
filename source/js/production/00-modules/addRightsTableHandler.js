@@ -10,8 +10,8 @@ var setupAddRightsHandler = function() {
     targetTable = $actionsRow[0].dataset.targetTable;
     if (targetTable) {
       toBeCopied = $actionsRow.prev().clone();
-      $(toBeCopied).find('.a-collapseTitle').toggleClass('toggle-collapse-text');
-      $(toBeCopied).find('.a-collapseTitle').addClass('collapsed');
+      $(toBeCopied).find('.a-collapse-title').toggleClass('toggle-collapse-text');
+      $(toBeCopied).find('.a-collapse-title').addClass('collapsed');
 
       $actionsRow.prev().addClass('a-sortable-row-complete');
 
