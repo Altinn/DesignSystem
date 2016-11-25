@@ -5736,19 +5736,27 @@ a {
     font-size: 22px;
     vertical-align: middle; }
 
-/* Telephone Link */
-.a-tel {
+/* Special Links */
+.a-link-tel,
+.a-link-mail {
   position: relative;
   font-family: "DIN-bold";
   font-size: 18px;
   font-weight: normal;
-  border-bottom: none; }
-  .a-tel:focus:not(.override-focus) {
+  border-bottom: none;
+  color: #022F51; }
+  .a-link-tel i,
+  .a-link-mail i {
+    margin-top: -3px;
+    vertical-align: middle; }
+  .a-link-tel:focus:not(.override-focus), .a-link-tel:hover:not(.override-focus),
+  .a-link-mail:focus:not(.override-focus),
+  .a-link-mail:hover:not(.override-focus) {
     border: none;
-    box-shadow: none; }
-  .a-tel:hover {
-    border: none; }
-  .a-tel::before {
+    box-shadow: none;
+    color: #0062ba; }
+  .a-link-tel::before,
+  .a-link-mail::before {
     position: absolute;
     top: -15px;
     left: -20px;
@@ -5757,10 +5765,6 @@ a {
     min-height: 48px;
     cursor: pointer;
     content: ''; }
-  .a-tel i {
-    margin-top: -3px;
-    margin-left: -5px;
-    vertical-align: middle; }
 
 /* Hover underline */
 @media (min-width: 768px) {
@@ -7329,6 +7333,12 @@ fieldset[disabled] .a-switch input[type='radio'] + .a-form-label-inline {
   .a-dropdown-personswitchList.a-dropdownTriangle:after {
     left: 72px;
     margin-left: 0px; }
+  .a-dropdown-languages .a-link-logout,
+  .a-dropdown-personswitchList .a-link-logout {
+    position: absolute;
+    right: 36px;
+    top: 24px;
+    padding-bottom: 0; }
 
 .a-header .a-dropdown-languages,
 .a-header .a-dropdown-personswitchList {
@@ -7477,7 +7487,7 @@ fieldset[disabled] .a-switch input[type='radio'] + .a-form-label-inline {
     -webkit-transition: all .25s ease-in-out;
     display: inline-block;
     line-height: 20px;
-    padding-top: 5px;
+    padding-top: 3px;
     vertical-align: middle; }
     .a-globalNav-main .indicator.flip {
       transform: rotate(-180deg);
@@ -7538,7 +7548,7 @@ fieldset[disabled] .a-switch input[type='radio'] + .a-form-label-inline {
       padding: 12px 12px;
       display: block;
       border-bottom: 1px solid #0062ba; }
-      .a-globalNav-main li a:hover {
+      .a-globalNav-main li a:hover, .a-globalNav-main li a:focus, .a-globalNav-main li a:active {
         color: #1eaef7; }
       .a-globalNav-main li a.globalNav-active {
         color: #000; }
@@ -7567,10 +7577,12 @@ fieldset[disabled] .a-switch input[type='radio'] + .a-form-label-inline {
         bottom: 0;
         background: #0062ba;
         height: 3px; }
-    .a-globalNav-main li .a-tel {
+    .a-globalNav-main li .a-link-tel {
       font-family: "DIN-bold";
       font-weight: normal;
-      padding-top: 36px; }
+      padding-top: 24px;
+      padding-bottom: 24px;
+      margin-left: -5px; }
   .a-globalNav-main li:last-child > a {
     border-bottom: none; }
   .a-globalNav-main .a-dropdownTriangle .a-dropdownTriangle:after {
@@ -7619,8 +7631,9 @@ fieldset[disabled] .a-switch input[type='radio'] + .a-form-label-inline {
 
 /*----------------------------------------*    $ Different color versions of header
 \*----------------------------------------*/
-.a-darkBackground .a-hvr-underline:hover {
-  border-color: #ffffff; }
+@media (min-width: 768px) {
+  .a-darkBackground .a-hvr-underline:hover {
+    border-color: #ffffff; } }
 
 .a-darkBackground .a-personSwitcher-icon {
   border: 1px solid #ffffff; }
@@ -8884,7 +8897,7 @@ fieldset[disabled] .a-switch input[type='radio'] + .a-form-label-inline {
   .a-box-button:hover {
     background: rgba(255, 255, 255, 0.5);
     border: 4px solid #1eaef7 !important;
-    padding: 9px 3px 9px 3px; }
+    padding: 9px 2px 9px 1px; }
     .a-box-button:hover .a-box-button-info {
       background: #ffffff; }
   .a-box-button .a-meta-text {
@@ -9151,15 +9164,6 @@ fieldset[disabled] .a-switch input[type='radio'] + .a-form-label-inline {
 
 .a-card-image {
   padding: 0; }
-  .a-card-image > * {
-    margin-left: calc(180px + 24px);
-    display: block !important; }
-    @media (max-width: 991px) {
-      .a-card-image > * {
-        margin-left: calc(128px + 24px); } }
-    @media (max-width: 767px) {
-      .a-card-image > * {
-        margin-left: 0; } }
   .a-card-image img {
     width: 180px;
     float: left;
@@ -9174,6 +9178,17 @@ fieldset[disabled] .a-switch input[type='radio'] + .a-form-label-inline {
         margin-right: auto;
         display: block;
         margin-bottom: 30px; } }
+  .a-card-image .a-card-image-text {
+    margin-left: calc(180px + 24px);
+    display: block; }
+    @media (max-width: 991px) {
+      .a-card-image .a-card-image-text {
+        margin-left: calc(128px + 24px); } }
+    @media (max-width: 767px) {
+      .a-card-image .a-card-image-text {
+        margin-left: 0; } }
+  .a-card-image .a-link-tel {
+    margin-left: -5px; }
 
 .a-question-wrapper {
   overflow: hidden;
