@@ -2,64 +2,71 @@
     $BUTTONS
 \*------------------------------------*/
 .a-btn {
-  display: inline-block;
-  font-weight: normal;
   position: relative;
-  cursor: pointer;
-  border: 0px solid transparent;
-  padding: 7px $spacer*2 5px $spacer*2;
-  font-size: 16px;
-  line-height: 24px;
-  background: $blue;
-  color: $black;
-  font-family: $font-reg;
-  font-weight: $font-weight-reg;
+  display: inline-block;
+  padding: 7px $spacer * 2 5px $spacer * 2;
   margin-bottom: $spacer;
+  font-family: $font-reg;
+  font-size: 16px;
+  font-weight: $font-weight-reg;
+  line-height: 24px;
+  color: $black;
+  cursor: pointer;
+  background: $blue;
+  border: none;
+
   &:hover {
-    background: $blue-hover-color;
-    text-decoration: none;
     color: $black;
-    border: 0;
-  }
-  &:focus {
     text-decoration: none;
-    outline: 0;
+    background: $blue-hover-color;
+    border: none;
+  }
+
+  &:focus {
+    color: $black;
+    text-decoration: none;
     background: $blue-hover-color;
     border-bottom: none;
-    color: $black;
+    outline: 0;
   }
+
   &:active,
   &.active {
+    @include box-shadow( inset 0 3px 5px rgba( 0, 0, 0, 0.125 ) );
+
+    color: $black;
+    background: $blue;
     background-image: none;
     outline: 0;
-    @include box-shadow(inset 0 3px 5px rgba(0, 0, 0, .125));
-    background: $blue;
-    color: $black;
   }
+
   &.disabled,
   &:disabled {
+    @include box-shadow( none );
+
+    color: $black;
     cursor: $cursor-disabled;
     background-color: $grey-light;
-    color: $black;
-    @include box-shadow(none);
-    box-shadow: 0px 0px 0px 1px white;
+    box-shadow: 0 0 0 1px $white;
   }
-  &:after {
-    // Making the touch target area bigger without affecting the layout
-    content: "";
-    width: 100%;
-    height: 48px;
+
+  &::after {
     position: absolute;
-    left: 0;
     top: -6px;
+    left: 0;
+    width: 100%;
+    height: $spacer * 4;
+    // Making the touch target area bigger without affecting the layout
+    content: '';
   }
-  &:before {
-    content: "";
+
+  &::before {
+    position: absolute;
+    top: 0;
+    left: 0;
     width: auto;
     min-height: auto;
-    position: absolute;
-    left: 0;
-    top: 0;
+    content: '';
   }
 }
 
@@ -75,293 +82,324 @@
 
 .a-btn-secondary {
   background-color: $white;
+
   &:hover {
     background: $grey-light;
   }
 }
 
 .a-btn-success {
-  background-color: $green;
   color: $black;
+
+  background-color: $green;
+
   &:hover {
     background: $green-hover-color;
     border: none;
   }
+
   &:active,
   &.active {
     background: $green;
   }
+
   &:focus {
     background: $green-hover-color;
   }
+
   &.disabled,
   &:disabled {
+    @include box-shadow( none );
+
+    color: $black;
     cursor: $cursor-disabled;
     background-color: $grey-light;
-    color: $black;
-    @include box-shadow(none);
-    box-shadow: 0px 0px 0px 1px white;
+    box-shadow: 0 0 0 1px $white;
   }
 }
 
 .a-btn-danger {
   background-color: $red;
+
   &:hover {
     background: $red-hover-color;
     border: none;
   }
+
   &:active,
   &.active {
     background: $red-hover-color;
   }
+
   &:focus {
     background: $red-hover-color;
   }
 }
 
 .a-btn-border {
-  background: transparent;
-  border: 2px solid $blue-darker;
-  color: $blue-darker;
-  padding: 16px 24px;
-  font-size: 24px;
+  padding: 16px $spacer * 2;
   font-family: $font-medium;
+  font-size: 24px;
   font-weight: $font-weight-medium;
-  background: rgba(255, 255, 255, 0.5);
   line-height: 36px;
+  color: $blue-darker;
+  background: rgba( 255, 255, 255, 0.5 );
+  border: 2px solid $blue-darker;
+
+  @include media-breakpoint-up( lg ) {
+    font-size: 36px;
+  }
+
   &:hover,
   &:focus {
+    color: $white;
     background: $blue-darker;
     border: 2px solid $blue-darker;
-    color: $white;
   }
+
   &:active,
   &.active {
-    background: $blue-darker;
     color: $white;
-  }
-  @include media-breakpoint-up(lg) {
-    font-size: 36px;
+    background: $blue-darker;
   }
 }
 
 // BTN WITH ICON
 .a-btn-icon {
-	height: 60px;
-	width: 100%;
-	text-align: left;
-	background: transparent;
+  width: 100%;
+  height: $spacer * 5;
+  text-align: left;
+  background: transparent;
 
-	&:hover,
-	&:focus {
-			background: transparent;
-			color: $blue;
-	}
+  &:hover,
+  &:focus {
+    color: $blue;
+    background: transparent;
+  }
 
-	.a-btn-icon-symbol {
-		font-size: 30px;
-		padding-right: $spacer;
-		vertical-align: middle;
-		margin-top: -3px;
-	}
+  .a-btn-icon-symbol {
+    padding-right: $spacer;
+    margin-top: -3px;
+    font-size: 30px;
+    vertical-align: middle;
+  }
 }
 // BTN WITH WHITE TRANSPARENCY
 
 .a-btn-transparentWhite {
-	background: $white-opacity;
-	padding: $spacer;
+  padding: $spacer;
 
-	&:hover,
-	&:focus {
-			background: $white;
-			color: $black;
-	}
+  background: $white-opacity;
 
-	.a-btn-icon-symbol {
-		background: $blue;
-		border-radius: 50px;
-		color: $white;
-		height: $spacer*3;
-		width: $spacer*3;
+  &:hover,
+  &:focus {
+    color: $black;
+    background: $white;
+  }
+
+  .a-btn-icon-symbol {
+    width: $spacer * 3;
+    height: $spacer * 3;
+    padding: 0;
+    padding-top: $spacer / 2;
     font-size: 22px;
+    color: $white;
     text-align: center;
-    padding: 0px;
-		padding-top: $spacer/2;
-	}
-	.a-btn-icon-text {
-		padding-left: $spacer/2;
-	}
+    background: $blue;
+    border-radius: 50px;
+  }
+
+  .a-btn-icon-text {
+    padding-left: $spacer / 2;
+  }
 }
 
 .a-btn-transparentWhite-active,
 .a-btn-transparentWhite-active:hover {
-	background: $blue;
-	color: $white;
+  color: $white;
+  background: $blue;
 
-	.a-btn-icon-symbol {
-		background: $white;
-		color: $blue;
-	}
+  .a-btn-icon-symbol {
+    color: $blue;
+    background: $white;
+  }
 }
 
 // BTN WITH SHADOW
 .a-btn-shadow {
-	background: $blue-light;
-	box-shadow: 1px 1px 4px 0px rgba(137, 137, 137, 0.5);
+  background: $blue-light;
+  box-shadow: 1px 1px 4px 0 rgba( 137, 137, 137, 0.5 );
 
-	&:hover {
-		background: darken($blue-light, 5%);
+  &:hover {
     color: $black;
-	}
+    background: darken( $blue-light, 5% );
+  }
 
-	&:focus {
-		background: darken($blue-light, 5%);
-		color: $black;
-		box-shadow: 1px 1px 4px 0px rgba(137, 137, 137, 0.5);
-	}
+  &:focus {
+    color: $black;
+    background: darken( $blue-light, 5% );
+    box-shadow: 1px 1px 4px 0 rgba( 137, 137, 137, 0.5 );
+  }
 
-	&.a-bgGreyLight {
-		&:focus {
-			background: darken($grey-light, 5%);
-		}
-	}
+  &.a-bgGreyLight {
+    &:focus {
+      background: darken( $grey-light, 5% );
+    }
+  }
 
-	.a-label {
-		margin-top: -1px;
-		margin-left: 12px;
-	}
+  .a-label {
+    margin-top: -1px;
+    margin-left: $spacer;
+  }
 }
 
 // Make button look like link
 .a-btn-link {
-  background: none;
-  border: none;
-  color: $black;
-  padding: 0;
-  padding-bottom: 2px;
-  border-bottom: 2px solid $link-color;
-  text-decoration: none;
-  cursor: pointer;
   position: relative;
   z-index: 1;
-  box-shadow: none;
-}
-
-.a-btn-link:hover {
-  text-decoration: none;
-  border-bottom: 2px solid $blue-dark;
+  padding: 0;
+  padding-bottom: 2px;
   color: $black;
-}
-
-.a-btn-link:not(.override-focus):focus:before {
-  outline: none !important;
-  box-shadow: $focusColor;
-}
-
-.a-btn-link:before {
-  content: "";
-  width: calc(100% + 24px);
-  min-height: 48px;
-  position: absolute;
-  left: -12px;
-  top: -11px;
+  text-decoration: none;
   cursor: pointer;
-  z-index: -1;
+  background: none;
+  border: none;
+  border-bottom: 2px solid $link-color;
+  box-shadow: none;
+
+  &::before {
+    position: absolute;
+    top: -11px;
+    left: -$spacer;
+    z-index: -1;
+    width: calc( 100% + 24px );
+    min-height: $spacer * 4;
+    cursor: pointer;
+    content: '';
+  }
+
+  &:hover {
+    color: $black;
+    text-decoration: none;
+    border-bottom: 2px solid $blue-dark;
+  }
+
+  &:not(.override-focus) {
+    &:focus {
+      &::before {
+        outline: none !important;
+        box-shadow: $focusColor;
+      }
+    }
+  }
 }
 
 // add btn
 .a-btn-action {
-  border: 2px dotted $blue;
-  padding: 4px 24px 4px 36px;
-  background-color: transparent;
-  color: #000;
+  padding: $spacer / 3 $spacer * 2 $spacer / 3 $spacer * 3;
+  color: $black;
   text-align: left;
+  background-color: transparent;
+  border: 2px dotted $blue;
+
   &:hover,
   &:focus {
+    color: $black;
     background: $blue-light;
     border: 2px dotted $blue;
-    color: $black;
   }
+
   .a-btn-action-icon,
   .a-btn-action-iconPlus {
-    font-size: 16px;
     position: absolute;
     top: 7px;
-    left: 12px;
+    left: $spacer;
+    font-size: 16px;
   }
+
   .a-btn-action-iconPlus {
-    font-size: 24px;
     top: 4px;
+    font-size: 24px;
   }
 }
 
 // BOX BUTTON
 .a-box-button {
-  border: 1px solid $grey-medium;
-  padding: 12px 6px;
-  cursor: pointer;
-  width: 100%;
-  background: #fff;
-  position: relative;
-  height: 190px;
 
-  @include media-breakpoint-up(xl) {
+  position: relative;
+  width: 100%;
+  height: 190px;
+  padding: $spacer $spacer / 2;
+  cursor: pointer;
+  background: $white;
+  border: 1px solid $grey-medium;
+
+  @include media-breakpoint-up( xl ) {
     max-width: 190px;
   }
+
   .a-box-button-text {
-    @include media-breakpoint-up(sm) {
+    @include media-breakpoint-up( sm ) {
       height: 66px;
       overflow: hidden;
     }
   }
+
   p {
-    margin-bottom: 0px;
+    margin-bottom: 0;
   }
+
   .a-box-button-icon {
     display: block;
     font-size: 60px;
   }
+
   .a-box-button-info {
-    font-size: 20px;
-    font-weight: bold;
-    font-style: normal;
-    color: #000;
-    padding: $spacer/2 $spacer;
+    display: table;
+    width: auto;
+    padding: $spacer / 2 $spacer;
     margin: $spacer auto $spacer auto;
+    clear: both;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: bold;
+    color: $black;
+    text-align: center;
     background:  $grey-light;
     border-radius: 50px;
-    width: auto;
-    clear: both;
-    text-align: center;
-    display: table;
   }
+
   .a-box-button-action {
-    // max-width: 182px;
     display: inline-block;
     font-size: 14px;
   }
+
   .a-box-button-action-arrow {
     font-size: 16px;
   }
+
   &:hover {
+    padding: 9px 1px 9px 0;
     background: $white-opacity;
     border: 4px solid $blue !important;
-    padding: 9px 1px 9px 0px;
 
     .a-box-button-info {
       background: $white;
     }
   }
+
   .a-meta-text {
     font-size: 14px;
   }
+
   .a-box-button-name {
     display: block;
     max-height: 50px;
     overflow-y: hidden;
-    text-transform: uppercase;
     font-size: 14px;
+    text-transform: uppercase;
   }
+
   &:focus {
     background: $blue-light;
   }
@@ -369,22 +407,25 @@
 
 // BOX ADD BUTTON
 .a-boxAddBtn {
-  border: none;
-  padding: 12px;
-  background: transparent;
   width: 100%;
   max-width: 400px;
+  padding: $spacer;
   cursor: pointer;
+  background: transparent;
+  border: none;
+
   .a-boxAddBtn-inner {
-    border: 2px dotted $blue;
-    padding: 24px 12px;
-    height: 160px;
     display: block;
+    height: 160px;
+    padding: $spacer * 2 $spacer;
+    border: 2px dotted $blue;
+
     .a-boxAddBtn-icon {
       display: block;
+      padding: $spacer;
       font-size: 36px;
-      padding: 12px;
     }
+
     &:hover {
       background: $white-opacity;
     }
@@ -394,14 +435,18 @@
 // FULL WIDTH ADD BUTTON
 .a-fullWidthBtn {
   width: 100%;
+  height: $spacer * 4;
   font-weight: bold;
-  height: $spacer*4;
-  i.a-btn-action-icon {
-    top: 13px;
-    margin-right: 24px;
+
+  i {
+    &.a-btn-action-icon {
+      top: 13px;
+      margin-right: $spacer * 2;
+    }
   }
+
   span {
-    margin-left: $spacer*3;
+    margin-left: $spacer * 3;
   }
 }
 
@@ -410,38 +455,45 @@
 // SWITCH ACTION (RADIO) BUTTON
 .switch-container {
   width: 100%;
-  height: $spacer*3;
-  /*36px*/
+  height: $spacer * 3;
   border: 2px solid $blue;
+
   .radio {
     position: relative;
     width: 50%;
     height: 100%;
-  }
-  .radio:first-of-type {
-    float: left;
-  }
-  .radio:last-of-type {
-    float: right;
-  }
-  .radio input {
-    display: none;
-  }
-  .radio label {
-    display: block;
-    width: 100%;
-    height: 100%;
-    text-align: center;
-    line-height: $spacer*3-4px;
-    /*parent height - border*/
-    background-color: $grey-light;
-  }
-  input[type="radio"]:checked+label {
-    background-color: $blue;
-  }
-  input[type="radio"]:not(:checked)+label {
-    &:hover {
-      background-color: $blue-light;
+
+    &:first-of-type {
+      float: left;
+    }
+
+    &:last-of-type {
+      float: right;
+    }
+
+    input {
+      display: none;
+
+      &[type='radio'] {
+        &:checked+label {
+          background-color: $blue;
+        }
+
+        &:not(:checked)+label {
+          &:hover {
+            background-color: $blue-light;
+          }
+        }
+      }
+    }
+
+    label {
+      display: block;
+      width: 100%;
+      height: 100%;
+      line-height: $spacer * 3-4px;
+      text-align: center;
+      background-color: $grey-light;
     }
   }
 }
@@ -450,16 +502,18 @@
 .a-btn-group {
   a,
   button {
-    margin-right: $spacer;
     display: inline-block;
+    margin-right: $spacer;
+
     &:last-child {
       margin-right: 0;
     }
   }
+
   &.a-btn-group-exLinks {
     a,
     button {
-      margin-right: $spacer*3;
+      margin-right: $spacer * 3;
       margin-bottom: $spacer;
     }
   }
@@ -469,20 +523,18 @@
   color: $blue-dark;
   border: none;
 
-  &:hover, &:focus {
+  &:hover,
+  &:focus {
     color: $blue;
     border: none;
   }
-
 }
-
-
 
 // No style
 .a-btn-noStyle {
-  background: none;
-  border: none;
   padding: 0;
   margin: 0;
-  color: #fff;
+  color: $white;
+  background: none;
+  border: none;
 }
