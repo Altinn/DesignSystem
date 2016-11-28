@@ -46,6 +46,7 @@
       padding: 12px;
     }
   }
+
   // Language switcher (Button)
   .a-languageSwitcher {
     margin-top: -6px;
@@ -154,7 +155,7 @@
   }
 }
 
-//Language an personSwitch list (dropdown)
+//Language and personSwitch list (dropdown)
 .a-dropdown-languages,
 .a-dropdown-personswitchList {
   position: relative;
@@ -164,6 +165,9 @@
     white-space: normal;
     border-bottom: 1px solid $grey-light;
     padding: $spacer*1.5;
+    display: flex;
+    -webkit-box-align: start;
+    align-items: flex-start;
     &:hover {
       color: $black;
     }
@@ -183,11 +187,6 @@
     &:last-child {
       border-bottom: none;
     }
-  }
-  // Arrow position when not inside header
-  &.a-dropdownTriangle:after {
-    left: 72px;
-    margin-left: 0px;
   }
 
   // Log out
@@ -231,7 +230,7 @@
 			right: -24px;
       top: 55px;
 		}
-    &.a-dropdownTriangle:after { 
+    &.a-dropdownTriangle:after {
 			left: auto;
 			right: 79px;
 
@@ -247,23 +246,21 @@
 		right: -87px;
 
 		@include media-breakpoint-up(sm) {
-			right: -12px;
       top: 55px;
 		}
 
 		@include media-breakpoint-up(md) {
+      right: -24px;
 			width: 420px;
       top: 55px;
 		}
 
 		&.a-dropdownTriangle:after{
-			right: 65px;
+			right: 76px;
+      left: auto;
 
-			@include media-breakpoint-up(sm) {
-				right: 0px;
-			}
 			@include media-breakpoint-up(md) {
-				right: 2px;
+				right: 13px;
 			}
 		}
 
