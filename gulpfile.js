@@ -75,6 +75,12 @@ gulp.task('pl-copy:dp', function () {
     .pipe(gulp.dest(paths().public.js))
 });
 
+// Copy Datepicker distribution from installed package into public JS folder:
+gulp.task('pl-copy:markjs', function () {
+  return gulp.src('node_modules/mark.js/dist/jquery.mark.min.js')
+    .pipe(gulp.dest(paths().public.js))
+});
+
 // Copy image files from source into public images folder:
 gulp.task('pl-copy:img', function () {
   return gulp.src(
@@ -166,7 +172,8 @@ gulp.task('pl-copy:distribution-js', function () {
       'node_modules/bootstrap-validator/dist/validator.min.js',
       'node_modules/bootstrap-datepicker/dist/js/bootstrap-datepicker.min.js',
       'node_modules/smoothstate/jquery.smoothState.min.js',
-      'source/js/production/*']
+      'source/js/production/*',
+      'node_modules/mark.js/dist/jquery.mark.min.js']
     ).pipe(gulp_concat('concat.js')).pipe(gulp_rename('plugins.min.js'))
     .pipe(gulp.dest('public/distributions/v' + version));
 });
@@ -220,6 +227,7 @@ gulp.task('patternlab:prebuild', gulp.series(
   'pl-copy:js', 'pl-copy:bs', 'pl-copy:th', 'pl-copy:jq', 'pl-copy:bv',
   'pl-copy:dp', 'pl-copy:ss', 'pl-copy:an', 'pl-copy:cl', 'pl-copy:img',
   'pl-copy:favicon', 'pl-copy:css', 'pl-copy:styleguide', 'pl-copy:ssb',
+  'pl-copy:markjs',
   function (done) { done(); })
 );
 
