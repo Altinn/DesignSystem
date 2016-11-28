@@ -3,10 +3,10 @@
 \*------------------------------------*/
 
 .a-footer {
+  padding-top: $spacer * 4;
+  padding-bottom: $spacer * 6;
+  margin-top: $spacer * 4;
   border-top: 1px solid $grey-medium;
-  margin-top: $spacer*4;
-  padding-top: $spacer*4;
-  padding-bottom: $spacer*6;
 }
 
 
@@ -16,40 +16,49 @@
 
 .a-footerNav,
 .a-footerExtraNav {
-  padding-top: 4px;
-  text-align: center;
-  @include media-breakpoint-up(lg) {
+  @include media-breakpoint-up( lg ) {
     text-align: left;
   }
+
+  padding-top: 4px;
+  text-align: center;
+
   ul {
     li {
       display: inline;
-      padding-left: $spacer*3;
       padding-bottom: 12px;
+      padding-left: $spacer * 3;
+
       &:last-child {
-        padding-bottom: 0px;
+        padding-bottom: 0;
       }
+
       &:first-child {
-        padding-left: 0;
-        @include media-breakpoint-up(lg) {
-          padding-left: $spacer*2;
+        @include media-breakpoint-up( lg ) {
+          padding-left: $spacer * 2;
         }
+
+        padding-left: 0;
       }
+
       a {
-        border: none;
-        font-size: 16px;
-        font-family: $font-bold;
-        font-weight: $font-weight-bold;
-        color: $blue-darker;
-        @include media-breakpoint-up(md) {
+        @include media-breakpoint-up( md ) {
           font-size: 20px;
         }
+
+        font-family: $font-bold;
+        font-size: 16px;
+        font-weight: $font-weight-bold;
+        color: $blue-darker;
+        border: none;
+
         &:hover {
           color: $blue-dark;
         }
+
         i {
-          vertical-align: middle;
           margin-top: -3px;
+          vertical-align: middle;
         }
       }
     }
@@ -57,54 +66,63 @@
 }
 
 .a-footerNav {
-  display: none;
-  @include media-breakpoint-up(sm) {
+  @include media-breakpoint-up( sm ) {
     display: block;
   }
+
+  display: none;
 }
 
 .a-footerExtraNav {
-  margin-top: $spacer*2;
-  color: $grey;
+  margin-top: $spacer * 2;
   font-size: 14px;
+  color: $grey;
   text-align: center;
+
   ul {
-    padding-top: $spacer;
-    padding-bottom: $spacer*2;
-    @include media-breakpoint-up(lg) {
+    @include media-breakpoint-up( lg ) {
       display: inline;
       padding-top: 0;
     }
+
+    padding-top: $spacer;
+    padding-bottom: $spacer * 2;
+
     li {
+      @include media-breakpoint-up( sm ) {
+        display: inline;
+        padding-left: $spacer * 2;
+      }
+
       display: block;
       padding-left: 0;
+
       a {
-        font-size: 14px;
+        position: relative;
         font-family: $font-reg;
+        font-size: 14px;
         font-weight: $font-weight-reg;
         color: $black;
-        position: relative;
+
         &:focus {
           box-shadow: none;
         }
-        &:before {
-          content: "";
-          width: calc(100% + 24px);
-          min-height: 44px;
+
+        &::before {
           position: absolute;
-          left: -12px;
           top: -15px;
-          cursor: pointer;
+          left: -12px;
           z-index: -1;
+          width: calc( 100% + 24px );
+          min-height: 44px;
+          cursor: pointer;
+          content: '';
         }
+
         i {
-          vertical-align: middle;
           margin-top: -3px;
+          vertical-align: middle;
         }
-      }
-      @include media-breakpoint-up(sm) {
-        display: inline;
-        padding-left: $spacer*2;
       }
     }
   }

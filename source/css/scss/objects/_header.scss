@@ -15,6 +15,75 @@
       margin-top: 0px;
     }
   }
+
+  // If switchList is inside header, make absolute and positioned
+  .a-dropdown-languages,
+  .a-dropdown-personswitchList {
+    @include media-breakpoint-up( sm ) {
+      top: 55px;
+      right: -38px;
+    }
+    @include media-breakpoint-up( md ) {
+      top: 55px;
+      right: -80px;
+      width: 420px;
+    }
+
+    position: absolute;
+    top: 57px;
+    right: -90px;
+    left: auto;
+    z-index: 10001;
+    width: 280px;
+    padding: 0;
+
+    @media all and (min-width: 360px) {
+      width: 320px;
+    }
+
+    &.a-dropdownTriangle {
+      &::after {
+        @include media-breakpoint-up( sm ) {
+          right: 28px;
+        }
+        @include media-breakpoint-up( md ) {
+          right: 60px;
+        }
+        @include media-breakpoint-up( lg ) {
+          right: 68px;
+        }
+
+        right: 79px;
+        left: auto;
+      }
+    }
+  }
+
+  .a-dropdown-personswitchList {
+    @include media-breakpoint-up( sm ) {
+      right: -12px;
+    }
+
+    @include media-breakpoint-up( md ) {
+      width: 420px;
+    }
+
+    right: -87px;
+
+    &.a-dropdownTriangle {
+      &::after {
+        @include media-breakpoint-up( sm ) {
+          right: 0;
+        }
+
+        @include media-breakpoint-up( md ) {
+          right: 2px;
+        }
+
+        right: 65px;
+      }
+    }
+  }
 }
 
 // Header options
@@ -46,6 +115,7 @@
       padding: 12px;
     }
   }
+
   // Language switcher (Button)
   .a-languageSwitcher {
     margin-top: -6px;
@@ -71,17 +141,23 @@
       border: none;
     }
     i {
+      @include media-breakpoint-up( sm ) {
+        // delete?
+      }
+
       font-size: 30px;
       vertical-align: middle;
-      @include media-breakpoint-up(sm) {}
     }
-    &:after {
-      display: none;
+
+    &::after {
       @include media-breakpoint-up(md) {
         display: inline-block;
       }
+
+      display: none;
     }
   }
+
   .a-personSwitcher {
     padding-right: 0;
   }
@@ -116,6 +192,7 @@
       background: $white-hover;
     }
   }
+
   .a-personSwitcher-name {
     text-align: right;
     vertical-align: middle;
@@ -134,6 +211,7 @@
       max-width: 220px;
     }
   }
+
   .a-personSwitcher-icon {
     border: 1px solid $blue-dark;
     border-radius: 36px;
@@ -146,7 +224,6 @@
     height: 36px;
     width: 36px;
 
-
     @include media-breakpoint-up(md) {
       font-size: 18px;
       margin-top: 0px;
@@ -154,19 +231,23 @@
   }
 }
 
+
 //Language an personSwitch list (dropdown)
 .a-dropdown-languages,
 .a-dropdown-personswitchList {
   position: relative;
   color: $black;
   border-radius: 0;
+
   .dropdown-item {
+    padding: $spacer * 1.5;
     white-space: normal;
     border-bottom: 1px solid $grey-light;
-    padding: $spacer*1.5;
+
     &:hover {
       color: $black;
     }
+
     .a-flag {
       max-width: 48px;
       margin-right: $spacer;
@@ -174,20 +255,24 @@
       margin-top: 2px;
       width: 100%;
     }
+
     p {
       margin-bottom: 0;
       font-size: 14px;
       word-wrap: break-word;
-      ;
     }
+
     &:last-child {
       border-bottom: none;
     }
   }
+
   // Arrow position when not inside header
-  &.a-dropdownTriangle:after {
-    left: 72px;
-    margin-left: 0px;
+  &.a-dropdownTriangle {
+    &::after {
+      left: 72px;
+      margin-left: 0;
+    }
   }
 
   // Log out
@@ -199,100 +284,44 @@
   }
 }
 
-// If switchList is inside header, make absolute and positioned
-.a-header {
-	.a-dropdown-languages,
-	.a-dropdown-personswitchList {
-		width: 280px;
-		right: -90px;
-		left: auto;
-		padding: 0;
-		position: absolute;
-		top: 57px;
-		z-index: 10001;
-
-		@media all and (min-width: 360px) {
-			width: 320px;
-		}
-
-		@include media-breakpoint-up(sm) {
-			right: -38px;
-			top: 55px;
-		}
-
-		@include media-breakpoint-up(md) {
-			width: 420px;
-			right: -80px;
-			top: 55px;
-		}
-
-		&.a-dropdownTriangle:after {
-			left: auto;
-			right: 79px;
-
-			@include media-breakpoint-up(sm) {
-				right: 28px;
-			}
-
-			@include media-breakpoint-up(md) {
-				right: 60px;
-			}
-
-			@include media-breakpoint-up(lg) {
-				right: 68px;
-			}
-		}
-	}
-	.a-dropdown-personswitchList {
-		right: -87px;
-
-		@include media-breakpoint-up(sm) {
-			right: -12px;
-		}
-
-		@include media-breakpoint-up(md) {
-			width: 420px;
-		}
-
-		&.a-dropdownTriangle:after{
-			right: 65px;
-
-			@include media-breakpoint-up(sm) {
-				right: 0px;
-			}
-			@include media-breakpoint-up(md) {
-				right: 2px;
-			}
-		}
-
-	}
-
-}
-
 // On large version
-.a-dropdown-personswitchList.a-dropdown-personswitchList-large.a-dropdownTriangle:after {
-  left: auto;
-  right: 15px;
+.a-dropdown-personswitchList {
+  &.a-dropdown-personswitchList-large {
+    &.a-dropdownTriangle {
+      &::after {
+        right: 15px;
+        left: auto;
+      }
+    }
+  }
 }
 
 // When switcher panel is open
-.nav-pills .nav-item.open .nav-link.a-languageSwitcher,
-.nav-pills .nav-item.open .nav-link.a-personSwitcher {
-  background: transparent;
-  color: $blue-dark;
-  text-align: right;
+.nav-pills {
+  .nav-item {
+    &.open {
+      .nav-link {
+        &.a-languageSwitcher,
+        &.a-personSwitcher {
+          color: $blue-dark;
+          text-align: right;
+          background: transparent;
+        }
+      }
+    }
+  }
 }
 
 // Hide .dropdown-menu (Language and personswitcher)
 // ONLY when inside a collapse-btn (.dropdown)
-.dropdown-menu,
 .dropdown-menu {
   display: block;
 }
 
-.dropdown .dropdown-menu,
-.dropdown .dropdown-menu {
-  display: none;
+.dropdown {
+  .dropdown-menu {
+    display: none;
+  }
 }
 
 .open>.dropdown-menu {
@@ -301,8 +330,8 @@
 
 // LOGO
 .a-logo {
-  height: 24px;
   width: 100%;
+  height: 24px;
   margin-bottom: 0;
 }
 
@@ -313,52 +342,62 @@
 
 .a-globalNav {
   .a-globalNav-logo {
-    float: left;
-    border: none;
-    position: relative;
-    display: block;
-    z-index: 1;
     @include media-breakpoint-up(lg) {
       margin-top: 2px;
     }
+
+    position: relative;
+    z-index: 1;
+    display: block;
+    float: left;
+    border: none;
+
     &:focus {
       border: none;
       box-shadow: none !important;
     }
-    &:before {
-      content: "";
+
+    &::before {
+      position: absolute;
+      top: -10px;
+      left: -11%;
+      z-index: -1;
       width: 124%;
       height: 48px;
-      position: absolute;
-      left: -11%;
-      top: -10px;
       cursor: pointer;
-      z-index: -1;
+      content: '';
     }
   }
+
   .navbar-toggler {
-    background: $blue-dark;
-    color: $white;
     float: right;
-    margin-top: -5px;
     width: 60px;
-    font-size: 16px;
     padding: 8px 0;
-    &:after {
+    margin-top: -5px;
+    font-size: 16px;
+    color: $white;
+    background: $blue-dark;
+
+    &::after {
       content: 'meny';
     }
-    &[aria-expanded="true"]:after {
-      content: 'lukk';
+
+    &[aria-expanded='true'] {
+      &::after {
+        content: 'lukk';
+      }
     }
   }
+
   .navbar-toggleable-sm {
-    width: 100%;
-    position: absolute;
-    left: 0;
-    overflow: visible;
-    @include media-breakpoint-up(md) {
+    @include media-breakpoint-up( md ) {
       position: relative;
     }
+
+    position: absolute;
+    left: 0;
+    width: 100%;
+    overflow: visible;
   }
 }
 
@@ -372,6 +411,37 @@
 	left: 0;
 	overflow: auto;
 	box-shadow: 2px 2px 9px 1px rgba(137,137,137,0.5);
+
+  @include media-breakpoint-up(md) {
+		box-shadow: none;
+		margin-top: 2px;
+		background: transparent;
+		position: relative;
+	  min-height: none;
+		z-index: auto;
+		overflow: visible;
+		padding-top: 0;
+	}
+
+  @include media-breakpoint-up( lg ) {
+    margin-top: -2px;
+  }
+
+  .a-dropdownTriangle{
+    box-shadow: none;
+    @include media-breakpoint-up(md) {
+      background: transparent;
+      box-shadow: none;
+    }
+  }
+
+  .a-dropdownTriangle:after{
+    margin-left: auto;
+		right: 26px;
+    @include media-breakpoint-up(md) {
+      display: none;
+    }
+  }
 
 	.indicator {
 		font-size: 9px;
@@ -388,39 +458,6 @@
 			-webkit-transform: rotate(-180deg);
 			vertical-align: middle;
 		}
-	}
-
-	.a-dropdownTriangle{
-		box-shadow: none;
-	}
-
-	@include media-breakpoint-up(md) {
-		box-shadow: none;
-		margin-top: 2px;
-		background: transparent;
-		position: relative;
-	  min-height: none;
-		z-index: auto;
-		overflow: visible;
-		padding-top: 0;
-
-		.a-dropdownTriangle{
-		  background: transparent;
-			box-shadow: none;
-		}
-
-		.a-dropdownTriangle:after{
-		  display: none;
-		}
-	}
-
-	@include media-breakpoint-up(lg) {
-		margin-top: -2px;
-	}
-
-	.a-dropdownTriangle:after{
-	  margin-left: auto;
-		right: 26px;
 	}
 
 	ul {
@@ -501,8 +538,6 @@
 				padding-bottom: 3px;
 			}
 
-
-
 			&.globalNav-active:before {
 		    content: "";
 		    position: absolute;
@@ -517,7 +552,8 @@
 		}
 
 		.a-link-tel {
-			font-family: $font-bold; font-weight: $font-weight-bold;
+			font-family: $font-bold;
+      font-weight: $font-weight-bold;
 			padding-top: $spacer*2;
       padding-bottom: $spacer*2;
       margin-left: -5px;
@@ -599,9 +635,6 @@
 		}
 	}
 
-}
-
-
 /*----------------------------------------*\
     $ Different color versions of header
 \*----------------------------------------*/
@@ -616,18 +649,33 @@
   .a-personSwitcher-icon {
     border: 1px solid $white;
   }
-
-	@include media-breakpoint-up(md) {
-		.a-globalNav-main li a {
-			color: $white;
-		}
-	}
-	.a-header-options .a-languageSwitcher,
-	.a-header-options .a-personSwitcher {
-    color: $white;
+  @include media-breakpoint-up( md ) {
+    .a-globalNav-main {
+      li {
+        a {
+          color: $white;
+        }
+      }
+    }
   }
-  .nav-pills .nav-item.open .nav-link.a-languageSwitcher,
-  .nav-pills .nav-item.open .nav-link.a-personSwitcher {
-    color: $white;
+
+  .a-header-options {
+    .a-languageSwitcher,
+    .a-personSwitcher {
+      color: $white;
+    }
+  }
+
+  .nav-pills {
+    .nav-item {
+      &.open {
+        .nav-link {
+          &.a-languageSwitcher,
+          &.a-personSwitcher {
+            color: $white;
+          }
+        }
+      }
+    }
   }
 }

@@ -94,6 +94,7 @@
 
   .a-sortable-row {
     background: $grey-light;
+
     &.a-sortable-row-complete {
       @include disabled-background( $color: $grey, $background-color: $green-light, $box-shadow: none, $background-image: url( '../images/disabled-background.svg' ) );
 
@@ -126,6 +127,10 @@
 
       &:nth-of-type( even ) {
         font-weight: bold;
+      }
+
+      .row-item-description {
+        font-weight: $font-weight-light;
       }
     }
 
@@ -192,9 +197,9 @@
       font-size: 12px;
       font-weight: $font-weight-reg;
       text-transform: uppercase;
+      cursor: pointer;
       background: $grey-light;
       border: none;
-      cursor: pointer;
 
       &:last-of-type {
         padding-top: $spacer / 2;
@@ -210,7 +215,7 @@
 
     .a-dropdownArrow {
       border-left: 10px solid $black;
-      transform: scale( .75 ) rotate( 90deg ) translate( -50% );
+      transform: scale( 0.75 ) rotate( 90deg ) translate( -50% );
     }
 
     tr,
@@ -331,15 +336,24 @@
 \*------------------------------------*/
 
 .a-full-width-table {
-  @include media-breakpoint-down( sm ) {
-    margin: 0 -12px;
+  margin-right: -$spacer * 2;
+  margin-left: -$spacer * 2;
+
+  @include media-breakpoint-up( md ) {
+    margin-right: -$spacer * 7;
+    margin-left: -$spacer * 7;
   }
-  margin: 0 -96px;
+  @include media-breakpoint-up( lg ) {
+    margin-right: -$spacer * 8;
+    margin-left: -$spacer * 8;
+  }
 }
 
 .a-full-height-table {
-  @include media-breakpoint-down( sm ) {
-    margin-bottom: -36px;
-	 }
-  margin: 0 -96px -48px -96px;
+  margin-bottom: -$spacer * 3;
+
+  @include media-breakpoint-up( md ) {
+    margin-bottom: -$spacer * 4;
+  }
+
 }

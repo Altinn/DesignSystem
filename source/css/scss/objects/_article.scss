@@ -30,6 +30,7 @@
     }
   }
 
+
   h3,
   h4 {
     margin: $spacer * 2 0 $spacer / 2 0;
@@ -49,20 +50,21 @@
     }
 
     &.connected-bullets {
-      margin-left: 0px;
+      margin-left: 0;
+
       li {
         margin: 0;
       }
     }
 
     &.a-bullet-list {
-      margin-top: $spacer;
-      margin-left: 0;
-      list-style: none;
-
       @include media-breakpoint-up( md ) {
         margin-left: -$spacer * 2;
       }
+
+      margin-top: $spacer;
+      margin-left: 0;
+      list-style: none;
     }
 
     ul {
@@ -114,28 +116,21 @@
 // Image in articlelist
 
 .a-articleImage-right {
-    float: right;
-    margin-right: -96px;
-    max-width: 56%;
-    padding: 6px 0 24px 24px;
+  float: right;
+  max-width: 56%;
+  padding: 6px 0 24px 24px;
+  margin-right: -96px;
 }
 
 .a-articleImage-left {
-    float: left;
-    margin-left: -96px;
-    max-width: 56%;
-    padding: 6px 24px 24px 0;
+  float: left;
+  max-width: 56%;
+  padding: 6px 24px 24px 0;
+  margin-left: -96px;
 }
 
 // Box
 .a-box {
-  float: left;
-  width: calc( 100% + 48px );
-  padding: $spacer * 2 $spacer * 2;
-  margin-left: -24px;
-  background: $white;
-  border: 12px solid $blue-light;
-
   @include media-breakpoint-up( sm ) {
     width: 100%;
     padding: $spacer * 4 $spacer * 4;
@@ -144,6 +139,13 @@
   @include media-breakpoint-up( md ) {
     padding: $spacer * 4 $spacer * 7;
   }
+
+  float: left;
+  width: calc( 100% + 48px );
+  padding: $spacer * 2 $spacer * 2;
+  margin-left: -24px;
+  background: $white;
+  border: 12px solid $blue-light;
 
   .a-box-heading {
     float: left;
@@ -188,8 +190,6 @@
 }
 
 .a-article-teaser-text {
-  width: calc( 100% - 60px );
-
   @include media-breakpoint-up( sm ) {
     float: left;
     padding-left: $spacer * 3;
@@ -203,6 +203,8 @@
   @include media-breakpoint-up( xl ) {
     margin-top: -8px;
   }
+
+  width: calc( 100% - 60px );
 
   h2 {
     margin-bottom: 0;
@@ -220,17 +222,17 @@
 
 // Date
 .a-date {
+  @include media-breakpoint-up( sm ) {
+    float: left;
+    margin-bottom: $spacer * 3;
+  }
+
   width: $spacer * 5;
   height: $spacer * 5;
   margin-bottom: $spacer;
   color: $white;
   text-align: center;
   background: $blue;
-
-  @include media-breakpoint-up( sm ) {
-    float: left;
-    margin-bottom: $spacer * 3;
-  }
 
   .a-date-day {
     padding-top: 5px;
