@@ -2,7 +2,7 @@
 mobileNavigation, propagateContent, toggleExpand, toggleFilter, uniformHeight,
 tooltip, popover, aTagSpaceExpand, initializeDatepicker, onboarding,
 nameChecker, codeLookup, handleValidatorLibrary, setupDeletableRowsTable,
-defaultSort, setupAddRightsHandler */
+defaultSort, setupAddRightsHandler, onFileInputChange */
 window.altinnInit = function() {
   toggleExpand();
   drilldownInteraction();
@@ -23,5 +23,6 @@ window.altinnInit = function() {
   setupDeletableRowsTable();
   defaultSort();
   setupAddRightsHandler();
+  onFileInputChange();
 };
 window.altinnInit();

@@ -4,146 +4,179 @@
 
 .a-form-group-datepicker {
   max-width: 337px;
-  @include media-breakpoint-up(lg) {
+
+  @include media-breakpoint-up( lg ) {
     max-width: 427px;
   }
 }
 
 .datepicker {
-  @include media-breakpoint-down(sm) {
-    border-top: 1px solid #fff;
+  @include media-breakpoint-down( sm ) {
+    border-top: 1px solid $white;
   }
-}
 
-.datepicker.datepicker-dropdown {
-  border-radius: 0px;
-  margin-top: 0px;
-  border: none;
-  padding: 0;
-  @include media-breakpoint-down(sm) {
-    left: 0px !important;
-    width: 100%;
-  }
-  &:before,
-  &:after {
-    display: none;
-  }
-  thead tr {
-    background-color: $blue;
-    color: $white;
-    // Hiding day names
-    &:nth-of-type(3) {
-      display: none;
-    }
-  }
-  table {
-    @include media-breakpoint-down(sm) {
+  &.datepicker-dropdown {
+    @include media-breakpoint-down( sm ) {
+      left: 0 !important;
       width: 100%;
     }
-  }
-  table tr td,
-  table tr th {
-    width: $spacer * 4;
-    height: $spacer * 4;
-    border-radius: 0px;
-  }
-  table tr td span {
-    float: none;
-    margin: auto !important;
-  }
-  table tr th:hover:not(.dow),
-  table tr th:focus:not(.dow) {
-    background: $blue-hover-color;
-  }
-  table tr td:hover,
-  table tr td:focus {
-    background: $blue-light !important;
-  }
-  table tr th {
-    border-left: solid 1px $blue;
-    border-right: solid 1px $blue;
-  }
-  table tr td,
-  table tr td:hover,
-  table tr td:focus,
-  table tr td:active {
-    border-left: solid 1px $grey-light;
-    border-bottom: solid 1px $grey-light;
-  }
-  table tbody {
-    border-right: solid 1px $grey-light;
-    border-bottom: solid 1px $grey-light;
-  }
-  .prev {
-    color: transparent;
-    &:before {
-      content: '←';
-      color: $white;
-      text-align: center;
-      line-height: $spacer * 4;
-      width: $spacer * 4;
-    }
-  }
-  .next {
-    color: transparent;
-    &:before {
-      content: '→';
-      color: $white;
-      text-align: center;
-      line-height: $spacer * 4;
-      width: $spacer * 4;
-    }
-  }
-  .old,
-  .new {
-    background: $grey-lighter;
-  }
-  td.day.today,
-  td.day.today:hover,
-  td.day.today:active,
-  td.day.today:focus {
-    background: transparent;
+
+    padding: 0;
+    margin-top: 0;
     border: none;
-    border-color: transparent;
-    color: $white;
-    border-left: solid 1px $grey-light;
-    border-bottom: solid 1px $grey-light;
-    text-shadow: none;
-    span {
-      background: $grey;
-      pointer-events: none;
-      width: 37px;
-      height: 37px;
-      line-height: 37px;
-      margin: 5px;
-      border-radius: 19px;
+    border-radius: 0;
+
+    &::before,
+    &::after {
+      display: none;
     }
-  }
-  td.day.active,
-  td.day.active:hover,
-  td.day.active:active,
-  td.day.active:focus {
-    background: transparent;
-    border: none;
-    border-color: transparent;
-    color: $white;
-    border-left: solid 1px $grey-light;
-    border-bottom: solid 1px $grey-light;
-    text-shadow: none;
-    span {
-      background: $blue;
-      pointer-events: none;
-      width: 37px;
-      height: 37px;
-      line-height: 37px;
-      margin: 5px;
-      border-radius: 19px;
+
+    table {
+      @include media-breakpoint-down( sm ) {
+        width: 100%;
+      }
+
+      thead {
+        tr {
+          color: $white;
+          background-color: $blue;
+
+          // Hiding day names
+          &:nth-of-type(3) {
+            display: none;
+          }
+        }
+      }
+
+      tbody {
+        border-right: solid 1px $grey-light;
+        border-bottom: solid 1px $grey-light;
+      }
+
+      tr {
+        td,
+        th {
+          width: $spacer * 4;
+          height: $spacer * 4;
+          border-radius: 0;
+        }
+
+        th {
+          border-right: solid 1px $blue;
+          border-left: solid 1px $blue;
+
+          &:hover,
+          &:focus {
+            &:not(.dow) {
+              background: $blue-hover-color;
+            }
+          }
+        }
+
+        td {
+          border-bottom: solid 1px $grey-light;
+          border-left: solid 1px $grey-light;
+
+          &:hover,
+          &:focus {
+            background: $blue-light !important;
+            border-bottom: solid 1px $grey-light;
+            border-left: solid 1px $grey-light;
+          }
+
+          &:active {
+            border-bottom: solid 1px $grey-light;
+            border-left: solid 1px $grey-light;
+          }
+
+          span {
+            float: none;
+            margin: auto !important;
+          }
+
+          &.day {
+            &.today,
+            &.active {
+              color: $white;
+              text-shadow: none;
+              background: transparent;
+              border: none;
+              border-color: transparent;
+              border-bottom: solid 1px $grey-light;
+              border-left: solid 1px $grey-light;
+
+              span {
+                width: 37px;
+                height: 37px;
+                margin: 5px;
+                line-height: 37px;
+                pointer-events: none;
+                background: $grey;
+                border-radius: 19px;
+              }
+
+              &:hover,
+              &:active,
+              &:focus {
+                @extend .today;
+              }
+            }
+
+            &.active {
+              span {
+                background: $blue;
+              }
+
+              &:hover,
+              &:active,
+              &:focus {
+                span {
+                  background: $blue;
+                }
+              }
+            }
+          }
+        }
+      }
     }
-  }
-  .datepicker-switch,
-  .datepicker-switch:hover,
-  .datepicker-switch:focus {
-    cursor: auto;
-    background: $blue !important;
+
+    .prev,
+    .next {
+      color: transparent;
+
+      &::before {
+        display: inline-block;
+        width: $spacer * 4;
+        font: normal normal normal 14px/1 'AltinnNo';
+        font-size: inherit;
+        line-height: $spacer * 4;
+        color: $white;
+        text-align: center;
+        content: '\f00a';
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+        text-rendering: auto;
+      }
+    }
+
+    .prev {
+      &::before {
+        transform: rotate( 180deg );
+      }
+    }
+    .old,
+    .new {
+      background: $grey-lighter;
+    }
+
+    .datepicker-switch {
+      cursor: auto;
+      background: $blue !important;
+
+      &:hover,
+      &:focus {
+        @extend .datepicker-switch
+      }
+    }
   }
 }

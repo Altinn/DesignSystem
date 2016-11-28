@@ -17,6 +17,23 @@ textarea {
   -webkit-appearance: none;
 }
 
+// Style placeholder text in inputs
+input::-webkit-input-placeholder {
+color: $grey !important;
+}
+
+input:-moz-placeholder { /* Firefox 18- */
+color: $grey !important;
+}
+
+input::-moz-placeholder {  /* Firefox 19+ */
+color: $grey !important;
+}
+
+input:-ms-input-placeholder {
+color: $grey !important;
+}
+
 
 /*------------------------------------*\
  * FORM GROUP
@@ -99,6 +116,7 @@ textarea {
       padding: 0;
       padding-top: $spacer / 3;
       padding-right: 6px;
+      color: $black;
       text-align: right;
       border: 2px solid $blue;
       border-left: none;
@@ -116,7 +134,7 @@ textarea {
   &.a-form-group-large {
     .form-control {
       height: $spacer * 5;
-      padding: 13px $spacer;
+      padding: 13px $spacer 10px $spacer;
       font-size: 20px;
     }
 
@@ -124,6 +142,7 @@ textarea {
       .btn {
         width: $spacer * 5;
         height: $spacer * 5;
+        padding-right: $spacer;
       }
     }
 
@@ -155,6 +174,8 @@ textarea {
       display: block;
       margin-bottom: $spacer * 2;
       clear: both;
+      position: absolute;
+      z-index: 9999;
     }
   }
 
@@ -240,7 +261,7 @@ textarea {
       font-size: 16px;
       font-weight: normal;
       line-height: 1;
-      color: $black;
+      color: #000;
       text-align: left;
       background-color: $white;
       border: 2px solid $blue;
@@ -249,8 +270,21 @@ textarea {
 
       i {
         margin-top: $spacer / 3 * -1;
-        margin-left: $spacer / 2 * -1;
+        // margin-left: $spacer / 2 * -1;
         vertical-align: middle;
+      }
+
+      &.a-input-group-addon-phone {
+        padding: 7px 6px 12px 12px;
+        i {
+          margin-left: $spacer / 2 * -1;
+        }
+      }
+      &.a-input-group-addon-date {
+        padding: 7px 6px 12px 12px;
+        i {
+          margin-top: -3px;
+        }
       }
     }
 
@@ -392,6 +426,7 @@ textarea {
     background-color: $white;
     border: 2px solid $blue;
     border-radius: 0;
+    margin-top: -1px;
   }
 
   .custom-control {
@@ -547,7 +582,7 @@ textarea {
     }
 
     .custom-control-indicator {
-      top: 17px;
+      top: 13px;
     }
 
     .a-radioButtons-title {
@@ -832,5 +867,18 @@ fieldset[disabled] .a-switch input[type='radio']+label {
   &:focus {
     border: 2px solid $blue-dark;
     box-shadow: none !important;
+  }
+}
+
+.a-custom-fileupload {
+  input {
+    &[type='file'] {
+      position: absolute;
+      z-index: -1;
+      width: 0.1px;
+      height: 0.1px;
+      overflow: hidden;
+      opacity: 0;
+    }
   }
 }

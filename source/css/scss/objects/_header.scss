@@ -3,14 +3,16 @@
 \*------------------------------------*/
 
 .a-header {
-  padding: 36px 0 24px 0;
+  height: 108px;
+  padding-top: 36px;
   .a-logo {
     max-width: 110px;
     float: left;
     margin-right: $spacer;
+    margin-top: -2px;
     @include media-breakpoint-up(lg) {
       max-width: 142px;
-      margin-top: 2px;
+      margin-top: 0px;
     }
   }
 }
@@ -34,11 +36,11 @@
 		margin-top: -7px;
 	}
 	@include media-breakpoint-up(lg) {
-		margin-top: -3px;
+		margin-top: -4px;
 	}
 
 	.nav-link {
-    padding: 12px 8px;
+    padding: 10px 8px;
     border-radius: 0;
     @include media-breakpoint-up(lg) {
       padding: 12px;
@@ -109,6 +111,10 @@
   &:active {
     color: $blue-dark;
     border: none;
+
+    .a-personSwitcher-icon {
+      background: $white-hover;
+    }
   }
   .a-personSwitcher-name {
     text-align: right;
@@ -129,11 +135,20 @@
     }
   }
   .a-personSwitcher-icon {
-    font-size: 34px;
+    border: 1px solid $blue-dark;
+    border-radius: 36px;
     margin-top: -1px;
     vertical-align: middle;
+    font-size: 18px;
+    margin-top: 0px;
+    padding-top: 7px;
+    text-align: center;
+    height: 36px;
+    width: 36px;
+
+
     @include media-breakpoint-up(md) {
-      font-size: 36px;
+      font-size: 18px;
       margin-top: 0px;
     }
   }
@@ -157,6 +172,7 @@
       margin-right: $spacer;
       float: left;
       margin-top: 2px;
+      width: 100%;
     }
     p {
       margin-bottom: 0;
@@ -173,6 +189,15 @@
     left: 72px;
     margin-left: 0px;
   }
+
+  // Log out
+  .a-link-logout {
+    position: absolute;
+    line-height: 19px;
+    right: 36px;
+    top: 24px;
+    padding-bottom: 0;
+  }
 }
 
 // If switchList is inside header, make absolute and positioned
@@ -180,7 +205,6 @@
 	.a-dropdown-languages,
 	.a-dropdown-personswitchList {
 		width: 280px;
-		right: -90px;
 		left: auto;
 		padding: 0;
 		position: absolute;
@@ -192,55 +216,59 @@
 		}
 
 		@include media-breakpoint-up(sm) {
+      width: 420px;
+		}
+
+	}
+  .a-dropdown-languages {
+    right: -90px;
+
+    @include media-breakpoint-up(sm) {
 			right: -38px;
-			top: 55px;
+      top: 55px;
+		}
+    @include media-breakpoint-up(md) {
+			right: -24px;
+      top: 55px;
+		}
+    &.a-dropdownTriangle:after { 
+			left: auto;
+			right: 79px;
+
+			@include media-breakpoint-up(md) {
+				right: 8px;
+			}
+			@include media-breakpoint-up(lg) {
+				right: 12px;
+			}
+		}
+  }
+	.a-dropdown-personswitchList {
+		right: -87px;
+
+		@include media-breakpoint-up(sm) {
+			right: -12px;
+      top: 55px;
 		}
 
 		@include media-breakpoint-up(md) {
 			width: 420px;
-			right: -80px;
-			top: 55px;
+      top: 55px;
 		}
 
-		&.a-dropdownTriangle:after {
-			left: auto;
-			right: 79px;
+		&.a-dropdownTriangle:after{
+			right: 65px;
 
 			@include media-breakpoint-up(sm) {
-				right: 28px;
+				right: 0px;
 			}
-
 			@include media-breakpoint-up(md) {
-				right: 60px;
-			}
-
-			@include media-breakpoint-up(lg) {
-				right: 68px;
+				right: 2px;
 			}
 		}
+
 	}
-	.a-dropdown-personswitchList {
-			right: -87px;
 
-			@include media-breakpoint-up(sm) {
-				right: -12px;
-			}
-
-			@include media-breakpoint-up(md) {
-				width: 420px;
-			}
-
-			&.a-dropdownTriangle:after{
-				right: 65px;
-
-				@include media-breakpoint-up(sm) {
-					right: 0px;
-				}
-				@include media-breakpoint-up(md) {
-					right: 2px;
-				}
-			}
-	}
 }
 
 // On large version
@@ -354,7 +382,7 @@
 		-webkit-transition: all .25s ease-in-out;
 		display: inline-block;
 		line-height: 20px;
-		padding-top: 5px;
+		padding-top: 3px;
 		vertical-align: middle;
 
 		&.flip {
@@ -441,7 +469,9 @@
 			display: block;
 			border-bottom: 1px solid $blue-dark;
 
-			&:hover {
+			&:hover,
+      &:focus,
+      &:active {
 				color: $blue;
 			}
 
@@ -488,9 +518,11 @@
 
 		}
 
-		.a-tel {
+		.a-link-tel {
 			font-family: $font-bold; font-weight: $font-weight-bold;
-			padding-top: $spacer*3;
+			padding-top: $spacer*2;
+      padding-bottom: $spacer*2;
+      margin-left: -5px;
 		}
 	}
 
@@ -579,8 +611,13 @@
 // Dark background, white text
 .a-darkBackground {
 	.a-hvr-underline:hover {
-		border-color: $white;
+    @include media-breakpoint-up(md) {
+  		border-color: $white;
+    }
 	}
+  .a-personSwitcher-icon {
+    border: 1px solid $white;
+  }
 
 	@include media-breakpoint-up(md) {
 		.a-globalNav-main li a {
