@@ -4,22 +4,28 @@ Search datatable with highlight using external package mark.js
 var mark = function() {
   var input = $(this).val();
   var options = {
-    exclude: ['a-js-ignoreDuringSearch'],
     separateWordSearch: false
   };
 
   $.each(this.dataset.searchTarget.split(','), function() {
     // Reset visibility of all rows
     var table = '#' + this.toString();
-    $(table + ' tr:not(.a-js-ignoreDuringSearch)').show();
+    $(table + ' tbody>tr:not(.a-js-ignoreDuringSearch)').show();
 
-    $(table).find('td[data-searchable="true"]').unmark().mark(input, options);
+    // Show information row if open before search
+    $(table + ' tbody>tr.open:not(.a-js-ignoreDuringSearch)').each(function() {
+      $(this).next().show();
+    });
+
+    $(table).find('tbody>tr>td[data-searchable="true"]').unmark().mark(input, options);
 
      // Hide unmarked rows
     if (input.length > 0) {
-      $(table + ' tr:not(.a-js-ignoreDuringSearch)').each(function() {
+      $(table + ' tbody>tr:not(.a-js-ignoreDuringSearch)').each(function() {
         if ($(this).has('td mark').length === 0) {
           $(this).hide();
+          // Hide preceding information row
+          $(this).next().hide();
         }
       });
     }
