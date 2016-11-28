@@ -129,7 +129,7 @@ a {
 
 // EXTERNAL AND INTERNAL LINKS
 .a-link-arrow {
-  position: absolute;
+  position: inline;
   font-style: normal;
   padding-left: 8px;
   padding-top: 2px;
@@ -200,6 +200,27 @@ a {
   &:hover {
     @include media-breakpoint-up( md ) {
       border-bottom: 3px solid $blue-dark;
+    }
+  }
+}
+
+/* Icon resizing */
+
+.a-bigger-icon {
+  &.a-bigger-icon-before {
+    i {
+      margin-top: -4px;
+
+     &::before {
+        font-size: 24px;
+      }
+    }
+  }
+
+  &.a-bigger-icon-span {
+    i {
+      margin-top: -3px;
+      font-size: 24px;
     }
   }
 }
