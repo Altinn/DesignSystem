@@ -9,9 +9,10 @@
     max-width: 110px;
     float: left;
     margin-right: $spacer;
+    margin-top: -2px;
     @include media-breakpoint-up(lg) {
       max-width: 142px;
-      margin-top: 2px;
+      margin-top: 0px;
     }
   }
 }
@@ -35,7 +36,7 @@
 		margin-top: -7px;
 	}
 	@include media-breakpoint-up(lg) {
-		margin-top: -3px;
+		margin-top: -4px;
 	}
 
 	.nav-link {
@@ -110,6 +111,10 @@
   &:active {
     color: $blue-dark;
     border: none;
+
+    .a-personSwitcher-icon {
+      background: $white-hover;
+    }
   }
   .a-personSwitcher-name {
     text-align: right;
@@ -141,11 +146,6 @@
     height: 36px;
     width: 36px;
 
-    &.fa-location-city {
-      padding-top: 4px;
-      font-size: 21px;
-    }
-
 
     @include media-breakpoint-up(md) {
       font-size: 18px;
@@ -172,6 +172,7 @@
       margin-right: $spacer;
       float: left;
       margin-top: 2px;
+      width: 100%;
     }
     p {
       margin-bottom: 0;
@@ -187,6 +188,14 @@
   &.a-dropdownTriangle:after {
     left: 72px;
     margin-left: 0px;
+  }
+
+  // Log out
+  .a-link-logout {
+    position: absolute;
+    right: 36px;
+    top: 24px;
+    padding-bottom: 0;
   }
 }
 
@@ -235,27 +244,29 @@
 		}
 	}
 	.a-dropdown-personswitchList {
-			right: -87px;
+		right: -87px;
+
+		@include media-breakpoint-up(sm) {
+			right: -12px;
+		}
+
+		@include media-breakpoint-up(md) {
+			width: 420px;
+		}
+
+		&.a-dropdownTriangle:after{
+			right: 65px;
 
 			@include media-breakpoint-up(sm) {
-				right: -12px;
+				right: 0px;
 			}
-
 			@include media-breakpoint-up(md) {
-				width: 420px;
+				right: 2px;
 			}
+		}
 
-			&.a-dropdownTriangle:after{
-				right: 65px;
-
-				@include media-breakpoint-up(sm) {
-					right: 0px;
-				}
-				@include media-breakpoint-up(md) {
-					right: 2px;
-				}
-			}
 	}
+
 }
 
 // On large version
@@ -369,7 +380,7 @@
 		-webkit-transition: all .25s ease-in-out;
 		display: inline-block;
 		line-height: 20px;
-		padding-top: 5px;
+		padding-top: 3px;
 		vertical-align: middle;
 
 		&.flip {
@@ -456,7 +467,9 @@
 			display: block;
 			border-bottom: 1px solid $blue-dark;
 
-			&:hover {
+			&:hover,
+      &:focus,
+      &:active {
 				color: $blue;
 			}
 
@@ -503,9 +516,11 @@
 
 		}
 
-		.a-tel {
+		.a-link-tel {
 			font-family: $font-bold; font-weight: $font-weight-bold;
-			padding-top: $spacer*3;
+			padding-top: $spacer*2;
+      padding-bottom: $spacer*2;
+      margin-left: -5px;
 		}
 	}
 
@@ -594,7 +609,9 @@
 // Dark background, white text
 .a-darkBackground {
 	.a-hvr-underline:hover {
-		border-color: $white;
+    @include media-breakpoint-up(md) {
+  		border-color: $white;
+    }
 	}
   .a-personSwitcher-icon {
     border: 1px solid $white;

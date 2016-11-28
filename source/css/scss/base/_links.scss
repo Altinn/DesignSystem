@@ -69,11 +69,15 @@ a {
 .a-link {
   position: relative;
   z-index: 1;
-  padding-bottom: 4px;
+  padding-bottom: 1px;
   color: $black;
   text-decoration: none;
   cursor: pointer;
   border-bottom: 2px solid $link-color;
+
+  @include media-breakpoint-up(lg) {
+    padding-bottom: 3px;
+  }
 
   &:active,
   &:focus,
@@ -96,12 +100,15 @@ a {
   }
 
   &.a-link-title {
-    display: inline-block;
+    display: inline;
     padding-bottom: 0;
-    margin-bottom: 12px;
     font-family: $font-bold;
     font-size: 20px;
     font-weight: $font-weight-bold;
+
+    &+p {
+      margin-top: $spacer;
+    }
   }
 
   &.a-link-danger {
@@ -119,7 +126,7 @@ a {
   position: absolute;
   font-style: normal;
   padding-left: 8px;
-  padding-top: 5px;
+  padding-top: 2px;
 }
 
 // Help icon
@@ -144,26 +151,31 @@ a {
 }
 
 
-/* Telephone Link */
-
-.a-tel {
+/* Special Links */
+.a-link-tel,
+.a-link-mail {
   position: relative;
   font-family: $font-bold;
   font-size: 18px;
   font-weight: $font-weight-bold;
   border-bottom: none;
+  color: $blue-darker;
 
-  &:focus {
+  i {
+    margin-top: -3px;
+    vertical-align: middle;
+  }
+
+  &:focus,
+  &:active,
+  &:hover {
     &:not(.override-focus) {
       border: none;
       box-shadow: none;
+      color: $blue-dark;
     }
-  }
-
-  &:hover {
     border: none;
   }
-
   &::before {
     position: absolute;
     top: -15px;
@@ -173,12 +185,6 @@ a {
     min-height: 48px;
     cursor: pointer;
     content: '';
-  }
-
-  i {
-    margin-top: -3px;
-    margin-left: -5px;
-    vertical-align: middle;
   }
 }
 

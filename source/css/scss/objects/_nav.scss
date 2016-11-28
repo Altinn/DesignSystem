@@ -52,9 +52,20 @@
   li {
     line-height: 36px;
     display: none;
+
+    &.breadcrumb-item + .breadcrumb-item:before {
+      padding-right: 6px;
+      padding-left: 12px;
+      @include media-breakpoint-down(sm) {
+        padding-left: 0;
+        padding-right: 0;
+      }
+    }
+
     &.breadcrumb-mobile {
       @include media-breakpoint-down(sm) {
         display: block;
+
         &:before {
           content: '\f00a';
           display: inline-block;
@@ -64,9 +75,12 @@
           -webkit-font-smoothing: antialiased;
           -moz-osx-font-smoothing: grayscale;
           transform: rotate(180deg);
-
+          color: #000;
           padding-right: 0px;
           padding-bottom: 2px;
+        }
+        .a-link {
+          margin-left: 6px;
         }
       }
     }
@@ -128,11 +142,13 @@
 \*------------------------------------*/
 
 .a-accordion-large {
-  a:not(.a-link) {
-    padding-bottom: 24px;
-    clear: both;
+  .a-collapse-title {
     border-top: 1px solid $blue-line;
-    padding-top: 24px;
+    display: flex;
+    min-height: 72px;
+    -webkit-box-align: center;
+    align-items: center;
+
     @include media-breakpoint-up(md) {
       padding-left: 48px;
     }
