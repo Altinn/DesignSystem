@@ -1,7 +1,6 @@
 {
 	"page-starte-enk" : {
 		"modal-starte-enk" : {
-
 			"_commentStart":"--------------------------------------------------------------",
 			"_commentText": "MODALWINDOW",
 			"_commentEnd":  "--------------------------------------------------------------",
@@ -26,17 +25,17 @@
 		      "button-icon-class": "material-icons a-modal-close-icon",
 		      "button-icon-text": "close",
 		      "button-onclick": false,
-					"enable-popover": true,
+		      "enable-popover": true,
 		      "popover-placement": "bottom",
 		      "popover-content-id": "sampleIdPopover",
 		      "popover-class": "popover-warning",
 					"popover-text": "Er du sikker på at du vil avslutte registrering av Enkeltpersonforetak?",
 					"popover-buttons": [
-		        {
+						{
 		          "button-text" : "Ja, avslutt.",
 		          "button-class" : "a-btn a-btn-danger",
 							"link-url-start" : "",
-						  "link-url" : "onclick=\"location.href='../../patterns/04-sider-30-starte-og-drive-30-starteogdrive/04-sider-30-starte-og-drive-30-starteogdrive.html'\"",
+						  "link-url" : "onclick=\"location.href='../../patterns/04-sider-10-seksjonsforsider-30-starteogdrive/04-sider-10-seksjonsforsider-30-starteogdrive.html'\"",
 						  "link-url-end" : ""
 		        },
 		        {
@@ -56,7 +55,6 @@
 			"_commentEnd":  "--------------------------------------------------------------",
 
 			"header-color" : "a-darkBackground",
-			"modalBack": false,
 			"modalHeader-icon" : "&#xE0AF;",
 			"isIntroText" : {
 				"modalHeader-introText" : "Brønnøysundregistrene"
@@ -69,66 +67,23 @@
 			"_commentEnd":  "--------------------------------------------------------------",
 
 			"modal-title" : {
-				"section-title": "Hvem skal være innehaver av enkeltpersonforetaket?",
-			  "titleExtra" : false
+				"section-title": "Hva skal være forretningsadressen?",
+				"titleExtra" : false
 			},
-
 			"modal-lead" : {
-				  "lead-text-content" : "Fyll inn fødelsnummer og etternavn på den du hjelper med registreringen"
-			},
+		    "lead-text-content" : "Foretaket ditt må registreres på en adresse. Du kan bruke din hjemmeadresse, slik vi har foreslått eller legge inn en annen adresse."
+		  },
 
 			"_commentStart":"--------------------------------------------------------------",
-		  "_commentText": "BUTTONS",
+		  "_commentText": "INPUT",
 		  "_commentEnd":  "--------------------------------------------------------------",
 
-
-			"modal-nextbutton" : false,
-			"modal-discard" : false,
-
-		  "modal-input-orgName" : false,
-		  "modal-input-textArea" : false,
-		  "modal-input-radio" : false,
-		  "modal-date" : false,
-
-			"modal-input-owner" : {
-				"text-input-personnumber" : {
-			    "text-input-id" : "Fødselsnummer",
-			    "text-input-label" : "Fødselsnummer",
-			    "text-input-placeholder" : "11 siffer",
-			    "maxlength" : "11",
-			    "input-type" : "text",
-			    "isRequired" : "required",
-
-			    "isValidator" : false,
-			    "validator-delay" : "",
-			    "validator-check" : false,
-			    "validator-pattern" : "pattern= \"[0-9]{11}\""
-			  },
-
-			  "text-input-lastname" : {
-			    "text-input-id" : "Etternavn",
-			    "text-input-label" : "Etternavn",
-			    "text-input-placeholder" : "F.eks Olsen",
-			    "input-type" : "text",
-			    "isRequired" : "required",
-
-			    "isValidator" : true,
-			    "validator-delay" : "",
-			    "validator-check" : true,
-    			"validator-pattern" : "pattern= \"^[\\S]*$\"",
-					"validator-errorMessage" : "Du kan kun ha ett etternavn. Hvis vedkommende bruker flere er det kun det siste som defineres som etternavn i navneloven."
-			  },
-			  "adress-submit" : {
-			    "button-text" : "Neste",
-					"button-class" : "a-btn a-js-smoothStateEnabled",
-			    "button-type" : "submit",
-			    "link-url-start" : "",
-			    "link-url" : "",
-			    "link-url-end" : "",
-					"button-href" : "link.sider-starte-enk-1"
-			  },
-			  "url" : "link.sider-starte-enk-1"
-			},
+			"modal-input-orgName" : false,
+			"modal-validatorInfo" : false,
+			"modal-validatorInfoOK" : false,
+			"modal-input-textArea" : false,
+			"modal-input-radio" : false,
+			"modal-date" : false,
 
 		  "_commentStart":"--------------------------------------------------------------",
 		  "_commentText": "CHOOSE CATEGORY (RADIOBUTTONS)",
@@ -136,13 +91,77 @@
 
 		  "modal-chooseCategory" : false,
 
+			"_commentStart":"--------------------------------------------------------------",
+			"_commentText": "ADRESS AND CHECKBOX",
+			"_commentEnd":  "--------------------------------------------------------------",
+
+			"modal-input-adress" : {
+
+				"text-input-adress" : {
+			    "text-input-id" : "text-input-100",
+			    "text-input-label" : "Adresse",
+			    "text-input-placeholder" : "F.eks Storgata 12",
+			    "input-type" : "text",
+					"isRequired" : "required",
+					"text-input-value" : "Storgata 12"
+			  },
+
+			  "text-input-postalcode" : {
+			    "text-input-id" : "postnummer",
+			    "text-input-label" : "Postnummer:",
+			    "text-input-placeholder" : "4 siffer",
+			    "input-type" : "text",
+			    "maxlength" : "4",
+			    "postal-code" : true,
+			    "form-control-class" : "a-input-postnumber",
+					"isRequired" : "required",
+					"text-input-value" : "0123"
+			  },
+
+				"isStacked" : "custom-controls-stacked",
+				"checkboxes" :  [
+					{
+						"checkboxes-title" : "Gjør adressen privat"
+					}
+				],
+				"adress-submit" : {
+					"button-text" : "Neste",
+					"button-class" : "a-btn a-js-smoothStateEnabled",
+					"button-type" : "submit",
+					"button-href" : "link.sider-starte-enk-5",
+					"link-url-start" : "",
+					"link-url" : "",
+					"link-url-end" : ""
+				},
+				"url" : "link.sider-starte-enk-5"
+			},
 
 		  "_commentStart":"--------------------------------------------------------------",
+		  "_commentText": "BUTTONS",
+		  "_commentEnd":  "--------------------------------------------------------------",
+
+			"modal-nextbutton" : false,
+			"modal-discard" : false,
+
+			"_commentStart":"--------------------------------------------------------------",
 		  "_commentText": "EXTRA INFO",
 		  "_commentEnd":  "--------------------------------------------------------------",
 
 		  "modal-extraInfo" : false,
 
+			"_commentStart":"--------------------------------------------------------------",
+		  "_commentText": "HELP TEXT",
+		  "_commentEnd":  "--------------------------------------------------------------",
+
+			"help-text-1": "Står du fast? Start en",
+			"is-chat" : true,
+			"help-text-2" : "<br class=\"a-rwd-break\"/> eller ring oss på",
+
+			"help-text-icon": "<i class='fa fa-life-ring'>",
+			"help-link-2" : {
+				"link-text" : "75 00 60 00",
+				"link-url" : "tel:+47 75 00 60 00"
+			},
 
 		"_commentStart":"--------------------------------------------------------------",
 		"_commentText": "CHAT",
