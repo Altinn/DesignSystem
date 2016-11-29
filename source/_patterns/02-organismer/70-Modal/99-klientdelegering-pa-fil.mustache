@@ -1,0 +1,48 @@
+<form data-toggle="validator">
+  {{> atomer-undertittel:m-b-1 }}
+
+  <div class="m-b-3">
+    {{> atomer-avsnitt }}
+  </div>
+
+  {{> atomer-seksjonstittel:m-b-1 }}
+
+  <div class="m-b-3 a-bigger-icon a-bigger-icon-before">
+    {{> atomer-handlingsknapp(action-button-class: "fa fa-download a-btn-action-icon", button-class: "a-btn a-btn-action", action-button-icon:
+    "", action-button-text: "Last ned fil") }}
+  </div>
+
+  {{> atomer-seksjonstittel:m-b-1 }}
+  {{# file-delegation-title }}
+    <div class="m-t-1 m-b-1">
+      {{> atomer-ekspanderbar-tittel }}
+    </div>
+  {{/ file-delegation-title }}
+
+  <div class="m-b-3">
+    {{# file-delegation-content }}
+
+    <div id="{{ collapse-header-contentID }}" class="a-collapseContent a-js-instantCollapse collapse" aria-expanded="{{ aria-expanded }}">
+      <img src="../../images/sikksakk.png" class="m-b-2" />
+      {{> atomer-liste-nummerert-sirkel-gul }}
+    </div>
+
+    {{/ file-delegation-content }}
+
+  </div>
+
+  <div class="m-t-4">
+    {{> atomer-seksjonstittel:m-b-1 }}
+  </div>
+
+  <div class="m-b-3 a-bigger-icon a-bigger-icon-span">
+    {{# file-delegation-upload }}
+      {{> atomer-fileupload }}
+    {{/ file-delegation-upload }}
+  </div>
+
+  {{# ferdig-knapp }}
+    {{> atomer-knapp:a-js-enableWhenValid }}
+  {{/ ferdig-knapp }}
+
+</form>
