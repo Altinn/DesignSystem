@@ -3,8 +3,8 @@
 \*------------------------------------*/
 
 .a-header {
-  height: 108px;
-  padding-top: 36px;
+  height: $spacer * 9;
+  padding-top: $spacer * 3;
 
   .a-logo {
     float: left;
@@ -114,7 +114,7 @@
     border-radius: 0;
 
     @include media-breakpoint-up( lg ) {
-      padding: 12px;
+      padding: $spacer;
     }
   }
 
@@ -218,12 +218,12 @@
   }
 
   .a-personSwitcher-icon {
-    width: 36px;
-    height: 36px;
+    width: $spacer * 3;
+    height: $spacer * 3;
     text-align: center;
     vertical-align: middle;
     border: 1px solid $blue-dark;
-    border-radius: 36px;
+    border-radius: $spacer * 3;
 
     @include media-breakpoint-up( md ) {
       margin-top: 0;
@@ -260,7 +260,7 @@
     .a-flag {
       float: left;
       width: 100%;
-      max-width: 48px;
+      max-width: $spacer * 4;
       margin-top: 2px;
       margin-right: $spacer;
     }
@@ -269,7 +269,6 @@
       margin-bottom: 0;
       font-size: 14px;
       word-wrap: break-word;
-      ;
     }
 
     &:last-child {
@@ -280,8 +279,8 @@
   // Log out
   .a-link-logout {
     position: absolute;
-    top: 24px;
-    right: 36px;
+    top: $spacer * 2;
+    right: $spacer * 3;
     padding-bottom: 0;
     line-height: 19px;
   }
@@ -334,10 +333,9 @@
 // LOGO
 .a-logo {
   width: 100%;
-  height: 24px;
+  height: $spacer * 2;
   margin-bottom: 0;
 }
-
 
 /*------------------------------------*\
     $GLOBAL NAVIGATION (in header)
@@ -366,7 +364,7 @@
       left: -11%;
       z-index: -1;
       width: 124%;
-      height: 48px;
+      height: $spacer * 4;
       cursor: pointer;
       content: '';
     }
@@ -374,7 +372,7 @@
 
   .navbar-toggler {
     float: right;
-    width: 60px;
+    width: $spacer * 5;
     padding: 8px 0;
     margin-top: -5px;
     font-size: 16px;
@@ -410,10 +408,40 @@
   z-index: 1000;
   min-height: 100%;
   padding-top: $spacer * 3;
-  margin-top: 60px;
+  margin-top: $spacer * 5;
   overflow: auto;
   background: $white;
   box-shadow: 2px 2px 9px 1px rgba( 137, 137, 137, 0.5 );
+
+  .indicator {
+    display: inline-block;
+    padding-top: 3px;
+    margin-left: $spacer;
+    font-size: 9px;
+    line-height: 20px;
+    vertical-align: middle;
+    transition: all 0.25s ease-in-out;
+
+    &.flip {
+      vertical-align: middle;
+      transform: rotate( -180deg );
+		}
+	}
+
+  .a-dropdownTriangle {
+    box-shadow: none;
+
+    &::after {
+      right: 26px;
+      margin-left: auto;
+    }
+
+    .a-dropdownTriangle {
+      &::after {
+        display: none;
+	    }
+    }
+	}
 
   @include media-breakpoint-up( md ) {
     position: relative;
@@ -428,48 +456,23 @@
     .a-dropdownTriangle {
       background: transparent;
       box-shadow: none;
-    }
+		}
 
     .a-dropdownTriangle {
       &::after {
         display: none;
-      }
+		  }
     }
-  }
+	}
+
   @include media-breakpoint-up( lg ) {
     margin-top: -2px;
-  }
-
-  .indicator {
-    display: inline-block;
-    padding-top: 3px;
-    margin-left: 12px;
-    font-size: 9px;
-    line-height: 20px;
-    vertical-align: middle;
-    transition: all 0.25s ease-in-out;
-
-    &.flip {
-      vertical-align: middle;
-      transform: rotate(-180deg);
-    }
-  }
-
-  .a-dropdownTriangle {
-    display: none;
-    box-shadow: none;
-
-    &::after {
-      right: 26px;
-      display: none;
-      margin-left: auto;
-    }
-  }
+	}
 
   ul {
     float: left;
     list-style: none;
-  }
+	}
 
   li {
     float: left;
@@ -487,23 +490,24 @@
 
       &:first-child {
         margin-left: $spacer;
-      }
-    }
+			}
+		}
 
     @include media-breakpoint-up( lg ) {
       margin-left: $spacer * 3;
 
       &:first-child {
         margin-left: $spacer * 3;
-      }
-    }
+			}
+		}
+
     @include media-breakpoint-up( xl ) {
       margin-left: $spacer * 3;
 
       &:first-child {
         margin-left: $spacer * 4;
-      }
-    }
+			}
+		}
 
     a {
       display: block;
@@ -514,35 +518,11 @@
       border: none;
       border-bottom: 1px solid $blue-dark;
 
-      @include media-breakpoint-up( md ) {
-        display: inline;
-        padding: 0;
-        padding-bottom: 3px;
-        border-bottom: none;
-
-        &:hover,
-        &:active,
-        &:focus {
-          color: $blue-dark;
-        }
-
-        &.globalNav-active {
-          padding-bottom: 3px;
-          color: $blue-dark;
-          border-bottom: 3px solid $blue-dark;
-        }
-      }
-
-      @include media-breakpoint-up( lg ) {
-        padding-bottom: 3px;
-        font-size: 24px;
-      }
-
       &:hover,
       &:focus,
       &:active {
         color: $blue;
-      }
+			}
 
       &.globalNav-active {
         color: $black;
@@ -556,9 +536,33 @@
           height: 3px;
           content: '';
           background: $blue-dark;
-        }
-      }
-    }
+			  }
+			}
+
+      @include media-breakpoint-up( md ) {
+        display: inline;
+        padding: 0;
+        padding-bottom: 3px;
+        border-bottom: none;
+
+        &:hover,
+        &:active,
+        &:focus {
+          color: $blue-dark;
+				}
+
+        &.globalNav-active {
+          padding-bottom: 3px;
+          color: $blue-dark;
+          border-bottom: 3px solid $blue-dark;
+				}
+			}
+
+      @include media-breakpoint-up( lg ) {
+        padding-bottom: 3px;
+        font-size: 24px;
+			}
+		}
 
     .a-link-tel {
       padding-top: $spacer * 2;
@@ -566,26 +570,19 @@
       margin-left: -5px;
       font-family: $font-bold;
       font-weight: $font-weight-bold;
-    }
-  }
+		}
+	}
 
   .dropdown-menu {
     position: static;
     box-sizing: content-box;
     width: inherit;
     margin: 0;
-    margin-right: 24px;
-    margin-left: 24px;
+    margin-right: $spacer * 2;
+    margin-left: $spacer * 2;
     color: $black;
     border: none;
     border-radius: 0;
-
-    @include media-breakpoint-up( md ) {
-
-      &.a-dropdown-languages {
-        display: none;
-      }
-    }
 
     &.a-dropdown-languages {
       width: 0;
@@ -599,13 +596,19 @@
         min-width: 160px;
         height: 360px;
         border-bottom: 1px solid $blue-dark;
-      }
+			}
 
       &.after-collapse {
         width: 0;
         min-width: 0;
-      }
-    }
+			}
+		}
+
+    @include media-breakpoint-up( md ) {
+      &.a-dropdown-languages {
+        display: none;
+			}
+		}
 
     .dropdown-item {
       display: inline-block;
@@ -613,27 +616,27 @@
 
       img {
         margin: 0;
-        margin-right: 24px;
-      }
+        margin-right: $spacer * 2;
+			}
 
       &:last-of-type {
         img {
-          margin-top: -6px;
-          margin-bottom: -6px;
-        }
-      }
+          margin-top: -$spacer / 2;
+          margin-bottom: -$spacer / 2;
+				}
+			}
 
       p {
-        line-height: 36px;
-      }
+        line-height: $spacer * 3;
+			}
 
-      span:last-of-type, p>br {
+      span:last-of-type,
+      p>br {
         display: none;
-      }
-    }
-  }
+			}
+		}
+	}
 }
-
 
 /*----------------------------------------*\
     $ Different color versions of header
