@@ -4,6 +4,8 @@ Search datatable with highlight using external package mark.js
 var mark = function() {
   var input = $(this).val();
   var options = {
+    // comment out to ignore html tags in searchable strings
+    // ie: string1 <tag>string2</tag>
     separateWordSearch: false
   };
 
@@ -25,7 +27,9 @@ var mark = function() {
         if ($(this).has('td mark').length === 0) {
           $(this).hide();
           // Hide preceding information row
-          $(this).next().hide();
+          if ($(this).next().hasClass('a-collapseContent')) {
+            $(this).next().hide();
+          }
         }
       });
     }
