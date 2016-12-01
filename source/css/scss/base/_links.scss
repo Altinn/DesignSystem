@@ -52,7 +52,7 @@ a {
     top: -15px;
     left: -12px;
     z-index: -1;
-    width: calc(100% + 24px);
+    width: calc( 100% + 24px );
     min-height: 48px;
     cursor: pointer;
     content: '';
@@ -75,7 +75,7 @@ a {
   cursor: pointer;
   border-bottom: 2px solid $link-color;
 
-  @include media-breakpoint-up(lg) {
+  @include media-breakpoint-up( lg ) {
     padding-bottom: 3px;
   }
 
@@ -130,14 +130,15 @@ a {
 // EXTERNAL AND INTERNAL LINKS
 .a-link-arrow {
   position: inline;
-  font-style: normal;
-  padding-left: 8px;
   padding-top: 2px;
+  padding-left: 8px;
+  font-style: normal;
 }
+
 
 // Help icon
 .a-helpIconButton {
-  color: #666666;
+  color: $grey;
   border: none;
 
   &:hover {
@@ -164,8 +165,8 @@ a {
   font-family: $font-bold;
   font-size: 18px;
   font-weight: $font-weight-bold;
-  border-bottom: none;
   color: $blue-darker;
+  border-bottom: none;
 
   i {
     margin-top: -3px;
@@ -175,19 +176,21 @@ a {
   &:focus,
   &:active,
   &:hover {
+    border: none;
+
     &:not(.override-focus) {
+      color: $blue-dark;
       border: none;
       box-shadow: none;
-      color: $blue-dark;
     }
-    border: none;
   }
+
   &::before {
     position: absolute;
     top: -15px;
     left: -20px;
     z-index: -1;
-    width: calc(100% + 40px);
+    width: calc( 100% + 40px );
     min-height: 48px;
     cursor: pointer;
     content: '';
@@ -211,7 +214,7 @@ a {
     i {
       margin-top: -4px;
 
-     &::before {
+      &::before {
         font-size: 24px;
       }
     }
