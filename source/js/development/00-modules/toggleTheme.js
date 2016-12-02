@@ -1,4 +1,3 @@
 /* globals $ */
 var toggleTheme = function() {
-  
 };
