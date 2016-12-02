@@ -1,91 +1,7 @@
-/*------------------------------------*\
-    HOVER EFFECTS
-    Underline from center
-\*------------------------------------*/
 
-@include media-breakpoint-up( md ) {
-  .hvr-underline-from-center {
-    position: relative;
-    display: inline-block;
-    overflow: hidden;
-    vertical-align: middle;
-    box-shadow: 0 0 1px $black;
-    -webkit-transform: translateZ( 0 );
-    transform: translateZ( 0 );
-    -webkit-backface-visibility: hidden;
-    backface-visibility: hidden;
-    -moz-osx-font-smoothing: grayscale;
-
-    &:focus {
-      box-shadow: none;
-    }
-
-    &::before {
-      position: absolute;
-      right: 50%;
-      bottom: 0;
-      left: 50%;
-      z-index: -1;
-      height: 3px;
-      content: '';
-      background: $blue-dark;
-      -webkit-transition-property: left, right;
-      transition-property: left, right;
-      -webkit-transition-duration: .3s;
-      transition-duration: .3s;
-      -webkit-transition-timing-function: ease-out;
-      transition-timing-function: ease-out;
-    }
-
-    &:hover,
-    &:focus,
-    &:active {
-      &::before {
-        right: 0;
-        left: 0;
-      }
-    }
-
-  }
-}
-
-
-/*------------------------------------*\
-    HOVER EFFECTS
-    Fade
-\*------------------------------------*/
-
-.hvr-fade {
-  display: inline-block;
-  overflow: hidden;
-  vertical-align: middle;
-  box-shadow: 0 0 1px $black;
-  -webkit-transition-duration: .3s;
-  transition-duration: .3s;
-  -webkit-transform: translateZ( 0 );
-  transform: translateZ( 0 );
-  -webkit-backface-visibility: hidden;
-  backface-visibility: hidden;
-  -moz-osx-font-smoothing: grayscale;
-  -webkit-transition-property: color, background-color;
-  transition-property: color, background-color;
-
-  &:hover,
-  &:focus,
-  &:active {
-    background-color: $blue-light;
-  }
-}
-
-
-/*------------------------------------*\
-    Page Transitions
-\*------------------------------------*/
-
-
-/*
- * Keyframes
- */
+//------------------------------------\\
+//    Page Transitions
+//------------------------------------\\
 
 @keyframes fadeIn {
   0% {
@@ -100,7 +16,7 @@
 @keyframes fadeInUp {
   0% {
     opacity: 0;
-    transform: translate3d( 0, 100%, 0 );
+    transform: translate3d(0, 100%, 0);
   }
 
   100% {
@@ -112,7 +28,7 @@
 @keyframes fadeInRight {
   0% {
     opacity: 0;
-    transform: translate3d( 125%, 0, 0 );
+    transform: translate3d(125%, 0, 0);
   }
 
   100% {
@@ -129,7 +45,7 @@
 
   100% {
     opacity: 1;
-    transform: translate3d( 125%, 0, 0 );
+    transform: translate3d(125%, 0, 0);
   }
 }
 
@@ -141,14 +57,14 @@
 
   100% {
     opacity: 1;
-    transform: translate3d( -125%, 0, 0 );
+    transform: translate3d(-125%, 0, 0);
   }
 }
 
 @keyframes fadeInLeft {
   0% {
     opacity: 0;
-    transform: translate3d( -125%, 0, 0 );
+    transform: translate3d(-125%, 0, 0);
   }
 
   100% {
@@ -157,29 +73,28 @@
   }
 }
 
-
-/*------------------------------------*\
-     CSS Page Transitions
- \*------------------------------------*/
+//------------------------------------\\
+//   CSS Page Transitions
+//------------------------------------\\
 
 .a-scene {
   display: block;
   overflow: hidden;
 
-  /** Basic styles for an animated element */
+  // Basic styles for an animated element
   .a-scene_element {
-    display: block;
-    transition-timing-function: ease-in;
     animation-duration: .25s;
     animation-fill-mode: both;
+    display: block;
+    transition-timing-function: ease-in;
   }
 
-  /** An element that fades in */
+  // An element that fades in
   .a-scene_element--fadein {
     animation-name: fadeIn;
   }
 
-  /** An element that fades in and slides up */
+  // An element that fades in and slides up
   .a-scene_element--fadeinup {
     animation-name: fadeInUp;
   }

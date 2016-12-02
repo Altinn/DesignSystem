@@ -30,7 +30,6 @@
     }
   }
 
-
   h3,
   h4 {
     margin: $spacer * 2 0 $spacer / 2 0;
@@ -38,6 +37,10 @@
 
   h2 + h3 {
     margin-top: 12px !important;
+  }
+
+  a.a-link {
+    font-size: 18px;
   }
 
   ul {
@@ -73,22 +76,12 @@
     }
   }
 
-  ul,
-  ol {
-    margin: 0 0 $spacer * 3 $spacer * 2;
-
-    &.no-declaration {
-      margin: 0;
-      list-style: none;
-
-      li {
-        margin: 0;
-      }
-    }
-  }
-
   ol {
     &.a-circle-list {
+      margin: 0 0 36px 0px;
+      @include media-breakpoint-up(md) {
+        margin: 0 0 36px -40px;
+      }
       li {
         margin-bottom: $spacer * 2;
       }
@@ -100,13 +93,27 @@
     }
   }
 
-  li {
-    margin-bottom: 10px;
-  }
+  ul,
+  ol {
+    margin: 0 0 $spacer * 3 $spacer * 2;
+    font-size: 18px;
 
-  ul.no-decoration {
-    margin: 0;
-    list-style: none;
+    li {
+      margin-bottom: 10px;
+    }
+
+    &.no-declaration {
+      margin: 0;
+      list-style: none;
+      li {
+        margin: 0;
+      }
+    }
+  }
+  .a-question-wrapper {
+    .a-circle-list {
+      margin: 0;
+    }
   }
 }
 
@@ -116,10 +123,12 @@
 // Image in articlelist
 
 .a-articleImage-right {
-  float: right;
-  max-width: 56%;
-  padding: 6px 0 24px 24px;
-  margin-right: -96px;
+  @include media-breakpoint-up( lg ) {
+    float: right;
+    max-width: 56%;
+    padding: 6px 0 24px 24px;
+    margin-right: -190px;
+  }
 }
 
 .a-articleImage-left {
@@ -208,6 +217,7 @@
 
   h2 {
     margin-bottom: 0;
+    margin-top: 0;
     font-family: $font-bold;
     font-size: 20px;
     font-weight: $font-weight-bold;

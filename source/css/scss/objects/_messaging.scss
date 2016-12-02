@@ -66,29 +66,43 @@
 }
 
 .a-chat {
-  position: fixed;
-  right: 0;
-  bottom: 0;
+  background-color: $white;
+  width: 500px;
+  height: 500px;
+  position: relative;
   display: none;
   width: 400px;
   height: 440px;
-  background-color: $white;
-
+  position: fixed;
+  bottom: 0px;
+  right: 0;
   &>p {
-    height: 4 * $spacer;
-    padding: $spacer;
-    margin: 0;
+    background-color: $blue-darker;
+    height: 48px;
     font-size: 16px;
     color: $white;
     text-align: center;
-    background-color: $blue-darker;
-
+    padding: $spacer;
+    margin: 0;
     i {
       float: right;
       color: $white;
     }
   }
+  .a-textBubble {
+    background-color: $grey-light;
+    &::after {
+      border-color: transparent $grey-light;
+      border-right-color: transparent;
+    }
+    &.a-textBubble-from {
+      background-color: $blue-light;
 
+      &::after {
+        border-color: transparent $blue-light;
+      }
+    }
+  }
   .a-chat-scrollarea {
     position: absolute;
     top: 4 * $spacer;
