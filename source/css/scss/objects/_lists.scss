@@ -130,7 +130,7 @@
   }
 }
 
-// If business, change hover color on list
+// If background BLUE-light, change color on lists
 .business {
   .a-item-list {
     .a-item-list-item {
@@ -147,6 +147,20 @@
       li {
         &::after {
           background: $blue-light;
+        }
+      }
+    }
+  }
+}
+
+// If background GREY-light, change color on list
+.private-person,
+.a-bgGrey {
+  ul {
+    &.connected-bullets {
+      li {
+        &::after {
+          background: $grey-light;
         }
       }
     }
@@ -299,7 +313,7 @@ ul {
         font-size: 39px;
         font-weight: bold;
         content: '';
-        background: $grey-light;
+        background: $white;
         border: 3px solid $blue;
         border-radius: 50%;
 
@@ -359,6 +373,7 @@ ol {
   counter-reset: step;
 
   &.a-circle-list {
+    font-size: 18px;
     li {
       margin-bottom: $spacer * 1.5;
 
@@ -387,6 +402,8 @@ ol {
         counter-increment: step;
         border-radius: 50%;
         border: 2px solid $blue;
+        position: relative;
+        top: 3px;
       }
     }
   }
