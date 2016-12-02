@@ -3,64 +3,66 @@
 \*------------------------------------*/
 
 .a-message {
-  background-color: $grey-medium;
-  padding: 12px 15px;
-  box-shadow: $shadow;
-  margin-top: 20px;
   position: relative;
-  float: left;
   display: block;
+  float: left;
   min-width: 200px;
-}
+  padding: $spacer 15px;
+  margin-top: 20px;
+  background-color: $grey-medium;
+  box-shadow: $shadow;
 
-.a-message:after {
-  bottom: 100%;
-  left: 24px;
-  content: " ";
-  height: 0;
-  width: 0;
-  position: absolute;
-  border-width: 10px;
-  margin-left: 12px;
-  box-sizing: border-box;
-  border: 8px solid black;
-  border-color: transparent transparent $yellow-light $yellow-light;
-  transform-origin: 0 0;
-  transform: rotate(135deg);
-  box-shadow: -2px 2px 3px 0 rgba(0, 0, 0, 0.04);
-  top: 1px;
+  &::after {
+    position: absolute;
+    top: 1px;
+    bottom: 100%;
+    left: 2 * $spacer;
+    box-sizing: border-box;
+    width: 0;
+    height: 0;
+    margin-left: $spacer;
+    content: ' ';
+    border: 8px solid $black;
+    border-color: transparent transparent $yellow-light $yellow-light;
+    border-width: 10px;
+    box-shadow: -2px 2px 3px 0 rgba( 0, 0, 0, 0.04 );
+    transform: rotate( 135deg );
+    transform-origin: 0 0;
+  }
 }
 
 .a-message-error {
   background-color: $red-light;
-  &:after {
+
+  &::after {
     border-color: transparent transparent $red-light $red-light;
   }
 }
 
 .a-message-success {
   background-color: $green-light;
-  &:after {
+
+  &::after {
     border-color: transparent transparent $green-light $green-light;
   }
 }
 
 .a-message-info {
   background-color: $yellow-light;
-  &:after {
+
+  &::after {
     border-bottom-color: $yellow-light;
   }
 }
 
 .a-link-chat {
-  color: $blue-dark;
-  width: auto;
-  display: inline;
-  border-bottom: 1px solid $blue-dark;
-  padding-bottom: 2px;
   position: relative;
   z-index: 1;
+  display: inline;
+  padding-bottom: 2px;
+  color: $blue-dark;
   cursor: pointer;
+  border-bottom: 1px solid $blue-dark;
 }
 
 .a-chat {
@@ -103,43 +105,42 @@
   }
   .a-chat-scrollarea {
     position: absolute;
-    top: 48px;
+    top: 4 * $spacer;
     left: 0;
-    height: 355px;
     width: 100%;
-    overflow-y: scroll;
+    height: 355px;
     padding: $spacer;
-    border-left: 1px solid $grey-light;
+    overflow-y: scroll;
     border-right: 1px solid $grey-light;
-  }
-  .a-form-group .form-control,
-  .a-form-group .form-control:hover {
-    border: none;
     border-left: 1px solid $grey-light;
   }
-  .a-form-group .input-group-btn .btn {
-    border: none;
-  }
+
   .a-form-group {
     position: absolute;
     bottom: 0;
-    left: 0;
-    width: 100%;
-    border-top: 1px solid $grey-light;
-    margin-bottom: 0;
     left: 1px;
+    width: 100%;
+    margin-bottom: 0;
+    border-top: 1px solid $grey-light;
+
+    .form-control {
+      border: none;
+      border-left: 1px solid $grey-light;
+
+      &:hover {
+        border: none;
+        border-left: 1px solid $grey-light;
+      }
+    }
+
     .input-group-btn {
       position: absolute;
       top: 0;
       right: 0;
+
+      .btn {
+        border: none;
+      }
     }
-  }
-  .a-form-group .form-control,
-  .a-form-group .form-control:hover {
-    border: none;
-    border-left: 1px solid $grey-light;
-  }
-  .a-form-group .input-group-btn .btn {
-    border: none;
   }
 }

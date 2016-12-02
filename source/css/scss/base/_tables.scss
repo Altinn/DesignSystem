@@ -62,7 +62,6 @@
 /*------------------------------------*\
     $Sortable table
 \*------------------------------------*/
-
 .a-sortable-table,
 .a-table-list-non-sortable {
   &.white {
@@ -126,7 +125,8 @@
       }
 
       &:nth-of-type( even ) {
-        font-weight: bold;
+        font-family: $font-bold;
+        font-weight: $font-weight-bold;
       }
 
       .row-item-description {
@@ -242,6 +242,22 @@
 
     td {
       border-bottom: 1px solid $grey-medium;
+    }
+  }
+}
+
+.a-collapsePanel-body {
+  .a-sortable-table {
+    tr {
+      td {
+        &:first-of-type {
+          width: 110px;
+        }
+
+        i {
+          padding-left: 10px;
+        }
+      }
     }
   }
 }
