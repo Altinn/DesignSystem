@@ -128,12 +128,16 @@
   }
 
   .second-action {
+    width: $spacer * 24;
+
+    @include media-breakpoint-down( xs ) {
+      width: 100%;
+    }
+
     @include media-breakpoint-up( lg ) {
       display: block;
       margin: auto;
     }
-
-    width: $spacer * 24;
   }
 
   .third-action {
@@ -294,21 +298,20 @@
 }
 
 .a-dropdownCircleArrow {
+  display: inline-block;
+
   width: 36px;
   height: 36px;
+  padding-top: 3px;
   margin-right: $spacer;
   color: $white;
   text-align: center;
+  vertical-align: middle;
   background: $blue;
   border: 3px solid $blue;
   border-radius: 50%;
-  transition: transform 0.2s ease-out; 
+  transition: transform 0.2s ease-out;
   transform: rotate( 90deg );
-  -webkit-transform: rotate( 90deg );
-  -webkit-transition: transform 0.2s ease-out;
-  vertical-align: middle;
-  padding-top: 3px;
-  display: inline-block;
 
   &::before {
     font-family: $font-reg;
@@ -318,6 +321,7 @@
     content: '›';
   }
 }
+
 
 /*------------------------------------*\
     $COLLAPSE IN DELAY
