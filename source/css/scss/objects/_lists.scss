@@ -130,7 +130,7 @@
   }
 }
 
-// If business, change hover color on list
+// If background BLUE-light, change color on lists
 .business {
   .a-item-list {
     .a-item-list-item {
@@ -153,6 +153,20 @@
   }
 }
 
+// If background GREY-light, change color on list
+.private-person,
+.a-bgGrey {
+  ul {
+    &.connected-bullets {
+      li {
+        &::after {
+          background: $grey-light;
+        }
+      }
+    }
+  }
+}
+
 /*------------------------------------*\
     $Box btn list
 \*------------------------------------*/
@@ -168,13 +182,15 @@
       }
 
       li {
+        .a-box-button:hover {
+          padding: 9px 4px 9px 3px;
+        }
         &:first-child {
           .a-box-button {
             border: 1px solid $grey-medium;
-
-            &:hover {
-              padding: 9px 0 9px 0;
-            }
+          }
+          .a-box-button:hover {
+            padding: 9px 4px 9px 4px;
           }
         }
 
@@ -187,10 +203,9 @@
         &:nth-child(7n+7) {
           .a-box-button {
             border-left: 1px solid $grey-medium;
-
-            &:hover {
-              padding: 9px 0 9px 0;
-            }
+          }
+          .a-box-button:hover {
+            padding: 9px 4px 9px 4px;
           }
         }
       }
@@ -296,9 +311,10 @@ ul {
         width: 25px;
         height: 25px;
         font-size: 39px;
-        font-weight: bold;
+        font-family: $font-bold;
+        font-weight: $font-weight-bold;
         content: '';
-        background: $grey-light;
+        background: $white;
         border: 3px solid $blue;
         border-radius: 50%;
 
@@ -337,7 +353,8 @@ ul {
       i {
         float: right;
         margin-right: $spacer;
-        font-weight: bold;
+        font-family: $font-bold;
+        font-weight: $font-weight-bold;
         color: $blue;
         cursor: pointer;
       }
@@ -358,6 +375,7 @@ ol {
   counter-reset: step;
 
   &.a-circle-list {
+    font-size: 18px;
     li {
       margin-bottom: $spacer * 1.5;
 
@@ -371,7 +389,7 @@ ol {
         display: block;
 
         span {
-          font-weight: bold;
+          font-family: "DIN-bold";
           padding: 0;
           margin: 0;
           display: inline;
@@ -381,11 +399,13 @@ ol {
       &::before {
         padding: 5px 9px 4px 9px;
         margin-right: 10px;
-        font-weight: bold;
+        font-family: "DIN-bold";
         content: counter( step );
         counter-increment: step;
         border-radius: 50%;
         border: 2px solid $blue;
+        position: relative;
+        top: 3px;
       }
     }
   }
@@ -394,7 +414,8 @@ ol {
     li {
       &::before {
         background-color: $yellow;
-        border-color: $yellow;
+        border: none;
+        font-family: "DIN-reg";
       }
     }
   }
@@ -437,4 +458,15 @@ ol {
 
 #a-js-suggestionList-mobile>h2 {
   padding-top: 0;
+}
+
+
+/*------------------------------------*\
+    Diverse - Flyttes??
+\*------------------------------------*/
+
+.a-btn-group {
+  ol.show-numbers {
+    list-style-type: decimal;
+  }
 }

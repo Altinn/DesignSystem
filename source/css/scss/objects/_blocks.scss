@@ -4,6 +4,7 @@
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
+  margin-bottom: $spacer*5;
 
   .a-leadText {
     max-width: 600px;
@@ -104,8 +105,10 @@
     }
   }
 
-  .a-breadcrumb>li+li::before {
-    color: $white;
+  .a-breadcrumb>li+li {
+    &::before {
+      color: $white;
+    }
 	}
 
   .a-dotted-line {
@@ -118,16 +121,23 @@
 
   .a-item-list {
     .a-item-list-item {
+      &.a-clickable {
+        &:hover {
+          background-color: rgba( 255, 255, 255, 0.1 );
+        }
+      }
+
       .a-listItem-title {
         color: $white;
     	}
     }
   }
 
-  .a-item-list .a-item-list-item.a-clickable:hover,
-  .a-listItem-title:focus {
-    background-color: rgba( 255, 255, 255, 0.1 );
-	}
+  .a-listItem-title {
+    &:focus {
+      background-color: rgba( 255, 255, 255, 0.1 );
+    }
+  }
 
   .a-link {
     border-bottom: 2px solid $white;
@@ -158,23 +168,24 @@
 
 // PERSON ROLE
 .a-personRole {
-	display: block;
-	float: left;
-	width: 100%;
+  display: block;
+  float: left;
+  width: 100%;
   display: flex;
   -webkit-box-align: center;
   align-items: center;
-	.a-personRole-icon {
-		float: left;
-		color: $black;
-		font-size: 30px;
+
+  .a-personRole-icon {
+    float: left;
     padding-right: 12px;
-    margin-top: -7px;
-	}
+    margin-top: -9px;
+    font-size: 30px;
+    color: $black;
+  }
+
 
   .a-personRole-icon-success {
     float: left;
-    padding-top: $spacer;
     padding-right: 7px;
     font-size: 28px;
     color: $green;
@@ -185,17 +196,23 @@
 
     .a-personRole-role {
       display: block;
+      padding-bottom: 3px;
       font-size: 12px;
       text-transform: uppercase;
     }
 
     .a-personRole-name {
       font-family: $font-bold;
-      font-weight: $font-weight-bold;
       font-size: 20px;
+      font-weight: $font-weight-bold;
       line-height: 20px;
     }
   }
+
+  .a-label {
+    margin-top: -4px;
+  }
+
 }
 
 // Media block
@@ -260,60 +277,73 @@
 	}
 }
 
-.neutral .a-card:not(.transparent),
-.a-bgWhite .a-card:not(.transparent) {
-  background: $grey-light;
+.neutral,
+.a-bgWhite {
+  .a-card {
+    &:not(.transparent) {
+      background: $grey-light;
 
-  hr {
-    &.a-hrLight {
-      border-bottom: 1px solid darken( $grey-light, 6% );
+      hr {
+        &.a-hrLight {
+          border-bottom: 1px solid darken( $grey-light, 6% );
+        }
+      }
     }
   }
 }
 
 .a-card-image {
   padding: 0;
+
   img {
-    width: 180px;
     float: left;
+    width: 180px;
     margin-left: 0;
-    @include media-breakpoint-down(md) {
+
+    @include media-breakpoint-down( md ) {
       width: 128px;
     }
-    @include media-breakpoint-down(sm) {
-      float: none;
-      margin-left: auto;
-      margin-right: auto;
+
+    @include media-breakpoint-down( sm ) {
       display: block;
+      float: none;
+      margin-right: auto;
       margin-bottom: 30px;
+      margin-left: auto;
     }
   }
-	.a-card-image-text {
-		margin-left: calc(180px + 24px);
-		display: block;
-		@include media-breakpoint-down(md) {
-			margin-left: calc(128px + 24px);
-		}
-		@include media-breakpoint-down(sm) {
-			margin-left: 0;
-		}
-	}
-	.a-link-tel {
-		margin-left: -5px;
-	}
 
+  .a-card-image-text {
+    display: block;
+    margin-left: calc( 180px + 24px );
+
+    @include media-breakpoint-down( md ) {
+      margin-left: calc( 128px + 24px );
+    }
+
+    @include media-breakpoint-down( sm ) {
+      margin-left: 0;
+    }
+  }
+
+  .a-link-tel {
+    margin-left: -5px;
+  }
 }
 
+
 .a-question-wrapper {
-	overflow: hidden;
-	padding: 0px;
-	.a-trigger-question {
-		display: none;
-		position: relative;
-	}
-	.a-trigger-question:nth-of-type(1) {
-		display: block;
-	}
+  overflow: hidden;
+  padding: 0;
+  display: inline-block;
+
+  .a-trigger-question {
+    display: none;
+    position: relative;
+  }
+  .a-trigger-question:nth-of-type(1) {
+    display: block;
+  }
 	.a-circle-list li:before {
 		padding: 5px 0 0 0;
 		position: absolute;
@@ -360,7 +390,6 @@
 		text-align: center;
 	}
 }
-
 
 .a-main-card {
   .a-textSize2 {

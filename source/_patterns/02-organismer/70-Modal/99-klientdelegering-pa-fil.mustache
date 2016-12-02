@@ -1,0 +1,61 @@
+<form data-toggle="validator">
+  {{# file-delegation-first-header }}
+    {{> atomer-undertittel:m-b-1 }}
+  {{/ file-delegation-first-header }}
+  <div class="m-b-4">
+    {{{ file-delegation-intro-text }}}
+    {{# file-delegation-normal-delegation-link }}
+      {{> atomer-link }}
+    {{/ file-delegation-normal-delegation-link }}
+  </div>
+
+  <div class="m-b-1">
+    {{# file-delegation-second-header }}
+      {{> atomer-undertittel:din-reg }}
+    {{/ file-delegation-second-header }}
+  </div>
+  <div class="m-b-3 a-bigger-icon a-bigger-icon-before">
+    {{> atomer-handlingsknapp(action-button-class: "fa fa-download a-btn-action-icon", button-class: "a-btn a-btn-action", action-button-icon:
+    "", action-button-text: "Last ned fil") }}
+  </div>
+
+  <div class="m-b-1">
+    {{# file-delegation-third-header }}
+      {{> atomer-undertittel:din-reg }}
+    {{/ file-delegation-third-header }}
+  </div>
+  {{# file-delegation-title }}
+    <div class="m-t-1 m-b-1">
+      {{> atomer-ekspanderbar-tekst:din-bold }}
+    </div>
+  {{/ file-delegation-title }}
+
+  <div class="m-b-3">
+    {{# file-delegation-content }}
+
+    <div id="{{ collapse-header-contentID }}" class="a-collapseContent a-js-instantCollapse collapse" aria-expanded="{{ aria-expanded }}">
+      <img src="../../images/sikksakk.png" class="m-b-2" />
+      {{> atomer-liste-nummerert-sirkel-gul }}
+    </div>
+
+    {{/ file-delegation-content }}
+
+  </div>
+
+  <div class="m-t-4 m-b-1 ">
+    {{# file-delegation-fourth-header }}
+      {{> atomer-undertittel:din-reg }}
+    {{/ file-delegation-fourth-header }}
+  </div>
+
+  <div class="m-b-3 a-bigger-icon a-bigger-icon-span">
+    {{# file-delegation-upload }}
+      {{> atomer-fileupload }}
+    {{/ file-delegation-upload }}
+  </div>
+
+  {{# file-delegation-done }}
+    {{> atomer-knapp:a-js-enableWhenValid }}
+  {{/ file-delegation-done }}
+
+</form>

@@ -52,17 +52,18 @@ h2,
   // Mobile and all
   margin-bottom: $spacer / 2;
   font-family: $font-medium;
-  font-weight: $font-weight-medium;
   font-size: 18px;
+  font-weight: $font-weight-medium;
   line-height: 24px;
 
   // Tablet
   @include media-breakpoint-up( md ) {
-    font-size: 22px;
-    line-height: 24px;
     font-family: $font-reg;
+    font-size: 22px;
     font-weight: $font-weight-reg;
+    line-height: 24px;
   }
+
   // Laptop
   @include media-breakpoint-up( lg ) {
     font-size: 24px;
@@ -369,7 +370,7 @@ blockquote {
   margin-bottom: $spacer * 3;
   clear: both;
   font-size: 16px;
-  background-color: $grey-light;
+  background-color: $white;
 
   &::after {
     position: absolute;
@@ -379,11 +380,11 @@ blockquote {
     width: 0;
     content: '';
     border: none;
-    border-color: transparent $grey-light;
+    border-color: transparent $white;
     border-style: solid;
+    border-right-color: transparent;
     border-bottom-width: $spacer;
     border-left-width: $spacer;
-    border-right-color: transparent;
   }
 
   .a-textBubble-metaText {
@@ -447,22 +448,24 @@ blockquote {
   background-image: url('../images/disabled-background_blue.svg');
 }
 
-
 /* Dot before text */
 
 .a-dot {
   font-family: $font-reg;
   font-weight: $font-weight-reg;
-  &:before {
-    content: "\2022";
+
+  &::before {
+    display: inline-block;
     margin-right: 4px;
     font-size: 24px;
-    vertical-align: bottom;
-    display: inline-block;
     text-decoration: none;
-  }
-  &.a-dot-red:before {
-    color: $red;
+    vertical-align: bottom;
+    content: '\2022';
   }
 
+  &.a-dot-red {
+    &::before {
+      color: $red;
+    }
+  }
 }
