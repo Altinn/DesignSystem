@@ -4,9 +4,9 @@ var prototypingInteractionStarteENK = function() {
   /* Prototyping that place will be visible after typing in postnumber */
   $('#postnummer').keyup(function() {
     if (this.value === '0123') {
-      $('#a-js-place').css('display', 'inline');
+      $('.a-js-place').css('display', 'inline');
     } else {
-      $('#a-js-place').css('display', 'none');
+      $('.a-js-place').css('display', 'none');
     }
   });
   /* Prototyping that radiobuttons for "Virksomhet" will be visible after typing in keywords */
