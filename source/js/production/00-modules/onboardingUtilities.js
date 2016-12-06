@@ -31,9 +31,14 @@ var onboardingCrawl = function() {
   }
   return arr;
 };
-var onboardingStep = function(i) {
+var onboardingStep = function(i, callback) {
   $('.a-onboarding').find('.modal-content').hide().eq(i)
     .show();
+  if (callback) {
+    setTimeout(function() {
+      callback();
+    }, 1000);
+  }
 };
 var onboardingOnShow = function(el, fn) {
   $(el).on('show.bs.modal', function() {
@@ -57,13 +62,14 @@ var onboardingHide = function(fn) {
     }, 200);
   }
   $('.a-js-modalLauncher').each(function() {
-    $($(this).attr('data-target')).modal('hide'); $('.onboarding-wrapper').hide();
+    $($(this).attr('data-target')).modal('hide');
+    $('.onboarding-wrapper').hide();
   });
   $('.onboarding-neutral').fadeOut(200, 'linear');
   $('body').css('overflow-x', 'hidden');
   $('body').css('overflow-y', 'scroll');
 };
-var onboardingSeek = function(_count, _steps) {
+var onboardingSeek = function(_count, _steps, callback) {
   var count = _count; var steps = _steps;
   var horizontalJiggle; var verticalJiggle; var ratio;
   if (count === 0) {
@@ -138,4 +144,5 @@ var onboardingSeek = function(_count, _steps) {
   $('html, body').animate({
     scrollTop: steps[count].offset().top - (140)
   }, 200);
+  callback(ratio);
 };
