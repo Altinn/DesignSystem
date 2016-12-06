@@ -1,14 +1,14 @@
 .onboarding-wrapper {
-  transition: transform 0.45s ease-in, top 0.1s ease-out, left 0.1s, ease-out;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 999;
   width: 1140px;
   height: 1140px;
-  position: absolute;
-  top: 0px;
-  left: 0px;
-  margin-left: -570px;
   margin-top: -570px;
-  z-index: 999;
+  margin-left: -570px;
   opacity: 0;
+  transition: transform 0.45s ease-in, top 0.1s ease-out, left 0.1s, ease-out;
 
   svg {
     overflow: visible;
@@ -16,12 +16,12 @@
 }
 
 .onboarding-neutral {
-  width: 1140px;
-  height: 1140px;
   position: absolute;
   z-index: 999;
-  transform: scale(10);
+  width: 1140px;
+  height: 1140px;
   opacity: 1;
+  transform: scale(10);
 
   svg {
     overflow: visible;
@@ -30,18 +30,18 @@
 
 
 .a-js-circle {
+  position: absolute;
+  top: 50%;
+  left: 50%;
   width: 16px;
   height: 16px;
-  background-color: $blue-darker;
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  border-radius: 8px;
-  margin-left: -8px;
   margin-top: -8px;
+  margin-left: -8px;
+  background-color: $blue-darker;
+  border-radius: 8px;
   opacity: 0.9;
-  transform: translate3d(0, 0, 0);
   transition: opacity 0.35s ease-in;
+  transform: translate3d(0, 0, 0);
 }
 
 
@@ -50,13 +50,13 @@
 \*------------------------------------*/
 
 .a-onboarding {
-	// background: $blue-darker-opacity !important;
-  background: transparent;
-	color: $white;
   overflow: hidden !important;
+  color: $white;
+  // background: $blue-darker-opacity !important;
+  background: transparent;
   box-shadow: none !important;
 
-	@include media-breakpoint-up(md) {
+  @include media-breakpoint-up(md) {
     .modal-dialog {
       max-width: 800px;
     }
@@ -67,18 +67,18 @@
     margin-top: 310px;
   }
 
-	.modal-dialog {
+  .modal-dialog {
     margin: 0 auto;
 	}
 
-	.modal-content {
-		background: transparent;
-		box-shadow: none;
+  .modal-content {
     padding: 0 24px;
+    background: transparent;
+    box-shadow: none;
 
     .modal-header {
       padding: 0;
-      padding-bottom: $spacer*2;
+      padding-bottom: $spacer * 2;
       border-bottom: none;
 
       .modal-title {
@@ -90,10 +90,10 @@
       padding: 0;
 
       .a-leadText {
-        font-size: 28px;
-        line-height: 38px;
-        font-weight: $font-weight-light;
         margin-bottom: 0;
+        font-size: 28px;
+        font-weight: $font-weight-light;
+        line-height: 38px;
       }
 
       .patternLine {
@@ -102,10 +102,10 @@
     }
 
     .modal-footer {
-      margin-top: $spacer*3;
-      border-top: none;
-  		text-align: left;
       padding: 0;
+      margin-top: $spacer * 3;
+      text-align: left;
+      border-top: none;
   	}
 	}
 }
