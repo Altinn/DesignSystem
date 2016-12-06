@@ -154,24 +154,24 @@
 
 // BTN WITH ICON
 .a-btn-icon {
-	height: $spacer * 5;
-	width: 100%;
-	text-align: left;
-	background: transparent;
+  width: 100%;
+  height: $spacer * 5;
+  text-align: left;
+  background: transparent;
 
-	&:hover,
-	&:focus {
-			background: transparent;
-			color: $blue;
+  &:hover,
+  &:focus {
+    color: $blue;
+    background: transparent;
 	}
 
-	.a-btn-icon-symbol {
-		font-size: 22px;
-    padding-right: $spacer;
-		vertical-align: middle;
-		margin-top: -5px;
+  .a-btn-icon-symbol {
     width: 38px;
+    padding-right: $spacer;
+    margin-top: -5px;
+    font-size: 22px;
     text-align: center;
+    vertical-align: middle;
 	}
 }
 // BTN WITH WHITE TRANSPARENCY
@@ -205,13 +205,15 @@
 }
 
 .a-btn-transparentWhite-active,
-.a-btn-transparentWhite-active:hover {
-  color: $white;
-  background: $blue;
+.a-btn-transparentWhite-active {
+  &:hover {
+    color: $white;
+    background: $blue;
 
-  .a-btn-icon-symbol {
-    color: $blue;
-    background: $white;
+    .a-btn-icon-symbol {
+      color: $blue;
+      background: $white;
+    }
   }
 }
 
@@ -277,6 +279,7 @@
   &:not(.override-focus) {
     &:focus {
       &::before {
+        // sass-lint:disable-block no-important
         outline: none !important;
         box-shadow: $focus-color;
       }
@@ -364,9 +367,10 @@
   }
 
   &:hover {
+    // sass-lint:disable-block no-important
+    padding: 9px 4px 9px 4px;
     background: $white-opacity-05;
     border: 4px solid $blue !important;
-    padding: 9px 4px 9px 4px;
 
     .a-box-button-info {
       background: $white;

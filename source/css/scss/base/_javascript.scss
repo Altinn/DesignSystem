@@ -3,10 +3,15 @@
 \*------------------------------------*/
 
 // Propagated content selectors
-.a-js-propagatedContentOrigin, .a-js-bodyClassPersist {
+.a-js-propagatedContentOrigin,
+.a-js-bodyClassPersist {
   display: none;
 }
 
-.container:focus, .row:focus {
-  box-shadow: none !important;
+.container,
+.row {
+  &:focus {
+    // sass-lint:disable-block no-important
+    box-shadow: none !important;
+  }
 }

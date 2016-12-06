@@ -20,7 +20,7 @@
   h2,
   h3,
   h4 {
-    margin: $spacer*2 0 $spacer 0;
+    margin: $spacer * 2 0 $spacer 0;
 
     @include media-breakpoint-up( md ) {
       margin: $spacer * 2 0 $spacer 0;
@@ -36,11 +36,14 @@
   }
 
   h2 + h3 {
+    // sass-lint:disable-block no-important
     margin-top: 12px !important;
   }
 
-  a.a-link {
-    font-size: 18px;
+  a {
+    &.a-link {
+      font-size: 18px;
+  }
   }
 
   ul {
@@ -78,10 +81,12 @@
 
   ol {
     &.a-circle-list {
-      margin: 0 0 36px 0px;
-      @include media-breakpoint-up(md) {
+      margin: 0 0 36px 0;
+
+      @include media-breakpoint-up( md ) {
         margin: 0 0 36px -40px;
       }
+
       li {
         margin-bottom: $spacer * 2;
       }
@@ -105,11 +110,13 @@
     &.no-declaration {
       margin: 0;
       list-style: none;
+
       li {
         margin: 0;
       }
     }
   }
+
   .a-question-wrapper {
     .a-circle-list {
       margin: 0;
@@ -216,8 +223,8 @@
   width: calc( 100% - 60px );
 
   h2 {
-    margin-bottom: 0;
     margin-top: 0;
+    margin-bottom: 0;
     font-family: $font-bold;
     font-size: 20px;
     font-weight: $font-weight-bold;
