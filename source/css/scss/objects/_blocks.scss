@@ -1,10 +1,10 @@
 // JUMBOTRON
 .a-jumbotron {
   padding-bottom: 134px;
+  margin-bottom: $spacer * 5;
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
-  margin-bottom: $spacer*5;
 
   .a-leadText {
     max-width: 600px;
@@ -25,7 +25,7 @@
     display: block;
     margin-bottom: $spacer * 2;
     font-size: 28px;
-    line-height: 36px;
+    line-height: $spacer * 3;
     color: $blue-darker;
 	}
 
@@ -86,10 +86,7 @@
       &:hover {
         color: $white;
       }
-
     }
-
-
 
     li {
       &.active {
@@ -148,7 +145,6 @@
   @include media-breakpoint-up( md ) {
     height: 600px;
 	}
-
   @include media-breakpoint-up( lg ) {
     height: 700px;
 	}
@@ -169,15 +165,14 @@
 // PERSON ROLE
 .a-personRole {
   display: block;
+  display: flex;
   float: left;
   width: 100%;
-  display: flex;
-  -webkit-box-align: center;
   align-items: center;
 
   .a-personRole-icon {
     float: left;
-    padding-right: 12px;
+    padding-right: $spacer;
     margin-top: -9px;
     font-size: 30px;
     color: $black;
@@ -226,7 +221,6 @@
     @include media-breakpoint-up( sm ) {
       width: 60%;
     }
-
   }
 
   .a-mediaBlock-caption {
@@ -332,73 +326,89 @@
 
 
 .a-question-wrapper {
-  overflow: hidden;
-  padding: 0;
   display: inline-block;
+  padding: 0;
+
+  overflow: hidden;
 
   .a-trigger-question {
-    display: none;
     position: relative;
+
+    display: none;
+
+    &:nth-of-type(1) {
+      display: block;
+    }
   }
-  .a-trigger-question:nth-of-type(1) {
-    display: block;
+
+  .a-circle-list {
+    li {
+      padding-top: $spacer * 2;
+      padding-right: $spacer * 2;
+      padding-left: $spacer * 6;
+
+      @include media-breakpoint-up( md ) {
+        padding-top: $spacer * 3;
+        padding-right: $spacer * 4;
+        padding-left: $spacer * 7;
+      }
+
+      &::before {
+        position: absolute;
+        top: $spacer * 1.5;
+        left: $spacer * 2;
+        width: $spacer * 3;
+        height: $spacer * 3;
+
+        padding: 5px 0 0 0;
+        text-align: center;
+
+        @include media-breakpoint-up( md ) {
+          top: $spacer * 2.5;
+          left: $spacer * 3;
+        }
+      }
+    }
   }
-	.a-circle-list li:before {
-		padding: 5px 0 0 0;
-		position: absolute;
-		left: $spacer*2;
-		top: $spacer*1.5;
-		height: 36px;
-		width: 36px;
-		text-align: center;
-		@include media-breakpoint-up(md) {
-			left: $spacer*3;
-			top: $spacer*2.5;
-		}
+
+  .hidewhenempty {
+    margin-bottom: 15px;
+    margin-left: $spacer * 2;
+
+    @include media-breakpoint-up( sm ) {
+      margin-left: $spacer * 6;
+    }
+
+    @include media-breakpoint-up( md ) {
+      margin-left: $spacer * 7;
+    }
 	}
-	li {
-		padding-top: $spacer*2;
-		padding-left: $spacer*6;
-		padding-right: $spacer*2;
-		@include media-breakpoint-up(md) {
-			padding-top: $spacer*3;
-			padding-left: $spacer*7;
-			padding-right: $spacer*4;
-		}
-	}
-	.hidewhenempty {
-		margin-left: $spacer*2;
-		margin-bottom: 15px;
-		@include media-breakpoint-up(sm) {
-			margin-left: $spacer*6;
-		}
-		@include media-breakpoint-up(md) {
-			margin-left: $spacer*7;
-		}
-	}
-	hr {
-		margin: 0;
-	}
-	.a-btn {
-		margin-bottom: 0;
-		margin-top: -1px;
-		width: 100%;
-		line-height: 36px;
-		display: none;
-		float: left;
-		text-align: center;
-	}
+
+  hr {
+    margin: 0;
+  }
+
+  .a-btn {
+    display: none;
+    float: left;
+    width: 100%;
+    margin-top: -1px;
+
+    margin-bottom: 0;
+    line-height: $spacer * 3;
+    text-align: center;
+  }
 }
 
 .a-main-card {
   .a-textSize2 {
-    @include media-breakpoint-up( md ) {
-      margin-bottom: -5px;
-    }
-
     margin-bottom: $spacer / 2;
     font-family: $font-bold;
     font-weight: $font-weight-bold;
+
+    @include media-breakpoint-up( md ) {
+      margin-bottom: -5px;
+    }
 
     span {
       font-family: $font-reg;
@@ -467,6 +477,10 @@
   }
 
   .a-compare-container {
+    padding: 0;
+    margin-bottom: $spacer * 4;
+    border-top: 1px solid $blue-line;
+
     @include media-breakpoint-up( md ) {
       padding: 0 $spacer * 2;
 
@@ -489,10 +503,6 @@
         border-right: 1px solid $blue-line;
       }
     }
-
-    padding: 0;
-    margin-bottom: $spacer * 4;
-    border-top: 1px solid $blue-line;
 
     &:first-child {
       padding-right: $spacer;
