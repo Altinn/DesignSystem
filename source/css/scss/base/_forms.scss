@@ -13,18 +13,22 @@ input {
   }
 
   &:-moz-placeholder { /* Firefox 18- */
+    // sass-lint:disable-block no-important
     color: $grey !important;
   }
 
   &::-webkit-input-placeholder {
+    // sass-lint:disable-block no-important
     color: $grey !important;
   }
 
   &::-moz-placeholder {  /* Firefox 19+ */
+    // sass-lint:disable-block no-important
     color: $grey !important;
   }
 
   &:-ms-input-placeholder {
+    // sass-lint:disable-block no-important
     color: $grey !important;
   }
 }
@@ -50,6 +54,7 @@ textarea {
   // Form group items (Container for Label and Input)
   .a-form-group-items,
   .input-group {
+    // sass-lint:disable-block no-important
     position: relative !important;
 
     &.transparent {
@@ -199,11 +204,13 @@ textarea {
   &.has-danger {
     // Label
     .input-group-addon {
+      // sass-lint:disable-block no-important
       border: 2px solid $red !important;
     }
 
     // Input
     .form-control {
+      // sass-lint:disable-block no-important
       border: 2px solid $red !important;
     }
 
@@ -217,10 +224,12 @@ textarea {
     // When inside input-group
     .input-group {
       .input-group-addon {
+        // sass-lint:disable-block no-important
         border-right: none !important;
       }
 
       .form-control {
+        // sass-lint:disable-block no-important
         border-left: none !important;
       }
     }
@@ -229,21 +238,25 @@ textarea {
   // VALIDATOR: Input has success
   &.has-success {
     .input-group-addon {
+      // sass-lint:disable-block no-important
       border: 2px solid $green !important;
     }
 
     // Input
     .form-control {
+      // sass-lint:disable-block no-important
       border: 2px solid $green !important;
     }
 
     // When inside input-group
     .input-group {
       .input-group-addon {
+        // sass-lint:disable-block no-important
         border-right: none !important;
       }
 
       .form-control {
+        // sass-lint:disable-block no-important
         border-left: none !important;
       }
     }
@@ -355,6 +368,7 @@ textarea {
     &.a-input-approved {
       .input-group-addon,
       .form-control {
+        // sass-lint:disable-block no-important
         color: $black !important;
         background-color: $green-lighten;
         background-image: url('../images/approved-background.svg');
@@ -374,6 +388,7 @@ textarea {
 
     &:hover,
     &:focus {
+      // sass-lint:disable-block no-important
       border: 2px solid $blue-dark;
       box-shadow: none !important;
     }
@@ -522,6 +537,7 @@ textarea {
     }
 
     &::after {
+      // sass-lint:disable-block no-important
       margin-bottom: $spacer !important;
     }
   }
@@ -714,6 +730,7 @@ textarea {
     cursor: pointer;
 
     &.disabled {
+      // sass-lint:disable-block no-important
       padding: 8px 18px;
       background-color: $white !important;
       background-image: url('../images/disabled-background.svg') !important;
@@ -729,9 +746,19 @@ textarea {
 }
 
 // TODO: merge with .a-switch with & revert selector?
-fieldset[disabled] .a-switch input[type='checkbox']+label,
-fieldset[disabled] .a-switch input[type='radio']+label {
-  cursor: not-allowed;
+fieldset {
+  &[disabled] {
+    .a-switch {
+      input {
+        &[type='checkbox'],
+        &[type='radio'] {
+          + label {
+            cursor: not-allowed;
+          }
+        }
+      }
+    }
+  }
 }
 
 
@@ -818,6 +845,7 @@ fieldset[disabled] .a-switch input[type='radio']+label {
 
   &:hover,
   &:focus {
+    // sass-lint:disable-block no-important
     background-color: $blue-light;
     border-bottom: 2px dotted $blue-dark;
     box-shadow: none !important;
@@ -829,6 +857,7 @@ fieldset[disabled] .a-switch input[type='radio']+label {
 }
 
 .a-dropdown-item-active {
+  // sass-lint:disable-block no-important
   background-color: $grey-light;
   border-bottom: 2px dotted $blue-dark;
   box-shadow: none !important;
@@ -858,6 +887,7 @@ fieldset[disabled] .a-switch input[type='radio']+label {
   }
 
   &:focus {
+    // sass-lint:disable-block no-important
     border: 2px solid $blue-dark;
     box-shadow: none !important;
   }
