@@ -23,6 +23,26 @@ body {
 }
 
 // Light Backround colors
+
+.a-bgWhite {
+  // Default background on body
+  background-color: $white;
+}
+
+.a-bgGreyLight {
+  // Background on body if logged in as private person
+  background-color: $grey-light;
+}
+
+.a-bgBlue {
+  background-color: $blue;
+}
+
+.a-bgBlueLight {
+  // Background on body if logged in as business
+  background-color: $blue-light;
+}
+
 .a-bgPurpleLight {
   background-color: $purple-light;
 }
@@ -35,16 +55,8 @@ body {
   background-color: $yellow-light;
 }
 
-.a-bgBlue {
-  background-color: $blue;
-}
-
 .a-bgRedLight {
   background-color: $red-light;
-}
-
-.a-bgBlueLight {
-  background-color: $blue-light;
 }
 
 .a-bgGreen {
@@ -87,18 +99,6 @@ body {
 // Body backgrounds
 body,
 html {
-  &.a-bgGreyLight {
-    background-color: $grey-light;
-  }
-
-  &.a-bgBlueLight {
-    background-color: $blue-light;
-  }
-
-  &.a-bgWhite {
-    background-color: $white;
-  }
-
   &.a-modal-background-success {
     background: $green-light;
   }
@@ -112,30 +112,13 @@ html {
   }
 }
 
-// Mark
-mark,
-.mark {
-  padding: 0;
-  background-color: $yellow-light;
-}
 
-.a-bgGreyLight {
-  color: $black;
-  background-color: $grey-light;
-
-  &:hover {
-    background: darken( $grey-light, 2% );
-  }
-}
-
-/* Disabled background */
-
+// Disabled background
 .a-disabled {
   @include disabled-background ( $background-image: url( '../images/disabled-background.svg' ) );
 }
 
-/* Panels with backbround-color */
-
+// Panels with background-color
 .a-bgPanel {
   padding: $spacer * 2;
   margin-bottom: $spacer;
@@ -152,13 +135,11 @@ mark,
   }
 }
 
-/* Placeholder background */
-
+// Placeholder background
 .a-placeholderBackground {
   background-image: url('../../images/brick_pattern.svg');
   background-repeat: repeat;
   background-size: 13%;
-
   background-blend-mode: multiply;
 }
 
@@ -247,4 +228,26 @@ hr {
   background-repeat: repeat-x;
   background-position: top;
   background-size: 4px 2px;
+}
+
+// SR-only
+.sr-only-focusable {
+  &:active,
+  &:focus {
+    position: static;
+    display: inline-block;
+    width: 100%;
+    height: auto;
+    padding: 5px;
+    padding-left: 10px;
+    margin: 0;
+    overflow: visible;
+    clip: auto;
+    font-size: small;
+    font-weight: bolder;
+    text-decoration: underline;
+    background-color: $white;
+    border-bottom: none;
+    box-shadow: none !important;
+  }
 }
