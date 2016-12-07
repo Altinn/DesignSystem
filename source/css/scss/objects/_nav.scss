@@ -6,27 +6,31 @@
 .a-pagination {
   .page-item {
     .page-link {
+      padding: 5px 14px 3px;
+      margin-right: 12px;
+      margin-bottom: 12px;
+      color: $black;
       background-color: transparent;
       border: 1px solid $white;
       border-radius: 0;
-      color: $black;
-      margin-bottom: 12px;
-      margin-right: 12px;
-      padding: 5px 14px 3px;
+
       &:focus,
       &:hover {
-        background-color: $blue;
-        border-color: $blue;
         color: $white;
         text-decoration: none;
+        background-color: $blue;
+        border-color: $blue;
       }
     }
+
     &.active {
       .page-link,
-      .page-link:hover {
-        background-color: $white;
-        color: $black;
-        border: 0;
+      .page-link {
+        &:hover {
+          color: $black;
+          background-color: $white;
+          border: none;
+        }
       }
     }
   }
