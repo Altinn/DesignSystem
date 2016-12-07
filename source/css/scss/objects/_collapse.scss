@@ -38,6 +38,7 @@
 
     // DIM heading when another one is active
     &.dim {
+      // sass-lint:disable-block no-important
       background-color: $white-opacity-05 !important;
 
       .a-icon-circle {
@@ -60,6 +61,7 @@
 
   // Body inside collapsePanel
   .a-collapsePanel-body {
+    // sass-lint:disable-block no-important
     position: relative;
     display: block !important;
     width: 100%;
@@ -161,6 +163,7 @@
 .a-panelAccordion {
   // When "a-collapsePanel" is inside accordion, it should animate the active panel larger than the other one
   .a-collapsePanel-heading {
+    // sass-lint:disable-block no-important
     display: table;
     width: 100%;
     transition: margin 300ms, padding 300ms, width 300ms, height 300ms !important;
@@ -208,6 +211,7 @@
     .a-collapsePanel-body {
       .a-collapsePanel-body-content {
         @include media-breakpoint-up( lg ) {
+          // sass-lint:disable-block no-important
           padding: 40px 112px !important;
         }
       }
@@ -257,10 +261,6 @@
       .a-collapseContent-img {
         opacity: 1;
         transition: all 200ms ease-in;
-        -webkit-transition: all 200ms ease-in;
-        -moz-transition: all 200ms ease-in;
-        -ms-transition: all 200ms ease-in;
-        -o-transition: all 200ms ease-in;
       }
     }
   }
@@ -278,22 +278,15 @@
   border-left: 10px solid $blue;
   transition: transform 0.2s ease-out;
   transform: rotate( 90deg );
-
-  -webkit-transform: rotate( 90deg );
-  -webkit-transition: transform 0.2s ease-out;
 }
 
 .collapsed {
   .a-dropdownArrow {
     transform: rotate( 0deg );
-
-    -webkit-transform: rotate( 0deg );
   }
 
   .a-dropdownCircleArrow {
     transform: rotate( 0deg );
-
-    -webkit-transform: rotate( 0deg );
    }
 }
 
@@ -331,20 +324,18 @@
   opacity: 0;
 }
 
-.a-collapsePanel-body.collapse,
-.a-onboarding {
-  &.in {
-    .a-collapseContent-delay {
-      opacity: 1;
-      transition: all 100ms ease-in;
-      -webkit-transition: all 100ms ease-in;
-      -moz-transition: all 100ms ease-in;
-      -ms-transition: all 100ms ease-in;
-      -o-transition: all 100ms ease-in;
-    }
+.a-collapsePanel-body {
+  &.collapse,
+  .a-onboarding {
+    &.in {
+      .a-collapseContent-delay {
+        opacity: 1;
+        transition: all 100ms ease-in;
+      }
 
-    .a-collapseContent-delay--long {
-      transition-delay: 800ms;
+      .a-collapseContent-delay--long {
+        transition-delay: 800ms;
+      }
     }
   }
 }
@@ -356,6 +347,7 @@
 \*------------------------------------*/
 
 .a-collapse-title {
+  // sass-lint:disable-block no-important
   display: inline-block;
   padding-bottom: 3px;
   margin-bottom: 0;
