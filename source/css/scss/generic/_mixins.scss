@@ -23,8 +23,7 @@
 @mixin font-size( $decimal-size, $keyword: null) {
   @if $keyword {
     font-size: $keyword;
-  }
-  @else {
+  } @else {
     font-size: $decimal-size * $base-font-multiplier * 16px;
   }
   font-size: $decimal-size * 1rem;
@@ -34,6 +33,7 @@
 /* Decide responsive width of container */
 
 @mixin make-container-widths( $widths: $container-widths ) {
+  // sass-lint:disable-block brace-style
   @each $breakpoint,
   $container-width in $widths {
     @include media-breakpoint-up( $breakpoint ) {
