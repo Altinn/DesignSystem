@@ -1,3 +1,5 @@
+// sass-lint:disable no-universal-selectors
+
 // Remove all default focus styles, add common style to all elements
 
 
@@ -10,6 +12,7 @@
           &:not(canvas) {
             &:not(input) {
               &:not(progress) {
+                // sass-lint:disable-block no-important
                 outline: none !important;
                 box-shadow: $focus-color;
 
@@ -32,6 +35,7 @@ canvas,
 progress {
   &:not(.override-focus) {
     &:focus {
+      // sass-lint:disable-block no-important
       outline: none !important;
 
       &::before {
@@ -42,5 +46,6 @@ progress {
 }
 
 .override-focus {
+  // sass-lint:disable-block no-important
   outline: none !important;
 }
