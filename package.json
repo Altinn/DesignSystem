@@ -9,13 +9,14 @@
     "testplugin": "npm uninstall plugin-node-custom-output && npm install plugin-node-custom-output && npm run patterns",
     "lint": "eslint source/ unit_test/",
     "test": "mocha ./test/unit_test/mocha_runner.js -c --reporter spec",
-    "precommit-msg": "echo 'Pre-commit: Linting code and running mocha tests' && exit 0",
+    "precommit-msg": "echo 'Pre-commit: Linting js and scss, and running mocha tests' && exit 0",
     "sass": "sass-lint -v -q",
     "purify": "purifycss public/css/style.css public/patterns/**/*.html public/js/*.js --info --rejected --out public/css/index.css"
   },
   "pre-commit": [
     "precommit-msg",
     "lint",
+    "sass",
     "test"
   ],
   "dependencies": {
