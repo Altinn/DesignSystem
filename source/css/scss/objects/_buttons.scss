@@ -312,7 +312,6 @@
 
 // BOX BUTTON
 .a-box-button {
-
   position: relative;
   width: 100%;
   height: 190px;
@@ -321,8 +320,8 @@
   background: $white;
   border: 1px solid $grey-medium;
 
-  @include media-breakpoint-up( xl ) {
-    max-width: 190px;
+  .a-childBoxButtonList & {
+    background-color: $grey-light;
   }
 
   .a-box-button-text {
@@ -364,6 +363,20 @@
 
   .a-box-button-action-arrow {
     font-size: 16px;
+  }
+
+  .a-box-button-secondaryAction {
+    display: none;
+  }
+
+  &.a-open {
+    .a-box-button-primaryAction {
+      display: none;
+    }
+
+    .a-box-button-secondaryAction {
+      display: inline-block;
+    }
   }
 
   &:hover {
