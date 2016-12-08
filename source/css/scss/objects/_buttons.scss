@@ -410,26 +410,29 @@
 // BOX ADD BUTTON
 .a-boxAddBtn {
   width: 100%;
-  max-width: 400px;
   padding: $spacer;
   cursor: pointer;
   background: transparent;
   border: none;
 
+  &:focus,
+  &:hover {
+    .a-boxAddBtn-inner {
+      background: $white-opacity-05;
+    }
+  }
+
   .a-boxAddBtn-inner {
     display: block;
     height: 160px;
-    padding: $spacer * 2 $spacer;
+    padding-top: $spacer * 1.5;
+    background-color: transparent;
     border: 2px dotted $blue;
 
     .a-boxAddBtn-icon {
       display: block;
-      padding: $spacer;
-      font-size: 36px;
-    }
-
-    &:hover {
-      background: $white-opacity-05;
+      padding: $spacer * 2;
+      font-size: 24px;
     }
   }
 }
