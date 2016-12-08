@@ -31,6 +31,10 @@
 .a-icon-circle {
   background-color: $grey-light;
   border-radius: 50%;
+
+  &.a-bgBlue {
+    color: $white;
+  }
 }
 
 /*------------------------------------*\
@@ -56,6 +60,8 @@
 
   // The text
   .a-iconText-text {
+    flex: 1; //fix for flexbox wordwrap ie
+
     .a-iconText-text-small {
       display: block;
       margin-bottom: 0;
@@ -123,14 +129,13 @@
     }
 
     &.a-iconText-background--white {
+      color: $black;
       background: $white;
-      color: #000;
     }
   }
 }
 
 // VARIATION: Change background colors based on body background
-.neutral,
 .a-bgWhite {
   .a-iconText {
     &.a-iconText-background {
@@ -168,5 +173,5 @@
 
 .a-icon-right {
   display: inline;
-  float: right;
+  // float: right;
 }

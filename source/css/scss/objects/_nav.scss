@@ -1,39 +1,44 @@
-/*------------------------------------*\
-    $NAVIGATION
-\*------------------------------------*/
+//------------------------------------*\
+//  $NAVIGATION
+//------------------------------------*/
 
 // Pagination
 .a-pagination {
   .page-item {
     .page-link {
+      padding: 5px 14px 3px;
+      margin-right: 12px;
+      margin-bottom: 12px;
+      color: $black;
       background-color: transparent;
       border: 1px solid $white;
       border-radius: 0;
-      color: $black;
-      margin-bottom: 12px;
-      margin-right: 12px;
-      padding: 5px 14px 3px;
+
       &:focus,
       &:hover {
-        background-color: $blue;
-        border-color: $blue;
         color: $white;
         text-decoration: none;
+        background-color: $blue;
+        border-color: $blue;
       }
     }
+
     &.active {
       .page-link,
-      .page-link:hover {
-        background-color: #fff;
-        color: $black;
-        border: 0;
+      .page-link {
+        &:hover {
+          color: $black;
+          background-color: $white;
+          border: none;
+        }
       }
     }
   }
 }
 
-.private-person,
-.business {
+// Change colors on Pagination when different bacgrounds on body
+.a-bgGreyLight,
+.a-bgBlueLight {
   .page-item {
     .page-link {
       background-color: $white;
@@ -119,7 +124,7 @@
   box-sizing: border-box;
 
   background: $white;
-  box-shadow: 2px 2px 9px 0 rgba(0, 0, 0, 0.4);
+  box-shadow: 2px 2px 9px 0 $black-opacity-04;
 
   &::after {
     position: absolute;
@@ -134,16 +139,16 @@
     content: '';
     border: 8px solid $black;
     border-color: transparent transparent $white $white;
-    box-shadow: -2px 2px 3px 0 rgba(0, 0, 0, 0.11);
+    box-shadow: -2px 2px 3px 0 $black-opacity-01;
     transform: rotate(135deg);
     transform-origin: 0 0;
   }
 }
 
 
-/*------------------------------------*\
-    Small accordion
-\*------------------------------------*/
+//------------------------------------*\
+//  Small accordion
+//------------------------------------*/
 
 .a-accordion-small {
   a {
@@ -185,336 +190,6 @@
   }
 }
 
-
-/*------------------------------------*\
-    COLUMN NAVIGATION (DRILLDOWN ON MOBILE)
-		Used on "Skjema"
-\*------------------------------------*/
-
-.a-filter-container {
-  padding: $spacer / 2 0;
-  @include media-breakpoint-up( lg ) {
-    padding: $spacer / 2 $spacer * 4;
-  }
-}
-
-.a-filter {
-  padding-top: $spacer;
-
-  @include media-breakpoint-up( md ) {
-    padding-top: 0;
-    text-align: right;
-  }
-
-  @include media-breakpoint-up( lg ) {
-    padding-top: 5px;
-  }
-
-  .btn {
-    padding: 0;
-
-    background: transparent;
-
-    &::before {
-      display: inline-block;
-      width: 0;
-      height: 0;
-      margin-right: 0.25rem;
-      margin-left: 0.25rem;
-      vertical-align: middle;
-      content: '';
-      border-top: 0.3em solid;
-      border-right: 0.3em solid transparent;
-      border-left: 0.3em solid transparent;
-    }
-
-    &::after {
-      border: none;
-    }
-  }
-}
-
-.a-colnav-container {
-  border-top: 1px solid $grey-medium;
-
-  @include media-breakpoint-up( lg ) {
-    border-bottom: 1px solid $grey-medium;
-  }
-}
-
-.a-colnav {
-  width: 100%;
-
-  @include media-breakpoint-up( lg ) {
-    max-width: 550px;
-  }
-
-  // First level
-  li {
-    a {
-      display: block;
-
-      padding: $spacer $spacer * 3 $spacer $spacer * 2;
-      color: $black;
-      background: $white;
-      border-bottom: 1px solid $grey-medium;
-      box-shadow: none !important;
-
-      @include media-breakpoint-up( lg ) {
-        padding: $spacer $spacer * 4;
-
-        border-right: 1px solid $grey-medium;
-      }
-
-      &:hover,
-      &.expanded,
-      &:focus {
-        background: rgba(255, 255, 255, 0.7);
-      }
-
-      &:focus {
-        text-decoration: underline;
-
-        outline: none;
-      }
-
-      &.is-active {
-        text-decoration: none;
-      }
-
-      h2 {
-        margin-bottom: 0;
-        font-family: $font-bold;
-
-        font-size: 20px;
-        font-weight: $font-weight-bold;
-        line-height: 26px;
-      }
-
-      p {
-        margin-bottom: 0;
-      }
-    }
-
-    &:last-child {
-      a {
-        border-bottom: none;
-      }
-    }
-
-    // DIMMING not active panels
-    .dim {
-      color: $grey;
-
-      background: transparent;
-
-      h2 {
-        color: $grey;
-      }
-    }
-  }
-
-  // Second level
-  .a-colnav-secondLevel {
-    z-index: 1000;
-    width: 250px;
-    min-height: 100.3%;
-    margin-top: -1px;
-    background: $grey-light;
-
-    @include media-breakpoint-up( lg ) {
-      margin-left: -1px;
-    }
-    @include media-breakpoint-up( xl ) {
-      width: 300px;
-    }
-
-    &.anim {
-      transition: margin-left 0.5s ease-in-out;
-    }
-
-    .is-dropdown-submenu-item {
-      a {
-        @include media-breakpoint-up( md ) {
-          border-right: none;
-        }
-
-        position: relative;
-        padding: 18px $spacer * 2 17px $spacer * 2;
-
-        border-bottom: 1px solid $grey-medium;
-
-        &:hover {
-          background: $grey-lighter;
-        }
-
-        h3 {
-          margin-bottom: 0;
-          font-family: $font-reg;
-
-          font-size: 18px;
-          font-weight: $font-weight-reg;
-        }
-      }
-    }
-
-    // Drilldown on mobile
-    &.is-drilldown-submenu {
-      width: 100%;
-
-      h3 {
-        margin-bottom: 0;
-      }
-
-      li {
-        &.js-drilldown-back {
-          a {
-            padding: 16px $spacer * 3 15px $spacer * 2;
-
-            &::before {
-              margin-top: -3px;
-            }
-          }
-        }
-      }
-    }
-  }
-
-  .dim-second {
-    color: $grey;
-
-    background: $grey-light;
-
-    h2 {
-      color: $grey;
-    }
-  }
-
-  // Third level
-  .a-colnav-thirdLevel {
-    margin-top: -1px;
-
-    margin-left: -1px;
-    background: $white;
-
-    @include media-breakpoint-up( lg ) {
-      width: 469px;
-      min-height: 100.3%;
-    }
-
-    @include media-breakpoint-up( xl ) {
-      width: 517px;
-    }
-
-    .is-dropdown-submenu-item {
-      a {
-        position: relative;
-        padding: $spacer / 2 $spacer * 2 3px $spacer * 2;
-        border-right: none;
-
-        border-bottom: 1px solid $grey-light;
-
-        &:hover {
-          background: $grey-lighter;
-        }
-
-        h4 {
-          max-width: calc( 100% - ($spacer * 5) );
-          padding-right: $spacer * 5;
-          margin-bottom: 0;
-          font-family: $font-reg;
-
-          font-size: 16px;
-          font-weight: $font-weight-reg;
-        }
-
-        .a-colnav-rightText {
-          position: absolute;
-          top: 11px;
-          right: $spacer;
-          display: block;
-          font-size: 14px;
-        }
-      }
-    }
-
-    h4 {
-      font-family: $font-reg;
-
-      font-size: 16px;
-      font-weight: $font-weight-reg;
-    }
-
-    .a-colnav-rightText {
-      font-family: $font-medium;
-      font-weight: $font-weight-medium;
-    }
-  }
-}
-
-.business {
-  .dim-second {
-    color: $grey;
-
-    background: $blue-light;
-
-    h2 {
-      color: $grey;
-    }
-  }
-
-  .a-colnav {
-    .a-colnav-secondLevel {
-      background: $blue-light;
-
-      .is-dropdown-submenu-item {
-        a {
-          &:hover {
-            background: $blue-lighter;
-          }
-        }
-      }
-    }
-  }
-}
-
-// Make all levels start on top
-.is-dropdown-submenu-parent {
-  position: static; //remove position:relative
-}
-
-// Make arrow dim
-.dropdown {
-  &.menu {
-    &.vertical {
-      >li {
-        &.opens-right {
-          >a {
-            &.dim {
-              &::after {
-                border-color: transparent transparent transparent #CCCCCC;
-              }
-            }
-          }
-        }
-      }
-    }
-  }
-}
-
-.is-dropdown-submenu {
-  .is-dropdown-submenu-parent {
-    &.opens-right {
-      >a {
-        &.dim-second {
-          &::after {
-            border-color: transparent transparent transparent #CCCCCC;
-          }
-        }
-      }
-    }
-  }
-}
 
 /* Top tasks */
 .a-topTasks {

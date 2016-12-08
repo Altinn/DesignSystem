@@ -1,6 +1,6 @@
-/*------------------------------------*\
-    $VARIABLES
-\*------------------------------------*/
+//------------------------------------*\
+//  $VARIABLES
+//------------------------------------*/
 
 // Web colors for Altinn
 $blue-lighter: #F0FAFF;
@@ -8,41 +8,72 @@ $blue-light: #CFF0FF;
 $blue: #1EAEF7;
 $blue-dark: #0062BA;
 $blue-darker: #022F51;
-$blue-darker-opacity: transparentize( $blue-darker, 0.1 );
-$blue-hover-color: lighten( $blue, 5% );
-$blue-light-hover-color: lighten( $blue-light, 9% );
+
 $green: #17C96B;
 $green-light: #D4F9E4;
-$green-hover-color: rgba( 23, 201, 107, 0.8 );
+
 $red: #E23B53;
 $red-light: #F9CAD3;
-$red-hover-color: lighten( $red, 5% );
+
 $purple: #3F3161;
 $purple-light: #E0DAF7;
-$purple-hover-color: lighten( $purple, 5% );
+
 $yellow: #FFDA06;
 $yellow-light: #FBF6BD;
-$yellow-hover-color: lighten( $yellow, 5% );
+
 $black: #000000;
 $grey: #6A6A6A;
-$grey-medium: #B3B3B3;
+$grey-medium: #BCC7CC;
 $grey-light: #EFEFEF;
 $grey-lighter: #F5F5F5;
 $white: #FFFFFF;
 
-$white-opacity: transparentize( $white, 0.5 );
-// Hover
-$white-hover: rgba( 255, 255, 255, 0.2 );
-$blue-light-hover-color-dark: darken( $blue-light, 3% );
+// Colors with alpha
+$white-opacity-01: rgba($white, 0.1);
+$white-opacity-02: rgba($white, 0.2);
+$white-opacity-04: rgba($white, 0.4);
+$white-opacity-05: rgba($white, 0.5);
+$white-opacity-07: rgba($white, 0.7);
+
+$black-opacity-01: rgba($black, 0.1);
+$black-opacity-03: rgba($black, 0.3);
+$black-opacity-04: rgba($black, 0.4);
+
+$blue-opacity: rgba($blue, 0.2);
+$blue-darker-opacity: rgba($blue-darker, 0.1);
+$purple-opacity: rgba($purple, 0.2);
+
+$green-hover-color: rgba($green, 0.8);
+
+// Lighten and darken colors
+$blue-light-hover-color-dark: darken($blue-light, 3%);
+$blue-hover-color: lighten($blue, 5%);
+$blue-light-hover-color: lighten($blue-light, 9%);
+
+$purple-hover-color: lighten($purple, 5%);
+$red-hover-color: lighten($red, 5%);
+$yellow-hover-color: lighten($yellow, 5%);
+$green-lighten: lighten($green, 35%);
+
 // Focus
-$focusColor: inset rgba( 30, 174, 247, 0.125 ) 0 -1000px 0;
+$focus-color: inset rgba($blue, 0.125) 0 -1000px 0;
+
 // Shadow
-$shadow: 1px 1px 4px 0 rgba( 137, 137, 137, 0.5 );
-$shadow2: 0 1px 5px -2px #000000; // Used for collapse panels an more?
+$shadow-color: #898989;
+$shadow: 1px 1px 4px 0 rgba($shadow-color, 0.5);
+$shadow2: 0 1px 5px -2px $black; // Used for collapse panels an more? TODO: Check if this can be removed
+$mobileMenu-shadow: 2px 2px 9px 1px rgba($shadow-color, 0.5);
+
 //Borders
 $border-med: 3px;
 $border-thick: 7px;
 $blue-line: #A5BCC4;
+
+// Dotted border with gradient (to avoid double dots in start and end)
+$dotted-border-white: linear-gradient(to right, $white 50%, transparent 0%);
+$dotted-border-blue: linear-gradient(to right, $blue 50%, transparent 0%);
+$dotted-border-black: linear-gradient(to right, $black 50%, transparent 0%);
+
 // Accordion image sizes
 $header-img-size-lg: 90px;
 $header-img-size-md: 72px;
@@ -60,7 +91,6 @@ $font-weight-medium: normal;
 $font-bold: 'DIN-bold';
 $font-weight-bold: normal;
 
-
 $font-size: 16px;
 $font-size-small: 12px;
 $font-size-small-2: 14px;
@@ -76,7 +106,7 @@ $articleText-lineHeight: 26px;
 $articleText-size-mobile: 16px;
 $articleText-lineHeight-mobile: 22px;
 
-$b0: rgba( $blue-dark, 0 );
-$g0: rgba( $grey-medium, 0 );
-$b1: rgba( $blue-dark, 1 );
-$g1: rgba( $grey-medium, 1 );
+$b0: rgba($blue-dark, 0);
+$g0: rgba($grey-medium, 0);
+$b1: rgba($blue-dark, 1);
+$g1: rgba($grey-medium, 1);
