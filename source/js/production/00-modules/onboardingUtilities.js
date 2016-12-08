@@ -1,23 +1,14 @@
-var xmlToString = function(xmlData) {
-  var xmlString;
-  if (window.ActiveXObject) {
-    xmlString = xmlData.xml;
-  } else {
-    xmlString = (new XMLSerializer()).serializeToString(xmlData);
-  }
-  return xmlString;
-};
 var onboardingBlank = function(bool, delay) {
   $('.onboarding-wrapper')
-    .css('transform', 'translate3d(0, 0, 0) matrix(3, 0, 0, 3, 570, 700)');
+    .css('transform', 'translate3d(0, 0, 0) matrix(1, 0, 0, 1, 570, 700)');
   setTimeout(function() {
     if (bool) {
-      $('.onboarding-neutral').css('opacity', '1');
+      $('.onboarding-neutral').css('opacity', '0.9');
       $('.onboarding-wrapper').css('opacity', '0');
       $('html, body').animate({ scrollTop: 0 }, 200);
     } else {
       $('.onboarding-neutral').css('opacity', '0');
-      $('.onboarding-wrapper').css('opacity', '1');
+      $('.onboarding-wrapper').css('opacity', '0.9');
     }
   }, delay || 0);
 };
@@ -31,14 +22,9 @@ var onboardingCrawl = function() {
   }
   return arr;
 };
-var onboardingStep = function(i, callback) {
+var onboardingStep = function(i) {
   $('.a-onboarding').find('.modal-content').hide().eq(i)
     .show();
-  if (callback) {
-    setTimeout(function() {
-      callback();
-    }, 1000);
-  }
 };
 var onboardingOnShow = function(el, fn) {
   $(el).on('show.bs.modal', function() {
@@ -69,14 +55,14 @@ var onboardingHide = function(fn) {
   $('body').css('overflow-x', 'hidden');
   $('body').css('overflow-y', 'scroll');
 };
-var onboardingSeek = function(_count, _steps, callback) {
+var onboardingSeek = function(_count, _steps) {
   var count = _count; var steps = _steps;
   var horizontalJiggle; var verticalJiggle; var ratio;
   if (count === 0) {
     $('.a-js-circle').css('opacity', '0.9');
     setTimeout(function() {
       $('.onboarding-neutral').css('opacity', '0');
-      $('.onboarding-wrapper').css('opacity', '1');
+      $('.onboarding-wrapper').css('opacity', '0.9');
       $('.a-js-circle').css('opacity', '0');
     }, 250);
   } else {
@@ -110,39 +96,38 @@ var onboardingSeek = function(_count, _steps, callback) {
   }
   $('.onboarding-wrapper').css(
     'transform',
-      'translate3d(0, 0, 0) matrix(' + ratio + ', 0, 0, ' + ratio + ',' +
-        (
-          ratio === 15 ?
-            steps[count].offset().left + 95 :
-            steps[count].offset().left + (steps[count].width() / 2)
-        ) + ',' +
-        (
-          ratio === 15 ?
-            steps[count].offset().top + 30 :
-            steps[count].offset().top + (steps[count].height() / 2)
-        ) +
+    'translate3d(0, 0, 0) matrix(' + (ratio / 5) + ', 0, 0, ' + (ratio / 5) + ',' +
+    (
+      ratio === 15 ?
+      steps[count].offset().left + 95 :
+      steps[count].offset().left + (steps[count].width() / 2)
+    ) + ',' +
+    (
+      ratio === 15 ?
+      steps[count].offset().top + 30 :
+      steps[count].offset().top + (steps[count].height() / 2)
+    ) +
     ')'
   ).css('top', verticalJiggle + 'px').css('left', horizontalJiggle + 'px');
   setTimeout(function() {
     $('.onboarding-wrapper')
-      .css('top', (verticalJiggle * -0.5) + 'px')
-      .css('left', (horizontalJiggle * -0.5) + 'px');
+    .css('top', (verticalJiggle * -0.5) + 'px')
+    .css('left', (horizontalJiggle * -0.5) + 'px');
     setTimeout(function() {
       $('.onboarding-wrapper')
-        .css('top', (verticalJiggle * 0.25) + 'px')
-        .css('left', (horizontalJiggle * 0.25) + 'px');
+      .css('top', (verticalJiggle * 0.25) + 'px')
+      .css('left', (horizontalJiggle * 0.25) + 'px');
       setTimeout(function() {
         $('.onboarding-wrapper')
-          .css('top', (verticalJiggle * -0.125) + 'px')
-          .css('left', (horizontalJiggle * -0.125) + 'px');
+        .css('top', (verticalJiggle * -0.125) + 'px')
+        .css('left', (horizontalJiggle * -0.125) + 'px');
         setTimeout(function() {
-          $('.onboarding-wrapper').css('top', '0px').css('left', '0px');
+          $('.onboarding-wrapper').css('top', '1px').css('left', '1px');
         }, 100);
       }, 100);
     }, 100);
   }, 450);
   $('html, body').animate({
-    scrollTop: steps[count].offset().top - (140)
+    scrollTop: steps[count].offset().top - (140) // 260
   }, 200);
-  callback(ratio);
 };
