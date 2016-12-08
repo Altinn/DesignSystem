@@ -150,6 +150,8 @@ gulp.task('pl-copy:distribution-css', function (done) {
         '// Automatically removed');
       src = src.replace('@import "scss/patternlab/_presentation"; ',
         '// Automatically removed');
+      src = src.replace('@import "scss/episerver/episerver";',
+        '// Automatically removed');
       fs.writeFileSync('./source/css/style.min.scss', src);
       gulp.src(paths().source.css + 'style.min.scss')
         .pipe(sass().on('error', sass.logError))

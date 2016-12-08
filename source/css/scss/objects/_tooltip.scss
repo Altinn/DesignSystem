@@ -6,14 +6,14 @@
   border-radius: 0;
   box-shadow: $shadow2;
 
-  .popover-arrow {
+  &::before {
     border-right-color: $black-opacity-01;
     border-left-color: $black-opacity-01;
+  }
 
-    &::after {
-      border-right-color: $yellow-light;
-      border-left-color: $yellow-light;
-    }
+  &::after {
+    border-right-color: $yellow-light;
+    border-left-color: $yellow-light;
   }
 
   &.bs-tether-element-attached-top {
@@ -22,13 +22,32 @@
         border-right-color: transparent;
         border-bottom-color: $black-opacity-01;
         border-left-color: transparent;
-
-        &::after {
-          border-right-color: transparent;
-          border-bottom-color: $yellow-light;
-          border-left-color: transparent;
-        }
       }
+    }
+
+    &::before {
+      top: -10px;
+      border-right-color: transparent;
+      border-bottom-color: $black-opacity-005;
+      border-left-color: transparent;
+    }
+
+    &::after {
+      top: -9px;
+      border-right-color: transparent;
+      border-bottom-color: $yellow-light;
+      border-left-color: transparent;
+    }
+  }
+
+  &.bs-tether-element-attached-left,
+  &.bs-tether-element-attached-right {
+    &::after {
+      border-right-color: $yellow-light;
+    }
+
+    &::before {
+      border-right-color: $black-opacity-01;
     }
   }
 
@@ -55,13 +74,14 @@
   &.popover-valid {
     background-color: $green-light;
 
-    .popover-arrow {
-      &.popover-arrow {
-        &::after {
-          border-right-color: $green-light;
-          border-left-color: $green-light;
-        }
-      }
+    &::before {
+      border-right-color: $black-opacity-01;
+      border-left-color: $black-opacity-01;
+    }
+
+    &::after {
+      border-right-color: $green-light;
+      border-left-color: $green-light;
     }
 
     .popover-title {
@@ -75,12 +95,21 @@
           border-bottom-color: $black-opacity-01;
           border-left-color: transparent;
 
-          &::after {
-            border-right-color: transparent;
-            border-bottom-color: $green-light;
-            border-left-color: transparent;
-          }
         }
+      }
+
+      &::before {
+        top: -10px;
+        border-right-color: transparent;
+        border-bottom-color: $black-opacity-005;
+        border-left-color: transparent;
+      }
+
+      &::after {
+        top: -9px;
+        border-right-color: transparent;
+        border-bottom-color: $green-light;
+        border-left-color: transparent;
       }
     }
   }
@@ -89,13 +118,14 @@
   &.popover-warning {
     background-color: $red-light;
 
-    .popover-arrow {
-      &.popover-arrow {
-        &::after {
-          border-right-color: $red-light;
-          border-left-color: $red-light;
-        }
-      }
+    &::before {
+      border-right-color: $black-opacity-01;
+      border-left-color: $black-opacity-01;
+    }
+
+    &::after {
+      border-right-color: $red-light;
+      border-left-color: $red-light;
     }
 
     .popover-title {
@@ -109,12 +139,21 @@
           border-bottom-color: $black-opacity-01;
           border-left-color: transparent;
 
-          &::after {
-            border-right-color: transparent;
-            border-bottom-color: $red-light;
-            border-left-color: transparent;
-          }
         }
+      }
+
+      &::before {
+        top: -10px;
+        border-right-color: transparent;
+        border-bottom-color: $black-opacity-005;
+        border-left-color: transparent;
+      }
+
+      &::after {
+        top: -9px;
+        border-right-color: transparent;
+        border-bottom-color: $red-light;
+        border-left-color: transparent;
       }
     }
   }
@@ -141,27 +180,27 @@
       display: none;
     }
 
-    .popover-arrow {
-      &.popover-arrow {
-        top: -14px;
-        margin-left: -$spacer;
-        border-top-width: 0;
-        border-right-width: $spacer;
-
-        border-bottom-color: transparent;
-        border-bottom-width: $spacer;
-        border-left-width: $spacer;
-
-        &::after {
-          top: 3px;
-          left: -1px;
-          border-width: 11px;
-          border-top-width: 0;
-          border-bottom-width: 11px;
-          border-left-width: 11px;
-        }
-      }
-    }
+    // .popover-arrow {
+    //   &.popover-arrow {
+    //     top: -14px;
+    //     margin-left: -$spacer;
+    //     border-top-width: 0;
+    //     border-right-width: $spacer;
+    //
+    //     border-bottom-color: transparent;
+    //     border-bottom-width: $spacer;
+    //     border-left-width: $spacer;
+    //
+    //     &::after {
+    //       top: 3px;
+    //       left: -1px;
+    //       border-width: 11px;
+    //       border-top-width: 0;
+    //       border-bottom-width: 11px;
+    //       border-left-width: 11px;
+    //     }
+    //   }
+    // }
 
     .popover-title {
       background-color: $yellow-light;
@@ -173,17 +212,18 @@
     padding-top: $spacer;
     background-color: $white;
 
-    .popover-title {
-      background-color: $white;
+    &::before {
+      border-right-color: $black-opacity-01;
+      border-left-color: $black-opacity-01;
     }
 
-    .popover-arrow {
-      &.popover-arrow {
-        &::after {
-          border-right-color: $white;
-          border-left-color: $white;
-        }
-      }
+    &::after {
+      border-right-color: $white;
+      border-left-color: $white;
+    }
+
+    .popover-title {
+      background-color: $white;
     }
 
     &.bs-tether-element-attached-top {
@@ -193,12 +233,21 @@
           border-bottom-color: $black-opacity-01;
           border-left-color: transparent;
 
-          &::after {
-            border-right-color: transparent;
-            border-bottom-color: $white;
-            border-left-color: transparent;
-          }
         }
+      }
+
+      &::before {
+        top: -10px;
+        border-right-color: transparent;
+        border-bottom-color: $black-opacity-005;
+        border-left-color: transparent;
+      }
+
+      &::after {
+        top: -9px;
+        border-right-color: transparent;
+        border-bottom-color: $white;
+        border-left-color: transparent;
       }
     }
   }
