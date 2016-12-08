@@ -1,17 +1,21 @@
-<ul class="a-box-button-list row a-noColPadding a-box-button-list--xs1sm2md3lg4xl6" id="{{ box-list-id }}">
-
+<div class="a-noColPadding" role="list">
 	{{# box-button-list }}
-		<li class="col-xs-12 col-sm-6 col-md-4 col-lg-3 col-xl-2">
-			<div>
-				{{> atomer-knapp-fremhevet-stor }} 
-			</div>
-		</li>
+    <div class="pull-left col-xs-12 col-sm-6 col-md-4 col-lg-3 col-xl-2" role="listitem">
+        {{> atomer-knapp-fremhevet-stor }} 
+    </div>
+    {{# has-children }}
+      <div role="list" class="a-childBoxButtonList" id="{{ child-boxes-container-id }}" style="display: none">
+        {{# child-box-buttons }}
+          <div role="listitem" class="pull-left col-xs-12 col-sm-6 col-md-4 col-lg-3 col-xl-2">
+            {{> atomer-knapp-fremhevet-stor }} 
+          </div>
+        {{/ child-box-buttons }}
+      </div>
+    {{/ has-children }}
 	{{/ box-button-list }}
-
 	{{# box-button-list-add }}
-		<div class="col-xs-12 col-sm-6 col-md-4 col-lg-3 col-xl-2">
+		<div role="listitem" class="pull-left col-xs-12 col-sm-6 col-md-4 col-lg-3 col-xl-2">
 			{{> atomer-handlingsknapp-stor }}
 		</div>
 	{{/ box-button-list-add }}
-
-</ul>
+</div>
