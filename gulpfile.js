@@ -146,9 +146,11 @@ gulp.task('pl-copy:distribution-css', function (done) {
         console.log(err);
       }
 
-      var src = custom.replace('@import "scss/base/profile-presentation"; ',
+      var src = custom.replace('@import "scss/episerver/profile-presentation"; ',
         '// Automatically removed');
       src = src.replace('@import "scss/patternlab/_presentation"; ',
+        '// Automatically removed');
+      src = src.replace('@import "scss/prototype-only/prototype-only"; ',
         '// Automatically removed');
       fs.writeFileSync('./source/css/style.min.scss', src);
       gulp.src(paths().source.css + 'style.min.scss')
