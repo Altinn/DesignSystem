@@ -2,45 +2,44 @@
   position: absolute;
   top: 0;
   left: 0;
-  z-index: 999;
+  z-index: 1001;
   width: 1140px;
   height: 1140px;
   margin-top: -570px;
   margin-left: -570px;
+  text-align: center;
   opacity: 0;
-  transition: transform 0.45s ease-in, top 0.1s ease-out, left 0.1s, ease-out;
-
-  svg {
-    overflow: visible;
+  transform: translateZ(0);
+  @include media-breakpoint-up(sm) {
+    transition: transform 0.45s ease-in, top 0.1s ease-out, left 0.1s, ease-out;
   }
 }
 
 .onboarding-neutral {
   position: absolute;
-  z-index: 999;
-  width: 1140px;
-  height: 1140px;
-  opacity: 1;
-  transform: scale(10);
-
-  svg {
-    overflow: visible;
-  }
+  top: 0;
+  left: 0;
+  z-index: 1001;
+  width: 100%;
+  height: 100%;
+  background: $blue-darker;
+  opacity: 0.9;
 }
 
 
 .a-js-circle {
   position: absolute;
   top: 50%;
-  left: 50%;
-  width: 16px;
-  height: 16px;
-  margin-top: -8px;
-  margin-left: -8px;
-  background-color: $blue-darker;
-  border-radius: 8px;
-  opacity: 0.9;
-  transition: opacity 0.35s ease-in;
+  box-sizing: content-box;
+  width: 80px;
+  height: 80px;
+  margin-top: -2040px;
+  margin-left: -2040px;
+  background-color: transparent;
+  border: solid 2000px $blue-darker;
+  border-radius: 999999px;
+  opacity: 1;
+  transition: background-color 0.35s ease-in;
   transform: translate3d(0, 0, 0);
 }
 
