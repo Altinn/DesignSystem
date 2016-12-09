@@ -1,5 +1,5 @@
 .onboarding-wrapper {
-  position: absolute;
+  position: fixed;
   top: 0;
   left: 0;
   z-index: 1001;
@@ -10,8 +10,10 @@
   text-align: center;
   opacity: 0;
   transform: translateZ(0);
+  -webkit-transform: translateZ(0);
   @include media-breakpoint-up(sm) {
     transition: transform 0.45s ease-in, top 0.1s ease-out, left 0.1s, ease-out;
+    -webkit-transition: -webkit-transform 0.45s ease-in, top 0.1s ease-out, left 0.1s, ease-out;
   }
 }
 
