@@ -20,7 +20,7 @@
   h2,
   h3,
   h4 {
-    margin: $spacer*2 0 $spacer 0;
+    margin: $spacer * 2 0 $spacer 0;
 
     @include media-breakpoint-up( md ) {
       margin: $spacer * 2 0 $spacer 0;
@@ -30,14 +30,20 @@
     }
   }
 
-
   h3,
   h4 {
     margin: $spacer * 2 0 $spacer / 2 0;
   }
 
   h2 + h3 {
+    // sass-lint:disable-block no-important
     margin-top: 12px !important;
+  }
+
+  a {
+    &.a-link {
+      font-size: 18px;
+  }
   }
 
   ul {
@@ -73,22 +79,14 @@
     }
   }
 
-  ul,
-  ol {
-    margin: 0 0 $spacer * 3 $spacer * 2;
-
-    &.no-declaration {
-      margin: 0;
-      list-style: none;
-
-      li {
-        margin: 0;
-      }
-    }
-  }
-
   ol {
     &.a-circle-list {
+      margin: 0 0 36px 0;
+
+      @include media-breakpoint-up( md ) {
+        margin: 0 0 36px -40px;
+      }
+
       li {
         margin-bottom: $spacer * 2;
       }
@@ -100,13 +98,29 @@
     }
   }
 
-  li {
-    margin-bottom: 10px;
+  ul,
+  ol {
+    margin: 0 0 $spacer * 3 $spacer * 2;
+    font-size: 18px;
+
+    li {
+      margin-bottom: 10px;
+    }
+
+    &.no-declaration {
+      margin: 0;
+      list-style: none;
+
+      li {
+        margin: 0;
+      }
+    }
   }
 
-  ul.no-decoration {
-    margin: 0;
-    list-style: none;
+  .a-question-wrapper {
+    .a-circle-list {
+      margin: 0;
+    }
   }
 }
 
@@ -116,10 +130,12 @@
 // Image in articlelist
 
 .a-articleImage-right {
-  float: right;
-  max-width: 56%;
-  padding: 6px 0 24px 24px;
-  margin-right: -96px;
+  @include media-breakpoint-up( lg ) {
+    float: right;
+    max-width: 56%;
+    padding: 6px 0 24px 24px;
+    margin-right: -190px;
+  }
 }
 
 .a-articleImage-left {
@@ -207,6 +223,7 @@
   width: calc( 100% - 60px );
 
   h2 {
+    margin-top: 0;
     margin-bottom: 0;
     font-family: $font-bold;
     font-size: 20px;

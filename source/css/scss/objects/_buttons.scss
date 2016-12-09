@@ -32,8 +32,6 @@
 
   &:active,
   &.active {
-    @include box-shadow( inset 0 3px 5px rgba( 0, 0, 0, 0.125 ) );
-
     color: $black;
     background: $blue;
     background-image: none;
@@ -67,16 +65,6 @@
     width: auto;
     min-height: auto;
     content: '';
-  }
-}
-
-// disabled on business theme
-.business {
-  .a-btn {
-    &.disabled,
-    &:disabled {
-      background: $blue-light;
-    }
   }
 }
 
@@ -143,7 +131,7 @@
   font-weight: $font-weight-medium;
   line-height: 36px;
   color: $blue-darker;
-  background: rgba( 255, 255, 255, 0.5 );
+  background: $white-opacity-05;
   border: 2px solid $blue-darker;
 
   @include media-breakpoint-up( lg ) {
@@ -166,24 +154,24 @@
 
 // BTN WITH ICON
 .a-btn-icon {
-	height: $spacer * 5;
-	width: 100%;
-	text-align: left;
-	background: transparent;
+  width: 100%;
+  height: $spacer * 5;
+  text-align: left;
+  background: transparent;
 
-	&:hover,
-	&:focus {
-			background: transparent;
-			color: $blue;
+  &:hover,
+  &:focus {
+    color: $blue;
+    background: transparent;
 	}
 
-	.a-btn-icon-symbol {
-		font-size: 22px;
-    padding-right: $spacer;
-		vertical-align: middle;
-		margin-top: -5px;
+  .a-btn-icon-symbol {
     width: 38px;
+    padding-right: $spacer;
+    margin-top: -5px;
+    font-size: 22px;
     text-align: center;
+    vertical-align: middle;
 	}
 }
 // BTN WITH WHITE TRANSPARENCY
@@ -191,7 +179,7 @@
 .a-btn-transparentWhite {
   padding: $spacer;
 
-  background: $white-opacity;
+  background: $white-opacity-05;
 
   &:hover,
   &:focus {
@@ -217,20 +205,22 @@
 }
 
 .a-btn-transparentWhite-active,
-.a-btn-transparentWhite-active:hover {
-  color: $white;
-  background: $blue;
+.a-btn-transparentWhite-active {
+  &:hover {
+    color: $white;
+    background: $blue;
 
-  .a-btn-icon-symbol {
-    color: $blue;
-    background: $white;
+    .a-btn-icon-symbol {
+      color: $blue;
+      background: $white;
+    }
   }
 }
 
 // BTN WITH SHADOW
 .a-btn-shadow {
   background: $blue-light;
-  box-shadow: 1px 1px 4px 0 rgba( 137, 137, 137, 0.5 );
+  box-shadow: $shadow;
 
   &:hover {
     color: $black;
@@ -240,7 +230,7 @@
   &:focus {
     color: $black;
     background: darken( $blue-light, 5% );
-    box-shadow: 1px 1px 4px 0 rgba( 137, 137, 137, 0.5 );
+    box-shadow: $shadow;
   }
 
   &.a-bgGreyLight {
@@ -289,8 +279,9 @@
   &:not(.override-focus) {
     &:focus {
       &::before {
+        // sass-lint:disable-block no-important
         outline: none !important;
-        box-shadow: $focusColor;
+        box-shadow: $focus-color;
       }
     }
   }
@@ -311,23 +302,16 @@
     border: 2px dotted $blue;
   }
 
-  .a-btn-action-icon,
-  .a-btn-action-iconPlus {
+  .a-btn-action-icon {
     position: absolute;
     top: 7px;
     left: $spacer / 2;
     font-size: 16px;
   }
-
-  .a-btn-action-iconPlus {
-    top: 4px;
-    font-size: 24px;
-  }
 }
 
 // BOX BUTTON
 .a-box-button {
-
   position: relative;
   width: 100%;
   height: 190px;
@@ -336,8 +320,8 @@
   background: $white;
   border: 1px solid $grey-medium;
 
-  @include media-breakpoint-up( xl ) {
-    max-width: 190px;
+  .a-childBoxButtonList & {
+    background-color: $grey-light;
   }
 
   .a-box-button-text {
@@ -359,12 +343,13 @@
   .a-box-button-info {
     display: table;
     width: auto;
-    padding: $spacer / 2 $spacer;
+    padding: 8px $spacer 4px $spacer;
     margin: $spacer auto $spacer auto;
     clear: both;
+    font-family: $font-bold;
     font-size: 20px;
     font-style: normal;
-    font-weight: bold;
+    font-weight: $font-weight-bold;
     color: $black;
     text-align: center;
     background:  $grey-light;
@@ -380,10 +365,25 @@
     font-size: 16px;
   }
 
+  .a-box-button-secondaryAction {
+    display: none;
+  }
+
+  &.a-open {
+    .a-box-button-primaryAction {
+      display: none;
+    }
+
+    .a-box-button-secondaryAction {
+      display: inline-block;
+    }
+  }
+
   &:hover {
-    background: $white-opacity;
-    border: 4px solid $blue !important;
+    // sass-lint:disable-block no-important
     padding: 9px 4px 9px 4px;
+    background: $white-opacity-05;
+    border: 4px solid $blue !important;
 
     .a-box-button-info {
       background: $white;
@@ -410,26 +410,29 @@
 // BOX ADD BUTTON
 .a-boxAddBtn {
   width: 100%;
-  max-width: 400px;
   padding: $spacer;
   cursor: pointer;
   background: transparent;
   border: none;
 
+  &:focus,
+  &:hover {
+    .a-boxAddBtn-inner {
+      background: $white-opacity-05;
+    }
+  }
+
   .a-boxAddBtn-inner {
     display: block;
     height: 160px;
-    padding: $spacer * 2 $spacer;
+    padding-top: $spacer * 1.5;
+    background-color: transparent;
     border: 2px dotted $blue;
 
     .a-boxAddBtn-icon {
       display: block;
-      padding: $spacer;
-      font-size: 36px;
-    }
-
-    &:hover {
-      background: $white-opacity;
+      padding: $spacer * 2;
+      font-size: 24px;
     }
   }
 }
@@ -438,17 +441,24 @@
 .a-fullWidthBtn {
   width: 100%;
   height: $spacer * 4;
-  font-weight: bold;
+  font-family: $font-bold;
+  font-weight: $font-weight-bold;
 
   i {
     &.a-btn-action-icon {
-      top: 13px;
+      top: 7px;
+      left: 18px;
       margin-right: $spacer * 2;
+      font-size: 30px;
     }
   }
 
   span {
-    margin-left: $spacer * 3;
+    margin-left: $spacer * 2;
+
+    @include media-breakpoint-up( sm ) {
+      margin-left: $spacer * 4;
+    }
   }
 }
 

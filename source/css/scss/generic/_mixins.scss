@@ -8,11 +8,11 @@
  */
 
 @mixin transition($transition-property, $transition-time, $method) {
+  transition: $transition-property $transition-time $method;
   -webkit-transition: $transition-property $transition-time $method;
   -moz-transition: $transition-property $transition-time $method;
   -ms-transition: $transition-property $transition-time $method;
   -o-transition: $transition-property $transition-time $method;
-  transition: $transition-property $transition-time $method;
 }
 
 
@@ -23,8 +23,7 @@
 @mixin font-size( $decimal-size, $keyword: null) {
   @if $keyword {
     font-size: $keyword;
-  }
-  @else {
+  } @else {
     font-size: $decimal-size * $base-font-multiplier * 16px;
   }
   font-size: $decimal-size * 1rem;
@@ -34,6 +33,7 @@
 /* Decide responsive width of container */
 
 @mixin make-container-widths( $widths: $container-widths ) {
+  // sass-lint:disable-block brace-style
   @each $breakpoint,
   $container-width in $widths {
     @include media-breakpoint-up( $breakpoint ) {
@@ -41,16 +41,6 @@
     }
   }
 }
-
-/*@mixin disabled-background( $color: $black, $background-color: $white, $box-shadow: 0 0 0 1px $white inset, $background-image... ) {
-  color: $color;
-  cursor: not-allowed;
-  background-color: $background-color;
-  background-image: $background-image;
-  background-repeat: repeat;
-  background-size: auto;
-  box-shadow: $box-shadow;
-}*/
 
 @mixin disabled-background( $color: $black, $background-color: $white, $box-shadow: 0 0 0 1px $white inset, $background-image: url( '../images/disabled-background.svg' ), $background-image-extra: null ) {
   color: $color;
@@ -60,4 +50,21 @@
   background-repeat: repeat;
   background-size: auto;
   box-shadow: $box-shadow;
+}
+
+@mixin add-col-properties {
+  $breakpoint-counter: 0;
+  @each $breakpoint in map-keys($grid-breakpoints) {
+    $breakpoint-counter: ($breakpoint-counter + 1);
+
+    @for $i from 1 through $grid-columns {
+      .col-#{$breakpoint}-#{$i} {
+        @content;
+      }
+    }
+
+    .col-#{$breakpoint} {
+      @content;
+    }
+  }
 }

@@ -64,6 +64,7 @@
       padding: 5px 0;
 
       a {
+        // sass-lint:disable-block no-important
         position: relative;
         box-shadow: none !important;
 
@@ -114,24 +115,19 @@
 
   &.a-item-list-2col {
     @include media-breakpoint-up( md ) {
-      -webkit-column-count: 2;
-      -moz-column-count: 2;
       column-count: 2;
-      -webkit-column-gap: $spacer * 4;
-      -moz-column-gap: $spacer * 4;
       column-gap: $spacer * 4;
 
       li {
         break-inside: avoid;
-        -webkit-column-break-inside: avoid;
         page-break-inside: avoid;
       }
     }
   }
 }
 
-// If business, change hover color on list
-.business {
+// If background BLUE-light, change color on lists
+.a-bgBlueLight {
   .a-item-list {
     .a-item-list-item {
       &.a-clickable {
@@ -153,6 +149,20 @@
   }
 }
 
+// If background GREY-light, change color on list
+.a-bgGreyLight,
+.a-bgGrey {
+  ul {
+    &.connected-bullets {
+      li {
+        &::after {
+          background: $grey-light;
+        }
+      }
+    }
+  }
+}
+
 /*------------------------------------*\
     $Box btn list
 \*------------------------------------*/
@@ -168,15 +178,21 @@
       }
 
       li {
-        .a-box-button:hover {
-          padding: 9px 4px 9px 3px;
+        .a-box-button {
+          &:hover {
+            padding: 9px 4px 9px 3px;
+          }
         }
+
         &:first-child {
           .a-box-button {
             border: 1px solid $grey-medium;
           }
-          .a-box-button:hover {
-            padding: 9px 4px 9px 4px;
+
+          .a-box-button {
+            &:hover {
+              padding: 9px 4px 9px 4px;
+            }
           }
         }
 
@@ -190,8 +206,11 @@
           .a-box-button {
             border-left: 1px solid $grey-medium;
           }
-          .a-box-button:hover {
-            padding: 9px 4px 9px 4px;
+
+          .a-box-button {
+            &:hover {
+              padding: 9px 4px 9px 4px;
+            }
           }
         }
       }
@@ -296,10 +315,11 @@ ul {
         left: 0;
         width: 25px;
         height: 25px;
+        font-family: $font-bold;
         font-size: 39px;
-        font-weight: bold;
+        font-weight: $font-weight-bold;
         content: '';
-        background: $grey-light;
+        background: $white;
         border: 3px solid $blue;
         border-radius: 50%;
 
@@ -338,7 +358,8 @@ ul {
       i {
         float: right;
         margin-right: $spacer;
-        font-weight: bold;
+        font-family: $font-bold;
+        font-weight: $font-weight-bold;
         color: $blue;
         cursor: pointer;
       }
@@ -359,34 +380,38 @@ ol {
   counter-reset: step;
 
   &.a-circle-list {
+    font-size: 18px;
+
     li {
       margin-bottom: $spacer * 1.5;
 
       span {
+        display: block;
         padding: 0;
         padding-left: $spacer * 2.5;
         margin: 0;
-        margin-left: 10px;
         margin-top: $spacer * -2;
+        margin-left: 10px;
         font-weight: normal;
-        display: block;
 
         span {
-          font-family: "DIN-bold";
+          display: inline;
           padding: 0;
           margin: 0;
-          display: inline;
+          font-family: 'DIN-bold';
         }
       }
 
       &::before {
+        position: relative;
+        top: 3px;
         padding: 5px 9px 4px 9px;
         margin-right: 10px;
-        font-family: "DIN-bold";
+        font-family: 'DIN-bold';
         content: counter( step );
         counter-increment: step;
-        border-radius: 50%;
         border: 2px solid $blue;
+        border-radius: 50%;
       }
     }
   }
@@ -394,9 +419,9 @@ ol {
   &.a-circle-list-yellow {
     li {
       &::before {
+        font-family: 'DIN-reg';
         background-color: $yellow;
         border: none;
-        font-family: "DIN-reg";
       }
     }
   }
@@ -437,8 +462,10 @@ ol {
     $Suggestion List
 \*------------------------------------*/
 
-#a-js-suggestionList-mobile>h2 {
-  padding-top: 0;
+#a-js-suggestionList-mobile { // sass-lint:disable-line no-ids
+  > h2 {
+    padding-top: 0;
+  }
 }
 
 
@@ -447,7 +474,9 @@ ol {
 \*------------------------------------*/
 
 .a-btn-group {
-  ol.show-numbers {
-    list-style-type: decimal;
+  ol {
+    &.show-numbers {
+      list-style-type: decimal;
+    }
   }
 }

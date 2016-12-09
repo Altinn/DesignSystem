@@ -52,17 +52,18 @@ h2,
   // Mobile and all
   margin-bottom: $spacer / 2;
   font-family: $font-medium;
-  font-weight: $font-weight-medium;
   font-size: 18px;
+  font-weight: $font-weight-medium;
   line-height: 24px;
 
   // Tablet
   @include media-breakpoint-up( md ) {
-    font-size: 22px;
-    line-height: 24px;
     font-family: $font-reg;
+    font-size: 22px;
     font-weight: $font-weight-reg;
+    line-height: 24px;
   }
+
   // Laptop
   @include media-breakpoint-up( lg ) {
     font-size: 24px;
@@ -138,6 +139,7 @@ h4,
 // Font weights
 .din-reg,
 .a-textSizeReg {
+  // sass-lint:disable-block no-important
   font-family: $font-reg !important;
   font-weight: $font-weight-reg !important;
 }
@@ -292,7 +294,7 @@ blockquote {
 /* Text colors */
 
 .a-dimText {
-  color: rgba( 0, 0, 0, 0.4 );
+  color: $black-opacity-04;
 }
 
 .a-whiteText {
@@ -318,6 +320,13 @@ blockquote {
   color: $blue-darker;
 }
 
+// Mark
+mark,
+.a-mark {
+  padding: 0;
+  background-color: $yellow-light;
+}
+
 // Label
 .a-label {
   min-width: 27px;
@@ -335,29 +344,6 @@ blockquote {
   border-radius: 24px;
 }
 
-// SR-only
-.sr-only-focusable {
-  &:active,
-  &:focus {
-    position: static;
-    display: inline-block;
-    width: 100%;
-    height: auto;
-    padding: 5px;
-    padding-left: 10px;
-    margin: 0;
-    overflow: visible;
-    clip: auto;
-    font-size: small;
-    font-weight: bolder;
-    text-decoration: underline;
-    background-color: $white;
-    border-bottom: none;
-    box-shadow: none !important;
-  }
-}
-
-
 // Speech-bubbles
 .a-textBubble {
   position: relative;
@@ -369,7 +355,7 @@ blockquote {
   margin-bottom: $spacer * 3;
   clear: both;
   font-size: 16px;
-  background-color: $grey-light;
+  background-color: $white;
 
   &::after {
     position: absolute;
@@ -379,11 +365,11 @@ blockquote {
     width: 0;
     content: '';
     border: none;
-    border-color: transparent $grey-light;
+    border-color: transparent $white;
     border-style: solid;
+    border-right-color: transparent;
     border-bottom-width: $spacer;
     border-left-width: $spacer;
-    border-right-color: transparent;
   }
 
   .a-textBubble-metaText {
@@ -447,22 +433,24 @@ blockquote {
   background-image: url('../images/disabled-background_blue.svg');
 }
 
-
 /* Dot before text */
 
 .a-dot {
   font-family: $font-reg;
   font-weight: $font-weight-reg;
-  &:before {
-    content: "\2022";
+
+  &::before {
+    display: inline-block;
     margin-right: 4px;
     font-size: 24px;
-    vertical-align: bottom;
-    display: inline-block;
     text-decoration: none;
-  }
-  &.a-dot-red:before {
-    color: $red;
+    vertical-align: bottom;
+    content: '\2022';
   }
 
+  &.a-dot-red {
+    &::before {
+      color: $red;
+    }
+  }
 }

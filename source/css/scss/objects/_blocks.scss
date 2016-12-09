@@ -1,6 +1,7 @@
 // JUMBOTRON
 .a-jumbotron {
   padding-bottom: 134px;
+  margin-bottom: $spacer * 5;
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
@@ -24,7 +25,7 @@
     display: block;
     margin-bottom: $spacer * 2;
     font-size: 28px;
-    line-height: 36px;
+    line-height: $spacer * 3;
     color: $blue-darker;
 	}
 
@@ -74,7 +75,7 @@
     border: 2px solid $white;
 
     &:hover {
-      background: rgba( 255, 255, 255, 0.1 );
+      background: $white-opacity-01;
     }
 	}
 
@@ -85,10 +86,7 @@
       &:hover {
         color: $white;
       }
-
     }
-
-
 
     li {
       &.active {
@@ -111,18 +109,18 @@
 	}
 
   .a-dotted-line {
-    background-image: linear-gradient( to right, $white 50%, rgba( 255, 255, 255, 0 ) 0% );
+    background-image: $dotted-border-white;
 	}
 
   .a-dotted {
-    background-image: linear-gradient( to right, $white 50%, rgba( 255, 255, 255, 0 ) 0% );
+    background-image: $dotted-border-white;
 	}
 
   .a-item-list {
     .a-item-list-item {
       &.a-clickable {
         &:hover {
-          background-color: rgba( 255, 255, 255, 0.1 );
+          background-color: $white-opacity-01;
         }
       }
 
@@ -134,7 +132,7 @@
 
   .a-listItem-title {
     &:focus {
-      background-color: rgba( 255, 255, 255, 0.1 );
+      background-color: $white-opacity-01;
     }
   }
 
@@ -147,7 +145,6 @@
   @include media-breakpoint-up( md ) {
     height: 600px;
 	}
-
   @include media-breakpoint-up( lg ) {
     height: 700px;
 	}
@@ -167,16 +164,14 @@
 
 // PERSON ROLE
 .a-personRole {
-  display: block;
+  display: flex;
   float: left;
   width: 100%;
-  display: flex;
-  -webkit-box-align: center;
   align-items: center;
 
   .a-personRole-icon {
     float: left;
-    padding-right: 12px;
+    padding-right: $spacer;
     margin-top: -9px;
     font-size: 30px;
     color: $black;
@@ -185,7 +180,6 @@
 
   .a-personRole-icon-success {
     float: left;
-    padding-top: $spacer;
     padding-right: 7px;
     font-size: 28px;
     color: $green;
@@ -226,7 +220,6 @@
     @include media-breakpoint-up( sm ) {
       width: 60%;
     }
-
   }
 
   .a-mediaBlock-caption {
@@ -277,7 +270,6 @@
 	}
 }
 
-.neutral,
 .a-bgWhite {
   .a-card {
     &:not(.transparent) {
@@ -333,11 +325,14 @@
 
 
 .a-question-wrapper {
+  display: inline-block;
   padding: 0;
+
   overflow: hidden;
 
   .a-trigger-question {
     position: relative;
+
     display: none;
 
     &:nth-of-type(1) {
@@ -347,12 +342,23 @@
 
   .a-circle-list {
     li {
+      padding-top: $spacer * 2;
+      padding-right: $spacer * 2;
+      padding-left: $spacer * 6;
+
+      @include media-breakpoint-up( md ) {
+        padding-top: $spacer * 3;
+        padding-right: $spacer * 4;
+        padding-left: $spacer * 7;
+      }
+
       &::before {
         position: absolute;
         top: $spacer * 1.5;
         left: $spacer * 2;
-        width: 36px;
-        height: 36px;
+        width: $spacer * 3;
+        height: $spacer * 3;
+
         padding: 5px 0 0 0;
         text-align: center;
 
@@ -361,18 +367,6 @@
           left: $spacer * 3;
         }
       }
-    }
-  }
-
-  li {
-    padding-top: $spacer * 2;
-    padding-right: $spacer * 2;
-    padding-left: $spacer * 6;
-
-    @include media-breakpoint-up( md ) {
-      padding-top: $spacer * 3;
-      padding-right: $spacer * 4;
-      padding-left: $spacer * 7;
     }
   }
 
@@ -387,7 +381,7 @@
     @include media-breakpoint-up( md ) {
       margin-left: $spacer * 7;
     }
-  }
+	}
 
   hr {
     margin: 0;
@@ -398,34 +392,29 @@
     float: left;
     width: 100%;
     margin-top: -1px;
+
     margin-bottom: 0;
-    line-height: 36px;
+    line-height: $spacer * 3;
     text-align: center;
   }
 }
 
 .a-main-card {
-  .a-textSize2 {
-    @include media-breakpoint-up( md ) {
-      margin-bottom: -5px;
+
+  .a-iconText {
+    margin-bottom: $spacer * 2;
+    margin-left: -$spacer;
+
+    @include media-breakpoint-up(lg) {
+      margin-left: -$spacer * 6;
     }
 
-    margin-bottom: $spacer / 2;
-    font-family: $font-bold;
-    font-weight: $font-weight-bold;
-
-    span {
-      font-family: $font-reg;
-      font-weight: $font-weight-reg;
-    }
-  }
-
-  .subtext {
-    font-size: 12px;
-
-    a {
-      padding-bottom: 2px;
-      border-bottom: 1px solid $blue;
+    .a-link,
+    .a-formCode {
+      @include media-breakpoint-up(lg) {
+        font-size: 30px;
+        line-height: 38px;
+      }
     }
   }
 }
@@ -481,6 +470,10 @@
   }
 
   .a-compare-container {
+    padding: 0;
+    margin-bottom: $spacer * 4;
+    border-top: 1px solid $blue-line;
+
     @include media-breakpoint-up( md ) {
       padding: 0 $spacer * 2;
 
@@ -503,10 +496,6 @@
         border-right: 1px solid $blue-line;
       }
     }
-
-    padding: 0;
-    margin-bottom: $spacer * 4;
-    border-top: 1px solid $blue-line;
 
     &:first-child {
       padding-right: $spacer;
