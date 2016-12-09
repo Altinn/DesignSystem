@@ -27,11 +27,11 @@ var handleValidatorLibrary = function() {
       if (allValid) {
         $form.find('.a-js-hideWhenInvalid').show();
         $form.find('.a-js-enableWhenValid').removeAttr('disabled');
-        $form.find('.a-js-enableWhenValid').addClass('m-t-3');
+        $form.find('.a-js-enableWhenValid').addClass('mt-3');
       } else {
         $form.find('.a-js-hideWhenInvalid').hide();
         $form.find('.a-js-enableWhenValid').attr('disabled', true);
-        $form.find('.a-js-enableWhenValid').removeClass('m-t-3');
+        $form.find('.a-js-enableWhenValid').removeClass('mt-3');
       }
     });
 

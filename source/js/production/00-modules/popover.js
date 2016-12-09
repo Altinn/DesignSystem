@@ -32,6 +32,11 @@ var popover = function() {
       );
     }
   }
+  $('[data-toggle="popover"]').each(function() {
+    if ($(this).attr('data-template')) {
+      $(this).attr('data-template', $(this).attr('data-template').replace(/<!--[\s\S]*?-->/g, ''));
+    }
+  });
   $('[data-toggle="popover"]').popover(options);
   $('#example').popover();
   $('.a-js-togglePopoverIcons').each(function() {
@@ -62,9 +67,12 @@ var popover = function() {
   });
   $('.a-js-persistPopover').on('shown.bs.popover', function() {
     adjustBig();
-    $('.popover-big').find('.popover-arrow').css(
-      'left', ($(this).offset().left + 9) + 'px'
-    );
+    // $('.popover-big').find('.popover-arrow').css(
+    //   'left', ($(this).offset().left + 9) + 'px'
+    // );
+    // $('.popover-big').attr('data-arrowleftadjust', ($(this).offset().left + 9) + 'px');
+    $('body').append(
+      '<style>.popover-big:after { left: ' + ($(this).offset().left + 10.5) + 'px !important; }</style>');
     $('html, body').animate({
       scrollTop: $('.a-js-persistPopover').offset().top - 50
     }, 250);
