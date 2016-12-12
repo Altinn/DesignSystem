@@ -3,13 +3,15 @@
 var onboarding = function() {
   var count = -1; var steps;
   $('body').addClass($('.a-js-bodyClassPersist').attr('data-body'));
-  $('.a-page').append('<span class="onboarding-wrapper"><span ' +
+  $('.a-page').eq(0).append('<span class="onboarding-wrapper"><span ' +
     'class="a-js-circle"></span></span><span class="onboarding-neutral"></span>'
   );
   if ($('body').width() < 768 && $('.a-onboarding').length > 0) {
     $('.onboarding-wrapper').css('position', 'fixed');
     $('.onboarding-neutral').css('position', 'fixed');
-    $('.a-onboarding').css('top', '-260px');
+    $('.a-onboarding').css('top', '-120px').css('height', '100%').css('overflow', 'scroll')
+      .css('padding-bottom', '0')
+      .css('min-height', '110vh');
     $('.navbar-toggler')[0].click();
   }
   steps = onboardingCrawl();
