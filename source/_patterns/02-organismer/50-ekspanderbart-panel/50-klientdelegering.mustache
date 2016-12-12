@@ -1,21 +1,20 @@
-<div class="panel a-collapsePanel {{{isLarge}}} {{{ styleModifier }}}" role="tablist">
-
-	<div class="panel-heading index-heading collapsed a-collapsePanel-heading {{isExpanded}}" role="tab" tabindex="0" data-toggle="collapse" data-target="#{{{collapseID}}}" aria-expanded="false" aria-controls="#{{{collapseID}}}" {{{dataParent}}}>
-		{{# collapseHeader }}
+<div class="card a-accordion-card a-collapsePanel {{{ styleModifier }}}">
+	<div class="card-header a-js-index-heading a-collapsePanel-heading collapsed {{ isExpanded }}" role="tab">
+		<a href="#{{ collapseID }}" tabindex="0" data-toggle="collapse" data-target="#{{{ collapseID }}}" aria-expanded="false" aria-controls="#{{{ collapseID }}}" {{# dataParent }}data-parent="{{{dataParent}}}"{{/ dataParent }}>
+			{{# collapseHeader }}
 				{{> molekyler-ikon-tekst }}
-		{{/ collapseHeader }}
+			{{/ collapseHeader }}
+		</a>
 	</div>
-
-	<div id="{{ collapseID }}" class="panel-collapse a-collapsePanel-body collapse {{{ isVisibleFromStart }}}" role="tabpanel" aria-labelledby="{{ collapse-panel-id }}"> 
-
+	<div id="{{ collapseID }}" class="a-collapsePanel-body no-background collapse {{{ isVisibleFromStart }}}" role="tabpanel" aria-labelledby="{{ collapse-panel-id }}">
 		<div class="panel-collapse-content-section px-2 pb-2">
 			<div class="first-action pt-3">
 				{{> atomer-knapp-veksle }}
 			</div>
 			{{# klientdelegering-file }}
-				<div class="third-action pt-3">
-					{{> atomer-knapp }}
-				</div>
+			<div class="third-action pt-3">
+				{{> atomer-knapp }}
+			</div>
 			{{/ klientdelegering-file }}
 			<div class="second-action pt-3" id="searchForClient" style="display: none;">
 				{{# sok-etter-klient }}
@@ -38,16 +37,15 @@
 			</div>
 		</div>
 		<div>
-			<div id="firstTable">
-				{{# employee-table }}
-					{{> atomer-tabell-actions }}
-				{{/ employee-table }}
-			</div>
-			<div id="secondTable" style="display: none;">
-				{{# clients-table }}
-					{{> atomer-tabell-actions }}
-				{{/ clients-table }}
-			</div>
+		<div id="firstTable">
+			{{# employee-table }}
+				{{> atomer-tabell-actions }}
+			{{/ employee-table }}
+		</div>
+		<div id="secondTable" style="display: none;">
+			{{# clients-table }}
+				{{> atomer-tabell-actions }}
+			{{/ clients-table }}
 		</div>
 	</div>
 </div>
