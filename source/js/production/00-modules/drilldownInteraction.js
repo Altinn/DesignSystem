@@ -3,19 +3,19 @@ var drilldownInteraction = function() {
   var bpLarge = 992;
   // Add dim class to panels
   $(function() {
-    $('.index-heading').click(function() {
+    $('.a-js-index-heading').click(function() {
       if ($(this).hasClass('expanded')) {
         $(this).removeClass('expanded');
-        if ($('.panel-heading.expanded').length === 0) {
-          $('.panel-heading').removeClass('dim');
+        if ($('.a-collapsePanel-heading.expanded').length === 0) {
+          $('.a-collapsePanel-heading').removeClass('dim');
         } else {
           $(this).addClass('dim');
         }
       } else {
-        $('.panel-heading').removeClass('expanded');
+        $('.a-collapsePanel-heading').removeClass('expanded');
         $(this).addClass('expanded');
-        $('.panel-heading').addClass('dim');
-        $('.panel-heading.expanded').removeClass('dim');
+        $('.a-collapsePanel-heading').addClass('dim');
+        $('.a-collapsePanel-heading.expanded').removeClass('dim');
       }
     });
   });
