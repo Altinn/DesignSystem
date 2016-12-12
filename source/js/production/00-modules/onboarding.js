@@ -3,7 +3,7 @@
 var onboarding = function() {
   var count = -1; var steps;
   $('body').addClass($('.a-js-bodyClassPersist').attr('data-body'));
-  $('.a-page').append('<span class="onboarding-wrapper"><span ' +
+  $('.a-page').eq(0).append('<span class="onboarding-wrapper"><span ' +
     'class="a-js-circle"></span></span><span class="onboarding-neutral"></span>'
   );
   if ($('body').width() < 768 && $('.a-onboarding').length > 0) {
