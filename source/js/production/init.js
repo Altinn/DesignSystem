@@ -86,15 +86,22 @@ window.smoothState = $('#smoothState').smoothState({
     }
   },
   onReady: {
-    duration: 0,
+    duration: 250,
     render: function($container, $newContent) {
+      window.smoothState.restartCSSAnimations();
       $container.removeClass('is-exiting');
-      $newContent.find('.a-scene_element--fadeinright').hide();
+      // $newContent.find('.a-scene_element--fadeinright').hide();
       if ($container.find('.a-tempAnim').length > 0) {
         $newContent.find('.a-scene_element')
-          .removeClass('a-scene_element--fadeinright')
+          .removeClass('a-scene_element--fadeoutright')
+          .removeClass('a-scene_element--fadeoutleft')
           .addClass('a-scene_element--fadeinleft')
           .removeClass('a-tempAnim');
+      } else {
+        $newContent.find('.a-scene_element')
+          .removeClass('a-scene_element--fadeoutright')
+          .removeClass('a-scene_element--fadeoutleft')
+          .addClass('a-scene_element--fadeinright');
       }
       $container.html($newContent);
     }
@@ -104,7 +111,7 @@ window.smoothState = $('#smoothState').smoothState({
     window.altinnInit();
     window.altinnDev();
     window.smoothStateMod();
-    $('.a-scene_element').show();
+    // $('.a-scene_element').show();
     $('form').validator();
   }
 }).data('smoothState');

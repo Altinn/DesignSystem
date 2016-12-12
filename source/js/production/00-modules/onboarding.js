@@ -6,7 +6,7 @@ var onboarding = function() {
   $('.a-page').append('<span class="onboarding-wrapper"><span ' +
     'class="a-js-circle"></span></span><span class="onboarding-neutral"></span>'
   );
-  if ($('body').width() < 768) {
+  if ($('body').width() < 768 && $('.a-onboarding').length > 0) {
     $('.onboarding-wrapper').css('position', 'fixed');
     $('.onboarding-neutral').css('position', 'fixed');
     $('.a-onboarding').css('top', '-260px');
@@ -17,7 +17,8 @@ var onboarding = function() {
   $('.onboarding-neutral').hide();
   $('.onboarding-wrapper').hide();
   $('.onboarding-wrapper')
-    .css('transform', 'translate3d(0, 0, 0) matrix(1, 0, 0, 1, 570, 700)');
+    .css('transform', 'translate3d(0, 0, 0) matrix(1, 0, 0, 1, 570, 700)')
+    .css('-webkit-transform', 'translate3d(0, 0, 0) matrix(1, 0, 0, 1, 570, 700)');
   $('.a-onboarding').find('.a-btn').on('click', function(e) {
     e.preventDefault(); e.stopPropagation();
     if ($(this).hasClass('a-btn-success')) {
