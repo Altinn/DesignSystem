@@ -1,7 +1,6 @@
 /* globals $ */
 var drilldownInteraction = function() {
   var bpLarge = 992;
-
   // Add dim class to panels
   $(function() {
     $('.index-heading').click(function() {
