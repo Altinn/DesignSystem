@@ -34,11 +34,13 @@ var onboardingStep = function(i) {
 };
 var onboardingOnShow = function(el, fn) {
   $(el).on('show.bs.modal', function() {
-    $('.onboarding-neutral').fadeIn(200, 'linear');
-    $('.onboarding-wrapper').show(); $('body').css('overflow-y', 'hidden');
-    $('body').css('overflow-x', 'hidden');
-    if (fn) {
-      fn();
+    if ($(el).hasClass('a-onboarding')) {
+      $('.onboarding-neutral').fadeIn(200, 'linear');
+      $('.onboarding-wrapper').show(); $('body').css('overflow-y', 'hidden');
+      $('body').css('overflow-x', 'hidden');
+      if (fn) {
+        fn();
+      }
     }
   });
 };
