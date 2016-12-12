@@ -42,8 +42,11 @@
   border: solid 2000px $blue-darker;
   border-radius: 999999px;
   opacity: 1;
-  transition: background-color 0.35s ease-in;
   transform: translate3d(0, 0, 0);
+  @include media-breakpoint-up(sm) {
+    transition: background-color 0.35s ease-in;
+    -webkit-transition: background-color 0.35s ease-in;
+  }
 }
 
 
@@ -53,7 +56,7 @@
 
 .a-onboarding {
   // sass-lint:disable-block no-important
-  overflow: hidden !important;
+  overflow: hidden;
   color: $white;
   // background: $blue-darker-opacity !important;
   background: transparent;
