@@ -3,13 +3,15 @@
 var onboarding = function() {
   var count = -1; var steps;
   $('body').addClass($('.a-js-bodyClassPersist').attr('data-body'));
-  $('.a-page').append('<span class="onboarding-wrapper"><span ' +
+  $('.a-page').eq(0).append('<span class="onboarding-wrapper"><span ' +
     'class="a-js-circle"></span></span><span class="onboarding-neutral"></span>'
   );
-  if ($('body').width() < 768) {
+  if ($('body').width() < 768 && $('.a-onboarding').length > 0) {
     $('.onboarding-wrapper').css('position', 'fixed');
     $('.onboarding-neutral').css('position', 'fixed');
-    $('.a-onboarding').css('top', '-260px');
+    $('.a-onboarding').css('top', '-120px').css('height', '100%').css('overflow', 'scroll')
+      .css('padding-bottom', '0')
+      .css('min-height', '110vh');
     $('.navbar-toggler')[0].click();
   }
   steps = onboardingCrawl();
@@ -17,7 +19,8 @@ var onboarding = function() {
   $('.onboarding-neutral').hide();
   $('.onboarding-wrapper').hide();
   $('.onboarding-wrapper')
-    .css('transform', 'translate3d(0, 0, 0) matrix(1, 0, 0, 1, 570, 700)');
+    .css('transform', 'translate3d(0, 0, 0) matrix(1, 0, 0, 1, 570, 700)')
+    .css('-webkit-transform', 'translate3d(0, 0, 0) matrix(1, 0, 0, 1, 570, 700)');
   $('.a-onboarding').find('.a-btn').on('click', function(e) {
     e.preventDefault(); e.stopPropagation();
     if ($(this).hasClass('a-btn-success')) {

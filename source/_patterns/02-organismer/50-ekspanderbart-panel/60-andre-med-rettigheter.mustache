@@ -1,0 +1,19 @@
+<div class="card a-accordion-card a-collapsePanel {{{ styleModifier }}}">
+  <div class="card-header a-js-index-heading a-collapsePanel-heading collapsed {{ isExpanded }}" role="tab">
+    <a href="#{{ collapseID }}" tabindex="0" data-toggle="collapse" data-target="#{{{ collapseID }}}" aria-expanded="false" aria-controls="#{{{ collapseID }}}" {{# dataParent }}data-parent="{{{dataParent}}}"{{/ dataParent }}>
+      {{# collapseHeader }}
+        {{> molekyler-ikon-tekst }}
+      {{/ collapseHeader }}
+    </a>
+  </div>
+  <div id="{{ collapseID }}" class="a-collapsePanel-body no-background collapse {{{ isVisibleFromStart }}}" role="tabpanel" aria-labelledby="{{ collapse-panel-id }}">
+    <div class="panel-collapse-content-section">
+      <div class="pr-4 py-1 text-xs-right">
+        {{> atomer-link}}
+      </div>
+      <div>
+        {{> molekyler-grupperte-fremhevede-knapper }}
+      </div>
+    </div>
+  </div>
+</div>

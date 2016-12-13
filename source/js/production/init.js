@@ -2,7 +2,7 @@
 mobileNavigation, propagateContent, toggleExpand, toggleFilter, uniformHeight,
 tooltip, popover, aTagSpaceExpand, initializeDatepicker, onboarding,
 nameChecker, codeLookup, handleValidatorLibrary, setupDeletableRowsTable,
-defaultSort, setupAddRightsHandler, onFileInputChange, toggleInstant */
+defaultSort, setupAddRightsHandler, onFileInputChange, toggleInstant, switchForm */
 window.altinnInit = function() {
   toggleExpand();
   drilldownInteraction();
@@ -25,6 +25,7 @@ window.altinnInit = function() {
   setupAddRightsHandler();
   onFileInputChange();
   toggleInstant();
+  switchForm();
 };
 window.altinnInit();
 window.smoothStateMod = function() {
@@ -70,7 +71,6 @@ window.smoothState = $('#smoothState').smoothState({
   onStart: {
     duration: 250,
     render: function($container) {
-      $container.addClass('is-exiting');
       window.smoothState.restartCSSAnimations();
       if ($container.find('.a-tempAnim').length > 0) {
         $container.find('.a-scene_element')
@@ -86,16 +86,23 @@ window.smoothState = $('#smoothState').smoothState({
     }
   },
   onReady: {
-    duration: 0,
+    duration: 250,
     render: function($container, $newContent) {
+      window.smoothState.restartCSSAnimations();
       $container.removeClass('is-exiting');
-      $newContent.find('.a-scene_element--fadeinright').hide();
       if ($container.find('.a-tempAnim').length > 0) {
         $newContent.find('.a-scene_element')
-          .removeClass('a-scene_element--fadeinright')
+          .removeClass('a-scene_element--fadeoutright')
+          .removeClass('a-scene_element--fadeoutleft')
           .addClass('a-scene_element--fadeinleft')
           .removeClass('a-tempAnim');
+      } else {
+        $newContent.find('.a-scene_element')
+          .removeClass('a-scene_element--fadeoutright')
+          .removeClass('a-scene_element--fadeoutleft')
+          .addClass('a-scene_element--fadeinright');
       }
+      $newContent.find('.a-js-hideWhenSmoothStating').hide();
       $container.html($newContent);
     }
   },
@@ -104,8 +111,9 @@ window.smoothState = $('#smoothState').smoothState({
     window.altinnInit();
     window.altinnDev();
     window.smoothStateMod();
-    $('.a-scene_element').show();
+    // $('.a-scene_element').show();
     $('form').validator();
+    $('.a-js-hideWhenSmoothStating').show();
   }
 }).data('smoothState');
 window.smoothStateMod();

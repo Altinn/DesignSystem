@@ -178,7 +178,6 @@
 
 .a-btn-transparentWhite {
   padding: $spacer;
-
   background: $white-opacity-05;
 
   &:hover,
@@ -204,16 +203,17 @@
   }
 }
 
-.a-btn-transparentWhite-active,
 .a-btn-transparentWhite-active {
-  &:hover {
-    color: $white;
-    background: $blue;
+  color: $white;
+  background: $blue;
 
-    .a-btn-icon-symbol {
-      color: $blue;
-      background: $white;
-    }
+  .a-btn-icon-symbol {
+    color: $blue;
+    background: $white;
+  }
+
+  &:hover {
+    @extend .a-btn-transparentWhite-active;
   }
 }
 
@@ -514,7 +514,7 @@
 .a-btn-group {
   a,
   button {
-    display: inline-block;
+    display: inline;
     margin-right: $spacer;
 
     &:last-child {
