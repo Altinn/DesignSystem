@@ -1,34 +1,36 @@
-	<ul class="a-item-list {{ styleModifier }}">
+	<ul class="a-item-list list-group {{ styleModifier }}">
 		{{# item-list-dottedTop }}
 			<div class="a-dotted-line"></div>
 		{{/ item-list-dottedTop }}
 		{{# item-list }}
 			<li class="a-item-list-item {{ item-list-class }} ">
-        {{# list-item-icon-left }}
-          {{> atomer-ordforklaring }}
-        {{/ list-item-icon-left }}
+         <div class="aligned-content">
+            {{# list-item-icon-left }}
+              {{> atomer-ordforklaring }}
+            {{/ list-item-icon-left }}
 
-				{{# list-item-disabled }}
-					<div class="a-dotted"></div>
-				{{/ list-item-disabled }}
+            {{# list-item-disabled }}
+              <div class="a-dotted"></div>
+            {{/ list-item-disabled }}
 
-        {{{ item-list-title }}}
+            {{{ item-list-title }}}
 
-				{{# list-item-link }}
-					<a href="../..{{{ url }}}" class="a-listItem-title">
-						{{{ item-list-linkTitle }}}
-					</a>
-				{{/ list-item-link }}
+            {{# list-item-link }}
+              <a href="../..{{{ url }}}" class="a-listItem-title">
+                {{{ item-list-linkTitle }}}
+              </a>
+            {{/ list-item-link }}
+          </div>
 
-				{{# list-item-icon-right }}
-					<span class="right">
-            {{# list-item-text-right }}
-              {{{ list-item-text-right-content }}}
-            {{/ list-item-text-right }}
+          {{# list-item-icon-right }}
+            <div class="text-xs-right">
+              {{# list-item-text-right }}
+                {{{ list-item-text-right-content }}}
+              {{/ list-item-text-right }}
 
-						{{> atomer-link-med-popover(popover-trigger: "manual", popover-link-text: "<i class=\"material-icons\">help</i><i class=\"material-icons\">cancel</i>", open-popover-class: "a-helpIconButton a-js-persistPopover a-js-popoverBig a-js-togglePopoverIcons", popover-class: "popover-big", popover-content: "Innholdet i popover fra spørsmålstegn-ikonet kommer her..") }}
-					 </span>
-				{{/ list-item-icon-right }}
+              {{> atomer-link-med-popover(popover-trigger: "manual", popover-link-text: "<i class=\"material-icons\">help</i><i class=\"material-icons\">cancel</i>", open-popover-class: "a-helpIconButton a-js-persistPopover a-js-popoverBig a-js-togglePopoverIcons", popover-class: "popover-big", popover-content: "Innholdet i popover fra spørsmålstegn-ikonet kommer her..") }}
+            </div>
+          {{/ list-item-icon-right }}
 			</li>
 		{{/ item-list }}
 	</ul>
