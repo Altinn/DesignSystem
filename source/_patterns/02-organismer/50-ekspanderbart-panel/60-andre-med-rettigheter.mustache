@@ -1,15 +1,15 @@
-<div class="panel a-collapsePanel {{{isLarge}}} {{{ styleModifier }}}" role="tablist">
-  <div class="panel-heading index-heading collapsed a-collapsePanel-heading {{isExpanded}}" role="tab" tabindex="0" data-toggle="collapse"
-    data-target="#{{{collapseID}}}" aria-expanded="false" aria-controls="#{{{collapseID}}}" {{{ dataParent }}}>
-    {{# collapseHeader }} {{> molekyler-ikon-tekst }} {{/ collapseHeader }}
+<div class="card a-accordion-card a-collapsePanel {{{ styleModifier }}}">
+  <div class="card-header a-js-index-heading a-collapsePanel-heading collapsed {{ isExpanded }}" role="tab">
+    <a href="#{{ collapseID }}" tabindex="0" data-toggle="collapse" data-target="#{{{ collapseID }}}" aria-expanded="false" aria-controls="#{{{ collapseID }}}" {{# dataParent }}data-parent="{{{dataParent}}}"{{/ dataParent }}>
+      {{# collapseHeader }}
+        {{> molekyler-ikon-tekst }}
+      {{/ collapseHeader }}
+    </a>
   </div>
-  <div id="{{ collapseID }}" class="panel-collapse a-collapsePanel-body no-background collapse {{{ isVisibleFromStart }}}"
-    role="tabpanel" aria-labelledby="{{ collapse-panel-id }}">
+  <div id="{{ collapseID }}" class="a-collapsePanel-body no-background collapse {{{ isVisibleFromStart }}}" role="tabpanel" aria-labelledby="{{ collapse-panel-id }}">
     <div class="panel-collapse-content-section">
-      <div>
-        <div class="pr-4 py-1 text-xs-right">
-          {{> atomer-link}}
-        </div>
+      <div class="pr-4 py-1 text-xs-right">
+        {{> atomer-link}}
       </div>
       <div>
         {{> molekyler-grupperte-fremhevede-knapper }}
