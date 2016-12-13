@@ -2,4 +2,4 @@
  state: indesignreview
  version: 1
 ---
-Modal innhold for klientdelegering
+Modal innhold for andre med rettigheter
