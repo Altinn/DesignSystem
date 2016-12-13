@@ -108,6 +108,20 @@
       }
     }
 
+    &.a-sortable-row-deleted {
+      @include disabled-background( $color: $grey, $background-color: $red-light, $box-shadow: none, $background-image: url( '../images/disabled-background.svg' ) );
+
+      .action-deleted {
+        @extend .p-r-5;
+        display: block;
+        float: right;
+      }
+
+       .a-collapse-title {
+        display: none;
+      }
+    }
+
     td {
       padding: ($spacer - 2) 0;
       border-bottom: 1px solid $grey-medium;
@@ -117,6 +131,10 @@
       }
 
       .action-confirmation {
+        display: none;
+      }
+
+      .action-deleted {
         display: none;
       }
 
@@ -144,8 +162,6 @@
 
     &.deleted {
       background: $red-light;
-
-
       td {
         &:last-of-type {
           @extend .p-r-5;
