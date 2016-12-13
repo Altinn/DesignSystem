@@ -1,8 +1,19 @@
-<div class="a-accordion-small" id="{{ accordion-small-id }}" role="tablist" aria-multiselectable="true">
+<div class="a-accordion-small" id="accordion" role="tablist" aria-multiselectable="true">
+
   {{# accordion-small-items }}
-    {{> atomer-ekspanderbar-tekst:d-block }}
-    <div id={{ collapse-filter-id }} class="a-collapseContent collapse">
-      {{ collapse-filter-content }}<br /><br />
+  <div class="card">
+
+    <!-- TITLE -->
+    <div role="tab" id="headingOne">
+        {{> atomer-ekspanderbar-tekst:d-block }}
     </div>
+
+    <!-- CONTENT -->
+    <div id="{{collapse-filter-id}}" class="a-collapseContent collapse" role="tabpanel" aria-labelledby="headingOne">
+        {{ collapse-filter-content }}
+    </div>
+
+  </div>
   {{/ accordion-small-items }}
+
 </div>
