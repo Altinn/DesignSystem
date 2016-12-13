@@ -3,8 +3,11 @@
 			<div class="a-dotted-line"></div>
 		{{/ item-list-dottedTop }}
 		{{# item-list }}
-			<li class="a-item-list-item {{ item-list-class }} ">
-         <div class="aligned-content">
+			<li class="a-item-list-item {{ item-list-class }}">
+            {{# aligned-content-show }}
+              <div class="aligned-content">
+            {{/ aligned-content-show }}
+
             {{# list-item-icon-left }}
               {{> atomer-ordforklaring }}
             {{/ list-item-icon-left }}
@@ -20,7 +23,9 @@
                 {{{ item-list-linkTitle }}}
               </a>
             {{/ list-item-link }}
-          </div>
+            {{# aligned-content-show }}
+              </div>
+            {{/ aligned-content-show }}
 
           {{# list-item-icon-right }}
             <div class="text-xs-right">
