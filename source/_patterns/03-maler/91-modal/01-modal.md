@@ -2,5 +2,4 @@
  state: indesignreview
  version: 1
 ---
-Side for modalvisning for klientdelegering, se mal for mulig innhold
-Inneholder modalelementer for klientdelegering.
+Generell mal for alle modaler. Innhold bør grupperes i egne patterns (se organisme for klientdelegering for eksempel) og visning styres med boolske verdier.
