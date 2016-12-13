@@ -1,24 +1,64 @@
+/* globals defaultSort */
+
+var moveRowToTable = function(tableId, $actionsRow, rowCopiedClass) {
+  var $actionsParentRow = $actionsRow.prev();
+  var $actionsParentRowCopy = $actionsParentRow.clone();
+  var $existingRowCopy = $('#copy-' + $actionsRow.attr('id'));
+
+
+  // replace original row with dummy row in source table
+  $actionsParentRowCopy.insertAfter($actionsParentRow);
+
+  // check if target table has corresponding deleted row
+  if ($existingRowCopy.length > 0) {
+    // replace dummy row with original row in target table
+    $actionsParentRow.insertAfter($existingRowCopy);
+    $actionsRow.insertAfter($actionsParentRow);
+    $existingRowCopy.remove();
+  } else {
+    // add row to table
+    $('#' + tableId + ' tbody').append($actionsParentRow);
+    $('#' + tableId + ' tbody').append($actionsRow);
+  }
+
+  // change styling for source table and set id
+  $actionsParentRowCopy.addClass(rowCopiedClass);
+  $actionsParentRowCopy.attr('id', 'copy-' + $actionsRow.attr('id'));
+
+  defaultSort();
+};
+
 var setupAddRightsHandler = function() {
   var $actionsRow;
-  var targetTable;
-  var toBeCopied;
+  var targetTableId;
+  var sourceTableId;
+  var currentTableId;
+
+  function editingSourceTable() {
+    return targetTableId && currentTableId && currentTableId !== targetTableId;
+  }
+
+  function editingTargetTable() {
+    return targetTableId && currentTableId && currentTableId === targetTableId;
+  }
+
+  function actionsRowHasSelectedElements() {
+    return $actionsRow.has('.a-switch input[type="checkbox"]:checked').length > 0;
+  }
+
   $('.a-js-confirmAddRightBtn').on('click', function() {
-    $(this).closest('.a-collapseContent').collapse('hide');
-    $(this).closest('.a-collapseContent').prev().addClass('a-sortable-row-complete');
-
     $actionsRow = $($(this).closest('tr'));
-    targetTable = $actionsRow[0].dataset.targetTable;
-    if (targetTable) {
-      toBeCopied = $actionsRow.prev().clone();
-      $(toBeCopied).find('.a-collapse-title').toggleClass('toggle-collapse-text');
-      $(toBeCopied).find('.a-collapse-title').addClass('collapsed');
+    currentTableId = $(this).closest('table').attr('id');
+    targetTableId = $actionsRow[0].dataset.targetTable;
+    sourceTableId = $actionsRow[0].dataset.sourceTable;
 
-      $actionsRow.prev().addClass('a-sortable-row-complete');
+    $actionsRow.closest('.a-collapseContent').collapse('hide');
 
-      $('#' + targetTable + ' tbody').append(toBeCopied);
-      $('#' + targetTable + ' tbody').append($actionsRow);
-
-      toBeCopied.removeClass('a-sortable-row-complete');
+    if (actionsRowHasSelectedElements() && editingSourceTable()) {
+      moveRowToTable(targetTableId, $actionsRow, 'a-sortable-row-complete');
+    } else if (!actionsRowHasSelectedElements() && editingTargetTable()) {
+      moveRowToTable(sourceTableId, $actionsRow, 'a-sortable-row-deleted');
     }
   });
 };
+
