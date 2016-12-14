@@ -73,15 +73,15 @@ window.smoothState = $('#smoothState').smoothState({
     render: function($container) {
       window.smoothState.restartCSSAnimations();
       if ($container.find('.a-tempAnim').length > 0) {
-        $container.find('.a-scene_element')
-          .removeClass('a-scene_element--fadeinright')
-          .removeClass('a-scene_element--fadeinleft')
-          .addClass('a-scene_element--fadeoutright');
+        $container.find('.a-scene-element')
+          .removeClass('a-scene-element--fadeinright')
+          .removeClass('a-scene-element--fadeinleft')
+          .addClass('a-scene-element--fadeoutright');
       } else {
-        $container.find('.a-scene_element')
-          .removeClass('a-scene_element--fadeinright')
-          .removeClass('a-scene_element--fadeinleft')
-          .addClass('a-scene_element--fadeoutleft');
+        $container.find('.a-scene-element')
+          .removeClass('a-scene-element--fadeinright')
+          .removeClass('a-scene-element--fadeinleft')
+          .addClass('a-scene-element--fadeoutleft');
       }
     }
   },
@@ -91,16 +91,16 @@ window.smoothState = $('#smoothState').smoothState({
       window.smoothState.restartCSSAnimations();
       $container.removeClass('is-exiting');
       if ($container.find('.a-tempAnim').length > 0) {
-        $newContent.find('.a-scene_element')
-          .removeClass('a-scene_element--fadeoutright')
-          .removeClass('a-scene_element--fadeoutleft')
-          .addClass('a-scene_element--fadeinleft')
+        $newContent.find('.a-scene-element')
+          .removeClass('a-scene-element--fadeoutright')
+          .removeClass('a-scene-element--fadeoutleft')
+          .addClass('a-scene-element--fadeinleft')
           .removeClass('a-tempAnim');
       } else {
-        $newContent.find('.a-scene_element')
-          .removeClass('a-scene_element--fadeoutright')
-          .removeClass('a-scene_element--fadeoutleft')
-          .addClass('a-scene_element--fadeinright');
+        $newContent.find('.a-scene-element')
+          .removeClass('a-scene-element--fadeoutright')
+          .removeClass('a-scene-element--fadeoutleft')
+          .addClass('a-scene-element--fadeinright');
       }
       $newContent.find('.a-js-hideWhenSmoothStating').hide();
       $container.html($newContent);
@@ -111,7 +111,7 @@ window.smoothState = $('#smoothState').smoothState({
     window.altinnInit();
     window.altinnDev();
     window.smoothStateMod();
-    // $('.a-scene_element').show();
+    // $('.a-scene-element').show();
     $('form').validator();
     $('.a-js-hideWhenSmoothStating').show();
   }
