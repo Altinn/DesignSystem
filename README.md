@@ -9,12 +9,8 @@ Naviger til kodebasens plassering på disk og kjør følgende kommando (krever a
 ```
 npm install
 ```
-Når denne kommandoen er kjørt vil du bli spurt om hvilke ekstra filtyper du ønsker å få tabs for i Patternlab. Her skal du kun oppgi 'json'. Dette vil gi en tab som viser data fra json-filen for hvert enkelt pattern i tillegg til Mustache og HTML.
-
-```
 npm install pre-commit
 ```
-
 Dersom denne kommandoen feiler med en feilmelding av typen `pre-commit: Failed to symlink the hook file in your .git/hooks folder` må symlink settes opp i et kommandovindu kjørt som administrator. I et kommandovindu med root eller administratorrettigheter, kjør fra rotmappen til repositoriet.
 ```
 node ./node_modules/pre-commit/install.js
@@ -27,27 +23,12 @@ Installer avhengigheter for styleguidekit-assets-altinn mappen (innebærer både
 ```
 cd styleguidekit-assets-altinn
 npm install
-bower install
-gulp
-```
+./node_modules/.bin/bower install
+./node_modules/.bin/gulp
+
 
 ## Bruk
 For å kjøre koden lokalt, bruk følgende kommando (vil serve filene over localhost, og automatisk bygge på nytt ved endringer i kildekoden):
 
-```
-gulp // npm start
-```
-
-For å bygge distribusjonsfiler, bruk følgende kommando:
-
-```
-gulp dist // npm run dist
-```
-
-For å bygge patterns og snippets:
-
-```
-npm run patterns
-
-end readme
-```
+cd ..
+npm start
