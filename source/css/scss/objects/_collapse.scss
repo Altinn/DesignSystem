@@ -252,8 +252,8 @@
 .a-collapseContent {
   .a-collapseContent-inside {
     @include media-breakpoint-up( md ) {
-      padding-right: calc( 48px * 2 );
-      padding-left: calc( 48px * 2 );
+      padding-right: 48px;
+      padding-left: 48px;
     }
 
     padding-right: 48px;
@@ -277,7 +277,7 @@
 }
 
 .a-dropdownArrow {
-  float: left;
+  display: inline-flex;
   width: 0;
   height: 0;
   margin-top: 5px;
@@ -288,34 +288,25 @@
   border-left: 10px solid $blue;
   transition: transform 0.2s ease-out;
   transform: rotate( 90deg );
-}
-
-.collapsed {
-  .a-dropdownArrow {
-    transform: rotate( 0deg );
-  }
-
-  .a-dropdownCircleArrow {
-    transform: rotate( 0deg );
-   }
+  justify-content: center;
+  align-items: center;
 }
 
 .a-dropdownCircleArrow {
-  display: inline-block;
-
+  display: inline-flex;
   width: 36px;
+  min-width: 36px;
   height: 36px;
-  padding-top: 3px;
   margin-top: -3px;
   margin-right: $spacer;
   color: $white;
-  text-align: center;
-  vertical-align: middle;
   background: $blue;
   border: 3px solid $blue;
   border-radius: 50%;
   transition: transform 0.2s ease-out;
   transform: rotate( 90deg );
+  justify-content: center;
+  align-items: center;
 
   &::before {
     font-family: $font-reg;
@@ -324,6 +315,17 @@
     vertical-align: middle;
     content: '›';
   }
+}
+
+// Rotate arrows when collapsed
+.collapsed {
+  .a-dropdownArrow {
+    transform: rotate( 0deg );
+  }
+
+  .a-dropdownCircleArrow {
+    transform: rotate( 0deg );
+   }
 }
 
 
@@ -359,10 +361,25 @@
 
 .a-collapse-title {
   // sass-lint:disable-block no-important
-  display: inline-block;
+  display: flex;
   padding-bottom: 3px;
   margin-bottom: 0;
   box-shadow: none !important;
+  align-items: center;
+
+  &.a-collapse-title--flexstart {
+    align-items: flex-start;
+  }
+
+  &.a-collapse-title--absolute {
+    display: block;
+    padding-left: 20px;
+
+    .a-dropdownArrow {
+      position: absolute;
+      left: 0;
+    }
+  }
 
   &:focus {
     &:not(.override-focus) {
@@ -404,5 +421,56 @@
         display: block;
       }
     }
+  }
+}
+
+
+
+
+
+//------------------------------------*\
+//  Small accordion
+//------------------------------------*/
+
+.a-accordion-small {
+  .card {
+    margin-bottom: 0;
+    background: none;
+    border: none;
+  }
+
+  a {
+    padding-bottom: 15px;
+  }
+
+  .a-collapseContent {
+    padding-left: 20px;
+  }
+
+  .a-dropdownArrow {
+    margin-right: 10px;
+  }
+}
+
+
+/*------------------------------------*\
+    Large accordion
+\*------------------------------------*/
+.a-accordion-large {
+  border-bottom: 1px solid $blue-line;
+
+  .card {
+    margin-bottom: 0;
+    background: none;
+    border: none;
+  }
+
+  .a-collapse-title {
+    padding: 21px 0 18px 0;
+    border-top: 1px solid $blue-line;
+  }
+
+  .a-link {
+    display: inline;
   }
 }
