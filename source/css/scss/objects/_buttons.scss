@@ -15,6 +15,10 @@
   background: $blue;
   border: none;
 
+  @include media-breakpoint-up( lg ) {
+    font-size: 18px;
+  }
+
   &:hover {
     color: $black;
     text-decoration: none;
@@ -259,6 +263,10 @@
   border-bottom: 2px solid $link-color;
   box-shadow: none;
 
+  @include media-breakpoint-up( lg ) {
+    font-size: 18px;
+  }
+
   &::before {
     position: absolute;
     top: -11px;
@@ -289,11 +297,14 @@
 
 // add btn
 .a-btn-action {
+  display: inline-flex;
   padding: $spacer / 3 $spacer * 2 $spacer / 3 $spacer * 3;
   color: $black;
   text-align: left;
+  vertical-align: middle;
   background-color: transparent;
   border: 2px dotted $blue;
+  align-items: center;
 
   &:hover,
   &:focus {
@@ -304,7 +315,6 @@
 
   .a-btn-action-icon {
     position: absolute;
-    top: 7px;
     left: $spacer / 2;
     font-size: 16px;
   }
@@ -441,13 +451,12 @@
 // FULL WIDTH ADD BUTTON
 .a-fullWidthBtn {
   width: 100%;
-  height: $spacer * 4;
+  min-height: $spacer * 4;
   font-family: $font-bold;
   font-weight: $font-weight-bold;
 
   i {
     &.a-btn-action-icon {
-      top: 7px;
       left: 18px;
       margin-right: $spacer * 2;
       font-size: 30px;
@@ -455,6 +464,7 @@
   }
 
   span {
+    display: block;
     margin-left: $spacer * 2;
 
     @include media-breakpoint-up( sm ) {
@@ -519,6 +529,13 @@
 
     &:last-child {
       margin-right: 0;
+    }
+
+    &.a-btn-link,
+    &.a-link {
+      display: inline-block;
+      padding-bottom: 0;
+      margin-bottom: $spacer;
     }
   }
 
