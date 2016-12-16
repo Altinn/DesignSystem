@@ -1,285 +1,71 @@
-@font-face {
-  font-family: 'DIN-light';
-  src: url('../../fonts/DINWeb-Light.woff');
-}
-
-@font-face {
-  font-family: 'DIN-reg';
-  src: url('../../fonts/DINWeb.woff');
-}
-
-@font-face {
-  font-family: 'DIN-medium';
-  src: url('../../fonts/DINWeb-Medium.woff');
-}
-
-@font-face {
-  font-family: 'DIN-bold';
-  src: url('../../fonts/DINWeb-Bold.woff');
-}
-
+// ----------------------------------
+// HEADINGS
+// ----------------------------------
 h1,
-.a-textSize1 {
-  // Mobile and all
+.a-pageTitle {
+  @extend .a-fontSizeXXL; // 36px
+  @include a-fontReg;
   margin-bottom: $spacer;
-  font-family: $font-reg;
-  font-size: 24px;
-  font-weight: $font-weight-reg;
-  line-height: 30px;
-
-  // Tablet
-  @include media-breakpoint-up( md ) {
-    font-size: 28px;
-    line-height: 36px;
-  }
-
-  // Laptop
-  @include media-breakpoint-up( lg ) {
-    font-size: 36px;
-    line-height: 42px;
-  }
-
-  // Desktop
-  @include media-breakpoint-up( xl ) {
-    font-size: 36px;
-    line-height: 42px;
-  }
 }
 
 h2,
-.a-sectionTitle,
-.a-textSize2 {
-  // Mobile and all
+.a-sectionTitle {
+  @extend .a-fontSizeXL; // 28px
+  @include a-fontMedium;
   margin-bottom: $spacer / 2;
-  font-family: $font-medium;
-  font-size: 18px;
-  font-weight: $font-weight-medium;
-  line-height: 24px;
-
-  // Tablet
-  @include media-breakpoint-up( md ) {
-    font-family: $font-reg;
-    font-size: 22px;
-    font-weight: $font-weight-reg;
-    line-height: 24px;
-  }
-
-  // Laptop
-  @include media-breakpoint-up( lg ) {
-    font-size: 24px;
-    line-height: 30px;
-  }
-  // Desktop
-  @include media-breakpoint-up( xl ) {
-    font-size: 28px;
-    line-height: 36px;
-  }
 }
 
 h3,
-.a-sectionSubTitle,
-.a-textSize3 {
+.a-sectionSubTitle {
+  @extend .a-fontSizeM; // 20px
+  @include a-fontBold;
   margin-bottom: $spacer / 2;
-  font-family: $font-bold;
-
-  // Mobile and all
-  font-size: 16px;
-  font-weight: $font-weight-bold;
-  line-height: 24px;
-
-  // Tablet
-  @include media-breakpoint-up( md ) {
-    font-size: 18px;
-    line-height: 24px;
-  }
-
-  // Laptop
-  @include media-breakpoint-up( lg ) {
-    font-size: 20px;
-    line-height: 24px;
-  }
-
-  // Desktop
-  @include media-breakpoint-up( xl ) {
-    font-size: 20px;
-    line-height: 24px;
-  }
 }
 
 h4,
-.a-sectionSubSubTitle,
-.a-textSize4 {
+.a-sectionSubSubTitle {
+  @extend .a-fontSizeS; // 16px
+  @include a-fontBold;
   margin-bottom: $spacer / 2;
-  font-family: $font-bold;
-
-  // Mobile and all
-  font-size: 16px;
-  font-weight: $font-weight-bold;
-  line-height: 24px;
-
-  // Tablet
-  @include media-breakpoint-up( md ) {
-    font-size: 16px;
-    line-height: 24px;
-  }
-
-  // Laptop
-  @include media-breakpoint-up( lg ) {
-    font-size: 16px;
-    line-height: 24px;
-  }
-
-  // Desktop
-  @include media-breakpoint-up( xl ) {
-    font-size: 16px;
-    line-height: 24px;
-  }
 }
 
-// Font weights
-.a-textSizeReg {
-  // sass-lint:disable-block no-important
-  font-family: $font-reg !important;
-  font-weight: $font-weight-reg !important;
-}
-
-.a-textSizeBold,
 b,
 strong {
-  font-family: $font-bold;
-  font-weight: $font-weight-bold;
+  @include a-fontBold;
 }
 
-
-/* Text-Related Elements */
-
+// ----------------------------------
 // Paragraph
+// ----------------------------------
 p {
-  // max-width: 760px;
+  @extend .a-fontSizeS;
+  @include a-fontReg;
   margin-bottom: $spacer * 1.5;
-  font-family: $font-reg;
-  font-size: $articleText-size-mobile;
-  font-weight: $font-weight-reg;
-  line-height: $articleText-lineHeight-mobile;
-
-  @include media-breakpoint-up( md ) {
-    font-size: $articleText-size;
-    line-height: $articleText-lineHeight;
-  }
 }
 
+// ----------------------------------
+// Ingress
+// ----------------------------------
 .a-leadText {
-  // max-width: 760px;
-  margin-bottom: 20px;
-  font-size: 16px;
-  line-height: 26px;
-
-  @include media-breakpoint-up( md ) {
-    font-size: 20px;
-  }
+  @extend .a-fontSizeM;
+  margin-bottom: $spacer * 1.5;
 }
 
+// ----------------------------------
+// Meta text
+// ----------------------------------
 .a-meta-text {
-  font-size: 14px;
-  line-height: 20px;
-
-  @include media-breakpoint-up( md ) {
-    font-size: 16px;
-    line-height: 22px;
-  }
+  @extend .a-fontSizeXS;
 }
 
 .a-titleExtra {
-  font-family: $font-light;
-  font-size: 16px;
-  font-weight: $font-weight-light;
+  @extend .a-fontSizeXS;
+  @include a-fontLight;
 }
 
-
-/* Media */
-
-.a-media {
-  display: block;
-
-  @include media-breakpoint-up( md ) {
-    display: flex;
-  }
-
-  img {
-    width: 100%;
-    max-width: 100%;
-    margin-bottom: $spacer * 3;
-
-    @include media-breakpoint-up( md ) {
-      max-width: 300px;
-      margin-bottom: 0;
-    }
-
-    @include media-breakpoint-up( lg ) {
-      max-width: 400px;
-    }
-
-    @include media-breakpoint-up( xl ) {
-      max-width: 500px;
-    }
-  }
-}
-
-
-/* Blockquote */
-
-.a-blockquote {
-  padding-left: $spacer * 2;
-  font-family: $font;
-  color: $black;
-  text-align: left;
-  border-left: 6px solid $blue;
-
-  @include media-breakpoint-up( md ) {
-    border-left: none;
-  }
-  @include media-breakpoint-up( lg ) {
-    padding-left: $spacer * 4;
-  }
-
-  p {
-    font-size: 18px;
-    line-height: 24px;
-
-    @include media-breakpoint-up( md ) {
-      font-size: 22px;
-      line-height: 28px;
-    }
-    @include media-breakpoint-up( lg ) {
-      font-size: 28px;
-      line-height: 36px;
-    }
-  }
-
-  .a-citation {
-    font-family: $font-bold;
-    font-size: 18px;
-    font-style: normal;
-    font-weight: $font-weight-bold;
-  }
-
-  &.a-blockquote-right {
-    margin-top: $spacer * 2;
-    margin-bottom: $spacer * 2;
-    border-left: 6px solid $blue;
-  }
-}
-
-blockquote {
-  &::before,
-  &::after {
-    content: '';
-  }
-}
-
-
-/* Text colors */
-
+// ----------------------------------
+// Text colors
+// ----------------------------------
 .a-dimText {
   color: $black-opacity-04;
 }
