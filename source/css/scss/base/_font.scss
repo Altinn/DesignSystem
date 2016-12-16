@@ -59,6 +59,7 @@ $default-font-smoothing: subpixel-antialiased !default;
 }
 
 // Mixin
+// sass-lint:disable-all
 @mixin font-size($fs: false, $lh: $default-line-height, $sm: $default-font-smoothing ) {
   @if $fs {
     font-size: $fs  + px;
@@ -81,6 +82,10 @@ $default-font-smoothing: subpixel-antialiased !default;
 //
 // Defined in PX, calculated to REM by mixin "font-size"
 // --------------------------------------------------
+
+@mixin a-fontSize10 {
+  @include font-size($fs: 10, $sm: subpixel-antialiased, $lh: 16);
+}
 
 @mixin a-fontSize12 {
   @include font-size($fs: 12, $sm: subpixel-antialiased, $lh: 18);
@@ -114,11 +119,25 @@ $default-font-smoothing: subpixel-antialiased !default;
   @include font-size($fs: 28, $sm: subpixel-antialiased, $lh: 36);
 }
 
+@mixin a-fontSize30 {
+  @include font-size($fs: 30, $sm: subpixel-antialiased, $lh: 38);
+}
+
+@mixin a-fontSize32 {
+  @include font-size($fs: 32, $sm: subpixel-antialiased, $lh: 40);
+}
+
 @mixin a-fontSize36 {
   @include font-size($fs: 36, $sm: subpixel-antialiased, $lh: 44);
 }
 
+@mixin a-fontSize48 {
+  @include font-size($fs: 48, $sm: subpixel-antialiased, $lh: 60);
+}
 
+@mixin a-fontSize60 {
+  @include font-size($fs: 60, $sm: subpixel-antialiased, $lh: 70);
+}
 
 // --------------------------------------------------
 // Responsive font sizes
@@ -194,9 +213,12 @@ $default-font-smoothing: subpixel-antialiased !default;
 
 // Extra small
 .a-fontSizeXS {
-  @include a-fontSize14;
-
-  @include media-breakpoint-up( md ) {
-    @include a-fontSize16;
-  }
+  @include a-fontSize16;
 }
+
+// Extra Extra small
+.a-fontSizeXXS {
+  @include a-fontSize14;
+}
+
+// USAGE: @extend .a-fontSizeXXS;

@@ -2,28 +2,28 @@
 // HEADINGS
 // ----------------------------------
 h1,
-.a-pageTitle {
+.a-headingSizeXXL {
   @extend .a-fontSizeXXL; // 36px
   @include a-fontReg;
   margin-bottom: $spacer;
 }
 
 h2,
-.a-sectionTitle {
+.a-headingSizeXL {
   @extend .a-fontSizeXL; // 28px
   @include a-fontMedium;
   margin-bottom: $spacer / 2;
 }
 
 h3,
-.a-sectionSubTitle {
+.a-headingSizeM {
   @extend .a-fontSizeM; // 20px
   @include a-fontBold;
   margin-bottom: $spacer / 2;
 }
 
 h4,
-.a-sectionSubSubTitle {
+.a-headingSizeS {
   @extend .a-fontSizeS; // 16px
   @include a-fontBold;
   margin-bottom: $spacer / 2;
@@ -102,15 +102,14 @@ mark,
 
 // Label
 .a-label {
+  @extend .a-fontSizeXXS;
+  @include a-fontReg;
   min-width: 27px;
   min-height: 24px;
   padding: 7px 9px 5px 9px; //Capital letters should be vertical centered
   margin-top: 0;
   margin-right: 3px;
   margin-left: 6px;
-  font-family: $font-reg;
-  font-size: 14px;
-  font-weight: $font-weight-reg;
   color: $black;
   text-align: center;
   vertical-align: top;
@@ -119,6 +118,7 @@ mark,
 
 // Speech-bubbles
 .a-textBubble {
+  @extend .a-fontSizeXS;
   position: relative;
   float: left;
   min-width: 48px;
@@ -127,7 +127,6 @@ mark,
   padding: $spacer;
   margin-bottom: $spacer * 3;
   clear: both;
-  font-size: 16px;
   background-color: $white;
 
   &::after {
@@ -146,10 +145,10 @@ mark,
   }
 
   .a-textBubble-metaText {
+    @include a-fontSize10;
     position: absolute;
     right: 0;
     bottom: -$spacer * 4;
-    font-size: 10px;
     color: $grey-medium;
     text-align: right;
   }
@@ -185,6 +184,7 @@ mark,
   /* fallback */
   max-height: 62px;
   overflow: hidden;
+  // TODO: Disable linting for special case line heights
   line-height: 21px;
   text-overflow: ellipsis;
 
@@ -196,11 +196,11 @@ mark,
 }
 
 /* Text with pattern */
-.patternLine {
+.a-textureLines {
+  @include a-fontSize36;
   display: inline-block;
   height: 60px;
   padding: 6px 12px;
-  font-size: 36px;
   color: $white;
   background-color: transparent;
   background-image: url('../images/disabled-background_blue.svg');
@@ -209,13 +209,12 @@ mark,
 /* Dot before text */
 
 .a-dot {
-  font-family: $font-reg;
-  font-weight: $font-weight-reg;
+  @include a-fontReg;
 
   &::before {
+    @include a-fontSize24;
     display: inline-block;
     margin-right: 4px;
-    font-size: 24px;
     text-decoration: none;
     vertical-align: bottom;
     content: '\2022';

@@ -50,8 +50,8 @@ object {
 // ----------------------------------
 
 .a-blockquote {
+  @include a-fontReg;
   padding-left: $spacer * 2;
-  font-family: $font;
   color: $black;
   text-align: left;
   border-left: 6px solid $blue;
@@ -64,24 +64,13 @@ object {
   }
 
   p {
-    font-size: 18px;
-    line-height: 24px;
-
-    @include media-breakpoint-up( md ) {
-      font-size: 22px;
-      line-height: 28px;
-    }
-    @include media-breakpoint-up( lg ) {
-      font-size: 28px;
-      line-height: 36px;
-    }
+    @extend .a-fontSizeXL;
   }
 
   .a-citation {
-    font-family: $font-bold;
-    font-size: 18px;
+    @include a-fontSize24;
+    @include a-fontBold;
     font-style: normal;
-    font-weight: $font-weight-bold;
   }
 
   &.a-blockquote-right {

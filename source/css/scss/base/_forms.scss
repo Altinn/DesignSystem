@@ -83,19 +83,16 @@ textarea {
   // Label
   .a-form-label-inline {
     @extend label;
+    @include a-fontMedium;
     display: inline-block;
     margin-right: $spacer * 0.5;
-    font-family: $font-medium;
-    font-weight: $font-weight-medium;
-    line-height: $spacer * 3;
   }
 
   .a-form-label {
+    @extend .a-fontSizeXS;
+    @include a-fontMedium;
     display: block;
     margin-bottom: $spacer / 2;
-    font-family: $font-medium;
-    font-size: 16px;
-    font-weight: $font-weight-medium;
   }
 
   // Input
@@ -139,9 +136,9 @@ textarea {
   // Form group with LARGE input field
   &.a-form-group-large {
     .form-control {
+      @include a-fontSize20;
       height: $spacer * 5;
       padding: 0 $spacer 0 $spacer;
-      font-size: 20px;
     }
 
     .input-group-btn {
@@ -153,14 +150,14 @@ textarea {
     }
 
     i {
+      @include a-fontSize30;
       top: $spacer;
       left: 14px;
-      font-size: 30px;
     }
 
     .input-group-addon {
+      @include a-fontSize20;
       padding: 18px $spacer;
-      font-size: 20px;
     }
   }
 
@@ -187,12 +184,12 @@ textarea {
 
   // VALIDATOR: Icon, Display icon only when feedback
   .form-control-feedback {
+    @include a-fontSize20;
     position: absolute;
     right: $spacer;
     bottom: 8px;
     z-index: 9999;
     display: none;
-    font-size: 20px;
     text-align: center;
     pointer-events: none;
 
@@ -280,12 +277,12 @@ textarea {
   .input-group {
     // Label
     .input-group-addon {
+      @include a-fontSize16;
+      @include a-fontReg;
       min-width: $spacer * 3;
       height: $spacer * 3;
       padding: 7px $spacer / 2 0 $spacer / 2;
       margin-bottom: 0;
-      font-size: 16px;
-      font-weight: normal;
       color: $black;
       text-align: left;
       background-color: $white;
@@ -399,8 +396,8 @@ textarea {
 \*------------------------------------*/
 
 .a-validatorInfo {
+  @extend .a-fontSizeXXS;
   margin-top: $spacer;
-  font-size: 14px;
   color: $black;
 }
 
@@ -420,12 +417,11 @@ textarea {
 \*------------------------------------*/
 
 .a-legend {
+  @include a-fontSize20;
+  @include a-fontMedium;
   display: block;
   padding-right: $spacer * 2;
   margin-bottom: $spacer;
-  font-family: $font-medium;
-  font-size: 20px;
-  font-weight: $font-weight-medium;
   color: $blue-darker;
 }
 
@@ -540,7 +536,7 @@ textarea {
     }
 
     .a-radioButtons-title {
-      font-size: 18px;
+      @include a-fontSize18;
     }
   }
 
@@ -584,7 +580,7 @@ textarea {
   }
 
   .a-legend {
-    font-size: 24px;
+    @include a-fontSize24;
     color: $black;
   }
 
@@ -603,9 +599,9 @@ textarea {
     }
 
     .a-radioButtons-title {
+      @include a-fontSize20;
       display: block;
       padding-bottom: $spacer;
-      font-size: 20px;
     }
 
     .a-radioButtons-excerpt {
@@ -753,10 +749,9 @@ textarea {
   }
 
   .a-switch-label {
+    @extend .a-fontSizeXXS;
+    @include a-fontReg;
     padding: 7px $spacer 5px $spacer;
-    font-family: $font-reg;
-    font-size: 14px;
-    font-weight: $font-weight-reg;
     cursor: pointer;
 
     &.disabled {
@@ -769,8 +764,8 @@ textarea {
   }
 
   .a-switch-icon {
+    @include a-fontSize20;
     margin-top: $spacer / 4 * -1;
-    font-size: 20px;
     vertical-align: middle;
   }
 }
@@ -797,10 +792,10 @@ fieldset {
 \*------------------------------------*/
 
 .a-input-icon {
+  @include a-fontSize20;
   position: absolute;
   top: 7px;
   left: $spacer;
-  font-size: 20px;
 }
 
 .a-form-text {

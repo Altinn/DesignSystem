@@ -5,7 +5,7 @@
 .a-table {
   thead {
     th {
-      font-family: $font;
+      @include a-fontReg;
       font-weight: normal;
       border-bottom: 2px solid $blue;
     }
@@ -28,17 +28,16 @@
   }
 
   td {
+    @include a-fontMedium;
     width: 20%;
+
     @include media-breakpoint-up( md ) {
       width: auto;
     }
-    font-family: $font-medium;
-    font-weight: $font-weight-medium;
   }
 
   tfoot {
-    font-family: $font-medium;
-    font-weight: $font-weight-medium;
+    @include a-fontMedium;
     border-top: 3px solid $blue;
 
     td,
@@ -143,12 +142,11 @@
       }
 
       &:nth-of-type( even ) {
-        font-family: $font-bold;
-        font-weight: $font-weight-bold;
+        @include a-fontBold;
       }
 
       .row-item-description {
-        font-weight: $font-weight-light;
+        @include a-fontLight;
       }
     }
 
@@ -208,11 +206,11 @@
 
   thead {
     th {
+      @include a-fontSize12;
+      @include a-fontReg;
       padding: 0;
       padding-top: ($spacer - 1);
       padding-bottom: 0;
-      font-size: 12px;
-      font-weight: $font-weight-reg;
       text-transform: uppercase;
       cursor: pointer;
       background: $grey-light;
@@ -242,7 +240,7 @@
     }
 
     .normal-casing {
-      font-size: 16px;
+      @extend .a-fontSizeXS;
       text-transform: none;
     }
   }

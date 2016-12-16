@@ -21,6 +21,7 @@
 
 //  This menu is using javascript from foundationNavigation.min.js
 .foundation-mq {
+  // TODO: Disable linting for special case font family
   font-family: 'small=0&medium=544px&large=768px&xlarge=992px&xxlarge=1200px';
 }
 
@@ -71,11 +72,9 @@
         }
 
         h2 {
+          @include a-fontBold;
+          @include a-fontSize20;
           margin-bottom: 0;
-          font-family: $font-bold;
-          font-size: 20px;
-          font-weight: $font-weight-bold;
-          line-height: 26px;
         }
 
         p {
@@ -145,14 +144,12 @@
       }
 
       h4 {
-        font-family: $font-reg;
-        font-size: 16px;
-        font-weight: $font-weight-reg;
+        @extend .a-fontSizeXS;
+        @include a-fontReg;
       }
 
       .a-colnav-rightText {
-        font-family: $font-medium;
-        font-weight: $font-weight-medium;
+        @include a-fontMedium;
       }
     }
   }
@@ -367,11 +364,9 @@
             }
 
             h3 {
+              @include a-fontReg;
+              @include a-fontSize18;
               margin-bottom: 0;
-              font-family: $font-reg;
-
-              font-size: 18px;
-              font-weight: $font-weight-reg;
             }
           }
         }
@@ -392,21 +387,19 @@
             }
 
             h4 {
+              @extend .a-fontSizeXS;
+              @include a-fontReg;
               max-width: calc( 100% - ($spacer * 5) );
               padding-right: $spacer * 5;
               margin-bottom: 0;
-              font-family: $font-reg;
-
-              font-size: 16px;
-              font-weight: $font-weight-reg;
             }
 
             .a-colnav-rightText {
+              @extend .a-fontSizeXXS;
               position: absolute;
               top: 11px;
               right: $spacer;
               display: block;
-              font-size: 14px;
             }
           }
         }

@@ -55,16 +55,13 @@ a {
 
 /* Links standalone */
 .a-link {
+  @extend .a-fontSizeS;
   position: relative;
   z-index: 1;
   padding-bottom: 3px;
   text-decoration: none;
   cursor: pointer;
   border-bottom: 2px solid $link-color;
-
-  @include media-breakpoint-up( lg ) {
-    font-size: 18px;
-  }
 
   &:active,
   &:focus,
@@ -82,9 +79,7 @@ a {
   }
 
   &.a-link-large {
-    @include media-breakpoint-up( md ) {
-      font-size: 20px;
-    }
+    @extend .a-fontSizeM;
   }
 
   &.a-link-modalTop {
@@ -94,11 +89,10 @@ a {
   }
 
   &.a-link-title {
+    @include a-fontBold;
+    @include a-fontSize20;
     display: inline;
     padding-bottom: 0;
-    font-family: $font-bold;
-    font-size: 20px;
-    font-weight: $font-weight-bold;
 
     &+p {
       margin-top: $spacer;
@@ -109,9 +103,8 @@ a {
     border-bottom: 2px solid $red;
   }
 
-  .a-textSize3 & {
+  .a-headingSizeM & {
     padding-bottom: 2px;
-    line-height: 29px;
   }
 }
 
@@ -138,8 +131,8 @@ a {
   }
 
   i {
+    @include a-fontSize22;
     margin-top: -4px;
-    font-size: 22px;
     vertical-align: middle;
   }
 
@@ -152,10 +145,9 @@ a {
 /* Special Links */
 .a-link-tel,
 .a-link-mail {
+  @include a-fontBold;
+  @include a-fontSize18;
   position: relative;
-  font-family: $font-bold;
-  font-size: 18px;
-  font-weight: $font-weight-bold;
   color: $blue-darker;
   border-bottom: none;
 
@@ -206,15 +198,15 @@ a {
       margin-top: -4px;
 
       &::before {
-        font-size: 24px;
+        @include a-fontSize24;
       }
     }
   }
 
   &.a-bigger-icon-span {
     i {
+      @include a-fontSize24;
       margin-top: -3px;
-      font-size: 24px;
     }
   }
 }

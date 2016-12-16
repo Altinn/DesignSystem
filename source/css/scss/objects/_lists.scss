@@ -53,14 +53,10 @@
     }
 
     .a-listItem-title {
-      font-size: 16px;
+      @extend .a-fontSizeXS;
       color: $black;
       text-decoration: none;
       border: none;
-
-      @include media-breakpoint-up( md ) {
-        font-size: 16px;
-      }
     }
   }
 
@@ -114,7 +110,7 @@
   &.a-item-list-large {
     .a-listItem-title {
       @include media-breakpoint-up( md ) {
-        font-size: 20px;
+        @include a-fontSize20;
       }
     }
 
@@ -256,23 +252,18 @@ ul {
     }
 
     li {
+      @extend .a-fontSizeS;
+      @include a-fontMedium;
       position: relative;
       padding-left: $spacer * 2;
       margin-bottom: $spacer;
-      font-family: $font-medium;
-      font-size: $articleText-size-mobile;
-      font-weight: $font-weight-medium;
-
-      @include media-breakpoint-up( md ) {
-        font-size: $articleText-size;
-      }
 
       &::before {
+        @include a-fontSize36;
         position: absolute;
         top: -13px;
         left: -3px;
         padding-right: 5px;
-        font-size: 36px;
         color: $blue;
         content: '•';
       }
@@ -280,13 +271,12 @@ ul {
 
     &.a-bulletList-light {
       li {
-        font-family: $font-light;
-        font-size: 16px;
-        font-weight: $font-weight-light;
+        @include a-fontLight;
+        @include a-fontSize16;
 
         &::before {
+          @include a-fontSize24;
           top: -6px;
-          font-size: 24px;
           color: $grey-medium;
         }
       }
@@ -327,14 +317,14 @@ ul {
       }
 
       &::after {
+        @include a-fontBold;
         position: absolute;
         top: -1px;
         left: 0;
         width: 25px;
         height: 25px;
-        font-family: $font-bold;
+        // TODO: special font-size case / Disable sass-linting
         font-size: 39px;
-        font-weight: $font-weight-bold;
         content: '';
         background: $white;
         border: 3px solid $blue;
@@ -373,10 +363,9 @@ ul {
       padding: $spacer 0 $spacer 0;
 
       i {
+        @include a-fontBold;
         float: right;
         margin-right: $spacer;
-        font-family: $font-bold;
-        font-weight: $font-weight-bold;
         color: $blue;
         cursor: pointer;
       }
@@ -397,34 +386,34 @@ ol {
   counter-reset: step;
 
   &.a-circle-list {
-    font-size: 18px;
+    @include a-fontSize18;
 
     li {
       margin-bottom: $spacer * 1.5;
 
       span {
+        @include a-fontReg;
         display: block;
         padding: 0;
         padding-left: $spacer * 2.5;
         margin: 0;
         margin-top: $spacer * -2;
         margin-left: 10px;
-        font-weight: normal;
 
         span {
+          @include a-fontBold;
           display: inline;
           padding: 0;
           margin: 0;
-          font-family: 'DIN-bold';
         }
       }
 
       &::before {
+        @include a-fontBold;
         position: relative;
         top: 3px;
         padding: 5px 9px 4px 9px;
         margin-right: 10px;
-        font-family: 'DIN-bold';
         content: counter( step );
         counter-increment: step;
         border: 2px solid $blue;
@@ -436,7 +425,7 @@ ol {
   &.a-circle-list-yellow {
     li {
       &::before {
-        font-family: 'DIN-reg';
+        @include a-fontReg;
         background-color: $yellow;
         border: none;
       }
