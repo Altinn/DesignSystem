@@ -60,17 +60,18 @@
 // Breadcrumb
 .a-breadcrumb {
   @include a-fontSize20;
+
   padding: 0;
   background: transparent;
 
   li {
-    display: none;
-    // TODO: Disable linting for special case line heights
-    line-height: $spacer * 3;
-
     @include media-breakpoint-up( md ) {
       display: block;
     }
+
+    display: none;
+    // TODO: Disable linting for special case line heights
+    line-height: $spacer * 3;
 
     a {
       @include a-fontSize20;
@@ -78,13 +79,13 @@
 
     &.breadcrumb-item + .breadcrumb-item {
       &::before {
-        padding-right: 0;
-        padding-left: 0;
-
         @include media-breakpoint-up( sm ) {
           padding-right: $spacer / 2;
           padding-left: $spacer;
         }
+
+        padding-right: 0;
+        padding-left: 0;
       }
     }
 
@@ -93,14 +94,13 @@
         display: block;
 
         &::before {
+          // sass-lint:disable-block no-disallowed-properties
           display: inline-block;
           padding-right: 0;
           padding-bottom: 2px;
           font: normal normal normal 14px/1 'AltinnNo';
-          // TODO: special font-size case / Disable sass-linting
           font-size: inherit;
           color: $black;
-
           content: '\f00a';
           transform: rotate( 180deg );
 
@@ -128,7 +128,6 @@
 // Dropdown-menu with arrow
 .a-dropdownTriangle {
   box-sizing: border-box;
-
   background: $white;
   box-shadow: 2px 2px 9px 0 $black-opacity-04;
 
@@ -141,7 +140,6 @@
     width: 0;
     height: 0;
     margin-left: 130px;
-
     content: '';
     border: 8px solid $black;
     border-color: transparent transparent $white $white;
@@ -159,7 +157,6 @@
   @include media-breakpoint-up( xl ) {
     margin: 0 $spacer * 5 0 $spacer * 5;
 	}
-
   // On mobile, show buttons with text below icon (centered)
   @include media-breakpoint-down( md ) {
     @include add-col-properties {
@@ -172,7 +169,6 @@
     .a-btn-transparentWhite {
       height: 84px;
       padding: $spacer 0;
-
       text-align: center;
 
       .a-btn-icon-symbol {
@@ -183,11 +179,11 @@
 
       .a-btn-icon-text {
         @include a-fontSize14;
+
         padding-left: 0;
       }
 		}
 	}
-
   @include media-breakpoint-down( xs ) {
     padding: 0 0;
 

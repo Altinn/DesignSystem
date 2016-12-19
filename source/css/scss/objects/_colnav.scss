@@ -3,25 +3,26 @@
 //--------------------------------------------------*/
 
 .a-filter-container {
-  padding: $spacer / 2 0;
   @include media-breakpoint-up( lg ) {
     padding: $spacer / 2 $spacer * 4;
   }
+
+  padding: $spacer / 2 0;
 }
 
 .a-contentOverview {
-  height: 1000px;
-  overflow: hidden;
-  border-top: 1px solid $grey-medium;
-
   @include media-breakpoint-up( lg ) {
     border-bottom: 1px solid $grey-medium;
   }
+
+  height: 1000px;
+  overflow: hidden;
+  border-top: 1px solid $grey-medium;
 }
 
 //  This menu is using javascript from foundationNavigation.min.js
 .foundation-mq {
-  // TODO: Disable linting for special case font family
+  // sass-lint:disable-block no-disallowed-properties
   font-family: 'small=0&medium=544px&large=768px&xlarge=992px&xxlarge=1200px';
 }
 
@@ -34,27 +35,28 @@
 .a-colnav-wrapper {
 
   .a-colnav {
-    width: 100%;
-    margin: 0;
-    list-style-type: none;
-
     @include media-breakpoint-up( lg ) {
       max-width: 550px;
     }
 
+    width: 100%;
+    margin: 0;
+    list-style-type: none;
+
     li {
       a {
+        // sass-lint:disable-block no-important
+        @include media-breakpoint-up(lg) {
+          padding: $spacer $spacer * 4;
+          border-right: 1px solid $grey-medium;
+        }
+
         display: block;
         padding: $spacer $spacer * 3 $spacer $spacer * 2;
         color: $black;
         background: $white;
         border-bottom: 1px solid $grey-medium;
         box-shadow: none !important;
-
-        @include media-breakpoint-up(lg) {
-          padding: $spacer $spacer * 4;
-          border-right: 1px solid $grey-medium;
-        }
 
         &:hover,
         &.expanded,
@@ -74,6 +76,7 @@
         h2 {
           @include a-fontBold;
           @include a-fontSize20;
+
           margin-bottom: 0;
         }
 
@@ -110,18 +113,18 @@
 
     // Second level
     .a-colnav-secondLevel {
-      z-index: 1000;
-      width: 250px;
-      min-height: 100.3%;
-      margin-top: -1px;
-      background: $grey-light;
-
       @include media-breakpoint-up( lg ) {
         margin-left: -1px;
       }
       @include media-breakpoint-up( xl ) {
         width: 300px;
       }
+
+      z-index: 1000;
+      width: 250px;
+      min-height: 100.3%;
+      margin-top: -1px;
+      background: $grey-light;
 
       &.anim {
         transition: margin-left 0.5s ease-in-out;
@@ -130,18 +133,17 @@
 
     // Third level
     .a-colnav-thirdLevel {
-      margin-top: -1px;
-      margin-left: -1px;
-      background: $white;
-
       @include media-breakpoint-up( lg ) {
         width: 469px;
         min-height: 100.3%;
       }
-
       @include media-breakpoint-up( xl ) {
         width: 517px;
       }
+
+      margin-top: -1px;
+      margin-left: -1px;
+      background: $white;
 
       h4 {
         @extend .a-fontSizeXS;
@@ -351,13 +353,13 @@
       .a-colnav-secondLevel {
         .is-dropdown-submenu-item {
           a {
-            position: relative;
-            padding: 18px $spacer * 2 17px $spacer * 2;
-            border-bottom: 1px solid $grey-medium;
-
             @include media-breakpoint-up( md ) {
               border-right: none;
             }
+
+            position: relative;
+            padding: 18px $spacer * 2 17px $spacer * 2;
+            border-bottom: 1px solid $grey-medium;
 
             &:hover {
               background: $grey-lighter;
@@ -366,6 +368,7 @@
             h3 {
               @include a-fontReg;
               @include a-fontSize18;
+
               margin-bottom: 0;
             }
           }
@@ -379,7 +382,6 @@
             position: relative;
             padding: $spacer / 2 $spacer * 2 3px $spacer * 2;
             border-right: none;
-
             border-bottom: 1px solid $grey-light;
 
             &:hover {
@@ -389,6 +391,7 @@
             h4 {
               @extend .a-fontSizeXS;
               @include a-fontReg;
+
               max-width: calc( 100% - ($spacer * 5) );
               padding-right: $spacer * 5;
               margin-bottom: 0;
@@ -396,6 +399,7 @@
 
             .a-colnav-rightText {
               @extend .a-fontSizeXXS;
+
               position: absolute;
               top: 11px;
               right: $spacer;

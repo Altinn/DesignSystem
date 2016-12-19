@@ -6,7 +6,7 @@
   thead {
     th {
       @include a-fontReg;
-      font-weight: normal;
+
       border-bottom: 2px solid $blue;
     }
   }
@@ -22,22 +22,24 @@
 .a-table-calculation {
   td,
   th {
+    @include a-fontReg;
+
     padding: 2px 0 2px 0;
-    font-weight: normal;
     border-bottom: none;
   }
 
   td {
     @include a-fontMedium;
-    width: 20%;
-
     @include media-breakpoint-up( md ) {
       width: auto;
     }
+
+    width: 20%;
   }
 
   tfoot {
     @include a-fontMedium;
+
     border-top: 3px solid $blue;
 
     td,
@@ -108,6 +110,7 @@
 
       .action-deleted {
         @extend .pr-5;
+
         display: block;
         float: right;
       }
@@ -204,6 +207,7 @@
     th {
       @include a-fontSize12;
       @include a-fontReg;
+
       padding: 0;
       padding-top: ($spacer - 1);
       padding-bottom: 0;
@@ -237,6 +241,7 @@
 
     .normal-casing {
       @extend .a-fontSizeXS;
+
       text-transform: none;
     }
   }
@@ -360,9 +365,6 @@
 
 .a-full-width-table,
 .a-full-width {
-  margin-right: -$spacer * 2;
-  margin-left: -$spacer * 2;
-
   @include media-breakpoint-up( md ) {
     margin-right: -$spacer * 7;
     margin-left: -$spacer * 7;
@@ -371,13 +373,16 @@
     margin-right: -$spacer * 8;
     margin-left: -$spacer * 8;
   }
+
+  margin-right: -$spacer * 2;
+  margin-left: -$spacer * 2;
 }
 
 .a-full-height-table {
-  margin-bottom: -$spacer * 3;
-
   @include media-breakpoint-up( md ) {
     margin-bottom: -$spacer * 4;
   }
+
+  margin-bottom: -$spacer * 3;
 
 }
