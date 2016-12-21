@@ -312,6 +312,10 @@ ul {
       }
 
       &::before {
+        @include media-breakpoint-up( md ) {
+          left: -25px;
+        }
+
         position: absolute;
         left: 12px;
         width: 3px;
@@ -319,10 +323,6 @@ ul {
         /* lines */
         content: '';
         border-left: 3px solid $blue;
-
-        @include media-breakpoint-up( md ) {
-          left: -25px;
-        }
 
       }
 
@@ -343,7 +343,6 @@ ul {
         @include media-breakpoint-up( md ) {
           left: -36px;
         }
-
       }
 
       &:first-child {
@@ -372,11 +371,14 @@ ul {
     li {
       padding: $spacer 0 $spacer 0;
 
+      &:hover {
+        cursor: pointer;
+        background-color: $blue-light;
+      }
+
       i {
         float: right;
         margin-right: $spacer;
-        font-family: $font-bold;
-        font-weight: $font-weight-bold;
         color: $blue;
         cursor: pointer;
       }

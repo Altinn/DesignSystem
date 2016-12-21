@@ -1,16 +1,16 @@
 <ul class="a-item-list-icon {{ styleModifier }}">
   {{# item-list }}
     <div class="a-dotted-line-top"></div>
-    <li class="{{ item-list-class }}">
+    <li class="{{ item-list-class }}"
+      {{# icon-onclick }} onClick="{{{ icon-onclick }}}" {{/ icon-onclick }}
+    >
       <span class="a-js-listItemText">
         {{{ list-item-text }}}
       </span>
       <i
-        {{# icon-onclick }} onClick="{{{ icon-onclick }}}" {{/ icon-onclick }}
         class="material-icons"
-        role="button">
-        highlight_off
-      </i>
+        role="button">highlight_off</i>
     </li>
   {{/ item-list }}
 </ul>
+<i
