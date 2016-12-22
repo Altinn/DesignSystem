@@ -4,15 +4,24 @@
 		{{/ item-list-dottedTop }}
 		{{# item-list }}
 			<li class="list-group-item a-item-list-item {{ item-list-class }}">
+
+        <!-- start høyrejusterte ting -->
+
         {{# list-item-icon-right }}
-          <div class="float-xs-right a-text-left">
+          <div class="float-xs-right">
             {{> atomer-link-med-popover(popover-trigger: "manual", popover-link-text: "<i class=\"material-icons\">help</i><i class=\"material-icons\">cancel</i>", open-popover-class: "a-helpIconButton a-js-persistPopover a-js-popoverBig a-js-togglePopoverIcons", popover-class: "popover-big", popover-content: "Innholdet i popover fra spørsmålstegn-ikonet kommer her..") }}
           </div>
         {{/ list-item-icon-right }}
 
         {{# list-item-text-right }}
-          <span class="float-xs-right a-text-left">{{{ list-item-text-right-content }}}</span>
+          <div class="float-xs-right">
+            {{{ list-item-text-right-text }}}
+          </div>
         {{/ list-item-text-right }}
+
+        <!-- // end høyrejusterte elementer -->
+
+        <!-- start venstrejusterte elementer -->
 
         {{# list-item-icon-left }}
           {{> atomer-ikon }}
@@ -26,7 +35,11 @@
           </a>
         {{/ list-item-link }}
 
-        <div class="a-dotted"></div>
+        <!-- // end venstrejusterte elementer -->
+
+        {{# list-item-disabled }}
+          <div class="a-dotted"></div>
+        {{/ list-item-disabled }}
 			</li>
 		{{/ item-list }}
 	</ul>
