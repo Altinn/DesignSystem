@@ -5,10 +5,6 @@
 .a-item-list {
   list-style: none;
 
-  .aligned-content {
-    float: left;
-  }
-
   div {
     &.a-dotted {
       position: absolute;
@@ -34,8 +30,8 @@
     width: 100%;
     padding: $spacer / 2 $spacer / 2 4px $spacer / 2;
 
-    .right {
-      float: right;
+    .a-text-left {
+      padding-left: $spacer;
     }
 
     a {
@@ -338,6 +334,9 @@ ul {
         border: 3px solid $blue;
         border-radius: 50%;
 
+        @include media-breakpoint-up( md ) {
+          left: -36px;
+        }
       }
 
       &:first-child {
@@ -365,6 +364,11 @@ ul {
 
     li {
       padding: $spacer 0 $spacer 0;
+
+      &:hover {
+        cursor: pointer;
+        background-color: $blue-light;
+      }
 
       i {
         @include a-fontBold;
