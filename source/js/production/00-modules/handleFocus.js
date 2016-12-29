@@ -32,10 +32,12 @@ var handleFocus = function() {
     }
     // Accomodate for popovers
     if ($(this).attr('data-toggle') !== 'popover' && !$(this).is('i')) {
-      $(this).addClass('override-focus');
-      setTimeout(function() {
-        this.blur(); this.removeClass('override-focus');
-      }.bind($(this)), 1500);
+      if (!$(this).hasClass('a-custom-select')) {
+        $(this).addClass('override-focus');
+        setTimeout(function() {
+          this.blur(); this.removeClass('override-focus');
+        }.bind($(this)), 1500);
+      }
     }
     $(this).children('.custom-control-indicator').addClass('override-focus');
     setTimeout(function() {
