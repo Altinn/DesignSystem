@@ -72,10 +72,6 @@
     }
   }
 
-  .remove-icon {
-    color: $red;
-  }
-
   .red {
     color: $red;
   }
@@ -108,6 +104,20 @@
       }
     }
 
+    &.a-sortable-row-deleted {
+      @include disabled-background( $color: $grey, $background-color: $red-light, $box-shadow: none, $background-image: url( '../images/disabled-background.svg' ) );
+
+      .action-deleted {
+        @extend .pr-5;
+        display: block;
+        float: right;
+      }
+
+      .a-collapse-title {
+        display: none;
+      }
+    }
+
     td {
       padding: ($spacer - 2) 0;
       border-bottom: 1px solid $grey-medium;
@@ -117,6 +127,10 @@
       }
 
       .action-confirmation {
+        display: none;
+      }
+
+      .action-deleted {
         display: none;
       }
 
@@ -144,7 +158,6 @@
 
     &.deleted {
       background: $red-light;
-
 
       td {
         &:last-of-type {
@@ -176,6 +189,21 @@
         &:hover {
           cursor: pointer;
           background-color: $red-light;
+        }
+      }
+    }
+  }
+
+  &.collapsable {
+    tbody {
+      > tr {
+        &.a-sortable-row {
+          &:not(.open) {
+            &:hover {
+              cursor: pointer;
+              background-color: $blue-light;
+            }
+          }
         }
       }
     }
@@ -230,6 +258,10 @@
     }
   }
 
+  tfoot {
+    display: none;
+  }
+
   // If collapse inside table, set display to table-row.
   .collapse {
     &.in {
@@ -247,6 +279,10 @@
 }
 
 .a-collapsePanel-body {
+  .third-action-spacer {
+    padding-top: 5px;
+  }
+
   .a-sortable-table {
     tr {
       td {
@@ -329,10 +365,6 @@
     margin-right: $spacer / 2;
     margin-left: 0;
     color: $blue;
-  }
-
-  .remove-icon {
-    color: $red;
   }
 
   .read-icon,

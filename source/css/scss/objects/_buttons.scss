@@ -15,6 +15,10 @@
   background: $blue;
   border: none;
 
+  @include media-breakpoint-up( lg ) {
+    font-size: 18px;
+  }
+
   &:hover {
     color: $black;
     text-decoration: none;
@@ -259,6 +263,10 @@
   border-bottom: 2px solid $link-color;
   box-shadow: none;
 
+  @include media-breakpoint-up( lg ) {
+    font-size: 18px;
+  }
+
   &::before {
     position: absolute;
     top: -11px;
@@ -289,11 +297,13 @@
 
 // add btn
 .a-btn-action {
-  padding: $spacer / 3 $spacer * 2 $spacer / 3 $spacer * 3;
+  padding: $spacer / 3 $spacer * 2 $spacer / 3 $spacer;
   color: $black;
   text-align: left;
+  vertical-align: middle;
   background-color: transparent;
   border: 2px dotted $blue;
+  align-items: center;
 
   &:hover,
   &:focus {
@@ -303,10 +313,10 @@
   }
 
   .a-btn-action-icon {
-    position: absolute;
-    top: 7px;
-    left: $spacer / 2;
+    height: 100%;
+    margin: auto;
     font-size: 16px;
+    vertical-align: middle;
   }
 }
 
@@ -358,6 +368,7 @@
 
   .a-box-button-action {
     display: inline-block;
+    font-family: $font-bold;
     font-size: 14px;
   }
 
@@ -440,24 +451,28 @@
 // FULL WIDTH ADD BUTTON
 .a-fullWidthBtn {
   width: 100%;
-  height: $spacer * 4;
+  min-height: $spacer * 4;
   font-family: $font-bold;
   font-weight: $font-weight-bold;
 
   i {
     &.a-btn-action-icon {
-      top: 7px;
-      left: 18px;
-      margin-right: $spacer * 2;
+      height: 100%;
+      margin: auto;
       font-size: 30px;
+      vertical-align: middle;
     }
   }
 
   span {
-    margin-left: $spacer * 2;
+    display: inline-block;
+    width: 70%;
+    height: 100%;
+    margin: auto;
+    vertical-align: middle;
 
     @include media-breakpoint-up( sm ) {
-      margin-left: $spacer * 4;
+      margin-left: $spacer * 2;
     }
   }
 }
@@ -514,11 +529,17 @@
 .a-btn-group {
   a,
   button {
-    display: inline;
     margin-right: $spacer;
 
     &:last-child {
       margin-right: 0;
+    }
+
+    &.a-btn-link,
+    &.a-link {
+      display: inline-block;
+      padding-bottom: 0;
+      margin-bottom: $spacer;
     }
   }
 

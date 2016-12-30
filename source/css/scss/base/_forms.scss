@@ -100,6 +100,7 @@ textarea {
 
   // Input
   .form-control {
+    min-width: 0; // Need to set this to prevent Firefox from adding a default min-width to input fields
     height: $spacer * 3;
     padding: 2px $spacer 0 $spacer;
     margin-left: -$spacer / 12;
@@ -700,7 +701,21 @@ textarea {
           background: none;
           border: 2px dotted $blue;
           border-radius: $spacer * 3;
-          transition: all 0.2s;
+          transition: border 0.2s, background-color 0.2s;
+
+          &.a-toggle-icon {
+            i {
+              color: $blue;
+
+              &:nth-of-type(1) {
+                display: inline-block;
+              }
+
+              &:nth-of-type(2) {
+                display: none;
+              }
+            }
+          }
         }
       }
 
@@ -709,7 +724,21 @@ textarea {
           background-color: $blue-opacity;
           border: 2px solid $blue;
           border-radius: $spacer * 3;
-          transition: all 0.2s;
+          transition: border 0.2s, background-color 0.2s;
+
+          &.a-toggle-icon {
+            i {
+              color: $blue;
+
+              &:nth-of-type(1) {
+                display: none;
+              }
+
+              &:nth-of-type(2) {
+                display: inline-block;
+              }
+            }
+          }
         }
       }
 

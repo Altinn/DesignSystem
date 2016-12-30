@@ -1,17 +1,23 @@
 {{# checkbuttons }}
   <div class="a-switch">
-    <input 
-      id="{{{ checkbuttons-id }}}" 
-      class="sr-only" 
-      type="checkbox" 
-      name="addRights" 
-      value="checkbutton-read">
-    <label 
-      for="{{{ checkbuttons-id }}}" 
+    <input
+      id="{{{ checkbuttons-id }}}"
+      class="sr-only"
+      type="checkbox"
+      name="{{{ checkbuttons-id }}}"
+      value="checkbutton-read"
+      {{# isChecked }} checked {{/ isChecked}}>
+    <label
+      for="{{{ checkbuttons-id }}}"
       class="a-switch-label {{{ checkbuttons-class }}}">
       <i class="material-icons a-switch-icon">
         {{{ checkbuttons-icon }}}
       </i>
+      {{# checkbuttons-toggle-icon }}
+        <i class="material-icons a-switch-icon">
+          {{{ checkbuttons-toggle-icon }}}
+        </i>
+      {{/ checkbuttons-toggle-icon }}
       {{{ checkbuttons-title }}}
     </label>
   </div>

@@ -1,5 +1,5 @@
 <div class="{{# table-responsive }} table-responsive {{/ table-responsive}} {{# full-width-table }} a-full-width-table {{/ full-width-table }} {{# full-height-table }} a-full-height-table {{/ full-height-table }}">
-  <table class="table a-sortable-table a-js-sortable"
+  <table class="table a-sortable-table a-js-sortable collapsable"
     {{# sortable-table-id }} id="{{ sortable-table-id }}" {{/ sortable-table-id }}>
     <thead>
       {{# sortable-has-head }}
@@ -8,7 +8,7 @@
             <th {{# column-width }} style="width:{{ column-width }}" {{/ column-width }}
               {{# on-header-click }} onclick="{{ on-header-click }}" {{/ on-header-click }}>
               {{# sortable }}
-                <span class="a-dropdownArrow"></span> 
+                <span class="a-dropdownArrow"></span>
               {{/ sortable }}
               {{ sortable-head-text }}
             </th>
@@ -20,20 +20,21 @@
       {{# sortable-table-items }}
         <tr class="a-sortable-row {{# is-action-performed }}a-sortable-row-complete{{/ is-action-performed }}">
           {{# sortable-row-items }}
-            <td {{# searchable }} data-searchable="true" {{/ searchable }}>         
-              {{{ sortable-row-text }}} 
-              {{# is-sortable-collapse-link }} 
+            <td {{# searchable }} data-searchable="true" {{/ searchable }}>
+              {{{ sortable-row-text }}}
+              {{# is-sortable-collapse-link }}
                 <span class="action-confirmation">{{ action-performed-confirmation }}</span>
-              
-                {{> atomer-ekspanderbar-tekst }} 
+                <span class="action-deleted">{{ action-deleted-confirmation }}</span>
+                {{> atomer-ekspanderbar-tekst }}
 
               {{/ is-sortable-collapse-link }}
             </td>
           {{/ sortable-row-items }}
         </tr>
         {{# sortable-action-items }}
-          <tr class="a-sortable-action-row a-collapseContent collapse a-js-ignoreDuringSearch" 
+          <tr class="a-sortable-action-row a-collapseContent collapse a-js-ignoreDuringSearch"
             {{# target-table }} data-target-table="{{ target-table }}" {{/ target-table }}
+            {{# source-table }} data-source-table="{{ source-table }}" {{/ source-table }}
             id="{{ sortable-action-id }}">
             <td colspan="4" class="pt-0">
               <span class="ml-4 pl-3">
@@ -41,7 +42,7 @@
               </span>
               <div class="text-xs-center">
                 {{# sortable-action-items }}
-                  {{> atomer-valgknapp}} 
+                  {{> atomer-valgknapp}}
                 {{/ sortable-action-items }}
               </div>
               {{> molekyler-ferdigsegment:within-table }}
@@ -50,5 +51,16 @@
         {{/ sortable-action-items }}
       {{/ sortable-table-items }}
     </tbody>
+
+    {{# optional-empty-search-results-message }}
+      <tfoot>
+        <tr>
+          <td> </td>
+          <td colspan="2">{{> atomer-varsel }}</td>
+          <td></td>
+        </tr>
+      </tfoot>
+    {{/ optional-empty-search-results-message }}
+
   </table>
 </div>

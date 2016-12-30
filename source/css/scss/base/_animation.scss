@@ -98,42 +98,44 @@
   overflow: hidden;
 
   // Basic styles for an animated element
-  .a-scene_element {
+  .a-scene-element {
     display: block;
     opacity: 1;
     transition-timing-function: ease-in;
-    transform: translate3d(0, 0, 0);
+    // Is this needed once the animation is completed?
+    // Removed this temporarily as it breaks fixed positioning
+    // transform: translate3d(0, 0, 0);
     animation-duration: 0.5s;
     animation-fill-mode: both;
   }
 
   // An element that fades in
-  .a-scene_element--fadein {
+  .a-scene-element--fadein {
     animation-name: fadeIn;
   }
 
   // An element that fades in and slides up
-  .a-scene_element--fadeinup {
+  .a-scene-element--fadeinup {
     animation-name: fadeInUp;
   }
 
   /** An element that fades in and slides from the right */
-  .a-scene_element--fadeinright {
+  .a-scene-element--fadeinright {
     animation-name: fadeInRight;
   }
 
   /** An element that fades in and slides from the right */
-  .a-scene_element--fadeoutright {
+  .a-scene-element--fadeoutright {
     animation-name: fadeOutRight;
   }
 
   /** An element that fades out and slides to the left */
-  .a-scene_element--fadeoutleft {
+  .a-scene-element--fadeoutleft {
     animation-name: fadeOutLeft;
   }
 
   /** An element that fades out and slides to the left */
-  .a-scene_element--fadeinleft {
+  .a-scene-element--fadeinleft {
     animation-name: fadeInLeft;
   }
 }

@@ -1,6 +1,7 @@
 
 // Popover (Yellow)
 .popover {
+  font-size: $font-size;
   background-color: $yellow-light;
   border: none;
   border-radius: 0;
@@ -170,37 +171,27 @@
     h3,
     div {
       &.popover-content {
-        max-width: 768px;
-        margin-right: auto;
-        margin-left: auto;
+        .container {
+          padding: 0 $spacer;
+
+          @include media-breakpoint-up( md ) {
+            padding: $spacer * 2 84px;
+          }
+
+          @include media-breakpoint-up( lg ) {
+            padding: $spacer * 2 $spacer * 9;
+          }
+        }
+
+        @include media-breakpoint-down( sm ) {
+          width: auto;
+        }
       }
     }
 
     &::before {
       display: none;
     }
-
-    // .popover-arrow {
-    //   &.popover-arrow {
-    //     top: -14px;
-    //     margin-left: -$spacer;
-    //     border-top-width: 0;
-    //     border-right-width: $spacer;
-    //
-    //     border-bottom-color: transparent;
-    //     border-bottom-width: $spacer;
-    //     border-left-width: $spacer;
-    //
-    //     &::after {
-    //       top: 3px;
-    //       left: -1px;
-    //       border-width: 11px;
-    //       border-top-width: 0;
-    //       border-bottom-width: 11px;
-    //       border-left-width: 11px;
-    //     }
-    //   }
-    // }
 
     .popover-title {
       background-color: $yellow-light;

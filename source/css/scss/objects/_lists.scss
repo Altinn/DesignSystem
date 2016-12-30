@@ -28,13 +28,25 @@
   .a-item-list-item {
     position: relative;
     width: 100%;
-    padding: 6px;
+    padding: $spacer / 2 $spacer / 2 4px $spacer / 2;
 
-    .right {
-      float: right;
+    .a-text-left {
+      padding-left: $spacer;
+    }
+
+    .float-xs-right {
+      i {
+        padding-left: $spacer;
+      }
+
+      .right-aligned {
+        padding-left: $spacer;
+      }
     }
 
     a {
+      display: inline-block;
+
       &:hover {
         cursor: pointer;
       }
@@ -47,7 +59,6 @@
     }
 
     .a-listItem-title {
-
       font-size: 16px;
       color: $black;
       text-decoration: none;
@@ -111,6 +122,10 @@
       @include media-breakpoint-up( md ) {
         font-size: 20px;
       }
+    }
+
+    .a-item-list-item {
+      padding: $spacer / 2;
     }
   }
 
@@ -303,6 +318,10 @@ ul {
       }
 
       &::before {
+        @include media-breakpoint-up( md ) {
+          left: -25px;
+        }
+
         position: absolute;
         left: 12px;
         width: 3px;
@@ -310,10 +329,6 @@ ul {
         /* lines */
         content: '';
         border-left: 3px solid $blue;
-
-        @include media-breakpoint-up( md ) {
-          left: -25px;
-        }
 
       }
 
@@ -334,7 +349,6 @@ ul {
         @include media-breakpoint-up( md ) {
           left: -36px;
         }
-
       }
 
       &:first-child {
@@ -363,11 +377,14 @@ ul {
     li {
       padding: $spacer 0 $spacer 0;
 
+      &:hover {
+        cursor: pointer;
+        background-color: $blue-light;
+      }
+
       i {
         float: right;
         margin-right: $spacer;
-        font-family: $font-bold;
-        font-weight: $font-weight-bold;
         color: $blue;
         cursor: pointer;
       }
@@ -485,6 +502,24 @@ ol {
   ol {
     &.show-numbers {
       list-style-type: decimal;
+    }
+  }
+}
+
+.a-list-heading {
+  position: relative;
+
+  .a-list-heading-actions {
+    position: absolute;
+    top: 0;
+    right: $spacer / 2;
+
+    &:hover {
+      cursor: pointer;
+    }
+
+    i {
+      vertical-align: middle;
     }
   }
 }
