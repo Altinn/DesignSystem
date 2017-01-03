@@ -1,5 +1,5 @@
 <div class="{{# table-responsive }} table-responsive {{/ table-responsive}} {{# full-width-table }} a-full-width-table {{/ full-width-table }} {{# full-height-table }} a-full-height-table {{/ full-height-table }}">
-  <table class="table a-sortable-table a-js-sortable"
+  <table class="table a-sortable-table a-js-sortable collapsable"
     {{# sortable-table-id }} id="{{ sortable-table-id }}" {{/ sortable-table-id }}>
     <thead>
       {{# sortable-has-head }}
@@ -51,5 +51,16 @@
         {{/ sortable-action-items }}
       {{/ sortable-table-items }}
     </tbody>
+
+    {{# optional-empty-search-results-message }}
+      <tfoot>
+        <tr>
+          <td> </td>
+          <td colspan="2">{{> atomer-varsel }}</td>
+          <td></td>
+        </tr>
+      </tfoot>
+    {{/ optional-empty-search-results-message }}
+
   </table>
 </div>

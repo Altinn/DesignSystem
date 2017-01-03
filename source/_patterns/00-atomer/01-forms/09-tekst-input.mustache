@@ -1,5 +1,5 @@
-<div class="form-group a-form-group {{{ has-feedback }}} {{{ isLarge }}} {{# margin-override }} {{ margin-override }} {{/ margin-override }}" 
-  {{# isValidator }} data-toggle="validator" {{/ isValidator }} 
+<div class="form-group a-form-group {{# has-feedback }}has-feedback{{/ has-feedback }} {{{ isLarge }}} {{# margin-override }} {{ margin-override }} {{/ margin-override }}"
+  {{# isValidator }} data-toggle="validator" {{/ isValidator }}
   {{# validator-delay }} data-delay="{{ validator-delay }}" {{/ validator-delay }}>
 
     <div class="a-form-group-items {{ isInput-group }} {{ isDisabled }} {{# isTransparent }} transparent {{/ isTransparent }}">
@@ -13,19 +13,21 @@
       </label>
 
       <!-- Input  -->
-        <input type="{{ input-type }}" 
-          class="form-control {{ form-control-class }} {{ form-input-hasButton-class }} {{# no-left-padding }}pl-0{{/ no-left-padding }}" 
-          id="{{ text-input-id }}" 
+        <input type="{{ input-type }}"
+          class="form-control {{ form-control-class }} {{ form-input-hasButton-class }} {{# no-left-padding }}pl-0{{/ no-left-padding }}"
+          id="{{ text-input-id }}"
           {{{validator-pattern}}}
-          {{ isRequired }} 
-          placeholder="{{ text-input-placeholder }}" 
-          value="{{ text-input-value }}" 
+          {{ isRequired }}
+          placeholder="{{ text-input-placeholder }}"
+          value="{{ text-input-value }}"
           maxlength="{{ maxlength }}"
-          data-error="{{ validator-errorMessage }}" 
+          data-error="{{ validator-errorMessage }}"
           {{ isDisabled }}
           data-search-algorithm="{{ search-algorithm }}"
           data-search-target="{{ search-target }}">
-        <i class="fa fa-check-circle form-control-feedback"></i><span class="sr-only">Icon showing if input is valid or not</span>
+          {{# has-feedback }}
+            <i class="fa fa-check-circle form-control-feedback"></i><span class="sr-only">Icon showing if input is valid or not</span>
+          {{/ has-feedback }}
 
         <!-- button -->
         {{# form-input-hasButton }}

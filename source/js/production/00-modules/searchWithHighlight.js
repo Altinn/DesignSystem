@@ -13,10 +13,12 @@ var mark = function() {
     // Reset visibility of all rows
     var table = '#' + this.toString();
     $(table + ' tbody>tr:not(.a-js-ignoreDuringSearch)').show();
+    $(table).find('tfoot').hide();
 
     // Show information row if open before search
     $(table + ' tbody>tr.open:not(.a-js-ignoreDuringSearch)').each(function() {
       $(this).next().show();
+      $(table).find('tfoot').hide();
     });
 
     $(table).find('tbody>tr>td[data-searchable="true"]').unmark().mark(input, options);
@@ -32,6 +34,12 @@ var mark = function() {
           }
         }
       });
+
+      if ($(table + ' tbody>tr:not(.a-js-ignoreDuringSearch):visible').length === 0) {
+        $(table).find('tfoot').show();
+      } else {
+        $(table).find('tfoot').hide();
+      }
     }
   });
 };
