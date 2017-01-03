@@ -282,8 +282,7 @@
 
 // add btn
 .a-btn-action {
-  display: inline-flex;
-  padding: $spacer / 3 $spacer * 2 $spacer / 3 $spacer * 3;
+  padding: $spacer / 3 $spacer * 2 $spacer / 3 $spacer;
   color: $black;
   text-align: left;
   vertical-align: middle;
@@ -302,6 +301,9 @@
     @extend .a-fontSizeXS;
     position: absolute;
     left: $spacer / 2;
+    height: 100%;
+    margin: auto;
+    vertical-align: middle;
   }
 }
 
@@ -442,16 +444,22 @@
     &.a-btn-action-icon {
       @include a-fontSize30;
       left: 18px;
+      height: 100%;
+      margin: auto;
       margin-right: $spacer * 2;
+      vertical-align: middle;
     }
   }
 
   span {
-    display: block;
-    margin-left: $spacer * 2;
+    display: inline-block;
+    width: 70%;
+    height: 100%;
+    margin: auto;
+    vertical-align: middle;
 
     @include media-breakpoint-up( sm ) {
-      margin-left: $spacer * 4;
+      margin-left: $spacer * 2;
     }
   }
 }

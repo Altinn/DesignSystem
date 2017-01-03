@@ -192,6 +192,21 @@
     }
   }
 
+  &.collapsable {
+    tbody {
+      > tr {
+        &.a-sortable-row {
+          &:not(.open) {
+            &:hover {
+              cursor: pointer;
+              background-color: $blue-light;
+            }
+          }
+        }
+      }
+    }
+  }
+
   tbody {
     tr {
       &.a-sortable-row {
@@ -241,6 +256,10 @@
     }
   }
 
+  tfoot {
+    display: none;
+  }
+
   // If collapse inside table, set display to table-row.
   .collapse {
     &.in {
@@ -258,6 +277,10 @@
 }
 
 .a-collapsePanel-body {
+  .third-action-spacer {
+    padding-top: 5px;
+  }
+
   .a-sortable-table {
     tr {
       td {
