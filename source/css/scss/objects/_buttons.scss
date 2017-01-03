@@ -4,6 +4,7 @@
 .a-btn {
   @extend .a-fontSizeS;
   @include a-fontReg;
+
   position: relative;
   display: inline-block;
   padding: 7px $spacer * 2 5px $spacer * 2;
@@ -76,7 +77,6 @@
 
 .a-btn-success {
   color: $black;
-
   background-color: $green;
 
   &:hover {
@@ -125,6 +125,7 @@
 .a-btn-border {
   @extend .a-fontSizeXXL;
   @include a-fontMedium;
+
   padding: 18px $spacer * 2 14px $spacer * 2;
   color: $blue-darker;
   background: $white-opacity-05;
@@ -159,6 +160,7 @@
 
   .a-btn-icon-symbol {
     @include a-fontSize22;
+
     width: 38px;
     padding-right: $spacer;
     margin-top: -5px;
@@ -180,6 +182,7 @@
 
   .a-btn-icon-symbol {
     @include a-fontSize22;
+
     width: $spacer * 3;
     height: $spacer * 3;
     padding: 0;
@@ -240,6 +243,7 @@
 // Make button look like link
 .a-btn-link {
   @extend .a-fontSizeS;
+
   position: relative;
   z-index: 1;
   padding: 0;
@@ -288,6 +292,7 @@
   vertical-align: middle;
   background-color: transparent;
   border: 2px dotted $blue;
+
   align-items: center;
 
   &:hover,
@@ -299,6 +304,7 @@
 
   .a-btn-action-icon {
     @extend .a-fontSizeXS;
+
     position: absolute;
     left: $spacer / 2;
     height: 100%;
@@ -334,12 +340,14 @@
 
   .a-box-button-icon {
     @include a-fontSize60;
+
     display: block;
   }
 
   .a-box-button-info {
     @include a-fontSize20;
     @include a-fontBold;
+
     display: table;
     width: auto;
     padding: 8px $spacer 4px $spacer;
@@ -355,6 +363,7 @@
   .a-box-button-action {
     @extend .a-fontSizeXXS;
     @include a-fontBold;
+
     display: inline-block;
   }
 
@@ -393,6 +402,7 @@
 
   .a-box-button-name {
     @extend .a-fontSizeXXS;
+
     display: block;
     max-height: 50px;
     overflow-y: hidden;
@@ -428,6 +438,7 @@
 
     .a-boxAddBtn-icon {
       @include a-fontSize24;
+
       display: block;
       padding: $spacer * 2;
     }
@@ -437,12 +448,14 @@
 // FULL WIDTH ADD BUTTON
 .a-fullWidthBtn {
   @include a-fontBold;
+
   width: 100%;
   min-height: $spacer * 4;
 
   i {
     &.a-btn-action-icon {
       @include a-fontSize30;
+
       left: 18px;
       height: 100%;
       margin: auto;
@@ -452,15 +465,15 @@
   }
 
   span {
+    @include media-breakpoint-up( sm ) {
+      margin-left: $spacer * 2;
+    }
+
     display: inline-block;
     width: 70%;
     height: 100%;
     margin: auto;
     vertical-align: middle;
-
-    @include media-breakpoint-up( sm ) {
-      margin-left: $spacer * 2;
-    }
   }
 }
 

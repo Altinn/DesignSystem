@@ -18,6 +18,10 @@ files:
     - 'sass/vendor/**/*.*'
 
 # Rule Configuration
+## 0 = turned off
+## 1 = warnings
+## 2 = error
+
 rules:
 
 # ref: https://github.com/sasstools/sass-lint/blob/master/docs/rules/attribute-quotes.md
@@ -95,7 +99,7 @@ rules:
 
 # ref: https://github.com/sasstools/sass-lint/blob/master/docs/rules/mixin-name-format.md
   mixin-name-format:
-    - 1
+    - 0
     - allow-leading-underscore: true
     - convention: 'hyphenatedlowercase'
 
@@ -112,6 +116,15 @@ rules:
 
 # ref: https://github.com/sasstools/sass-lint/blob/master/docs/rules/no-color-literals.md
   no-color-literals: 2
+
+# ref: https://github.com/sasstools/sass-lint/blob/master/docs/rules/no-disallowed-properties.md
+  no-disallowed-properties:
+    - 2
+    -
+      'properties':
+        - 'font-size'
+        - 'font-family'
+        - 'font-weight'
 
 # ref: https://github.com/sasstools/sass-lint/blob/master/docs/rules/no-duplicate-properties.md
   no-duplicate-properties: 2
