@@ -53,10 +53,10 @@ var popover = function() {
       $(e.target).trigger('click');
     }
   });
-  $('body').on('mousedown', '.bs-tether-element *', function(e) {
+  $('body').on('mouseup', '.bs-tether-element *', function(e) {
     e.preventDefault(); e.stopPropagation();
   });
-  $('body').on('mousedown', '.bs-tether-element', function(e) {
+  $('body').on('mouseup', '.bs-tether-element', function(e) {
     e.preventDefault(); e.stopPropagation();
   });
   $('.a-js-togglePopoverIcons').on('shown.bs.popover', function(e) {
