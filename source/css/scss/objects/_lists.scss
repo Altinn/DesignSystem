@@ -5,8 +5,12 @@
 .a-item-list {
   list-style: none;
 
-  .aligned-content {
-    float: left;
+  i {
+    width: $spacer * 2;
+    height: $spacer * 2;
+    margin-top: -3px;
+    vertical-align: middle;
+    border: none;
   }
 
   div {
@@ -34,12 +38,22 @@
     width: 100%;
     padding: $spacer / 2 $spacer / 2 4px $spacer / 2;
 
-    .right {
-      float: right;
+    .a-text-left {
+      padding-left: $spacer;
+    }
+
+    .float-xs-right {
+      i {
+        padding-left: $spacer;
+      }
+
+      .right-aligned {
+        padding-left: $spacer;
+      }
     }
 
     a {
-      display: block;
+      display: inline-block;
 
       &:hover {
         cursor: pointer;
@@ -57,6 +71,16 @@
       color: $black;
       text-decoration: none;
       border: none;
+    }
+
+    .a-listItem-rightContent {
+      position: absolute;
+      top: $spacer / 2;
+      right: $spacer / 2;
+
+      a {
+        display: inline-block;
+      }
     }
   }
 
@@ -92,7 +116,6 @@
 
     .a-listItem-title {
       display: inline-block;
-      width: 85%;
       padding: 0;
       vertical-align: top;
 
@@ -302,6 +325,10 @@ ul {
       }
 
       &::before {
+        @include media-breakpoint-up( md ) {
+          left: -25px;
+        }
+
         position: absolute;
         left: 12px;
         width: 3px;
@@ -309,10 +336,6 @@ ul {
         /* lines */
         content: '';
         border-left: 3px solid $blue;
-
-        @include media-breakpoint-up( md ) {
-          left: -25px;
-        }
 
       }
 
@@ -333,7 +356,6 @@ ul {
         @include media-breakpoint-up( md ) {
           left: -36px;
         }
-
       }
 
       &:first-child {
@@ -361,6 +383,11 @@ ul {
 
     li {
       padding: $spacer 0 $spacer 0;
+
+      &:hover {
+        cursor: pointer;
+        background-color: $blue-light;
+      }
 
       i {
         @include a-fontBold;
