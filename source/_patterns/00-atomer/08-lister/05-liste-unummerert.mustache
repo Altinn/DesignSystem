@@ -4,32 +4,32 @@
 		{{/ item-list-dottedTop }}
 		{{# item-list }}
 			<li class="a-item-list-item {{ item-list-class }}">
-
-        {{^ list-item-link }}
-          {{# list-item-icon-left }}
-            <i class="{{ list-item-icon-left-class }}">{{{ list-item-icon-left-name }}}</i>
-          {{/ list-item-icon-left }}
-        {{/ list-item-link }}
-
-        {{# list-item-disabled }}
-          <div class="a-dotted"></div>
-        {{/ list-item-disabled }}
-
-
-<!-- snip -->
-
-
-        {{{ item-list-title }}}
-
-        {{# list-item-link }}
-          <a href="../..{{{ url }}}" class="a-listItem-title">
+        <div class="a-listItem-leftContent">
+          {{^ list-item-link }}
             {{# list-item-icon-left }}
               <i class="{{ list-item-icon-left-class }}">{{{ list-item-icon-left-name }}}</i>
             {{/ list-item-icon-left }}
-            {{{ item-list-linkTitle }}}
-          </a>
-        {{/ list-item-link }}
+          {{/ list-item-link }}
 
+          {{# list-item-disabled }}
+            <div class="a-dotted"></div>
+          {{/ list-item-disabled }}
+
+
+  <!-- snip -->
+
+
+          {{{ item-list-title }}}
+
+          {{# list-item-link }}
+            <a href="../..{{{ url }}}" class="a-listItem-title">
+              {{# list-item-icon-left }}
+                <i class="{{ list-item-icon-left-class }}">{{{ list-item-icon-left-name }}}</i>
+              {{/ list-item-icon-left }}
+              {{{ item-list-linkTitle }}}
+            </a>
+          {{/ list-item-link }}
+        </div>
         {{# list-item-right-content }}
           <div class="a-listItem-rightContent">
             {{# list-item-text-right }}
@@ -46,12 +46,7 @@
             {{# list-item-right-popover }}
               {{> atomer-link-med-stor-popover-ikon }}
             {{/ list-item-right-popover }}
-          </div>
         {{/ list-item-right-content }}
-
-        {{# list-item-disabled }}
-          <div class="a-dotted"></div>
-        {{/ list-item-disabled }}
 			</li>
 		{{/ item-list }}
 	</ul>
