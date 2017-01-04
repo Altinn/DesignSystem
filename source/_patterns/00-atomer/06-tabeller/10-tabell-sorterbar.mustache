@@ -21,13 +21,21 @@
         <tr class="a-sortable-row {{# is-action-performed }}a-sortable-row-complete{{/ is-action-performed }}">
           {{# sortable-row-items }}
             <td {{# searchable }} data-searchable="true" {{/ searchable }}>
-              {{{ sortable-row-text }}}
+
+              {{# is-icon }}
+                {{> atomer-ikon }}
+              {{/ is-icon }}
+
+              {{^ is-icon }}
+                {{{ sortable-row-text }}}
+              {{/ is-icon }}
+
               {{# is-sortable-collapse-link }}
                 <span class="action-confirmation">{{ action-performed-confirmation }}</span>
                 <span class="action-deleted">{{ action-deleted-confirmation }}</span>
                 {{> atomer-ekspanderbar-tekst }}
-
               {{/ is-sortable-collapse-link }}
+
             </td>
           {{/ sortable-row-items }}
         </tr>
