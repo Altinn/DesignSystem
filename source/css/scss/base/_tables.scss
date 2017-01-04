@@ -5,8 +5,8 @@
 .a-table {
   thead {
     th {
-      font-family: $font;
-      font-weight: normal;
+      @include a-fontReg;
+
       border-bottom: 2px solid $blue;
     }
   }
@@ -22,23 +22,24 @@
 .a-table-calculation {
   td,
   th {
+    @include a-fontReg;
+
     padding: 2px 0 2px 0;
-    font-weight: normal;
     border-bottom: none;
   }
 
   td {
-    width: 20%;
+    @include a-fontMedium;
     @include media-breakpoint-up( md ) {
       width: auto;
     }
-    font-family: $font-medium;
-    font-weight: $font-weight-medium;
+
+    width: 20%;
   }
 
   tfoot {
-    font-family: $font-medium;
-    font-weight: $font-weight-medium;
+    @include a-fontMedium;
+
     border-top: 3px solid $blue;
 
     td,
@@ -109,6 +110,7 @@
 
       .action-deleted {
         @extend .pr-5;
+
         display: block;
         float: right;
       }
@@ -139,12 +141,11 @@
       }
 
       &:nth-of-type( even ) {
-        font-family: $font-bold;
-        font-weight: $font-weight-bold;
+        @include a-fontBold;
       }
 
       .row-item-description {
-        font-weight: $font-weight-light;
+        @include a-fontLight;
       }
     }
 
@@ -219,11 +220,12 @@
 
   thead {
     th {
+      @include a-fontSize12;
+      @include a-fontReg;
+
       padding: 0;
       padding-top: ($spacer - 1);
       padding-bottom: 0;
-      font-size: 12px;
-      font-weight: $font-weight-reg;
       text-transform: uppercase;
       cursor: pointer;
       background: $grey-light;
@@ -253,7 +255,8 @@
     }
 
     .normal-casing {
-      font-size: 16px;
+      @extend .a-fontSizeXS;
+
       text-transform: none;
     }
   }
@@ -385,9 +388,6 @@
 
 .a-full-width-table,
 .a-full-width {
-  margin-right: -$spacer * 2;
-  margin-left: -$spacer * 2;
-
   @include media-breakpoint-up( md ) {
     margin-right: -$spacer * 7;
     margin-left: -$spacer * 7;
@@ -396,13 +396,16 @@
     margin-right: -$spacer * 8;
     margin-left: -$spacer * 8;
   }
+
+  margin-right: -$spacer * 2;
+  margin-left: -$spacer * 2;
 }
 
 .a-full-height-table {
-  margin-bottom: -$spacer * 3;
-
   @include media-breakpoint-up( md ) {
     margin-bottom: -$spacer * 4;
   }
+
+  margin-bottom: -$spacer * 3;
 
 }

@@ -52,15 +52,12 @@
     }
 
     .a-iconText-text-large {
-      @include media-breakpoint-up( lg ) {
-        font-size: 28px;
-        line-height: 36px;
-      }
+      @include a-fontSize20;
+      @include a-fontReg;
 
-      font-family: $font-reg;
-      font-size: 20px;
-      font-weight: $font-weight-reg;
-      line-height: 28px;
+      @include media-breakpoint-up( lg ) {
+        @include a-fontSize28;
+      }
     }
   }
 
@@ -68,10 +65,8 @@
   .a-collapsePanel-body {
     // sass-lint:disable-block no-important
     position: relative;
-    display: block !important;
     width: 100%;
     height: 0;
-    overflow: hidden;
     background: $white;
     border: none;
     border-top: 1px solid $grey-light;
@@ -309,9 +304,8 @@
   align-items: center;
 
   &::before {
-    font-family: $font-reg;
-    font-size: 30px;
-    font-weight: $font-weight-reg;
+    @include a-fontReg;
+    @include a-fontSize30;
     vertical-align: middle;
     content: '›';
   }

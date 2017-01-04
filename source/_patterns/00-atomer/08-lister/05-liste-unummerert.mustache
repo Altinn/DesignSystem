@@ -3,45 +3,46 @@
 			<div class="a-dotted-line"></div>
 		{{/ item-list-dottedTop }}
 		{{# item-list }}
-			<li class="list-group-item a-item-list-item {{ item-list-class }}">
+			<li class="a-item-list-item {{ item-list-class }}">
+        <div class="a-listItem-leftContent">
+          {{^ list-item-link }}
+            {{# list-item-icon-left }}
+              <i class="{{ list-item-icon-left-class }}">{{{ list-item-icon-left-name }}}</i>
+            {{/ list-item-icon-left }}
+          {{/ list-item-link }}
 
-        <!-- start høyrejusterte ting -->
+          {{# list-item-disabled }}
+            <div class="a-dotted"></div>
+          {{/ list-item-disabled }}
 
-        {{# list-item-icon-right }}
-          <div class="float-xs-right">
-            {{> atomer-link-med-popover(popover-trigger: "manual", popover-link-text: "<i class=\"tmp tmp-help\"></i><i class=\"tmp tmp-cancel\"></i>", open-popover-class: "a-helpIconButton a-js-persistPopover a-js-popoverBig a-js-togglePopoverIcons", popover-class: "popover-big", popover-content: "Innholdet i popover fra spørsmålstegn-ikonet kommer her..") }}
-          </div>
-        {{/ list-item-icon-right }}
+          {{{ item-list-title }}}
 
-        {{# list-item-text-right }}
-          <div class="float-xs-right">
-            <span class="right-aligned">
-              {{{ list-item-text-right-text }}}
-            </span>
-          </div>
-        {{/ list-item-text-right }}
-
-        <!-- // end høyrejusterte elementer -->
-
-        <!-- start venstrejusterte elementer -->
-
-        {{# list-item-icon-left }}
-          {{> atomer-ikon }}
-        {{/ list-item-icon-left }}
-
-        {{{ item-list-title }}}
-
-        {{# list-item-link }}
-          <a href="../..{{{ url }}}" class="a-listItem-title">
-            {{{ item-list-linkTitle }}}
-          </a>
-        {{/ list-item-link }}
-
-        <!-- // end venstrejusterte elementer -->
-
-        {{# list-item-disabled }}
-          <div class="a-dotted"></div>
-        {{/ list-item-disabled }}
+          {{# list-item-link }}
+            <a href="../..{{{ url }}}" class="a-listItem-title">
+              {{# list-item-icon-left }}
+                <i class="{{ list-item-icon-left-class }}">{{{ list-item-icon-left-name }}}</i>
+              {{/ list-item-icon-left }}
+              {{{ item-list-linkTitle }}}
+            </a>
+          {{/ list-item-link }}
+        </div>
+        {{# list-item-right-content }}
+          <div class="a-listItem-rightContent">
+            {{# list-item-text-right }}
+              {{# is-link }}
+                {{> atomer-link }}
+              {{/ is-link }}
+              {{^ is-link }}
+                {{{ list-item-text-right-content }}}
+              {{/ is-link }}
+            {{/ list-item-text-right }}
+            {{# list-item-right-icon }}
+              <i class="{{ list-item-icon-right-class }}">{{{ list-item-icon-right-name }}}</i>
+            {{/ list-item-right-icon }}
+            {{# list-item-right-popover }}
+              {{> atomer-link-med-stor-popover-ikon }}
+            {{/ list-item-right-popover }}
+        {{/ list-item-right-content }}
 			</li>
 		{{/ item-list }}
 	</ul>

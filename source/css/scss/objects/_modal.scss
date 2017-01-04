@@ -151,18 +151,17 @@
 }
 
 .a-modal-title {
+  @include a-fontSize18;
   position: relative;
   display: table-cell;
   width: 100%;
   min-height: 96px;
   margin: 0;
-  font-size: 18px;
-  line-height: 24px;
   color: $white;
   vertical-align: middle;
 
   @include media-breakpoint-up( md ) {
-    font-size: 24px;
+    @include a-fontSize24;
   }
 }
 
@@ -332,6 +331,20 @@ a {
 
 .a-js-clipboardMsg {
   margin-left: 20px;
+  // TODO: Disable linting for special case line heights
   line-height: 60px;
+  color: $white-opacity-07;
   vertical-align: bottom;
+}
+
+.a-activity-log {
+  margin: -1px;
+  margin-top: 0;
+  background-color: $grey-light;
+  border: 1px solid $grey-medium;
+  border-top: none;
+
+  + div > .a-message-info {
+    margin: 1px;
+  }
 }

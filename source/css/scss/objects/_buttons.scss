@@ -2,22 +2,17 @@
     $BUTTONS
 \*------------------------------------*/
 .a-btn {
+  @extend .a-fontSizeS;
+  @include a-fontReg;
+
   position: relative;
   display: inline-block;
-  padding: 7px $spacer * 2 5px $spacer * 2;
+  padding: 6px $spacer * 2 4px $spacer * 2;
   margin-bottom: $spacer;
-  font-family: $font-reg;
-  font-size: 16px;
-  font-weight: $font-weight-reg;
-  line-height: 24px;
   color: $black;
   cursor: pointer;
   background: $blue;
   border: none;
-
-  @include media-breakpoint-up( lg ) {
-    font-size: 18px;
-  }
 
   &:hover {
     color: $black;
@@ -82,7 +77,6 @@
 
 .a-btn-success {
   color: $black;
-
   background-color: $green;
 
   &:hover {
@@ -129,18 +123,13 @@
 }
 
 .a-btn-border {
+  @extend .a-fontSizeXXL;
+  @include a-fontMedium;
+
   padding: 18px $spacer * 2 14px $spacer * 2;
-  font-family: $font-medium;
-  font-size: 24px;
-  font-weight: $font-weight-medium;
-  line-height: 36px;
   color: $blue-darker;
   background: $white-opacity-05;
   border: 2px solid $blue-darker;
-
-  @include media-breakpoint-up( lg ) {
-    font-size: 36px;
-  }
 
   &:hover,
   &:focus {
@@ -170,10 +159,11 @@
 	}
 
   .a-btn-icon-symbol {
+    @include a-fontSize22;
+
     width: 38px;
     padding-right: $spacer;
     margin-top: -5px;
-    font-size: 22px;
     text-align: center;
     vertical-align: middle;
 	}
@@ -191,11 +181,12 @@
   }
 
   .a-btn-icon-symbol {
+    @include a-fontSize22;
+
     width: $spacer * 3;
     height: $spacer * 3;
     padding: 0;
     padding-top: $spacer / 2;
-    font-size: 22px;
     color: $white;
     text-align: center;
     background: $blue;
@@ -251,6 +242,8 @@
 
 // Make button look like link
 .a-btn-link {
+  @extend .a-fontSizeS;
+
   position: relative;
   z-index: 1;
   padding: 0;
@@ -262,10 +255,6 @@
   border: none;
   border-bottom: 2px solid $link-color;
   box-shadow: none;
-
-  @include media-breakpoint-up( lg ) {
-    font-size: 18px;
-  }
 
   &::before {
     position: absolute;
@@ -303,6 +292,7 @@
   vertical-align: middle;
   background-color: transparent;
   border: 2px dotted $blue;
+
   align-items: center;
 
   &:hover,
@@ -313,9 +303,12 @@
   }
 
   .a-btn-action-icon {
+    @extend .a-fontSizeXS;
+
+    position: absolute;
+    left: $spacer / 2;
     height: 100%;
     margin: auto;
-    font-size: 16px;
     vertical-align: middle;
   }
 }
@@ -346,20 +339,21 @@
   }
 
   .a-box-button-icon {
+    @include a-fontSize60;
+
     display: block;
-    font-size: 60px;
   }
 
   .a-box-button-info {
+    @include a-fontSize20;
+    @include a-fontBold;
+
     display: table;
     width: auto;
     padding: 8px $spacer 4px $spacer;
     margin: $spacer auto $spacer auto;
     clear: both;
-    font-family: $font-bold;
-    font-size: 20px;
     font-style: normal;
-    font-weight: $font-weight-bold;
     color: $black;
     text-align: center;
     background:  $grey-light;
@@ -367,13 +361,14 @@
   }
 
   .a-box-button-action {
+    @extend .a-fontSizeXXS;
+    @include a-fontBold;
+
     display: inline-block;
-    font-family: $font-bold;
-    font-size: 14px;
   }
 
   .a-box-button-action-arrow {
-    font-size: 16px;
+    @extend .a-fontSizeXS;
   }
 
   .a-box-button-secondaryAction {
@@ -402,14 +397,15 @@
   }
 
   .a-meta-text {
-    font-size: 14px;
+    @extend .a-fontSizeXXS;
   }
 
   .a-box-button-name {
+    @extend .a-fontSizeXXS;
+
     display: block;
     max-height: 50px;
     overflow-y: hidden;
-    font-size: 14px;
     text-transform: uppercase;
   }
 
@@ -441,39 +437,43 @@
     border: 2px dotted $blue;
 
     .a-boxAddBtn-icon {
+      @include a-fontSize24;
+
       display: block;
       padding: $spacer * 2;
-      font-size: 24px;
     }
   }
 }
 
 // FULL WIDTH ADD BUTTON
 .a-fullWidthBtn {
+  @include a-fontBold;
+
   width: 100%;
   min-height: $spacer * 4;
-  font-family: $font-bold;
-  font-weight: $font-weight-bold;
 
   i {
     &.a-btn-action-icon {
+      @include a-fontSize30;
+
+      left: 18px;
       height: 100%;
       margin: auto;
-      font-size: 30px;
+      margin-right: $spacer * 2;
       vertical-align: middle;
     }
   }
 
   span {
+    @include media-breakpoint-up( sm ) {
+      margin-left: $spacer * 2;
+    }
+
     display: inline-block;
     width: 70%;
     height: 100%;
     margin: auto;
     vertical-align: middle;
-
-    @include media-breakpoint-up( sm ) {
-      margin-left: $spacer * 2;
-    }
   }
 }
 
@@ -518,6 +518,7 @@
       display: block;
       width: 100%;
       height: 100%;
+      // TODO: Disable linting for special case line heights
       line-height: $spacer * 3-4px;
       text-align: center;
       background-color: $grey-light;

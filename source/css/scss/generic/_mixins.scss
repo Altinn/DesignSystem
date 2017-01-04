@@ -16,20 +16,6 @@
 }
 
 
-/* Rem Unit font sizes with relative fallback http:/seesparkbox.com/foundry/scss_rem_mixin_now_with_a_better_fallback
-	Usage: @include font-size(1, large);
-*/
-
-@mixin font-size( $decimal-size, $keyword: null) {
-  @if $keyword {
-    font-size: $keyword;
-  } @else {
-    font-size: $decimal-size * $base-font-multiplier * 16px;
-  }
-  font-size: $decimal-size * 1rem;
-}
-
-
 /* Decide responsive width of container */
 
 @mixin make-container-widths( $widths: $container-widths ) {
@@ -42,6 +28,8 @@
   }
 }
 
+/* Disabled background */
+
 @mixin disabled-background( $color: $black, $background-color: $white, $box-shadow: 0 0 0 1px $white inset, $background-image: url( '../images/disabled-background.svg' ), $background-image-extra: null ) {
   color: $color;
   cursor: not-allowed;
@@ -51,6 +39,8 @@
   background-size: auto;
   box-shadow: $box-shadow;
 }
+
+/* Add col */
 
 @mixin add-col-properties {
   $breakpoint-counter: 0;

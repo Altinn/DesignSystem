@@ -23,7 +23,7 @@
 
 // Content in article
 .a-text {
-  font-size: 18px;
+  @extend .a-fontSizeS;
 
   h1,
   h2,
@@ -51,7 +51,7 @@
 
   a {
     &.a-link {
-      font-size: 18px;
+      @extend .a-fontSizeS;
   }
   }
 
@@ -222,11 +222,10 @@
   width: calc( 100% - 60px );
 
   h2 {
+    @include a-fontSize20;
+    @include a-fontBold;
     margin-top: 0;
     margin-bottom: 0;
-    font-family: $font-bold;
-    font-size: 20px;
-    font-weight: $font-weight-bold;
   }
 }
 
@@ -251,12 +250,12 @@
   background: $blue;
 
   .a-date-day {
+    @include a-fontSize30;
     padding-top: 5px;
-    font-size: $font-size-large-2;
   }
 
   .a-date-month {
-    margin-top: -5px;
-    font-size: $font-size-small;
+    @include a-fontSize12;
+    margin-top: -9px;
   }
 }

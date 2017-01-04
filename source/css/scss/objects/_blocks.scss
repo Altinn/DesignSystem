@@ -11,8 +11,7 @@
 	}
 
   p {
-    font-size: 20px;
-    line-height: 28px;
+    @include a-fontSize20;
     color: $blue-darker;
 	}
 
@@ -22,10 +21,9 @@
 	}
 
   .a-jumbotron-ingress {
+    @include a-fontSize28;
     display: block;
     margin-bottom: $spacer * 2;
-    font-size: 28px;
-    line-height: $spacer * 3;
     color: $blue-darker;
 	}
 
@@ -54,6 +52,10 @@
 
 .a-jumbotron-light {
   background-image: url('../images/header-bg1.svg');
+
+  .a-btn-border {
+    @extend .a-fontSizeXXL;
+  }
 }
 
 // If dark background, make text white
@@ -70,6 +72,7 @@
 	}
 
   .a-btn-border {
+    @extend .a-fontSizeXXL;
     color: $white;
     background: transparent;
     border: 2px solid $white;
@@ -170,44 +173,42 @@
   align-items: center;
 
   .a-personRole-icon {
+    @include a-fontSize30;
     float: left;
     padding-right: $spacer;
     margin-top: -9px;
-    font-size: 30px;
     color: $black;
   }
 
 
   .a-personRole-icon-success {
+    @include a-fontSize28;
     float: left;
     padding-right: 7px;
-    font-size: 28px;
     color: $green;
   }
 
   .a-personRole-text {
     float: left;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
+    // overflow: hidden;
+    // text-overflow: ellipsis;
+    // white-space: nowrap;
 
     .a-personRole-role {
+      @include a-fontSize12;
       display: block;
       padding-bottom: 3px;
-      font-size: 12px;
       text-transform: uppercase;
     }
 
     .a-personRole-name {
-      font-family: $font-bold;
-      font-size: 20px;
-      font-weight: $font-weight-bold;
-      line-height: 20px;
+      @include a-fontSize20;
+      @include a-fontBold;
     }
   }
 
   .a-label {
-    margin-top: -4px;
+    margin-top: -2px;
   }
 
 }
@@ -248,12 +249,11 @@
     margin-bottom: $spacer * 4;
   }
 
-  .a-textSize3 {
+  .a-headingSizeM {
     margin-bottom: $spacer * 2;
 
     span {
-      font-family: $font-reg;
-      font-weight: $font-weight-reg;
+      @include a-fontReg;
     }
   }
 
@@ -401,6 +401,7 @@
     margin-top: -1px;
 
     margin-bottom: 0;
+    // TODO: Disable linting for special case line heights
     line-height: $spacer * 3;
     text-align: center;
   }
@@ -419,8 +420,7 @@
     .a-link,
     .a-formCode {
       @include media-breakpoint-up(lg) {
-        font-size: 30px;
-        line-height: 40px;
+        @include a-fontSize30;
       }
     }
   }
@@ -432,8 +432,7 @@
   border-bottom: 1px solid $blue-line;
 
   h2 {
-    font-family: $font-bold;
-    font-weight: $font-weight-bold;
+    @include a-fontBold;
     word-break: break-word;
   }
 
@@ -461,7 +460,7 @@
   border-bottom: none;
 
   h2 {
-    font-size: 20px;
+    @include a-fontSize20;
 	}
 }
 
@@ -493,8 +492,7 @@
       }
 
       p {
-        font-size: 18px;
-        line-height: 24px;
+        @include a-fontSize18;
       }
     }
 
@@ -509,8 +507,7 @@
     }
 
     p {
-      font-size: 14px;
-      line-height: 20px;
+      @extend .a-fontSizeXXS;
 		}
 	}
 }

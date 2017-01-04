@@ -19,6 +19,7 @@
 
 //  This menu is using javascript from foundationNavigation.min.js
 .foundation-mq {
+  // sass-lint:disable-block no-disallowed-properties
   font-family: 'small=0&medium=544px&large=768px&xlarge=992px&xxlarge=1200px';
 }
 
@@ -89,11 +90,9 @@
         }
 
         h2 {
+          @include a-fontSize20;
+          @include a-fontBold;
           margin-bottom: 0;
-          font-family: $font-bold;
-          font-size: 20px;
-          font-weight: $font-weight-bold;
-          line-height: 26px;
         }
 
         p {
@@ -166,14 +165,12 @@
       }
 
       h4 {
-        font-family: $font-reg;
-        font-size: 16px;
-        font-weight: $font-weight-reg;
+        @include a-fontSize16;
+        @include a-fontReg;
       }
 
       .a-colnav-rightText {
-        font-family: $font-medium;
-        font-weight: $font-weight-medium;
+        @include a-fontMedium;
       }
     }
   }
@@ -248,10 +245,9 @@
             }
 
             h3 {
+              @include a-fontSize18;
+              @include a-fontReg;
               margin-bottom: 0;
-              font-family: $font-reg;
-              font-size: 18px;
-              font-weight: $font-weight-reg;
             }
           }
         }
@@ -271,20 +267,19 @@
             }
 
             h4 {
+              @include a-fontSize16;
+              @include a-fontReg;
               max-width: calc( 100% - ($spacer * 5) );
               padding-right: $spacer * 5;
               margin-bottom: 0;
-              font-family: $font-reg;
-              font-size: 16px;
-              font-weight: $font-weight-reg;
             }
 
             .a-colnav-rightText {
+              @include a-fontSize14;
               position: absolute;
               top: 11px;
               right: $spacer;
               display: block;
-              font-size: 14px;
             }
           }
         }
@@ -394,12 +389,12 @@
 }
 
 .a-js-backButton {
+  @include a-fontSize18;
+  @include a-fontMedium;
   display: none;
   padding: 18px 24px 17px 24px;
   margin-top: -1px;
   margin-bottom: 0;
-  font-size: 18px;
-  font-weight: 400;
   color: $white;
   cursor: pointer;
   background-color: $black;
@@ -412,7 +407,6 @@
     display: inline-block;
     margin-right: 10px;
     font: normal normal normal 14px/1 'AltinnNo';
-    font-size: inherit;
     content: '\f00a';
     transform: rotate(180deg);
     text-rendering: auto;
