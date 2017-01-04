@@ -1,7 +1,7 @@
 /* globals Clipboard */
 var clipboard = new Clipboard('.a-js-btnCopy');
 clipboard.on('success', function(e) {
-  $('.a-js-clipboardMsg').html('Org.nr. er kopiert');
+  $('.a-js-clipboardMsg').html('Kopiert til utklippstavlen');
   e.clearSelection();
 });
 
