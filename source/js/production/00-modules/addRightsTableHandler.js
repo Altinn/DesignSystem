@@ -4,7 +4,13 @@ var moveRowToTable = function(tableId, $actionsRow, rowCopiedClass) {
   var $actionsParentRow = $actionsRow.prev();
   var $actionsParentRowCopy = $actionsParentRow.clone();
   var $existingRowCopy = $('#copy-' + $actionsRow.attr('id'));
+  var $action = $actionsParentRow.find('td:last-of-type > a');
 
+  if ($action.text().trim() === 'Gi rettigheter') {
+    $action.text('Gi og fjerne rettigheter');
+  } else {
+    $action.text('Gi rettigheter');
+  }
 
   // replace original row with dummy row in source table
   $actionsParentRowCopy.insertAfter($actionsParentRow);

@@ -79,11 +79,9 @@ iframe {
     }
 
     h1 {
+      @include a-fontSize16;
+      @include a-fontLight;
       margin-bottom: 0;
-      font-family: $font-light;
-      font-size: 16px;
-      font-weight: $font-weight-light;
-      line-height: 30px;
       color: $grey-medium;
     }
   }
@@ -167,9 +165,8 @@ iframe {
           background: $grey-lighter;
 
           .ap-sideNav-link {
+            @include a-fontLight;
             padding: 11px $spacer * 2 11px $spacer * 3;
-            font-family: $font-light;
-            font-weight: $font-weight-light;
             border-top: 1px solid transparent;
             border-bottom: 1px solid $white;
           }
@@ -198,16 +195,14 @@ iframe {
     }
 
     .menu>li>a {
-      line-height: inherit;
       text-decoration: none;
     }
 
     //Link
     .ap-sideNav-link {
+      @include a-fontReg;
       display: block;
       padding: 17px $spacer * 2;
-      font-family: $font-reg;
-      font-weight: $font-weight-reg;
       color: $black;
       border-bottom: 1px solid $grey-light;
 
@@ -282,12 +277,12 @@ pre {
 
 // Color combinations
 .ap-colorCircle {
+  @include a-fontSize24
   display: inline-block;
   width: $spacer * 4;
   height: $spacer * 4;
   padding-top: 8px;
   margin-right: 1rem;
-  font-size: $spacer * 2;
   text-align: center;
   vertical-align: middle;
   border-radius: 999px;
@@ -346,6 +341,7 @@ pre {
 
 .ap-colorLabel {
   display: none;
+  // TODO: Disable linting for special case line heights
   line-height: $spacer * 2;
 }
 
@@ -392,8 +388,8 @@ pre {
 }
 
 .ap-iconPreview-caption {
+  @include a-fontSize12;
   display: block;
-  font-size: $font-size-small;
   color: $grey;
 }
 
@@ -409,7 +405,7 @@ pre {
 
 .material-icons {
   &.ap-fonticon {
-    font-size: $spacer * 3;
+    @include a-fontSize36;
     color: $black;
   }
 }
@@ -433,10 +429,9 @@ pre {
   }
 
   .ap-kitIcons-name {
+    @include a-fontSize14;
+    @include a-fontLight;
     display: block;
-    font-family: $font-light;
-    font-size: 14px;
-    font-weight: $font-weight-light;
   }
 }
 
@@ -465,8 +460,7 @@ pre {
 .ap-typo-activeSize-m {
   // mobile
   @include media-breakpoint-down( sm ) {
-    font-family: $font-bold;
-    font-weight: $font-weight-bold;
+    @include a-fontBold;
     color: $green;
   }
 }
@@ -474,8 +468,7 @@ pre {
 .ap-typo-activeSize-t {
   // tablet
   @include media-breakpoint-only( md ) {
-    font-family: $font-bold;
-    font-weight: $font-weight-bold;
+    @include a-fontBold;
     color: $green;
   }
 }
@@ -483,8 +476,7 @@ pre {
 .ap-typo-activeSize-l {
   // laptop
   @include media-breakpoint-only( lg ) {
-    font-family: $font-bold;
-    font-weight: $font-weight-bold;
+    @include a-fontBold;
 
     color: $green;
   }
@@ -493,8 +485,7 @@ pre {
 .ap-typo-activeSize-d {
   // desktop
   @include media-breakpoint-up( xl ) {
-    font-family: $font-bold;
-    font-weight: $font-weight-bold;
+    @include a-fontBold;
 
     color: $green;
   }

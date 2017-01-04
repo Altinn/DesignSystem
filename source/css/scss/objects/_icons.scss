@@ -3,26 +3,26 @@
     ICON
 \*------------------------------------*/
 .a-icon {
+  @include a-fontSize48;
   display: table-cell;
   width: 60px;
   min-width: 60px;
   height: 60px;
-  font-size: 48px;
   text-align: center;
   vertical-align: middle;
 
   &.a-icon-circle {
-    font-size: 36px;
+    @include a-fontSize36;
   }
 
   &.a-icon-circle-small {
+    @include a-fontSize20;
     float: left;
     width: 20px;
     min-width: 20px;
     height: 20px;
     margin-top: 2px;
     margin-right: 6px;
-    font-size: 20px;
     color: $blue;
     background: $white;
     border-radius: 50%;
@@ -31,12 +31,12 @@
 
 // Small icon
 .a-icon-small {
+  @include a-fontSize36;
   width: $spacer * 4;
   height: $spacer * 4;
-  font-size: 36px;
 
   &.a-icon-circle {
-    font-size: 24px;
+    @include a-fontSize24;
   }
 }
 
@@ -84,22 +84,20 @@
     flex: 1; //fix for flexbox wordwrap ie
 
     .a-iconText-text-small {
+      @include a-fontSize16;
       display: block;
       margin-bottom: 0;
-      font-size: 16px;
     }
 
+    span,
     p {
       &.a-iconText-text-large {
+        @include a-fontMedium;
+        @include a-fontSize18;
         margin-bottom: 0;
-        font-family: $font-medium;
-        font-size: 18px;
-        font-weight: $font-weight-medium;
-        line-height: 24px;
 
         @include media-breakpoint-up( lg ) {
-          font-size: 24px;
-          line-height: 30px;
+          @include a-fontSize24;
         }
       }
     }
@@ -107,16 +105,13 @@
     // If there is a small text above, large text should be smaller
     .a-iconText-text-small + .a-iconText-text-large {
       @include media-breakpoint-up( lg ) {
-        font-size: 22px;
-        line-height: 28px;
+        @include a-fontSize22;
       }
     }
 
     .a-link {
-      font-family: $font-bold;
-      font-size: 20px;
-      font-weight: $font-weight-bold;
-      line-height: 36px;
+      @include a-fontSize20;
+      @include a-fontBold;
     }
   }
 
@@ -177,13 +172,13 @@
     }
 
     .a-icon {
+      @include a-fontSize60;
       width: $spacer * 6;
       min-width: $spacer * 6;
       height: $spacer * 6;
-      font-size: 60px;
 
       &.a-icon-circle {
-        font-size: 36px;
+        @include a-fontSize36;
       }
     }
   }

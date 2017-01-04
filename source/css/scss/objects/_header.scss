@@ -121,12 +121,11 @@
 
   // Language switcher (Button)
   .a-languageSwitcher {
+    @extend .a-fontSizeXXS;
+    @include a-fontMedium;
     position: absolute;
     right: 18px;
     margin-top: -6px;
-    font-family: $font-medium;
-    font-size: 14px;
-    font-weight: $font-weight-medium;
     color: $blue-dark;
     cursor: pointer;
     background: transparent;
@@ -148,7 +147,7 @@
     }
 
     i {
-      font-size: 30px;
+      @include a-fontSize30;
       vertical-align: middle;
     }
 
@@ -168,12 +167,11 @@
 
 // Person switcher (Button)
 .a-personSwitcher {
+  @extend .a-fontSizeXXS;
+  @include a-fontMedium;
   position: absolute;
   right: 0;
   margin-top: -6px;
-  font-family: $font-medium;
-  font-size: 14px;
-  font-weight: $font-weight-medium;
   color: $blue-dark;
   text-align: right;
   cursor: pointer;
@@ -230,14 +228,14 @@
     border-radius: $spacer * 3;
 
     @include media-breakpoint-up( md ) {
+      @include a-fontSize18;
       margin-top: 0;
-      font-size: 18px;
     }
 
     &::before {
+      @include a-fontSize18;
       position: relative;
       top: 7px;
-      font-size: 18px;
     }
   }
 }
@@ -270,8 +268,8 @@
     }
 
     p {
+      @extend .a-fontSizeXXS;
       margin-bottom: 0;
-      font-size: 14px;
       word-wrap: break-word;
     }
 
@@ -286,6 +284,7 @@
     top: $spacer * 2;
     right: $spacer * 3;
     padding-bottom: 0;
+    // TODO: Disable linting for special case line heights
     line-height: 19px;
   }
 }
@@ -376,11 +375,11 @@
   }
 
   .navbar-toggler {
+    @extend .a-fontSizeXS;
     float: right;
     width: $spacer * 5;
     padding: 8px 0;
     margin-top: -5px;
-    font-size: 16px;
     color: $white;
     background: $blue-dark;
 
@@ -419,11 +418,10 @@
   box-shadow: $mobileMenu-shadow;
 
   .indicator {
+    @include a-fontSize10;
     display: inline-block;
     padding-top: 3px;
     margin-left: $spacer;
-    font-size: 9px;
-    line-height: 20px;
     vertical-align: middle;
     transition: all 0.25s ease-in-out;
 
@@ -515,11 +513,10 @@
 		}
 
     a {
+      @include a-fontSize18;
+      @include a-fontMedium;
       display: block;
       padding: $spacer $spacer;
-      font-family: $font-medium;
-      font-size: 18px;
-      font-weight: $font-weight-medium;
       color: $blue-dark;
       border: none;
       border-bottom: 1px solid $blue-dark;
@@ -565,17 +562,16 @@
 			}
 
       @include media-breakpoint-up( lg ) {
+        @include a-fontSize24;
         padding-bottom: 3px;
-        font-size: 24px;
 			}
 		}
 
     .a-link-tel {
+      @include a-fontBold;
       padding-top: $spacer * 2;
       padding-bottom: $spacer * 2;
       margin-left: -5px;
-      font-family: $font-bold;
-      font-weight: $font-weight-bold;
 		}
 	}
 
@@ -633,6 +629,7 @@
 			}
 
       p {
+        // TODO: Disable linting for special case line heights
         line-height: $spacer * 3;
 			}
 

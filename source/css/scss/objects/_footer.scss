@@ -42,13 +42,8 @@
       }
 
       a {
-        @include media-breakpoint-up( md ) {
-          font-size: 20px;
-        }
-
-        font-family: $font-bold;
-        font-size: 16px;
-        font-weight: $font-weight-bold;
+        @extend .a-fontSizeL;
+        @include a-fontBold;
         color: $blue-darker;
         border: none;
 
@@ -74,8 +69,8 @@
 }
 
 .a-footerExtraNav {
+  @extend .a-fontSizeXXS;
   margin-top: $spacer * 2;
-  font-size: 14px;
   color: $grey;
   text-align: center;
 
@@ -98,10 +93,9 @@
       padding-left: 0;
 
       a {
+        @extend .a-fontSizeXXS;
+        @include a-fontReg;
         position: relative;
-        font-family: $font-reg;
-        font-size: 14px;
-        font-weight: $font-weight-reg;
         color: $black;
 
         &:focus {

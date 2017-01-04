@@ -27,12 +27,15 @@ var toggleFilter = function() {
     $(e.currentTarget).css('display', 'initial');
   });
 
-  $('.a-collapse-title').on('mouseup', function() {
+  $('.a-collapse-title').on('mouseup', function(e) {
     var actionRow = $(this).attr('data-target');
-    if (!$(this).hasClass('collapsed')) {
-      $(this).addClass('collapsed');
-    } else {
-      $(this).removeClass('collapsed');
+
+    if (e.which === 1) { // triggered on left mouse click
+      if (!$(this).hasClass('collapsed')) {
+        $(this).addClass('collapsed');
+      } else {
+        $(this).removeClass('collapsed');
+      }
     }
   });
 
