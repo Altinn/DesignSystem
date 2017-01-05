@@ -4,12 +4,12 @@
     <div class="card">
 
       <!-- TITLE -->
-      <div role="tab" id="{{collapseTitle-id}}">
+      <div role="tab" {{#collapseTitle-id}} id="{{collapseTitle-id}}" {{/collapseTitle-id}}>
         {{> atomer-ekspanderbar-overskrift }}
       </div>
 
       <!-- CONTENT -->
-      <div id={{collapse-header-id}} class="a-collapseContent collapse" role="tabpanel" aria-labelledby="{{collapseTitle-id}}">
+      <div {{#collapse-header-id}} id="{{collapse-header-id}}" {{/collapse-header-id}} class="a-collapseContent collapse" role="tabpanel" {{#aria-labelledby}} aria-labelledby="{{collapseTitle-id}}" {{/aria-labelledby}}>
         <div class="a-collapseContent-inside">
           {{ collapse-header-content }}
           <div class="row">

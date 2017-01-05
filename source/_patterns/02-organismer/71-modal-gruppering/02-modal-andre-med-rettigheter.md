@@ -2,4 +2,4 @@
  state: indesignreview
  version: 1
 ---
-Modal innhold for andre med rettigheter
+Modal-gruppering for andre med rettigheter
