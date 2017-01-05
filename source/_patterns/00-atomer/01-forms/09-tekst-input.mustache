@@ -6,34 +6,35 @@
 
       <!-- Label -->
       <label class="a-form-label {{ isHidden }} {{ form-label-class }}" for="{{ text-input-id }}">
-          {{# form-label-hasIcon }}
-            <i class="{{ form-label-iconClass }}"> {{{ form-label-icon }}} </i>
-          {{/ form-label-hasIcon }}
-          {{{ text-input-label }}}
+        {{# form-label-hasIcon }}
+          {{> atomer-ikon }}
+        {{/ form-label-hasIcon }}
+        {{{ text-input-label }}}
       </label>
 
       <!-- Input  -->
         <input type="{{ input-type }}"
           class="form-control {{ form-control-class }} {{ form-input-hasButton-class }} {{# no-left-padding }}pl-0{{/ no-left-padding }}"
-          id="{{ text-input-id }}"
+          {{# text-input-id }}id="{{ text-input-id }}"{{/ text-input-id }}
           {{{validator-pattern}}}
           {{ isRequired }}
           placeholder="{{ text-input-placeholder }}"
           value="{{ text-input-value }}"
-          maxlength="{{ maxlength }}"
+          {{# maxlength }}maxlength="{{ maxlength }}"{{/ maxlength }}
           data-error="{{ validator-errorMessage }}"
           {{ isDisabled }}
           data-search-algorithm="{{ search-algorithm }}"
           data-search-target="{{ search-target }}">
           {{# has-feedback }}
-            <i class="fa fa-check-circle form-control-feedback"></i><span class="sr-only">Icon showing if input is valid or not</span>
+            {{> atomer-ikon }}
+            <span class="sr-only">Icon showing if input is valid or not</span>
           {{/ has-feedback }}
 
         <!-- button -->
         {{# form-input-hasButton }}
         <div class="input-group-btn">
           <button class="btn btn-secondary" type="button">
-            <i class="{{{ form-input-button-iconClass }}}"><span class="sr-only">{{ form-input-button-action }}</span>{{{ form-input-button-icon }}}</i>
+            {{> atomer-ikon }}
           </button>
         </div>
         {{/ form-input-hasButton }}
@@ -46,7 +47,7 @@
 
     {{# extra-help }}
     <small id="help" class="form-text a-validatorInfo">
-      <i class="material-icons a-validatorInfo-icon {{ styleModifier }}"> {{{ validatorInfo-icon }}}</i>
+      {{> atomer-ikon }}
       {{{ extra-helpText }}}
     </small>
     {{/ extra-help }}

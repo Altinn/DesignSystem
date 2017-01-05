@@ -1,7 +1,7 @@
 {{# checkbuttons }}
   <div class="a-switch">
     <input
-      id="{{{ checkbuttons-id }}}"
+      {{# checkbuttons-id }} id="{{{ checkbuttons-id }}}" {{/ checkbuttons-id }}
       class="sr-only"
       type="checkbox"
       name="{{{ checkbuttons-id }}}"
@@ -10,13 +10,11 @@
     <label
       for="{{{ checkbuttons-id }}}"
       class="a-switch-label {{{ checkbuttons-class }}}">
-      <i class="material-icons a-switch-icon">
-        {{{ checkbuttons-icon }}}
-      </i>
+
+      {{> atomer-ikon }}
+
       {{# checkbuttons-toggle-icon }}
-        <i class="material-icons a-switch-icon">
-          {{{ checkbuttons-toggle-icon }}}
-        </i>
+        {{> atomer-ikon }}
       {{/ checkbuttons-toggle-icon }}
       {{{ checkbuttons-title }}}
     </label>
