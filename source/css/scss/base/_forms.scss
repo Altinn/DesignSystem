@@ -118,7 +118,6 @@ textarea {
       width: $spacer * 4;
       height: $spacer * 3;
       padding: 0;
-      padding-top: $spacer / 3;
       padding-right: 6px;
       color: $black;
       text-align: right;
@@ -130,6 +129,10 @@ textarea {
       &:focus {
         background: $blue-light;
         outline: none;
+      }
+
+      i {
+        vertical-align: middle;
       }
     }
   }
@@ -844,6 +847,14 @@ fieldset {
   }
 }
 
+.dropdown {
+  &.a-transparent {
+    .a-dropdown-toggle {
+      background-color: transparent;
+    }
+  }
+}
+
 // TODO: merge with .a-dropdown-toggle with & revert selector? .a-dropdown-toggle { .open & {...} }
 .open {
   .a-dropdown-toggle {
@@ -851,6 +862,12 @@ fieldset {
 
     :hover {
       border-color: $blue-dark;
+    }
+  }
+
+  &.a-transparent {
+    .a-dropdown-toggle {
+      background-color: $white;
     }
   }
 }
