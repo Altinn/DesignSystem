@@ -144,12 +144,11 @@ iframe {
     @include media-breakpoint-up( md ) {
       // sass-lint:disable-block no-important
       position: fixed;
-      top: 139px;
+      top: 133px;
       display: block !important;
       width: $spacer * 25;
       overflow-y: scroll;
       border-right: 1px solid $grey-light;
-      ;
     }
 
     ul {
@@ -180,14 +179,15 @@ iframe {
             margin-top: -1px;
           }
 
-          &.ap-nav-active,
           &.ap-nav-active {
-            &:hover {
-              background: lighten( $grey-light, 2% );
+            background: lighten( $grey-light, 2% );
 
-              .ap-sideNav-link {
-                padding: 11px $spacer * 2 11px 30px;
-              }
+            .ap-sideNav-link {
+              padding: 11px $spacer * 2 11px 30px;
+            }
+
+            &:hover {
+              @extend .ap-nav-active;
             }
           }
         }
@@ -220,16 +220,18 @@ iframe {
     }
 
     // Active item
-    .ap-nav-active,
     .ap-nav-active {
-      &:hover {
-        background: lighten($grey-light, 4%);
-        border-left: $spacer / 2 solid $blue-dark;
+      background: lighten($grey-light, 4%);
+      border-left: $spacer / 2 solid $blue-dark;
 
-        .ap-sideNav-link {
-          padding: 17px 19px;
-        }
+      .ap-sideNav-link {
+        padding: 17px 19px;
       }
+
+      &:hover {
+        @extend .ap-nav-active;
+      }
+
     }
   }
 
