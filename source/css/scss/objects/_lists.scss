@@ -35,8 +35,10 @@
 
   .a-item-list-item {
     position: relative;
+    display: flex;
     width: 100%;
     padding: $spacer / 2 $spacer / 2 4px $spacer / 2;
+    align-items: center;
 
     .a-text-left {
       padding-left: $spacer;
@@ -53,7 +55,7 @@
     }
 
     a {
-      display: inline-block;
+      display: block;
 
       &:hover {
         cursor: pointer;
@@ -82,11 +84,10 @@
     }
 
     .a-listItem-rightContent {
-      position: absolute;
-      top: $spacer / 2;
-      right: $spacer / 2;
       max-width: 50%;
       padding-left: $spacer;
+      margin-left: auto;
+      align-self: center;
 
       @include media-breakpoint-up( sm ) {
         max-width: initial;
