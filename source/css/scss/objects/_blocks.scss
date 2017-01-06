@@ -334,13 +334,15 @@
 .a-question-wrapper {
   display: inline-block;
   padding: 0;
-
   overflow: hidden;
 
   .a-trigger-question {
     position: relative;
-
     display: none;
+    padding-bottom: $spacer;
+    margin-top: -1px;
+    margin-bottom: 0;
+    border-top: 1px solid darken( $grey-light, 6% );
 
     &:nth-of-type(1) {
       display: block;
@@ -374,32 +376,47 @@
           left: $spacer * 3;
         }
       }
+
+      &:last-of-type {
+        display: none;
+        padding: 0;
+        margin-bottom: 0;
+        // TODO: Disable linting for special case line heights
+
+        &::before {
+          display: none;
+        }
+      }
     }
   }
 
   .hidewhenempty {
+    margin-top: 18px;
     margin-bottom: 15px;
-    margin-left: $spacer * 2;
+    // margin-left: $spacer * 2;
+    margin-left: 0;
 
     @include media-breakpoint-up( sm ) {
-      margin-left: $spacer * 6;
+      // margin-left: $spacer * 6;
+      margin-left: 0;
     }
 
     @include media-breakpoint-up( md ) {
-      margin-left: $spacer * 7;
+      // margin-left: $spacer * 7;
+      margin-left: 0;
     }
 	}
+
+  .hidewhenempty + hr {
+    display: none;
+  }
 
   hr {
     margin: 0;
   }
 
   .a-btn {
-    display: none;
-    float: left;
     width: 100%;
-    margin-top: -1px;
-
     margin-bottom: 0;
     // TODO: Disable linting for special case line heights
     line-height: $spacer * 3;
