@@ -2,7 +2,9 @@
 mobileNavigation, propagateContent, toggleExpand, toggleFilter, uniformHeight,
 tooltip, popover, aTagSpaceExpand, initializeDatepicker, onboarding,
 nameChecker, codeLookup, handleValidatorLibrary, setupDeletableRowsTable,
-defaultSort, setupAddRightsHandler, onFileInputChange, toggleInstant, switchForm */
+defaultSort, setupAddRightsHandler, onFileInputChange, toggleInstant, switchForm,
+setupSortableRowOnclick */
+
 window.altinnInit = function() {
   toggleExpand();
   drilldownInteraction();
@@ -26,6 +28,7 @@ window.altinnInit = function() {
   onFileInputChange();
   toggleInstant();
   switchForm();
+  setupSortableRowOnclick();
 };
 window.altinnInit();
 window.smoothStateMod = function() {
