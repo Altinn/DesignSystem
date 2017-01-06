@@ -1,18 +1,24 @@
-<div class="a-iconText {{ variation-class }}">
+<!-- START: 01-molekyler-00-tekst-30-ikon-tekst -->
+<div class="a-iconText {{ variation-class }} {{ styleModifier }}">
   <!-- ICON -->
-  <div class="a-iconText-icon">
-    {{# hasIcon }}
-      {{> atomer-ikon }}
-    {{/ hasIcon }}
-    {{# hasDate }}
-      {{> atomer-dato }}
-    {{/ hasDate }}
-  </div>
+  <div class="a-iconText-icon">{{# hasIcon }}{{> atomer-ikon }}{{/ hasIcon }}{{# hasDate }}{{> atomer-dato }}{{/ hasDate }}</div>
   <!-- TEXT -->
-  <div class="a-iconText-text">  
-    {{# hasTextSmall }}
-      <p class="a-iconText-text-small">{{ textSmall }}</p>
-    {{/ hasTextSmall }}
-    <p class="a-iconText-text-large">{{ icontext }} {{{tag}}} </p>
-  </div>
+  {{# isHeader }}
+    <h1 class="a-iconText-text mb-0">
+  {{/ isHeader}}
+  {{^ isHeader }}
+    <div class="a-iconText-text">
+  {{/ isHeader }}
+  {{# hasTextSmall }}
+    <span class="a-iconText-text-small">{{ textSmall }}</span>
+  {{/ hasTextSmall }}
+  <span class="a-iconText-text-large">{{ icontext }} {{{ tag }}} </span>
+  {{# isHeader }}
+    </h1>
+  {{/ isHeader}}
+  {{^ isHeader }}
+    </div>
+  {{/ isHeader }}
 </div>
+
+<!-- END: 01-molekyler-00-tekst-30-ikon-tekst -->

@@ -1,0 +1,2846 @@
+<!DOCTYPE html>
+<html lang="no" class="">
+
+  <head>
+    <title>Altinn</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width" />
+
+    <!-- Favicons -->
+    <link rel="apple-touch-icon" sizes="57x57" href="../../images/favicons/apple-touch-icon-57x57.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="../../images/favicons/apple-touch-icon-60x60.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="../../images/favicons/apple-touch-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="../../images/favicons/apple-touch-icon-76x76.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="../../images/favicons/apple-touch-icon-114x114.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="../../images/favicons/apple-touch-icon-120x120.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="../../images/favicons/apple-touch-icon-144x144.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="../../images/favicons/apple-touch-icon-152x152.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="../../images/favicons/apple-touch-icon-180x180.png">
+    <link rel="icon" type="image/png" href="../../images/favicons/favicon-32x32.png" sizes="32x32">
+    <link rel="icon" type="image/png" href="../../images/favicons/android-chrome-192x192.png" sizes="192x192">
+    <link rel="icon" type="image/png" href="../../images/favicons/favicon-96x96.png" sizes="96x96">
+    <link rel="icon" type="image/png" href="../../images/favicons/favicon-16x16.png" sizes="16x16">
+    <link rel="manifest" href="../../images/favicons/manifest.json">
+    <link rel="mask-icon" href="../../images/favicons/safari-pinned-tab.svg">
+    <meta name="apple-mobile-web-app-title" content="Altinn">
+    <meta name="application-name" content="Altinn">
+    <meta name="msapplication-TileColor" content="#da532c">
+    <meta name="msapplication-TileImage" content="/mstile-144x144.png">
+    <meta name="theme-color" content="#ffffff">
+
+    <!-- Google font -->
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700" rel="stylesheet">
+
+
+    <!-- Material icons-->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+    <!-- FortAwesome icons-->
+    <script src="https://use.fortawesome.com/ed31cded.js"></script>
+    <!-- Temporary icons-->
+    <script src="https://use.fortawesome.com/b04a3e28.js"></script>
+
+    <!-- Altinn stylesheet -->
+    <link rel="stylesheet" href="../../css/style.css?1483702014103" media="all" />
+    <!-- <link rel="stylesheet" href="../../css/pattern-scaffolding.css?1483702014103" media="all" /> -->
+
+    <!-- Begin Pattern Lab (Required for Pattern Lab to run properly) -->
+    <!-- never cache patterns -->
+<meta http-equiv="cache-control" content="max-age=0" />
+<meta http-equiv="cache-control" content="no-cache" />
+<meta http-equiv="expires" content="0" />
+<meta http-equiv="expires" content="Tue, 01 Jan 1980 1:00:00 GMT" />
+<meta http-equiv="pragma" content="no-cache" />
+
+<link rel="stylesheet" href="../../styleguide/css/styleguide.min.css?1483702014103" media="all">
+<link rel="stylesheet" href="../../styleguide/css/prism-typeahead.min.css?1483702014103" media="all" />
+
+    <!-- End Pattern Lab -->
+
+
+
+  </head>
+  <body class="">
+  <a name="top"></a>
+<div class="sg-top">
+	<div class="container">
+		<div class="row">
+	    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-8 col-xl-8">
+				<h1><span class="a-headingSizeS">PATTERN LAB</span><br>Levende designsystem og prototypeverktøy for Altinns webløsninger </h1>
+				<p class="a-leadText">Designsystemet er laget med Pattern Lab, basert på atomisk designmetodikk. Vi bruker dette systemet til å opprettholde frontend-kode og visuell konsistens på tvers av løsningene. Målet er å skape et felles sted for UI-mønstre og stilsett, som etterhvert skal benyttes av alle løsningene til Altinn.</p>
+
+				<div class="a-btn-group a-btn-group-exLinks">
+					<a href="http://altinn-dev.dev.bouvet.no/en/profil/web/retningslinjer-for-web2/"
+					    id="" target="_blank"
+					    class="a-linkArea a-link">
+					    Les mer om designsystemet<i class="fa fa-arrowrightup a-link-arrow"> </i>
+					</a>
+
+					<a href="http://altinn.github.io/DesignSystem/prototype"
+					    id="" target="_blank"
+					    class="a-linkArea a-link">
+					    Åpne prototype<i class="fa fa-arrowrightup a-link-arrow"> </i>
+					</a>
+
+
+				</div>
+			</div>
+			<div class="col-xs-12 col-sm-12 col-md-12 col-lg-4 col-xl-4">
+			  <span class="sg-atom hidden-md-down"></span>
+		  </div>
+		</div>
+	</div>
+</div>
+<div class="sg-statesExplanation">
+	<div class="container">
+		<span class="sg-pattern-state specification">
+			<span class="sg-pattern-state-specification">UNDER SPESIFISERING</span> - komponenten er under spesifisering. <br />
+		</span>
+		<span class="sg-pattern-state inprogress">
+			<span class="sg-pattern-state-inprogress">ARBEID PÅGÅR</span> - komponenten er under utvikling, og blir jobbet på for øyeblikket. <br />
+		</span>
+		<span class="sg-pattern-state intechnicalreview">
+			<span class="sg-pattern-state-intechnicalreview">TIL TEKNISK REVIEW</span> - komponenten er klar for teknisk gjennomgang/diskusjon, og venter på godkjenning. <br />
+		</span>
+		<span class="sg-pattern-state indesignreview">
+				<span class="sg-pattern-state-indesignreview">TIL DESIGN REVIEW</span> - komponenten er klar for design gjennomgang/diskusjon, og venter på godkjenning. <br />
+		</span>
+		<span class="sg-pattern-state complete">
+			<span class="sg-pattern-state-complete">FERDIG</span> - komponenten anses som ferdig og klar for bruk.<br />
+		</span>
+		<span class="sg-pattern-state needsrevalidation">
+				<span class="sg-pattern-state-needsrevalidation">MÅ REVALIDERES</span> - det er gjort endringer i rammeverk / platform som gjør at denne komponenten må revalideres. <br />
+		</span>
+		<br />
+		<span class="sg-pattern-variations">
+			<span class="sg-pattern-state-variations">♺</span> VARIASJONER - En variasjon av en annen komponent
+			<a href="javascript:;" aria-label="info" tabindex="0" class="a-helpIconButton" role="button" data-toggle="popover" data-template='<div class="popover " role="tooltip"><div class="popover-arrow"></div><h3 class="popover-title"></h3><div class="popover-content"></div></div>' data-target="#myPopup3" data-placement="bottom" data-trigger="focus" title="Variasjoner" data-content="Variasjonskomponentene har samme HTML-struktur som sin hovedkomponent, men viser ulike variasjoner av stilsetting man kan oppnå ved å benytte ulike CSS-klasser etc.">
+				<i class="material-icons">&#xE887;</i>
+			</a>
+		</span>
+	</div>
+</div>
+<div class="container clearfix">
+  <!-- View All Patterns in a Pattern Sub-Type -->
+  <div class="sg-main" role="main">
+    <!-- Patterns -->
+    <div id="sg-patterns clearfix">
+<div id="viewall-organismer-modal-gruppering" class="sg-pattern-category">
+  <h2 class="sg-pattern-category-title"><a href="../../patterns/02-organismer-71-modal-gruppering&#x2F;index.html" class="patternLink" data-patternpartial="viewall-organismer-modal-gruppering">modal-gruppering</a></h2>
+
+  <div class="sg-pattern-category-body">
+    
+  </div><!--end sg-pattern-category-body-->
+
+</div><!--end sg-pattern-category-->
+<div id="organismer-modal-klientdelegering" class="sg-pattern">
+  <div class="sg-pattern-head">
+    <h3 class="sg-pattern-title">
+      <a href="../../patterns/02-organismer-71-modal-gruppering-01-modal-klientdelegering&#x2F;02-organismer-71-modal-gruppering-01-modal-klientdelegering.html" class="patternLink" data-patternpartial="organismer-modal-klientdelegering" title="Link to Pattern">
+          Modal Klientdelegering
+      </a>
+    </h3>
+      <span class="sg-pattern-state indesignreview">indesignreview</span>
+    <div class="sg-pattern-breadcrumb"></div>
+    <a href="#" data-patternpartial="organismer-modal-klientdelegering" title="View Pattern Info" id="sg-pattern-extra-toggle-organismer-modal-klientdelegering" class="sg-pattern-extra-toggle">Info <span>&#9660;</span></a>
+  </div>
+  <div class="sg-pattern-extra" id="sg-pattern-extra-organismer-modal-klientdelegering">
+
+  </div>
+  <div class="sg-pattern-example">
+    <!-- START: 02-organismer-71-modal-gruppering-01-modal-klientdelegering -->
+  <!-- START: 02-organismer-70-Modal-innhold-97-klientdelegering-ferdig -->
+<p> 
+    Du klarte det! Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quas modi doloribus officia incidunt nostrum, blanditiis a suscipit unde neque fuga corporis, nisi quia maxime explicabo at harum? Rerum, obcaecati perferendis!
+</p>
+<div class="a-btn-group">
+
+        <!-- START: 00-atomer-02-lenker-00-link -->
+<a
+  
+  class="a-linkArea a-btn a-btn-success ">
+  Ferdig
+
+</a>
+
+<!-- END: 00-atomer-02-lenker-00-link -->
+
+
+        <!-- START: 00-atomer-02-lenker-00-link -->
+<a
+  
+  class="a-linkArea a-link ">
+  Tildel flere rettigheter
+
+</a>
+
+<!-- END: 00-atomer-02-lenker-00-link -->
+
+
+
+        <!-- START: 00-atomer-02-lenker-00-link -->
+<a
+  
+  class="a-linkArea a-link ">
+  Lenke som står i løpende tekst
+
+</a>
+
+<!-- END: 00-atomer-02-lenker-00-link -->
+
+</div>
+<!-- END: 02-organismer-70-Modal-innhold-97-klientdelegering-ferdig -->
+
+  <div class="pb-2">
+    <!-- START: 02-organismer-70-Modal-innhold-92-delegering-legg-til -->
+  <h2 class="a-headingSizeS">Tab heading</h2>
+  <div class="pb-2 clearfix">
+    <!-- START: 01-molekyler-02-navigasjon-10-faner -->
+<ul class="nav a-tabs" role="tablist" >
+    <li class="nav-item a-tab">
+      <a class="a-tab-btn  active " data-toggle="tab" href="#home" role="tab">
+          <!-- START: 00-atomer-09-bilder-og-media-15-ikon -->
+
+<i class="ai ai-timer   hidden-xs-down"    ></i>
+
+
+<!-- END: 00-atomer-09-bilder-og-media-15-ikon -->
+
+        Person
+      </a>
+    </li>
+    <li class="nav-item a-tab">
+      <a class="a-tab-btn " data-toggle="tab" href="#enterprise" role="tab">
+          <!-- START: 00-atomer-09-bilder-og-media-15-ikon -->
+
+<i class="ai ai-timer   hidden-xs-down"    ></i>
+
+
+<!-- END: 00-atomer-09-bilder-og-media-15-ikon -->
+
+        Ekstern virksomhet
+      </a>
+    </li>
+    <li class="nav-item a-tab">
+      <a class="a-tab-btn " data-toggle="tab" href="#enterpriseuser" role="tab">
+          <!-- START: 00-atomer-09-bilder-og-media-15-ikon -->
+
+<i class="ai ai-timer   hidden-xs-down"    ></i>
+
+
+<!-- END: 00-atomer-09-bilder-og-media-15-ikon -->
+
+        Bruker med virksomhetssertifikat
+      </a>
+    </li>
+</ul>
+
+<!-- END: 01-molekyler-02-navigasjon-10-faner -->
+
+  </div>
+  <div class="tab-content a-tabs-content">
+    <div class="tab-pane active" id="home" role="tabpanel">
+  <form data-toggle="validator" data-disable="true">
+    <div class="row">
+      <div class="col-xs-12 col-md-7 mb-1">
+        <h3 class="a-headingSizeS">Hvem vil du legge til?</h3>
+          <!-- START: 00-atomer-01-forms-09-tekst-input -->
+<div class="form-group a-form-group has-feedback  "
+   data-toggle="validator" 
+   data-delay="2000" >
+
+    <div class="a-form-group-items input-group   transparent ">
+
+      <!-- Label -->
+      <label class="a-form-label  input-group-addon" for="text-fnr-brukernavn">
+        Fødselsnr/brukernavn:
+      </label>
+
+      <!-- Input  -->
+        <input type="text"
+          class="form-control  a-form-control-withBtn pl-0"
+          id="text-fnr-brukernavn"
+          pattern= "[0-9]{11}"
+          required
+          placeholder="11 siffer"
+          value=""
+          
+          data-error="Personnummer må bestå av 11 siffer."
+          
+          data-search-algorithm="show-and-highlight"
+          data-search-target="employee-table">
+            <!-- START: 00-atomer-09-bilder-og-media-15-ikon -->
+
+<i class="ai ai-timer   "    ></i>
+
+
+<!-- END: 00-atomer-09-bilder-og-media-15-ikon -->
+
+            <span class="sr-only">Icon showing if input is valid or not</span>
+
+        <!-- button -->
+        <div class="input-group-btn">
+          <button class="btn btn-secondary" type="button">
+            <!-- START: 00-atomer-09-bilder-og-media-15-ikon -->
+
+<i class="tmp tmp-search   "    ></i>
+
+
+<!-- END: 00-atomer-09-bilder-og-media-15-ikon -->
+
+          </button>
+        </div>
+
+
+    </div>
+
+
+
+      <div class="help-block with-errors a-message a-message-error ">Personnummer må bestå av 11 siffer.</div>
+
+  </div>
+
+<!-- END: 00-atomer-01-forms-09-tekst-input -->
+
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-xs-12 col-md-7">
+        <div class="mt-1">
+            <!-- START: 00-atomer-01-forms-09-tekst-input -->
+<div class="form-group a-form-group has-feedback   mb-0 "
+   data-toggle="validator" 
+   data-delay="2000" >
+
+    <div class="a-form-group-items input-group   transparent ">
+
+      <!-- Label -->
+      <label class="a-form-label  input-group-addon" for="text-etternavn">
+        Etternavn:
+      </label>
+
+      <!-- Input  -->
+        <input type="text"
+          class="form-control  a-form-control-withBtn pl-0"
+          id="text-etternavn"
+          pattern= "[0-9]{11}"
+          required
+          placeholder=""
+          value=""
+          
+          data-error="Personnummer må bestå av 11 siffer."
+          
+          data-search-algorithm="show-and-highlight"
+          data-search-target="employee-table">
+            <!-- START: 00-atomer-09-bilder-og-media-15-ikon -->
+
+<i class="ai ai-timer   "    ></i>
+
+
+<!-- END: 00-atomer-09-bilder-og-media-15-ikon -->
+
+            <span class="sr-only">Icon showing if input is valid or not</span>
+
+        <!-- button -->
+        <div class="input-group-btn">
+          <button class="btn btn-secondary" type="button">
+            <!-- START: 00-atomer-09-bilder-og-media-15-ikon -->
+
+<i class="tmp tmp-search   "    ></i>
+
+
+<!-- END: 00-atomer-09-bilder-og-media-15-ikon -->
+
+          </button>
+        </div>
+
+
+    </div>
+
+
+
+      <div class="help-block with-errors a-message a-message-error ">Personnummer må bestå av 11 siffer.</div>
+
+  </div>
+
+<!-- END: 00-atomer-01-forms-09-tekst-input -->
+
+        </div>
+      </div>
+      <div style="display:none" class="a-js-hideWhenInvalid hidden-md-down col-xs-12 col-md-5 pl-3">
+        <!-- START: 01-molekyler-00-tekst-03-♺-person-rolle-suksess -->
+<!-- START: 01-molekyler-00-tekst-02-person-rolle -->
+<div class="a-personRole ">
+    <!-- START: 00-atomer-09-bilder-og-media-15-ikon -->
+
+<i class="tmp tmp-circle-filled  a-personRole-icon-success "    ></i>
+
+
+<!-- END: 00-atomer-09-bilder-og-media-15-ikon -->
+
+
+    <!-- START: 00-atomer-09-bilder-og-media-15-ikon -->
+
+<i class="ai ai-person  a-personRole-icon "    ></i>
+
+
+<!-- END: 00-atomer-09-bilder-og-media-15-ikon -->
+
+  <div class="a-personRole-text">
+    <span class="a-personRole-role">Styremedlem</span>
+    <span class="a-personRole-name">William Mjelde</span>
+  </div>
+</div>
+
+<!-- END: 01-molekyler-00-tekst-02-person-rolle -->
+
+<!-- END: 01-molekyler-00-tekst-03-♺-person-rolle-suksess -->
+
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-12">
+        <div class="mt-3">
+              <!-- START: 00-atomer-03-knapper-10-knapp -->
+<button type="submit"
+    class="a-btn a-btn-success mb-0"
+    
+           >
+    Neste
+</button>
+
+<!-- END: 00-atomer-03-knapper-10-knapp -->
+
+        </div>
+      </div>
+    </div>
+  </form>
+    </div>
+    <div class="tab-pane " id="enterprise" role="tabpanel">
+  <form data-toggle="validator" data-disable="true">
+    <div class="row">
+      <div class="col-xs-12 col-md-7 mb-1">
+        <h3 class="a-headingSizeS">Hvem vil du legge til?</h3>
+          <!-- START: 00-atomer-01-forms-09-tekst-input -->
+<div class="form-group a-form-group has-feedback  "
+   data-toggle="validator" 
+   data-delay="2000" >
+
+    <div class="a-form-group-items input-group   transparent ">
+
+      <!-- Label -->
+      <label class="a-form-label  input-group-addon" for="text-orgno">
+        Org.nr.:
+      </label>
+
+      <!-- Input  -->
+        <input type="text"
+          class="form-control  a-form-control-withBtn pl-0"
+          id="text-orgno"
+          pattern= "[0-9]{11}"
+          required
+          placeholder=""
+          value=""
+          
+          data-error="Personnummer må bestå av 11 siffer."
+          
+          data-search-algorithm="show-and-highlight"
+          data-search-target="employee-table">
+            <!-- START: 00-atomer-09-bilder-og-media-15-ikon -->
+
+<i class="ai ai-timer   "    ></i>
+
+
+<!-- END: 00-atomer-09-bilder-og-media-15-ikon -->
+
+            <span class="sr-only">Icon showing if input is valid or not</span>
+
+        <!-- button -->
+        <div class="input-group-btn">
+          <button class="btn btn-secondary" type="button">
+            <!-- START: 00-atomer-09-bilder-og-media-15-ikon -->
+
+<i class="tmp tmp-search   "    ></i>
+
+
+<!-- END: 00-atomer-09-bilder-og-media-15-ikon -->
+
+          </button>
+        </div>
+
+
+    </div>
+
+
+
+      <div class="help-block with-errors a-message a-message-error ">Personnummer må bestå av 11 siffer.</div>
+
+  </div>
+
+<!-- END: 00-atomer-01-forms-09-tekst-input -->
+
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-xs-12 col-md-7">
+        <div class="mt-1">
+            <!-- START: 00-atomer-01-forms-09-tekst-input -->
+<div class="form-group a-form-group has-feedback   mb-0 "
+   data-toggle="validator" 
+   data-delay="2000" >
+
+    <div class="a-form-group-items input-group   transparent ">
+
+      <!-- Label -->
+      <label class="a-form-label  input-group-addon" for="text-bedriftnavn">
+        Navn:
+      </label>
+
+      <!-- Input  -->
+        <input type="text"
+          class="form-control  a-form-control-withBtn pl-0"
+          id="text-bedriftnavn"
+          pattern= "[0-9]{11}"
+          required
+          placeholder="Min. 4 første tegn"
+          value=""
+          
+          data-error="Personnummer må bestå av 11 siffer."
+          
+          data-search-algorithm="show-and-highlight"
+          data-search-target="employee-table">
+            <!-- START: 00-atomer-09-bilder-og-media-15-ikon -->
+
+<i class="ai ai-timer   "    ></i>
+
+
+<!-- END: 00-atomer-09-bilder-og-media-15-ikon -->
+
+            <span class="sr-only">Icon showing if input is valid or not</span>
+
+        <!-- button -->
+        <div class="input-group-btn">
+          <button class="btn btn-secondary" type="button">
+            <!-- START: 00-atomer-09-bilder-og-media-15-ikon -->
+
+<i class="tmp tmp-search   "    ></i>
+
+
+<!-- END: 00-atomer-09-bilder-og-media-15-ikon -->
+
+          </button>
+        </div>
+
+
+    </div>
+
+
+
+      <div class="help-block with-errors a-message a-message-error ">Personnummer må bestå av 11 siffer.</div>
+
+  </div>
+
+<!-- END: 00-atomer-01-forms-09-tekst-input -->
+
+        </div>
+      </div>
+      <div style="display:none" class="a-js-hideWhenInvalid hidden-md-down col-xs-12 col-md-5 pl-3">
+        <!-- START: 01-molekyler-00-tekst-03-♺-person-rolle-suksess -->
+<!-- START: 01-molekyler-00-tekst-02-person-rolle -->
+<div class="a-personRole ">
+    <!-- START: 00-atomer-09-bilder-og-media-15-ikon -->
+
+<i class="tmp tmp-circle-filled  a-personRole-icon-success "    ></i>
+
+
+<!-- END: 00-atomer-09-bilder-og-media-15-ikon -->
+
+
+    <!-- START: 00-atomer-09-bilder-og-media-15-ikon -->
+
+<i class="ai ai-person  a-personRole-icon "    ></i>
+
+
+<!-- END: 00-atomer-09-bilder-og-media-15-ikon -->
+
+  <div class="a-personRole-text">
+    <span class="a-personRole-role">Styremedlem</span>
+    <span class="a-personRole-name">William Mjelde</span>
+  </div>
+</div>
+
+<!-- END: 01-molekyler-00-tekst-02-person-rolle -->
+
+<!-- END: 01-molekyler-00-tekst-03-♺-person-rolle-suksess -->
+
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-12">
+        <div class="mt-3">
+              <!-- START: 00-atomer-03-knapper-10-knapp -->
+<button type="submit"
+    class="a-btn a-btn-success mb-0"
+    
+           >
+    Neste
+</button>
+
+<!-- END: 00-atomer-03-knapper-10-knapp -->
+
+        </div>
+      </div>
+    </div>
+  </form>
+    </div>
+    <div class="tab-pane " id="enterpriseuser" role="tabpanel">
+  <form data-toggle="validator" data-disable="true">
+    <div class="row">
+      <div class="col-xs-12 col-md-7 mb-1">
+        <h3 class="a-headingSizeS">Hvem vil du legge til?</h3>
+          <!-- START: 00-atomer-01-forms-09-tekst-input -->
+<div class="form-group a-form-group has-feedback  "
+   data-toggle="validator" 
+   data-delay="2000" >
+
+    <div class="a-form-group-items input-group   transparent ">
+
+      <!-- Label -->
+      <label class="a-form-label  input-group-addon" for="text-enterprise-brukernavn">
+        Brukernavn:
+      </label>
+
+      <!-- Input  -->
+        <input type="text"
+          class="form-control  a-form-control-withBtn pl-0"
+          id="text-enterprise-brukernavn"
+          pattern= "[0-9]{11}"
+          required
+          placeholder=""
+          value=""
+          
+          data-error="Personnummer må bestå av 11 siffer."
+          
+          data-search-algorithm="show-and-highlight"
+          data-search-target="employee-table">
+            <!-- START: 00-atomer-09-bilder-og-media-15-ikon -->
+
+<i class="ai ai-timer   "    ></i>
+
+
+<!-- END: 00-atomer-09-bilder-og-media-15-ikon -->
+
+            <span class="sr-only">Icon showing if input is valid or not</span>
+
+        <!-- button -->
+        <div class="input-group-btn">
+          <button class="btn btn-secondary" type="button">
+            <!-- START: 00-atomer-09-bilder-og-media-15-ikon -->
+
+<i class="tmp tmp-search   "    ></i>
+
+
+<!-- END: 00-atomer-09-bilder-og-media-15-ikon -->
+
+          </button>
+        </div>
+
+
+    </div>
+
+
+
+      <div class="help-block with-errors a-message a-message-error ">Personnummer må bestå av 11 siffer.</div>
+
+  </div>
+
+<!-- END: 00-atomer-01-forms-09-tekst-input -->
+
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-xs-12 col-md-7">
+        <div class="mt-1">
+            <!-- START: 00-atomer-01-forms-09-tekst-input -->
+<div class="form-group a-form-group has-feedback   mb-0 "
+   data-toggle="validator" 
+   data-delay="2000" >
+
+    <div class="a-form-group-items input-group   transparent ">
+
+      <!-- Label -->
+      <label class="a-form-label  input-group-addon" for="text-enterpriseuser-orgno">
+        Org.nr.:
+      </label>
+
+      <!-- Input  -->
+        <input type="text"
+          class="form-control  a-form-control-withBtn pl-0"
+          id="text-enterpriseuser-orgno"
+          pattern= "[0-9]{11}"
+          required
+          placeholder=""
+          value=""
+          
+          data-error="Personnummer må bestå av 11 siffer."
+          
+          data-search-algorithm="show-and-highlight"
+          data-search-target="employee-table">
+            <!-- START: 00-atomer-09-bilder-og-media-15-ikon -->
+
+<i class="ai ai-timer   "    ></i>
+
+
+<!-- END: 00-atomer-09-bilder-og-media-15-ikon -->
+
+            <span class="sr-only">Icon showing if input is valid or not</span>
+
+        <!-- button -->
+        <div class="input-group-btn">
+          <button class="btn btn-secondary" type="button">
+            <!-- START: 00-atomer-09-bilder-og-media-15-ikon -->
+
+<i class="tmp tmp-search   "    ></i>
+
+
+<!-- END: 00-atomer-09-bilder-og-media-15-ikon -->
+
+          </button>
+        </div>
+
+
+    </div>
+
+
+
+      <div class="help-block with-errors a-message a-message-error ">Personnummer må bestå av 11 siffer.</div>
+
+  </div>
+
+<!-- END: 00-atomer-01-forms-09-tekst-input -->
+
+        </div>
+      </div>
+      <div style="display:none" class="a-js-hideWhenInvalid hidden-md-down col-xs-12 col-md-5 pl-3">
+        <!-- START: 01-molekyler-00-tekst-03-♺-person-rolle-suksess -->
+<!-- START: 01-molekyler-00-tekst-02-person-rolle -->
+<div class="a-personRole ">
+    <!-- START: 00-atomer-09-bilder-og-media-15-ikon -->
+
+<i class="tmp tmp-circle-filled  a-personRole-icon-success "    ></i>
+
+
+<!-- END: 00-atomer-09-bilder-og-media-15-ikon -->
+
+
+    <!-- START: 00-atomer-09-bilder-og-media-15-ikon -->
+
+<i class="ai ai-person  a-personRole-icon "    ></i>
+
+
+<!-- END: 00-atomer-09-bilder-og-media-15-ikon -->
+
+  <div class="a-personRole-text">
+    <span class="a-personRole-role">Styremedlem</span>
+    <span class="a-personRole-name">William Mjelde</span>
+  </div>
+</div>
+
+<!-- END: 01-molekyler-00-tekst-02-person-rolle -->
+
+<!-- END: 01-molekyler-00-tekst-03-♺-person-rolle-suksess -->
+
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-12">
+        <div class="mt-3">
+              <!-- START: 00-atomer-03-knapper-10-knapp -->
+<button type="submit"
+    class="a-btn a-btn-success mb-0"
+    
+           >
+    Neste
+</button>
+
+<!-- END: 00-atomer-03-knapper-10-knapp -->
+
+        </div>
+      </div>
+    </div>
+  </form>
+    </div>
+  </div>
+
+
+<!-- END: 02-organismer-70-Modal-innhold-92-delegering-legg-til -->
+
+  </div>
+  <div class="py-2">
+    <!-- START: 02-organismer-70-Modal-innhold-99-klientdelegering-pa-fil -->
+<form data-toggle="validator">
+  <div class="mb-4">
+    
+  </div>
+
+  <div class="mb-1">
+  </div>
+  <div class="mb-3 a-bigger-icon a-bigger-icon-before">
+    <!-- START: 00-atomer-04-handlingsknapper-17-handlingsknapp -->
+<button 
+    type="button"
+    class="a-btn a-btn-action">
+<!-- START: 00-atomer-09-bilder-og-media-15-ikon -->
+
+<i class="    "    ></i>
+
+
+<!-- END: 00-atomer-09-bilder-og-media-15-ikon -->
+    <span>Last ned fil</span>
+</button>
+
+<!-- END: 00-atomer-04-handlingsknapper-17-handlingsknapp -->
+
+  </div>
+
+  <div class="mb-1">
+  </div>
+    <div class="mt-1 mb-1">
+      <!-- START: 00-atomer-05-Ekspansjonsknapper-26-ekspanderbar-tekst -->
+<a data-toggle="collapse"
+    
+    href="#file-delegation-ID"
+    aria-expanded="true"
+    aria-controls="file-delegation-ID"
+    class="a-collapse-title a-collapse-title--flexstart a-fontBold   no-decoration   collapsed">
+     <span class="a-dropdownArrow"></span> 
+
+        <span class="primary-collapse-text">
+            Denne teksten kan man trykke på for å se utvidet informasjon om et tema
+        </span>
+</a>
+
+<!-- END: 00-atomer-05-Ekspansjonsknapper-26-ekspanderbar-tekst -->
+
+    </div>
+
+  <div class="mb-3">
+
+    <div id="file-delegation-ID" class="a-collapseContent a-js-instantCollapse collapse" aria-expanded="false">
+      <img src="../../images/sikksakk.png" class="mb-2" />
+      <!-- START: 00-atomer-08-lister-07-♺-liste-nummerert-sirkel-gul -->
+<!-- START: 00-atomer-08-lister-06-liste-nummerert-sirkel -->
+<ol class="no-decoration a-circle-list a-circle-list-yellow">
+      <li>
+        <span>
+          <span>Første punkt i listen</span>
+          (med ekstra informasjon)
+        </span>
+      </li>
+      <li>
+        <span>
+          <span>Andre punkt i listen</span>
+          En særdeles lang tekst som går over flere linjer med lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla suscipit purus eu vehicula bibendum. Duis luctus magna ac dui convallis iaculis. Donec aliquam dolor quis convallis finibus. Vivamus commodo semper volutpat. Nullam iaculis, nisl in elementum viverra, ligula leo tristique mauris, ut laoreet justo massa ut nisi. Duis lacinia nulla justo, vitae vehicula arcu suscipit sed. Vivamus ac odio quis turpis rutrum lacinia a eu dui. Nullam imperdiet, nibh sit amet venenatis auctor, libero massa placerat ipsum, fermentum dignissim nibh mauris sit amet ex.
+        </span>
+      </li>
+      <li>
+        <span>
+          <span>Tredje punkt i listen har lenke!</span>
+            <!-- START: 00-atomer-02-lenker-00-link -->
+<a
+   href="../..#" 
+  class="a-linkArea a-link ">
+  Finn ut mer
+
+    <!-- START: 00-atomer-09-bilder-og-media-15-ikon -->
+
+<i class="ai ai-arrowright  a-link-arrow "    ></i>
+
+
+<!-- END: 00-atomer-09-bilder-og-media-15-ikon -->
+
+</a>
+
+<!-- END: 00-atomer-02-lenker-00-link -->
+
+          
+        </span>
+      </li>
+</ol>
+
+<!-- END: 00-atomer-08-lister-06-liste-nummerert-sirkel -->
+
+<!-- END: 00-atomer-08-lister-07-♺-liste-nummerert-sirkel-gul -->
+
+    </div>
+
+
+  </div>
+
+  <div class="mt-4 mb-1 ">
+  </div>
+
+  <div class="mb-3 a-bigger-icon a-bigger-icon-span">
+      <!-- START: 00-atomer-01-forms-70-fileupload -->
+
+<label class="a-btn a-btn-action a-custom-fileupload">
+  <input  required  class="a-js-fileInputChangeHandler" type="file" id="customFileuploadId">
+  <!-- START: 00-atomer-09-bilder-og-media-15-ikon -->
+
+<i class="ai ai-timer   "    ></i>
+
+
+<!-- END: 00-atomer-09-bilder-og-media-15-ikon -->
+
+  Last opp fil
+</label>
+
+  <div style="display: none" class="a-js-fileListContainer">
+    <!-- START: 00-atomer-08-lister-20-liste-opplasting -->
+<ul class="a-item-list-icon ">
+    <div class="a-dotted-line-top"></div>
+    <li class="a-dotted"
+       onClick="onFileListDeleteClick(this)" 
+      role="button" aria-label="Fjern fil:"
+    >
+      <span class="a-js-listItemText">
+        klientrolle_delegeringer_30_05_16.csv
+      </span>
+      <!-- START: 00-atomer-09-bilder-og-media-15-ikon -->
+
+<i class="ai ai-timer   "    ></i>
+
+
+<!-- END: 00-atomer-09-bilder-og-media-15-ikon -->
+
+    </li>
+</ul>
+<!-- END: 00-atomer-08-lister-20-liste-opplasting -->
+
+  </div>
+<!-- END: 00-atomer-01-forms-70-fileupload -->
+
+  </div>
+
+    <!-- START: 00-atomer-03-knapper-10-knapp -->
+<button type="submit"
+    class="a-btn a-btn-success mb-0 a-js-enableWhenValid"
+    
+     onclick="location.href='/patterns/04-sider-60-profil-roller-rettigheter-profil-roller-rettigheter/04-sider-60-profil-roller-rettigheter-profil-roller-rettigheter.html'""      >
+    Ferdig
+</button>
+
+<!-- END: 00-atomer-03-knapper-10-knapp -->
+
+
+</form>
+<!-- END: 02-organismer-70-Modal-innhold-99-klientdelegering-pa-fil -->
+
+  </div>
+<!-- END: 02-organismer-71-modal-gruppering-01-modal-klientdelegering -->
+
+  </div>
+  <script type="text/json" id="sg-pattern-data-organismer-modal-klientdelegering" class="sg-pattern-data">
+    {"cssEnabled":false,"patternLineageExists":true,"patternLineages":[{"lineagePattern":"organismer-klientdelegering-fjern-rettigheter","lineagePath":"../../patterns/02-organismer-70-Modal-innhold-98-klientdelegering-fjern-rettigheter/02-organismer-70-Modal-innhold-98-klientdelegering-fjern-rettigheter.html","lineageState":"intechnicalreview"},{"lineagePattern":"organismer-klientdelegering-ferdig","lineagePath":"../../patterns/02-organismer-70-Modal-innhold-97-klientdelegering-ferdig/02-organismer-70-Modal-innhold-97-klientdelegering-ferdig.html","lineageState":"intechnicalreview"},{"lineagePattern":"organismer-delegering-legg-til","lineagePath":"../../patterns/02-organismer-70-Modal-innhold-92-delegering-legg-til/02-organismer-70-Modal-innhold-92-delegering-legg-til.html","lineageState":"indesignreview"},{"lineagePattern":"organismer-klientdelegering-gi-rettigheter","lineagePath":"../../patterns/02-organismer-70-Modal-innhold-96-klientdelegering-gi-rettigheter/02-organismer-70-Modal-innhold-96-klientdelegering-gi-rettigheter.html","lineageState":"intechnicalreview"},{"lineagePattern":"organismer-klientdelegering-pa-fil","lineagePath":"../../patterns/02-organismer-70-Modal-innhold-99-klientdelegering-pa-fil/02-organismer-70-Modal-innhold-99-klientdelegering-pa-fil.html","lineageState":"indesignreview"}],"lineage":[{"lineagePattern":"organismer-klientdelegering-fjern-rettigheter","lineagePath":"../../patterns/02-organismer-70-Modal-innhold-98-klientdelegering-fjern-rettigheter/02-organismer-70-Modal-innhold-98-klientdelegering-fjern-rettigheter.html","lineageState":"intechnicalreview"},{"lineagePattern":"organismer-klientdelegering-ferdig","lineagePath":"../../patterns/02-organismer-70-Modal-innhold-97-klientdelegering-ferdig/02-organismer-70-Modal-innhold-97-klientdelegering-ferdig.html","lineageState":"intechnicalreview"},{"lineagePattern":"organismer-delegering-legg-til","lineagePath":"../../patterns/02-organismer-70-Modal-innhold-92-delegering-legg-til/02-organismer-70-Modal-innhold-92-delegering-legg-til.html","lineageState":"indesignreview"},{"lineagePattern":"organismer-klientdelegering-gi-rettigheter","lineagePath":"../../patterns/02-organismer-70-Modal-innhold-96-klientdelegering-gi-rettigheter/02-organismer-70-Modal-innhold-96-klientdelegering-gi-rettigheter.html","lineageState":"intechnicalreview"},{"lineagePattern":"organismer-klientdelegering-pa-fil","lineagePath":"../../patterns/02-organismer-70-Modal-innhold-99-klientdelegering-pa-fil/02-organismer-70-Modal-innhold-99-klientdelegering-pa-fil.html","lineageState":"indesignreview"}],"patternLineageRExists":true,"patternLineagesR":[{"lineagePattern":"maler-modal","lineagePath":"../../patterns/03-maler-91-modal-01-modal/03-maler-91-modal-01-modal.html","lineageState":"indesignreview"}],"lineageR":[{"lineagePattern":"maler-modal","lineagePath":"../../patterns/03-maler-91-modal-01-modal/03-maler-91-modal-01-modal.html","lineageState":"indesignreview"}],"patternLineageEExists":true,"patternDesc":"<p>Modal innhold for klientdelegering</p>\n","patternBreadcrumb":{"patternType":"organismer","patternSubtype":"modal-gruppering"},"patternExtension":"mustache","patternName":"Modal Klientdelegering","patternPartial":"organismer-modal-klientdelegering","patternState":"indesignreview","patternEngineName":"mustache","extraOutput":{}}
+  </script>
+</div><!--end .sg-pattern-->
+<div id="organismer-modal-andre-med-rettigheter" class="sg-pattern">
+  <div class="sg-pattern-head">
+    <h3 class="sg-pattern-title">
+      <a href="../../patterns/02-organismer-71-modal-gruppering-02-modal-andre-med-rettigheter&#x2F;02-organismer-71-modal-gruppering-02-modal-andre-med-rettigheter.html" class="patternLink" data-patternpartial="organismer-modal-andre-med-rettigheter" title="Link to Pattern">
+          Modal Andre Med Rettigheter
+      </a>
+    </h3>
+      <span class="sg-pattern-state indesignreview">indesignreview</span>
+    <div class="sg-pattern-breadcrumb"></div>
+    <a href="#" data-patternpartial="organismer-modal-andre-med-rettigheter" title="View Pattern Info" id="sg-pattern-extra-toggle-organismer-modal-andre-med-rettigheter" class="sg-pattern-extra-toggle">Info <span>&#9660;</span></a>
+  </div>
+  <div class="sg-pattern-extra" id="sg-pattern-extra-organismer-modal-andre-med-rettigheter">
+
+  </div>
+  <div class="sg-pattern-example">
+    <!-- START: 02-organismer-71-modal-gruppering-02-modal-andre-med-rettigheter -->
+  <!-- START: 02-organismer-70-Modal-innhold-94-delegering-tildel -->
+<div class="row">
+  <div class="col-xs-12">
+      <!-- START: 01-molekyler-00-tekst-30-ikon-tekst -->
+<div class="a-iconText  a-iconText--noMinHeight">
+  <!-- ICON -->
+  <div class="a-iconText-icon"></div>
+  <!-- TEXT -->
+    <div class="a-iconText-text">
+    <span class="a-iconText-text-small">Liten tekst</span>
+  <span class="a-iconText-text-large">Stor tekst  </span>
+    </div>
+</div>
+
+<!-- END: 01-molekyler-00-tekst-30-ikon-tekst -->
+
+    <div class="a-full-width">
+      <hr class="mb-2 mt-3">
+    </div>
+  </div>
+</div>
+<div class="row">
+  <div class="col-xs-12 mb-1">
+    <h2 class="mb-0">
+      Roller underoverskrift
+    </h2>
+      <span>
+        Tekst under overskrift
+      </span>
+  </div>
+    <div class="col-xs-12 mb-1">
+        <span class="pr-1">
+          Tekst har roller:
+        </span>
+      <!-- START: 00-atomer-01-forms-02-valgknapp -->
+  <div class="a-switch">
+    <input
+       id="checkbutton-deactivated-roles-1" 
+      class="sr-only"
+      type="checkbox"
+      name="checkbutton-deactivated-roles-1"
+      value="checkbutton-read"
+      >
+    <label
+      for="checkbutton-deactivated-roles-1"
+      class="a-switch-label disabled">
+
+      <!-- START: 00-atomer-09-bilder-og-media-15-ikon -->
+
+<i class="    "    ></i>
+
+
+<!-- END: 00-atomer-09-bilder-og-media-15-ikon -->
+
+
+      Eksempel på deaktivert
+    </label>
+  </div>
+  <div class="a-switch">
+    <input
+       id="checkbutton-deactivated-roles-2" 
+      class="sr-only"
+      type="checkbox"
+      name="checkbutton-deactivated-roles-2"
+      value="checkbutton-read"
+      >
+    <label
+      for="checkbutton-deactivated-roles-2"
+      class="a-switch-label disabled">
+
+      <!-- START: 00-atomer-09-bilder-og-media-15-ikon -->
+
+<i class="    "    ></i>
+
+
+<!-- END: 00-atomer-09-bilder-og-media-15-ikon -->
+
+
+      Eksempel på deaktivert
+    </label>
+  </div>
+
+<!-- END: 00-atomer-01-forms-02-valgknapp -->
+
+    </div>
+    <div class="col-xs-12 mb-1">
+        <span class="pr-1">
+          Tekst trenger roller:
+        </span>
+      <!-- START: 00-atomer-01-forms-02-valgknapp -->
+  <div class="a-switch">
+    <input
+       id="checkbutton-example-roles-1" 
+      class="sr-only"
+      type="checkbox"
+      name="checkbutton-example-roles-1"
+      value="checkbutton-read"
+      >
+    <label
+      for="checkbutton-example-roles-1"
+      class="a-switch-label ">
+
+      <!-- START: 00-atomer-09-bilder-og-media-15-ikon -->
+
+<i class="    "    ></i>
+
+
+<!-- END: 00-atomer-09-bilder-og-media-15-ikon -->
+
+
+      Eksempel uten ikon
+    </label>
+  </div>
+  <div class="a-switch">
+    <input
+       id="checkbutton-example-roles-2" 
+      class="sr-only"
+      type="checkbox"
+      name="checkbutton-example-roles-2"
+      value="checkbutton-read"
+      >
+    <label
+      for="checkbutton-example-roles-2"
+      class="a-switch-label ">
+
+      <!-- START: 00-atomer-09-bilder-og-media-15-ikon -->
+
+<i class="    "    ></i>
+
+
+<!-- END: 00-atomer-09-bilder-og-media-15-ikon -->
+
+
+      Eksempel uten ikon
+    </label>
+  </div>
+  <div class="a-switch">
+    <input
+       id="checkbutton-example-roles-3" 
+      class="sr-only"
+      type="checkbox"
+      name="checkbutton-example-roles-3"
+      value="checkbutton-read"
+      >
+    <label
+      for="checkbutton-example-roles-3"
+      class="a-switch-label disabled">
+
+      <!-- START: 00-atomer-09-bilder-og-media-15-ikon -->
+
+<i class="    "    ></i>
+
+
+<!-- END: 00-atomer-09-bilder-og-media-15-ikon -->
+
+
+      Eksempel disabled
+    </label>
+  </div>
+
+<!-- END: 00-atomer-01-forms-02-valgknapp -->
+
+        <!-- START: 00-atomer-05-Ekspansjonsknapper-33-♺-link-med-popover-ikon -->
+
+<!-- START: 00-atomer-05-Ekspansjonsknapper-32-link-med-popover -->
+<a href="#"
+  aria-label="valid"
+  tabindex="0"
+  class="a-linkArea a-helpIconButton a-js-persistPopover"
+  role="button"
+  data-toggle="popover"
+  data-template="<!-- START: 00-atomer-05-Ekspansjonsknapper-01-popover -->
+<div class='popover popover-big' role='tooltip'>
+  <div class='popover-arrow'></div>
+  <h3 class='popover-title'></h3>
+  <div class='popover-content'></div>
+</div>
+
+<!-- END: 00-atomer-05-Ekspansjonsknapper-01-popover -->
+"
+  data-target="#myPopup"
+  data-placement="bottom"
+  data-trigger="manual"
+   title="Tittel på popover" 
+   data-content="Innholdet i popover fra spørsmålstegn-ikonet kommer her.." 
+  data-popover-content="">
+  
+    <!-- START: 00-atomer-09-bilder-og-media-15-ikon -->
+
+<i class="tmp tmp-help   "    ></i>
+
+
+<!-- END: 00-atomer-09-bilder-og-media-15-ikon -->
+
+</a>
+<!-- END: 00-atomer-05-Ekspansjonsknapper-32-link-med-popover -->
+
+
+<!-- END: 00-atomer-05-Ekspansjonsknapper-33-♺-link-med-popover-ikon -->
+
+        <div id="" style="display: none">
+          <!-- START: 01-molekyler-00-tekst-45-liste-med-beskrivelse -->
+<div class="container">
+  <h3 class="mb-2">Lorem ipsum</h3>
+  <span>Bacon ipsum dolor nullam</span>
+  <!-- START: 00-atomer-08-lister-05-liste-unummerert -->
+	<ul class="a-item-list list-group ">
+			<li class="a-item-list-item a-dotted a-clickable">
+        <div class="a-listItem-leftContent">
+
+
+          
+
+            <a href="../../patterns/04-sider-30-artikkel-_10-artikkel/04-sider-30-artikkel-_10-artikkel.html" class="a-listItem-title">
+              Første punkt i listen
+            </a>
+        </div>
+			</li>
+			<li class="a-item-list-item a-dotted a-clickable">
+        <div class="a-listItem-leftContent">
+
+
+          
+
+            <a href="../../patterns/04-sider-30-artikkel-_10-artikkel/04-sider-30-artikkel-_10-artikkel.html" class="a-listItem-title">
+                <!-- START: 00-atomer-09-bilder-og-media-15-ikon -->
+
+<i class="tmp tmp-remove-circle  a-remove-icon "    ></i>
+
+
+<!-- END: 00-atomer-09-bilder-og-media-15-ikon -->
+
+              Andre punkt i listen
+            </a>
+        </div>
+          <div class="a-listItem-rightContent">
+              <!-- START: 00-atomer-09-bilder-og-media-15-ikon -->
+
+<i class="tmp tmp-remove-circle   "    ></i>
+
+
+<!-- END: 00-atomer-09-bilder-og-media-15-ikon -->
+
+			</li>
+			<li class="a-item-list-item a-dotted a-inactive">
+        <div class="a-listItem-leftContent">
+              <!-- START: 00-atomer-09-bilder-og-media-15-ikon -->
+
+<i class="tmp tmp-remove-circle  a-remove-icon "    ></i>
+
+
+<!-- END: 00-atomer-09-bilder-og-media-15-ikon -->
+
+
+
+          Tredje punkt i listen er ikke klikkbart
+
+        </div>
+          <div class="a-listItem-rightContent">
+                <!-- START: 00-atomer-02-lenker-00-link -->
+<a
+   href="../../patterns/04-sider-01-forside-00-forside/04-sider-01-forside-00-forside.html" 
+  class="a-linkArea no-decoration ">
+  Endre
+
+    <!-- START: 00-atomer-09-bilder-og-media-15-ikon -->
+
+<i class="ai ai-arrowright   "    ></i>
+
+
+<!-- END: 00-atomer-09-bilder-og-media-15-ikon -->
+
+</a>
+
+<!-- END: 00-atomer-02-lenker-00-link -->
+
+              <!-- START: 00-atomer-09-bilder-og-media-15-ikon -->
+
+<i class="tmp tmp-verified-user   "    ></i>
+
+
+<!-- END: 00-atomer-09-bilder-og-media-15-ikon -->
+
+			</li>
+			<li class="a-item-list-item a-disabled">
+        <div class="a-listItem-leftContent">
+
+            <div class="a-dotted"></div>
+
+          Fjerde punkt i listen er deaktivert
+
+        </div>
+          <div class="a-listItem-rightContent">
+                Endre
+              <!-- START: 00-atomer-05-Ekspansjonsknapper-34-♺-link-med-stor-popover-ikon -->
+<!-- START: 00-atomer-05-Ekspansjonsknapper-32-link-med-popover -->
+<a href="#"
+  aria-label="valid"
+  tabindex="0"
+  class="a-linkArea a-helpIconButton a-js-persistPopover"
+  role="button"
+  data-toggle="popover"
+  data-template="<!-- START: 00-atomer-05-Ekspansjonsknapper-01-popover -->
+<div class='popover popover-big' role='tooltip'>
+  <div class='popover-arrow'></div>
+  <h3 class='popover-title'></h3>
+  <div class='popover-content'></div>
+</div>
+
+<!-- END: 00-atomer-05-Ekspansjonsknapper-01-popover -->
+"
+  data-target="#myPopup"
+  data-placement="bottom"
+  data-trigger="manual"
+   title="Tittel på popover" 
+   data-content="Innholdet i popover fra spørsmålstegn-ikonet kommer her.." 
+  data-popover-content="">
+  
+    <!-- START: 00-atomer-09-bilder-og-media-15-ikon -->
+
+<i class="tmp tmp-help   "    ></i>
+
+
+<!-- END: 00-atomer-09-bilder-og-media-15-ikon -->
+
+</a>
+<!-- END: 00-atomer-05-Ekspansjonsknapper-32-link-med-popover -->
+
+
+<!-- END: 00-atomer-05-Ekspansjonsknapper-34-♺-link-med-stor-popover-ikon -->
+
+			</li>
+			<li class="a-item-list-item a-dotted a-clickable">
+        <div class="a-listItem-leftContent">
+
+
+          
+
+            <a href="../../patterns/04-sider-30-artikkel-_10-artikkel/04-sider-30-artikkel-_10-artikkel.html" class="a-listItem-title">
+              <b>+ Legg til rolle</b>
+            </a>
+        </div>
+			</li>
+	</ul>
+<!-- END: 00-atomer-08-lister-05-liste-unummerert -->
+
+</div>
+<!-- END: 01-molekyler-00-tekst-45-liste-med-beskrivelse -->
+
+        </div>
+    </div>
+    <div class="col-xs-12 mb-2">
+	    <!-- START: 00-atomer-07-tekst-00-varsel -->
+
+<div id="alert-no-arrow" class="a-message a-message-error a-message--arrow-off a-message--fullwidth">
+	Dette er en beskjed uten pil og med full bredde
+</div>
+
+<!-- END: 00-atomer-07-tekst-00-varsel -->
+
+    </div>
+  <div class="col-xs-12">
+      <div class="row">
+        <div class="col-xl-12">
+          <!-- START: 00-atomer-03-knapper-10-knapp -->
+<button type="submit"
+    class="a-btn a-btn-success mb-0"
+    
+     /patterns/04-sider-01-forside-00-forside/04-sider-01-forside-00-forside.html    data-target="departement-filter"  >
+    Fullfør
+</button>
+
+<!-- END: 00-atomer-03-knapper-10-knapp -->
+
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-xl-12 mt-2">
+          <!-- START: 00-atomer-02-lenker-00-link -->
+<a
+   href="../../patterns/04-sider-01-forside-00-forside/04-sider-01-forside-00-forside.html" 
+  class="a-linkArea a-link ">
+  Lenke som står selvstendig alene
+
+    <!-- START: 00-atomer-09-bilder-og-media-15-ikon -->
+
+<i class="ai ai-arrowright   "    ></i>
+
+
+<!-- END: 00-atomer-09-bilder-og-media-15-ikon -->
+
+</a>
+
+<!-- END: 00-atomer-02-lenker-00-link -->
+
+        </div>
+      </div>
+  </div>
+</div>
+<!-- END: 02-organismer-70-Modal-innhold-94-delegering-tildel -->
+
+  <!-- START: 02-organismer-70-Modal-innhold-93-delegering-roller -->
+<div class="row">
+	<div class="col-xs-12 col-md-6 col-lg-7">
+		  <!-- START: 01-molekyler-00-tekst-02-person-rolle -->
+<div class="a-personRole ">
+    <!-- START: 00-atomer-09-bilder-og-media-15-ikon -->
+
+<i class="tmp tmp-circle-filled  a-personRole-icon-success "    ></i>
+
+
+<!-- END: 00-atomer-09-bilder-og-media-15-ikon -->
+
+
+    <!-- START: 00-atomer-09-bilder-og-media-15-ikon -->
+
+<i class="ai ai-person  a-personRole-icon "    ></i>
+
+
+<!-- END: 00-atomer-09-bilder-og-media-15-ikon -->
+
+  <div class="a-personRole-text">
+    <span class="a-personRole-role">Styremedlem</span>
+    <span class="a-personRole-name">William Mjelde</span>
+  </div>
+</div>
+
+<!-- END: 01-molekyler-00-tekst-02-person-rolle -->
+
+	</div>
+	<div class="col-xs-12 col-md pt-1">
+    <!-- START: 00-atomer-03-knapper-16-♺-knapp-link-fare -->
+<!-- START: 00-atomer-03-knapper-10-knapp -->
+<button type="button"
+    class="a-btn "
+    
+     /patterns/04-sider-01-forside-00-forside/04-sider-01-forside-00-forside.html    data-target="departement-filter"  >
+    En standard knapp
+</button>
+
+<!-- END: 00-atomer-03-knapper-10-knapp -->
+
+
+<!-- END: 00-atomer-03-knapper-16-♺-knapp-link-fare -->
+
+	</div>
+</div>
+<div class="row">
+  <div class="col-xs-12 col-lg-5 mt-4">
+    <div class="a-textSize3">
+      Søk:
+    </div>
+  </div>
+</div>
+<div class="row">
+	<div class="col-xs-12 col-lg-5 mb-1">
+		<!-- START: 00-atomer-01-forms-22-♺-sok-tema -->
+<!-- START: 00-atomer-01-forms-09-tekst-input -->
+<div class="form-group a-form-group   "
+  
+  >
+
+    <div class="a-form-group-items input-group   transparent ">
+
+      <!-- Label -->
+      <label class="a-form-label  input-group-addon" for="text-input-find-13">
+          <!-- START: 00-atomer-09-bilder-og-media-15-ikon -->
+
+<i class="ai ai-life-ring   "    ></i>
+
+
+<!-- END: 00-atomer-09-bilder-og-media-15-ikon -->
+
+        <span class="sr-only">Finn skjema eller tjeneste</span>
+      </label>
+
+      <!-- Input  -->
+        <input type="search"
+          class="form-control  a-form-control-withBtn pl-0"
+          id="text-input-find-13"
+          
+          
+          placeholder="Finn skjema eller tjeneste"
+          value=""
+          
+          data-error=""
+          
+          data-search-algorithm=""
+          data-search-target="">
+
+        <!-- button -->
+        <div class="input-group-btn">
+          <button class="btn btn-secondary" type="button">
+            <!-- START: 00-atomer-09-bilder-og-media-15-ikon -->
+
+<i class="tmp tmp-search   "    ><span class="sr-only">Utfør søk</span></i>
+
+
+<!-- END: 00-atomer-09-bilder-og-media-15-ikon -->
+
+          </button>
+        </div>
+
+
+    </div>
+
+
+
+
+  </div>
+
+<!-- END: 00-atomer-01-forms-09-tekst-input -->
+
+
+<!-- END: 00-atomer-01-forms-22-♺-sok-tema -->
+
+	</div>
+</div>
+  <div class="mt-1 mb-2">
+    <!-- START: 01-molekyler-02-navigasjon-50-ekspanderbar-liste -->
+  <div class="a-list-heading">
+    <!-- START: 00-atomer-05-Ekspansjonsknapper-29-♺-ekspanderbar-tittel-med-underlinje -->
+<!-- START: 00-atomer-05-Ekspansjonsknapper-27-ekspanderbar-tittel -->
+
+<div class="a-collapse">
+  <h3 class="a-collapseHeader a-dotted">
+      <a data-toggle="collapse" data-parent="#accessToRoles" data-target="#exp-list-1" href="#" aria-expanded="" aria-controls="DirectRoles" class="a-collapse-title a-collapse-title--absolute no-decoration  collapsed ">
+          <span class="a-dropdownArrow"></span> Dette er en utvidbar tittel med merkelapp <span class='tag tag-primary a-label tag-pill'>1</span> og lang tekst for å teste hvordan det ser ut
+      </a>
+  </h3>
+</div>
+
+<!-- END: 00-atomer-05-Ekspansjonsknapper-27-ekspanderbar-tittel -->
+
+
+<!-- END: 00-atomer-05-Ekspansjonsknapper-29-♺-ekspanderbar-tittel-med-underlinje -->
+
+
+      <div class="a-list-heading-actions">
+        Høyrejustert tekst
+        <!-- START: 00-atomer-09-bilder-og-media-15-ikon -->
+
+<i class="tmp tmp-remove-circle  a-remove-icon "    ></i>
+
+
+<!-- END: 00-atomer-09-bilder-og-media-15-ikon -->
+
+      </div>
+  </div>
+  <div id="exp-list-1" class="a-collapseContent a-js-instantCollapse collapse" aria-expanded="false">
+    <!-- START: 00-atomer-08-lister-05-♺-liste-unummerert-actions -->
+<!-- START: 00-atomer-08-lister-05-liste-unummerert -->
+	<ul class="a-item-list list-group ">
+			<li class="a-item-list-item a-dotted a-clickable">
+        <div class="a-listItem-leftContent">
+
+
+          
+
+            <a href="../../patterns/04-sider-30-artikkel-_10-artikkel/04-sider-30-artikkel-_10-artikkel.html" class="a-listItem-title">
+              Første punkt i listen
+            </a>
+        </div>
+			</li>
+			<li class="a-item-list-item a-dotted a-clickable">
+        <div class="a-listItem-leftContent">
+
+
+          
+
+            <a href="../../patterns/04-sider-30-artikkel-_10-artikkel/04-sider-30-artikkel-_10-artikkel.html" class="a-listItem-title">
+                <!-- START: 00-atomer-09-bilder-og-media-15-ikon -->
+
+<i class="tmp tmp-remove-circle  a-remove-icon "    ></i>
+
+
+<!-- END: 00-atomer-09-bilder-og-media-15-ikon -->
+
+              Andre punkt i listen
+            </a>
+        </div>
+          <div class="a-listItem-rightContent">
+              <!-- START: 00-atomer-09-bilder-og-media-15-ikon -->
+
+<i class="tmp tmp-remove-circle   "    ></i>
+
+
+<!-- END: 00-atomer-09-bilder-og-media-15-ikon -->
+
+			</li>
+			<li class="a-item-list-item a-dotted a-inactive">
+        <div class="a-listItem-leftContent">
+              <!-- START: 00-atomer-09-bilder-og-media-15-ikon -->
+
+<i class="tmp tmp-remove-circle  a-remove-icon "    ></i>
+
+
+<!-- END: 00-atomer-09-bilder-og-media-15-ikon -->
+
+
+
+          Tredje punkt i listen er ikke klikkbart
+
+        </div>
+          <div class="a-listItem-rightContent">
+                <!-- START: 00-atomer-02-lenker-00-link -->
+<a
+   href="../../patterns/04-sider-01-forside-00-forside/04-sider-01-forside-00-forside.html" 
+  class="a-linkArea no-decoration ">
+  Endre
+
+    <!-- START: 00-atomer-09-bilder-og-media-15-ikon -->
+
+<i class="ai ai-arrowright   "    ></i>
+
+
+<!-- END: 00-atomer-09-bilder-og-media-15-ikon -->
+
+</a>
+
+<!-- END: 00-atomer-02-lenker-00-link -->
+
+              <!-- START: 00-atomer-09-bilder-og-media-15-ikon -->
+
+<i class="tmp tmp-verified-user   "    ></i>
+
+
+<!-- END: 00-atomer-09-bilder-og-media-15-ikon -->
+
+			</li>
+			<li class="a-item-list-item a-disabled">
+        <div class="a-listItem-leftContent">
+
+            <div class="a-dotted"></div>
+
+          Fjerde punkt i listen er deaktivert
+
+        </div>
+          <div class="a-listItem-rightContent">
+                Endre
+              <!-- START: 00-atomer-05-Ekspansjonsknapper-34-♺-link-med-stor-popover-ikon -->
+<!-- START: 00-atomer-05-Ekspansjonsknapper-32-link-med-popover -->
+<a href="#"
+  aria-label="valid"
+  tabindex="0"
+  class="a-linkArea a-helpIconButton"
+  role="button"
+  data-toggle="popover"
+  data-template="<!-- START: 00-atomer-05-Ekspansjonsknapper-01-popover -->
+<div class='popover popover-valid' role='tooltip'>
+  <div class='popover-arrow'></div>
+  <h3 class='popover-title'></h3>
+  <div class='popover-content'></div>
+</div>
+
+<!-- END: 00-atomer-05-Ekspansjonsknapper-01-popover -->
+"
+  data-target="#myPopup"
+  data-placement="bottom"
+  data-trigger="manual"
+   title="Tittel på popover" 
+   data-content="Innholdet i popover fra spørsmålstegn-ikonet kommer her.. JSON" 
+  data-popover-content="">
+  
+    <!-- START: 00-atomer-09-bilder-og-media-15-ikon -->
+
+<i class="tmp tmp-help   "    ></i>
+
+
+<!-- END: 00-atomer-09-bilder-og-media-15-ikon -->
+
+</a>
+<!-- END: 00-atomer-05-Ekspansjonsknapper-32-link-med-popover -->
+
+
+<!-- END: 00-atomer-05-Ekspansjonsknapper-34-♺-link-med-stor-popover-ikon -->
+
+			</li>
+			<li class="a-item-list-item a-dotted a-clickable">
+        <div class="a-listItem-leftContent">
+
+
+          
+
+            <a href="../../patterns/04-sider-30-artikkel-_10-artikkel/04-sider-30-artikkel-_10-artikkel.html" class="a-listItem-title">
+              <b>+ Legg til rolle</b>
+            </a>
+        </div>
+			</li>
+	</ul>
+<!-- END: 00-atomer-08-lister-05-liste-unummerert -->
+
+<!-- END: 00-atomer-08-lister-05-♺-liste-unummerert-actions -->
+
+
+      <div class="row">
+        <div class="col-xs-12 mt-2">
+          <!-- START: 00-atomer-02-lenker-03-♺-link-selvstendig-sidebytte -->
+<!-- START: 00-atomer-02-lenker-00-link -->
+<a
+   href="../../patterns/04-sider-01-forside-00-forside/04-sider-01-forside-00-forside.html" 
+  class="a-linkArea a-link ">
+  Lenke som står i løpende tekst
+
+    <!-- START: 00-atomer-09-bilder-og-media-15-ikon -->
+
+<i class="ai ai-arrowright   "    ></i>
+
+
+<!-- END: 00-atomer-09-bilder-og-media-15-ikon -->
+
+</a>
+
+<!-- END: 00-atomer-02-lenker-00-link -->
+ 
+
+<!-- END: 00-atomer-02-lenker-03-♺-link-selvstendig-sidebytte -->
+
+        </div>
+      </div>
+  </div>
+<!-- END: 01-molekyler-02-navigasjon-50-ekspanderbar-liste -->
+
+  </div>
+
+<!-- END: 02-organismer-70-Modal-innhold-93-delegering-roller -->
+
+  <!-- START: 02-organismer-70-Modal-innhold-95-delegering-epost -->
+<div class="row">
+  <div class="col-xs-12">
+      <!-- START: 01-molekyler-00-tekst-30-ikon-tekst -->
+<div class="a-iconText  a-iconText--noMinHeight">
+  <!-- ICON -->
+  <div class="a-iconText-icon"></div>
+  <!-- TEXT -->
+    <div class="a-iconText-text">
+    <span class="a-iconText-text-small">Liten tekst</span>
+  <span class="a-iconText-text-large">Stor tekst  </span>
+    </div>
+</div>
+
+<!-- END: 01-molekyler-00-tekst-30-ikon-tekst -->
+
+    <div class="a-full-width">
+      <hr class="mb-2 mt-3">
+    </div>
+  </div>
+  <div class="col-xs-12 mb-2 a-fontBold">
+    Vent litt... Vi mangler e-postadresse til den du gir rettighet til.<br />For å gjennomføre må du fylle inn e-post under.
+  </div>
+</div>
+  <div class="row">
+    <div class="col-xs-12 col-md-8 col-xl-6 mb-1">
+      <!-- START: 00-atomer-01-forms-09-tekst-input -->
+<div class="form-group a-form-group has-feedback  "
+   data-toggle="validator" 
+   data-delay="2000" >
+
+    <div class="a-form-group-items input-group   transparent ">
+
+      <!-- Label -->
+      <label class="a-form-label  input-group-addon" for="text-input-8">
+          <!-- START: 00-atomer-09-bilder-og-media-15-ikon -->
+
+<i class="ai ai-envelope   "    ></i>
+
+
+<!-- END: 00-atomer-09-bilder-og-media-15-ikon -->
+
+        Epost:
+      </label>
+
+      <!-- Input  -->
+        <input type="email"
+          class="form-control  a-form-control-withBtn pl-0"
+          id="text-input-8"
+          
+          required
+          placeholder="f.eks post@karinordmann.no"
+          value=""
+          
+          data-error=""
+          
+          data-search-algorithm=""
+          data-search-target="">
+            <!-- START: 00-atomer-09-bilder-og-media-15-ikon -->
+
+<i class="ai ai-plus  form-control-feedback "    ></i>
+
+
+<!-- END: 00-atomer-09-bilder-og-media-15-ikon -->
+
+            <span class="sr-only">Icon showing if input is valid or not</span>
+
+        <!-- button -->
+        <div class="input-group-btn">
+          <button class="btn btn-secondary" type="button">
+            <!-- START: 00-atomer-09-bilder-og-media-15-ikon -->
+
+<i class="tmp tmp-search   "    ><span class="sr-only">Utfør søk</span></i>
+
+
+<!-- END: 00-atomer-09-bilder-og-media-15-ikon -->
+
+          </button>
+        </div>
+
+
+    </div>
+
+
+
+      <div class="help-block with-errors a-message a-message-error "></div>
+
+  </div>
+
+<!-- END: 00-atomer-01-forms-09-tekst-input -->
+
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-xl-12">
+      <!-- START: 00-atomer-03-knapper-10-knapp -->
+<button type="submit"
+    class="a-btn a-btn-success mb-0"
+    
+     /patterns/04-sider-01-forside-00-forside/04-sider-01-forside-00-forside.html    data-target="departement-filter"  >
+    Fullfør
+</button>
+
+<!-- END: 00-atomer-03-knapper-10-knapp -->
+
+    </div>
+  </div>
+<!-- END: 02-organismer-70-Modal-innhold-95-delegering-epost -->
+
+  <!-- START: 02-organismer-70-Modal-innhold-92-roller-tjenesteoversikt -->
+<!-- START: 00-atomer-05-Ekspansjonsknapper-27-ekspanderbar-tittel -->
+
+<div class="a-collapse">
+  <h3 class="a-collapseHeader a-dotted">
+      <a data-toggle="collapse" data-parent="#accessToRoles" data-target="#" href="#" aria-expanded="" aria-controls="DirectRoles" class="a-collapse-title a-collapse-title--absolute no-decoration  collapsed ">
+          <span class="a-dropdownArrow"></span> Denne utvidbare tittelen har blå underlinje.
+      </a>
+  </h3>
+</div>
+
+<!-- END: 00-atomer-05-Ekspansjonsknapper-27-ekspanderbar-tittel -->
+
+
+<div id="" class="a-collapseContent a-js-instantCollapse collapse in" aria-expanded="false">
+    <!-- START: 00-atomer-01-forms-02-valgknapp -->
+  <div class="a-switch">
+    <input
+       id="filterID01" 
+      class="sr-only"
+      type="checkbox"
+      name="filterID01"
+      value="checkbutton-read"
+      >
+    <label
+      for="filterID01"
+      class="a-switch-label ">
+
+      <!-- START: 00-atomer-09-bilder-og-media-15-ikon -->
+
+<i class="ai ai-timer   "    ></i>
+
+
+<!-- END: 00-atomer-09-bilder-og-media-15-ikon -->
+
+
+      Lorem
+    </label>
+  </div>
+  <div class="a-switch">
+    <input
+       id="filterID02" 
+      class="sr-only"
+      type="checkbox"
+      name="filterID02"
+      value="checkbutton-read"
+      >
+    <label
+      for="filterID02"
+      class="a-switch-label ">
+
+      <!-- START: 00-atomer-09-bilder-og-media-15-ikon -->
+
+<i class="ai ai-timer   "    ></i>
+
+
+<!-- END: 00-atomer-09-bilder-og-media-15-ikon -->
+
+
+      Ipsum
+    </label>
+  </div>
+  <div class="a-switch">
+    <input
+       id="filterID03" 
+      class="sr-only"
+      type="checkbox"
+      name="filterID03"
+      value="checkbutton-read"
+      >
+    <label
+      for="filterID03"
+      class="a-switch-label ">
+
+      <!-- START: 00-atomer-09-bilder-og-media-15-ikon -->
+
+<i class="ai ai-timer   "    ></i>
+
+
+<!-- END: 00-atomer-09-bilder-og-media-15-ikon -->
+
+
+      Dolores
+    </label>
+  </div>
+  <div class="a-switch">
+    <input
+       id="filterID04" 
+      class="sr-only"
+      type="checkbox"
+      name="filterID04"
+      value="checkbutton-read"
+      >
+    <label
+      for="filterID04"
+      class="a-switch-label ">
+
+      <!-- START: 00-atomer-09-bilder-og-media-15-ikon -->
+
+<i class="ai ai-timer   "    ></i>
+
+
+<!-- END: 00-atomer-09-bilder-og-media-15-ikon -->
+
+
+      Sit
+    </label>
+  </div>
+  <div class="a-switch">
+    <input
+       id="filterID05" 
+      class="sr-only"
+      type="checkbox"
+      name="filterID05"
+      value="checkbutton-read"
+      >
+    <label
+      for="filterID05"
+      class="a-switch-label ">
+
+      <!-- START: 00-atomer-09-bilder-og-media-15-ikon -->
+
+<i class="ai ai-timer   "    ></i>
+
+
+<!-- END: 00-atomer-09-bilder-og-media-15-ikon -->
+
+
+      Amet
+    </label>
+  </div>
+  <div class="a-switch">
+    <input
+       id="filterID06" 
+      class="sr-only"
+      type="checkbox"
+      name="filterID06"
+      value="checkbutton-read"
+      >
+    <label
+      for="filterID06"
+      class="a-switch-label ">
+
+      <!-- START: 00-atomer-09-bilder-og-media-15-ikon -->
+
+<i class="ai ai-timer   "    ></i>
+
+
+<!-- END: 00-atomer-09-bilder-og-media-15-ikon -->
+
+
+      Bacon
+    </label>
+  </div>
+
+<!-- END: 00-atomer-01-forms-02-valgknapp -->
+
+</div>
+<hr class="a-hrSolidThick" />
+
+<!-- START: 01-molekyler-02-navigasjon-20-hurtignavigasjon -->
+<!-- START: 00-atomer-02-lenker-20-hurtignavigasjon-navbar -->
+<nav class="nav nav-inline a-inline-page-link">
+  <div class="list">
+      <a href="#nav1" class="nav-link ">Nav item 1</a>
+      <a href="#nav2" class="nav-link  disabled ">Nav item 2</a>
+  </div>
+  <div class="list">
+      <a href="#nav3" class="nav-link  disabled ">Nav item 3</a>
+      <a href="#nav4" class="nav-link ">Nav item 4</a>
+  </div>
+</nav>
+<!-- END: 00-atomer-02-lenker-20-hurtignavigasjon-navbar -->
+
+
+  <div class="a-dotted a-page-nav-dest"><h5><a name="nav1">nav1</a></h5></div>
+  <!-- START: 00-atomer-08-lister-05-liste-unummerert -->
+	<ul class="a-item-list list-group ">
+			<li class="a-item-list-item a-dotted a-clickable">
+        <div class="a-listItem-leftContent">
+
+
+          
+
+            <a href="../../patterns/04-sider-30-artikkel-_10-artikkel/04-sider-30-artikkel-_10-artikkel.html" class="a-listItem-title">
+              Lorem ipsum
+            </a>
+        </div>
+			</li>
+			<li class="a-item-list-item a-dotted a-clickable">
+        <div class="a-listItem-leftContent">
+
+
+          
+
+            <a href="../../patterns/04-sider-30-artikkel-_10-artikkel/04-sider-30-artikkel-_10-artikkel.html" class="a-listItem-title">
+              Dolores sit amet
+            </a>
+        </div>
+			</li>
+	</ul>
+<!-- END: 00-atomer-08-lister-05-liste-unummerert -->
+
+  <div class="a-dotted a-page-nav-dest"><h5><a name="nav2">nav2</a></h5></div>
+  <!-- START: 00-atomer-08-lister-05-liste-unummerert -->
+	<ul class="a-item-list list-group ">
+			<li class="a-item-list-item a-dotted a-clickable">
+        <div class="a-listItem-leftContent">
+
+
+          
+
+            <a href="../../patterns/04-sider-30-artikkel-_10-artikkel/04-sider-30-artikkel-_10-artikkel.html" class="a-listItem-title">
+              Consectetur adipiscing elit
+            </a>
+        </div>
+			</li>
+			<li class="a-item-list-item a-dotted a-clickable">
+        <div class="a-listItem-leftContent">
+
+
+          
+
+            <a href="../../patterns/04-sider-30-artikkel-_10-artikkel/04-sider-30-artikkel-_10-artikkel.html" class="a-listItem-title">
+              Mauris vulputate augue et nisl semper
+            </a>
+        </div>
+			</li>
+	</ul>
+<!-- END: 00-atomer-08-lister-05-liste-unummerert -->
+
+  <div class="a-dotted a-page-nav-dest"><h5><a name="nav3">nav3</a></h5></div>
+  <!-- START: 00-atomer-08-lister-05-liste-unummerert -->
+	<ul class="a-item-list list-group ">
+			<li class="a-item-list-item a-dotted a-clickable">
+        <div class="a-listItem-leftContent">
+
+
+          
+
+            <a href="../../patterns/04-sider-30-artikkel-_10-artikkel/04-sider-30-artikkel-_10-artikkel.html" class="a-listItem-title">
+              Eget laoreet est suscipit
+            </a>
+        </div>
+			</li>
+			<li class="a-item-list-item a-dotted a-clickable">
+        <div class="a-listItem-leftContent">
+
+
+          
+
+            <a href="../../patterns/04-sider-30-artikkel-_10-artikkel/04-sider-30-artikkel-_10-artikkel.html" class="a-listItem-title">
+              Mauris ultrices ex justo, malesuada
+            </a>
+        </div>
+			</li>
+	</ul>
+<!-- END: 00-atomer-08-lister-05-liste-unummerert -->
+
+  <div class="a-dotted a-page-nav-dest"><h5><a name="nav4">nav4</a></h5></div>
+  <!-- START: 00-atomer-08-lister-05-liste-unummerert -->
+	<ul class="a-item-list list-group ">
+			<li class="a-item-list-item a-dotted a-clickable">
+        <div class="a-listItem-leftContent">
+
+
+          
+
+            <a href="../../patterns/04-sider-30-artikkel-_10-artikkel/04-sider-30-artikkel-_10-artikkel.html" class="a-listItem-title">
+              Ornare tellus blandit quis
+            </a>
+        </div>
+			</li>
+			<li class="a-item-list-item a-dotted a-clickable">
+        <div class="a-listItem-leftContent">
+
+
+          
+
+            <a href="../../patterns/04-sider-30-artikkel-_10-artikkel/04-sider-30-artikkel-_10-artikkel.html" class="a-listItem-title">
+              Ut porta urna a interdum sodales diam arcu tempor ante
+            </a>
+        </div>
+			</li>
+	</ul>
+<!-- END: 00-atomer-08-lister-05-liste-unummerert -->
+
+<!-- END: 01-molekyler-02-navigasjon-20-hurtignavigasjon -->
+
+<!-- END: 02-organismer-70-Modal-innhold-92-roller-tjenesteoversikt -->
+
+  <div class="pb-2">
+    <!-- START: 02-organismer-70-Modal-innhold-92-delegering-legg-til -->
+  <h2 class="a-headingSizeS">Tab heading</h2>
+  <div class="pb-2 clearfix">
+    <!-- START: 01-molekyler-02-navigasjon-10-faner -->
+<ul class="nav a-tabs" role="tablist" >
+    <li class="nav-item a-tab">
+      <a class="a-tab-btn  active " data-toggle="tab" href="#home" role="tab">
+          <!-- START: 00-atomer-09-bilder-og-media-15-ikon -->
+
+<i class="ai ai-timer   hidden-xs-down"    ></i>
+
+
+<!-- END: 00-atomer-09-bilder-og-media-15-ikon -->
+
+        Person
+      </a>
+    </li>
+    <li class="nav-item a-tab">
+      <a class="a-tab-btn " data-toggle="tab" href="#enterprise" role="tab">
+          <!-- START: 00-atomer-09-bilder-og-media-15-ikon -->
+
+<i class="ai ai-timer   hidden-xs-down"    ></i>
+
+
+<!-- END: 00-atomer-09-bilder-og-media-15-ikon -->
+
+        Ekstern virksomhet
+      </a>
+    </li>
+    <li class="nav-item a-tab">
+      <a class="a-tab-btn " data-toggle="tab" href="#enterpriseuser" role="tab">
+          <!-- START: 00-atomer-09-bilder-og-media-15-ikon -->
+
+<i class="ai ai-timer   hidden-xs-down"    ></i>
+
+
+<!-- END: 00-atomer-09-bilder-og-media-15-ikon -->
+
+        Bruker med virksomhetssertifikat
+      </a>
+    </li>
+</ul>
+
+<!-- END: 01-molekyler-02-navigasjon-10-faner -->
+
+  </div>
+  <div class="tab-content a-tabs-content">
+    <div class="tab-pane active" id="home" role="tabpanel">
+  <form data-toggle="validator" data-disable="true">
+    <div class="row">
+      <div class="col-xs-12 col-md-7 mb-1">
+        <h3 class="a-headingSizeS">Hvem vil du legge til?</h3>
+          <!-- START: 00-atomer-01-forms-09-tekst-input -->
+<div class="form-group a-form-group has-feedback  "
+   data-toggle="validator" 
+   data-delay="2000" >
+
+    <div class="a-form-group-items input-group   transparent ">
+
+      <!-- Label -->
+      <label class="a-form-label  input-group-addon" for="text-fnr-brukernavn">
+        Fødselsnr/brukernavn:
+      </label>
+
+      <!-- Input  -->
+        <input type="text"
+          class="form-control  a-form-control-withBtn pl-0"
+          id="text-fnr-brukernavn"
+          pattern= "[0-9]{11}"
+          required
+          placeholder="11 siffer"
+          value=""
+          
+          data-error="Personnummer må bestå av 11 siffer."
+          
+          data-search-algorithm=""
+          data-search-target="">
+            <!-- START: 00-atomer-09-bilder-og-media-15-ikon -->
+
+<i class="ai ai-timer   "    ></i>
+
+
+<!-- END: 00-atomer-09-bilder-og-media-15-ikon -->
+
+            <span class="sr-only">Icon showing if input is valid or not</span>
+
+        <!-- button -->
+        <div class="input-group-btn">
+          <button class="btn btn-secondary" type="button">
+            <!-- START: 00-atomer-09-bilder-og-media-15-ikon -->
+
+<i class="tmp tmp-search   "    ><span class="sr-only">Utfør søk</span></i>
+
+
+<!-- END: 00-atomer-09-bilder-og-media-15-ikon -->
+
+          </button>
+        </div>
+
+
+    </div>
+
+
+
+      <div class="help-block with-errors a-message a-message-error ">Personnummer må bestå av 11 siffer.</div>
+
+  </div>
+
+<!-- END: 00-atomer-01-forms-09-tekst-input -->
+
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-xs-12 col-md-7">
+        <div class="mt-1">
+            <!-- START: 00-atomer-01-forms-09-tekst-input -->
+<div class="form-group a-form-group has-feedback   mb-0 "
+   data-toggle="validator" 
+   data-delay="2000" >
+
+    <div class="a-form-group-items input-group   transparent ">
+
+      <!-- Label -->
+      <label class="a-form-label  input-group-addon" for="text-etternavn">
+        Etternavn:
+      </label>
+
+      <!-- Input  -->
+        <input type="text"
+          class="form-control  a-form-control-withBtn pl-0"
+          id="text-etternavn"
+          pattern= "[0-9]{11}"
+          required
+          placeholder=""
+          value=""
+          
+          data-error="Personnummer må bestå av 11 siffer."
+          
+          data-search-algorithm=""
+          data-search-target="">
+            <!-- START: 00-atomer-09-bilder-og-media-15-ikon -->
+
+<i class="ai ai-timer   "    ></i>
+
+
+<!-- END: 00-atomer-09-bilder-og-media-15-ikon -->
+
+            <span class="sr-only">Icon showing if input is valid or not</span>
+
+        <!-- button -->
+        <div class="input-group-btn">
+          <button class="btn btn-secondary" type="button">
+            <!-- START: 00-atomer-09-bilder-og-media-15-ikon -->
+
+<i class="tmp tmp-search   "    ><span class="sr-only">Utfør søk</span></i>
+
+
+<!-- END: 00-atomer-09-bilder-og-media-15-ikon -->
+
+          </button>
+        </div>
+
+
+    </div>
+
+
+
+      <div class="help-block with-errors a-message a-message-error ">Personnummer må bestå av 11 siffer.</div>
+
+  </div>
+
+<!-- END: 00-atomer-01-forms-09-tekst-input -->
+
+        </div>
+      </div>
+      <div style="display:none" class="a-js-hideWhenInvalid hidden-md-down col-xs-12 col-md-5 pl-3">
+        <!-- START: 01-molekyler-00-tekst-03-♺-person-rolle-suksess -->
+<!-- START: 01-molekyler-00-tekst-02-person-rolle -->
+<div class="a-personRole ">
+    <!-- START: 00-atomer-09-bilder-og-media-15-ikon -->
+
+<i class="tmp tmp-circle-filled  a-personRole-icon-success "    ></i>
+
+
+<!-- END: 00-atomer-09-bilder-og-media-15-ikon -->
+
+
+    <!-- START: 00-atomer-09-bilder-og-media-15-ikon -->
+
+<i class="ai ai-person  a-personRole-icon "    ></i>
+
+
+<!-- END: 00-atomer-09-bilder-og-media-15-ikon -->
+
+  <div class="a-personRole-text">
+    <span class="a-personRole-role">Styremedlem</span>
+    <span class="a-personRole-name">William Mjelde</span>
+  </div>
+</div>
+
+<!-- END: 01-molekyler-00-tekst-02-person-rolle -->
+
+<!-- END: 01-molekyler-00-tekst-03-♺-person-rolle-suksess -->
+
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-12">
+        <div class="mt-3">
+              <!-- START: 00-atomer-03-knapper-10-knapp -->
+<button type="submit"
+    class="a-btn a-btn-success mb-0"
+    
+     /patterns/04-sider-01-forside-00-forside/04-sider-01-forside-00-forside.html    data-target="departement-filter"  >
+    Neste
+</button>
+
+<!-- END: 00-atomer-03-knapper-10-knapp -->
+
+        </div>
+      </div>
+    </div>
+  </form>
+    </div>
+    <div class="tab-pane " id="enterprise" role="tabpanel">
+  <form data-toggle="validator" data-disable="true">
+    <div class="row">
+      <div class="col-xs-12 col-md-7 mb-1">
+        <h3 class="a-headingSizeS">Hvem vil du legge til?</h3>
+          <!-- START: 00-atomer-01-forms-09-tekst-input -->
+<div class="form-group a-form-group has-feedback  "
+   data-toggle="validator" 
+   data-delay="2000" >
+
+    <div class="a-form-group-items input-group   transparent ">
+
+      <!-- Label -->
+      <label class="a-form-label  input-group-addon" for="text-orgno">
+        Org.nr.:
+      </label>
+
+      <!-- Input  -->
+        <input type="text"
+          class="form-control  a-form-control-withBtn pl-0"
+          id="text-orgno"
+          pattern= "[0-9]{11}"
+          required
+          placeholder=""
+          value=""
+          
+          data-error="Personnummer må bestå av 11 siffer."
+          
+          data-search-algorithm=""
+          data-search-target="">
+            <!-- START: 00-atomer-09-bilder-og-media-15-ikon -->
+
+<i class="ai ai-timer   "    ></i>
+
+
+<!-- END: 00-atomer-09-bilder-og-media-15-ikon -->
+
+            <span class="sr-only">Icon showing if input is valid or not</span>
+
+        <!-- button -->
+        <div class="input-group-btn">
+          <button class="btn btn-secondary" type="button">
+            <!-- START: 00-atomer-09-bilder-og-media-15-ikon -->
+
+<i class="tmp tmp-search   "    ><span class="sr-only">Utfør søk</span></i>
+
+
+<!-- END: 00-atomer-09-bilder-og-media-15-ikon -->
+
+          </button>
+        </div>
+
+
+    </div>
+
+
+
+      <div class="help-block with-errors a-message a-message-error ">Personnummer må bestå av 11 siffer.</div>
+
+  </div>
+
+<!-- END: 00-atomer-01-forms-09-tekst-input -->
+
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-xs-12 col-md-7">
+        <div class="mt-1">
+            <!-- START: 00-atomer-01-forms-09-tekst-input -->
+<div class="form-group a-form-group has-feedback   mb-0 "
+   data-toggle="validator" 
+   data-delay="2000" >
+
+    <div class="a-form-group-items input-group   transparent ">
+
+      <!-- Label -->
+      <label class="a-form-label  input-group-addon" for="text-bedriftnavn">
+        Navn:
+      </label>
+
+      <!-- Input  -->
+        <input type="text"
+          class="form-control  a-form-control-withBtn pl-0"
+          id="text-bedriftnavn"
+          pattern= "[0-9]{11}"
+          required
+          placeholder="Min. 4 første tegn"
+          value=""
+          
+          data-error="Personnummer må bestå av 11 siffer."
+          
+          data-search-algorithm=""
+          data-search-target="">
+            <!-- START: 00-atomer-09-bilder-og-media-15-ikon -->
+
+<i class="ai ai-timer   "    ></i>
+
+
+<!-- END: 00-atomer-09-bilder-og-media-15-ikon -->
+
+            <span class="sr-only">Icon showing if input is valid or not</span>
+
+        <!-- button -->
+        <div class="input-group-btn">
+          <button class="btn btn-secondary" type="button">
+            <!-- START: 00-atomer-09-bilder-og-media-15-ikon -->
+
+<i class="tmp tmp-search   "    ><span class="sr-only">Utfør søk</span></i>
+
+
+<!-- END: 00-atomer-09-bilder-og-media-15-ikon -->
+
+          </button>
+        </div>
+
+
+    </div>
+
+
+
+      <div class="help-block with-errors a-message a-message-error ">Personnummer må bestå av 11 siffer.</div>
+
+  </div>
+
+<!-- END: 00-atomer-01-forms-09-tekst-input -->
+
+        </div>
+      </div>
+      <div style="display:none" class="a-js-hideWhenInvalid hidden-md-down col-xs-12 col-md-5 pl-3">
+        <!-- START: 01-molekyler-00-tekst-03-♺-person-rolle-suksess -->
+<!-- START: 01-molekyler-00-tekst-02-person-rolle -->
+<div class="a-personRole ">
+    <!-- START: 00-atomer-09-bilder-og-media-15-ikon -->
+
+<i class="tmp tmp-circle-filled  a-personRole-icon-success "    ></i>
+
+
+<!-- END: 00-atomer-09-bilder-og-media-15-ikon -->
+
+
+    <!-- START: 00-atomer-09-bilder-og-media-15-ikon -->
+
+<i class="ai ai-person  a-personRole-icon "    ></i>
+
+
+<!-- END: 00-atomer-09-bilder-og-media-15-ikon -->
+
+  <div class="a-personRole-text">
+    <span class="a-personRole-role">Styremedlem</span>
+    <span class="a-personRole-name">William Mjelde</span>
+  </div>
+</div>
+
+<!-- END: 01-molekyler-00-tekst-02-person-rolle -->
+
+<!-- END: 01-molekyler-00-tekst-03-♺-person-rolle-suksess -->
+
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-12">
+        <div class="mt-3">
+              <!-- START: 00-atomer-03-knapper-10-knapp -->
+<button type="submit"
+    class="a-btn a-btn-success mb-0"
+    
+     /patterns/04-sider-01-forside-00-forside/04-sider-01-forside-00-forside.html    data-target="departement-filter"  >
+    Neste
+</button>
+
+<!-- END: 00-atomer-03-knapper-10-knapp -->
+
+        </div>
+      </div>
+    </div>
+  </form>
+    </div>
+    <div class="tab-pane " id="enterpriseuser" role="tabpanel">
+  <form data-toggle="validator" data-disable="true">
+    <div class="row">
+      <div class="col-xs-12 col-md-7 mb-1">
+        <h3 class="a-headingSizeS">Hvem vil du legge til?</h3>
+          <!-- START: 00-atomer-01-forms-09-tekst-input -->
+<div class="form-group a-form-group has-feedback  "
+   data-toggle="validator" 
+   data-delay="2000" >
+
+    <div class="a-form-group-items input-group   transparent ">
+
+      <!-- Label -->
+      <label class="a-form-label  input-group-addon" for="text-enterprise-brukernavn">
+        Brukernavn:
+      </label>
+
+      <!-- Input  -->
+        <input type="text"
+          class="form-control  a-form-control-withBtn pl-0"
+          id="text-enterprise-brukernavn"
+          pattern= "[0-9]{11}"
+          required
+          placeholder=""
+          value=""
+          
+          data-error="Personnummer må bestå av 11 siffer."
+          
+          data-search-algorithm=""
+          data-search-target="">
+            <!-- START: 00-atomer-09-bilder-og-media-15-ikon -->
+
+<i class="ai ai-timer   "    ></i>
+
+
+<!-- END: 00-atomer-09-bilder-og-media-15-ikon -->
+
+            <span class="sr-only">Icon showing if input is valid or not</span>
+
+        <!-- button -->
+        <div class="input-group-btn">
+          <button class="btn btn-secondary" type="button">
+            <!-- START: 00-atomer-09-bilder-og-media-15-ikon -->
+
+<i class="tmp tmp-search   "    ><span class="sr-only">Utfør søk</span></i>
+
+
+<!-- END: 00-atomer-09-bilder-og-media-15-ikon -->
+
+          </button>
+        </div>
+
+
+    </div>
+
+
+
+      <div class="help-block with-errors a-message a-message-error ">Personnummer må bestå av 11 siffer.</div>
+
+  </div>
+
+<!-- END: 00-atomer-01-forms-09-tekst-input -->
+
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-xs-12 col-md-7">
+        <div class="mt-1">
+            <!-- START: 00-atomer-01-forms-09-tekst-input -->
+<div class="form-group a-form-group has-feedback   mb-0 "
+   data-toggle="validator" 
+   data-delay="2000" >
+
+    <div class="a-form-group-items input-group   transparent ">
+
+      <!-- Label -->
+      <label class="a-form-label  input-group-addon" for="text-enterpriseuser-orgno">
+        Org.nr.:
+      </label>
+
+      <!-- Input  -->
+        <input type="text"
+          class="form-control  a-form-control-withBtn pl-0"
+          id="text-enterpriseuser-orgno"
+          pattern= "[0-9]{11}"
+          required
+          placeholder=""
+          value=""
+          
+          data-error="Personnummer må bestå av 11 siffer."
+          
+          data-search-algorithm=""
+          data-search-target="">
+            <!-- START: 00-atomer-09-bilder-og-media-15-ikon -->
+
+<i class="ai ai-timer   "    ></i>
+
+
+<!-- END: 00-atomer-09-bilder-og-media-15-ikon -->
+
+            <span class="sr-only">Icon showing if input is valid or not</span>
+
+        <!-- button -->
+        <div class="input-group-btn">
+          <button class="btn btn-secondary" type="button">
+            <!-- START: 00-atomer-09-bilder-og-media-15-ikon -->
+
+<i class="tmp tmp-search   "    ><span class="sr-only">Utfør søk</span></i>
+
+
+<!-- END: 00-atomer-09-bilder-og-media-15-ikon -->
+
+          </button>
+        </div>
+
+
+    </div>
+
+
+
+      <div class="help-block with-errors a-message a-message-error ">Personnummer må bestå av 11 siffer.</div>
+
+  </div>
+
+<!-- END: 00-atomer-01-forms-09-tekst-input -->
+
+        </div>
+      </div>
+      <div style="display:none" class="a-js-hideWhenInvalid hidden-md-down col-xs-12 col-md-5 pl-3">
+        <!-- START: 01-molekyler-00-tekst-03-♺-person-rolle-suksess -->
+<!-- START: 01-molekyler-00-tekst-02-person-rolle -->
+<div class="a-personRole ">
+    <!-- START: 00-atomer-09-bilder-og-media-15-ikon -->
+
+<i class="tmp tmp-circle-filled  a-personRole-icon-success "    ></i>
+
+
+<!-- END: 00-atomer-09-bilder-og-media-15-ikon -->
+
+
+    <!-- START: 00-atomer-09-bilder-og-media-15-ikon -->
+
+<i class="ai ai-person  a-personRole-icon "    ></i>
+
+
+<!-- END: 00-atomer-09-bilder-og-media-15-ikon -->
+
+  <div class="a-personRole-text">
+    <span class="a-personRole-role">Styremedlem</span>
+    <span class="a-personRole-name">William Mjelde</span>
+  </div>
+</div>
+
+<!-- END: 01-molekyler-00-tekst-02-person-rolle -->
+
+<!-- END: 01-molekyler-00-tekst-03-♺-person-rolle-suksess -->
+
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-12">
+        <div class="mt-3">
+              <!-- START: 00-atomer-03-knapper-10-knapp -->
+<button type="submit"
+    class="a-btn a-btn-success mb-0"
+    
+     /patterns/04-sider-01-forside-00-forside/04-sider-01-forside-00-forside.html    data-target="departement-filter"  >
+    Neste
+</button>
+
+<!-- END: 00-atomer-03-knapper-10-knapp -->
+
+        </div>
+      </div>
+    </div>
+  </form>
+    </div>
+  </div>
+
+
+<!-- END: 02-organismer-70-Modal-innhold-92-delegering-legg-til -->
+
+  </div>
+
+<!-- END: 02-organismer-71-modal-gruppering-02-modal-andre-med-rettigheter -->
+
+  </div>
+  <script type="text/json" id="sg-pattern-data-organismer-modal-andre-med-rettigheter" class="sg-pattern-data">
+    {"cssEnabled":false,"patternLineageExists":true,"patternLineages":[{"lineagePattern":"organismer-delegering-tildel","lineagePath":"../../patterns/02-organismer-70-Modal-innhold-94-delegering-tildel/02-organismer-70-Modal-innhold-94-delegering-tildel.html","lineageState":"indesignreview"},{"lineagePattern":"organismer-delegering-roller","lineagePath":"../../patterns/02-organismer-70-Modal-innhold-93-delegering-roller/02-organismer-70-Modal-innhold-93-delegering-roller.html","lineageState":"indesignreview"},{"lineagePattern":"organismer-delegering-epost","lineagePath":"../../patterns/02-organismer-70-Modal-innhold-95-delegering-epost/02-organismer-70-Modal-innhold-95-delegering-epost.html","lineageState":"indesignreview"},{"lineagePattern":"organismer-roller-tjenesteoversikt","lineagePath":"../../patterns/02-organismer-70-Modal-innhold-92-roller-tjenesteoversikt/02-organismer-70-Modal-innhold-92-roller-tjenesteoversikt.html","lineageState":"inprogress"},{"lineagePattern":"organismer-delegering-legg-til","lineagePath":"../../patterns/02-organismer-70-Modal-innhold-92-delegering-legg-til/02-organismer-70-Modal-innhold-92-delegering-legg-til.html","lineageState":"indesignreview"}],"lineage":[{"lineagePattern":"organismer-delegering-tildel","lineagePath":"../../patterns/02-organismer-70-Modal-innhold-94-delegering-tildel/02-organismer-70-Modal-innhold-94-delegering-tildel.html","lineageState":"indesignreview"},{"lineagePattern":"organismer-delegering-roller","lineagePath":"../../patterns/02-organismer-70-Modal-innhold-93-delegering-roller/02-organismer-70-Modal-innhold-93-delegering-roller.html","lineageState":"indesignreview"},{"lineagePattern":"organismer-delegering-epost","lineagePath":"../../patterns/02-organismer-70-Modal-innhold-95-delegering-epost/02-organismer-70-Modal-innhold-95-delegering-epost.html","lineageState":"indesignreview"},{"lineagePattern":"organismer-roller-tjenesteoversikt","lineagePath":"../../patterns/02-organismer-70-Modal-innhold-92-roller-tjenesteoversikt/02-organismer-70-Modal-innhold-92-roller-tjenesteoversikt.html","lineageState":"inprogress"},{"lineagePattern":"organismer-delegering-legg-til","lineagePath":"../../patterns/02-organismer-70-Modal-innhold-92-delegering-legg-til/02-organismer-70-Modal-innhold-92-delegering-legg-til.html","lineageState":"indesignreview"}],"patternLineageRExists":true,"patternLineagesR":[{"lineagePattern":"maler-modal","lineagePath":"../../patterns/03-maler-91-modal-01-modal/03-maler-91-modal-01-modal.html","lineageState":"indesignreview"}],"lineageR":[{"lineagePattern":"maler-modal","lineagePath":"../../patterns/03-maler-91-modal-01-modal/03-maler-91-modal-01-modal.html","lineageState":"indesignreview"}],"patternLineageEExists":true,"patternDesc":"<p>Modal-gruppering for andre med rettigheter</p>\n","patternBreadcrumb":{"patternType":"organismer","patternSubtype":"modal-gruppering"},"patternExtension":"mustache","patternName":"Modal Andre Med Rettigheter","patternPartial":"organismer-modal-andre-med-rettigheter","patternState":"indesignreview","patternEngineName":"mustache","extraOutput":{}}
+  </script>
+</div><!--end .sg-pattern-->
+<div id="organismer-modal-kvittering" class="sg-pattern">
+  <div class="sg-pattern-head">
+    <h3 class="sg-pattern-title">
+      <a href="../../patterns/02-organismer-71-modal-gruppering-03-modal-kvittering&#x2F;02-organismer-71-modal-gruppering-03-modal-kvittering.html" class="patternLink" data-patternpartial="organismer-modal-kvittering" title="Link to Pattern">
+          Modal Kvittering
+      </a>
+    </h3>
+      <span class="sg-pattern-state inprogress">inprogress</span>
+    <div class="sg-pattern-breadcrumb"></div>
+    <a href="#" data-patternpartial="organismer-modal-kvittering" title="View Pattern Info" id="sg-pattern-extra-toggle-organismer-modal-kvittering" class="sg-pattern-extra-toggle">Info <span>&#9660;</span></a>
+  </div>
+  <div class="sg-pattern-extra" id="sg-pattern-extra-organismer-modal-kvittering">
+
+  </div>
+  <div class="sg-pattern-example">
+    <!-- START: 02-organismer-71-modal-gruppering-03-modal-kvittering -->
+  <h2 class="mb-3">Nye roller er gitt</h2>
+
+<p class="mb-3">
+  <span class='a-fontBold'>JAR JAR BINKS</span> har fått rollene <span class='a-fontBold'>privatperson begrensede rettigheter</span> og <span class='a-fontBold'>regnskapsmedarbeider</span>, for <span class='a-fontBold'>ADMIRAL AKBAR</span>. Lorem ipsum dolores sit amet
+</p>
+
+  <!-- START: 00-atomer-02-lenker-00-link -->
+<a
+  
+  class="a-linkArea a-btn a-btn-success mr-1">
+  Grønn knapp
+
+</a>
+
+<!-- END: 00-atomer-02-lenker-00-link -->
+
+<!-- END: 02-organismer-71-modal-gruppering-03-modal-kvittering -->
+
+  </div>
+  <script type="text/json" id="sg-pattern-data-organismer-modal-kvittering" class="sg-pattern-data">
+    {"cssEnabled":false,"patternLineageExists":true,"patternLineages":[{"lineagePattern":"atomer-link","lineagePath":"../../patterns/00-atomer-02-lenker-00-link/00-atomer-02-lenker-00-link.html","lineageState":"needsrevalidation"}],"lineage":[{"lineagePattern":"atomer-link","lineagePath":"../../patterns/00-atomer-02-lenker-00-link/00-atomer-02-lenker-00-link.html","lineageState":"needsrevalidation"}],"patternLineageRExists":true,"patternLineagesR":[{"lineagePattern":"maler-modal","lineagePath":"../../patterns/03-maler-91-modal-01-modal/03-maler-91-modal-01-modal.html","lineageState":"indesignreview"}],"lineageR":[{"lineagePattern":"maler-modal","lineagePath":"../../patterns/03-maler-91-modal-01-modal/03-maler-91-modal-01-modal.html","lineageState":"indesignreview"}],"patternLineageEExists":true,"patternDesc":"<p>Tekstinnhold for kvitteringssider i modal.</p>\n","patternBreadcrumb":{"patternType":"organismer","patternSubtype":"modal-gruppering"},"patternExtension":"mustache","patternName":"Modal Kvittering","patternPartial":"organismer-modal-kvittering","patternState":"inprogress","patternEngineName":"mustache","extraOutput":{}}
+  </script>
+</div><!--end .sg-pattern-->
+    </div> <!--end #sg-patterns-->
+  </div> <!--end .sg-main-->
+</div> <!--end .container-->
+    <!-- DO NOT REMOVE -->
+    <div class="sg-switchtheme">
+	<div class="container">
+
+
+		<div class="a-radioButtons">
+		<span style="margin-right: 12px;"> Bytt tema: </span>
+
+
+			<label class="custom-control custom-radio">
+			  <input id="sg-switchtheme-blue" name="radio" type="radio" class="custom-control-input"><span class="custom-control-indicator"></span>
+			  Bedrift
+			</label>
+
+			<label class="custom-control custom-radio">
+				<input id="sg-switchtheme-grey" name="radio" type="radio" class="custom-control-input"><span class="custom-control-indicator"></span>
+				Privat
+			</label>
+
+			<label class="custom-control custom-radio">
+			  <input id="sg-switchtheme-white" name="radio" type="radio" class="custom-control-input"><span class="custom-control-indicator"></span>
+			  Nøytral
+			</label>
+
+		</div>
+
+	</div>
+</div>
+
+<script type="text/json" id="sg-pattern-data-footer" class="sg-pattern-data">
+  {"patternPartial":"viewall-organismer-modal-gruppering"}
+</script>
+
+<script>
+  /*!
+   * scriptLoader - v0.1
+   *
+   * Copyright (c) 2014 Dave Olsen, http://dmolsen.com
+   * Licensed under the MIT license
+   *
+   */
+
+  var scriptLoader = {
+
+    run: function(js,cb,target) {
+      var s  = document.getElementById(target+'-'+cb);
+      for (var i = 0; i < js.length; i++) {
+        var src = (typeof js[i] != 'string') ? js[i].src : js[i];
+        var c   = document.createElement('script');
+        c.src   = '../../'+src+'?'+cb;
+        if (typeof js[i] != 'string') {
+          if (js[i].dep !== undefined) {
+            c.onload = function(dep,cb,target) {
+              return function() {
+                scriptLoader.run(dep,cb,target);
+              }
+            }(js[i].dep,cb,target);
+          }
+        }
+        s.parentNode.insertBefore(c,s);
+      }
+    }
+
+  }
+</script>
+
+<script id="pl-js-polyfill-insert-1483702014103">
+  (function() {
+    if (self != top) {
+      var cb = '1483702014103';
+      var js = [];
+      if (typeof document !== 'undefined' && !('classList' in document.documentElement)) {
+        js.push('styleguide/bower_components/classList.min.js');
+      }
+      scriptLoader.run(js,cb,'pl-js-polyfill-insert');
+    }
+  })();
+</script>
+
+<script id="pl-js-insert-1483702014103">
+  (function() {
+    if (self != top) {
+      var cb = '1483702014103';
+      var js = [ { 'src': 'styleguide/bower_components/jwerty.min.js', 'dep': [ 'styleguide/js/patternlab-pattern.min.js' ] } ];
+      scriptLoader.run(js,cb,'pl-js-insert');
+    }
+  })();
+</script>
+
+	  <!-- JQUERY -->
+    <script src="../../js/jquery.min.js"></script>
+    <!-- TETHER -->
+    <script src="../../js/tether.min.js"></script>
+    <!-- BOOTSTRAP -->
+    <script src="../../js/bootstrap.min.js"></script>
+    <!-- CODE PRETTIFY: Prettify code snippets in HTML -->
+    <script src="https://cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js?lang=css&amp;skin=sunburst"></script>
+    <!-- VALIDATOR: Used for input field feedback -->
+    <!-- http://1000hz.github.io/bootstrap-validator/#validator-usage -->
+    <script src="../../js/validator.min.js"></script>
+    <!-- DATEPICKER: Used for date input fields -->
+    <script src="../../js/bootstrap-datepicker.min.js"></script>
+    <!-- MARKJS: Used for marking search results -->
+    <script src="../../js/jquery.mark.min.js"></script>
+    <!-- SMOOTH STATE: Prevent links from triggering a full page load -->
+    <!-- https://github.com/miguel-perez/smoothState.js -->
+    <script src="../../js/jquery.smoothState.min.js"></script>
+    <!-- ANCHOR LINKS: Generate deep anchor links on titles -->
+    <!-- http://bryanbraun.github.io/anchorjs/#basic-link-left -->
+    <script src="../../js/anchor.min.js"></script>
+    <!-- CLIPBOARD: Enable copying of text -->
+    <script src="../../js/clipboard.min.js"></script>
+    <!-- FOUNDATION interchange -->
+    <!-- <script src="../../js/foundationInterchange.min.js"></script> -->
+    <!-- FOUNDATION responsive menu -->
+    <!-- <script src="../../js/foundationNavigation.min.js"></script> -->
+    <!-- ALTINN custom JavaScript -->
+    <script src="../../js/altinnProd.js"></script>
+    <script src="../../js/altinnDev.js"></script>
+
+  </body>
+</html>
