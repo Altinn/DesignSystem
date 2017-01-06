@@ -1,11 +1,10 @@
-<!-- START: 00-atomer-06-tabeller-11-tabell-actions -->
 <div class="{{# full-width-table }} a-full-width-table {{/ full-width-table }}{{# full-height-table }} a-full-height-table {{/ full-height-table }}">
-  <table class="{{ styleModifier }} table a-table a-sortable-table a-table-list a-js-sortable {{# clickable }}clickable {{/ clickable }}{{# white-table }}white {{/ white-table }}" id="{{ table-actions-id }}" data-table-eventhandler="{{ table-eventhandler }}">
+  <table class="table a-table a-sortable-table a-table-list a-js-sortable {{# clickable }}clickable {{/ clickable }}{{# white-table }}white {{/ white-table }}" id="{{ table-actions-id }}" data-table-eventhandler="{{ table-eventhandler }}">
     <thead>
       {{# sortable-has-head }}
         <tr class="a-sortable-row a-table-list">
           {{# sortable-head-items }}
-            <th class="{{# cell-padding }} text-xs-right col-pd-4 pr-2 {{/ cell-padding }}"
+            <th class="{{# cell-padding }} text-xs-right col-pd-4 p-r-2 {{/ cell-padding }}"
               {{# onclick }} onclick="{{ onclick }}" {{/ onclick }}
               {{# column-width }}style="width: {{ column-width}}%;"{{/ column-width }}>
               {{# sortable }}
@@ -13,19 +12,23 @@
               {{/ sortable }}
               {{# show-head-actions }}
                 {{# sortable-head-actions }}
-                  <span class="{{# last-column }} normal-casing {{/ last-column }}{{# bold }} a-fontBold {{/ bold }}{{ sortable-head-action-type }} add-remove-all"
+                  <span class="{{# last-column }} normal-casing {{/ last-column }}{{# bold }} din-bold {{/ bold }}{{ sortable-head-action-type }} add-remove-all"
                     {{# hidden }} style="display:none" {{/ hidden }}>
                     {{ sortable-head-text }}
-                    {{# sortable-head-icon }}
-                      {{> atomer-ikon }}
-                    {{/ sortable-head-icon }}
+                    {{# sortable-head-icon-type }}
+                      <i class="material-icons {{ sortable-head-icon-class }}">
+                        {{{ sortable-head-icon-type }}}
+                      </i>
+                    {{/ sortable-head-icon-type }}
                   </span>
                 {{/ sortable-head-actions }}
               {{/ show-head-actions }}
               {{ sortable-head-text }}
-              {{# sortable-head-icon }}
-                {{> atomer-ikon }}
-              {{/ sortable-head-icon }}
+              {{# sortable-head-icon-type }}
+                <i class="material-icons {{ sortable-head-icon-class }}">
+                  {{{ sortable-head-icon-type }}}
+                </i>
+              {{/ sortable-head-icon-type }}
             </th>
           {{/ sortable-head-items }}
         </tr>
@@ -35,42 +38,30 @@
       {{# sortable-table-items }}
         <tr class="a-sortable-row {{ sortable-row-class }}">
           {{# sortable-row-items }}
-            <td {{# cell-padding }} class="text-xs-right pr-2" {{/ cell-padding }} {{# searchable }} data-searchable="true" {{/ searchable }}
+            <td {{# cell-padding }} class="text-xs-right p-r-2" {{/ cell-padding }} {{# searchable }} data-searchable="true" {{/ searchable }}
               style="{{# column-width }} width: {{ column-width}}%; {{/ column-width }}">
               {{# show-actions }}
                 {{# sortable-row-actions }}
                   <span class="{{ sortable-row-action-type }}" {{# hidden }} style="display:none" {{/ hidden }}>
                     {{{ sortable-row-text }}}
-                    {{# sortable-row-icon }}
-                      {{> atomer-ikon }}
-                    {{/ sortable-row-icon }}
+                    {{# sortable-row-icon-type }}
+                      <i class="material-icons {{ sortable-row-icon-class }}">
+                        {{{ sortable-row-icon-type }}}
+                      </i>
+                    {{/ sortable-row-icon-type }}
                   </span>
                 {{/ sortable-row-actions }}
               {{/ show-actions }}
               {{{ sortable-row-text }}}
-              {{# row-item-description }}
-                <span class="row-item-description">{{ row-item-description }}</span>
-              {{/ row-item-description }}
-              {{# sortable-row-icon }}
-                {{> atomer-ikon }}
-              {{/ sortable-row-icon }}
+              {{# sortable-row-icon-type }}
+                <i class="material-icons {{ sortable-row-icon-class }}">
+                  {{{ sortable-row-icon-type }}}
+                </i>
+              {{/ sortable-row-icon-type }}
             </td>
           {{/ sortable-row-items }}
         </tr>
       {{/ sortable-table-items }}
     </tbody>
-
-    {{# optional-empty-search-results-message }}
-      <tfoot>
-        <tr>
-          <td> </td>
-          <td colspan="2">{{> atomer-varsel }}</td>
-          <td></td>
-        </tr>
-      </tfoot>
-    {{/ optional-empty-search-results-message }}
-
   </table>
 </div>
-
-<!-- END: 00-atomer-06-tabeller-11-tabell-actions -->

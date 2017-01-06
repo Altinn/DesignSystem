@@ -31,18 +31,15 @@
     <!-- Google font -->
     <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700" rel="stylesheet">
 
-
     <!-- Material icons-->
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
     <!-- FortAwesome icons-->
-    <script src="https://use.fortawesome.com/ed31cded.js"></script>
-    <!-- Temporary icons-->
-    <script src="https://use.fortawesome.com/b04a3e28.js"></script>
+    <script src="https://use.fortawesome.com/ed31cded.js"></script> 
 
     <!-- Altinn stylesheet -->
-    <link rel="stylesheet" href="../../css/style.css?1483701814579" media="all" />
-    <!-- <link rel="stylesheet" href="../../css/pattern-scaffolding.css?1483701814579" media="all" /> -->
+    <link rel="stylesheet" href="../../css/style.css?1480080351961" media="all" />
+    <!-- <link rel="stylesheet" href="../../css/pattern-scaffolding.css?1480080351961" media="all" /> -->
 
     <!-- Begin Pattern Lab (Required for Pattern Lab to run properly) -->
     <!-- never cache patterns -->
@@ -52,8 +49,385 @@
 <meta http-equiv="expires" content="Tue, 01 Jan 1980 1:00:00 GMT" />
 <meta http-equiv="pragma" content="no-cache" />
 
-<link rel="stylesheet" href="../../styleguide/css/styleguide.min.css?1483701814579" media="all">
-<link rel="stylesheet" href="../../styleguide/css/prism-typeahead.min.css?1483701814579" media="all" />
+<link rel="stylesheet" href="../../styleguide/css/styleguide.min.css?1480080351961" media="all">
+<style type="text/css">
+  /* PRESENTATION OF STYLE GUIDE */
+  #sg-viewport {
+    max-width: 100%;
+  }
+  .sg-top {
+    background: #cff0ff;
+    color: #000;
+    padding: 100px 0 120px 0;
+    border-bottom: 6px solid #ffffff;
+  }
+  .sg-top h1, .sg-top h2 {
+    color: #000;
+  }
+  .sg-top img {
+    float: right;
+    padding-top: 30px;
+  }
+  .sg-atom {
+    display: block;
+    width: 250px;
+    height: 250px;
+    float: right;
+    margin-top: 24px;
+    margin-right: 0.5rem;
+    background: url(../images/lab5.png) no-repeat;
+    background-size: 100% 100%;
+    animation: rotation 30s linear infinite;
+  }
+  @-webkit-keyframes rotation {
+    0% {
+      -webkit-transform: rotate(0deg);
+    }
+    100% {
+      -webkit-transform: rotate(360deg);
+    }
+  }
+  @-moz-keyframes rotation {
+    0% {
+      -moz-transform: rotate(0deg);
+    }
+    100% {
+      -moz-transform: rotate(360deg);
+    }
+  }
+  @-o-keyframes rotation {
+    0% {
+      -o-transform: rotate(0deg);
+    }
+    100% {
+      -o-transform: rotate(360deg);
+    }
+  }
+  @keyframes rotation {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+  .sg-statesExplanation {
+    background: #ffffff;
+    padding: 24px 0;
+    margin-bottom: 24px;
+  }
+  .sg-pattern-state,
+  .sg-pattern-state:hover {
+    border: none;
+  }
+  .sg-statesExplanation .sg-pattern-state-inprogress {
+    color: #e23b53;
+  }
+  .sg-statesExplanation .sg-pattern-state-inreview {
+    color: #FFA900;
+  }
+  .sg-statesExplanation .sg-pattern-state-complete {
+    color: #17c96b;
+  }
+  .sg-statesExplanation .sg-pattern-state-variations {
+    padding-right: 6px;
+  }
+  .sg-pattern-state:before {
+    margin-bottom: 0;
+  }
+  .sg-pattern-state:before {
+    font-size: 30px;
+  }
+  .sg-pattern-variations {
+    color: #666;
+  }
+
+
+  /* Category */
+
+  [id^=viewall-atomer] a:before {
+    content: 'Atomer: ';
+    color: #333;
+  }
+
+  [id^=viewall-molekyler] a:before {
+    content: 'Molekyler: ';
+    color: #333;
+  }
+
+  [id^=viewall-organismer] a:before {
+    content: 'Organismer: ';
+    color: #333;
+  }
+
+  .sg-pattern-category {
+    margin-top: 36px;
+    font-family: $font-bold; font-weight: $font-weight-bold;
+    float: left;
+    background: rgba(255, 255, 255, 0.5);
+    border: 2px dashed #B3B3B3;
+    width:100%;
+  }
+
+  @media all and (min-width: 768px) {
+    .sg-pattern-category {
+      width: calc(100% + 96px);
+      margin-left: -48px;
+    }
+  }
+
+  .sg-pattern-category-title {
+    margin: 0;
+    padding: 0;
+  }
+
+  .sg-pattern-category-title a{
+    color: #6a6a6a;
+    text-transform: uppercase;
+    font-size: 18px;
+    text-decoration: none;
+    border-bottom: none;
+    margin: 0;
+    display: block;
+    padding: 12px 12px 8px 12px;
+  }
+  @media all and (min-width: 768px) {
+    .sg-pattern-category-title a{
+      padding: 12px 12px 8px 45px;
+      font-size: 24px;
+    }
+  }
+  @media all and (min-width: 768px) {
+    .sg-pattern-category-title a:hover:after{
+      content: 'Vis alle i denne kategorien';
+      color: #1eaef7;
+      font-size: 14px;
+      text-transform: none;
+      padding: 0 0 0 24px;
+      margin-top: -3px;
+      display: inline-block;
+      vertical-align: middle;
+      text-decoration: underline;
+    }
+  }
+
+  /* Pattern */
+
+
+  #sg-patterns .sg-pattern-head .sg-pattern-state:before {
+    font-size: 30px;
+    margin-bottom: -10px;
+  }
+  #sg-patterns .sg-pattern-extra-info .sg-pattern-state:before {
+    font-size: 30px;
+    margin-bottom: 0px;
+  }
+  #sg-code-lineager-fill .sg-pattern-state:before {
+    margin-bottom: 0px !important;
+  }
+  .sg-pattern-lineage .sg-pattern-state:before {
+    font-size: 18px;
+  }
+  span.sg-pattern-state:before {
+    margin-bottom: -11px;
+  }
+  .sg-pattern {
+    margin: 12px 0 12px 0;
+    float: left;
+    width: 100%;
+  }
+  .sg-pattern-head {
+    margin: -2px 0 0 0;
+    padding: 6px 0;
+  }
+  .sg-pattern-head .patternLink,
+  .sg-pattern-head .patternLink:hover {
+    border: none;
+    text-decoration: none;
+    font-size: 14px;
+    text-transform: uppercase;
+    font-family: $font-light; font-weight: $font-weight-light;
+  }
+
+  .sg-pattern-title a {
+    padding: 6px 0px;
+  }
+
+
+  /* view info */
+  .sg-pattern-extra {
+    background: #fff;
+  }
+  .sg-pattern-extra a,
+  .sg-pattern-extra a:hover {
+    text-decoration: none;
+    color: #0062ba;
+  }
+  .sg-pattern-extra a:hover {
+    color: #1eaef7;
+  }
+  .sg-annotations {
+    padding: 12px;
+    background-color: #fbf6bd;
+  }
+  .sg-annotations p {
+    color: #000;
+  }
+  .sg-annotations a {
+    text-decoration: none;
+  }
+
+  .has-annotation,
+  .has-annotation:hover {
+    cursor: inherit;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+  }
+
+  .sg-pattern-desc {
+    border-bottom: none;
+    color: #000;
+  }
+
+  .sg-pattern-desc p {
+      margin-bottom: 6px;
+  }
+
+  .sg-pattern-desc ul {
+      padding-left: 15px;
+  }
+  .sg-pattern-desc ul li {
+      padding-bottom: 6px;
+  }
+
+  .sg-tabs-list li a {
+      background: #e5e2e0
+  }
+  .sg-tabs-list li.sg-tab-title-active a {
+      background: #f5f2f0
+  }
+
+
+  /* Fix float issue */
+
+  .sg-pattern-extra,
+  .sg-pattern-head,
+  .sg-pattern-example {
+    float: left;
+    width: 100%;
+    clear: both;
+  }
+
+  /* View patterns that in is context is display none from start */
+
+  #organismer-chat .sg-pattern-example .a-chat {
+    display: block;
+    position: relative;
+    bottom: 0;
+  }
+
+
+  /* Code view height minimum 300px */
+
+  .sg-pattern-extra-code {
+    width: 60%;
+    padding: 1em;
+    min-height: 300px;
+  }
+
+  .sg-pattern-extra-code .language-html{
+    margin-top: -12px;
+  }
+
+
+
+  /* Toggle comments code in V2 */
+
+  .sg-pattern-extra-toggle,
+  .sg-pattern-extra-toggle.active,
+  .sg-pattern-extra-toggle:hover {
+      font-size: 14px;
+      background: #fff;
+      border: 1px solid #ddd;
+    }
+  .sg-pattern-extra-toggle.active {
+      border-bottom: 1px solid #fff;
+  }
+
+  .sg-pattern-extra-toggle span {
+      font-size: 9px;
+  }
+
+  .sg-pattern-extra-toggle.active span {
+      height: 6px;
+  }
+
+  .sg-pattern-extra-toggle:before {
+      content: 'Vis ';
+  }
+
+  .sg-pattern-extra-toggle.active:before {
+      content: 'Skjul ';
+  }
+
+  .sg-code {
+    background: #000;
+  }
+  .sg-code pre {
+    color: #fff;
+    margin-bottom: -20px;
+  }
+  .sg-code .sg-code-head {
+    margin: 0;
+  }
+  .sg-switchtheme {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    background: #ffffff;
+    z-index: 9999;
+    padding: 12px 0;
+        height: 52px;
+    border-top: 2px solid #efefef;
+  }
+
+  /* Switch theme */
+  @media screen and (max-width: 900px;) {
+    .sg-switchtheme {
+      display: none;
+    }
+  }
+
+  .sg-switchtheme .a-radioButtons .c-input {
+      margin-bottom: 3px;
+  }
+  /* Added styles */
+  .a-sg-patternVariations {
+    padding-left: 40px;
+    border-left: 5px solid #B3B3B3;
+    margin: 12px 0 12px 0;
+  }
+
+  .a-sg-patternVariations .sg-pattern-head,
+  .a-sg-patternVariations .patternLink {
+    padding-top: 0;
+  }
+
+
+
+  /* Line breaking in code boxes */
+  body pre.language-markup {
+    overflow-x: hidden !important;
+  }
+
+  /* Select all for code boxes */
+  .language-markup:focus {
+    outline: none
+  }
+
+
+</style>
+<link rel="stylesheet" href="../../styleguide/css/prism-typeahead.min.css?1480080351961" media="all" />
 
     <!-- End Pattern Lab -->
 
@@ -66,7 +440,7 @@
 	<div class="container">
 		<div class="row">
 	    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-8 col-xl-8">
-				<h1><span class="a-headingSizeS">PATTERN LAB</span><br>Levende designsystem og prototypeverktøy for Altinns webløsninger </h1>
+				<h1><span class="a-textSize4">PATTERN LAB</span><br>Levende designsystem og prototypeverktøy <br>for Altinns webløsninger </h1>
 				<p class="a-leadText">Designsystemet er laget med Pattern Lab, basert på atomisk designmetodikk. Vi bruker dette systemet til å opprettholde frontend-kode og visuell konsistens på tvers av løsningene. Målet er å skape et felles sted for UI-mønstre og stilsett, som etterhvert skal benyttes av alle løsningene til Altinn.</p>
 
 				<div class="a-btn-group a-btn-group-exLinks">
@@ -148,100 +522,37 @@
 
   </div>
   <div class="sg-pattern-example">
-    <!-- START: 01-molekyler-04-grupper-00-grupperte-knapper -->
-<div class="a-btn-group" id="btnGroup">
-    <!-- START: 00-atomer-03-knapper-10-knapp -->
-<button type="button"
-    class="a-btn "
     
-           >
+<div class="a-btn-group" id="btnGroup">
+    <button type="button"
+    href="../.."
+    class="a-btn "
+    id="" falsefalsefalse      >
     En standard knapp
 </button>
 
-<!-- END: 00-atomer-03-knapper-10-knapp -->
 
-    <!-- START: 00-atomer-03-knapper-10-knapp -->
-<button type="button"
+    <button type="button"
+    href="../.."
     class="a-btn a-btn-success "
-    
-           >
+    id="" falsefalsefalse      >
     En knapp som antyder suksess
 </button>
 
-<!-- END: 00-atomer-03-knapper-10-knapp -->
 
-    <!-- START: 00-atomer-03-knapper-10-knapp -->
-<button type="button"
+    <button type="button"
+    href="../.."
     class="a-btn a-btn-danger "
-    
-           >
+    id="" falsefalsefalse      >
     En knapp som antyder fare
 </button>
 
-<!-- END: 00-atomer-03-knapper-10-knapp -->
-
-    <!-- START: 00-atomer-03-knapper-10-knapp -->
-<button type="button"
-    class="a-btn-link "
-    
-           >
-    En knapp som er stylet som en lenke
-</button>
-
-<!-- END: 00-atomer-03-knapper-10-knapp -->
-
-
-    <!-- START: 00-atomer-02-lenker-00-link -->
-<a
-  
-  class="a-linkArea a-link ">
-  Lenke som står selvstendig alene
-
-</a>
-
-<!-- END: 00-atomer-02-lenker-00-link -->
-
-    <!-- START: 00-atomer-02-lenker-00-link -->
-<a
-  
-  class="a-linkArea a-link ">
-  Ekstern lenke som står alene
-
-    <!-- START: 00-atomer-09-bilder-og-media-15-ikon -->
-
-<i class="ai ai-arrowrightup  a-link-arrow "    ></i>
-
-
-<!-- END: 00-atomer-09-bilder-og-media-15-ikon -->
-
-</a>
-
-<!-- END: 00-atomer-02-lenker-00-link -->
-
-    <!-- START: 00-atomer-02-lenker-00-link -->
-<a
-  
-  class="a-linkArea a-link ">
-  Lenke som står alene og sender deg til en annen side på Altinn
-
-    <!-- START: 00-atomer-09-bilder-og-media-15-ikon -->
-
-<i class="ai ai-arrowright  a-link-arrow "    ></i>
-
-
-<!-- END: 00-atomer-09-bilder-og-media-15-ikon -->
-
-</a>
-
-<!-- END: 00-atomer-02-lenker-00-link -->
 
 </div>
 
-<!-- END: 01-molekyler-04-grupper-00-grupperte-knapper -->
-
   </div>
   <script type="text/json" id="sg-pattern-data-molekyler-grupperte-knapper" class="sg-pattern-data">
-    {"cssEnabled":false,"patternLineageExists":true,"patternLineages":[{"lineagePattern":"atomer-knapp","lineagePath":"../../patterns/00-atomer-03-knapper-10-knapp/00-atomer-03-knapper-10-knapp.html","lineageState":"needsrevalidation"},{"lineagePattern":"atomer-link","lineagePath":"../../patterns/00-atomer-02-lenker-00-link/00-atomer-02-lenker-00-link.html","lineageState":"needsrevalidation"}],"lineage":[{"lineagePattern":"atomer-knapp","lineagePath":"../../patterns/00-atomer-03-knapper-10-knapp/00-atomer-03-knapper-10-knapp.html","lineageState":"needsrevalidation"},{"lineagePattern":"atomer-link","lineagePath":"../../patterns/00-atomer-02-lenker-00-link/00-atomer-02-lenker-00-link.html","lineageState":"needsrevalidation"}],"patternLineageRExists":false,"patternLineagesR":[],"lineageR":[],"patternLineageEExists":true,"patternDesc":"<p>Når flere knapper skal vises ved siden av hverandre, kan de legges i klassen a-btn-group. Dette gjelder f.eks i tilfeller der brukeren har flere valg/handlingsmuligheter.</p>\n","patternBreadcrumb":{"patternType":"molekyler","patternSubtype":"grupper"},"patternExtension":"mustache","patternName":"Grupperte Knapper","patternPartial":"molekyler-grupperte-knapper","patternState":"needsrevalidation","patternEngineName":"mustache","extraOutput":{}}
+    {"cssEnabled":false,"patternLineageExists":true,"patternLineages":[{"lineagePattern":"atomer-knapp","lineagePath":"../../patterns/00-atomer-03-knapper-10-knapp/00-atomer-03-knapper-10-knapp.html","lineageState":"needsrevalidation"}],"lineage":[{"lineagePattern":"atomer-knapp","lineagePath":"../../patterns/00-atomer-03-knapper-10-knapp/00-atomer-03-knapper-10-knapp.html","lineageState":"needsrevalidation"}],"patternLineageRExists":false,"patternLineagesR":[],"lineageR":[],"patternLineageEExists":true,"patternDesc":"<p>Når flere knapper skal vises ved siden av hverandre, kan de legges i klassen a-btn-group. Dette gjelder f.eks i tilfeller der brukeren har flere valg/handlingsmuligheter.</p>\n","patternBreadcrumb":{"patternType":"molekyler","patternSubtype":"grupper"},"patternExtension":"mustache","patternName":"Grupperte Knapper","patternPartial":"molekyler-grupperte-knapper","patternState":"needsrevalidation","patternEngineName":"mustache","extraOutput":{}}
   </script>
 </div><!--end .sg-pattern-->
 <div id="molekyler-grupperte-fremhevede-knapper" class="sg-pattern">
@@ -251,7 +562,7 @@
           Grupperte Fremhevede Knapper
       </a>
     </h3>
-      <span class="sg-pattern-state indesignreview">indesignreview</span>
+      <span class="sg-pattern-state needsrevalidation">needsrevalidation</span>
     <div class="sg-pattern-breadcrumb"></div>
     <a href="#" data-patternpartial="molekyler-grupperte-fremhevede-knapper" title="View Pattern Info" id="sg-pattern-extra-toggle-molekyler-grupperte-fremhevede-knapper" class="sg-pattern-extra-toggle">Info <span>&#9660;</span></a>
   </div>
@@ -259,193 +570,98 @@
 
   </div>
   <div class="sg-pattern-example">
-    <!-- START: 01-molekyler-04-grupper-01-grupperte-fremhevede-knapper -->
-<div class="a-noColPadding clearfix" role="list">
-    <div class="float-xs-left col-xs-12 col-sm-6 col-md-4 col-lg-3 col-xl-2" role="listitem">
-      <!-- START: 00-atomer-03-knapper-31-knapp-fremhevet-stor -->
-<button type="button" class="a-box-button"  aria-expanded="false"   aria-owns="firstChildContainer" data-toggle="instant" data-target="#firstChildContainer">
-  <span class="a-box-button-text">
-    <span class="a-meta-text">
-      FORELDER TITTEL
-    </span>
-    <span class="a-box-button-name">
-      FORELDER NAVN
-    </span>
-  </span>
+    <ul class="a-box-button-list row a-noColPadding a-box-button-list--xs1sm2md3lg4xl6" id="boxList">
 
-  <!-- START: 00-atomer-09-bilder-og-media-15-ikon -->
-
-<i class="ai ai-person  a-box-button-icon a-blueDarkText "    ></i>
-
-
-<!-- END: 00-atomer-09-bilder-og-media-15-ikon -->
-
-
-  <span class="a-box-button-action a-blueDarkText a-box-button-primaryAction">
-    Se alle med rettigheter
-  </span>
-  <span class="a-box-button-action a-blueDarkText a-box-button-secondaryAction">
-    Skjul alle med rettigheter
-  </span>
-</button>
-<!-- END: 00-atomer-03-knapper-31-knapp-fremhevet-stor -->
-
+		<li class="col-xs-12 col-sm-6 col-md-4 col-lg-3 col-xl-2">
+			<div>
+				  <button type="button" class="a-box-button">
+    <div class="a-box-button-text">
+      <span class="a-meta-text">
+          STYRETS LEDER
+      </span>
+      <span class="a-box-button-name">
+          WILHELM MJELDE
+      </span>
     </div>
-      <div role="list" class="a-childBoxButtonList" id="firstChildContainer" style="display: none">
-          <div role="listitem" class="float-xs-left col-xs-12 col-sm-6 col-md-4 col-lg-3 col-xl-2">
-            <!-- START: 00-atomer-03-knapper-31-knapp-fremhevet-stor -->
-<button type="button" class="a-box-button"  >
-  <span class="a-box-button-text">
-    <span class="a-meta-text">
-      BARN TITTEL
-    </span>
-    <span class="a-box-button-name">
-      BARN NAVN
-    </span>
-  </span>
 
-  <!-- START: 00-atomer-09-bilder-og-media-15-ikon -->
+    <i class="material-icons a-box-button-icon a-blueDarkText">people</i>
 
-<i class="ai ai-person  a-box-button-icon a-blueDarkText "    ></i>
+    <b class="a-box-button-action a-blueDarkText">
+        Gi og fjerne rettigheter ›
+    </b>
 
-
-<!-- END: 00-atomer-09-bilder-og-media-15-ikon -->
-
-
-  <span class="a-box-button-action a-blueDarkText a-box-button-primaryAction">
-    Gi og fjerne rettigheter
-  </span>
-  <span class="a-box-button-action a-blueDarkText a-box-button-secondaryAction">
-    Skjul alle med rettigheter
-  </span>
-</button>
-<!-- END: 00-atomer-03-knapper-31-knapp-fremhevet-stor -->
-
-          </div>
-          <div role="listitem" class="float-xs-left col-xs-12 col-sm-6 col-md-4 col-lg-3 col-xl-2">
-            <!-- START: 00-atomer-03-knapper-31-knapp-fremhevet-stor -->
-<button type="button" class="a-box-button"  >
-  <span class="a-box-button-text">
-    <span class="a-meta-text">
-      BARN TITTEL
-    </span>
-    <span class="a-box-button-name">
-      BARN NAVN
-    </span>
-  </span>
-
-  <!-- START: 00-atomer-09-bilder-og-media-15-ikon -->
-
-<i class="ai ai-person  a-box-button-icon a-blueDarkText "    ></i>
-
-
-<!-- END: 00-atomer-09-bilder-og-media-15-ikon -->
-
-
-  <span class="a-box-button-action a-blueDarkText a-box-button-primaryAction">
-    Gi og fjerne rettigheter
-  </span>
-  <span class="a-box-button-action a-blueDarkText a-box-button-secondaryAction">
-    Skjul alle med rettigheter
-  </span>
-</button>
-<!-- END: 00-atomer-03-knapper-31-knapp-fremhevet-stor -->
-
-          </div>
-      </div>
-    <div class="float-xs-left col-xs-12 col-sm-6 col-md-4 col-lg-3 col-xl-2" role="listitem">
-      <!-- START: 00-atomer-03-knapper-31-knapp-fremhevet-stor -->
-<button type="button" class="a-box-button"  >
-  <span class="a-box-button-text">
-    <span class="a-meta-text">
-      VANLIG TITTEL
-    </span>
-    <span class="a-box-button-name">
-      VANLIG NAVN
-    </span>
-  </span>
-
-  <!-- START: 00-atomer-09-bilder-og-media-15-ikon -->
-
-<i class="ai ai-person  a-box-button-icon a-blueDarkText "    ></i>
-
-
-<!-- END: 00-atomer-09-bilder-og-media-15-ikon -->
-
-
-  <span class="a-box-button-action a-blueDarkText a-box-button-primaryAction">
-    Gi og fjerne rettigheter
-  </span>
-  <span class="a-box-button-action a-blueDarkText a-box-button-secondaryAction">
-    
-  </span>
-</button>
-<!-- END: 00-atomer-03-knapper-31-knapp-fremhevet-stor -->
-
+  </button>
+ 
+			</div>
+		</li>
+		<li class="col-xs-12 col-sm-6 col-md-4 col-lg-3 col-xl-2">
+			<div>
+				  <button type="button" class="a-box-button">
+    <div class="a-box-button-text">
+      <span class="a-meta-text">
+          STYRETS NESTLEDER
+      </span>
+      <span class="a-box-button-name">
+          NAVN NAVNESEN
+      </span>
     </div>
-    <div class="float-xs-left col-xs-12 col-sm-6 col-md-4 col-lg-3 col-xl-2" role="listitem">
-      <!-- START: 00-atomer-03-knapper-31-knapp-fremhevet-stor -->
-<button type="button" class="a-box-button"  >
-  <span class="a-box-button-text">
-    <span class="a-meta-text">
-      VANLIG TITTEL
-    </span>
-    <span class="a-box-button-name">
-      VANLIG NAVN
-    </span>
-  </span>
 
-  <!-- START: 00-atomer-09-bilder-og-media-15-ikon -->
+    <i class="material-icons a-box-button-icon a-blueDarkText">people</i>
 
-<i class="ai ai-person  a-box-button-icon a-blueDarkText "    ></i>
+    <b class="a-box-button-action a-blueDarkText">
+        Gi og fjerne rettigheter ›
+    </b>
 
-
-<!-- END: 00-atomer-09-bilder-og-media-15-ikon -->
-
-
-  <span class="a-box-button-action a-blueDarkText a-box-button-primaryAction">
-    Gi og fjerne rettigheter
-  </span>
-  <span class="a-box-button-action a-blueDarkText a-box-button-secondaryAction">
-    
-  </span>
-</button>
-<!-- END: 00-atomer-03-knapper-31-knapp-fremhevet-stor -->
-
+  </button>
+ 
+			</div>
+		</li>
+		<li class="col-xs-12 col-sm-6 col-md-4 col-lg-3 col-xl-2">
+			<div>
+				  <button type="button" class="a-box-button">
+    <div class="a-box-button-text">
+      <span class="a-meta-text">
+          STYRETS LEDER
+      </span>
+      <span class="a-box-button-name">
+          WILHELM MJELDE
+      </span>
     </div>
-		<div role="listitem" class="float-xs-left col-xs-12 col-sm-6 col-md-4 col-lg-3 col-xl-2">
-			<!-- START: 00-atomer-04-handlingsknapper-21-handlingsknapp-stor -->
-<button type="button" class="a-boxAddBtn">
+
+    <i class="material-icons a-box-button-icon a-blueDarkText">people</i>
+
+    <b class="a-box-button-action a-blueDarkText">
+        Gi og fjerne rettigheter ›
+    </b>
+
+  </button>
+ 
+			</div>
+		</li>
+
+		<div class="col-xs-12 col-sm-6 col-md-4 col-lg-3 col-xl-2">
+			<button type="button" class="a-boxAddBtn">
   <span class="a-boxAddBtn-inner">
-    Tekst over
-    <!-- START: 00-atomer-09-bilder-og-media-15-ikon -->
-
-<i class="ai ai-plus ai-3x a-box-button-icon a-blueDarkText "    ></i>
-
-
-<!-- END: 00-atomer-09-bilder-og-media-15-ikon -->
-
-    Tekst under
+    Skatteetaten
+      <i class="material-icons a-boxAddBtn-icon">add_circle</i>
+    Hent skattekort
   </span>
 </button>
-
-<!-- END: 00-atomer-04-handlingsknapper-21-handlingsknapp-stor -->
 
 		</div>
-</div>
 
-<!-- END: 01-molekyler-04-grupper-01-grupperte-fremhevede-knapper -->
+</ul>
 
   </div>
   <script type="text/json" id="sg-pattern-data-molekyler-grupperte-fremhevede-knapper" class="sg-pattern-data">
-    {"cssEnabled":false,"patternLineageExists":true,"patternLineages":[{"lineagePattern":"atomer-knapp-fremhevet-stor","lineagePath":"../../patterns/00-atomer-03-knapper-31-knapp-fremhevet-stor/00-atomer-03-knapper-31-knapp-fremhevet-stor.html","lineageState":"indesignreview"},{"lineagePattern":"atomer-handlingsknapp-stor","lineagePath":"../../patterns/00-atomer-04-handlingsknapper-21-handlingsknapp-stor/00-atomer-04-handlingsknapper-21-handlingsknapp-stor.html","lineageState":"needsrevalidation"}],"lineage":[{"lineagePattern":"atomer-knapp-fremhevet-stor","lineagePath":"../../patterns/00-atomer-03-knapper-31-knapp-fremhevet-stor/00-atomer-03-knapper-31-knapp-fremhevet-stor.html","lineageState":"indesignreview"},{"lineagePattern":"atomer-handlingsknapp-stor","lineagePath":"../../patterns/00-atomer-04-handlingsknapper-21-handlingsknapp-stor/00-atomer-04-handlingsknapper-21-handlingsknapp-stor.html","lineageState":"needsrevalidation"}],"patternLineageRExists":true,"patternLineagesR":[{"lineagePattern":"organismer-andre-med-rettigheter","lineagePath":"../../patterns/02-organismer-50-ekspanderbart-panel-60-andre-med-rettigheter/02-organismer-50-ekspanderbart-panel-60-andre-med-rettigheter.html","lineageState":"indesignreview"},{"lineagePattern":"maler-innboks-ansatte","lineagePath":"../../patterns/03-maler-50-innboks-_20-innboks-ansatte/03-maler-50-innboks-_20-innboks-ansatte.html","lineageState":"inreview"}],"lineageR":[{"lineagePattern":"organismer-andre-med-rettigheter","lineagePath":"../../patterns/02-organismer-50-ekspanderbart-panel-60-andre-med-rettigheter/02-organismer-50-ekspanderbart-panel-60-andre-med-rettigheter.html","lineageState":"indesignreview"},{"lineagePattern":"maler-innboks-ansatte","lineagePath":"../../patterns/03-maler-50-innboks-_20-innboks-ansatte/03-maler-50-innboks-_20-innboks-ansatte.html","lineageState":"inreview"}],"patternLineageEExists":true,"patternDesc":"<p>Liste med fremhevede knapper som kan ha tilhørende ekspanderbar liste med fremhevede knapper.</p>\n","patternBreadcrumb":{"patternType":"molekyler","patternSubtype":"grupper"},"patternExtension":"mustache","patternName":"Grupperte Fremhevede Knapper","patternPartial":"molekyler-grupperte-fremhevede-knapper","patternState":"indesignreview","patternEngineName":"mustache","extraOutput":{}}
+    {"cssEnabled":false,"patternLineageExists":true,"patternLineages":[{"lineagePattern":"atomer-knapp-fremhevet-stor","lineagePath":"../../patterns/00-atomer-03-knapper-31-knapp-fremhevet-stor/00-atomer-03-knapper-31-knapp-fremhevet-stor.html","lineageState":"needsrevalidation"},{"lineagePattern":"atomer-handlingsknapp-stor","lineagePath":"../../patterns/00-atomer-04-handlingsknapper-21-handlingsknapp-stor/00-atomer-04-handlingsknapper-21-handlingsknapp-stor.html","lineageState":"needsrevalidation"}],"lineage":[{"lineagePattern":"atomer-knapp-fremhevet-stor","lineagePath":"../../patterns/00-atomer-03-knapper-31-knapp-fremhevet-stor/00-atomer-03-knapper-31-knapp-fremhevet-stor.html","lineageState":"needsrevalidation"},{"lineagePattern":"atomer-handlingsknapp-stor","lineagePath":"../../patterns/00-atomer-04-handlingsknapper-21-handlingsknapp-stor/00-atomer-04-handlingsknapper-21-handlingsknapp-stor.html","lineageState":"needsrevalidation"}],"patternLineageRExists":true,"patternLineagesR":[{"lineagePattern":"maler-innboks-ansatte","lineagePath":"../../patterns/03-maler-50-innboks-20-innboks-ansatte/03-maler-50-innboks-20-innboks-ansatte.html","lineageState":"inreview"}],"lineageR":[{"lineagePattern":"maler-innboks-ansatte","lineagePath":"../../patterns/03-maler-50-innboks-20-innboks-ansatte/03-maler-50-innboks-20-innboks-ansatte.html","lineageState":"inreview"}],"patternLineageEExists":true,"patternDesc":"<p>Foreløpig ingen retningslinjer.</p>\n","patternBreadcrumb":{"patternType":"molekyler","patternSubtype":"grupper"},"patternExtension":"mustache","patternName":"Grupperte Fremhevede Knapper","patternPartial":"molekyler-grupperte-fremhevede-knapper","patternState":"needsrevalidation","patternEngineName":"mustache","extraOutput":{}}
   </script>
 </div><!--end .sg-pattern-->
     </div> <!--end #sg-patterns-->
   </div> <!--end .sg-main-->
 </div> <!--end .container-->
     <!-- DO NOT REMOVE -->
-    <div class="sg-switchtheme">
+    <!--<div class="sg-switchtheme">
 	<div class="container">
 
 
@@ -471,7 +687,7 @@
 		</div>
 
 	</div>
-</div>
+</div> -->
 
 <script type="text/json" id="sg-pattern-data-footer" class="sg-pattern-data">
   {"patternPartial":"viewall-molekyler-grupper"}
@@ -510,10 +726,10 @@
   }
 </script>
 
-<script id="pl-js-polyfill-insert-1483701814579">
+<script id="pl-js-polyfill-insert-1480080351961">
   (function() {
     if (self != top) {
-      var cb = '1483701814579';
+      var cb = '1480080351961';
       var js = [];
       if (typeof document !== 'undefined' && !('classList' in document.documentElement)) {
         js.push('styleguide/bower_components/classList.min.js');
@@ -523,10 +739,10 @@
   })();
 </script>
 
-<script id="pl-js-insert-1483701814579">
+<script id="pl-js-insert-1480080351961">
   (function() {
     if (self != top) {
-      var cb = '1483701814579';
+      var cb = '1480080351961';
       var js = [ { 'src': 'styleguide/bower_components/jwerty.min.js', 'dep': [ 'styleguide/js/patternlab-pattern.min.js' ] } ];
       scriptLoader.run(js,cb,'pl-js-insert');
     }
@@ -546,8 +762,6 @@
     <script src="../../js/validator.min.js"></script>
     <!-- DATEPICKER: Used for date input fields -->
     <script src="../../js/bootstrap-datepicker.min.js"></script>
-    <!-- MARKJS: Used for marking search results -->
-    <script src="../../js/jquery.mark.min.js"></script>
     <!-- SMOOTH STATE: Prevent links from triggering a full page load -->
     <!-- https://github.com/miguel-perez/smoothState.js -->
     <script src="../../js/jquery.smoothState.min.js"></script>
@@ -559,7 +773,7 @@
     <!-- FOUNDATION interchange -->
     <!-- <script src="../../js/foundationInterchange.min.js"></script> -->
     <!-- FOUNDATION responsive menu -->
-    <!-- <script src="../../js/foundationNavigation.min.js"></script> -->
+    <script src="../../js/foundationNavigation.min.js"></script>
     <!-- ALTINN custom JavaScript -->
     <script src="../../js/altinnProd.js"></script>
     <script src="../../js/altinnDev.js"></script>

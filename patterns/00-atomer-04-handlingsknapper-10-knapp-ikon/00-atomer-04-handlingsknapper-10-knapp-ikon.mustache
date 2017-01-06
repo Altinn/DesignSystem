@@ -1,4 +1,3 @@
-<!-- START: 00-atomer-04-handlingsknapper-10-knapp-ikon -->
 <button
   type="button"
   class="{{ button-class }}"
@@ -11,16 +10,14 @@
     data-popover-content="{{ popover-content-id }}"
     data-template="{{> atomer-popover }}"
   {{/ enable-popover }}>
-  {{> atomer-ikon }}
+  <i class="{{ button-icon-class }}">{{{ button-icon-text }}}</i>
 </button>
 
 {{# enable-popover }}
-  <div {{# popover-content-id }} id="{{ popover-content-id }}" {{/ popover-content-id }} class="hidden-xs-up">
-    <div class="py-1">{{ popover-text }}</div>
+  <div id="{{ popover-content-id }}" class="hidden-xs-up">
+    <div class="p-y-1">{{ popover-text }}</div>
     {{# popover-buttons }}
-      {{> atomer-knapp:mr-1 }}
+      {{> atomer-knapp:m-r-1 }}
     {{/ popover-buttons }}
   </div>
 {{/ enable-popover }}
-
-<!-- END: 00-atomer-04-handlingsknapper-10-knapp-ikon -->

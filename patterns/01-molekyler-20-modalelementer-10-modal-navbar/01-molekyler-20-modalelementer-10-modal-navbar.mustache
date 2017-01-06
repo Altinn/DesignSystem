@@ -1,22 +1,18 @@
-<!-- START: 01-molekyler-20-modalelementer-10-modal-navbar -->
     <div class="a-modal-navbar">
-      {{^ hide-buttons }}
-        {{# button-list}}
-          {{> atomer-knapp-ikon }}
-        {{/ button-list }}
+      {{# button-list}}
+        {{> atomer-knapp-ikon }}
+      {{/ button-list }}
 
-        <script>
-          function goBack() {
-            // window.history.back();
-            var arr = []
-            for (key in smoothState.cache) { arr.push(key) }
-            delete smoothState.cache[arr[arr.length - 1]]
-            arr.splice(-1,1)
-            $('.a-scene-element').addClass('a-tempAnim')
-            smoothState.load(arr[arr.length - 1])
-          }
-        </script>
-      {{/ hide-buttons }}
+      <script>
+        function goBack() {
+          // window.history.back();
+          var arr = []
+          for (key in smoothState.cache) { arr.push(key) }
+          delete smoothState.cache[arr[arr.length - 1]]
+          arr.splice(-1,1)
+          $('.a-scene_element').addClass('a-tempAnim')
+          smoothState.load(arr[arr.length - 1])
+        }
+      </script>
+
     </div>
-
-<!-- END: 01-molekyler-20-modalelementer-10-modal-navbar -->
