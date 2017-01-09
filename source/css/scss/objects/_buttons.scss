@@ -65,6 +65,30 @@
     min-height: auto;
     content: '';
   }
+
+  // Large btn with border
+  &.a-btn-border {
+    @extend .a-fontSizeXXL;
+    @include a-fontMedium;
+
+    padding: 18px $spacer * 2 14px $spacer * 2;
+    color: $blue-darker;
+    background: $white-opacity-05;
+    border: 2px solid $blue-darker;
+
+    &:hover,
+    &:focus {
+      color: $white;
+      background: $blue-darker;
+      border: 2px solid $blue-darker;
+    }
+
+    &:active,
+    &.active {
+      color: $white;
+      background: $blue-darker;
+    }
+  }
 }
 
 .a-btn-secondary {
@@ -122,28 +146,7 @@
   }
 }
 
-.a-btn-border {
-  @extend .a-fontSizeXXL;
-  @include a-fontMedium;
 
-  padding: 18px $spacer * 2 14px $spacer * 2;
-  color: $blue-darker;
-  background: $white-opacity-05;
-  border: 2px solid $blue-darker;
-
-  &:hover,
-  &:focus {
-    color: $white;
-    background: $blue-darker;
-    border: 2px solid $blue-darker;
-  }
-
-  &:active,
-  &.active {
-    color: $white;
-    background: $blue-darker;
-  }
-}
 
 // BTN WITH ICON
 .a-btn-icon {
@@ -220,19 +223,15 @@
   background: $blue-light;
   box-shadow: $shadow;
 
-  &:hover {
-    color: $black;
-    background: darken( $blue-light, 5% );
-  }
-
+  &:hover,
   &:focus {
     color: $black;
     background: darken( $blue-light, 5% );
-    box-shadow: $shadow;
   }
 
   &.a-bgGreyLight {
-    &:focus {
+    &:focus,
+    &:hover {
       background: darken( $grey-light, 5% );
     }
   }
