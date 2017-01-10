@@ -3,6 +3,7 @@
 \*------------------------------------*/
 
 .a-item-list {
+  margin: 0;
   list-style: none;
 
   i {
@@ -35,8 +36,11 @@
 
   .a-item-list-item {
     position: relative;
+    display: flex;
     width: 100%;
     padding: $spacer / 2 $spacer / 2 4px $spacer / 2;
+    margin-bottom: 0;
+    align-items: center;
 
     .a-text-left {
       padding-left: $spacer;
@@ -53,7 +57,8 @@
     }
 
     a {
-      display: inline-block;
+      display: block;
+      padding: 0;
 
       &:hover {
         cursor: pointer;
@@ -67,7 +72,7 @@
     }
 
     .a-listItem-title {
-      @extend .a-fontSizeXS;
+      @extend .a-fontSizeS;
 
       color: $black;
       text-decoration: none;
@@ -76,21 +81,17 @@
 
     .a-listItem-leftContent {
       max-width: 50%;
-      @include media-breakpoint-up( sm ) {
+
+      &:only-child {
         max-width: initial;
       }
     }
 
     .a-listItem-rightContent {
-      position: absolute;
-      top: $spacer / 2;
-      right: $spacer / 2;
       max-width: 50%;
       padding-left: $spacer;
-
-      @include media-breakpoint-up( sm ) {
-        max-width: initial;
-      }
+      margin-left: auto;
+      align-self: center;
 
       a {
         display: inline-block;
@@ -403,16 +404,18 @@ ul {
     list-style-type: none;
 
     li {
-      padding: $spacer 0 $spacer 0;
+      padding: 0 0 $spacer 0;
 
       &:hover {
         cursor: pointer;
         background-color: $blue-light;
       }
 
-      i {
-        @include a-fontBold;
+      .a-dotted-line-top {
+        margin-bottom: $spacer;
+      }
 
+      i {
         float: right;
         margin-right: $spacer;
         color: $blue;
