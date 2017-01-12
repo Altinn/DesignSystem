@@ -239,13 +239,12 @@
     padding: $spacer * 4 $spacer * 4;
   }
 
-  @include media-breakpoint-up( lg ) {
-    padding: $spacer * 4 $spacer * 8;
-    margin-bottom: $spacer * 4;
-  }
-
   .a-headingSizeM {
     margin-bottom: $spacer * 2;
+
+    a {
+      @extend .a-headingSizeM;
+    }
 
     span {
       @include a-fontReg;
@@ -420,6 +419,10 @@
 }
 
 .a-mainCard {
+
+  @include media-breakpoint-up( lg ) {
+    padding-left: $onecol;
+  }
 
   .a-iconText {
     margin-bottom: $spacer * 2;
