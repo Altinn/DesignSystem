@@ -572,7 +572,7 @@ mark,
       max-width: 100%; } }
   @media (min-width: 1200px) {
     .container {
-      width: 1104px;
+      width: 1056px;
       max-width: 100%; } }
 
 .container-fluid {
@@ -5824,19 +5824,19 @@ progress:not(.override-focus):focus {
 
 @font-face {
   font-family: 'DIN-light';
-  src: url("../../fonts/DINWeb-Light.woff"); }
+  src: url("https://at07.altinn.basefarm.net/ui/fonts/DINWeb-Light.woff"); }
 
 @font-face {
   font-family: 'DIN-reg';
-  src: url("../../fonts/DINWeb.woff"); }
+  src: url("https://at07.altinn.basefarm.net/ui/fonts/DINWeb.woff"); }
 
 @font-face {
   font-family: 'DIN-medium';
-  src: url("../../fonts/DINWeb-Medium.woff"); }
+  src: url("https://at07.altinn.basefarm.net/ui/fonts/DINWeb-Medium.woff"); }
 
 @font-face {
   font-family: 'DIN-bold';
-  src: url("../../fonts/DINWeb-Bold.woff"); }
+  src: url("https://at07.altinn.basefarm.net/ui/fonts/DINWeb-Bold.woff"); }
 
 .a-fontSizeXXL, h1,
 .a-headingSizeXXL, .a-iconText.a-iconText-smallLink .a-iconText-text .a-iconText-text-large, .a-btn.a-btn-border {
@@ -5906,7 +5906,7 @@ progress:not(.override-focus):focus {
       -webkit-font-smoothing: subpixel-antialiased; } }
 
 .a-fontSizeM, .a-link.a-link-large, h3,
-.a-headingSizeM, .a-leadText, .a-footerNav ul li a,
+.a-headingSizeM, .a-card .a-headingSizeM a, .a-leadText, .a-footerNav ul li a,
 .a-footerExtraNav ul li a, .a-mainCard .a-mainCard-content {
   font-size: 16px;
   font-size: 1.6rem;
@@ -5914,7 +5914,7 @@ progress:not(.override-focus):focus {
   -webkit-font-smoothing: subpixel-antialiased; }
   @media (min-width: 768px) {
     .a-fontSizeM, .a-link.a-link-large, h3,
-    .a-headingSizeM, .a-leadText, .a-footerNav ul li a,
+    .a-headingSizeM, .a-card .a-headingSizeM a, .a-leadText, .a-footerNav ul li a,
     .a-footerExtraNav ul li a, .a-mainCard .a-mainCard-content {
       font-size: 18px;
       font-size: 1.8rem;
@@ -5922,21 +5922,21 @@ progress:not(.override-focus):focus {
       -webkit-font-smoothing: subpixel-antialiased; } }
   @media (min-width: 992px) {
     .a-fontSizeM, .a-link.a-link-large, h3,
-    .a-headingSizeM, .a-leadText, .a-footerNav ul li a,
+    .a-headingSizeM, .a-card .a-headingSizeM a, .a-leadText, .a-footerNav ul li a,
     .a-footerExtraNav ul li a, .a-mainCard .a-mainCard-content {
       font-size: 20px;
       font-size: 2rem;
       line-height: 2.8rem;
       -webkit-font-smoothing: subpixel-antialiased; } }
 
-.a-fontSizeS, h4,
+.a-fontSizeS, .a-link, h4,
 .a-headingSizeS, p, .a-btn, .a-btn-link, .a-item-list .a-item-list-item .a-listItem-title, ul.a-bullet-list li, .a-text, .a-text a.a-link, .a-text .a-item-list a {
   font-size: 16px;
   font-size: 1.6rem;
   line-height: 2.4rem;
   -webkit-font-smoothing: subpixel-antialiased; }
   @media (min-width: 768px) {
-    .a-fontSizeS, h4,
+    .a-fontSizeS, .a-link, h4,
     .a-headingSizeS, p, .a-btn, .a-btn-link, .a-item-list .a-item-list-item .a-listItem-title, ul.a-bullet-list li, .a-text, .a-text a.a-link, .a-text .a-item-list a {
       font-size: 18px;
       font-size: 1.8rem;
@@ -5956,14 +5956,6 @@ progress:not(.override-focus):focus {
   font-size: 1.4rem;
   line-height: 2rem;
   -webkit-font-smoothing: subpixel-antialiased; }
-
-.a-fontSizeLink, .a-link {
-  font-size: 1.6rem;
-  line-height: 2.8rem; }
-  @media (min-width: 768px) {
-    .a-fontSizeLink, .a-link {
-      font-size: 1.8rem;
-      line-height: 3.2rem; } }
 
 /* Links in text */
 a {
@@ -6006,7 +5998,7 @@ a {
 .a-link {
   position: relative;
   z-index: 1;
-  padding-bottom: 3px;
+  padding-bottom: 2px;
   text-decoration: none;
   cursor: pointer;
   border-bottom: 2px solid #1EAEF7; }
@@ -6034,7 +6026,7 @@ a {
       margin-top: 12px; }
   .a-link.a-link-danger {
     border-bottom: 2px solid #E23B53; }
-  .a-headingSizeM .a-link {
+  .a-headingSizeM .a-link, .a-card .a-headingSizeM a .a-link {
     padding-bottom: 2px; }
 
 .a-link-arrow {
@@ -6137,7 +6129,8 @@ h2,
       font-weight: normal; } }
 
 h3,
-.a-headingSizeM {
+.a-headingSizeM,
+.a-card .a-headingSizeM a {
   font-family: "DIN-bold";
   font-weight: normal;
   margin-bottom: 6px; }
@@ -6214,6 +6207,9 @@ mark,
   text-align: center;
   vertical-align: top;
   border-radius: 24px; }
+
+h1 .a-label {
+  margin-top: 6px; }
 
 .a-textBubble {
   position: relative;
@@ -7550,6 +7546,14 @@ fieldset[disabled] .a-switch input[type='checkbox'] + label, fieldset[disabled] 
     .a-p-x9-xl {
       padding-right: 108px;
       padding-left: 108px; } }
+
+/* Padding that push one col */
+.a-py-1 {
+  padding-right: 8.33333%;
+  padding-left: 8.33333%; }
+
+.a-pl-1 {
+  padding-left: 8.33333%; }
 
 .col-max-2 {
   min-width: 50%; }
@@ -8931,7 +8935,7 @@ fieldset[disabled] .a-switch input[type='checkbox'] + label, fieldset[disabled] 
     .a-iconText .a-iconText-text .a-link {
       font-size: 20px;
       font-size: 2rem;
-      line-height: 2.8rem;
+      line-height: 3rem;
       -webkit-font-smoothing: subpixel-antialiased;
       font-family: "DIN-bold";
       font-weight: normal; }
@@ -9045,8 +9049,7 @@ fieldset[disabled] .a-switch input[type='checkbox'] + label, fieldset[disabled] 
     border: 2px solid #022F51; }
     .a-btn.a-btn-border:hover, .a-btn.a-btn-border:focus {
       color: #FFFFFF;
-      background: #022F51;
-      border: 2px solid #022F51; }
+      background: #022F51; }
     .a-btn.a-btn-border:active, .a-btn.a-btn-border.active {
       color: #FFFFFF;
       background: #022F51; }
@@ -9529,11 +9532,7 @@ fieldset[disabled] .a-switch input[type='checkbox'] + label, fieldset[disabled] 
   @media (min-width: 768px) {
     .a-card {
       padding: 48px 48px; } }
-  @media (min-width: 992px) {
-    .a-card {
-      padding: 48px 96px;
-      margin-bottom: 48px; } }
-  .a-card .a-headingSizeM {
+  .a-card .a-headingSizeM, .a-card .a-headingSizeM a {
     margin-bottom: 24px; }
     .a-card .a-headingSizeM span {
       font-family: "DIN-reg";
@@ -9641,6 +9640,10 @@ fieldset[disabled] .a-switch input[type='checkbox'] + label, fieldset[disabled] 
     margin-bottom: 0;
     line-height: 36px;
     text-align: center; }
+
+@media (min-width: 992px) {
+  .a-mainCard {
+    padding-left: 8.33333%; } }
 
 .a-mainCard .a-iconText {
   margin-bottom: 24px;
@@ -9750,7 +9753,8 @@ fieldset[disabled] .a-switch input[type='checkbox'] + label, fieldset[disabled] 
       padding-left: 12px; }
     .a-item-list .a-item-list-item a {
       display: block;
-      padding: 0; }
+      padding: 0;
+      overflow: hidden; }
       .a-item-list .a-item-list-item a:hover {
         cursor: pointer; }
     .a-item-list .a-item-list-item.a-clickable:hover {
