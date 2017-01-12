@@ -196,21 +196,27 @@
 }
 
 .a-inline-page-link {
-  .nav-link,
-  .nav-link + .nav-link {
-    margin-right: $spacer;
-    margin-left: 0;
+  .row {
+    margin: 0;
+  }
+
+  div {
+    &[class^='col-'] {
+      padding: 0;
+    }
   }
 
   .list {
     display: flex;
     flex-wrap: wrap;
+    justify-content: space-between;
   }
 
   .nav-link {
     @extend .a-fontSizeS;
     @include a-fontBold;
 
+    display: inline-block;
     color: $blue-dark;
     text-decoration: none;
     border: none;
@@ -225,9 +231,6 @@
   padding: $spacer * 2 0 $spacer 0;
 
   a {
-    @include a-fontSize16;
-    @include a-fontMedium;
-    line-height: 24px;
     border: none;
   }
 }
