@@ -1,14 +1,50 @@
+/*
+  General list
+*/
+.a-list {
+  margin: 0;
+  list-style: none;
+
+  &.a-list-large {
+    li {
+      min-height: $spacer * 4;
+      padding: $spacer $spacer / 2;
+    }
+  }
+
+  li {
+    min-height: $spacer * 3;
+    padding: $spacer / 2 $spacer / 2 4px $spacer / 2;
+
+    &.a-selected {
+      .a-lineThrough-selected {
+        text-decoration: line-through;
+      }
+    }
+  }
+
+  // Remove row and col margin / padding
+  .row {
+    margin: 0;
+  }
+
+  div {
+    &[class^='col-'] {
+      padding: 0;
+      margin: 0;
+    }
+  }
+}
+
+
 /*------------------------------------*\
     $Item list
 \*------------------------------------*/
-
 .a-item-list {
   margin: 0;
   list-style: none;
 
   i {
-    width: $spacer * 2;
-    height: $spacer * 2;
     margin-top: -3px;
     vertical-align: middle;
     border: none;
@@ -400,6 +436,7 @@ ul {
 
   &.a-item-list-icon {
     padding-right: 0;
+    margin-bottom: -1px;
     margin-left: 0;
     list-style-type: none;
 
