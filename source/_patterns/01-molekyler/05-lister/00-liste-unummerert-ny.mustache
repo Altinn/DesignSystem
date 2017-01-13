@@ -1,18 +1,17 @@
-
-<ul class="a-list {{ styleModifier }}">
+<ul class="a-list  {{ styleModifier }}">
   {{# rows }}
-    <li {{# onclick }} onclick="{{{ onclick }}}" {{/ onclick }} class="{{ additional-classes }}">
+    <li {{# onclick }} onclick="{{{ onclick }}}" {{/ onclick }} class="{{ additional-classes }}" {{# id }}id="{{ id }}"{{/ id }}>
       <div class="row">
         {{# columns }}
           <div {{# additional-classes }}class="{{ additional-classes }}"{{/ additional-classes }} {{# onclick }} onclick="{{{ onclick }}}" {{/ onclick }}>
-            {{> atomer-liste-tabell-innhold }}
+            {{> molekyler-liste-innhold }}
           </div>
         {{/ columns }}
       </div>
       {{# expandable-section }}
         <div class="row">
-          <div class="{{ additional-classes }}" {{# onclick }} onclick="{{{ onclick }}}" {{/ onclick }}>
-            {{> atomer-liste-tabell-innhold }}
+          <div class="{{ additional-classes }}" {{# id }} id="{{ id }}" {{/ id }} {{# onclick }} onclick="{{{ onclick }}}" {{/ onclick }}>
+            {{> molekyler-liste-innhold }}
           </div>
         </div>
       {{/ expandable-section }}
