@@ -136,7 +136,7 @@ var codeLookup = function() {
       });
       setInterval(function() {
         if ($('.a-js-lookup').find('input[type=text]').val() !== undefined) {
-          query = $('.a-js-lookup').find('input[type=text]').val();
+          query = $('.a-js-lookup').find('input[type=text]').val().toLowerCase();
         } else {
           query = '';
         }
@@ -160,34 +160,34 @@ var codeLookup = function() {
               '</strong>';
             if (
               (
-                data[item].name.indexOf(var1) !== -1 ||
-                data[item].name.indexOf(var2) !== -1 ||
-                data[item].name.indexOf(var3) !== -1 ||
-                data[item].name.indexOf(var4) !== -1 ||
-                data[item].name.indexOf(var5) !== -1 ||
-                data[item].name.indexOf(var6) !== -1 ||
-                data[item].shortName.indexOf(var1) !== -1 ||
-                data[item].shortName.indexOf(var2) !== -1 ||
-                data[item].shortName.indexOf(var3) !== -1 ||
-                data[item].shortName.indexOf(var4) !== -1 ||
-                data[item].shortName.indexOf(var5) !== -1 ||
-                data[item].shortName.indexOf(var6) !== -1 ||
-                data[item].notes.indexOf(var1) !== -1 ||
-                data[item].notes.indexOf(var2) !== -1 ||
-                data[item].notes.indexOf(var3) !== -1 ||
-                data[item].notes.indexOf(var4) !== -1 ||
-                data[item].notes.indexOf(var5) !== -1 ||
-                data[item].notes.indexOf(var6) !== -1
+                data[item].name.toLowerCase().indexOf(var1) !== -1 ||
+                data[item].name.toLowerCase().indexOf(var2) !== -1 ||
+                data[item].name.toLowerCase().indexOf(var3) !== -1 ||
+                data[item].name.toLowerCase().indexOf(var4) !== -1 ||
+                data[item].name.toLowerCase().indexOf(var5) !== -1 ||
+                data[item].name.toLowerCase().indexOf(var6) !== -1 ||
+                data[item].shortName.toLowerCase().indexOf(var1) !== -1 ||
+                data[item].shortName.toLowerCase().indexOf(var2) !== -1 ||
+                data[item].shortName.toLowerCase().indexOf(var3) !== -1 ||
+                data[item].shortName.toLowerCase().indexOf(var4) !== -1 ||
+                data[item].shortName.toLowerCase().indexOf(var5) !== -1 ||
+                data[item].shortName.toLowerCase().indexOf(var6) !== -1 ||
+                data[item].notes.toLowerCase().indexOf(var1) !== -1 ||
+                data[item].notes.toLowerCase().indexOf(var2) !== -1 ||
+                data[item].notes.toLowerCase().indexOf(var3) !== -1 ||
+                data[item].notes.toLowerCase().indexOf(var4) !== -1 ||
+                data[item].notes.toLowerCase().indexOf(var5) !== -1 ||
+                data[item].notes.toLowerCase().indexOf(var6) !== -1
               ) &&
               data[item].level === 5
             ) {
               if (
-                data[item].name.indexOf(var1) !== -1 ||
-                data[item].name.indexOf(var2) !== -1 ||
-                data[item].name.indexOf(var3) !== -1 ||
-                data[item].name.indexOf(var4) !== -1 ||
-                data[item].name.indexOf(var5) !== -1 ||
-                data[item].name.indexOf(var6) !== -1
+                data[item].name.toLowerCase().indexOf(var1) !== -1 ||
+                data[item].name.toLowerCase().indexOf(var2) !== -1 ||
+                data[item].name.toLowerCase().indexOf(var3) !== -1 ||
+                data[item].name.toLowerCase().indexOf(var4) !== -1 ||
+                data[item].name.toLowerCase().indexOf(var5) !== -1 ||
+                data[item].name.toLowerCase().indexOf(var6) !== -1
               ) {
                 method = 'prepend';
               } else {
@@ -1331,6 +1331,9 @@ defaultSort, setupAddRightsHandler, onFileInputChange, toggleInstant, switchForm
 setupSortableRowOnclick */
 
 window.altinnInit = function() {
+  // var isTouch = false;
+  // var isTouchTimer;
+  // var curRootClass = '';
   toggleExpand();
   drilldownInteraction();
   toggleFilter();
@@ -1354,6 +1357,26 @@ window.altinnInit = function() {
   toggleInstant();
   switchForm();
   setupSortableRowOnclick();
+  // function addTouchClass(e) {
+  //   clearTimeout(isTouchTimer);
+  //   isTouch = true;
+  //   if (curRootClass !== 'can-touch') {
+  //     curRootClass = 'can-touch';
+  //     $('body').addClass(curRootClass);
+  //   }
+  //   isTouchTimer = setTimeout(function() {
+  //     isTouch = false;
+  //   }, 500);
+  // }
+  // function removeTouchClass(e) {
+  //   if (!isTouch && curRootClass === 'can-touch') {
+  //     isTouch = false;
+  //     curRootClass = '';
+  //     $('body').removeClass('can-touch');
+  //   }
+  // }
+  // $('body').on('touchstart', addTouchClass);
+  // $('body').on('mouseover', removeTouchClass);
 };
 window.altinnInit();
 window.smoothStateMod = function() {
