@@ -172,8 +172,10 @@ gulp.task('pl-copy:distribution-js', function () {
       'node_modules/anchor-js/anchor.min.js',
       'source/js/production/00-modules/foundationNavigation.min.js',
       'node_modules/bootstrap-validator/dist/validator.min.js',
+      'node_modules/clipboard/dist/clipboard.min.js',
       'node_modules/bootstrap-datepicker/dist/js/bootstrap-datepicker.min.js',
       'node_modules/smoothstate/jquery.smoothState.min.js',
+      'source/js/production/00-modules/*',
       'source/js/production/*',
       'node_modules/mark.js/dist/jquery.mark.min.js']
     ).pipe(gulp_concat('concat.js')).pipe(gulp_rename('plugins.min.js'))
