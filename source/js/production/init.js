@@ -6,6 +6,9 @@ defaultSort, setupAddRightsHandler, onFileInputChange, toggleInstant, switchForm
 setupSortableRowOnclick, addSelectedHandler, addListExpandHandler */
 
 window.altinnInit = function() {
+  // var isTouch = false;
+  // var isTouchTimer;
+  // var curRootClass = '';
   toggleExpand();
   drilldownInteraction();
   toggleFilter();
