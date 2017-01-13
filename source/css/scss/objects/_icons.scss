@@ -97,7 +97,7 @@
         margin-bottom: 0;
 
         @include media-breakpoint-up( lg ) {
-          @include a-fontSize24;
+          @include a-fontSize28;
         }
       }
     }
@@ -105,12 +105,13 @@
     // If there is a small text above, large text should be smaller
     .a-iconText-text-small + .a-iconText-text-large {
       @include media-breakpoint-up( lg ) {
-        @include a-fontSize22;
+        @include a-fontSize24;
       }
     }
 
     .a-link {
-      @include a-fontSize20;
+      @include font-size($fs: 20, $sm: subpixel-antialiased, $lh: 30)
+      // TODO: Make custom mixin for link-fontsizes. lineheight needs to be larger on links because of double border
       @include a-fontBold;
     }
   }
@@ -146,6 +147,22 @@
     &.a-iconText-background--white {
       color: $black;
       background: $white;
+    }
+  }
+
+  // VARIATION: Link after title
+  &.a-iconText-smallLink {
+
+    .a-iconText-text {
+      .a-iconText-text-large {
+        @extend .a-fontSizeXXL;
+        display: block;
+      }
+
+      a {
+        @extend .a-fontSizeXS;
+        @include a-fontReg;
+      }
     }
   }
 }
@@ -184,7 +201,7 @@
   }
 }
 
-// global icon styles
+/**  global icon styles **/
 .a-remove-icon {
   color: $red;
 }
@@ -193,5 +210,4 @@
 
 .a-icon-right {
   display: inline;
-  // float: right;
 }

@@ -55,10 +55,10 @@ a {
 
 /* Links standalone */
 .a-link {
-  @extend .a-fontSizeLink;
+  @extend .a-fontSizeS;
   position: relative;
   z-index: 1;
-  padding-bottom: 3px;
+  padding-bottom: 2px;
   text-decoration: none;
   cursor: pointer;
   border-bottom: 2px solid $link-color;
@@ -122,16 +122,18 @@ a {
   border: none;
 
   &:hover {
+    color: $grey;
     text-decoration: none;
     border-bottom: none;
   }
 
   &:focus {
+    color: $grey;
     border-bottom: none;
   }
 
   i {
-    @include a-fontSize22;
+    display: inline-block; // bootstrap popover toggle will pick this up to set inline-style
     margin-top: -4px;
     vertical-align: middle;
   }

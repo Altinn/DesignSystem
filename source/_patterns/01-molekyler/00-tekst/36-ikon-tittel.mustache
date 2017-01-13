@@ -1,0 +1,21 @@
+<div class="a-iconText a-iconText-smallLink {{ variation-class }} {{ styleModifier }}">
+  <!-- ICON -->
+  <div class="a-iconText-icon">{{# hasIcon }}{{> atomer-ikon }}{{/ hasIcon }}{{# hasDate }}{{> atomer-dato }}{{/ hasDate }}</div>
+  <!-- TEXT -->
+  {{# isHeader }}
+    <h1 class="a-iconText-text mb-0">
+  {{/ isHeader}}
+  {{^ isHeader }}
+    <div class="a-iconText-text">
+  {{/ isHeader }}
+  <span class="a-iconText-text-large">{{ icontext }} {{{ tag }}} </span>
+  {{# hasTextSmall }}
+    {{> atomer-byline }}
+  {{/ hasTextSmall }}
+  {{# isHeader }}
+    </h1>
+  {{/ isHeader}}
+  {{^ isHeader }}
+    </div>
+  {{/ isHeader }}
+</div>

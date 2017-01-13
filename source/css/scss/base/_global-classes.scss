@@ -68,6 +68,18 @@ body {
   background-color: $green-light;
 }
 
+.a-bg-blue-hover {
+  &:hover {
+    background-color: $blue-light;
+  }
+}
+
+.a-bg-red-hover {
+  &:hover {
+    background-color: $red-light;
+  }
+}
+
 // Dark background colors with white text
 .a-bgPurple,
 .a-bgBlueDark,
@@ -119,6 +131,20 @@ html {
   @include disabled-background ( $background-image: url( '../images/disabled-background.svg' ) );
 }
 
+.a-disabled-red {
+  @include disabled-background ( $background-image: url( '../images/disabled-background.svg' ) );
+  color: $grey;
+  cursor: not-allowed;
+  background-color: $red-light;
+}
+
+.a-disabled-green {
+  @include disabled-background ( $background-image: url( '../images/disabled-background.svg' ) );
+  color: $grey;
+  cursor: not-allowed;
+  background-color: $green-light;
+}
+
 // Panels with background-color
 .a-bgPanel {
   padding: $spacer * 2;
@@ -163,8 +189,6 @@ html {
 /* Horizontal Rule */
 
 hr {
-  float: left;
-  width: 100%;
   height: 2px;
   margin: 40px 0;
   background: transparent;
@@ -206,7 +230,9 @@ hr {
   background-size: 4px 2px;
 
   /* Horizontal Rule - Dotted AND disabled */
-  &.a-disabled {
+  &.a-disabled,
+  &.a-disabled-red,
+  &.a-disabled-green {
     @include disabled-background( $box-shadow: none, $background-image: url( '../images/disabled-background.svg' ), $background-image-extra: linear-gradient( to right, $blue 50%, $white 0% ) );
 
     background-repeat: repeat, repeat-x;
@@ -214,6 +240,14 @@ hr {
     background-size: auto, 4px 2px;
 
     background-blend-mode: darken;
+  }
+
+  &.a-disabled-green {
+    background-color: $green-light;
+  }
+
+  &.a-disabled-red {
+    background-color: $red-light;
   }
 
   .popover-big & {
@@ -292,4 +326,14 @@ hr {
 .a-height-3x {
   height: $spacer * 3;
   line-height: $spacer * 3;
+}
+
+.a-clickable {
+  &:hover {
+    cursor: pointer;
+  }
+}
+
+.a-lineThrough {
+  text-decoration: line-through;
 }

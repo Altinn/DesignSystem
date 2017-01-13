@@ -5,6 +5,14 @@
   padding: 0;
 }
 
+.container {
+  padding: 0 12px;
+
+  @include media-breakpoint-up( xl ) {
+    padding: 0; // 24x
+  }
+}
+
 .a-noColPadding {
   @include add-col-properties {
     padding-right: 0;
@@ -24,11 +32,11 @@
 }
 
 /* Padding */
-.a-p-l-5andhalf {
+.a-pl-5andhalf {
   padding-left: $spacer * 5.5;
 }
 
-.a-p-l-4andhalf {
+.a-pl-4andhalf {
   padding-left: $spacer * 4.5;
 }
 
@@ -40,6 +48,17 @@
     padding-right: $spacer * 9;
     padding-left: $spacer * 9;
   }
+}
+
+/* Padding that push one col */
+
+.a-py-1 {
+  padding-right: $onecol;
+  padding-left: $onecol;
+}
+
+.a-pl-1 {
+  padding-left: $onecol;
 }
 
 // Use flexbox grid with a maximum of columns
@@ -116,9 +135,39 @@
   padding-top: $spacer / 2 !important;
 }
 
+.a-px-1-xs-down {
+  @include media-breakpoint-down( xs ) {
+    padding: 0 $spacer !important;
+  }
+}
+
+.a-pb-1-xs-down {
+  @include media-breakpoint-down( xs ) {
+    padding-bottom: $spacer !important;
+  }
+}
+
+.a-pb-2-xs-down {
+  @include media-breakpoint-down( xs ) {
+    padding-bottom: $spacer * 2 !important;
+  }
+}
+
+.a-pt-1-xs-down {
+  @include media-breakpoint-down( xs ) {
+    padding-top: $spacer !important;
+  }
+}
+
+.a-pt-2-xs-down {
+  @include media-breakpoint-down( xs ) {
+    padding-top: $spacer * 2 !important;
+  }
+}
+
 .a-mb-1-xs-down {
   @include media-breakpoint-down( xs ) {
-    margin-bottom: $spacer * 1 !important;
+    margin-bottom: $spacer !important;
   }
 }
 
@@ -131,5 +180,11 @@
 .a-mb-3-xs-down {
   @include media-breakpoint-down( xs ) {
     margin-bottom: $spacer * 3 !important;
+  }
+}
+
+.a-mt-2-xs-down {
+  @include media-breakpoint-down( xs ) {
+    margin-top: $spacer * 2 !important;
   }
 }

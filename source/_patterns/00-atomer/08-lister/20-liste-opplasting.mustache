@@ -1,14 +1,20 @@
 <ul class="a-item-list-icon {{ styleModifier }}">
   {{# item-list }}
-    <div class="a-dotted-line-top"></div>
     <li class="{{ item-list-class }}"
       {{# icon-onclick }} onClick="{{{ icon-onclick }}}" {{/ icon-onclick }}
-      role="button" aria-label="{{{ list-item-aria-label }}}"
+      aria-label="{{{ list-item-aria-label }}}"
     >
-      <span class="a-js-listItemText">
-        {{{ list-item-text }}}
-      </span>
-      {{> atomer-ikon }}
+      <div class="a-dotted-line-top"></div>
+      <div class="row">
+        <div class="col-xs-11">
+          <span class="a-js-listItemText">
+            {{{ list-item-text }}}
+          </span>
+        </div>
+        <div class="col-xs-1">
+          {{> atomer-ikon }}
+        </div>
+      </div>
     </li>
   {{/ item-list }}
 </ul>

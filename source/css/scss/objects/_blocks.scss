@@ -52,10 +52,6 @@
 
 .a-jumbotron-light {
   background-image: url('../images/header-bg1.svg');
-
-  .a-btn-border {
-    @extend .a-fontSizeXXL;
-  }
 }
 
 // If dark background, make text white
@@ -72,7 +68,6 @@
 	}
 
   .a-btn-border {
-    @extend .a-fontSizeXXL;
     color: $white;
     background: transparent;
     border: 2px solid $white;
@@ -244,13 +239,12 @@
     padding: $spacer * 4 $spacer * 4;
   }
 
-  @include media-breakpoint-up( lg ) {
-    padding: $spacer * 4 $spacer * 8;
-    margin-bottom: $spacer * 4;
-  }
-
   .a-headingSizeM {
     margin-bottom: $spacer * 2;
+
+    a {
+      @extend .a-headingSizeM;
+    }
 
     span {
       @include a-fontReg;
@@ -424,7 +418,11 @@
   }
 }
 
-.a-main-card {
+.a-mainCard {
+
+  @include media-breakpoint-up( lg ) {
+    padding-left: $onecol;
+  }
 
   .a-iconText {
     margin-bottom: $spacer * 2;
@@ -440,6 +438,10 @@
         @include a-fontSize30;
       }
     }
+  }
+
+  .a-mainCard-content {
+    @extend .a-fontSizeM;
   }
 }
 
