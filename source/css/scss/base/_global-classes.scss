@@ -129,20 +129,24 @@ html {
 // Disabled background
 .a-disabled {
   @include disabled-background ( $background-image: url( '../images/disabled-background.svg' ) );
-}
 
-.a-disabled-red {
-  @include disabled-background ( $background-image: url( '../images/disabled-background.svg' ) );
-  color: $grey;
-  cursor: not-allowed;
-  background-color: $red-light;
-}
+  &.a-primary {
+    color: $grey;
+    cursor: not-allowed;
+    background-color: $blue-light;
+  }
 
-.a-disabled-green {
-  @include disabled-background ( $background-image: url( '../images/disabled-background.svg' ) );
-  color: $grey;
-  cursor: not-allowed;
-  background-color: $green-light;
+  &.a-danger {
+    color: $grey;
+    cursor: not-allowed;
+    background-color: $red-light;
+  }
+
+  &.a-success {
+    color: $grey;
+    cursor: not-allowed;
+    background-color: $green-light;
+  }
 }
 
 // Panels with background-color
@@ -235,9 +239,7 @@ hr {
   background-size: 4px 2px;
 
   /* Horizontal Rule - Dotted AND disabled */
-  &.a-disabled,
-  &.a-disabled-red,
-  &.a-disabled-green {
+  &.a-disabled {
     @include disabled-background( $box-shadow: none, $background-image: url( '../images/disabled-background.svg' ), $background-image-extra: linear-gradient( to right, $blue 50%, $white 0% ) );
 
     background-repeat: repeat, repeat-x;
@@ -245,17 +247,25 @@ hr {
     background-size: auto, 4px 2px;
 
     background-blend-mode: darken;
-  }
 
-  &.a-disabled-green {
-    background-color: $green-light;
-  }
+    &.a-primary {
+      color: $grey;
+      background-color: $blue-light;
+    }
 
-  &.a-disabled-red {
-    background-color: $red-light;
+    &.a-success {
+      color: $grey;
+      background-color: $green-light;
+    }
+
+    &.a-danger {
+      color: $grey;
+      background-color: $red-light;
+    }
   }
 
   .popover-big & {
+    color: $grey;
     background-image: $dotted-border-black;
   }
 }
@@ -333,12 +343,64 @@ hr {
   line-height: $spacer * 3;
 }
 
-.a-clickable {
+.a-clickable,
+.a-selectable {
   &:hover {
-    cursor: pointer;
+    &:not(.a-expanded) {
+      &:not(.a-selected) {
+        cursor: pointer;
+        background-color: $blue-light;
+
+        &.a-primary {
+          background-color: $blue-light;
+        }
+
+        &.a-danger {
+          background-color: $red-light;
+        }
+
+        &.a-success {
+          background-color: $green-light;
+        }
+      }
+    }
+  }
+}
+
+.a-selectable {
+  &.a-selected {
+    &.a-primary {
+      background-color: $blue-light;
+    }
+
+    &.a-danger {
+      background-color: $red-light;
+    }
+
+    &.a-success {
+      background-color: $green-light;
+    }
+
+    .a-hiddenWhenSelected {
+      display: none;
+    }
+
+    .a-visibleWhenSelected {
+      display: block;
+    }
+  }
+
+  .a-visibleWhenSelected {
+    display: none;
   }
 }
 
 .a-lineThrough {
   text-decoration: line-through;
+}
+
+.a-hiddenWhenExpanded {
+  &:not(.collapsed) {
+    display: none;
+  }
 }
