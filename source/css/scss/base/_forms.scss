@@ -114,6 +114,9 @@ textarea {
 
   // Button right to input
   .input-group-btn {
+    position: absolute;
+    right: 0;
+
     .btn {
       width: $spacer * 4;
       height: $spacer * 3;
@@ -680,6 +683,7 @@ textarea {
 .a-switch {
   position: relative;
   display: inline-block;
+  max-width: 100%;
   margin-right: $spacer / 2;
   margin-bottom: $spacer;
   cursor: pointer;
@@ -699,10 +703,16 @@ textarea {
 
       &:not(:checked) {
         &+label {
-          background: none;
           border: 2px dotted $blue;
           border-radius: $spacer * 3;
           transition: border 0.2s, background-color 0.2s;
+
+          &.disabled {
+            padding: 8px 18px;
+            background-color: $white;
+            background-image: url('../images/disabled-background.svg');
+            border: none;
+          }
 
           &.a-toggle-icon {
             i {
@@ -756,17 +766,13 @@ textarea {
   .a-switch-label {
     @extend .a-fontSizeXXS;
     @include a-fontReg;
+    max-width: 100%;
     height: $spacer * 3;
     padding: $spacer / 2 $spacer 0 $spacer;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
     cursor: pointer;
-
-    &.disabled {
-      // sass-lint:disable-block no-important
-      padding: 8px 18px;
-      background-color: $white !important;
-      background-image: url('../images/disabled-background.svg') !important;
-      border: none !important;
-    }
   }
 
   .a-switch-icon {
