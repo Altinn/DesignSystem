@@ -3,12 +3,10 @@ mobileNavigation, propagateContent, toggleExpand, toggleFilter, uniformHeight,
 tooltip, popover, aTagSpaceExpand, initializeDatepicker, onboarding,
 nameChecker, codeLookup, handleValidatorLibrary, setupDeletableRowsTable,
 defaultSort, setupAddRightsHandler, onFileInputChange, toggleInstant, switchForm,
-setupSortableRowOnclick, addSelectedHandler, addListExpandHandler */
+setupSortableRowOnclick, addSelectedHandler, addListExpandHandler,
+addListSortHandler */
 
 window.altinnInit = function() {
-  // var isTouch = false;
-  // var isTouchTimer;
-  // var curRootClass = '';
   toggleExpand();
   drilldownInteraction();
   toggleFilter();
@@ -34,6 +32,7 @@ window.altinnInit = function() {
   setupSortableRowOnclick();
   addSelectedHandler();
   addListExpandHandler();
+  addListSortHandler();
 };
 window.altinnInit();
 window.smoothStateMod = function() {

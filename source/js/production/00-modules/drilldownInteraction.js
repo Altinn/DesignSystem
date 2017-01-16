@@ -157,12 +157,14 @@ var drilldownInteraction = function() {
     whenKey(e, '.a-colnav-item-third');
   });
   if (isSmall) {
-    $('.a-colnav-wrapper').html($('.a-colnav-wrapper').html().replace(/drilldown/g, 'dropdown'));
-    $('.a-colnav').find('a').on('mouseup', function(event) {
-      if (!movedDuringTouch) {
-        whenClick(event);
-      }
-    });
+    if ($('.a-colnav-wrapper').length > 0) {
+      $('.a-colnav-wrapper').html($('.a-colnav-wrapper').html().replace(/drilldown/g, 'dropdown'));
+      $('.a-colnav').find('a').on('mouseup', function(event) {
+        if (!movedDuringTouch) {
+          whenClick(event);
+        }
+      });
+    }
   }
   $('.a-colnav-item-second').attr('tabindex', '0');
   $('.a-colnav-item-third').attr('tabindex', '0');
