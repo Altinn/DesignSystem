@@ -18,7 +18,7 @@
   }
 
   .a-list-header {
-    border-top: 1px solid $grey;
+    border-top: 1px solid $grey-medium;
 
     .a-list-sortHeader {
       margin-top: 4px;
@@ -32,6 +32,10 @@
       &:not(.a-list-header) {
         min-height: $spacer * 4;
         padding: $spacer $spacer / 2;
+
+        @include media-breakpoint-down( sm ) {
+          padding: $spacer;
+        }
       }
     }
   }
@@ -41,7 +45,7 @@
     padding: $spacer / 2 $spacer / 2 4px $spacer / 2;
 
     &:not(.a-dotted) {
-      border-bottom: 1px solid $grey;
+      border-bottom: 1px solid $grey-medium;
     }
 
     &.a-selected {
