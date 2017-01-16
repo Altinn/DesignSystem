@@ -177,7 +177,8 @@ var drilldownInteraction = function() {
     $('a.open').last().trigger('mouseup');
     $('a.open').last().trigger('touchend');
   });
-  $('.a-colnav').closest('.container').css('overflow', 'hidden');
+  // $('.a-colnav').closest('.container').css('overflow', 'hidden');
+  // Removed because it was added to all page also. Added style on .a-contentOverview instead
   $('.a-colnav').find('a').on('touchstart', function(event) {
     event.stopPropagation();
     movedDuringTouch = false;
