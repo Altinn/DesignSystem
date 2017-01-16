@@ -1,4 +1,5 @@
 var rewire = require('rewire');
+var compareTo = rewire('../../source/js/production/00-modules/compareTo.js');
 var tableSort = rewire('../../source/js/production/00-modules/tableSort.js');
 var compareTo = tableSort.__get__('compareTo');
 
