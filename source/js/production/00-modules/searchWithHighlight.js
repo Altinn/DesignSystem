@@ -12,7 +12,7 @@ var mark = function() {
   $.each(this.dataset.searchTarget.split(','), function() {
     // Reset visibility of all rows
     var target = '#' + this.toString();
-    if ($(target).prop('nodeName') == 'table') {
+    if ($(target).prop('nodeName') === 'table') {
       $(target + ' tbody>tr:not(.a-js-ignoreDuringSearch)').show();
       $(target).find('tfoot').hide();
 
