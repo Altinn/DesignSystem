@@ -1,4 +1,4 @@
-<ul class="a-list {{# is-large }} a-list-large {{/ is-large }} {{ styleModifier }}">
+<ul class="a-list {{# is-large }} a-list-large {{/ is-large }} {{# additional-classes }}{{ additional-classes }}{{/ additional-classes }} {{ styleModifier }}"{{# list-id }} id="{{ list-id }}"{{/ list-id }}>
   {{# header }}
     <li {{# onclick }} onclick="{{{ onclick }}}" {{/ onclick }} class="{{ additional-classes }}" {{# id }}id="{{ id }}"{{/ id }}>
       <div class="row">
@@ -14,7 +14,7 @@
     <li {{# onclick }} onclick="{{{ onclick }}}" {{/ onclick }} class="{{ additional-classes }}" {{# id }}id="{{ id }}"{{/ id }}>
       <div class="row">
         {{# columns }}
-          <div {{# additional-classes }}class="{{ additional-classes }}"{{/ additional-classes }} {{# onclick }} onclick="{{{ onclick }}}" {{/ onclick }}>
+          <div {{# additional-classes }}class="{{ additional-classes }}"{{/ additional-classes }} {{# onclick }} onclick="{{{ onclick }}}"{{/ onclick }}{{# searchable }} data-searchable="true" {{/ searchable }}>
             {{> molekyler-liste-innhold }}
           </div>
         {{/ columns }}
