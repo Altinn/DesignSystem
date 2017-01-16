@@ -3,7 +3,7 @@ mobileNavigation, propagateContent, toggleExpand, toggleFilter, uniformHeight,
 tooltip, popover, aTagSpaceExpand, initializeDatepicker, onboarding,
 nameChecker, codeLookup, handleValidatorLibrary, setupDeletableRowsTable,
 defaultSort, setupAddRightsHandler, onFileInputChange, toggleInstant, switchForm,
-setupSortableRowOnclick */
+setupSortableRowOnclick, addSelectedHandler, addListExpandHandler */
 
 window.altinnInit = function() {
   // var isTouch = false;
@@ -32,26 +32,8 @@ window.altinnInit = function() {
   toggleInstant();
   switchForm();
   setupSortableRowOnclick();
-  // function addTouchClass(e) {
-  //   clearTimeout(isTouchTimer);
-  //   isTouch = true;
-  //   if (curRootClass !== 'can-touch') {
-  //     curRootClass = 'can-touch';
-  //     $('body').addClass(curRootClass);
-  //   }
-  //   isTouchTimer = setTimeout(function() {
-  //     isTouch = false;
-  //   }, 500);
-  // }
-  // function removeTouchClass(e) {
-  //   if (!isTouch && curRootClass === 'can-touch') {
-  //     isTouch = false;
-  //     curRootClass = '';
-  //     $('body').removeClass('can-touch');
-  //   }
-  // }
-  // $('body').on('touchstart', addTouchClass);
-  // $('body').on('mouseover', removeTouchClass);
+  addSelectedHandler();
+  addListExpandHandler();
 };
 window.altinnInit();
 window.smoothStateMod = function() {
