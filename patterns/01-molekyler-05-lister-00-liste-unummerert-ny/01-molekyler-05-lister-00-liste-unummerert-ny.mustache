@@ -1,0 +1,22 @@
+<!-- START: 01-molekyler-05-lister-00-liste-unummerert-ny -->
+<ul class="a-list  {{ styleModifier }}">
+  {{# rows }}
+    <li {{# onclick }} onclick="{{{ onclick }}}" {{/ onclick }} class="{{ additional-classes }}" {{# id }}id="{{ id }}"{{/ id }}>
+      <div class="row">
+        {{# columns }}
+          <div {{# additional-classes }}class="{{ additional-classes }}"{{/ additional-classes }} {{# onclick }} onclick="{{{ onclick }}}" {{/ onclick }}>
+            {{> molekyler-liste-innhold }}
+          </div>
+        {{/ columns }}
+      </div>
+      {{# expandable-section }}
+        <div class="row">
+          <div class="{{ additional-classes }}" {{# id }} id="{{ id }}" {{/ id }} {{# onclick }} onclick="{{{ onclick }}}" {{/ onclick }}>
+            {{> molekyler-liste-innhold }}
+          </div>
+        </div>
+      {{/ expandable-section }}
+    </li>
+  {{/ rows }}
+</ul>
+<!-- END: 01-molekyler-05-lister-00-liste-unummerert-ny -->
