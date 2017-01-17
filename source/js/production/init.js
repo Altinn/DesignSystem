@@ -1,10 +1,10 @@
 /* globals questionnaireInteraction, drilldownInteraction, handleFocus,
 mobileNavigation, propagateContent, toggleExpand, toggleFilter, uniformHeight,
 tooltip, popover, aTagSpaceExpand, initializeDatepicker, onboarding,
-nameChecker, codeLookup, handleValidatorLibrary, setupDeletableRowsTable,
+nameChecker, codeLookup, handleValidatorLibrary,
 defaultSort, setupAddRightsHandler, onFileInputChange, toggleInstant, switchForm,
 setupSortableRowOnclick, addSelectedHandler, addListExpandHandler,
-addListSortHandler */
+addListSortHandler, setupListRowSelect, setupOnKeypress */
 
 window.altinnInit = function() {
   toggleExpand();
@@ -23,7 +23,6 @@ window.altinnInit = function() {
   nameChecker();
   codeLookup();
   handleValidatorLibrary();
-  setupDeletableRowsTable();
   defaultSort();
   setupAddRightsHandler();
   onFileInputChange();
@@ -33,6 +32,8 @@ window.altinnInit = function() {
   addSelectedHandler();
   addListExpandHandler();
   addListSortHandler();
+  setupListRowSelect();
+  setupOnKeypress();
 };
 window.altinnInit();
 window.smoothStateMod = function() {

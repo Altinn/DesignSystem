@@ -343,23 +343,23 @@ hr {
 
 .a-clickable,
 .a-selectable {
-  &:hover {
+  &:hover,
+  &:active,
+  &:focus {
     &:not(.a-expanded) {
-      &:not(.a-selected) {
-        cursor: pointer;
+      cursor: pointer;
+      background-color: $blue-light;
+
+      &.a-primary {
         background-color: $blue-light;
+      }
 
-        &.a-primary {
-          background-color: $blue-light;
-        }
+      &.a-danger {
+        background-color: $red-light;
+      }
 
-        &.a-danger {
-          background-color: $red-light;
-        }
-
-        &.a-success {
-          background-color: $green-light;
-        }
+      &.a-success {
+        background-color: $green-light;
       }
     }
   }
@@ -367,6 +367,32 @@ hr {
 
 .a-selectable {
   &.a-selected {
+    .a-hiddenWhenSelected {
+      display: none;
+    }
+
+    .a-visibleWhenSelected {
+      display: inline-block;
+    }
+  }
+
+  .a-visibleWhenSelected {
+    display: none;
+  }
+
+  &.a-completed {
+    &:hover {
+      cursor: default;
+    }
+
+    .a-hiddenWhenCompleted {
+      display: none;
+    }
+
+    .a-visibleWhenCompleted {
+      display: inline-block;
+    }
+
     &.a-primary {
       background-color: $blue-light;
     }
@@ -378,17 +404,9 @@ hr {
     &.a-success {
       background-color: $green-light;
     }
-
-    .a-hiddenWhenSelected {
-      display: none;
-    }
-
-    .a-visibleWhenSelected {
-      display: block;
-    }
   }
 
-  .a-visibleWhenSelected {
+  .a-visibleWhenCompleted {
     display: none;
   }
 }
@@ -401,4 +419,30 @@ hr {
   &:not(.collapsed) {
     display: none;
   }
+}
+
+/*------------------------------------*\
+    $Full width and height elements in modal
+\*------------------------------------*/
+
+.a-full-width {
+  @include media-breakpoint-up( md ) {
+    margin-right: -$spacer * 7;
+    margin-left: -$spacer * 7;
+  }
+  @include media-breakpoint-up( lg ) {
+    margin-right: -$spacer * 8;
+    margin-left: -$spacer * 8;
+  }
+
+  margin-right: -$spacer * 2;
+  margin-left: -$spacer * 2;
+}
+
+.a-full-height {
+  @include media-breakpoint-up( md ) {
+    margin-bottom: -$spacer * 4;
+  }
+
+  margin-bottom: -$spacer * 3;
 }
