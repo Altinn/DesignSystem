@@ -1,9 +1,9 @@
-<ul class="a-list {{# is-large }} a-list-large {{/ is-large }} {{# additional-classes }}{{ additional-classes }}{{/ additional-classes }} {{ styleModifier }}"{{# list-id }} id="{{ list-id }}"{{/ list-id }}>
+<ul class="a-list {{# is-large }} a-list-large {{/ is-large }} {{# additional-classes }}{{ additional-classes }}{{/ additional-classes }} {{ styleModifier }}"{{# list-id }} id="{{ list-id }}"{{/ list-id }}{{# selectable }} data-list-selectable="true"{{/ selectable }}>
   {{# header }}
     <li {{# onclick }} onclick="{{{ onclick }}}" {{/ onclick }} class="{{ additional-classes }}" {{# id }}id="{{ id }}"{{/ id }}>
       <div class="row">
         {{# columns }}
-          <div {{# additional-classes }}class="{{ additional-classes }}"{{/ additional-classes }} {{# onclick }} onclick="{{{ onclick }}}" {{/ onclick }}>
+          <div {{# additional-classes }}class="{{ additional-classes }}"{{/ additional-classes }}{{# onclick }} onclick="{{{ onclick }}}"{{/ onclick }}{{# tabable }} tabindex="0"{{/ tabable }}>
             {{> molekyler-liste-innhold }}
           </div>
         {{/ columns }}
@@ -11,7 +11,7 @@
     </li>
   {{/ header }}
   {{# rows }}
-    <li {{# onclick }} onclick="{{{ onclick }}}" {{/ onclick }} class="{{ additional-classes }}" {{# id }}id="{{ id }}"{{/ id }}>
+    <li {{# onclick }} onclick="{{{ onclick }}}" {{/ onclick }} class="{{ additional-classes }}" {{# id }}id="{{ id }}"{{/ id }} {{# tabable }} tabindex="0"{{/ tabable }}>
       <div class="row">
         {{# columns }}
           <div {{# additional-classes }}class="{{ additional-classes }}"{{/ additional-classes }} {{# onclick }} onclick="{{{ onclick }}}"{{/ onclick }}{{# searchable }} data-searchable="true" {{/ searchable }}>
