@@ -30,15 +30,17 @@
 					{{/ 1 }}
 
 					{{# 2 }}
-					{{> atomer-seksjonstittel }}
-					{{> atomer-avsnitt }}
+						{{> atomer-seksjonstittel }}
+						{{> atomer-avsnitt }}
+					{{/ 2 }}
 
 					{{# modal-input-keyword }}
 						{{> atomer-tekst-input }}
 					{{/ modal-input-keyword }}
 
-					{{> atomer-liste-unummerert }}
-					{{/ 2 }}
+					{{# resultList }}
+						{{> molekyler-liste-unummerert-ny }}
+					{{/ resultList }}
 
 				</div><!-- END .col-... -->
 			</div><!-- END .row -->
@@ -46,10 +48,11 @@
 			<div class="row a-text">
 				<div class="col-sm-12 col-lg-8 offset-lg-2 pb-2">
 					<h2>{{{ header-2 }}}</h2>
-					{{> molekyler-trekkspill }}
+					{{# hasAccordion }}
+						{{> molekyler-trekkspill }}
+					{{/ hasAccordion }}
 				</div>
 			</div>
-
 
 			<div class="row">
 				<div class="col-sm-6 col-lg-5 offset-lg-2 py-2">
