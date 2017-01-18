@@ -7,7 +7,7 @@ var onConfirmDeletionClick = function() {
   if ($list.find('li.a-selected:not(.a-list-header)').length === $list.find('li:not(.a-list-header)').length) {
     goToReceipt = true;
   } else {
-    $list.find('li.a-selected').addClass('a-completed').removeClass('a-selected');
+    $list.find('li.a-selected').addClass('a-deleted').addClass('a-disabled');
     $segmentDone.hide();
   }
 
