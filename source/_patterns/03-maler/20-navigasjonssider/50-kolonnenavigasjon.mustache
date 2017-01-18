@@ -1,34 +1,21 @@
 <div class="a-page" id="smoothState">
 
-	<!-- Proxy content container, for inclusion in more than one place -->
-	<div class="a-js-propagatedContentOrigin suggest">
-		<h2 class="pt-5">Forslag til deg:</h2>
-		{{> atomer-liste-nummerert }}
-	</div>
-	<!-- END Proxy content container -->
-
 	{{> organismer-header }}
 
 	<div class="container" id="content" tabindex="-1">
 
 			<div class="row">
-				<div class="col-sm-12 col-lg-6 offset-lg-3 py-3">
+				<div class="col-sm-12 col-lg-6 offset-lg-3 a-articleSearch">
 					{{# article-search }}
 						{{> atomer-tekst-input }}
 					{{/ article-search }}
 				</div>
 			</div>
 
-<!--
-				<div class="row hidden-lg-up">
-
-						<div id="a-js-suggestionList-mobile" class="col-sm-12 mb-5 a-js-propagatedContentDestination" data-refclass="suggest"></div>
-
-				</div> -->
 
 				<div class="row a-filter-container">
 					<div class="col-sm-12 col-md-4">
-						<span class="a-headingSizeXL">
+						<span class="a-h2">
 							<span class="a-fontBold">1287</span> skjemaer
 						</span>
 					</div>
@@ -67,13 +54,18 @@
 				<div class="a-contentOverview">
 					<div class="row">
 						{{> molekyler-meny-kolonner }}
-						<div id="a-js-suggestionList" class="col-sm-12 col-lg-6 hidden-md-down a-js-propagatedContentDestination a-js-suggestionList" data-refclass="suggest"></div>
+						<!-- Proxy content container, for inclusion in more than one place -->
+						<div class="a-js-propagatedContentOrigin suggest">
+							<h2 class="pt-5">Forslag til deg:</h2>
+							{{> atomer-liste-nummerert }}
+						</div>
+						<!-- END Proxy content container -->
 					</div>
 				</div>
 
-		{{> organismer-footer }}
+			</div> <!-- END Container -->
 
-	</div> <!-- END Container -->
+			{{> organismer-footer }}
 
 
 

@@ -157,12 +157,14 @@ var drilldownInteraction = function() {
     whenKey(e, '.a-colnav-item-third');
   });
   if (isSmall) {
-    $('.a-colnav-wrapper').html($('.a-colnav-wrapper').html().replace(/drilldown/g, 'dropdown'));
-    $('.a-colnav').find('a').on('mouseup', function(event) {
-      if (!movedDuringTouch) {
-        whenClick(event);
-      }
-    });
+    if ($('.a-colnav-wrapper').length > 0) {
+      $('.a-colnav-wrapper').html($('.a-colnav-wrapper').html().replace(/drilldown/g, 'dropdown'));
+      $('.a-colnav').find('a').on('mouseup', function(event) {
+        if (!movedDuringTouch) {
+          whenClick(event);
+        }
+      });
+    }
   }
   $('.a-colnav-item-second').attr('tabindex', '0');
   $('.a-colnav-item-third').attr('tabindex', '0');
@@ -177,7 +179,8 @@ var drilldownInteraction = function() {
     $('a.open').last().trigger('mouseup');
     $('a.open').last().trigger('touchend');
   });
-  $('.a-colnav').closest('.container').css('overflow', 'hidden');
+  // $('.a-colnav').closest('.container').css('overflow', 'hidden');
+  // Removed because it was added to all page also. Added style on .a-contentOverview instead
   $('.a-colnav').find('a').on('touchstart', function(event) {
     event.stopPropagation();
     movedDuringTouch = false;
