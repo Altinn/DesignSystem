@@ -21,9 +21,16 @@
     border-top: 1px solid $grey-medium;
 
     .a-list-sortHeader {
+      @include a-fontSize12;
       margin-top: 4px;
       margin-bottom: -$spacer / 2;
       cursor: pointer;
+    }
+
+    .a-clickable {
+      &:hover {
+        background-color: inherit;
+      }
     }
   }
 
@@ -36,6 +43,11 @@
         @include media-breakpoint-down( sm ) {
           padding: $spacer;
         }
+      }
+
+      @include media-breakpoint-down( sm ) {
+        padding-right: $spacer;
+        padding-left: $spacer;
       }
     }
   }
@@ -51,6 +63,19 @@
     &.a-selected {
       .a-lineThrough-selected {
         text-decoration: line-through;
+      }
+    }
+
+    &.a-list-item-centered {
+      > div {
+        align-items: center;
+
+        > div {
+          &[class^='col-'] {
+            display: inline-block;
+            vertical-align: middle;
+          }
+        }
       }
     }
   }

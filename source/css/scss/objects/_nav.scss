@@ -59,10 +59,18 @@
 
 // Breadcrumb
 .a-breadcrumb {
-  @include a-fontSize20;
-
+  @include a-fontSize16;
   padding: 0;
+  padding-top: $spacer;
   background: transparent;
+
+  @include media-breakpoint-up( md ) {
+    @include a-fontSize20;
+  }
+
+  @include media-breakpoint-up( lg ) {
+    padding-top: $spacer * 3;
+  }
 
   li {
     @include media-breakpoint-up( md ) {
@@ -74,7 +82,11 @@
     line-height: $spacer * 3;
 
     a {
-      @include a-fontSize20;
+      @include a-fontSize16;
+
+      @include media-breakpoint-up( md ) {
+        @include a-fontSize20;
+      }
     }
 
     &.breadcrumb-item + .breadcrumb-item {
@@ -213,7 +225,7 @@
   }
 
   .nav-link {
-    @extend .a-fontSizeS;
+    @extend .a-fontSizeXS;
     @include a-fontBold;
 
     display: inline-block;
@@ -228,7 +240,8 @@
 }
 
 .a-page-nav-dest {
-  padding: $spacer * 2 0 $spacer 0;
+  padding-top: $spacer;
+  padding-bottom: $spacer / 2;
 
   a {
     border: none;
