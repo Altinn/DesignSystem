@@ -4,7 +4,7 @@ var genericSearch = function() {
   var legend = $('.a-js-genericSearch').find('.a-legend');
   var loader = $('.a-js-genericSearch').find('.a-logo-anim');
   var empty = $('.a-js-genericSearch').find('.a-js-noResults');
-  var container = $('.a-js-genericSearch').find('.a-item-list');
+  var container = $('.a-js-genericSearch').find('.a-list');
   var base; var query; container.find('li:gt(0)').remove();
   base = container.html(); container.html(''); loader.hide();
   empty.hide(); legend.hide();
@@ -37,7 +37,7 @@ var genericSearch = function() {
               container[method](
                 base.replace('%NAME%', item.name)
                   .replace('%PARENT%', item.parent)
-                  .replace('%URL%', item.url)
+                  .replace(/%URL%/g, item.url)
                   .replace('../..', '')
               );
             }

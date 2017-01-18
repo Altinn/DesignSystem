@@ -1,17 +1,20 @@
 <ul class="a-list {{# is-large }} a-list-large {{/ is-large }} {{# additional-classes }}{{ additional-classes }}{{/ additional-classes }} {{ styleModifier }}"{{# list-id }} id="{{ list-id }}"{{/ list-id }}{{# selectable }} data-list-selectable="true"{{/ selectable }}>
   {{# header }}
     <li {{# onclick }} onclick="{{{ onclick }}}" {{/ onclick }} class="{{ additional-classes }}" {{# id }}id="{{ id }}"{{/ id }}>
-      <div class="row">
-        {{# columns }}
-          <div {{# additional-classes }}class="{{ additional-classes }}"{{/ additional-classes }}{{# onclick }} onclick="{{{ onclick }}}"{{/ onclick }}{{# tabable }} tabindex="0"{{/ tabable }}>
-            {{> molekyler-liste-innhold }}
-          </div>
-        {{/ columns }}
-      </div>
+        <div class="row">
+          {{# columns }}
+            <div {{# additional-classes }}class="{{ additional-classes }}"{{/ additional-classes }}{{# onclick }} onclick="{{{ onclick }}}"{{/ onclick }}{{# tabable }} tabindex="0"{{/ tabable }}>
+              {{> molekyler-liste-innhold }}
+            </div>
+          {{/ columns }}
+        </div>
     </li>
   {{/ header }}
   {{# rows }}
     <li {{# onclick }} onclick="{{{ onclick }}}" {{/ onclick }} class="{{ additional-classes }}" {{# id }}id="{{ id }}"{{/ id }} {{# tabable }} tabindex="0"{{/ tabable }}>
+      {{# isRowLink }}
+      <a href="{{{ rowLink }}}">
+      {{/ isRowLink }}
       <div class="row">
         {{# columns }}
           <div {{# additional-classes }}class="{{ additional-classes }}"{{/ additional-classes }} {{# onclick }} onclick="{{{ onclick }}}"{{/ onclick }}{{# searchable }} data-searchable="true" {{/ searchable }}>
@@ -26,6 +29,9 @@
           </div>
         </div>
       {{/ expandable-section }}
+      {{# isRowLink }}
+      </a>
+      {{/ isRowLink }}
     </li>
   {{/ rows }}
 </ul>
