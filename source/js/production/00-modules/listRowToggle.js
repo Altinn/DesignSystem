@@ -7,7 +7,7 @@ var onConfirmDeletionClick = function() {
   if ($list.find('li.a-selected:not(.a-list-header)').length === $list.find('li:not(.a-list-header)').length) {
     goToReceipt = true;
   } else {
-    $list.find('li.a-selected').addClass('a-deleted').addClass('a-disabled');
+    $list.find('li.a-selected').addClass('a-deleted').addClass('a-disabled').removeClass('a-selected').removeAttr('tabindex');
     $segmentDone.hide();
   }
 
@@ -27,7 +27,7 @@ var setupListRowSelect = function() {
   var $segmentDone = $('.segment-done');
 
   $list.on('click', 'li:not(.a-list-header)', function() {
-    if (!$(this).hasClass('a-completed')) {
+    if (!$(this).hasClass('a-deleted')) {
       $(this).toggleClass('a-selected');
       if ($list.find('li.a-selected').length > 0) {
         $segmentDone.show();
