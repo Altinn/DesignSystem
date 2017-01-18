@@ -32,7 +32,7 @@ var drilldownInteraction = function() {
   }
   function whenKey(e, classToQuery) {
     var code = e.keyCode || e.which;
-    if (code === 37 || code === 38 || code === 39 || code === 40) {
+    if (code === 27 || code === 37 || code === 38 || code === 39 || code === 40) {
       e.preventDefault(); e.stopPropagation(); e.stopImmediatePropagation();
     }
     if (code === 13 || code === 32) {
@@ -75,8 +75,8 @@ var drilldownInteraction = function() {
       }
     }
   }
-  function whenClick(event) {
-    var el = $(event.target);
+  function whenClick(event, alt) {
+    var el = alt === undefined ? $(event.target) : event;
     var li = el.closest('li').hasClass('is-dropdown-submenu-parent') ? el.closest('li') : el;
     levels.forEach(function(str, index) {
       var wasStacked;
@@ -176,8 +176,7 @@ var drilldownInteraction = function() {
     }
   });
   $('.a-js-backButton').on('click', function() {
-    $('a.open').last().trigger('mouseup');
-    $('a.open').last().trigger('touchend');
+    whenClick($('a.open').last(), true);
   });
   // $('.a-colnav').closest('.container').css('overflow', 'hidden');
   // Removed because it was added to all page also. Added style on .a-contentOverview instead
