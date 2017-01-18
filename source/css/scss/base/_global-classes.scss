@@ -136,16 +136,20 @@ html {
     background-color: $blue-light;
   }
 
-  &.a-danger {
+  &.a-danger,
+  &.a-deleted {
     color: $grey;
     cursor: not-allowed;
     background-color: $red-light;
+    box-shadow: none;
   }
 
-  &.a-success {
+  &.a-success,
+  &.a-completed {
     color: $grey;
     cursor: not-allowed;
     background-color: $green-light;
+    box-shadow: none;
   }
 }
 
@@ -347,19 +351,23 @@ hr {
   &:active,
   &:focus {
     &:not(.a-expanded) {
-      cursor: pointer;
-      background-color: $blue-light;
+      &:not(.a-deleted) {
+        &:not(.a-completed) {
+          cursor: pointer;
+          background-color: $blue-light;
 
-      &.a-primary {
-        background-color: $blue-light;
-      }
+          &.a-primary {
+            background-color: $blue-light;
+          }
 
-      &.a-danger {
-        background-color: $red-light;
-      }
+          &.a-danger {
+            background-color: $red-light;
+          }
 
-      &.a-success {
-        background-color: $green-light;
+          &.a-success {
+            background-color: $green-light;
+          }
+        }
       }
     }
   }
@@ -381,6 +389,8 @@ hr {
   }
 
   &.a-completed {
+    background-color: $green-light;
+
     &:hover {
       cursor: default;
     }
@@ -392,21 +402,43 @@ hr {
     .a-visibleWhenCompleted {
       display: inline-block;
     }
+  }
 
-    &.a-primary {
-      background-color: $blue-light;
+  &.a-deleted {
+    background-color: $red-light;
+
+    &:hover {
+      cursor: default;
     }
 
-    &.a-danger {
-      background-color: $red-light;
+    .a-hiddenWhenDeleted {
+      display: none;
     }
 
-    &.a-success {
-      background-color: $green-light;
+    .a-visibleWhenDeleted {
+      display: inline-block;
     }
   }
 
-  .a-visibleWhenCompleted {
+  &.a-expanded {
+    background-color: $white;
+  }
+
+  &:not(.a-selected) {
+    &:not(.a-expanded) {
+      &:not(.a-completed) {
+        &:not(.a-deleted) {
+          .a-visibleWhenInitial {
+            display: inline-block;
+          }
+        }
+      }
+    }
+  }
+
+  .a-visibleWhenCompleted,
+  .a-visibleWhenDeleted,
+  .a-visibleWhenInitial {
     display: none;
   }
 }
