@@ -29,7 +29,6 @@ var mark = function() {
         $(target + ' tbody>tr:not(.a-js-ignoreDuringSearch)').each(function() {
           if ($(this).find('mark').length === 0) {
             $(this).hide();
-            console.log('Hiding');
             // Hide preceding information row
             if ($(this).next().hasClass('a-collapseContent')) {
               $(this).next().hide();
