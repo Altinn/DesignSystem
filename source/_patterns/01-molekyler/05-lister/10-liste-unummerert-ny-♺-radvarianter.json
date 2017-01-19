@@ -6,7 +6,7 @@
         "checkbuttons-title": "Begrenset signeringsrett"
       },
       {
-        "checkbuttons-title": "Lønn og personalmedarbeider"
+        "checkbuttons-title": "Rollenavn"
       },
       {
         "checkbuttons-title": "Primærnæring og næringsmidler"
@@ -707,7 +707,7 @@
       ]
     },
     {
-      "additional-classes": "a-selectable a-success",
+      "additional-classes": "a-dotted a-selectable a-success",
       "columns" : [
         {
           "additional-classes": "col-xs-9",
@@ -721,7 +721,7 @@
             },
             {
               "column-text": {
-                "text": "Lønn og personalmedarbeider"
+                "text": "Rollenavn"
               }
             }
           ]
@@ -739,11 +739,13 @@
                 "popover-link-icon": [
                   {
                     "icon-prefix": "tmp",
-                    "icon-class": "tmp-help"
+                    "icon-class": "tmp-help",
+                    "icon-extra-class": "tmp-fw"
                   },
                   {
                     "icon-prefix": "tmp",
-                    "icon-class": "tmp-cancel"
+                    "icon-class": "tmp-cancel",
+                    "icon-extra-class": "tmp-fw"
                   }
                 ]
               }
@@ -753,7 +755,7 @@
       ]
     },
     {
-      "additional-classes": "a-selectable a-success",
+      "additional-classes": "a-dotted a-selectable a-success",
       "columns" : [
         {
           "additional-classes": "col-xs-9",
@@ -767,7 +769,7 @@
             },
             {
               "column-text": {
-                "text": "Lønn og personalmedarbeider"
+                "text": "Rollenavn"
               }
             }
           ]
@@ -799,18 +801,20 @@
                 "popover-link-icon": [
                   {
                     "icon-prefix": "tmp",
-                    "icon-class": "tmp-help"
+                    "icon-class": "tmp-help",
+                    "icon-extra-class": "tmp-fw"
                   },
                   {
                     "icon-prefix": "tmp",
-                    "icon-class": "tmp-cancel"
+                    "icon-class": "tmp-cancel",
+                    "icon-extra-class": "tmp-fw"
                   }
                 ]
               }
             },
             {
               "column-link": {
-                "link-class": "no-decoration pr-1 a-visibleWhenSelected",
+                "link-class": "no-decoration a-visibleWhenSelected",
                 "link-url": "#",
                 "link-text": "Angre"
               }
@@ -819,7 +823,7 @@
               "column-icon": {
                 "icon-prefix": "tmp",
                 "icon-class" : "tmp-history",
-                "icon-extra-class": "a-visibleWhenSelected"
+                "icon-extra-class": "a-visibleWhenSelected tmp-fw"
               }
             }
           ]
@@ -827,7 +831,7 @@
       ]
     },
     {
-      "additional-classes": "a-selectable a-success a-selected",
+      "additional-classes": "a-dotted a-selectable a-success a-selected",
       "columns" : [
         {
           "additional-classes": "col-xs-9",
@@ -841,7 +845,7 @@
             },
             {
               "column-text": {
-                "text": "Lønn og personalmedarbeider"
+                "text": "Rollenavn"
               }
             }
           ]
@@ -853,12 +857,12 @@
               "column-icon": {
                 "icon-prefix": "tmp",
                 "icon-class" : "tmp-edit",
-                "icon-extra-class": "a-hiddenWhenSelected"
+                "icon-extra-class": "a-hiddenWhenSelected tmp-fw"
               }
             },
             {
               "column-link": {
-                "link-class": "no-decoration pr-1 a-hiddenWhenSelected",
+                "link-class": "no-decoration a-hiddenWhenSelected",
                 "link-url": "#",
                 "link-text": "Rediger"
               }
@@ -874,12 +878,12 @@
                   {
                     "icon-prefix": "tmp",
                     "icon-class": "tmp-help",
-                    "icon-extra-class": "hiddenWhenSelected"
+                    "icon-extra-class": "hiddenWhenSelected tmp-fw"
                   },
                   {
                     "icon-prefix": "tmp",
                     "icon-class": "tmp-cancel",
-                    "icon-extra-class": "hiddenWhenSelected"
+                    "icon-extra-class": "hiddenWhenSelected tmp-fw"
                   }
                 ]
               }
@@ -895,12 +899,142 @@
               "column-icon": {
                 "icon-prefix": "tmp",
                 "icon-class" : "tmp-history",
-                "icon-extra-class": "a-visibleWhenSelected a-remove-icon"
+                "icon-extra-class": "a-visibleWhenSelected a-remove-icon tmp-fw"
               }
             }
           ]
         }
       ]
+    },
+    {
+      "additional-classes": "a-dotted a-selectable a-danger",
+      "onclick": false,
+      "columns" : [
+        {
+          "additional-classes": "col-xs-10 col-sm-7 col-md-4 col-lg-6",
+          "onclick": false,
+          "searchable": true,
+          "column-items": [
+            {
+              "column-text": {
+                "classes": "a-js-sortValue a-lineThrough-selected",
+                "text": "Patent, varemerke og design"
+              }
+            }
+          ]
+        },
+        {
+          "additional-classes": "col-xs text-xs-right",
+          "onclick": false,
+          "column-items": [
+            {
+              "column-text": {
+                "text": "Fjern",
+                "classes": "hidden-xs-down a-hiddenWhenSelected a-hiddenWhenDeleted"
+              }
+            },
+            {
+              "column-icon": {
+                "icon-prefix": "tmp",
+                "icon-class": "tmp-remove-circle",
+                "icon-extra-class": "a-remove-icon a-hiddenWhenSelected a-hiddenWhenDeleted tmp-fw"
+              }
+            },
+            {
+              "column-text": {
+                "text": "Angre",
+                "classes": "hidden-xs-down a-visibleWhenSelected a-hiddenWhenDeleted"
+              }
+            },
+            {
+              "column-icon": {
+                "icon-prefix": "tmp",
+                "icon-class": "tmp-history",
+                "icon-extra-class": "a-remove-icon a-visibleWhenSelected a-hiddenWhenDeleted tmp-fw"
+              }
+            },
+            {
+              "column-text": {
+                "text": "Slettet",
+                "classes": "hidden-xs-down a-visibleWhenDeleted"
+              }
+            },
+            {
+              "column-icon": {
+                "icon-prefix": "tmp",
+                "icon-class": "tmp-fw",
+                "icon-extra-class": "a-remove-icon a-visibleWhenDeleted"
+              }
+            }
+          ]
+        }
+      ],
+      "expandable-section": false
+    },
+    {
+      "additional-classes": "a-dotted a-selectable a-selected a-danger",
+      "onclick": false,
+      "columns" : [
+        {
+          "additional-classes": "col-xs-10 col-sm-7 col-md-4 col-lg-6",
+          "onclick": false,
+          "searchable": true,
+          "column-items": [
+            {
+              "column-text": {
+                "classes": "a-js-sortValue a-lineThrough-selected",
+                "text": "Privatperson begrensede rettigheter"
+              }
+            }
+          ]
+        },
+        {
+          "additional-classes": "col-xs text-xs-right",
+          "onclick": false,
+          "column-items": [
+            {
+              "column-text": {
+                "text": "Fjern",
+                "classes": "hidden-xs-down a-hiddenWhenSelected a-hiddenWhenDeleted"
+              }
+            },
+            {
+              "column-icon": {
+                "icon-prefix": "tmp",
+                "icon-class": "tmp-remove-circle",
+                "icon-extra-class": "a-remove-icon a-hiddenWhenSelected a-hiddenWhenDeleted tmp-fw"
+              }
+            },
+            {
+              "column-text": {
+                "text": "Angre",
+                "classes": "hidden-xs-down a-visibleWhenSelected a-hiddenWhenDeleted"
+              }
+            },
+            {
+              "column-icon": {
+                "icon-prefix": "tmp",
+                "icon-class": "tmp-history",
+                "icon-extra-class": "a-remove-icon a-visibleWhenSelected a-hiddenWhenDeleted tmp-fw"
+              }
+            },
+            {
+              "column-text": {
+                "text": "Slettet",
+                "classes": "hidden-xs-down a-visibleWhenDeleted"
+              }
+            },
+            {
+              "column-icon": {
+                "icon-prefix": "tmp",
+                "icon-class": "tmp-fw",
+                "icon-extra-class": "a-remove-icon a-visibleWhenDeleted"
+              }
+            }
+          ]
+        }
+      ],
+      "expandable-section": false
     }
   ]
 }
