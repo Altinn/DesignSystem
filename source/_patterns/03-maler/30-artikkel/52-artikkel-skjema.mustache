@@ -18,12 +18,24 @@
 			</div>
 
 			{{> molekyler-kort-hoved }}
+
+			{{# hasWarning }}
+				{{> atomer-varsel }}
+			{{/ hasWarning }}
+
+			{{# hasMessage }}
+				{{> atomer-varsel }}
+			{{/ hasMessage }}
+
+			{{# hasAccordion }}
 			<div class="row a-text">
 				<div class="col-sm-12 col-lg-10 offset-lg-1 pb-2">
 					<h2>{{{ header-2 }}}</h2>
 					{{> molekyler-trekkspill }}
 				</div>
 			</div>
+			{{/ hasAccordion }}
+
 			<div class="row">
 				<div class="col-sm-6 col-lg-5 offset-lg-1 py-2">
 					<h2>{{{ header-3 }}}</h2>

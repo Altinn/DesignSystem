@@ -29,7 +29,13 @@
 
     .a-clickable {
       &:hover {
-        background-color: inherit;
+        &:not(.a-expanded) {
+          &:not(.a-deleted) {
+            &:not(.a-completed) {
+              background-color: inherit;
+            }
+          }
+        }
       }
     }
   }
@@ -76,6 +82,21 @@
             vertical-align: middle;
           }
         }
+      }
+    }
+
+    &.a-list-hasRowLink {
+      padding: 0;
+    }
+
+    .a-list-rowLink {
+      display: block;
+      padding: $spacer / 2 $spacer / 2 4px $spacer / 2;
+      border: none;
+
+      &:hover,
+      &:focus {
+        background: $blue-light;
       }
     }
   }
