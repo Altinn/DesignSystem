@@ -6,7 +6,6 @@ var drilldownInteraction = function() {
   var drilldownLegendDefault = $('.a-js-drilldownLegend').html();
   var movedDuringTouch = false;
   var shifted;
-
   $('.a-js-index-heading').click(function() {
     if ($(this).hasClass('expanded')) {
       $(this).removeClass('expanded');
@@ -24,6 +23,16 @@ var drilldownInteraction = function() {
       $('.a-js-index-heading.expanded').removeClass('dim');
     }
   });
+  function urlQuery(query) {
+    var _query = query.replace(/[[]/, '[').replace(/[\]]/, '\\]');
+    var expr = '[\\?&]' + _query + '=([^&#]*)';
+    var regex = new RegExp(expr);
+    var results = regex.exec(window.location.href);
+    if (results !== null) {
+      return results[1];
+    }
+    return false;
+  }
   function calc(x, y, z) {
     var a = $('.a-contentOverview').width();
     return (x === parseInt(x, 10) || x === parseFloat(x, 10)) ?
@@ -178,8 +187,6 @@ var drilldownInteraction = function() {
   $('.a-js-backButton').on('click', function() {
     whenClick($('a.open').last(), true);
   });
-  // $('.a-colnav').closest('.container').css('overflow', 'hidden');
-  // Removed because it was added to all page also. Added style on .a-contentOverview instead
   $('.a-colnav').find('a').on('touchstart', function(event) {
     event.stopPropagation();
     movedDuringTouch = false;
@@ -187,5 +194,15 @@ var drilldownInteraction = function() {
   $('.a-colnav').find('a').on('touchmove', function(event) {
     movedDuringTouch = true;
     event.stopPropagation();
+  });
+  $(document).ready(function() {
+    if (urlQuery('position')) {
+      $('.a-colnav').find('a').each(function() {
+        if ($(this).find('h2').text().toLowerCase() ===
+          urlQuery('position').replace(/%C3%B8/g, 'ø').replace(/-/g, ' ')) {
+          whenClick($(this), true);
+        }
+      });
+    }
   });
 };

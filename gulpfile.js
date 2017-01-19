@@ -176,7 +176,6 @@ gulp.task('pl-copy:distribution-js', function () {
       ['node_modules/tether/dist/js/tether.min.js',
       'node_modules/bootstrap/dist/js/bootstrap.min.js',
       'node_modules/anchor-js/anchor.min.js',
-      'source/js/production/00-modules/foundationNavigation.min.js',
       'node_modules/bootstrap-validator/dist/validator.min.js',
       'node_modules/clipboard/dist/clipboard.min.js',
       'node_modules/bootstrap-datepicker/dist/js/bootstrap-datepicker.min.js',
