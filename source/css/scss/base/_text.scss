@@ -11,7 +11,7 @@ h2,
 .a-h2 {
   @extend .a-fontSizeXL; // 28px
   @include a-fontMedium;
-  margin-bottom: $spacer / 2;
+  margin-bottom: $spacer;
 
   @include media-breakpoint-up( md ) {
     @include a-fontReg;
@@ -57,7 +57,12 @@ p {
   @extend .a-fontSizeS;
   @include a-fontReg;
   margin-bottom: $spacer * 1.5;
+
+  &.a-paragraphLarge {
+    @extend .a-fontSizeM;
+  }
 }
+
 
 // ----------------------------------
 // Ingress
@@ -122,18 +127,18 @@ mark,
   @include a-fontReg;
   min-width: 24px;
   min-height: 24px;
-  padding: 3px 9px 0 9px; // Capital letters should be vertical centered
+  padding: 3px 9px 0 9px;
   margin-right: 3px;
   margin-left: 6px;
   color: $black;
   text-align: center;
+  vertical-align: middle;
   border-radius: 24px;
-  align-self: center;
 }
 
 h1 {
   .a-label {
-    margin-top: -4px;
+    margin-top: -8px;
   }
 }
 

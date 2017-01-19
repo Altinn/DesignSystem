@@ -1,11 +1,7 @@
 {
-	"bodyClass": "a-js-genericSearch",
+	"bodyClass": "a-bgWhite a-js-genericSearch",
 
-	"_commentStart":"--------------------------------------------------------------",
-	"_commentText": " ARTICLE START",
-	"_commentEnd":  "--------------------------------------------------------------",
-
-	"articlestart" : {
+	"hasArticleStart" : {
 		"breadcrumb-item" : [
 			{
 				"breadcrumb-title" : "Skjema",
@@ -18,7 +14,13 @@
 			}
 		],
 		"tag" : false,
-		"page-title" : "Skjenkebevilling for skjenking av alkoholholdig drikke ",
+		"page-title" : "Skjenkebevilling for skjenking av alkoholholdig drikke",
+		"byline-tekst": "Fra",
+		"byline-dato": "",
+		"byline-link" : {
+			"byline-link" : "Skatteetaten",
+			"byline-link-url" : "link.sider-kolonnenavigasjon-v-skjemaoversikt"
+		},
 		"lead-text-content" : "Søknad om skjenkebevilling er en kommunal skjemaordning. Skjenkebevilling skal derfor søkes i den kommunen du ønsker å drive skjenking.",
 		"byline-link" : {
 			"byline-link" : "Kommunene",
@@ -26,76 +28,62 @@
 		}
 	},
 
-	"_commentStart":"--------------------------------------------------------------",
-	"_commentText": " CONTENT",
-	"_commentEnd":  "--------------------------------------------------------------",
-
-	"1" : false,
-	"2" : {
+	"hasSearch" : {
 		"section-title" : "Hvilken kommune skal du søke i?",
-		"paragraph-content" : ""
-	},
+		"modal-input-keyword" : {
+			"isValidator" : false,
+			"input-label-class" : "sr-only",
+			"input-type" : "search",
+			"text-input-id" : "kommune",
+			"isLarge" : "a-form-group-large",
+			"isHidden" : "sr-only",
+			"text-input-label" : "Kommune:",
+			"text-input-placeholder" : "Søk etter kommune..."
+		},
+		"modal-loader" : true,
+		"modal-empty" : {
+			"paragraph-class" : "a-js-noResults",
+			"paragraph-content": "Ingen treff. Prøv å søke med andre stikkord."
+		},
 
-	"_commentStart":"--------------------------------------------------------------",
-	"_commentText": " SEARCH KOMMUNE",
-	"_commentEnd":  "--------------------------------------------------------------",
-
-	"modal-input-keyword" : {
-		"isValidator" : false,
-		"input-label-class" : "sr-only",
-		"input-type" : "search",
-		"text-input-id" : "kommune",
-		"isLarge" : "a-form-group-large",
-		"isHidden" : "sr-only",
-		"text-input-label" : "Kommune:",
-		"text-input-placeholder" : "Søk etter kommune..."
-	},
-	"modal-loader" : true,
-	"modal-empty" : {
-		"paragraph-class" : "a-js-noResults",
-		"paragraph-content": "Ingen treff. Prøv å søke med andre stikkord."
-	},
-
-	"_commentStart":"--------------------------------------------------------------",
-	"_commentText": " RESULTS IN LIST ---NEW---",
-	"_commentEnd":  "--------------------------------------------------------------",
-
-	"resultList" : {
-		"rows": [
-			{
-				"additional-classes": "a-dotted a-clickable a-list-hasRowLink",
-				"isRowLink" : true,
-				"isRowLink" : {
-					"rowLink" : "%URL%"
-				},
-				"columns" : [
-					{
-						"additional-classes": "col-xs-11",
-						"column-items": [
-							{
-								"column-text": {
-									"text": "%NAME%",
-									"text-extra": {
-										"text-extra": "(%PARENT%)",
-										"classes" : "a-dimText"
+		"resultList" : {
+			"rows": [
+				{
+					"additional-classes": "a-dotted a-clickable a-list-hasRowLink",
+					"isRowLink" : true,
+					"isRowLink" : {
+						"rowLink" : "%URL%"
+					},
+					"columns" : [
+						{
+							"additional-classes": "col-xs-11",
+							"column-items": [
+								{
+									"column-text": {
+										"text": "%NAME%",
+										"text-extra": {
+											"text-extra": "(%PARENT%)",
+											"classes" : "a-dimText"
+										}
 									}
 								}
-							}
-						]
-					},
-					{
-						"additional-classes": "col-xs-1 text-xs-right",
-						"column-items": [
-							{
-								"column-icon": {
-									"icon-prefix": "ai",
-									"icon-class" : "ai-arrowrightup"
+							]
+						},
+						{
+							"additional-classes": "col-xs-1 text-xs-right",
+							"column-items": [
+								{
+									"column-icon": {
+										"icon-prefix": "ai",
+										"icon-class" : "ai-arrowrightup"
+									}
 								}
-							}
-						]
-					}
-				]
-			}
-		]
+							]
+						}
+					]
+				}
+			]
+		}
 	}
+
 }

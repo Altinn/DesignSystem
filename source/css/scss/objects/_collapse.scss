@@ -288,6 +288,7 @@
 }
 
 .a-collapseContent {
+
   .a-collapseContent-inside {
     @include media-breakpoint-up( md ) {
       padding-right: 48px;
@@ -318,9 +319,10 @@
   display: inline-flex;
   width: 0;
   height: 0;
-  margin-top: 5px;
+  margin-top: 6px;
   margin-right: 7px;
   margin-bottom: 7px;
+  margin-left: 2px;
   border-top: 6px solid transparent;
   border-bottom: 6px solid transparent;
   border-left: 10px solid $blue;
@@ -397,6 +399,7 @@
 \*------------------------------------*/
 
 .a-collapse-title {
+  @include a-fontSize20;
   display: flex;
   padding-bottom: 3px;
   margin-bottom: 0;
@@ -473,14 +476,21 @@
     margin-bottom: 0;
     background: none;
     border: none;
-  }
 
-  a {
-    padding-bottom: 15px;
+    .a-collapse-title {
+      padding-top: $spacer;
+      padding-bottom: $spacer / 2;
+    }
+
+    &:first-child {
+      a {
+        padding-top: 0;
+      }
+    }
   }
 
   .a-collapseContent {
-    padding-left: 20px;
+    padding-left: 23px;
   }
 
   .a-dropdownArrow {
