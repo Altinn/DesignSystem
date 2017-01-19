@@ -1,11 +1,12 @@
 <!-- START: 01-molekyler-01-kort-02-kort-hoved -->
-<div class="a-card a-mainCard">
+<div class="a-card a-mainCard {{styleModifier}}">
   {{# main-card-content }}
     {{> molekyler-ikon-tittel }}
     <div class="a-mainCard-content">
       <b>{{ main-card-secondary-title }}</b>
-      <p>{{{ main-card-description }}}</p>
-      {{> atomer-knapp }}
+      <p class="a-paragraphLarge">{{{ main-card-description }}}</p>
+      {{#hasButton}}{{> atomer-knapp }} {{/hasButton}}
+      {{#hasLink}}{{> atomer-link-selvstendig-sidebytte }}{{/hasLink}}
     </div>
   {{/ main-card-content }}
 </div>
