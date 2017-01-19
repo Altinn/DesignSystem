@@ -78,6 +78,12 @@ textarea {
         }
       }
     }
+
+    &.inactive {
+      pointer-events: none;
+      cursor: default;
+      opacity: 0.3;
+    }
   }
 
   // Label
@@ -110,6 +116,10 @@ textarea {
     &:focus {
       border: 2px solid $blue-dark;
     }
+
+    &.inactive {
+      border-color: $black;
+    }
   }
 
   // Button right to input
@@ -126,6 +136,10 @@ textarea {
       text-align: right;
       border: 2px solid $blue;
       border-left: none;
+
+      &.inactive {
+        border-color: $black;
+      }
 
       &:hover,
       &:active,
@@ -300,6 +314,10 @@ textarea {
       i {
         margin-top: $spacer / 3 * -1;
         vertical-align: middle;
+      }
+
+      &.inactive {
+        border-color: $black;
       }
 
     }
@@ -684,6 +702,7 @@ textarea {
   position: relative;
   display: inline-block;
   max-width: 100%;
+  max-height: $spacer * 3;
   margin-right: $spacer / 2;
   margin-bottom: $spacer;
   cursor: pointer;

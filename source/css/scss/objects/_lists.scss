@@ -29,7 +29,13 @@
 
     .a-clickable {
       &:hover {
-        background-color: inherit;
+        &:not(.a-expanded) {
+          &:not(.a-deleted) {
+            &:not(.a-completed) {
+              background-color: inherit;
+            }
+          }
+        }
       }
     }
   }
