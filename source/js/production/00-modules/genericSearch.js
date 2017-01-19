@@ -11,6 +11,14 @@ var genericSearch = function() {
   loader.css('margin-left', 'auto').css('margin-right', 'auto');
   if ($('.a-js-genericSearch').length > 0) {
     $.getJSON('../../skjenkebevilling.json', function(data) {
+      $('.a-js-genericSearch').find('form').on('keyup keypress', function(e) {
+        var keyCode = e.keyCode || e.which;
+        if (keyCode === 13) {
+          e.preventDefault();
+          return false;
+        }
+        return true;
+      });
       $('.a-js-genericSearch').find('form').find('input[type=search]').on('keypress', function() {
         lastKeypress = new Date().getTime(); iterate = true;
         loader.show(); legend.hide(); empty.hide(); container.html('');
