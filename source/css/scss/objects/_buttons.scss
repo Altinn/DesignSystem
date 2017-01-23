@@ -80,7 +80,6 @@
     &:focus {
       color: $white;
       background: $blue-darker;
-      border: 2px solid $blue-darker;
     }
 
     &:active,
@@ -244,7 +243,7 @@
 
 // Make button look like link
 .a-btn-link {
-  @extend .a-fontSizeS;
+  @extend .a-fontSizeXS;
 
   position: relative;
   z-index: 1;
@@ -278,7 +277,6 @@
   &:not(.override-focus) {
     &:focus {
       &::before {
-        // sass-lint:disable-block no-important
         outline: none !important;
         box-shadow: $focus-color;
       }
@@ -302,16 +300,6 @@
     color: $black;
     background: $blue-light;
     border: 2px dotted $blue;
-  }
-
-  .a-btn-action-icon {
-    @extend .a-fontSizeXS;
-
-    position: absolute;
-    left: $spacer / 2;
-    height: 100%;
-    margin: auto;
-    vertical-align: middle;
   }
 }
 
@@ -388,7 +376,6 @@
   }
 
   &:hover {
-    // sass-lint:disable-block no-important
     padding: 9px 4px 9px 4px;
     background: $white-opacity-05;
     border: 4px solid $blue !important;
@@ -445,6 +432,12 @@
       padding: $spacer * 2;
     }
   }
+
+  .a-box-button-icon {
+    @include a-fontSize60;
+
+    display: block;
+  }
 }
 
 // FULL WIDTH ADD BUTTON
@@ -454,28 +447,16 @@
   width: 100%;
   min-height: $spacer * 4;
 
-  i {
-    &.a-btn-action-icon {
-      @include a-fontSize30;
-
-      left: 18px;
-      height: 100%;
-      margin: auto;
-      margin-right: $spacer * 2;
-      vertical-align: middle;
-    }
-  }
-
   span {
-    @include media-breakpoint-up( sm ) {
-      margin-left: $spacer * 2;
-    }
-
     display: inline-block;
     width: 70%;
     height: 100%;
-    margin: auto;
+    margin-left: $spacer;
     vertical-align: middle;
+
+    @include media-breakpoint-up( sm ) {
+      margin-left: $spacer * 2;
+    }
   }
 }
 
@@ -555,7 +536,7 @@
   }
 }
 
-.button-blue-no-underline {
+.a-btn-blue-noUnderline {
   color: $blue-dark;
   border: none;
 

@@ -21,6 +21,12 @@ gulp.task('pl-copy:ssb', function () {
     .pipe(gulp.dest(paths().public.root));
 });
 
+// Copy Skjenkebevilling data file from source into public folder:
+gulp.task('pl-copy:skj', function () {
+  return gulp.src('source/skjenkebevilling.json')
+    .pipe(gulp.dest(paths().public.root));
+});
+
 // Copy Foundation Navigation file from source into public JS folder:
 gulp.task('pl-copy:js', function () {
   return gulp.src('source/js/production/00-modules/foundationNavigation.min.js')
@@ -170,10 +176,11 @@ gulp.task('pl-copy:distribution-js', function () {
       ['node_modules/tether/dist/js/tether.min.js',
       'node_modules/bootstrap/dist/js/bootstrap.min.js',
       'node_modules/anchor-js/anchor.min.js',
-      'source/js/production/00-modules/foundationNavigation.min.js',
       'node_modules/bootstrap-validator/dist/validator.min.js',
+      'node_modules/clipboard/dist/clipboard.min.js',
       'node_modules/bootstrap-datepicker/dist/js/bootstrap-datepicker.min.js',
       'node_modules/smoothstate/jquery.smoothState.min.js',
+      'source/js/production/00-modules/*',
       'source/js/production/*',
       'node_modules/mark.js/dist/jquery.mark.min.js']
     ).pipe(gulp_concat('concat.js')).pipe(gulp_rename('plugins.min.js'))
@@ -229,7 +236,7 @@ gulp.task('patternlab:prebuild', gulp.series(
   'pl-copy:js', 'pl-copy:bs', 'pl-copy:th', 'pl-copy:jq', 'pl-copy:bv',
   'pl-copy:dp', 'pl-copy:ss', 'pl-copy:an', 'pl-copy:cl', 'pl-copy:img',
   'pl-copy:favicon', 'pl-copy:css', 'pl-copy:styleguide', 'pl-copy:ssb',
-  'pl-copy:markjs',
+  'pl-copy:skj', 'pl-copy:markjs',
   function (done) { done(); })
 );
 

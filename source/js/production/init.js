@@ -1,9 +1,11 @@
 /* globals questionnaireInteraction, drilldownInteraction, handleFocus,
 mobileNavigation, propagateContent, toggleExpand, toggleFilter, uniformHeight,
 tooltip, popover, aTagSpaceExpand, initializeDatepicker, onboarding,
-nameChecker, codeLookup, handleValidatorLibrary, setupDeletableRowsTable,
+nameChecker, codeLookup, handleValidatorLibrary,
 defaultSort, setupAddRightsHandler, onFileInputChange, toggleInstant, switchForm,
-setupSortableRowOnclick */
+setupSortableRowOnclick, addListExpandHandler,
+addListSortHandler, setupListRowSelect, setupOnKeypress,
+genericSearch */
 
 window.altinnInit = function() {
   toggleExpand();
@@ -21,14 +23,18 @@ window.altinnInit = function() {
   onboarding();
   nameChecker();
   codeLookup();
+  genericSearch();
   handleValidatorLibrary();
-  setupDeletableRowsTable();
   defaultSort();
   setupAddRightsHandler();
   onFileInputChange();
   toggleInstant();
   switchForm();
   setupSortableRowOnclick();
+  addListExpandHandler();
+  addListSortHandler();
+  setupListRowSelect();
+  setupOnKeypress();
 };
 window.altinnInit();
 window.smoothStateMod = function() {

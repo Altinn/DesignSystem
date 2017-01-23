@@ -15,9 +15,9 @@
   "logo": "../../images/a-logo-white.svg",
   "show-remove-rights": true,
   "done-segment": {
-    "link-url-start": "onclick=\"if (onConfirmDeletionClick()) { location.href='",
-    "link-url": "link.sider-klientdelegering-kvittering-gyldig",
-    "link-url-end": "' }\""
+    "link-url-start": "",
+    "link-url": "",
+    "link-url-end": ""
   },
   "modal-navbar-override": {
     "button-list": [
@@ -116,336 +116,983 @@
   "full-height-table": true,
   "ferdigsegment-done": {
     "button-text": "Ferdig",
-    "button-class": "a-btn a-btn-success"
+    "button-class": "a-btn a-btn-success",
+    "link-url-start": "onclick=\"if (onConfirmDeletionClick()) { location.href='",
+    "link-url": "link.sider-klientdelegering-kvittering-gyldig",
+    "link-url-end": "' }\""
   },
   "ferdigsegment-cancel": {
     "button-text": "Avbryt",
-    "button-class": "a-btn-link"
+    "button-class": "a-btn-link a-js-cancel-deletion"
   },
   "remove-rights-table": {
     "collapse-header-contentID": "exp-tab-table-existing-employee",
     "collapsed": false,
     "aria-expanded": true,
-    "sortable-head-actions": [
-      {
-        "sortable-head-text": "Fjern alle ansatte",
-        "sortable-head-action-type": "remove-action",
-        "sortable-head-icon": {
-          "icon-prefix": "tmp",
-          "icon-class" : "tmp-remove-circle",
-          "icon-extra-class" : "a-table-icon a-remove-icon"
-        }
-      },
-      {
-        "sortable-head-text": "Angre alle ansatte",
-        "sortable-head-action-type": "undo-action",
-        "sortable-head-icon": {
-          "icon-prefix": "tmp",
-          "icon-class" : "tmp-history",
-          "icon-extra-class" : "a-table-icon undo-icon red"
-        },
-        "hidden": true
-      }
-    ],
-    "sortable-row-actions": [
-      {
-        "sortable-row-text": "Fjern",
-        "sortable-row-action-type": "remove-action",
-        "sortable-row-icon": {
-          "icon-prefix": "tmp",
-          "icon-class" : "tmp-remove-circle",
-          "icon-extra-class" : "a-table-icon a-remove-icon"
-        }
-      },
-      {
-        "sortable-row-text": "Angre",
-        "sortable-row-action-type": "undo-action",
-        "sortable-row-icon": {
-          "icon-prefix": "tmp",
-          "icon-class" : "tmp-history",
-          "icon-extra-class" : "a-table-icon undo-icon red"
-        },
-        "hidden": true
-      },
-      {
-        "sortable-row-text": "Slettet",
-        "sortable-row-icon-type": "",
-        "sortable-row-icon-class": "",
-        "hidden": true,
-        "sortable-row-action-type": "deleted-action"
-      }
-    ],
-    "sortable-has-head": {
-      "sortable-head-items": [
-        {
-          "sortable-head-text": "",
-          "sortable": false,
-          "cell-padding": true
-        },
-        {
-          "sortable-head-text": "Navn",
-          "sortable": true,
-          "onclick": "sortAlphanumerically(this, 1);"
-        },
-        {
-          "sortable-head-text": "Roller",
-          "sortable": true,
-          "onclick": "sortAlphanumerically(this, 2);"
-        },
-        {
-          "sortable": false,
-          "cell-padding": true,
-          "last-column": true,
-          "show-head-actions": true,
-          "bold": true
-        }
-      ]
-    },
     "sortable-table-override": {
-      "sortable-table-items": [
-        {
-          "sortable-row-items": [
-            {
-              "column-width": "8.5",
-              "sortable-row-icon": {
-                "icon-prefix": "ai",
-                "icon-class" : "ai-person",
-                "icon-extra-class" : ""
+      "tabable": true,
+      "header": {
+        "additional-classes": "a-list-header",
+        "columns" : [
+          {
+            "tabable": false,
+            "additional-classes": "a-w-7 hidden-sm-down",
+            "column-items": []
+          },
+          {
+            "additional-classes": "col-xs-6 col-sm-7 col-md-4 col-lg-6 a-list-sortHeader hidden-xs-down a-clickable",
+            "column-items": [
+              {
+                "column-text": {
+                  "classes": "a-dropdownArrow"
+                }
+              },
+              {
+                "column-text": {
+                  "text": "NAVN"
+                }
               }
+            ]
+          },
+          {
+            "additional-classes": "col-xs-2 hidden-sm-down a-list-sortHeader a-clickable",
+            "column-items": [
+              {
+                "column-text": {
+                  "classes": "a-dropdownArrow"
+                }
+              },
+              {
+                "column-text": {
+                  "text": "ROLLER"
+                }
+              }
+            ]
+          },
+          {
+            "additional-classes": "col-xs text-xs-right pr-2 a-pr-0-sm-down a-js-add-remove-all a-clickable",
+            "column-items": [
+              {
+                "column-text": {
+                  "text": "Fjern alle klienter",
+                  "classes": "a-fontBold"
+                }
+              },
+              {
+                "column-icon": {
+                  "icon-prefix": "tmp",
+                  "icon-class": "tmp-remove-circle",
+                  "icon-extra-class": "a-remove-icon tmp-fw"
+                }
+              }
+            ]
+          }
+        ]
+      },
+      "is-large": true,
+      "additional-classes": "a-bgGreyLight a-full-width a-full-height",
+      "list-id": "employee-table",
+      "selectable": true,
+      "rows": [
+        {
+          "additional-classes": "a-selectable a-danger",
+          "onclick": false,
+          "columns" : [
+            {
+              "additional-classes": "a-w-7 text-xs-center hidden-sm-down",
+              "onclick": false,
+              "column-items": [
+                {
+                  "column-icon": {
+                    "icon-prefix": "tmp",
+                    "icon-class": "tmp-view-headline",
+                    "icon-extra-class": ""
+                  }
+                }
+              ]
             },
             {
-              "column-width": "51.5",
-              "sortable-row-text": "Eivind Nilsen",
+              "additional-classes": "col-xs-10 col-sm-7 col-md-4 col-lg-6",
+              "onclick": false,
               "searchable": true,
-              "is-bold-text": true
+              "column-items": [
+                {
+                  "column-text": {
+                    "classes": "a-fontBold a-js-sortValue a-lineThrough-selected",
+                    "text": "Andreas Amundsen"
+                  }
+                }
+              ]
             },
             {
-              "column-width": "20",
-              "sortable-row-text": "1 roller",
-              "searchable": true
+              "additional-classes": "col-xs-3 hidden-sm-down",
+              "onclick": false,
+              "column-items": [
+                {
+                  "column-text": {
+                    "classes": "a-js-sortValue",
+                    "text": "1 roller"
+                  }
+                }
+              ]
             },
             {
-              "column-width": "20",
-              "cell-padding": true,
-              "show-actions": true
+              "additional-classes": "col-xs text-xs-right pr-2 a-pr-0-sm-down",
+              "onclick": false,
+              "column-items": [
+                {
+                  "column-text": {
+                    "text": "Fjern",
+                    "classes": "a-fontBold hidden-xs-down a-hiddenWhenSelected a-hiddenWhenDeleted"
+                  }
+                },
+                {
+                  "column-icon": {
+                    "icon-prefix": "tmp",
+                    "icon-class": "tmp-remove-circle",
+                    "icon-extra-class": "a-remove-icon a-hiddenWhenSelected a-hiddenWhenDeleted tmp-fw"
+                  }
+                },
+                {
+                  "column-text": {
+                    "text": "Angre",
+                    "classes": "a-fontBold hidden-xs-down a-visibleWhenSelected a-hiddenWhenDeleted"
+                  }
+                },
+                {
+                  "column-icon": {
+                    "icon-prefix": "tmp",
+                    "icon-class": "tmp-history",
+                    "icon-extra-class": "a-remove-icon a-visibleWhenSelected a-hiddenWhenDeleted tmp-fw"
+                  }
+                },
+                {
+                  "column-text": {
+                    "text": "Slettet",
+                    "classes": "a-fontBold hidden-xs-down a-visibleWhenDeleted"
+                  }
+                },
+                {
+                  "column-icon": {
+                    "icon-prefix": "tmp",
+                    "icon-class": "tmp-fw",
+                    "icon-extra-class": "a-remove-icon a-visibleWhenDeleted"
+                  }
+                }
+              ]
             }
-          ]
+          ],
+          "expandable-section": false
         },
         {
-          "sortable-row-items": [
+          "additional-classes": "a-selectable a-danger",
+          "onclick": false,
+          "columns" : [
             {
-              "sortable-row-icon": {
-                "icon-prefix": "ai",
-                "icon-class" : "ai-person",
-                "icon-extra-class" : ""
-              }
+              "additional-classes": "a-w-7 text-xs-center hidden-sm-down",
+              "onclick": false,
+              "column-items": [
+                {
+                  "column-icon": {
+                    "icon-prefix": "tmp",
+                    "icon-class": "tmp-view-headline",
+                    "icon-extra-class": ""
+                  }
+                }
+              ]
             },
             {
-              "sortable-row-text": "André Geitan",
+              "additional-classes": "col-xs-10 col-sm-7 col-md-4 col-lg-6",
+              "onclick": false,
               "searchable": true,
-              "is-bold-text": true
+              "column-items": [
+                {
+                  "column-text": {
+                    "classes": "a-fontBold a-js-sortValue a-lineThrough-selected",
+                    "text": "André Geitan"
+                  }
+                }
+              ]
             },
             {
-              "sortable-row-text": "4 roller",
-              "searchable": true
+              "additional-classes": "col-xs-3 hidden-sm-down",
+              "onclick": false,
+              "column-items": [
+                {
+                  "column-text": {
+                    "classes": "a-js-sortValue",
+                    "text": "4 roller"
+                  }
+                }
+              ]
             },
             {
-              "cell-padding": true,
-              "show-actions": true
+              "additional-classes": "col-xs text-xs-right pr-2 a-pr-0-sm-down",
+              "onclick": false,
+              "column-items": [
+                {
+                  "column-text": {
+                    "text": "Fjern",
+                    "classes": "a-fontBold hidden-xs-down a-hiddenWhenSelected a-hiddenWhenDeleted"
+                  }
+                },
+                {
+                  "column-icon": {
+                    "icon-prefix": "tmp",
+                    "icon-class": "tmp-remove-circle",
+                    "icon-extra-class": "a-remove-icon a-hiddenWhenSelected a-hiddenWhenDeleted tmp-fw"
+                  }
+                },
+                {
+                  "column-text": {
+                    "text": "Angre",
+                    "classes": "a-fontBold hidden-xs-down a-visibleWhenSelected a-hiddenWhenDeleted"
+                  }
+                },
+                {
+                  "column-icon": {
+                    "icon-prefix": "tmp",
+                    "icon-class": "tmp-history",
+                    "icon-extra-class": "a-remove-icon a-visibleWhenSelected a-hiddenWhenDeleted tmp-fw"
+                  }
+                },
+                {
+                  "column-text": {
+                    "text": "Slettet",
+                    "classes": "a-fontBold hidden-xs-down a-visibleWhenDeleted"
+                  }
+                },
+                {
+                  "column-icon": {
+                    "icon-prefix": "tmp",
+                    "icon-class": "tmp-fw",
+                    "icon-extra-class": "a-remove-icon a-visibleWhenDeleted"
+                  }
+                }
+              ]
             }
-          ]
+          ],
+          "expandable-section": false
         },
         {
-          "sortable-row-items": [
+          "additional-classes": "a-selectable a-danger",
+          "onclick": false,
+          "columns" : [
             {
-              "sortable-row-icon": {
-                "icon-prefix": "ai",
-                "icon-class" : "ai-person",
-                "icon-extra-class" : ""
-              }
+              "additional-classes": "a-w-7 text-xs-center hidden-sm-down",
+              "onclick": false,
+              "column-items": [
+                {
+                  "column-icon": {
+                    "icon-prefix": "tmp",
+                    "icon-class": "tmp-view-headline",
+                    "icon-extra-class": ""
+                  }
+                }
+              ]
             },
             {
-              "sortable-row-text": "Doris Kahn",
+              "additional-classes": "col-xs-10 col-sm-7 col-md-4 col-lg-6",
+              "onclick": false,
               "searchable": true,
-              "is-bold-text": true
+              "column-items": [
+                {
+                  "column-text": {
+                    "classes": "a-fontBold a-js-sortValue a-lineThrough-selected",
+                    "text": "Daniel Fargeheim"
+                  }
+                }
+              ]
             },
             {
-              "sortable-row-text": "2 roller",
-              "searchable": true
+              "additional-classes": "col-xs-3 hidden-sm-down",
+              "onclick": false,
+              "column-items": [
+                {
+                  "column-text": {
+                    "classes": "a-js-sortValue",
+                    "text": "1 roller"
+                  }
+                }
+              ]
             },
             {
-              "cell-padding": true,
-              "show-actions": true
+              "additional-classes": "col-xs text-xs-right pr-2 a-pr-0-sm-down",
+              "onclick": false,
+              "column-items": [
+                {
+                  "column-text": {
+                    "text": "Fjern",
+                    "classes": "a-fontBold hidden-xs-down a-hiddenWhenSelected a-hiddenWhenDeleted"
+                  }
+                },
+                {
+                  "column-icon": {
+                    "icon-prefix": "tmp",
+                    "icon-class": "tmp-remove-circle",
+                    "icon-extra-class": "a-remove-icon a-hiddenWhenSelected a-hiddenWhenDeleted tmp-fw"
+                  }
+                },
+                {
+                  "column-text": {
+                    "text": "Angre",
+                    "classes": "a-fontBold hidden-xs-down a-visibleWhenSelected a-hiddenWhenDeleted"
+                  }
+                },
+                {
+                  "column-icon": {
+                    "icon-prefix": "tmp",
+                    "icon-class": "tmp-history",
+                    "icon-extra-class": "a-remove-icon a-visibleWhenSelected a-hiddenWhenDeleted tmp-fw"
+                  }
+                },
+                {
+                  "column-text": {
+                    "text": "Slettet",
+                    "classes": "a-fontBold hidden-xs-down a-visibleWhenDeleted"
+                  }
+                },
+                {
+                  "column-icon": {
+                    "icon-prefix": "tmp",
+                    "icon-class": "tmp-fw",
+                    "icon-extra-class": "a-remove-icon a-visibleWhenDeleted"
+                  }
+                }
+              ]
             }
-          ]
+          ],
+          "expandable-section": false
         },
         {
-          "sortable-row-items": [
+          "additional-classes": "a-selectable a-danger",
+          "onclick": false,
+          "columns" : [
             {
-              "sortable-row-icon": {
-                "icon-prefix": "ai",
-                "icon-class" : "ai-person",
-                "icon-extra-class" : ""
-              }
+              "additional-classes": "a-w-7 text-xs-center hidden-sm-down",
+              "onclick": false,
+              "column-items": [
+                {
+                  "column-icon": {
+                    "icon-prefix": "tmp",
+                    "icon-class": "tmp-view-headline",
+                    "icon-extra-class": ""
+                  }
+                }
+              ]
             },
             {
-              "sortable-row-text": "Kalle Moe",
+              "additional-classes": "col-xs-10 col-sm-7 col-md-4 col-lg-6",
+              "onclick": false,
               "searchable": true,
-              "is-bold-text": true
+              "column-items": [
+                {
+                  "column-text": {
+                    "classes": "a-fontBold a-js-sortValue a-lineThrough-selected",
+                    "text": "Doris Kahn"
+                  }
+                }
+              ]
             },
             {
-              "sortable-row-text": "2 roller",
-              "searchable": true
+              "additional-classes": "col-xs-3 hidden-sm-down",
+              "onclick": false,
+              "column-items": [
+                {
+                  "column-text": {
+                    "classes": "a-js-sortValue",
+                    "text": "2 roller"
+                  }
+                }
+              ]
             },
             {
-              "cell-padding": true,
-              "show-actions": true
+              "additional-classes": "col-xs text-xs-right pr-2 a-pr-0-sm-down",
+              "onclick": false,
+              "column-items": [
+                {
+                  "column-text": {
+                    "text": "Fjern",
+                    "classes": "a-fontBold hidden-xs-down a-hiddenWhenSelected a-hiddenWhenDeleted"
+                  }
+                },
+                {
+                  "column-icon": {
+                    "icon-prefix": "tmp",
+                    "icon-class": "tmp-remove-circle",
+                    "icon-extra-class": "a-remove-icon a-hiddenWhenSelected a-hiddenWhenDeleted tmp-fw"
+                  }
+                },
+                {
+                  "column-text": {
+                    "text": "Angre",
+                    "classes": "a-fontBold hidden-xs-down a-visibleWhenSelected a-hiddenWhenDeleted"
+                  }
+                },
+                {
+                  "column-icon": {
+                    "icon-prefix": "tmp",
+                    "icon-class": "tmp-history",
+                    "icon-extra-class": "a-remove-icon a-visibleWhenSelected a-hiddenWhenDeleted tmp-fw"
+                  }
+                },
+                {
+                  "column-text": {
+                    "text": "Slettet",
+                    "classes": "a-fontBold hidden-xs-down a-visibleWhenDeleted"
+                  }
+                },
+                {
+                  "column-icon": {
+                    "icon-prefix": "tmp",
+                    "icon-class": "tmp-fw",
+                    "icon-extra-class": "a-remove-icon a-visibleWhenDeleted"
+                  }
+                }
+              ]
             }
-          ]
+          ],
+          "expandable-section": false
         },
         {
-          "sortable-row-items": [
+          "additional-classes": "a-selectable a-danger",
+          "onclick": false,
+          "columns" : [
             {
-              "sortable-row-icon": {
-                "icon-prefix": "ai",
-                "icon-class" : "ai-person",
-                "icon-extra-class" : ""
-              }
+              "additional-classes": "a-w-7 text-xs-center hidden-sm-down",
+              "onclick": false,
+              "column-items": [
+                {
+                  "column-icon": {
+                    "icon-prefix": "tmp",
+                    "icon-class": "tmp-view-headline",
+                    "icon-extra-class": ""
+                  }
+                }
+              ]
             },
             {
-              "sortable-row-text": "Andreas Amundsen",
+              "additional-classes": "col-xs-10 col-sm-7 col-md-4 col-lg-6",
+              "onclick": false,
               "searchable": true,
-              "is-bold-text": true
+              "column-items": [
+                {
+                  "column-text": {
+                    "classes": "a-fontBold a-js-sortValue a-lineThrough-selected",
+                    "text": "Eivind Nilsen"
+                  }
+                }
+              ]
             },
             {
-              "sortable-row-text": "1 roller",
-              "searchable": true
+              "additional-classes": "col-xs-3 hidden-sm-down",
+              "onclick": false,
+              "column-items": [
+                {
+                  "column-text": {
+                    "classes": "a-js-sortValue",
+                    "text": "1 roller"
+                  }
+                }
+              ]
             },
             {
-              "cell-padding": true,
-              "show-actions": true
+              "additional-classes": "col-xs text-xs-right pr-2 a-pr-0-sm-down",
+              "onclick": false,
+              "column-items": [
+                {
+                  "column-text": {
+                    "text": "Fjern",
+                    "classes": "a-fontBold hidden-xs-down a-hiddenWhenSelected a-hiddenWhenDeleted"
+                  }
+                },
+                {
+                  "column-icon": {
+                    "icon-prefix": "tmp",
+                    "icon-class": "tmp-remove-circle",
+                    "icon-extra-class": "a-remove-icon a-hiddenWhenSelected a-hiddenWhenDeleted tmp-fw"
+                  }
+                },
+                {
+                  "column-text": {
+                    "text": "Angre",
+                    "classes": "a-fontBold hidden-xs-down a-visibleWhenSelected a-hiddenWhenDeleted"
+                  }
+                },
+                {
+                  "column-icon": {
+                    "icon-prefix": "tmp",
+                    "icon-class": "tmp-history",
+                    "icon-extra-class": "a-remove-icon a-visibleWhenSelected a-hiddenWhenDeleted tmp-fw"
+                  }
+                },
+                {
+                  "column-text": {
+                    "text": "Slettet",
+                    "classes": "a-fontBold hidden-xs-down a-visibleWhenDeleted"
+                  }
+                },
+                {
+                  "column-icon": {
+                    "icon-prefix": "tmp",
+                    "icon-class": "tmp-fw",
+                    "icon-extra-class": "a-remove-icon a-visibleWhenDeleted"
+                  }
+                }
+              ]
             }
-          ]
+          ],
+          "expandable-section": false
         },
         {
-          "sortable-row-items": [
+          "additional-classes": "a-selectable a-danger",
+          "onclick": false,
+          "columns" : [
             {
-              "sortable-row-icon": {
-                "icon-prefix": "ai",
-                "icon-class" : "ai-person",
-                "icon-extra-class" : ""
-              }
+              "additional-classes": "a-w-7 text-xs-center hidden-sm-down",
+              "onclick": false,
+              "column-items": [
+                {
+                  "column-icon": {
+                    "icon-prefix": "tmp",
+                    "icon-class": "tmp-view-headline",
+                    "icon-extra-class": ""
+                  }
+                }
+              ]
             },
             {
-              "sortable-row-text": "Finn Skapen",
+              "additional-classes": "col-xs-10 col-sm-7 col-md-4 col-lg-6",
+              "onclick": false,
               "searchable": true,
-              "is-bold-text": true
+              "column-items": [
+                {
+                  "column-text": {
+                    "classes": "a-fontBold a-js-sortValue a-lineThrough-selected",
+                    "text": "Filip Schau"
+                  }
+                }
+              ]
             },
             {
-              "sortable-row-text": "4 roller",
-              "searchable": true
+              "additional-classes": "col-xs-3 hidden-sm-down",
+              "onclick": false,
+              "column-items": [
+                {
+                  "column-text": {
+                    "classes": "a-js-sortValue",
+                    "text": "6 roller"
+                  }
+                }
+              ]
             },
             {
-              "cell-padding": true,
-              "show-actions": true
+              "additional-classes": "col-xs text-xs-right pr-2 a-pr-0-sm-down",
+              "onclick": false,
+              "column-items": [
+                {
+                  "column-text": {
+                    "text": "Fjern",
+                    "classes": "a-fontBold hidden-xs-down a-hiddenWhenSelected a-hiddenWhenDeleted"
+                  }
+                },
+                {
+                  "column-icon": {
+                    "icon-prefix": "tmp",
+                    "icon-class": "tmp-remove-circle",
+                    "icon-extra-class": "a-remove-icon a-hiddenWhenSelected a-hiddenWhenDeleted tmp-fw"
+                  }
+                },
+                {
+                  "column-text": {
+                    "text": "Angre",
+                    "classes": "a-fontBold hidden-xs-down a-visibleWhenSelected a-hiddenWhenDeleted"
+                  }
+                },
+                {
+                  "column-icon": {
+                    "icon-prefix": "tmp",
+                    "icon-class": "tmp-history",
+                    "icon-extra-class": "a-remove-icon a-visibleWhenSelected a-hiddenWhenDeleted tmp-fw"
+                  }
+                },
+                {
+                  "column-text": {
+                    "text": "Slettet",
+                    "classes": "a-fontBold hidden-xs-down a-visibleWhenDeleted"
+                  }
+                },
+                {
+                  "column-icon": {
+                    "icon-prefix": "tmp",
+                    "icon-class": "tmp-fw",
+                    "icon-extra-class": "a-remove-icon a-visibleWhenDeleted"
+                  }
+                }
+              ]
             }
-          ]
+          ],
+          "expandable-section": false
         },
         {
-          "sortable-row-items": [
+          "additional-classes": "a-selectable a-danger",
+          "onclick": false,
+          "columns" : [
             {
-              "sortable-row-icon": {
-                "icon-prefix": "ai",
-                "icon-class" : "ai-person",
-                "icon-extra-class" : ""
-              }
+              "additional-classes": "a-w-7 text-xs-center hidden-sm-down",
+              "onclick": false,
+              "column-items": [
+                {
+                  "column-icon": {
+                    "icon-prefix": "tmp",
+                    "icon-class": "tmp-view-headline",
+                    "icon-extra-class": ""
+                  }
+                }
+              ]
             },
             {
-              "sortable-row-text": "Phil Dunderson",
+              "additional-classes": "col-xs-10 col-sm-7 col-md-4 col-lg-6",
+              "onclick": false,
               "searchable": true,
-              "is-bold-text": true
+              "column-items": [
+                {
+                  "column-text": {
+                    "classes": "a-fontBold a-js-sortValue a-lineThrough-selected",
+                    "text": "Finn Skapen"
+                  }
+                }
+              ]
             },
             {
-              "sortable-row-text": "3 roller",
-              "searchable": true
+              "additional-classes": "col-xs-3 hidden-sm-down",
+              "onclick": false,
+              "column-items": [
+                {
+                  "column-text": {
+                    "classes": "a-js-sortValue",
+                    "text": "4 roller"
+                  }
+                }
+              ]
             },
             {
-              "cell-padding": true,
-              "show-actions": true
+              "additional-classes": "col-xs text-xs-right pr-2 a-pr-0-sm-down",
+              "onclick": false,
+              "column-items": [
+                {
+                  "column-text": {
+                    "text": "Fjern",
+                    "classes": "a-fontBold hidden-xs-down a-hiddenWhenSelected a-hiddenWhenDeleted"
+                  }
+                },
+                {
+                  "column-icon": {
+                    "icon-prefix": "tmp",
+                    "icon-class": "tmp-remove-circle",
+                    "icon-extra-class": "a-remove-icon a-hiddenWhenSelected a-hiddenWhenDeleted tmp-fw"
+                  }
+                },
+                {
+                  "column-text": {
+                    "text": "Angre",
+                    "classes": "a-fontBold hidden-xs-down a-visibleWhenSelected a-hiddenWhenDeleted"
+                  }
+                },
+                {
+                  "column-icon": {
+                    "icon-prefix": "tmp",
+                    "icon-class": "tmp-history",
+                    "icon-extra-class": "a-remove-icon a-visibleWhenSelected a-hiddenWhenDeleted tmp-fw"
+                  }
+                },
+                {
+                  "column-text": {
+                    "text": "Slettet",
+                    "classes": "a-fontBold hidden-xs-down a-visibleWhenDeleted"
+                  }
+                },
+                {
+                  "column-icon": {
+                    "icon-prefix": "tmp",
+                    "icon-class": "tmp-fw",
+                    "icon-extra-class": "a-remove-icon a-visibleWhenDeleted"
+                  }
+                }
+              ]
             }
-          ]
+          ],
+          "expandable-section": false
         },
         {
-          "sortable-row-items": [
+          "additional-classes": "a-selectable a-danger",
+          "onclick": false,
+          "columns" : [
             {
-              "sortable-row-icon": {
-                "icon-prefix": "ai",
-                "icon-class" : "ai-person",
-                "icon-extra-class" : ""
-              }
+              "additional-classes": "a-w-7 text-xs-center hidden-sm-down",
+              "onclick": false,
+              "column-items": [
+                {
+                  "column-icon": {
+                    "icon-prefix": "tmp",
+                    "icon-class": "tmp-view-headline",
+                    "icon-extra-class": ""
+                  }
+                }
+              ]
             },
             {
-              "sortable-row-text": "Filip Schau",
+              "additional-classes": "col-xs-10 col-sm-7 col-md-4 col-lg-6",
+              "onclick": false,
               "searchable": true,
-              "is-bold-text": true
+              "column-items": [
+                {
+                  "column-text": {
+                    "classes": "a-fontBold a-js-sortValue a-lineThrough-selected",
+                    "text": "Kalle Moe"
+                  }
+                }
+              ]
             },
             {
-              "sortable-row-text": "6 roller",
-              "searchable": true
+              "additional-classes": "col-xs-3 hidden-sm-down",
+              "onclick": false,
+              "column-items": [
+                {
+                  "column-text": {
+                    "classes": "a-js-sortValue",
+                    "text": "2 roller"
+                  }
+                }
+              ]
             },
             {
-              "cell-padding": true,
-              "show-actions": true
+              "additional-classes": "col-xs text-xs-right pr-2 a-pr-0-sm-down",
+              "onclick": false,
+              "column-items": [
+                {
+                  "column-text": {
+                    "text": "Fjern",
+                    "classes": "a-fontBold hidden-xs-down a-hiddenWhenSelected a-hiddenWhenDeleted"
+                  }
+                },
+                {
+                  "column-icon": {
+                    "icon-prefix": "tmp",
+                    "icon-class": "tmp-remove-circle",
+                    "icon-extra-class": "a-remove-icon a-hiddenWhenSelected a-hiddenWhenDeleted tmp-fw"
+                  }
+                },
+                {
+                  "column-text": {
+                    "text": "Angre",
+                    "classes": "a-fontBold hidden-xs-down a-visibleWhenSelected a-hiddenWhenDeleted"
+                  }
+                },
+                {
+                  "column-icon": {
+                    "icon-prefix": "tmp",
+                    "icon-class": "tmp-history",
+                    "icon-extra-class": "a-remove-icon a-visibleWhenSelected a-hiddenWhenDeleted tmp-fw"
+                  }
+                },
+                {
+                  "column-text": {
+                    "text": "Slettet",
+                    "classes": "a-fontBold hidden-xs-down a-visibleWhenDeleted"
+                  }
+                },
+                {
+                  "column-icon": {
+                    "icon-prefix": "tmp",
+                    "icon-class": "tmp-fw",
+                    "icon-extra-class": "a-remove-icon a-visibleWhenDeleted"
+                  }
+                }
+              ]
             }
-          ]
+          ],
+          "expandable-section": false
         },
         {
-          "sortable-row-items": [
+          "additional-classes": "a-selectable a-danger",
+          "onclick": false,
+          "columns" : [
             {
-              "sortable-row-icon": {
-                "icon-prefix": "ai",
-                "icon-class" : "ai-person",
-                "icon-extra-class" : ""
-              }
+              "additional-classes": "a-w-7 text-xs-center hidden-sm-down",
+              "onclick": false,
+              "column-items": [
+                {
+                  "column-icon": {
+                    "icon-prefix": "tmp",
+                    "icon-class": "tmp-view-headline",
+                    "icon-extra-class": ""
+                  }
+                }
+              ]
             },
             {
-              "sortable-row-text": "Daniel Fargeheim",
+              "additional-classes": "col-xs-10 col-sm-7 col-md-4 col-lg-6",
+              "onclick": false,
               "searchable": true,
-              "is-bold-text": true
+              "column-items": [
+                {
+                  "column-text": {
+                    "classes": "a-fontBold a-js-sortValue a-lineThrough-selected",
+                    "text": "Phil Dunderson"
+                  }
+                }
+              ]
             },
             {
-              "sortable-row-text": "1 roller",
-              "searchable": true
+              "additional-classes": "col-xs-3 hidden-sm-down",
+              "onclick": false,
+              "column-items": [
+                {
+                  "column-text": {
+                    "classes": "a-js-sortValue",
+                    "text": "3 roller"
+                  }
+                }
+              ]
             },
             {
-              "cell-padding": true,
-              "show-actions": true
+              "additional-classes": "col-xs text-xs-right pr-2 a-pr-0-sm-down",
+              "onclick": false,
+              "column-items": [
+                {
+                  "column-text": {
+                    "text": "Fjern",
+                    "classes": "a-fontBold hidden-xs-down a-hiddenWhenSelected a-hiddenWhenDeleted"
+                  }
+                },
+                {
+                  "column-icon": {
+                    "icon-prefix": "tmp",
+                    "icon-class": "tmp-remove-circle",
+                    "icon-extra-class": "a-remove-icon a-hiddenWhenSelected a-hiddenWhenDeleted tmp-fw"
+                  }
+                },
+                {
+                  "column-text": {
+                    "text": "Angre",
+                    "classes": "a-fontBold hidden-xs-down a-visibleWhenSelected a-hiddenWhenDeleted"
+                  }
+                },
+                {
+                  "column-icon": {
+                    "icon-prefix": "tmp",
+                    "icon-class": "tmp-history",
+                    "icon-extra-class": "a-remove-icon a-visibleWhenSelected a-hiddenWhenDeleted tmp-fw"
+                  }
+                },
+                {
+                  "column-text": {
+                    "text": "Slettet",
+                    "classes": "a-fontBold hidden-xs-down a-visibleWhenDeleted"
+                  }
+                },
+                {
+                  "column-icon": {
+                    "icon-prefix": "tmp",
+                    "icon-class": "tmp-fw",
+                    "icon-extra-class": "a-remove-icon a-visibleWhenDeleted"
+                  }
+                }
+              ]
             }
-          ]
+          ],
+          "expandable-section": false
         },
         {
-          "sortable-row-items": [
+          "additional-classes": "a-selectable a-danger",
+          "onclick": false,
+          "columns" : [
             {
-              "sortable-row-icon": {
-                "icon-prefix": "ai",
-                "icon-class" : "ai-person",
-                "icon-extra-class" : ""
-              }
+              "additional-classes": "a-w-7 text-xs-center hidden-sm-down",
+              "onclick": false,
+              "column-items": [
+                {
+                  "column-icon": {
+                    "icon-prefix": "tmp",
+                    "icon-class": "tmp-view-headline",
+                    "icon-extra-class": ""
+                  }
+                }
+              ]
             },
             {
-              "sortable-row-text": "Ståle Stavanger",
+              "additional-classes": "col-xs-10 col-sm-7 col-md-4 col-lg-6",
+              "onclick": false,
               "searchable": true,
-              "is-bold-text": true
+              "column-items": [
+                {
+                  "column-text": {
+                    "classes": "a-fontBold a-js-sortValue a-lineThrough-selected",
+                    "text": "Ståle Stavanger"
+                  }
+                }
+              ]
             },
             {
-              "sortable-row-text": "4 roller",
-              "searchable": true
+              "additional-classes": "col-xs-3 hidden-sm-down",
+              "onclick": false,
+              "column-items": [
+                {
+                  "column-text": {
+                    "classes": "a-js-sortValue",
+                    "text": "4 roller"
+                  }
+                }
+              ]
             },
             {
-              "cell-padding": true,
-              "show-actions": true
+              "additional-classes": "col-xs text-xs-right pr-2 a-pr-0-sm-down",
+              "onclick": false,
+              "column-items": [
+                {
+                  "column-text": {
+                    "text": "Fjern",
+                    "classes": "a-fontBold hidden-xs-down a-hiddenWhenSelected a-hiddenWhenDeleted"
+                  }
+                },
+                {
+                  "column-icon": {
+                    "icon-prefix": "tmp",
+                    "icon-class": "tmp-remove-circle",
+                    "icon-extra-class": "a-remove-icon a-hiddenWhenSelected a-hiddenWhenDeleted tmp-fw"
+                  }
+                },
+                {
+                  "column-text": {
+                    "text": "Angre",
+                    "classes": "a-fontBold hidden-xs-down a-visibleWhenSelected a-hiddenWhenDeleted"
+                  }
+                },
+                {
+                  "column-icon": {
+                    "icon-prefix": "tmp",
+                    "icon-class": "tmp-history",
+                    "icon-extra-class": "a-remove-icon a-visibleWhenSelected a-hiddenWhenDeleted tmp-fw"
+                  }
+                },
+                {
+                  "column-text": {
+                    "text": "Slettet",
+                    "classes": "a-fontBold hidden-xs-down a-visibleWhenDeleted"
+                  }
+                },
+                {
+                  "column-icon": {
+                    "icon-prefix": "tmp",
+                    "icon-class": "tmp-fw",
+                    "icon-extra-class": "a-remove-icon a-visibleWhenDeleted"
+                  }
+                }
+              ]
             }
-          ]
+          ],
+          "expandable-section": false
         }
       ]
     }

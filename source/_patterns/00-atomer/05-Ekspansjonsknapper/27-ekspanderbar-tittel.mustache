@@ -1,8 +1,21 @@
-
 <div class="a-collapse">
-  <h3 class="a-collapseHeader {{ collapse-header-class }}">
-      <a data-toggle="collapse" data-parent="#accessToRoles" data-target="#{{{ collapse-header-contentID }}}" href="#" aria-expanded="{{ aria-expanded-header }}" aria-controls="DirectRoles" class="a-collapse-title a-collapse-title--absolute no-decoration {{# collapsed }} collapsed {{/ collapsed }}">
-          <span class="a-dropdownArrow"></span> {{{ collapse-header-title }}}
-      </a>
-  </h3>
+  <div class="{{# collapse-header-class }}{{ collapse-header-class }}{{/ collapse-header-class }}">
+    <h3 class="a-collapseHeader{{# heading-action }} a-collapseHeader-with-actions{{/ heading-action }}">
+        <a data-toggle="collapse" data-parent="#accessToRoles" data-target="#{{{ collapse-header-contentID }}}"
+       href="#" aria-expanded="{{ aria-expanded-header }}" aria-controls="DirectRoles" class="a-collapse-title a-collapse-title--absolute no-decoration {{# collapsed }} collapsed {{/ collapsed }}">
+            <span class="a-dropdownArrow"></span> {{{ collapse-header-title }}}
+        </a>
+    </h3>
+
+    {{# heading-action }}
+      <div class="a-list-heading-actions">
+        {{# heading-text }}
+        <span class="{{^ heading-text-class }}hidden-sm-down{{/ heading-text-class }}{{# heading-text-class }} {{ heading-text-class}} {{/ heading-text-class }}">
+          {{ heading-text }}
+        </span>
+        {{/ heading-text }}
+        {{> atomer-ikon }}
+      </div>
+    {{/ heading-action }}
+  </div>
 </div>

@@ -6,7 +6,7 @@
 }
 
 .container {
-  padding: 0 12px;
+  padding: 0 $spacer * 2;
 
   @include media-breakpoint-up( xl ) {
     padding: 0; // 24x
@@ -48,6 +48,39 @@
     padding-right: $spacer * 9;
     padding-left: $spacer * 9;
   }
+}
+
+/* Push one space out for mobile */
+.a-py-minus-1 {
+  width: calc(100% + 36px);
+  margin-left: -18px;
+
+  @include media-breakpoint-up( sm ) {
+    width: auto;
+    margin-left: auto;
+  }
+}
+
+/* Push one space out for mobile */
+.a-py-minus-2 {
+  width: calc(100% + 48px);
+  margin-left: -24px;
+
+  @include media-breakpoint-up( sm ) {
+    width: auto;
+    margin-left: auto;
+  }
+}
+
+/* Padding that push one col */
+
+.a-py-1 {
+  padding-right: $onecol;
+  padding-left: $onecol;
+}
+
+.a-pl-1 {
+  padding-left: $onecol;
 }
 
 // Use flexbox grid with a maximum of columns
@@ -120,13 +153,47 @@
   }
 }
 
+/*
+  Responsive spacing utility classes,
+  these needs important to override the bootstrap utility classes
+*/
 .a-pt-half {
   padding-top: $spacer / 2 !important;
 }
 
+.a-px-1-xs-down {
+  @include media-breakpoint-down( xs ) {
+    padding: 0 $spacer !important;
+  }
+}
+
+.a-pb-1-xs-down {
+  @include media-breakpoint-down( xs ) {
+    padding-bottom: $spacer !important;
+  }
+}
+
+.a-pb-2-xs-down {
+  @include media-breakpoint-down( xs ) {
+    padding-bottom: $spacer * 2 !important;
+  }
+}
+
+.a-pt-1-xs-down {
+  @include media-breakpoint-down( xs ) {
+    padding-top: $spacer !important;
+  }
+}
+
+.a-pt-2-xs-down {
+  @include media-breakpoint-down( xs ) {
+    padding-top: $spacer * 2 !important;
+  }
+}
+
 .a-mb-1-xs-down {
   @include media-breakpoint-down( xs ) {
-    margin-bottom: $spacer * 1 !important;
+    margin-bottom: $spacer !important;
   }
 }
 
@@ -139,5 +206,43 @@
 .a-mb-3-xs-down {
   @include media-breakpoint-down( xs ) {
     margin-bottom: $spacer * 3 !important;
+  }
+}
+
+.a-w-7 {
+  width: $spacer * 7;
+}
+
+.a-w-8 {
+  width: $spacer * 8;
+}
+
+.a-pr-0-sm-down {
+  @include media-breakpoint-down( sm ) {
+    padding-right: 0 !important;
+  }
+}
+
+.a-pr-1-sm-down {
+  @include media-breakpoint-down( sm ) {
+    padding-right: $spacer !important;
+  }
+}
+
+.a-pr-0-xs-down {
+  @include media-breakpoint-down( xs ) {
+    padding-right: 0 !important;
+  }
+}
+
+.a-mt-2-xs-down {
+  @include media-breakpoint-down( xs ) {
+    margin-top: $spacer * 2 !important;
+  }
+}
+
+.a-ml-0-sm-down {
+  @include media-breakpoint-down( sm ) {
+    margin-left: 0 !important;
   }
 }

@@ -42,7 +42,7 @@ var codeLookup = function() {
       });
       setInterval(function() {
         if ($('.a-js-lookup').find('input[type=text]').val() !== undefined) {
-          query = $('.a-js-lookup').find('input[type=text]').val();
+          query = $('.a-js-lookup').find('input[type=text]').val().toLowerCase();
         } else {
           query = '';
         }
@@ -66,34 +66,34 @@ var codeLookup = function() {
               '</strong>';
             if (
               (
-                data[item].name.indexOf(var1) !== -1 ||
-                data[item].name.indexOf(var2) !== -1 ||
-                data[item].name.indexOf(var3) !== -1 ||
-                data[item].name.indexOf(var4) !== -1 ||
-                data[item].name.indexOf(var5) !== -1 ||
-                data[item].name.indexOf(var6) !== -1 ||
-                data[item].shortName.indexOf(var1) !== -1 ||
-                data[item].shortName.indexOf(var2) !== -1 ||
-                data[item].shortName.indexOf(var3) !== -1 ||
-                data[item].shortName.indexOf(var4) !== -1 ||
-                data[item].shortName.indexOf(var5) !== -1 ||
-                data[item].shortName.indexOf(var6) !== -1 ||
-                data[item].notes.indexOf(var1) !== -1 ||
-                data[item].notes.indexOf(var2) !== -1 ||
-                data[item].notes.indexOf(var3) !== -1 ||
-                data[item].notes.indexOf(var4) !== -1 ||
-                data[item].notes.indexOf(var5) !== -1 ||
-                data[item].notes.indexOf(var6) !== -1
+                data[item].name.toLowerCase().indexOf(var1) !== -1 ||
+                data[item].name.toLowerCase().indexOf(var2) !== -1 ||
+                data[item].name.toLowerCase().indexOf(var3) !== -1 ||
+                data[item].name.toLowerCase().indexOf(var4) !== -1 ||
+                data[item].name.toLowerCase().indexOf(var5) !== -1 ||
+                data[item].name.toLowerCase().indexOf(var6) !== -1 ||
+                data[item].shortName.toLowerCase().indexOf(var1) !== -1 ||
+                data[item].shortName.toLowerCase().indexOf(var2) !== -1 ||
+                data[item].shortName.toLowerCase().indexOf(var3) !== -1 ||
+                data[item].shortName.toLowerCase().indexOf(var4) !== -1 ||
+                data[item].shortName.toLowerCase().indexOf(var5) !== -1 ||
+                data[item].shortName.toLowerCase().indexOf(var6) !== -1 ||
+                data[item].notes.toLowerCase().indexOf(var1) !== -1 ||
+                data[item].notes.toLowerCase().indexOf(var2) !== -1 ||
+                data[item].notes.toLowerCase().indexOf(var3) !== -1 ||
+                data[item].notes.toLowerCase().indexOf(var4) !== -1 ||
+                data[item].notes.toLowerCase().indexOf(var5) !== -1 ||
+                data[item].notes.toLowerCase().indexOf(var6) !== -1
               ) &&
               data[item].level === 5
             ) {
               if (
-                data[item].name.indexOf(var1) !== -1 ||
-                data[item].name.indexOf(var2) !== -1 ||
-                data[item].name.indexOf(var3) !== -1 ||
-                data[item].name.indexOf(var4) !== -1 ||
-                data[item].name.indexOf(var5) !== -1 ||
-                data[item].name.indexOf(var6) !== -1
+                data[item].name.toLowerCase().indexOf(var1) !== -1 ||
+                data[item].name.toLowerCase().indexOf(var2) !== -1 ||
+                data[item].name.toLowerCase().indexOf(var3) !== -1 ||
+                data[item].name.toLowerCase().indexOf(var4) !== -1 ||
+                data[item].name.toLowerCase().indexOf(var5) !== -1 ||
+                data[item].name.toLowerCase().indexOf(var6) !== -1
               ) {
                 method = 'prepend';
               } else {

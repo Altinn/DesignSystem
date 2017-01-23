@@ -6,6 +6,12 @@
   height: $spacer * 9;
   padding-top: $spacer * 3;
 
+  >.container {
+    @include media-breakpoint-down( sm ) {
+      padding: 0 $spacer;
+    }
+  }
+
   .a-logo {
     float: left;
     max-width: 110px;
@@ -93,7 +99,7 @@
 .a-header-options {
   position: absolute;
   right: 100px;
-  z-index: 100;
+  z-index: 10000;
   margin-top: -10px;
 
   @include media-breakpoint-up( sm ) {
@@ -199,7 +205,6 @@
   }
 
   .a-personSwitcher-name {
-    // sass-lint:disable-block no-important
     display: none;
     max-width: 90px;
     overflow: hidden !important;
@@ -352,7 +357,6 @@
     border: none;
 
     &:focus {
-      // sass-lint:disable-block no-important
       border: none;
       box-shadow: none !important;
     }
@@ -405,7 +409,7 @@
 .a-globalNav-main {
   position: absolute;
   left: 0;
-  z-index: 1000;
+  z-index: 1001;
   min-height: 100%;
   padding-top: $spacer * 3;
   margin-top: $spacer * 5;

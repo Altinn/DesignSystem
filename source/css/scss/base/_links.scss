@@ -29,7 +29,6 @@ a {
 
 /* Set the touch and focus area of the link */
 .a-linkArea {
-  // sass-lint:disable-block no-important
   position: relative;
   z-index: 1;
   box-shadow: none !important;
@@ -48,17 +47,16 @@ a {
 
 [data-toggle='popover'] {
   &::before {
-    // sass-lint:disable-block no-important
     box-shadow: none !important;
   }
 }
 
 /* Links standalone */
 .a-link {
-  @extend .a-fontSizeLink;
+  // @extend .a-fontSizeXS;
   position: relative;
   z-index: 1;
-  padding-bottom: 3px;
+  padding-bottom: 2px;
   text-decoration: none;
   cursor: pointer;
   border-bottom: 2px solid $link-color;
@@ -66,7 +64,6 @@ a {
   &:active,
   &:focus,
   &:hover {
-    // sass-lint:disable-block no-important
     color: $black;
     text-decoration: none;
     cursor: pointer;
@@ -103,7 +100,7 @@ a {
     border-bottom: 2px solid $red;
   }
 
-  .a-headingSizeM & {
+  .a-h3 & {
     padding-bottom: 2px;
   }
 }
@@ -122,16 +119,18 @@ a {
   border: none;
 
   &:hover {
+    color: $grey;
     text-decoration: none;
     border-bottom: none;
   }
 
   &:focus {
+    color: $grey;
     border-bottom: none;
   }
 
   i {
-    @include a-fontSize22;
+    display: inline-block; // bootstrap popover toggle will pick this up to set inline-style
     margin-top: -4px;
     vertical-align: middle;
   }
@@ -209,4 +208,10 @@ a {
       margin-top: -3px;
     }
   }
+}
+
+.a-fullWidthLink {
+  position: absolute;
+  right: 0;
+  left: 0;
 }

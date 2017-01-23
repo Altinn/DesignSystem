@@ -2,7 +2,7 @@
   {{# isValidator }} data-toggle="validator" {{/ isValidator }}
   {{# validator-delay }} data-delay="{{ validator-delay }}" {{/ validator-delay }}>
 
-    <div class="a-form-group-items {{ isInput-group }} {{ isDisabled }} {{# isTransparent }} transparent {{/ isTransparent }}">
+    <div class="a-form-group-items {{ isInput-group }} {{ isDisabled }} {{ isInactive }} {{# isTransparent }} transparent {{/ isTransparent }}">
 
       <!-- Label -->
       <label class="a-form-label {{ isHidden }} {{ form-label-class }}" for="{{ text-input-id }}">
@@ -16,7 +16,7 @@
         <input type="{{ input-type }}"
           class="form-control {{ form-control-class }} {{ form-input-hasButton-class }} {{# no-left-padding }}pl-0{{/ no-left-padding }}"
           {{# text-input-id }}id="{{ text-input-id }}"{{/ text-input-id }}
-          {{{validator-pattern}}}
+          {{{ validator-pattern }}}
           {{ isRequired }}
           placeholder="{{ text-input-placeholder }}"
           value="{{ text-input-value }}"
@@ -32,11 +32,11 @@
 
         <!-- button -->
         {{# form-input-hasButton }}
-        <div class="input-group-btn">
-          <button class="btn btn-secondary" type="button">
-            {{> atomer-ikon }}
-          </button>
-        </div>
+          <div class="input-group-btn">
+            <button class="btn btn-secondary {{ isInactive }}" type="button" {{ isDisabled }}>
+              {{> atomer-ikon }}
+            </button>
+          </div>
         {{/ form-input-hasButton }}
 
         {{# postal-code }}
