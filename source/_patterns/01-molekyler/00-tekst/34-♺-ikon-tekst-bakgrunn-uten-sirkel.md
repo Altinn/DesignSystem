@@ -1,6 +1,6 @@
 ---
- state: needsrevalidation
- version: 0
+ state: indesignreview
+ version: 1
 ---
 
-Foreløpig ingen retningslinjer.
+Modal header med ikon, liten tekst og stor tekst.
