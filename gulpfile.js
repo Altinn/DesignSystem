@@ -262,9 +262,9 @@ function watch () {
   gulp.watch(paths().source.styleguide + '**/*.*')
     .on('change', gulp.series('pl-copy:styleguide', reload));
   gulp.watch(paths().source.js + 'production/**/*.js')
-    .on('change', gulp.series('pl-copy:designsystemprod-js', reload));
+    .on('change', gulp.series('pl-copy:designsystemprod-js', 'pl-copy:distribution-js', reload));
   gulp.watch(paths().source.js + 'development/**/*.js')
-    .on('change', gulp.series('pl-copy:designsystemdev-js', reload));
+    .on('change', gulp.series('pl-copy:designsystemdev-js', 'pl-copy:distribution-js', reload));
 
   var patternWatches = [
    paths().source.patterns + '**/*.json',
