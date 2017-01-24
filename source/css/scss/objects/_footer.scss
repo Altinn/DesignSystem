@@ -1,7 +1,6 @@
 /*------------------------------------*\
     $FOOTER
 \*------------------------------------*/
-
 .a-footer {
   padding-top: $spacer * 4;
   padding-bottom: $spacer * 6;
@@ -9,9 +8,13 @@
   border-top: 1px solid $grey-medium;
 }
 
-.a-contentOverview + .a-footer {
-  margin-top: 0;
-  border-top: none;
+.a-containerColnav + .a-containerFooter {
+  .a-footer {
+    @include media-breakpoint-up( lg ) {
+      margin-top: 0;
+      border-top: none;
+    }
+  }
 }
 
 /*------------------------------------*\

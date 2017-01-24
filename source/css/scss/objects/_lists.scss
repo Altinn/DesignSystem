@@ -93,11 +93,6 @@
       display: block;
       padding: $spacer / 2 $spacer / 2 5px $spacer / 2;
       border: none;
-
-      &:hover,
-      &:focus {
-        background-color: $blue-light;
-      }
     }
   }
 
@@ -322,6 +317,26 @@
       li {
         &::after {
           background: $grey-light;
+        }
+      }
+    }
+  }
+}
+
+// If background dark color in Jumbotron
+
+.a-jumbotron-dark {
+  .a-item-list {
+    .a-item-list-item {
+      &.a-clickable {
+        &:hover {
+          &:not(.a-expanded) {
+            &:not(.a-deleted) {
+              &:not(.a-completed) {
+                background-color: $white-opacity-02;
+              }
+            }
+          }
         }
       }
     }

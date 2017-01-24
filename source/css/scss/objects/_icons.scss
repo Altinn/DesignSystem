@@ -64,7 +64,10 @@
   .a-iconText-icon {
     width: $spacer * 5;
     min-width: $spacer * 5;
-    margin-right: $spacer;
+
+    @include media-breakpoint-up( sm ) {
+      margin-right: $spacer;
+    }
 
     .a-date {
       margin: 0;
@@ -84,7 +87,7 @@
     flex: 1; //fix for flexbox wordwrap ie
 
     .a-iconText-text-small {
-      @include a-fontSize16;
+      @include a-fontSize14;
       display: block;
       margin-bottom: 0;
     }
@@ -114,12 +117,12 @@
     // If there is a small text above, large text should be smaller
     .a-iconText-text-small + .a-iconText-text-large {
       @include media-breakpoint-up( lg ) {
-        @include a-fontSize24;
+        @include a-fontSize20;
       }
     }
 
     .a-link {
-      @include font-size($fs: 20, $sm: subpixel-antialiased, $lh: 30)
+      @include font-size($fs: 20, $sm: subpixel-antialiased, $lh: 30);
       // TODO: Make custom mixin for link-fontsizes. lineheight needs to be larger on links because of double border
       @include a-fontBold;
     }

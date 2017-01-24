@@ -3,7 +3,7 @@ mobileNavigation, propagateContent, toggleExpand, toggleFilter, uniformHeight,
 tooltip, popover, aTagSpaceExpand, initializeDatepicker, onboarding,
 nameChecker, codeLookup, handleValidatorLibrary,
 defaultSort, setupAddRightsHandler, onFileInputChange, toggleInstant, switchForm,
-setupSortableRowOnclick, addListExpandHandler,
+addListExpandHandler,
 addListSortHandler, setupListRowSelect, setupOnKeypress,
 genericSearch */
 
@@ -30,7 +30,6 @@ window.altinnInit = function() {
   onFileInputChange();
   toggleInstant();
   switchForm();
-  setupSortableRowOnclick();
   addListExpandHandler();
   addListSortHandler();
   setupListRowSelect();
