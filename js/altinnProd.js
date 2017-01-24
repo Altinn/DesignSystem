@@ -377,11 +377,19 @@ var drilldownInteraction = function() {
   function whenClick(event, alt) {
     var el = alt === undefined ? $(event.target) : event;
     var li = el.closest('li').hasClass('is-dropdown-submenu-parent') ? el.closest('li') : el;
+    var newurl;
+    var text = li.find('h2').length > 0 ? li.find('h2').text() : li.find('h3').text();
     levels.forEach(function(str, index) {
       var wasStacked;
       if (el.closest('ul').hasClass(str)) {
         if (el.closest('a').hasClass('open') || el.find('a').hasClass('open') ||
           el.hasClass('open')) {
+          text = el.closest('ul').prev().find('h2').text() || '';
+          if (history.pushState) {
+            newurl = window.location.protocol + '//' + window.location.host +
+              window.location.pathname + '?position=' + text.toLowerCase().replace(/ /g, '-');
+            window.history.pushState({ path: newurl }, '', newurl);
+          }
           open = [];
           if (index === 0) {
             $('.a-js-drilldownLegend').html(drilldownLegendDefault);
@@ -392,6 +400,11 @@ var drilldownInteraction = function() {
           el.closest('ul').removeClass('stacked').find('.open').removeClass('open');
           el.closest('ul').find('.dim').removeClass('dim');
         } else if (!el.hasClass('a-colnav-secondLevel') && !el.hasClass('a-colnav-thirdLevel')) {
+          if (history.pushState) {
+            newurl = window.location.protocol + '//' + window.location.host +
+              window.location.pathname + '?position=' + text.toLowerCase().replace(/ /g, '-');
+            window.history.pushState({ path: newurl }, '', newurl);
+          }
           if (el.closest('li').find('h2').length > 0 || el.closest('li').find('h3').length > 0) {
             $('.a-js-drilldownLegend').html(
               el.closest('li').find('h2').length > 0 ?
@@ -487,10 +500,33 @@ var drilldownInteraction = function() {
   });
   $(document).ready(function() {
     if (urlQuery('position')) {
-      $('.a-colnav').find('a').each(function() {
+      $('.a-colnav').find('a.a-colnav-item').each(function() {
         if ($(this).find('h2').text().toLowerCase() ===
-          urlQuery('position').replace(/%C3%B8/g, 'ø').replace(/-/g, ' ')) {
+          urlQuery('position')
+            .replace(/%C3%A6/g, 'æ')
+            .replace(/%C3%B8/g, 'ø')
+            .replace(/%C3%A5/g, 'å')
+            .replace(/%C3%86/g, 'Æ')
+            .replace(/%C3%98/g, 'Ø')
+            .replace(/%C3%85/g, 'Å')
+            .replace(/-/g, ' ')) {
           whenClick($(this), true);
+        }
+      });
+      $('.a-colnav').find('a.a-colnav-item-second').each(function() {
+        if ($(this).find('h3').text().toLowerCase() ===
+          urlQuery('position')
+            .replace(/%C3%A6/g, 'æ')
+            .replace(/%C3%B8/g, 'ø')
+            .replace(/%C3%A5/g, 'å')
+            .replace(/%C3%86/g, 'Æ')
+            .replace(/%C3%98/g, 'Ø')
+            .replace(/%C3%85/g, 'Å')
+            .replace(/-/g, ' ')) {
+          whenClick($(this).closest('ul').prev(), true);
+          setTimeout(function() {
+            whenClick($(this), true);
+          }.bind(this), 250);
         }
       });
     }
@@ -1361,14 +1397,6 @@ var mark = function() {
 };
 $('input[data-search-algorithm="show-and-highlight"]').on('input', mark);
 
-var setupSortableRowOnclick = function() {
-  $('.a-js-sortable-clickable-row').on('click', function() {
-    if (!$(this).hasClass('a-sortable-row-complete') && !$(this).hasClass('a-sortable-row-deleted')) {
-      $(this).find('a[data-toggle]')[0].click();
-    }
-  });
-};
-
 /* globals $, smoothState */
 var switchForm = function() {
   $('[name="js-switchForm"]').each(function(index) {
@@ -1568,7 +1596,7 @@ mobileNavigation, propagateContent, toggleExpand, toggleFilter, uniformHeight,
 tooltip, popover, aTagSpaceExpand, initializeDatepicker, onboarding,
 nameChecker, codeLookup, handleValidatorLibrary,
 defaultSort, setupAddRightsHandler, onFileInputChange, toggleInstant, switchForm,
-setupSortableRowOnclick, addListExpandHandler,
+addListExpandHandler,
 addListSortHandler, setupListRowSelect, setupOnKeypress,
 genericSearch */
 
@@ -1595,7 +1623,6 @@ window.altinnInit = function() {
   onFileInputChange();
   toggleInstant();
   switchForm();
-  setupSortableRowOnclick();
   addListExpandHandler();
   addListSortHandler();
   setupListRowSelect();
