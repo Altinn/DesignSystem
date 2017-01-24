@@ -169,6 +169,25 @@ gulp.task('pl-copy:distribution-css', function (done) {
   );
 });
 
+// Create distribution CSS file for EPI and copy into distribution folder:
+gulp.task('pl-copy:distribution-epi', function (done) {
+  fs.readFile('./source/css/scss/episerver/_episerver.scss', 'utf-8',
+    function (err, custom) {
+      if (err) {
+        console.log(err);
+      }
+      var src = custom;
+      fs.writeFileSync('./source/css/scss/episerver/epi.min.scss', src);
+      gulp.src(paths().source.epi + 'epi.min.scss')
+        .pipe(sass().on('error', sass.logError))
+        .pipe(gulp.dest('public/distributions/v' + version))
+        .pipe(browserSync.stream());
+      done();
+    }
+    // TODO: Delete epi.min.scss from source folder
+  )
+});
+
 // Create distribution JS (bundles all JS resources for production, except for
 // jQuery) and copy into distribution folder:
 gulp.task('pl-copy:distribution-js', function () {
@@ -298,4 +317,4 @@ gulp.task('patternlab:connect', gulp.series(function (done) {
 gulp.task('patternlab:watch', gulp.series('patternlab:build', watch));
 gulp.task('patternlab:serve', gulp.series('patternlab:prebuild', 'patternlab:build', 'patternlab:connect', watch));
 gulp.task('default', gulp.series('patternlab:serve'));
-gulp.task('dist', gulp.series('pl-copy:distribution-js', 'pl-copy:distribution-css'));
+gulp.task('dist', gulp.series('pl-copy:distribution-js', 'pl-copy:distribution-css', 'pl-copy:distribution-epi'));
