@@ -42,12 +42,6 @@ var popover = function() {
   $('.a-js-togglePopoverIcons').each(function() {
     $(this).find('i').eq(1).hide();
   });
-  $('.a-js-persistPopover').find('i').eq(0).on('click', function(e) {
-    $(e.target).closest('.a-js-persistPopover').popover('show');
-  });
-  $('.a-js-persistPopover').find('i').eq(1).on('click', function(e) {
-    $(e.target).closest('.a-js-persistPopover').popover('hide');
-  });
   $('.a-js-blurrablePopover').on('blur', function(e) {
     if ($(e.target).find('i').eq(1).is(':visible')) {
       $(e.target).trigger('click');

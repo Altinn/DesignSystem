@@ -6,7 +6,7 @@ var toggleFilter = function() {
       e.stopImmediatePropagation(); e.stopPropagation(); e.preventDefault();
       $(e.target).trigger('mouseup');
     } else if (key === 9) {
-      if ($($(e.target).attr('data-target')).hasClass('in')) {
+      if ($($(e.target).attr('data-target')).hasClass('show')) {
         $($(e.target).attr('data-target')).find('.a-switch').eq(0)
           .trigger('focus');
       }
