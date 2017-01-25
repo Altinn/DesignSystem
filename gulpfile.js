@@ -21,6 +21,7 @@ gulp.task('pl-copy:ssb', function () {
     .pipe(gulp.dest(paths().public.root));
 });
 
+
 // Copy Skjenkebevilling data file from source into public folder:
 gulp.task('pl-copy:skj', function () {
   return gulp.src('source/skjenkebevilling.json')
