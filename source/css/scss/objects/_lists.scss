@@ -43,24 +43,33 @@
   &.a-list-large {
     li {
       &:not(.a-list-header) {
-        min-height: $spacer * 4;
-        padding: $spacer $spacer / 2;
+        & > .row,
+        .a-list-content {
+          min-height: $spacer * 4;
+          padding: $spacer $spacer / 2;
 
-        @include media-breakpoint-down( sm ) {
-          padding: $spacer;
+          @include media-breakpoint-down( sm ) {
+            padding: $spacer;
+          }
         }
       }
 
-      @include media-breakpoint-down( sm ) {
-        padding-right: $spacer;
-        padding-left: $spacer;
+      & > .row,
+      .a-list-content {
+        @include media-breakpoint-down( sm ) {
+          padding-right: $spacer;
+          padding-left: $spacer;
+        }
       }
     }
   }
 
   li {
-    min-height: $spacer * 3;
-    padding: $spacer / 2 $spacer / 2 4px $spacer / 2;
+    & > .row,
+    .a-list-content {
+      min-height: $spacer * 3;
+      padding: $spacer / 2 $spacer / 2 4px $spacer / 2;
+    }
 
     &:not(.a-dotted) {
       border-bottom: 1px solid $grey-medium;
@@ -69,6 +78,22 @@
     &.a-selected {
       .a-lineThrough-selected {
         text-decoration: line-through;
+      }
+    }
+
+    &.card {
+      display: list-item;
+      margin-bottom: 0;
+      background-color: transparent;
+      border: none;
+      border-radius: 0;
+
+      &.a-expanded {
+        background-color: $white;
+      }
+
+      &:not(.a-dotted) {
+        border-bottom: 1px solid $grey-medium;
       }
     }
 
