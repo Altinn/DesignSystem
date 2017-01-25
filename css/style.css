@@ -7577,10 +7577,10 @@ textarea {
 
 .a-contentOverview {
   min-height: 580px;
-  overflow: hidden;
   border-top: 1px solid #BCC7CC; }
   @media (min-width: 992px) {
     .a-contentOverview {
+      overflow: hidden;
       border-bottom: 1px solid #BCC7CC; } }
 
 .foundation-mq {
@@ -7732,6 +7732,10 @@ textarea {
   @media (min-width: 768px) {
     .a-colnav-wrapper .dropdown.a-colnav .a-colnav-secondLevel .is-dropdown-submenu-item a {
       border-right: none; } }
+  .a-colnav-wrapper .dropdown.a-colnav .a-colnav-secondLevel .is-dropdown-submenu-item a.a-js-colnavLinkAlt {
+    padding: 6px 24px 3px 24px;
+    border-right: none;
+    border-bottom: 1px solid #EFEFEF; }
   .a-colnav-wrapper .dropdown.a-colnav .a-colnav-secondLevel .is-dropdown-submenu-item a:hover {
     background: #F5F5F5; }
   .a-colnav-wrapper .dropdown.a-colnav .a-colnav-secondLevel .is-dropdown-submenu-item a h3 {
@@ -7742,12 +7746,22 @@ textarea {
     font-family: "DIN-reg";
     font-weight: normal;
     margin-bottom: 0; }
+  .a-colnav-wrapper .dropdown.a-colnav .a-colnav-secondLevel .is-dropdown-submenu-item a h4 {
+    font-size: 16px;
+    font-size: 1.6rem;
+    line-height: 2.4rem;
+    -webkit-font-smoothing: subpixel-antialiased;
+    font-family: "DIN-reg";
+    font-weight: normal;
+    max-width: calc( 100% - ($spacer * 5));
+    padding-right: 60px;
+    margin-bottom: 0; }
 
 .a-colnav-wrapper .dropdown.a-colnav .a-colnav-thirdLevel .is-dropdown-submenu-item a {
   position: relative;
-  padding: 6px 24px 3px 24px;
+  padding: 12px 24px 11px 24px;
   border-right: none;
-  border-bottom: 1px solid #EFEFEF; }
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1); }
   .a-colnav-wrapper .dropdown.a-colnav .a-colnav-thirdLevel .is-dropdown-submenu-item a:hover {
     background: #F5F5F5; }
   .a-colnav-wrapper .dropdown.a-colnav .a-colnav-thirdLevel .is-dropdown-submenu-item a h4 {
@@ -7758,7 +7772,7 @@ textarea {
     font-family: "DIN-reg";
     font-weight: normal;
     max-width: calc( 100% - ($spacer * 5));
-    padding-right: 60px;
+    padding-right: 120px;
     margin-bottom: 0; }
   .a-colnav-wrapper .dropdown.a-colnav .a-colnav-thirdLevel .is-dropdown-submenu-item a .a-colnav-rightText {
     font-size: 14px;
@@ -7766,9 +7780,12 @@ textarea {
     line-height: 2rem;
     -webkit-font-smoothing: subpixel-antialiased;
     position: absolute;
-    top: 11px;
-    right: 12px;
+    top: 14px;
+    right: 36px;
     display: block; }
+    @media (min-width: 768px) {
+      .a-colnav-wrapper .dropdown.a-colnav .a-colnav-thirdLevel .is-dropdown-submenu-item a .a-colnav-rightText {
+        right: 12px; } }
 
 .a-colnav-wrapper .is-dropdown-submenu-parent {
   position: static; }
@@ -7842,7 +7859,7 @@ textarea {
   cursor: pointer;
   background-color: #000000;
   border-bottom: 1px solid #BCC7CC; }
-  @media (min-width: 768px) {
+  @media (min-width: 992px) {
     .a-js-backButton {
       display: none !important; } }
   .a-js-backButton::before {
@@ -7852,6 +7869,24 @@ textarea {
     content: '\f00a';
     transform: rotate(180deg);
     text-rendering: auto; }
+
+.a-containerColnav-right {
+  padding: 0 36px; }
+  @media (min-width: 576px) {
+    .a-containerColnav-right {
+      width: 540px;
+      max-width: 540px;
+      padding: 0 24px;
+      margin-right: auto;
+      margin-left: auto; } }
+  @media (min-width: 768px) {
+    .a-containerColnav-right {
+      width: 100%;
+      max-width: 100%;
+      padding: 0 12px; } }
+  @media (min-width: 992px) {
+    .a-containerColnav-right {
+      padding: 0 60px; } }
 
 .a-pagination .page-item .page-link {
   padding: 5px 14px 3px;
@@ -8898,6 +8933,8 @@ textarea {
 .a-jumbotron-header {
   padding-top: 170px;
   margin-top: -110px; }
+  .a-jumbotron-header .row {
+    margin: 0; }
 
 .a-jumbotron-light {
   background-image: url("../images/header-bg1.svg"); }
@@ -10323,6 +10360,8 @@ a.a-modal-close {
     .panel-collapse-content-section .a-third-action {
       float: right;
       padding-right: 36px; } }
+  .panel-collapse-content-section .a-third-action .a-third-action-spacer {
+    padding-top: 5px; }
   .panel-collapse-content-section .a-fourth-action button {
     width: 100%; }
 
@@ -11825,6 +11864,11 @@ hr {
   @media (min-width: 1200px) {
     .container {
       padding: 0; } }
+
+@media (max-width: 767px) {
+  .a-container-fluid-small {
+    width: auto;
+    padding: 0; } }
 
 .a-noColPadding {
   margin: none; }

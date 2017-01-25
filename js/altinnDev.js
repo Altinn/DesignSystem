@@ -12,6 +12,20 @@ var _anchors = function() {
 };
 
 /* globals $ */
+var fixPatternLinks = function() {
+  if (window.location.pathname.indexOf('DesignSystem') === 1) {
+    $('a').each(function() {
+      $(this).attr('href', $(this).attr('href').replace('/patterns/', '/DesignSystem/patterns/'));
+    });
+    $('*[onclick]').each(function() {
+      if ($(this).attr('onclick').indexOf('location.href=\'/patterns/') > -1) {
+        $(this).attr('onclick', $(this).attr('onclick').replace('location.href=\'/patterns/', 'location.href=\'/DesignSystem/patterns/'));
+      }
+    });
+  }
+};
+
+/* globals $ */
 var hideIntroInSubs = function() {
   if (JSON.parse($('#sg-pattern-data-footer').text()).patternPartial !== undefined) {
     $('.sg-top').hide();
@@ -189,7 +203,7 @@ var toggleTheme = function() {
   });
 };
 
-/* globals _anchors, hideIntroInSubs, insetVariations, selectAll, toggleTheme,
+/* globals _anchors, hideIntroInSubs, insetVariations, selectAll, toggleTheme, fixPatternLinks,
 preOpenModals, prototypingInteractionStarteENK $ */
 window.altinnDev = function() {
   _anchors();
@@ -197,6 +211,7 @@ window.altinnDev = function() {
   insetVariations();
   selectAll();
   toggleTheme();
+  fixPatternLinks();
   preOpenModals();
   prototypingInteractionStarteENK();
 };

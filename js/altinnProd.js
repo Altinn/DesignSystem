@@ -379,6 +379,9 @@ var drilldownInteraction = function() {
     var li = el.closest('li').hasClass('is-dropdown-submenu-parent') ? el.closest('li') : el;
     var newurl;
     var text = li.find('h2').length > 0 ? li.find('h2').text() : li.find('h3').text();
+    if (li.children('a').hasClass('a-js-colnavLinkAlt')) {
+      window.location = li.children('a').attr('href');
+    }
     levels.forEach(function(str, index) {
       var wasStacked;
       if (el.closest('ul').hasClass(str)) {
@@ -499,6 +502,12 @@ var drilldownInteraction = function() {
     event.stopPropagation();
   });
   $(document).ready(function() {
+    if ($('.a-colnav').attr('data-colnav-depth') === '2') {
+      $(this).find('.a-colnav-thirdLevel').remove();
+      $(this).find('.a-js-colnavLink').remove();
+    } else {
+      $(this).find('.a-js-colnavLinkAlt').remove();
+    }
     if (urlQuery('position')) {
       $('.a-colnav').find('a.a-colnav-item').each(function() {
         if ($(this).find('h2').text().toLowerCase() ===
