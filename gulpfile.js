@@ -21,6 +21,7 @@ gulp.task('pl-copy:ssb', function () {
     .pipe(gulp.dest(paths().public.root));
 });
 
+
 // Copy Skjenkebevilling data file from source into public folder:
 gulp.task('pl-copy:skj', function () {
   return gulp.src('source/skjenkebevilling.json')
@@ -169,6 +170,25 @@ gulp.task('pl-copy:distribution-css', function (done) {
   );
 });
 
+// Create distribution CSS file for EPI and copy into distribution folder:
+gulp.task('pl-copy:distribution-epi', function (done) {
+  fs.readFile('./source/css/scss/episerver/_episerver.scss', 'utf-8',
+    function (err, custom) {
+      if (err) {
+        console.log(err);
+      }
+      var src = custom;
+      fs.writeFileSync('./source/css/scss/episerver/epi.min.scss', src);
+      gulp.src(paths().source.epi + 'epi.min.scss')
+        .pipe(sass().on('error', sass.logError))
+        .pipe(gulp.dest('public/distributions/v' + version))
+        .pipe(browserSync.stream());
+      done();
+    }
+    // TODO: Delete epi.min.scss from source folder
+  )
+});
+
 // Create distribution JS (bundles all JS resources for production, except for
 // jQuery) and copy into distribution folder:
 gulp.task('pl-copy:distribution-js', function () {
@@ -262,9 +282,9 @@ function watch () {
   gulp.watch(paths().source.styleguide + '**/*.*')
     .on('change', gulp.series('pl-copy:styleguide', reload));
   gulp.watch(paths().source.js + 'production/**/*.js')
-    .on('change', gulp.series('pl-copy:designsystemprod-js', reload));
+    .on('change', gulp.series('pl-copy:designsystemprod-js', 'pl-copy:distribution-js', reload));
   gulp.watch(paths().source.js + 'development/**/*.js')
-    .on('change', gulp.series('pl-copy:designsystemdev-js', reload));
+    .on('change', gulp.series('pl-copy:designsystemdev-js', 'pl-copy:distribution-js', reload));
 
   var patternWatches = [
    paths().source.patterns + '**/*.json',
@@ -298,4 +318,4 @@ gulp.task('patternlab:connect', gulp.series(function (done) {
 gulp.task('patternlab:watch', gulp.series('patternlab:build', watch));
 gulp.task('patternlab:serve', gulp.series('patternlab:prebuild', 'patternlab:build', 'patternlab:connect', watch));
 gulp.task('default', gulp.series('patternlab:serve'));
-gulp.task('dist', gulp.series('pl-copy:distribution-js', 'pl-copy:distribution-css'));
+gulp.task('dist', gulp.series('pl-copy:distribution-js', 'pl-copy:distribution-css', 'pl-copy:distribution-epi'));
