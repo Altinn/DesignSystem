@@ -15,7 +15,7 @@ var _anchors = function() {
 var fixPatternLinks = function() {
  if (window.location.pathname.indexOf('DesignSystem') === 1) {
    $('a').each(function() {
-     if ($(this).attr('href').indexOf('DesignSystem') === -1) {
+     if (typeof $(this).attr('href') !== typeof undefined && $(this).attr('href') !== false && $(this).attr('href').indexOf('DesignSystem') === -1) {
        $(this).attr('href', $(this).attr('href').replace('/patterns/', '/DesignSystem/patterns/'));
      }
      });
