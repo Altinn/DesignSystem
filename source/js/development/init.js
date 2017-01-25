@@ -1,4 +1,4 @@
-/* globals _anchors, hideIntroInSubs, insetVariations, selectAll, toggleTheme,
+/* globals _anchors, hideIntroInSubs, insetVariations, selectAll, toggleTheme, fixPatternLinks,
 preOpenModals, prototypingInteractionStarteENK $ */
 window.altinnDev = function() {
   _anchors();
@@ -6,6 +6,7 @@ window.altinnDev = function() {
   insetVariations();
   selectAll();
   toggleTheme();
+  fixPatternLinks();
   preOpenModals();
   prototypingInteractionStarteENK();
 };
