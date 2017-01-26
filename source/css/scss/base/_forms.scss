@@ -12,29 +12,19 @@ input {
     -webkit-appearance: none;
   }
 
-  &:-moz-placeholder { /* Firefox 18- */
-    // sass-lint:disable-block no-important
+  &::placeholder {
     color: $grey !important;
-  }
-
-  &::-webkit-input-placeholder {
-    // sass-lint:disable-block no-important
-    color: $grey !important;
-  }
-
-  &::-moz-placeholder {  /* Firefox 19+ */
-    // sass-lint:disable-block no-important
-    color: $grey !important;
-  }
-
-  &:-ms-input-placeholder {
-    // sass-lint:disable-block no-important
-    color: $grey !important;
+    opacity: 1 !important;
   }
 }
 
 textarea {
   -webkit-appearance: none;
+
+  &::placeholder {
+    color: $grey !important;
+    opacity: 1 !important;
+  }
 }
 
 /*------------------------------------*\
@@ -64,16 +54,9 @@ textarea {
       }
 
       input {
-        &:-webkit-input-placeholder {
-          color: $grey;
-        }
-
-        &:-moz-placeholder {
-          color: $grey;
-        }
-
-        &:-ms-input-placeholder {
-          color: $grey;
+        &::placeholder {
+          color: $grey !important;
+          opacity: 1 !important;
         }
       }
     }
