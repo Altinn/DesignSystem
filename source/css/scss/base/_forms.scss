@@ -24,6 +24,17 @@ textarea {
     opacity: 1 !important;
     -webkit-font-smoothing: $default-font-smoothing;
   }
+
+  &:focus {
+    &::placeholder {
+      color: transparent !important;
+    }
+
+    // prefix-appender doesn't handle firefox properly here, need to specify explicitly
+    &::-moz-placeholder {
+      color: transparent !important;
+    }
+  }
 }
 
 /*------------------------------------*\
