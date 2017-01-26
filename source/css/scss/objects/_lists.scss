@@ -27,6 +27,12 @@
       cursor: pointer;
     }
 
+    @include media-breakpoint-down( sm ) {
+      .a-dropdownArrow {
+        display: none;
+      }
+    }
+
     .a-clickable {
       &:hover {
         &:not(.a-expanded) {
@@ -43,24 +49,33 @@
   &.a-list-large {
     li {
       &:not(.a-list-header) {
-        min-height: $spacer * 4;
-        padding: $spacer $spacer / 2;
+        & > .row,
+        .a-list-content {
+          min-height: $spacer * 4;
+          padding: $spacer $spacer / 2;
 
-        @include media-breakpoint-down( sm ) {
-          padding: $spacer;
+          @include media-breakpoint-down( sm ) {
+            padding: $spacer;
+          }
         }
       }
 
-      @include media-breakpoint-down( sm ) {
-        padding-right: $spacer;
-        padding-left: $spacer;
+      & > .row,
+      .a-list-content {
+        @include media-breakpoint-down( sm ) {
+          padding-right: $spacer;
+          padding-left: $spacer;
+        }
       }
     }
   }
 
   li {
-    min-height: $spacer * 3;
-    padding: $spacer / 2 $spacer / 2 4px $spacer / 2;
+    & > .row,
+    .a-list-content {
+      min-height: $spacer * 3;
+      padding: $spacer / 2 $spacer / 2 4px $spacer / 2;
+    }
 
     &:not(.a-dotted) {
       border-bottom: 1px solid $grey-medium;
@@ -72,12 +87,28 @@
       }
     }
 
+    &.card {
+      display: list-item;
+      margin-bottom: 0;
+      background-color: transparent;
+      border: none;
+      border-radius: 0;
+
+      &.a-expanded {
+        background-color: $white;
+      }
+
+      &:not(.a-dotted) {
+        border-bottom: 1px solid $grey-medium;
+      }
+    }
+
     &.a-list-item-centered {
       > div {
         align-items: center;
 
         > div {
-          &[class^='col-'] {
+          &[class^='col'] {
             display: inline-block;
             vertical-align: middle;
           }
@@ -102,7 +133,7 @@
   }
 
   div {
-    &[class^='col-'] {
+    &[class^='col'] {
       padding: 0;
       margin: 0;
     }
@@ -155,7 +186,7 @@
       padding-left: $spacer;
     }
 
-    .float-xs-right {
+    .float-right {
       i {
         padding-left: $spacer;
       }
