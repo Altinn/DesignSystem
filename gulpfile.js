@@ -55,7 +55,7 @@ gulp.task('pl-copy:css', function () {
     .pipe(sourcemaps.init())
     .pipe(sass().on('error', sass.logError))
     // We will add this line after removing most of the unused css.
-    // .pipe(purify(['./public/js/**/*.js', './public/patterns/**/*.html']))
+    // .pipe(purify(['./public/**/*.js', './public/**/*.html']))
     .pipe(autoprefixer({
         browsers: ['last 2 versions'],
         cascade: false

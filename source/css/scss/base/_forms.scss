@@ -11,30 +11,30 @@ input {
   &[type='password'] {
     -webkit-appearance: none;
   }
-
-  &:-moz-placeholder { /* Firefox 18- */
-    // sass-lint:disable-block no-important
-    color: $grey !important;
-  }
-
-  &::-webkit-input-placeholder {
-    // sass-lint:disable-block no-important
-    color: $grey !important;
-  }
-
-  &::-moz-placeholder {  /* Firefox 19+ */
-    // sass-lint:disable-block no-important
-    color: $grey !important;
-  }
-
-  &:-ms-input-placeholder {
-    // sass-lint:disable-block no-important
-    color: $grey !important;
-  }
 }
 
 textarea {
   -webkit-appearance: none;
+}
+
+input,
+textarea {
+  &::placeholder {
+    color: $grey !important;
+    opacity: 1 !important;
+    -webkit-font-smoothing: $default-font-smoothing;
+  }
+
+  &:focus {
+    &::placeholder {
+      color: transparent !important;
+    }
+
+    // prefix-appender doesn't handle firefox properly here, need to specify explicitly
+    &::-moz-placeholder {
+      color: transparent !important;
+    }
+  }
 }
 
 /*------------------------------------*\
@@ -61,20 +61,6 @@ textarea {
       button,
       .input-group-addon {
         background-color: transparent;
-      }
-
-      input {
-        &:-webkit-input-placeholder {
-          color: $grey;
-        }
-
-        &:-moz-placeholder {
-          color: $grey;
-        }
-
-        &:-ms-input-placeholder {
-          color: $grey;
-        }
       }
     }
 
