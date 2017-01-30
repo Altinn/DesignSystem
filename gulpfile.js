@@ -92,8 +92,8 @@ gulp.task('pl-copy:distribution-css', function (done) {
         '// Automatically removed');
       src = src.replace('@import "scss/episerver/episerver";',
         '// Automatically removed');
-      fs.writeFileSync('./source/css/style.min.scss', src);
-      gulp.src(paths().source.css + 'style.min.scss')
+      fs.writeFileSync('./source/css/style-temp.scss', src);
+      gulp.src(paths().source.css + 'style-temp.scss')
         .pipe(sass().on('error', sass.logError))
         .pipe(autoprefixer({
             browsers: ['last 2 versions'],
@@ -101,12 +101,12 @@ gulp.task('pl-copy:distribution-css', function (done) {
         }))
         .pipe(gulp_rename('style.css'))
         .pipe(gulp.dest('dist/css'))
-        .pipe(cleanCSS({compatibility: 'ie10'}))
+        .pipe(cleanCSS())
         .pipe(gulp_rename('style.min.css'))
         .pipe(gulp.dest('dist/css'));
       done();
     }
-    // TODO: Delete style.min.scss from source folder
+    // TODO: Delete style-temp.scss from source folder
   );
 });
 
@@ -118,14 +118,14 @@ gulp.task('pl-copy:distribution-epi', function (done) {
         console.log(err);
       }
       var src = custom;
-      fs.writeFileSync('./source/css/scss/episerver/epi.min.scss', src);
-      gulp.src(paths().source.epi + 'epi.min.scss')
-        .pipe(sass().on('error', sass.logError))
-        .pipe(gulp_rename('epi.css'))
-        .pipe(gulp.dest('dist/css'))
-        .pipe(cleanCSS({compatibility: 'ie10'}))
-        .pipe(gulp_rename('epi.min.css'))
-        .pipe(gulp.dest('dist/css'));
+      fs.writeFileSync('./source/css/scss/episerver/epi-temp.scss', src);
+      gulp.src(paths().source.epi + 'epi-temp.scss')
+      .pipe(sass().on('error', sass.logError))
+      .pipe(gulp_rename('epi.css'))
+      .pipe(gulp.dest('dist/css'))
+      .pipe(cleanCSS())
+      .pipe(gulp_rename('epi.min.css'))
+      .pipe(gulp.dest('dist/css'));
       done();
     }
     // TODO: Delete epi.min.scss from source folder
@@ -143,21 +143,25 @@ gulp.task('pl-copy:public-js', function () {
 // Create distribution JS (bundles all JS resources for production, except for
 // jQuery) and copy into distribution folder:
 gulp.task('pl-copy:distribution-js', function () {
-  return gulp.src(buildConfig.infoportal.jsFiles.files).pipe(gulp_concat('concat.js')).pipe(gulp_rename(buildConfig.infoportal.jsFiles.filename))
+  return gulp.src(buildConfig.infoportal.jsFiles.files)
+    .pipe(gulp_concat('concat.js'))
+    .pipe(gulp_rename(buildConfig.infoportal.jsFiles.filename))
     .pipe(gulp.dest('dist/js'));
 });
 
 // Create vendor distibution for Portal. Custom js will be in a different file
 gulp.task('pl-copy:distribution-vendor-portal-js', function () {
   return gulp.src(buildConfig.portal.vendorJsFiles.files)
-    .pipe(gulp_concat('concat.js')).pipe(gulp_rename(buildConfig.portal.vendorJsFiles.filename))
+    .pipe(gulp_concat('concat.js'))
+    .pipe(gulp_rename(buildConfig.portal.vendorJsFiles.filename))
     .pipe(gulp.dest('dist/js'));
 });
 
 // Create custom js distibution for Portal.
 gulp.task('pl-copy:distribution-portal-js', function () {
   return gulp.src(buildConfig.portal.jsFiles.files)
-    .pipe(gulp_concat('concat.js')).pipe(gulp_rename(buildConfig.portal.jsFiles.filename))
+    .pipe(gulp_concat('concat.js'))
+    .pipe(gulp_rename(buildConfig.portal.jsFiles.filename))
     .pipe(gulp.dest('dist/js'));
 });
 
