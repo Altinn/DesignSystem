@@ -47,7 +47,7 @@
 
 .a-jumbotron-header {
   padding-top: 170px;
-  margin-top: -110px;
+  margin-top: -144px;
 
   .row {
     margin: 0;
@@ -58,7 +58,7 @@
   background-image: url('../images/header-bg1.svg');
 }
 
-// If dark background, make text white
+// If dark background
 .a-jumbotron-dark {
   color: $white;
   background-image: url('../images/header-bg0.svg');
@@ -141,6 +141,23 @@
   .a-link {
     border-bottom: 2px solid $white;
 	}
+
+  .a-clickable,
+  .a-selectable {
+    &:hover,
+    &:active,
+    &:focus {
+      &:not(.a-expanded) {
+        &:not(.a-deleted) {
+          &:not(.a-completed) {
+            cursor: pointer;
+            background-color: $white-opacity-01;
+            box-shadow: none;
+          }
+        }
+      }
+    }
+  }
 }
 
 .a-jumbotron-large {

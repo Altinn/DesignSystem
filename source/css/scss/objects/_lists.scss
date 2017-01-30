@@ -67,6 +67,22 @@
           padding-left: $spacer;
         }
       }
+
+      .a-list-rowLink {
+        @include a-fontSize20;
+        padding: 8px $spacer / 2;
+      }
+    }
+  }
+
+  &.a-dottedFirst {
+    li {
+      &:first-child {
+        background-image: $dotted-border-blue, $dotted-border-blue;
+        background-repeat: repeat-x;
+        background-position: 25px top, 25px bottom;
+        background-size: 4px 2px;
+      }
     }
   }
 
@@ -138,7 +154,22 @@
       margin: 0;
     }
   }
+
+  // Show list in two columns
+  &.a-list-2col {
+    @include media-breakpoint-up( md ) {
+      column-count: 2;
+      column-gap: $spacer * 4;
+
+      li {
+        break-inside: avoid;
+        page-break-inside: avoid;
+      }
+    }
+  }
 }
+
+
 
 
 /*------------------------------------*\
@@ -297,7 +328,6 @@
     }
   }
 
-  // TODO: Make a script to check if there is more than 3 items in list. If less then 3, use 1col, if more than 3, use 2col
   &.a-item-list-1col {
     @include media-breakpoint-up( md ) {
       width: calc( 50% - 24px );
@@ -354,25 +384,6 @@
   }
 }
 
-// If background dark color in Jumbotron
-
-.a-jumbotron-dark {
-  .a-item-list {
-    .a-item-list-item {
-      &.a-clickable {
-        &:hover {
-          &:not(.a-expanded) {
-            &:not(.a-deleted) {
-              &:not(.a-completed) {
-                background-color: $white-opacity-02;
-              }
-            }
-          }
-        }
-      }
-    }
-  }
-}
 
 /*------------------------------------*\
     $Box btn list
