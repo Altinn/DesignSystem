@@ -1,17 +1,16 @@
 {
   "name": "altinn-designsystem",
-  "description": "Designsystemet er bygget med Pattern Lab. Dette repoet inneholder kildekoden, Pattern Lab-konfigurasjon og Gulp-konfigurasjon for å kjøre koden lokalt, samt for å bygge distribusjonsfiler.",
+  "description": "Altinn Design system based on Pattern Lab.",
   "version": "0.2.0",
   "scripts": {
     "start": "gulp",
     "patterns": "gulp patternlab:patternsonly",
     "dist": "gulp dist",
-    "testplugin": "npm uninstall plugin-node-custom-output && npm install plugin-node-custom-output && npm run patterns",
     "lint": "eslint source/ unit_test/",
     "test": "mocha ./test/unit_test/mocha_runner.js -c --reporter spec",
     "precommit-msg": "echo 'Pre-commit: Linting js and scss, and running mocha tests' && exit 0",
     "sass": "sass-lint -v -q",
-    "purify": "purifycss public/css/style.css public/patterns/**/*.html public/js/*.js --info --rejected --out public/css/index.css"
+    "purify": "purifycss public/css/style.css public/**/*.html public/**/*.js --info --rejected --out public/css/index.css"
   },
   "pre-commit": [
     "precommit-msg",
@@ -40,6 +39,7 @@
     "eslint-config-airbnb-base": "11.0.1",
     "eslint-plugin-import": "2.2.0",
     "gulp-autoprefixer": "3.1.1",
+    "gulp-clean-css": "2.3.2",
     "gulp-concat": "2.6.1",
     "gulp-purifycss": "0.2.0",
     "gulp-rename": "1.2.2",
@@ -57,19 +57,18 @@
     "tether": "1.4.0"
   },
   "keywords": [
+    "Altinn",
     "Pattern Lab",
     "Atomic Web Design",
-    "Node",
-    "Gulp",
-    "Javascript"
+    "Design system"
   ],
   "repository": {
     "type": "git",
     "url": "git+https://github.com/Altinn/DesignSystem.git"
   },
-  "author": "Olavstoppen",
+  "author": "Altinn",
   "license": "MIT",
   "engines": {
-    "node": ">=5.0"
+    "node": ">=6.0"
   }
 }
