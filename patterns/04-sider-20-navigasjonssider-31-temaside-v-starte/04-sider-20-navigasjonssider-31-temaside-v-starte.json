@@ -1,8 +1,8 @@
 {
 	"icon-prefix": "ai",
-	"icon-class": "ai-timer",
+	"icon-class": "ai-user",
 	"icon-size": "",
-	"icon-extra-class": "",
+	"icon-extra-class": "a-personRole-icon",
 	"icon-text": "",
 	"icon-id": false,
 	"sr-only": false,
@@ -72,7 +72,7 @@
 		"telNumber": "800 33 840",
 		"telText": "Telefonnummer til Altinn kundestøtte"
 	},
-	"link-text": "Lenke som står i løpende tekst",
+	"link-text": "Klikkbar tittel",
 	"link-icon": false,
 	"link-url": "/patterns/04-sider-01-forside-00-forside/04-sider-01-forside-00-forside.html",
 	"variation-class": "",
@@ -85,55 +85,52 @@
 	},
 	"link-class": "a-link a-link-title",
 	"category-element-description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Et fugiat tenetur quia exercitationem fuga ratione soluta, ex, recusandae blanditiis a quod nihil, explicabo doloremque nam doloribus dolorum enim accusamus dignissimos.",
-	"header-text": "Lorem ipsum",
-	"intro-text": "Bacon ipsum dolor nullam",
-	"popover-class": "popover-big",
-	"popover-aria-label": "valid",
-	"open-popover-class": "a-helpIconButton a-js-persistPopover a-js-popoverBig a-js-togglePopoverIcons",
-	"popover-data-target": "myPopup",
-	"popover-title": "Tittel på popover",
-	"popover-content": "Innholdet i popover fra spørsmålstegn-ikonet kommer her..",
-	"popover-link-text": "",
-	"popover-link-icon": [
+	"column-items": [
 		{
-			"icon-prefix": "tmp",
-			"icon-class": "tmp-help"
-		},
-		{
-			"icon-prefix": "tmp",
-			"icon-class": "tmp-cancel"
+			"column-text": false,
+			"column-icon": false,
+			"column-link": false,
+			"column-expandable-link": false,
+			"column-popover": false,
+			"column-switches-with-text": false
 		}
 	],
-	"popover-trigger": "manual",
-	"item-list": [
+	"rows": [
 		{
-			"item-list-class": "a-dotted a-clickable",
-			"list-item-link": {
-				"url": "/patterns/04-sider-30-artikkel-_10-artikkel/04-sider-30-artikkel-_10-artikkel.html",
-				"item-list-linkTitle": "Første punkt i listen"
-			}
+			"additional-classes": "a-dotted",
+			"columns": [
+				{
+					"additional-classes": "col",
+					"column-items": [
+						{
+							"column-text": {
+								"text": "Første rad"
+							}
+						}
+					]
+				}
+			]
 		},
 		{
-			"item-list-class": "a-dotted a-clickable",
-			"list-item-link": {
-				"url": "/patterns/04-sider-30-artikkel-_10-artikkel/04-sider-30-artikkel-_10-artikkel.html",
-				"item-list-linkTitle": "Andre punkt i listen"
-			}
-		},
-		{
-			"item-list-class": "a-dotted a-inactive",
-			"item-list-title": "Tredje punkt i listen er ikke klikkbart"
-		},
-		{
-			"item-list-class": "a-disabled",
-			"item-list-title": "Fjerde punkt i listen er deaktivert",
-			"list-item-disabled": true
+			"additional-classes": "a-dotted",
+			"columns": [
+				{
+					"additional-classes": "col",
+					"column-items": [
+						{
+							"column-text": {
+								"text": "Andre rad"
+							}
+						}
+					]
+				}
+			]
 		}
 	],
 	"section-title": "Tittel på seksjon",
 	"lead-text-id": "leadText",
 	"lead-text-content": "Ingress er et kort innledende avsnitt som vanligvis plasseres mellom overskriften og brødteksten. Ingressen brukes ofte til å \"gripe\" fatt i leseren, for at personen skal bli interessert i å lese resten av teksten. Den fungerer også som et visuelt skille mellom resten av teksten. Ingressen bør være lettlest og fri for vanskelige faguttrykk.",
-	"label-class": "tag-primary",
+	"label-class": "badge-primary",
 	"label-id": "label",
 	"label-content": "9",
 	"page-title": "Tittel på temasiden",
@@ -158,6 +155,11 @@
 	"button-class": "a-btn a-btn-icon a-btn-shadow",
 	"button-colorClass": "",
 	"dropdown-class": "a-dropdown-languages",
+	"user-icon": {
+		"icon-prefix": "ai",
+		"icon-class": "ai-person",
+		"icon-extra-class": "a-personRole-icon"
+	},
 	"personswitch-search": {
 		"text-input-id": "text-input-find-13",
 		"text-input-label": "<span class=\"sr-only\">Finn skjema eller tjeneste</span>",
@@ -223,7 +225,7 @@
 		"button-shadow-label": false
 	},
 	"login-name": "Logg inn",
-	"personlogin-isDropdown": "data-toggle=\"dropdown\"",
+	"personlogin-isDropdown": "dropdown",
 	"personlogin-isLink": "",
 	"personlogin-isLink-end": "",
 	"personlogin-isLink-url": "",
@@ -347,141 +349,381 @@
 	"article-breadcrumb": {},
 	"firstlist": {
 		"section-title": "Undertema",
-		"item-list": [
+		"rows": [
 			{
-				"item-list-title": "<a class=\"a-listItem-title\">Første artikkel</a>",
-				"item-list-class": "a-dotted a-clickable"
+				"additional-classes": "a-dotted a-clickable a-list-hasRowLink",
+				"isRowLink": {
+					"rowLink": "/patterns/04-sider-30-artikkel-16-artikkel-v-regnskap/04-sider-30-artikkel-16-artikkel-v-regnskap.html"
+				},
+				"columns": [
+					{
+						"additional-classes": "col",
+						"column-items": [
+							{
+								"column-text": {
+									"text": "Navn på artikkel"
+								}
+							}
+						]
+					}
+				]
 			},
 			{
-				"item-list-title": "<a class=\"a-listItem-title\">Andre artikkel</a>",
-				"item-list-class": "a-dotted a-clickable"
+				"additional-classes": "a-dotted a-clickable a-list-hasRowLink",
+				"isRowLink": {
+					"rowLink": "/patterns/04-sider-30-artikkel-16-artikkel-v-regnskap/04-sider-30-artikkel-16-artikkel-v-regnskap.html"
+				},
+				"columns": [
+					{
+						"additional-classes": "col",
+						"column-items": [
+							{
+								"column-text": {
+									"text": "Navn på artikkel"
+								}
+							}
+						]
+					}
+				]
 			},
 			{
-				"item-list-title": "<a class=\"a-listItem-title\">Tredje artikkel</a>",
-				"item-list-class": "a-dotted a-clickable"
+				"additional-classes": "a-dotted a-clickable a-list-hasRowLink",
+				"isRowLink": {
+					"rowLink": "/patterns/04-sider-30-artikkel-16-artikkel-v-regnskap/04-sider-30-artikkel-16-artikkel-v-regnskap.html"
+				},
+				"columns": [
+					{
+						"additional-classes": "col",
+						"column-items": [
+							{
+								"column-text": {
+									"text": "Navn på artikkel"
+								}
+							}
+						]
+					}
+				]
 			},
 			{
-				"item-list-title": "<a class=\"a-listItem-title\">Fjerde artikkel</a>",
-				"item-list-class": "a-dotted a-clickable"
+				"additional-classes": "a-dotted a-clickable a-list-hasRowLink",
+				"isRowLink": {
+					"rowLink": "/patterns/04-sider-30-artikkel-16-artikkel-v-regnskap/04-sider-30-artikkel-16-artikkel-v-regnskap.html"
+				},
+				"columns": [
+					{
+						"additional-classes": "col",
+						"column-items": [
+							{
+								"column-text": {
+									"text": "Navn på artikkel"
+								}
+							}
+						]
+					}
+				]
 			},
 			{
-				"item-list-title": "<a class=\"a-listItem-title\">Femte artikkel</a>",
-				"item-list-class": "a-dotted a-clickable"
-			},
-			{
-				"item-list-title": "<a class=\"a-listItem-title\">Sjette artikkel</a>",
-				"item-list-class": "a-dotted a-clickable"
-			},
-			{
-				"item-list-title": "<a class=\"a-listItem-title\">Sjuende artikkel</a>",
-				"item-list-class": "a-dotted a-clickable"
-			},
-			{
-				"item-list-title": "<a class=\"a-listItem-title\">Åttende artikkel</a>",
-				"item-list-class": "a-dotted a-clickable"
-			},
-			{
-				"item-list-title": "<a class=\"a-listItem-title\">Niende artikkel</a>",
-				"item-list-class": "a-dotted a-clickable"
+				"additional-classes": "a-dotted a-clickable a-list-hasRowLink",
+				"isRowLink": {
+					"rowLink": "/patterns/04-sider-30-artikkel-16-artikkel-v-regnskap/04-sider-30-artikkel-16-artikkel-v-regnskap.html"
+				},
+				"columns": [
+					{
+						"additional-classes": "col",
+						"column-items": [
+							{
+								"column-text": {
+									"text": "Navn på artikkel"
+								}
+							}
+						]
+					}
+				]
 			}
 		]
 	},
 	"second-list": {
 		"section-title": "Undertema",
-		"item-list": [
+		"rows": [
 			{
-				"item-list-title": "<a class=\"a-listItem-title\">Første artikkel</a>",
-				"item-list-class": "a-dotted a-clickable"
+				"additional-classes": "a-dotted a-clickable a-list-hasRowLink",
+				"isRowLink": {
+					"rowLink": "/patterns/04-sider-30-artikkel-16-artikkel-v-regnskap/04-sider-30-artikkel-16-artikkel-v-regnskap.html"
+				},
+				"columns": [
+					{
+						"additional-classes": "col",
+						"column-items": [
+							{
+								"column-text": {
+									"text": "Navn på artikkel"
+								}
+							}
+						]
+					}
+				]
 			},
 			{
-				"item-list-title": "<a class=\"a-listItem-title\">Andre artikkel</a>",
-				"item-list-class": "a-dotted a-clickable"
+				"additional-classes": "a-dotted a-clickable a-list-hasRowLink",
+				"isRowLink": {
+					"rowLink": "/patterns/04-sider-30-artikkel-16-artikkel-v-regnskap/04-sider-30-artikkel-16-artikkel-v-regnskap.html"
+				},
+				"columns": [
+					{
+						"additional-classes": "col",
+						"column-items": [
+							{
+								"column-text": {
+									"text": "Navn på artikkel"
+								}
+							}
+						]
+					}
+				]
 			},
 			{
-				"item-list-title": "<a class=\"a-listItem-title\">Tredje artikkel</a>",
-				"item-list-class": "a-dotted a-clickable"
+				"additional-classes": "a-dotted a-clickable a-list-hasRowLink",
+				"isRowLink": {
+					"rowLink": "/patterns/04-sider-30-artikkel-16-artikkel-v-regnskap/04-sider-30-artikkel-16-artikkel-v-regnskap.html"
+				},
+				"columns": [
+					{
+						"additional-classes": "col",
+						"column-items": [
+							{
+								"column-text": {
+									"text": "Navn på artikkel"
+								}
+							}
+						]
+					}
+				]
 			},
 			{
-				"item-list-title": "<a class=\"a-listItem-title\">Fjerde artikkel</a>",
-				"item-list-class": "a-dotted a-clickable"
+				"additional-classes": "a-dotted a-clickable a-list-hasRowLink",
+				"isRowLink": {
+					"rowLink": "/patterns/04-sider-30-artikkel-16-artikkel-v-regnskap/04-sider-30-artikkel-16-artikkel-v-regnskap.html"
+				},
+				"columns": [
+					{
+						"additional-classes": "col",
+						"column-items": [
+							{
+								"column-text": {
+									"text": "Navn på artikkel"
+								}
+							}
+						]
+					}
+				]
 			},
 			{
-				"item-list-title": "<a class=\"a-listItem-title\">Femte artikkel</a>",
-				"item-list-class": "a-dotted a-clickable"
-			},
-			{
-				"item-list-title": "<a class=\"a-listItem-title\">Sjette artikkel</a>",
-				"item-list-class": "a-dotted a-clickable"
-			},
-			{
-				"item-list-title": "<a class=\"a-listItem-title\">Sjuende artikkel</a>",
-				"item-list-class": "a-dotted a-clickable"
-			},
-			{
-				"item-list-title": "<a class=\"a-listItem-title\">Åttende artikkel</a>",
-				"item-list-class": "a-dotted a-clickable"
-			},
-			{
-				"item-list-title": "<a class=\"a-listItem-title\">Niende artikkel</a>",
-				"item-list-class": "a-dotted a-clickable"
+				"additional-classes": "a-dotted a-clickable a-list-hasRowLink",
+				"isRowLink": {
+					"rowLink": "/patterns/04-sider-30-artikkel-16-artikkel-v-regnskap/04-sider-30-artikkel-16-artikkel-v-regnskap.html"
+				},
+				"columns": [
+					{
+						"additional-classes": "col",
+						"column-items": [
+							{
+								"column-text": {
+									"text": "Navn på artikkel"
+								}
+							}
+						]
+					}
+				]
 			}
 		]
 	},
 	"third-list": {
 		"section-title": "Undertema",
-		"item-list": [
+		"rows": [
 			{
-				"item-list-title": "<a class=\"a-listItem-title\">Første artikkel</a>",
-				"item-list-class": "a-dotted a-clickable"
+				"additional-classes": "a-dotted a-clickable a-list-hasRowLink",
+				"isRowLink": {
+					"rowLink": "/patterns/04-sider-30-artikkel-16-artikkel-v-regnskap/04-sider-30-artikkel-16-artikkel-v-regnskap.html"
+				},
+				"columns": [
+					{
+						"additional-classes": "col",
+						"column-items": [
+							{
+								"column-text": {
+									"text": "Navn på artikkel"
+								}
+							}
+						]
+					}
+				]
 			},
 			{
-				"item-list-title": "<a class=\"a-listItem-title\">Andre artikkel</a>",
-				"item-list-class": "a-dotted a-clickable"
+				"additional-classes": "a-dotted a-clickable a-list-hasRowLink",
+				"isRowLink": {
+					"rowLink": "/patterns/04-sider-30-artikkel-16-artikkel-v-regnskap/04-sider-30-artikkel-16-artikkel-v-regnskap.html"
+				},
+				"columns": [
+					{
+						"additional-classes": "col",
+						"column-items": [
+							{
+								"column-text": {
+									"text": "Navn på artikkel"
+								}
+							}
+						]
+					}
+				]
 			},
 			{
-				"item-list-title": "<a class=\"a-listItem-title\">Tredje artikkel</a>",
-				"item-list-class": "a-dotted a-clickable"
+				"additional-classes": "a-dotted a-clickable a-list-hasRowLink",
+				"isRowLink": {
+					"rowLink": "/patterns/04-sider-30-artikkel-16-artikkel-v-regnskap/04-sider-30-artikkel-16-artikkel-v-regnskap.html"
+				},
+				"columns": [
+					{
+						"additional-classes": "col",
+						"column-items": [
+							{
+								"column-text": {
+									"text": "Navn på artikkel"
+								}
+							}
+						]
+					}
+				]
+			},
+			{
+				"additional-classes": "a-dotted a-clickable a-list-hasRowLink",
+				"isRowLink": {
+					"rowLink": "/patterns/04-sider-30-artikkel-16-artikkel-v-regnskap/04-sider-30-artikkel-16-artikkel-v-regnskap.html"
+				},
+				"columns": [
+					{
+						"additional-classes": "col",
+						"column-items": [
+							{
+								"column-text": {
+									"text": "Navn på artikkel"
+								}
+							}
+						]
+					}
+				]
+			},
+			{
+				"additional-classes": "a-dotted a-clickable a-list-hasRowLink",
+				"isRowLink": {
+					"rowLink": "/patterns/04-sider-30-artikkel-16-artikkel-v-regnskap/04-sider-30-artikkel-16-artikkel-v-regnskap.html"
+				},
+				"columns": [
+					{
+						"additional-classes": "col",
+						"column-items": [
+							{
+								"column-text": {
+									"text": "Navn på artikkel"
+								}
+							}
+						]
+					}
+				]
 			}
 		]
 	},
 	"fourth-list": {
 		"section-title": "Undertema",
-		"item-list": [
+		"rows": [
 			{
-				"item-list-title": "<a class=\"a-listItem-title\">Første artikkel</a>",
-				"item-list-class": "a-dotted a-clickable"
+				"additional-classes": "a-dotted a-clickable a-list-hasRowLink",
+				"isRowLink": {
+					"rowLink": "/patterns/04-sider-30-artikkel-16-artikkel-v-regnskap/04-sider-30-artikkel-16-artikkel-v-regnskap.html"
+				},
+				"columns": [
+					{
+						"additional-classes": "col",
+						"column-items": [
+							{
+								"column-text": {
+									"text": "Navn på artikkel"
+								}
+							}
+						]
+					}
+				]
 			},
 			{
-				"item-list-title": "<a class=\"a-listItem-title\">Andre artikkel</a>",
-				"item-list-class": "a-dotted a-clickable"
+				"additional-classes": "a-dotted a-clickable a-list-hasRowLink",
+				"isRowLink": {
+					"rowLink": "/patterns/04-sider-30-artikkel-16-artikkel-v-regnskap/04-sider-30-artikkel-16-artikkel-v-regnskap.html"
+				},
+				"columns": [
+					{
+						"additional-classes": "col",
+						"column-items": [
+							{
+								"column-text": {
+									"text": "Navn på artikkel"
+								}
+							}
+						]
+					}
+				]
 			},
 			{
-				"item-list-title": "<a class=\"a-listItem-title\">Tredje artikkel</a>",
-				"item-list-class": "a-dotted a-clickable"
+				"additional-classes": "a-dotted a-clickable a-list-hasRowLink",
+				"isRowLink": {
+					"rowLink": "/patterns/04-sider-30-artikkel-16-artikkel-v-regnskap/04-sider-30-artikkel-16-artikkel-v-regnskap.html"
+				},
+				"columns": [
+					{
+						"additional-classes": "col",
+						"column-items": [
+							{
+								"column-text": {
+									"text": "Navn på artikkel"
+								}
+							}
+						]
+					}
+				]
 			},
 			{
-				"item-list-title": "<a class=\"a-listItem-title\">Fjerde artikkel</a>",
-				"item-list-class": "a-dotted a-clickable"
+				"additional-classes": "a-dotted a-clickable a-list-hasRowLink",
+				"isRowLink": {
+					"rowLink": "/patterns/04-sider-30-artikkel-16-artikkel-v-regnskap/04-sider-30-artikkel-16-artikkel-v-regnskap.html"
+				},
+				"columns": [
+					{
+						"additional-classes": "col",
+						"column-items": [
+							{
+								"column-text": {
+									"text": "Navn på artikkel"
+								}
+							}
+						]
+					}
+				]
 			},
 			{
-				"item-list-title": "<a class=\"a-listItem-title\">Femte artikkel</a>",
-				"item-list-class": "a-dotted a-clickable"
-			},
-			{
-				"item-list-title": "<a class=\"a-listItem-title\">Sjette artikkel</a>",
-				"item-list-class": "a-dotted a-clickable"
-			},
-			{
-				"item-list-title": "<a class=\"a-listItem-title\">Sjuende artikkel</a>",
-				"item-list-class": "a-dotted a-clickable"
-			},
-			{
-				"item-list-title": "<a class=\"a-listItem-title\">Åttende artikkel</a>",
-				"item-list-class": "a-dotted a-clickable"
-			},
-			{
-				"item-list-title": "<a class=\"a-listItem-title\">Niende artikkel</a>",
-				"item-list-class": "a-dotted a-clickable"
+				"additional-classes": "a-dotted a-clickable a-list-hasRowLink",
+				"isRowLink": {
+					"rowLink": "/patterns/04-sider-30-artikkel-16-artikkel-v-regnskap/04-sider-30-artikkel-16-artikkel-v-regnskap.html"
+				},
+				"columns": [
+					{
+						"additional-classes": "col",
+						"column-items": [
+							{
+								"column-text": {
+									"text": "Navn på artikkel"
+								}
+							}
+						]
+					}
+				]
 			}
 		]
 	},
@@ -493,7 +735,6 @@
 	"temaside-starteBedrift": {
 		"title": "Altinn",
 		"page-title": "Starte bedrift",
-		"item-list-dottedTop": false,
 		"login-or-switchuser": "",
 		"data-toggle-personInfo": "dropdown",
 		"url": "#",
