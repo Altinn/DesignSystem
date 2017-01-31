@@ -317,6 +317,11 @@ textarea {
 
     // input: Hide border left if there is a addon
     .form-control {
+      &::-ms-clear { //hide clear-cross from ie to prevent line height expansion
+        width: 0;
+        height: 0;
+      }
+
       &:not(.form-control-noAddon) {
         padding-left: 0;
         border-left: none;
@@ -345,11 +350,6 @@ textarea {
         z-index: 4;
         background-color: $white;
         border-color: $blue-dark;
-
-        &::-ms-clear { //hide clear-cross from ie to prevent line height expansion
-          width: 0;
-          height: 0;
-        }
 
         .btn {
           z-index: 4;
