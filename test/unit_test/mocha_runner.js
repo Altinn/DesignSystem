@@ -18,6 +18,6 @@ rewire = require('rewire');
 
 mocha.reporter('spec').ui('tdd');
 
-mocha.addFile('./test/unit_test/alphanumeric_sorting.js');
+// mocha.addFile('./test/unit_test/alphanumeric_sorting.js');
 
 runner = mocha.run();

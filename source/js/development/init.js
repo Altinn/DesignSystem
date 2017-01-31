@@ -1,5 +1,5 @@
 /* globals _anchors, hideIntroInSubs, insetVariations, selectAll, toggleTheme, fixPatternLinks,
-preOpenModals, prototypingInteractionStarteENK $ */
+preOpenModals, prototypingInteractionStarteENK, $, onboarding */
 window.altinnDev = function() {
   _anchors();
   hideIntroInSubs();
@@ -9,6 +9,7 @@ window.altinnDev = function() {
   fixPatternLinks();
   preOpenModals();
   prototypingInteractionStarteENK();
+  onboarding();
 };
 window.altinnDev();
 $('.html-escape').each(function() {
