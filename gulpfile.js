@@ -165,6 +165,13 @@ gulp.task('pl-copy:distribution-portal-js', function () {
     .pipe(gulp.dest('dist/js'));
 });
 
+// Flatten development JS and copy into public JS folder:
+gulp.task('pl-copy:designsystemdev-js', function () {
+  return gulp.src(buildConfig.altinnDev.jsFiles.files)
+    .pipe(gulp_concat('concat.js')).pipe(gulp_rename(buildConfig.altinnDev.jsFiles.filename))
+    .pipe(gulp.dest('public/js'));
+});
+
 // Create custom js distibution for Portal.
 gulp.task('pl-copy:distribution-patterns', function () {
   return gulp.src('public/patterns/**')
@@ -187,6 +194,7 @@ function build (done) {
 
 gulp.task('pl-assets', gulp.series(
   gulp.parallel(
+    'pl-copy:designsystemdev-js',
     'pl-copy:public-js'
   ),
     function (done) {
@@ -260,7 +268,7 @@ function watch () {
   gulp.watch(paths().source.js + 'production/**/*.js')
     .on('change', gulp.series('pl-copy:distribution-js', 'pl-copy:distribution-vendor-portal-js', 'pl-copy:distribution-portal-js', reload));
   gulp.watch(paths().source.js + 'development/**/*.js')
-    .on('change', gulp.series('pl-copy:distribution-js', 'pl-copy:distribution-vendor-portal-js','pl-copy:distribution-portal-js', reload));
+    .on('change', gulp.series('pl-copy:distribution-js', 'pl-copy:distribution-vendor-portal-js','pl-copy:distribution-portal-js', 'pl-copy:designsystemdev-js', reload));
 
   var patternWatches = [
     paths().source.patterns + '**/*.json',
