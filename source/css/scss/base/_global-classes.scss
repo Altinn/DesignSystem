@@ -238,7 +238,7 @@ hr {
 .a-dotted {
   background-image: $dotted-border-blue;
   background-repeat: repeat-x;
-  background-position: 25px bottom; // Must be either top or bottom, not both. If both are needed, add a div with class "a-dotted-line" before or after the element.
+  background-position: 25px bottom;
   background-size: 4px 2px;
 
   /* Horizontal Rule - Dotted AND disabled */
@@ -366,13 +366,32 @@ hr {
           }
 
           &.a-success {
-            background-color: $green-light;
+            background-color: $blue-light;
+          }
+        }
+      }
+    }
+  }
+}// If background dark color
+.a-jumbotron-dark {
+  .a-clickable,
+  .a-selectable {
+    &:hover,
+    &:active,
+    &:focus {
+      &:not(.a-expanded) {
+        &:not(.a-deleted) {
+          &:not(.a-completed) {
+            cursor: pointer;
+            background-color: $white-opacity-02;
+            box-shadow: none;
           }
         }
       }
     }
   }
 }
+
 
 .a-selectable {
   &.a-selected {

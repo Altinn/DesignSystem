@@ -2,14 +2,14 @@
 var mobileNavigation = function() {
   $('.ap-sideNav-mobilebar').click(function() {
     var self = $(this);
-    var searchButton = $('.a-toggle-search').hasClass('open');
-    if (self.hasClass('open')) {
-      $('.ap-sideNav-collapse').slideUp(300); self.removeClass('open');
+    var searchButton = $('.a-toggle-search').hasClass('show');
+    if (self.hasClass('show')) {
+      $('.ap-sideNav-collapse').slideUp(300); self.removeClass('show');
     } else {
       if (searchButton === true) {
-        $('.a-search').slideUp(300); $('.a-toggle-search').removeClass('open');
+        $('.a-search').slideUp(300); $('.a-toggle-search').removeClass('show');
       }
-      self.addClass('open'); $('.ap-sideNav-collapse').slideDown(300);
+      self.addClass('show'); $('.ap-sideNav-collapse').slideDown(300);
     }
     return false;
   });

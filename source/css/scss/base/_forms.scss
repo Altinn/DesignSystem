@@ -11,32 +11,36 @@ input {
   &[type='password'] {
     -webkit-appearance: none;
   }
+}
 
-  &:-moz-placeholder { /* Firefox 18- */
-    // sass-lint:disable-block no-important
+input,
+textarea {
+  &::placeholder {
+    line-height: 4rem;
     color: $grey !important;
+    opacity: 1 !important;
+    -webkit-font-smoothing: $default-font-smoothing;
   }
 
-  &::-webkit-input-placeholder {
-    // sass-lint:disable-block no-important
-    color: $grey !important;
-  }
+  &:focus {
+    &::placeholder {
+      color: transparent !important;
+    }
 
-  &::-moz-placeholder {  /* Firefox 19+ */
-    // sass-lint:disable-block no-important
-    color: $grey !important;
-  }
-
-  &:-ms-input-placeholder {
-    // sass-lint:disable-block no-important
-    color: $grey !important;
+    // prefix-appender doesn't handle firefox properly here, need to specify explicitly
+    &::-moz-placeholder {
+      color: transparent !important;
+    }
   }
 }
 
 textarea {
   -webkit-appearance: none;
-}
 
+  &::placeholder {
+    @include a-fontSize16;
+  }
+}
 
 /*------------------------------------*\
  * FORM GROUP
@@ -62,20 +66,6 @@ textarea {
       button,
       .input-group-addon {
         background-color: transparent;
-      }
-
-      input {
-        &:-webkit-input-placeholder {
-          color: $grey;
-        }
-
-        &:-moz-placeholder {
-          color: $grey;
-        }
-
-        &:-ms-input-placeholder {
-          color: $grey;
-        }
       }
     }
 
@@ -104,10 +94,12 @@ textarea {
   // Input
   .form-control {
     @include a-fontSize16;
+    @include a-fontReg;
     min-width: 0; // Need to set this to prevent Firefox from adding a default min-width to input fields
     height: $spacer * 3;
     padding: 2px $spacer 0 $spacer;
     margin-left: -$spacer / 12;
+    line-height: 4rem; // Inputs must have larger line-height, so the letter "Å" dont dissapear.
     color: $grey;
     letter-spacing: $font-letter-spacing;
     border: 2px solid $blue;
@@ -159,7 +151,8 @@ textarea {
     .form-control {
       @include a-fontSize20;
       height: $spacer * 5;
-      padding: 4px $spacer 0 $spacer;
+      padding: 0 $spacer 0 $spacer;
+      line-height: 7rem;// Inputs must have larger line-height, so the letter "Å" dont dissapear.
     }
 
     .input-group-btn {
@@ -300,6 +293,7 @@ textarea {
     .input-group-addon {
       @include a-fontSize16;
       @include a-fontReg;
+      display: block;
       min-width: $spacer * 3;
       height: $spacer * 3;
       padding: 5px $spacer / 2 0 $spacer / 2;
@@ -401,6 +395,7 @@ textarea {
    * TEXT AREA
   \*------------------------------------*/
   .a-textarea {
+    @include a-fontSize16;
     min-height: $spacer * 11;
     padding: $spacer;
     border: 2px solid $blue;
@@ -864,7 +859,7 @@ textarea {
 }
 
 // TODO: merge with .a-dropdown-toggle with & revert selector? .a-dropdown-toggle { .open & {...} }
-.open {
+.show {
   .a-dropdown-toggle {
     border-color: $blue-dark;
 
