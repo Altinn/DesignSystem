@@ -12,11 +12,26 @@ var sass = require('gulp-sass');
 var version = pjson.version;
 var argv = require('minimist')(process.argv.slice(2));
 var sourcemaps = require('gulp-sourcemaps');
+var del = require('del');
 var buildConfig = require('./config/gulp/config');
 var config = require('./patternlab-config.json');
 var patternlab = require('patternlab-node')(config);
 
 function paths () { return config.paths }
+
+// tasks for deleting files in build-folders
+gulp.task('pl-clean:dist', function() {
+  return del([
+    'dist/**/*',
+  ]);
+});
+
+gulp.task('pl-clean:public', function() {
+  return del([
+    'public/*', '!public/fonts'
+  ]);
+});
+
 // Copy SSB data file from source into public folder:
 gulp.task('pl-copy:ssb', function () {
   return gulp.src('source/ssb.json')
@@ -310,6 +325,7 @@ gulp.task('patternlab:connect', gulp.series(function (done) {
 gulp.task('patternlab:watch', gulp.series('patternlab:build', watch));
 gulp.task('patternlab:serve',
   gulp.series(
+    'pl-clean:public',
     'patternlab:prebuild',
     'patternlab:build',
     'patternlab:connect',
@@ -318,8 +334,9 @@ gulp.task('patternlab:serve',
 );
 gulp.task('dist',
   gulp.series(
-    // 'patternlab:prebuild',
-    // 'patternlab:build',
+    'pl-clean:dist',
+    'patternlab:prebuild',
+    'patternlab:build',
     'pl-copy:distribution-css',
     'pl-copy:distribution-epi',
     'pl-copy:distribution-patterns',
