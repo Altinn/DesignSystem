@@ -1,1 +1,4 @@
-// This file is here so gulp manages to build a js-file
+window.portalInit = function() {
+  // ...
+};
+window.portalInit();
