@@ -99,7 +99,6 @@ textarea {
     height: $spacer * 3;
     padding: 2px $spacer 0 $spacer;
     margin-left: -$spacer / 12;
-    line-height: 4rem; // Inputs must have larger line-height, so the letter "Å" dont dissapear.
     color: $grey;
     letter-spacing: $font-letter-spacing;
     border: 2px solid $blue;
@@ -118,6 +117,7 @@ textarea {
   .input-group-btn {
     position: absolute;
     right: 0;
+    height: 100%;
 
     .btn {
       width: $spacer * 4;
@@ -152,7 +152,6 @@ textarea {
       @include a-fontSize20;
       height: $spacer * 5;
       padding: 0 $spacer 0 $spacer;
-      line-height: 7rem;// Inputs must have larger line-height, so the letter "Å" dont dissapear.
     }
 
     .input-group-btn {
@@ -318,6 +317,11 @@ textarea {
 
     // input: Hide border left if there is a addon
     .form-control {
+      &::-ms-clear { //hide clear-cross from ie to prevent line height expansion
+        width: 0;
+        height: 0;
+      }
+
       &:not(.form-control-noAddon) {
         padding-left: 0;
         border-left: none;
