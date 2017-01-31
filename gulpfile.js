@@ -15,9 +15,22 @@ var sourcemaps = require('gulp-sourcemaps');
 var buildConfig = require('./config/gulp/config');
 var config = require('./patternlab-config.json');
 var patternlab = require('patternlab-node')(config);
+var del = require('del');
 
 function paths () { return config.paths }
 // Copy SSB data file from source into public folder:
+gulp.task('pl-clean:dist', function() {
+  return del([
+    'dist/**/*',
+  ]);
+});
+
+gulp.task('pl-clean:public', function() {
+  return del([
+    'public/**/*',
+  ]);
+});
+
 gulp.task('pl-copy:ssb', function () {
   return gulp.src('source/ssb.json')
     .pipe(gulp.dest(paths().public.root));
@@ -318,6 +331,7 @@ gulp.task('patternlab:serve',
 );
 gulp.task('dist',
   gulp.series(
+    'pl-clean:dist',
     // 'patternlab:prebuild',
     // 'patternlab:build',
     'pl-copy:distribution-css',
