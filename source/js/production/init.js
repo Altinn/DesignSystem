@@ -5,7 +5,7 @@ nameChecker, codeLookup, handleValidatorLibrary,
 defaultSort, setupAddRightsHandler, onFileInputChange, toggleInstant, switchForm,
 addListExpandHandler,
 addListSortHandler, setupListRowSelect, setupOnKeypress,
-genericSearch */
+genericSearch, formatOrgNr */
 
 window.altinnInit = function() {
   toggleExpand();
@@ -34,6 +34,7 @@ window.altinnInit = function() {
   addListSortHandler();
   setupListRowSelect();
   setupOnKeypress();
+  formatOrgNr();
 };
 window.altinnInit();
 window.smoothStateMod = function() {
