@@ -5,7 +5,7 @@ nameChecker, codeLookup, handleValidatorLibrary,
 defaultSort, setupAddRightsHandler, onFileInputChange, toggleInstant, switchForm,
 addListExpandHandler,
 addListSortHandler, setupListRowSelect, setupOnKeypress,
-genericSearch, formatOrgNr */
+genericSearch*/
 
 window.sharedInit = function() {
   addListExpandHandler();
