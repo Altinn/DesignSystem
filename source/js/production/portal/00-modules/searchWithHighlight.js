@@ -27,4 +27,7 @@ var mark = function() {
     }
   });
 };
-$('input[data-search-algorithm="show-and-highlight"]').on('input', mark);
+
+var initSearchWithHighlight = function() {
+  $('input[data-search-algorithm="show-and-highlight"]').on('input', mark);
+};

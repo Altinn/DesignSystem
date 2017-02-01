@@ -28,7 +28,7 @@ gulp.task('pl-clean:dist', function() {
 
 gulp.task('pl-clean:public', function() {
   return del([
-    'public/*', '!public/fonts'
+    'public/*', '!public/fonts', '!public/patternlab-components'
   ]);
 });
 

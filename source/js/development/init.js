@@ -1,6 +1,6 @@
 /* globals _anchors, hideIntroInSubs, insetVariations, selectAll, toggleTheme, fixPatternLinks,
   preOpenModals, prototypingInteractionStarteENK, $, onboarding, codeLookup, nameChecker,
-  toggleInstant, defaultSort, setupAddRightsHandler, onFileInputChange,  */
+  toggleInstant, defaultSort, setupAddRightsHandler, onFileInputChange */
 window.devInit = function() {
   _anchors();
   hideIntroInSubs();
@@ -17,6 +17,8 @@ window.devInit = function() {
   setupAddRightsHandler();
   onFileInputChange();
   toggleInstant();
+  selectAll();
+  toggleTheme();
 };
 window.devInit();
 $('.html-escape').each(function() {
