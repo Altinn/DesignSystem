@@ -22,4 +22,3 @@ window.sharedInit = function() {
   tooltip();
 };
 window.sharedInit();
-$(document).foundation();

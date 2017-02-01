@@ -15,3 +15,4 @@ window.infoportalInit = function() {
   uniformHeight();
 };
 window.infoportalInit();
+$(document).foundation();
