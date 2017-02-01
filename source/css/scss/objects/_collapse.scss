@@ -201,15 +201,16 @@
     }
 
     &.expanded {
-      padding: 0 $spacer;
+      padding: 0 $spacer / 2;
 
       @include media-breakpoint-up( xs ) {
-        width: calc( 100% + 12px );
+        width: calc( 100% + $spacer );
         margin-left: -$spacer / 2;
       }
 
       @include media-breakpoint-up( sm ) {
         width: calc( 100% + 24px );
+        padding: 0 $spacer;
         margin-left: -$spacer;
 
         .a-collapseBtn {
@@ -260,8 +261,7 @@
 }
 
 .a-collapsePanel-body-secondary {
-  margin: -1px;
-  margin-top: 0;
+  margin: -1px 0;
   background-color: $grey-light;
   border: 1px solid $grey-medium;
 
