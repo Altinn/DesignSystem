@@ -15,7 +15,7 @@ var onboarding = function() {
     $('.navbar-toggler')[0].click();
   }
   steps = onboardingCrawl();
-  $('body').css('overflow-x', 'hidden');
+  $('.modal-open').css('overflow-x', 'hidden');
   $('.onboarding-neutral').hide();
   $('.onboarding-wrapper').hide();
   $('.onboarding-wrapper')

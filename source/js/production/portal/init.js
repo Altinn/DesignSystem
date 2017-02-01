@@ -1,1 +1,13 @@
-// This file is here so gulp manages to build a js-file
+/* globals
+  formatOrgNr,
+  onConfirmDeletionClick,
+  setupListRowSelect,
+  initSearchWithHighlight
+*/
+window.portalInit = function() {
+  formatOrgNr();
+  onConfirmDeletionClick();
+  setupListRowSelect();
+  initSearchWithHighlight();
+};
+window.portalInit();
