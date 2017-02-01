@@ -1,5 +1,11 @@
-/* globals drilldownInteraction, switchForm, genericSearch, handleValidatorLibrary,
-  questionnaireInteraction, uniformHeight */
+/* globals
+  drilldownInteraction,
+  switchForm,
+  genericSearch,
+  handleValidatorLibrary,
+  questionnaireInteraction,
+  uniformHeight
+*/
 window.infoportalInit = function() {
   drilldownInteraction();
   switchForm();

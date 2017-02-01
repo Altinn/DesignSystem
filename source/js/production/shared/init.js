@@ -23,3 +23,28 @@ window.sharedInit = function() {
 };
 window.sharedInit();
 $(document).foundation();
+/* globals
+  aTagSpaceExpand,
+  handleFocus,
+  initializeDatepicker,
+  sortListAlphanumerically,
+  mobileNavigation,
+  popover,
+  propagateContent,
+  toggleExpand,
+  toggleFilter,
+  tooltip
+*/
+window.sharedInit = function() {
+  aTagSpaceExpand();
+  handleFocus();
+  initializeDatepicker();
+  sortListAlphanumerically();
+  mobileNavigation();
+  popover();
+  propagateContent();
+  toggleExpand();
+  toggleFilter();
+  tooltip();
+};
+window.sharedInit();
