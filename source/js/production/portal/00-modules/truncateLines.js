@@ -1,9 +1,10 @@
 var truncateToNumberOfLines = function(element) {
-  var p = $($(element).find('div')[0]);
-  var divh = $(element).height();
-  if ($(p).outerHeight() >= (divh + 5)) {
-    while ($(p).outerHeight() >= (divh + 5)) {
-      $(p).text(function(index, text) {
+  var innerText = $($(element).find('.a-js-inner-text')[0]);
+  var containerHeight = $(element).height();
+
+  if ($(innerText).outerHeight() >= (containerHeight + 5)) {
+    while ($(innerText).outerHeight() >= (containerHeight + 5)) {
+      $(innerText).text(function(index, text) {
         return text.replace(/\W*\s(\S)*$/, '...');
       });
     }
