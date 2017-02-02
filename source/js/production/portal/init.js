@@ -4,7 +4,8 @@
   onConfirmDeletionClick,
   setupListRowSelect,
   initSearchWithHighlight,
-  toggleSwitch
+  toggleSwitch,
+  truncateBoxButtonNames
 */
 window.portalInit = function() {
   formatOrgNr();
@@ -13,5 +14,6 @@ window.portalInit = function() {
   setupListRowSelect();
   initSearchWithHighlight();
   toggleSwitch();
+  truncateBoxButtonNames();
 };
 window.portalInit();
