@@ -161,13 +161,15 @@
 	}
 
   .a-btn-icon-symbol {
-    @include a-fontSize22;
+    // @include a-fontSize22;
 
-    width: 38px;
-    padding-right: $spacer;
-    margin-top: -5px;
-    text-align: center;
-    vertical-align: middle;
+    width: $spacer * 3;
+    height: $spacer * 3;
+    padding: 0;
+    color: $white;
+    background: $blue;
+    border-radius: 50px;
+    justify-content: center;
 	}
 }
 // BTN WITH WHITE TRANSPARENCY
@@ -183,7 +185,7 @@
   }
 
   .a-btn-icon-symbol {
-    @include a-fontSize18;
+    // @include a-fontSize18;
     display: inline-flex;
     width: $spacer * 3;
     height: $spacer * 3;
@@ -314,6 +316,13 @@
   background: $white;
   border: 1px solid $grey-medium;
 
+  &[data-target] {
+    i,
+    .a-box-button-action {
+      color: $grey;
+    }
+  }
+
   .a-childBoxButtonList & {
     background-color: $grey-light;
   }
@@ -387,7 +396,7 @@
   }
 
   .a-meta-text {
-    @extend .a-fontSizeXXS;
+    @extend .a-fontSizeXXXXS;
     min-height: 20px;
   }
 
