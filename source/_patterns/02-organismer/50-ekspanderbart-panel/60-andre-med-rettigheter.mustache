@@ -7,13 +7,24 @@
     </a>
   </div>
   <div id="{{ collapseID }}" class="a-collapsePanel-body no-background collapse {{{ isVisibleFromStart }}}" role="tabpanel" aria-labelledby="{{ collapse-panel-id }}">
-      {{# activity-log }}
-        <div class="pr-4 pl-2 py-1 text-sm-right a-collapsePanel-body-secondary">
-          {{> atomer-link }}
-        </div>
-      {{/ activity-log }}
-      <div>
-        {{> molekyler-grupperte-fremhevede-knapper }}
+    {{# activity-log }}
+      <div class="pr-4 pl-2 py-1 text-sm-right a-collapsePanel-body-secondary">
+        {{> atomer-link }}
       </div>
+    {{/ activity-log }}
+
+    {{# box-list-id }}
+      {{> molekyler-grupperte-fremhevede-knapper }}
+    {{/ box-list-id }}
+
+    {{# empty-rights }}
+      <div class="clearfix">
+        {{> atomer-varsel }}
+      </div>
+
+      <div class="mt-1 mx-1">
+        {{> atomer-handlingsknapp-full-bredde }}
+      </div>
+    {{/ empty-rights }}
   </div>
 </div>
