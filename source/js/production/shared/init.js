@@ -2,7 +2,8 @@
 propagateContent, toggleExpand, toggleFilter, uniformHeight, tooltip, popover, aTagSpaceExpand,
 initializeDatepicker, onboarding, nameChecker, codeLookup, handleValidatorLibrary, defaultSort,
 setupAddRightsHandler, onFileInputChange, toggleInstant, switchForm, addListExpandHandler,
-addListSortHandler, setupListRowSelect, setupOnKeypress, genericSearch, articleAnchors */
+addListSortHandler, setupListRowSelect, setupOnKeypress, genericSearch, articleAnchors,
+feedbackToggle */
 
 window.sharedInit = function() {
   addListExpandHandler();
@@ -18,5 +19,6 @@ window.sharedInit = function() {
   toggleFilter();
   tooltip();
   articleAnchors();
+  feedbackToggle();
 };
 window.sharedInit();
