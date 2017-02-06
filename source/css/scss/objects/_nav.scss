@@ -61,15 +61,10 @@
 .a-breadcrumb {
   @include a-fontSize16;
   padding: 0;
-  padding-top: $spacer;
   background: transparent;
 
   @include media-breakpoint-up( md ) {
     @include a-fontSize20;
-  }
-
-  @include media-breakpoint-up( lg ) {
-    padding-top: $spacer * 3;
   }
 
   li {
@@ -91,13 +86,13 @@
 
     &.breadcrumb-item + .breadcrumb-item {
       &::before {
-        @include media-breakpoint-up( sm ) {
+        padding-right: 0;
+        padding-left: 0;
+
+        @include media-breakpoint-up( md ) {
           padding-right: $spacer / 2;
           padding-left: $spacer;
         }
-
-        padding-right: 0;
-        padding-left: 0;
       }
     }
 
@@ -208,6 +203,8 @@
 }
 
 .a-inline-page-link {
+  display: block;
+
   .row {
     margin: 0;
   }
@@ -224,11 +221,12 @@
     justify-content: space-between;
   }
 
-  .nav-link {
+  a {
     @extend .a-fontSizeXS;
     @include a-fontBold;
 
     display: inline-block;
+    padding: 0;
     color: $blue-dark;
     text-decoration: none;
     border: none;

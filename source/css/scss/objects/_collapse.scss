@@ -3,12 +3,14 @@
     Collapse horizontal
 \*------------------------------------*/
 
-.collapse {
-  &.width {
-    height: auto;
-    transition: width 0.35s ease;
-  }
-}
+// .collapse {
+//   display: block;
+
+//   &.width {
+//     height: auto;
+//     transition: width 0.35s ease;
+//   }
+// }
 
 /*------------------------------------*\
     $COLLAPSE PANEL
@@ -86,7 +88,7 @@
       border-top: none;
     }
 
-    &.in {
+    &.show {
       height: auto;
       border-top: 1px solid $grey-light;
     }
@@ -160,7 +162,12 @@
       float: right;
       padding-right: $spacer * 3;
     }
+
+    .a-third-action-spacer {
+      padding-top: 5px; // align text to searchfield text, pixel-pushing necessary here
+    }
   }
+
 
   .a-fourth-action {
     button {
@@ -194,7 +201,7 @@
     }
 
     &.expanded {
-      padding: 0 $spacer;
+      padding: 0 $spacer / 2;
 
       @include media-breakpoint-up( xs ) {
         width: calc( 100% + 12px );
@@ -203,6 +210,7 @@
 
       @include media-breakpoint-up( sm ) {
         width: calc( 100% + 24px );
+        padding: 0 $spacer;
         margin-left: -$spacer;
 
         .a-collapseBtn {
@@ -253,8 +261,7 @@
 }
 
 .a-collapsePanel-body-secondary {
-  margin: -1px;
-  margin-top: 0;
+  margin: -1px 0;
   background-color: $grey-light;
   border: 1px solid $grey-medium;
 
@@ -306,7 +313,7 @@
   }
 
   &.collapse {
-    &.in {
+    &.show {
       .a-collapseContent-img {
         opacity: 1;
         transition: all 200ms ease-in;
@@ -379,7 +386,7 @@
 .a-collapsePanel-body {
   &.collapse,
   .a-onboarding {
-    &.in {
+    &.show {
       .a-collapseContent-delay {
         opacity: 1;
         transition: all 100ms ease-in;
@@ -486,6 +493,10 @@
         padding-top: 0;
       }
     }
+  }
+
+  &.a-accordion-largeText {
+    @include a-fontSize20;
   }
 
   .a-collapseContent {

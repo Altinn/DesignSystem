@@ -1,6 +1,6 @@
 ---
- state: needsrevalidation
- version: 0
+ state: indesignreview
+ version: 1
 ---
 
-Foreløpig ingen retningslinjer.
+Viser hvor mye som gjenstår av en verdi med forklarende tall

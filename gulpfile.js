@@ -4,22 +4,40 @@ var fs = require('fs');
 var gulp = require('gulp');
 var autoprefixer = require('gulp-autoprefixer');
 var gulp_concat = require('gulp-concat');
+var cleanCSS = require('gulp-clean-css');
 var gulp_rename = require('gulp-rename');
 var purify = require('gulp-purifycss');
 var pjson = require('./package.json');
 var sass = require('gulp-sass');
 var version = pjson.version;
 var argv = require('minimist')(process.argv.slice(2));
+var sourcemaps = require('gulp-sourcemaps');
+var del = require('del');
+var buildConfig = require('./config/gulp/config');
 var config = require('./patternlab-config.json');
 var patternlab = require('patternlab-node')(config);
-var sourcemaps = require('gulp-sourcemaps');
 
 function paths () { return config.paths }
+
+// tasks for deleting files in build-folders
+gulp.task('pl-clean:dist', function() {
+  return del([
+    'dist/**/*',
+  ]);
+});
+
+gulp.task('pl-clean:public', function() {
+  return del([
+    'public/*', '!public/fonts', '!public/patternlab-components'
+  ]);
+});
+
 // Copy SSB data file from source into public folder:
 gulp.task('pl-copy:ssb', function () {
   return gulp.src('source/ssb.json')
     .pipe(gulp.dest(paths().public.root));
 });
+
 
 // Copy Skjenkebevilling data file from source into public folder:
 gulp.task('pl-copy:skj', function () {
@@ -27,64 +45,10 @@ gulp.task('pl-copy:skj', function () {
     .pipe(gulp.dest(paths().public.root));
 });
 
-// Copy Foundation Navigation file from source into public JS folder:
-gulp.task('pl-copy:js', function () {
-  return gulp.src('source/js/production/00-modules/foundationNavigation.min.js')
-    .pipe(gulp.dest(paths().public.js));
-});
-
-// Copy Anchor distribution from installed package into public JS folder:
-gulp.task('pl-copy:an', function () {
-  return gulp.src('node_modules/anchor-js/anchor.min.js')
-  .pipe(gulp.dest(paths().public.js));
-});
-
-// Copy Clipboard distribution from installed package into public JS folder:
-gulp.task('pl-copy:cl', function () {
-  return gulp.src('node_modules/clipboard/dist/clipboard.min.js')
-  .pipe(gulp.dest(paths().public.js));
-});
-
-// Copy Bootstrap distribution from installed package into public JS folder:
-gulp.task('pl-copy:bs', function () {
-  return gulp.src('node_modules/bootstrap/dist/js/bootstrap.min.js')
-    .pipe(gulp.dest(paths().public.js));
-});
-
 // Copy jQuery distribution from installed package into public JS folder:
 gulp.task('pl-copy:jq', function () {
   return gulp.src('node_modules/jquery/dist/jquery.min.js')
   .pipe(gulp.dest(paths().public.js))
-});
-
-// Copy SmoothState distribution from installed package into public JS folder:
-gulp.task('pl-copy:ss', function () {
-  return gulp.src('node_modules/smoothstate/jquery.smoothState.min.js')
-  .pipe(gulp.dest(paths().public.js))
-});
-
-// Copy Tether distribution from installed package into public JS folder:
-gulp.task('pl-copy:th', function () {
-  return gulp.src('node_modules/tether/dist/js/tether.min.js')
-    .pipe(gulp.dest(paths().public.js))
-});
-
-// Copy Validator distribution from installed package into public JS folder:
-gulp.task('pl-copy:bv', function () {
-  return gulp.src('node_modules/bootstrap-validator/dist/validator.min.js')
-    .pipe(gulp.dest(paths().public.js))
-});
-
-// Copy Datepicker distribution from installed package into public JS folder:
-gulp.task('pl-copy:dp', function () {
-  return gulp.src('node_modules/bootstrap-datepicker/dist/js/bootstrap-datepicker.min.js')
-    .pipe(gulp.dest(paths().public.js))
-});
-
-// Copy Datepicker distribution from installed package into public JS folder:
-gulp.task('pl-copy:markjs', function () {
-  return gulp.src('node_modules/mark.js/dist/jquery.mark.min.js')
-    .pipe(gulp.dest(paths().public.js))
 });
 
 // Copy image files from source into public images folder:
@@ -107,11 +71,11 @@ gulp.task('pl-copy:css', function () {
     .pipe(sourcemaps.init())
     .pipe(sass().on('error', sass.logError))
     // We will add this line after removing most of the unused css.
-    // .pipe(purify(['./public/js/**/*.js', './public/patterns/**/*.html']))
     .pipe(autoprefixer({
         browsers: ['last 2 versions'],
         cascade: false
     }))
+    // .pipe(purify(['./public/**/*.js', './public/**/*.html']))
     .pipe(sourcemaps.write('./maps'))
     .pipe(gulp.dest(paths().public.css))
     .pipe(browserSync.stream());
@@ -126,21 +90,6 @@ gulp.task('pl-copy:styleguide', function () {
       gulp.src('./source/images/lab5.png')
         .pipe(gulp.dest('./public/styleguide/images'))
     });
-});
-
-// Flatten production JS and copy into public JS folder:
-gulp.task('pl-copy:designsystemprod-js', function () {
-  return gulp.src(['source/js/production/00-modules/*',
-      'source/js/production/*'])
-    .pipe(gulp_concat('concat.js')).pipe(gulp_rename('altinnProd.js'))
-    .pipe(gulp.dest('public/js'));
-});
-
-// Flatten development JS and copy into public JS folder:
-gulp.task('pl-copy:designsystemdev-js', function () {
-  return gulp.src(['source/js/development/00-modules/*',
-      'source/js/development/*']).pipe(gulp_concat('concat.js'))
-    .pipe(gulp_rename('altinnDev.js')).pipe(gulp.dest('public/js'));
 });
 
 // Create flat distribution CSS file (no Patternlab CSS or styleguide UI CSS)
@@ -158,33 +107,104 @@ gulp.task('pl-copy:distribution-css', function (done) {
         '// Automatically removed');
       src = src.replace('@import "scss/episerver/episerver";',
         '// Automatically removed');
-      fs.writeFileSync('./source/css/style.min.scss', src);
-      gulp.src(paths().source.css + 'style.min.scss')
+      fs.writeFileSync('./source/css/style-temp.scss', src);
+      gulp.src(paths().source.css + 'style-temp.scss')
         .pipe(sass().on('error', sass.logError))
-        .pipe(gulp.dest('public/distributions/v' + version))
-        .pipe(browserSync.stream());
+        .pipe(autoprefixer({
+            browsers: ['last 2 versions'],
+            cascade: false
+        }))
+        .pipe(gulp_rename('style.css'))
+        .pipe(gulp.dest('dist/css'))
+        .pipe(cleanCSS())
+        .pipe(gulp_rename('style.min.css'))
+        .pipe(gulp.dest('dist/css'));
       done();
     }
-    // TODO: Delete style.min.scss from source folder
+    // TODO: Delete style-temp.scss from source folder
   );
+});
+
+// Create distribution CSS file for EPI and copy into distribution folder:
+gulp.task('pl-copy:distribution-epi', function (done) {
+  fs.readFile('./source/css/scss/episerver/_episerver.scss', 'utf-8',
+    function (err, custom) {
+      if (err) {
+        console.log(err);
+      }
+      var src = custom;
+      fs.writeFileSync('./source/css/scss/episerver/epi-temp.scss', src);
+      gulp.src(paths().source.epi + 'epi-temp.scss')
+      .pipe(sass().on('error', sass.logError))
+      .pipe(gulp_rename('epi.css'))
+      .pipe(gulp.dest('dist/css'))
+      .pipe(cleanCSS())
+      .pipe(gulp_rename('epi.min.css'))
+      .pipe(gulp.dest('dist/css'));
+      done();
+    }
+    // TODO: Delete epi.min.scss from source folder
+  )
 });
 
 // Create distribution JS (bundles all JS resources for production, except for
 // jQuery) and copy into distribution folder:
-gulp.task('pl-copy:distribution-js', function () {
-  return gulp.src(
-      ['node_modules/tether/dist/js/tether.min.js',
-      'node_modules/bootstrap/dist/js/bootstrap.min.js',
-      'node_modules/anchor-js/anchor.min.js',
-      'node_modules/bootstrap-validator/dist/validator.min.js',
-      'node_modules/clipboard/dist/clipboard.min.js',
-      'node_modules/bootstrap-datepicker/dist/js/bootstrap-datepicker.min.js',
-      'node_modules/smoothstate/jquery.smoothState.min.js',
-      'source/js/production/00-modules/*',
-      'source/js/production/*',
-      'node_modules/mark.js/dist/jquery.mark.min.js']
-    ).pipe(gulp_concat('concat.js')).pipe(gulp_rename('plugins.min.js'))
-    .pipe(gulp.dest('public/distributions/v' + version));
+gulp.task('pl-copy:distribution-infoportal-js', function () {
+  return gulp.src(buildConfig.infoportal.jsFiles.files)
+    .pipe(gulp_concat('concat.js'))
+    .pipe(gulp_rename(buildConfig.infoportal.jsFiles.filename))
+    .pipe(gulp.dest('dist/js'));
+});
+
+// Create distribution JS (bundles all JS resources for production, except for
+// jQuery) and copy into distribution folder:
+gulp.task('pl-copy:distribution-infoportal-vendor-js', function () {
+  return gulp.src(buildConfig.infoportal.vendorJsFiles.files)
+    .pipe(gulp_concat('concat.js'))
+    .pipe(gulp_rename(buildConfig.infoportal.vendorJsFiles.filename))
+    .pipe(gulp.dest('dist/js'));
+});
+
+// Create vendor distibution for Portal. Custom js will be in a different file
+gulp.task('pl-copy:distribution-portal-vendor-js', function () {
+  return gulp.src(buildConfig.portal.vendorJsFiles.files)
+    .pipe(gulp_concat('concat.js'))
+    .pipe(gulp_rename(buildConfig.portal.vendorJsFiles.filename))
+    .pipe(gulp.dest('dist/js'));
+});
+
+// Create custom js distibution for Portal.
+gulp.task('pl-copy:distribution-portal-js', function () {
+  return gulp.src(buildConfig.portal.jsFiles.files)
+    .pipe(gulp_concat('concat.js'))
+    .pipe(gulp_rename(buildConfig.portal.jsFiles.filename))
+    .pipe(gulp.dest('dist/js'));
+});
+
+// Flatten development JS and copy into public JS folder:
+gulp.task('pl-copy:designsystemdev-js', function () {
+  return gulp.src(buildConfig.altinnDev.jsFiles.files)
+    .pipe(gulp_concat('concat.js')).pipe(gulp_rename(buildConfig.altinnDev.jsFiles.filename))
+    .pipe(gulp.dest('public/js'));
+});
+
+// Flatten development JS and copy into public JS folder:
+gulp.task('pl-copy:designsystemdev-vendor-js', function () {
+  return gulp.src(buildConfig.altinnDev.vendorJsFiles.files)
+    .pipe(gulp_concat('concat.js')).pipe(gulp_rename(buildConfig.altinnDev.vendorJsFiles.filename))
+    .pipe(gulp.dest('public/js'));
+});
+
+// Create custom js distibution for Portal.
+gulp.task('pl-copy:distribution-patterns', function () {
+  return gulp.src('public/patterns/**')
+    .pipe(gulp.dest('dist/patterns'));
+});
+
+// Create custom js distibution for Portal.
+gulp.task('pl-copy:distribution-portal-js-modules', function () {
+  return gulp.src(buildConfig.portal.jsFiles.files)
+    .pipe(gulp.dest('dist/js/modules'));
 });
 
 function getConfiguredCleanOption () {
@@ -196,8 +216,10 @@ function build (done) {
 }
 
 gulp.task('pl-assets', gulp.series(
-  gulp.parallel('pl-copy:designsystemdev-js',
-    'pl-copy:designsystemprod-js'),
+  gulp.parallel(
+    'pl-copy:designsystemdev-js',
+    'pl-copy:designsystemdev-vendor-js'
+  ),
     function (done) {
       done();
     }
@@ -216,28 +238,33 @@ gulp.task('patternlab:help', function (done) {
 
 gulp.task('patternlab:patternsonly', function (done) {
   patternlab.patternsonly(done, getConfiguredCleanOption());
-})
+});
 
 gulp.task('patternlab:liststarterkits', function (done) {
   patternlab.liststarterkits();
   done();
-})
+});
 
 gulp.task('patternlab:loadstarterkit', function (done) {
   patternlab.loadstarterkit(argv.kit, argv.clean);
   done();
-})
+});
 
 gulp.task('patternlab:build', gulp.series('pl-assets', build, function (done) {
   done();
 }));
 
-gulp.task('patternlab:prebuild', gulp.series(
-  'pl-copy:js', 'pl-copy:bs', 'pl-copy:th', 'pl-copy:jq', 'pl-copy:bv',
-  'pl-copy:dp', 'pl-copy:ss', 'pl-copy:an', 'pl-copy:cl', 'pl-copy:img',
-  'pl-copy:favicon', 'pl-copy:css', 'pl-copy:styleguide', 'pl-copy:ssb',
-  'pl-copy:skj', 'pl-copy:markjs',
-  function (done) { done(); })
+gulp.task('patternlab:prebuild',
+  gulp.series(
+    'pl-copy:jq',
+    'pl-copy:img',
+    'pl-copy:favicon',
+    'pl-copy:css',
+    'pl-copy:styleguide',
+    'pl-copy:ssb',
+    'pl-copy:skj',
+    function (done) { done(); }
+  )
 );
 
 function getSupportedTemplateExtensions () {
@@ -261,13 +288,13 @@ function watch () {
     .on('change', gulp.series('pl-copy:css', reload));
   gulp.watch(paths().source.styleguide + '**/*.*')
     .on('change', gulp.series('pl-copy:styleguide', reload));
-  gulp.watch(paths().source.js + 'production/**/*.js')
-    .on('change', gulp.series('pl-copy:designsystemprod-js', reload));
-  gulp.watch(paths().source.js + 'development/**/*.js')
+  gulp.watch([paths().source.js + 'production/**/*.js', paths().source.js + 'development/**/*.js'])
     .on('change', gulp.series('pl-copy:designsystemdev-js', reload));
+  // gulp.watch(paths().source.js + 'development/**/*.js')
+  //   .on('change', gulp.series('pl-copy:distribution-js', 'pl-copy:distribution-vendor-portal-js','pl-copy:distribution-portal-js', 'pl-copy:designsystemdev-js', reload));
 
   var patternWatches = [
-   paths().source.patterns + '**/*.json',
+    paths().source.patterns + '**/*.json',
     paths().source.patterns + '**/*.md',
     paths().source.data + '*.json',
     paths().source.images + '/*',
@@ -296,6 +323,28 @@ gulp.task('patternlab:connect', gulp.series(function (done) {
 }));
 
 gulp.task('patternlab:watch', gulp.series('patternlab:build', watch));
-gulp.task('patternlab:serve', gulp.series('patternlab:prebuild', 'patternlab:build', 'patternlab:connect', watch));
+gulp.task('patternlab:serve',
+  gulp.series(
+    'pl-clean:public',
+    'patternlab:prebuild',
+    'patternlab:build',
+    'patternlab:connect',
+    watch
+  )
+);
+gulp.task('dist',
+  gulp.series(
+    'pl-clean:dist',
+    'patternlab:prebuild',
+    'patternlab:build',
+    'pl-copy:distribution-css',
+    'pl-copy:distribution-epi',
+    'pl-copy:distribution-patterns',
+    'pl-copy:distribution-portal-js',
+    'pl-copy:distribution-portal-vendor-js',
+    'pl-copy:distribution-infoportal-js',
+    'pl-copy:distribution-infoportal-vendor-js',
+    'pl-copy:distribution-portal-js-modules'
+  )
+);
 gulp.task('default', gulp.series('patternlab:serve'));
-gulp.task('dist', gulp.series('pl-copy:distribution-js', 'pl-copy:distribution-css'));

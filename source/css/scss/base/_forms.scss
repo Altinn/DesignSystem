@@ -11,32 +11,36 @@ input {
   &[type='password'] {
     -webkit-appearance: none;
   }
+}
 
-  &:-moz-placeholder { /* Firefox 18- */
-    // sass-lint:disable-block no-important
+input,
+textarea {
+  &::placeholder {
+    line-height: 4rem;
     color: $grey !important;
+    opacity: 1 !important;
+    -webkit-font-smoothing: $default-font-smoothing;
   }
 
-  &::-webkit-input-placeholder {
-    // sass-lint:disable-block no-important
-    color: $grey !important;
-  }
+  &:focus {
+    &::placeholder {
+      color: transparent !important;
+    }
 
-  &::-moz-placeholder {  /* Firefox 19+ */
-    // sass-lint:disable-block no-important
-    color: $grey !important;
-  }
-
-  &:-ms-input-placeholder {
-    // sass-lint:disable-block no-important
-    color: $grey !important;
+    // prefix-appender doesn't handle firefox properly here, need to specify explicitly
+    &::-moz-placeholder {
+      color: transparent !important;
+    }
   }
 }
 
 textarea {
   -webkit-appearance: none;
-}
 
+  &::placeholder {
+    @include a-fontSize16;
+  }
+}
 
 /*------------------------------------*\
  * FORM GROUP
@@ -62,20 +66,6 @@ textarea {
       button,
       .input-group-addon {
         background-color: transparent;
-      }
-
-      input {
-        &:-webkit-input-placeholder {
-          color: $grey;
-        }
-
-        &:-moz-placeholder {
-          color: $grey;
-        }
-
-        &:-ms-input-placeholder {
-          color: $grey;
-        }
       }
     }
 
@@ -104,6 +94,7 @@ textarea {
   // Input
   .form-control {
     @include a-fontSize16;
+    @include a-fontReg;
     min-width: 0; // Need to set this to prevent Firefox from adding a default min-width to input fields
     height: $spacer * 3;
     padding: 2px $spacer 0 $spacer;
@@ -112,6 +103,7 @@ textarea {
     letter-spacing: $font-letter-spacing;
     border: 2px solid $blue;
     border-radius: 0;
+    transition: none;
 
     &:focus {
       border: 2px solid $blue-dark;
@@ -126,6 +118,7 @@ textarea {
   .input-group-btn {
     position: absolute;
     right: 0;
+    height: 100%;
 
     .btn {
       width: $spacer * 4;
@@ -147,10 +140,6 @@ textarea {
         background: $blue-light;
         outline: none;
       }
-
-      i {
-        vertical-align: middle;
-      }
     }
   }
 
@@ -159,21 +148,7 @@ textarea {
     .form-control {
       @include a-fontSize20;
       height: $spacer * 5;
-      padding: 4px $spacer 0 $spacer;
-    }
-
-    .input-group-btn {
-      .btn {
-        width: $spacer * 5;
-        height: $spacer * 5;
-        padding-right: $spacer;
-      }
-
-      i {
-        @include a-fontSize30;
-        top: $spacer;
-        left: 14px;
-      }
+      padding: 0 $spacer 0 $spacer;
     }
 
     .input-group-addon {
@@ -300,6 +275,7 @@ textarea {
     .input-group-addon {
       @include a-fontSize16;
       @include a-fontReg;
+      display: block;
       min-width: $spacer * 3;
       height: $spacer * 3;
       padding: 5px $spacer / 2 0 $spacer / 2;
@@ -311,11 +287,6 @@ textarea {
       border-right: none;
       border-radius: 0;
 
-      i {
-        margin-top: $spacer / 3 * -1;
-        vertical-align: middle;
-      }
-
       &.inactive {
         border-color: $black;
       }
@@ -324,6 +295,11 @@ textarea {
 
     // input: Hide border left if there is a addon
     .form-control {
+      &::-ms-clear { //hide clear-cross from ie to prevent line height expansion
+        width: 0;
+        height: 0;
+      }
+
       &:not(.form-control-noAddon) {
         padding-left: 0;
         border-left: none;
@@ -401,6 +377,7 @@ textarea {
    * TEXT AREA
   \*------------------------------------*/
   .a-textarea {
+    @include a-fontSize16;
     min-height: $spacer * 11;
     padding: $spacer;
     border: 2px solid $blue;
@@ -411,9 +388,9 @@ textarea {
       // sass-lint:disable-block no-important
       border: 2px solid $blue-dark;
       box-shadow: none !important;
+      }
     }
   }
-}
 
 
 /*------------------------------------*\
@@ -805,16 +782,8 @@ textarea {
  * Dropdown
 \*------------------------------------*/
 
-.a-input-icon {
-  @include a-fontSize-icon-20;
-  position: absolute;
-  top: 5px;
-  left: $spacer;
-}
-
 .a-form-text {
-  display: block;
-  padding: 7px 50px 5px 50px;
+  padding: 7px 50px 5px 0;
 }
 
 // Toggle btn
@@ -864,7 +833,7 @@ textarea {
 }
 
 // TODO: merge with .a-dropdown-toggle with & revert selector? .a-dropdown-toggle { .open & {...} }
-.open {
+.show {
   .a-dropdown-toggle {
     border-color: $blue-dark;
 
@@ -894,7 +863,7 @@ textarea {
 .a-dropdown-item {
   position: relative;
   min-height: $spacer * 3;
-  padding: 0;
+  padding: $spacer / 2 0 0 0;
   white-space: normal;
   border-bottom: 2px dotted $blue-dark;
 

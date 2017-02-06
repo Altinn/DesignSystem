@@ -1,27 +1,32 @@
 {
   "name": "altinn-designsystem",
-  "description": "Designsystemet er bygget med Pattern Lab. Dette repoet inneholder kildekoden, Pattern Lab-konfigurasjon og Gulp-konfigurasjon for å kjøre koden lokalt, samt for å bygge distribusjonsfiler.",
-  "version": "0.2.0",
-  "scripts": {
-    "start": "gulp",
-    "patterns": "gulp patternlab:patternsonly",
-    "dist": "gulp dist",
-    "testplugin": "npm uninstall plugin-node-custom-output && npm install plugin-node-custom-output && npm run patterns",
-    "lint": "eslint source/ unit_test/",
-    "test": "mocha ./test/unit_test/mocha_runner.js -c --reporter spec",
-    "precommit-msg": "echo 'Pre-commit: Linting js and scss, and running mocha tests' && exit 0",
-    "sass": "sass-lint -v -q",
-    "purify": "purifycss public/css/style.css public/patterns/**/*.html public/js/*.js --info --rejected --out public/css/index.css"
-  },
-  "pre-commit": [
-    "precommit-msg",
-    "sass",
-    "lint",
-    "test"
+  "version": "0.2.4",
+  "description": "Altinn Design system based on Pattern Lab.",
+  "keywords": [
+    "Altinn",
+    "Atomic Web Design",
+    "Design system",
+    "Pattern Lab"
   ],
+  "license": "MIT",
+  "author": "Altinn",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Altinn/DesignSystem.git"
+  },
+  "scripts": {
+    "precommit-msg": "echo 'Pre-commit: Linting js and scss, and running mocha tests' && exit 0",
+    "dist": "gulp dist",
+    "lint": "eslint source/ unit_test/",
+    "patterns": "gulp patternlab:patternsonly",
+    "purify": "purifycss public/css/style.css public/**/*.html public/**/*.js --info --rejected --out public/css/index.css",
+    "sass": "sass-lint -v -q",
+    "start": "gulp",
+    "test": "mocha ./test/unit_test/mocha_runner.js -c --reporter spec"
+  },
   "dependencies": {
     "browser-sync": "2.18.6",
-    "gulp": "gulpjs/gulp#4.0",
+    "gulp": "git+https://github.com/gulpjs/gulp.git#4.0",
     "gulp-cli": "1.2.2",
     "patternlab-node": "2.6.2",
     "plugin-node-custom-output": "git+https://github.com/Altinn/plugin-node-custom-output.git#2.6.2",
@@ -30,46 +35,41 @@
   },
   "devDependencies": {
     "anchor-js": "3.2.2",
-    "bootstrap": "4.0.0-alpha.5",
+    "bootstrap": "4.0.0-alpha.6",
     "bootstrap-datepicker": "1.6.4",
     "bootstrap-validator": "0.11.9",
     "chai": "3.5.0",
     "clipboard": "1.5.16",
     "csvtojson": "1.0.3",
+    "del": "2.2.2",
     "eslint": "3.13.1",
     "eslint-config-airbnb-base": "11.0.1",
     "eslint-plugin-import": "2.2.0",
     "gulp-autoprefixer": "3.1.1",
+    "gulp-clean-css": "2.3.2",
     "gulp-concat": "2.6.1",
     "gulp-purifycss": "0.2.0",
     "gulp-rename": "1.2.2",
     "gulp-sass": "3.1.0",
     "gulp-sourcemaps": "2.4.0",
-    "jquery": "2.1.4",
-    "mark.js": "github:julmot/mark.js",
+    "jquery": "3.1.1",
+    "mark.js": "git+https://github.com/julmot/mark.js.git",
     "minimist": "1.2.0",
     "mocha": "3.2.0",
     "pre-commit": "1.2.2",
     "purify-css": "1.1.9",
     "rewire": "2.5.2",
     "sass-lint": "1.10.2",
-    "smoothstate": "0.7.2",
+    "smoothstate": "git+https://github.com/miguel-perez/smoothState.js.git",
     "tether": "1.4.0"
   },
-  "keywords": [
-    "Pattern Lab",
-    "Atomic Web Design",
-    "Node",
-    "Gulp",
-    "Javascript"
-  ],
-  "repository": {
-    "type": "git",
-    "url": "git://github.com/Altinn/DesignSystem.git"
-  },
-  "author": "Olavstoppen",
-  "license": "MIT",
   "engines": {
-    "node": ">=5.0"
-  }
+    "node": ">=6.0"
+  },
+  "pre-commit": [
+    "precommit-msg",
+    "sass",
+    "lint",
+    "test"
+  ]
 }

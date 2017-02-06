@@ -63,6 +63,15 @@
 					{{> organismer-sammenligning }}
 				{{/ article-compare-first }}
 
+				{{# article-compare-second }}
+					{{> organismer-sammenligning }}
+				{{/ article-compare-second }}
+
+				{{# article-compare-third }}
+					{{> molekyler-sammenligning-header:a-compare-header-alone }}
+					{{> organismer-sammenligning }}
+				{{/ article-compare-third }}
+
 				{{> atomer-avsnitt }}
 
 				{{# firstlink }}
@@ -77,16 +86,18 @@
 
 				{{> atomer-avsnitt }}
 
+				<p>Dette er en tekst der et av ordene har en ordforklaring {{> atomer-ordforklaring }} bak seg. Og så kommer resten av teksten i avsnittet..</p>
+
 				{{> atomer-tabell-regnestykke }}
 
 			</div><!-- END .col-... -->
 		</div><!-- END .row -->
 
 		<div class="row">
-			<div class="col-sm-12 col-lg-8 offset-lg-2 a-text epi-wysiwyg">
+			<div class="col-sm-12 col-lg-8 offset-lg-2 a-text epi-wysiwyg my-4">
 
 				{{# didYouFindWhatYouWereLookingFor }}
-				{{> atomer-radioknapp:m-t-2 }}
+				{{> atomer-radioknapp }}
 				{{/ didYouFindWhatYouWereLookingFor }}
 
 			</div><!-- END .col-... -->
@@ -100,19 +111,15 @@
 		</div><!-- END .row -->
 		{{/ cardbottom }}
 
+		{{# listbottom }}
 		<div class="row">
 			<div class="col-sm-12 col-lg-6 offset-lg-3 mb-5">
 					{{> atomer-seksjonstittel:a-h3 }}
-					{{> atomer-liste-unummerert }}
+					{{> molekyler-liste-unummerert-ny }}
 			</div><!-- END .col-... -->
 		</div><!-- END .row -->
+		{{/ listbottom }}
 
-		<div class="row">
-			<div class="col-sm-12 col-lg-6 offset-lg-3 mb-5">
-					{{> atomer-seksjonstittel:a-h3 }}
-					{{> atomer-liste-nummerert }}
-			</div><!-- END .col-... -->
-		</div><!-- END .row -->
 
 		<div class="row">
 			<div class="col-sm-12 col-lg-6 offset-lg-3 mt-5 mb-5">

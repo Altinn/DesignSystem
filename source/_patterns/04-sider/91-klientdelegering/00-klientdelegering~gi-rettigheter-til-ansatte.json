@@ -2,7 +2,7 @@
   "person-role-role" : "KLIENT",
   "person-role-name" : "Ferksfisk & Saltkjøtt AS",
   "icon-prefix": "ai",
-  "icon-class": "ai-organisation",
+  "icon-class": "ai-client",
   "person-role-name-meta" : false,
   "logo": "../../images/a-logo-white.svg",
   "show-add-rights": true,
@@ -11,16 +11,16 @@
       {
         "button-class": "a-modal-back",
         "aria-label": "Tilbake",
-        "icon-prefix": "tmp",
-        "icon-class" : "tmp-keyboard-backspace",
+        "icon-prefix": "ai",
+        "icon-class" : "ai-back",
         "icon-extra-class" : "a-modal-back-icon",
         "button-onclick": "onclick=\"location.href='link.sider-profil-roller-rettigheter'\""
       },
       {
         "button-class": "a-modal-close",
         "aria-label": "Lukk",
-        "icon-prefix": "tmp",
-        "icon-class" : "tmp-cancel",
+        "icon-prefix": "ai",
+        "icon-class" : "ai-exit",
         "icon-extra-class" : "a-modal-close-icon",
         "button-onclick": "onclick=\"location.href='link.sider-profil-roller-rettigheter'\""
       }
@@ -29,18 +29,18 @@
   "person-role": {
     "icon-extra-class" : "a-personRole-icon",
     "icon-prefix": "ai",
-    "icon-class" : "ai-organisation",
+    "icon-class" : "ai-client",
     "show-success-icon": false
   },
   "form-label-hasIcon": {
     "icon-prefix": "ai",
-    "icon-class" : "ai-envelope"
+    "icon-class" : "ai-private"
   },
   "form-input-hasButton-class": "a-form-control-withBtn",
   "form-input-hasButton": {
     "form-input-button-action": "Utfør søk",
-    "icon-prefix": "tmp",
-    "icon-class" : "tmp-search"
+      "icon-prefix": "ai",
+      "icon-class": "ai-search"
   },
   "isInput-group": "input-group",
   "form-label-class": "input-group-addon",
@@ -60,16 +60,16 @@
   "icontext": "Gi og fjerne rettigheter",
   "cancel-link": {
     "button-text": "Fjern rettigheter",
-    "button-class": "a-btn-link a-link a-link-danger float-xs-right",
+    "button-class": "a-btn-link a-link a-link-danger float-right",
     "link-url-start": "onclick=\"location.href='link.sider-klientdelegering-fjern-rettigheter-fra-klient'\"\""
   },
   "existing-clients-title": {
-    "collapse-header-title": "Disse <span class='tag tag-primary a-label tag-pill'>3</span> ansatte har rettigheter:",
+    "collapse-header-title": "Disse <span class='badge badge-primary a-label badge-pill'>3</span> ansatte har rettigheter:",
     "collapse-header-contentID": "exp-tab-table-existing-clients",
     "collapsed": false
   },
   "new-clients-title": {
-    "collapse-header-title": "Disse <span class='tag tag-primary a-label tag-pill'>5</span> ansatte kan få rettigheter:",
+    "collapse-header-title": "Disse <span class='badge badge-primary a-label badge-pill'>5</span> ansatte kan få rettigheter:",
     "collapse-header-contentID": "exp-tab-table-new-clients",
     "collapsed": false
   },
@@ -88,7 +88,7 @@
           "column-items": []
         },
         {
-          "additional-classes": "col-xs-12 col-sm-7 col-md-4 col-lg-6 a-list-sortHeader a-clickable",
+          "additional-classes": "col-12 col-sm-7 col-md-4 col-lg-6 a-list-sortHeader a-clickable",
           "column-items": [
             {
               "column-text": {
@@ -103,7 +103,7 @@
           ]
         },
         {
-          "additional-classes": "col-xs-3 hidden-sm-down a-list-sortHeader a-clickable",
+          "additional-classes": "col-3 hidden-sm-down a-list-sortHeader a-clickable",
           "column-items": [
             {
               "column-text": {
@@ -120,29 +120,29 @@
       ]
     },
     "is-large": true,
-    "additional-classes": "a-bgGreyLight a-full-width",
+    "additional-classes": "a-bgGreyLight",
     "list-id": "existingClientsTable",
     "rows": [
       {
-        "additional-classes": "a-selectable",
+        "additional-classes": "a-selectable card",
         "onclick": false,
         "id": "existing1",
         "columns" : [
           {
-            "additional-classes": "a-w-7 text-xs-center hidden-sm-down",
+            "additional-classes": "a-w-7 text-center hidden-sm-down",
             "onclick": false,
             "column-items": [
               {
                 "column-icon": {
                   "icon-prefix": "ai",
-                  "icon-class": "ai-person",
+                  "icon-class": "ai-private",
                   "icon-extra-class": "a-personRole-icon"
                 }
               }
             ]
           },
           {
-            "additional-classes": "col-xs-6 col-sm-7 col-md-4 col-lg-6",
+            "additional-classes": "col-12 col-sm-7 col-md-4 col-lg-6",
             "onclick": false,
             "searchable": true,
             "column-items": [
@@ -155,7 +155,7 @@
             ]
           },
           {
-            "additional-classes": "col-xs-3 hidden-sm-down",
+            "additional-classes": "col-3 hidden-sm-down",
             "onclick": false,
             "column-items": [
               {
@@ -172,17 +172,18 @@
             "column-items": [
               {
                 "column-link": {
-                  "link-class": "a-btn-blue-noUnderline text-xs-right a-fontBold a-fullWidthLink collapsed a-visibleWhenInitial pr-5 a-pr-1-sm-down",
-                  "link-url": "#existingCollapse1",
+                  "link-class": "a-btn-blue-noUnderline text-right a-fontBold a-fullWidthLink collapsed a-visibleWhenInitial pr-1 pr-md-5",
+                  "link-url": "#",
                   "link-text": "<span class='hidden-xs-down'>Gi og fjerne rettigheter</span>",
                   "link-icon": false,
-                  "data-target": "#existingCollapse1"
+                  "data-target": "#existingCollapse1",
+                  "data-parent": "existingClientsTable"
                 }
               }
             ]
           },
           {
-            "additional-classes": "col-xs pr-5 a-visibleWhenCompleted text-xs-right a-pr-0-sm-down a-visibleWhenDeleted",
+            "additional-classes": "col a-visibleWhenCompleted text-right pr-0 pr-md-5 a-visibleWhenDeleted",
             "column-items": [
               {
                 "column-text": {
@@ -200,8 +201,9 @@
           }
         ],
         "expandable-section": {
-          "additional-classes": "col-xs-12 collapse",
+          "additional-classes": "col-12 collapse",
           "id": "existingCollapse1",
+          "content-id": "existingCollapse1Content",
           "segment-fixed": "",
           "column-items": [
             {
@@ -209,7 +211,11 @@
                 "ferdigsegment-done": {
                   "button-text": "Ferdig",
                   "button-class": "a-btn a-btn-success collapsed a-js-confirmAddRightBtn",
-                  "onclick": false
+                  "onclick": false,
+                  "data-toggle": "collapse",
+                  "data-target": "#existingCollapse1",
+                  "data-parent": "existingClientsTable",
+                  "aria-expanded": false
                 },
                 "ferdigsegment-cancel": {
                   "button-text": "Avbryt",
@@ -217,6 +223,7 @@
                   "margin-right-multiplier": 3,
                   "data-toggle": "collapse",
                   "data-target": "#existingCollapse1",
+                  "data-parent": "existingClientsTable",
                   "aria-expanded": false
                 },
                 "sortable-action-items": {
@@ -224,7 +231,8 @@
                   "checkbuttons": [
                     {
                       "checkbuttons-title": "Begrenset signeringsrett",
-                      "checkbuttons-id" : "existingBtn1"
+                      "checkbuttons-id" : "existingBtn1",
+                      "isChecked": true
                     },
                     {
                       "checkbuttons-title": "Lønn og personalmedarbeider",
@@ -244,7 +252,8 @@
                     },
                     {
                       "checkbuttons-title": "Basisrolle",
-                      "checkbuttons-id" : "existingBtn6"
+                      "checkbuttons-id" : "existingBtn6",
+                      "isChecked": true
                     },
                     {
                       "checkbuttons-title": "Regnskapsfører uten signeringsrett",
@@ -282,25 +291,25 @@
         }
       },
       {
-        "additional-classes": "a-selectable",
+        "additional-classes": "a-selectable card",
         "onclick": false,
-        "id": "existing1",
+        "id": "existing2",
         "columns" : [
           {
-            "additional-classes": "a-w-7 text-xs-center hidden-sm-down",
+            "additional-classes": "a-w-7 text-center hidden-sm-down",
             "onclick": false,
             "column-items": [
               {
                 "column-icon": {
                   "icon-prefix": "ai",
-                  "icon-class": "ai-person",
+                  "icon-class": "ai-private",
                   "icon-extra-class": "a-personRole-icon"
                 }
               }
             ]
           },
           {
-            "additional-classes": "col-xs-6 col-sm-7 col-md-4 col-lg-6",
+            "additional-classes": "col-12 col-sm-7 col-md-4 col-lg-6",
             "onclick": false,
             "searchable": true,
             "column-items": [
@@ -313,7 +322,7 @@
             ]
           },
           {
-            "additional-classes": "col-xs-3 hidden-sm-down",
+            "additional-classes": "col-3 hidden-sm-down",
             "onclick": false,
             "column-items": [
               {
@@ -330,17 +339,18 @@
             "column-items": [
               {
                 "column-link": {
-                  "link-class": "a-btn-blue-noUnderline text-xs-right a-fontBold a-fullWidthLink collapsed a-visibleWhenInitial pr-5 a-pr-1-sm-down",
-                  "link-url": "#existingCollapse2",
+                  "link-class": "a-btn-blue-noUnderline text-right a-fontBold a-fullWidthLink collapsed a-visibleWhenInitial pr-1 pr-md-5",
+                  "link-url": "#",
                   "link-text": "<span class='hidden-xs-down'>Gi og fjerne rettigheter</span>",
                   "link-icon": false,
-                  "data-target": "#existingCollapse2"
+                  "data-target": "#existingCollapse2",
+                  "data-parent": "existingClientsTable"
                 }
               }
             ]
           },
           {
-            "additional-classes": "col-xs pr-5 a-visibleWhenCompleted text-xs-right a-pr-0-sm-down a-visibleWhenDeleted",
+            "additional-classes": "col a-visibleWhenCompleted text-right pr-0 pr-md-5 a-visibleWhenDeleted",
             "column-items": [
               {
                 "column-text": {
@@ -358,8 +368,9 @@
           }
         ],
         "expandable-section": {
-          "additional-classes": "col-xs-12 collapse",
+          "additional-classes": "col-12 collapse",
           "id": "existingCollapse2",
+          "content-id": "existingCollapse2Content",
           "segment-fixed": "",
           "column-items": [
             {
@@ -367,7 +378,11 @@
                 "ferdigsegment-done": {
                   "button-text": "Ferdig",
                   "button-class": "a-btn a-btn-success collapsed a-js-confirmAddRightBtn",
-                  "onclick": false
+                  "onclick": false,
+                  "data-toggle": "collapse",
+                  "data-target": "#existingCollapse2",
+                  "data-parent": "existingClientsTable",
+                  "aria-expanded": false
                 },
                 "ferdigsegment-cancel": {
                   "button-text": "Avbryt",
@@ -375,6 +390,7 @@
                   "margin-right-multiplier": 3,
                   "data-toggle": "collapse",
                   "data-target": "#existingCollapse2",
+                  "data-parent": "existingClientsTable",
                   "aria-expanded": false
                 },
                 "sortable-action-items": {
@@ -390,11 +406,13 @@
                     },
                     {
                       "checkbuttons-title": "Primærnæring og næringsmidler",
-                      "checkbuttons-id" : "existingBtn23"
+                      "checkbuttons-id" : "existingBtn23",
+                      "isChecked": true
                     },
                     {
                       "checkbuttons-title": "Regnskapsfører med signeringsrett",
-                      "checkbuttons-id" : "existingBtn24"
+                      "checkbuttons-id" : "existingBtn24",
+                      "isChecked": true
                     },
                     {
                       "checkbuttons-title": "Regnskapsfører lønn",
@@ -441,25 +459,25 @@
       },
 
       {
-        "additional-classes": "a-selectable",
+        "additional-classes": "a-selectable card",
         "onclick": false,
         "id": "existing3",
         "columns" : [
           {
-            "additional-classes": "a-w-7 text-xs-center hidden-sm-down",
+            "additional-classes": "a-w-7 text-center hidden-sm-down",
             "onclick": false,
             "column-items": [
               {
                 "column-icon": {
                   "icon-prefix": "ai",
-                  "icon-class": "ai-person",
+                  "icon-class": "ai-private",
                   "icon-extra-class": "a-personRole-icon"
                 }
               }
             ]
           },
           {
-            "additional-classes": "col-xs-6 col-sm-7 col-md-4 col-lg-6",
+            "additional-classes": "col-12 col-sm-7 col-md-4 col-lg-6",
             "onclick": false,
             "searchable": true,
             "column-items": [
@@ -472,7 +490,7 @@
             ]
           },
           {
-            "additional-classes": "col-xs-3 hidden-sm-down",
+            "additional-classes": "col-3 hidden-sm-down",
             "onclick": false,
             "column-items": [
               {
@@ -489,17 +507,18 @@
             "column-items": [
               {
                 "column-link": {
-                  "link-class": "a-btn-blue-noUnderline text-xs-right a-fontBold a-fullWidthLink collapsed a-visibleWhenInitial pr-5 a-pr-1-sm-down",
-                  "link-url": "#existingCollapse3",
+                  "link-class": "a-btn-blue-noUnderline text-right a-fontBold a-fullWidthLink collapsed a-visibleWhenInitial pr-1 pr-md-5",
+                  "link-url": "#",
                   "link-text": "<span class='hidden-xs-down'>Gi og fjerne rettigheter</span>",
                   "link-icon": false,
-                  "data-target": "#existingCollapse3"
+                  "data-target": "#existingCollapse3",
+                  "data-parent": "existingClientsTable"
                 }
               }
             ]
           },
           {
-            "additional-classes": "col-xs pr-5 a-visibleWhenCompleted text-xs-right a-pr-0-sm-down a-visibleWhenDeleted",
+            "additional-classes": "col a-visibleWhenCompleted text-right pr-0 pr-md-5 a-visibleWhenDeleted",
             "column-items": [
               {
                 "column-text": {
@@ -517,8 +536,9 @@
           }
         ],
         "expandable-section": {
-          "additional-classes": "col-xs-12 collapse",
+          "additional-classes": "col-12 collapse",
           "id": "existingCollapse3",
+          "content-id": "existingCollapse3Content",
           "segment-fixed": "",
           "column-items": [
             {
@@ -526,7 +546,11 @@
                 "ferdigsegment-done": {
                   "button-text": "Ferdig",
                   "button-class": "a-btn a-btn-success collapsed a-js-confirmAddRightBtn",
-                  "onclick": false
+                  "onclick": false,
+                  "data-toggle": "collapse",
+                  "data-target": "#existingCollapse3",
+                  "data-parent": "existingClientsTable",
+                  "aria-expanded": false
                 },
                 "ferdigsegment-cancel": {
                   "button-text": "Avbryt",
@@ -534,6 +558,7 @@
                   "margin-right-multiplier": 3,
                   "data-toggle": "collapse",
                   "data-target": "#existingCollapse3",
+                  "data-parent": "existingClientsTable",
                   "aria-expanded": false
                 },
                 "sortable-action-items": {
@@ -581,15 +606,18 @@
                     },
                     {
                       "checkbuttons-title": "Revisormedarbeider",
-                      "checkbuttons-id" : "existingBtn51"
+                      "checkbuttons-id" : "existingBtn51",
+                      "isChecked": true
                     },
                     {
                       "checkbuttons-title": "Revisorrettighet",
-                      "checkbuttons-id" : "existingBtn52"
+                      "checkbuttons-id" : "existingBtn52",
+                      "isChecked": true
                     },
                     {
                       "checkbuttons-title": "Regnskapsmedarbeider",
-                      "checkbuttons-id" : "existingBtn53"
+                      "checkbuttons-id" : "existingBtn53",
+                      "isChecked": true
                     }
                   ]
                 }
@@ -613,7 +641,7 @@
           "column-items": []
         },
         {
-          "additional-classes": "col-xs-12 col-sm-7 col-md-4 col-lg-6 a-list-sortHeader a-clickable",
+          "additional-classes": "col-12 col-sm-7 col-md-4 col-lg-6 a-list-sortHeader a-clickable",
           "column-items": [
             {
               "column-text": {
@@ -628,7 +656,7 @@
           ]
         },
         {
-          "additional-classes": "col-xs-3 hidden-sm-down a-list-sortHeader a-clickable",
+          "additional-classes": "col-3 hidden-sm-down a-list-sortHeader a-clickable",
           "column-items": [
             {
               "column-text": {
@@ -645,29 +673,30 @@
       ]
     },
     "is-large": true,
-    "additional-classes": "a-bgGreyLight a-full-width a-full-height",
+    "additional-classes": "a-bgGreyLight a-full-height",
     "list-id": "newClientsTable",
+    "data-parent": "newClientsTable",
     "rows": [
       {
-        "additional-classes": "a-selectable",
+        "additional-classes": "a-selectable card",
         "onclick": false,
         "id": "new1",
         "columns" : [
           {
-            "additional-classes": "a-w-7 text-xs-center hidden-sm-down",
+            "additional-classes": "a-w-7 text-center hidden-sm-down",
             "onclick": false,
             "column-items": [
               {
                 "column-icon": {
                   "icon-prefix": "ai",
-                  "icon-class": "ai-person",
+                  "icon-class": "ai-private",
                   "icon-extra-class": "a-personRole-icon"
                 }
               }
             ]
           },
           {
-            "additional-classes": "col-xs-6 col-sm-7 col-md-4 col-lg-6",
+            "additional-classes": "col-12 col-sm-7 col-md-4 col-lg-6",
             "onclick": false,
             "searchable": true,
             "column-items": [
@@ -680,7 +709,7 @@
             ]
           },
           {
-            "additional-classes": "col-xs-3 hidden-sm-down",
+            "additional-classes": "col-3 hidden-sm-down",
             "onclick": false,
             "column-items": [
               {
@@ -697,17 +726,18 @@
             "column-items": [
               {
                 "column-link": {
-                  "link-class": "a-btn-blue-noUnderline text-xs-right a-fontBold a-fullWidthLink collapsed a-visibleWhenInitial pr-5 a-pr-1-sm-down",
-                  "link-url": "#newCollapse1",
+                  "link-class": "a-btn-blue-noUnderline text-right a-fontBold a-fullWidthLink collapsed a-visibleWhenInitial pr-1 pr-md-5",
+                  "link-url": "#",
                   "link-text": "<span class='hidden-xs-down'>Gi rettigheter</span>",
                   "link-icon": false,
-                  "data-target": "#newCollapse1"
+                  "data-target": "#newCollapse1",
+                  "data-parent": "newClientsTable"
                 }
               }
             ]
           },
           {
-            "additional-classes": "col-xs pr-5 text-xs-right a-pr-0-sm-down a-visibleWhenCompleted a-visibleWhenDeleted",
+            "additional-classes": "col text-right pr-0 pr-md-5 a-visibleWhenCompleted a-visibleWhenDeleted",
             "column-items": [
               {
                 "column-text": {
@@ -725,8 +755,9 @@
           }
         ],
         "expandable-section": {
-          "additional-classes": "col-xs-12 collapse",
+          "additional-classes": "col-12 collapse",
           "id": "newCollapse1",
+          "content-id": "newCollapse1Content",
           "segment-fixed": "",
           "column-items": [
             {
@@ -734,7 +765,11 @@
                 "ferdigsegment-done": {
                   "button-text": "Ferdig",
                   "button-class": "a-btn a-btn-success collapsed a-js-confirmAddRightBtn",
-                  "onclick": false
+                  "onclick": false,
+                  "data-toggle": "collapse",
+                  "data-target": "#newCollapse1",
+                  "data-parent": "newClientsTable",
+                  "aria-expanded": false
                 },
                 "ferdigsegment-cancel": {
                   "button-text": "Avbryt",
@@ -742,6 +777,7 @@
                   "margin-right-multiplier": 3,
                   "data-toggle": "collapse",
                   "data-target": "#newCollapse1",
+                  "data-parent": "newClientsTable",
                   "aria-expanded": false
                 },
                 "sortable-action-items": {
@@ -807,25 +843,25 @@
         }
       },
       {
-        "additional-classes": "a-selectable",
+        "additional-classes": "a-selectable card",
         "onclick": false,
         "id": "new2",
         "columns" : [
           {
-            "additional-classes": "a-w-7 text-xs-center hidden-sm-down",
+            "additional-classes": "a-w-7 text-center hidden-sm-down",
             "onclick": false,
             "column-items": [
               {
                 "column-icon": {
                   "icon-prefix": "ai",
-                  "icon-class": "ai-person",
+                  "icon-class": "ai-private",
                   "icon-extra-class": "a-personRole-icon"
                 }
               }
             ]
           },
           {
-            "additional-classes": "col-xs-6 col-sm-7 col-md-4 col-lg-6",
+            "additional-classes": "col-12 col-sm-7 col-md-4 col-lg-6",
             "onclick": false,
             "searchable": true,
             "column-items": [
@@ -838,7 +874,7 @@
             ]
           },
           {
-            "additional-classes": "col-xs-3 hidden-sm-down",
+            "additional-classes": "col-3 hidden-sm-down",
             "onclick": false,
             "column-items": [
               {
@@ -855,17 +891,18 @@
             "column-items": [
               {
                 "column-link": {
-                  "link-class": "a-btn-blue-noUnderline text-xs-right a-fontBold a-fullWidthLink collapsed a-visibleWhenInitial pr-5 a-pr-1-sm-down",
-                  "link-url": "#newCollapse2",
+                  "link-class": "a-btn-blue-noUnderline text-right a-fontBold a-fullWidthLink collapsed a-visibleWhenInitial pr-1 pr-md-5",
+                  "link-url": "#",
                   "link-text": "<span class='hidden-xs-down'>Gi rettigheter</span>",
                   "link-icon": false,
-                  "data-target": "#newCollapse2"
+                  "data-target": "#newCollapse2",
+                  "data-parent": "newClientsTable"
                 }
               }
             ]
           },
           {
-            "additional-classes": "col-xs pr-5 text-xs-right a-pr-0-sm-down a-visibleWhenCompleted a-visibleWhenDeleted",
+            "additional-classes": "col text-right pr-0 pr-md-5 a-visibleWhenCompleted a-visibleWhenDeleted",
             "column-items": [
               {
                 "column-text": {
@@ -883,8 +920,9 @@
           }
         ],
         "expandable-section": {
-          "additional-classes": "col-xs-12 collapse",
+          "additional-classes": "col-12 collapse",
           "id": "newCollapse2",
+          "content-id": "newCollapse2Content",
           "segment-fixed": "",
           "column-items": [
             {
@@ -892,7 +930,11 @@
                 "ferdigsegment-done": {
                   "button-text": "Ferdig",
                   "button-class": "a-btn a-btn-success collapsed a-js-confirmAddRightBtn",
-                  "onclick": false
+                  "onclick": false,
+                  "data-toggle": "collapse",
+                  "data-target": "#newCollapse2",
+                  "data-parent": "newClientsTable",
+                  "aria-expanded": false
                 },
                 "ferdigsegment-cancel": {
                   "button-text": "Avbryt",
@@ -900,6 +942,7 @@
                   "margin-right-multiplier": 3,
                   "data-toggle": "collapse",
                   "data-target": "#newCollapse2",
+                  "data-parent": "newClientsTable",
                   "aria-expanded": false
                 },
                 "sortable-action-items": {
@@ -965,25 +1008,25 @@
         }
       },
       {
-        "additional-classes": "a-selectable",
+        "additional-classes": "a-selectable card",
         "onclick": false,
         "id": "new3",
         "columns" : [
           {
-            "additional-classes": "a-w-7 text-xs-center hidden-sm-down",
+            "additional-classes": "a-w-7 text-center hidden-sm-down",
             "onclick": false,
             "column-items": [
               {
                 "column-icon": {
                   "icon-prefix": "ai",
-                  "icon-class": "ai-person",
+                  "icon-class": "ai-private",
                   "icon-extra-class": "a-personRole-icon"
                 }
               }
             ]
           },
           {
-            "additional-classes": "col-xs-6 col-sm-7 col-md-4 col-lg-6",
+            "additional-classes": "col-12 col-sm-7 col-md-4 col-lg-6",
             "onclick": false,
             "searchable": true,
             "column-items": [
@@ -996,7 +1039,7 @@
             ]
           },
           {
-            "additional-classes": "col-xs-3 hidden-sm-down",
+            "additional-classes": "col-3 hidden-sm-down",
             "onclick": false,
             "column-items": [
               {
@@ -1013,17 +1056,18 @@
             "column-items": [
               {
                 "column-link": {
-                  "link-class": "a-btn-blue-noUnderline text-xs-right a-fontBold a-fullWidthLink collapsed a-visibleWhenInitial pr-5 a-pr-1-sm-down",
-                  "link-url": "#newCollapse3",
+                  "link-class": "a-btn-blue-noUnderline text-right a-fontBold a-fullWidthLink collapsed a-visibleWhenInitial pr-1 pr-md-5",
+                  "link-url": "#",
                   "link-text": "<span class='hidden-xs-down'>Gi rettigheter</span>",
                   "link-icon": false,
-                  "data-target": "#newCollapse3"
+                  "data-target": "#newCollapse3",
+                  "data-parent": "newClientsTable"
                 }
               }
             ]
           },
           {
-            "additional-classes": "col-xs pr-5 text-xs-right a-pr-0-sm-down a-visibleWhenCompleted a-visibleWhenDeleted",
+            "additional-classes": "col text-right pr-0 pr-md-5 a-visibleWhenCompleted a-visibleWhenDeleted",
             "column-items": [
               {
                 "column-text": {
@@ -1041,8 +1085,9 @@
           }
         ],
         "expandable-section": {
-          "additional-classes": "col-xs-12 collapse",
+          "additional-classes": "col-12 collapse",
           "id": "newCollapse3",
+          "content-id": "newCollapse3Content",
           "segment-fixed": "",
           "column-items": [
             {
@@ -1050,7 +1095,11 @@
                 "ferdigsegment-done": {
                   "button-text": "Ferdig",
                   "button-class": "a-btn a-btn-success collapsed a-js-confirmAddRightBtn",
-                  "onclick": false
+                  "onclick": false,
+                  "data-toggle": "collapse",
+                  "data-target": "#newCollapse3",
+                  "data-parent": "newClientsTable",
+                  "aria-expanded": false
                 },
                 "ferdigsegment-cancel": {
                   "button-text": "Avbryt",
@@ -1058,6 +1107,7 @@
                   "margin-right-multiplier": 3,
                   "data-toggle": "collapse",
                   "data-target": "#newCollapse3",
+                  "data-parent": "newClientsTable",
                   "aria-expanded": false
                 },
                 "sortable-action-items": {
@@ -1123,25 +1173,25 @@
         }
       },
       {
-        "additional-classes": "a-selectable",
+        "additional-classes": "a-selectable card",
         "onclick": false,
         "id": "new4",
         "columns" : [
           {
-            "additional-classes": "a-w-7 text-xs-center hidden-sm-down",
+            "additional-classes": "a-w-7 text-center hidden-sm-down",
             "onclick": false,
             "column-items": [
               {
                 "column-icon": {
                   "icon-prefix": "ai",
-                  "icon-class": "ai-person",
+                  "icon-class": "ai-private",
                   "icon-extra-class": "a-personRole-icon"
                 }
               }
             ]
           },
           {
-            "additional-classes": "col-xs-6 col-sm-7 col-md-4 col-lg-6",
+            "additional-classes": "col-12 col-sm-7 col-md-4 col-lg-6",
             "onclick": false,
             "searchable": true,
             "column-items": [
@@ -1154,7 +1204,7 @@
             ]
           },
           {
-            "additional-classes": "col-xs-3 hidden-sm-down",
+            "additional-classes": "col-3 hidden-sm-down",
             "onclick": false,
             "column-items": [
               {
@@ -1171,17 +1221,18 @@
             "column-items": [
               {
                 "column-link": {
-                  "link-class": "a-btn-blue-noUnderline text-xs-right a-fontBold a-fullWidthLink collapsed a-visibleWhenInitial pr-5 a-pr-1-sm-down",
-                  "link-url": "#newCollapse4",
+                  "link-class": "a-btn-blue-noUnderline text-right a-fontBold a-fullWidthLink collapsed a-visibleWhenInitial pr-1 pr-md-5",
+                  "link-url": "#",
                   "link-text": "<span class='hidden-xs-down'>Gi rettigheter</span>",
                   "link-icon": false,
-                  "data-target": "#newCollapse4"
+                  "data-target": "#newCollapse4",
+                  "data-parent": "newClientsTable"
                 }
               }
             ]
           },
           {
-            "additional-classes": "col-xs pr-5 text-xs-right a-pr-0-sm-down a-visibleWhenCompleted a-visibleWhenDeleted",
+            "additional-classes": "col text-right pr-0 pr-md-5 a-visibleWhenCompleted a-visibleWhenDeleted",
             "column-items": [
               {
                 "column-text": {
@@ -1199,8 +1250,9 @@
           }
         ],
         "expandable-section": {
-          "additional-classes": "col-xs-12 collapse",
+          "additional-classes": "col-12 collapse",
           "id": "newCollapse4",
+          "content-id": "newCollapse4Content",
           "segment-fixed": "",
           "column-items": [
             {
@@ -1208,7 +1260,11 @@
                 "ferdigsegment-done": {
                   "button-text": "Ferdig",
                   "button-class": "a-btn a-btn-success collapsed a-js-confirmAddRightBtn",
-                  "onclick": false
+                  "onclick": false,
+                  "data-toggle": "collapse",
+                  "data-target": "#newCollapse4",
+                  "data-parent": "newClientsTable",
+                  "aria-expanded": false
                 },
                 "ferdigsegment-cancel": {
                   "button-text": "Avbryt",
@@ -1216,6 +1272,7 @@
                   "margin-right-multiplier": 3,
                   "data-toggle": "collapse",
                   "data-target": "#newCollapse4",
+                  "data-parent": "newClientsTable",
                   "aria-expanded": false
                 },
                 "sortable-action-items": {
@@ -1281,25 +1338,25 @@
         }
       },
       {
-        "additional-classes": "a-selectable",
+        "additional-classes": "a-selectable card",
         "onclick": false,
         "id": "new5",
         "columns" : [
           {
-            "additional-classes": "a-w-7 text-xs-center hidden-sm-down",
+            "additional-classes": "a-w-7 text-center hidden-sm-down",
             "onclick": false,
             "column-items": [
               {
                 "column-icon": {
                   "icon-prefix": "ai",
-                  "icon-class": "ai-person",
+                  "icon-class": "ai-private",
                   "icon-extra-class": "a-personRole-icon"
                 }
               }
             ]
           },
           {
-            "additional-classes": "col-xs-6 col-sm-7 col-md-4 col-lg-6",
+            "additional-classes": "col-12 col-sm-7 col-md-4 col-lg-6",
             "onclick": false,
             "searchable": true,
             "column-items": [
@@ -1312,7 +1369,7 @@
             ]
           },
           {
-            "additional-classes": "col-xs-3 hidden-sm-down",
+            "additional-classes": "col-3 hidden-sm-down",
             "onclick": false,
             "column-items": [
               {
@@ -1329,17 +1386,18 @@
             "column-items": [
               {
                 "column-link": {
-                  "link-class": "a-btn-blue-noUnderline text-xs-right a-fontBold a-fullWidthLink collapsed a-visibleWhenInitial pr-5 a-pr-1-sm-down",
-                  "link-url": "#newCollapse5",
+                  "link-class": "a-btn-blue-noUnderline text-right a-fontBold a-fullWidthLink collapsed a-visibleWhenInitial pr-1 pr-md-5",
+                  "link-url": "#",
                   "link-text": "<span class='hidden-xs-down'>Gi rettigheter</span>",
                   "link-icon": false,
-                  "data-target": "#newCollapse5"
+                  "data-target": "#newCollapse5",
+                  "data-parent": "newClientsTable"
                 }
               }
             ]
           },
           {
-            "additional-classes": "col-xs pr-5 text-xs-right a-pr-0-sm-down a-visibleWhenCompleted a-visibleWhenDeleted",
+            "additional-classes": "col text-right pr-0 pr-md-5 a-visibleWhenCompleted a-visibleWhenDeleted",
             "column-items": [
               {
                 "column-text": {
@@ -1357,8 +1415,9 @@
           }
         ],
         "expandable-section": {
-          "additional-classes": "col-xs-12 collapse",
+          "additional-classes": "col-12 collapse",
           "id": "newCollapse5",
+          "content-id": "newCollapse5Content",
           "segment-fixed": "",
           "column-items": [
             {
@@ -1366,6 +1425,10 @@
                 "ferdigsegment-done": {
                   "button-text": "Ferdig",
                   "button-class": "a-btn a-btn-success collapsed a-js-confirmAddRightBtn",
+                  "data-toggle": "collapse",
+                  "data-target": "#newCollapse5",
+                  "data-parent": "newClientsTable",
+                  "aria-expanded": false,
                   "onclick": false
                 },
                 "ferdigsegment-cancel": {
@@ -1374,6 +1437,7 @@
                   "margin-right-multiplier": 3,
                   "data-toggle": "collapse",
                   "data-target": "#newCollapse5",
+                  "data-parent": "newClientsTable",
                   "aria-expanded": false
                 },
                 "sortable-action-items": {

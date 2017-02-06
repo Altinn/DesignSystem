@@ -1,11 +1,15 @@
- <div class="mt-1"{{# id }} id="{{ id }}"{{/ id }}>
-  <span class="ml-7 a-ml-0-sm-down">
-    {{ sortable-action-text }}
-  </span>
-  <div class="text-xs-left text-sm-center">
-    {{# sortable-action-items }}
-      {{> atomer-valgknapp}}
-    {{/ sortable-action-items }}
+ <div {{# content-id }} id="{{ content-id }}"{{/ content-id }}>
+  <div class="a-list-content">
+    {{# sortable-action-text }}
+      <span class="ml-0 ml-md-7">
+        {{ sortable-action-text }}
+      </span>
+    {{/ sortable-action-text }}
+    <div class="text-sm-center mt-1">
+      {{# sortable-action-items }}
+        {{> atomer-valgknapp}}
+      {{/ sortable-action-items }}
+    </div>
   </div>
   {{> molekyler-ferdigsegment:a-list-fullWidthRow }}
 </div>

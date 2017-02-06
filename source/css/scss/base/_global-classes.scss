@@ -133,14 +133,14 @@ html {
   &.a-primary {
     color: $grey;
     cursor: not-allowed;
-    background-color: $blue-light;
+    background-color: $blue-light !important;
   }
 
   &.a-danger,
   &.a-deleted {
     color: $grey;
     cursor: not-allowed;
-    background-color: $red-light;
+    background-color: $red-light !important;
     box-shadow: none;
   }
 
@@ -148,7 +148,7 @@ html {
   &.a-completed {
     color: $grey;
     cursor: not-allowed;
-    background-color: $green-light;
+    background-color: $green-light !important;
     box-shadow: none;
   }
 }
@@ -192,6 +192,15 @@ html {
   color: $blue;
 }
 
+/* Anchor links */
+
+.anchorjs-link {
+  position: relative !important;
+  display: inline-block;
+  width: 1em;
+  line-height: 10px !important;
+  border-bottom: none !important;
+}
 
 /* Horizontal Rule */
 
@@ -238,7 +247,7 @@ hr {
 .a-dotted {
   background-image: $dotted-border-blue;
   background-repeat: repeat-x;
-  background-position: 25px bottom; // Must be either top or bottom, not both. If both are needed, add a div with class "a-dotted-line" before or after the element.
+  background-position: 25px bottom;
   background-size: 4px 2px;
 
   /* Horizontal Rule - Dotted AND disabled */
@@ -355,6 +364,7 @@ hr {
         &:not(.a-completed) {
           cursor: pointer;
           background-color: $blue-light;
+          box-shadow: none;
 
           &.a-primary {
             background-color: $blue-light;
@@ -365,13 +375,32 @@ hr {
           }
 
           &.a-success {
-            background-color: $green-light;
+            background-color: $blue-light;
+          }
+        }
+      }
+    }
+  }
+}// If background dark color
+.a-jumbotron-dark {
+  .a-clickable,
+  .a-selectable {
+    &:hover,
+    &:active,
+    &:focus {
+      &:not(.a-expanded) {
+        &:not(.a-deleted) {
+          &:not(.a-completed) {
+            cursor: pointer;
+            background-color: $white-opacity-02;
+            box-shadow: none;
           }
         }
       }
     }
   }
 }
+
 
 .a-selectable {
   &.a-selected {
@@ -471,8 +500,8 @@ hr {
     margin-left: -$spacer * 8;
   }
 
-  margin-right: -$spacer * 2;
-  margin-left: -$spacer * 2;
+  margin-right: -$spacer;
+  margin-left: -$spacer;
 }
 
 .a-full-height {

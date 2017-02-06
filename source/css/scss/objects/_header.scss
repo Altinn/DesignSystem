@@ -5,6 +5,11 @@
 .a-header {
   height: $spacer * 9;
   padding-top: $spacer * 3;
+  margin-bottom: $spacer;
+
+  @include media-breakpoint-up( lg ) {
+    margin-bottom: $spacer * 3;
+  }
 
   >.container {
     @include media-breakpoint-down( sm ) {
@@ -117,7 +122,7 @@
   }
 
   .nav-link {
-    padding: $spacer 8px;
+    padding: 14px 8px 0 8px;
     border-radius: 0;
 
     @include media-breakpoint-up( lg ) {
@@ -177,7 +182,7 @@
   @include a-fontMedium;
   position: absolute;
   right: 0;
-  margin-top: -9px;
+  margin-top: -7px;
   color: $blue-dark;
   text-align: right;
   cursor: pointer;
@@ -308,7 +313,7 @@
 // When switcher panel is open
 .nav-pills {
   .nav-item {
-    &.open {
+    &.show {
       .nav-link {
         &.a-languageSwitcher,
         &.a-personSwitcher {
@@ -333,7 +338,7 @@
   }
 }
 
-.open>.dropdown-menu {
+.show>.dropdown-menu {
   display: block;
 }
 
@@ -449,6 +454,7 @@
   @include media-breakpoint-up( md ) {
     position: relative;
     z-index: auto;
+    display: block;
     min-height: none;
     padding-top: 0;
     margin-top: 2px;
@@ -680,7 +686,7 @@
 
   .nav-pills {
     .nav-item {
-      &.open {
+      &.show {
         .nav-link {
           &.a-languageSwitcher,
           &.a-personSwitcher {
