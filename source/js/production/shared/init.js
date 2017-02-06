@@ -5,7 +5,7 @@ nameChecker, codeLookup, handleValidatorLibrary,
 defaultSort, setupAddRightsHandler, onFileInputChange, toggleInstant, switchForm,
 addListExpandHandler,
 addListSortHandler, setupListRowSelect, setupOnKeypress,
-genericSearch*/
+genericSearch, toggleInstant */
 
 window.sharedInit = function() {
   addListExpandHandler();
@@ -20,5 +20,6 @@ window.sharedInit = function() {
   toggleExpand();
   toggleFilter();
   tooltip();
+  toggleInstant();
 };
 window.sharedInit();
