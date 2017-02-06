@@ -25,7 +25,8 @@
   setupOnKeypress,
   genericSearch,
   toggleInstant,
-  articleAnchors */
+  articleAnchors,
+  feedbackToggle */
 
 window.sharedInit = function() {
   addListExpandHandler();
@@ -42,5 +43,6 @@ window.sharedInit = function() {
   tooltip();
   toggleInstant();
   articleAnchors();
+  feedbackToggle();
 };
 window.sharedInit();
