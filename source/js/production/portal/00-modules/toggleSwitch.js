@@ -1,7 +1,6 @@
-$(document).on('ready', function() {
+var toggleSwitch = function() {
   var $allWithTarget = $('.switch-container input[data-switch-target]');
   var allTargets = [];
-
   $.each($allWithTarget, function() {
     $.each($(this).data('switch-target'), function() {
       allTargets.push(this + '');
@@ -32,4 +31,4 @@ $(document).on('ready', function() {
       }
     });
   });
-});
+};

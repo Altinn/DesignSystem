@@ -1,1 +1,19 @@
-// This file is here so gulp manages to build a js-file
+/* globals
+  formatOrgNr,
+  cardsToggle,
+  onConfirmDeletionClick,
+  setupListRowSelect,
+  initSearchWithHighlight,
+  toggleSwitch,
+  truncateBoxButtonNames
+*/
+window.portalInit = function() {
+  formatOrgNr();
+  cardsToggle();
+  onConfirmDeletionClick();
+  setupListRowSelect();
+  initSearchWithHighlight();
+  toggleSwitch();
+  truncateBoxButtonNames();
+};
+window.portalInit();

@@ -1,23 +1,29 @@
 {
   "name": "altinn-designsystem",
+  "version": "0.2.4",
   "description": "Altinn Design system based on Pattern Lab.",
-  "version": "0.2.0",
+  "keywords": [
+    "Altinn",
+    "Atomic Web Design",
+    "Design system",
+    "Pattern Lab"
+  ],
+  "license": "MIT",
+  "author": "Altinn",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Altinn/DesignSystem.git"
+  },
   "scripts": {
-    "start": "gulp",
-    "patterns": "gulp patternlab:patternsonly",
+    "precommit-msg": "echo 'Pre-commit: Linting js and scss, and running mocha tests' && exit 0",
     "dist": "gulp dist",
     "lint": "eslint source/ unit_test/",
-    "test": "mocha ./test/unit_test/mocha_runner.js -c --reporter spec",
-    "precommit-msg": "echo 'Pre-commit: Linting js and scss, and running mocha tests' && exit 0",
+    "patterns": "gulp patternlab:patternsonly",
+    "purify": "purifycss public/css/style.css public/**/*.html public/**/*.js --info --rejected --out public/css/index.css",
     "sass": "sass-lint -v -q",
-    "purify": "purifycss public/css/style.css public/**/*.html public/**/*.js --info --rejected --out public/css/index.css"
+    "start": "gulp",
+    "test": "mocha ./test/unit_test/mocha_runner.js -c --reporter spec"
   },
-  "pre-commit": [
-    "precommit-msg",
-    "sass",
-    "lint",
-    "test"
-  ],
   "dependencies": {
     "browser-sync": "2.18.6",
     "gulp": "git+https://github.com/gulpjs/gulp.git#4.0",
@@ -35,6 +41,7 @@
     "chai": "3.5.0",
     "clipboard": "1.5.16",
     "csvtojson": "1.0.3",
+    "del": "2.2.2",
     "eslint": "3.13.1",
     "eslint-config-airbnb-base": "11.0.1",
     "eslint-plugin-import": "2.2.0",
@@ -56,19 +63,13 @@
     "smoothstate": "git+https://github.com/miguel-perez/smoothState.js.git",
     "tether": "1.4.0"
   },
-  "keywords": [
-    "Altinn",
-    "Pattern Lab",
-    "Atomic Web Design",
-    "Design system"
-  ],
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/Altinn/DesignSystem.git"
-  },
-  "author": "Altinn",
-  "license": "MIT",
   "engines": {
     "node": ">=6.0"
-  }
+  },
+  "pre-commit": [
+    "precommit-msg",
+    "sass",
+    "lint",
+    "test"
+  ]
 }

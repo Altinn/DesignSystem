@@ -161,13 +161,15 @@
 	}
 
   .a-btn-icon-symbol {
-    @include a-fontSize22;
+    // @include a-fontSize22;
 
-    width: 38px;
-    padding-right: $spacer;
-    margin-top: -5px;
-    text-align: center;
-    vertical-align: middle;
+    width: $spacer * 3;
+    height: $spacer * 3;
+    padding: 0;
+    color: $white;
+    background: $blue;
+    border-radius: 50px;
+    justify-content: center;
 	}
 }
 // BTN WITH WHITE TRANSPARENCY
@@ -183,7 +185,7 @@
   }
 
   .a-btn-icon-symbol {
-    @include a-fontSize18;
+    // @include a-fontSize18;
     display: inline-flex;
     width: $spacer * 3;
     height: $spacer * 3;
@@ -309,10 +311,17 @@
   position: relative;
   width: 100%;
   height: 190px;
-  padding: $spacer $spacer / 2;
+  padding: 15px 3px; // give space to hover border
   cursor: pointer;
   background: $white;
   border: 1px solid $grey-medium;
+
+  &[data-target] {
+    i,
+    .a-box-button-action {
+      color: $grey;
+    }
+  }
 
   .a-childBoxButtonList & {
     background-color: $grey-light;
@@ -320,7 +329,7 @@
 
   .a-box-button-text {
     @include media-breakpoint-up( sm ) {
-      height: 66px;
+      height: 55px;
       overflow: hidden;
     }
   }
@@ -377,7 +386,7 @@
   }
 
   &:hover {
-    padding: 9px 4px 9px 4px;
+    padding: $spacer 0; // give space to hover border
     background: $white-opacity-05;
     border: 4px solid $blue !important;
 
@@ -387,14 +396,15 @@
   }
 
   .a-meta-text {
-    @extend .a-fontSizeXXS;
+    @extend .a-fontSizeXXXXS;
+    min-height: 20px;
   }
 
   .a-box-button-name {
     @extend .a-fontSizeXXS;
 
     display: block;
-    max-height: 50px;
+    height: 40px;
     overflow-y: hidden;
     text-transform: uppercase;
   }

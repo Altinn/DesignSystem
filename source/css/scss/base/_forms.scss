@@ -99,7 +99,6 @@ textarea {
     height: $spacer * 3;
     padding: 2px $spacer 0 $spacer;
     margin-left: -$spacer / 12;
-    line-height: 4rem; // Inputs must have larger line-height, so the letter "Å" dont dissapear.
     color: $grey;
     letter-spacing: $font-letter-spacing;
     border: 2px solid $blue;
@@ -118,6 +117,7 @@ textarea {
   .input-group-btn {
     position: absolute;
     right: 0;
+    height: 100%;
 
     .btn {
       width: $spacer * 4;
@@ -139,10 +139,6 @@ textarea {
         background: $blue-light;
         outline: none;
       }
-
-      i {
-        vertical-align: middle;
-      }
     }
   }
 
@@ -152,21 +148,6 @@ textarea {
       @include a-fontSize20;
       height: $spacer * 5;
       padding: 0 $spacer 0 $spacer;
-      line-height: 7rem;// Inputs must have larger line-height, so the letter "Å" dont dissapear.
-    }
-
-    .input-group-btn {
-      .btn {
-        width: $spacer * 5;
-        height: $spacer * 5;
-        padding-right: $spacer;
-      }
-
-      i {
-        @include a-fontSize30;
-        top: $spacer;
-        left: 14px;
-      }
     }
 
     .input-group-addon {
@@ -305,11 +286,6 @@ textarea {
       border-right: none;
       border-radius: 0;
 
-      i {
-        margin-top: $spacer / 3 * -1;
-        vertical-align: middle;
-      }
-
       &.inactive {
         border-color: $black;
       }
@@ -318,6 +294,11 @@ textarea {
 
     // input: Hide border left if there is a addon
     .form-control {
+      &::-ms-clear { //hide clear-cross from ie to prevent line height expansion
+        width: 0;
+        height: 0;
+      }
+
       &:not(.form-control-noAddon) {
         padding-left: 0;
         border-left: none;
@@ -406,9 +387,9 @@ textarea {
       // sass-lint:disable-block no-important
       border: 2px solid $blue-dark;
       box-shadow: none !important;
+      }
     }
   }
-}
 
 
 /*------------------------------------*\
@@ -800,16 +781,8 @@ textarea {
  * Dropdown
 \*------------------------------------*/
 
-.a-input-icon {
-  @include a-fontSize-icon-20;
-  position: absolute;
-  top: 5px;
-  left: $spacer;
-}
-
 .a-form-text {
-  display: block;
-  padding: 7px 50px 5px 50px;
+  padding: 7px 50px 5px 0;
 }
 
 // Toggle btn
@@ -889,7 +862,7 @@ textarea {
 .a-dropdown-item {
   position: relative;
   min-height: $spacer * 3;
-  padding: 0;
+  padding: $spacer / 2 0 0 0;
   white-space: normal;
   border-bottom: 2px dotted $blue-dark;
 

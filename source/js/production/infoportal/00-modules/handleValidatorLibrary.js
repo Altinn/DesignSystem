@@ -28,10 +28,12 @@ var handleValidatorLibrary = function() {
         $form.find('.a-js-hideWhenInvalid').show();
         $form.find('.a-js-enableWhenValid').removeAttr('disabled');
         $form.find('.a-js-enableWhenValid').addClass('mt-3');
+        $form.find('.a-js-enableWhenValid').addClass('hidden-xl-down');
       } else {
         $form.find('.a-js-hideWhenInvalid').hide();
         $form.find('.a-js-enableWhenValid').attr('disabled', true);
         $form.find('.a-js-enableWhenValid').removeClass('mt-3');
+        $form.find('.a-js-hideWhenInvalid').addClass('hidden-xl-down');
       }
     });
 
