@@ -1,0 +1,39 @@
+<!-- START: 03-maler-91-modal-01-modal -->
+<div class="a-modal fade show {{ bodyClass }}" {{# modal-id }} id="{{ modal-id }}" {{/ modal-id }} role="dialog" {{# modal-label }} aria-labelledby="{{ modal-label }}" {{/ modal-label }} aria-hidden="true">
+  <div class="modal-dialog modal-lg" role="document">
+    <div class="container">
+      <div class="row">
+        <div class="col-xl-12">
+          {{> molekyler-modal-header }}
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-xl-10 offset-xl-1">
+          {{# modal-navbar-override }}
+            {{> molekyler-modal-navbar }}
+          {{/ modal-navbar-override }}
+          <div class="a-right-panel a-page a-scene-element">
+            <div class="modal-content">
+              {{> molekyler-modal-body-header }}
+              <div class="modal-body a-modal-body">
+                {{# show-client-delegation-content }}
+                  {{> organismer-modal-klientdelegering }}
+                {{/ show-client-delegation-content }}
+                {{# show-others-with-rights-content }}
+                  {{# others-with-rights }}
+                    {{> organismer-modal-andre-med-rettigheter }}
+                  {{/ others-with-rights }}
+                {{/ show-others-with-rights-content }}
+                {{# show-receipt-content }}
+                  {{> organismer-modal-kvittering }}
+                {{/ show-receipt-content }}
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- END: 03-maler-91-modal-01-modal -->
