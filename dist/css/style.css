@@ -1546,6 +1546,9 @@ mark,
   .form-control::-webkit-input-placeholder {
     color: #EFEFEF;
     opacity: 1; }
+  .form-control::-moz-placeholder {
+    color: #EFEFEF;
+    opacity: 1; }
   .form-control:-ms-input-placeholder {
     color: #EFEFEF;
     opacity: 1; }
@@ -3228,7 +3231,9 @@ tbody.collapse.show {
 
 @media (min-width: 576px) {
   .card-columns {
+    -moz-column-count: 3;
     column-count: 3;
+    -moz-column-gap: 1.25rem;
     column-gap: 1.25rem; }
     .card-columns .card {
       display: inline-block;
@@ -7930,6 +7935,13 @@ textarea::-webkit-input-placeholder {
   opacity: 1 !important;
   -webkit-font-smoothing: subpixel-antialiased; }
 
+input::-moz-placeholder,
+textarea::-moz-placeholder {
+  line-height: 4rem;
+  color: #6A6A6A !important;
+  opacity: 1 !important;
+  -webkit-font-smoothing: subpixel-antialiased; }
+
 input:-ms-input-placeholder,
 textarea:-ms-input-placeholder {
   line-height: 4rem;
@@ -7948,6 +7960,10 @@ input:focus::-webkit-input-placeholder,
 textarea:focus::-webkit-input-placeholder {
   color: transparent !important; }
 
+input:focus::-moz-placeholder,
+textarea:focus::-moz-placeholder {
+  color: transparent !important; }
+
 input:focus:-ms-input-placeholder,
 textarea:focus:-ms-input-placeholder {
   color: transparent !important; }
@@ -7963,6 +7979,11 @@ textarea:focus::-moz-placeholder {
 textarea {
   -webkit-appearance: none; }
   textarea::-webkit-input-placeholder {
+    font-size: 16px;
+    font-size: 1.6rem;
+    line-height: 2.4rem;
+    -webkit-font-smoothing: subpixel-antialiased; }
+  textarea::-moz-placeholder {
     font-size: 16px;
     font-size: 1.6rem;
     line-height: 2.4rem;
@@ -10936,7 +10957,9 @@ textarea {
     margin: 0; }
   @media (min-width: 768px) {
     .a-list.a-list-2col {
+      -moz-column-count: 2;
       column-count: 2;
+      -moz-column-gap: 48px;
       column-gap: 48px; }
       .a-list.a-list-2col li {
         break-inside: avoid;
@@ -11046,7 +11069,9 @@ textarea {
       width: calc( 50% - 24px); } }
   @media (min-width: 768px) {
     .a-item-list.a-item-list-2col {
+      -moz-column-count: 2;
       column-count: 2;
+      -moz-column-gap: 48px;
       column-gap: 48px; }
       .a-item-list.a-item-list-2col li {
         break-inside: avoid;
@@ -11707,6 +11732,34 @@ ol {
   .a-modal .a-personSwitcher-name {
     display: inline-block;
     max-width: 160px; }
+  .a-modal .a-page {
+    position: absolute;
+    width: 100%;
+    pointer-events: none;
+    transition: transform 0.5s cubic-bezier(0.3, 1, 0.5, 1); }
+    .a-modal .a-page.a-next-page {
+      transform: translate3d(180%, 0, 0); }
+    .a-modal .a-page.a-current-page {
+      position: absolute;
+      top: 0;
+      pointer-events: auto;
+      visibility: visible;
+      transform: translate3d(0, 0, 0); }
+    .a-modal .a-page.a-previous-page {
+      transform: translate3d(-180%, 0, 0); }
+  .a-modal.fade {
+    overflow-y: scroll;
+    opacity: 1;
+    transition: none; }
+    .a-modal.fade .modal-dialog {
+      transition: all 0.7s cubic-bezier(0.3, 1, 0.5, 1);
+      transform: translate3d(180%, 0, 0); }
+    .a-modal.fade.show .modal-dialog {
+      transition: all 0.7s cubic-bezier(0.3, 1, 0.5, 1);
+      transform: translate3d(0, 0, 0); }
+
+.a-modal-content-target {
+  position: relative; }
 
 .a-modal-top {
   min-height: 48px;
