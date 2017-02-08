@@ -23,16 +23,13 @@
     "others-with-rights": {
         "variation-class": "",
         "delegation-header-text": {
-            "hasIcon": false,
-            "hasTextSmall": true,
             "textSmall": "Du deler rettigheter til Julius Andreas Gimli Arn MacGyver Chewbacka Highlander Elessar-Jankov for:",
-            "icontext": "A-melding (RF0123)",
-            "isHeader": false
+            "icontext": "A-melding (RF0123)"
         },
         "delegation-sub-header-text": "Tildel rollene som kreves for å fylle ut skjemaet",
         "delegation-sub-header-text-secondary": false,
         "delegation-submit": {
-            "button-text": "Tildel rolle",
+            "button-text": "Fullfør",
             "button-class": "a-btn a-btn-success",
             "button-type": "submit",
             "onclick": "location.href='link.sider-andre-med-rettigheter-epost';"
@@ -64,7 +61,7 @@
                       "icon-class": "tmp-cancel"
                     }
                 ],
-                "open-popover-class": "a-helpIconButton a-js-persistPopover a-js-popoverBig a-js-togglePopoverIcons",
+                "open-popover-class": "a-helpIconButton a-js-persistPopover a-js-popoverBig a-js-togglePopoverIcons a-mr-half",
                 "popover-class": "popover-big",
 
                 "popover-list-content" : {
@@ -75,12 +72,18 @@
                       "additional-classes": "a-dotted",
                       "columns": [
                         {
-                          "additional-classes": false,
+                          "additional-classes": "col-12",
                           "column-items": [
                             {
                               "column-text": {
                                 "text": "Lønn og personalmedarbeider",
                                 "classes": "a-fontBold"
+                              }
+                            },
+                            {
+                              "column-text": {
+                                "text": "Gir rettighet til 59 tjenester",
+                                "classes": "float-right a-fontSizeXXXS"
                               }
                             }
                           ]
@@ -217,13 +220,35 @@
             "checkbuttons": [{
                 "checkbuttons-title": "Lønn og personalmedarbeider",
                 "checkbuttons-id": "checkbutton-example-roles-1",
-                "checkbuttons-class": "",
-                "hasIcon": false
+                "isChecked": true,
+                "checkbuttons-class" : "a-toggle-icon",
+                "checkbuttons-container-class": "a-switch-limitedWidth",
+                "hasIcon": {
+                  "icon-prefix": "ai",
+                  "icon-class" : "ai-plus"
+                },
+                "checkbuttons-toggle-icon": {
+                  "checkbuttons-class" : "a-toggle-icon",
+                  "icon-prefix": "ai",
+                  "icon-class" : "ai-exit"
+                }
+            }],
+            "delegation-needs-no-rights": {
+              "checkbuttons": [{
+                "checkbuttons-title": "Privatperson",
+                "checkbuttons-id": "checkbutton-example-roles-2",
+                "checkbuttons-class" : "disabled",
+                "hasIcon": {
+                  "icon-prefix": "ai",
+                  "icon-class" : "ai-exclamation-circle",
+                  "icon-extra-class": "a-remove-icon"
+                }
             }]
+            }
         },
         "delegation-message": false,
         "delegation-alternative-link": {
-            "link-text": "Alternativ tildeling: Gi tilgang kun til dette skjemaet",
+            "link-text": "<span class=\"a-fontBold\">Alternativ tildeling:</span> Gi tilgang kun til dette skjemaet",
             "link-class": "a-link",
             "link-url": "link.sider-andre-med-rettigheter-tildel-enkeltrettigheter"
         }
