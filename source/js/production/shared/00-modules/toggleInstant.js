@@ -1,5 +1,5 @@
 var toggleInstant = function() {
-  $('*[data-toggle="instant"]').on('click', function() {
+  $('.a-panelAccordion').on('click', '*[data-toggle="instant"]', function() {
     var $target = $(this.dataset.target);
     if ($target.is(':visible')) {
       $(this).attr('aria-expanded', false);
