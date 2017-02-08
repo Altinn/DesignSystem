@@ -7,21 +7,30 @@
   .a-iconText-minusBothMargins,
   .a-box,
   .a-question-wrapper,
+  .a-iconText-extraWidth,
+  .a-compare-header,
+  .a-compare-category {
+    @include media-breakpoint-up ( lg ) {
+      width: calc( 100% + 312px );
+      margin-left: -156px;
+    }
+    @include media-breakpoint-up ( xl ) {
+      width: calc( 100% + 368px );
+      margin-left: -184px;
+    }
+  }
+
+  .a-media,
+  .a-iconText-minusBothMargins,
+  .a-box,
+  .a-question-wrapper,
   .a-iconText-extraWidth {
     margin-top: $spacer * 3;
     margin-bottom: $spacer * 3;
-
-    @include media-breakpoint-up ( lg ) {
-      width: calc( 100% + 380px );
-      margin-left: -190px;
-    }
   }
 
   .a-compare-header,
   .a-compare-category {
-    @include media-breakpoint-up ( lg ) {
-      width: calc( 100% + 380px );
-      margin-left: -190px;
-    }
+    margin-bottom: $spacer * 7;
   }
 }
