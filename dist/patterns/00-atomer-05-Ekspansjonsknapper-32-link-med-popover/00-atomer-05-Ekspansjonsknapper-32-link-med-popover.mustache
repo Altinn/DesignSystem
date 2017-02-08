@@ -1,0 +1,32 @@
+<!-- START: 00-atomer-05-Ekspansjonsknapper-32-link-med-popover -->
+<a href="#"
+  aria-label="{{ popover-aria-label }}"
+  tabindex="0"
+  class="a-linkArea {{ open-popover-class }}"
+  role="button"
+  data-toggle="popover"
+  data-template="{{> atomer-popover }}"
+  data-animation="false"
+  data-target="#{{ popover-data-target }}"
+  data-placement="bottom"
+  data-trigger="{{ popover-trigger }}"
+  {{# popover-title }} title="{{ popover-title }}" {{/ popover-title }}
+  {{# popover-content }} data-content="{{ popover-content }}" {{/ popover-content }}
+  data-popover-content="{{ popover-content-id }}">
+  {{{ popover-link-text }}}
+  {{# popover-link-icon }}
+    {{> atomer-ikon }}
+  {{/ popover-link-icon }}
+</a>
+{{# popover-list-content }}
+  <div id="{{ popover-content-id }}" style="display: none">
+    {{> molekyler-liste-med-beskrivelse }}
+  </div>
+{{/ popover-list-content}}
+
+{{# popover-description-content}}
+  <div id="{{ popover-content-id }}" style="display: none">
+    {{> molekyler-tekstinnhold-beskrivelse }}
+  </div>
+{{/ popover-description-content}}
+<!-- END: 00-atomer-05-Ekspansjonsknapper-32-link-med-popover -->

@@ -1,8 +1,32 @@
-/* globals questionnaireInteraction, drilldownInteraction, handleFocus, mobileNavigation,
-propagateContent, toggleExpand, toggleFilter, uniformHeight, tooltip, popover, aTagSpaceExpand,
-initializeDatepicker, onboarding, nameChecker, codeLookup, handleValidatorLibrary, defaultSort,
-setupAddRightsHandler, onFileInputChange, toggleInstant, switchForm, addListExpandHandler,
-addListSortHandler, setupListRowSelect, setupOnKeypress, genericSearch, articleAnchors */
+/* globals questionnaireInteraction,
+  drilldownInteraction,
+  handleFocus,
+  mobileNavigation,
+  propagateContent,
+  toggleExpand,
+  toggleFilter,
+  uniformHeight,
+  tooltip,
+  popover,
+  aTagSpaceExpand,
+  initializeDatepicker,
+  onboarding,
+  nameChecker,
+  codeLookup,
+  handleValidatorLibrary,
+  defaultSort,
+  setupAddRightsHandler,
+  onFileInputChange,
+  toggleInstant,
+  switchForm,
+  addListExpandHandler,
+  addListSortHandler,
+  setupListRowSelect,
+  setupOnKeypress,
+  genericSearch,
+  toggleInstant,
+  articleAnchors,
+  feedbackToggle */
 
 window.sharedInit = function() {
   addListExpandHandler();
@@ -17,6 +41,8 @@ window.sharedInit = function() {
   toggleExpand();
   toggleFilter();
   tooltip();
+  toggleInstant();
   articleAnchors();
+  feedbackToggle();
 };
 window.sharedInit();

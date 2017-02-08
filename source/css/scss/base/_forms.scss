@@ -539,7 +539,7 @@ textarea {
     }
 
     .a-radioButtons-title {
-      @include a-fontSize18;
+      @extend .a-fontSizeS;
     }
   }
 
@@ -602,9 +602,13 @@ textarea {
     }
 
     .a-radioButtons-title {
-      @include a-fontSize20;
+      @include a-fontSize18;
       display: block;
       padding-bottom: $spacer;
+
+      @include media-breakpoint-up( md ) {
+        @include a-fontSize20;
+      }
     }
 
     .a-radioButtons-excerpt {
