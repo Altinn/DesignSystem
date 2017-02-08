@@ -1,4 +1,4 @@
-<div class="a-modal fade show {{ bodyClass }}" {{# modal-id }} id="{{ modal-id }}" {{/ modal-id }} role="dialog" {{# modal-label }} aria-labelledby="{{ modal-label }}" {{/ modal-label }} aria-hidden="true">
+<div class="a-modal fade modal show {{ bodyClass }}" {{# modal-id }} id="{{ modal-id }}" {{/ modal-id }} role="dialog" {{# modal-label }} aria-labelledby="{{ modal-label }}" {{/ modal-label }} aria-hidden="false" style="display: block">
   <div class="modal-dialog modal-lg" role="document">
     <div class="container">
       <div class="row">
@@ -11,20 +11,23 @@
           {{# modal-navbar-override }}
             {{> molekyler-modal-navbar }}
           {{/ modal-navbar-override }}
-          <div class="modal-content">
-            {{> molekyler-modal-body-header }}
-            <div class="a-modal-content-target">
-              {{# show-client-delegation-content }}
-                {{> organismer-modal-klientdelegering }}
-              {{/ show-client-delegation-content }}
-              {{# show-others-with-rights-content }}
-                {{# others-with-rights }}
-                  {{> organismer-modal-andre-med-rettigheter }}
-                {{/ others-with-rights }}
-              {{/ show-others-with-rights-content }}
-              {{# show-receipt-content }}
-                {{> organismer-modal-kvittering }}
-              {{/ show-receipt-content }}
+          <div class="a-modal-content-target">
+            <div class="a-page a-current-page">
+              <div class="modalPage">
+                <div class="modal-content">
+                  {{> molekyler-modal-body-header }}
+                  {{# show-client-delegation-content }}
+                    {{> organismer-modal-klientdelegering }}
+                  {{/ show-client-delegation-content }}
+                  {{# show-others-with-rights-content }}
+                    {{# others-with-rights }}
+                      {{> organismer-modal-andre-med-rettigheter }}
+                    {{/ others-with-rights }}
+                  {{/ show-others-with-rights-content }}
+                  {{# show-receipt-content }}
+                    {{> organismer-modal-kvittering }}
+                  {{/ show-receipt-content }}
+              </div>
             </div>
           </div>
         </div>
