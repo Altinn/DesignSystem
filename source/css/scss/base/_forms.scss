@@ -127,6 +127,7 @@ textarea {
       padding-right: 6px;
       color: $black;
       text-align: right;
+      cursor: pointer;
       border: 2px solid $blue;
       border-left: none;
 
@@ -203,6 +204,13 @@ textarea {
       border: 2px solid $red !important;
     }
 
+    .input-group-btn {
+      .btn-secondary {
+        // sass-lint:disable-block no-important
+        border-color: $red !important;
+      }
+    }
+
     // Input
     .form-control {
       // sass-lint:disable-block no-important
@@ -230,8 +238,10 @@ textarea {
       }
 
       .form-control {
-        // sass-lint:disable-block no-important
-        border-left: none !important;
+        &:not(.form-control-noAddon) {
+          // sass-lint:disable-block no-important
+          border-left: none !important;
+        }
       }
     }
   }
