@@ -34,8 +34,8 @@
     <script src="https://use.fortawesome.com/b04a3e28.js"></script>
 
     <!-- Altinn stylesheet -->
-    <link rel="stylesheet" href="../../css/style.css?1485780669938" media="all" />
-    <!-- <link rel="stylesheet" href="../../css/pattern-scaffolding.css?1485780669938" media="all" /> -->
+    <link rel="stylesheet" href="../../css/style.css?1486625245150" media="all" />
+    <!-- <link rel="stylesheet" href="../../css/pattern-scaffolding.css?1486625245150" media="all" /> -->
 
     <!-- Begin Pattern Lab (Required for Pattern Lab to run properly) -->
     <!-- never cache patterns -->
@@ -45,13 +45,13 @@
 <meta http-equiv="expires" content="Tue, 01 Jan 1980 1:00:00 GMT" />
 <meta http-equiv="pragma" content="no-cache" />
 
-<link rel="stylesheet" href="../../styleguide/css/styleguide.min.css?1485780669938" media="all">
-<link rel="stylesheet" href="../../styleguide/css/prism-typeahead.min.css?1485780669938" media="all" />
+<link rel="stylesheet" href="../../styleguide/css/styleguide.min.css?1486625245150" media="all">
+<link rel="stylesheet" href="../../styleguide/css/prism-typeahead.min.css?1486625245150" media="all" />
 
     <!-- End Pattern Lab -->
 
   </head>
-  <body class="" name="top">
+  <body class="" id="top">
 <div class="sg-top">
 	<div class="container">
 		<div class="row">
@@ -83,24 +83,36 @@
 </div>
 <div class="sg-statesExplanation">
 	<div class="container">
-		<span class="sg-pattern-state specification">
+
+		<div class="sg-pattern-state specification">
 			<span class="sg-pattern-state-specification">UNDER SPESIFISERING</span> - komponenten er under spesifisering. <br />
-		</span>
-		<span class="sg-pattern-state inprogress">
+		</div>
+		<div class="sg-pattern-state inprogress">
 			<span class="sg-pattern-state-inprogress">ARBEID PÅGÅR</span> - komponenten er under utvikling, og blir jobbet på for øyeblikket. <br />
-		</span>
-		<span class="sg-pattern-state intechnicalreview">
+		</div>
+		<div class="sg-pattern-state intechnicalreview">
 			<span class="sg-pattern-state-intechnicalreview">TIL TEKNISK REVIEW</span> - komponenten er klar for teknisk gjennomgang/diskusjon, og venter på godkjenning. <br />
-		</span>
-		<span class="sg-pattern-state indesignreview">
+		</div>
+		<div class="sg-pattern-state indesignreview">
 				<span class="sg-pattern-state-indesignreview">TIL DESIGN REVIEW</span> - komponenten er klar for design gjennomgang/diskusjon, og venter på godkjenning. <br />
-		</span>
-		<span class="sg-pattern-state complete">
+		</div>
+		<div class="sg-pattern-state complete">
 			<span class="sg-pattern-state-complete">FERDIG</span> - komponenten anses som ferdig og klar for bruk.<br />
-		</span>
-		<span class="sg-pattern-state needsrevalidation">
+		</div>
+		<div class="sg-pattern-state needsrevalidation">
 				<span class="sg-pattern-state-needsrevalidation">MÅ REVALIDERES</span> - det er gjort endringer i rammeverk / platform som gjør at denne komponenten må revalideres. <br />
-		</span>
+		</div>
+		<div class="sg-pattern-state archived">
+			<span class="sg-pattern-state-archived">ARKIVERT</span> - komponenten er arkivert og blir ikke vedlikeholdt for øyeblikket.
+
+	    <div class="form-check a-form-checkboxes d-inline pl-1">
+					<label class="custom-control custom-checkbox">
+						<input type="checkbox" class="custom-control-input a-sg-js-toggleArchived">
+						<span class="custom-control-indicator"></span>
+						<p>Vis arkiverte komponenter</p>
+					</label>
+	    </div>
+		</div>
 		<br />
 		<span class="sg-pattern-variations">
 			<span class="sg-pattern-state-variations">♺</span> VARIASJONER - En variasjon av en annen komponent
@@ -155,12 +167,12 @@
               <div class="a-modal-top">
     <a href="&#x2F;patterns&#x2F;04-sider-01-forside-00-forside&#x2F;04-sider-01-forside-00-forside.html" class="no-decoration">
       
-<img src="..&#x2F;..&#x2F;images&#x2F;a-logo-white.svg" alt="Altinn logo" class="a-logo  ">
+<img src="..&#x2F;..&#x2F;images&#x2F;a-logo-white.svg" alt="Altinn logo" class="a-logo a-modal-top-logo ">
 
     </a>
     <div class="a-modal-top-user">
       
-<button class="nav-link dropdown-toggle a-personSwitcher" type="button"   aria-haspopup="true" aria-expanded="false">
+<button class="nav-link dropdown-toggle a-personSwitcher" type="button"  data-toggle="dropdown"  aria-haspopup="true" aria-expanded="false">
   <span
     class="a-personSwitcher-name"
     title="Jan Pettersen ">
@@ -168,6 +180,10 @@
     <br>
     
   </span>
+    
+<i class="ai ai-private  a-personSwitcher-icon a-js-onboardingTarget-1 "    ></i>
+
+
 </button>
 
     </div>
@@ -186,12 +202,11 @@
           <button
   type="button"
   class="a-modal-close"
-  data-dismiss="modal"
   false
   aria-label="Lukk"
 >
   
-<i class="tmp tmp-close  a-modal-close-icon "    ></i>
+<i class="ai ai-exit  a-modal-close-icon "    ></i>
 
 
 </button>
@@ -225,13 +240,17 @@
 
                 <!-- Modal Body header -->
                 <div class="modal-header a-modal-header">
-  <div class="a-iconText  ">
+  <div class="a-iconText a-iconText-background a-iconText-large ">
   <!-- ICON -->
-  <div class="a-iconText-icon"></div>
+  <div class="a-iconText-icon">
+<i class="ai ai-server  a-icon a-icon-circle "    ></i>
+
+</div>
   <!-- TEXT -->
-    <div class="a-iconText-text">
-  <span class="a-iconText-text-large">  </span>
-    </div>
+    <h1 class="a-iconText-text mb-0">
+    <span class="a-iconText-text-small">Valgfri liten tekst</span>
+  <span class="a-iconText-text-large">Dette er tittelen på modalen  </span>
+    </h1>
 </div>
 
 </div>
@@ -299,7 +318,7 @@
     
   </span>
     
-<i class="ai ai-person  a-personSwitcher-icon a-js-onboardingTarget-1 "    ></i>
+<i class="ai ai-private  a-personSwitcher-icon a-js-onboardingTarget-1 "    ></i>
 
 
 </button>
@@ -320,12 +339,11 @@
           <button
   type="button"
   class="a-modal-close"
-  data-dismiss="modal"
   false
   aria-label="Lukk"
 >
   
-<i class="tmp tmp-close  a-modal-close-icon "    ></i>
+<i class="ai ai-exit  a-modal-close-icon "    ></i>
 
 
 </button>
@@ -362,7 +380,7 @@
   <div class="a-iconText a-iconText-background a-iconText-large ">
   <!-- ICON -->
   <div class="a-iconText-icon">
-<i class="tmp tmp-playlist-add  a-icon a-icon-circle "    ></i>
+<i class="ai ai-server  a-icon a-icon-circle "    ></i>
 
 </div>
   <!-- TEXT -->
@@ -436,7 +454,7 @@
     
   </span>
     
-<i class="ai ai-person  a-personSwitcher-icon a-js-onboardingTarget-1 "    ></i>
+<i class="ai ai-private  a-personSwitcher-icon a-js-onboardingTarget-1 "    ></i>
 
 
 </button>
@@ -457,12 +475,11 @@
           <button
   type="button"
   class="a-modal-back"
-  data-dismiss="modal"
   onclick="goBack()"
   aria-label="Gå tilbake"
 >
   
-<i class="tmp tmp-keyboard-backspace  a-modal-back-icon "    ></i>
+<i class="ai ai-back  a-modal-back-icon "    ></i>
 
 
 </button>
@@ -471,7 +488,6 @@
           <button
   type="button"
   class="a-modal-close"
-  data-dismiss="modal"
   false
   aria-label="Lukk"
     data-toggle="popover"
@@ -480,13 +496,13 @@
     data-popover-content="sampleIdPopover"
     data-template="<div class='popover popover-warning' role='tooltip'>
   <div class='popover-arrow'></div>
-  <h3 class='popover-title'></h3>
+    <h3 class='popover-title'></h3>
   <div class='popover-content'></div>
 </div>
 "
-  >
+>
   
-<i class="tmp tmp-close  a-modal-close-icon "    ></i>
+<i class="ai ai-exit  a-modal-close-icon "    ></i>
 
 
 </button>
@@ -540,7 +556,7 @@
   <div class="a-iconText a-iconText-background a-iconText-large ">
   <!-- ICON -->
   <div class="a-iconText-icon">
-<i class="tmp tmp-playlist-add  a-icon a-icon-circle "    ></i>
+<i class="ai ai-server  a-icon a-icon-circle "    ></i>
 
 </div>
   <!-- TEXT -->
@@ -634,7 +650,7 @@
     
   </span>
     
-<i class="ai ai-person  a-personSwitcher-icon a-js-onboardingTarget-1 "    ></i>
+<i class="ai ai-private  a-personSwitcher-icon a-js-onboardingTarget-1 "    ></i>
 
 
 </button>
@@ -655,12 +671,11 @@
           <button
   type="button"
   class="a-modal-back"
-  data-dismiss="modal"
   onclick="goBack()"
   aria-label="Lukk"
 >
   
-<i class="tmp tmp-keyboard-backspace  a-modal-back-icon "    ></i>
+<i class="ai ai-back  a-modal-back-icon "    ></i>
 
 
 </button>
@@ -669,12 +684,11 @@
           <button
   type="button"
   class="a-modal-close"
-  data-dismiss="modal"
   onclick="location.href='../../patterns/04-sider-10-seksjonsforsider-30-seksjonsforside-v-starteogdrive/04-sider-10-seksjonsforsider-30-seksjonsforside-v-starteogdrive.html';"
   aria-label="Lukk"
 >
   
-<i class="tmp tmp-close  a-modal-close-icon "    ></i>
+<i class="ai ai-exit  a-modal-close-icon "    ></i>
 
 
 </button>
@@ -731,7 +745,7 @@
                   <!-- TITLE -->
 
                   <!-- INTROTEKST -->
-                    <p class="a-leadText " id="leadText">Ingress er et kort innledende avsnitt som vanligvis plasseres mellom overskriften og brødteksten.</p>
+                    <p class="a-leadText "  id="leadText" >Ingress er et kort innledende avsnitt som vanligvis plasseres mellom overskriften og brødteksten.</p>
 
 
                   <!-- BUTTON -->
@@ -844,7 +858,7 @@
     <!-- Label -->
     <label class="input-group-addon a-input-group-addon-date" for="inputDate">
       
-<i class="ai ai-timer   "    ></i>
+<i class="ai ai-deadline   "    ></i>
 
 
       <span class="a-input-labelText control-label"> Oppstartdato: </span>
@@ -885,7 +899,7 @@
 
               <div class="a-link-helpfunction">
     
-<i class="ai ai-life-ring   "    ></i>
+<i class="ai ai-help   "    ></i>
 
 
 
@@ -899,7 +913,7 @@
     <a
    href="tel:+4775006000" 
   class="a-linkArea  "    >
-  75 00 60 00
+  75006000
 
 </a>
 
@@ -912,7 +926,7 @@
     <p>
       Chat
         
-<i class="tmp tmp-close  a-modal-close-icon "   id="close-chat"   ></i>
+<i class="ai ai-exit  a-modal-close-icon "   id="close-chat"   ></i>
 
 
     <div class="a-chat-scrollarea">
@@ -1068,7 +1082,7 @@
 
             <div class="clearfix">
 
-              <p class="a-leadText " id="leadText">Tekst!</p>
+              <p class="a-leadText "  id="leadText" >Tekst!</p>
 
 
 
@@ -1123,8 +1137,9 @@
 
   </div>
   <div class="sg-pattern-example">
-    <hr class="a-hrSolidLight pt-1" />
-<ul class="a-list   ">
+    <div class="modal-body a-modal-body">
+  <hr class="a-hrSolidLight pt-1" />
+  <ul class="a-list   ">
     <li  class="a-dotted"  >
       <div class="row">
           <div class="col" >
@@ -1157,6 +1172,7 @@
     </li>
 </ul>
 
+</div>
   </div>
   <script type="text/json" id="sg-pattern-data-organismer-delegering-aktivitetslogg" class="sg-pattern-data">
     {"cssEnabled":false,"patternLineageExists":true,"patternLineages":[{"lineagePattern":"molekyler-liste-unummerert-ny","lineagePath":"../../patterns/01-molekyler-05-lister-00-liste-unummerert-ny/01-molekyler-05-lister-00-liste-unummerert-ny.html","lineageState":"inprogress"}],"lineage":[{"lineagePattern":"molekyler-liste-unummerert-ny","lineagePath":"../../patterns/01-molekyler-05-lister-00-liste-unummerert-ny/01-molekyler-05-lister-00-liste-unummerert-ny.html","lineageState":"inprogress"}],"patternLineageRExists":true,"patternLineagesR":[{"lineagePattern":"organismer-modal-andre-med-rettigheter","lineagePath":"../../patterns/02-organismer-71-modal-gruppering-02-modal-andre-med-rettigheter/02-organismer-71-modal-gruppering-02-modal-andre-med-rettigheter.html","lineageState":"indesignreview"}],"lineageR":[{"lineagePattern":"organismer-modal-andre-med-rettigheter","lineagePath":"../../patterns/02-organismer-71-modal-gruppering-02-modal-andre-med-rettigheter/02-organismer-71-modal-gruppering-02-modal-andre-med-rettigheter.html","lineageState":"indesignreview"}],"patternLineageEExists":true,"patternDesc":"<p>Organisme for innhold i modal som viser en aktivitetslogg</p>\n","patternBreadcrumb":{"patternType":"organismer","patternSubtype":"Modal-innhold"},"patternExtension":"mustache","patternName":"Delegering Aktivitetslogg","patternPartial":"organismer-delegering-aktivitetslogg","patternState":"indesignreview","patternEngineName":"mustache","extraOutput":{}}
@@ -1177,13 +1193,15 @@
 
   </div>
   <div class="sg-pattern-example">
+    <div class="modal-body a-modal-body">
+  <div class="pb-2">
       <h2 class="a-h4">Tab heading</h2>
-  <div class="pb-2 clearfix">
-    <ul class="nav a-tabs" role="tablist" >
+      <div class="pb-2 clearfix">
+        <ul class="nav a-tabs" role="tablist" >
     <li class="nav-item a-tab">
       <a class="a-tab-btn  active " data-toggle="tab" href="#home" role="tab">
           
-<i class="ai ai-timer   hidden-xs-down"    ></i>
+<i class="ai ai-deadline   hidden-xs-down"    ></i>
 
 
         Person
@@ -1192,7 +1210,7 @@
     <li class="nav-item a-tab">
       <a class="a-tab-btn " data-toggle="tab" href="#enterprise" role="tab">
           
-<i class="ai ai-timer   hidden-xs-down"    ></i>
+<i class="ai ai-deadline   hidden-xs-down"    ></i>
 
 
         Ekstern virksomhet
@@ -1201,7 +1219,7 @@
     <li class="nav-item a-tab">
       <a class="a-tab-btn " data-toggle="tab" href="#enterpriseuser" role="tab">
           
-<i class="ai ai-timer   hidden-xs-down"    ></i>
+<i class="ai ai-deadline   hidden-xs-down"    ></i>
 
 
         Bruker med virksomhetssertifikat
@@ -1209,14 +1227,14 @@
     </li>
 </ul>
 
-  </div>
-  <div class="tab-content a-tabs-content">
-    <div class="tab-pane active" id="home" role="tabpanel">
-  <form data-toggle="validator" data-disable="true">
-    <div class="row">
-      <div class="col-12 col-lg-7">
-        <h3 class="a-h4">Hvem vil du legge til?</h3>
-          <div class="form-group a-form-group   "
+      </div>
+      <div class="tab-content a-tabs-content">
+        <div class="tab-pane active" id="home" role="tabpanel">
+      <form data-toggle="validator" data-disable="true">
+        <div class="row">
+          <div class="col-12 col-lg-7">
+            <h3 class="a-h4">Hvem vil du legge til?</h3>
+              <div class="form-group a-form-group   "
    data-toggle="validator" 
    data-delay="2000" >
 
@@ -1252,12 +1270,12 @@
 
   </div>
 
-      </div>
-    </div>
-    <div class="row">
-      <div class="col-12 col-lg-7">
-        <div class="mt-1">
-            <div class="form-group a-form-group    mb-0 "
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-12 col-lg-7">
+            <div class="mt-1">
+                <div class="form-group a-form-group    mb-0 "
    data-toggle="validator" 
    data-delay="2000" >
 
@@ -1293,48 +1311,30 @@
 
   </div>
 
+            </div>
+          </div>
         </div>
-      </div>
-      <div style="display:none" class="a-js-hideWhenInvalid hidden-md-down col-12 col-md-5 pl-2">
-        <div class="a-personRole ">
-    
-<i class="tmp tmp-verified-user  a-personRole-icon-success "    ></i>
-
-
-
-    
-<i class="ai ai-person  a-personRole-icon "    ></i>
-
-
-  <div class="a-personRole-text">
-    <span class="a-personRole-role">Styremedlem</span>
-    <span class="a-personRole-name">William Mjelde</span>
-  </div>
-</div>
-
-      </div>
-    </div>
-    <div class="row">
-      <div class="col-md-12">
-        <div class="mt-3">
-              <button type="submit"
+        <div class="row">
+          <div class="col-md-12">
+            <div class="mt-3">
+                  <button type="submit"
     
     class="a-btn a-btn-success mb-0"
             >
     Neste
 </button>
 
+            </div>
+          </div>
         </div>
-      </div>
-    </div>
-  </form>
-    </div>
-    <div class="tab-pane " id="enterprise" role="tabpanel">
-  <form data-toggle="validator" data-disable="true">
-    <div class="row">
-      <div class="col-12 col-lg-7">
-        <h3 class="a-h4">Hvem vil du legge til?</h3>
-          <div class="form-group a-form-group has-feedback  "
+      </form>
+        </div>
+        <div class="tab-pane " id="enterprise" role="tabpanel">
+      <form data-toggle="validator" data-disable="true">
+        <div class="row">
+          <div class="col-12 col-lg-7">
+            <h3 class="a-h4">Hvem vil du legge til?</h3>
+              <div class="form-group a-form-group has-feedback  "
    data-toggle="validator" 
    data-delay="2000" >
 
@@ -1347,7 +1347,7 @@
 
       <!-- Input  -->
         <input type="text"
-          class="form-control   "
+          class="form-control a-js-orgNr  "
           id="text-orgno"
           pattern= "[0-9]{11}"
           required
@@ -1359,7 +1359,7 @@
           data-search-algorithm=""
           data-search-target="">
             
-<i class="ai ai-timer   "    ></i>
+<i class="ai ai-deadline   "    ></i>
 
 
             <span class="sr-only">Icon showing if input is valid or not</span>
@@ -1375,12 +1375,12 @@
 
   </div>
 
-      </div>
-    </div>
-    <div class="row">
-      <div class="col-12 col-lg-7">
-        <div class="mt-1">
-            <div class="form-group a-form-group has-feedback   mb-0 "
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-12 col-lg-7">
+            <div class="mt-1">
+                <div class="form-group a-form-group has-feedback   mb-0 "
    data-toggle="validator" 
    data-delay="2000" >
 
@@ -1405,7 +1405,7 @@
           data-search-algorithm=""
           data-search-target="">
             
-<i class="ai ai-timer   "    ></i>
+<i class="ai ai-deadline   "    ></i>
 
 
             <span class="sr-only">Icon showing if input is valid or not</span>
@@ -1421,48 +1421,30 @@
 
   </div>
 
+            </div>
+          </div>
         </div>
-      </div>
-      <div style="display:none" class="a-js-hideWhenInvalid hidden-md-down col-12 col-md-5 pl-2">
-        <div class="a-personRole ">
-    
-<i class="tmp tmp-verified-user  a-personRole-icon-success "    ></i>
-
-
-
-    
-<i class="ai ai-person  a-personRole-icon "    ></i>
-
-
-  <div class="a-personRole-text">
-    <span class="a-personRole-role">Styremedlem</span>
-    <span class="a-personRole-name">William Mjelde</span>
-  </div>
-</div>
-
-      </div>
-    </div>
-    <div class="row">
-      <div class="col-md-12">
-        <div class="mt-3">
-              <button type="submit"
+        <div class="row">
+          <div class="col-md-12">
+            <div class="mt-3">
+                  <button type="submit"
     
     class="a-btn a-btn-success mb-0"
             >
     Neste
 </button>
 
+            </div>
+          </div>
         </div>
-      </div>
-    </div>
-  </form>
-    </div>
-    <div class="tab-pane " id="enterpriseuser" role="tabpanel">
-  <form data-toggle="validator" data-disable="true">
-    <div class="row">
-      <div class="col-12 col-lg-7">
-        <h3 class="a-h4">Hvem vil du legge til?</h3>
-          <div class="form-group a-form-group has-feedback  "
+      </form>
+        </div>
+        <div class="tab-pane " id="enterpriseuser" role="tabpanel">
+      <form data-toggle="validator" data-disable="true">
+        <div class="row">
+          <div class="col-12 col-lg-7">
+            <h3 class="a-h4">Hvem vil du legge til?</h3>
+              <div class="form-group a-form-group has-feedback  "
    data-toggle="validator" 
    data-delay="2000" >
 
@@ -1487,7 +1469,7 @@
           data-search-algorithm=""
           data-search-target="">
             
-<i class="ai ai-timer   "    ></i>
+<i class="ai ai-deadline   "    ></i>
 
 
             <span class="sr-only">Icon showing if input is valid or not</span>
@@ -1503,12 +1485,12 @@
 
   </div>
 
-      </div>
-    </div>
-    <div class="row">
-      <div class="col-12 col-lg-7">
-        <div class="mt-1">
-            <div class="form-group a-form-group has-feedback   mb-0 "
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-12 col-lg-7">
+            <div class="mt-1">
+                <div class="form-group a-form-group has-feedback   mb-0 "
    data-toggle="validator" 
    data-delay="2000" >
 
@@ -1521,7 +1503,7 @@
 
       <!-- Input  -->
         <input type="text"
-          class="form-control   "
+          class="form-control a-js-orgNr  "
           id="text-enterpriseuser-orgno"
           pattern= "[0-9]{11}"
           required
@@ -1533,7 +1515,7 @@
           data-search-algorithm=""
           data-search-target="">
             
-<i class="ai ai-timer   "    ></i>
+<i class="ai ai-deadline   "    ></i>
 
 
             <span class="sr-only">Icon showing if input is valid or not</span>
@@ -1549,48 +1531,32 @@
 
   </div>
 
+            </div>
+          </div>
         </div>
-      </div>
-      <div style="display:none" class="a-js-hideWhenInvalid hidden-md-down col-12 col-md-5 pl-2">
-        <div class="a-personRole ">
-    
-<i class="tmp tmp-verified-user  a-personRole-icon-success "    ></i>
-
-
-
-    
-<i class="ai ai-person  a-personRole-icon "    ></i>
-
-
-  <div class="a-personRole-text">
-    <span class="a-personRole-role">Styremedlem</span>
-    <span class="a-personRole-name">William Mjelde</span>
-  </div>
-</div>
-
-      </div>
-    </div>
-    <div class="row">
-      <div class="col-md-12">
-        <div class="mt-3">
-              <button type="submit"
+        <div class="row">
+          <div class="col-md-12">
+            <div class="mt-3">
+                  <button type="submit"
     
     class="a-btn a-btn-success mb-0"
             >
     Neste
 </button>
 
+            </div>
+          </div>
+        </div>
+      </form>
         </div>
       </div>
-    </div>
-  </form>
-    </div>
   </div>
+</div>
 
 
   </div>
   <script type="text/json" id="sg-pattern-data-organismer-delegering-legg-til" class="sg-pattern-data">
-    {"cssEnabled":false,"patternLineageExists":true,"patternLineages":[{"lineagePattern":"molekyler-faner","lineagePath":"../../patterns/01-molekyler-02-navigasjon-10-faner/01-molekyler-02-navigasjon-10-faner.html","lineageState":"indesignreview"},{"lineagePattern":"atomer-tekst-input","lineagePath":"../../patterns/00-atomer-01-forms-09-tekst-input/00-atomer-01-forms-09-tekst-input.html","lineageState":"needsrevalidation"},{"lineagePattern":"molekyler-♺-person-rolle-suksess","lineagePath":"../../patterns/01-molekyler-00-tekst-03-♺-person-rolle-suksess/01-molekyler-00-tekst-03-♺-person-rolle-suksess.html","lineageState":"indesignreview"},{"lineagePattern":"atomer-knapp","lineagePath":"../../patterns/00-atomer-03-knapper-10-knapp/00-atomer-03-knapper-10-knapp.html","lineageState":"indesignreview"}],"lineage":[{"lineagePattern":"molekyler-faner","lineagePath":"../../patterns/01-molekyler-02-navigasjon-10-faner/01-molekyler-02-navigasjon-10-faner.html","lineageState":"indesignreview"},{"lineagePattern":"atomer-tekst-input","lineagePath":"../../patterns/00-atomer-01-forms-09-tekst-input/00-atomer-01-forms-09-tekst-input.html","lineageState":"needsrevalidation"},{"lineagePattern":"molekyler-♺-person-rolle-suksess","lineagePath":"../../patterns/01-molekyler-00-tekst-03-♺-person-rolle-suksess/01-molekyler-00-tekst-03-♺-person-rolle-suksess.html","lineageState":"indesignreview"},{"lineagePattern":"atomer-knapp","lineagePath":"../../patterns/00-atomer-03-knapper-10-knapp/00-atomer-03-knapper-10-knapp.html","lineageState":"indesignreview"}],"patternLineageRExists":true,"patternLineagesR":[{"lineagePattern":"organismer-modal-klientdelegering","lineagePath":"../../patterns/02-organismer-71-modal-gruppering-01-modal-klientdelegering/02-organismer-71-modal-gruppering-01-modal-klientdelegering.html","lineageState":"indesignreview"},{"lineagePattern":"organismer-modal-andre-med-rettigheter","lineagePath":"../../patterns/02-organismer-71-modal-gruppering-02-modal-andre-med-rettigheter/02-organismer-71-modal-gruppering-02-modal-andre-med-rettigheter.html","lineageState":"indesignreview"}],"lineageR":[{"lineagePattern":"organismer-modal-klientdelegering","lineagePath":"../../patterns/02-organismer-71-modal-gruppering-01-modal-klientdelegering/02-organismer-71-modal-gruppering-01-modal-klientdelegering.html","lineageState":"indesignreview"},{"lineagePattern":"organismer-modal-andre-med-rettigheter","lineagePath":"../../patterns/02-organismer-71-modal-gruppering-02-modal-andre-med-rettigheter/02-organismer-71-modal-gruppering-02-modal-andre-med-rettigheter.html","lineageState":"indesignreview"}],"patternLineageEExists":true,"patternDesc":"<p>Organisme for innhold i modal for å legge til en ny person, virksomhet eller virksomhetsbruker</p>\n","patternBreadcrumb":{"patternType":"organismer","patternSubtype":"Modal-innhold"},"patternExtension":"mustache","patternName":"Delegering Legg Til","patternPartial":"organismer-delegering-legg-til","patternState":"indesignreview","patternEngineName":"mustache","extraOutput":{}}
+    {"cssEnabled":false,"patternLineageExists":true,"patternLineages":[{"lineagePattern":"molekyler-faner","lineagePath":"../../patterns/01-molekyler-02-navigasjon-10-faner/01-molekyler-02-navigasjon-10-faner.html","lineageState":"indesignreview"},{"lineagePattern":"atomer-tekst-input","lineagePath":"../../patterns/00-atomer-01-forms-09-tekst-input/00-atomer-01-forms-09-tekst-input.html","lineageState":"needsrevalidation"},{"lineagePattern":"atomer-knapp","lineagePath":"../../patterns/00-atomer-03-knapper-10-knapp/00-atomer-03-knapper-10-knapp.html","lineageState":"indesignreview"}],"lineage":[{"lineagePattern":"molekyler-faner","lineagePath":"../../patterns/01-molekyler-02-navigasjon-10-faner/01-molekyler-02-navigasjon-10-faner.html","lineageState":"indesignreview"},{"lineagePattern":"atomer-tekst-input","lineagePath":"../../patterns/00-atomer-01-forms-09-tekst-input/00-atomer-01-forms-09-tekst-input.html","lineageState":"needsrevalidation"},{"lineagePattern":"atomer-knapp","lineagePath":"../../patterns/00-atomer-03-knapper-10-knapp/00-atomer-03-knapper-10-knapp.html","lineageState":"indesignreview"}],"patternLineageRExists":true,"patternLineagesR":[{"lineagePattern":"organismer-modal-klientdelegering","lineagePath":"../../patterns/02-organismer-71-modal-gruppering-01-modal-klientdelegering/02-organismer-71-modal-gruppering-01-modal-klientdelegering.html","lineageState":"indesignreview"},{"lineagePattern":"organismer-modal-andre-med-rettigheter","lineagePath":"../../patterns/02-organismer-71-modal-gruppering-02-modal-andre-med-rettigheter/02-organismer-71-modal-gruppering-02-modal-andre-med-rettigheter.html","lineageState":"indesignreview"}],"lineageR":[{"lineagePattern":"organismer-modal-klientdelegering","lineagePath":"../../patterns/02-organismer-71-modal-gruppering-01-modal-klientdelegering/02-organismer-71-modal-gruppering-01-modal-klientdelegering.html","lineageState":"indesignreview"},{"lineagePattern":"organismer-modal-andre-med-rettigheter","lineagePath":"../../patterns/02-organismer-71-modal-gruppering-02-modal-andre-med-rettigheter/02-organismer-71-modal-gruppering-02-modal-andre-med-rettigheter.html","lineageState":"indesignreview"}],"patternLineageEExists":true,"patternDesc":"<p>Organisme for innhold i modal for å legge til en ny person, virksomhet eller virksomhetsbruker</p>\n","patternBreadcrumb":{"patternType":"organismer","patternSubtype":"Modal-innhold"},"patternExtension":"mustache","patternName":"Delegering Legg Til","patternPartial":"organismer-delegering-legg-til","patternState":"indesignreview","patternEngineName":"mustache","extraOutput":{}}
   </script>
 </div><!--end .sg-pattern-->
 <div id="organismer-roller-tjenesteoversikt" class="sg-pattern">
@@ -1608,7 +1574,8 @@
 
   </div>
   <div class="sg-pattern-example">
-    <div class="a-collapse">
+    <div class="modal-body a-modal-body">
+  <div class="a-collapse">
   <div class="">
     <h3 class="a-collapseHeader">
         <a data-toggle="collapse" href="#" data-target="#departement-filter"  aria-expanded="" aria-controls="departement-filter" class="a-collapse-title a-collapse-title--absolute no-decoration  collapsed ">
@@ -1619,8 +1586,8 @@
 </div>
 
 
-<div id="departement-filter" class="a-collapseContent collapse " aria-expanded="false">
-  <div class="text-sm-center">
+  <div id="departement-filter" class="a-collapseContent collapse " aria-expanded="false">
+    <div class="text-sm-center">
   <div class="a-switch">
     <input
        id="filterID01" 
@@ -1706,11 +1673,11 @@
     </label>
   </div>
 
+    </div>
   </div>
-</div>
-<hr class="a-hrSolidThick" />
+  <hr class="a-hrSolidThick" />
 
-<nav class="a-inline-page-link">
+  <nav class="a-inline-page-link">
   <div class="row">
     <div class="col-sm-12 col-md-6 list">
         <a href="#A" class="nav-link " alt="Hopp til A">A</a>
@@ -1989,7 +1956,7 @@
 			</li>
 	</ul>
 
-
+</div>
   </div>
   <script type="text/json" id="sg-pattern-data-organismer-roller-tjenesteoversikt" class="sg-pattern-data">
     {"cssEnabled":false,"patternLineageExists":true,"patternLineages":[{"lineagePattern":"atomer-ekspanderbar-tittel","lineagePath":"../../patterns/00-atomer-05-Ekspansjonsknapper-27-ekspanderbar-tittel/00-atomer-05-Ekspansjonsknapper-27-ekspanderbar-tittel.html","lineageState":"intechnicalreview"},{"lineagePattern":"atomer-valgknapp","lineagePath":"../../patterns/00-atomer-01-forms-02-valgknapp/00-atomer-01-forms-02-valgknapp.html","lineageState":"indesignreview"},{"lineagePattern":"molekyler-hurtignavigasjon","lineagePath":"../../patterns/01-molekyler-02-navigasjon-20-hurtignavigasjon/01-molekyler-02-navigasjon-20-hurtignavigasjon.html","lineageState":"indesignreview"}],"lineage":[{"lineagePattern":"atomer-ekspanderbar-tittel","lineagePath":"../../patterns/00-atomer-05-Ekspansjonsknapper-27-ekspanderbar-tittel/00-atomer-05-Ekspansjonsknapper-27-ekspanderbar-tittel.html","lineageState":"intechnicalreview"},{"lineagePattern":"atomer-valgknapp","lineagePath":"../../patterns/00-atomer-01-forms-02-valgknapp/00-atomer-01-forms-02-valgknapp.html","lineageState":"indesignreview"},{"lineagePattern":"molekyler-hurtignavigasjon","lineagePath":"../../patterns/01-molekyler-02-navigasjon-20-hurtignavigasjon/01-molekyler-02-navigasjon-20-hurtignavigasjon.html","lineageState":"indesignreview"}],"patternLineageRExists":true,"patternLineagesR":[{"lineagePattern":"organismer-modal-andre-med-rettigheter","lineagePath":"../../patterns/02-organismer-71-modal-gruppering-02-modal-andre-med-rettigheter/02-organismer-71-modal-gruppering-02-modal-andre-med-rettigheter.html","lineageState":"indesignreview"}],"lineageR":[{"lineagePattern":"organismer-modal-andre-med-rettigheter","lineagePath":"../../patterns/02-organismer-71-modal-gruppering-02-modal-andre-med-rettigheter/02-organismer-71-modal-gruppering-02-modal-andre-med-rettigheter.html","lineageState":"indesignreview"}],"patternLineageEExists":true,"patternDesc":"<p>Modal innhold for hvilke tjenester roller gir.</p>\n","patternBreadcrumb":{"patternType":"organismer","patternSubtype":"Modal-innhold"},"patternExtension":"mustache","patternName":"Roller Tjenesteoversikt","patternPartial":"organismer-roller-tjenesteoversikt","patternState":"indesignreview","patternEngineName":"mustache","extraOutput":{}}
@@ -2010,33 +1977,36 @@
 
   </div>
   <div class="sg-pattern-example">
-    <div class="row">
-	<div class="col-12 col-md-6 col-lg-7">
-		  <div class="a-personRole ">
+    <div class="modal-body a-modal-body">
+  <div class="row">
+    <div class="col-12 col-md-6 col-lg-7">
+        <div class="a-personRole ">
 
-    
-<i class="ai ai-person  a-personRole-icon "    ></i>
+    <div class="hidden-sm-down">
+      
+<i class="ai ai-private  ai-3x a-personRole-icon "    ></i>
 
 
+    </div>
   <div class="a-personRole-text">
     <span class="a-personRole-role">Styremedlem</span>
     <span class="a-personRole-name">William Mjelde</span>
   </div>
 </div>
 
-	</div>
+    </div>
 
-</div>
-<div class="row">
-  <div class="col-12 col-lg-6 mt-4">
-    <div class="a-textSizeS a-fontBold">
-      Søk:
+  </div>
+  <div class="row">
+    <div class="col-12 col-lg-6 mt-4">
+      <div class="a-textSizeS a-fontBold">
+        Søk:
+      </div>
     </div>
   </div>
-</div>
-<div class="row">
-	<div class="col-12 col-lg-6 mb-1">
-		<div class="form-group a-form-group   "
+  <div class="row">
+    <div class="col-12 col-lg-6 mb-1">
+      <div class="form-group a-form-group   "
   
   >
 
@@ -2045,7 +2015,7 @@
       <!-- Label -->
       <label class="a-form-label  input-group-addon" for="text-input-find-13">
           
-<i class="ai ai-life-ring   "    ></i>
+<i class="ai ai-help   "    ></i>
 
 
         <span class="sr-only">Finn skjema eller tjeneste</span>
@@ -2069,7 +2039,7 @@
           <div class="input-group-btn">
             <button class="btn btn-secondary " type="button" >
               
-<i class="tmp tmp-search   "    ><span class="sr-only">Utfør søk</span></i>
+<i class="ai ai-search   "    ><span class="sr-only">Utfør søk</span></i>
 
 
             </button>
@@ -2084,12 +2054,12 @@
   </div>
 
 
-	</div>
-</div>
-  <div class="row">
-    <div class="col-12">
-      <div class="mt-1 mb-2">
-        <div class="a-list-heading">
+    </div>
+  </div>
+    <div class="row">
+      <div class="col-12">
+        <div class="mt-1 mb-2">
+          <div class="a-list-heading">
   <div class="a-collapse">
   <div class="a-dotted">
     <h3 class="a-collapseHeader a-collapseHeader-with-actions">
@@ -2158,11 +2128,11 @@
       </div>
     </div>
  </div>
+        </div>
       </div>
     </div>
-  </div>
 
-
+</div>
   </div>
   <script type="text/json" id="sg-pattern-data-organismer-delegering-roller" class="sg-pattern-data">
     {"cssEnabled":false,"patternLineageExists":true,"patternLineages":[{"lineagePattern":"molekyler-person-rolle","lineagePath":"../../patterns/01-molekyler-00-tekst-02-person-rolle/01-molekyler-00-tekst-02-person-rolle.html","lineageState":"indesignreview"},{"lineagePattern":"atomer-♺-knapp-link-fare","lineagePath":"../../patterns/00-atomer-03-knapper-16-♺-knapp-link-fare/00-atomer-03-knapper-16-♺-knapp-link-fare.html","lineageState":"indesignreview"},{"lineagePattern":"atomer-♺-sok-tema","lineagePath":"../../patterns/00-atomer-01-forms-22-♺-sok-tema/00-atomer-01-forms-22-♺-sok-tema.html","lineageState":"indesignreview"},{"lineagePattern":"molekyler-ekspanderbar-liste","lineagePath":"../../patterns/01-molekyler-02-navigasjon-50-ekspanderbar-liste/01-molekyler-02-navigasjon-50-ekspanderbar-liste.html","lineageState":"indesignreview"},{"lineagePattern":"atomer-link","lineagePath":"../../patterns/00-atomer-02-lenker-00-link/00-atomer-02-lenker-00-link.html","lineageState":"needsrevalidation"}],"lineage":[{"lineagePattern":"molekyler-person-rolle","lineagePath":"../../patterns/01-molekyler-00-tekst-02-person-rolle/01-molekyler-00-tekst-02-person-rolle.html","lineageState":"indesignreview"},{"lineagePattern":"atomer-♺-knapp-link-fare","lineagePath":"../../patterns/00-atomer-03-knapper-16-♺-knapp-link-fare/00-atomer-03-knapper-16-♺-knapp-link-fare.html","lineageState":"indesignreview"},{"lineagePattern":"atomer-♺-sok-tema","lineagePath":"../../patterns/00-atomer-01-forms-22-♺-sok-tema/00-atomer-01-forms-22-♺-sok-tema.html","lineageState":"indesignreview"},{"lineagePattern":"molekyler-ekspanderbar-liste","lineagePath":"../../patterns/01-molekyler-02-navigasjon-50-ekspanderbar-liste/01-molekyler-02-navigasjon-50-ekspanderbar-liste.html","lineageState":"indesignreview"},{"lineagePattern":"atomer-link","lineagePath":"../../patterns/00-atomer-02-lenker-00-link/00-atomer-02-lenker-00-link.html","lineageState":"needsrevalidation"}],"patternLineageRExists":true,"patternLineagesR":[{"lineagePattern":"organismer-modal-andre-med-rettigheter","lineagePath":"../../patterns/02-organismer-71-modal-gruppering-02-modal-andre-med-rettigheter/02-organismer-71-modal-gruppering-02-modal-andre-med-rettigheter.html","lineageState":"indesignreview"}],"lineageR":[{"lineagePattern":"organismer-modal-andre-med-rettigheter","lineagePath":"../../patterns/02-organismer-71-modal-gruppering-02-modal-andre-med-rettigheter/02-organismer-71-modal-gruppering-02-modal-andre-med-rettigheter.html","lineageState":"indesignreview"}],"patternLineageEExists":true,"patternDesc":"<p>Organisme for innhold i modal for delegering av roller og rettigheter</p>\n","patternBreadcrumb":{"patternType":"organismer","patternSubtype":"Modal-innhold"},"patternExtension":"mustache","patternName":"Delegering Roller","patternPartial":"organismer-delegering-roller","patternState":"indesignreview","patternEngineName":"mustache","extraOutput":{}}
@@ -2183,9 +2153,10 @@
 
   </div>
   <div class="sg-pattern-example">
-    <div class="row">
-  <div class="col-12">
-      <div class="a-iconText  a-iconText--noMinHeight">
+    <div class="modal-body a-modal-body">
+  <div class="row">
+    <div class="col-12">
+        <div class="a-iconText  a-iconText--noMinHeight">
   <!-- ICON -->
   <div class="a-iconText-icon"></div>
   <!-- TEXT -->
@@ -2195,24 +2166,24 @@
     </div>
 </div>
 
-    <div class="a-full-width">
-      <hr class="mb-2 mt-3">
+      <div class="a-full-width">
+        <hr class="mb-2 mt-3">
+      </div>
     </div>
   </div>
-</div>
-<div class="row">
-  <div class="col-12 mb-1">
-    <h2 class="mb-0">
-      Roller underoverskrift
-    </h2>
-      <span>
-        Tekst under overskrift
-      </span>
-  </div>
+  <div class="row">
     <div class="col-12 mb-1">
-        <span class="pr-1">
-          Tekst har roller:
+      <h2 class="mb-0">
+        Roller underoverskrift
+      </h2>
+        <span>
+          Tekst under overskrift
         </span>
+    </div>
+      <div class="col-12 mb-1">
+          <span class="pr-1">
+            Tekst har roller:
+          </span>
   <div class="a-switch">
     <input
        id="checkbutton-deactivated-roles-1" 
@@ -2250,11 +2221,11 @@
     </label>
   </div>
 
-    </div>
-    <div class="col-12 mb-1">
-        <span class="pr-1">
-          Tekst trenger roller:
-        </span>
+      </div>
+      <div class="col-12 mb-1">
+          <span class="pr-1">
+            Tekst trenger roller:
+          </span>
   <div class="a-switch">
     <input
        id="checkbutton-example-roles-1" 
@@ -2298,7 +2269,7 @@
     </label>
   </div>
 
-        
+          
 <a href="#"
   aria-label="valid"
   tabindex="0"
@@ -2307,7 +2278,7 @@
   data-toggle="popover"
   data-template="<div class='popover popover-big' role='tooltip'>
   <div class='popover-arrow'></div>
-  <h3 class='popover-title'></h3>
+    <h3 class='popover-title'></h3>
   <div class='popover-content'></div>
 </div>
 "
@@ -2329,37 +2300,42 @@
 
 </a>
 
-    </div>
-    <div class="col-12 mb-2">
-	    
-<div id="alert-no-arrow" class="a-message a-message-error a-message--arrow-off a-message--fullwidth ">
-	Dette er en beskjed uten pil og med full bredde
+
+      </div>
+      <div class="col-12 mb-2">
+        <div id="alert-no-arrow" class="a-message a-message-error a-message--arrow-off a-message--fullwidth ">
+    
+    Dette er en beskjed.
+    
+
+
 </div>
 
-    </div>
-  <div class="col-12">
-      <div class="row">
-        <div class="col-xl-12">
-          <button type="submit"
+      </div>
+    <div class="col-12">
+        <div class="row">
+          <div class="col-xl-12">
+            <button type="submit"
     
     class="a-btn a-btn-success mb-0"
-            >
+     /patterns/04-sider-01-forside-00-forside/04-sider-01-forside-00-forside.html       >
     Fullfør
 </button>
 
+          </div>
         </div>
-      </div>
-      <div class="row">
-        <div class="col-xl-12 mt-2">
-          <a
-  
+        <div class="row">
+          <div class="col-xl-12 mt-2">
+            <a
+   href="/patterns/04-sider-01-forside-00-forside/04-sider-01-forside-00-forside.html" 
   class="a-linkArea a-link "    >
   Lenke som står selvstendig alene
 
 </a>
 
+          </div>
         </div>
-      </div>
+    </div>
   </div>
 </div>
   </div>
@@ -2382,9 +2358,10 @@
 
   </div>
   <div class="sg-pattern-example">
-    <div class="row">
-  <div class="col-12">
-      <div class="a-iconText  a-iconText--noMinHeight">
+    <div class="modal-body a-modal-body">
+  <div class="row">
+    <div class="col-12">
+        <div class="a-iconText  a-iconText--noMinHeight">
   <!-- ICON -->
   <div class="a-iconText-icon"></div>
   <!-- TEXT -->
@@ -2394,17 +2371,17 @@
     </div>
 </div>
 
-    <div class="a-full-width">
-      <hr class="mb-2 mt-3">
+      <div class="a-full-width">
+        <hr class="mb-2 mt-3">
+      </div>
+    </div>
+    <div class="col-12 mb-2 a-fontBold">
+      Vent litt... Vi mangler e-postadresse til den du gir rettighet til.<br />For å gjennomføre må du fylle inn e-post under.
     </div>
   </div>
-  <div class="col-12 mb-2 a-fontBold">
-    Vent litt... Vi mangler e-postadresse til den du gir rettighet til.<br />For å gjennomføre må du fylle inn e-post under.
-  </div>
-</div>
-  <div class="row">
-    <div class="col-12 col-md-8 col-xl-6 mb-1">
-      <div class="form-group a-form-group has-feedback  "
+    <div class="row">
+      <div class="col-12 col-md-8 col-xl-6 mb-1">
+        <div class="form-group a-form-group has-feedback  "
    data-toggle="validator" 
    data-delay="2000" >
 
@@ -2413,7 +2390,7 @@
       <!-- Label -->
       <label class="a-form-label  input-group-addon" for="text-input-8">
           
-<i class="ai ai-envelope   "    ></i>
+<i class="ai ai-closedmessage   "    ></i>
 
 
         Epost:
@@ -2449,20 +2426,20 @@
 
   </div>
 
+      </div>
     </div>
-  </div>
-  <div class="row">
-    <div class="col-xl-12">
-      <button type="submit"
+    <div class="row">
+      <div class="col-xl-12">
+        <button type="submit"
     
     class="a-btn a-btn-success mb-0"
             >
     Fullfør
 </button>
 
+      </div>
     </div>
-  </div>
-
+</div>
   </div>
   <script type="text/json" id="sg-pattern-data-organismer-delegering-epost" class="sg-pattern-data">
     {"cssEnabled":false,"patternLineageExists":true,"patternLineages":[{"lineagePattern":"molekyler-ikon-tekst","lineagePath":"../../patterns/01-molekyler-00-tekst-30-ikon-tekst/01-molekyler-00-tekst-30-ikon-tekst.html","lineageState":"needsrevalidation"},{"lineagePattern":"atomer-tekst-input","lineagePath":"../../patterns/00-atomer-01-forms-09-tekst-input/00-atomer-01-forms-09-tekst-input.html","lineageState":"needsrevalidation"},{"lineagePattern":"atomer-knapp","lineagePath":"../../patterns/00-atomer-03-knapper-10-knapp/00-atomer-03-knapper-10-knapp.html","lineageState":"indesignreview"}],"lineage":[{"lineagePattern":"molekyler-ikon-tekst","lineagePath":"../../patterns/01-molekyler-00-tekst-30-ikon-tekst/01-molekyler-00-tekst-30-ikon-tekst.html","lineageState":"needsrevalidation"},{"lineagePattern":"atomer-tekst-input","lineagePath":"../../patterns/00-atomer-01-forms-09-tekst-input/00-atomer-01-forms-09-tekst-input.html","lineageState":"needsrevalidation"},{"lineagePattern":"atomer-knapp","lineagePath":"../../patterns/00-atomer-03-knapper-10-knapp/00-atomer-03-knapper-10-knapp.html","lineageState":"indesignreview"}],"patternLineageRExists":true,"patternLineagesR":[{"lineagePattern":"organismer-modal-andre-med-rettigheter","lineagePath":"../../patterns/02-organismer-71-modal-gruppering-02-modal-andre-med-rettigheter/02-organismer-71-modal-gruppering-02-modal-andre-med-rettigheter.html","lineageState":"indesignreview"}],"lineageR":[{"lineagePattern":"organismer-modal-andre-med-rettigheter","lineagePath":"../../patterns/02-organismer-71-modal-gruppering-02-modal-andre-med-rettigheter/02-organismer-71-modal-gruppering-02-modal-andre-med-rettigheter.html","lineageState":"indesignreview"}],"patternLineageEExists":true,"patternDesc":"<p>Organisme som brukes i modal for delegering ved manglende epost på personen / virksomheten det delegeres til.</p>\n","patternBreadcrumb":{"patternType":"organismer","patternSubtype":"Modal-innhold"},"patternExtension":"mustache","patternName":"Delegering Epost","patternPartial":"organismer-delegering-epost","patternState":"indesignreview","patternEngineName":"mustache","extraOutput":{}}
@@ -2483,23 +2460,26 @@
 
   </div>
   <div class="sg-pattern-example">
-    <div class="row">
-  <div class="col-8">
-      <div class="a-personRole ">
+    <div class="modal-body a-modal-body">
+  <div class="row">
+    <div class="col-8">
+        <div class="a-personRole ">
 
-    
-<i class="ai ai-person  a-personRole-icon "    ></i>
+    <div class="hidden-sm-down">
+      
+<i class="ai ai-private  ai-3x a-personRole-icon "    ></i>
 
 
+    </div>
   <div class="a-personRole-text">
     <span class="a-personRole-role">Styremedlem</span>
     <span class="a-personRole-name">William Mjelde</span>
   </div>
 </div>
 
-  </div>
-  <div class="col pt-1 hidden-xs-down">
-      <button type="button"
+    </div>
+    <div class="col pt-1 hidden-xs-down">
+        <button type="button"
     
     class="a-btn-link a-link a-link-danger float-right a-link-modalTop"
             >
@@ -2507,12 +2487,12 @@
 </button>
 
 
+    </div>
   </div>
-</div>
 
-<div class="row">
-  <div class="col-12 col-md-12 col-lg-6 mt-4 mb-1">
-    <div class="form-group a-form-group   "
+  <div class="row">
+    <div class="col-12 col-md-12 col-lg-6 mt-4 mb-1">
+      <div class="form-group a-form-group   "
   
   >
 
@@ -2521,7 +2501,7 @@
       <!-- Label -->
       <label class="a-form-label  input-group-addon" for="text-input-1">
           
-<i class="ai ai-organisation   "    ></i>
+<i class="ai ai-client   "    ></i>
 
 
         <span class="sr-only">Finn klient</span>
@@ -2545,7 +2525,7 @@
           <div class="input-group-btn">
             <button class="btn btn-secondary " type="button" >
               
-<i class="tmp tmp-search   "    ></i>
+<i class="ai ai-search   "    ></i>
 
 
             </button>
@@ -2559,11 +2539,11 @@
 
   </div>
 
+    </div>
   </div>
-</div>
 
-  <div class="mt-1 mb-1">
-    <div class="a-collapse">
+    <div class="mt-1 mb-1">
+      <div class="a-collapse">
   <div class="">
     <h3 class="a-collapseHeader">
         <a data-toggle="collapse" href="#" data-target="#exp-tab-table-existing-clients"  aria-expanded="" aria-controls="exp-tab-table-existing-clients" class="a-collapse-title a-collapse-title--absolute no-decoration  collapsed ">
@@ -2573,249 +2553,9 @@
   </div>
 </div>
 
-  </div>
-  <div class="a-full-width">
-    <div id="exp-tab-table-existing-clients" class="a-collapseContent collapse show" aria-expanded="true">
-      <ul class="a-list   ">
-    <li  class="a-dotted"  >
-      <div class="row">
-          <div class="col" >
-    
-    Første rad
-    
-
-
-
-
-
-
-          </div>
-      </div>
-    </li>
-    <li  class="a-dotted"  >
-      <div class="row">
-          <div class="col" >
-    
-    Andre rad
-    
-
-
-
-
-
-
-          </div>
-      </div>
-    </li>
-</ul>
-
     </div>
-  </div>
-  <div class="pt-3 mb-1">
-    <div class="a-collapse">
-  <div class="">
-    <h3 class="a-collapseHeader">
-        <a data-toggle="collapse" href="#" data-target="#exp-tab-table-new-clients"  aria-expanded="" aria-controls="exp-tab-table-new-clients" class="a-collapse-title a-collapse-title--absolute no-decoration  collapsed ">
-            <span class="a-dropdownArrow"></span> Kan få disse <span class='badge badge-primary a-label badge-pill'>3</span> klientene
-        </a>
-    </h3>
-  </div>
-</div>
-
-  </div>
-  <div class="a-full-width">
-    <div id="exp-tab-table-new-clients" class="a-collapseContent collapse show" aria-expanded="true">
-      <ul class="a-list   ">
-    <li  class="a-dotted"  >
-      <div class="row">
-          <div class="col" >
-    
-    Første rad
-    
-
-
-
-
-
-
-          </div>
-      </div>
-    </li>
-    <li  class="a-dotted"  >
-      <div class="row">
-          <div class="col" >
-    
-    Andre rad
-    
-
-
-
-
-
-
-          </div>
-      </div>
-    </li>
-</ul>
-
-    </div>
-  </div>
-
-
-  </div>
-  <script type="text/json" id="sg-pattern-data-organismer-klientdelegering-gi-rettigheter" class="sg-pattern-data">
-    {"cssEnabled":false,"patternLineageExists":true,"patternLineages":[{"lineagePattern":"molekyler-person-rolle","lineagePath":"../../patterns/01-molekyler-00-tekst-02-person-rolle/01-molekyler-00-tekst-02-person-rolle.html","lineageState":"indesignreview"},{"lineagePattern":"atomer-♺-knapp-link-fare","lineagePath":"../../patterns/00-atomer-03-knapper-16-♺-knapp-link-fare/00-atomer-03-knapper-16-♺-knapp-link-fare.html","lineageState":"indesignreview"},{"lineagePattern":"atomer-tekst-input","lineagePath":"../../patterns/00-atomer-01-forms-09-tekst-input/00-atomer-01-forms-09-tekst-input.html","lineageState":"needsrevalidation"},{"lineagePattern":"atomer-ekspanderbar-tittel","lineagePath":"../../patterns/00-atomer-05-Ekspansjonsknapper-27-ekspanderbar-tittel/00-atomer-05-Ekspansjonsknapper-27-ekspanderbar-tittel.html","lineageState":"intechnicalreview"},{"lineagePattern":"molekyler-liste-unummerert-ny","lineagePath":"../../patterns/01-molekyler-05-lister-00-liste-unummerert-ny/01-molekyler-05-lister-00-liste-unummerert-ny.html","lineageState":"inprogress"}],"lineage":[{"lineagePattern":"molekyler-person-rolle","lineagePath":"../../patterns/01-molekyler-00-tekst-02-person-rolle/01-molekyler-00-tekst-02-person-rolle.html","lineageState":"indesignreview"},{"lineagePattern":"atomer-♺-knapp-link-fare","lineagePath":"../../patterns/00-atomer-03-knapper-16-♺-knapp-link-fare/00-atomer-03-knapper-16-♺-knapp-link-fare.html","lineageState":"indesignreview"},{"lineagePattern":"atomer-tekst-input","lineagePath":"../../patterns/00-atomer-01-forms-09-tekst-input/00-atomer-01-forms-09-tekst-input.html","lineageState":"needsrevalidation"},{"lineagePattern":"atomer-ekspanderbar-tittel","lineagePath":"../../patterns/00-atomer-05-Ekspansjonsknapper-27-ekspanderbar-tittel/00-atomer-05-Ekspansjonsknapper-27-ekspanderbar-tittel.html","lineageState":"intechnicalreview"},{"lineagePattern":"molekyler-liste-unummerert-ny","lineagePath":"../../patterns/01-molekyler-05-lister-00-liste-unummerert-ny/01-molekyler-05-lister-00-liste-unummerert-ny.html","lineageState":"inprogress"}],"patternLineageRExists":true,"patternLineagesR":[{"lineagePattern":"organismer-modal-klientdelegering","lineagePath":"../../patterns/02-organismer-71-modal-gruppering-01-modal-klientdelegering/02-organismer-71-modal-gruppering-01-modal-klientdelegering.html","lineageState":"indesignreview"}],"lineageR":[{"lineagePattern":"organismer-modal-klientdelegering","lineagePath":"../../patterns/02-organismer-71-modal-gruppering-01-modal-klientdelegering/02-organismer-71-modal-gruppering-01-modal-klientdelegering.html","lineageState":"indesignreview"}],"patternLineageEExists":true,"patternDesc":"<p>Innholdet til modal klientdelegering for å gi rettigheter til nye eller eksisterende ansatte.</p>\n","patternBreadcrumb":{"patternType":"organismer","patternSubtype":"Modal-innhold"},"patternExtension":"mustache","patternName":"Klientdelegering Gi Rettigheter","patternPartial":"organismer-klientdelegering-gi-rettigheter","patternState":"intechnicalreview","patternEngineName":"mustache","extraOutput":{}}
-  </script>
-</div><!--end .sg-pattern-->
-<div id="organismer-klientdelegering-ferdig" class="sg-pattern">
-  <div class="sg-pattern-head">
-    <h3 class="sg-pattern-title">
-      <a href="../../patterns/02-organismer-70-Modal-innhold-97-klientdelegering-ferdig&#x2F;02-organismer-70-Modal-innhold-97-klientdelegering-ferdig.html" class="patternLink" data-patternpartial="organismer-klientdelegering-ferdig" title="Link to Pattern">
-          Klientdelegering Ferdig
-      </a>
-    </h3>
-      <span class="sg-pattern-state intechnicalreview">intechnicalreview</span>
-    <div class="sg-pattern-breadcrumb"></div>
-    <a href="#" data-patternpartial="organismer-klientdelegering-ferdig" title="View Pattern Info" id="sg-pattern-extra-toggle-organismer-klientdelegering-ferdig" class="sg-pattern-extra-toggle">Info <span>&#9660;</span></a>
-  </div>
-  <div class="sg-pattern-extra" id="sg-pattern-extra-organismer-klientdelegering-ferdig">
-
-  </div>
-  <div class="sg-pattern-example">
-    <p> 
-    LOL! Du klarte det! Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quas modi doloribus officia incidunt nostrum, blanditiis a suscipit unde neque fuga corporis, nisi quia maxime explicabo at harum? Rerum, obcaecati perferendis!
-</p>
-<div class="a-btn-group">
-
-        <a
-  
-  class="a-linkArea a-btn a-btn-success "    >
-  Ferdig
-
-</a>
-
-
-        <a
-  
-  class="a-linkArea a-link "    >
-  Tildel flere rettigheter
-
-</a>
-
-
-
-</div>
-  </div>
-  <script type="text/json" id="sg-pattern-data-organismer-klientdelegering-ferdig" class="sg-pattern-data">
-    {"cssEnabled":false,"patternLineageExists":true,"patternLineages":[{"lineagePattern":"atomer-link","lineagePath":"../../patterns/00-atomer-02-lenker-00-link/00-atomer-02-lenker-00-link.html","lineageState":"needsrevalidation"}],"lineage":[{"lineagePattern":"atomer-link","lineagePath":"../../patterns/00-atomer-02-lenker-00-link/00-atomer-02-lenker-00-link.html","lineageState":"needsrevalidation"}],"patternLineageRExists":true,"patternLineagesR":[{"lineagePattern":"organismer-modal-klientdelegering","lineagePath":"../../patterns/02-organismer-71-modal-gruppering-01-modal-klientdelegering/02-organismer-71-modal-gruppering-01-modal-klientdelegering.html","lineageState":"indesignreview"}],"lineageR":[{"lineagePattern":"organismer-modal-klientdelegering","lineagePath":"../../patterns/02-organismer-71-modal-gruppering-01-modal-klientdelegering/02-organismer-71-modal-gruppering-01-modal-klientdelegering.html","lineageState":"indesignreview"}],"patternLineageEExists":true,"patternDesc":"<p>Innholdet til modal klientdelegering for kvitteringsside.</p>\n","patternBreadcrumb":{"patternType":"organismer","patternSubtype":"Modal-innhold"},"patternExtension":"mustache","patternName":"Klientdelegering Ferdig","patternPartial":"organismer-klientdelegering-ferdig","patternState":"intechnicalreview","patternEngineName":"mustache","extraOutput":{}}
-  </script>
-</div><!--end .sg-pattern-->
-<div id="organismer-klientdelegering-fjern-rettigheter" class="sg-pattern">
-  <div class="sg-pattern-head">
-    <h3 class="sg-pattern-title">
-      <a href="../../patterns/02-organismer-70-Modal-innhold-98-klientdelegering-fjern-rettigheter&#x2F;02-organismer-70-Modal-innhold-98-klientdelegering-fjern-rettigheter.html" class="patternLink" data-patternpartial="organismer-klientdelegering-fjern-rettigheter" title="Link to Pattern">
-          Klientdelegering Fjern Rettigheter
-      </a>
-    </h3>
-      <span class="sg-pattern-state intechnicalreview">intechnicalreview</span>
-    <div class="sg-pattern-breadcrumb"></div>
-    <a href="#" data-patternpartial="organismer-klientdelegering-fjern-rettigheter" title="View Pattern Info" id="sg-pattern-extra-toggle-organismer-klientdelegering-fjern-rettigheter" class="sg-pattern-extra-toggle">Info <span>&#9660;</span></a>
-  </div>
-  <div class="sg-pattern-extra" id="sg-pattern-extra-organismer-klientdelegering-fjern-rettigheter">
-
-  </div>
-  <div class="sg-pattern-example">
-    <div class="row">
-	<div class="col-8">
-			<div class="a-personRole ">
-
-    
-<i class="ai ai-person  a-personRole-icon "    ></i>
-
-
-  <div class="a-personRole-text">
-    <span class="a-personRole-role">Styremedlem</span>
-    <span class="a-personRole-name">William Mjelde</span>
-  </div>
-</div>
-
-	</div>
-	<div class="col pt-1">
-      <button type="button"
-    
-    class="a-btn-link a-link a-link-danger float-right a-link-modalTop"
-            >
-    Avbryt
-</button>
-
-
-	</div>
-</div>
-<div class="row">
-	<div class="col-12 col-md-12 col-lg-6 mt-4 mb-1">
-		<div class="form-group a-form-group   "
-  
-  >
-
-    <div class="a-form-group-items input-group    transparent ">
-
-      <!-- Label -->
-      <label class="a-form-label  input-group-addon" for="text-input-1">
-          
-<i class="ai ai-user   "    ></i>
-
-
-        <span class="sr-only">Finn klient</span>
-      </label>
-
-      <!-- Input  -->
-        <input type="search"
-          class="form-control  a-form-control-withBtn pl-0"
-          id="text-input-1"
-          
-          
-          placeholder="Hvilken klient ser du etter?"
-          value=""
-          
-          data-error=""
-          
-          data-search-algorithm="show-and-highlight"
-          data-search-target="employee-table">
-
-        <!-- button -->
-          <div class="input-group-btn">
-            <button class="btn btn-secondary " type="button" >
-              
-<i class="tmp tmp-search   "    ></i>
-
-
-            </button>
-          </div>
-
-
-    </div>
-
-
-
-
-  </div>
-
-	</div>
-</div>
-	<div class="mt-1 mb-1">
-		<div class="a-collapse">
-  <div class="">
-    <h3 class="a-collapseHeader">
-        <a data-toggle="collapse" href="#" data-target="#exp-tab-table-existing-clients"  aria-expanded="" aria-controls="exp-tab-table-existing-clients" class="a-collapse-title a-collapse-title--absolute no-decoration ">
-            <span class="a-dropdownArrow"></span> Har disse <span class='badge badge-primary a-label badge-pill'>11</span> klientene:
-        </a>
-    </h3>
-  </div>
-</div>
-
-	</div>
-  <div class="a-full-width">
-    <div id="exp-tab-table-existing-clients" class="a-collapseContent collapse show" aria-expanded="true">
+    <div class="a-full-width">
+      <div id="exp-tab-table-existing-clients" class="a-collapseContent collapse show" aria-expanded="true">
         <ul class="a-list   ">
     <li  class="a-dotted"  >
       <div class="row">
@@ -2849,9 +2589,253 @@
     </li>
 </ul>
 
+      </div>
+    </div>
+    <div class="pt-3 mb-1">
+      <div class="a-collapse">
+  <div class="">
+    <h3 class="a-collapseHeader">
+        <a data-toggle="collapse" href="#" data-target="#exp-tab-table-new-clients"  aria-expanded="" aria-controls="exp-tab-table-new-clients" class="a-collapse-title a-collapse-title--absolute no-decoration  collapsed ">
+            <span class="a-dropdownArrow"></span> Kan få disse <span class='badge badge-primary a-label badge-pill'>3</span> klientene
+        </a>
+    </h3>
+  </div>
+</div>
+
+    </div>
+    <div class="a-full-width">
+      <div id="exp-tab-table-new-clients" class="a-collapseContent collapse show" aria-expanded="true">
+        <ul class="a-list   ">
+    <li  class="a-dotted"  >
+      <div class="row">
+          <div class="col" >
+    
+    Første rad
+    
+
+
+
+
+
+
+          </div>
+      </div>
+    </li>
+    <li  class="a-dotted"  >
+      <div class="row">
+          <div class="col" >
+    
+    Andre rad
+    
+
+
+
+
+
+
+          </div>
+      </div>
+    </li>
+</ul>
+
+      </div>
+    </div>
+</div>
+  </div>
+  <script type="text/json" id="sg-pattern-data-organismer-klientdelegering-gi-rettigheter" class="sg-pattern-data">
+    {"cssEnabled":false,"patternLineageExists":true,"patternLineages":[{"lineagePattern":"molekyler-person-rolle","lineagePath":"../../patterns/01-molekyler-00-tekst-02-person-rolle/01-molekyler-00-tekst-02-person-rolle.html","lineageState":"indesignreview"},{"lineagePattern":"atomer-♺-knapp-link-fare","lineagePath":"../../patterns/00-atomer-03-knapper-16-♺-knapp-link-fare/00-atomer-03-knapper-16-♺-knapp-link-fare.html","lineageState":"indesignreview"},{"lineagePattern":"atomer-tekst-input","lineagePath":"../../patterns/00-atomer-01-forms-09-tekst-input/00-atomer-01-forms-09-tekst-input.html","lineageState":"needsrevalidation"},{"lineagePattern":"atomer-ekspanderbar-tittel","lineagePath":"../../patterns/00-atomer-05-Ekspansjonsknapper-27-ekspanderbar-tittel/00-atomer-05-Ekspansjonsknapper-27-ekspanderbar-tittel.html","lineageState":"intechnicalreview"},{"lineagePattern":"molekyler-liste-unummerert-ny","lineagePath":"../../patterns/01-molekyler-05-lister-00-liste-unummerert-ny/01-molekyler-05-lister-00-liste-unummerert-ny.html","lineageState":"inprogress"}],"lineage":[{"lineagePattern":"molekyler-person-rolle","lineagePath":"../../patterns/01-molekyler-00-tekst-02-person-rolle/01-molekyler-00-tekst-02-person-rolle.html","lineageState":"indesignreview"},{"lineagePattern":"atomer-♺-knapp-link-fare","lineagePath":"../../patterns/00-atomer-03-knapper-16-♺-knapp-link-fare/00-atomer-03-knapper-16-♺-knapp-link-fare.html","lineageState":"indesignreview"},{"lineagePattern":"atomer-tekst-input","lineagePath":"../../patterns/00-atomer-01-forms-09-tekst-input/00-atomer-01-forms-09-tekst-input.html","lineageState":"needsrevalidation"},{"lineagePattern":"atomer-ekspanderbar-tittel","lineagePath":"../../patterns/00-atomer-05-Ekspansjonsknapper-27-ekspanderbar-tittel/00-atomer-05-Ekspansjonsknapper-27-ekspanderbar-tittel.html","lineageState":"intechnicalreview"},{"lineagePattern":"molekyler-liste-unummerert-ny","lineagePath":"../../patterns/01-molekyler-05-lister-00-liste-unummerert-ny/01-molekyler-05-lister-00-liste-unummerert-ny.html","lineageState":"inprogress"}],"patternLineageRExists":true,"patternLineagesR":[{"lineagePattern":"organismer-modal-klientdelegering","lineagePath":"../../patterns/02-organismer-71-modal-gruppering-01-modal-klientdelegering/02-organismer-71-modal-gruppering-01-modal-klientdelegering.html","lineageState":"indesignreview"}],"lineageR":[{"lineagePattern":"organismer-modal-klientdelegering","lineagePath":"../../patterns/02-organismer-71-modal-gruppering-01-modal-klientdelegering/02-organismer-71-modal-gruppering-01-modal-klientdelegering.html","lineageState":"indesignreview"}],"patternLineageEExists":true,"patternDesc":"<p>Innholdet til modal klientdelegering for å gi rettigheter til nye eller eksisterende ansatte.</p>\n","patternBreadcrumb":{"patternType":"organismer","patternSubtype":"Modal-innhold"},"patternExtension":"mustache","patternName":"Klientdelegering Gi Rettigheter","patternPartial":"organismer-klientdelegering-gi-rettigheter","patternState":"intechnicalreview","patternEngineName":"mustache","extraOutput":{}}
+  </script>
+</div><!--end .sg-pattern-->
+<div id="organismer-klientdelegering-ferdig" class="sg-pattern">
+  <div class="sg-pattern-head">
+    <h3 class="sg-pattern-title">
+      <a href="../../patterns/02-organismer-70-Modal-innhold-97-klientdelegering-ferdig&#x2F;02-organismer-70-Modal-innhold-97-klientdelegering-ferdig.html" class="patternLink" data-patternpartial="organismer-klientdelegering-ferdig" title="Link to Pattern">
+          Klientdelegering Ferdig
+      </a>
+    </h3>
+      <span class="sg-pattern-state intechnicalreview">intechnicalreview</span>
+    <div class="sg-pattern-breadcrumb"></div>
+    <a href="#" data-patternpartial="organismer-klientdelegering-ferdig" title="View Pattern Info" id="sg-pattern-extra-toggle-organismer-klientdelegering-ferdig" class="sg-pattern-extra-toggle">Info <span>&#9660;</span></a>
+  </div>
+  <div class="sg-pattern-extra" id="sg-pattern-extra-organismer-klientdelegering-ferdig">
+
+  </div>
+  <div class="sg-pattern-example">
+    <div class="modal-body a-modal-body">
+  <p> 
+      LOL! Du klarte det! Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quas modi doloribus officia incidunt nostrum, blanditiis a suscipit unde neque fuga corporis, nisi quia maxime explicabo at harum? Rerum, obcaecati perferendis!
+  </p>
+  <div class="a-btn-group">
+
+          <a
+  
+  class="a-linkArea a-btn a-btn-success "    >
+  Ferdig
+
+</a>
+
+
+          <a
+  
+  class="a-linkArea a-link "    >
+  Tildel flere rettigheter
+
+</a>
+
+
+
+  </div>
+</div>
+  </div>
+  <script type="text/json" id="sg-pattern-data-organismer-klientdelegering-ferdig" class="sg-pattern-data">
+    {"cssEnabled":false,"patternLineageExists":true,"patternLineages":[{"lineagePattern":"atomer-link","lineagePath":"../../patterns/00-atomer-02-lenker-00-link/00-atomer-02-lenker-00-link.html","lineageState":"needsrevalidation"}],"lineage":[{"lineagePattern":"atomer-link","lineagePath":"../../patterns/00-atomer-02-lenker-00-link/00-atomer-02-lenker-00-link.html","lineageState":"needsrevalidation"}],"patternLineageRExists":true,"patternLineagesR":[{"lineagePattern":"organismer-modal-klientdelegering","lineagePath":"../../patterns/02-organismer-71-modal-gruppering-01-modal-klientdelegering/02-organismer-71-modal-gruppering-01-modal-klientdelegering.html","lineageState":"indesignreview"}],"lineageR":[{"lineagePattern":"organismer-modal-klientdelegering","lineagePath":"../../patterns/02-organismer-71-modal-gruppering-01-modal-klientdelegering/02-organismer-71-modal-gruppering-01-modal-klientdelegering.html","lineageState":"indesignreview"}],"patternLineageEExists":true,"patternDesc":"<p>Innholdet til modal klientdelegering for kvitteringsside.</p>\n","patternBreadcrumb":{"patternType":"organismer","patternSubtype":"Modal-innhold"},"patternExtension":"mustache","patternName":"Klientdelegering Ferdig","patternPartial":"organismer-klientdelegering-ferdig","patternState":"intechnicalreview","patternEngineName":"mustache","extraOutput":{}}
+  </script>
+</div><!--end .sg-pattern-->
+<div id="organismer-klientdelegering-fjern-rettigheter" class="sg-pattern">
+  <div class="sg-pattern-head">
+    <h3 class="sg-pattern-title">
+      <a href="../../patterns/02-organismer-70-Modal-innhold-98-klientdelegering-fjern-rettigheter&#x2F;02-organismer-70-Modal-innhold-98-klientdelegering-fjern-rettigheter.html" class="patternLink" data-patternpartial="organismer-klientdelegering-fjern-rettigheter" title="Link to Pattern">
+          Klientdelegering Fjern Rettigheter
+      </a>
+    </h3>
+      <span class="sg-pattern-state intechnicalreview">intechnicalreview</span>
+    <div class="sg-pattern-breadcrumb"></div>
+    <a href="#" data-patternpartial="organismer-klientdelegering-fjern-rettigheter" title="View Pattern Info" id="sg-pattern-extra-toggle-organismer-klientdelegering-fjern-rettigheter" class="sg-pattern-extra-toggle">Info <span>&#9660;</span></a>
+  </div>
+  <div class="sg-pattern-extra" id="sg-pattern-extra-organismer-klientdelegering-fjern-rettigheter">
+
+  </div>
+  <div class="sg-pattern-example">
+    <div class="modal-body a-modal-body">
+  <div class="row">
+    <div class="col-8">
+        <div class="a-personRole ">
+
+    <div class="hidden-sm-down">
+      
+<i class="ai ai-private  ai-3x a-personRole-icon "    ></i>
+
+
+    </div>
+  <div class="a-personRole-text">
+    <span class="a-personRole-role">Styremedlem</span>
+    <span class="a-personRole-name">William Mjelde</span>
+  </div>
+</div>
+
+    </div>
+    <div class="col pt-1">
+        <button type="button"
+    
+    class="a-btn-link a-link a-link-danger float-right a-link-modalTop"
+            >
+    Avbryt
+</button>
+
+
     </div>
   </div>
-	<div class="segment-done">
+  <div class="row">
+    <div class="col-12 col-md-12 col-lg-6 mt-4 mb-1">
+      <div class="form-group a-form-group   "
+  
+  >
+
+    <div class="a-form-group-items input-group    transparent ">
+
+      <!-- Label -->
+      <label class="a-form-label  input-group-addon" for="text-input-1">
+          
+<i class="ai ai-private   "    ></i>
+
+
+        <span class="sr-only">Finn klient</span>
+      </label>
+
+      <!-- Input  -->
+        <input type="search"
+          class="form-control  a-form-control-withBtn pl-0"
+          id="text-input-1"
+          
+          
+          placeholder="Hvilken klient ser du etter?"
+          value=""
+          
+          data-error=""
+          
+          data-search-algorithm="show-and-highlight"
+          data-search-target="employee-table">
+
+        <!-- button -->
+          <div class="input-group-btn">
+            <button class="btn btn-secondary " type="button" >
+              
+<i class="ai ai-search   "    ></i>
+
+
+            </button>
+          </div>
+
+
+    </div>
+
+
+
+
+  </div>
+
+    </div>
+  </div>
+    <div class="mt-1 mb-1">
+      <div class="a-collapse">
+  <div class="">
+    <h3 class="a-collapseHeader">
+        <a data-toggle="collapse" href="#" data-target="#exp-tab-table-existing-clients"  aria-expanded="" aria-controls="exp-tab-table-existing-clients" class="a-collapse-title a-collapse-title--absolute no-decoration ">
+            <span class="a-dropdownArrow"></span> Har disse <span class='badge badge-primary a-label badge-pill'>11</span> klientene:
+        </a>
+    </h3>
+  </div>
+</div>
+
+    </div>
+    <div class="a-full-width">
+      <div id="exp-tab-table-existing-clients" class="a-collapseContent collapse show" aria-expanded="true">
+          <ul class="a-list   ">
+    <li  class="a-dotted"  >
+      <div class="row">
+          <div class="col" >
+    
+    Første rad
+    
+
+
+
+
+
+
+          </div>
+      </div>
+    </li>
+    <li  class="a-dotted"  >
+      <div class="row">
+          <div class="col" >
+    
+    Andre rad
+    
+
+
+
+
+
+
+          </div>
+      </div>
+    </li>
+</ul>
+
+      </div>
+    </div>
+    <div class="segment-done">
   <div class="modal-table-segment-box"></div>
   <div class="modal-table-segment segment-fixed">
     <div class="container">
@@ -2860,17 +2844,17 @@
             <button type="button"
     
     class="a-btn a-btn-success "
-    id="confirm-deletion"        >
+    id="confirm-deletion"   data-toggle="collapse"  data-target="#eksempelID2"   >
     Ferdig
 </button>
 
 
           </span>
-          <span class="mr-8">
+          <span class="mr-3">
             <button type="button"
     
     class="a-btn-link "
-    id="cancel-deletion"        >
+    id="cancel-deletion"   data-toggle="collapse"  data-target="#eksempelID2"   >
     Avbryt
 </button>
 
@@ -2881,7 +2865,7 @@
   </div>
 </div>
 
-
+</div>
   </div>
   <script type="text/json" id="sg-pattern-data-organismer-klientdelegering-fjern-rettigheter" class="sg-pattern-data">
     {"cssEnabled":false,"patternLineageExists":true,"patternLineages":[{"lineagePattern":"molekyler-person-rolle","lineagePath":"../../patterns/01-molekyler-00-tekst-02-person-rolle/01-molekyler-00-tekst-02-person-rolle.html","lineageState":"indesignreview"},{"lineagePattern":"atomer-♺-knapp-link-fare","lineagePath":"../../patterns/00-atomer-03-knapper-16-♺-knapp-link-fare/00-atomer-03-knapper-16-♺-knapp-link-fare.html","lineageState":"indesignreview"},{"lineagePattern":"atomer-tekst-input","lineagePath":"../../patterns/00-atomer-01-forms-09-tekst-input/00-atomer-01-forms-09-tekst-input.html","lineageState":"needsrevalidation"},{"lineagePattern":"atomer-ekspanderbar-tittel","lineagePath":"../../patterns/00-atomer-05-Ekspansjonsknapper-27-ekspanderbar-tittel/00-atomer-05-Ekspansjonsknapper-27-ekspanderbar-tittel.html","lineageState":"intechnicalreview"},{"lineagePattern":"molekyler-liste-unummerert-ny","lineagePath":"../../patterns/01-molekyler-05-lister-00-liste-unummerert-ny/01-molekyler-05-lister-00-liste-unummerert-ny.html","lineageState":"inprogress"},{"lineagePattern":"molekyler-ferdigsegment","lineagePath":"../../patterns/01-molekyler-20-modalelementer-20-ferdigsegment/01-molekyler-20-modalelementer-20-ferdigsegment.html","lineageState":"inprogress"}],"lineage":[{"lineagePattern":"molekyler-person-rolle","lineagePath":"../../patterns/01-molekyler-00-tekst-02-person-rolle/01-molekyler-00-tekst-02-person-rolle.html","lineageState":"indesignreview"},{"lineagePattern":"atomer-♺-knapp-link-fare","lineagePath":"../../patterns/00-atomer-03-knapper-16-♺-knapp-link-fare/00-atomer-03-knapper-16-♺-knapp-link-fare.html","lineageState":"indesignreview"},{"lineagePattern":"atomer-tekst-input","lineagePath":"../../patterns/00-atomer-01-forms-09-tekst-input/00-atomer-01-forms-09-tekst-input.html","lineageState":"needsrevalidation"},{"lineagePattern":"atomer-ekspanderbar-tittel","lineagePath":"../../patterns/00-atomer-05-Ekspansjonsknapper-27-ekspanderbar-tittel/00-atomer-05-Ekspansjonsknapper-27-ekspanderbar-tittel.html","lineageState":"intechnicalreview"},{"lineagePattern":"molekyler-liste-unummerert-ny","lineagePath":"../../patterns/01-molekyler-05-lister-00-liste-unummerert-ny/01-molekyler-05-lister-00-liste-unummerert-ny.html","lineageState":"inprogress"},{"lineagePattern":"molekyler-ferdigsegment","lineagePath":"../../patterns/01-molekyler-20-modalelementer-20-ferdigsegment/01-molekyler-20-modalelementer-20-ferdigsegment.html","lineageState":"inprogress"}],"patternLineageRExists":true,"patternLineagesR":[{"lineagePattern":"organismer-modal-klientdelegering","lineagePath":"../../patterns/02-organismer-71-modal-gruppering-01-modal-klientdelegering/02-organismer-71-modal-gruppering-01-modal-klientdelegering.html","lineageState":"indesignreview"}],"lineageR":[{"lineagePattern":"organismer-modal-klientdelegering","lineagePath":"../../patterns/02-organismer-71-modal-gruppering-01-modal-klientdelegering/02-organismer-71-modal-gruppering-01-modal-klientdelegering.html","lineageState":"indesignreview"}],"patternLineageEExists":true,"patternDesc":"<p>Innholdet til modal klientdelegering for sletting av rettigheter.</p>\n","patternBreadcrumb":{"patternType":"organismer","patternSubtype":"Modal-innhold"},"patternExtension":"mustache","patternName":"Klientdelegering Fjern Rettigheter","patternPartial":"organismer-klientdelegering-fjern-rettigheter","patternState":"intechnicalreview","patternEngineName":"mustache","extraOutput":{}}
@@ -2902,15 +2886,17 @@
 
   </div>
   <div class="sg-pattern-example">
+    <div class="modal-body a-modal-body">
+  <div class="py-2">
     <form data-toggle="validator">
-  <div class="mb-4">
-    
-  </div>
+      <div class="mb-4">
+        
+      </div>
 
-  <div class="mb-1">
-  </div>
-  <div class="mb-3 a-bigger-icon a-bigger-icon-before">
-    <button 
+      <div class="mb-1">
+      </div>
+      <div class="mb-3 a-bigger-icon a-bigger-icon-before">
+        <button 
     type="button"
     class="a-btn a-btn-action">
 
@@ -2919,12 +2905,12 @@
     <span>Last ned fil</span>
 </button>
 
-  </div>
+      </div>
 
-  <div class="mb-1">
-  </div>
-    <div class="mt-1 mb-1">
-      <a data-toggle="collapse"
+      <div class="mb-1">
+      </div>
+        <div class="mt-1 mb-1">
+          <a data-toggle="collapse"
     
     href="#file-delegation-ID"
     aria-expanded="true"
@@ -2937,13 +2923,13 @@
         </span>
 </a>
 
-    </div>
+        </div>
 
-  <div class="mb-3">
+      <div class="mb-3">
 
-    <div id="file-delegation-ID" class="a-collapseContent collapse" aria-expanded="false">
-      <img src="../../images/sikksakk.png" class="mb-2" />
-      <ol class="a-circle-list a-circle-list-yellow">
+        <div id="file-delegation-ID" class="a-collapseContent collapse" aria-expanded="false">
+          <img src="../../images/sikksakk.png" class="mb-2" />
+          <ol class="a-circle-list a-circle-list-yellow">
       <li>
         <span>
           <span>Første punkt i listen</span>
@@ -2975,20 +2961,20 @@
       </li>
 </ol>
 
-    </div>
+        </div>
 
 
-  </div>
+      </div>
 
-  <div class="mt-4 mb-1 ">
-  </div>
+      <div class="mt-4 mb-1 ">
+      </div>
 
-  <div class="mb-3 a-bigger-icon a-bigger-icon-span">
-      
+      <div class="mb-3 a-bigger-icon a-bigger-icon-span">
+          
 <label class="a-btn a-btn-action a-custom-fileupload">
   <input  required  class="a-js-fileInputChangeHandler" type="file" id="customFileuploadId">
   
-<i class="ai ai-timer   "    ></i>
+<i class="ai ai-deadline   "    ></i>
 
 
   Last opp fil
@@ -3017,9 +3003,9 @@
     </li>
 </ul>
   </div>
-  </div>
+      </div>
 
-    <button type="submit"
+        <button type="submit"
     
     class="a-btn a-btn-success mb-0 a-js-enableWhenValid"
      onclick="location.href='/patterns/04-sider-60-profil-roller-rettigheter-profil-roller-rettigheter/04-sider-60-profil-roller-rettigheter-profil-roller-rettigheter.html'"/patterns/04-sider-01-forside-00-forside/04-sider-01-forside-00-forside.html       >
@@ -3027,7 +3013,9 @@
 </button>
 
 
-</form>
+    </form>
+  </div>
+</div>
   </div>
   <script type="text/json" id="sg-pattern-data-organismer-klientdelegering-pa-fil" class="sg-pattern-data">
     {"cssEnabled":false,"patternLineageExists":true,"patternLineages":[{"lineagePattern":"atomer-undertittel","lineagePath":"../../patterns/00-atomer-07-tekst-11-undertittel/00-atomer-07-tekst-11-undertittel.html","lineageState":"indesignreview"},{"lineagePattern":"atomer-link","lineagePath":"../../patterns/00-atomer-02-lenker-00-link/00-atomer-02-lenker-00-link.html","lineageState":"needsrevalidation"},{"lineagePattern":"atomer-ekspanderbar-tekst","lineagePath":"../../patterns/00-atomer-05-Ekspansjonsknapper-26-ekspanderbar-tekst/00-atomer-05-Ekspansjonsknapper-26-ekspanderbar-tekst.html","lineageState":"needsrevalidation"},{"lineagePattern":"atomer-♺-liste-nummerert-sirkel-gul","lineagePath":"../../patterns/00-atomer-08-lister-07-♺-liste-nummerert-sirkel-gul/00-atomer-08-lister-07-♺-liste-nummerert-sirkel-gul.html","lineageState":"indesignreview"},{"lineagePattern":"atomer-fileupload","lineagePath":"../../patterns/00-atomer-01-forms-70-fileupload/00-atomer-01-forms-70-fileupload.html","lineageState":"indesignreview"},{"lineagePattern":"atomer-knapp","lineagePath":"../../patterns/00-atomer-03-knapper-10-knapp/00-atomer-03-knapper-10-knapp.html","lineageState":"indesignreview"}],"lineage":[{"lineagePattern":"atomer-undertittel","lineagePath":"../../patterns/00-atomer-07-tekst-11-undertittel/00-atomer-07-tekst-11-undertittel.html","lineageState":"indesignreview"},{"lineagePattern":"atomer-link","lineagePath":"../../patterns/00-atomer-02-lenker-00-link/00-atomer-02-lenker-00-link.html","lineageState":"needsrevalidation"},{"lineagePattern":"atomer-ekspanderbar-tekst","lineagePath":"../../patterns/00-atomer-05-Ekspansjonsknapper-26-ekspanderbar-tekst/00-atomer-05-Ekspansjonsknapper-26-ekspanderbar-tekst.html","lineageState":"needsrevalidation"},{"lineagePattern":"atomer-♺-liste-nummerert-sirkel-gul","lineagePath":"../../patterns/00-atomer-08-lister-07-♺-liste-nummerert-sirkel-gul/00-atomer-08-lister-07-♺-liste-nummerert-sirkel-gul.html","lineageState":"indesignreview"},{"lineagePattern":"atomer-fileupload","lineagePath":"../../patterns/00-atomer-01-forms-70-fileupload/00-atomer-01-forms-70-fileupload.html","lineageState":"indesignreview"},{"lineagePattern":"atomer-knapp","lineagePath":"../../patterns/00-atomer-03-knapper-10-knapp/00-atomer-03-knapper-10-knapp.html","lineageState":"indesignreview"}],"patternLineageRExists":true,"patternLineagesR":[{"lineagePattern":"organismer-modal-klientdelegering","lineagePath":"../../patterns/02-organismer-71-modal-gruppering-01-modal-klientdelegering/02-organismer-71-modal-gruppering-01-modal-klientdelegering.html","lineageState":"indesignreview"}],"lineageR":[{"lineagePattern":"organismer-modal-klientdelegering","lineagePath":"../../patterns/02-organismer-71-modal-gruppering-01-modal-klientdelegering/02-organismer-71-modal-gruppering-01-modal-klientdelegering.html","lineageState":"indesignreview"}],"patternLineageEExists":true,"patternDesc":"<p>Innholdet til modal klientdelegering på fil.</p>\n","patternBreadcrumb":{"patternType":"organismer","patternSubtype":"Modal-innhold"},"patternExtension":"mustache","patternName":"Klientdelegering Pa Fil","patternPartial":"organismer-klientdelegering-pa-fil","patternState":"indesignreview","patternEngineName":"mustache","extraOutput":{}}
@@ -3102,10 +3090,10 @@
   }
 </script>
 
-<script id="pl-js-polyfill-insert-1485780669938">
+<script id="pl-js-polyfill-insert-1486625245150">
   (function() {
     if (self != top) {
-      var cb = '1485780669938';
+      var cb = '1486625245150';
       var js = [];
       if (typeof document !== 'undefined' && !('classList' in document.documentElement)) {
         js.push('styleguide/bower_components/classList.min.js');
@@ -3115,10 +3103,10 @@
   })();
 </script>
 
-<script id="pl-js-insert-1485780669938">
+<script id="pl-js-insert-1486625245150">
   (function() {
     if (self != top) {
-      var cb = '1485780669938';
+      var cb = '1486625245150';
       var js = [ { 'src': 'styleguide/bower_components/jwerty.min.js', 'dep': [ 'styleguide/js/patternlab-pattern.min.js' ] } ];
       scriptLoader.run(js,cb,'pl-js-insert');
     }
@@ -3130,8 +3118,8 @@
     <!-- CODE PRETTIFY: Prettify code snippets in HTML -->
     <script src="https://cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js?lang=css&amp;skin=sunburst"></script>
     <!-- Bundled assets -->
-    <script src="../../distributions/v0.2.0/plugins.min.js"></script>
+    <script src="../../js/altinnDev.vendor.js"></script>
     <!-- ALTINN DEV custom JavaScript -->
-    <script src="../../js/altinnDev.js"></script>
+    <script src="./../../js/altinnDev.js"></script>
   </body>
 </html>
