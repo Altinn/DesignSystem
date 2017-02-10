@@ -101,6 +101,51 @@
     display: inline-block;
     max-width: 160px;
   }
+
+  .a-page {
+    position: absolute;
+    width: 100%;
+    pointer-events: none;
+    transition: transform 0.5s cubic-bezier(0.3, 1, 0.5, 1);
+
+    &.a-next-page {
+      transform: translate3d(180%, 0, 0);
+    }
+
+    &.a-current-page {
+      position: absolute;
+      top: 0;
+      pointer-events: auto;
+      visibility: visible;
+      transform: translate3d(0, 0, 0);
+    }
+
+    &.a-previous-page {
+      transform: translate3d(-180%, 0, 0);
+    }
+  }
+
+  &.fade {
+    overflow-y: scroll;
+    opacity: 1;
+    transition: none;
+
+    .modal-dialog {
+      transition: all 0.7s cubic-bezier(0.3, 1, 0.5, 1);
+      transform: translate3d(180%, 0, 0);
+    }
+
+    &.show {
+      .modal-dialog {
+        transition: all 0.7s cubic-bezier(0.3, 1, 0.5, 1);
+        transform: translate3d(0, 0, 0);
+      }
+    }
+  }
+}
+
+.a-modal-content-target {
+  position: relative;
 }
 
 // Modal top

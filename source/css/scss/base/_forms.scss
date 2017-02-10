@@ -127,8 +127,10 @@ textarea {
       padding-right: 6px;
       color: $black;
       text-align: right;
+      cursor: pointer;
       border: 2px solid $blue;
       border-left: none;
+      transition: none;
 
       &.inactive {
         border-color: $black;
@@ -203,6 +205,13 @@ textarea {
       border: 2px solid $red !important;
     }
 
+    .input-group-btn {
+      .btn-secondary {
+        // sass-lint:disable-block no-important
+        border-color: $red !important;
+      }
+    }
+
     // Input
     .form-control {
       // sass-lint:disable-block no-important
@@ -230,8 +239,10 @@ textarea {
       }
 
       .form-control {
-        // sass-lint:disable-block no-important
-        border-left: none !important;
+        &:not(.form-control-noAddon) {
+          // sass-lint:disable-block no-important
+          border-left: none !important;
+        }
       }
     }
   }
@@ -539,7 +550,7 @@ textarea {
     }
 
     .a-radioButtons-title {
-      @include a-fontSize18;
+      @extend .a-fontSizeS;
     }
   }
 
@@ -602,9 +613,13 @@ textarea {
     }
 
     .a-radioButtons-title {
-      @include a-fontSize20;
+      @include a-fontSize18;
       display: block;
       padding-bottom: $spacer;
+
+      @include media-breakpoint-up( md ) {
+        @include a-fontSize20;
+      }
     }
 
     .a-radioButtons-excerpt {
@@ -775,6 +790,10 @@ textarea {
     @include a-fontSize-icon-20;
     margin-top: $spacer / 4 * -1;
     vertical-align: middle;
+  }
+
+  &.a-switch-limitedWidth {
+    max-width: calc(100% - 30px);
   }
 }
 

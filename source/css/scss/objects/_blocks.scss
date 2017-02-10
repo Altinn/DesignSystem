@@ -483,7 +483,6 @@
 //Sammenligning av selskapstyper
 .a-compare-header {
   margin-bottom: $spacer * 4;
-  border-bottom: 1px solid $blue-line;
 
   h2 {
     @include a-fontBold;
@@ -491,9 +490,10 @@
   }
 
   .a-compare-container {
+    border-bottom: 1px solid $blue-line;
 
     &:last-child {
-      padding-left: 0;
+      padding-left: $spacer * 1;
 
       @include media-breakpoint-up( md ) {
         padding-left: $spacer * 1.5;
@@ -513,48 +513,43 @@
 
 .a-compare-element {
   width: 100%;
+
+  > h3 {
+    margin-top: 0;
+  }
 }
 
 .a-compare-category {
   h2 {
+    margin-top: $spacer * 4;
     @include media-breakpoint-up( md ) {
       padding: 0;
     }
   }
 
   .a-compare-container {
-    padding: 0;
-    margin-bottom: $spacer * 4;
+    padding: 0 $spacer * 2;
     border-top: 1px solid $blue-line;
 
-    @include media-breakpoint-up( md ) {
-      padding: 0 $spacer * 2;
-
-      &:not(:nth-of-type) {
-        border-right: 1px solid $blue-line;
-      }
-
-      &:first-child {
-        padding-right: $spacer * 2;
-      }
-
-      p {
-        @include a-fontSize18;
-      }
+    &:not(:nth-of-type) {
+      border-right: 1px solid $blue-line;
     }
 
-    @include media-breakpoint-up( lg ) {
-      &:not(:last-of-type) {
-        border-right: 1px solid $blue-line;
-      }
+    &:not(:last-of-type) {
+      padding: 0 $spacer;
+      border-right: 1px solid $blue-line;
+    }
+
+    p {
+      @extend .a-fontSizeS;
     }
 
     &:first-child {
       padding-right: $spacer;
     }
 
-    p {
-      @extend .a-fontSizeXXS;
-		}
+    @include media-breakpoint-up( xl ) {
+      padding: 0 $spacer * 2;
+    }
 	}
 }

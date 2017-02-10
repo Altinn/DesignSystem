@@ -1,10 +1,12 @@
-/* globals _anchors, hideIntroInSubs, insetVariations, selectAll, toggleTheme, fixPatternLinks,
+/* globals _anchors, hideIntroInSubs, insetVariations, toggleArchivedState,
+  selectAll, toggleTheme, fixPatternLinks,
   preOpenModals, prototypingInteractionStarteENK, $, onboarding, codeLookup, nameChecker,
-  toggleInstant, defaultSort, setupAddRightsHandler, onFileInputChange */
+  defaultSort, setupAddRightsHandler, onFileInputChange */
 window.devInit = function() {
   _anchors();
   hideIntroInSubs();
   insetVariations();
+  toggleArchivedState();
   selectAll();
   toggleTheme();
   fixPatternLinks();
@@ -16,7 +18,6 @@ window.devInit = function() {
   defaultSort();
   setupAddRightsHandler();
   onFileInputChange();
-  toggleInstant();
   selectAll();
   toggleTheme();
 };

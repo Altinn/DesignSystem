@@ -304,9 +304,9 @@ function reload () {
 }
 
 function watch () {
-  gulp.watch(paths().source.css + '**/*.scss')
+  gulp.watch(paths().source.css + '**/*.scss', { awaitWriteFinish: true })
     .on('change', gulp.series('pl-copy:css', reload));
-  gulp.watch(paths().source.styleguide + '**/*.*')
+  gulp.watch(paths().source.styleguide + '**/*.*', { awaitWriteFinish: true })
     .on('change', gulp.series('pl-copy:styleguide', reload));
   gulp.watch([paths().source.js + 'production/**/*.js', paths().source.js + 'development/**/*.js'])
     .on('change', gulp.series('pl-copy:designsystemdev-js', reload));
@@ -322,7 +322,7 @@ function watch () {
     paths().source.annotations + '/*'
   ].concat(getTemplateWatches());
 
-  gulp.watch(patternWatches).on('change', gulp.series(build, reload));
+  gulp.watch(patternWatches, { awaitWriteFinish: true }).on('change', gulp.series(build, reload));
 }
 
 gulp.task('patternlab:connect', gulp.series(function (done) {

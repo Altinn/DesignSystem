@@ -1,9 +1,7 @@
 <div class="form-group a-form-group {{# has-feedback }}has-feedback{{/ has-feedback }} {{{ isLarge }}} {{# margin-override }} {{ margin-override }} {{/ margin-override }}"
   {{# isValidator }} data-toggle="validator" {{/ isValidator }}
   {{# validator-delay }} data-delay="{{ validator-delay }}" {{/ validator-delay }}>
-
-    <div class="a-form-group-items {{ isInput-group }} {{ isDisabled }} {{ isInactive }} {{# isTransparent }} transparent {{/ isTransparent }}">
-
+    {{# form-input-isPassword }}
       <!-- Label -->
       <label class="a-form-label {{ isHidden }} {{ form-label-class }}" for="{{ text-input-id }}">
         {{# form-label-hasIcon }}
@@ -11,18 +9,32 @@
         {{/ form-label-hasIcon }}
         {{{ text-input-label }}}
       </label>
+    {{/ form-input-isPassword }}
 
+    <div class="a-form-group-items {{ isInput-group }} {{ isDisabled }} {{ isInactive }} {{# isTransparent }} transparent {{/ isTransparent }}">
+      {{^ form-input-isPassword }}
+        <!-- Label -->
+        <label class="a-form-label {{ isHidden }} {{ form-label-class }}" for="{{ text-input-id }}">
+          {{# form-label-hasIcon }}
+            {{> atomer-ikon }}
+          {{/ form-label-hasIcon }}
+          {{{ text-input-label }}}
+        </label>
+      {{/ form-input-isPassword }}
+      
       <!-- Input  -->
         <input type="{{ input-type }}"
           class="form-control {{ form-control-class }} {{ form-input-hasButton-class }} {{# no-left-padding }}pl-0{{/ no-left-padding }}"
           {{# text-input-id }}id="{{ text-input-id }}"{{/ text-input-id }}
           {{{ validator-pattern }}}
           {{ isRequired }}
+          {{# auto-complete-off }}autocomplete="off"{{/ auto-complete-off }}
           placeholder="{{ text-input-placeholder }}"
           value="{{ text-input-value }}"
           {{# maxlength }}maxlength="{{ maxlength }}"{{/ maxlength }}
           data-error="{{ validator-errorMessage }}"
           {{ isDisabled }}
+          {{# form-input-isPassword }}onkeyup="setVisibility(this, 'btn-{{ text-input-id }}')"{{/ form-input-isPassword }}
           data-search-algorithm="{{ search-algorithm }}"
           data-search-target="{{ search-target }}">
           {{# has-feedback }}
@@ -43,15 +55,32 @@
           <span class="a-input-placecode a-js-place" style="display:none;" ></span>
         {{/ postal-code }}
 
+        {{# form-input-isPassword }}
+          <div class="input-group-btn">
+            <button class="btn btn-secondary d-none" type="button" id="btn-{{ text-input-id }}" onclick="showPassword(this, '{{ text-input-id }}')">
+              <span class="show-password-text">
+                {{ form-input-showPassword-text }}
+              </span>
+              <span class="hide-password-text" style="display: none">
+                {{ form-input-obfuscatePassword-text }}
+              </span>
+            </button>
+          </div>
+        {{/ form-input-isPassword }}
+
     </div>
 
     {{# extra-help }}
-    <small id="help" class="form-text a-validatorInfo">
-      {{> atomer-ikon }}
-      {{{ extra-helpText }}}
-    </small>
+      <small id="help" class="form-text a-validatorInfo">
+        {{> atomer-ikon }}
+        {{{ extra-helpText }}}
+      </small>
     {{/ extra-help }}
 
+    {{# autocomplete }}
+      <div class="a-autocomplete-container hidden-xs">        
+      </div>
+    {{/ autocomplete}}
 
     {{# validator-check }}
       <div class="help-block with-errors a-message a-message-error {{ a-message-absolute }}">{{{ validator-errorMessage }}}</div>
