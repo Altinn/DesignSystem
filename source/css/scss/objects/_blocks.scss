@@ -513,6 +513,8 @@
 
 .a-compare-element {
   width: 100%;
+  padding-top: $spacer * 3;
+  padding-bottom: $spacer * 3;
 
   > h3 {
     margin-top: 0;
@@ -535,9 +537,14 @@
       border-right: 1px solid $blue-line;
     }
 
-    &:not(:last-of-type) {
-      padding: 0 $spacer;
+    &:nth-child(odd) {
       border-right: 1px solid $blue-line;
+    }
+
+    &:not(:last-of-type) {
+      @include media-breakpoint-up( md ) {
+        border-right: 1px solid $blue-line;
+      }
     }
 
     p {
@@ -546,6 +553,10 @@
 
     &:first-child {
       padding-right: $spacer;
+      padding-left: $spacer;
+      @include media-breakpoint-up( xl ) {
+        padding-left: $spacer * 2;
+      }
     }
 
     @include media-breakpoint-up( xl ) {
