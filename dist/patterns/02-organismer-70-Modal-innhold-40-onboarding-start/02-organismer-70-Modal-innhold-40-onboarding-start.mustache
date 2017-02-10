@@ -1,4 +1,3 @@
-<!-- START: 02-organismer-70-Modal-innhold-40-onboarding-start -->
 <!-- Button trigger modal-->
 <button type="button" class="a-btn a-js-modalLauncher" data-toggle="modal" data-target="#{{modal-id}}">
 <!-- <button type="button" class="a-btn a-js-modalLauncher hidden-xl-down" data-toggle="modal" data-target="#{{modal-id}}"> -->
@@ -25,29 +24,23 @@
 
         <div class="modal-body">
 
-            <div class="clearfix">
+          <div class="clearfix">
 
-              {{> atomer-intro-tekst }}
-
-
-              {{# viewOrgnr}}
-                <div class="a-textureLines clearfix">
-                  <button class="a-js-btnCopy a-btn-noStyle" data-clipboard-text="{{{ orgnr }}}">
+            {{> atomer-intro-tekst }} {{# viewOrgnr}}
+            <div class="a-textureLines clearfix">
+              <button class="a-js-btnCopy a-btn-noStyle" data-clipboard-text="{{{ orgnr }}}">
                     {{{ orgnr }}}
                   </button>
-                </div>
-                <span class="a-js-clipboardMsg"></span>
-              {{/ viewOrgnr}}
-
             </div>
+            <span class="a-js-clipboardMsg"></span> {{/ viewOrgnr}}
+
+          </div>
 
         </div>
 
         <div class="modal-footer">
           <div class="a-btn-group">
-            {{# buttons}}
-              {{> atomer-knapp }}
-            {{/ buttons}}
+            {{# buttons}} {{> atomer-knapp }} {{/ buttons}}
           </div>
         </div>
 
@@ -58,5 +51,3 @@
     </div>
   </div>
 </div>
-
-<!-- END: 02-organismer-70-Modal-innhold-40-onboarding-start -->

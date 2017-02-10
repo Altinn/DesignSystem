@@ -13,7 +13,15 @@ var sortListAlphanumerically = function(src, sortIndex) {
   });
 
   $.each(rows, function(index, row) {
-    $list.append(row);
+    if ($(row).find('.a-js-sortValue').length > 0) {
+      $list.append(row);
+    }
+  });
+
+  $.each(rows, function(index, row) {
+    if ($(row).find('.a-js-sortValue').length === 0) {
+      $list.append(row);
+    }
   });
 };
 

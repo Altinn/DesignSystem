@@ -382,7 +382,15 @@ var sortListAlphanumerically = function(src, sortIndex) {
   });
 
   $.each(rows, function(index, row) {
-    $list.append(row);
+    if ($(row).find('.a-js-sortValue').length > 0) {
+      $list.append(row);
+    }
+  });
+
+  $.each(rows, function(index, row) {
+    if ($(row).find('.a-js-sortValue').length === 0) {
+      $list.append(row);
+    }
   });
 };
 
@@ -516,6 +524,34 @@ var propagateContent = function() {
     }
   });
 };
+
+function showPassword(src, target) {
+  var pwd = $('#' + target);
+  if (pwd.attr('type') === 'text') {
+    pwd.attr('type', 'password');
+    $(src).children('.hide-password-text').hide();
+    $(src).children('.show-password-text').show();
+  } else {
+    pwd.attr('type', 'text');
+    $(src).children('.hide-password-text').show();
+    $(src).children('.show-password-text').hide();
+
+    setTimeout(function() {
+      pwd.attr('type', 'password');
+      $(src).children('.hide-password-text').hide();
+      $(src).children('.show-password-text').show();
+    }, 15000);
+  }
+}
+
+function setVisibility(passwordField, showPasswordId) {
+  var password = $(passwordField);
+  if (password.val().length > 0) {
+    $('#' + showPasswordId).removeClass('d-none');
+  } else {
+    $('#' + showPasswordId).addClass('d-none');
+  }
+}
 
 /* globals $ */
 var toggleExpand = function() {
@@ -683,7 +719,7 @@ var setupListRowSelect = function() {
   var $list = $('ul[data-list-selectable="true"]');
   var $segmentDone = $('.segment-done');
 
-  $list.on('click', 'li:not(.a-list-header)', function() {
+  $list.on('click', 'li.a-selectable:not(.a-list-header)', function() {
     if (!$(this).hasClass('a-deleted')) {
       $(this).toggleClass('a-selected');
       if ($list.find('li.a-selected').length > 0) {
