@@ -785,13 +785,14 @@ defaultSort = function() {
 
 /* globals $ */
 var toggleArchivedState = function() {
-  $('.sg-pattern-state.archived').parents('.sg-pattern').addClass('a-sg-js-showArchived');
+  var archived = $('.sg-pattern-state.archived').parents('.sg-pattern');
+  archived.addClass('a-sg-js-showArchived');
   $('.a-sg-js-toggleArchived').prop('checked', false);
   $('.a-sg-js-toggleArchived').click(function() {
     if ($(this).is(':checked')) {
-      $('.sg-pattern-state.archived').parents('.sg-pattern').removeClass('a-sg-js-showArchived');
+      archived.removeClass('a-sg-js-showArchived');
     } else {
-      $('.sg-pattern-state.archived').parents('.sg-pattern').addClass('a-sg-js-showArchived');
+      archived.addClass('a-sg-js-showArchived');
     }
   });
 };
