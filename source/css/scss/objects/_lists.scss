@@ -721,3 +721,52 @@ ol {
     }
   }
 }
+
+/*
+  overriding jquery autocomplete
+*/
+.a-autocomplete-container {
+  display: block;
+  width: 150%;
+  margin-top: -2px;
+  overflow: auto;
+  background-color: transparent;
+  border-color: $blue;
+  border-width: 2px;
+  overflow-y: scroll;
+  
+
+  .a-list {
+    max-height: $spacer * 26;
+    overflow-x: hidden;
+    border: 2px solid $blue;
+
+    .ui-menu-item {
+      @extend .a-dotted;
+
+      margin: 0 $spacer * 2;
+      padding: 5px 0;
+      
+
+      &:first-of-type {
+        @include a-fontBold;
+      }
+
+      &:last-of-type {
+        margin-bottom: $spacer;
+      }
+    }
+  }
+
+  // copy from jquery ui css
+  .ui-helper-hidden-accessible {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
+    border: none;
+  }
+}

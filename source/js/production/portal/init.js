@@ -5,6 +5,7 @@
   setupListRowSelect,
   initSearchWithHighlight,
   toggleSwitch,
+  searchWithAutocomplete,
   truncateBoxButtonNames
 */
 window.portalInit = function() {
@@ -14,6 +15,7 @@ window.portalInit = function() {
   setupListRowSelect();
   initSearchWithHighlight();
   toggleSwitch();
+  searchWithAutocomplete();
   truncateBoxButtonNames();
 };
 window.portalInit();
