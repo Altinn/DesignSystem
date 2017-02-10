@@ -1,0 +1,44 @@
+<div class="card a-accordion-card a-collapsePanel {{{ isLarge }}} {{{ styleModifier }}}">
+  <div class="card-header a-js-index-heading a-collapsePanel-heading collapsed {{isExpanded}}" id="{{ collapse-panel-header-id }}" role="tab">
+    <a href="#{{ collapseID }}" tabindex="0" data-toggle="collapse" data-target="#{{{ collapseID }}}" aria-expanded="false" aria-controls="{{ collapseID }}" {{# dataParent }}data-parent="{{{dataParent}}}"{{/ dataParent }}>
+      {{# collapseHeader }}
+        {{> molekyler-ikon-tekst }}
+      {{/ collapseHeader }}
+    </a>
+  </div>
+  <div id="{{ collapseID }}" class="a-collapsePanel-body collapse {{{ isVisibleFromStart }}}" role="tabpanel" aria-labelledby="{{ collapse-panel-header-id }}">
+    <div class="a-collapsePanel-body-content">
+      <div class="row">
+        <div class="col-12">
+          <h3 class="a-fontBold a-fontSizeM">
+            {{ my-contact-for-header }}
+          </h3>
+        </div>
+        <div class="col-12 col-md-4">
+          {{# my-contact-for-first-input }}
+            {{> atomer-input }}
+          {{/ my-contact-for-first-input }}
+        </div>
+        <div class="col-12 col-md-8">
+          {{# my-contact-for-second-input }}
+            {{> atomer-input }}
+          {{/ my-contact-for-second-input }}
+        </div>
+      </div>
+      <div class="row">
+        <div class="col mt-2">
+          {{# my-contact-for-link }}
+            {{> atomer-link }}
+          {{/ my-contact-for-link }}
+        </div>
+      </div>
+      <div class="row">
+        <div class="col mt-3">
+          {{# my-contact-for-save-btn }}
+            {{> atomer-knapp }}
+          {{/ my-contact-for-save-btn }}
+        </div>
+      </div>
+    </div>  
+  </div>
+</div>

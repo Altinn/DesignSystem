@@ -16,6 +16,7 @@ var del = require('del');
 var buildConfig = require('./config/gulp/config');
 var config = require('./patternlab-config.json');
 var patternlab = require('patternlab-node')(config);
+var prettify = require('gulp-jsbeautifier');
 
 function paths () { return config.paths }
 
@@ -232,7 +233,8 @@ function getConfiguredCleanOption () {
 }
 
 function build (done) {
-  patternlab.build(done, getConfiguredCleanOption())
+  patternlab.build(done, getConfiguredCleanOption());
+  // gulp.series('prettify');
 }
 
 gulp.task('pl-assets', gulp.series(
@@ -245,6 +247,12 @@ gulp.task('pl-assets', gulp.series(
     }
   )
 );
+
+gulp.task('prettify', function() {
+  return gulp.src([paths().public.patterns + '**/*.html'])
+    .pipe(prettify({ preserve_newlines: false }))
+    .pipe(gulp.dest(paths().public.patterns));
+});
 
 gulp.task('patternlab:version', function (done) {
   patternlab.version();

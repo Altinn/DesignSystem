@@ -1,4 +1,4 @@
 ---
- state: needsrevalidation
+ state: complete
  version: 0
 ---

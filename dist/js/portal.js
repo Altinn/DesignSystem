@@ -1,15 +1,3 @@
-/* globals $ */
-var aTagSpaceExpand = function() {
-  $('a.collapsed').each(function() {
-    $(this).on('keydown', function(e) {
-      if (e.keyCode === 32 || e.keycode === 13 || e.which === 32 || e.which === 13) {
-        e.stopPropagation(); e.preventDefault();
-        $(e.target).trigger('click');
-      }
-    });
-  });
-};
-
 var addListExpandHandler = function() {
   $('.a-list *[data-toggle="collapse"]').on('click', function() {
     // This script runs before the bootstrap collapse handler, so the collapsed-class will still be
@@ -188,6 +176,18 @@ var articleAnchors = function() {
     window.anchors.add('h2');
     window.anchors.add('h3');
   }
+};
+
+/* globals $ */
+var aTagSpaceExpand = function() {
+  $('a.collapsed').each(function() {
+    $(this).on('keydown', function(e) {
+      if (e.keyCode === 32 || e.keycode === 13 || e.which === 32 || e.which === 13) {
+        e.stopPropagation(); e.preventDefault();
+        $(e.target).trigger('click');
+      }
+    });
+  });
 };
 
 var setupOnKeypress = function() {
