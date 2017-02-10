@@ -1,3 +1,15 @@
+/* globals $ */
+var aTagSpaceExpand = function() {
+  $('a.collapsed').each(function() {
+    $(this).on('keydown', function(e) {
+      if (e.keyCode === 32 || e.keycode === 13 || e.which === 32 || e.which === 13) {
+        e.stopPropagation(); e.preventDefault();
+        $(e.target).trigger('click');
+      }
+    });
+  });
+};
+
 var addListExpandHandler = function() {
   $('.a-list *[data-toggle="collapse"]').on('click', function() {
     // This script runs before the bootstrap collapse handler, so the collapsed-class will still be
@@ -176,18 +188,6 @@ var articleAnchors = function() {
     window.anchors.add('h2');
     window.anchors.add('h3');
   }
-};
-
-/* globals $ */
-var aTagSpaceExpand = function() {
-  $('a.collapsed').each(function() {
-    $(this).on('keydown', function(e) {
-      if (e.keyCode === 32 || e.keycode === 13 || e.which === 32 || e.which === 13) {
-        e.stopPropagation(); e.preventDefault();
-        $(e.target).trigger('click');
-      }
-    });
-  });
 };
 
 var setupOnKeypress = function() {
@@ -382,7 +382,15 @@ var sortListAlphanumerically = function(src, sortIndex) {
   });
 
   $.each(rows, function(index, row) {
-    $list.append(row);
+    if ($(row).find('.a-js-sortValue').length > 0) {
+      $list.append(row);
+    }
+  });
+
+  $.each(rows, function(index, row) {
+    if ($(row).find('.a-js-sortValue').length === 0) {
+      $list.append(row);
+    }
   });
 };
 
@@ -516,6 +524,34 @@ var propagateContent = function() {
     }
   });
 };
+
+function showPassword(src, target) {
+  var pwd = $('#' + target);
+  if (pwd.attr('type') === 'text') {
+    pwd.attr('type', 'password');
+    $(src).children('.hide-password-text').hide();
+    $(src).children('.show-password-text').show();
+  } else {
+    pwd.attr('type', 'text');
+    $(src).children('.hide-password-text').show();
+    $(src).children('.show-password-text').hide();
+
+    setTimeout(function() {
+      pwd.attr('type', 'password');
+      $(src).children('.hide-password-text').hide();
+      $(src).children('.show-password-text').show();
+    }, 15000);
+  }
+}
+
+function setVisibility(passwordField, showPasswordId) {
+  var password = $(passwordField);
+  if (password.val().length > 0) {
+    $('#' + showPasswordId).removeClass('d-none');
+  } else {
+    $('#' + showPasswordId).addClass('d-none');
+  }
+}
 
 /* globals $ */
 var toggleExpand = function() {
@@ -683,7 +719,7 @@ var setupListRowSelect = function() {
   var $list = $('ul[data-list-selectable="true"]');
   var $segmentDone = $('.segment-done');
 
-  $list.on('click', 'li:not(.a-list-header)', function() {
+  $list.on('click', 'li.a-selectable:not(.a-list-header)', function() {
     if (!$(this).hasClass('a-deleted')) {
       $(this).toggleClass('a-selected');
       if ($list.find('li.a-selected').length > 0) {
@@ -707,6 +743,43 @@ var setupListRowSelect = function() {
   $('.a-js-cancel-deletion').on('click', function() {
     $list.find('li:not(.a-list-header)').removeClass('a-selected');
     $segmentDone.hide();
+  });
+};
+
+var availableTags = [
+  'Vanligste skjema og tjenester',
+  '1. ACC Security level 2 MAG',
+  '2. Corres test 250116',
+  '3. PSA Skatteoppgjør personlig',
+  '4. RF-1400 Melding om flytting innenlands',
+  '6. Aksjeoppgaven 2014',
+  '7. Lese SvarUt – post fra kommunen',
+  '9. Mine krav og betalinger',
+  '10. Et veldig langt punkt i lista som bør gå over alle bredder og grenser, men samtidig oppføre seg riktig i layout. Se så lang tekst dette her er.'
+];
+
+var searchWithAutocomplete = function() {
+  $('.a-js-autocomplete').autocomplete({
+    source: availableTags,
+    appendTo: '.a-autocomplete-container',
+    minLength: 0,
+    classes: {
+      'ui-autocomplete': 'a-list',
+      'ui-menu-item': 'a-dotted'
+    },
+    create: function(event, ui) {
+      $('.ui-helper-hidden-accessible').appendTo('.a-autocomplete-container');
+    },
+    open: function(event, ui) {
+      $('.ui-autocomplete').removeAttr('style');
+      $('.ui-autocomplete .ui-menu-item').not(':first-of-type').addClass('a-clickable');
+    }
+  }).bind('click', function(e) { // TODO should also open on tab focus?
+    if ($(this).autocomplete('widget').is(':visible')) {
+      $(this).autocomplete('close');
+    } else {
+      $(this).autocomplete('search', $(this).val());
+    }
   });
 };
 
@@ -813,6 +886,7 @@ var truncateBoxButtonNames = function() {
   setupListRowSelect,
   initSearchWithHighlight,
   toggleSwitch,
+  searchWithAutocomplete,
   truncateBoxButtonNames
 */
 window.portalInit = function() {
@@ -822,6 +896,7 @@ window.portalInit = function() {
   setupListRowSelect();
   initSearchWithHighlight();
   toggleSwitch();
+  searchWithAutocomplete();
   truncateBoxButtonNames();
 };
 window.portalInit();

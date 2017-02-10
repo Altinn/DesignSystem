@@ -1,3 +1,15 @@
+/* globals $ */
+var aTagSpaceExpand = function() {
+  $('a.collapsed').each(function() {
+    $(this).on('keydown', function(e) {
+      if (e.keyCode === 32 || e.keycode === 13 || e.which === 32 || e.which === 13) {
+        e.stopPropagation(); e.preventDefault();
+        $(e.target).trigger('click');
+      }
+    });
+  });
+};
+
 var addListExpandHandler = function() {
   $('.a-list *[data-toggle="collapse"]').on('click', function() {
     // This script runs before the bootstrap collapse handler, so the collapsed-class will still be
@@ -176,18 +188,6 @@ var articleAnchors = function() {
     window.anchors.add('h2');
     window.anchors.add('h3');
   }
-};
-
-/* globals $ */
-var aTagSpaceExpand = function() {
-  $('a.collapsed').each(function() {
-    $(this).on('keydown', function(e) {
-      if (e.keyCode === 32 || e.keycode === 13 || e.which === 32 || e.which === 13) {
-        e.stopPropagation(); e.preventDefault();
-        $(e.target).trigger('click');
-      }
-    });
-  });
 };
 
 var setupOnKeypress = function() {
@@ -382,7 +382,15 @@ var sortListAlphanumerically = function(src, sortIndex) {
   });
 
   $.each(rows, function(index, row) {
-    $list.append(row);
+    if ($(row).find('.a-js-sortValue').length > 0) {
+      $list.append(row);
+    }
+  });
+
+  $.each(rows, function(index, row) {
+    if ($(row).find('.a-js-sortValue').length === 0) {
+      $list.append(row);
+    }
   });
 };
 
@@ -516,6 +524,34 @@ var propagateContent = function() {
     }
   });
 };
+
+function showPassword(src, target) {
+  var pwd = $('#' + target);
+  if (pwd.attr('type') === 'text') {
+    pwd.attr('type', 'password');
+    $(src).children('.hide-password-text').hide();
+    $(src).children('.show-password-text').show();
+  } else {
+    pwd.attr('type', 'text');
+    $(src).children('.hide-password-text').show();
+    $(src).children('.show-password-text').hide();
+
+    setTimeout(function() {
+      pwd.attr('type', 'password');
+      $(src).children('.hide-password-text').hide();
+      $(src).children('.show-password-text').show();
+    }, 15000);
+  }
+}
+
+function setVisibility(passwordField, showPasswordId) {
+  var password = $(passwordField);
+  if (password.val().length > 0) {
+    $('#' + showPasswordId).removeClass('d-none');
+  } else {
+    $('#' + showPasswordId).addClass('d-none');
+  }
+}
 
 /* globals $ */
 var toggleExpand = function() {
@@ -968,13 +1004,9 @@ var handleValidatorLibrary = function() {
       if (allValid) {
         $form.find('.a-js-hideWhenInvalid').show();
         $form.find('.a-js-enableWhenValid').removeAttr('disabled');
-        $form.find('.a-js-enableWhenValid').addClass('mt-3');
-        $form.find('.a-js-enableWhenValid').addClass('hidden-xl-down');
       } else {
         $form.find('.a-js-hideWhenInvalid').hide();
         $form.find('.a-js-enableWhenValid').attr('disabled', true);
-        $form.find('.a-js-enableWhenValid').removeClass('mt-3');
-        $form.find('.a-js-hideWhenInvalid').addClass('hidden-xl-down');
       }
     });
 
