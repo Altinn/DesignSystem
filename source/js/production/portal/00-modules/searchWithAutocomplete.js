@@ -26,7 +26,7 @@ var searchWithAutocomplete = function() {
       $('.ui-autocomplete').removeAttr('style');
       $('.ui-autocomplete .ui-menu-item').not(':first-of-type').addClass('a-clickable');
     }
-  }).bind('click', function(e) { //TODO should also open on tab focus?
+  }).bind('click', function(e) { // TODO should also open on tab focus?
     if ($(this).autocomplete('widget').is(':visible')) {
       $(this).autocomplete('close');
     } else {
