@@ -8,7 +8,7 @@ var availableTags = [
 ];
 
 var title = 'Vanligste skjema og tjenester i din organisasjon';
-var numberOfResultsLabel = ' treff. Bruk pil opp og pil ned for å navigere i resultatene.'
+var numberOfResultsLabel = ' treff. Bruk pil opp og pil ned for å navigere i resultatene.';
 var noResultsLabel = 'Ingen treff';
 
 var searchWithAutocomplete = function() {
@@ -55,9 +55,9 @@ var searchWithAutocomplete = function() {
       results: function(count) {
         if (count === availableTags.length) {
           return title + '. ' + count + ' ' + numberOfResultsLabel;
-        } else {
-          return count + ' ' + numberOfResultsLabel;
         }
+
+        return count + ' ' + numberOfResultsLabel;
       }
     },
     response: function(event, ui) {
