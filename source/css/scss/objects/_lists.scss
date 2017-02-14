@@ -18,13 +18,15 @@
   }
 
   .a-list-header {
-    border-top: 1px solid $grey-medium;
-
     .a-list-sortHeader {
       @include a-fontSize12;
       margin-top: 4px;
       margin-bottom: -$spacer / 2;
       cursor: pointer;
+    }
+
+    &:not(.a-dotted) {
+      border-top: 1px solid $grey-medium;
     }
 
     @include media-breakpoint-down( sm ) {
@@ -756,6 +758,7 @@ ol {
     li {
       @extend .a-dotted;
       @extend .a-fontSizeXXS;
+
       margin: 0 $spacer * 2;
 
       &:first-of-type {

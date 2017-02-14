@@ -219,17 +219,6 @@ hr {
     border-bottom: 1px solid $grey-light;
   }
 
-  &.a-hrDotted {
-    display: block;
-    width: 100%;
-    height: 2px;
-    background-image: $dotted-border-blue;
-    background-repeat: repeat-x;
-    background-position: bottom;
-    background-size: 4px 2px;
-    border: none;
-  }
-
   &.a-hrSolidThick {
     margin: 0 0 $spacer 0;
     border-bottom: 4px solid $blue;
@@ -329,6 +318,19 @@ hr {
   display: none;
 }
 
+// Don't show anchor links deep in the markup
+
+.a-sg-anchor {
+  display: none;
+}
+
+.epi-wysiwyg>h2,
+.epi-wysiwyg>h3 {
+  .a-sg-anchor {
+    display: inline-block;
+  }
+}
+
 .a-fullWidthXs {
   width: 100%;
   @include media-breakpoint-up( sm ) {
@@ -370,12 +372,12 @@ hr {
             background-color: $blue-light;
           }
 
-          &.a-danger {
-            background-color: $red-light;
-          }
-
           &.a-success {
             background-color: $blue-light;
+          }
+
+          &.a-danger {
+            background-color: $red-light;
           }
         }
       }

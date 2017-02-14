@@ -10,16 +10,30 @@
         {{{ text-input-label }}}
       </label>
     {{/ form-input-isPassword }}
-
+    {{# top-label }}
+      <label class="a-form-label {{ isHidden }}" for="{{ text-input-id }}">
+        {{{ text-input-top-label }}}
+      </label>
+    {{/ top-label }}
     <div class="a-form-group-items {{ isInput-group }} {{ isDisabled }} {{ isInactive }} {{# isTransparent }} transparent {{/ isTransparent }}">
       {{^ form-input-isPassword }}
         <!-- Label -->
-        <label class="a-form-label {{ isHidden }} {{ form-label-class }}" for="{{ text-input-id }}">
+        {{^ top-label }}
+          <label class="a-form-label {{ isHidden }} {{ form-label-class }}" for="{{ text-input-id }}">
+        {{/ top-label }}
+        {{# top-label }}
+          <div class="a-form-label {{ isHidden }} {{ form-label-class }}">
+        {{/ top-label }}
           {{# form-label-hasIcon }}
             {{> atomer-ikon }}
           {{/ form-label-hasIcon }}
           {{{ text-input-label }}}
-        </label>
+        {{^ top-label }}
+          </label>
+        {{/ top-label }}
+        {{# top-label }}
+          </div>
+        {{/ top-label }}
       {{/ form-input-isPassword }}
       
       <!-- Input  -->

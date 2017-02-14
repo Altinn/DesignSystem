@@ -1,0 +1,5 @@
+---
+ state: archived
+---
+
+Mangler retningslinjer.

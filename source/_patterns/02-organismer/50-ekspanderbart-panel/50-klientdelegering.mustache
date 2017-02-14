@@ -1,12 +1,12 @@
 <div class="card a-accordion-card a-collapsePanel {{{ styleModifier }}}">
-	<div class="card-header a-js-index-heading a-collapsePanel-heading collapsed {{ isExpanded }}" role="tab">
-		<a href="#{{ collapseID }}" tabindex="0" data-toggle="collapse" data-target="#{{{ collapseID }}}" aria-expanded="false" aria-controls="#{{{ collapseID }}}" {{# dataParent }}data-parent="{{{dataParent}}}"{{/ dataParent }}>
+	<div class="card-header a-js-index-heading a-collapsePanel-heading collapsed {{ isExpanded }}" id="{{ collapse-panel-header-id }}" role="tab">
+		<a href="#{{ collapseID }}" tabindex="0" data-toggle="collapse" data-target="#{{{ collapseID }}}" aria-expanded="false" aria-controls="{{{ collapseID }}}" {{# dataParent }}data-parent="{{{dataParent}}}"{{/ dataParent }}>
 			{{# collapseHeader }}
 				{{> molekyler-ikon-tekst }}
 			{{/ collapseHeader }}
 		</a>
 	</div>
-	<div id="{{ collapseID }}" class="a-collapsePanel-body a-collapsePanel-body--border no-background collapse {{{ isVisibleFromStart }}}" role="tabpanel" aria-labelledby="{{ collapse-panel-id }}">
+	<div id="{{ collapseID }}" class="a-collapsePanel-body a-collapsePanel-body--border no-background collapse {{{ isVisibleFromStart }}}" role="tabpanel" aria-labelledby="{{ collapse-panel-header-id }}">
 		<div class="panel-collapse-content-section px-1 px-sm-2 pb-1 pb-sm-2">
 			<div class="a-first-action pt-2 pt-sm-3">
 				{{> atomer-knapp-veksle }}

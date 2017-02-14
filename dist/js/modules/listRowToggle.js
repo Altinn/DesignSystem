@@ -30,7 +30,7 @@ var setupListRowSelect = function() {
   var $list = $('ul[data-list-selectable="true"]');
   var $segmentDone = $('.segment-done');
 
-  $list.on('click', 'li:not(.a-list-header)', function() {
+  $list.on('click', 'li.a-selectable:not(.a-list-header)', function() {
     if (!$(this).hasClass('a-deleted')) {
       $(this).toggleClass('a-selected');
       if ($list.find('li.a-selected').length > 0) {
