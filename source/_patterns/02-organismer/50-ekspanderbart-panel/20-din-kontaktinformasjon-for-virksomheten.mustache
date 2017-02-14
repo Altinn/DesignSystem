@@ -1,4 +1,4 @@
-<div class="card a-accordion-card a-collapsePanel {{{ isLarge }}} {{{ styleModifier }}}">
+<div class="card a-accordion-card a-collapsePanel {{{ styleModifier }}}">
   <div class="card-header a-js-index-heading a-collapsePanel-heading collapsed {{isExpanded}}" id="{{ collapse-panel-header-id }}" role="tab">
     <a href="#{{ collapseID }}" tabindex="0" data-toggle="collapse" data-target="#{{{ collapseID }}}" aria-expanded="false" aria-controls="{{ collapseID }}" {{# dataParent }}data-parent="{{{dataParent}}}"{{/ dataParent }}>
       {{# collapseHeader }}
@@ -42,7 +42,6 @@
         </div>
       {{/ my-contact-for }}
 
-      <!-- Varselinnstillinger -->
       {{# my-alert-settings }}
         <div class="row">
           <div class="col-12">
@@ -76,6 +75,10 @@
           </div>
         </div>
       {{/ my-alert-settings }}
+
+      {{# alerts-individual-services }}
+        {{> organismer-varsling-enkelttjenester }}
+      {{/ alerts-individual-services }}
     </div>  
   </div>
 </div>

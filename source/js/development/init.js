@@ -1,7 +1,7 @@
 /* globals _anchors, hideIntroInSubs, insetVariations, toggleArchivedState,
   selectAll, toggleTheme, fixPatternLinks,
   preOpenModals, prototypingInteractionStarteENK, $, onboarding, codeLookup, nameChecker,
-  defaultSort, setupAddRightsHandler, onFileInputChange */
+  defaultSort, setupAddRightsHandler */
 window.devInit = function() {
   _anchors();
   hideIntroInSubs();
@@ -17,7 +17,6 @@ window.devInit = function() {
   nameChecker();
   defaultSort();
   setupAddRightsHandler();
-  onFileInputChange();
   selectAll();
   toggleTheme();
 };

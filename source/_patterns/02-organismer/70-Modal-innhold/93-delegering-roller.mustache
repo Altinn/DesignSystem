@@ -1,4 +1,4 @@
-<div class="modal-body a-modal-body">
+<div {{# isModal }} class="modal-body a-modal-body" {{/ isModal }}>
   <div class="row">
     <div class="col-12 col-md-6 col-lg-7">
       {{# person-rolle }}
@@ -12,6 +12,7 @@
     </div>
     {{/ showButton }}
   </div>
+  {{# search-rights }}
   <div class="row">
     <div class="col-12 col-lg-6 mt-4">
       <div class="a-textSizeS a-fontBold{{# isInactive }} a-dimText3{{/ isInactive }}">
@@ -21,9 +22,11 @@
   </div>
   <div class="row">
     <div class="col-12 col-lg-6 mb-1">
-      {{> atomer-sok-tema }}
+      {{> atomer-tekst-input }}
     </div>
   </div>
+  {{/ search-rights }}
+
   {{# expandable-list }}
     <div class="row">
       <div class="col-12">
