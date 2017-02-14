@@ -1,16 +1,31 @@
 /* Links in text */
 
-a {
+a,
+.a-link,
+.a-btn-link {
   position: relative;
+  z-index: 1;
   padding-bottom: 2px;
   color: $black;
-  border-bottom: 1px solid $link-color;
+  text-decoration: none;
+  cursor: pointer;
+  border-bottom: 2px solid $link-color;
 
-  &:hover,
-  &:focus {
+  &:active,
+  &:focus,
+  &:hover {
     color: $black;
     text-decoration: none;
-    border-bottom: 1px solid $blue-dark;
+    cursor: pointer;
+    border-bottom: 2px solid $blue-dark;
+
+    &.a-linkDanger {
+      border-bottom: 2px solid darken( $red, 15% );
+    }
+  }
+
+  &.a-linkDanger {
+    border-color: $red;
   }
 
   &.no-decoration {
@@ -23,55 +38,6 @@ a {
     &:focus {
       text-decoration: none;
       border-bottom: none;
-    }
-  }
-}
-
-/* Set the touch and focus area of the link */
-.a-linkArea {
-  position: relative;
-  z-index: 1;
-  box-shadow: none !important;
-
-  &::before {
-    position: absolute;
-    top: -15px;
-    left: -12px;
-    z-index: -1;
-    width: calc( 100% + 24px );
-    min-height: 48px;
-    cursor: pointer;
-    content: '';
-  }
-}
-
-[data-toggle='popover'] {
-  &::before {
-    box-shadow: none !important;
-  }
-}
-
-/* Links standalone */
-.a-link {
-  // @extend .a-fontSizeXS;
-  position: relative;
-  z-index: 1;
-  padding-bottom: 2px;
-  text-decoration: none;
-  cursor: pointer;
-  border-bottom: 2px solid $link-color;
-
-  &:active,
-  &:focus,
-  &:hover {
-    color: $black;
-    text-decoration: none;
-    cursor: pointer;
-    border-bottom: 2px solid $blue-dark;
-    box-shadow: none !important;
-
-    &.a-link-danger {
-      border-bottom: 2px solid darken( $red, 15% );
     }
   }
 
@@ -96,21 +62,48 @@ a {
     }
   }
 
-  &.a-link-danger {
-    border-bottom: 2px solid $red;
-  }
-
   .a-h3 & {
     padding-bottom: 2px;
   }
 }
 
-// EXTERNAL AND INTERNAL LINKS
-.a-link-arrow {
-  position: inline;
-  padding-top: 2px;
-  padding-left: 4px;
-  font-style: normal;
+/* Set the touch and focus area of the link */
+.a-linkArea {
+  position: relative;
+  z-index: 1;
+  box-shadow: none !important;
+
+  &::before {
+    position: absolute;
+    top: -15px;
+    left: -12px;
+    z-index: -1;
+    width: calc( 100% + 24px );
+    min-height: 48px;
+    cursor: pointer;
+    content: '';
+  }
+}
+
+// FEATURED LINK
+.a-linkFeatured {
+  @extend .a-fontSizeM;
+  @include a-fontBold;
+  color: $blue-darker;
+  border: none;
+
+  &:active,
+  &:focus,
+  &:hover {
+    color: $blue-darker;
+    border-color: $blue-darker;
+  }
+
+  i {
+    position: absolute;
+    right: -35px;
+    bottom: 15px;
+  }
 }
 
 // Help icon
