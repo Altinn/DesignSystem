@@ -737,23 +737,27 @@ ol {
   overriding jquery autocomplete
 */
 .a-autocomplete-container {
+  position: absolute;
   display: block;
-  width: 150%;
+  width: 100%;
   margin-top: -2px;
   overflow: auto;
-  background-color: transparent;
+  background-color: $white;
   border-color: $blue;
   border-width: 2px;
+
+  @media screen and (min-width: 768px) {
+    width: 150%;
+  }
 
   .a-list {
     max-height: $spacer * 26;
     overflow-x: hidden;
     border: 2px solid $blue;
 
-    .ui-menu-item {
-      // @extend .a-dotted;
+    li {
+      @extend .a-fontSizeXXS;
 
-      padding: 5px 0;
       margin: 0 $spacer * 2;
 
       &:first-of-type {
@@ -762,6 +766,19 @@ ol {
 
       &:last-of-type {
         margin-bottom: $spacer;
+      }
+
+      &.a-js-autocomplete-header {
+        padding: 5px 0;
+      }
+
+      .ui-menu-item-wrapper {
+        padding: 5px 0;
+
+        &.ui-state-active {
+          background: linear-gradient(to top, transparent 2px, $blue-light 2px); // keep dotted bottom border
+          outline: none;
+        }
       }
     }
   }
