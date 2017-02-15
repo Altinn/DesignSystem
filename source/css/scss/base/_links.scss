@@ -1,7 +1,6 @@
 /* Links in text */
 
 a,
-.a-link,
 .a-btn-link {
   position: relative;
   z-index: 1;
@@ -75,13 +74,22 @@ a,
 
   &::before {
     position: absolute;
-    top: -15px;
-    left: -12px;
+    top: -11px;
+    left: -$spacer;
     z-index: -1;
     width: calc( 100% + 24px );
-    min-height: 48px;
+    min-height: $spacer * 4;
     cursor: pointer;
     content: '';
+  }
+
+  &:not(.override-focus) {
+    &:focus {
+      &::before {
+        outline: none !important;
+        box-shadow: $focus-color;
+      }
+    }
   }
 }
 

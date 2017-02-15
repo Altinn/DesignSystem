@@ -244,44 +244,12 @@
 .a-btn-link {
   @extend .a-fontSizeXS;
   @include a-fontReg;
-
-  position: relative;
-  z-index: 1;
   padding: 0;
   padding-bottom: 2px;
-  color: $black;
-  text-decoration: none;
-  cursor: pointer;
   background: none;
   border: none;
   border-bottom: 2px solid $link-color;
   box-shadow: none;
-
-  &::before {
-    position: absolute;
-    top: -11px;
-    left: -$spacer;
-    z-index: -1;
-    width: calc( 100% + 24px );
-    min-height: $spacer * 4;
-    cursor: pointer;
-    content: '';
-  }
-
-  &:hover {
-    color: $black;
-    text-decoration: none;
-    border-bottom: 2px solid $blue-dark;
-  }
-
-  &:not(.override-focus) {
-    &:focus {
-      &::before {
-        outline: none !important;
-        box-shadow: $focus-color;
-      }
-    }
-  }
 }
 
 // add btn
