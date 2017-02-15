@@ -1,9 +1,5 @@
 ---
- state: needsrevalidation
+ state: indesignreview
  version: 0
 ---
-NB: Dette er en variant av [link.mustache]
-
-Denne varianten skal benyttes når:
-- Lenken står i løpende tekst og
-- Man lenker til en ekstern side, altså en side utenfor altinn.no.
+Når man lenker til en ekstern side, altså en side utenfor altinn.no, skal det vises en pil opp ved siden av lenketeksten. Dette oppdages automatisk (dersom man refererer til "http://" utenfor altinn), så man trenger ikke legge på denne pilen manuelt.

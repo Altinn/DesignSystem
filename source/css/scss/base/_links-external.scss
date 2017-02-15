@@ -1,0 +1,33 @@
+// External Links with explanation and arrow
+// sass-lint:disable-all
+
+a[href^="http"]:not([href*='altinn.no']) {
+  margin-right: 1em;
+}
+
+a[href^="http"]:not([href*='altinn.no'])::after {
+  position: absolute;
+  top: 0px;
+  right: -18px;
+  width: 1em;
+  overflow: hidden;
+  text-indent: 1em; // The width of the icon
+  white-space: nowrap;
+  content: '(external link)';
+  background-image: url('../../images/arrowrightup.svg');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 136% auto;
+  line-height: 1;
+}
+
+.a-list {
+  li {
+    &.a-list-hasRowLink {
+      a[href^="http"]:not([href*='altinn.no'])::after {
+        top: 9px;
+        right: -12px;
+      }
+    }
+  }
+}
