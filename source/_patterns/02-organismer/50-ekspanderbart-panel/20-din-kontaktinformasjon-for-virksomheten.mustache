@@ -9,76 +9,88 @@
   <div id="{{ collapseID }}" class="a-collapsePanel-body collapse {{{ isVisibleFromStart }}}" role="tabpanel" aria-labelledby="{{ collapse-panel-header-id }}">
     <div class="a-collapsePanel-body-content">
       {{# my-contact-for }}
-        <div class="row">
-          <div class="col-12">
-            <h3 class="a-fontBold a-fontSizeM">
-              {{ header }}
-            </h3>
+        <div id="myContactFor">
+          <div class="row">
+            <div class="col-12">
+              <h3 class="a-fontBold a-fontSizeM">
+                {{ header }}
+              </h3>
+            </div>
+            <div class="col-12 col-md-4">
+              {{# first-input }}
+                {{> atomer-input }}
+              {{/ first-input }}
+              {{# first-input-varsel }}
+                {{> atomer-varsel:mt-0 }}
+              {{/ first-input-varsel }}
+            </div>
+            <div class="col-12 col-md-8">
+              {{# second-input }}
+                {{> atomer-input }}
+              {{/ second-input }}
+              {{# second-input-varsel }}
+                {{> atomer-varsel:mt-0 }}
+              {{/ second-input-varsel }}
+            </div>
           </div>
-          <div class="col-12 col-md-4">
-            {{# first-input }}
-              {{> atomer-input }}
-            {{/ first-input }}
+          <div class="row">
+            <div class="col mt-2">
+              {{# link }}
+                {{> atomer-link }}
+              {{/ link }}
+            </div>
           </div>
-          <div class="col-12 col-md-8">
-            {{# second-input }}
-              {{> atomer-input }}
-            {{/ second-input }}
-          </div>
-        </div>
-        <div class="row">
-          <div class="col mt-2">
-            {{# link }}
-              {{> atomer-link }}
-            {{/ link }}
-          </div>
-        </div>
-        <div class="row">
-          <div class="col mt-3">
-            {{# save-btn }}
-              {{> atomer-knapp }}
-            {{/ save-btn }}
+          <div class="row">
+            <div class="col mt-3">
+              {{# save-btn }}
+                {{> atomer-knapp }}
+              {{/ save-btn }}
+            </div>
           </div>
         </div>
       {{/ my-contact-for }}
 
       {{# my-alert-settings }}
-        <div class="row">
-          <div class="col-12">
-            <h3 class="a-fontBold a-fontSizeM">
-              {{ header }}
-            </h3>
+        <div id="myAlertSettings" style="display: none">
+          <div class="row">
+            <div class="col-12">
+              <h3 class="a-fontBold a-fontSizeM">
+                {{ header }}
+              </h3>
+            </div>
           </div>
-        </div>
-        <div class="row">
-          <div class="col-12">
-            {{# checkbox }}
-              {{> atomer-avkrysningsboks }}
-            {{/ checkbox }}
+          <div class="row">
+            <div class="col-12">
+              {{# checkbox }}
+                {{> atomer-avkrysningsboks }}
+              {{/ checkbox }}
+            </div>
           </div>
-        </div>
-        <div class="row">
-          <div class="col mt-2">
-            {{# link }}
-              {{> atomer-link }}
-            {{/ link }}
+          <div class="row">
+            <div class="col mt-2">
+              {{# link }}
+                {{> atomer-link }}
+              {{/ link }}
+            </div>
           </div>
-        </div>
-        <div class="row">
-          <div class="col mt-3">
-            {{# save-btn }}
-              {{> atomer-knapp }}
-            {{/ save-btn }}
-            {{# cancel-btn }}
-              {{> atomer-link }}
-            {{/ cancel-btn }}
+          <div class="row">
+            <div class="col mt-3">
+              {{# save-btn }}
+                {{> atomer-knapp }}
+              {{/ save-btn }}
+              {{# cancel-btn }}
+                {{> atomer-link }}
+              {{/ cancel-btn }}
+            </div>
           </div>
         </div>
       {{/ my-alert-settings }}
 
       {{# alerts-individual-services }}
-        {{> organismer-varsling-enkelttjenester }}
+        <div id="alertsIndividualServices" style="display: none">
+          {{> organismer-varsling-enkelttjenester }}
+        </div>
       {{/ alerts-individual-services }}
-    </div>  
+    </div>
   </div>
 </div>
