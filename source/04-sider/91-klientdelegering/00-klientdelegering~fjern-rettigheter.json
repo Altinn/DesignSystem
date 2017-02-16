@@ -1,0 +1,1790 @@
+{
+  "person-role": {
+    "icon-prefix": "ai",
+    "icon-class": "ai-private",
+    "icon-extra-class": "a-personRole-icon"
+  },
+  "remove-rights-title": {
+    "collapse-header-title": "Har disse <span class='badge badge-primary a-label badge-pill'>11</span> klientene:",
+    "data-target": "exp-tab-table-remove-rights",
+    "collapse-header-contentID": "exp-tab-table-existing-clients",
+    "collapsed": false
+  },
+  "logo": "../../images/a-logo-white.svg",
+  "show-remove-rights": true,
+  "done-segment": {
+    "link-url-start": "",
+    "link-url": "",
+    "link-url-end": ""
+  },
+  "modal-navbar-override": {
+    "button-list": [
+      {
+        "button-class": "a-modal-back",
+        "aria-label": "Tilbake",
+        "icon-prefix": "ai",
+        "icon-class": "ai-back",
+        "icon-extra-class": "a-modal-back-icon",
+        "button-onclick": "onclick=\"handleModalClose(this, 'link.sider-klientdelegering-gi-rettigheter-til-klienter');\"",
+        "enable-popover": true,
+        "popover-placement": "bottom",
+        "popover-content-id": "backPopoverContent",
+        "popover-class": "popover-warning",
+        "popover-text": "Du har gjort endringer som ikke vil lagres",
+        "popover-buttons": [
+          {
+            "button-text": "Ok",
+            "button-class": "a-btn a-btn-danger",
+            "link-url-start": "onclick=\"$('button[aria-describedby=' + $(this).parent().parent().attr('id') + ']').click(); location.href='link.sider-klientdelegering-gi-rettigheter-til-klienter'\"",
+            "link-url": "",
+            "link-url-end": ""
+          },
+          {
+            "button-text": "Avbryt",
+            "button-class": "a-btn-link a-linkDanger",
+            "link-url-start": "onclick=\"$('button[aria-describedby=' + $(this).parent().parent().attr('id') + ']').click();\"",
+            "link-url": "",
+            "link-url-end": ""
+          }
+        ]
+      },
+      {
+        "button-class": "a-modal-close",
+        "aria-label": "Lukk",
+        "icon-prefix": "ai",
+        "icon-class": "ai-exit",
+        "icon-extra-class": "a-modal-close-icon",
+        "button-onclick": "onclick=\"handleModalClose(this, 'link.sider-profil-roller-rettigheter');\"",
+        "enable-popover": true,
+        "popover-placement": "bottom",
+        "popover-content-id": "closePopoverContent",
+        "popover-class": "popover-warning",
+        "popover-text": "Du har gjort endringer som ikke vil lagres",
+        "popover-buttons": [
+          {
+            "button-text": "Ok",
+            "button-class": "a-btn a-btn-danger",
+            "link-url-start": "onclick=\"$('button[aria-describedby=' + $(this).parent().parent().attr('id') + ']').click(); location.href='link.sider-profil-roller-rettigheter'\"",
+            "link-url": "",
+            "link-url-end": ""
+          },
+          {
+            "button-text": "Avbryt",
+            "button-class": "a-btn-link a-linkDanger",
+            "link-url-start": "onclick=\"$('button[aria-describedby=' + $(this).parent().parent().attr('id') + ']').click();\"",
+            "link-url": "",
+            "link-url-end": ""
+          }
+        ]
+      }
+    ]
+  },
+  "form-label-hasIcon": {
+    "icon-prefix": "ai",
+    "icon-class": "ai-client"
+  },
+  "form-input-hasButton-class": "a-form-control-withBtn",
+  "form-input-hasButton": {
+    "form-input-button-action": "Utfør søk",
+    "icon-prefix": "ai",
+    "icon-class": "ai-search"
+  },
+  "isInput-group": "input-group",
+  "form-label-class": "input-group-addon",
+  "text-input-label": "<span class=\"sr-only\">Finn klient</span>",
+  "text-input-placeholder": "Hvilken klient ser du etter?",
+  "input-type": "search",
+  "no-left-padding": true,
+  "search-algorithm": "show-and-highlight",
+  "search-target": "employee-table",
+  "table-actions-id": "employee-table",
+  "logo-class": "a-modal-top-logo",
+  "icon-prefix": "tmp",
+  "icon-class": "tmp-group-add",
+  "hasTextSmall": {
+    "textSmall": ""
+  },
+  "icontext": "Gi og fjerne rettigheter",
+  "cancel-link": {
+    "button-text": "Avbryt",
+    "button-class": "a-btn-link a-linkDanger float-right",
+    "link-url-start": "onclick=\"location.href='link.sider-klientdelegering-gi-rettigheter-til-klienter'\"",
+    "link-url": "",
+    "link-url-end": ""
+  },
+  "segment-fixed": "segment-fixed",
+  "full-width-table": true,
+  "full-height-table": true,
+  "ferdigsegment-done": {
+    "button-text": "Ferdig",
+    "button-class": "a-btn a-btn-success",
+    "link-url-start": "onclick=\"if (onConfirmDeletionClick()) { location.href='",
+    "link-url": "link.sider-klientdelegering-kvittering-gyldig",
+    "link-url-end": "' }\""
+  },
+  "ferdigsegment-cancel": {
+    "button-text": "Avbryt",
+    "button-class": "a-btn-link a-js-cancel-deletion"
+  },
+  "remove-rights-table": {
+    "collapse-header-contentID": "exp-tab-table-existing-clients",
+    "collapsed": false,
+    "aria-expanded": true,
+    "sortable-table-override": {
+      "tabable": true,
+      "header": {
+        "additional-classes": "a-list-header",
+        "columns": [
+          {
+            "tabable": false,
+            "additional-classes": "a-w-7 hidden-sm-down",
+            "column-items": []
+          },
+          {
+            "additional-classes": "col-6 col-sm-7 col-md-4 col-lg-6 a-list-sortHeader a-clickable hidden-xs-down",
+            "column-items": [
+              {
+                "column-text": {
+                  "classes": "a-dropdownArrow"
+                }
+              },
+              {
+                "column-text": {
+                  "text": "SELSKAPSNAVN"
+                }
+              }
+            ]
+          },
+          {
+            "additional-classes": "col-2 hidden-sm-down a-list-sortHeader a-clickable",
+            "column-items": [
+              {
+                "column-text": {
+                  "classes": "a-dropdownArrow"
+                }
+              },
+              {
+                "column-text": {
+                  "text": "ORG.NR"
+                }
+              }
+            ]
+          },
+          {
+            "additional-classes": "col text-right pr-0 pr-md-2 a-js-add-remove-all a-clickable",
+            "column-items": [
+              {
+                "column-text": {
+                  "text": "Fjern alle klienter",
+                  "classes": "a-fontBold hidden-xs-down"
+                }
+              },
+              {
+                "column-text": {
+                  "text": "Fjern alle",
+                  "classes": "a-fontBold hidden-sm-up"
+                }
+              },
+              {
+                "column-icon": {
+                  "icon-prefix": "tmp",
+                  "icon-class": "tmp-remove-circle",
+                  "icon-extra-class": "a-remove-icon tmp-fw"
+                }
+              }
+            ]
+          }
+        ]
+      },
+      "is-large": true,
+      "additional-classes": "a-bgGreyLight a-full-height ",
+      "list-id": "employee-table",
+      "selectable": true,
+      "rows": [
+        {
+          "additional-classes": "a-selectable a-danger",
+          "onclick": false,
+          "columns": [
+            {
+              "additional-classes": "a-w-7 text-center hidden-sm-down",
+              "onclick": false,
+              "column-items": [
+                {
+                  "column-icon": {
+                    "icon-prefix": "ai",
+                    "icon-class": "ai-client",
+                    "icon-extra-class": ""
+                  }
+                }
+              ]
+            },
+            {
+              "additional-classes": "col-10 col-sm-7 col-md-4 col-lg-6",
+              "onclick": false,
+              "searchable": true,
+              "column-items": [
+                {
+                  "column-text": {
+                    "classes": "a-fontBold a-js-sortValue a-lineThrough-selected",
+                    "text": "Adrian Frutinger ENK"
+                  }
+                }
+              ]
+            },
+            {
+              "additional-classes": "col-3 hidden-sm-down",
+              "onclick": false,
+              "searchable": true,
+              "column-items": [
+                {
+                  "column-text": {
+                    "classes": "a-js-sortValue",
+                    "text": "963 179 715"
+                  }
+                }
+              ]
+            },
+            {
+              "additional-classes": "col text-right pr-0 pr-md-2",
+              "onclick": false,
+              "column-items": [
+                {
+                  "column-text": {
+                    "text": "Fjern",
+                    "classes": "a-fontBold hidden-xs-down a-hiddenWhenSelected a-hiddenWhenDeleted"
+                  }
+                },
+                {
+                  "column-icon": {
+                    "icon-prefix": "tmp",
+                    "icon-class": "tmp-remove-circle",
+                    "icon-extra-class": "a-remove-icon a-hiddenWhenSelected a-hiddenWhenDeleted tmp-fw"
+                  }
+                },
+                {
+                  "column-text": {
+                    "text": "Angre",
+                    "classes": "a-fontBold hidden-xs-down a-visibleWhenSelected a-hiddenWhenDeleted"
+                  }
+                },
+                {
+                  "column-icon": {
+                    "icon-prefix": "tmp",
+                    "icon-class": "tmp-history",
+                    "icon-extra-class": "a-remove-icon a-visibleWhenSelected a-hiddenWhenDeleted tmp-fw"
+                  }
+                },
+                {
+                  "column-text": {
+                    "text": "Slettet",
+                    "classes": "a-fontBold hidden-xs-down a-visibleWhenDeleted"
+                  }
+                },
+                {
+                  "column-icon": {
+                    "icon-prefix": "tmp",
+                    "icon-class": "tmp-fw",
+                    "icon-extra-class": "a-remove-icon a-visibleWhenDeleted"
+                  }
+                }
+              ]
+            }
+          ],
+          "expandable-section": false
+        },
+        {
+          "additional-classes": "a-selectable a-danger",
+          "onclick": false,
+          "columns": [
+            {
+              "additional-classes": "a-w-7 text-center hidden-sm-down",
+              "onclick": false,
+              "column-items": [
+                {
+                  "column-icon": {
+                    "icon-prefix": "ai",
+                    "icon-class": "ai-client",
+                    "icon-extra-class": ""
+                  }
+                }
+              ]
+            },
+            {
+              "additional-classes": "col-10 col-sm-7 col-md-4 col-lg-6",
+              "onclick": false,
+              "searchable": true,
+              "column-items": [
+                {
+                  "column-text": {
+                    "classes": "a-fontBold a-js-sortValue a-lineThrough-selected",
+                    "text": "Advokat Renningsen ANS"
+                  }
+                }
+              ]
+            },
+            {
+              "additional-classes": "col-3 hidden-sm-down",
+              "onclick": false,
+              "searchable": true,
+              "column-items": [
+                {
+                  "column-text": {
+                    "classes": "a-js-sortValue",
+                    "text": "999157033"
+                  }
+                }
+              ]
+            },
+            {
+              "additional-classes": "col text-right pr-0 pr-md-2",
+              "onclick": false,
+              "column-items": [
+                {
+                  "column-text": {
+                    "text": "Fjern",
+                    "classes": "a-fontBold hidden-xs-down a-hiddenWhenSelected a-hiddenWhenDeleted"
+                  }
+                },
+                {
+                  "column-icon": {
+                    "icon-prefix": "tmp",
+                    "icon-class": "tmp-remove-circle",
+                    "icon-extra-class": "a-remove-icon a-hiddenWhenSelected a-hiddenWhenDeleted tmp-fw"
+                  }
+                },
+                {
+                  "column-text": {
+                    "text": "Angre",
+                    "classes": "a-fontBold hidden-xs-down a-visibleWhenSelected a-hiddenWhenDeleted"
+                  }
+                },
+                {
+                  "column-icon": {
+                    "icon-prefix": "tmp",
+                    "icon-class": "tmp-history",
+                    "icon-extra-class": "a-remove-icon a-visibleWhenSelected a-hiddenWhenDeleted tmp-fw"
+                  }
+                },
+                {
+                  "column-text": {
+                    "text": "Slettet",
+                    "classes": "a-fontBold hidden-xs-down a-visibleWhenDeleted"
+                  }
+                },
+                {
+                  "column-icon": {
+                    "icon-prefix": "tmp",
+                    "icon-class": "tmp-fw",
+                    "icon-extra-class": "a-remove-icon a-visibleWhenDeleted"
+                  }
+                }
+              ]
+            }
+          ],
+          "expandable-section": false
+        },
+        {
+          "additional-classes": "a-selectable a-danger",
+          "onclick": false,
+          "columns": [
+            {
+              "additional-classes": "a-w-7 text-center hidden-sm-down",
+              "onclick": false,
+              "column-items": [
+                {
+                  "column-icon": {
+                    "icon-prefix": "ai",
+                    "icon-class": "ai-client",
+                    "icon-extra-class": ""
+                  }
+                }
+              ]
+            },
+            {
+              "additional-classes": "col-10 col-sm-7 col-md-4 col-lg-6",
+              "onclick": false,
+              "searchable": true,
+              "column-items": [
+                {
+                  "column-text": {
+                    "classes": "a-fontBold a-js-sortValue a-lineThrough-selected",
+                    "text": "Clamps AS"
+                  }
+                }
+              ]
+            },
+            {
+              "additional-classes": "col-3 hidden-sm-down",
+              "onclick": false,
+              "searchable": true,
+              "column-items": [
+                {
+                  "column-text": {
+                    "classes": "a-js-sortValue",
+                    "text": "963 179 715"
+                  }
+                }
+              ]
+            },
+            {
+              "additional-classes": "col text-right pr-0 pr-md-2",
+              "onclick": false,
+              "column-items": [
+                {
+                  "column-text": {
+                    "text": "Fjern",
+                    "classes": "a-fontBold hidden-xs-down a-hiddenWhenSelected a-hiddenWhenDeleted"
+                  }
+                },
+                {
+                  "column-icon": {
+                    "icon-prefix": "tmp",
+                    "icon-class": "tmp-remove-circle",
+                    "icon-extra-class": "a-remove-icon a-hiddenWhenSelected a-hiddenWhenDeleted tmp-fw"
+                  }
+                },
+                {
+                  "column-text": {
+                    "text": "Angre",
+                    "classes": "a-fontBold hidden-xs-down a-visibleWhenSelected a-hiddenWhenDeleted"
+                  }
+                },
+                {
+                  "column-icon": {
+                    "icon-prefix": "tmp",
+                    "icon-class": "tmp-history",
+                    "icon-extra-class": "a-remove-icon a-visibleWhenSelected a-hiddenWhenDeleted tmp-fw"
+                  }
+                },
+                {
+                  "column-text": {
+                    "text": "Slettet",
+                    "classes": "a-fontBold hidden-xs-down a-visibleWhenDeleted"
+                  }
+                },
+                {
+                  "column-icon": {
+                    "icon-prefix": "tmp",
+                    "icon-class": "tmp-fw",
+                    "icon-extra-class": "a-remove-icon a-visibleWhenDeleted"
+                  }
+                }
+              ]
+            }
+          ],
+          "expandable-section": false
+        },
+        {
+          "additional-classes": "a-selectable a-danger",
+          "onclick": false,
+          "columns": [
+            {
+              "additional-classes": "a-w-7 text-center hidden-sm-down",
+              "onclick": false,
+              "column-items": [
+                {
+                  "column-icon": {
+                    "icon-prefix": "ai",
+                    "icon-class": "ai-client",
+                    "icon-extra-class": ""
+                  }
+                }
+              ]
+            },
+            {
+              "additional-classes": "col-10 col-sm-7 col-md-4 col-lg-6",
+              "onclick": false,
+              "searchable": true,
+              "column-items": [
+                {
+                  "column-text": {
+                    "classes": "a-fontBold a-js-sortValue a-lineThrough-selected",
+                    "text": "Creative Banking AS"
+                  }
+                }
+              ]
+            },
+            {
+              "additional-classes": "col-3 hidden-sm-down",
+              "onclick": false,
+              "searchable": true,
+              "column-items": [
+                {
+                  "column-text": {
+                    "classes": "a-js-sortValue",
+                    "text": "963 179 715"
+                  }
+                }
+              ]
+            },
+            {
+              "additional-classes": "col text-right pr-0 pr-md-2",
+              "onclick": false,
+              "column-items": [
+                {
+                  "column-text": {
+                    "text": "Fjern",
+                    "classes": "a-fontBold hidden-xs-down a-hiddenWhenSelected a-hiddenWhenDeleted"
+                  }
+                },
+                {
+                  "column-icon": {
+                    "icon-prefix": "tmp",
+                    "icon-class": "tmp-remove-circle",
+                    "icon-extra-class": "a-remove-icon a-hiddenWhenSelected a-hiddenWhenDeleted tmp-fw"
+                  }
+                },
+                {
+                  "column-text": {
+                    "text": "Angre",
+                    "classes": "a-fontBold hidden-xs-down a-visibleWhenSelected a-hiddenWhenDeleted"
+                  }
+                },
+                {
+                  "column-icon": {
+                    "icon-prefix": "tmp",
+                    "icon-class": "tmp-history",
+                    "icon-extra-class": "a-remove-icon a-visibleWhenSelected a-hiddenWhenDeleted tmp-fw"
+                  }
+                },
+                {
+                  "column-text": {
+                    "text": "Slettet",
+                    "classes": "a-fontBold hidden-xs-down a-visibleWhenDeleted"
+                  }
+                },
+                {
+                  "column-icon": {
+                    "icon-prefix": "tmp",
+                    "icon-class": "tmp-fw",
+                    "icon-extra-class": "a-remove-icon a-visibleWhenDeleted"
+                  }
+                }
+              ]
+            }
+          ],
+          "expandable-section": false
+        },
+        {
+          "additional-classes": "a-selectable a-danger",
+          "onclick": false,
+          "columns": [
+            {
+              "additional-classes": "a-w-7 text-center hidden-sm-down",
+              "onclick": false,
+              "column-items": [
+                {
+                  "column-icon": {
+                    "icon-prefix": "ai",
+                    "icon-class": "ai-client",
+                    "icon-extra-class": ""
+                  }
+                }
+              ]
+            },
+            {
+              "additional-classes": "col-10 col-sm-7 col-md-4 col-lg-6",
+              "onclick": false,
+              "searchable": true,
+              "column-items": [
+                {
+                  "column-text": {
+                    "classes": "a-fontBold a-js-sortValue a-lineThrough-selected",
+                    "text": "Ferskfisk & Saltkjøtt AS"
+                  }
+                }
+              ]
+            },
+            {
+              "additional-classes": "col-3 hidden-sm-down",
+              "onclick": false,
+              "searchable": true,
+              "column-items": [
+                {
+                  "column-text": {
+                    "classes": "a-js-sortValue",
+                    "text": "963 179 715"
+                  }
+                }
+              ]
+            },
+            {
+              "additional-classes": "col text-right pr-0 pr-md-2",
+              "onclick": false,
+              "column-items": [
+                {
+                  "column-text": {
+                    "text": "Fjern",
+                    "classes": "a-fontBold hidden-xs-down a-hiddenWhenSelected a-hiddenWhenDeleted"
+                  }
+                },
+                {
+                  "column-icon": {
+                    "icon-prefix": "tmp",
+                    "icon-class": "tmp-remove-circle",
+                    "icon-extra-class": "a-remove-icon a-hiddenWhenSelected a-hiddenWhenDeleted tmp-fw"
+                  }
+                },
+                {
+                  "column-text": {
+                    "text": "Angre",
+                    "classes": "a-fontBold hidden-xs-down a-visibleWhenSelected a-hiddenWhenDeleted"
+                  }
+                },
+                {
+                  "column-icon": {
+                    "icon-prefix": "tmp",
+                    "icon-class": "tmp-history",
+                    "icon-extra-class": "a-remove-icon a-visibleWhenSelected a-hiddenWhenDeleted tmp-fw"
+                  }
+                },
+                {
+                  "column-text": {
+                    "text": "Slettet",
+                    "classes": "a-fontBold hidden-xs-down a-visibleWhenDeleted"
+                  }
+                },
+                {
+                  "column-icon": {
+                    "icon-prefix": "tmp",
+                    "icon-class": "tmp-fw",
+                    "icon-extra-class": "a-remove-icon a-visibleWhenDeleted"
+                  }
+                }
+              ]
+            }
+          ],
+          "expandable-section": false
+        },
+        {
+          "additional-classes": "a-selectable a-danger",
+          "onclick": false,
+          "columns": [
+            {
+              "additional-classes": "a-w-7 text-center hidden-sm-down",
+              "onclick": false,
+              "column-items": [
+                {
+                  "column-icon": {
+                    "icon-prefix": "ai",
+                    "icon-class": "ai-client",
+                    "icon-extra-class": ""
+                  }
+                }
+              ]
+            },
+            {
+              "additional-classes": "col-10 col-sm-7 col-md-4 col-lg-6",
+              "onclick": false,
+              "searchable": true,
+              "column-items": [
+                {
+                  "column-text": {
+                    "classes": "a-fontBold a-js-sortValue a-lineThrough-selected",
+                    "text": "Flaggfabrikken AS"
+                  }
+                }
+              ]
+            },
+            {
+              "additional-classes": "col-3 hidden-sm-down",
+              "onclick": false,
+              "searchable": true,
+              "column-items": [
+                {
+                  "column-text": {
+                    "classes": "a-js-sortValue",
+                    "text": "963 179 715"
+                  }
+                }
+              ]
+            },
+            {
+              "additional-classes": "col text-right pr-0 pr-md-2",
+              "onclick": false,
+              "column-items": [
+                {
+                  "column-text": {
+                    "text": "Fjern",
+                    "classes": "a-fontBold hidden-xs-down a-hiddenWhenSelected a-hiddenWhenDeleted"
+                  }
+                },
+                {
+                  "column-icon": {
+                    "icon-prefix": "tmp",
+                    "icon-class": "tmp-remove-circle",
+                    "icon-extra-class": "a-remove-icon a-hiddenWhenSelected a-hiddenWhenDeleted tmp-fw"
+                  }
+                },
+                {
+                  "column-text": {
+                    "text": "Angre",
+                    "classes": "a-fontBold hidden-xs-down a-visibleWhenSelected a-hiddenWhenDeleted"
+                  }
+                },
+                {
+                  "column-icon": {
+                    "icon-prefix": "tmp",
+                    "icon-class": "tmp-history",
+                    "icon-extra-class": "a-remove-icon a-visibleWhenSelected a-hiddenWhenDeleted tmp-fw"
+                  }
+                },
+                {
+                  "column-text": {
+                    "text": "Slettet",
+                    "classes": "a-fontBold hidden-xs-down a-visibleWhenDeleted"
+                  }
+                },
+                {
+                  "column-icon": {
+                    "icon-prefix": "tmp",
+                    "icon-class": "tmp-fw",
+                    "icon-extra-class": "a-remove-icon a-visibleWhenDeleted"
+                  }
+                }
+              ]
+            }
+          ],
+          "expandable-section": false
+        },
+        {
+          "additional-classes": "a-selectable a-danger",
+          "onclick": false,
+          "columns": [
+            {
+              "additional-classes": "a-w-7 text-center hidden-sm-down",
+              "onclick": false,
+              "column-items": [
+                {
+                  "column-icon": {
+                    "icon-prefix": "ai",
+                    "icon-class": "ai-client",
+                    "icon-extra-class": ""
+                  }
+                }
+              ]
+            },
+            {
+              "additional-classes": "col-10 col-sm-7 col-md-4 col-lg-6",
+              "onclick": false,
+              "searchable": true,
+              "column-items": [
+                {
+                  "column-text": {
+                    "classes": "a-fontBold a-js-sortValue a-lineThrough-selected",
+                    "text": "Jern og metall AS"
+                  }
+                }
+              ]
+            },
+            {
+              "additional-classes": "col-3 hidden-sm-down",
+              "onclick": false,
+              "searchable": true,
+              "column-items": [
+                {
+                  "column-text": {
+                    "classes": "a-js-sortValue",
+                    "text": "963 179 715"
+                  }
+                }
+              ]
+            },
+            {
+              "additional-classes": "col text-right pr-0 pr-md-2",
+              "onclick": false,
+              "column-items": [
+                {
+                  "column-text": {
+                    "text": "Fjern",
+                    "classes": "a-fontBold hidden-xs-down a-hiddenWhenSelected a-hiddenWhenDeleted"
+                  }
+                },
+                {
+                  "column-icon": {
+                    "icon-prefix": "tmp",
+                    "icon-class": "tmp-remove-circle",
+                    "icon-extra-class": "a-remove-icon a-hiddenWhenSelected a-hiddenWhenDeleted tmp-fw"
+                  }
+                },
+                {
+                  "column-text": {
+                    "text": "Angre",
+                    "classes": "a-fontBold hidden-xs-down a-visibleWhenSelected a-hiddenWhenDeleted"
+                  }
+                },
+                {
+                  "column-icon": {
+                    "icon-prefix": "tmp",
+                    "icon-class": "tmp-history",
+                    "icon-extra-class": "a-remove-icon a-visibleWhenSelected a-hiddenWhenDeleted tmp-fw"
+                  }
+                },
+                {
+                  "column-text": {
+                    "text": "Slettet",
+                    "classes": "a-fontBold hidden-xs-down a-visibleWhenDeleted"
+                  }
+                },
+                {
+                  "column-icon": {
+                    "icon-prefix": "tmp",
+                    "icon-class": "tmp-fw",
+                    "icon-extra-class": "a-remove-icon a-visibleWhenDeleted"
+                  }
+                }
+              ]
+            }
+          ],
+          "expandable-section": false
+        },
+        {
+          "additional-classes": "a-selectable a-danger",
+          "onclick": false,
+          "columns": [
+            {
+              "additional-classes": "a-w-7 text-center hidden-sm-down",
+              "onclick": false,
+              "column-items": [
+                {
+                  "column-icon": {
+                    "icon-prefix": "ai",
+                    "icon-class": "ai-client",
+                    "icon-extra-class": ""
+                  }
+                }
+              ]
+            },
+            {
+              "additional-classes": "col-10 col-sm-7 col-md-4 col-lg-6",
+              "onclick": false,
+              "searchable": true,
+              "column-items": [
+                {
+                  "column-text": {
+                    "classes": "a-fontBold a-js-sortValue a-lineThrough-selected",
+                    "text": "Kajakk og Ski AS"
+                  }
+                }
+              ]
+            },
+            {
+              "additional-classes": "col-3 hidden-sm-down",
+              "onclick": false,
+              "searchable": true,
+              "column-items": [
+                {
+                  "column-text": {
+                    "classes": "a-js-sortValue",
+                    "text": "963 179 715"
+                  }
+                }
+              ]
+            },
+            {
+              "additional-classes": "col text-right pr-0 pr-md-2",
+              "onclick": false,
+              "column-items": [
+                {
+                  "column-text": {
+                    "text": "Fjern",
+                    "classes": "a-fontBold hidden-xs-down a-hiddenWhenSelected a-hiddenWhenDeleted"
+                  }
+                },
+                {
+                  "column-icon": {
+                    "icon-prefix": "tmp",
+                    "icon-class": "tmp-remove-circle",
+                    "icon-extra-class": "a-remove-icon a-hiddenWhenSelected a-hiddenWhenDeleted tmp-fw"
+                  }
+                },
+                {
+                  "column-text": {
+                    "text": "Angre",
+                    "classes": "a-fontBold hidden-xs-down a-visibleWhenSelected a-hiddenWhenDeleted"
+                  }
+                },
+                {
+                  "column-icon": {
+                    "icon-prefix": "tmp",
+                    "icon-class": "tmp-history",
+                    "icon-extra-class": "a-remove-icon a-visibleWhenSelected a-hiddenWhenDeleted tmp-fw"
+                  }
+                },
+                {
+                  "column-text": {
+                    "text": "Slettet",
+                    "classes": "a-fontBold hidden-xs-down a-visibleWhenDeleted"
+                  }
+                },
+                {
+                  "column-icon": {
+                    "icon-prefix": "tmp",
+                    "icon-class": "tmp-fw",
+                    "icon-extra-class": "a-remove-icon a-visibleWhenDeleted"
+                  }
+                }
+              ]
+            }
+          ],
+          "expandable-section": false
+        },
+        {
+          "additional-classes": "a-selectable a-danger",
+          "onclick": false,
+          "columns": [
+            {
+              "additional-classes": "a-w-7 text-center hidden-sm-down",
+              "onclick": false,
+              "column-items": [
+                {
+                  "column-icon": {
+                    "icon-prefix": "ai",
+                    "icon-class": "ai-client",
+                    "icon-extra-class": ""
+                  }
+                }
+              ]
+            },
+            {
+              "additional-classes": "col-10 col-sm-7 col-md-4 col-lg-6",
+              "onclick": false,
+              "searchable": true,
+              "column-items": [
+                {
+                  "column-text": {
+                    "classes": "a-fontBold a-js-sortValue a-lineThrough-selected",
+                    "text": "Kabelkonsulentene AS"
+                  }
+                }
+              ]
+            },
+            {
+              "additional-classes": "col-3 hidden-sm-down",
+              "onclick": false,
+              "searchable": true,
+              "column-items": [
+                {
+                  "column-text": {
+                    "classes": "a-js-sortValue",
+                    "text": "979465483"
+                  }
+                }
+              ]
+            },
+            {
+              "additional-classes": "col text-right pr-0 pr-md-2",
+              "onclick": false,
+              "column-items": [
+                {
+                  "column-text": {
+                    "text": "Fjern",
+                    "classes": "a-fontBold hidden-xs-down a-hiddenWhenSelected a-hiddenWhenDeleted"
+                  }
+                },
+                {
+                  "column-icon": {
+                    "icon-prefix": "tmp",
+                    "icon-class": "tmp-remove-circle",
+                    "icon-extra-class": "a-remove-icon a-hiddenWhenSelected a-hiddenWhenDeleted tmp-fw"
+                  }
+                },
+                {
+                  "column-text": {
+                    "text": "Angre",
+                    "classes": "a-fontBold hidden-xs-down a-visibleWhenSelected a-hiddenWhenDeleted"
+                  }
+                },
+                {
+                  "column-icon": {
+                    "icon-prefix": "tmp",
+                    "icon-class": "tmp-history",
+                    "icon-extra-class": "a-remove-icon a-visibleWhenSelected a-hiddenWhenDeleted tmp-fw"
+                  }
+                },
+                {
+                  "column-text": {
+                    "text": "Slettet",
+                    "classes": "a-fontBold hidden-xs-down a-visibleWhenDeleted"
+                  }
+                },
+                {
+                  "column-icon": {
+                    "icon-prefix": "tmp",
+                    "icon-class": "tmp-fw",
+                    "icon-extra-class": "a-remove-icon a-visibleWhenDeleted"
+                  }
+                }
+              ]
+            }
+          ],
+          "expandable-section": false
+        },
+        {
+          "additional-classes": "a-selectable a-danger",
+          "onclick": false,
+          "columns": [
+            {
+              "additional-classes": "a-w-7 text-center hidden-sm-down",
+              "onclick": false,
+              "column-items": [
+                {
+                  "column-icon": {
+                    "icon-prefix": "ai",
+                    "icon-class": "ai-client",
+                    "icon-extra-class": ""
+                  }
+                }
+              ]
+            },
+            {
+              "additional-classes": "col-10 col-sm-7 col-md-4 col-lg-6",
+              "onclick": false,
+              "searchable": true,
+              "column-items": [
+                {
+                  "column-text": {
+                    "classes": "a-fontBold a-js-sortValue a-lineThrough-selected",
+                    "text": "Kiellandsfestivalen"
+                  }
+                }
+              ]
+            },
+            {
+              "additional-classes": "col-3 hidden-sm-down",
+              "onclick": false,
+              "searchable": true,
+              "column-items": [
+                {
+                  "column-text": {
+                    "classes": "a-js-sortValue",
+                    "text": "963 179 715"
+                  }
+                }
+              ]
+            },
+            {
+              "additional-classes": "col text-right pr-0 pr-md-2",
+              "onclick": false,
+              "column-items": [
+                {
+                  "column-text": {
+                    "text": "Fjern",
+                    "classes": "a-fontBold hidden-xs-down a-hiddenWhenSelected a-hiddenWhenDeleted"
+                  }
+                },
+                {
+                  "column-icon": {
+                    "icon-prefix": "tmp",
+                    "icon-class": "tmp-remove-circle",
+                    "icon-extra-class": "a-remove-icon a-hiddenWhenSelected a-hiddenWhenDeleted tmp-fw"
+                  }
+                },
+                {
+                  "column-text": {
+                    "text": "Angre",
+                    "classes": "a-fontBold hidden-xs-down a-visibleWhenSelected a-hiddenWhenDeleted"
+                  }
+                },
+                {
+                  "column-icon": {
+                    "icon-prefix": "tmp",
+                    "icon-class": "tmp-history",
+                    "icon-extra-class": "a-remove-icon a-visibleWhenSelected a-hiddenWhenDeleted tmp-fw"
+                  }
+                },
+                {
+                  "column-text": {
+                    "text": "Slettet",
+                    "classes": "a-fontBold hidden-xs-down a-visibleWhenDeleted"
+                  }
+                },
+                {
+                  "column-icon": {
+                    "icon-prefix": "tmp",
+                    "icon-class": "tmp-fw",
+                    "icon-extra-class": "a-remove-icon a-visibleWhenDeleted"
+                  }
+                }
+              ]
+            }
+          ],
+          "expandable-section": false
+        },
+        {
+          "additional-classes": "a-selectable a-danger",
+          "onclick": false,
+          "columns": [
+            {
+              "additional-classes": "a-w-7 text-center hidden-sm-down",
+              "onclick": false,
+              "column-items": [
+                {
+                  "column-icon": {
+                    "icon-prefix": "ai",
+                    "icon-class": "ai-client",
+                    "icon-extra-class": ""
+                  }
+                }
+              ]
+            },
+            {
+              "additional-classes": "col-10 col-sm-7 col-md-4 col-lg-6",
+              "onclick": false,
+              "searchable": true,
+              "column-items": [
+                {
+                  "column-text": {
+                    "classes": "a-fontBold a-js-sortValue a-lineThrough-selected",
+                    "text": "Marg og Bein Holds AS"
+                  }
+                }
+              ]
+            },
+            {
+              "additional-classes": "col-3 hidden-sm-down",
+              "onclick": false,
+              "searchable": true,
+              "column-items": [
+                {
+                  "column-text": {
+                    "classes": "a-js-sortValue",
+                    "text": "963 179 715"
+                  }
+                }
+              ]
+            },
+            {
+              "additional-classes": "col text-right pr-0 pr-md-2",
+              "onclick": false,
+              "column-items": [
+                {
+                  "column-text": {
+                    "text": "Fjern",
+                    "classes": "a-fontBold hidden-xs-down a-hiddenWhenSelected a-hiddenWhenDeleted"
+                  }
+                },
+                {
+                  "column-icon": {
+                    "icon-prefix": "tmp",
+                    "icon-class": "tmp-remove-circle",
+                    "icon-extra-class": "a-remove-icon a-hiddenWhenSelected a-hiddenWhenDeleted tmp-fw"
+                  }
+                },
+                {
+                  "column-text": {
+                    "text": "Angre",
+                    "classes": "a-fontBold hidden-xs-down a-visibleWhenSelected a-hiddenWhenDeleted"
+                  }
+                },
+                {
+                  "column-icon": {
+                    "icon-prefix": "tmp",
+                    "icon-class": "tmp-history",
+                    "icon-extra-class": "a-remove-icon a-visibleWhenSelected a-hiddenWhenDeleted tmp-fw"
+                  }
+                },
+                {
+                  "column-text": {
+                    "text": "Slettet",
+                    "classes": "a-fontBold hidden-xs-down a-visibleWhenDeleted"
+                  }
+                },
+                {
+                  "column-icon": {
+                    "icon-prefix": "tmp",
+                    "icon-class": "tmp-fw",
+                    "icon-extra-class": "a-remove-icon a-visibleWhenDeleted"
+                  }
+                }
+              ]
+            }
+          ],
+          "expandable-section": false
+        },
+        {
+          "additional-classes": "a-selectable a-danger",
+          "onclick": false,
+          "columns": [
+            {
+              "additional-classes": "a-w-7 text-center hidden-sm-down",
+              "onclick": false,
+              "column-items": [
+                {
+                  "column-icon": {
+                    "icon-prefix": "ai",
+                    "icon-class": "ai-client",
+                    "icon-extra-class": ""
+                  }
+                }
+              ]
+            },
+            {
+              "additional-classes": "col-10 col-sm-7 col-md-4 col-lg-6",
+              "onclick": false,
+              "searchable": true,
+              "column-items": [
+                {
+                  "column-text": {
+                    "classes": "a-fontBold a-js-sortValue a-lineThrough-selected",
+                    "text": "Paller+Pins ANS"
+                  }
+                }
+              ]
+            },
+            {
+              "additional-classes": "col-3 hidden-sm-down",
+              "onclick": false,
+              "searchable": true,
+              "column-items": [
+                {
+                  "column-text": {
+                    "classes": "a-js-sortValue",
+                    "text": "963 179 715"
+                  }
+                }
+              ]
+            },
+            {
+              "additional-classes": "col text-right pr-0 pr-md-2",
+              "onclick": false,
+              "column-items": [
+                {
+                  "column-text": {
+                    "text": "Fjern",
+                    "classes": "a-fontBold hidden-xs-down a-hiddenWhenSelected a-hiddenWhenDeleted"
+                  }
+                },
+                {
+                  "column-icon": {
+                    "icon-prefix": "tmp",
+                    "icon-class": "tmp-remove-circle",
+                    "icon-extra-class": "a-remove-icon a-hiddenWhenSelected a-hiddenWhenDeleted tmp-fw"
+                  }
+                },
+                {
+                  "column-text": {
+                    "text": "Angre",
+                    "classes": "a-fontBold hidden-xs-down a-visibleWhenSelected a-hiddenWhenDeleted"
+                  }
+                },
+                {
+                  "column-icon": {
+                    "icon-prefix": "tmp",
+                    "icon-class": "tmp-history",
+                    "icon-extra-class": "a-remove-icon a-visibleWhenSelected a-hiddenWhenDeleted tmp-fw"
+                  }
+                },
+                {
+                  "column-text": {
+                    "text": "Slettet",
+                    "classes": "a-fontBold hidden-xs-down a-visibleWhenDeleted"
+                  }
+                },
+                {
+                  "column-icon": {
+                    "icon-prefix": "tmp",
+                    "icon-class": "tmp-fw",
+                    "icon-extra-class": "a-remove-icon a-visibleWhenDeleted"
+                  }
+                }
+              ]
+            }
+          ],
+          "expandable-section": false
+        },
+        {
+          "additional-classes": "a-selectable a-danger",
+          "onclick": false,
+          "columns": [
+            {
+              "additional-classes": "a-w-7 text-center hidden-sm-down",
+              "onclick": false,
+              "column-items": [
+                {
+                  "column-icon": {
+                    "icon-prefix": "ai",
+                    "icon-class": "ai-client",
+                    "icon-extra-class": ""
+                  }
+                }
+              ]
+            },
+            {
+              "additional-classes": "col-10 col-sm-7 col-md-4 col-lg-6",
+              "onclick": false,
+              "searchable": true,
+              "column-items": [
+                {
+                  "column-text": {
+                    "classes": "a-fontBold a-js-sortValue a-lineThrough-selected",
+                    "text": "Pedro Lasten ENK"
+                  }
+                }
+              ]
+            },
+            {
+              "additional-classes": "col-3 hidden-sm-down",
+              "onclick": false,
+              "searchable": true,
+              "column-items": [
+                {
+                  "column-text": {
+                    "classes": "a-js-sortValue",
+                    "text": "963 179 715"
+                  }
+                }
+              ]
+            },
+            {
+              "additional-classes": "col text-right pr-0 pr-md-2",
+              "onclick": false,
+              "column-items": [
+                {
+                  "column-text": {
+                    "text": "Fjern",
+                    "classes": "a-fontBold hidden-xs-down a-hiddenWhenSelected a-hiddenWhenDeleted"
+                  }
+                },
+                {
+                  "column-icon": {
+                    "icon-prefix": "tmp",
+                    "icon-class": "tmp-remove-circle",
+                    "icon-extra-class": "a-remove-icon a-hiddenWhenSelected a-hiddenWhenDeleted tmp-fw"
+                  }
+                },
+                {
+                  "column-text": {
+                    "text": "Angre",
+                    "classes": "a-fontBold hidden-xs-down a-visibleWhenSelected a-hiddenWhenDeleted"
+                  }
+                },
+                {
+                  "column-icon": {
+                    "icon-prefix": "tmp",
+                    "icon-class": "tmp-history",
+                    "icon-extra-class": "a-remove-icon a-visibleWhenSelected a-hiddenWhenDeleted tmp-fw"
+                  }
+                },
+                {
+                  "column-text": {
+                    "text": "Slettet",
+                    "classes": "a-fontBold hidden-xs-down a-visibleWhenDeleted"
+                  }
+                },
+                {
+                  "column-icon": {
+                    "icon-prefix": "tmp",
+                    "icon-class": "tmp-fw",
+                    "icon-extra-class": "a-remove-icon a-visibleWhenDeleted"
+                  }
+                }
+              ]
+            }
+          ],
+          "expandable-section": false
+        },
+        {
+          "additional-classes": "a-selectable a-danger",
+          "onclick": false,
+          "columns": [
+            {
+              "additional-classes": "a-w-7 text-center hidden-sm-down",
+              "onclick": false,
+              "column-items": [
+                {
+                  "column-icon": {
+                    "icon-prefix": "ai",
+                    "icon-class": "ai-client",
+                    "icon-extra-class": ""
+                  }
+                }
+              ]
+            },
+            {
+              "additional-classes": "col-10 col-sm-7 col-md-4 col-lg-6",
+              "onclick": false,
+              "searchable": true,
+              "column-items": [
+                {
+                  "column-text": {
+                    "classes": "a-fontBold a-js-sortValue a-lineThrough-selected",
+                    "text": "Quantimetaphysics AS"
+                  }
+                }
+              ]
+            },
+            {
+              "additional-classes": "col-3 hidden-sm-down",
+              "onclick": false,
+              "searchable": true,
+              "column-items": [
+                {
+                  "column-text": {
+                    "classes": "a-js-sortValue",
+                    "text": "963 179 715"
+                  }
+                }
+              ]
+            },
+            {
+              "additional-classes": "col text-right pr-0 pr-md-2",
+              "onclick": false,
+              "column-items": [
+                {
+                  "column-text": {
+                    "text": "Fjern",
+                    "classes": "a-fontBold hidden-xs-down a-hiddenWhenSelected a-hiddenWhenDeleted"
+                  }
+                },
+                {
+                  "column-icon": {
+                    "icon-prefix": "tmp",
+                    "icon-class": "tmp-remove-circle",
+                    "icon-extra-class": "a-remove-icon a-hiddenWhenSelected a-hiddenWhenDeleted tmp-fw"
+                  }
+                },
+                {
+                  "column-text": {
+                    "text": "Angre",
+                    "classes": "a-fontBold hidden-xs-down a-visibleWhenSelected a-hiddenWhenDeleted"
+                  }
+                },
+                {
+                  "column-icon": {
+                    "icon-prefix": "tmp",
+                    "icon-class": "tmp-history",
+                    "icon-extra-class": "a-remove-icon a-visibleWhenSelected a-hiddenWhenDeleted tmp-fw"
+                  }
+                },
+                {
+                  "column-text": {
+                    "text": "Slettet",
+                    "classes": "a-fontBold hidden-xs-down a-visibleWhenDeleted"
+                  }
+                },
+                {
+                  "column-icon": {
+                    "icon-prefix": "tmp",
+                    "icon-class": "tmp-fw",
+                    "icon-extra-class": "a-remove-icon a-visibleWhenDeleted"
+                  }
+                }
+              ]
+            }
+          ],
+          "expandable-section": false
+        },
+        {
+          "additional-classes": "a-selectable a-danger",
+          "onclick": false,
+          "columns": [
+            {
+              "additional-classes": "a-w-7 text-center hidden-sm-down",
+              "onclick": false,
+              "column-items": [
+                {
+                  "column-icon": {
+                    "icon-prefix": "ai",
+                    "icon-class": "ai-client",
+                    "icon-extra-class": ""
+                  }
+                }
+              ]
+            },
+            {
+              "additional-classes": "col-10 col-sm-7 col-md-4 col-lg-6",
+              "onclick": false,
+              "searchable": true,
+              "column-items": [
+                {
+                  "column-text": {
+                    "classes": "a-fontBold a-js-sortValue a-lineThrough-selected",
+                    "text": "Technopolis Securities AS"
+                  }
+                }
+              ]
+            },
+            {
+              "additional-classes": "col-3 hidden-sm-down",
+              "onclick": false,
+              "searchable": true,
+              "column-items": [
+                {
+                  "column-text": {
+                    "classes": "a-js-sortValue",
+                    "text": "963 179 715"
+                  }
+                }
+              ]
+            },
+            {
+              "additional-classes": "col text-right pr-0 pr-md-2",
+              "onclick": false,
+              "column-items": [
+                {
+                  "column-text": {
+                    "text": "Fjern",
+                    "classes": "a-fontBold hidden-xs-down a-hiddenWhenSelected a-hiddenWhenDeleted"
+                  }
+                },
+                {
+                  "column-icon": {
+                    "icon-prefix": "tmp",
+                    "icon-class": "tmp-remove-circle",
+                    "icon-extra-class": "a-remove-icon a-hiddenWhenSelected a-hiddenWhenDeleted tmp-fw"
+                  }
+                },
+                {
+                  "column-text": {
+                    "text": "Angre",
+                    "classes": "a-fontBold hidden-xs-down a-visibleWhenSelected a-hiddenWhenDeleted"
+                  }
+                },
+                {
+                  "column-icon": {
+                    "icon-prefix": "tmp",
+                    "icon-class": "tmp-history",
+                    "icon-extra-class": "a-remove-icon a-visibleWhenSelected a-hiddenWhenDeleted tmp-fw"
+                  }
+                },
+                {
+                  "column-text": {
+                    "text": "Slettet",
+                    "classes": "a-fontBold hidden-xs-down a-visibleWhenDeleted"
+                  }
+                },
+                {
+                  "column-icon": {
+                    "icon-prefix": "tmp",
+                    "icon-class": "tmp-fw",
+                    "icon-extra-class": "a-remove-icon a-visibleWhenDeleted"
+                  }
+                }
+              ]
+            }
+          ],
+          "expandable-section": false
+        },
+        {
+          "additional-classes": "a-selectable a-danger",
+          "onclick": false,
+          "columns": [
+            {
+              "additional-classes": "a-w-7 text-center hidden-sm-down",
+              "onclick": false,
+              "column-items": [
+                {
+                  "column-icon": {
+                    "icon-prefix": "ai",
+                    "icon-class": "ai-client",
+                    "icon-extra-class": ""
+                  }
+                }
+              ]
+            },
+            {
+              "additional-classes": "col-10 col-sm-7 col-md-4 col-lg-6",
+              "onclick": false,
+              "searchable": true,
+              "column-items": [
+                {
+                  "column-text": {
+                    "classes": "a-fontBold a-js-sortValue a-lineThrough-selected",
+                    "text": "Trøndelag Taktekkeri ENK"
+                  }
+                }
+              ]
+            },
+            {
+              "additional-classes": "col-3 hidden-sm-down",
+              "onclick": false,
+              "searchable": true,
+              "column-items": [
+                {
+                  "column-text": {
+                    "classes": "a-js-sortValue",
+                    "text": "963 179 715"
+                  }
+                }
+              ]
+            },
+            {
+              "additional-classes": "col text-right pr-0 pr-md-2",
+              "onclick": false,
+              "column-items": [
+                {
+                  "column-text": {
+                    "text": "Fjern",
+                    "classes": "a-fontBold hidden-xs-down a-hiddenWhenSelected a-hiddenWhenDeleted"
+                  }
+                },
+                {
+                  "column-icon": {
+                    "icon-prefix": "tmp",
+                    "icon-class": "tmp-remove-circle",
+                    "icon-extra-class": "a-remove-icon a-hiddenWhenSelected a-hiddenWhenDeleted tmp-fw"
+                  }
+                },
+                {
+                  "column-text": {
+                    "text": "Angre",
+                    "classes": "a-fontBold hidden-xs-down a-visibleWhenSelected a-hiddenWhenDeleted"
+                  }
+                },
+                {
+                  "column-icon": {
+                    "icon-prefix": "tmp",
+                    "icon-class": "tmp-history",
+                    "icon-extra-class": "a-remove-icon a-visibleWhenSelected a-hiddenWhenDeleted tmp-fw"
+                  }
+                },
+                {
+                  "column-text": {
+                    "text": "Slettet",
+                    "classes": "a-fontBold hidden-xs-down a-visibleWhenDeleted"
+                  }
+                },
+                {
+                  "column-icon": {
+                    "icon-prefix": "tmp",
+                    "icon-class": "tmp-fw",
+                    "icon-extra-class": "a-remove-icon a-visibleWhenDeleted"
+                  }
+                }
+              ]
+            }
+          ],
+          "expandable-section": false
+        },
+        {
+          "additional-classes": "a-selectable a-danger",
+          "onclick": false,
+          "columns": [
+            {
+              "additional-classes": "a-w-7 text-center hidden-sm-down",
+              "onclick": false,
+              "column-items": [
+                {
+                  "column-icon": {
+                    "icon-prefix": "ai",
+                    "icon-class": "ai-client",
+                    "icon-extra-class": ""
+                  }
+                }
+              ]
+            },
+            {
+              "additional-classes": "col-10 col-sm-7 col-md-4 col-lg-6",
+              "onclick": false,
+              "searchable": true,
+              "column-items": [
+                {
+                  "column-text": {
+                    "classes": "a-fontBold a-js-sortValue a-lineThrough-selected",
+                    "text": "Viljestyrke AS"
+                  }
+                }
+              ]
+            },
+            {
+              "additional-classes": "col-3 hidden-sm-down",
+              "onclick": false,
+              "searchable": true,
+              "column-items": [
+                {
+                  "column-text": {
+                    "classes": "a-js-sortValue",
+                    "text": "963 179 715"
+                  }
+                }
+              ]
+            },
+            {
+              "additional-classes": "col text-right pr-0 pr-md-2",
+              "onclick": false,
+              "column-items": [
+                {
+                  "column-text": {
+                    "text": "Fjern",
+                    "classes": "a-fontBold hidden-xs-down a-hiddenWhenSelected a-hiddenWhenDeleted"
+                  }
+                },
+                {
+                  "column-icon": {
+                    "icon-prefix": "tmp",
+                    "icon-class": "tmp-remove-circle",
+                    "icon-extra-class": "a-remove-icon a-hiddenWhenSelected a-hiddenWhenDeleted tmp-fw"
+                  }
+                },
+                {
+                  "column-text": {
+                    "text": "Angre",
+                    "classes": "a-fontBold hidden-xs-down a-visibleWhenSelected a-hiddenWhenDeleted"
+                  }
+                },
+                {
+                  "column-icon": {
+                    "icon-prefix": "tmp",
+                    "icon-class": "tmp-history",
+                    "icon-extra-class": "a-remove-icon a-visibleWhenSelected a-hiddenWhenDeleted tmp-fw"
+                  }
+                },
+                {
+                  "column-text": {
+                    "text": "Slettet",
+                    "classes": "a-fontBold hidden-xs-down a-visibleWhenDeleted"
+                  }
+                },
+                {
+                  "column-icon": {
+                    "icon-prefix": "tmp",
+                    "icon-class": "tmp-fw",
+                    "icon-extra-class": "a-remove-icon a-visibleWhenDeleted"
+                  }
+                }
+              ]
+            }
+          ],
+          "expandable-section": false
+        },
+        {
+          "additional-classes": "a-clickable a-fontSizeM a-fontBold a-list-item-loadMore a-bgWhite",
+          "tabable": true,
+          "list-item-role": "button",
+          "columns": [
+            {
+              "additional-classes": "a-w-7 text-center hidden-sm-down",
+              "column-items": [
+                {
+                  "column-icon": {
+                    "icon-prefix": "ai",
+                    "icon-class": "ai-plus"
+                  }
+                }
+              ]
+            },
+            {
+              "additional-classes": "col",
+              "column-items": [
+                {
+                  "column-icon": {
+                    "icon-prefix": "ai",
+                    "icon-class": "ai-plus",
+                    "icon-extra-class": "hidden-md-up"
+                  }
+                },
+                {
+                  "column-text": {
+                    "classes": "",
+                    "text": "Last flere"
+                  }
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  }
+}
