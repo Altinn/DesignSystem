@@ -1,10 +1,5 @@
-    <div class="a-modal-navbar">
-          <button
-  type="button"
-  class="a-modal-back"
-  false
-  aria-label="Gå tilbake"
->
+<div class="a-modal-navbar">
+  <button type="button" class="a-modal-back" false aria-label="Gå tilbake">
   
 <i class="ai ai-back  a-modal-back-icon "    ></i>
 
@@ -12,12 +7,7 @@
 </button>
 
 
-          <button
-  type="button"
-  class="a-modal-close"
-  false
-  aria-label="Lukk"
->
+  <button type="button" class="a-modal-close" false aria-label="Lukk">
   
 <i class="ai ai-exit  a-modal-close-icon "    ></i>
 
@@ -26,15 +16,17 @@
 
 
 
-        <script>
-          function goBack() {
-            // window.history.back();
-            var arr = []
-            for (key in smoothState.cache) { arr.push(key) }
-            delete smoothState.cache[arr[arr.length - 1]]
-            arr.splice(-1,1)
-            $('.a-scene-element').addClass('a-tempAnim')
-            smoothState.load(arr[arr.length - 1])
-          }
-        </script>
-    </div>
+  <script>
+    function goBack() {
+      // window.history.back();
+      var arr = []
+      for (key in smoothState.cache) {
+        arr.push(key)
+      }
+      delete smoothState.cache[arr[arr.length - 1]]
+      arr.splice(-1, 1)
+      $('.a-scene-element').addClass('a-tempAnim')
+      smoothState.load(arr[arr.length - 1])
+    }
+  </script>
+</div>
