@@ -9,11 +9,13 @@
   <div id="{{ collapseID }}" class="a-collapsePanel-body collapse {{{ isVisibleFromStart }}}" role="tabpanel" aria-labelledby="{{ collapse-panel-header-id }}">
     <div class="a-collapsePanel-body-content">
       <div class="row">
-        <div class="col-12">
-          <h3 class="a-fontBold a-fontSizeM">
-            {{ my-contact-first-header }}
-          </h3>
-        </div>
+        {{# my-contact-first-header }}
+          <div class="col-12">
+            <h3 class="a-fontBold a-fontSizeM">
+              {{ my-contact-first-header }}
+            </h3>
+          </div>
+        {{/ my-contact-first-header }}
         <div class="col-12 col-md-4">
           {{# my-contact-first-input }}
             {{> atomer-input }}
@@ -30,15 +32,15 @@
           {{/ my-contact-first-message}}
         </div>
       </div>
-      <div class="row">
-        <div class="col">
-          {{# my-contact-checkbox }}
-            {{> atomer-avkrysningsboks }}
-          {{/ my-contact-checkbox }}
+      {{# my-contact-checkbox }}
+        <div class="row">
+          <div class="col">
+              {{> atomer-avkrysningsboks }}
+          </div>
         </div>
-      </div>
+      {{/ my-contact-checkbox }}
       <div class="row">
-        <div class="col">
+        <div class="col mt-1">
           <h3 class="a-fontBold a-fontSizeM">
             {{ my-contact-second-header }}
           </h3>
@@ -48,12 +50,12 @@
             {{> atomer-input }}
           {{/ my-contact-third-input }}
         </div>
-        <div class="col-12">
+        <div class="col-12 mb-1">
           {{# my-contact-second-message }}
             {{> atomer-varsel:mt-0 }}
           {{/ my-contact-second-message}}
         </div>
       </div>
-    </div>  
+    </div>
   </div>
 </div>
