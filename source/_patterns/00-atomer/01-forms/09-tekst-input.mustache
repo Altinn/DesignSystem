@@ -43,14 +43,14 @@
           {{{ validator-pattern }}}
           {{ isRequired }}
           {{# auto-complete-off }}autocomplete="off"{{/ auto-complete-off }}
-          placeholder="{{ text-input-placeholder }}"
-          value="{{ text-input-value }}"
+          {{# text-input-placeholder }}placeholder="{{ text-input-placeholder }}"{{/ text-input-placeholder }}
+          {{# text-input-value }}value="{{ text-input-value }}"{{/ text-input-value }}
           {{# maxlength }}maxlength="{{ maxlength }}"{{/ maxlength }}
-          data-error="{{ validator-errorMessage }}"
+          {{# validator-errorMessage }}data-error="{{ validator-errorMessage }}"{{/ validator-errorMessage }}
           {{ isDisabled }}
           {{# form-input-isPassword }}onkeyup="setVisibility(this, 'btn-{{ text-input-id }}')"{{/ form-input-isPassword }}
-          data-search-algorithm="{{ search-algorithm }}"
-          data-search-target="{{ search-target }}">
+          {{# search-algorithm }}data-search-algorithm="{{ search-algorithm }}"{{/ search-algorithm }}
+          {{# search-target }}data-search-target="{{ search-target }}">{{/ search-target }}
           {{# has-feedback }}
             {{> atomer-ikon }}
             <span class="sr-only">Icon showing if input is valid or not</span>
