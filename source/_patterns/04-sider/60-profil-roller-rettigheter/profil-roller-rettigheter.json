@@ -1871,7 +1871,7 @@
       "icontext" : "Din kontaktinformasjon"
     },
 
-    "my-contact-first-header": "Din kontaktinformasjon:",
+    "my-contact-first-header": false,
     "my-contact-second-header": "Adresse:",
     "my-contact-first-message": {
       "alert-id" : false,
@@ -1885,7 +1885,7 @@
         {
           "alert-link": {
             "link-text" : "Kontakt- og reservasjonsregisteret",
-            "link-class" : "a-linkArea"
+            "link-url" : "http://www.skatteetaten.no/"
           }
         }
       ]
@@ -1902,19 +1902,12 @@
         {
           "alert-link": {
             "link-text" : "Folkeregisteret",
-            "link-class" : "a-linkArea"
+            "link-url" : "http://www.skatteetaten.no/"
           }
         }
       ]
     },
-    "my-contact-checkbox": {
-      "check-legend" : false,
-      "checkboxes" :  [
-        {
-          "checkboxes-title" : "Jeg ønsker kvittering på e-post for innsendte skjema"
-        }
-      ]
-    },
+    "my-contact-checkbox": false,
     "my-contact-first-input": {
       "text-input-id" : "text-input-1337",
       "text-input-label" : "SMS:",
@@ -2112,7 +2105,7 @@
     "my-contact-for": {
       "header": "Din kontaktinformasjon:",
       "link": {
-        "link-text" : "Varslingsinnstillinger (du får varsel for alle tjenester du har tilgang til)",
+        "link-text" : "Varslingsinnstillinger",
         "link-url": "javascript:$('#myContactFor').hide(); $('#myAlertSettings').show();",
         "onclick": false
       },
@@ -2128,6 +2121,7 @@
       "first-input": {
         "text-input-id" : "text-input-10",
         "text-input-label" : "SMS:",
+        "text-input-value": "97999999",
         "text-input-placeholder" : "97999999",
         "input-type" : "tel",
         "isRequired" : "required",
@@ -2149,13 +2143,6 @@
         "alert-class" : "a-message-success",
         "alert-items" : [
           {
-            "alert-icon": {
-              "icon-prefix": "ai",
-              "icon-class" : "ai-check-circle",
-              "icon-size": "ai-2x"
-            }
-          },
-          {
             "alert-text": {
               "text" : "Vi har sendt deg en SMS."
             }
@@ -2166,6 +2153,7 @@
         "text-input-id" : "text-input-8",
         "text-input-label" : "Epost:",
         "text-input-placeholder" : "f.eks post@karinordmann.no",
+        "text-input-value": "test@tester.no",
         "input-type" : "email",
         "isRequired" : "required",
         "extra-help" : false,
@@ -2184,13 +2172,6 @@
         "alert-class" : "a-message-success",
         "alert-items" : [
           {
-            "alert-icon": {
-              "icon-prefix": "ai",
-              "icon-class": "ai-check-circle",
-              "icon-size": "ai-2x"
-            }
-          },
-          {
             "alert-text": {
               "text" : "Vi har sendt deg en epost."
             }
@@ -2199,7 +2180,7 @@
       }
     },
     "my-alert-settings": {
-      "header": "Lorem ipsum dolores sit amet",
+      "header": "Varslingsinnstillinger:",
       "checkbox": {
         "isStacked" : "custom-controls-stacked",
         "check-legend" : false,
@@ -2318,6 +2299,52 @@
 
             ]
           },
+
+          {
+            "additional-classes": "a-dotted a-selectable a-selected a-danger",
+            "tabable": true,
+            "role": "button",
+            "columns": [
+              {
+                "additional-classes": "col-11",
+                "column-items": [
+                  {
+                    "column-text": {
+                      "classes": "a-js-sortValue a-lineThrough-selected",
+                      "text": "Arbeidsgivers oppfølgingsplan for sykmeldte - fra sluttbrukersystem"
+                    }
+                  },
+                  {
+                    "column-text": {
+                      "classes": "sr-only",
+                      "text": "Trykk for å angre sletting"
+                    }
+                  }
+                ]
+              },
+              {
+                "additional-classes": "col text-right",
+                "onclick": false,
+                "column-items": [
+                  {
+                    "column-text": {
+                      "text": "Angre",
+                      "classes": "hidden-xs-down a-visibleWhenSelected a-hiddenWhenDeleted"
+                    }
+                  },
+                  {
+                    "column-icon": {
+                      "icon-prefix": "tmp",
+                      "icon-class": "tmp-history",
+                      "icon-extra-class": "a-remove-icon a-visibleWhenSelected a-hiddenWhenDeleted tmp-fw"
+                    }
+                  }
+                ]
+              }
+            ],
+            "expandable-section": false
+          },
+
           {
             "additional-classes": "a-dotted a-success a-danger a-selected a-selectable",
             "tabable": true,
