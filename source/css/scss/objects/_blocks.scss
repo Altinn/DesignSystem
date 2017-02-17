@@ -2,6 +2,7 @@
 .a-jumbotron {
   height: calc(100vh - 200px);
   min-height: 446px;
+  max-height: 792px;
   margin-bottom: $spacer * 5;
   background-repeat: no-repeat;
   background-position: center;
@@ -83,15 +84,19 @@
   	}
   }
 
-  .a-btn-border {
-    color: $white;
-    background: transparent;
-    border: 2px solid $white;
+  .a-btn {
+    &.a-btn-border {
+      color: $white;
+      background: transparent;
+      border: 2px solid $white;
 
-    &:hover {
-      background: $white-opacity-01;
-    }
-	}
+      &:hover,
+      &:focus {
+        color: $white;
+        background: $white-opacity-01;
+      }
+  	}
+  }
 
   .a-breadcrumb {
     a {
