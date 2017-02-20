@@ -31,9 +31,9 @@
 
   <!-- Input  -->
   <input type="{{ input-type }}" class="form-control {{ form-control-class }} {{ form-input-hasButton-class }} {{# no-left-padding }}pl-0{{/ no-left-padding }}" {{# text-input-id }}id="{{ text-input-id }}" {{/ text-input-id }} {{{ validator-pattern }}}
-    {{ isRequired }} {{# auto-complete-off }}autocomplete="off" {{/ auto-complete-off }} placeholder="{{ text-input-placeholder }}" value="{{ text-input-value }}" {{# maxlength }}maxlength="{{ maxlength }}" {{/ maxlength }} data-error="{{ validator-errorMessage }}"
-    {{ isDisabled }} {{# form-input-isPassword }}onkeyup="setVisibility(this, 'btn-{{ text-input-id }}')" {{/ form-input-isPassword }} data-search-algorithm="{{ search-algorithm }}" data-search-target="{{ search-target }}">
-    {{# has-feedback }} {{> atomer-ikon }}
+    {{ isRequired }} {{# auto-complete-off }}autocomplete="off" {{/ auto-complete-off }} {{# text-input-placeholder }}placeholder="{{ text-input-placeholder }}" {{/ text-input-placeholder }} {{# text-input-value }}value="{{ text-input-value }}" {{/ text-input-value
+    }} {{# maxlength }}maxlength="{{ maxlength }}" {{/ maxlength }} {{# validator-errorMessage }}data-error="{{ validator-errorMessage }}" {{/ validator-errorMessage }} {{ isDisabled }} {{# form-input-isPassword }}onkeyup="setVisibility(this, 'btn-{{ text-input-id }}')"
+    {{/ form-input-isPassword }} {{# search-algorithm }}data-search-algorithm="{{ search-algorithm }}" {{/ search-algorithm }} {{# search-target }}data-search-target="{{ search-target }}">{{/ search-target }} {{# has-feedback }} {{> atomer-ikon }}
     <span class="sr-only">Icon showing if input is valid or not</span> {{/ has-feedback }}
 
     <!-- button -->
