@@ -7979,21 +7979,18 @@ input[type='text'], input[type='email'], input[type='password'] {
 
 input::-webkit-input-placeholder,
 textarea::-webkit-input-placeholder {
-  line-height: 4rem;
   color: #6A6A6A !important;
   opacity: 1 !important;
   -webkit-font-smoothing: subpixel-antialiased; }
 
 input:-ms-input-placeholder,
 textarea:-ms-input-placeholder {
-  line-height: 4rem;
   color: #6A6A6A !important;
   opacity: 1 !important;
   -webkit-font-smoothing: subpixel-antialiased; }
 
 input::placeholder,
 textarea::placeholder {
-  line-height: 4rem;
   color: #6A6A6A !important;
   opacity: 1 !important;
   -webkit-font-smoothing: subpixel-antialiased; }
@@ -9901,10 +9898,12 @@ textarea {
 /*------------------------------------*    $FOOTER
 \*------------------------------------*/
 .a-footer {
-  padding-top: 48px;
   padding-bottom: 72px;
   margin-top: 48px;
   border-top: 1px solid #BCC7CC; }
+  @media (min-width: 768px) {
+    .a-footer {
+      padding-top: 48px; } }
 
 @media (min-width: 992px) {
   .a-containerColnav + .a-containerFooter .a-footer {
@@ -9971,6 +9970,17 @@ textarea {
 .a-footerExtraNav {
   margin-top: 24px;
   text-align: left; }
+  @media (min-width: 768px) {
+    .a-footerExtraNav {
+      text-align: center; } }
+  .a-footerExtraNav .a-footerExtraNav-name {
+    display: block; }
+    @media (min-width: 768px) {
+      .a-footerExtraNav .a-footerExtraNav-name {
+        display: inline; } }
+  .a-footerExtraNav .a-footerExtraNav-toTop {
+    float: right;
+    margin-top: -38px; }
   .a-footerExtraNav ul {
     padding-top: 12px;
     padding-bottom: 24px; }
@@ -9984,6 +9994,9 @@ textarea {
       @media (min-width: 768px) {
         .a-footerExtraNav ul li {
           display: inline;
+          padding-left: 24px; } }
+      @media (min-width: 768px) {
+        .a-footerExtraNav ul li:first-child {
           padding-left: 24px; } }
       .a-footerExtraNav ul li a {
         font-family: "DIN-reg";
