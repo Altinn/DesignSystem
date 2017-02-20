@@ -8,6 +8,8 @@ var switchForm = function() {
     );
   });
   $('[name="js-switchForm"]').change(function() {
-    smoothState.load($('[name="js-switchForm"]:checked').attr('data-switchUrl'));
+    if ($(this).is(':checked')) {
+      window.drillDownGetSource($(this).attr('data-switchUrl'));
+    }
   });
 };
