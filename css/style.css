@@ -9903,15 +9903,25 @@ textarea {
 /*------------------------------------*    $FOOTER
 \*------------------------------------*/
 .a-footer {
-  padding-top: 48px;
   padding-bottom: 72px;
   margin-top: 48px;
   border-top: 1px solid #BCC7CC; }
+  @media (min-width: 768px) {
+    .a-footer {
+      padding-top: 48px; } }
 
 @media (min-width: 992px) {
   .a-containerColnav + .a-containerFooter .a-footer {
     margin-top: 0;
     border-top: none; } }
+
+@media (min-width: 992px) {
+  .a-footer-firstRow {
+    padding-left: 60px; } }
+
+@media (min-width: 1200px) {
+  .a-footer-firstRow {
+    padding-left: 96px; } }
 
 /*------------------------------------*    $FOOTER NAVIGATION
 \*------------------------------------*/
@@ -9927,7 +9937,11 @@ textarea {
   .a-footerExtraNav ul li {
     display: inline;
     padding-bottom: 12px;
-    padding-left: 36px; }
+    padding-left: 24px; }
+    @media (min-width: 992px) {
+      .a-footerNav ul li,
+      .a-footerExtraNav ul li {
+        padding-left: 36px; } }
     .a-footerNav ul li:last-child,
     .a-footerExtraNav ul li:last-child {
       padding-bottom: 0; }
@@ -9954,25 +9968,35 @@ textarea {
 
 .a-footerNav {
   display: none; }
-  @media (min-width: 576px) {
+  @media (min-width: 768px) {
     .a-footerNav {
       display: block; } }
 
 .a-footerExtraNav {
   margin-top: 24px;
-  color: #6A6A6A;
-  text-align: center; }
+  text-align: left; }
+  @media (min-width: 768px) {
+    .a-footerExtraNav {
+      text-align: center; } }
+  .a-footerExtraNav .a-footerExtraNav-name {
+    display: block; }
+    @media (min-width: 768px) {
+      .a-footerExtraNav .a-footerExtraNav-name {
+        display: inline; } }
+  .a-footerExtraNav .a-footerExtraNav-toTop {
+    float: right;
+    margin-top: -38px; }
   .a-footerExtraNav ul {
     padding-top: 12px;
     padding-bottom: 24px; }
-    @media (min-width: 992px) {
+    @media (min-width: 768px) {
       .a-footerExtraNav ul {
         display: inline;
         padding-top: 0; } }
     .a-footerExtraNav ul li {
       display: block;
       padding-left: 0; }
-      @media (min-width: 576px) {
+      @media (min-width: 768px) {
         .a-footerExtraNav ul li {
           display: inline;
           padding-left: 24px; } }
@@ -9981,7 +10005,8 @@ textarea {
         font-weight: normal;
         position: relative;
         color: #000000; }
-        .a-footerExtraNav ul li a:focus {
+        .a-footerExtraNav ul li a:focus, .a-footerExtraNav ul li a:hover {
+          border-bottom: 1px solid #0062BA;
           box-shadow: none; }
         .a-footerExtraNav ul li a::before {
           position: absolute;
