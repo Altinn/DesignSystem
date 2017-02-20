@@ -5686,7 +5686,7 @@ var Popover = function ($) {
 }));
 
 /*!***************************************************
- * mark.js v8.8.3
+ * mark.js v8.8.0
  * https://github.com/julmot/mark.js
  * Copyright (c) 2014–2017, Julian Motz
  * Released under the MIT license https://git.io/vwTVl
@@ -5774,9 +5774,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
                         var value = syn[index],
                             k1 = this.escapeStr(index),
                             k2 = this.escapeStr(value);
-                        if (k1 !== "" && k2 !== "") {
-                            str = str.replace(new RegExp("(" + k1 + "|" + k2 + ")", "gm" + sens), "(" + k1 + "|" + k2 + ")");
-                        }
+                        str = str.replace(new RegExp("(" + k1 + "|" + k2 + ")", "gm" + sens), "(" + k1 + "|" + k2 + ")");
                     }
                 }
                 return str;
@@ -5802,7 +5800,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
             key: "createDiacriticsRegExp",
             value: function createDiacriticsRegExp(str) {
                 var sens = this.opt.caseSensitive ? "" : "i",
-                    dct = this.opt.caseSensitive ? ["aàáâãäåāąă", "AÀÁÂÃÄÅĀĄĂ", "cçćč", "CÇĆČ", "dđď", "DĐĎ", "eèéêëěēę", "EÈÉÊËĚĒĘ", "iìíîïī", "IÌÍÎÏĪ", "lł", "LŁ", "nñňń", "NÑŇŃ", "oòóôõöøō", "OÒÓÔÕÖØŌ", "rř", "RŘ", "sšśșş", "SŠŚȘŞ", "tťțţ", "TŤȚŢ", "uùúûüůū", "UÙÚÛÜŮŪ", "yÿý", "YŸÝ", "zžżź", "ZŽŻŹ"] : ["aàáâãäåāąăAÀÁÂÃÄÅĀĄĂ", "cçćčCÇĆČ", "dđďDĐĎ", "eèéêëěēęEÈÉÊËĚĒĘ", "iìíîïīIÌÍÎÏĪ", "lłLŁ", "nñňńNÑŇŃ", "oòóôõöøōOÒÓÔÕÖØŌ", "rřRŘ", "sšśșşSŠŚȘŞ", "tťțţTŤȚŢ", "uùúûüůūUÙÚÛÜŮŪ", "yÿýYŸÝ", "zžżźZŽŻŹ"];
+                    dct = this.opt.caseSensitive ? ["aàáâãäåāąă", "AÀÁÂÃÄÅĀĄĂ", "cçćč", "CÇĆČ", "dđď", "DĐĎ", "eèéêëěēę", "EÈÉÊËĚĒĘ", "iìíîïī", "IÌÍÎÏĪ", "lł", "LŁ", "nñňń", "NÑŇŃ", "oòóôõöøō", "OÒÓÔÕÖØŌ", "rř", "RŘ", "sšśșş", "SŠŚȘŞ", "tťțţ", "TŤȚŢ", "uùúûüůū", "UÙÚÛÜŮŪ", "yÿý", "YŸÝ", "zžżź", "ZŽŻŹ"] : ["aÀÁÂÃÄÅàáâãäåĀāąĄăĂ", "cÇçćĆčČ", "dđĐďĎ", "eÈÉÊËèéêëěĚĒēęĘ", "iÌÍÎÏìíîïĪī", "lłŁ", "nÑñňŇńŃ", "oÒÓÔÕÖØòóôõöøŌō", "rřŘ", "sŠšśŚșȘşŞ", "tťŤțȚţŢ", "uÙÚÛÜùúûüůŮŪū", "yŸÿýÝ", "zŽžżŻźŹ"];
                 var handled = [];
                 str.split("").forEach(function (ch) {
                     dct.every(function (dct) {
@@ -5829,7 +5827,6 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
             value: function createAccuracyRegExp(str) {
                 var _this = this;
 
-                var chars = "!\"#$%&'()*+,-./:;<=>?@[\\]^_`{|}~\xA1\xBF";
                 var acc = this.opt.accuracy,
                     val = typeof acc === "string" ? acc : acc.value,
                     ls = typeof acc === "string" ? [] : acc.limiters,
@@ -5842,8 +5839,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
                     default:
                         return "()(" + str + ")";
                     case "complementary":
-                        lsJoin = "\\s" + (lsJoin ? lsJoin : this.escapeStr(chars));
-                        return "()([^" + lsJoin + "]*" + str + "[^" + lsJoin + "]*)";
+                        return "()([^\\s" + lsJoin + "]*" + str + "[^\\s" + lsJoin + "]*)";
                     case "exactly":
                         return "(^|\\s" + lsJoin + ")(" + str + ")(?=$|\\s" + lsJoin + ")";
                 }

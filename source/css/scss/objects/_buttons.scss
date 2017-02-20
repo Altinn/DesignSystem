@@ -71,21 +71,15 @@
     @extend .a-fontSizeXXL;
     @include a-fontMedium;
 
-    padding: 18px $spacer * 2 14px $spacer * 2;
+    padding: 8px $spacer * 2 4px $spacer * 2;
     color: $blue-darker;
-    background: $white-opacity-05;
+    background: transparent;
     border: 2px solid $blue-darker;
 
     &:hover,
     &:focus {
-      color: $white;
-      background: $blue-darker;
-    }
-
-    &:active,
-    &.active {
-      color: $white;
-      background: $blue-darker;
+      color: $blue-darker;
+      background: $blue-darker-opacity;
     }
   }
 }
@@ -149,6 +143,9 @@
 
 // BTN WITH ICON
 .a-btn-icon {
+  width: 100%;
+  height: $spacer * 5;
+  text-align: left;
   background: transparent;
 
   &:hover,
@@ -169,6 +166,17 @@
     justify-content: center;
 	}
 }
+
+.a-btn-icon-transparant {
+  background: transparent;
+
+  &:hover,
+  &:focus {
+    color: $blue;
+    background: transparent;
+	}
+}
+
 // BTN WITH WHITE TRANSPARENCY
 
 .a-btn-transparentWhite {
@@ -245,7 +253,8 @@
   @extend .a-fontSizeXS;
   @include a-fontReg;
   padding: 0;
-  padding-bottom: 2px;
+  line-height: 1.2;
+  text-align: left;
   background: none;
   border: none;
   border-bottom: 2px solid $link-color;
@@ -496,16 +505,19 @@
     }
 
     &.a-btn-link {
-      display: inline-block;
+      display: inline;
       padding-bottom: 0;
       margin-bottom: $spacer;
+      line-height: 1.2;
     }
   }
 
   a {
-    display: inline-block;
-    padding-bottom: 0;
-    margin-bottom: $spacer;
+    &:not(.a-btn) {
+      display: inline;
+      padding-bottom: 2px;
+      margin-bottom: $spacer;
+    }
   }
 
   &.a-btn-group-exLinks {

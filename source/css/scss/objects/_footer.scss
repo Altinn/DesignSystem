@@ -2,10 +2,13 @@
     $FOOTER
 \*------------------------------------*/
 .a-footer {
-  padding-top: $spacer * 4;
   padding-bottom: $spacer * 6;
   margin-top: $spacer * 4;
   border-top: 1px solid $grey-medium;
+
+  @include media-breakpoint-up( md ) {
+    padding-top: $spacer * 4;
+  }
 }
 
 .a-containerColnav + .a-containerFooter {
@@ -14,6 +17,17 @@
       margin-top: 0;
       border-top: none;
     }
+  }
+}
+
+.a-footer-firstRow {
+
+  @include media-breakpoint-up( lg ) {
+    padding-left: $spacer * 5;
+  }
+
+  @include media-breakpoint-up( xl ) {
+    padding-left: $spacer * 8;
   }
 }
 
@@ -34,18 +48,21 @@
     li {
       display: inline;
       padding-bottom: 12px;
-      padding-left: $spacer * 3;
+      padding-left: $spacer * 2;
+
+      @include media-breakpoint-up( lg ) {
+        padding-left: $spacer * 3;
+      }
 
       &:last-child {
         padding-bottom: 0;
       }
 
       &:first-child {
+        padding-left: 0;
         @include media-breakpoint-up( lg ) {
           padding-left: $spacer * 2;
         }
-
-        padding-left: 0;
       }
 
       a {
@@ -68,21 +85,36 @@
 }
 
 .a-footerNav {
-  @include media-breakpoint-up( sm ) {
+  display: none;
+
+  @include media-breakpoint-up( md ) {
     display: block;
   }
-
-  display: none;
 }
 
 .a-footerExtraNav {
   @extend .a-fontSizeXXS;
   margin-top: $spacer * 2;
-  color: $grey;
-  text-align: center;
+  text-align: left;
+
+  @include media-breakpoint-up( md ) {
+    text-align: center;
+  }
+
+  .a-footerExtraNav-name {
+    display: block;
+    @include media-breakpoint-up( md ) {
+      display: inline;
+    }
+  }
+
+  .a-footerExtraNav-toTop {
+    float: right;
+    margin-top: -38px;
+  }
 
   ul {
-    @include media-breakpoint-up( lg ) {
+    @include media-breakpoint-up( md ) {
       display: inline;
       padding-top: 0;
     }
@@ -91,13 +123,19 @@
     padding-bottom: $spacer * 2;
 
     li {
-      @include media-breakpoint-up( sm ) {
+      display: block;
+      padding-left: 0;
+
+      @include media-breakpoint-up( md ) {
         display: inline;
         padding-left: $spacer * 2;
       }
 
-      display: block;
-      padding-left: 0;
+      &:first-child {
+        @include media-breakpoint-up( md ) {
+          padding-left: $spacer * 2;
+        }
+      }
 
       a {
         @extend .a-fontSizeXXS;
@@ -105,7 +143,9 @@
         position: relative;
         color: $black;
 
-        &:focus {
+        &:focus,
+        &:hover {
+          border-bottom: 1px solid $blue-dark;
           box-shadow: none;
         }
 
