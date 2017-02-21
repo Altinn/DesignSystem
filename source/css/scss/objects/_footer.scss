@@ -48,10 +48,10 @@
     li {
       display: inline;
       padding-bottom: 12px;
-      padding-left: $spacer * 2;
+      padding-left: $spacer * 5;
 
       @include media-breakpoint-up( lg ) {
-        padding-left: $spacer * 3;
+        padding-left: $spacer * 7;
       }
 
       &:last-child {
@@ -59,15 +59,19 @@
       }
 
       &:first-child {
-        padding-left: 0;
+        padding-left: $spacer * 4;
         @include media-breakpoint-up( lg ) {
-          padding-left: $spacer * 2;
+          padding-left: $spacer * 5;
+        }
+        @include media-breakpoint-up( xl ) {
+          padding-left: $spacer * 7;
         }
       }
 
       a {
         @extend .a-fontSizeM;
         @include a-fontBold;
+        position: relative;
         color: $blue-darker;
         border: none;
 
@@ -76,8 +80,9 @@
         }
 
         i {
-          margin-top: -3px;
-          vertical-align: middle;
+          position: absolute;
+          top: 10px;
+          left: -36px;
         }
       }
     }
@@ -128,6 +133,9 @@
 
       @include media-breakpoint-up( md ) {
         display: inline;
+        padding-left: $spacer;
+      }
+      @include media-breakpoint-up( lg ) {
         padding-left: $spacer * 2;
       }
 
