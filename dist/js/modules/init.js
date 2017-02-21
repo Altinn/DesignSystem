@@ -6,7 +6,8 @@
   initSearchWithHighlight,
   toggleSwitch,
   searchWithAutocomplete,
-  truncateBoxButtonNames
+  truncateBoxButtonNames,
+  onFileInputChange
 */
 window.portalInit = function() {
   formatOrgNr();
@@ -17,5 +18,6 @@ window.portalInit = function() {
   toggleSwitch();
   searchWithAutocomplete();
   truncateBoxButtonNames();
+  onFileInputChange();
 };
 window.portalInit();
