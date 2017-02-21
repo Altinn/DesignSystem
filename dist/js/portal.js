@@ -1,15 +1,3 @@
-/* globals $ */
-var aTagSpaceExpand = function() {
-  $('a.collapsed').each(function() {
-    $(this).on('keydown', function(e) {
-      if (e.keyCode === 32 || e.keycode === 13 || e.which === 32 || e.which === 13) {
-        e.stopPropagation(); e.preventDefault();
-        $(e.target).trigger('click');
-      }
-    });
-  });
-};
-
 var addListExpandHandler = function() {
   $('.a-list *[data-toggle="collapse"]').on('click', function() {
     // This script runs before the bootstrap collapse handler, so the collapsed-class will still be
@@ -180,6 +168,18 @@ $('body').on('click', '[data-toggle="altinn-modal"]', function() {
     closeModal($source[0].dataset.target);
   }
 });
+
+/* globals $ */
+var aTagSpaceExpand = function() {
+  $('a.collapsed').each(function() {
+    $(this).on('keydown', function(e) {
+      if (e.keyCode === 32 || e.keycode === 13 || e.which === 32 || e.which === 13) {
+        e.stopPropagation(); e.preventDefault();
+        $(e.target).trigger('click');
+      }
+    });
+  });
+};
 
 var setupOnKeypress = function() {
   $('.a-clickable, .a-selectable').on('keypress', function(e) {
