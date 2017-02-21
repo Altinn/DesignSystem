@@ -33,16 +33,9 @@ gulp.task('pl-clean:public', function() {
   ]);
 });
 
-// Copy SSB data file from source into public folder:
-gulp.task('pl-copy:ssb', function () {
-  return gulp.src('source/ssb.json')
-    .pipe(gulp.dest(paths().public.root));
-});
-
-
-// Copy Skjenkebevilling data file from source into public folder:
-gulp.task('pl-copy:skj', function () {
-  return gulp.src('source/skjenkebevilling.json')
+// Copy data files from source into public folder:
+gulp.task('pl-copy:data', function () {
+  return gulp.src('source/*.json')
     .pipe(gulp.dest(paths().public.root));
 });
 
@@ -289,8 +282,7 @@ gulp.task('patternlab:prebuild',
     'pl-copy:favicon',
     'pl-copy:css',
     'pl-copy:styleguide',
-    'pl-copy:ssb',
-    'pl-copy:skj',
+    'pl-copy:data',
     function (done) { done(); }
   )
 );
