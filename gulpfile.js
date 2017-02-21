@@ -96,7 +96,7 @@ gulp.task('pl-copy:styleguide', function () {
 // Create flat distribution CSS file (no Patternlab CSS or styleguide UI CSS)
 // and copy into distribution folder:
 gulp.task('pl-copy:distribution-css', function (done) {
-  fs.readFile('./source/css/style.scss', 'utf-8',
+  fs.readFile('./source/css/style.dist.scss', 'utf-8',
     function (err, custom) {
       if (err) {
         console.log(err);
@@ -220,6 +220,12 @@ gulp.task('pl-copy:designsystemdev-vendor-js', function () {
 gulp.task('pl-copy:distribution-patterns', function () {
   return gulp.src('public/patterns/**')
     .pipe(gulp.dest('dist/patterns'));
+});
+
+// Copy the images folder
+gulp.task('pl-copy:distribution-images', function () {
+  return gulp.src('public/images/**')
+    .pipe(gulp.dest('dist/images'));
 });
 
 // Create custom js distibution for Portal.
@@ -366,6 +372,7 @@ gulp.task('dist',
     'patternlab:prebuild',
     'patternlab:build',
     'pl-copy:distribution-css',
+    'pl-copy:distribution-images',
     'pl-copy:distribution-epi',
     'pl-copy:distribution-profile',
     'pl-copy:distribution-patterns',
