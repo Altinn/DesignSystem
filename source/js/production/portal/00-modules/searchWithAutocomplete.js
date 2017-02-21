@@ -8,6 +8,7 @@ var availableTags = [
 ];
 
 var title = 'Vanligste skjema og tjenester i din organisasjon';
+var numberOfResultsLabel = ' treff. Bruk pil opp og pil ned for å navigere i resultatene.';
 var noResultsLabel = 'Ingen treff';
 
 var searchWithAutocomplete = function() {
@@ -15,7 +16,7 @@ var searchWithAutocomplete = function() {
     _create: function() {
       this._super();
       this.widget().menu('option', 'items', '> :not(.a-js-autocomplete-header)');
-      $('.ui-helper-hidden-accessible').remove();
+      $('.ui-helper-hidden-accessible').addClass('sr-only');
     },
     _renderMenu: function(ul, items) {
       var that = this;
@@ -23,12 +24,13 @@ var searchWithAutocomplete = function() {
       $.each(items, function(index, item) {
         var li = that._renderItemData(ul, item);
         li.attr('role', 'menu');
-        li.children().first().attr('role', 'link');
+        li.addClass('a-dotted');
+        li.children().first().attr('role', 'button');
       });
       if (items.length === availableTags.length) {
-        ul.prepend('<li class=\'a-js-autocomplete-header\'>' + title + '</li>');
+        ul.prepend('<li class=\'a-js-autocomplete-header a-dotted\'>' + title + '</li>');
       } else if (!items[0].isNoResultsLabel) {
-        ul.prepend('<li class=\'a-js-autocomplete-header\'>' + items.length + ' treff </li>');
+        ul.prepend('<li class=\'a-js-autocomplete-header a-dotted\'>' + items.length + ' treff </li>');
       } else {
         $('.ui-autocomplete').children().first().addClass('a-js-autocomplete-header');
       }
@@ -47,6 +49,16 @@ var searchWithAutocomplete = function() {
     open: function(event, ui) {
       $('.ui-autocomplete').removeAttr('style'); // remove inline positioning and display of amount results
       $('.ui-autocomplete .ui-menu-item').not(':first-of-type').addClass('a-clickable');
+    },
+    messages: {
+      noResults: noResultsLabel,
+      results: function(count) {
+        if (count === availableTags.length) {
+          return title + '. ' + count + ' ' + numberOfResultsLabel;
+        }
+
+        return count + ' ' + numberOfResultsLabel;
+      }
     },
     response: function(event, ui) {
       var el;

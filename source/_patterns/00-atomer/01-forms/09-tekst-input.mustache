@@ -10,18 +10,32 @@
         {{{ text-input-label }}}
       </label>
     {{/ form-input-isPassword }}
-
+    {{# top-label }}
+      <label class="a-form-label {{ isHidden }}" for="{{ text-input-id }}">
+        {{{ text-input-top-label }}}
+      </label>
+    {{/ top-label }}
     <div class="a-form-group-items {{ isInput-group }} {{ isDisabled }} {{ isInactive }} {{# isTransparent }} transparent {{/ isTransparent }}">
       {{^ form-input-isPassword }}
         <!-- Label -->
-        <label class="a-form-label {{ isHidden }} {{ form-label-class }}" for="{{ text-input-id }}">
+        {{^ top-label }}
+          <label class="a-form-label {{ isHidden }} {{ form-label-class }}" for="{{ text-input-id }}">
+        {{/ top-label }}
+        {{# top-label }}
+          <div class="a-form-label {{ isHidden }} {{ form-label-class }}">
+        {{/ top-label }}
           {{# form-label-hasIcon }}
             {{> atomer-ikon }}
           {{/ form-label-hasIcon }}
           {{{ text-input-label }}}
-        </label>
+        {{^ top-label }}
+          </label>
+        {{/ top-label }}
+        {{# top-label }}
+          </div>
+        {{/ top-label }}
       {{/ form-input-isPassword }}
-      
+
       <!-- Input  -->
         <input type="{{ input-type }}"
           class="form-control {{ form-control-class }} {{ form-input-hasButton-class }} {{# no-left-padding }}pl-0{{/ no-left-padding }}"
@@ -29,14 +43,14 @@
           {{{ validator-pattern }}}
           {{ isRequired }}
           {{# auto-complete-off }}autocomplete="off"{{/ auto-complete-off }}
-          placeholder="{{ text-input-placeholder }}"
-          value="{{ text-input-value }}"
+          {{# text-input-placeholder }}placeholder="{{ text-input-placeholder }}"{{/ text-input-placeholder }}
+          {{# text-input-value }}value="{{ text-input-value }}"{{/ text-input-value }}
           {{# maxlength }}maxlength="{{ maxlength }}"{{/ maxlength }}
-          data-error="{{ validator-errorMessage }}"
+          {{# validator-errorMessage }}data-error="{{ validator-errorMessage }}"{{/ validator-errorMessage }}
           {{ isDisabled }}
           {{# form-input-isPassword }}onkeyup="setVisibility(this, 'btn-{{ text-input-id }}')"{{/ form-input-isPassword }}
-          data-search-algorithm="{{ search-algorithm }}"
-          data-search-target="{{ search-target }}">
+          {{# search-algorithm }}data-search-algorithm="{{ search-algorithm }}"{{/ search-algorithm }}
+          {{# search-target }}data-search-target="{{ search-target }}">{{/ search-target }}
           {{# has-feedback }}
             {{> atomer-ikon }}
             <span class="sr-only">Icon showing if input is valid or not</span>
@@ -46,7 +60,7 @@
         {{# form-input-hasButton }}
           <div class="input-group-btn">
             <button class="btn btn-secondary {{ isInactive }}" type="button" {{ isDisabled }}>
-              {{> atomer-ikon }}
+              {{> atomer-ikon }}<span class="sr-only">Søk</span>
             </button>
           </div>
         {{/ form-input-hasButton }}
@@ -59,10 +73,10 @@
           <div class="input-group-btn">
             <button class="btn btn-secondary d-none" type="button" id="btn-{{ text-input-id }}" onclick="showPassword(this, '{{ text-input-id }}')">
               <span class="show-password-text">
-                {{ form-input-showPassword-text }}
+                {{{ form-input-showPassword-text }}}
               </span>
               <span class="hide-password-text" style="display: none">
-                {{ form-input-obfuscatePassword-text }}
+                {{{ form-input-obfuscatePassword-text }}}
               </span>
             </button>
           </div>
@@ -78,7 +92,7 @@
     {{/ extra-help }}
 
     {{# autocomplete }}
-      <div class="a-autocomplete-container hidden-xs">        
+      <div class="a-autocomplete-container hidden-xs">
       </div>
     {{/ autocomplete}}
     {{# validator-check }}

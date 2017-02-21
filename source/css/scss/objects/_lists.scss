@@ -18,13 +18,15 @@
   }
 
   .a-list-header {
-    border-top: 1px solid $grey-medium;
-
     .a-list-sortHeader {
       @include a-fontSize12;
       margin-top: 4px;
       margin-bottom: -$spacer / 2;
       cursor: pointer;
+    }
+
+    &:not(.a-dotted) {
+      border-top: 1px solid $grey-medium;
     }
 
     @include media-breakpoint-down( sm ) {
@@ -736,6 +738,7 @@ ol {
 */
 .a-autocomplete-container {
   position: absolute;
+  z-index: 10;
   display: block;
   width: 100%;
   margin-top: -2px;
@@ -754,8 +757,8 @@ ol {
     border: 2px solid $blue;
 
     li {
-      @extend .a-dotted;
       @extend .a-fontSizeXXS;
+
       margin: 0 $spacer * 2;
 
       &:first-of-type {

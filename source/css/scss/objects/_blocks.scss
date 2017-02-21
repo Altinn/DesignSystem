@@ -1,10 +1,16 @@
 // JUMBOTRON
 .a-jumbotron {
-  padding-bottom: 134px;
+  height: calc(100vh - 200px);
+  min-height: 446px;
+  max-height: 792px;
   margin-bottom: $spacer * 5;
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
+
+  @include media-breakpoint-up( md ) {
+    margin-bottom: $spacer * 3;
+  }
 
   .a-leadText {
     max-width: 600px;
@@ -23,6 +29,7 @@
   .a-jumbotron-ingress {
     @include a-fontSize28;
     display: block;
+    max-width: 630px;
     margin-bottom: $spacer * 2;
     color: $blue-darker;
 	}
@@ -36,7 +43,7 @@
     }
   }
 
-  .a-link {
+  a {
     &:hover,
     &:focus {
       color: $white;
@@ -61,6 +68,7 @@
 // If dark background
 .a-jumbotron-dark {
   color: $white;
+  background-color: $blue-darker;
   background-image: url('../images/header-bg0.svg');
 
   a,
@@ -71,18 +79,33 @@
     color: $white;
 	}
 
-  .a-btn-border {
-    color: $white;
-    background: transparent;
-    border: 2px solid $white;
+  a {
+    border-color: $white;
 
-    &:hover {
-      background: $white-opacity-01;
-    }
-	}
+    &:hover,
+    &:focus,
+    &:active {
+      color: $white;
+      border-color: $white;
+  	}
+  }
+
+  .a-btn {
+    &.a-btn-border {
+      color: $white;
+      background: transparent;
+      border: 2px solid $white;
+
+      &:hover,
+      &:focus {
+        color: $white;
+        background: $white-opacity-01;
+      }
+  	}
+  }
 
   .a-breadcrumb {
-    .a-link {
+    a {
       border-bottom: 2px solid $blue;
 
       &:hover {
@@ -137,10 +160,6 @@
       background-color: $white-opacity-01;
     }
   }
-
-  .a-link {
-    border-bottom: 2px solid $white;
-	}
 
   .a-clickable,
   .a-selectable {
@@ -463,7 +482,7 @@
       }
     }
 
-    .a-link,
+    a,
     .a-formCode {
       @include media-breakpoint-up(lg) {
         @include a-fontSize30;
@@ -474,7 +493,7 @@
   .a-mainCard-content {
     @extend .a-fontSizeM;
 
-    .a-link {
+    a {
       @extend .a-fontSizeS;
     }
   }
