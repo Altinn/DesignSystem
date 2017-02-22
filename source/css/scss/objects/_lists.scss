@@ -1,23 +1,28 @@
 /*
   General list
 */
+.a-list-header,
 .a-list {
-  margin: 0;
-  list-style: none;
-
-  .a-dropdownArrow {
+  // Remove row and col margin / padding
+  .row {
     margin: 0;
-    border-left: 10px solid $black;
-    transform: scale( 0.75 ) rotate( 90deg ) translate( -50% );
   }
 
-  .a-active {
-    .a-dropdownArrow {
-      border-left: 10px solid $blue;
+  div {
+    &[class^='col'] {
+      padding: 0;
+      margin: 0;
     }
   }
+}
 
+.a-list-container {
+  // Wrapper class for the list header
   .a-list-header {
+    min-height: $spacer * 3;
+    padding: $spacer / 2 $spacer / 2 4px $spacer / 2;
+
+    // Sort headers for each column
     .a-list-sortHeader {
       @include a-fontSize12;
       margin-top: 4px;
@@ -27,6 +32,7 @@
 
     &:not(.a-dotted) {
       border-top: 1px solid $grey-medium;
+      border-bottom: 1px solid $grey-medium;
     }
 
     @include media-breakpoint-down( sm ) {
@@ -46,24 +52,32 @@
         }
       }
     }
+
+    .a-dropdownArrow {
+      margin: 0;
+      border-left: 10px solid $black;
+      transform: scale( 0.75 ) rotate( 90deg ) translate( -50% );
+    }
+
+    .a-active {
+      .a-dropdownArrow {
+        border-left: 10px solid $blue;
+      }
+    }
   }
+}
+
+.a-list {
+  margin: 0;
+  list-style: none;
 
   &.a-list-large {
     li {
-      &:not(.a-list-header) {
-        & > .row,
-        .a-list-content {
-          min-height: $spacer * 4;
-          padding: $spacer $spacer / 2;
-
-          @include media-breakpoint-down( sm ) {
-            padding: $spacer;
-          }
-        }
-      }
-
       & > .row,
       .a-list-content {
+        min-height: $spacer * 4;
+        padding: $spacer $spacer / 2;
+
         @include media-breakpoint-down( sm ) {
           padding-right: $spacer;
           padding-left: $spacer;
@@ -154,18 +168,6 @@
     }
   }
 
-  // Remove row and col margin / padding
-  .row {
-    margin: 0;
-  }
-
-  div {
-    &[class^='col'] {
-      padding: 0;
-      margin: 0;
-    }
-  }
-
   // Show list in two columns
   &.a-list-2col {
     @include media-breakpoint-up( md ) {
@@ -179,9 +181,6 @@
     }
   }
 }
-
-
-
 
 /*------------------------------------*\
     $Item list
