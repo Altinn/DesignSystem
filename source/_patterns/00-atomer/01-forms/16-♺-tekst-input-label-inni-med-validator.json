@@ -1,19 +1,14 @@
 {
-  "text-input-id" : "text-input-2",
-  "text-input-label" : "Etternavn:",
-  "text-input-placeholder" : "f.eks Nordmann",
+  "text-input-id" : "text-input-label-inside-validator",
+  "text-input-label" : "Label:",
+  "text-input-placeholder" : "f.eks placeholder",
   "input-type" : "text",
 
   "_commentStart":"--------------------------------------------------------------",
   "_commentText": "OPTION 1: EXTRA HELP TEXT - TRUE / FALSE",
   "_commentEnd":  "--------------------------------------------------------------",
 
-  "extra-help" : {
-    "extra-helpText" : "Denne teksten forteller hva som skal til for at input blir validert.(Blå før valdidert, grønn etter)",
-    "icon-prefix": "ai",
-    "icon-class": "ai-info",
-    "icon-extra-class": "a-validatorInfo-icon"
-  },
+  "extra-help" : false,
 
   "_commentStart":"--------------------------------------------------------------",
   "_commentText": "OPTION 2: HIDE LABEL - TRUE / FALSE",
@@ -31,16 +26,20 @@
 	"_commentText": "OPTION 4: VALIDATOR - TRUE / FALSE",
 	"_commentEnd":  "--------------------------------------------------------------",
 
-  "isValidator" : false,
-  "validator-check" : false,
-  "has-feedback" : false,
-  "validator-pattern" : "",
-  "validator-errorMessage" : "",
+  "isValidator" : true,
+  "validator-check" : true,
+  "has-feedback" : {
+    "icon-prefix": "tmp",
+    "icon-class" : "tmp-check-circle",
+    "icon-extra-class": "form-control-feedback"
+  },
+  "validator-pattern" : "pattern= \"[0-9]{11}\"",
+  "validator-errorMessage" : "Maks 4 tegn er tillatt",
 
   "_commentStart":"--------------------------------------------------------------",
   "_commentText": "OPTION 5: LABEL INSIDE - TRUE / FALSE",
   "_commentEnd":  "--------------------------------------------------------------",
 
-  "isInput-group" : "",
-  "form-label-class" : ""
+  "isInput-group" : "input-group",
+  "form-label-class" : "input-group-addon"
 }
