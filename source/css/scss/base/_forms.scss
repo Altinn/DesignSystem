@@ -60,17 +60,13 @@ textarea {
     // sass-lint:disable-block no-important
     position: relative !important;
 
-    &.transparent {
-      input,
-      button,
-      .input-group-addon {
-        background-color: transparent;
-      }
+    input,
+    button,
+    .input-group-addon {
+      background-color: transparent;
     }
 
     &.inactive {
-      pointer-events: none;
-      cursor: default;
       opacity: 0.3;
     }
   }
@@ -132,7 +128,7 @@ textarea {
       transition: none;
 
       &.inactive {
-        border-color: $black;
+        border: none;
       }
 
       &:hover,
@@ -296,7 +292,7 @@ textarea {
       margin-bottom: 0;
       color: $black;
       text-align: left;
-      background-color: $white;
+      background-color: transparent;
       border: 2px solid $blue;
       border-right: none;
       border-radius: 0;
@@ -358,6 +354,7 @@ textarea {
         color: $grey;
         background-color: $white;
         background-image: url($images-base-url + 'disabled-background.svg');
+
       }
 
       .input-group-addon {
@@ -367,6 +364,31 @@ textarea {
 
       // Input
       .form-control {
+        border: 2px solid $grey-medium;
+        border-left: none;
+      }
+    }
+
+    // Inactive input
+    &.inactive {
+      .input-group-addon,
+      .form-control {
+        color: $grey;
+        background-color: $white;
+      }
+
+      .input-group-addon {
+        border: 2px solid $grey-medium;
+        border-right: none;
+      }
+
+      // Input
+      .form-control {
+        border: 2px solid $grey-medium;
+        border-left: none;
+      }
+
+      .input-group-btn {
         border: 2px solid $grey-medium;
         border-left: none;
       }
@@ -452,8 +474,6 @@ textarea {
       display: block;
     }
   }
-
-
 
   p {
     display: inline;
