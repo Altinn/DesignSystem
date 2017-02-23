@@ -1,5 +1,5 @@
 ---
- state: indesignreview
- version: 0
+state: indesignreview
+version: 0
 ---
 Navbar for hurtignavigasjon i en side.

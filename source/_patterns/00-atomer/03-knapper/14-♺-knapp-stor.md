@@ -1,6 +1,6 @@
 ---
- state: needsrevalidation
- version: 0
+state: needsrevalidation
+version: 0
 ---
 NB: Dette er en variant av [knapp.mustache]
 

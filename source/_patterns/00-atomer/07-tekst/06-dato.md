@@ -1,5 +1,5 @@
 ---
- state: archived
+state: archived
 ---
 
 Mangler retningslinjer.

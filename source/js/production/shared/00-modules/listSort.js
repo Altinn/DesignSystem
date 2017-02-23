@@ -25,15 +25,19 @@ var sortListAlphanumerically = function(src, sortIndex) {
   });
 };
 
+var defaultListSort = function() {
+  $('.a-list').each(function() {
+    var sortHeader = $(this).find('.a-list-sortHeader')[0];
+    var index = $(sortHeader).index();
+    sortListAlphanumerically(sortHeader, index);
+  });
+};
+
 var addListSortHandler = function() {
   $('.a-list-sortHeader').on('click', function() {
     var index = $(this).index();
     sortListAlphanumerically(this, index);
   });
 
-  $('.a-list-container').each(function() {
-    var sortHeader = $(this).find('.a-list-sortHeader')[0];
-    var index = $(sortHeader).index();
-    sortListAlphanumerically(sortHeader, index);
-  });
+  defaultListSort();
 };

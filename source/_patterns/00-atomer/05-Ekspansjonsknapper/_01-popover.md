@@ -1,5 +1,5 @@
 ---
- state: needsrevalidation
- version: 0
+state: needsrevalidation
+version: 0
 ---
 Lorem ipsum...
