@@ -104,7 +104,7 @@ window.smoothState = $('#smoothState').smoothState({
     window.devInit();
     window.smoothStateMod();
     // $('.a-scene-element').show();
-    $('form').validator();
+    $('form').validate();
     $('.a-js-hideWhenSmoothStating').show();
   }
 }).data('smoothState');

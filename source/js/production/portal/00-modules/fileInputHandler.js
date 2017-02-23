@@ -4,7 +4,7 @@ var onFileInputChange = function() {
     $parent.hide();
     $parent.next().show();
     $parent.next().find('.a-js-listItemText').text($(this).val());
-    $(this).closest('form[data-toggle="validator"]').trigger('validate.bs.validator');
+ //   $(this).closest('form[data-toggle="validator"]').trigger('validate.bs.validator');
   });
 };
 
@@ -13,5 +13,5 @@ var onFileListDeleteClick = function(src) {
   $fileListContainer.prev().find('input').val('');
   $fileListContainer.hide();
   $fileListContainer.prev().show();
-  $(src).closest('form[data-toggle="validator"]').trigger('validate.bs.validator');
+//  $(src).closest('form[data-toggle="validator"]').trigger('validate.bs.validator');
 };

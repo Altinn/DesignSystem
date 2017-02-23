@@ -10,7 +10,7 @@ window.infoportalInit = function() {
   drilldownInteraction();
   switchForm();
   genericSearch();
-  handleValidatorLibrary();
+ // handleValidatorLibrary();
   questionnaireInteraction();
   uniformHeight();
 };
