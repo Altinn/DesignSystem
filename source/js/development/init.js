@@ -91,7 +91,7 @@ window.smoothState = $('#smoothState').smoothState({
     }
   },
   onAfter: function() {
-    $(document).foundation();
+    // $(document).foundation();
     if (window.portalInit) {
       window.portalInit();
     }

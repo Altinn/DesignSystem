@@ -45,7 +45,7 @@
   "isInput-group": "input-group",
   "form-label-class": "input-group-addon",
   "text-input-label": "<span class=\"sr-only\">Finn klient</span>",
-  "text-input-placeholder": "Hvem leter du etter?",
+  "text-input-placeholder": "Søk etter klient",
   "input-type": "search",
   "no-left-padding": true,
   "search-algorithm": "show-and-highlight",
@@ -54,9 +54,7 @@
   "source-table": "newClientsTable",
   "logo-class": "a-modal-top-logo",
   "icon": "group_add",
-  "hasTextSmall": {
-    "textSmall": ""
-  },
+  "hasTextSmall": false,
   "icontext": "Gi og fjerne rettigheter",
   "cancel-link": {
     "button-text": "Fjern rettigheter",
@@ -66,12 +64,14 @@
   "existing-clients-title": {
     "collapse-header-title": "Disse <span class='badge badge-primary a-label badge-pill'>3</span> ansatte har rettigheter:",
     "collapse-header-contentID": "exp-tab-table-existing-clients",
-    "collapsed": false
+    "collapsed": false,
+    "aria-expanded-header": "true"
   },
   "new-clients-title": {
     "collapse-header-title": "Disse <span class='badge badge-primary a-label badge-pill'>5</span> ansatte kan få rettigheter:",
     "collapse-header-contentID": "exp-tab-table-new-clients",
-    "collapsed": false
+    "collapsed": false,
+    "aria-expanded-header": "true"
   },
 
   "sortable-action-text": "Velg roller den ansatte skal ha:",
@@ -80,7 +80,7 @@
     "collapsed": false,
     "aria-expanded": true,
     "header": {
-      "additional-classes": "a-list-header",
+      "additional-classes": "a-list-header a-bgGreyLight",
       "columns" : [
         {
           "tabable": false,
@@ -89,10 +89,18 @@
         },
         {
           "additional-classes": "col-12 col-sm-7 col-md-6 col-lg-7 a-list-sortHeader a-clickable",
+          "tabable": true,
+          "role": "button",
           "column-items": [
             {
               "column-text": {
                 "classes": "a-dropdownArrow"
+              }
+            },
+            {
+              "column-text": {
+                "classes": "sr-only",
+                "text": "sorter listen på"
               }
             },
             {
@@ -149,8 +157,9 @@
                   "link-url": "#",
                   "link-text": "<span class='hidden-xs-down'>Gi og fjerne rettigheter</span>",
                   "link-icon": false,
-                  "data-target": "#existingCollapse1",
-                  "data-parent": "existingClientsTable"
+                  "data-target": "existingCollapse1",
+                  "data-parent": "existingClientsTable",
+                  "aria-expanded": "false"
                 }
               }
             ]
@@ -186,7 +195,7 @@
                   "button-class": "a-btn a-btn-success collapsed a-js-confirmAddRightBtn",
                   "onclick": false,
                   "data-toggle": "collapse",
-                  "data-target": "#existingCollapse1",
+                  "data-target": "existingCollapse1",
                   "data-parent": "existingClientsTable",
                   "aria-expanded": false
                 },
@@ -195,17 +204,17 @@
                   "button-class": "a-btn-link collapsed",
                   "margin-right-multiplier": 3,
                   "data-toggle": "collapse",
-                  "data-target": "#existingCollapse1",
+                  "data-target": "existingCollapse1",
                   "data-parent": "existingClientsTable",
                   "aria-expanded": false
                 },
   "delegation-email-text": "Vi mangler e-postadresse til den du gir rettighet til. For å gjennomføre må du fylle inn e-post under.",
   "delegation-email-field": {
-        "text-input-id": "text-input-8-epost",
+        "text-input-id": "text-input-1-epost",
         "text-input-label": "",
         "text-input-placeholder": "f.eks post@karinordmann.no",
         "input-type": "email",
-        "isRequired": "required",
+        "isRequired": true,
         "extra-help": false,
         "isHidden": "",
         "isLarge": "",
@@ -332,8 +341,9 @@
                   "link-url": "#",
                   "link-text": "<span class='hidden-xs-down'>Gi og fjerne rettigheter</span>",
                   "link-icon": false,
-                  "data-target": "#existingCollapse2",
-                  "data-parent": "existingClientsTable"
+                  "data-target": "existingCollapse2",
+                  "data-parent": "existingClientsTable",
+                  "aria-expanded": "false"
                 }
               }
             ]
@@ -369,7 +379,7 @@
                   "button-class": "a-btn a-btn-success collapsed a-js-confirmAddRightBtn",
                   "onclick": false,
                   "data-toggle": "collapse",
-                  "data-target": "#existingCollapse2",
+                  "data-target": "existingCollapse2",
                   "data-parent": "existingClientsTable",
                   "aria-expanded": false
                 },
@@ -378,18 +388,18 @@
                   "button-class": "a-btn-link collapsed",
                   "margin-right-multiplier": 3,
                   "data-toggle": "collapse",
-                  "data-target": "#existingCollapse2",
+                  "data-target": "existingCollapse2",
                   "data-parent": "existingClientsTable",
                   "aria-expanded": false
                 }
                 ,
   "delegation-email-text": "Vi mangler e-postadresse til den du gir rettighet til. For å gjennomføre må du fylle inn e-post under.",
   "delegation-email-field": {
-        "text-input-id": "text-input-8-epost",
+        "text-input-id": "text-input-2-epost",
         "text-input-label": "",
         "text-input-placeholder": "f.eks post@karinordmann.no",
         "input-type": "email",
-        "isRequired": "required",
+        "isRequired": true,
         "extra-help": false,
         "isHidden": "",
         "isLarge": "",
@@ -517,8 +527,9 @@
                   "link-url": "#",
                   "link-text": "<span class='hidden-xs-down'>Gi og fjerne rettigheter</span>",
                   "link-icon": false,
-                  "data-target": "#existingCollapse3",
-                  "data-parent": "existingClientsTable"
+                  "data-target": "existingCollapse3",
+                  "data-parent": "existingClientsTable",
+                  "aria-expanded": "false"
                 }
               }
             ]
@@ -554,7 +565,7 @@
                   "button-class": "a-btn a-btn-success collapsed a-js-confirmAddRightBtn",
                   "onclick": false,
                   "data-toggle": "collapse",
-                  "data-target": "#existingCollapse3",
+                  "data-target": "existingCollapse3",
                   "data-parent": "existingClientsTable",
                   "aria-expanded": false
                 },
@@ -563,17 +574,17 @@
                   "button-class": "a-btn-link collapsed",
                   "margin-right-multiplier": 3,
                   "data-toggle": "collapse",
-                  "data-target": "#existingCollapse3",
+                  "data-target": "existingCollapse3",
                   "data-parent": "existingClientsTable",
                   "aria-expanded": false
                 },
   "delegation-email-text": "Vi mangler e-postadresse til den du gir rettighet til. For å gjennomføre må du fylle inn e-post under.",
   "delegation-email-field": {
-        "text-input-id": "text-input-8-epost",
+        "text-input-id": "text-input-3-epost",
         "text-input-label": "",
         "text-input-placeholder": "f.eks post@karinordmann.no",
         "input-type": "email",
-        "isRequired": "required",
+        "isRequired": true,
         "extra-help": false,
         "isHidden": "",
         "isLarge": "",
@@ -667,7 +678,7 @@
     "collapsed": false,
     "aria-expanded": true,
     "header": {
-      "additional-classes": "a-list-header",
+      "additional-classes": "a-list-header a-bgGreyLight",
       "columns" : [
         {
           "tabable": false,
@@ -676,10 +687,18 @@
         },
         {
           "additional-classes": "col-12 col-sm-7 col-md-6 col-lg-7 a-list-sortHeader a-clickable",
+          "tabable": true,
+          "role": "button",
           "column-items": [
             {
               "column-text": {
                 "classes": "a-dropdownArrow"
+              }
+            },
+            {
+              "column-text": {
+                "classes": "sr-only",
+                "text": "sorter listen på"
               }
             },
             {
@@ -737,8 +756,9 @@
                   "link-url": "#",
                   "link-text": "<span class='hidden-xs-down'>Gi rettigheter</span>",
                   "link-icon": false,
-                  "data-target": "#newCollapse1",
-                  "data-parent": "newClientsTable"
+                  "data-target": "newCollapse1",
+                  "data-parent": "newClientsTable",
+                  "aria-expanded": "false"
                 }
               }
             ]
@@ -774,7 +794,7 @@
                   "button-class": "a-btn a-btn-success collapsed a-js-confirmAddRightBtn",
                   "onclick": false,
                   "data-toggle": "collapse",
-                  "data-target": "#newCollapse1",
+                  "data-target": "newCollapse1",
                   "data-parent": "newClientsTable",
                   "aria-expanded": false
                 },
@@ -783,17 +803,17 @@
                   "button-class": "a-btn-link collapsed",
                   "margin-right-multiplier": 3,
                   "data-toggle": "collapse",
-                  "data-target": "#newCollapse1",
+                  "data-target": "newCollapse1",
                   "data-parent": "newClientsTable",
                   "aria-expanded": false
                 },
   "delegation-email-text": "Vi mangler e-postadresse til den du gir rettighet til. For å gjennomføre må du fylle inn e-post under.",
   "delegation-email-field": {
-        "text-input-id": "text-input-8-epost",
+        "text-input-id": "text-input-4-epost",
         "text-input-label": "",
         "text-input-placeholder": "f.eks post@karinordmann.no",
         "input-type": "email",
-        "isRequired": "required",
+        "isRequired": true,
         "extra-help": false,
         "isHidden": "",
         "isLarge": "",
@@ -918,8 +938,9 @@
                   "link-url": "#",
                   "link-text": "<span class='hidden-xs-down'>Gi rettigheter</span>",
                   "link-icon": false,
-                  "data-target": "#newCollapse2",
-                  "data-parent": "newClientsTable"
+                  "data-target": "newCollapse2",
+                  "data-parent": "newClientsTable",
+                  "aria-expanded": "false"
                 }
               }
             ]
@@ -955,7 +976,7 @@
                   "button-class": "a-btn a-btn-success collapsed a-js-confirmAddRightBtn",
                   "onclick": false,
                   "data-toggle": "collapse",
-                  "data-target": "#newCollapse2",
+                  "data-target": "newCollapse2",
                   "data-parent": "newClientsTable",
                   "aria-expanded": false
                 },
@@ -964,17 +985,17 @@
                   "button-class": "a-btn-link collapsed",
                   "margin-right-multiplier": 3,
                   "data-toggle": "collapse",
-                  "data-target": "#newCollapse2",
+                  "data-target": "newCollapse2",
                   "data-parent": "newClientsTable",
                   "aria-expanded": false
                 },
   "delegation-email-text": "Vi mangler e-postadresse til den du gir rettighet til. For å gjennomføre må du fylle inn e-post under.",
   "delegation-email-field": {
-        "text-input-id": "text-input-8-epost",
+        "text-input-id": "text-input-5-epost",
         "text-input-label": "",
         "text-input-placeholder": "f.eks post@karinordmann.no",
         "input-type": "email",
-        "isRequired": "required",
+        "isRequired": true,
         "extra-help": false,
         "isHidden": "",
         "isLarge": "",
@@ -1099,8 +1120,9 @@
                   "link-url": "#",
                   "link-text": "<span class='hidden-xs-down'>Gi rettigheter</span>",
                   "link-icon": false,
-                  "data-target": "#newCollapse3",
-                  "data-parent": "newClientsTable"
+                  "data-target": "newCollapse3",
+                  "data-parent": "newClientsTable",
+                  "aria-expanded": "false"
                 }
               }
             ]
@@ -1136,7 +1158,7 @@
                   "button-class": "a-btn a-btn-success collapsed a-js-confirmAddRightBtn",
                   "onclick": false,
                   "data-toggle": "collapse",
-                  "data-target": "#newCollapse3",
+                  "data-target": "newCollapse3",
                   "data-parent": "newClientsTable",
                   "aria-expanded": false
                 },
@@ -1145,17 +1167,17 @@
                   "button-class": "a-btn-link collapsed",
                   "margin-right-multiplier": 3,
                   "data-toggle": "collapse",
-                  "data-target": "#newCollapse3",
+                  "data-target": "newCollapse3",
                   "data-parent": "newClientsTable",
                   "aria-expanded": false
                 },
   "delegation-email-text": "Vi mangler e-postadresse til den du gir rettighet til. For å gjennomføre må du fylle inn e-post under.",
   "delegation-email-field": {
-        "text-input-id": "text-input-8-epost",
+        "text-input-id": "text-input-6-epost",
         "text-input-label": "",
         "text-input-placeholder": "f.eks post@karinordmann.no",
         "input-type": "email",
-        "isRequired": "required",
+        "isRequired": true,
         "extra-help": false,
         "isHidden": "",
         "isLarge": "",
@@ -1280,8 +1302,9 @@
                   "link-url": "#",
                   "link-text": "<span class='hidden-xs-down'>Gi rettigheter</span>",
                   "link-icon": false,
-                  "data-target": "#newCollapse4",
-                  "data-parent": "newClientsTable"
+                  "data-target": "newCollapse4",
+                  "data-parent": "newClientsTable",
+                  "aria-expanded": "false"
                 }
               }
             ]
@@ -1317,7 +1340,7 @@
                   "button-class": "a-btn a-btn-success collapsed a-js-confirmAddRightBtn",
                   "onclick": false,
                   "data-toggle": "collapse",
-                  "data-target": "#newCollapse4",
+                  "data-target": "newCollapse4",
                   "data-parent": "newClientsTable",
                   "aria-expanded": false
                 },
@@ -1326,17 +1349,17 @@
                   "button-class": "a-btn-link collapsed",
                   "margin-right-multiplier": 3,
                   "data-toggle": "collapse",
-                  "data-target": "#newCollapse4",
+                  "data-target": "newCollapse4",
                   "data-parent": "newClientsTable",
                   "aria-expanded": false
                 },
   "delegation-email-text": "Vi mangler e-postadresse til den du gir rettighet til. For å gjennomføre må du fylle inn e-post under.",
   "delegation-email-field": {
-        "text-input-id": "text-input-8-epost",
+        "text-input-id": "text-input-7-epost",
         "text-input-label": "",
         "text-input-placeholder": "f.eks post@karinordmann.no",
         "input-type": "email",
-        "isRequired": "required",
+        "isRequired": true,
         "extra-help": false,
         "isHidden": "",
         "isLarge": "",
@@ -1461,8 +1484,9 @@
                   "link-url": "#",
                   "link-text": "<span class='hidden-xs-down'>Gi rettigheter</span>",
                   "link-icon": false,
-                  "data-target": "#newCollapse5",
-                  "data-parent": "newClientsTable"
+                  "data-target": "newCollapse5",
+                  "data-parent": "newClientsTable",
+                  "aria-expanded": "false"
                 }
               }
             ]
@@ -1497,7 +1521,7 @@
                   "button-text": "Ferdig",
                   "button-class": "a-btn a-btn-success collapsed a-js-confirmAddRightBtn",
                   "data-toggle": "collapse",
-                  "data-target": "#newCollapse5",
+                  "data-target": "newCollapse5",
                   "data-parent": "newClientsTable",
                   "aria-expanded": false,
                   "onclick": false
@@ -1507,7 +1531,7 @@
                   "button-class": "a-btn-link collapsed",
                   "margin-right-multiplier": 3,
                   "data-toggle": "collapse",
-                  "data-target": "#newCollapse5",
+                  "data-target": "newCollapse5",
                   "data-parent": "newClientsTable",
                   "aria-expanded": false
                 },
@@ -1517,7 +1541,7 @@
         "text-input-label": "",
         "text-input-placeholder": "f.eks post@karinordmann.no",
         "input-type": "email",
-        "isRequired": "required",
+        "isRequired": true,
         "extra-help": false,
         "isHidden": "",
         "isLarge": "",
@@ -1638,6 +1662,5 @@
         ]
       }
     ]
-  },
-  "isTransparent": true
+  }
 }

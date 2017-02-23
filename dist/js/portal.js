@@ -169,15 +169,6 @@ $('body').on('click', '[data-toggle="altinn-modal"]', function() {
   }
 });
 
-var articleAnchors = function() {
-  if ($('.a-breadcrumb').length > 0 && $('.sg-pattern-category').length === 0) {
-    window.anchors.options.placement = 'left';
-    window.anchors.options.class = 'a-sg-anchor';
-    window.anchors.add('h2');
-    window.anchors.add('h3');
-  }
-};
-
 /* globals $ */
 var aTagSpaceExpand = function() {
   $('a.collapsed').each(function() {
@@ -516,13 +507,32 @@ var popover = function() {
 var propagateContent = function() {
   $('.a-js-propagatedContentDestination').each(function() {
     var prefix = '.a-js-propagatedContentOrigin.';
-    if ($(this).hasClass('replace-me')) {
+    if ($(this)[0].hasAttribute('data-maxwidth')) {
+      if (window.innerWidth <= parseInt($(this).attr('data-maxwidth'), 10)) {
+        if ($(this).hasClass('replace-me')) {
+          $(this).before($(prefix + $(this).attr('data-refclass')).html());
+          $(this).remove();
+        } else {
+          $(this).html($(prefix + $(this).attr('data-refclass')).html());
+        }
+      }
+    } else if ($(this)[0].hasAttribute('data-minwidth')) {
+      if (window.innerWidth >= parseInt($(this).attr('data-minwidth'), 10)) {
+        if ($(this).hasClass('replace-me')) {
+          $(this).before($(prefix + $(this).attr('data-refclass')).html());
+          $(this).remove();
+        } else {
+          $(this).html($(prefix + $(this).attr('data-refclass')).html());
+        }
+      }
+    } else if ($(this).hasClass('replace-me')) {
       $(this).before($(prefix + $(this).attr('data-refclass')).html());
       $(this).remove();
     } else {
       $(this).html($(prefix + $(this).attr('data-refclass')).html());
     }
   });
+  $('.a-js-propagatedContentOrigin').html('');
 };
 
 function showPassword(src, target) {
@@ -677,6 +687,24 @@ var cardsToggle = function() {
   });
 };
 
+var onFileInputChange = function() {
+  $('.a-js-fileInputChangeHandler').on('change', function() {
+    var $parent = $(this).parent();
+    $parent.hide();
+    $parent.next().show();
+    $parent.next().find('.a-js-listItemText').text($(this).val());
+    $(this).closest('form[data-toggle="validator"]').trigger('validate.bs.validator');
+  });
+};
+
+var onFileListDeleteClick = function(src) {
+  var $fileListContainer = $(src).closest('.a-js-fileListContainer');
+  $fileListContainer.prev().find('input').val('');
+  $fileListContainer.hide();
+  $fileListContainer.prev().show();
+  $(src).closest('form[data-toggle="validator"]').trigger('validate.bs.validator');
+};
+
 /* globals $ */
 var formatOrgNr = function() {
   $('.a-js-orgNr').on('keyup', function() {
@@ -747,19 +775,46 @@ var setupListRowSelect = function() {
 };
 
 var availableTags = [
-  'Vanligste skjema og tjenester',
-  '1. ACC Security level 2 MAG',
-  '2. Corres test 250116',
-  '3. PSA Skatteoppgjør personlig',
-  '4. RF-1400 Melding om flytting innenlands',
-  '6. Aksjeoppgaven 2014',
-  '7. Lese SvarUt – post fra kommunen',
-  '9. Mine krav og betalinger',
-  '10. Et veldig langt punkt i lista som bør gå over alle bredder og grenser, men samtidig oppføre seg riktig i layout. Se så lang tekst dette her er.'
+  { label: '1. ACC Security level 2 MAG' },
+  { label: '2. Corres test 250116' },
+  { label: '3. PSA Skatteoppgjør personlig' },
+  { label: '4. RF-1400 Melding om flytting innenlands' },
+  { label: '5. Aksjeoppgaven 2014' },
+  { label: '6. Et veldig langt punkt i lista som bør gå over alle bredder og grenser, men samtidig oppføre seg riktig i layout. Se så lang tekst dette her er.' }
 ];
 
+var title = 'Vanligste skjema og tjenester i din organisasjon';
+var numberOfResultsLabel = ' treff. Bruk pil opp og pil ned for å navigere i resultatene.';
+var noResultsLabel = 'Ingen treff';
+
 var searchWithAutocomplete = function() {
-  $('.a-js-autocomplete').autocomplete({
+  $.widget('custom.catcomplete', $.ui.autocomplete, ({
+    _create: function() {
+      this._super();
+      this.widget().menu('option', 'items', '> :not(.a-js-autocomplete-header)');
+      $('.ui-helper-hidden-accessible').addClass('sr-only');
+    },
+    _renderMenu: function(ul, items) {
+      var that = this;
+
+      $.each(items, function(index, item) {
+        var li = that._renderItemData(ul, item);
+        li.attr('role', 'menu');
+        li.addClass('a-dotted');
+        li.children().first().attr('role', 'button');
+      });
+      if (items.length === availableTags.length) {
+        ul.prepend('<li class=\'a-js-autocomplete-header a-dotted\'>' + title + '</li>');
+      } else if (!items[0].isNoResultsLabel) {
+        ul.prepend('<li class=\'a-js-autocomplete-header a-dotted\'>' + items.length + ' treff </li>');
+      } else {
+        $('.ui-autocomplete').children().first().addClass('a-js-autocomplete-header');
+      }
+    }
+  }));
+
+  $('.a-js-autocomplete').catcomplete({
+    // delay: 200, // set appropriate delay for ajax call
     source: availableTags,
     appendTo: '.a-autocomplete-container',
     minLength: 0,
@@ -767,18 +822,37 @@ var searchWithAutocomplete = function() {
       'ui-autocomplete': 'a-list',
       'ui-menu-item': 'a-dotted'
     },
-    create: function(event, ui) {
-      $('.ui-helper-hidden-accessible').appendTo('.a-autocomplete-container');
-    },
     open: function(event, ui) {
-      $('.ui-autocomplete').removeAttr('style');
+      $('.ui-autocomplete').removeAttr('style'); // remove inline positioning and display of amount results
       $('.ui-autocomplete .ui-menu-item').not(':first-of-type').addClass('a-clickable');
+    },
+    messages: {
+      noResults: noResultsLabel,
+      results: function(count) {
+        if (count === availableTags.length) {
+          return title + '. ' + count + ' ' + numberOfResultsLabel;
+        }
+
+        return count + ' ' + numberOfResultsLabel;
+      }
+    },
+    response: function(event, ui) {
+      var el;
+      if (ui.content.length === 0) {
+        el = {
+          isNoResultsLabel: true,
+          label: noResultsLabel,
+          title: noResultsLabel
+        };
+
+        ui.content.push(el);
+      }
     }
-  }).bind('click', function(e) { // TODO should also open on tab focus?
-    if ($(this).autocomplete('widget').is(':visible')) {
-      $(this).autocomplete('close');
+  }).bind('click', function(e) { // TODO should also open on tab focus? issue 3766
+    if ($(this).catcomplete('widget').is(':visible')) {
+      $(this).catcomplete('close');
     } else {
-      $(this).autocomplete('search', $(this).val());
+      $(this).catcomplete('search', $(this).val());
     }
   });
 };
@@ -887,7 +961,8 @@ var truncateBoxButtonNames = function() {
   initSearchWithHighlight,
   toggleSwitch,
   searchWithAutocomplete,
-  truncateBoxButtonNames
+  truncateBoxButtonNames,
+  onFileInputChange
 */
 window.portalInit = function() {
   formatOrgNr();
@@ -898,5 +973,6 @@ window.portalInit = function() {
   toggleSwitch();
   searchWithAutocomplete();
   truncateBoxButtonNames();
+  onFileInputChange();
 };
 window.portalInit();

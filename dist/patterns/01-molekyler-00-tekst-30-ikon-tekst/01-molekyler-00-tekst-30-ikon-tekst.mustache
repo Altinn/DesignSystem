@@ -3,14 +3,29 @@
   <div class="a-iconText-icon">{{# hasIcon }}{{> atomer-ikon }}{{/ hasIcon }}{{# hasDate }}{{> atomer-dato }}{{/ hasDate }}</div>
   <!-- TEXT -->
   {{# isHeader }}
-  <h1 class="a-iconText-text mb-0">
-    {{/ isHeader}} {{^ isHeader }}
+    {{^ isH2 }}
+    <h1 class="a-iconText-text mb-0">
+    {{/ isH2 }}    
+    {{# isH2 }}
+    <h2 class="a-iconText-text mb-0">
+    {{/ isH2 }}
+  {{/ isHeader}}
+  {{^ isHeader }}
     <div class="a-iconText-text">
-      {{/ isHeader }} {{# hasTextSmall }}
-      <span class="a-iconText-text-small">{{ textSmall }}</span> {{/ hasTextSmall }}
-      <span class="a-iconText-text-large">{{ icontext }} {{{ badge }}} </span> {{# isHeader }}
-  </h1>
-  {{/ isHeader}} {{^ isHeader }}
-  </div>
+  {{/ isHeader }}
+  {{# hasTextSmall }}
+    <span class="a-iconText-text-small">{{ textSmall }}</span>
+  {{/ hasTextSmall }}
+  <span class="a-iconText-text-large">{{ icontext }} {{{ badge }}} </span>
+  {{# isHeader }}
+    {{^ isH2 }}
+      </h1>
+    {{/ isH2 }}    
+    {{# isH2 }}
+      </h2>
+    {{/ isH2 }}
+  {{/ isHeader}}
+  {{^ isHeader }}
+    </div>
   {{/ isHeader }}
 </div>

@@ -19,10 +19,10 @@
 
           <li class="nav-item dropdown hidden-sm-down">
             <!-- Dropdown toggle -->
-            <button class="nav-link dropdown-toggle a-languageSwitcher hidden-sm-down" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <button lang="en" class="nav-link dropdown-toggle a-languageSwitcher hidden-sm-down" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
               Language
             </button>
-            <p class="a-js-propagatedContentDestination replace-me" data-refclass="droplang"></p>
+            <p class="a-js-propagatedContentDestination replace-me" data-refclass="droplang" data-minwidth="768"></p>
           </li>
 
           <li class="nav-item dropdown">
@@ -39,7 +39,7 @@
           <a href="{{ link.sider-forside }}" class="a-globalNav-logo"> {{> atomer-logo }} <span class="sr-only">Til forsiden</span>
           </a>
 
-          <button class="navbar-toggler hidden-md-up" type="button" data-toggle="collapse" data-target="#exCollapsingNavbar2">
+          <button class="navbar-toggler hidden-md-up" type="button" data-toggle="collapse" data-target="#exCollapsingNavbar2"><span class="sr-only">Navigasjon</span>
     			  </button>
           <div class="collapse navbar-toggleable-sm a-globalNav-main" id="exCollapsingNavbar2">
             <ul class="a-dropdownTriangle" id="exCollapsingNavbar">
@@ -47,8 +47,7 @@
               <li class="hidden-md-up">
                 {{# header-mobilesearch }} {{> atomer-tekst-input }} {{/ header-mobilesearch }}
               </li>
-              <li class="hidden-md-up">
-                <a class="a-hvr-underline" onkeyup="langTriggerClick(event)" onmousedown="
+              <li class="hidden-md-up"><a class="a-hvr-underline" onkeyup="langTriggerClick(event)" onmousedown="
                   $('#exCollapsingNavbar').find('.a-dropdown-languages').find('a').attr('tabindex', '-1');
                   if (!$('#exCollapsingNavbar').find('.a-dropdown-languages').hasClass('expand')) {
                     $('#exCollapsingNavbar').find('.a-dropdown-languages').css('width', 'inherit').css('min-width', '160px');
@@ -67,15 +66,14 @@
                   }
                   $('#exCollapsingNavbar').find('.a-dropdown-languages').toggleClass('expand');
                   $('#exCollapsingNavbar').find('.indicator').toggleClass('flip');
-                  " href="#">language<span class="indicator">▼</span></a>
-              </li>
-              <li class="a-js-propagatedContentDestination" data-refclass="droplang"></li>
+                  " href="#">language<span class="indicator">▼</span></a></li>
+              <li class="a-js-propagatedContentDestination" data-refclass="droplang" data-maxwidth="767"></li>
               <li><a class="a-hvr-underline {{{ globalNav-active-inbox }}} " href="{{ link.sider-innboks-start }}">innboks</a></li>
               <li><a class="a-hvr-underline {{{ globalNav-active }}}" href="{{ link.sider-kolonnenavigasjon-v-skjemaoversikt }}">alle skjema</a></li>
               <li><a class="a-hvr-underline {{{ globalNav-active-profile }}}" href="{{ link.sider-profil-roller-rettigheter }}"><span class="a-js-onboardingTarget-2">profil</span></a></li>
               <li class="hidden-md-up"><a class="a-nav-link a-hvr-underline" href="{{ link.sider-seksjonsforside-v-starteogdrive }}">starte og drive bedrift</a></li>
               <li class="hidden-md-up"><a class="a-hvr-underline" href="{{ link.sider-artikkel }}">om altinn</a></li>
-              <li class="hidden-md-up"><a class="a-hvr-underline" href="{{ link.sider-artikkel }}">hjelpesider</a></li>
+              <li class="hidden-md-up"><a class="a-hvr-underline" href="{{ link.sider-artikkel }}">hjelp og kontakt</a></li>
               <li class="hidden-md-up">
                 {{> atomer-link-telefonnummer }}
               </li>
