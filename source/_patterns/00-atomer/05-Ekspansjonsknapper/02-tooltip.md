@@ -1,5 +1,5 @@
 ---
- state: needsrevalidation
- version: 1
+state: needsrevalidation
+version: 1
 ---
 
