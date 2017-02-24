@@ -1,15 +1,4 @@
-/* globals $ */
-var aTagSpaceExpand = function() {
-  $('a.collapsed').each(function() {
-    $(this).on('keydown', function(e) {
-      if (e.keyCode === 32 || e.keycode === 13 || e.which === 32 || e.which === 13) {
-        e.stopPropagation(); e.preventDefault();
-        $(e.target).trigger('click');
-      }
-    });
-  });
-};
-
+// for PatternLab only
 var addListExpandHandler = function() {
   $('.a-list *[data-toggle="collapse"]').on('click', function() {
     // This script runs before the bootstrap collapse handler, so the collapsed-class will still be
@@ -360,9 +349,9 @@ var initializeDatepicker = function() {
 
 /* globals compareTo */
 var sortListAlphanumerically = function(src, sortIndex) {
-  var $list = $(src).closest('ul');
+  var $list = $(src).closest('.a-list-container').find('.a-list');
   var rows = $list.find('li:not(.a-list-header)');
-  $(src).closest('.a-list').find('.a-list-sortHeader').removeClass('a-active');
+  $(src).closest('.a-list-container').find('.a-list-sortHeader').removeClass('a-active');
   $(src).addClass('a-active');
   rows.sort(function(a, b) {
     var A = $($($($(a).children()[0]).children()[sortIndex]).find('.a-js-sortValue')[0]).text()
@@ -385,17 +374,21 @@ var sortListAlphanumerically = function(src, sortIndex) {
   });
 };
 
+var defaultListSort = function() {
+  $('.a-list').each(function() {
+    var sortHeader = $(this).find('.a-list-sortHeader')[0];
+    var index = $(sortHeader).index();
+    sortListAlphanumerically(sortHeader, index);
+  });
+};
+
 var addListSortHandler = function() {
-  $('.a-list .a-list-sortHeader').on('click', function() {
+  $('.a-list-sortHeader').on('click', function() {
     var index = $(this).index();
     sortListAlphanumerically(this, index);
   });
 
-  $('.a-list').each(function() {
-    var sortHeader = $('.a-list-sortHeader')[0];
-    var index = $(sortHeader).index();
-    sortListAlphanumerically(sortHeader, index);
-  });
+  defaultListSort();
 };
 
 /* globals $ */
@@ -564,21 +557,6 @@ function setVisibility(passwordField, showPasswordId) {
 }
 
 /* globals $ */
-var toggleExpand = function() {
-  $('.js-toggle').click(function() {
-    var self = $(this);
-    if (self.hasClass('show')) {
-      self.parent().find('.js-hide').slideUp(300);
-      self.removeClass('show');
-    } else {
-      self.addClass('show');
-      self.parent().find('.js-hide').slideDown(300);
-    }
-    return false;
-  });
-};
-
-/* globals $ */
 var toggleFilter = function() {
   $('.a-collapse-title').on('keyup', function(e) {
     var key = e.which;
@@ -628,6 +606,7 @@ $('.a-js-index-heading').click(function() {
 });
 
 /* globals $ */
+// used for popovers
 var tooltip = function() {
   $('[data-toggle="tooltip"]').tooltip();
 };
@@ -637,18 +616,15 @@ var tooltip = function() {
   handleFocus,
   mobileNavigation,
   propagateContent,
-  toggleExpand,
   toggleFilter,
   uniformHeight,
   tooltip,
   popover,
-  aTagSpaceExpand,
   initializeDatepicker,
   onboarding,
   nameChecker,
   codeLookup,
   handleValidatorLibrary,
-  defaultSort,
   setupAddRightsHandler,
   onFileInputChange,
   toggleInstant,
@@ -664,7 +640,6 @@ var tooltip = function() {
 
 window.sharedInit = function() {
   addListExpandHandler();
-  aTagSpaceExpand();
   setupOnKeypress();
   handleFocus();
   initializeDatepicker();
@@ -672,7 +647,6 @@ window.sharedInit = function() {
   mobileNavigation();
   popover();
   propagateContent();
-  toggleExpand();
   toggleFilter();
   tooltip();
   toggleInstant();
@@ -828,17 +802,29 @@ var drilldownInteraction = function() {
     });
     if ($('.a-colnav-firstLevel').hasClass('stacked')) {
       $('.a-js-backButton').show();
+      if (isSmall) {
+        $('.switch-container').hide();
+        $('.a-containerColnav-top').css('padding-bottom', '0px');
+        $('.a-js-backButton').css('margin-top', '-3px');
+        $('.a-js-colnavTitleBold').text('');
+        $('.a-js-colnavTitleRegular').text(text);
+      }
     } else {
       $('.a-js-backButton').hide();
+      if (isSmall) {
+        $('.switch-container').show();
+        $('.a-containerColnav-top').css('padding-bottom', '24px');
+        $('.a-js-backButton').css('margin-top', '0px');
+        $('.a-js-colnavTitleBold').text('X');
+        $('.a-js-colnavTitleRegular').text('skjemaer');
+      }
     }
   }
   window.drillDownGetSource = function(str) {
-    var url = function() {
-      if (window.location.hostname === 'localhost') {
-        return ('../../../' + str + '.json');
-      }
-      return ('http://altinn-dev.dev.bouvet.no/api/' + str);
-    };
+    var url = [
+      'http://altinn-dev.dev.bouvet.no/api/' + str,
+      '../../../' + str + '.json'
+    ];
     var act2 = function(event) {
       whenClick(event);
       return false;
@@ -875,7 +861,7 @@ var drilldownInteraction = function() {
       movedDuringTouch = true;
       event.stopPropagation();
     };
-    $.getJSON(url(), function(data) {
+    var afterRequest = function(data) {
       var depth = 3;
       var markup = '';
       data.forEach(function(item) {
@@ -991,6 +977,18 @@ var drilldownInteraction = function() {
               whenClick($(this), true);
             }.bind(this), 250);
           }
+        });
+      }
+    };
+    $.ajax({
+      type: 'GET',
+      url: url[0],
+      success: function(data) {
+        afterRequest(data);
+      },
+      error: function() {
+        $.getJSON(url[1], function(data) {
+          afterRequest(data);
         });
       }
     });

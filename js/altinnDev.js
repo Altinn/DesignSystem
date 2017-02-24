@@ -1,5 +1,5 @@
-/* globals defaultSort */
-
+/* globals defaultListSort */
+// prototype only
 var moveRowToTable = function(tableId, $row, rowCopiedClass) {
   var $rowCopy = $row.clone();
   var $existingRowCopy = $('#copy-' + $row.attr('id'));
@@ -29,7 +29,7 @@ var moveRowToTable = function(tableId, $row, rowCopiedClass) {
   $rowCopy.attr('id', 'copy-' + $row.attr('id'));
   $('#' + $rowCopy.attr('id') + ' .a-js-removeMe').remove();
 
-  defaultSort();
+  defaultListSort();
 };
 
 var setupAddRightsHandler = function() {
@@ -729,43 +729,6 @@ var selectAll = function() {
   });
 };
 
-/* globals compareTo */
-
-var sortAlphanumerically;
-var defaultSort;
-var reappendChildRows;
-
-sortAlphanumerically = function(src, sortIndex) {
-  var $table = $(src).closest('table');
-  var rows = $table.find('tbody tr:not(.a-sortable-action-row)');
-  $($table.find('th')).removeClass('active');
-  $(src).addClass('active');
-  rows.sort(function(a, b) {
-    var A = $($(a).find('td')[sortIndex]).text()
-      .toUpperCase();
-    var B = $($(b).find('td')[sortIndex]).text()
-      .toUpperCase();
-    return compareTo(A, B);
-  });
-
-  reappendChildRows($table, rows);
-};
-
-reappendChildRows = function($table, rows) {
-  $.each(rows, function(index, row) {
-    var prev = $(row).next('.a-sortable-action-row');
-    $table.children('tbody').append(row);
-    $table.children('tbody').append(prev);
-  });
-};
-
-defaultSort = function() {
-  var tables = $('table.a-js-sortable');
-  tables.each(function() {
-    sortAlphanumerically($(this).find('th')[1], 1);
-  });
-};
-
 /* globals $ */
 var toggleArchivedState = function() {
   var archived = $('.sg-pattern-state.archived').parents('.sg-pattern');
@@ -822,7 +785,7 @@ var toggleTheme = function() {
 /* globals _anchors, hideIntroInSubs, insetVariations, toggleArchivedState,
   selectAll, toggleTheme, fixPatternLinks,
   preOpenModals, prototypingInteractionStarteENK, $, onboarding, codeLookup, nameChecker,
-  defaultSort, setupAddRightsHandler */
+  setupAddRightsHandler */
 window.devInit = function() {
   _anchors();
   hideIntroInSubs();
@@ -836,7 +799,6 @@ window.devInit = function() {
   onboarding();
   codeLookup();
   nameChecker();
-  defaultSort();
   setupAddRightsHandler();
   selectAll();
   toggleTheme();
@@ -1078,17 +1040,29 @@ var drilldownInteraction = function() {
     });
     if ($('.a-colnav-firstLevel').hasClass('stacked')) {
       $('.a-js-backButton').show();
+      if (isSmall) {
+        $('.switch-container').hide();
+        $('.a-containerColnav-top').css('padding-bottom', '0px');
+        $('.a-js-backButton').css('margin-top', '-3px');
+        $('.a-js-colnavTitleBold').text('');
+        $('.a-js-colnavTitleRegular').text(text);
+      }
     } else {
       $('.a-js-backButton').hide();
+      if (isSmall) {
+        $('.switch-container').show();
+        $('.a-containerColnav-top').css('padding-bottom', '24px');
+        $('.a-js-backButton').css('margin-top', '0px');
+        $('.a-js-colnavTitleBold').text('X');
+        $('.a-js-colnavTitleRegular').text('skjemaer');
+      }
     }
   }
   window.drillDownGetSource = function(str) {
-    var url = function() {
-      if (window.location.hostname === 'localhost') {
-        return ('../../../' + str + '.json');
-      }
-      return ('http://altinn-dev.dev.bouvet.no/api/' + str);
-    };
+    var url = [
+      'http://altinn-dev.dev.bouvet.no/api/' + str,
+      '../../../' + str + '.json'
+    ];
     var act2 = function(event) {
       whenClick(event);
       return false;
@@ -1125,7 +1099,7 @@ var drilldownInteraction = function() {
       movedDuringTouch = true;
       event.stopPropagation();
     };
-    $.getJSON(url(), function(data) {
+    var afterRequest = function(data) {
       var depth = 3;
       var markup = '';
       data.forEach(function(item) {
@@ -1241,6 +1215,18 @@ var drilldownInteraction = function() {
               whenClick($(this), true);
             }.bind(this), 250);
           }
+        });
+      }
+    };
+    $.ajax({
+      type: 'GET',
+      url: url[0],
+      success: function(data) {
+        afterRequest(data);
+      },
+      error: function() {
+        $.getJSON(url[1], function(data) {
+          afterRequest(data);
         });
       }
     });
@@ -1425,7 +1411,7 @@ window.infoportalInit();
 
 var cardsToggle = function() {
   $('.a-box-button').on('click', function() {
-    $(this).blur();
+    $(this).blur(); // remove blue background on expanded cards
   });
 };
 
@@ -1516,6 +1502,7 @@ var setupListRowSelect = function() {
   });
 };
 
+// Hard-coded data, should be replaced with JSON
 var availableTags = [
   { label: '1. ACC Security level 2 MAG' },
   { label: '2. Corres test 250116' },
@@ -1525,6 +1512,7 @@ var availableTags = [
   { label: '6. Et veldig langt punkt i lista som bør gå over alle bredder og grenser, men samtidig oppføre seg riktig i layout. Se så lang tekst dette her er.' }
 ];
 
+// Hard-coded texts, should be replaced with custom strings
 var title = 'Vanligste skjema og tjenester i din organisasjon';
 var numberOfResultsLabel = ' treff. Bruk pil opp og pil ned for å navigere i resultatene.';
 var noResultsLabel = 'Ingen treff';
@@ -1601,6 +1589,9 @@ var searchWithAutocomplete = function() {
 
 /*
 Search datatable with highlight using external package mark.js
+Search field needs attribute data-search-algorithm="show-and-highlight"
+Searchable elements need attribute data-searchable="true"
+List elements that should be ignored during search need the class a-js-ignoreDuringSearch
 */
 var mark = function() {
   var input = $(this).val();
@@ -1633,6 +1624,8 @@ var initSearchWithHighlight = function() {
   $('input[data-search-algorithm="show-and-highlight"]').on('input', mark);
 };
 
+// Toggles between two components.
+// Each toggable component needs to be referenced by id from data-switch-target attribute of switch
 var toggleSwitch = function() {
   var $allWithTarget = $('.switch-container input[data-switch-target]');
   var allTargets = [];
@@ -1681,6 +1674,7 @@ var truncateToNumberOfLines = function(element) {
   }
 };
 
+// adds ellipsis for text that spans over two lines
 var truncateBoxButtonNames = function() {
   $('.a-box-button').on('click', function() {
     $('.a-box-button-name').each(function() {
@@ -1719,18 +1713,7 @@ window.portalInit = function() {
 };
 window.portalInit();
 
-/* globals $ */
-var aTagSpaceExpand = function() {
-  $('a.collapsed').each(function() {
-    $(this).on('keydown', function(e) {
-      if (e.keyCode === 32 || e.keycode === 13 || e.which === 32 || e.which === 13) {
-        e.stopPropagation(); e.preventDefault();
-        $(e.target).trigger('click');
-      }
-    });
-  });
-};
-
+// for PatternLab only
 var addListExpandHandler = function() {
   $('.a-list *[data-toggle="collapse"]').on('click', function() {
     // This script runs before the bootstrap collapse handler, so the collapsed-class will still be
@@ -2081,9 +2064,9 @@ var initializeDatepicker = function() {
 
 /* globals compareTo */
 var sortListAlphanumerically = function(src, sortIndex) {
-  var $list = $(src).closest('ul');
+  var $list = $(src).closest('.a-list-container').find('.a-list');
   var rows = $list.find('li:not(.a-list-header)');
-  $(src).closest('.a-list').find('.a-list-sortHeader').removeClass('a-active');
+  $(src).closest('.a-list-container').find('.a-list-sortHeader').removeClass('a-active');
   $(src).addClass('a-active');
   rows.sort(function(a, b) {
     var A = $($($($(a).children()[0]).children()[sortIndex]).find('.a-js-sortValue')[0]).text()
@@ -2106,17 +2089,21 @@ var sortListAlphanumerically = function(src, sortIndex) {
   });
 };
 
+var defaultListSort = function() {
+  $('.a-list').each(function() {
+    var sortHeader = $(this).find('.a-list-sortHeader')[0];
+    var index = $(sortHeader).index();
+    sortListAlphanumerically(sortHeader, index);
+  });
+};
+
 var addListSortHandler = function() {
-  $('.a-list .a-list-sortHeader').on('click', function() {
+  $('.a-list-sortHeader').on('click', function() {
     var index = $(this).index();
     sortListAlphanumerically(this, index);
   });
 
-  $('.a-list').each(function() {
-    var sortHeader = $('.a-list-sortHeader')[0];
-    var index = $(sortHeader).index();
-    sortListAlphanumerically(sortHeader, index);
-  });
+  defaultListSort();
 };
 
 /* globals $ */
@@ -2285,21 +2272,6 @@ function setVisibility(passwordField, showPasswordId) {
 }
 
 /* globals $ */
-var toggleExpand = function() {
-  $('.js-toggle').click(function() {
-    var self = $(this);
-    if (self.hasClass('show')) {
-      self.parent().find('.js-hide').slideUp(300);
-      self.removeClass('show');
-    } else {
-      self.addClass('show');
-      self.parent().find('.js-hide').slideDown(300);
-    }
-    return false;
-  });
-};
-
-/* globals $ */
 var toggleFilter = function() {
   $('.a-collapse-title').on('keyup', function(e) {
     var key = e.which;
@@ -2349,6 +2321,7 @@ $('.a-js-index-heading').click(function() {
 });
 
 /* globals $ */
+// used for popovers
 var tooltip = function() {
   $('[data-toggle="tooltip"]').tooltip();
 };
@@ -2358,18 +2331,15 @@ var tooltip = function() {
   handleFocus,
   mobileNavigation,
   propagateContent,
-  toggleExpand,
   toggleFilter,
   uniformHeight,
   tooltip,
   popover,
-  aTagSpaceExpand,
   initializeDatepicker,
   onboarding,
   nameChecker,
   codeLookup,
   handleValidatorLibrary,
-  defaultSort,
   setupAddRightsHandler,
   onFileInputChange,
   toggleInstant,
@@ -2385,7 +2355,6 @@ var tooltip = function() {
 
 window.sharedInit = function() {
   addListExpandHandler();
-  aTagSpaceExpand();
   setupOnKeypress();
   handleFocus();
   initializeDatepicker();
@@ -2393,7 +2362,6 @@ window.sharedInit = function() {
   mobileNavigation();
   popover();
   propagateContent();
-  toggleExpand();
   toggleFilter();
   tooltip();
   toggleInstant();

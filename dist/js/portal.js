@@ -1,15 +1,4 @@
-/* globals $ */
-var aTagSpaceExpand = function() {
-  $('a.collapsed').each(function() {
-    $(this).on('keydown', function(e) {
-      if (e.keyCode === 32 || e.keycode === 13 || e.which === 32 || e.which === 13) {
-        e.stopPropagation(); e.preventDefault();
-        $(e.target).trigger('click');
-      }
-    });
-  });
-};
-
+// for PatternLab only
 var addListExpandHandler = function() {
   $('.a-list *[data-toggle="collapse"]').on('click', function() {
     // This script runs before the bootstrap collapse handler, so the collapsed-class will still be
@@ -360,9 +349,9 @@ var initializeDatepicker = function() {
 
 /* globals compareTo */
 var sortListAlphanumerically = function(src, sortIndex) {
-  var $list = $(src).closest('ul');
+  var $list = $(src).closest('.a-list-container').find('.a-list');
   var rows = $list.find('li:not(.a-list-header)');
-  $(src).closest('.a-list').find('.a-list-sortHeader').removeClass('a-active');
+  $(src).closest('.a-list-container').find('.a-list-sortHeader').removeClass('a-active');
   $(src).addClass('a-active');
   rows.sort(function(a, b) {
     var A = $($($($(a).children()[0]).children()[sortIndex]).find('.a-js-sortValue')[0]).text()
@@ -385,17 +374,21 @@ var sortListAlphanumerically = function(src, sortIndex) {
   });
 };
 
+var defaultListSort = function() {
+  $('.a-list').each(function() {
+    var sortHeader = $(this).find('.a-list-sortHeader')[0];
+    var index = $(sortHeader).index();
+    sortListAlphanumerically(sortHeader, index);
+  });
+};
+
 var addListSortHandler = function() {
-  $('.a-list .a-list-sortHeader').on('click', function() {
+  $('.a-list-sortHeader').on('click', function() {
     var index = $(this).index();
     sortListAlphanumerically(this, index);
   });
 
-  $('.a-list').each(function() {
-    var sortHeader = $('.a-list-sortHeader')[0];
-    var index = $(sortHeader).index();
-    sortListAlphanumerically(sortHeader, index);
-  });
+  defaultListSort();
 };
 
 /* globals $ */
@@ -564,21 +557,6 @@ function setVisibility(passwordField, showPasswordId) {
 }
 
 /* globals $ */
-var toggleExpand = function() {
-  $('.js-toggle').click(function() {
-    var self = $(this);
-    if (self.hasClass('show')) {
-      self.parent().find('.js-hide').slideUp(300);
-      self.removeClass('show');
-    } else {
-      self.addClass('show');
-      self.parent().find('.js-hide').slideDown(300);
-    }
-    return false;
-  });
-};
-
-/* globals $ */
 var toggleFilter = function() {
   $('.a-collapse-title').on('keyup', function(e) {
     var key = e.which;
@@ -628,6 +606,7 @@ $('.a-js-index-heading').click(function() {
 });
 
 /* globals $ */
+// used for popovers
 var tooltip = function() {
   $('[data-toggle="tooltip"]').tooltip();
 };
@@ -637,18 +616,15 @@ var tooltip = function() {
   handleFocus,
   mobileNavigation,
   propagateContent,
-  toggleExpand,
   toggleFilter,
   uniformHeight,
   tooltip,
   popover,
-  aTagSpaceExpand,
   initializeDatepicker,
   onboarding,
   nameChecker,
   codeLookup,
   handleValidatorLibrary,
-  defaultSort,
   setupAddRightsHandler,
   onFileInputChange,
   toggleInstant,
@@ -664,7 +640,6 @@ var tooltip = function() {
 
 window.sharedInit = function() {
   addListExpandHandler();
-  aTagSpaceExpand();
   setupOnKeypress();
   handleFocus();
   initializeDatepicker();
@@ -672,7 +647,6 @@ window.sharedInit = function() {
   mobileNavigation();
   popover();
   propagateContent();
-  toggleExpand();
   toggleFilter();
   tooltip();
   toggleInstant();
@@ -683,7 +657,7 @@ window.sharedInit();
 
 var cardsToggle = function() {
   $('.a-box-button').on('click', function() {
-    $(this).blur();
+    $(this).blur(); // remove blue background on expanded cards
   });
 };
 
@@ -774,6 +748,7 @@ var setupListRowSelect = function() {
   });
 };
 
+// Hard-coded data, should be replaced with JSON
 var availableTags = [
   { label: '1. ACC Security level 2 MAG' },
   { label: '2. Corres test 250116' },
@@ -783,6 +758,7 @@ var availableTags = [
   { label: '6. Et veldig langt punkt i lista som bør gå over alle bredder og grenser, men samtidig oppføre seg riktig i layout. Se så lang tekst dette her er.' }
 ];
 
+// Hard-coded texts, should be replaced with custom strings
 var title = 'Vanligste skjema og tjenester i din organisasjon';
 var numberOfResultsLabel = ' treff. Bruk pil opp og pil ned for å navigere i resultatene.';
 var noResultsLabel = 'Ingen treff';
@@ -859,6 +835,9 @@ var searchWithAutocomplete = function() {
 
 /*
 Search datatable with highlight using external package mark.js
+Search field needs attribute data-search-algorithm="show-and-highlight"
+Searchable elements need attribute data-searchable="true"
+List elements that should be ignored during search need the class a-js-ignoreDuringSearch
 */
 var mark = function() {
   var input = $(this).val();
@@ -891,6 +870,8 @@ var initSearchWithHighlight = function() {
   $('input[data-search-algorithm="show-and-highlight"]').on('input', mark);
 };
 
+// Toggles between two components.
+// Each toggable component needs to be referenced by id from data-switch-target attribute of switch
 var toggleSwitch = function() {
   var $allWithTarget = $('.switch-container input[data-switch-target]');
   var allTargets = [];
@@ -939,6 +920,7 @@ var truncateToNumberOfLines = function(element) {
   }
 };
 
+// adds ellipsis for text that spans over two lines
 var truncateBoxButtonNames = function() {
   $('.a-box-button').on('click', function() {
     $('.a-box-button-name').each(function() {

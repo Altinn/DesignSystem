@@ -13,6 +13,18 @@
 	"icon-sr-only-text": false,
 	"link-text": "En lenke ser slik ut",
 	"link-url": false,
+	"help-text-1": "Står du fast? Ring oss på",
+	"is-chat": false,
+	"help-text-2": false,
+	"help-text-icon": {
+		"icon-prefix": "ai",
+		"icon-class": "ai-help"
+	},
+	"help-link-2": {
+		"link-text": "75006000",
+		"link-url": "tel:+4775006000",
+		"data-target": false
+	},
 	"modal-kvittering-content-header": "Nye roller er gitt",
 	"modal-kvittering-content": "<span class='a-fontBold'>JAR JAR BINKS</span> har fått rollene <span class='a-fontBold'>privatperson begrensede rettigheter</span> og <span class='a-fontBold'>regnskapsmedarbeider</span>, for <span class='a-fontBold'>ADMIRAL AKBAR</span>. Lorem ipsum dolores sit amet",
 	"links": [
@@ -46,9 +58,9 @@
 		"data-target": "#eksempelID2",
 		"aria-expanded": false
 	},
-	"text-input-id": "text-input-1",
+	"text-input-id": "text-input-generic",
 	"text-input-label": "<span class=\"sr-only\">Finn klient</span>",
-	"text-input-placeholder": "Hvilken klient ser du etter?",
+	"text-input-placeholder": "Søk etter klient",
 	"input-type": "search",
 	"_commentStart": "--------------------------------------------------------------",
 	"_commentText": "OPTION 6: ICON IN LABEL - TRUE / FALSE",
@@ -68,7 +80,6 @@
 		"icon-class": "ai-closedmessage",
 		"icon-extra-class": ""
 	},
-	"isTransparent": true,
 	"checkbuttons": [
 		{
 			"checkbuttons-title": " Kun lese",
@@ -121,6 +132,7 @@
 			"checkbuttons-title": "Eksempel på deaktivert",
 			"checkbuttons-id": "checkbutton-deactivated",
 			"checkbuttons-class": "disabled",
+			"isDisabled": true,
 			"hasIcon": {
 				"icon-prefix": "ai",
 				"icon-class": "ai-sign"
@@ -276,7 +288,7 @@
 		"text-input-label": "",
 		"text-input-placeholder": "Finn skjema eller tjeneste",
 		"input-type": "search",
-		"isRequired": "",
+		"isRequired": false,
 		"isInput-group": "input-group",
 		"form-label-class": "input-group-addon",
 		"form-label-hasIcon": {
@@ -339,7 +351,7 @@
 				"text-input-label": "Fødselsnr/brukernavn:",
 				"text-input-placeholder": "11 siffer",
 				"input-type": "text",
-				"isRequired": "required",
+				"isRequired": true,
 				"extra-help": false,
 				"isHidden": "",
 				"isLarge": "",
@@ -358,7 +370,7 @@
 				"text-input-label": "Etternavn:",
 				"text-input-placeholder": "",
 				"input-type": "text",
-				"isRequired": "required",
+				"isRequired": true,
 				"margin-override": "mb-0",
 				"extra-help": false,
 				"isHidden": "",
@@ -406,7 +418,7 @@
 				"text-input-label": "Org.nr.:",
 				"text-input-placeholder": "",
 				"input-type": "text",
-				"isRequired": "required",
+				"isRequired": true,
 				"extra-help": false,
 				"isHidden": "",
 				"isLarge": "",
@@ -425,7 +437,7 @@
 				"text-input-label": "Navn:",
 				"text-input-placeholder": "Min. 4 første tegn",
 				"input-type": "text",
-				"isRequired": "required",
+				"isRequired": true,
 				"margin-override": "mb-0",
 				"extra-help": false,
 				"isHidden": "",
@@ -472,7 +484,7 @@
 				"text-input-label": "Brukernavn:",
 				"text-input-placeholder": "",
 				"input-type": "text",
-				"isRequired": "required",
+				"isRequired": true,
 				"extra-help": false,
 				"isHidden": "",
 				"isLarge": "",
@@ -492,7 +504,7 @@
 				"form-control-class": "a-js-orgNr",
 				"text-input-placeholder": "",
 				"input-type": "text",
-				"isRequired": "required",
+				"isRequired": true,
 				"margin-override": "mb-0",
 				"extra-help": false,
 				"isHidden": "",
@@ -929,9 +941,7 @@
 		"icon-class": "ai-server",
 		"icon-extra-class": "a-icon a-icon-circle"
 	},
-	"hasTextSmall": {
-		"textSmall": ""
-	},
+	"hasTextSmall": false,
 	"icontext": "Gi og fjerne rettigheter",
 	"delegation-email-header-text": {
 		"hasIcon": false,
@@ -939,13 +949,13 @@
 		"textSmall": "Liten tekst",
 		"icontext": "Stor tekst"
 	},
-	"delegation-email-text": "Oppgi epost for å motta status på filbehandlingen",
+	"delegation-email-text": "Vent litt... Vi mangler e-postadresse til den du gir rettighet til.<br />For å gjennomføre må du fylle inn e-post under.",
 	"delegation-email-field": {
 		"text-input-id": "text-input-8",
 		"text-input-label": "Epost:",
 		"text-input-placeholder": "f.eks post@karinordmann.no",
 		"input-type": "email",
-		"isRequired": "required",
+		"isRequired": true,
 		"extra-help": false,
 		"isHidden": "",
 		"isLarge": "",
@@ -985,6 +995,7 @@
 		"icon-class": "ai-private",
 		"icon-extra-class": "ai-3x a-personRole-icon"
 	},
+	"isTransparent": true,
 	"search-title": "Søk:",
 	"person-rolle": true,
 	"search-rights": true,
@@ -1192,13 +1203,15 @@
 		"collapse-header-title": "Har disse <span class='badge badge-primary a-label badge-pill'>3</span> klientene:",
 		"data-target": "exp-tab-table-existing-clients",
 		"collapse-header-contentID": "exp-tab-table-existing-clients",
-		"collapsed": false
+		"collapsed": false,
+		"aria-expanded-header": "true"
 	},
 	"new-clients-title": {
 		"collapse-header-title": "Kan få disse <span class='badge badge-primary a-label badge-pill'>5</span> klientene:",
 		"data-target": "exp-tab-table-new-clients",
 		"collapse-header-contentID": "exp-tab-table-new-clients",
-		"collapsed": false
+		"collapsed": false,
+		"aria-expanded-header": "true"
 	},
 	"existing-clients-table": {
 		"collapse-header-contentID": "exp-tab-table-existing-clients",
@@ -1714,7 +1727,7 @@
 			}
 		],
 		"header": {
-			"additional-classes": "a-list-header",
+			"additional-classes": "a-list-header a-bgGreyLight",
 			"columns": [
 				{
 					"tabable": false,
@@ -1723,10 +1736,18 @@
 				},
 				{
 					"additional-classes": "col-12 col-sm-7 col-md-4 col-lg-6 a-list-sortHeader a-clickable",
+					"tabable": true,
+					"role": "button",
 					"column-items": [
 						{
 							"column-text": {
 								"classes": "a-dropdownArrow"
+							}
+						},
+						{
+							"column-text": {
+								"classes": "sr-only",
+								"text": "sorter listen på"
 							}
 						},
 						{
@@ -1738,10 +1759,18 @@
 				},
 				{
 					"additional-classes": "col-3 hidden-sm-down a-list-sortHeader a-clickable",
+					"tabable": true,
+					"role": "button",
 					"column-items": [
 						{
 							"column-text": {
 								"classes": "a-dropdownArrow"
+							}
+						},
+						{
+							"column-text": {
+								"classes": "sr-only",
+								"text": "sorter listen på"
 							}
 						},
 						{
@@ -1794,6 +1823,12 @@
 						"column-items": [
 							{
 								"column-text": {
+									"classes": "sr-only",
+									"text": "Organisjonsnummer:"
+								}
+							},
+							{
+								"column-text": {
 									"classes": "a-js-sortValue",
 									"text": "916 689 780"
 								}
@@ -1810,8 +1845,9 @@
 									"link-url": "#",
 									"link-text": "<span class='hidden-xs-down'>Gi og fjerne rettigheter</span>",
 									"link-icon": false,
-									"data-target": "#existingCollapse1",
-									"data-parent": "existingClientsTable"
+									"data-target": "existingCollapse1",
+									"data-parent": "existingClientsTable",
+									"aria-expanded": "false"
 								}
 							}
 						]
@@ -1852,7 +1888,7 @@
 									"button-class": "a-btn-link collapsed",
 									"margin-right-multiplier": 3,
 									"data-toggle": "collapse",
-									"data-target": "#existingCollapse1",
+									"data-target": "existingCollapse1",
 									"data-parent": "existingClientsTable",
 									"aria-expanded": false
 								},
@@ -1957,6 +1993,12 @@
 						"column-items": [
 							{
 								"column-text": {
+									"classes": "sr-only",
+									"text": "Organisjonsnummer:"
+								}
+							},
+							{
+								"column-text": {
 									"classes": "a-js-sortValue",
 									"text": "948 469 316"
 								}
@@ -1973,8 +2015,9 @@
 									"link-url": "#",
 									"link-text": "<span class='hidden-xs-down'>Gi og fjerne rettigheter</span>",
 									"link-icon": false,
-									"data-target": "#existingCollapse2",
-									"data-parent": "existingClientsTable"
+									"data-target": "existingCollapse2",
+									"data-parent": "existingClientsTable",
+									"aria-expanded": "false"
 								}
 							}
 						]
@@ -2015,7 +2058,7 @@
 									"button-class": "a-btn-link collapsed",
 									"margin-right-multiplier": 3,
 									"data-toggle": "collapse",
-									"data-target": "#existingCollapse2",
+									"data-target": "existingCollapse2",
 									"data-parent": "existingClientsTable",
 									"aria-expanded": false
 								},
@@ -2120,6 +2163,12 @@
 						"column-items": [
 							{
 								"column-text": {
+									"classes": "sr-only",
+									"text": "Organisjonsnummer:"
+								}
+							},
+							{
+								"column-text": {
 									"classes": "a-js-sortValue",
 									"text": "999 157 033"
 								}
@@ -2136,8 +2185,9 @@
 									"link-url": "#",
 									"link-text": "<span class='hidden-xs-down'>Gi og fjerne rettigheter</span>",
 									"link-icon": false,
-									"data-target": "#existingCollapse3",
-									"data-parent": "existingClientsTable"
+									"data-target": "existingCollapse3",
+									"data-parent": "existingClientsTable",
+									"aria-expanded": "false"
 								}
 							}
 						]
@@ -2178,7 +2228,7 @@
 									"button-class": "a-btn-link collapsed",
 									"margin-right-multiplier": 3,
 									"data-toggle": "collapse",
-									"data-target": "#existingCollapse3",
+									"data-target": "existingCollapse3",
 									"data-parent": "existingClientsTable",
 									"aria-expanded": false
 								},
@@ -2762,7 +2812,7 @@
 			}
 		],
 		"header": {
-			"additional-classes": "a-list-header",
+			"additional-classes": "a-list-header a-bgGreyLight",
 			"columns": [
 				{
 					"tabable": false,
@@ -2771,10 +2821,18 @@
 				},
 				{
 					"additional-classes": "col-12 col-sm-7 col-md-4 col-lg-6 a-list-sortHeader a-clickable",
+					"tabable": true,
+					"role": "button",
 					"column-items": [
 						{
 							"column-text": {
 								"classes": "a-dropdownArrow"
+							}
+						},
+						{
+							"column-text": {
+								"classes": "sr-only",
+								"text": "sorter listen på"
 							}
 						},
 						{
@@ -2786,10 +2844,18 @@
 				},
 				{
 					"additional-classes": "col-3 hidden-sm-down a-list-sortHeader a-clickable",
+					"tabable": true,
+					"role": "button",
 					"column-items": [
 						{
 							"column-text": {
 								"classes": "a-dropdownArrow"
+							}
+						},
+						{
+							"column-text": {
+								"classes": "sr-only",
+								"text": "sorter listen på"
 							}
 						},
 						{
@@ -2843,6 +2909,12 @@
 						"column-items": [
 							{
 								"column-text": {
+									"classes": "sr-only",
+									"text": "Organisjonsnummer:"
+								}
+							},
+							{
+								"column-text": {
 									"classes": "a-js-sortValue",
 									"text": "916 689 780"
 								}
@@ -2859,8 +2931,9 @@
 									"link-url": "#",
 									"link-text": "<span class='hidden-xs-down'>Gi rettigheter</span>",
 									"link-icon": false,
-									"data-target": "#newCollapse1",
-									"data-parent": "newClientsTable"
+									"data-target": "newCollapse1",
+									"data-parent": "newClientsTable",
+									"aria-expanded": "false"
 								}
 							}
 						]
@@ -2901,7 +2974,7 @@
 									"button-class": "a-btn-link collapsed",
 									"margin-right-multiplier": 3,
 									"data-toggle": "collapse",
-									"data-target": "#newCollapse1",
+									"data-target": "newCollapse1",
 									"data-parent": "newClientsTable",
 									"aria-expanded": false
 								},
@@ -3004,6 +3077,12 @@
 						"column-items": [
 							{
 								"column-text": {
+									"classes": "sr-only",
+									"text": "Organisjonsnummer:"
+								}
+							},
+							{
+								"column-text": {
 									"classes": "a-js-sortValue",
 									"text": "999 157 033"
 								}
@@ -3020,8 +3099,9 @@
 									"link-url": "#",
 									"link-text": "<span class='hidden-xs-down'>Gi rettigheter</span>",
 									"link-icon": false,
-									"data-target": "#newCollapse2",
-									"data-parent": "newClientsTable"
+									"data-target": "newCollapse2",
+									"data-parent": "newClientsTable",
+									"aria-expanded": "false"
 								}
 							}
 						]
@@ -3062,7 +3142,7 @@
 									"button-class": "a-btn-link collapsed",
 									"margin-right-multiplier": 3,
 									"data-toggle": "collapse",
-									"data-target": "#newCollapse2",
+									"data-target": "newCollapse2",
 									"data-parent": "newClientsTable",
 									"aria-expanded": false
 								},
@@ -3165,6 +3245,12 @@
 						"column-items": [
 							{
 								"column-text": {
+									"classes": "sr-only",
+									"text": "Organisjonsnummer:"
+								}
+							},
+							{
+								"column-text": {
 									"classes": "a-js-sortValue",
 									"text": "915 897 983"
 								}
@@ -3181,8 +3267,9 @@
 									"link-url": "#",
 									"link-text": "<span class='hidden-xs-down'>Gi rettigheter</span>",
 									"link-icon": false,
-									"data-target": "#newCollapse3",
-									"data-parent": "newClientsTable"
+									"data-target": "newCollapse3",
+									"data-parent": "newClientsTable",
+									"aria-expanded": "false"
 								}
 							}
 						]
@@ -3223,7 +3310,7 @@
 									"button-class": "a-btn-link collapsed",
 									"margin-right-multiplier": 3,
 									"data-toggle": "collapse",
-									"data-target": "#newCollapse3",
+									"data-target": "newCollapse3",
 									"data-parent": "newClientsTable",
 									"aria-expanded": false
 								},
@@ -3326,6 +3413,12 @@
 						"column-items": [
 							{
 								"column-text": {
+									"classes": "sr-only",
+									"text": "Organisjonsnummer:"
+								}
+							},
+							{
+								"column-text": {
 									"classes": "a-js-sortValue",
 									"text": "963 179 715"
 								}
@@ -3342,8 +3435,9 @@
 									"link-url": "#",
 									"link-text": "<span class='hidden-xs-down'>Gi rettigheter</span>",
 									"link-icon": false,
-									"data-target": "#newCollapse4",
-									"data-parent": "newClientsTable"
+									"data-target": "newCollapse4",
+									"data-parent": "newClientsTable",
+									"aria-expanded": "false"
 								}
 							}
 						]
@@ -3384,7 +3478,7 @@
 									"button-class": "a-btn-link collapsed",
 									"margin-right-multiplier": 3,
 									"data-toggle": "collapse",
-									"data-target": "#newCollapse4",
+									"data-target": "newCollapse4",
 									"data-parent": "newClientsTable",
 									"aria-expanded": false
 								},
@@ -3487,6 +3581,12 @@
 						"column-items": [
 							{
 								"column-text": {
+									"classes": "sr-only",
+									"text": "Organisjonsnummer:"
+								}
+							},
+							{
+								"column-text": {
 									"classes": "a-js-sortValue",
 									"text": "963 179 715"
 								}
@@ -3503,8 +3603,9 @@
 									"link-url": "#",
 									"link-text": "<span class='hidden-xs-down'>Gi rettigheter</span>",
 									"link-icon": false,
-									"data-target": "#newCollapse5",
-									"data-parent": "newClientsTable"
+									"data-target": "newCollapse5",
+									"data-parent": "newClientsTable",
+									"aria-expanded": "false"
 								}
 							}
 						]
@@ -3545,7 +3646,7 @@
 									"button-class": "a-btn-link collapsed",
 									"margin-right-multiplier": 3,
 									"data-toggle": "collapse",
-									"data-target": "#newCollapse5",
+									"data-target": "newCollapse5",
 									"data-parent": "newClientsTable",
 									"aria-expanded": false
 								},
@@ -3839,6 +3940,7 @@
 			}
 		]
 	},
+	"is-link": false,
 	"target-table": "existingClientsTable",
 	"source-table": "newClientsTable"
 }

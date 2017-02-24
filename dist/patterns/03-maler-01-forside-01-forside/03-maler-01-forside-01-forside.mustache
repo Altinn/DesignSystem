@@ -1,7 +1,10 @@
+<!-- START: 03-maler-01-forside-01-forside -->
 <div class="a-page" id="smoothState">
   {{> organismer-header }} {{> molekyler-jumbotron }}
 
   <div class="container" tabindex="-1">
+
+    {{# information }} {{> atomer-varsel }} {{/ information }}
 
     <div class="row mt-4 mb-3">
       <div class="col-sm-8 offset-sm-2 col-lg-6 offset-lg-3">
@@ -31,14 +34,15 @@
     </div>
 
     <div class="row py-4">
-      <div class="col-sm-8 offset-sm-2 col-lg-6 offset-lg-3">
-        {{# list-didyouknow }}
-        <h2 class="a-h3">
-          {{{ list-header }}}
+      <div class="col-lg-8 offset-lg-2 a-articleList">
+        <h2 class="pb-2">
+          {{{ news-header }}}
         </h2>
-        {{> molekyler-liste-unummerert-ny }} {{/ list-didyouknow }}
+        {{# list-item }} {{> molekyler-lenketittel-med-forklaring }} {{/ list-item }} {{> atomer-link-fremhevet }}
       </div>
     </div>
   </div>
   {{> organismer-footer }}
 </div>
+
+<!-- END: 03-maler-01-forside-01-forside -->
