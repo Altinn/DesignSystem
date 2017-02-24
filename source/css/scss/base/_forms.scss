@@ -111,25 +111,19 @@ textarea {
 
   // Button right to input
   .input-group-btn {
-    position: absolute;
-    right: 0;
-    height: 100%;
+    border: 2px solid $blue;
+    border-left: none;
 
     .btn {
       width: $spacer * 4;
-      height: $spacer * 3;
+      height: 100%;
       padding: 0;
       padding-right: 6px;
       color: $black;
       text-align: right;
       cursor: pointer;
-      border: 2px solid $blue;
-      border-left: none;
+      border: none;
       transition: none;
-
-      &.inactive {
-        border: none;
-      }
 
       &:hover,
       &:active,
@@ -205,16 +199,19 @@ textarea {
     }
 
     .input-group-btn {
-      .btn-secondary {
-        // sass-lint:disable-block no-important
-        border-color: $red !important;
-      }
+      // sass-lint:disable-block no-important
+      border-color: $red !important;
     }
 
     // Input
     .form-control {
       // sass-lint:disable-block no-important
       border: 2px solid $red !important;
+
+      &.a-form-control-withBtn {
+        // sass-lint:disable-block no-important
+        border-right: none !important;
+      }
 
       &:hover,
       &:focus {
@@ -305,7 +302,9 @@ textarea {
 
     // input: Hide border left if there is a addon
     .form-control {
-      &::-ms-clear { //hide clear-cross from ie to prevent line height expansion
+      flex-direction: row;
+
+      &::-ms-reveal { //hide reveal in ie as this has a custom implementation
         width: 0;
         height: 0;
       }
@@ -338,12 +337,6 @@ textarea {
         z-index: 4;
         background-color: $white;
         border-color: $blue-dark;
-
-        .btn {
-          z-index: 4;
-          background-color: $white;
-          border-color: $blue-dark;
-        }
       }
     }
 
