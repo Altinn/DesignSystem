@@ -1,3 +1,4 @@
+// Hard-coded data, should be replaced with JSON
 var availableTags = [
   { label: '1. ACC Security level 2 MAG' },
   { label: '2. Corres test 250116' },
@@ -7,6 +8,7 @@ var availableTags = [
   { label: '6. Et veldig langt punkt i lista som bør gå over alle bredder og grenser, men samtidig oppføre seg riktig i layout. Se så lang tekst dette her er.' }
 ];
 
+// Hard-coded texts, should be replaced with custom strings
 var title = 'Vanligste skjema og tjenester i din organisasjon';
 var numberOfResultsLabel = ' treff. Bruk pil opp og pil ned for å navigere i resultatene.';
 var noResultsLabel = 'Ingen treff';

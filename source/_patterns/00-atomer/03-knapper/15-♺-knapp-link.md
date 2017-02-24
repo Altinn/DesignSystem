@@ -1,6 +1,6 @@
 ---
- state: indesignreview
- version: 1
+state: indesignreview
+version: 1
 ---
 NB: Dette er en variant av [knapp.mustache]
 

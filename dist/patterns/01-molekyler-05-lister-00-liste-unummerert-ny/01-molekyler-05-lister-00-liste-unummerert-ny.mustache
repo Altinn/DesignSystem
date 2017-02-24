@@ -1,20 +1,19 @@
-<ul class="a-list {{# is-large }} a-list-large {{/ is-large }} {{# additional-classes }}{{ additional-classes }}{{/ additional-classes }} {{ styleModifier }}" {{# list-id }} id="{{ list-id }}" {{/ list-id }}{{# selectable }} data-list-selectable="true"
-  {{/ selectable }}>
+<ul class="a-list {{# is-large }} a-list-large {{/ is-large }} {{# additional-classes }}{{ additional-classes }}{{/ additional-classes }} {{ styleModifier }}"{{# list-id }} id="{{ list-id }}"{{/ list-id }}{{# selectable }} data-list-selectable="true"{{/ selectable }}>
   {{# header }}
-  <li {{# onclick }} onclick="{{{ onclick }}}" {{/ onclick }} class="{{ additional-classes }}" {{# id }}id="{{ id }}" {{/ id }}>
-    <div class="row">
-      {{# columns }}
-      <div {{# additional-classes }}class="{{ additional-classes }}" {{/ additional-classes }}{{# onclick }} onclick="{{{ onclick }}}" {{/ onclick }}{{# tabable }} tabindex="0" {{/ tabable }}>
-        {{> molekyler-liste-innhold }}
-      </div>
-      {{/ columns }}
-    </div>
-  </li>
-  {{/ header }} {{# rows }}
-  <li {{# onclick }} onclick="{{{ onclick }}}" {{/ onclick }} class="{{ additional-classes }}" {{# id }}id="{{ id }}" {{/ id }} {{# tabable }} tabindex="0" {{/ tabable }}{{# target-table }} data-target-table="{{ target-table }}" {{/ target-table }}{{# source-table
-    }} data-source-table="{{ source-table }}" {{/ source-table }}{{# list-item-role }} role="{{ list-item-role }}" {{/ list-item-role }}>
-    {{# isRowLink }}
-    <a href="{{{ rowLink }}}" class="a-list-rowLink">
+    <li {{# onclick }} onclick="{{{ onclick }}}" {{/ onclick }} class="{{ additional-classes }}" {{# id }}id="{{ id }}"{{/ id }}>
+        <div class="row">
+          {{# columns }}
+            <div {{# additional-classes }}class="{{ additional-classes }}"{{/ additional-classes }}{{# onclick }} onclick="{{{ onclick }}}"{{/ onclick }}{{# tabable }} tabindex="0"{{/ tabable }}>
+              {{> molekyler-liste-innhold }}
+            </div>
+          {{/ columns }}
+        </div>
+    </li>
+  {{/ header }}
+  {{# rows }}
+    <li {{# onclick }} onclick="{{{ onclick }}}" {{/ onclick }} class="{{ additional-classes }}" {{# id }}id="{{ id }}"{{/ id }} {{# tabable }} tabindex="0"{{/ tabable }}{{# target-table }} data-target-table="{{ target-table }}"{{/ target-table }}{{# source-table }} data-source-table="{{ source-table }}"{{/ source-table }}{{# list-item-role }} role="{{ list-item-role }}" {{/ list-item-role }}>
+      {{# isRowLink }}
+      <a href="{{{ rowLink }}}" class="a-list-rowLink">
       {{/ isRowLink }}
       <div class="row">
         {{# columns }}
@@ -29,7 +28,8 @@
           </div>
       {{/ expandable-section }}
       {{# isRowLink }}
-      </a> {{/ isRowLink }}
+      </a>
+      {{/ isRowLink }}
     </li>
-    {{/ rows }}
-    </ul>
+  {{/ rows }}
+</ul>

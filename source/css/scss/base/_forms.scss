@@ -60,17 +60,13 @@ textarea {
     // sass-lint:disable-block no-important
     position: relative !important;
 
-    &.transparent {
-      input,
-      button,
-      .input-group-addon {
-        background-color: transparent;
-      }
+    input,
+    button,
+    .input-group-addon {
+      background-color: transparent;
     }
 
     &.inactive {
-      pointer-events: none;
-      cursor: default;
       opacity: 0.3;
     }
   }
@@ -95,7 +91,7 @@ textarea {
     @include a-fontSize16;
     @include a-fontReg;
     min-width: 0; // Need to set this to prevent Firefox from adding a default min-width to input fields
-    height: $spacer * 3;
+    min-height: $spacer * 3;
     padding: 2px $spacer 0 $spacer;
     margin-left: -$spacer / 12;
     color: $grey;
@@ -132,7 +128,7 @@ textarea {
       transition: none;
 
       &.inactive {
-        border-color: $black;
+        border: none;
       }
 
       &:hover,
@@ -291,12 +287,12 @@ textarea {
       @include a-fontReg;
       display: block;
       min-width: $spacer * 3;
-      height: $spacer * 3;
+      min-height: $spacer * 3;
       padding: 5px $spacer / 2 0 $spacer / 2;
       margin-bottom: 0;
       color: $black;
       text-align: left;
-      background-color: $white;
+      background-color: transparent;
       border: 2px solid $blue;
       border-right: none;
       border-radius: 0;
@@ -357,7 +353,8 @@ textarea {
       .form-control {
         color: $grey;
         background-color: $white;
-        background-image: url('../images/disabled-background.svg');
+        background-image: url($images-base-url + 'disabled-background.svg');
+
       }
 
       .input-group-addon {
@@ -367,6 +364,31 @@ textarea {
 
       // Input
       .form-control {
+        border: 2px solid $grey-medium;
+        border-left: none;
+      }
+    }
+
+    // Inactive input
+    &.inactive {
+      .input-group-addon,
+      .form-control {
+        color: $grey;
+        background-color: $white;
+      }
+
+      .input-group-addon {
+        border: 2px solid $grey-medium;
+        border-right: none;
+      }
+
+      // Input
+      .form-control {
+        border: 2px solid $grey-medium;
+        border-left: none;
+      }
+
+      .input-group-btn {
         border: 2px solid $grey-medium;
         border-left: none;
       }
@@ -381,7 +403,7 @@ textarea {
         // sass-lint:disable-block no-important
         color: $black !important;
         background-color: $green-lighten;
-        background-image: url('../images/approved-background.svg');
+        background-image: url($images-base-url + 'approved-background.svg');
         border: none !important;
       }
     }
@@ -441,12 +463,17 @@ textarea {
   color: $blue-darker;
 }
 
-
 /*------------------------------------*\
  * FORM CHECKBOXES
 \*------------------------------------*/
 
 .a-form-checkboxes {
+  label {
+    span {
+      display: block;
+    }
+  }
+
   p {
     display: inline;
     margin-left: $spacer;
@@ -477,7 +504,7 @@ textarea {
     >input {
       &:checked~.custom-control-indicator {
         background-color: $white;
-        background-image: url('../images/checkbox-checked.svg');
+        background-image: url($images-base-url + 'checkbox-checked.svg');
         background-size: 100%;
       }
 
@@ -667,7 +694,6 @@ textarea {
   background-color: $grey-light;
 }
 
-
 /*------------------------------------*\
  * Postal code
 \*------------------------------------*/
@@ -723,7 +749,7 @@ textarea {
           &.disabled {
             padding: 8px 18px;
             background-color: $white;
-            background-image: url('../images/disabled-background.svg');
+            background-image: url($images-base-url + 'disabled-background.svg');
             border: none;
           }
 
@@ -777,11 +803,11 @@ textarea {
   }
 
   .a-switch-label {
-    @extend .a-fontSizeXXS;
+    @extend .a-fontSizeXS;
     @include a-fontReg;
     max-width: 100%;
     height: $spacer * 3;
-    padding: $spacer / 2 $spacer 0 $spacer;
+    padding: 4px $spacer 0 $spacer;
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;

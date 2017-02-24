@@ -5,22 +5,22 @@
 // --------------------------------------------------
 @font-face {
   font-family: 'DIN-light';
-  src: url('https://www.altinn.no/ui/fonts/DINWeb-Light.woff');
+  src: url($font-url-start + 'DINWeb-Light.woff');
 }
 
 @font-face {
   font-family: 'DIN-reg';
-  src: url('https://www.altinn.no/ui/fonts/DINWeb.woff');
+  src: url($font-url-start + 'DINWeb.woff');
 }
 
 @font-face {
   font-family: 'DIN-medium';
-  src: url('https://www.altinn.no/ui/fonts/DINWeb-Medium.woff');
+  src: url($font-url-start + 'DINWeb-Medium.woff');
 }
 
 @font-face {
   font-family: 'DIN-bold';
-  src: url('https://www.altinn.no/ui/fonts/DINWeb-Bold.woff');
+  src: url($font-url-start + 'DINWeb-Bold.woff');
 }
 
 // FONT FAMILY & WEIGHT
@@ -44,6 +44,15 @@
   font-weight: $font-weight-bold;
 }
 
+button,
+input,
+optgroup,
+select,
+textarea {
+  font-family: $font-reg;
+  font-weight: $font-weight-reg;
+}
+
 // --------------------------------------------------
 //  FONT SIZING
 // --------------------------------------------------
@@ -54,19 +63,18 @@ $default-font-smoothing: subpixel-antialiased !default;
 
 // Function to convert pixels to rems
 @function px-to-rem($size) {
-  @return ($size / 10) + rem;
+  @return ($size / 10);
 }
 
 // Mixin
 // sass-lint:disable-all
-@mixin font-size($fs: false, $lh: $default-line-height, $sm: $default-font-smoothing ) {
+@mixin font-size($fs: false, $sm: $default-font-smoothing) {
   @if $fs {
     font-size: $fs  + px;
-    font-size: px-to-rem($fs);
+    font-size: px-to-rem($fs) + rem;
   }
-  @if $lh {
-    line-height: px-to-rem($lh);
-  }
+  line-height: $default-line-height;
+
   @if $sm {
     -webkit-font-smoothing: $sm;
   }
@@ -83,59 +91,59 @@ $default-font-smoothing: subpixel-antialiased !default;
 // --------------------------------------------------
 
 @mixin a-fontSize10 {
-  @include font-size($fs: 10, $sm: subpixel-antialiased, $lh: 16);
+  @include font-size($fs: 10, $sm: subpixel-antialiased);
 }
 
 @mixin a-fontSize12 {
-  @include font-size($fs: 12, $sm: subpixel-antialiased, $lh: 18);
+  @include font-size($fs: 12, $sm: subpixel-antialiased);
 }
 
 @mixin a-fontSize14 {
-  @include font-size($fs: 14, $sm: subpixel-antialiased, $lh: 20);
+  @include font-size($fs: 14, $sm: subpixel-antialiased);
 }
 
-@mixin a-fontSize16 {
-  @include font-size($fs: 16, $sm: subpixel-antialiased, $lh: 24);
+@mixin a-fontSize16 ($is-input: false) {
+  @include font-size($fs: 16, $sm: subpixel-antialiased);
 }
 
 @mixin a-fontSize18 {
-  @include font-size($fs: 18, $sm: subpixel-antialiased, $lh: 26);
+  @include font-size($fs: 18, $sm: subpixel-antialiased);
 }
 
-@mixin a-fontSize20 {
-  @include font-size($fs: 20, $sm: subpixel-antialiased, $lh: 28);
+@mixin a-fontSize20 ($is-input: false) {
+  @include font-size($fs: 20, $sm: subpixel-antialiased);
 }
 
 @mixin a-fontSize22 {
-  @include font-size($fs: 22, $sm: subpixel-antialiased, $lh: 30);
+  @include font-size($fs: 22, $sm: subpixel-antialiased);
 }
 
-@mixin a-fontSize24 {
-  @include font-size($fs: 24, $sm: subpixel-antialiased, $lh: 32);
+@mixin a-fontSize24($is-input: false) {
+  @include font-size($fs: 24, $sm: subpixel-antialiased);
 }
 
 @mixin a-fontSize28 {
-  @include font-size($fs: 28, $sm: subpixel-antialiased, $lh: 36);
+  @include font-size($fs: 28, $sm: subpixel-antialiased);
 }
 
 @mixin a-fontSize30 {
-  @include font-size($fs: 30, $sm: subpixel-antialiased, $lh: 38);
+  @include font-size($fs: 30, $sm: subpixel-antialiased);
 }
 
 @mixin a-fontSize32 {
-  @include font-size($fs: 32, $sm: subpixel-antialiased, $lh: 40);
+  @include font-size($fs: 32, $sm: subpixel-antialiased);
 }
 
 @mixin a-fontSize36 {
-  @include font-size($fs: 36, $sm: subpixel-antialiased, $lh: 44);
+  @include font-size($fs: 36, $sm: subpixel-antialiased);
 }
 
 @mixin a-fontSize48 {
-  @include font-size($fs: 48, $sm: subpixel-antialiased, $lh: 60);
+  @include font-size($fs: 48, $sm: subpixel-antialiased);
 }
 
 @mixin a-fontSize60 {
-  @include font-size($fs: 60, $sm: subpixel-antialiased, $lh: 70);
+  @include font-size($fs: 60, $sm: subpixel-antialiased);
 }
 
 
