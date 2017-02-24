@@ -1,5 +1,5 @@
 ---
- state: indesignreview
- version: 0
+state: indesignreview
+version: 1
 ---
 Innholdet til modal klientdelegering på fil.

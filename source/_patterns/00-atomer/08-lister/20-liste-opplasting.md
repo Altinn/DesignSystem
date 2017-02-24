@@ -1,5 +1,6 @@
 ---
- state: indesignreview
- version: 0
+state: indesignreview
+version: 1
+js: fileInputHandler.js
 ---
 Liste med ikon på høyre side

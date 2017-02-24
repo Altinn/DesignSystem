@@ -3,18 +3,15 @@
   handleFocus,
   mobileNavigation,
   propagateContent,
-  toggleExpand,
   toggleFilter,
   uniformHeight,
   tooltip,
   popover,
-  aTagSpaceExpand,
   initializeDatepicker,
   onboarding,
   nameChecker,
   codeLookup,
   handleValidatorLibrary,
-  defaultSort,
   setupAddRightsHandler,
   onFileInputChange,
   toggleInstant,
@@ -30,7 +27,6 @@
 
 window.sharedInit = function() {
   addListExpandHandler();
-  aTagSpaceExpand();
   setupOnKeypress();
   handleFocus();
   initializeDatepicker();
@@ -38,7 +34,6 @@ window.sharedInit = function() {
   mobileNavigation();
   popover();
   propagateContent();
-  toggleExpand();
   toggleFilter();
   tooltip();
   toggleInstant();

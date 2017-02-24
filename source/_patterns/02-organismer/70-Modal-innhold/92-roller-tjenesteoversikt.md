@@ -1,6 +1,6 @@
 ---
- state: indesignreview
- version: 0
+state: indesignreview
+version: 0
 ---
 
 Modal innhold for hvilke tjenester roller gir.

@@ -288,7 +288,7 @@
 
 // add btn
 .a-btn-action {
-  padding: $spacer / 3 $spacer * 2 $spacer / 3 $spacer;
+  padding: $spacer / 2 $spacer * 2 $spacer / 3 $spacer;
   color: $black;
   text-align: left;
   vertical-align: middle;
@@ -302,6 +302,16 @@
     color: $black;
     background: $blue-light;
     border: 2px dotted $blue;
+  }
+
+  &:not(.a-fullWidthBtn) {
+    span {
+      margin-left: $spacer;
+    }
+
+    i + span {
+      margin-left: 0;
+    }
   }
 }
 
@@ -514,7 +524,7 @@
       line-height: $spacer * 3-4px;
       text-align: center;
       cursor: pointer;
-      background-color: $grey-light;
+      background-color: transparent;
     }
   }
 }
@@ -572,4 +582,17 @@
   color: $white;
   background: none;
   border: none;
+}
+
+.a-link-helpfunction {
+  display: flex;
+  justify-content: center;
+
+  div {
+    text-align: left;
+
+    &.a-link-helpfunction-text {
+      margin-left: $spacer;
+    }
+  }
 }

@@ -1,6 +1,7 @@
 ---
- state: indesignreview
- version: 1
+state: indesignreview
+version: 1
+js: altinnModal.js
 ---
 
 Modal-komponenten er laget som en utvidelse av Bootstrap modaler, og muliggjør navigering mellom sider i en modal.
@@ -38,4 +39,3 @@ For å lukke en modal:
 
 Direkte i javascript:
 `closeModal('#minModal')`
-
