@@ -152,12 +152,10 @@ var drilldownInteraction = function() {
     }
   }
   window.drillDownGetSource = function(str) {
-    var url = function() {
-      if (window.location.hostname === 'localhost') {
-        return ('../../../' + str + '.json');
-      }
-      return ('http://altinn-dev.dev.bouvet.no/api/' + str);
-    };
+    var url = [
+      'http://altinn-dev.dev.bouvet.no/api/' + str,
+      '../../../' + str + '.json'
+    ];
     var act2 = function(event) {
       whenClick(event);
       return false;
@@ -194,7 +192,7 @@ var drilldownInteraction = function() {
       movedDuringTouch = true;
       event.stopPropagation();
     };
-    $.getJSON(url(), function(data) {
+    var afterRequest = function(data) {
       var depth = 3;
       var markup = '';
       data.forEach(function(item) {
@@ -310,6 +308,18 @@ var drilldownInteraction = function() {
               whenClick($(this), true);
             }.bind(this), 250);
           }
+        });
+      }
+    };
+    $.ajax({
+      type: 'GET',
+      url: url[0],
+      success: function(data) {
+        afterRequest(data);
+      },
+      error: function() {
+        $.getJSON(url[1], function(data) {
+          afterRequest(data);
         });
       }
     });
