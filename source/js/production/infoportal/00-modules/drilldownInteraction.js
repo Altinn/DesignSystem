@@ -133,8 +133,22 @@ var drilldownInteraction = function() {
     });
     if ($('.a-colnav-firstLevel').hasClass('stacked')) {
       $('.a-js-backButton').show();
+      if (isSmall) {
+        $('.switch-container').hide();
+        $('.a-containerColnav-top').css('padding-bottom', '0px');
+        $('.a-js-backButton').css('margin-top', '-3px');
+        $('.a-js-colnavTitleBold').text('');
+        $('.a-js-colnavTitleRegular').text(text);
+      }
     } else {
       $('.a-js-backButton').hide();
+      if (isSmall) {
+        $('.switch-container').show();
+        $('.a-containerColnav-top').css('padding-bottom', '24px');
+        $('.a-js-backButton').css('margin-top', '0px');
+        $('.a-js-colnavTitleBold').text('X');
+        $('.a-js-colnavTitleRegular').text('skjemaer');
+      }
     }
   }
   window.drillDownGetSource = function(str) {
