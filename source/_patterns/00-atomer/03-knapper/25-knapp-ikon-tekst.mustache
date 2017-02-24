@@ -4,8 +4,15 @@
     {{> atomer-ikon }}
   {{/ button-icon }}
 
+  {{# button-dot }}
+    <span class="a-dot {{dot-color}}"></span>
+  {{/ button-dot }}
+
 	<span class="a-btn-icon-text {{{ button-textClass }}}">
   	{{{ button-text }}}
+    {{# button-text-second }}
+      <span class="a-btn-icon-text-second">{{{button-text-second}}}</span>
+    {{/ button-text-second }}
 	</span>
 
 	{{# button-shadow-label }}
@@ -13,3 +20,24 @@
 	{{/ button-shadow-label }}
 
 </button>
+
+{{# button-sub }}
+
+  <button data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample" type="button" class="{{{ button-class }}} {{{ button-colorClass }}} {{ styleModifier }}" onclick="location.href='{{{ link-url }}}';">
+
+    {{# button-icon }}
+      {{> atomer-ikon }}
+    {{/ button-icon }}
+
+    <span class="a-btn-icon-text {{{ button-textClass }}}">
+    	{{{ button-text }}}
+  	</span>
+
+  </button>
+
+  <div  class="a-collapseContent collapse show" role="tabpanel" aria-expanded="true">
+
+    Ekspanderbart
+
+  </div>
+{{/ button-sub }}

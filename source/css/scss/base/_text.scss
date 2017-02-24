@@ -204,10 +204,23 @@ h1 {
   display: -webkit-box;
 
   /* fallback */
-  max-height: 62px;
+  max-height: 74px;
   overflow: hidden;
-  // TODO: Disable linting for special case line heights
-  line-height: 21px;
+  text-overflow: ellipsis;
+
+  /* number of lines to show */
+  -webkit-box-orient: vertical;
+
+  /* fallback */
+  -webkit-line-clamp: 3;
+}
+
+.a-maxTwoLines {
+  display: -webkit-box;
+
+  /* fallback */
+  max-height: 48px;
+  overflow: hidden;
   text-overflow: ellipsis;
 
   /* number of lines to show */
@@ -234,7 +247,7 @@ h1 {
   @include a-fontReg;
 
   &::before {
-    @include a-fontSize24;
+    @include a-fontSize30;
     display: inline-block;
     margin-right: 4px;
     text-decoration: none;
