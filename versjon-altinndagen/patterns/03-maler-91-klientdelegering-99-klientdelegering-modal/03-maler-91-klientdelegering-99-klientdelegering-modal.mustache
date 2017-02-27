@@ -1,0 +1,35 @@
+<span class="a-scene a-page" id="smoothState">
+  <div class="a-modal fade in {{ bodyClass }}" id="{{ modal-id }}" tabindex="-1" role="dialog" aria-labelledby="{{ modal-label }}" aria-hidden="true">
+    <div class="modal-dialog modal-lg" role="document">
+      <div class="container">
+        {{> molekyler-modal-header }}
+        {{# modal-navbar-override }}
+          {{> molekyler-modal-navbar }}
+        {{/ modal-navbar-override }}
+        <span class="a-right-panel a-page a-scene_element">
+          <div class="modal-content">
+            {{> molekyler-modal-body-header }}
+            <div class="modal-body a-modal-body">
+              {{# show-remove-rights }}
+                {{> organismer-klientdelegering-fjern-rettigheter }}
+              {{/ show-remove-rights }}
+              {{# show-success-receipt }}
+                {{> organismer-klientdelegering-ferdig }}
+              {{/ show-success-receipt }}
+              {{# show-add-employee }}
+                <div class="p-y-2">
+                  {{> organismer-klientdelegering-legg-til }}
+                </div>
+              {{/ show-add-employee }}
+              {{# show-add-rights }}
+                <div>
+                  {{> organismer-klientdelegering-gi-rettigheter }}
+                </div>
+              {{/ show-add-rights}}
+            </div>
+          </div>
+        </span>
+      </div>
+    </div>
+  </div>
+</span>

@@ -1,0 +1,42 @@
+<!-- Begin #a-dropdown-personswitchList - -->
+<div class="dropdown-menu {{{ dropdown-class }}} a-dropdownTriangle">
+
+  <div class="p-t-4 p-l-3 p-r-3">
+
+    {{> atomer-link(link-class: "a-link a-link-logout", link-text: "Logg ut", link-url: "/patterns/04-sider-01-forside-00-forside/04-sider-01-forside-00-forside.html") }}
+
+    <div class="row">
+      <div class="col-sm-12 m-b-2">
+        {{> molekyler-person-privat }}
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-sm-12 m-b-2 a-p-l-5andhalf">
+        {{> atomer-link(link-class: "a-link", link-text: "Innstillinger og profil") }}
+      </div>
+    </div>
+
+    <p class="a-textSize4">
+        Andre du kan representere:
+    </p>
+
+    {{# personswitch-search }}
+      {{> atomer-tekst-input }}
+    {{/ personswitch-search }}
+
+  </div>
+
+  <div class="p-t-1 p-l-1 p-r-1">
+
+    {{# personswitch-persons }}
+      {{> atomer-knapp-ikon-tekst }}
+    {{/ personswitch-persons }}
+
+    {{# loadmore }}
+      {{> atomer-knapp-ikon-tekst }}
+    {{/ loadmore }}
+
+  </div>
+
+</div>
