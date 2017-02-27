@@ -11,6 +11,7 @@ if ($('.a-js-personSwitcherTriggerOutside').length > 0) {
   });
   $('.a-js-loadMorePersonSwitcherInfo').next().hide();
   $('.a-js-loadMorePersonSwitcherInfo').on('click', function() {
+    $('.a-dropdown-personswitchList').addClass('a-dropdown-fullWidth');
     $(this).next().show();
     setTimeout(function() {
       $('.a-dropdown-personswitchList')
