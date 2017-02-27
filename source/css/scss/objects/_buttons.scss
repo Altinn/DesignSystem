@@ -143,8 +143,9 @@
 
 // BTN WITH ICON
 .a-btn-icon {
+  display: flex;
   width: 100%;
-  height: $spacer * 5;
+  min-height: $spacer * 5;
   text-align: left;
   background: transparent;
 
@@ -153,6 +154,14 @@
     color: $blue;
     background: transparent;
 	}
+
+  i {
+    align-self: center;
+  }
+
+  .a-btn-icon-text {
+    align-self: center;
+  }
 
   .a-btn-icon-symbol {
     // @include a-fontSize22;
@@ -193,7 +202,7 @@
     // @include a-fontSize18;
     display: inline-flex;
     width: $spacer * 3;
-    height: $spacer * 3;
+    min-height: $spacer * 3;
     padding: 0;
     color: $white;
     background: $blue;
@@ -239,6 +248,22 @@
     &:focus,
     &:hover {
       background: darken( $grey-light, 5% );
+    }
+  }
+
+  .a-dot {
+    &::before {
+      margin-top: -7px;
+    }
+  }
+
+  &.a-btn-shadow-more {
+    @include a-fontSize16;
+    padding-top: $spacer * 1.5;
+    padding-bottom: $spacer * 1.5;
+
+    .a-btn-icon-text-second {
+      display: block;
     }
   }
 
