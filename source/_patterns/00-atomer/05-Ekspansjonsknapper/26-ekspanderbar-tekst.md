@@ -1,4 +1,5 @@
 ---
- state: complete
- version: 0
+state: complete
+version: 1
+js: toggleFilter.js
 ---

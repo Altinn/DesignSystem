@@ -1,5 +1,5 @@
 ---
- state: complete
- version: 0
+state: complete
+version: 0
 ---
 Vanlig avsnitt.

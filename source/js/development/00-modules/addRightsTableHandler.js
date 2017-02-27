@@ -1,5 +1,5 @@
-/* globals defaultSort */
-
+/* globals defaultListSort */
+// prototype only
 var moveRowToTable = function(tableId, $row, rowCopiedClass) {
   var $rowCopy = $row.clone();
   var $existingRowCopy = $('#copy-' + $row.attr('id'));
@@ -29,7 +29,7 @@ var moveRowToTable = function(tableId, $row, rowCopiedClass) {
   $rowCopy.attr('id', 'copy-' + $row.attr('id'));
   $('#' + $rowCopy.attr('id') + ' .a-js-removeMe').remove();
 
-  defaultSort();
+  defaultListSort();
 };
 
 var setupAddRightsHandler = function() {

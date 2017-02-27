@@ -1,3 +1,4 @@
+// for PatternLab only
 var addListExpandHandler = function() {
   $('.a-list *[data-toggle="collapse"]').on('click', function() {
     // This script runs before the bootstrap collapse handler, so the collapsed-class will still be

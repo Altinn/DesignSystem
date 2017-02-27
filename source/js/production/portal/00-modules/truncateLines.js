@@ -11,6 +11,7 @@ var truncateToNumberOfLines = function(element) {
   }
 };
 
+// adds ellipsis for text that spans over two lines
 var truncateBoxButtonNames = function() {
   $('.a-box-button').on('click', function() {
     $('.a-box-button-name').each(function() {

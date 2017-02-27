@@ -1,6 +1,6 @@
 ---
- state: indesignreview
- version: 1
+state: indesignreview
+version: 1
 ---
 
 Innhold til ekspanderbart panel for innloggingsinformasjon.
