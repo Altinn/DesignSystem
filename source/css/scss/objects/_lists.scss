@@ -712,7 +712,7 @@ ol {
     @include a-fontSize16;
     padding-left: 30px;
     margin-top: -$spacer;
-    background: $blue;
+    background: darken( $blue-light, 5% );
 
     &.collapsed {
       background: $blue-light;
@@ -735,13 +735,17 @@ ol {
     z-index: 4;
     margin-top: -12px;
     margin-bottom: 12px;
+
+    &.a-bgBlueLight {
+      &:hover {
+        background: darken( $blue-light, 5% );
+      }
+    }
   }
 
   .a-list {
-    li > {
-      .row {
-        padding-left: 80px;
-      }
+    .a-list-rowLink {
+      padding-left: 80px;
     }
   }
 }
