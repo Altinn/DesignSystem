@@ -650,7 +650,7 @@ window.sharedInit = function() {
   toggleFilter();
   tooltip();
   toggleInstant();
-  articleAnchors();
+  // articleAnchors();
   feedbackToggle();
 };
 window.sharedInit();
