@@ -7920,6 +7920,10 @@ h1 .a-label {
     content: '\2022'; }
   .a-dot.a-dot-red::before {
     color: #E23B53; }
+  .a-dot.a-dot-green::before {
+    color: #17C96B; }
+  .a-dot.a-dot-blue::before {
+    color: #1EAEF7; }
 
 /*------------------------------------*    $MEDIA ELEMENTS
 \*------------------------------------*/
@@ -8745,6 +8749,14 @@ textarea {
 .row:focus {
   box-shadow: none !important; }
 
+.a-js-hidden {
+  display: none; }
+
+.a-js-loadMorePersonSwitcherInfo + .a-logo-anim {
+  margin-right: auto;
+  margin-bottom: -15px;
+  margin-left: auto; }
+
 /*------------------------------------*    $HEADER
 \*------------------------------------*/
 .a-header {
@@ -8778,6 +8790,8 @@ textarea {
       .a-header .a-dropdown-languages,
       .a-header .a-dropdown-personswitchList {
         width: 420px; } }
+  .a-header .a-dropdown-fullWidth {
+    width: 100% !important; }
   .a-header .a-dropdown-languages {
     right: -90px;
     padding: 0; }
@@ -8806,7 +8820,7 @@ textarea {
     @media (min-width: 768px) {
       .a-header .a-dropdown-personswitchList {
         top: 55px;
-        right: -24px;
+        right: 0 !important;
         width: 420px; } }
     .a-header .a-dropdown-personswitchList.a-dropdownTriangle::after {
       right: 1px;
@@ -10821,13 +10835,17 @@ textarea {
   align-items: center; }
   .a-personRole .a-personRole-icon {
     float: left;
-    padding-right: 12px;
+    padding-right: 6px;
     margin-top: 0;
     color: #000000; }
   .a-personRole .a-personRole-icon-success {
     float: left;
     padding-right: 7px;
     color: #17C96B; }
+  .a-personRole .a-dot {
+    margin-top: -6px;
+    -ms-flex-item-align: start;
+    align-self: flex-start; }
   .a-personRole .a-personRole-text {
     float: left; }
     .a-personRole .a-personRole-text .a-personRole-role {
@@ -11474,7 +11492,8 @@ ol {
     font-family: "DIN-reg";
     font-weight: normal;
     background-color: #FFDA06;
-    border: none; }
+    border: none;
+    padding: 6px 9px 4px 10px; }
 
 /*------------------------------------*    Unordered list with icons
 \*------------------------------------*/
@@ -11492,6 +11511,38 @@ ol {
     vertical-align: middle; }
   .a-icon-list b {
     padding-right: 5px; }
+
+/*------------------------------------*    Expandable list with button and sublevels
+\*------------------------------------*/
+.a-listWithSubLevels .a-btn-shadow-expand {
+  font-size: 16px;
+  font-size: 1.6rem;
+  line-height: 1.5;
+  -webkit-font-smoothing: subpixel-antialiased;
+  padding-left: 30px;
+  margin-top: -12px;
+  background: #1EAEF7; }
+  .a-listWithSubLevels .a-btn-shadow-expand.collapsed {
+    background: #CFF0FF; }
+  .a-listWithSubLevels .a-btn-shadow-expand .a-dropdownCircleArrow {
+    width: 24px;
+    min-width: 24px;
+    height: 24px;
+    margin-right: 24px; }
+    .a-listWithSubLevels .a-btn-shadow-expand .a-dropdownCircleArrow::before {
+      font-size: 24px;
+      font-size: 2.4rem;
+      line-height: 1.5;
+      -webkit-font-smoothing: subpixel-antialiased; }
+
+.a-listWithSubLevels .a-collapseContent {
+  position: relative;
+  z-index: 4;
+  margin-top: -12px;
+  margin-bottom: 12px; }
+
+.a-listWithSubLevels .a-list li > .row {
+  padding-left: 80px; }
 
 /*------------------------------------*    Diverse - Flyttes??
 \*------------------------------------*/
@@ -13555,6 +13606,10 @@ html.a-modal-background-error {
   background-repeat: repeat;
   background-size: 13%;
   background-blend-mode: multiply; }
+
+/* Shadown */
+.a-shadow {
+  box-shadow: 1px 1px 4px 0 rgba(137, 137, 137, 0.5); }
 
 /* Text colors */
 .a-textGreen {
