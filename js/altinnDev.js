@@ -1455,7 +1455,8 @@ var uniformHeight = function() {
   genericSearch,
   handleValidatorLibrary,
   questionnaireInteraction,
-  uniformHeight
+  uniformHeight,
+  articleAnchors
 */
 window.infoportalInit = function() {
   drilldownInteraction();
@@ -1464,6 +1465,7 @@ window.infoportalInit = function() {
   handleValidatorLibrary();
   questionnaireInteraction();
   uniformHeight();
+  articleAnchors();
 };
 window.infoportalInit();
 // $(document).foundation();
@@ -2409,7 +2411,6 @@ var tooltip = function() {
   setupOnKeypress,
   genericSearch,
   toggleInstant,
-  articleAnchors,
   feedbackToggle */
 
 window.sharedInit = function() {
@@ -2424,7 +2425,6 @@ window.sharedInit = function() {
   toggleFilter();
   tooltip();
   toggleInstant();
-  articleAnchors();
   feedbackToggle();
 };
 window.sharedInit();
