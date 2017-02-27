@@ -39,7 +39,7 @@ if ($('.a-js-personSwitcherTriggerOutside').length > 0) {
         ) {
         $('.a-js-loadMorePersonSwitcherInfo').hide();
       }
-    }, 500);
+    }, 1500);
   });
   $('.a-dropdown-personswitchList').find('.a-listWithSubLevels').find('button')
     .each(function(index, item) {
