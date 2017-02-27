@@ -1,6 +1,9 @@
 if ($('.a-js-personSwitcherTriggerOutside').length > 0) {
   $('.a-dropdown-personswitchList').hide();
   $('.a-js-personSwitcherTriggerOutside').on('click', function() {
+    if ($('.a-globalNav-main').hasClass('show')) {
+      $('.navbar-toggler').trigger('click');
+    }
     $('.a-page').children().not('header').removeClass('a-js-hidden');
     setTimeout(function() {
       if (!$('.a-dropdown-personswitchList').is(':visible')) {
