@@ -1,6 +1,7 @@
 if ($('.a-js-personSwitcherTriggerOutside').length > 0) {
   $('.a-dropdown-personswitchList').hide();
   $('.a-js-personSwitcherTriggerOutside').on('click', function() {
+    $('.a-page').children().not('header').removeClass('a-js-hidden');
     setTimeout(function() {
       if (!$('.a-dropdown-personswitchList').is(':visible')) {
         $('.a-dropdown-personswitchList').show();
@@ -9,9 +10,18 @@ if ($('.a-js-personSwitcherTriggerOutside').length > 0) {
       }
     }, 0);
   });
+  $('body').on('mouseup', function(e) {
+    if ($(e.target).closest('.a-dropdown-personswitchList').length === 0 &&
+      $(e.target).closest('.a-js-personSwitcherTriggerOutside').length === 0) {
+      if ($('.a-dropdown-personswitchList').is(':visible')) {
+        $('.a-dropdown-personswitchList').hide();
+      }
+    }
+  });
   $('.a-js-loadMorePersonSwitcherInfo').next().hide();
   $('.a-js-loadMorePersonSwitcherInfo').on('click', function() {
     $('.a-dropdown-personswitchList').addClass('a-dropdown-fullWidth');
+    $('.a-page').children().not('header').addClass('a-js-hidden');
     $(this).next().show();
     setTimeout(function() {
       $('.a-dropdown-personswitchList')
