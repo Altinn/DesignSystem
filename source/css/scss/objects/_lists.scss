@@ -666,6 +666,7 @@ ol {
 
         background-color: $yellow;
         border: none;
+        padding: 6px 9px 4px 10px;
       }
     }
   }
@@ -699,6 +700,44 @@ ol {
 
   b {
     padding-right: 5px;
+  }
+}
+
+/*------------------------------------*\
+    Expandable list with button and sublevels
+\*------------------------------------*/
+
+.a-listWithSubLevels {
+  .a-btn-shadow-expand {
+    @include a-fontSize16;
+    padding-left: 30px;
+    margin-top: -$spacer;
+
+    .a-dropdownCircleArrow {
+      width: 24px;
+      min-width: 24px;
+      height: 24px;
+      margin-right: 24px;
+
+      &::before {
+        @include a-fontSize24;
+      }
+    }
+  }
+
+  .a-collapseContent {
+    position: relative;
+    z-index: 4;
+    margin-top: -12px;
+    margin-bottom: 12px;
+  }
+
+  .a-list {
+    li > {
+      .row {
+        padding-left: 80px;
+      }
+    }
   }
 }
 
