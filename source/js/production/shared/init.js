@@ -22,7 +22,6 @@
   setupOnKeypress,
   genericSearch,
   toggleInstant,
-  articleAnchors,
   feedbackToggle */
 
 window.sharedInit = function() {
@@ -37,7 +36,6 @@ window.sharedInit = function() {
   toggleFilter();
   tooltip();
   toggleInstant();
-  articleAnchors();
   feedbackToggle();
 };
 window.sharedInit();

@@ -4,7 +4,8 @@
   genericSearch,
   handleValidatorLibrary,
   questionnaireInteraction,
-  uniformHeight
+  uniformHeight,
+  articleAnchors
 */
 window.infoportalInit = function() {
   drilldownInteraction();
@@ -13,6 +14,7 @@ window.infoportalInit = function() {
   handleValidatorLibrary();
   questionnaireInteraction();
   uniformHeight();
+  articleAnchors();
 };
 window.infoportalInit();
 // $(document).foundation();
