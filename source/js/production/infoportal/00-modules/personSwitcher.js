@@ -1,5 +1,4 @@
 if ($('.a-js-personSwitcherTriggerOutside').length > 0) {
-  $('.a-dropdown-personswitchList').hide();
   $('.a-js-personSwitcherTriggerOutside').on('click', function() {
     if ($('.a-globalNav-main').hasClass('show')) {
       $('.navbar-toggler').trigger('click');
@@ -21,28 +20,28 @@ if ($('.a-js-personSwitcherTriggerOutside').length > 0) {
       }
     }
   });
-  $('.a-js-loadMorePersonSwitcherInfo').next().hide();
+  $('.a-js-loadMorePersonSwitcherInfo').prev().hide();
   $('.a-js-loadMorePersonSwitcherInfo').on('click', function() {
     $('.a-dropdown-personswitchList').addClass('a-dropdown-fullWidth');
     $('.a-page').children().not('header').addClass('a-js-hidden');
-    $(this).next().show();
+    $(this).prev().show();
     setTimeout(function() {
       $('.a-dropdown-personswitchList')
-        .find('button:not(.a-js-loadMorePersonSwitcherInfo):hidden').each(function(index, item) {
+        .find('.a-listWithSubLevels').find('button:hidden').each(function(index, item) {
           if (index < 3) {
             $(this).show();
           }
         });
-      $('.a-js-loadMorePersonSwitcherInfo').next().hide();
+      $('.a-js-loadMorePersonSwitcherInfo').prev().hide();
       if (
         $('.a-dropdown-personswitchList')
-          .find('button:not(.a-js-loadMorePersonSwitcherInfo):hidden').length === 0
+          .find('.a-listWithSubLevels').find('button:hidden').length === 0
         ) {
         $('.a-js-loadMorePersonSwitcherInfo').hide();
       }
     }, 500);
   });
-  $('.a-dropdown-personswitchList').find('button:not(.a-js-loadMorePersonSwitcherInfo)')
+  $('.a-dropdown-personswitchList').find('.a-listWithSubLevels').find('button')
     .each(function(index, item) {
       if (index > 3) {
         $(this).hide();
