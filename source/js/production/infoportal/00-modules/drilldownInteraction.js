@@ -154,7 +154,7 @@ var drilldownInteraction = function() {
   window.drillDownGetSource = function(str) {
     var url = [
       'http://altinn-dev.dev.bouvet.no/api/' + str,
-      '../../../' + str + '.json'
+      '../../../data/' + str + '.json'
     ];
     var act2 = function(event) {
       whenClick(event);
