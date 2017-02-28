@@ -727,3 +727,37 @@
     }
   }
 }
+
+/*----------------------------------------*\
+    $ When login, hide menu
+\*----------------------------------------*/
+
+.a-login {
+  .a-globalNav-main,
+  .a-languageSwitcher,
+  .a-personSwitcher-name,
+  .a-containerFooter {
+    display: none;
+  }
+
+  .a-personSwitcher {
+    cursor: not-allowed;
+  }
+
+  .a-login-container {
+    padding-top: $spacer * 5;
+    margin-top: -42px;
+
+    .a-triangleShadow {
+      &::after {
+        top: -60px;
+        right: -9px;
+        left: auto;
+      }
+    }
+  }
+
+  .a-link-logout {
+    float: right;
+  }
+}
