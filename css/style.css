@@ -7392,21 +7392,21 @@ textarea {
 .a-h1, .a-iconText.a-iconText-smallLink .a-iconText-text .a-iconText-text-large, .a-btn.a-btn-border {
   font-size: 24px;
   font-size: 2.4rem;
-  line-height: 1.5;
+  line-height: 1.3;
   -webkit-font-smoothing: subpixel-antialiased; }
   @media (min-width: 768px) {
     .a-fontSizeXXL, h1,
     .a-h1, .a-iconText.a-iconText-smallLink .a-iconText-text .a-iconText-text-large, .a-btn.a-btn-border {
       font-size: 28px;
       font-size: 2.8rem;
-      line-height: 1.5;
+      line-height: 1.3;
       -webkit-font-smoothing: subpixel-antialiased; } }
   @media (min-width: 992px) {
     .a-fontSizeXXL, h1,
     .a-h1, .a-iconText.a-iconText-smallLink .a-iconText-text .a-iconText-text-large, .a-btn.a-btn-border {
       font-size: 36px;
       font-size: 3.6rem;
-      line-height: 1.5;
+      line-height: 1.2;
       -webkit-font-smoothing: subpixel-antialiased; } }
 
 .a-fontSizeXL, h2,
@@ -7427,14 +7427,14 @@ textarea {
     .a-h2, .a-blockquote p {
       font-size: 24px;
       font-size: 2.4rem;
-      line-height: 1.5;
+      line-height: 1.3;
       -webkit-font-smoothing: subpixel-antialiased; } }
   @media (min-width: 1200px) {
     .a-fontSizeXL, h2,
     .a-h2, .a-blockquote p {
       font-size: 28px;
       font-size: 2.8rem;
-      line-height: 1.5;
+      line-height: 1.3;
       -webkit-font-smoothing: subpixel-antialiased; } }
 
 .a-fontSizeL {
@@ -7452,7 +7452,7 @@ textarea {
     .a-fontSizeL {
       font-size: 24px;
       font-size: 2.4rem;
-      line-height: 1.5;
+      line-height: 1.3;
       -webkit-font-smoothing: subpixel-antialiased; } }
 
 .a-fontSizeM, a.a-link-large,
@@ -7679,13 +7679,13 @@ a,
   .a-bigger-icon.a-bigger-icon-before i::before {
     font-size: 24px;
     font-size: 2.4rem;
-    line-height: 1.5;
+    line-height: 1.3;
     -webkit-font-smoothing: subpixel-antialiased; }
 
 .a-bigger-icon.a-bigger-icon-span i {
   font-size: 24px;
   font-size: 2.4rem;
-  line-height: 1.5;
+  line-height: 1.3;
   -webkit-font-smoothing: subpixel-antialiased;
   margin-top: -3px; }
 
@@ -7875,29 +7875,25 @@ h1 .a-label {
 
 .a-maxThreeLines {
   display: -webkit-box;
-  /* fallback */
-  max-height: 74px;
-  overflow: hidden;
-  text-overflow: ellipsis;
   /* number of lines to show */
-  /* fallback */
+  -ms-flex-direction: column;
+  flex-direction: column;
+  overflow: hidden;
   -webkit-line-clamp: 3; }
 
 .a-maxTwoLines {
   display: -webkit-box;
-  /* fallback */
-  max-height: 48px;
-  overflow: hidden;
-  text-overflow: ellipsis;
   /* number of lines to show */
-  /* fallback */
+  -ms-flex-direction: column;
+  flex-direction: column;
+  overflow: hidden;
   -webkit-line-clamp: 3; }
 
 /* Text with pattern */
 .a-textureLines {
   font-size: 36px;
   font-size: 3.6rem;
-  line-height: 1.5;
+  line-height: 1.2;
   -webkit-font-smoothing: subpixel-antialiased;
   display: inline-block;
   height: 60px;
@@ -7913,7 +7909,7 @@ h1 .a-label {
   .a-dot::before {
     font-size: 30px;
     font-size: 3rem;
-    line-height: 1.5;
+    line-height: 1.3;
     -webkit-font-smoothing: subpixel-antialiased;
     display: inline-block;
     margin-right: 4px;
@@ -8128,7 +8124,7 @@ textarea {
     .a-form-group.a-form-group-large .form-control {
       font-size: 24px;
       font-size: 2.4rem;
-      line-height: 1.5;
+      line-height: 1.3;
       -webkit-font-smoothing: subpixel-antialiased;
       min-height: 60px;
       padding: 2px 12px 0 18px; } }
@@ -8317,7 +8313,7 @@ textarea {
 .a-form-checkboxes .custom-control-indicator {
   width: 24px;
   height: 24px;
-  margin-top: -3px;
+  margin-top: -4px;
   background-color: #FFFFFF;
   border: 2px solid #1EAEF7;
   border-radius: 0; }
@@ -8330,6 +8326,11 @@ textarea {
     .a-form-checkboxes .custom-control {
       display: inline-block;
       margin-right: 36px; } }
+  .a-form-checkboxes .custom-control:last-child {
+    margin-right: 0; }
+    @media (min-width: 992px) {
+      .a-form-checkboxes .custom-control:last-child {
+        margin-right: 0; } }
   .a-form-checkboxes .custom-control + .custom-control {
     margin-left: 0; }
   .a-form-checkboxes .custom-control > input:checked ~ .custom-control-indicator {
@@ -8345,6 +8346,19 @@ textarea {
 .a-form-checkboxes.custom-controls-stacked .custom-control {
   display: block;
   margin-right: 0; }
+
+.a-form-checkboxes.a-form-checkboxes--discret {
+  font-size: 14px;
+  font-size: 1.4rem;
+  line-height: 1.5;
+  -webkit-font-smoothing: subpixel-antialiased; }
+  .a-form-checkboxes.a-form-checkboxes--discret .custom-control {
+    padding-left: 18px; }
+  .a-form-checkboxes.a-form-checkboxes--discret .custom-control-indicator {
+    width: 18px;
+    height: 18px;
+    margin-top: -3px;
+    border: 2px solid #022F51; }
 
 /*------------------------------------* * FORM RADIOBUTTONS
 \*------------------------------------*/
@@ -8400,7 +8414,7 @@ textarea {
 .a-radioButtons-stackedList .a-legend {
   font-size: 24px;
   font-size: 2.4rem;
-  line-height: 1.5;
+  line-height: 1.3;
   -webkit-font-smoothing: subpixel-antialiased;
   color: #000000; }
 
@@ -8754,10 +8768,12 @@ textarea {
 .a-js-hidden {
   display: none; }
 
-.a-js-loadMorePersonSwitcherInfo + .a-logo-anim {
-  margin-right: auto;
-  margin-bottom: -15px;
-  margin-left: auto; }
+.dropdown-menu.a-dropdown-personswitchList {
+  display: none; }
+  .dropdown-menu.a-dropdown-personswitchList .a-logo-anim {
+    margin-right: auto;
+    margin-bottom: -15px;
+    margin-left: auto; }
 
 /*------------------------------------*    $HEADER
 \*------------------------------------*/
@@ -8793,7 +8809,8 @@ textarea {
       .a-header .a-dropdown-personswitchList {
         width: 420px; } }
   .a-header .a-dropdown-fullWidth {
-    width: 100% !important; }
+    width: 100% !important;
+    transition: width 0.35s ease; }
   .a-header .a-dropdown-languages {
     right: -90px;
     padding: 0; }
@@ -8804,7 +8821,7 @@ textarea {
     @media (min-width: 768px) {
       .a-header .a-dropdown-languages {
         top: 55px;
-        right: -24px; } }
+        right: -13px; } }
     .a-header .a-dropdown-languages.a-dropdownTriangle::after {
       right: 79px;
       left: auto; }
@@ -8829,7 +8846,7 @@ textarea {
       left: auto; }
       @media (min-width: 768px) {
         .a-header .a-dropdown-personswitchList.a-dropdownTriangle::after {
-          right: 13px; } }
+          right: 3px; } }
     .a-header .a-dropdown-personswitchList .a-btn-action.a-fullWidthBtn span {
       margin-left: 0; }
     .a-header .a-dropdown-personswitchList .a-btn-action.a-fullWidthBtn i {
@@ -8888,7 +8905,7 @@ textarea {
     .a-header-options .a-languageSwitcher i {
       font-size: 30px;
       font-size: 3rem;
-      line-height: 1.5;
+      line-height: 1.3;
       -webkit-font-smoothing: subpixel-antialiased;
       vertical-align: middle; }
     .a-header-options .a-languageSwitcher::after {
@@ -9091,8 +9108,25 @@ textarea {
   padding-top: 36px;
   margin-top: 60px;
   overflow: auto;
-  background: #FFFFFF;
-  box-shadow: 2px 2px 9px 1px rgba(137, 137, 137, 0.5); }
+  background: #FFFFFF; }
+  @media (min-width: 768px) {
+    .a-globalNav-main {
+      position: relative;
+      z-index: auto;
+      display: block;
+      min-height: none;
+      padding-top: 0;
+      margin-top: 2px;
+      overflow: visible;
+      background: transparent;
+      box-shadow: none; } }
+  @media (min-width: 992px) {
+    .a-globalNav-main {
+      margin-top: -2px; } }
+  .a-globalNav-main .a-dropdownTriangle {
+    box-shadow: none; }
+    .a-globalNav-main .a-dropdownTriangle::after {
+      display: none; }
   .a-globalNav-main .indicator {
     font-size: 10px;
     font-size: 1rem;
@@ -9106,32 +9140,6 @@ textarea {
     .a-globalNav-main .indicator.flip {
       vertical-align: middle;
       transform: rotate(-180deg); }
-  .a-globalNav-main .a-dropdownTriangle {
-    box-shadow: none; }
-    .a-globalNav-main .a-dropdownTriangle::after {
-      right: 26px;
-      margin-left: auto; }
-    .a-globalNav-main .a-dropdownTriangle .a-dropdownTriangle::after {
-      display: none; }
-  @media (min-width: 768px) {
-    .a-globalNav-main {
-      position: relative;
-      z-index: auto;
-      display: block;
-      min-height: none;
-      padding-top: 0;
-      margin-top: 2px;
-      overflow: visible;
-      background: transparent;
-      box-shadow: none; }
-      .a-globalNav-main .a-dropdownTriangle {
-        background: transparent;
-        box-shadow: none; }
-      .a-globalNav-main .a-dropdownTriangle::after {
-        display: none; } }
-  @media (min-width: 992px) {
-    .a-globalNav-main {
-      margin-top: -2px; } }
   .a-globalNav-main ul {
     float: left;
     margin-top: -2px;
@@ -9200,7 +9208,7 @@ textarea {
         .a-globalNav-main li a {
           font-size: 24px;
           font-size: 2.4rem;
-          line-height: 1.5;
+          line-height: 1.3;
           -webkit-font-smoothing: subpixel-antialiased;
           padding-bottom: 3px; } }
     .a-globalNav-main li .a-link-tel {
@@ -9226,7 +9234,7 @@ textarea {
       .a-globalNav-main .dropdown-menu.a-dropdown-languages.expand {
         width: inherit;
         min-width: 160px;
-        height: 360px;
+        height: 300px;
         border-bottom: 1px solid #0062BA; }
       .a-globalNav-main .dropdown-menu.a-dropdown-languages.after-collapse {
         width: 0;
@@ -9278,6 +9286,28 @@ textarea {
 
 .a-darkBackground .nav-pills .nav-item.show .nav-link.a-languageSwitcher, .a-darkBackground .nav-pills .nav-item.show .nav-link.a-personSwitcher {
   color: #FFFFFF; }
+
+/*----------------------------------------*    $ When login, hide menu
+\*----------------------------------------*/
+.a-login .a-globalNav-main,
+.a-login .a-languageSwitcher,
+.a-login .a-personSwitcher-name,
+.a-login .a-containerFooter {
+  display: none; }
+
+.a-login .a-personSwitcher {
+  cursor: not-allowed; }
+
+.a-login .a-login-container {
+  padding-top: 60px;
+  margin-top: -42px; }
+  .a-login .a-login-container .a-triangleShadow::after {
+    top: -60px;
+    right: -9px;
+    left: auto; }
+
+.a-login .a-link-logout {
+  float: right; }
 
 .a-containerColnav-top {
   padding: 0 0 24px 0; }
@@ -9673,7 +9703,7 @@ textarea {
         .a-breadcrumb li.breadcrumb-mobile::before {
           font-size: 36px;
           font-size: 3.6rem;
-          line-height: 1.5;
+          line-height: 1.2;
           -webkit-font-smoothing: subpixel-antialiased;
           display: inline-block;
           padding-right: 0;
@@ -10140,7 +10170,7 @@ textarea {
 .a-icon {
   font-size: 48px;
   font-size: 4.8rem;
-  line-height: 1.5;
+  line-height: 1.2;
   -webkit-font-smoothing: subpixel-antialiased;
   display: table-cell;
   width: 60px;
@@ -10151,7 +10181,7 @@ textarea {
   .a-icon.a-icon-circle {
     font-size: 30px;
     font-size: 3rem;
-    line-height: 1.5;
+    line-height: 1.3;
     -webkit-font-smoothing: subpixel-antialiased; }
   .a-icon.a-icon-circle-small {
     font-size: 20px;
@@ -10171,14 +10201,14 @@ textarea {
 .a-icon-small {
   font-size: 36px;
   font-size: 3.6rem;
-  line-height: 1.5;
+  line-height: 1.2;
   -webkit-font-smoothing: subpixel-antialiased;
   width: 48px;
   height: 48px; }
   .a-icon-small.a-icon-circle {
     font-size: 24px;
     font-size: 2.4rem;
-    line-height: 1.5;
+    line-height: 1.3;
     -webkit-font-smoothing: subpixel-antialiased; }
 
 .a-icon-circle {
@@ -10230,7 +10260,7 @@ textarea {
         .a-iconText .a-iconText-text p.a-iconText-text-large {
           font-size: 28px;
           font-size: 2.8rem;
-          line-height: 1.5;
+          line-height: 1.3;
           -webkit-font-smoothing: subpixel-antialiased; } }
     .a-iconText .a-iconText-text h1 {
       margin-bottom: 0; }
@@ -10238,8 +10268,7 @@ textarea {
       margin-top: 0;
       margin-bottom: 0; }
     .a-iconText .a-iconText-text .a-iconText-text-small + .a-iconText-text-large {
-      display: block;
-      padding-top: 6px; }
+      display: block; }
       @media (min-width: 992px) {
         .a-iconText .a-iconText-text .a-iconText-text-small + .a-iconText-text-large {
           font-size: 20px;
@@ -10289,7 +10318,7 @@ textarea {
     .a-iconText-large .a-icon {
       font-size: 60px;
       font-size: 6rem;
-      line-height: 1.5;
+      line-height: 1.1;
       -webkit-font-smoothing: subpixel-antialiased;
       width: 72px;
       min-width: 72px;
@@ -10297,7 +10326,7 @@ textarea {
       .a-iconText-large .a-icon.a-icon-circle {
         font-size: 36px;
         font-size: 3.6rem;
-        line-height: 1.5;
+        line-height: 1.2;
         -webkit-font-smoothing: subpixel-antialiased; } }
 
 /**  global icon styles **/
@@ -10514,7 +10543,7 @@ textarea {
 .a-box-button {
   position: relative;
   width: 100%;
-  height: 190px;
+  min-height: 190px;
   padding: 15px 4px;
   cursor: pointer;
   background: #FFFFFF;
@@ -10533,7 +10562,7 @@ textarea {
   .a-box-button .a-box-button-icon {
     font-size: 60px;
     font-size: 6rem;
-    line-height: 1.5;
+    line-height: 1.1;
     -webkit-font-smoothing: subpixel-antialiased;
     display: block; }
   .a-box-button .a-box-button-info {
@@ -10589,21 +10618,21 @@ textarea {
     background: rgba(255, 255, 255, 0.5); }
   .a-boxAddBtn .a-boxAddBtn-inner {
     display: block;
-    height: 160px;
+    min-height: 160px;
     padding-top: 18px;
     background-color: transparent;
     border: 2px dotted #1EAEF7; }
     .a-boxAddBtn .a-boxAddBtn-inner .a-boxAddBtn-icon {
       font-size: 24px;
       font-size: 2.4rem;
-      line-height: 1.5;
+      line-height: 1.3;
       -webkit-font-smoothing: subpixel-antialiased;
       display: block;
       padding: 24px; }
   .a-boxAddBtn .a-box-button-icon {
     font-size: 60px;
     font-size: 6rem;
-    line-height: 1.5;
+    line-height: 1.1;
     -webkit-font-smoothing: subpixel-antialiased;
     display: block; }
 
@@ -10721,7 +10750,7 @@ textarea {
   .a-jumbotron .a-jumbotron-ingress {
     font-size: 28px;
     font-size: 2.8rem;
-    line-height: 1.5;
+    line-height: 1.3;
     -webkit-font-smoothing: subpixel-antialiased;
     display: block;
     margin-bottom: 24px;
@@ -10837,7 +10866,6 @@ textarea {
   align-items: center; }
   .a-personRole .a-personRole-icon {
     float: left;
-    padding-right: 6px;
     margin-top: 0;
     color: #000000; }
   .a-personRole .a-personRole-icon-success {
@@ -10845,7 +10873,7 @@ textarea {
     padding-right: 7px;
     color: #17C96B; }
   .a-personRole .a-dot {
-    margin-top: -6px;
+    margin-top: -5px;
     -ms-flex-item-align: start;
     align-self: flex-start; }
   .a-personRole .a-personRole-text {
@@ -11023,7 +11051,7 @@ textarea {
     .a-mainCard .a-iconText .a-formCode {
       font-size: 30px;
       font-size: 3rem;
-      line-height: 1.5;
+      line-height: 1.3;
       -webkit-font-smoothing: subpixel-antialiased; } }
 
 .a-compare-header {
@@ -11359,7 +11387,7 @@ ul {
       ul.a-bullet-list li::before {
         font-size: 36px;
         font-size: 3.6rem;
-        line-height: 1.5;
+        line-height: 1.2;
         -webkit-font-smoothing: subpixel-antialiased;
         position: absolute;
         top: -8px;
@@ -11377,7 +11405,7 @@ ul {
       ul.a-bullet-list.a-bulletList-light li::before {
         font-size: 24px;
         font-size: 2.4rem;
-        line-height: 1.5;
+        line-height: 1.3;
         -webkit-font-smoothing: subpixel-antialiased;
         top: -3px;
         color: #BCC7CC; }
@@ -11523,18 +11551,20 @@ ol {
   -webkit-font-smoothing: subpixel-antialiased;
   padding-left: 30px;
   margin-top: -12px;
-  background: #1EAEF7; }
+  background: #b6e8ff; }
   .a-listWithSubLevels .a-btn-shadow-expand.collapsed {
     background: #CFF0FF; }
+    .a-listWithSubLevels .a-btn-shadow-expand.collapsed:hover {
+      background: #b6e8ff; }
   .a-listWithSubLevels .a-btn-shadow-expand .a-dropdownCircleArrow {
     width: 24px;
     min-width: 24px;
     height: 24px;
-    margin-right: 24px; }
+    margin-right: 26px; }
     .a-listWithSubLevels .a-btn-shadow-expand .a-dropdownCircleArrow::before {
       font-size: 24px;
       font-size: 2.4rem;
-      line-height: 1.5;
+      line-height: 1.3;
       -webkit-font-smoothing: subpixel-antialiased; }
 
 .a-listWithSubLevels .a-collapseContent {
@@ -11543,8 +11573,10 @@ ol {
   margin-top: -12px;
   margin-bottom: 12px; }
 
-.a-listWithSubLevels .a-list li > .row {
+.a-listWithSubLevels .a-list .a-list-rowLink {
   padding-left: 80px; }
+  .a-listWithSubLevels .a-list .a-list-rowLink:hover {
+    background: #b6e8ff; }
 
 /*------------------------------------*    Diverse - Flyttes??
 \*------------------------------------*/
@@ -12114,7 +12146,7 @@ ol {
     .a-modal-title {
       font-size: 24px;
       font-size: 2.4rem;
-      line-height: 1.5;
+      line-height: 1.3;
       -webkit-font-smoothing: subpixel-antialiased; } }
 
 .a-modal-body {
@@ -12265,7 +12297,7 @@ a.a-modal-close {
         .a-collapsePanel .a-collapsePanel-heading .a-iconText-text-large {
           font-size: 28px;
           font-size: 2.8rem;
-          line-height: 1.5;
+          line-height: 1.3;
           -webkit-font-smoothing: subpixel-antialiased; } }
   .a-collapsePanel .a-collapsePanel-body {
     position: relative;
@@ -12461,7 +12493,7 @@ a.a-modal-close {
     font-weight: normal;
     font-size: 30px;
     font-size: 3rem;
-    line-height: 1.5;
+    line-height: 1.3;
     -webkit-font-smoothing: subpixel-antialiased;
     vertical-align: middle;
     content: '›'; }
@@ -12798,7 +12830,7 @@ h1 + .a-byline {
   .a-date .a-date-day {
     font-size: 30px;
     font-size: 3rem;
-    line-height: 1.5;
+    line-height: 1.3;
     -webkit-font-smoothing: subpixel-antialiased;
     padding-top: 5px; }
   .a-date .a-date-month {
@@ -13346,14 +13378,14 @@ h1 + .a-byline {
       .a-onboarding .modal-content .modal-header .modal-title {
         font-size: 36px;
         font-size: 3.6rem;
-        line-height: 1.5;
+        line-height: 1.2;
         -webkit-font-smoothing: subpixel-antialiased; }
     .a-onboarding .modal-content .modal-body {
       padding: 0; }
       .a-onboarding .modal-content .modal-body .a-leadText {
         font-size: 28px;
         font-size: 2.8rem;
-        line-height: 1.5;
+        line-height: 1.3;
         -webkit-font-smoothing: subpixel-antialiased;
         font-family: "DIN-light";
         font-weight: normal;
@@ -13609,9 +13641,26 @@ html.a-modal-background-error {
   background-size: 13%;
   background-blend-mode: multiply; }
 
-/* Shadown */
+/* Shadow */
 .a-shadow {
   box-shadow: 1px 1px 4px 0 rgba(137, 137, 137, 0.5); }
+
+/* Shadow arrow */
+.a-triangleShadow::after {
+  position: absolute;
+  top: 1px;
+  bottom: 100%;
+  left: 50%;
+  box-sizing: border-box;
+  width: 0;
+  height: 0;
+  margin-left: 130px;
+  content: '';
+  border: 8px solid #000000;
+  border-color: transparent transparent #FFFFFF #FFFFFF;
+  box-shadow: -2px 2px 3px 0 rgba(0, 0, 0, 0.1);
+  transform: rotate(135deg);
+  transform-origin: 0 0; }
 
 /* Text colors */
 .a-textGreen {
@@ -13844,6 +13893,8 @@ hr {
 
 .a-maxThreeLines2 p {
   display: -webkit-box;
+  -ms-flex-direction: column;
+  flex-direction: column;
   overflow: hidden;
   text-overflow: ellipsis;
   -webkit-line-clamp: 3; }
@@ -14214,21 +14265,21 @@ textarea {
 .a-h1, .a-iconText.a-iconText-smallLink .a-iconText-text .a-iconText-text-large, .a-btn.a-btn-border {
   font-size: 24px;
   font-size: 2.4rem;
-  line-height: 1.5;
+  line-height: 1.3;
   -webkit-font-smoothing: subpixel-antialiased; }
   @media (min-width: 768px) {
     .a-fontSizeXXL, h1,
     .a-h1, .a-iconText.a-iconText-smallLink .a-iconText-text .a-iconText-text-large, .a-btn.a-btn-border {
       font-size: 28px;
       font-size: 2.8rem;
-      line-height: 1.5;
+      line-height: 1.3;
       -webkit-font-smoothing: subpixel-antialiased; } }
   @media (min-width: 992px) {
     .a-fontSizeXXL, h1,
     .a-h1, .a-iconText.a-iconText-smallLink .a-iconText-text .a-iconText-text-large, .a-btn.a-btn-border {
       font-size: 36px;
       font-size: 3.6rem;
-      line-height: 1.5;
+      line-height: 1.2;
       -webkit-font-smoothing: subpixel-antialiased; } }
 
 .a-fontSizeXL, h2,
@@ -14249,14 +14300,14 @@ textarea {
     .a-h2, .a-blockquote p {
       font-size: 24px;
       font-size: 2.4rem;
-      line-height: 1.5;
+      line-height: 1.3;
       -webkit-font-smoothing: subpixel-antialiased; } }
   @media (min-width: 1200px) {
     .a-fontSizeXL, h2,
     .a-h2, .a-blockquote p {
       font-size: 28px;
       font-size: 2.8rem;
-      line-height: 1.5;
+      line-height: 1.3;
       -webkit-font-smoothing: subpixel-antialiased; } }
 
 .a-fontSizeL {
@@ -14274,7 +14325,7 @@ textarea {
     .a-fontSizeL {
       font-size: 24px;
       font-size: 2.4rem;
-      line-height: 1.5;
+      line-height: 1.3;
       -webkit-font-smoothing: subpixel-antialiased; } }
 
 .a-fontSizeM, a.a-link-large,
@@ -14725,7 +14776,7 @@ pre.prettyprint {
 .ap-colorCircle {
   font-size: 24px;
   font-size: 2.4rem;
-  line-height: 1.5;
+  line-height: 1.3;
   -webkit-font-smoothing: subpixel-antialiased;
   display: inline-block;
   width: 48px;
@@ -14826,7 +14877,7 @@ pre.prettyprint {
 .material-icons.ap-fonticon {
   font-size: 36px;
   font-size: 3.6rem;
-  line-height: 1.5;
+  line-height: 1.2;
   -webkit-font-smoothing: subpixel-antialiased;
   color: #000000; }
 
