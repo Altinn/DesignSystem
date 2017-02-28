@@ -154,7 +154,8 @@ var drilldownInteraction = function() {
   window.drillDownGetSource = function(str) {
     var url = [
       'http://altinn-dev.dev.bouvet.no/api/' + str,
-      '../../../' + str + '.json'
+      '../../../data/' + str + '.json',
+      '../../../DesignSystem/data/' + str + '.json'
     ];
     var act2 = function(event) {
       whenClick(event);
@@ -318,8 +319,17 @@ var drilldownInteraction = function() {
         afterRequest(data);
       },
       error: function() {
-        $.getJSON(url[1], function(data) {
-          afterRequest(data);
+        $.ajax({
+          type: 'GET',
+          url: url[1],
+          success: function(data) {
+            afterRequest(data);
+          },
+          error: function() {
+            $.getJSON(url[2], function(data) {
+              afterRequest(data);
+            });
+          }
         });
       }
     });

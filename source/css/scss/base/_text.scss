@@ -203,30 +203,28 @@ h1 {
 .a-maxThreeLines {
   display: -webkit-box;
 
-  /* fallback */
-  max-height: 74px;
-  overflow: hidden;
-  text-overflow: ellipsis;
+  // /* fallback */
+  // max-height: 74px;
+  // overflow: hidden;
+  // text-overflow: ellipsis;
 
   /* number of lines to show */
-  -webkit-box-orient: vertical;
-
-  /* fallback */
+  flex-direction: column;
+  overflow: hidden;
   -webkit-line-clamp: 3;
 }
 
 .a-maxTwoLines {
   display: -webkit-box;
 
-  /* fallback */
-  max-height: 48px;
-  overflow: hidden;
-  text-overflow: ellipsis;
+  // /* fallback */
+  // max-height: 48px;
+  // overflow: hidden;
+  // text-overflow: ellipsis;
 
   /* number of lines to show */
-  -webkit-box-orient: vertical;
-
-  /* fallback */
+  flex-direction: column;
+  overflow: hidden;
   -webkit-line-clamp: 3;
 }
 
@@ -255,9 +253,24 @@ h1 {
     content: '\2022';
   }
 
+  // Rød: Purring
   &.a-dot-red {
     &::before {
       color: $red;
+    }
+  }
+
+  // Grønn: Kvittering
+  &.a-dot-green {
+    &::before {
+      color: $green;
+    }
+  }
+
+  // Blå: Ny melding
+  &.a-dot-blue {
+    &::before {
+      color: $blue;
     }
   }
 }

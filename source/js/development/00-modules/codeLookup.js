@@ -22,7 +22,7 @@ var codeLookup = function() {
   empty.hide(); legend.hide();
   if ($('.a-js-lookup').length > 0) {
     $('form').on('change', check);
-    $.getJSON('../../ssb.json', function(data) {
+    $.getJSON('../../data/ssb.json', function(data) {
       function createPath(dest, str) {
         var _str = str; var _dest = data[dest.parentCode];
         if (_dest !== undefined) {

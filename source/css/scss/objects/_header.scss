@@ -44,6 +44,11 @@
     }
   }
 
+  .a-dropdown-fullWidth {
+    width: 100% !important;
+    transition: width 0.35s ease;
+  }
+
   .a-dropdown-languages {
     right: -90px;
     padding: 0;
@@ -54,7 +59,7 @@
     }
     @include media-breakpoint-up( md ) {
       top: 55px;
-      right: -24px;
+      right: -13px;
     }
 
     &.a-dropdownTriangle {
@@ -81,7 +86,7 @@
     }
     @include media-breakpoint-up( md ) {
       top: 55px;
-      right: -24px;
+      right: 0 !important;
       width: 420px;
     }
 
@@ -91,7 +96,7 @@
         left: auto;
 
         @include media-breakpoint-up( md ) {
-          right: 13px;
+          right: 3px;
         }
       }
     }
@@ -450,7 +455,30 @@
   margin-top: $spacer * 5;
   overflow: auto;
   background: $white;
-  box-shadow: $mobileMenu-shadow;
+
+  @include media-breakpoint-up( md ) {
+    position: relative;
+    z-index: auto;
+    display: block;
+    min-height: none;
+    padding-top: 0;
+    margin-top: 2px;
+    overflow: visible;
+    background: transparent;
+    box-shadow: none;
+	}
+
+  @include media-breakpoint-up( lg ) {
+    margin-top: -2px;
+	}
+
+  .a-dropdownTriangle {
+    box-shadow: none;
+
+    &::after {
+      display: none;
+    }
+  }
 
   .indicator {
     @include a-fontSize10;
@@ -464,48 +492,6 @@
       vertical-align: middle;
       transform: rotate( -180deg );
 		}
-	}
-
-  .a-dropdownTriangle {
-    box-shadow: none;
-
-    &::after {
-      right: 26px;
-      margin-left: auto;
-    }
-
-    .a-dropdownTriangle {
-      &::after {
-        display: none;
-	    }
-    }
-	}
-
-  @include media-breakpoint-up( md ) {
-    position: relative;
-    z-index: auto;
-    display: block;
-    min-height: none;
-    padding-top: 0;
-    margin-top: 2px;
-    overflow: visible;
-    background: transparent;
-    box-shadow: none;
-
-    .a-dropdownTriangle {
-      background: transparent;
-      box-shadow: none;
-		}
-
-    .a-dropdownTriangle {
-      &::after {
-        display: none;
-		  }
-    }
-	}
-
-  @include media-breakpoint-up( lg ) {
-    margin-top: -2px;
 	}
 
   ul {
@@ -633,7 +619,7 @@
       &.expand {
         width: inherit;
         min-width: 160px;
-        height: 360px;
+        height: 300px;
         border-bottom: 1px solid $blue-dark;
 			}
 
