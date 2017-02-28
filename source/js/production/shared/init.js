@@ -6,7 +6,6 @@
   toggleFilter,
   uniformHeight,
   tooltip,
-  popover,
   initializeDatepicker,
   onboarding,
   nameChecker,
@@ -23,7 +22,9 @@
   genericSearch,
   toggleInstant,
   articleAnchors,
-  feedbackToggle */
+  feedbackToggle,
+  popoverLocalInit,
+  popoverGlobalInit */
 
 window.sharedInit = function() {
   addListExpandHandler();
@@ -32,12 +33,13 @@ window.sharedInit = function() {
   initializeDatepicker();
   addListSortHandler();
   mobileNavigation();
-  popover();
   propagateContent();
   toggleFilter();
   tooltip();
   toggleInstant();
   articleAnchors();
   feedbackToggle();
+  popoverLocalInit();
+  popoverGlobalInit();
 };
 window.sharedInit();

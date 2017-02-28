@@ -1,4 +1,4 @@
-/* globals currentRequest */
+/* globals currentRequest, popoverLocalInit */
 var closeModal = function(target) {
   $(target).modal('hide');
 };
@@ -49,6 +49,8 @@ var loadModal = function(url, target) {
     $(target).on('shown.bs.modal', function() {
       $(target).attr('aria-hidden', false);
     });
+    popoverLocalInit();
+    $('body').scrollTop(0);
   });
 };
 
@@ -98,6 +100,8 @@ var nextModalPage = function(url, target) {
     current.on('transitionend', function() {
       current.hide().off();
     });
+    popoverLocalInit();
+    $('body').scrollTop(0);
   });
 };
 
@@ -142,6 +146,7 @@ var previousModalPage = function(target, pagesToPopParam) {
     });
     previousPages.remove();
   });
+  $('body').scrollTop(0);
 };
 
 $('body').on('click', '[data-toggle="altinn-modal"]', function() {
