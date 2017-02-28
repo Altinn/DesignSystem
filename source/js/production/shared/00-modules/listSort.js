@@ -26,7 +26,7 @@ var sortListAlphanumerically = function(src, sortIndex) {
 };
 
 var defaultListSort = function() {
-  $('.a-list').each(function() {
+  $('.a-list-container').each(function() {
     var sortHeader = $(this).find('.a-list-sortHeader')[0];
     var index = $(sortHeader).index();
     sortListAlphanumerically(sortHeader, index);
