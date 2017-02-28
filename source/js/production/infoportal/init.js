@@ -18,3 +18,11 @@ window.infoportalInit = function() {
 };
 window.infoportalInit();
 // $(document).foundation();
+$('.a-maxTwoLines').ellipsis({
+  lines: 2,
+  responsive: true
+});
+$('.a-maxThreeLines').ellipsis({
+  lines: 3,
+  responsive: true
+});
