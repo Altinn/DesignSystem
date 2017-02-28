@@ -475,7 +475,7 @@ textarea {
   .custom-control-indicator {
     width: $spacer * 2;
     height: $spacer * 2;
-    margin-top: -3px;
+    margin-top: -4px;
     background-color: $white;
     border: 2px solid $blue;
     border-radius: 0;
@@ -488,6 +488,13 @@ textarea {
     @include media-breakpoint-up( lg ) {
       display: inline-block;
       margin-right: $spacer * 3;
+    }
+
+    &:last-child {
+      margin-right: 0;
+      @include media-breakpoint-up( lg ) {
+        margin-right: 0;
+      }
     }
 
     &+.custom-control {
@@ -522,6 +529,21 @@ textarea {
     .custom-control {
       display: block;
       margin-right: 0;
+    }
+  }
+
+  &.a-form-checkboxes--discret {
+    @include a-fontSize14;
+
+    .custom-control {
+      padding-left: $spacer * 1.5;
+    }
+
+    .custom-control-indicator {
+      width: $spacer * 1.5;
+      height: $spacer * 1.5;
+      margin-top: -3px;
+      border: 2px solid $blue-darker;
     }
   }
 }

@@ -1,5 +1,5 @@
 ---
-state: intechnicalreview
+state: inprogress
 version: 1
 js: addRightsTableHandler.js
 ---

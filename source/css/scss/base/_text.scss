@@ -200,34 +200,29 @@ h1 {
   }
 }
 
-.a-maxThreeLines {
-  display: -webkit-box;
+// .a-maxThreeLines {
+// }
+//
+// .a-maxTwoLines {
+// }
 
-  /* fallback */
-  max-height: 74px;
-  overflow: hidden;
-  text-overflow: ellipsis;
-
-  /* number of lines to show */
-  -webkit-box-orient: vertical;
-
-  /* fallback */
-  -webkit-line-clamp: 3;
+.ellip {
+  display: block;
+  height: 100%;
 }
 
-.a-maxTwoLines {
-  display: -webkit-box;
-
-  /* fallback */
-  max-height: 48px;
-  overflow: hidden;
+.ellip-line {
+  display: inline-block;
+  max-width: 100%;
   text-overflow: ellipsis;
+  word-wrap: normal;
+  white-space: nowrap;
+}
 
-  /* number of lines to show */
-  -webkit-box-orient: vertical;
-
-  /* fallback */
-  -webkit-line-clamp: 3;
+.ellip,
+.ellip-line {
+  position: relative;
+  overflow: hidden;
 }
 
 /* Text with pattern */
@@ -255,9 +250,24 @@ h1 {
     content: '\2022';
   }
 
+  // Rød: Purring
   &.a-dot-red {
     &::before {
       color: $red;
+    }
+  }
+
+  // Grønn: Kvittering
+  &.a-dot-green {
+    &::before {
+      color: $green;
+    }
+  }
+
+  // Blå: Ny melding
+  &.a-dot-blue {
+    &::before {
+      color: $blue;
     }
   }
 }
