@@ -2,16 +2,18 @@
 var sortListAlphanumerically = function(src, sortIndex) {
   var $list = $(src).closest('.a-list-container').find('.a-list');
   var rows = $list.find('li:not(.a-list-header)');
+  var reverse;
 
   var active = $(src).hasClass('a-active');
   if (!active) {
-    $(src).closest('.a-list-container').find('.a-list-sortHeader').removeClass('a-active').removeClass('reverse-sort');
+    $(src).closest('.a-list-container').find('.a-list-sortHeader').removeClass('a-active')
+      .removeClass('reverse-sort');
     $(src).addClass('a-active');
   } else {
     $(src).toggleClass('reverse-sort');
   }
 
-  var reverse = $(src).hasClass('reverse-sort');
+  reverse = $(src).hasClass('reverse-sort');
 
   rows.sort(function(a, b) {
     var A = $($($($(a).children()[0]).children()[sortIndex]).find('.a-js-sortValue')[0]).text()
@@ -21,14 +23,14 @@ var sortListAlphanumerically = function(src, sortIndex) {
     return reverse ? compareTo(B, A) : compareTo(A, B);
   });
 
-    $.each(rows, function(index, row) {
-      if ($(row).find('.a-js-sortValue').length > 0) {
-        $list.append(row);
-      }
-    });
+  $.each(rows, function(index, row) {
+    if ($(row).find('.a-js-sortValue').length > 0) {
+      $list.append(row);
+    }
+  });
 
     // handles load more row
-    $.each(rows, function(index, row) {
+  $.each(rows, function(index, row) {
     if ($(row).find('.a-js-sortValue').length === 0) {
       $list.append(row);
     }
