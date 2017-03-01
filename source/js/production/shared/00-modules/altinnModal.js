@@ -1,5 +1,7 @@
 /* globals currentRequest, popoverLocalInit */
 var closeModal = function(target) {
+  $('body').removeClass('a-modal-background-error');
+  $('body').removeClass('a-modal-background-success');
   $(target).modal('hide');
 };
 
@@ -132,6 +134,8 @@ var previousModalPage = function(target, pagesToPopParam) {
   }
 
   if ($(target + ' .a-current-page').data('page-index') - pagesToPop <= 0) {
+    $('body').removeClass('a-modal-background-error');
+    $('body').removeClass('a-modal-background-success');
     $(target).modal('hide');
     return;
   }
