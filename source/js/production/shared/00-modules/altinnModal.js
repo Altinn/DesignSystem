@@ -54,7 +54,7 @@ var loadModal = function(url, target) {
   });
 };
 
-var nextModalPage = function(url, target) {
+var nextModalPage = function(url, target, isSuccess, isError) {
   var currentRequest = $.ajax({
     url: url,
     beforeSend: function() {
@@ -71,11 +71,14 @@ var nextModalPage = function(url, target) {
       class: 'modalPage',
       html: data
     });
+
     var existingPages = $(target + ' :data(page-index)');
     var newPage = $('<div/>', {
       class: 'a-page a-next-page',
       data: {
-        'page-index': existingPages.length + 1
+        'page-index': existingPages.length + 1,
+        'is-success': isSuccess,
+        'is-error': isError
       },
       html: modalPage
     });
@@ -93,8 +96,17 @@ var nextModalPage = function(url, target) {
     current = $(target + ' .a-current-page');
 
     setTimeout(function() {
+      $('body').removeClass('a-modal-background-error');
+      $('body').removeClass('a-modal-background-success');
+
       current.removeClass('a-current-page').addClass('a-previous-page');
       newPage.removeClass('a-next-page').addClass('a-current-page');
+
+      if (isError) {
+        $('body').addClass('a-modal-background-error');
+      } else if (isSuccess) {
+        $('body').addClass('a-modal-background-success');
+      }
     }, 0);
 
     current.on('transitionend', function() {
@@ -110,6 +122,8 @@ var previousModalPage = function(target, pagesToPopParam) {
   var allPages;
   var previous;
   var pagesToPop;
+  var isError;
+  var isSuccess;
 
   if (!pagesToPopParam) {
     pagesToPop = 1;
@@ -129,6 +143,9 @@ var previousModalPage = function(target, pagesToPopParam) {
   });
 
   previous.show();
+  isError = $(previous).data().isError;
+  isSuccess = $(previous).data().isSuccess;
+
   current.addClass('a-next-page');
   current.removeClass('a-current-page');
 
@@ -137,7 +154,16 @@ var previousModalPage = function(target, pagesToPopParam) {
   // }
 
   setTimeout(function() {
+    $('body').removeClass('a-modal-background-error');
+    $('body').removeClass('a-modal-background-success');
+
     previous.addClass('a-current-page').removeClass('a-previous-page');
+
+    if (isError) {
+      $('body').addClass('a-modal-background-error');
+    } else if (isSuccess) {
+      $('body').addClass('a-modal-background-success');
+    }
   }, 0);
 
   current.on('transitionend', function() {
@@ -154,7 +180,8 @@ $('body').on('click', '[data-toggle="altinn-modal"]', function() {
   if ($source[0].dataset.action === 'load') {
     loadModal($source[0].dataset.url, $source[0].dataset.target);
   } else if ($source[0].dataset.action === 'next') {
-    nextModalPage($source[0].dataset.url, $source[0].dataset.target);
+    nextModalPage($source[0].dataset.url, $source[0].dataset.target,
+      $source[0].dataset.isSuccess, $source[0].dataset.isError);
   } else if ($source[0].dataset.action === 'back') {
     previousModalPage($source[0].dataset.target, $source[0].dataset.pages);
   } else if ($source[0].dataset.action === 'close') {
