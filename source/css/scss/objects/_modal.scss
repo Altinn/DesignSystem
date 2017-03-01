@@ -17,7 +17,10 @@ body {
 .a-modal {
   position: absolute;
   padding-bottom: $spacer * 5;
-  background: $blue;
+
+  .a-logo-feedback {
+    display: none;
+  }
 
   .container {
     @include media-breakpoint-down( lg ) {
@@ -282,10 +285,22 @@ a {
 /*------------------------------------*\
     $MODAL PROCESS
 \*------------------------------------*/
+.a-modal-background-success,
+.a-modal-background-error {
+  .a-logo-feedback {
+    display: initial;
+  }
+
+  .a-logo-neutral {
+    display: none;
+  }
+}
 
 // MODAL WITH SUCCESS
 .a-modal-background-success {
-  background: $green-light;
+  .modal-backdrop {
+    background: $green-light;
+  }
 
   .a-modal-top {
     .a-personSwitcher {
@@ -314,7 +329,9 @@ a {
 
 // MODAL WITH ERROR
 .a-modal-background-error {
-  background: $red-light;
+  .modal-backdrop {
+    background: $red-light;
+  }
 
   .a-modal-top {
     .a-personSwitcher {

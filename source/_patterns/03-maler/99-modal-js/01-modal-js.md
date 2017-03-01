@@ -17,11 +17,11 @@ Alternativt kan man kalle `loadModal('/minTestSide', '#minModal')` fra Javascrip
 
 
 For å gå til en ny side i en modal brukes følgende attributter:
-`data-toggle="altinn-modal" data-action="next" data-url="/minTestSideTo" data-target="#minModal"`
+`data-toggle="altinn-modal" data-action="next" data-url="/minTestSideTo" data-target="#minModal" data-is-error="true" data-is-success="true"`
 
 Her brukes samme attributter som for "load", men det forutsettes at modalen allerede er åpnet med "load"
 
-Denne metoden kan også kalles direkte: `nextModalPage('/minTestSideTo', '#minModal')`
+Denne metoden kan også kalles direkte: `nextModalPage('/minTestSideTo', '#minModal', bool, bool)` hvor de siste paremetrene er for å styre om styling for grønn side eller rød side skal vises
 
 For å gå tilbake til en side som er lastet tidligere brukes action "back":
 `data-toggle="altinn-modal" data-action="back" data-target="#minModal"`
