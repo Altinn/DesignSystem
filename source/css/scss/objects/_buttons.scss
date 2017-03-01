@@ -259,8 +259,17 @@
 
   &.a-btn-shadow-more {
     @include a-fontSize16;
-    padding-top: $spacer * 1.5;
-    padding-bottom: $spacer * 1.5;
+    padding-top: $spacer * 1.5 + 1;
+    padding-bottom: $spacer * 1.5 - 1;
+
+    .a-dot {
+      position: absolute;
+      left: 60px;
+    }
+
+    .a-btn-icon-text {
+      padding-left: 21px;
+    }
 
     .a-btn-icon-text-second {
       display: block;
@@ -272,6 +281,7 @@
     margin-left: $spacer;
   }
 }
+
 
 // Make button look like link
 .a-btn-link {
