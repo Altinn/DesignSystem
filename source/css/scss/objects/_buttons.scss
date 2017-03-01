@@ -500,16 +500,30 @@
     }
 
     input {
-      display: none;
-
       &[type='radio'] {
-        &:checked+label {
-          background-color: $blue;
+        &:checked {
+          &:focus {
+            &+label {
+              background-color: $blue-hover-color;
+            }
+          }
+
+          &+label {
+            background-color: $blue;
+          }
         }
 
-        &:not(:checked)+label {
-          &:hover {
-            background-color: $blue-light;
+        &:not(:checked) {
+          &:focus {
+            &+label {
+              background-color: $blue-light;
+            }
+          }
+
+          &+label {
+            &:hover {
+              background-color: $blue-light;
+            }
           }
         }
       }
