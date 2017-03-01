@@ -11,7 +11,7 @@ var addListExpandHandler = function() {
   });
 };
 
-/* globals currentRequest */
+/* globals currentRequest, popoverLocalInit */
 var closeModal = function(target) {
   $(target).modal('hide');
 };
@@ -62,6 +62,8 @@ var loadModal = function(url, target) {
     $(target).on('shown.bs.modal', function() {
       $(target).attr('aria-hidden', false);
     });
+    popoverLocalInit();
+    $('body').scrollTop(0);
   });
 };
 
@@ -111,6 +113,8 @@ var nextModalPage = function(url, target) {
     current.on('transitionend', function() {
       current.hide().off();
     });
+    popoverLocalInit();
+    $('body').scrollTop(0);
   });
 };
 
@@ -155,6 +159,7 @@ var previousModalPage = function(target, pagesToPopParam) {
     });
     previousPages.remove();
   });
+  $('body').scrollTop(0);
 };
 
 $('body').on('click', '[data-toggle="altinn-modal"]', function() {
@@ -173,9 +178,11 @@ $('body').on('click', '[data-toggle="altinn-modal"]', function() {
 var setupOnKeypress = function() {
   $('.a-clickable, .a-selectable').on('keypress', function(e) {
     var key = e.which;
-    if (key === 13) {
-      $(this).click();
-      return false;
+    if ($(e.target).hasClass('a-clickable') || $(e.target).hasClass('a-selectable')) {
+      if (key === 13) {
+        $(this).click();
+        return false;
+      }
     }
 
     return true;
@@ -351,14 +358,25 @@ var initializeDatepicker = function() {
 var sortListAlphanumerically = function(src, sortIndex) {
   var $list = $(src).closest('.a-list-container').find('.a-list');
   var rows = $list.find('li:not(.a-list-header)');
-  $(src).closest('.a-list-container').find('.a-list-sortHeader').removeClass('a-active');
-  $(src).addClass('a-active');
+  var reverse;
+
+  var active = $(src).hasClass('a-active');
+  if (!active) {
+    $(src).closest('.a-list-container').find('.a-list-sortHeader').removeClass('a-active')
+      .removeClass('reverse-sort');
+    $(src).addClass('a-active');
+  } else {
+    $(src).toggleClass('reverse-sort');
+  }
+
+  reverse = $(src).hasClass('reverse-sort');
+
   rows.sort(function(a, b) {
     var A = $($($($(a).children()[0]).children()[sortIndex]).find('.a-js-sortValue')[0]).text()
       .toUpperCase();
     var B = $($($($(b).children()[0]).children()[sortIndex]).find('.a-js-sortValue')[0]).text()
       .toUpperCase();
-    return compareTo(A, B);
+    return reverse ? compareTo(B, A) : compareTo(A, B);
   });
 
   $.each(rows, function(index, row) {
@@ -367,6 +385,7 @@ var sortListAlphanumerically = function(src, sortIndex) {
     }
   });
 
+    // handles load more row
   $.each(rows, function(index, row) {
     if ($(row).find('.a-js-sortValue').length === 0) {
       $list.append(row);
@@ -375,7 +394,7 @@ var sortListAlphanumerically = function(src, sortIndex) {
 };
 
 var defaultListSort = function() {
-  $('.a-list').each(function() {
+  $('.a-list-container').each(function() {
     var sortHeader = $(this).find('.a-list-sortHeader')[0];
     var index = $(sortHeader).index();
     sortListAlphanumerically(sortHeader, index);
@@ -421,11 +440,12 @@ var mobileNavigation = function() {
 };
 
 /* globals $ */
-var popover = function() {
+var popoverLocalInit = function() {
   var options = {
     html: true,
     placement: function(context, source) {
       var position = $(source).offset();
+      $(context).addClass($(source).attr('data-popover-class'));
       if ($(source).hasClass('a-js-popoverBig')) {
         return 'bottom';
       }
@@ -443,8 +463,55 @@ var popover = function() {
       }
       return false;
     },
-    trigger: 'click'
+    trigger: 'click',
+    template: '<div class="popover" role="tooltip"><div class="popover-arrow"></div><div class="popover-content"></div></div>'
   };
+
+  $('[data-toggle="popover"]').popover(options);
+
+  $('.a-js-togglePopoverIcons').each(function() {
+    $(this).find('i').eq(1).hide();
+  });
+};
+
+var popoverGlobalInit = function() {
+  $('body').on('shown.bs.popover', '[data-toggle="popover"].a-js-tabable-popover', function(e) {
+    var triggerElement = this;
+    setTimeout(function() {
+      $(triggerElement).after($($(triggerElement).data('bs.popover').tip));
+      $(window).one('scroll', function() {
+        $('[data-toggle="popover"]').popover('hide');
+      });
+    }, 0);
+  });
+
+  // Hide all existing popovers when opening a new popover
+  $('body').on('click', '[data-toggle="popover"]', function(e) {
+    $('[data-toggle="popover"]').not(this).popover('hide');
+  });
+
+  // Hide all existing popovers when focusing a new element
+  // which is not the open popover or any of its content
+  $('body').on('blur', '[data-toggle="popover"], .popover *', function(e) {
+    var that = this;
+    setTimeout(function() {
+      var $focused = $(':focus');
+      if ($focused.length !== 0 && !$focused.hasClass('popover') && !$focused.parents('.popover').length >= 1) {
+        $('[data-toggle="popover"]').popover('hide');
+      }
+    }, 0);
+  });
+
+  // Hide popovers when clicking on something else than the trigger element
+  // and the popover itself
+  $('body').on('click', function(e) {
+    if ($(e.target).data('toggle') !== 'popover'
+      && $(e.target).parents('[data-toggle="popover"]').length === 0
+      && $(e.target).parents('.popover.show').length === 0) {
+      $('[data-toggle="popover"]').popover('hide');
+    }
+  });
+
   function adjustBig() {
     if ($('.popover-big').length > 0) {
       $('.popover-big').attr('style',
@@ -454,46 +521,29 @@ var popover = function() {
       );
     }
   }
-  $('[data-toggle="popover"]').each(function() {
-    if ($(this).attr('data-template')) {
-      $(this).attr('data-template', $(this).attr('data-template').replace(/<!--[\s\S]*?-->/g, ''));
-    }
+
+  $('body').on('shown.bs.popover', '.a-js-togglePopoverIcons', function(e) {
+    $(e.target).find('i').eq(0).hide();
+    $(e.target).find('i').eq(1).show();
   });
-  $('[data-toggle="popover"]').popover(options);
-  $('#example').popover();
-  $('.a-js-togglePopoverIcons').each(function() {
-    $(this).find('i').eq(1).hide();
+
+  $('body').on('hidden.bs.popover', '.a-js-togglePopoverIcons', function(e) {
+    $(e.target).find('i').eq(0).show();
+    $(e.target).find('i').eq(1).hide();
   });
-  $('.a-js-blurrablePopover').on('blur', function(e) {
-    if ($(e.target).find('i').eq(1).is(':visible')) {
-      $(e.target).trigger('click');
-    }
-  });
-  $('body').on('mouseup', '.bs-tether-element *', function(e) {
-    e.preventDefault(); e.stopPropagation();
-  });
-  $('body').on('mouseup', '.bs-tether-element', function(e) {
-    e.preventDefault(); e.stopPropagation();
-  });
-  $('.a-js-togglePopoverIcons').on('shown.bs.popover', function(e) {
-    $(e.target).find('i').eq(0).hide(); $(e.target).find('i').eq(1).show();
-  });
-  $('.a-js-togglePopoverIcons').on('hidden.bs.popover', function(e) {
-    $(e.target).find('i').eq(0).show(); $(e.target).find('i').eq(1).hide();
-  });
-  $('.a-js-persistPopover').on('shown.bs.popover', function() {
-    adjustBig();
-    // $('.popover-big').find('.popover-arrow').css(
-    //   'left', ($(this).offset().left + 9) + 'px'
-    // );
-    // $('.popover-big').attr('data-arrowleftadjust', ($(this).offset().left + 9) + 'px');
+
+  $('body').on('shown.bs.popover', '.a-js-persistPopover', function() {
+    // Adjust the popover arrow correctly as the popover fills the full width
     $('body').append(
       '<style>.popover-big:after { left: ' + ($(this).offset().left + 10.5) + 'px !important; }</style>');
     $('html, body').animate({
       scrollTop: $('.a-js-persistPopover').offset().top - 50
     }, 250);
+    adjustBig();
   });
-  $(window).scroll(adjustBig); $(window).resize(adjustBig);
+
+  $(window).scroll(adjustBig);
+  $(window).resize(adjustBig);
 };
 
 /* globals $ */
@@ -619,7 +669,6 @@ var tooltip = function() {
   toggleFilter,
   uniformHeight,
   tooltip,
-  popover,
   initializeDatepicker,
   onboarding,
   nameChecker,
@@ -635,7 +684,9 @@ var tooltip = function() {
   setupOnKeypress,
   genericSearch,
   toggleInstant,
-  feedbackToggle */
+  feedbackToggle,
+  popoverLocalInit,
+  popoverGlobalInit */
 
 window.sharedInit = function() {
   addListExpandHandler();
@@ -644,12 +695,13 @@ window.sharedInit = function() {
   initializeDatepicker();
   addListSortHandler();
   mobileNavigation();
-  popover();
   propagateContent();
   toggleFilter();
   tooltip();
   toggleInstant();
   feedbackToggle();
+  popoverLocalInit();
+  popoverGlobalInit();
 };
 window.sharedInit();
 

@@ -2,7 +2,7 @@
 <!-- START: 03-maler-91-modal-01-modal -->
 <div class="a-modal fade modal show " role="dialog" aria-hidden="false" style="display: block">
   <div class="modal-dialog modal-lg" role="document">
-    <div class="container">
+    <div class="container a-p-static">
       <div class="row">
         <div class="col-xl-12">
           <!-- START: 01-molekyler-20-modalelementer-05-modal-header -->
@@ -22,20 +22,12 @@
         </div>
       </div>
       <div class="row">
-        <div class="col-xl-10 offset-xl-1">
+        <div class="col-xl-10 offset-xl-1 a-p-static">
           <!-- START: 01-molekyler-20-modalelementer-10-modal-navbar -->
           <div class="a-modal-navbar">
             <!-- START: 00-atomer-04-handlingsknapper-10-knapp-ikon -->
-            <button type="button" class="a-modal-back" onclick="handleModalClose(this, '/patterns/04-sider-91-klientdelegering-00-klientdelegering-gi-rettigheter-til-klienter/04-sider-91-klientdelegering-00-klientdelegering-gi-rettigheter-til-klienter.html');" aria-label="Tilbake"
-              data-toggle="popover" data-placement="bottom" data-animation="false" data-popover-content="backPopoverContent" data-template="<!-- START: 00-atomer-05-Ekspansjonsknapper-01-popover -->
-<div class='popover popover-warning' role='tooltip'>
-  <div class='popover-arrow'></div>
-    <h3 class='popover-title'></h3>
-  <div class='popover-content'></div>
-</div>
-
-<!-- END: 00-atomer-05-Ekspansjonsknapper-01-popover -->
-">
+            <button type="button" class="a-modal-back a-js-tabable-popover" onclick="handleModalClose(this, '/patterns/04-sider-91-klientdelegering-00-klientdelegering-gi-rettigheter-til-klienter/04-sider-91-klientdelegering-00-klientdelegering-gi-rettigheter-til-klienter.html');"
+              aria-label="Tilbake" data-toggle="popover" data-placement="bottom" data-animation="false" data-popover-content="backPopoverContent" data-popover-class="popover-warning">
               <!-- START: 00-atomer-09-bilder-og-media-15-ikon -->
 
               <i class="ai ai-back  a-modal-back-icon "></i>
@@ -46,7 +38,7 @@
               </button>
 
               <div id="backPopoverContent" class="hidden-xs-up">
-                <div class="py-1">Du har gjort endringer som ikke vil lagres</div>
+                <div class="pb-1">Du har gjort endringer som ikke vil lagres</div>
                 <!-- START: 00-atomer-03-knapper-10-knapp -->
                 <button type="button" class="a-btn a-btn-danger mr-1" onclick="$('button[aria-describedby=' + $(this).parent().parent().attr('id') + ']').click(); location.href='/patterns/04-sider-91-klientdelegering-00-klientdelegering-gi-rettigheter-til-klienter/04-sider-91-klientdelegering-00-klientdelegering-gi-rettigheter-til-klienter.html'"
                   data-target="departement-filter">
@@ -67,16 +59,8 @@
               <!-- END: 00-atomer-04-handlingsknapper-10-knapp-ikon -->
 
               <!-- START: 00-atomer-04-handlingsknapper-10-knapp-ikon -->
-              <button type="button" class="a-modal-close" onclick="handleModalClose(this, '/patterns/04-sider-60-profil-roller-rettigheter-profil-roller-rettigheter/04-sider-60-profil-roller-rettigheter-profil-roller-rettigheter.html');" aria-label="Lukk" data-toggle="popover"
-                data-placement="bottom" data-animation="false" data-popover-content="closePopoverContent" data-template="<!-- START: 00-atomer-05-Ekspansjonsknapper-01-popover -->
-<div class='popover popover-warning' role='tooltip'>
-  <div class='popover-arrow'></div>
-    <h3 class='popover-title'></h3>
-  <div class='popover-content'></div>
-</div>
-
-<!-- END: 00-atomer-05-Ekspansjonsknapper-01-popover -->
-">
+              <button type="button" class="a-modal-close a-js-tabable-popover" onclick="handleModalClose(this, '/patterns/04-sider-60-profil-roller-rettigheter-profil-roller-rettigheter/04-sider-60-profil-roller-rettigheter-profil-roller-rettigheter.html');" aria-label="Lukk"
+                data-toggle="popover" data-placement="bottom" data-animation="false" data-popover-content="closePopoverContent" data-popover-class="popover-warning">
                 <!-- START: 00-atomer-09-bilder-og-media-15-ikon -->
 
                 <i class="ai ai-exit  a-modal-close-icon "></i>
@@ -87,7 +71,7 @@
                 </button>
 
                 <div id="closePopoverContent" class="hidden-xs-up">
-                  <div class="py-1">Du har gjort endringer som ikke vil lagres</div>
+                  <div class="pb-1">Du har gjort endringer som ikke vil lagres</div>
                   <!-- START: 00-atomer-03-knapper-10-knapp -->
                   <button type="button" class="a-btn a-btn-danger mr-1" onclick="$('button[aria-describedby=' + $(this).parent().parent().attr('id') + ']').click(); location.href='/patterns/04-sider-60-profil-roller-rettigheter-profil-roller-rettigheter/04-sider-60-profil-roller-rettigheter-profil-roller-rettigheter.html'"
                     data-target="departement-filter">
@@ -107,20 +91,6 @@
 
                 <!-- END: 00-atomer-04-handlingsknapper-10-knapp-ikon -->
 
-
-                <script>
-                  function goBack() {
-                    // window.history.back();
-                    var arr = []
-                    for (key in smoothState.cache) {
-                      arr.push(key)
-                    }
-                    delete smoothState.cache[arr[arr.length - 1]]
-                    arr.splice(-1, 1)
-                    $('.a-scene-element').addClass('a-tempAnim')
-                    smoothState.load(arr[arr.length - 1])
-                  }
-                </script>
           </div>
 
           <!-- END: 01-molekyler-20-modalelementer-10-modal-navbar -->
@@ -242,36 +212,38 @@
 
                       </div>
                     </div>
-                    <div class="mt-1 mb-1">
-                      <!-- START: 00-atomer-05-Ekspansjonsknapper-27-ekspanderbar-tittel -->
-                      <div class="a-collapse">
-                        <div class="">
-                          <h3 class="a-collapseHeader">
-                            <a data-toggle="collapse" href="#" data-target="#exp-tab-table-existing-clients" aria-expanded="" aria-controls="exp-tab-table-existing-clients" class="a-collapse-title a-collapse-title--absolute no-decoration ">
-                              <span class="a-dropdownArrow"></span> Har disse <span class='badge badge-primary a-label badge-pill'>11</span> klientene:
-                            </a>
-                          </h3>
+                    <div role="tablist">
+                      <div role="tab">
+                        <div class="mt-1 mb-1">
+                          <!-- START: 00-atomer-05-Ekspansjonsknapper-27-ekspanderbar-tittel -->
+                          <div class="a-collapse">
+                            <div class="">
+                              <h3 class="a-collapseHeader">
+                                <a data-toggle="collapse" href="#" data-target="#exp-tab-table-existing-clients" aria-expanded="true" aria-controls="exp-tab-table-existing-clients" class="a-collapse-title a-collapse-title--absolute no-decoration ">
+                                  <span class="a-dropdownArrow"></span> Har disse <span class='badge badge-primary a-label badge-pill'>11</span> klientene:
+                                </a>
+                              </h3>
+                            </div>
+                          </div>
+
+                          <!-- END: 00-atomer-05-Ekspansjonsknapper-27-ekspanderbar-tittel -->
+
                         </div>
-                      </div>
+                        <div class="a-full-width">
+                          <div id="exp-tab-table-existing-clients" class="a-collapseContent collapse show" role="tabpanel" aria-expanded="true">
+                            <!-- START: 01-molekyler-05-lister-00-liste-unummerert-ny -->
+                            <div class="a-list-container ">
+                              <div class="a-list-header a-bgGreyLight">
+                                <div class="row">
+                                  <div class="a-w-7 hidden-sm-down">
+                                    <!-- START: 01-molekyler-05-lister-_00-liste-innhold -->
 
-                      <!-- END: 00-atomer-05-Ekspansjonsknapper-27-ekspanderbar-tittel -->
+                                    <!-- END: 01-molekyler-05-lister-_00-liste-innhold -->
 
-                    </div>
-                    <div class="a-full-width">
-                      <div id="exp-tab-table-existing-clients" class="a-collapseContent collapse show" aria-expanded="true">
-                        <!-- START: 01-molekyler-05-lister-00-liste-unummerert-ny -->
-                        <div class="a-list-container ">
-                          <div class="a-list-header a-bgGreyLight">
-                            <div class="row">
-                              <div class="a-w-7 hidden-sm-down">
-                                <!-- START: 01-molekyler-05-lister-_00-liste-innhold -->
-
-                                <!-- END: 01-molekyler-05-lister-_00-liste-innhold -->
-
-                              </div>
-                              <div class="col-6 col-sm-7 col-md-4 col-lg-6 a-list-sortHeader a-clickable hidden-xs-down" tabindex="0" role="button">
-                                <!-- START: 01-molekyler-05-lister-_00-liste-innhold -->
-                                <span class="a-dropdownArrow"> 
+                                  </div>
+                                  <div class="col-6 col-sm-7 col-md-4 col-lg-6 a-list-sortHeader a-clickable hidden-xs-down" tabindex="0" role="button">
+                                    <!-- START: 01-molekyler-05-lister-_00-liste-innhold -->
+                                    <span class="a-dropdownArrow"> 
     
      </span>
 
@@ -279,7 +251,7 @@
 
 
 
-                                <span class="sr-only"> 
+                                    <span class="sr-only"> 
     sorter listen på
      </span> SELSKAPSNAVN
 
@@ -289,12 +261,12 @@
 
 
 
-                                <!-- END: 01-molekyler-05-lister-_00-liste-innhold -->
+                                    <!-- END: 01-molekyler-05-lister-_00-liste-innhold -->
 
-                              </div>
-                              <div class="col-2 hidden-sm-down a-list-sortHeader a-clickable" tabindex="0" role="button">
-                                <!-- START: 01-molekyler-05-lister-_00-liste-innhold -->
-                                <span class="a-dropdownArrow"> 
+                                  </div>
+                                  <div class="col-2 hidden-sm-down a-list-sortHeader a-clickable" tabindex="0" role="button">
+                                    <!-- START: 01-molekyler-05-lister-_00-liste-innhold -->
+                                    <span class="a-dropdownArrow"> 
     
      </span>
 
@@ -302,7 +274,7 @@
 
 
 
-                                <span class="sr-only"> 
+                                    <span class="sr-only"> 
     sorter listen på
      </span> ORG.NR
 
@@ -312,12 +284,12 @@
 
 
 
-                                <!-- END: 01-molekyler-05-lister-_00-liste-innhold -->
+                                    <!-- END: 01-molekyler-05-lister-_00-liste-innhold -->
 
-                              </div>
-                              <div class="col text-right pr-0 pr-md-2 a-js-add-remove-all a-clickable" tabindex="0">
-                                <!-- START: 01-molekyler-05-lister-_00-liste-innhold -->
-                                <span class="a-fontBold hidden-xs-down"> 
+                                  </div>
+                                  <div class="col text-right pr-0 pr-md-2 a-js-add-remove-all a-clickable" tabindex="0">
+                                    <!-- START: 01-molekyler-05-lister-_00-liste-innhold -->
+                                    <span class="a-fontBold hidden-xs-down"> 
     Fjern alle klienter
      </span>
 
@@ -325,7 +297,7 @@
 
 
 
-                                <span class="a-fontBold hidden-sm-up"> 
+                                    <span class="a-fontBold hidden-sm-up"> 
     Fjern alle
      </span>
 
@@ -334,48 +306,48 @@
 
 
 
-                                <!-- START: 00-atomer-09-bilder-og-media-15-ikon -->
+                                    <!-- START: 00-atomer-09-bilder-og-media-15-ikon -->
 
-                                <i class="tmp tmp-remove-circle  a-remove-icon tmp-fw "></i>
-
-
-                                <!-- END: 00-atomer-09-bilder-og-media-15-ikon -->
+                                    <i class="tmp tmp-remove-circle  a-remove-icon tmp-fw "></i>
 
 
-
-
-
-
-                                <!-- END: 01-molekyler-05-lister-_00-liste-innhold -->
-
-                              </div>
-                            </div>
-                          </div>
-                          <ul class="a-list  a-list-large  a-bgGreyLight a-full-height  " id="employee-table" data-list-selectable="true">
-
-                            <li class="a-selectable a-danger" tabindex="0">
-                              <div class="row">
-                                <div class="a-w-7 text-center hidden-sm-down">
-                                  <!-- START: 01-molekyler-05-lister-_00-liste-innhold -->
-
-                                  <!-- START: 00-atomer-09-bilder-og-media-15-ikon -->
-
-                                  <i class="ai ai-client   "></i>
-
-
-                                  <!-- END: 00-atomer-09-bilder-og-media-15-ikon -->
+                                    <!-- END: 00-atomer-09-bilder-og-media-15-ikon -->
 
 
 
 
 
 
-                                  <!-- END: 01-molekyler-05-lister-_00-liste-innhold -->
+                                    <!-- END: 01-molekyler-05-lister-_00-liste-innhold -->
 
+                                  </div>
                                 </div>
-                                <div class="col-10 col-sm-7 col-md-4 col-lg-6" data-searchable="true">
-                                  <!-- START: 01-molekyler-05-lister-_00-liste-innhold -->
-                                  <span class="a-fontBold a-js-sortValue a-lineThrough-selected"> 
+                              </div>
+                              <ul class="a-list  a-list-large  a-bgGreyLight a-full-height  " id="employee-table" data-list-selectable="true">
+
+                                <li class="a-selectable a-danger" tabindex="0">
+                                  <div class="row">
+                                    <div class="a-w-7 text-center hidden-sm-down">
+                                      <!-- START: 01-molekyler-05-lister-_00-liste-innhold -->
+
+                                      <!-- START: 00-atomer-09-bilder-og-media-15-ikon -->
+
+                                      <i class="ai ai-client   "></i>
+
+
+                                      <!-- END: 00-atomer-09-bilder-og-media-15-ikon -->
+
+
+
+
+
+
+                                      <!-- END: 01-molekyler-05-lister-_00-liste-innhold -->
+
+                                    </div>
+                                    <div class="col-10 col-sm-7 col-md-4 col-lg-6" data-searchable="true">
+                                      <!-- START: 01-molekyler-05-lister-_00-liste-innhold -->
+                                      <span class="a-fontBold a-js-sortValue a-lineThrough-selected"> 
     Adrian Frutinger ENK
      </span>
 
@@ -384,12 +356,12 @@
 
 
 
-                                  <!-- END: 01-molekyler-05-lister-_00-liste-innhold -->
+                                      <!-- END: 01-molekyler-05-lister-_00-liste-innhold -->
 
-                                </div>
-                                <div class="col-3 hidden-sm-down" data-searchable="true">
-                                  <!-- START: 01-molekyler-05-lister-_00-liste-innhold -->
-                                  <span class="sr-only"> 
+                                    </div>
+                                    <div class="col-3 hidden-sm-down" data-searchable="true">
+                                      <!-- START: 01-molekyler-05-lister-_00-liste-innhold -->
+                                      <span class="sr-only"> 
     Organisjonsnummer:
      </span>
 
@@ -397,7 +369,7 @@
 
 
 
-                                  <span class="a-js-sortValue"> 
+                                      <span class="a-js-sortValue"> 
     963 179 715
      </span>
 
@@ -406,12 +378,12 @@
 
 
 
-                                  <!-- END: 01-molekyler-05-lister-_00-liste-innhold -->
+                                      <!-- END: 01-molekyler-05-lister-_00-liste-innhold -->
 
-                                </div>
-                                <div class="col text-right pr-0 pr-md-2">
-                                  <!-- START: 01-molekyler-05-lister-_00-liste-innhold -->
-                                  <span class="a-fontBold hidden-xs-down a-hiddenWhenSelected a-hiddenWhenDeleted"> 
+                                    </div>
+                                    <div class="col text-right pr-0 pr-md-2">
+                                      <!-- START: 01-molekyler-05-lister-_00-liste-innhold -->
+                                      <span class="a-fontBold hidden-xs-down a-hiddenWhenSelected a-hiddenWhenDeleted"> 
     Fjern
      </span>
 
@@ -420,18 +392,18 @@
 
 
 
-                                  <!-- START: 00-atomer-09-bilder-og-media-15-ikon -->
+                                      <!-- START: 00-atomer-09-bilder-og-media-15-ikon -->
 
-                                  <i class="tmp tmp-remove-circle  a-remove-icon a-hiddenWhenSelected a-hiddenWhenDeleted tmp-fw "></i>
-
-
-                                  <!-- END: 00-atomer-09-bilder-og-media-15-ikon -->
+                                      <i class="tmp tmp-remove-circle  a-remove-icon a-hiddenWhenSelected a-hiddenWhenDeleted tmp-fw "></i>
 
 
+                                      <!-- END: 00-atomer-09-bilder-og-media-15-ikon -->
 
 
 
-                                  <span class="a-fontBold hidden-xs-down a-visibleWhenSelected a-hiddenWhenDeleted"> 
+
+
+                                      <span class="a-fontBold hidden-xs-down a-visibleWhenSelected a-hiddenWhenDeleted"> 
     Angre
      </span>
 
@@ -440,18 +412,18 @@
 
 
 
-                                  <!-- START: 00-atomer-09-bilder-og-media-15-ikon -->
+                                      <!-- START: 00-atomer-09-bilder-og-media-15-ikon -->
 
-                                  <i class="tmp tmp-history  a-remove-icon a-visibleWhenSelected a-hiddenWhenDeleted tmp-fw "></i>
-
-
-                                  <!-- END: 00-atomer-09-bilder-og-media-15-ikon -->
+                                      <i class="tmp tmp-history  a-remove-icon a-visibleWhenSelected a-hiddenWhenDeleted tmp-fw "></i>
 
 
+                                      <!-- END: 00-atomer-09-bilder-og-media-15-ikon -->
 
 
 
-                                  <span class="a-fontBold hidden-xs-down a-visibleWhenDeleted"> 
+
+
+                                      <span class="a-fontBold hidden-xs-down a-visibleWhenDeleted"> 
     Slettet
      </span>
 
@@ -460,46 +432,46 @@
 
 
 
-                                  <!-- START: 00-atomer-09-bilder-og-media-15-ikon -->
+                                      <!-- START: 00-atomer-09-bilder-og-media-15-ikon -->
 
-                                  <i class="tmp tmp-fw  a-remove-icon a-visibleWhenDeleted "></i>
-
-
-                                  <!-- END: 00-atomer-09-bilder-og-media-15-ikon -->
+                                      <i class="tmp tmp-fw  a-remove-icon a-visibleWhenDeleted "></i>
 
 
-
-
-
-
-                                  <!-- END: 01-molekyler-05-lister-_00-liste-innhold -->
-
-                                </div>
-                              </div>
-                            </li>
-                            <li class="a-selectable a-danger" tabindex="0">
-                              <div class="row">
-                                <div class="a-w-7 text-center hidden-sm-down">
-                                  <!-- START: 01-molekyler-05-lister-_00-liste-innhold -->
-
-                                  <!-- START: 00-atomer-09-bilder-og-media-15-ikon -->
-
-                                  <i class="ai ai-client   "></i>
-
-
-                                  <!-- END: 00-atomer-09-bilder-og-media-15-ikon -->
+                                      <!-- END: 00-atomer-09-bilder-og-media-15-ikon -->
 
 
 
 
 
 
-                                  <!-- END: 01-molekyler-05-lister-_00-liste-innhold -->
+                                      <!-- END: 01-molekyler-05-lister-_00-liste-innhold -->
 
-                                </div>
-                                <div class="col-10 col-sm-7 col-md-4 col-lg-6" data-searchable="true">
-                                  <!-- START: 01-molekyler-05-lister-_00-liste-innhold -->
-                                  <span class="a-fontBold a-js-sortValue a-lineThrough-selected"> 
+                                    </div>
+                                  </div>
+                                </li>
+                                <li class="a-selectable a-danger" tabindex="0">
+                                  <div class="row">
+                                    <div class="a-w-7 text-center hidden-sm-down">
+                                      <!-- START: 01-molekyler-05-lister-_00-liste-innhold -->
+
+                                      <!-- START: 00-atomer-09-bilder-og-media-15-ikon -->
+
+                                      <i class="ai ai-client   "></i>
+
+
+                                      <!-- END: 00-atomer-09-bilder-og-media-15-ikon -->
+
+
+
+
+
+
+                                      <!-- END: 01-molekyler-05-lister-_00-liste-innhold -->
+
+                                    </div>
+                                    <div class="col-10 col-sm-7 col-md-4 col-lg-6" data-searchable="true">
+                                      <!-- START: 01-molekyler-05-lister-_00-liste-innhold -->
+                                      <span class="a-fontBold a-js-sortValue a-lineThrough-selected"> 
     Advokat Renningsen ANS
      </span>
 
@@ -508,12 +480,12 @@
 
 
 
-                                  <!-- END: 01-molekyler-05-lister-_00-liste-innhold -->
+                                      <!-- END: 01-molekyler-05-lister-_00-liste-innhold -->
 
-                                </div>
-                                <div class="col-3 hidden-sm-down" data-searchable="true">
-                                  <!-- START: 01-molekyler-05-lister-_00-liste-innhold -->
-                                  <span class="sr-only"> 
+                                    </div>
+                                    <div class="col-3 hidden-sm-down" data-searchable="true">
+                                      <!-- START: 01-molekyler-05-lister-_00-liste-innhold -->
+                                      <span class="sr-only"> 
     Organisjonsnummer:
      </span>
 
@@ -521,7 +493,7 @@
 
 
 
-                                  <span class="a-js-sortValue"> 
+                                      <span class="a-js-sortValue"> 
     999157033
      </span>
 
@@ -530,12 +502,12 @@
 
 
 
-                                  <!-- END: 01-molekyler-05-lister-_00-liste-innhold -->
+                                      <!-- END: 01-molekyler-05-lister-_00-liste-innhold -->
 
-                                </div>
-                                <div class="col text-right pr-0 pr-md-2">
-                                  <!-- START: 01-molekyler-05-lister-_00-liste-innhold -->
-                                  <span class="a-fontBold hidden-xs-down a-hiddenWhenSelected a-hiddenWhenDeleted"> 
+                                    </div>
+                                    <div class="col text-right pr-0 pr-md-2">
+                                      <!-- START: 01-molekyler-05-lister-_00-liste-innhold -->
+                                      <span class="a-fontBold hidden-xs-down a-hiddenWhenSelected a-hiddenWhenDeleted"> 
     Fjern
      </span>
 
@@ -544,18 +516,18 @@
 
 
 
-                                  <!-- START: 00-atomer-09-bilder-og-media-15-ikon -->
+                                      <!-- START: 00-atomer-09-bilder-og-media-15-ikon -->
 
-                                  <i class="tmp tmp-remove-circle  a-remove-icon a-hiddenWhenSelected a-hiddenWhenDeleted tmp-fw "></i>
-
-
-                                  <!-- END: 00-atomer-09-bilder-og-media-15-ikon -->
+                                      <i class="tmp tmp-remove-circle  a-remove-icon a-hiddenWhenSelected a-hiddenWhenDeleted tmp-fw "></i>
 
 
+                                      <!-- END: 00-atomer-09-bilder-og-media-15-ikon -->
 
 
 
-                                  <span class="a-fontBold hidden-xs-down a-visibleWhenSelected a-hiddenWhenDeleted"> 
+
+
+                                      <span class="a-fontBold hidden-xs-down a-visibleWhenSelected a-hiddenWhenDeleted"> 
     Angre
      </span>
 
@@ -564,18 +536,18 @@
 
 
 
-                                  <!-- START: 00-atomer-09-bilder-og-media-15-ikon -->
+                                      <!-- START: 00-atomer-09-bilder-og-media-15-ikon -->
 
-                                  <i class="tmp tmp-history  a-remove-icon a-visibleWhenSelected a-hiddenWhenDeleted tmp-fw "></i>
-
-
-                                  <!-- END: 00-atomer-09-bilder-og-media-15-ikon -->
+                                      <i class="tmp tmp-history  a-remove-icon a-visibleWhenSelected a-hiddenWhenDeleted tmp-fw "></i>
 
 
+                                      <!-- END: 00-atomer-09-bilder-og-media-15-ikon -->
 
 
 
-                                  <span class="a-fontBold hidden-xs-down a-visibleWhenDeleted"> 
+
+
+                                      <span class="a-fontBold hidden-xs-down a-visibleWhenDeleted"> 
     Slettet
      </span>
 
@@ -584,46 +556,46 @@
 
 
 
-                                  <!-- START: 00-atomer-09-bilder-og-media-15-ikon -->
+                                      <!-- START: 00-atomer-09-bilder-og-media-15-ikon -->
 
-                                  <i class="tmp tmp-fw  a-remove-icon a-visibleWhenDeleted "></i>
-
-
-                                  <!-- END: 00-atomer-09-bilder-og-media-15-ikon -->
+                                      <i class="tmp tmp-fw  a-remove-icon a-visibleWhenDeleted "></i>
 
 
-
-
-
-
-                                  <!-- END: 01-molekyler-05-lister-_00-liste-innhold -->
-
-                                </div>
-                              </div>
-                            </li>
-                            <li class="a-selectable a-danger" tabindex="0">
-                              <div class="row">
-                                <div class="a-w-7 text-center hidden-sm-down">
-                                  <!-- START: 01-molekyler-05-lister-_00-liste-innhold -->
-
-                                  <!-- START: 00-atomer-09-bilder-og-media-15-ikon -->
-
-                                  <i class="ai ai-client   "></i>
-
-
-                                  <!-- END: 00-atomer-09-bilder-og-media-15-ikon -->
+                                      <!-- END: 00-atomer-09-bilder-og-media-15-ikon -->
 
 
 
 
 
 
-                                  <!-- END: 01-molekyler-05-lister-_00-liste-innhold -->
+                                      <!-- END: 01-molekyler-05-lister-_00-liste-innhold -->
 
-                                </div>
-                                <div class="col-10 col-sm-7 col-md-4 col-lg-6" data-searchable="true">
-                                  <!-- START: 01-molekyler-05-lister-_00-liste-innhold -->
-                                  <span class="a-fontBold a-js-sortValue a-lineThrough-selected"> 
+                                    </div>
+                                  </div>
+                                </li>
+                                <li class="a-selectable a-danger" tabindex="0">
+                                  <div class="row">
+                                    <div class="a-w-7 text-center hidden-sm-down">
+                                      <!-- START: 01-molekyler-05-lister-_00-liste-innhold -->
+
+                                      <!-- START: 00-atomer-09-bilder-og-media-15-ikon -->
+
+                                      <i class="ai ai-client   "></i>
+
+
+                                      <!-- END: 00-atomer-09-bilder-og-media-15-ikon -->
+
+
+
+
+
+
+                                      <!-- END: 01-molekyler-05-lister-_00-liste-innhold -->
+
+                                    </div>
+                                    <div class="col-10 col-sm-7 col-md-4 col-lg-6" data-searchable="true">
+                                      <!-- START: 01-molekyler-05-lister-_00-liste-innhold -->
+                                      <span class="a-fontBold a-js-sortValue a-lineThrough-selected"> 
     Clamps AS
      </span>
 
@@ -632,12 +604,12 @@
 
 
 
-                                  <!-- END: 01-molekyler-05-lister-_00-liste-innhold -->
+                                      <!-- END: 01-molekyler-05-lister-_00-liste-innhold -->
 
-                                </div>
-                                <div class="col-3 hidden-sm-down" data-searchable="true">
-                                  <!-- START: 01-molekyler-05-lister-_00-liste-innhold -->
-                                  <span class="sr-only"> 
+                                    </div>
+                                    <div class="col-3 hidden-sm-down" data-searchable="true">
+                                      <!-- START: 01-molekyler-05-lister-_00-liste-innhold -->
+                                      <span class="sr-only"> 
     Organisjonsnummer:
      </span>
 
@@ -645,7 +617,7 @@
 
 
 
-                                  <span class="a-js-sortValue"> 
+                                      <span class="a-js-sortValue"> 
     963 179 715
      </span>
 
@@ -654,12 +626,12 @@
 
 
 
-                                  <!-- END: 01-molekyler-05-lister-_00-liste-innhold -->
+                                      <!-- END: 01-molekyler-05-lister-_00-liste-innhold -->
 
-                                </div>
-                                <div class="col text-right pr-0 pr-md-2">
-                                  <!-- START: 01-molekyler-05-lister-_00-liste-innhold -->
-                                  <span class="a-fontBold hidden-xs-down a-hiddenWhenSelected a-hiddenWhenDeleted"> 
+                                    </div>
+                                    <div class="col text-right pr-0 pr-md-2">
+                                      <!-- START: 01-molekyler-05-lister-_00-liste-innhold -->
+                                      <span class="a-fontBold hidden-xs-down a-hiddenWhenSelected a-hiddenWhenDeleted"> 
     Fjern
      </span>
 
@@ -668,18 +640,18 @@
 
 
 
-                                  <!-- START: 00-atomer-09-bilder-og-media-15-ikon -->
+                                      <!-- START: 00-atomer-09-bilder-og-media-15-ikon -->
 
-                                  <i class="tmp tmp-remove-circle  a-remove-icon a-hiddenWhenSelected a-hiddenWhenDeleted tmp-fw "></i>
-
-
-                                  <!-- END: 00-atomer-09-bilder-og-media-15-ikon -->
+                                      <i class="tmp tmp-remove-circle  a-remove-icon a-hiddenWhenSelected a-hiddenWhenDeleted tmp-fw "></i>
 
 
+                                      <!-- END: 00-atomer-09-bilder-og-media-15-ikon -->
 
 
 
-                                  <span class="a-fontBold hidden-xs-down a-visibleWhenSelected a-hiddenWhenDeleted"> 
+
+
+                                      <span class="a-fontBold hidden-xs-down a-visibleWhenSelected a-hiddenWhenDeleted"> 
     Angre
      </span>
 
@@ -688,18 +660,18 @@
 
 
 
-                                  <!-- START: 00-atomer-09-bilder-og-media-15-ikon -->
+                                      <!-- START: 00-atomer-09-bilder-og-media-15-ikon -->
 
-                                  <i class="tmp tmp-history  a-remove-icon a-visibleWhenSelected a-hiddenWhenDeleted tmp-fw "></i>
-
-
-                                  <!-- END: 00-atomer-09-bilder-og-media-15-ikon -->
+                                      <i class="tmp tmp-history  a-remove-icon a-visibleWhenSelected a-hiddenWhenDeleted tmp-fw "></i>
 
 
+                                      <!-- END: 00-atomer-09-bilder-og-media-15-ikon -->
 
 
 
-                                  <span class="a-fontBold hidden-xs-down a-visibleWhenDeleted"> 
+
+
+                                      <span class="a-fontBold hidden-xs-down a-visibleWhenDeleted"> 
     Slettet
      </span>
 
@@ -708,46 +680,46 @@
 
 
 
-                                  <!-- START: 00-atomer-09-bilder-og-media-15-ikon -->
+                                      <!-- START: 00-atomer-09-bilder-og-media-15-ikon -->
 
-                                  <i class="tmp tmp-fw  a-remove-icon a-visibleWhenDeleted "></i>
-
-
-                                  <!-- END: 00-atomer-09-bilder-og-media-15-ikon -->
+                                      <i class="tmp tmp-fw  a-remove-icon a-visibleWhenDeleted "></i>
 
 
-
-
-
-
-                                  <!-- END: 01-molekyler-05-lister-_00-liste-innhold -->
-
-                                </div>
-                              </div>
-                            </li>
-                            <li class="a-selectable a-danger" tabindex="0">
-                              <div class="row">
-                                <div class="a-w-7 text-center hidden-sm-down">
-                                  <!-- START: 01-molekyler-05-lister-_00-liste-innhold -->
-
-                                  <!-- START: 00-atomer-09-bilder-og-media-15-ikon -->
-
-                                  <i class="ai ai-client   "></i>
-
-
-                                  <!-- END: 00-atomer-09-bilder-og-media-15-ikon -->
+                                      <!-- END: 00-atomer-09-bilder-og-media-15-ikon -->
 
 
 
 
 
 
-                                  <!-- END: 01-molekyler-05-lister-_00-liste-innhold -->
+                                      <!-- END: 01-molekyler-05-lister-_00-liste-innhold -->
 
-                                </div>
-                                <div class="col-10 col-sm-7 col-md-4 col-lg-6" data-searchable="true">
-                                  <!-- START: 01-molekyler-05-lister-_00-liste-innhold -->
-                                  <span class="a-fontBold a-js-sortValue a-lineThrough-selected"> 
+                                    </div>
+                                  </div>
+                                </li>
+                                <li class="a-selectable a-danger" tabindex="0">
+                                  <div class="row">
+                                    <div class="a-w-7 text-center hidden-sm-down">
+                                      <!-- START: 01-molekyler-05-lister-_00-liste-innhold -->
+
+                                      <!-- START: 00-atomer-09-bilder-og-media-15-ikon -->
+
+                                      <i class="ai ai-client   "></i>
+
+
+                                      <!-- END: 00-atomer-09-bilder-og-media-15-ikon -->
+
+
+
+
+
+
+                                      <!-- END: 01-molekyler-05-lister-_00-liste-innhold -->
+
+                                    </div>
+                                    <div class="col-10 col-sm-7 col-md-4 col-lg-6" data-searchable="true">
+                                      <!-- START: 01-molekyler-05-lister-_00-liste-innhold -->
+                                      <span class="a-fontBold a-js-sortValue a-lineThrough-selected"> 
     Creative Banking AS
      </span>
 
@@ -756,12 +728,12 @@
 
 
 
-                                  <!-- END: 01-molekyler-05-lister-_00-liste-innhold -->
+                                      <!-- END: 01-molekyler-05-lister-_00-liste-innhold -->
 
-                                </div>
-                                <div class="col-3 hidden-sm-down" data-searchable="true">
-                                  <!-- START: 01-molekyler-05-lister-_00-liste-innhold -->
-                                  <span class="sr-only"> 
+                                    </div>
+                                    <div class="col-3 hidden-sm-down" data-searchable="true">
+                                      <!-- START: 01-molekyler-05-lister-_00-liste-innhold -->
+                                      <span class="sr-only"> 
     Organisjonsnummer:
      </span>
 
@@ -769,7 +741,7 @@
 
 
 
-                                  <span class="a-js-sortValue"> 
+                                      <span class="a-js-sortValue"> 
     963 179 715
      </span>
 
@@ -778,12 +750,12 @@
 
 
 
-                                  <!-- END: 01-molekyler-05-lister-_00-liste-innhold -->
+                                      <!-- END: 01-molekyler-05-lister-_00-liste-innhold -->
 
-                                </div>
-                                <div class="col text-right pr-0 pr-md-2">
-                                  <!-- START: 01-molekyler-05-lister-_00-liste-innhold -->
-                                  <span class="a-fontBold hidden-xs-down a-hiddenWhenSelected a-hiddenWhenDeleted"> 
+                                    </div>
+                                    <div class="col text-right pr-0 pr-md-2">
+                                      <!-- START: 01-molekyler-05-lister-_00-liste-innhold -->
+                                      <span class="a-fontBold hidden-xs-down a-hiddenWhenSelected a-hiddenWhenDeleted"> 
     Fjern
      </span>
 
@@ -792,18 +764,18 @@
 
 
 
-                                  <!-- START: 00-atomer-09-bilder-og-media-15-ikon -->
+                                      <!-- START: 00-atomer-09-bilder-og-media-15-ikon -->
 
-                                  <i class="tmp tmp-remove-circle  a-remove-icon a-hiddenWhenSelected a-hiddenWhenDeleted tmp-fw "></i>
-
-
-                                  <!-- END: 00-atomer-09-bilder-og-media-15-ikon -->
+                                      <i class="tmp tmp-remove-circle  a-remove-icon a-hiddenWhenSelected a-hiddenWhenDeleted tmp-fw "></i>
 
 
+                                      <!-- END: 00-atomer-09-bilder-og-media-15-ikon -->
 
 
 
-                                  <span class="a-fontBold hidden-xs-down a-visibleWhenSelected a-hiddenWhenDeleted"> 
+
+
+                                      <span class="a-fontBold hidden-xs-down a-visibleWhenSelected a-hiddenWhenDeleted"> 
     Angre
      </span>
 
@@ -812,18 +784,18 @@
 
 
 
-                                  <!-- START: 00-atomer-09-bilder-og-media-15-ikon -->
+                                      <!-- START: 00-atomer-09-bilder-og-media-15-ikon -->
 
-                                  <i class="tmp tmp-history  a-remove-icon a-visibleWhenSelected a-hiddenWhenDeleted tmp-fw "></i>
-
-
-                                  <!-- END: 00-atomer-09-bilder-og-media-15-ikon -->
+                                      <i class="tmp tmp-history  a-remove-icon a-visibleWhenSelected a-hiddenWhenDeleted tmp-fw "></i>
 
 
+                                      <!-- END: 00-atomer-09-bilder-og-media-15-ikon -->
 
 
 
-                                  <span class="a-fontBold hidden-xs-down a-visibleWhenDeleted"> 
+
+
+                                      <span class="a-fontBold hidden-xs-down a-visibleWhenDeleted"> 
     Slettet
      </span>
 
@@ -832,46 +804,46 @@
 
 
 
-                                  <!-- START: 00-atomer-09-bilder-og-media-15-ikon -->
+                                      <!-- START: 00-atomer-09-bilder-og-media-15-ikon -->
 
-                                  <i class="tmp tmp-fw  a-remove-icon a-visibleWhenDeleted "></i>
-
-
-                                  <!-- END: 00-atomer-09-bilder-og-media-15-ikon -->
+                                      <i class="tmp tmp-fw  a-remove-icon a-visibleWhenDeleted "></i>
 
 
-
-
-
-
-                                  <!-- END: 01-molekyler-05-lister-_00-liste-innhold -->
-
-                                </div>
-                              </div>
-                            </li>
-                            <li class="a-selectable a-danger" tabindex="0">
-                              <div class="row">
-                                <div class="a-w-7 text-center hidden-sm-down">
-                                  <!-- START: 01-molekyler-05-lister-_00-liste-innhold -->
-
-                                  <!-- START: 00-atomer-09-bilder-og-media-15-ikon -->
-
-                                  <i class="ai ai-client   "></i>
-
-
-                                  <!-- END: 00-atomer-09-bilder-og-media-15-ikon -->
+                                      <!-- END: 00-atomer-09-bilder-og-media-15-ikon -->
 
 
 
 
 
 
-                                  <!-- END: 01-molekyler-05-lister-_00-liste-innhold -->
+                                      <!-- END: 01-molekyler-05-lister-_00-liste-innhold -->
 
-                                </div>
-                                <div class="col-10 col-sm-7 col-md-4 col-lg-6" data-searchable="true">
-                                  <!-- START: 01-molekyler-05-lister-_00-liste-innhold -->
-                                  <span class="a-fontBold a-js-sortValue a-lineThrough-selected"> 
+                                    </div>
+                                  </div>
+                                </li>
+                                <li class="a-selectable a-danger" tabindex="0">
+                                  <div class="row">
+                                    <div class="a-w-7 text-center hidden-sm-down">
+                                      <!-- START: 01-molekyler-05-lister-_00-liste-innhold -->
+
+                                      <!-- START: 00-atomer-09-bilder-og-media-15-ikon -->
+
+                                      <i class="ai ai-client   "></i>
+
+
+                                      <!-- END: 00-atomer-09-bilder-og-media-15-ikon -->
+
+
+
+
+
+
+                                      <!-- END: 01-molekyler-05-lister-_00-liste-innhold -->
+
+                                    </div>
+                                    <div class="col-10 col-sm-7 col-md-4 col-lg-6" data-searchable="true">
+                                      <!-- START: 01-molekyler-05-lister-_00-liste-innhold -->
+                                      <span class="a-fontBold a-js-sortValue a-lineThrough-selected"> 
     Ferskfisk & Saltkjøtt AS
      </span>
 
@@ -880,12 +852,12 @@
 
 
 
-                                  <!-- END: 01-molekyler-05-lister-_00-liste-innhold -->
+                                      <!-- END: 01-molekyler-05-lister-_00-liste-innhold -->
 
-                                </div>
-                                <div class="col-3 hidden-sm-down" data-searchable="true">
-                                  <!-- START: 01-molekyler-05-lister-_00-liste-innhold -->
-                                  <span class="sr-only"> 
+                                    </div>
+                                    <div class="col-3 hidden-sm-down" data-searchable="true">
+                                      <!-- START: 01-molekyler-05-lister-_00-liste-innhold -->
+                                      <span class="sr-only"> 
     Organisjonsnummer:
      </span>
 
@@ -893,7 +865,7 @@
 
 
 
-                                  <span class="a-js-sortValue"> 
+                                      <span class="a-js-sortValue"> 
     963 179 715
      </span>
 
@@ -902,12 +874,12 @@
 
 
 
-                                  <!-- END: 01-molekyler-05-lister-_00-liste-innhold -->
+                                      <!-- END: 01-molekyler-05-lister-_00-liste-innhold -->
 
-                                </div>
-                                <div class="col text-right pr-0 pr-md-2">
-                                  <!-- START: 01-molekyler-05-lister-_00-liste-innhold -->
-                                  <span class="a-fontBold hidden-xs-down a-hiddenWhenSelected a-hiddenWhenDeleted"> 
+                                    </div>
+                                    <div class="col text-right pr-0 pr-md-2">
+                                      <!-- START: 01-molekyler-05-lister-_00-liste-innhold -->
+                                      <span class="a-fontBold hidden-xs-down a-hiddenWhenSelected a-hiddenWhenDeleted"> 
     Fjern
      </span>
 
@@ -916,18 +888,18 @@
 
 
 
-                                  <!-- START: 00-atomer-09-bilder-og-media-15-ikon -->
+                                      <!-- START: 00-atomer-09-bilder-og-media-15-ikon -->
 
-                                  <i class="tmp tmp-remove-circle  a-remove-icon a-hiddenWhenSelected a-hiddenWhenDeleted tmp-fw "></i>
-
-
-                                  <!-- END: 00-atomer-09-bilder-og-media-15-ikon -->
+                                      <i class="tmp tmp-remove-circle  a-remove-icon a-hiddenWhenSelected a-hiddenWhenDeleted tmp-fw "></i>
 
 
+                                      <!-- END: 00-atomer-09-bilder-og-media-15-ikon -->
 
 
 
-                                  <span class="a-fontBold hidden-xs-down a-visibleWhenSelected a-hiddenWhenDeleted"> 
+
+
+                                      <span class="a-fontBold hidden-xs-down a-visibleWhenSelected a-hiddenWhenDeleted"> 
     Angre
      </span>
 
@@ -936,18 +908,18 @@
 
 
 
-                                  <!-- START: 00-atomer-09-bilder-og-media-15-ikon -->
+                                      <!-- START: 00-atomer-09-bilder-og-media-15-ikon -->
 
-                                  <i class="tmp tmp-history  a-remove-icon a-visibleWhenSelected a-hiddenWhenDeleted tmp-fw "></i>
-
-
-                                  <!-- END: 00-atomer-09-bilder-og-media-15-ikon -->
+                                      <i class="tmp tmp-history  a-remove-icon a-visibleWhenSelected a-hiddenWhenDeleted tmp-fw "></i>
 
 
+                                      <!-- END: 00-atomer-09-bilder-og-media-15-ikon -->
 
 
 
-                                  <span class="a-fontBold hidden-xs-down a-visibleWhenDeleted"> 
+
+
+                                      <span class="a-fontBold hidden-xs-down a-visibleWhenDeleted"> 
     Slettet
      </span>
 
@@ -956,46 +928,46 @@
 
 
 
-                                  <!-- START: 00-atomer-09-bilder-og-media-15-ikon -->
+                                      <!-- START: 00-atomer-09-bilder-og-media-15-ikon -->
 
-                                  <i class="tmp tmp-fw  a-remove-icon a-visibleWhenDeleted "></i>
-
-
-                                  <!-- END: 00-atomer-09-bilder-og-media-15-ikon -->
+                                      <i class="tmp tmp-fw  a-remove-icon a-visibleWhenDeleted "></i>
 
 
-
-
-
-
-                                  <!-- END: 01-molekyler-05-lister-_00-liste-innhold -->
-
-                                </div>
-                              </div>
-                            </li>
-                            <li class="a-selectable a-danger" tabindex="0">
-                              <div class="row">
-                                <div class="a-w-7 text-center hidden-sm-down">
-                                  <!-- START: 01-molekyler-05-lister-_00-liste-innhold -->
-
-                                  <!-- START: 00-atomer-09-bilder-og-media-15-ikon -->
-
-                                  <i class="ai ai-client   "></i>
-
-
-                                  <!-- END: 00-atomer-09-bilder-og-media-15-ikon -->
+                                      <!-- END: 00-atomer-09-bilder-og-media-15-ikon -->
 
 
 
 
 
 
-                                  <!-- END: 01-molekyler-05-lister-_00-liste-innhold -->
+                                      <!-- END: 01-molekyler-05-lister-_00-liste-innhold -->
 
-                                </div>
-                                <div class="col-10 col-sm-7 col-md-4 col-lg-6" data-searchable="true">
-                                  <!-- START: 01-molekyler-05-lister-_00-liste-innhold -->
-                                  <span class="a-fontBold a-js-sortValue a-lineThrough-selected"> 
+                                    </div>
+                                  </div>
+                                </li>
+                                <li class="a-selectable a-danger" tabindex="0">
+                                  <div class="row">
+                                    <div class="a-w-7 text-center hidden-sm-down">
+                                      <!-- START: 01-molekyler-05-lister-_00-liste-innhold -->
+
+                                      <!-- START: 00-atomer-09-bilder-og-media-15-ikon -->
+
+                                      <i class="ai ai-client   "></i>
+
+
+                                      <!-- END: 00-atomer-09-bilder-og-media-15-ikon -->
+
+
+
+
+
+
+                                      <!-- END: 01-molekyler-05-lister-_00-liste-innhold -->
+
+                                    </div>
+                                    <div class="col-10 col-sm-7 col-md-4 col-lg-6" data-searchable="true">
+                                      <!-- START: 01-molekyler-05-lister-_00-liste-innhold -->
+                                      <span class="a-fontBold a-js-sortValue a-lineThrough-selected"> 
     Flaggfabrikken AS
      </span>
 
@@ -1004,12 +976,12 @@
 
 
 
-                                  <!-- END: 01-molekyler-05-lister-_00-liste-innhold -->
+                                      <!-- END: 01-molekyler-05-lister-_00-liste-innhold -->
 
-                                </div>
-                                <div class="col-3 hidden-sm-down" data-searchable="true">
-                                  <!-- START: 01-molekyler-05-lister-_00-liste-innhold -->
-                                  <span class="sr-only"> 
+                                    </div>
+                                    <div class="col-3 hidden-sm-down" data-searchable="true">
+                                      <!-- START: 01-molekyler-05-lister-_00-liste-innhold -->
+                                      <span class="sr-only"> 
     Organisjonsnummer:
      </span>
 
@@ -1017,7 +989,7 @@
 
 
 
-                                  <span class="a-js-sortValue"> 
+                                      <span class="a-js-sortValue"> 
     963 179 715
      </span>
 
@@ -1026,12 +998,12 @@
 
 
 
-                                  <!-- END: 01-molekyler-05-lister-_00-liste-innhold -->
+                                      <!-- END: 01-molekyler-05-lister-_00-liste-innhold -->
 
-                                </div>
-                                <div class="col text-right pr-0 pr-md-2">
-                                  <!-- START: 01-molekyler-05-lister-_00-liste-innhold -->
-                                  <span class="a-fontBold hidden-xs-down a-hiddenWhenSelected a-hiddenWhenDeleted"> 
+                                    </div>
+                                    <div class="col text-right pr-0 pr-md-2">
+                                      <!-- START: 01-molekyler-05-lister-_00-liste-innhold -->
+                                      <span class="a-fontBold hidden-xs-down a-hiddenWhenSelected a-hiddenWhenDeleted"> 
     Fjern
      </span>
 
@@ -1040,18 +1012,18 @@
 
 
 
-                                  <!-- START: 00-atomer-09-bilder-og-media-15-ikon -->
+                                      <!-- START: 00-atomer-09-bilder-og-media-15-ikon -->
 
-                                  <i class="tmp tmp-remove-circle  a-remove-icon a-hiddenWhenSelected a-hiddenWhenDeleted tmp-fw "></i>
-
-
-                                  <!-- END: 00-atomer-09-bilder-og-media-15-ikon -->
+                                      <i class="tmp tmp-remove-circle  a-remove-icon a-hiddenWhenSelected a-hiddenWhenDeleted tmp-fw "></i>
 
 
+                                      <!-- END: 00-atomer-09-bilder-og-media-15-ikon -->
 
 
 
-                                  <span class="a-fontBold hidden-xs-down a-visibleWhenSelected a-hiddenWhenDeleted"> 
+
+
+                                      <span class="a-fontBold hidden-xs-down a-visibleWhenSelected a-hiddenWhenDeleted"> 
     Angre
      </span>
 
@@ -1060,18 +1032,18 @@
 
 
 
-                                  <!-- START: 00-atomer-09-bilder-og-media-15-ikon -->
+                                      <!-- START: 00-atomer-09-bilder-og-media-15-ikon -->
 
-                                  <i class="tmp tmp-history  a-remove-icon a-visibleWhenSelected a-hiddenWhenDeleted tmp-fw "></i>
-
-
-                                  <!-- END: 00-atomer-09-bilder-og-media-15-ikon -->
+                                      <i class="tmp tmp-history  a-remove-icon a-visibleWhenSelected a-hiddenWhenDeleted tmp-fw "></i>
 
 
+                                      <!-- END: 00-atomer-09-bilder-og-media-15-ikon -->
 
 
 
-                                  <span class="a-fontBold hidden-xs-down a-visibleWhenDeleted"> 
+
+
+                                      <span class="a-fontBold hidden-xs-down a-visibleWhenDeleted"> 
     Slettet
      </span>
 
@@ -1080,46 +1052,46 @@
 
 
 
-                                  <!-- START: 00-atomer-09-bilder-og-media-15-ikon -->
+                                      <!-- START: 00-atomer-09-bilder-og-media-15-ikon -->
 
-                                  <i class="tmp tmp-fw  a-remove-icon a-visibleWhenDeleted "></i>
-
-
-                                  <!-- END: 00-atomer-09-bilder-og-media-15-ikon -->
+                                      <i class="tmp tmp-fw  a-remove-icon a-visibleWhenDeleted "></i>
 
 
-
-
-
-
-                                  <!-- END: 01-molekyler-05-lister-_00-liste-innhold -->
-
-                                </div>
-                              </div>
-                            </li>
-                            <li class="a-selectable a-danger" tabindex="0">
-                              <div class="row">
-                                <div class="a-w-7 text-center hidden-sm-down">
-                                  <!-- START: 01-molekyler-05-lister-_00-liste-innhold -->
-
-                                  <!-- START: 00-atomer-09-bilder-og-media-15-ikon -->
-
-                                  <i class="ai ai-client   "></i>
-
-
-                                  <!-- END: 00-atomer-09-bilder-og-media-15-ikon -->
+                                      <!-- END: 00-atomer-09-bilder-og-media-15-ikon -->
 
 
 
 
 
 
-                                  <!-- END: 01-molekyler-05-lister-_00-liste-innhold -->
+                                      <!-- END: 01-molekyler-05-lister-_00-liste-innhold -->
 
-                                </div>
-                                <div class="col-10 col-sm-7 col-md-4 col-lg-6" data-searchable="true">
-                                  <!-- START: 01-molekyler-05-lister-_00-liste-innhold -->
-                                  <span class="a-fontBold a-js-sortValue a-lineThrough-selected"> 
+                                    </div>
+                                  </div>
+                                </li>
+                                <li class="a-selectable a-danger" tabindex="0">
+                                  <div class="row">
+                                    <div class="a-w-7 text-center hidden-sm-down">
+                                      <!-- START: 01-molekyler-05-lister-_00-liste-innhold -->
+
+                                      <!-- START: 00-atomer-09-bilder-og-media-15-ikon -->
+
+                                      <i class="ai ai-client   "></i>
+
+
+                                      <!-- END: 00-atomer-09-bilder-og-media-15-ikon -->
+
+
+
+
+
+
+                                      <!-- END: 01-molekyler-05-lister-_00-liste-innhold -->
+
+                                    </div>
+                                    <div class="col-10 col-sm-7 col-md-4 col-lg-6" data-searchable="true">
+                                      <!-- START: 01-molekyler-05-lister-_00-liste-innhold -->
+                                      <span class="a-fontBold a-js-sortValue a-lineThrough-selected"> 
     Jern og metall AS
      </span>
 
@@ -1128,12 +1100,12 @@
 
 
 
-                                  <!-- END: 01-molekyler-05-lister-_00-liste-innhold -->
+                                      <!-- END: 01-molekyler-05-lister-_00-liste-innhold -->
 
-                                </div>
-                                <div class="col-3 hidden-sm-down" data-searchable="true">
-                                  <!-- START: 01-molekyler-05-lister-_00-liste-innhold -->
-                                  <span class="sr-only"> 
+                                    </div>
+                                    <div class="col-3 hidden-sm-down" data-searchable="true">
+                                      <!-- START: 01-molekyler-05-lister-_00-liste-innhold -->
+                                      <span class="sr-only"> 
     Organisjonsnummer:
      </span>
 
@@ -1141,7 +1113,7 @@
 
 
 
-                                  <span class="a-js-sortValue"> 
+                                      <span class="a-js-sortValue"> 
     963 179 715
      </span>
 
@@ -1150,12 +1122,12 @@
 
 
 
-                                  <!-- END: 01-molekyler-05-lister-_00-liste-innhold -->
+                                      <!-- END: 01-molekyler-05-lister-_00-liste-innhold -->
 
-                                </div>
-                                <div class="col text-right pr-0 pr-md-2">
-                                  <!-- START: 01-molekyler-05-lister-_00-liste-innhold -->
-                                  <span class="a-fontBold hidden-xs-down a-hiddenWhenSelected a-hiddenWhenDeleted"> 
+                                    </div>
+                                    <div class="col text-right pr-0 pr-md-2">
+                                      <!-- START: 01-molekyler-05-lister-_00-liste-innhold -->
+                                      <span class="a-fontBold hidden-xs-down a-hiddenWhenSelected a-hiddenWhenDeleted"> 
     Fjern
      </span>
 
@@ -1164,18 +1136,18 @@
 
 
 
-                                  <!-- START: 00-atomer-09-bilder-og-media-15-ikon -->
+                                      <!-- START: 00-atomer-09-bilder-og-media-15-ikon -->
 
-                                  <i class="tmp tmp-remove-circle  a-remove-icon a-hiddenWhenSelected a-hiddenWhenDeleted tmp-fw "></i>
-
-
-                                  <!-- END: 00-atomer-09-bilder-og-media-15-ikon -->
+                                      <i class="tmp tmp-remove-circle  a-remove-icon a-hiddenWhenSelected a-hiddenWhenDeleted tmp-fw "></i>
 
 
+                                      <!-- END: 00-atomer-09-bilder-og-media-15-ikon -->
 
 
 
-                                  <span class="a-fontBold hidden-xs-down a-visibleWhenSelected a-hiddenWhenDeleted"> 
+
+
+                                      <span class="a-fontBold hidden-xs-down a-visibleWhenSelected a-hiddenWhenDeleted"> 
     Angre
      </span>
 
@@ -1184,18 +1156,18 @@
 
 
 
-                                  <!-- START: 00-atomer-09-bilder-og-media-15-ikon -->
+                                      <!-- START: 00-atomer-09-bilder-og-media-15-ikon -->
 
-                                  <i class="tmp tmp-history  a-remove-icon a-visibleWhenSelected a-hiddenWhenDeleted tmp-fw "></i>
-
-
-                                  <!-- END: 00-atomer-09-bilder-og-media-15-ikon -->
+                                      <i class="tmp tmp-history  a-remove-icon a-visibleWhenSelected a-hiddenWhenDeleted tmp-fw "></i>
 
 
+                                      <!-- END: 00-atomer-09-bilder-og-media-15-ikon -->
 
 
 
-                                  <span class="a-fontBold hidden-xs-down a-visibleWhenDeleted"> 
+
+
+                                      <span class="a-fontBold hidden-xs-down a-visibleWhenDeleted"> 
     Slettet
      </span>
 
@@ -1204,46 +1176,46 @@
 
 
 
-                                  <!-- START: 00-atomer-09-bilder-og-media-15-ikon -->
+                                      <!-- START: 00-atomer-09-bilder-og-media-15-ikon -->
 
-                                  <i class="tmp tmp-fw  a-remove-icon a-visibleWhenDeleted "></i>
-
-
-                                  <!-- END: 00-atomer-09-bilder-og-media-15-ikon -->
+                                      <i class="tmp tmp-fw  a-remove-icon a-visibleWhenDeleted "></i>
 
 
-
-
-
-
-                                  <!-- END: 01-molekyler-05-lister-_00-liste-innhold -->
-
-                                </div>
-                              </div>
-                            </li>
-                            <li class="a-selectable a-danger" tabindex="0">
-                              <div class="row">
-                                <div class="a-w-7 text-center hidden-sm-down">
-                                  <!-- START: 01-molekyler-05-lister-_00-liste-innhold -->
-
-                                  <!-- START: 00-atomer-09-bilder-og-media-15-ikon -->
-
-                                  <i class="ai ai-client   "></i>
-
-
-                                  <!-- END: 00-atomer-09-bilder-og-media-15-ikon -->
+                                      <!-- END: 00-atomer-09-bilder-og-media-15-ikon -->
 
 
 
 
 
 
-                                  <!-- END: 01-molekyler-05-lister-_00-liste-innhold -->
+                                      <!-- END: 01-molekyler-05-lister-_00-liste-innhold -->
 
-                                </div>
-                                <div class="col-10 col-sm-7 col-md-4 col-lg-6" data-searchable="true">
-                                  <!-- START: 01-molekyler-05-lister-_00-liste-innhold -->
-                                  <span class="a-fontBold a-js-sortValue a-lineThrough-selected"> 
+                                    </div>
+                                  </div>
+                                </li>
+                                <li class="a-selectable a-danger" tabindex="0">
+                                  <div class="row">
+                                    <div class="a-w-7 text-center hidden-sm-down">
+                                      <!-- START: 01-molekyler-05-lister-_00-liste-innhold -->
+
+                                      <!-- START: 00-atomer-09-bilder-og-media-15-ikon -->
+
+                                      <i class="ai ai-client   "></i>
+
+
+                                      <!-- END: 00-atomer-09-bilder-og-media-15-ikon -->
+
+
+
+
+
+
+                                      <!-- END: 01-molekyler-05-lister-_00-liste-innhold -->
+
+                                    </div>
+                                    <div class="col-10 col-sm-7 col-md-4 col-lg-6" data-searchable="true">
+                                      <!-- START: 01-molekyler-05-lister-_00-liste-innhold -->
+                                      <span class="a-fontBold a-js-sortValue a-lineThrough-selected"> 
     Kajakk og Ski AS
      </span>
 
@@ -1252,12 +1224,12 @@
 
 
 
-                                  <!-- END: 01-molekyler-05-lister-_00-liste-innhold -->
+                                      <!-- END: 01-molekyler-05-lister-_00-liste-innhold -->
 
-                                </div>
-                                <div class="col-3 hidden-sm-down" data-searchable="true">
-                                  <!-- START: 01-molekyler-05-lister-_00-liste-innhold -->
-                                  <span class="sr-only"> 
+                                    </div>
+                                    <div class="col-3 hidden-sm-down" data-searchable="true">
+                                      <!-- START: 01-molekyler-05-lister-_00-liste-innhold -->
+                                      <span class="sr-only"> 
     Organisjonsnummer:
      </span>
 
@@ -1265,7 +1237,7 @@
 
 
 
-                                  <span class="a-js-sortValue"> 
+                                      <span class="a-js-sortValue"> 
     963 179 715
      </span>
 
@@ -1274,12 +1246,12 @@
 
 
 
-                                  <!-- END: 01-molekyler-05-lister-_00-liste-innhold -->
+                                      <!-- END: 01-molekyler-05-lister-_00-liste-innhold -->
 
-                                </div>
-                                <div class="col text-right pr-0 pr-md-2">
-                                  <!-- START: 01-molekyler-05-lister-_00-liste-innhold -->
-                                  <span class="a-fontBold hidden-xs-down a-hiddenWhenSelected a-hiddenWhenDeleted"> 
+                                    </div>
+                                    <div class="col text-right pr-0 pr-md-2">
+                                      <!-- START: 01-molekyler-05-lister-_00-liste-innhold -->
+                                      <span class="a-fontBold hidden-xs-down a-hiddenWhenSelected a-hiddenWhenDeleted"> 
     Fjern
      </span>
 
@@ -1288,18 +1260,18 @@
 
 
 
-                                  <!-- START: 00-atomer-09-bilder-og-media-15-ikon -->
+                                      <!-- START: 00-atomer-09-bilder-og-media-15-ikon -->
 
-                                  <i class="tmp tmp-remove-circle  a-remove-icon a-hiddenWhenSelected a-hiddenWhenDeleted tmp-fw "></i>
-
-
-                                  <!-- END: 00-atomer-09-bilder-og-media-15-ikon -->
+                                      <i class="tmp tmp-remove-circle  a-remove-icon a-hiddenWhenSelected a-hiddenWhenDeleted tmp-fw "></i>
 
 
+                                      <!-- END: 00-atomer-09-bilder-og-media-15-ikon -->
 
 
 
-                                  <span class="a-fontBold hidden-xs-down a-visibleWhenSelected a-hiddenWhenDeleted"> 
+
+
+                                      <span class="a-fontBold hidden-xs-down a-visibleWhenSelected a-hiddenWhenDeleted"> 
     Angre
      </span>
 
@@ -1308,18 +1280,18 @@
 
 
 
-                                  <!-- START: 00-atomer-09-bilder-og-media-15-ikon -->
+                                      <!-- START: 00-atomer-09-bilder-og-media-15-ikon -->
 
-                                  <i class="tmp tmp-history  a-remove-icon a-visibleWhenSelected a-hiddenWhenDeleted tmp-fw "></i>
-
-
-                                  <!-- END: 00-atomer-09-bilder-og-media-15-ikon -->
+                                      <i class="tmp tmp-history  a-remove-icon a-visibleWhenSelected a-hiddenWhenDeleted tmp-fw "></i>
 
 
+                                      <!-- END: 00-atomer-09-bilder-og-media-15-ikon -->
 
 
 
-                                  <span class="a-fontBold hidden-xs-down a-visibleWhenDeleted"> 
+
+
+                                      <span class="a-fontBold hidden-xs-down a-visibleWhenDeleted"> 
     Slettet
      </span>
 
@@ -1328,46 +1300,46 @@
 
 
 
-                                  <!-- START: 00-atomer-09-bilder-og-media-15-ikon -->
+                                      <!-- START: 00-atomer-09-bilder-og-media-15-ikon -->
 
-                                  <i class="tmp tmp-fw  a-remove-icon a-visibleWhenDeleted "></i>
-
-
-                                  <!-- END: 00-atomer-09-bilder-og-media-15-ikon -->
+                                      <i class="tmp tmp-fw  a-remove-icon a-visibleWhenDeleted "></i>
 
 
-
-
-
-
-                                  <!-- END: 01-molekyler-05-lister-_00-liste-innhold -->
-
-                                </div>
-                              </div>
-                            </li>
-                            <li class="a-selectable a-danger" tabindex="0">
-                              <div class="row">
-                                <div class="a-w-7 text-center hidden-sm-down">
-                                  <!-- START: 01-molekyler-05-lister-_00-liste-innhold -->
-
-                                  <!-- START: 00-atomer-09-bilder-og-media-15-ikon -->
-
-                                  <i class="ai ai-client   "></i>
-
-
-                                  <!-- END: 00-atomer-09-bilder-og-media-15-ikon -->
+                                      <!-- END: 00-atomer-09-bilder-og-media-15-ikon -->
 
 
 
 
 
 
-                                  <!-- END: 01-molekyler-05-lister-_00-liste-innhold -->
+                                      <!-- END: 01-molekyler-05-lister-_00-liste-innhold -->
 
-                                </div>
-                                <div class="col-10 col-sm-7 col-md-4 col-lg-6" data-searchable="true">
-                                  <!-- START: 01-molekyler-05-lister-_00-liste-innhold -->
-                                  <span class="a-fontBold a-js-sortValue a-lineThrough-selected"> 
+                                    </div>
+                                  </div>
+                                </li>
+                                <li class="a-selectable a-danger" tabindex="0">
+                                  <div class="row">
+                                    <div class="a-w-7 text-center hidden-sm-down">
+                                      <!-- START: 01-molekyler-05-lister-_00-liste-innhold -->
+
+                                      <!-- START: 00-atomer-09-bilder-og-media-15-ikon -->
+
+                                      <i class="ai ai-client   "></i>
+
+
+                                      <!-- END: 00-atomer-09-bilder-og-media-15-ikon -->
+
+
+
+
+
+
+                                      <!-- END: 01-molekyler-05-lister-_00-liste-innhold -->
+
+                                    </div>
+                                    <div class="col-10 col-sm-7 col-md-4 col-lg-6" data-searchable="true">
+                                      <!-- START: 01-molekyler-05-lister-_00-liste-innhold -->
+                                      <span class="a-fontBold a-js-sortValue a-lineThrough-selected"> 
     Kabelkonsulentene AS
      </span>
 
@@ -1376,12 +1348,12 @@
 
 
 
-                                  <!-- END: 01-molekyler-05-lister-_00-liste-innhold -->
+                                      <!-- END: 01-molekyler-05-lister-_00-liste-innhold -->
 
-                                </div>
-                                <div class="col-3 hidden-sm-down" data-searchable="true">
-                                  <!-- START: 01-molekyler-05-lister-_00-liste-innhold -->
-                                  <span class="sr-only"> 
+                                    </div>
+                                    <div class="col-3 hidden-sm-down" data-searchable="true">
+                                      <!-- START: 01-molekyler-05-lister-_00-liste-innhold -->
+                                      <span class="sr-only"> 
     Organisjonsnummer:
      </span>
 
@@ -1389,7 +1361,7 @@
 
 
 
-                                  <span class="a-js-sortValue"> 
+                                      <span class="a-js-sortValue"> 
     979465483
      </span>
 
@@ -1398,12 +1370,12 @@
 
 
 
-                                  <!-- END: 01-molekyler-05-lister-_00-liste-innhold -->
+                                      <!-- END: 01-molekyler-05-lister-_00-liste-innhold -->
 
-                                </div>
-                                <div class="col text-right pr-0 pr-md-2">
-                                  <!-- START: 01-molekyler-05-lister-_00-liste-innhold -->
-                                  <span class="a-fontBold hidden-xs-down a-hiddenWhenSelected a-hiddenWhenDeleted"> 
+                                    </div>
+                                    <div class="col text-right pr-0 pr-md-2">
+                                      <!-- START: 01-molekyler-05-lister-_00-liste-innhold -->
+                                      <span class="a-fontBold hidden-xs-down a-hiddenWhenSelected a-hiddenWhenDeleted"> 
     Fjern
      </span>
 
@@ -1412,18 +1384,18 @@
 
 
 
-                                  <!-- START: 00-atomer-09-bilder-og-media-15-ikon -->
+                                      <!-- START: 00-atomer-09-bilder-og-media-15-ikon -->
 
-                                  <i class="tmp tmp-remove-circle  a-remove-icon a-hiddenWhenSelected a-hiddenWhenDeleted tmp-fw "></i>
-
-
-                                  <!-- END: 00-atomer-09-bilder-og-media-15-ikon -->
+                                      <i class="tmp tmp-remove-circle  a-remove-icon a-hiddenWhenSelected a-hiddenWhenDeleted tmp-fw "></i>
 
 
+                                      <!-- END: 00-atomer-09-bilder-og-media-15-ikon -->
 
 
 
-                                  <span class="a-fontBold hidden-xs-down a-visibleWhenSelected a-hiddenWhenDeleted"> 
+
+
+                                      <span class="a-fontBold hidden-xs-down a-visibleWhenSelected a-hiddenWhenDeleted"> 
     Angre
      </span>
 
@@ -1432,18 +1404,18 @@
 
 
 
-                                  <!-- START: 00-atomer-09-bilder-og-media-15-ikon -->
+                                      <!-- START: 00-atomer-09-bilder-og-media-15-ikon -->
 
-                                  <i class="tmp tmp-history  a-remove-icon a-visibleWhenSelected a-hiddenWhenDeleted tmp-fw "></i>
-
-
-                                  <!-- END: 00-atomer-09-bilder-og-media-15-ikon -->
+                                      <i class="tmp tmp-history  a-remove-icon a-visibleWhenSelected a-hiddenWhenDeleted tmp-fw "></i>
 
 
+                                      <!-- END: 00-atomer-09-bilder-og-media-15-ikon -->
 
 
 
-                                  <span class="a-fontBold hidden-xs-down a-visibleWhenDeleted"> 
+
+
+                                      <span class="a-fontBold hidden-xs-down a-visibleWhenDeleted"> 
     Slettet
      </span>
 
@@ -1452,46 +1424,46 @@
 
 
 
-                                  <!-- START: 00-atomer-09-bilder-og-media-15-ikon -->
+                                      <!-- START: 00-atomer-09-bilder-og-media-15-ikon -->
 
-                                  <i class="tmp tmp-fw  a-remove-icon a-visibleWhenDeleted "></i>
-
-
-                                  <!-- END: 00-atomer-09-bilder-og-media-15-ikon -->
+                                      <i class="tmp tmp-fw  a-remove-icon a-visibleWhenDeleted "></i>
 
 
-
-
-
-
-                                  <!-- END: 01-molekyler-05-lister-_00-liste-innhold -->
-
-                                </div>
-                              </div>
-                            </li>
-                            <li class="a-selectable a-danger" tabindex="0">
-                              <div class="row">
-                                <div class="a-w-7 text-center hidden-sm-down">
-                                  <!-- START: 01-molekyler-05-lister-_00-liste-innhold -->
-
-                                  <!-- START: 00-atomer-09-bilder-og-media-15-ikon -->
-
-                                  <i class="ai ai-client   "></i>
-
-
-                                  <!-- END: 00-atomer-09-bilder-og-media-15-ikon -->
+                                      <!-- END: 00-atomer-09-bilder-og-media-15-ikon -->
 
 
 
 
 
 
-                                  <!-- END: 01-molekyler-05-lister-_00-liste-innhold -->
+                                      <!-- END: 01-molekyler-05-lister-_00-liste-innhold -->
 
-                                </div>
-                                <div class="col-10 col-sm-7 col-md-4 col-lg-6" data-searchable="true">
-                                  <!-- START: 01-molekyler-05-lister-_00-liste-innhold -->
-                                  <span class="a-fontBold a-js-sortValue a-lineThrough-selected"> 
+                                    </div>
+                                  </div>
+                                </li>
+                                <li class="a-selectable a-danger" tabindex="0">
+                                  <div class="row">
+                                    <div class="a-w-7 text-center hidden-sm-down">
+                                      <!-- START: 01-molekyler-05-lister-_00-liste-innhold -->
+
+                                      <!-- START: 00-atomer-09-bilder-og-media-15-ikon -->
+
+                                      <i class="ai ai-client   "></i>
+
+
+                                      <!-- END: 00-atomer-09-bilder-og-media-15-ikon -->
+
+
+
+
+
+
+                                      <!-- END: 01-molekyler-05-lister-_00-liste-innhold -->
+
+                                    </div>
+                                    <div class="col-10 col-sm-7 col-md-4 col-lg-6" data-searchable="true">
+                                      <!-- START: 01-molekyler-05-lister-_00-liste-innhold -->
+                                      <span class="a-fontBold a-js-sortValue a-lineThrough-selected"> 
     Kiellandsfestivalen
      </span>
 
@@ -1500,12 +1472,12 @@
 
 
 
-                                  <!-- END: 01-molekyler-05-lister-_00-liste-innhold -->
+                                      <!-- END: 01-molekyler-05-lister-_00-liste-innhold -->
 
-                                </div>
-                                <div class="col-3 hidden-sm-down" data-searchable="true">
-                                  <!-- START: 01-molekyler-05-lister-_00-liste-innhold -->
-                                  <span class="sr-only"> 
+                                    </div>
+                                    <div class="col-3 hidden-sm-down" data-searchable="true">
+                                      <!-- START: 01-molekyler-05-lister-_00-liste-innhold -->
+                                      <span class="sr-only"> 
     Organisjonsnummer:
      </span>
 
@@ -1513,7 +1485,7 @@
 
 
 
-                                  <span class="a-js-sortValue"> 
+                                      <span class="a-js-sortValue"> 
     963 179 715
      </span>
 
@@ -1522,12 +1494,12 @@
 
 
 
-                                  <!-- END: 01-molekyler-05-lister-_00-liste-innhold -->
+                                      <!-- END: 01-molekyler-05-lister-_00-liste-innhold -->
 
-                                </div>
-                                <div class="col text-right pr-0 pr-md-2">
-                                  <!-- START: 01-molekyler-05-lister-_00-liste-innhold -->
-                                  <span class="a-fontBold hidden-xs-down a-hiddenWhenSelected a-hiddenWhenDeleted"> 
+                                    </div>
+                                    <div class="col text-right pr-0 pr-md-2">
+                                      <!-- START: 01-molekyler-05-lister-_00-liste-innhold -->
+                                      <span class="a-fontBold hidden-xs-down a-hiddenWhenSelected a-hiddenWhenDeleted"> 
     Fjern
      </span>
 
@@ -1536,18 +1508,18 @@
 
 
 
-                                  <!-- START: 00-atomer-09-bilder-og-media-15-ikon -->
+                                      <!-- START: 00-atomer-09-bilder-og-media-15-ikon -->
 
-                                  <i class="tmp tmp-remove-circle  a-remove-icon a-hiddenWhenSelected a-hiddenWhenDeleted tmp-fw "></i>
-
-
-                                  <!-- END: 00-atomer-09-bilder-og-media-15-ikon -->
+                                      <i class="tmp tmp-remove-circle  a-remove-icon a-hiddenWhenSelected a-hiddenWhenDeleted tmp-fw "></i>
 
 
+                                      <!-- END: 00-atomer-09-bilder-og-media-15-ikon -->
 
 
 
-                                  <span class="a-fontBold hidden-xs-down a-visibleWhenSelected a-hiddenWhenDeleted"> 
+
+
+                                      <span class="a-fontBold hidden-xs-down a-visibleWhenSelected a-hiddenWhenDeleted"> 
     Angre
      </span>
 
@@ -1556,18 +1528,18 @@
 
 
 
-                                  <!-- START: 00-atomer-09-bilder-og-media-15-ikon -->
+                                      <!-- START: 00-atomer-09-bilder-og-media-15-ikon -->
 
-                                  <i class="tmp tmp-history  a-remove-icon a-visibleWhenSelected a-hiddenWhenDeleted tmp-fw "></i>
-
-
-                                  <!-- END: 00-atomer-09-bilder-og-media-15-ikon -->
+                                      <i class="tmp tmp-history  a-remove-icon a-visibleWhenSelected a-hiddenWhenDeleted tmp-fw "></i>
 
 
+                                      <!-- END: 00-atomer-09-bilder-og-media-15-ikon -->
 
 
 
-                                  <span class="a-fontBold hidden-xs-down a-visibleWhenDeleted"> 
+
+
+                                      <span class="a-fontBold hidden-xs-down a-visibleWhenDeleted"> 
     Slettet
      </span>
 
@@ -1576,46 +1548,46 @@
 
 
 
-                                  <!-- START: 00-atomer-09-bilder-og-media-15-ikon -->
+                                      <!-- START: 00-atomer-09-bilder-og-media-15-ikon -->
 
-                                  <i class="tmp tmp-fw  a-remove-icon a-visibleWhenDeleted "></i>
-
-
-                                  <!-- END: 00-atomer-09-bilder-og-media-15-ikon -->
+                                      <i class="tmp tmp-fw  a-remove-icon a-visibleWhenDeleted "></i>
 
 
-
-
-
-
-                                  <!-- END: 01-molekyler-05-lister-_00-liste-innhold -->
-
-                                </div>
-                              </div>
-                            </li>
-                            <li class="a-selectable a-danger" tabindex="0">
-                              <div class="row">
-                                <div class="a-w-7 text-center hidden-sm-down">
-                                  <!-- START: 01-molekyler-05-lister-_00-liste-innhold -->
-
-                                  <!-- START: 00-atomer-09-bilder-og-media-15-ikon -->
-
-                                  <i class="ai ai-client   "></i>
-
-
-                                  <!-- END: 00-atomer-09-bilder-og-media-15-ikon -->
+                                      <!-- END: 00-atomer-09-bilder-og-media-15-ikon -->
 
 
 
 
 
 
-                                  <!-- END: 01-molekyler-05-lister-_00-liste-innhold -->
+                                      <!-- END: 01-molekyler-05-lister-_00-liste-innhold -->
 
-                                </div>
-                                <div class="col-10 col-sm-7 col-md-4 col-lg-6" data-searchable="true">
-                                  <!-- START: 01-molekyler-05-lister-_00-liste-innhold -->
-                                  <span class="a-fontBold a-js-sortValue a-lineThrough-selected"> 
+                                    </div>
+                                  </div>
+                                </li>
+                                <li class="a-selectable a-danger" tabindex="0">
+                                  <div class="row">
+                                    <div class="a-w-7 text-center hidden-sm-down">
+                                      <!-- START: 01-molekyler-05-lister-_00-liste-innhold -->
+
+                                      <!-- START: 00-atomer-09-bilder-og-media-15-ikon -->
+
+                                      <i class="ai ai-client   "></i>
+
+
+                                      <!-- END: 00-atomer-09-bilder-og-media-15-ikon -->
+
+
+
+
+
+
+                                      <!-- END: 01-molekyler-05-lister-_00-liste-innhold -->
+
+                                    </div>
+                                    <div class="col-10 col-sm-7 col-md-4 col-lg-6" data-searchable="true">
+                                      <!-- START: 01-molekyler-05-lister-_00-liste-innhold -->
+                                      <span class="a-fontBold a-js-sortValue a-lineThrough-selected"> 
     Marg og Bein Holds AS
      </span>
 
@@ -1624,12 +1596,12 @@
 
 
 
-                                  <!-- END: 01-molekyler-05-lister-_00-liste-innhold -->
+                                      <!-- END: 01-molekyler-05-lister-_00-liste-innhold -->
 
-                                </div>
-                                <div class="col-3 hidden-sm-down" data-searchable="true">
-                                  <!-- START: 01-molekyler-05-lister-_00-liste-innhold -->
-                                  <span class="sr-only"> 
+                                    </div>
+                                    <div class="col-3 hidden-sm-down" data-searchable="true">
+                                      <!-- START: 01-molekyler-05-lister-_00-liste-innhold -->
+                                      <span class="sr-only"> 
     Organisjonsnummer:
      </span>
 
@@ -1637,7 +1609,7 @@
 
 
 
-                                  <span class="a-js-sortValue"> 
+                                      <span class="a-js-sortValue"> 
     963 179 715
      </span>
 
@@ -1646,12 +1618,12 @@
 
 
 
-                                  <!-- END: 01-molekyler-05-lister-_00-liste-innhold -->
+                                      <!-- END: 01-molekyler-05-lister-_00-liste-innhold -->
 
-                                </div>
-                                <div class="col text-right pr-0 pr-md-2">
-                                  <!-- START: 01-molekyler-05-lister-_00-liste-innhold -->
-                                  <span class="a-fontBold hidden-xs-down a-hiddenWhenSelected a-hiddenWhenDeleted"> 
+                                    </div>
+                                    <div class="col text-right pr-0 pr-md-2">
+                                      <!-- START: 01-molekyler-05-lister-_00-liste-innhold -->
+                                      <span class="a-fontBold hidden-xs-down a-hiddenWhenSelected a-hiddenWhenDeleted"> 
     Fjern
      </span>
 
@@ -1660,18 +1632,18 @@
 
 
 
-                                  <!-- START: 00-atomer-09-bilder-og-media-15-ikon -->
+                                      <!-- START: 00-atomer-09-bilder-og-media-15-ikon -->
 
-                                  <i class="tmp tmp-remove-circle  a-remove-icon a-hiddenWhenSelected a-hiddenWhenDeleted tmp-fw "></i>
-
-
-                                  <!-- END: 00-atomer-09-bilder-og-media-15-ikon -->
+                                      <i class="tmp tmp-remove-circle  a-remove-icon a-hiddenWhenSelected a-hiddenWhenDeleted tmp-fw "></i>
 
 
+                                      <!-- END: 00-atomer-09-bilder-og-media-15-ikon -->
 
 
 
-                                  <span class="a-fontBold hidden-xs-down a-visibleWhenSelected a-hiddenWhenDeleted"> 
+
+
+                                      <span class="a-fontBold hidden-xs-down a-visibleWhenSelected a-hiddenWhenDeleted"> 
     Angre
      </span>
 
@@ -1680,18 +1652,18 @@
 
 
 
-                                  <!-- START: 00-atomer-09-bilder-og-media-15-ikon -->
+                                      <!-- START: 00-atomer-09-bilder-og-media-15-ikon -->
 
-                                  <i class="tmp tmp-history  a-remove-icon a-visibleWhenSelected a-hiddenWhenDeleted tmp-fw "></i>
-
-
-                                  <!-- END: 00-atomer-09-bilder-og-media-15-ikon -->
+                                      <i class="tmp tmp-history  a-remove-icon a-visibleWhenSelected a-hiddenWhenDeleted tmp-fw "></i>
 
 
+                                      <!-- END: 00-atomer-09-bilder-og-media-15-ikon -->
 
 
 
-                                  <span class="a-fontBold hidden-xs-down a-visibleWhenDeleted"> 
+
+
+                                      <span class="a-fontBold hidden-xs-down a-visibleWhenDeleted"> 
     Slettet
      </span>
 
@@ -1700,46 +1672,46 @@
 
 
 
-                                  <!-- START: 00-atomer-09-bilder-og-media-15-ikon -->
+                                      <!-- START: 00-atomer-09-bilder-og-media-15-ikon -->
 
-                                  <i class="tmp tmp-fw  a-remove-icon a-visibleWhenDeleted "></i>
-
-
-                                  <!-- END: 00-atomer-09-bilder-og-media-15-ikon -->
+                                      <i class="tmp tmp-fw  a-remove-icon a-visibleWhenDeleted "></i>
 
 
-
-
-
-
-                                  <!-- END: 01-molekyler-05-lister-_00-liste-innhold -->
-
-                                </div>
-                              </div>
-                            </li>
-                            <li class="a-selectable a-danger" tabindex="0">
-                              <div class="row">
-                                <div class="a-w-7 text-center hidden-sm-down">
-                                  <!-- START: 01-molekyler-05-lister-_00-liste-innhold -->
-
-                                  <!-- START: 00-atomer-09-bilder-og-media-15-ikon -->
-
-                                  <i class="ai ai-client   "></i>
-
-
-                                  <!-- END: 00-atomer-09-bilder-og-media-15-ikon -->
+                                      <!-- END: 00-atomer-09-bilder-og-media-15-ikon -->
 
 
 
 
 
 
-                                  <!-- END: 01-molekyler-05-lister-_00-liste-innhold -->
+                                      <!-- END: 01-molekyler-05-lister-_00-liste-innhold -->
 
-                                </div>
-                                <div class="col-10 col-sm-7 col-md-4 col-lg-6" data-searchable="true">
-                                  <!-- START: 01-molekyler-05-lister-_00-liste-innhold -->
-                                  <span class="a-fontBold a-js-sortValue a-lineThrough-selected"> 
+                                    </div>
+                                  </div>
+                                </li>
+                                <li class="a-selectable a-danger" tabindex="0">
+                                  <div class="row">
+                                    <div class="a-w-7 text-center hidden-sm-down">
+                                      <!-- START: 01-molekyler-05-lister-_00-liste-innhold -->
+
+                                      <!-- START: 00-atomer-09-bilder-og-media-15-ikon -->
+
+                                      <i class="ai ai-client   "></i>
+
+
+                                      <!-- END: 00-atomer-09-bilder-og-media-15-ikon -->
+
+
+
+
+
+
+                                      <!-- END: 01-molekyler-05-lister-_00-liste-innhold -->
+
+                                    </div>
+                                    <div class="col-10 col-sm-7 col-md-4 col-lg-6" data-searchable="true">
+                                      <!-- START: 01-molekyler-05-lister-_00-liste-innhold -->
+                                      <span class="a-fontBold a-js-sortValue a-lineThrough-selected"> 
     Paller+Pins ANS
      </span>
 
@@ -1748,12 +1720,12 @@
 
 
 
-                                  <!-- END: 01-molekyler-05-lister-_00-liste-innhold -->
+                                      <!-- END: 01-molekyler-05-lister-_00-liste-innhold -->
 
-                                </div>
-                                <div class="col-3 hidden-sm-down" data-searchable="true">
-                                  <!-- START: 01-molekyler-05-lister-_00-liste-innhold -->
-                                  <span class="sr-only"> 
+                                    </div>
+                                    <div class="col-3 hidden-sm-down" data-searchable="true">
+                                      <!-- START: 01-molekyler-05-lister-_00-liste-innhold -->
+                                      <span class="sr-only"> 
     Organisjonsnummer:
      </span>
 
@@ -1761,7 +1733,7 @@
 
 
 
-                                  <span class="a-js-sortValue"> 
+                                      <span class="a-js-sortValue"> 
     963 179 715
      </span>
 
@@ -1770,12 +1742,12 @@
 
 
 
-                                  <!-- END: 01-molekyler-05-lister-_00-liste-innhold -->
+                                      <!-- END: 01-molekyler-05-lister-_00-liste-innhold -->
 
-                                </div>
-                                <div class="col text-right pr-0 pr-md-2">
-                                  <!-- START: 01-molekyler-05-lister-_00-liste-innhold -->
-                                  <span class="a-fontBold hidden-xs-down a-hiddenWhenSelected a-hiddenWhenDeleted"> 
+                                    </div>
+                                    <div class="col text-right pr-0 pr-md-2">
+                                      <!-- START: 01-molekyler-05-lister-_00-liste-innhold -->
+                                      <span class="a-fontBold hidden-xs-down a-hiddenWhenSelected a-hiddenWhenDeleted"> 
     Fjern
      </span>
 
@@ -1784,18 +1756,18 @@
 
 
 
-                                  <!-- START: 00-atomer-09-bilder-og-media-15-ikon -->
+                                      <!-- START: 00-atomer-09-bilder-og-media-15-ikon -->
 
-                                  <i class="tmp tmp-remove-circle  a-remove-icon a-hiddenWhenSelected a-hiddenWhenDeleted tmp-fw "></i>
-
-
-                                  <!-- END: 00-atomer-09-bilder-og-media-15-ikon -->
+                                      <i class="tmp tmp-remove-circle  a-remove-icon a-hiddenWhenSelected a-hiddenWhenDeleted tmp-fw "></i>
 
 
+                                      <!-- END: 00-atomer-09-bilder-og-media-15-ikon -->
 
 
 
-                                  <span class="a-fontBold hidden-xs-down a-visibleWhenSelected a-hiddenWhenDeleted"> 
+
+
+                                      <span class="a-fontBold hidden-xs-down a-visibleWhenSelected a-hiddenWhenDeleted"> 
     Angre
      </span>
 
@@ -1804,18 +1776,18 @@
 
 
 
-                                  <!-- START: 00-atomer-09-bilder-og-media-15-ikon -->
+                                      <!-- START: 00-atomer-09-bilder-og-media-15-ikon -->
 
-                                  <i class="tmp tmp-history  a-remove-icon a-visibleWhenSelected a-hiddenWhenDeleted tmp-fw "></i>
-
-
-                                  <!-- END: 00-atomer-09-bilder-og-media-15-ikon -->
+                                      <i class="tmp tmp-history  a-remove-icon a-visibleWhenSelected a-hiddenWhenDeleted tmp-fw "></i>
 
 
+                                      <!-- END: 00-atomer-09-bilder-og-media-15-ikon -->
 
 
 
-                                  <span class="a-fontBold hidden-xs-down a-visibleWhenDeleted"> 
+
+
+                                      <span class="a-fontBold hidden-xs-down a-visibleWhenDeleted"> 
     Slettet
      </span>
 
@@ -1824,46 +1796,46 @@
 
 
 
-                                  <!-- START: 00-atomer-09-bilder-og-media-15-ikon -->
+                                      <!-- START: 00-atomer-09-bilder-og-media-15-ikon -->
 
-                                  <i class="tmp tmp-fw  a-remove-icon a-visibleWhenDeleted "></i>
-
-
-                                  <!-- END: 00-atomer-09-bilder-og-media-15-ikon -->
+                                      <i class="tmp tmp-fw  a-remove-icon a-visibleWhenDeleted "></i>
 
 
-
-
-
-
-                                  <!-- END: 01-molekyler-05-lister-_00-liste-innhold -->
-
-                                </div>
-                              </div>
-                            </li>
-                            <li class="a-selectable a-danger" tabindex="0">
-                              <div class="row">
-                                <div class="a-w-7 text-center hidden-sm-down">
-                                  <!-- START: 01-molekyler-05-lister-_00-liste-innhold -->
-
-                                  <!-- START: 00-atomer-09-bilder-og-media-15-ikon -->
-
-                                  <i class="ai ai-client   "></i>
-
-
-                                  <!-- END: 00-atomer-09-bilder-og-media-15-ikon -->
+                                      <!-- END: 00-atomer-09-bilder-og-media-15-ikon -->
 
 
 
 
 
 
-                                  <!-- END: 01-molekyler-05-lister-_00-liste-innhold -->
+                                      <!-- END: 01-molekyler-05-lister-_00-liste-innhold -->
 
-                                </div>
-                                <div class="col-10 col-sm-7 col-md-4 col-lg-6" data-searchable="true">
-                                  <!-- START: 01-molekyler-05-lister-_00-liste-innhold -->
-                                  <span class="a-fontBold a-js-sortValue a-lineThrough-selected"> 
+                                    </div>
+                                  </div>
+                                </li>
+                                <li class="a-selectable a-danger" tabindex="0">
+                                  <div class="row">
+                                    <div class="a-w-7 text-center hidden-sm-down">
+                                      <!-- START: 01-molekyler-05-lister-_00-liste-innhold -->
+
+                                      <!-- START: 00-atomer-09-bilder-og-media-15-ikon -->
+
+                                      <i class="ai ai-client   "></i>
+
+
+                                      <!-- END: 00-atomer-09-bilder-og-media-15-ikon -->
+
+
+
+
+
+
+                                      <!-- END: 01-molekyler-05-lister-_00-liste-innhold -->
+
+                                    </div>
+                                    <div class="col-10 col-sm-7 col-md-4 col-lg-6" data-searchable="true">
+                                      <!-- START: 01-molekyler-05-lister-_00-liste-innhold -->
+                                      <span class="a-fontBold a-js-sortValue a-lineThrough-selected"> 
     Pedro Lasten ENK
      </span>
 
@@ -1872,12 +1844,12 @@
 
 
 
-                                  <!-- END: 01-molekyler-05-lister-_00-liste-innhold -->
+                                      <!-- END: 01-molekyler-05-lister-_00-liste-innhold -->
 
-                                </div>
-                                <div class="col-3 hidden-sm-down" data-searchable="true">
-                                  <!-- START: 01-molekyler-05-lister-_00-liste-innhold -->
-                                  <span class="sr-only"> 
+                                    </div>
+                                    <div class="col-3 hidden-sm-down" data-searchable="true">
+                                      <!-- START: 01-molekyler-05-lister-_00-liste-innhold -->
+                                      <span class="sr-only"> 
     Organisjonsnummer:
      </span>
 
@@ -1885,7 +1857,7 @@
 
 
 
-                                  <span class="a-js-sortValue"> 
+                                      <span class="a-js-sortValue"> 
     963 179 715
      </span>
 
@@ -1894,12 +1866,12 @@
 
 
 
-                                  <!-- END: 01-molekyler-05-lister-_00-liste-innhold -->
+                                      <!-- END: 01-molekyler-05-lister-_00-liste-innhold -->
 
-                                </div>
-                                <div class="col text-right pr-0 pr-md-2">
-                                  <!-- START: 01-molekyler-05-lister-_00-liste-innhold -->
-                                  <span class="a-fontBold hidden-xs-down a-hiddenWhenSelected a-hiddenWhenDeleted"> 
+                                    </div>
+                                    <div class="col text-right pr-0 pr-md-2">
+                                      <!-- START: 01-molekyler-05-lister-_00-liste-innhold -->
+                                      <span class="a-fontBold hidden-xs-down a-hiddenWhenSelected a-hiddenWhenDeleted"> 
     Fjern
      </span>
 
@@ -1908,18 +1880,18 @@
 
 
 
-                                  <!-- START: 00-atomer-09-bilder-og-media-15-ikon -->
+                                      <!-- START: 00-atomer-09-bilder-og-media-15-ikon -->
 
-                                  <i class="tmp tmp-remove-circle  a-remove-icon a-hiddenWhenSelected a-hiddenWhenDeleted tmp-fw "></i>
-
-
-                                  <!-- END: 00-atomer-09-bilder-og-media-15-ikon -->
+                                      <i class="tmp tmp-remove-circle  a-remove-icon a-hiddenWhenSelected a-hiddenWhenDeleted tmp-fw "></i>
 
 
+                                      <!-- END: 00-atomer-09-bilder-og-media-15-ikon -->
 
 
 
-                                  <span class="a-fontBold hidden-xs-down a-visibleWhenSelected a-hiddenWhenDeleted"> 
+
+
+                                      <span class="a-fontBold hidden-xs-down a-visibleWhenSelected a-hiddenWhenDeleted"> 
     Angre
      </span>
 
@@ -1928,18 +1900,18 @@
 
 
 
-                                  <!-- START: 00-atomer-09-bilder-og-media-15-ikon -->
+                                      <!-- START: 00-atomer-09-bilder-og-media-15-ikon -->
 
-                                  <i class="tmp tmp-history  a-remove-icon a-visibleWhenSelected a-hiddenWhenDeleted tmp-fw "></i>
-
-
-                                  <!-- END: 00-atomer-09-bilder-og-media-15-ikon -->
+                                      <i class="tmp tmp-history  a-remove-icon a-visibleWhenSelected a-hiddenWhenDeleted tmp-fw "></i>
 
 
+                                      <!-- END: 00-atomer-09-bilder-og-media-15-ikon -->
 
 
 
-                                  <span class="a-fontBold hidden-xs-down a-visibleWhenDeleted"> 
+
+
+                                      <span class="a-fontBold hidden-xs-down a-visibleWhenDeleted"> 
     Slettet
      </span>
 
@@ -1948,46 +1920,46 @@
 
 
 
-                                  <!-- START: 00-atomer-09-bilder-og-media-15-ikon -->
+                                      <!-- START: 00-atomer-09-bilder-og-media-15-ikon -->
 
-                                  <i class="tmp tmp-fw  a-remove-icon a-visibleWhenDeleted "></i>
-
-
-                                  <!-- END: 00-atomer-09-bilder-og-media-15-ikon -->
+                                      <i class="tmp tmp-fw  a-remove-icon a-visibleWhenDeleted "></i>
 
 
-
-
-
-
-                                  <!-- END: 01-molekyler-05-lister-_00-liste-innhold -->
-
-                                </div>
-                              </div>
-                            </li>
-                            <li class="a-selectable a-danger" tabindex="0">
-                              <div class="row">
-                                <div class="a-w-7 text-center hidden-sm-down">
-                                  <!-- START: 01-molekyler-05-lister-_00-liste-innhold -->
-
-                                  <!-- START: 00-atomer-09-bilder-og-media-15-ikon -->
-
-                                  <i class="ai ai-client   "></i>
-
-
-                                  <!-- END: 00-atomer-09-bilder-og-media-15-ikon -->
+                                      <!-- END: 00-atomer-09-bilder-og-media-15-ikon -->
 
 
 
 
 
 
-                                  <!-- END: 01-molekyler-05-lister-_00-liste-innhold -->
+                                      <!-- END: 01-molekyler-05-lister-_00-liste-innhold -->
 
-                                </div>
-                                <div class="col-10 col-sm-7 col-md-4 col-lg-6" data-searchable="true">
-                                  <!-- START: 01-molekyler-05-lister-_00-liste-innhold -->
-                                  <span class="a-fontBold a-js-sortValue a-lineThrough-selected"> 
+                                    </div>
+                                  </div>
+                                </li>
+                                <li class="a-selectable a-danger" tabindex="0">
+                                  <div class="row">
+                                    <div class="a-w-7 text-center hidden-sm-down">
+                                      <!-- START: 01-molekyler-05-lister-_00-liste-innhold -->
+
+                                      <!-- START: 00-atomer-09-bilder-og-media-15-ikon -->
+
+                                      <i class="ai ai-client   "></i>
+
+
+                                      <!-- END: 00-atomer-09-bilder-og-media-15-ikon -->
+
+
+
+
+
+
+                                      <!-- END: 01-molekyler-05-lister-_00-liste-innhold -->
+
+                                    </div>
+                                    <div class="col-10 col-sm-7 col-md-4 col-lg-6" data-searchable="true">
+                                      <!-- START: 01-molekyler-05-lister-_00-liste-innhold -->
+                                      <span class="a-fontBold a-js-sortValue a-lineThrough-selected"> 
     Quantimetaphysics AS
      </span>
 
@@ -1996,12 +1968,12 @@
 
 
 
-                                  <!-- END: 01-molekyler-05-lister-_00-liste-innhold -->
+                                      <!-- END: 01-molekyler-05-lister-_00-liste-innhold -->
 
-                                </div>
-                                <div class="col-3 hidden-sm-down" data-searchable="true">
-                                  <!-- START: 01-molekyler-05-lister-_00-liste-innhold -->
-                                  <span class="sr-only"> 
+                                    </div>
+                                    <div class="col-3 hidden-sm-down" data-searchable="true">
+                                      <!-- START: 01-molekyler-05-lister-_00-liste-innhold -->
+                                      <span class="sr-only"> 
     Organisjonsnummer:
      </span>
 
@@ -2009,7 +1981,7 @@
 
 
 
-                                  <span class="a-js-sortValue"> 
+                                      <span class="a-js-sortValue"> 
     963 179 715
      </span>
 
@@ -2018,12 +1990,12 @@
 
 
 
-                                  <!-- END: 01-molekyler-05-lister-_00-liste-innhold -->
+                                      <!-- END: 01-molekyler-05-lister-_00-liste-innhold -->
 
-                                </div>
-                                <div class="col text-right pr-0 pr-md-2">
-                                  <!-- START: 01-molekyler-05-lister-_00-liste-innhold -->
-                                  <span class="a-fontBold hidden-xs-down a-hiddenWhenSelected a-hiddenWhenDeleted"> 
+                                    </div>
+                                    <div class="col text-right pr-0 pr-md-2">
+                                      <!-- START: 01-molekyler-05-lister-_00-liste-innhold -->
+                                      <span class="a-fontBold hidden-xs-down a-hiddenWhenSelected a-hiddenWhenDeleted"> 
     Fjern
      </span>
 
@@ -2032,18 +2004,18 @@
 
 
 
-                                  <!-- START: 00-atomer-09-bilder-og-media-15-ikon -->
+                                      <!-- START: 00-atomer-09-bilder-og-media-15-ikon -->
 
-                                  <i class="tmp tmp-remove-circle  a-remove-icon a-hiddenWhenSelected a-hiddenWhenDeleted tmp-fw "></i>
-
-
-                                  <!-- END: 00-atomer-09-bilder-og-media-15-ikon -->
+                                      <i class="tmp tmp-remove-circle  a-remove-icon a-hiddenWhenSelected a-hiddenWhenDeleted tmp-fw "></i>
 
 
+                                      <!-- END: 00-atomer-09-bilder-og-media-15-ikon -->
 
 
 
-                                  <span class="a-fontBold hidden-xs-down a-visibleWhenSelected a-hiddenWhenDeleted"> 
+
+
+                                      <span class="a-fontBold hidden-xs-down a-visibleWhenSelected a-hiddenWhenDeleted"> 
     Angre
      </span>
 
@@ -2052,18 +2024,18 @@
 
 
 
-                                  <!-- START: 00-atomer-09-bilder-og-media-15-ikon -->
+                                      <!-- START: 00-atomer-09-bilder-og-media-15-ikon -->
 
-                                  <i class="tmp tmp-history  a-remove-icon a-visibleWhenSelected a-hiddenWhenDeleted tmp-fw "></i>
-
-
-                                  <!-- END: 00-atomer-09-bilder-og-media-15-ikon -->
+                                      <i class="tmp tmp-history  a-remove-icon a-visibleWhenSelected a-hiddenWhenDeleted tmp-fw "></i>
 
 
+                                      <!-- END: 00-atomer-09-bilder-og-media-15-ikon -->
 
 
 
-                                  <span class="a-fontBold hidden-xs-down a-visibleWhenDeleted"> 
+
+
+                                      <span class="a-fontBold hidden-xs-down a-visibleWhenDeleted"> 
     Slettet
      </span>
 
@@ -2072,46 +2044,46 @@
 
 
 
-                                  <!-- START: 00-atomer-09-bilder-og-media-15-ikon -->
+                                      <!-- START: 00-atomer-09-bilder-og-media-15-ikon -->
 
-                                  <i class="tmp tmp-fw  a-remove-icon a-visibleWhenDeleted "></i>
-
-
-                                  <!-- END: 00-atomer-09-bilder-og-media-15-ikon -->
+                                      <i class="tmp tmp-fw  a-remove-icon a-visibleWhenDeleted "></i>
 
 
-
-
-
-
-                                  <!-- END: 01-molekyler-05-lister-_00-liste-innhold -->
-
-                                </div>
-                              </div>
-                            </li>
-                            <li class="a-selectable a-danger" tabindex="0">
-                              <div class="row">
-                                <div class="a-w-7 text-center hidden-sm-down">
-                                  <!-- START: 01-molekyler-05-lister-_00-liste-innhold -->
-
-                                  <!-- START: 00-atomer-09-bilder-og-media-15-ikon -->
-
-                                  <i class="ai ai-client   "></i>
-
-
-                                  <!-- END: 00-atomer-09-bilder-og-media-15-ikon -->
+                                      <!-- END: 00-atomer-09-bilder-og-media-15-ikon -->
 
 
 
 
 
 
-                                  <!-- END: 01-molekyler-05-lister-_00-liste-innhold -->
+                                      <!-- END: 01-molekyler-05-lister-_00-liste-innhold -->
 
-                                </div>
-                                <div class="col-10 col-sm-7 col-md-4 col-lg-6" data-searchable="true">
-                                  <!-- START: 01-molekyler-05-lister-_00-liste-innhold -->
-                                  <span class="a-fontBold a-js-sortValue a-lineThrough-selected"> 
+                                    </div>
+                                  </div>
+                                </li>
+                                <li class="a-selectable a-danger" tabindex="0">
+                                  <div class="row">
+                                    <div class="a-w-7 text-center hidden-sm-down">
+                                      <!-- START: 01-molekyler-05-lister-_00-liste-innhold -->
+
+                                      <!-- START: 00-atomer-09-bilder-og-media-15-ikon -->
+
+                                      <i class="ai ai-client   "></i>
+
+
+                                      <!-- END: 00-atomer-09-bilder-og-media-15-ikon -->
+
+
+
+
+
+
+                                      <!-- END: 01-molekyler-05-lister-_00-liste-innhold -->
+
+                                    </div>
+                                    <div class="col-10 col-sm-7 col-md-4 col-lg-6" data-searchable="true">
+                                      <!-- START: 01-molekyler-05-lister-_00-liste-innhold -->
+                                      <span class="a-fontBold a-js-sortValue a-lineThrough-selected"> 
     Technopolis Securities AS
      </span>
 
@@ -2120,12 +2092,12 @@
 
 
 
-                                  <!-- END: 01-molekyler-05-lister-_00-liste-innhold -->
+                                      <!-- END: 01-molekyler-05-lister-_00-liste-innhold -->
 
-                                </div>
-                                <div class="col-3 hidden-sm-down" data-searchable="true">
-                                  <!-- START: 01-molekyler-05-lister-_00-liste-innhold -->
-                                  <span class="sr-only"> 
+                                    </div>
+                                    <div class="col-3 hidden-sm-down" data-searchable="true">
+                                      <!-- START: 01-molekyler-05-lister-_00-liste-innhold -->
+                                      <span class="sr-only"> 
     Organisjonsnummer:
      </span>
 
@@ -2133,7 +2105,7 @@
 
 
 
-                                  <span class="a-js-sortValue"> 
+                                      <span class="a-js-sortValue"> 
     963 179 715
      </span>
 
@@ -2142,12 +2114,12 @@
 
 
 
-                                  <!-- END: 01-molekyler-05-lister-_00-liste-innhold -->
+                                      <!-- END: 01-molekyler-05-lister-_00-liste-innhold -->
 
-                                </div>
-                                <div class="col text-right pr-0 pr-md-2">
-                                  <!-- START: 01-molekyler-05-lister-_00-liste-innhold -->
-                                  <span class="a-fontBold hidden-xs-down a-hiddenWhenSelected a-hiddenWhenDeleted"> 
+                                    </div>
+                                    <div class="col text-right pr-0 pr-md-2">
+                                      <!-- START: 01-molekyler-05-lister-_00-liste-innhold -->
+                                      <span class="a-fontBold hidden-xs-down a-hiddenWhenSelected a-hiddenWhenDeleted"> 
     Fjern
      </span>
 
@@ -2156,18 +2128,18 @@
 
 
 
-                                  <!-- START: 00-atomer-09-bilder-og-media-15-ikon -->
+                                      <!-- START: 00-atomer-09-bilder-og-media-15-ikon -->
 
-                                  <i class="tmp tmp-remove-circle  a-remove-icon a-hiddenWhenSelected a-hiddenWhenDeleted tmp-fw "></i>
-
-
-                                  <!-- END: 00-atomer-09-bilder-og-media-15-ikon -->
+                                      <i class="tmp tmp-remove-circle  a-remove-icon a-hiddenWhenSelected a-hiddenWhenDeleted tmp-fw "></i>
 
 
+                                      <!-- END: 00-atomer-09-bilder-og-media-15-ikon -->
 
 
 
-                                  <span class="a-fontBold hidden-xs-down a-visibleWhenSelected a-hiddenWhenDeleted"> 
+
+
+                                      <span class="a-fontBold hidden-xs-down a-visibleWhenSelected a-hiddenWhenDeleted"> 
     Angre
      </span>
 
@@ -2176,18 +2148,18 @@
 
 
 
-                                  <!-- START: 00-atomer-09-bilder-og-media-15-ikon -->
+                                      <!-- START: 00-atomer-09-bilder-og-media-15-ikon -->
 
-                                  <i class="tmp tmp-history  a-remove-icon a-visibleWhenSelected a-hiddenWhenDeleted tmp-fw "></i>
-
-
-                                  <!-- END: 00-atomer-09-bilder-og-media-15-ikon -->
+                                      <i class="tmp tmp-history  a-remove-icon a-visibleWhenSelected a-hiddenWhenDeleted tmp-fw "></i>
 
 
+                                      <!-- END: 00-atomer-09-bilder-og-media-15-ikon -->
 
 
 
-                                  <span class="a-fontBold hidden-xs-down a-visibleWhenDeleted"> 
+
+
+                                      <span class="a-fontBold hidden-xs-down a-visibleWhenDeleted"> 
     Slettet
      </span>
 
@@ -2196,46 +2168,46 @@
 
 
 
-                                  <!-- START: 00-atomer-09-bilder-og-media-15-ikon -->
+                                      <!-- START: 00-atomer-09-bilder-og-media-15-ikon -->
 
-                                  <i class="tmp tmp-fw  a-remove-icon a-visibleWhenDeleted "></i>
-
-
-                                  <!-- END: 00-atomer-09-bilder-og-media-15-ikon -->
+                                      <i class="tmp tmp-fw  a-remove-icon a-visibleWhenDeleted "></i>
 
 
-
-
-
-
-                                  <!-- END: 01-molekyler-05-lister-_00-liste-innhold -->
-
-                                </div>
-                              </div>
-                            </li>
-                            <li class="a-selectable a-danger" tabindex="0">
-                              <div class="row">
-                                <div class="a-w-7 text-center hidden-sm-down">
-                                  <!-- START: 01-molekyler-05-lister-_00-liste-innhold -->
-
-                                  <!-- START: 00-atomer-09-bilder-og-media-15-ikon -->
-
-                                  <i class="ai ai-client   "></i>
-
-
-                                  <!-- END: 00-atomer-09-bilder-og-media-15-ikon -->
+                                      <!-- END: 00-atomer-09-bilder-og-media-15-ikon -->
 
 
 
 
 
 
-                                  <!-- END: 01-molekyler-05-lister-_00-liste-innhold -->
+                                      <!-- END: 01-molekyler-05-lister-_00-liste-innhold -->
 
-                                </div>
-                                <div class="col-10 col-sm-7 col-md-4 col-lg-6" data-searchable="true">
-                                  <!-- START: 01-molekyler-05-lister-_00-liste-innhold -->
-                                  <span class="a-fontBold a-js-sortValue a-lineThrough-selected"> 
+                                    </div>
+                                  </div>
+                                </li>
+                                <li class="a-selectable a-danger" tabindex="0">
+                                  <div class="row">
+                                    <div class="a-w-7 text-center hidden-sm-down">
+                                      <!-- START: 01-molekyler-05-lister-_00-liste-innhold -->
+
+                                      <!-- START: 00-atomer-09-bilder-og-media-15-ikon -->
+
+                                      <i class="ai ai-client   "></i>
+
+
+                                      <!-- END: 00-atomer-09-bilder-og-media-15-ikon -->
+
+
+
+
+
+
+                                      <!-- END: 01-molekyler-05-lister-_00-liste-innhold -->
+
+                                    </div>
+                                    <div class="col-10 col-sm-7 col-md-4 col-lg-6" data-searchable="true">
+                                      <!-- START: 01-molekyler-05-lister-_00-liste-innhold -->
+                                      <span class="a-fontBold a-js-sortValue a-lineThrough-selected"> 
     Trøndelag Taktekkeri ENK
      </span>
 
@@ -2244,12 +2216,12 @@
 
 
 
-                                  <!-- END: 01-molekyler-05-lister-_00-liste-innhold -->
+                                      <!-- END: 01-molekyler-05-lister-_00-liste-innhold -->
 
-                                </div>
-                                <div class="col-3 hidden-sm-down" data-searchable="true">
-                                  <!-- START: 01-molekyler-05-lister-_00-liste-innhold -->
-                                  <span class="sr-only"> 
+                                    </div>
+                                    <div class="col-3 hidden-sm-down" data-searchable="true">
+                                      <!-- START: 01-molekyler-05-lister-_00-liste-innhold -->
+                                      <span class="sr-only"> 
     Organisjonsnummer:
      </span>
 
@@ -2257,7 +2229,7 @@
 
 
 
-                                  <span class="a-js-sortValue"> 
+                                      <span class="a-js-sortValue"> 
     963 179 715
      </span>
 
@@ -2266,12 +2238,12 @@
 
 
 
-                                  <!-- END: 01-molekyler-05-lister-_00-liste-innhold -->
+                                      <!-- END: 01-molekyler-05-lister-_00-liste-innhold -->
 
-                                </div>
-                                <div class="col text-right pr-0 pr-md-2">
-                                  <!-- START: 01-molekyler-05-lister-_00-liste-innhold -->
-                                  <span class="a-fontBold hidden-xs-down a-hiddenWhenSelected a-hiddenWhenDeleted"> 
+                                    </div>
+                                    <div class="col text-right pr-0 pr-md-2">
+                                      <!-- START: 01-molekyler-05-lister-_00-liste-innhold -->
+                                      <span class="a-fontBold hidden-xs-down a-hiddenWhenSelected a-hiddenWhenDeleted"> 
     Fjern
      </span>
 
@@ -2280,18 +2252,18 @@
 
 
 
-                                  <!-- START: 00-atomer-09-bilder-og-media-15-ikon -->
+                                      <!-- START: 00-atomer-09-bilder-og-media-15-ikon -->
 
-                                  <i class="tmp tmp-remove-circle  a-remove-icon a-hiddenWhenSelected a-hiddenWhenDeleted tmp-fw "></i>
-
-
-                                  <!-- END: 00-atomer-09-bilder-og-media-15-ikon -->
+                                      <i class="tmp tmp-remove-circle  a-remove-icon a-hiddenWhenSelected a-hiddenWhenDeleted tmp-fw "></i>
 
 
+                                      <!-- END: 00-atomer-09-bilder-og-media-15-ikon -->
 
 
 
-                                  <span class="a-fontBold hidden-xs-down a-visibleWhenSelected a-hiddenWhenDeleted"> 
+
+
+                                      <span class="a-fontBold hidden-xs-down a-visibleWhenSelected a-hiddenWhenDeleted"> 
     Angre
      </span>
 
@@ -2300,18 +2272,18 @@
 
 
 
-                                  <!-- START: 00-atomer-09-bilder-og-media-15-ikon -->
+                                      <!-- START: 00-atomer-09-bilder-og-media-15-ikon -->
 
-                                  <i class="tmp tmp-history  a-remove-icon a-visibleWhenSelected a-hiddenWhenDeleted tmp-fw "></i>
-
-
-                                  <!-- END: 00-atomer-09-bilder-og-media-15-ikon -->
+                                      <i class="tmp tmp-history  a-remove-icon a-visibleWhenSelected a-hiddenWhenDeleted tmp-fw "></i>
 
 
+                                      <!-- END: 00-atomer-09-bilder-og-media-15-ikon -->
 
 
 
-                                  <span class="a-fontBold hidden-xs-down a-visibleWhenDeleted"> 
+
+
+                                      <span class="a-fontBold hidden-xs-down a-visibleWhenDeleted"> 
     Slettet
      </span>
 
@@ -2320,46 +2292,46 @@
 
 
 
-                                  <!-- START: 00-atomer-09-bilder-og-media-15-ikon -->
+                                      <!-- START: 00-atomer-09-bilder-og-media-15-ikon -->
 
-                                  <i class="tmp tmp-fw  a-remove-icon a-visibleWhenDeleted "></i>
-
-
-                                  <!-- END: 00-atomer-09-bilder-og-media-15-ikon -->
+                                      <i class="tmp tmp-fw  a-remove-icon a-visibleWhenDeleted "></i>
 
 
-
-
-
-
-                                  <!-- END: 01-molekyler-05-lister-_00-liste-innhold -->
-
-                                </div>
-                              </div>
-                            </li>
-                            <li class="a-selectable a-danger" tabindex="0">
-                              <div class="row">
-                                <div class="a-w-7 text-center hidden-sm-down">
-                                  <!-- START: 01-molekyler-05-lister-_00-liste-innhold -->
-
-                                  <!-- START: 00-atomer-09-bilder-og-media-15-ikon -->
-
-                                  <i class="ai ai-client   "></i>
-
-
-                                  <!-- END: 00-atomer-09-bilder-og-media-15-ikon -->
+                                      <!-- END: 00-atomer-09-bilder-og-media-15-ikon -->
 
 
 
 
 
 
-                                  <!-- END: 01-molekyler-05-lister-_00-liste-innhold -->
+                                      <!-- END: 01-molekyler-05-lister-_00-liste-innhold -->
 
-                                </div>
-                                <div class="col-10 col-sm-7 col-md-4 col-lg-6" data-searchable="true">
-                                  <!-- START: 01-molekyler-05-lister-_00-liste-innhold -->
-                                  <span class="a-fontBold a-js-sortValue a-lineThrough-selected"> 
+                                    </div>
+                                  </div>
+                                </li>
+                                <li class="a-selectable a-danger" tabindex="0">
+                                  <div class="row">
+                                    <div class="a-w-7 text-center hidden-sm-down">
+                                      <!-- START: 01-molekyler-05-lister-_00-liste-innhold -->
+
+                                      <!-- START: 00-atomer-09-bilder-og-media-15-ikon -->
+
+                                      <i class="ai ai-client   "></i>
+
+
+                                      <!-- END: 00-atomer-09-bilder-og-media-15-ikon -->
+
+
+
+
+
+
+                                      <!-- END: 01-molekyler-05-lister-_00-liste-innhold -->
+
+                                    </div>
+                                    <div class="col-10 col-sm-7 col-md-4 col-lg-6" data-searchable="true">
+                                      <!-- START: 01-molekyler-05-lister-_00-liste-innhold -->
+                                      <span class="a-fontBold a-js-sortValue a-lineThrough-selected"> 
     Viljestyrke AS
      </span>
 
@@ -2368,12 +2340,12 @@
 
 
 
-                                  <!-- END: 01-molekyler-05-lister-_00-liste-innhold -->
+                                      <!-- END: 01-molekyler-05-lister-_00-liste-innhold -->
 
-                                </div>
-                                <div class="col-3 hidden-sm-down" data-searchable="true">
-                                  <!-- START: 01-molekyler-05-lister-_00-liste-innhold -->
-                                  <span class="sr-only"> 
+                                    </div>
+                                    <div class="col-3 hidden-sm-down" data-searchable="true">
+                                      <!-- START: 01-molekyler-05-lister-_00-liste-innhold -->
+                                      <span class="sr-only"> 
     Organisjonsnummer:
      </span>
 
@@ -2381,7 +2353,7 @@
 
 
 
-                                  <span class="a-js-sortValue"> 
+                                      <span class="a-js-sortValue"> 
     963 179 715
      </span>
 
@@ -2390,12 +2362,12 @@
 
 
 
-                                  <!-- END: 01-molekyler-05-lister-_00-liste-innhold -->
+                                      <!-- END: 01-molekyler-05-lister-_00-liste-innhold -->
 
-                                </div>
-                                <div class="col text-right pr-0 pr-md-2">
-                                  <!-- START: 01-molekyler-05-lister-_00-liste-innhold -->
-                                  <span class="a-fontBold hidden-xs-down a-hiddenWhenSelected a-hiddenWhenDeleted"> 
+                                    </div>
+                                    <div class="col text-right pr-0 pr-md-2">
+                                      <!-- START: 01-molekyler-05-lister-_00-liste-innhold -->
+                                      <span class="a-fontBold hidden-xs-down a-hiddenWhenSelected a-hiddenWhenDeleted"> 
     Fjern
      </span>
 
@@ -2404,18 +2376,18 @@
 
 
 
-                                  <!-- START: 00-atomer-09-bilder-og-media-15-ikon -->
+                                      <!-- START: 00-atomer-09-bilder-og-media-15-ikon -->
 
-                                  <i class="tmp tmp-remove-circle  a-remove-icon a-hiddenWhenSelected a-hiddenWhenDeleted tmp-fw "></i>
-
-
-                                  <!-- END: 00-atomer-09-bilder-og-media-15-ikon -->
+                                      <i class="tmp tmp-remove-circle  a-remove-icon a-hiddenWhenSelected a-hiddenWhenDeleted tmp-fw "></i>
 
 
+                                      <!-- END: 00-atomer-09-bilder-og-media-15-ikon -->
 
 
 
-                                  <span class="a-fontBold hidden-xs-down a-visibleWhenSelected a-hiddenWhenDeleted"> 
+
+
+                                      <span class="a-fontBold hidden-xs-down a-visibleWhenSelected a-hiddenWhenDeleted"> 
     Angre
      </span>
 
@@ -2424,18 +2396,18 @@
 
 
 
-                                  <!-- START: 00-atomer-09-bilder-og-media-15-ikon -->
+                                      <!-- START: 00-atomer-09-bilder-og-media-15-ikon -->
 
-                                  <i class="tmp tmp-history  a-remove-icon a-visibleWhenSelected a-hiddenWhenDeleted tmp-fw "></i>
-
-
-                                  <!-- END: 00-atomer-09-bilder-og-media-15-ikon -->
+                                      <i class="tmp tmp-history  a-remove-icon a-visibleWhenSelected a-hiddenWhenDeleted tmp-fw "></i>
 
 
+                                      <!-- END: 00-atomer-09-bilder-og-media-15-ikon -->
 
 
 
-                                  <span class="a-fontBold hidden-xs-down a-visibleWhenDeleted"> 
+
+
+                                      <span class="a-fontBold hidden-xs-down a-visibleWhenDeleted"> 
     Slettet
      </span>
 
@@ -2444,85 +2416,85 @@
 
 
 
-                                  <!-- START: 00-atomer-09-bilder-og-media-15-ikon -->
+                                      <!-- START: 00-atomer-09-bilder-og-media-15-ikon -->
 
-                                  <i class="tmp tmp-fw  a-remove-icon a-visibleWhenDeleted "></i>
-
-
-                                  <!-- END: 00-atomer-09-bilder-og-media-15-ikon -->
+                                      <i class="tmp tmp-fw  a-remove-icon a-visibleWhenDeleted "></i>
 
 
-
-
-
-
-                                  <!-- END: 01-molekyler-05-lister-_00-liste-innhold -->
-
-                                </div>
-                              </div>
-                            </li>
-                            <li class="a-clickable a-fontSizeM a-fontBold a-list-item-loadMore a-bgWhite" tabindex="0" role="button">
-                              <div class="row">
-                                <div class="a-w-7 text-center hidden-sm-down">
-                                  <!-- START: 01-molekyler-05-lister-_00-liste-innhold -->
-
-                                  <!-- START: 00-atomer-09-bilder-og-media-15-ikon -->
-
-                                  <i class="ai ai-plus   "></i>
-
-
-                                  <!-- END: 00-atomer-09-bilder-og-media-15-ikon -->
+                                      <!-- END: 00-atomer-09-bilder-og-media-15-ikon -->
 
 
 
 
 
 
-                                  <!-- END: 01-molekyler-05-lister-_00-liste-innhold -->
+                                      <!-- END: 01-molekyler-05-lister-_00-liste-innhold -->
 
-                                </div>
-                                <div class="col">
-                                  <!-- START: 01-molekyler-05-lister-_00-liste-innhold -->
+                                    </div>
+                                  </div>
+                                </li>
+                                <li class="a-clickable a-fontSizeM a-fontBold a-list-item-loadMore a-bgWhite" tabindex="0" role="button">
+                                  <div class="row">
+                                    <div class="a-w-7 text-center hidden-sm-down">
+                                      <!-- START: 01-molekyler-05-lister-_00-liste-innhold -->
 
-                                  <!-- START: 00-atomer-09-bilder-og-media-15-ikon -->
+                                      <!-- START: 00-atomer-09-bilder-og-media-15-ikon -->
 
-                                  <i class="ai ai-plus  hidden-md-up "></i>
-
-
-                                  <!-- END: 00-atomer-09-bilder-og-media-15-ikon -->
-
-
-
+                                      <i class="ai ai-plus   "></i>
 
 
-
-                                  Last flere
+                                      <!-- END: 00-atomer-09-bilder-og-media-15-ikon -->
 
 
 
 
 
 
+                                      <!-- END: 01-molekyler-05-lister-_00-liste-innhold -->
 
-                                  <!-- END: 01-molekyler-05-lister-_00-liste-innhold -->
+                                    </div>
+                                    <div class="col">
+                                      <!-- START: 01-molekyler-05-lister-_00-liste-innhold -->
 
-                                </div>
-                              </div>
-                            </li>
-                          </ul>
+                                      <!-- START: 00-atomer-09-bilder-og-media-15-ikon -->
+
+                                      <i class="ai ai-plus  hidden-md-up "></i>
+
+
+                                      <!-- END: 00-atomer-09-bilder-og-media-15-ikon -->
+
+
+
+
+
+
+                                      Last flere
+
+
+
+
+
+
+
+                                      <!-- END: 01-molekyler-05-lister-_00-liste-innhold -->
+
+                                    </div>
+                                  </div>
+                                </li>
+                              </ul>
+                            </div>
+
+                            <!-- END: 01-molekyler-05-lister-00-liste-unummerert-ny -->
+
+                          </div>
                         </div>
-
-                        <!-- END: 01-molekyler-05-lister-00-liste-unummerert-ny -->
-
-                      </div>
-                    </div>
-                    <!-- START: 01-molekyler-20-modalelementer-20-ferdigsegment -->
-                    <div class="segment-done">
-                      <div class="modal-table-segment-box"></div>
-                      <div class="modal-table-segment segment-fixed">
-                        <div class="container">
-                          <div class="float-right mt-2">
-                            <span class="mr-3">
+                        <!-- START: 01-molekyler-20-modalelementer-20-ferdigsegment -->
+                        <div class="segment-done">
+                          <div class="modal-table-segment-box"></div>
+                          <div class="modal-table-segment segment-fixed">
+                            <div class="container">
+                              <div class="float-right mt-2">
+                                <span class="mr-3">
             <!-- START: 00-atomer-03-knapper-10-knapp -->
 <button  type="button" 
     
@@ -2534,7 +2506,7 @@
 <!-- END: 00-atomer-03-knapper-10-knapp -->
 
           </span>
-                            <span class="mr-3">
+                                <span class="mr-3">
             <!-- START: 00-atomer-03-knapper-15-♺-knapp-link -->
 <!-- START: 00-atomer-03-knapper-10-knapp -->
 <button  type="button" 
@@ -2550,13 +2522,15 @@
 <!-- END: 00-atomer-03-knapper-15-♺-knapp-link -->
 
           </span>
+                              </div>
+                            </div>
                           </div>
                         </div>
+
+                        <!-- END: 01-molekyler-20-modalelementer-20-ferdigsegment -->
+
                       </div>
                     </div>
-
-                    <!-- END: 01-molekyler-20-modalelementer-20-ferdigsegment -->
-
                   </div>
                   <!-- END: 02-organismer-70-Modal-innhold-98-klientdelegering-fjern-rettigheter -->
 
