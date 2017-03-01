@@ -8804,7 +8804,14 @@ textarea {
         width: 420px; } }
   .a-header .a-dropdown-fullWidth {
     width: 100% !important;
+    margin-bottom: 60px;
     transition: width 0.35s ease; }
+    .a-header .a-dropdown-fullWidth .a-btn-shadow {
+      min-height: 84px; }
+      .a-header .a-dropdown-fullWidth .a-btn-shadow.a-btn-shadow-expand {
+        min-height: 60px; }
+      .a-header .a-dropdown-fullWidth .a-btn-shadow.a-btn-shadow-more .a-btn-icon-text-second {
+        display: inline-block; }
   .a-header .a-dropdown-languages {
     right: -90px;
     padding: 0; }
@@ -9011,9 +9018,6 @@ textarea {
     .a-dropdown-personswitchList .dropdown-item p {
       margin-bottom: 0;
       word-wrap: break-word; }
-    .a-dropdown-languages .dropdown-item:last-child,
-    .a-dropdown-personswitchList .dropdown-item:last-child {
-      border-bottom: none; }
   .a-dropdown-languages .a-link-logout,
   .a-dropdown-personswitchList .a-link-logout {
     position: absolute;
@@ -9103,7 +9107,6 @@ textarea {
   left: 0;
   z-index: 1001;
   min-height: 100%;
-  padding-top: 36px;
   margin-top: 60px;
   overflow: auto;
   background: #FFFFFF; }
@@ -9113,7 +9116,6 @@ textarea {
       z-index: auto;
       display: block;
       min-height: none;
-      padding-top: 0;
       margin-top: 2px;
       overflow: visible;
       background: transparent;
@@ -9232,7 +9234,7 @@ textarea {
       .a-globalNav-main .dropdown-menu.a-dropdown-languages.expand {
         width: inherit;
         min-width: 160px;
-        height: 300px;
+        height: 288px;
         border-bottom: 1px solid #0062BA; }
       .a-globalNav-main .dropdown-menu.a-dropdown-languages.after-collapse {
         width: 0;
@@ -9254,6 +9256,10 @@ textarea {
       .a-globalNav-main .dropdown-menu .dropdown-item span:last-of-type,
       .a-globalNav-main .dropdown-menu .dropdown-item p > br {
         display: none; }
+  .a-globalNav-main .a-form-group {
+    margin-bottom: 36px; }
+  .a-globalNav-main .ai-phone {
+    margin-left: -8px; }
 
 /*----------------------------------------*    $ Different color versions of header
 \*----------------------------------------*/
@@ -9285,12 +9291,14 @@ textarea {
 .a-darkBackground .nav-pills .nav-item.show .nav-link.a-languageSwitcher, .a-darkBackground .nav-pills .nav-item.show .nav-link.a-personSwitcher {
   color: #FFFFFF; }
 
-/*----------------------------------------*    $ When login, hide menu
+/*----------------------------------------*    $ When login (Velg aktør): hide topNav,
+      and adjust personswitch
 \*----------------------------------------*/
 .a-login .a-globalNav-main,
 .a-login .a-languageSwitcher,
 .a-login .a-personSwitcher-name,
-.a-login .a-containerFooter {
+.a-login .a-containerFooter,
+.a-login .navbar-toggler {
   display: none; }
 
 .a-login .a-personSwitcher {
@@ -9298,16 +9306,54 @@ textarea {
 
 .a-login .a-login-container {
   padding-top: 60px;
-  margin-top: -42px; }
+  margin-top: -22px; }
+  @media (min-width: 992px) {
+    .a-login .a-login-container {
+      margin-top: -42px; } }
   .a-login .a-login-container .a-triangleShadow::after {
     top: -60px;
-    right: -9px;
+    right: 2px;
     left: auto; }
+    @media (min-width: 576px) {
+      .a-login .a-login-container .a-triangleShadow::after {
+        right: 3px; } }
+    @media (min-width: 768px) {
+      .a-login .a-login-container .a-triangleShadow::after {
+        right: 14px; } }
+    @media (min-width: 1200px) {
+      .a-login .a-login-container .a-triangleShadow::after {
+        right: -9px; } }
+
+.a-login h1 {
+  margin-bottom: 24px; }
+  @media (min-width: 992px) {
+    .a-login h1 {
+      margin-bottom: 0; } }
+  .a-login h1 .a-helpIconButton {
+    font-size: 16px;
+    font-size: 1.6rem;
+    line-height: 1.5;
+    -webkit-font-smoothing: subpixel-antialiased;
+    vertical-align: middle; }
 
 .a-login .a-link-logout {
   position: absolute;
-  top: 4px;
-  right: 0; }
+  top: -4px;
+  right: 12px; }
+  @media (min-width: 576px) {
+    .a-login .a-link-logout {
+      right: 24px; } }
+  @media (min-width: 992px) {
+    .a-login .a-link-logout {
+      top: 4px;
+      right: 60px; } }
+
+.a-login .a-btn-shadow {
+  min-height: 84px; }
+  .a-login .a-btn-shadow.a-btn-shadow-expand {
+    min-height: 60px; }
+  .a-login .a-btn-shadow.a-btn-shadow-more .a-btn-icon-text-second {
+    display: inline-block; }
 
 .a-containerColnav-top {
   padding: 0 0 24px 0; }
@@ -10503,8 +10549,13 @@ textarea {
     font-size: 1.6rem;
     line-height: 1.5;
     -webkit-font-smoothing: subpixel-antialiased;
-    padding-top: 18px;
-    padding-bottom: 18px; }
+    padding-top: 19px;
+    padding-bottom: 17px; }
+    .a-btn-shadow.a-btn-shadow-more .a-dot {
+      position: absolute;
+      left: 60px; }
+    .a-btn-shadow.a-btn-shadow-more .a-btn-icon-text {
+      padding-left: 21px; }
     .a-btn-shadow.a-btn-shadow-more .a-btn-icon-text-second {
       display: block; }
   .a-btn-shadow .a-label {
@@ -10673,6 +10724,7 @@ textarea {
       display: block;
       width: 100%;
       height: 100%;
+      padding-top: 1px;
       line-height: 32px;
       text-align: center;
       cursor: pointer;
@@ -11555,8 +11607,9 @@ ol {
   line-height: 1.5;
   -webkit-font-smoothing: subpixel-antialiased;
   padding-left: 30px;
-  margin-top: -12px;
-  background: #b6e8ff; }
+  margin-top: -13px;
+  background: #b6e8ff;
+  border-top: 1px solid #BCC7CC; }
   .a-listWithSubLevels .a-btn-shadow-expand.collapsed {
     background: #CFF0FF; }
     .a-listWithSubLevels .a-btn-shadow-expand.collapsed:hover {
@@ -11565,12 +11618,14 @@ ol {
     width: 24px;
     min-width: 24px;
     height: 24px;
+    margin-top: -2px;
     margin-right: 26px; }
     .a-listWithSubLevels .a-btn-shadow-expand .a-dropdownCircleArrow::before {
       font-size: 24px;
       font-size: 2.4rem;
       line-height: 1.3;
-      -webkit-font-smoothing: subpixel-antialiased; }
+      -webkit-font-smoothing: subpixel-antialiased;
+      margin-top: 2px; }
 
 .a-listWithSubLevels .a-collapseContent {
   position: relative;
@@ -11936,7 +11991,7 @@ ol {
   padding-bottom: 2px;
   color: #000000;
   cursor: pointer;
-  border-bottom: 1px solid #1EAEF7; }
+  border-bottom: 2px solid #1EAEF7; }
 
 .a-chat {
   position: fixed;
@@ -12005,8 +12060,9 @@ body.modal-open {
 
 .a-modal {
   position: absolute;
-  padding-bottom: 60px;
-  background: #1EAEF7; }
+  padding-bottom: 60px; }
+  .a-modal .a-logo-feedback {
+    display: none; }
   @media (max-width: 1199px) {
     .a-modal .container {
       padding: 0; } }
@@ -12066,7 +12122,8 @@ body.modal-open {
           left: 96px; } }
   .a-modal .a-personSwitcher-name {
     display: inline-block;
-    max-width: 160px; }
+    max-width: 160px;
+    letter-spacing: normal; }
   .a-modal .a-page {
     position: absolute;
     width: 100%;
@@ -12105,8 +12162,7 @@ body.modal-open {
     margin-right: 12px; }
     @media (min-width: 992px) {
       .a-modal-top .a-logo {
-        max-width: 142px;
-        margin-top: 2px; } }
+        max-width: 142px; } }
   .a-modal-top .a-modal-top-user {
     position: relative;
     float: right; }
@@ -12115,12 +12171,10 @@ body.modal-open {
       padding: 0;
       margin-top: -2px;
       margin-right: -3px;
-      color: #FFFFFF; }
-      @media (min-width: 992px) {
-        .a-modal-top .a-modal-top-user .a-personSwitcher {
-          margin-top: 2px; } }
+      color: #FFFFFF;
+      pointer-events: none; }
     .a-modal-top .a-modal-top-user .a-personSwitcher-icon {
-      border: 1px solid #FFFFFF; }
+      letter-spacing: normal; }
 
 .a-modal-navbar {
   height: 48px;
@@ -12197,33 +12251,47 @@ a.a-modal-close {
 
 /*------------------------------------*    $MODAL PROCESS
 \*------------------------------------*/
-.a-modal-background-success {
-  background: #D4F9E4; }
-  .a-modal-background-success .a-modal-top .a-personSwitcher {
-    color: #000000; }
-  .a-modal-background-success .a-iconText-background {
-    background: #17C96B; }
-    .a-modal-background-success .a-iconText-background .a-iconText-text {
-      color: #000000; }
-  .a-modal-background-success .a-link-helpfunction {
-    color: #000000; }
-    .a-modal-background-success .a-link-helpfunction a {
-      color: #000000;
-      border-color: #000000; }
+.a-modal-background-success .a-logo-feedback,
+.a-modal-background-error .a-logo-feedback {
+  display: initial; }
 
-.a-modal-background-error {
+.a-modal-background-success .a-logo-neutral,
+.a-modal-background-error .a-logo-neutral {
+  display: none; }
+
+.a-modal-background-success .modal-backdrop {
+  background: #D4F9E4; }
+
+.a-modal-background-success .a-modal-top .a-personSwitcher {
+  color: #000000; }
+
+.a-modal-background-success .a-iconText-background {
+  background: #17C96B; }
+  .a-modal-background-success .a-iconText-background .a-iconText-text {
+    color: #000000; }
+
+.a-modal-background-success .a-link-helpfunction {
+  color: #000000; }
+  .a-modal-background-success .a-link-helpfunction a {
+    color: #000000;
+    border-color: #000000; }
+
+.a-modal-background-error .modal-backdrop {
   background: #F9CAD3; }
-  .a-modal-background-error .a-modal-top .a-personSwitcher {
+
+.a-modal-background-error .a-modal-top .a-personSwitcher {
+  color: #000000; }
+
+.a-modal-background-error .a-iconText-background {
+  background: #E23B53; }
+  .a-modal-background-error .a-iconText-background .a-iconText-text {
     color: #000000; }
-  .a-modal-background-error .a-iconText-background {
-    background: #E23B53; }
-    .a-modal-background-error .a-iconText-background .a-iconText-text {
-      color: #000000; }
-  .a-modal-background-error .a-link-helpfunction {
-    color: #000000; }
-    .a-modal-background-error .a-link-helpfunction a {
-      color: #000000;
-      border-color: #000000; }
+
+.a-modal-background-error .a-link-helpfunction {
+  color: #000000; }
+  .a-modal-background-error .a-link-helpfunction a {
+    color: #000000;
+    border-color: #000000; }
 
 /*------------------------------------*    $MODAL table segment done
 \*------------------------------------*/
