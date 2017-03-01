@@ -46,7 +46,22 @@
 
   .a-dropdown-fullWidth {
     width: 100% !important;
+    margin-bottom: $spacer * 5;
     transition: width 0.35s ease;
+
+    .a-btn-shadow {
+      min-height: $spacer * 7;
+
+      &.a-btn-shadow-expand {
+        min-height: $spacer * 5;
+      }
+
+      &.a-btn-shadow-more {
+        .a-btn-icon-text-second {
+          display: inline-block;
+        }
+      }
+    }
   }
 
   .a-dropdown-languages {
@@ -316,10 +331,6 @@
       margin-bottom: 0;
       word-wrap: break-word;
     }
-
-    &:last-child {
-      border-bottom: none;
-    }
   }
 
   // Log out
@@ -461,7 +472,6 @@
   left: 0;
   z-index: 1001;
   min-height: 100%;
-  padding-top: $spacer * 3;
   margin-top: $spacer * 5;
   overflow: auto;
   background: $white;
@@ -471,7 +481,6 @@
     z-index: auto;
     display: block;
     min-height: none;
-    padding-top: 0;
     margin-top: 2px;
     overflow: visible;
     background: transparent;
@@ -629,7 +638,7 @@
       &.expand {
         width: inherit;
         min-width: 160px;
-        height: 300px;
+        height: 288px;
         border-bottom: 1px solid $blue-dark;
 			}
 
@@ -674,6 +683,14 @@
 			}
 		}
 	}
+
+  .a-form-group {
+    margin-bottom: $spacer * 3;
+  }
+
+  .ai-phone {
+    margin-left: -8px;
+  }
 }
 
 /*----------------------------------------*\
@@ -739,14 +756,16 @@
 }
 
 /*----------------------------------------*\
-    $ When login, hide menu
+    $ When login (Velg aktør): hide topNav,
+      and adjust personswitch
 \*----------------------------------------*/
 
 .a-login {
   .a-globalNav-main,
   .a-languageSwitcher,
   .a-personSwitcher-name,
-  .a-containerFooter {
+  .a-containerFooter,
+  .navbar-toggler {
     display: none;
   }
 
@@ -756,20 +775,72 @@
 
   .a-login-container {
     padding-top: $spacer * 5;
-    margin-top: -42px;
+    margin-top: -22px;
+
+    @include media-breakpoint-up( lg ) {
+      margin-top: -42px;
+    }
 
     .a-triangleShadow {
       &::after {
         top: -60px;
-        right: -9px;
+        right: 2px;
         left: auto;
+
+        @include media-breakpoint-up( sm ) {
+          right: 3px;
+        }
+
+        @include media-breakpoint-up( md ) {
+          right: 14px;
+        }
+
+        @include media-breakpoint-up( xl ) {
+          right: -9px;
+        }
       }
+    }
+  }
+
+  h1 {
+    margin-bottom: $spacer * 2;
+
+    @include media-breakpoint-up( lg ) {
+      margin-bottom: 0;
+    }
+
+    .a-helpIconButton {
+      @include a-fontSize16;
+      vertical-align: middle;
     }
   }
 
   .a-link-logout {
     position: absolute;
-    top: 4px;
-    right: 0;
+    top: -4px;
+    right: $spacer * 1;
+
+    @include media-breakpoint-up( sm ) {
+      right: $spacer * 2;
+    }
+
+    @include media-breakpoint-up( lg ) {
+      top: 4px;
+      right: $spacer * 5;
+    }
+  }
+
+  .a-btn-shadow {
+    min-height: $spacer * 7;
+
+    &.a-btn-shadow-expand {
+      min-height: $spacer * 5;
+    }
+
+    &.a-btn-shadow-more {
+      .a-btn-icon-text-second {
+        display: inline-block;
+      }
+    }
   }
 }
