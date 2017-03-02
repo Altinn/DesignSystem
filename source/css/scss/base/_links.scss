@@ -70,7 +70,6 @@ a,
 .a-linkArea {
   position: relative;
   z-index: 1;
-  box-shadow: none !important;
 
   &::before {
     position: absolute;
@@ -81,15 +80,6 @@ a,
     min-height: $spacer * 4;
     cursor: pointer;
     content: '';
-  }
-
-  &:not(.override-focus) {
-    &:focus {
-      &::before {
-        outline: none !important;
-        box-shadow: $focus-color;
-      }
-    }
   }
 }
 
@@ -160,12 +150,6 @@ a,
   &:active,
   &:hover {
     border: none;
-
-    &:not(.override-focus) {
-      color: $blue-dark;
-      border: none;
-      box-shadow: none;
-    }
   }
 
   &::before {

@@ -170,9 +170,13 @@
     }
 
     a {
-      @include a-fontSize20;
+      @include a-fontSize18;
       // TODO: Make custom mixin for link-fontsizes. lineheight needs to be larger on links because of double border
       @include a-fontBold;
+
+      @include media-breakpoint-up( md ) {
+        @include a-fontSize20;
+      }
     }
   }
 

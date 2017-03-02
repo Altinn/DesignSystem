@@ -1,5 +1,6 @@
 ---
-state: inprogress
-version: 0
+state: complete
+version: 1
 ---
+
 Foreløpig ingen retningslinjer.

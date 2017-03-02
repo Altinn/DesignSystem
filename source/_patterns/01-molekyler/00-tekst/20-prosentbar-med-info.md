@@ -1,5 +1,5 @@
 ---
-state: indesignreview
+state: archived
 version: 1
 ---
 

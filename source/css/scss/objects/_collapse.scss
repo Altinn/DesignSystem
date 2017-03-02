@@ -31,12 +31,6 @@
     border-bottom: none;
     box-shadow: $shadow2;
 
-    &:focus {
-      &:not(.override-focus) {
-        box-shadow: $shadow2; // TODO: Find a focus style for this and make it posible to open with keyboard
-      }
-    }
-
     .a-collapseBtn {
       position: relative;
       background: $white;
@@ -425,21 +419,19 @@
       top: 0;
       left: 0;
       @include media-breakpoint-up( md ) {
-        top: 1px;
+        top: 3px;
       }
     }
   }
 
   &:focus {
-    &:not(.override-focus) {
-      .a-dropdownArrow {
-        border-left: 10px solid $blue-dark;
-      }
+    .a-dropdownArrow {
+      border-left: 10px solid $blue-dark;
+    }
 
-      .a-dropdownCircleArrow {
-        box-sizing: content-box;
-        border: 3px solid $white;
-      }
+    .a-dropdownCircleArrow {
+      box-sizing: content-box;
+      border: 3px solid $white;
     }
   }
 
