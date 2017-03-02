@@ -1,6 +1,6 @@
 /* globals $ */
 window.openGitMD = function(target) {
-  window.open('https://github.com/Altinn/DesignSystem/edit/master/source' +
+  window.open('https://github.com/Altinn/DesignSystem/edit/dev/source' +
     $(target).closest('.sg-pattern').find('.patternLink')
       .attr('href')
       .replace('DesignSystem/', '')

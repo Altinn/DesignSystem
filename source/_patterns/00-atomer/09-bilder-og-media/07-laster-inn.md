@@ -1,5 +1,5 @@
 ---
-state: needsrevalidation
-version: 0
+state: specification
+version: 1
 ---
 Venter på design
