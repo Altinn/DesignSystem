@@ -1,5 +1,5 @@
 ---
-state: indesignreview
-version: 0
+state: inprogress
+version: 1
 ---
 Nummerert liste med gule punkter
