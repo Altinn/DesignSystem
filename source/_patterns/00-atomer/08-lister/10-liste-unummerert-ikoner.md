@@ -1,6 +1,6 @@
 ---
-state: needsrevalidation
-version: 0
+state: specification
+version: 1
 ---
 
 Foreløpig ingen retningslinjer.
