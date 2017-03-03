@@ -1,6 +1,6 @@
 ---
- state: inprogress
- version: 1
+state: inprogress
+version: 1
 ---
 
 Header for selve modalen.

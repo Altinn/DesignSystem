@@ -143,8 +143,9 @@
 
 // BTN WITH ICON
 .a-btn-icon {
+  display: flex;
   width: 100%;
-  height: $spacer * 5;
+  min-height: $spacer * 5;
   text-align: left;
   background: transparent;
 
@@ -153,6 +154,14 @@
     color: $blue;
     background: transparent;
 	}
+
+  i {
+    align-self: center;
+  }
+
+  .a-btn-icon-text {
+    align-self: center;
+  }
 
   .a-btn-icon-symbol {
     // @include a-fontSize22;
@@ -193,7 +202,7 @@
     // @include a-fontSize18;
     display: inline-flex;
     width: $spacer * 3;
-    height: $spacer * 3;
+    min-height: $spacer * 3;
     padding: 0;
     color: $white;
     background: $blue;
@@ -242,11 +251,37 @@
     }
   }
 
+  .a-dot {
+    &::before {
+      margin-top: -7px;
+    }
+  }
+
+  &.a-btn-shadow-more {
+    @include a-fontSize16;
+    padding-top: $spacer * 1.5 + 1;
+    padding-bottom: $spacer * 1.5 - 1;
+
+    .a-dot {
+      position: absolute;
+      left: 60px;
+    }
+
+    .a-btn-icon-text {
+      padding-left: 21px;
+    }
+
+    .a-btn-icon-text-second {
+      display: block;
+    }
+  }
+
   .a-label {
     margin-top: -1px;
     margin-left: $spacer;
   }
 }
+
 
 // Make button look like link
 .a-btn-link {
@@ -294,7 +329,7 @@
 .a-box-button {
   position: relative;
   width: 100%;
-  height: 190px;
+  min-height: 190px;
   padding: 15px 4px; // give space to hover border
   cursor: pointer;
   background: $white;
@@ -324,7 +359,6 @@
 
   .a-box-button-icon {
     @include a-fontSize60;
-
     display: block;
   }
 
@@ -415,7 +449,7 @@
 
   .a-boxAddBtn-inner {
     display: block;
-    height: 160px;
+    min-height: 160px;
     padding-top: $spacer * 1.5;
     background-color: transparent;
     border: 2px dotted $blue;
@@ -430,7 +464,6 @@
 
   .a-box-button-icon {
     @include a-fontSize60;
-
     display: block;
   }
 }
@@ -477,16 +510,30 @@
     }
 
     input {
-      display: none;
-
       &[type='radio'] {
-        &:checked+label {
-          background-color: $blue;
+        &:checked {
+          &:focus {
+            &+label {
+              background-color: $blue-hover-color;
+            }
+          }
+
+          &+label {
+            background-color: $blue;
+          }
         }
 
-        &:not(:checked)+label {
-          &:hover {
-            background-color: $blue-light;
+        &:not(:checked) {
+          &:focus {
+            &+label {
+              background-color: $blue-light;
+            }
+          }
+
+          &+label {
+            &:hover {
+              background-color: $blue-light;
+            }
           }
         }
       }
@@ -496,6 +543,7 @@
       display: block;
       width: 100%;
       height: 100%;
+      padding-top: 1px;
       line-height: $spacer * 3-4px;
       text-align: center;
       cursor: pointer;

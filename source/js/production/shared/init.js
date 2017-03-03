@@ -3,18 +3,14 @@
   handleFocus,
   mobileNavigation,
   propagateContent,
-  toggleExpand,
   toggleFilter,
   uniformHeight,
   tooltip,
-  popover,
-  aTagSpaceExpand,
   initializeDatepicker,
   onboarding,
   nameChecker,
   codeLookup,
   handleValidatorLibrary,
-  defaultSort,
   setupAddRightsHandler,
   onFileInputChange,
   toggleInstant,
@@ -27,24 +23,25 @@
   toggleInstant,
   articleAnchors,
   feedbackToggle,
-  setValidatorSettings */
+  setValidatorSettings,
+  popoverLocalInit,
+  popoverGlobalInit */
+
 
 window.sharedInit = function() {
   setValidatorSettings();
   addListExpandHandler();
-  aTagSpaceExpand();
   setupOnKeypress();
   handleFocus();
   initializeDatepicker();
   addListSortHandler();
   mobileNavigation();
-  popover();
   propagateContent();
-  toggleExpand();
   toggleFilter();
   tooltip();
   toggleInstant();
-  articleAnchors();
   feedbackToggle();
+  popoverLocalInit();
+  popoverGlobalInit();
 };
 window.sharedInit();

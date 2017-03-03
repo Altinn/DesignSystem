@@ -1,6 +1,6 @@
 ---
- state: needsrevalidation
- version: 0
+state: inprogress
+version:  1
 ---
 
-Når brukeren er logget inn vises navnet øverst i høyre hjørne. 
+Når brukeren er logget inn vises navnet øverst i høyre hjørne.

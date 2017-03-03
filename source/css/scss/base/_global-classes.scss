@@ -178,6 +178,34 @@ html {
   background-blend-mode: multiply;
 }
 
+/* Shadow */
+.a-shadow {
+  box-shadow: $shadow;
+}
+
+/* Shadow arrow */
+
+// Dropdown-menu with arrow
+.a-triangleShadow {
+  &::after {
+    position: absolute;
+    top: 1px;
+    bottom: 100%;
+    left: 50%;
+    box-sizing: border-box;
+    width: 0;
+    height: 0;
+    margin-left: 130px;
+    content: '';
+    border: 8px solid $black;
+    border-color: transparent transparent $white $white;
+    box-shadow: -2px 2px 3px 0 $black-opacity-01;
+    transform: rotate(135deg);
+    transform-origin: 0 0;
+  }
+}
+
+
 /* Text colors */
 
 .a-textGreen {
@@ -512,4 +540,18 @@ hr {
   }
 
   margin-bottom: -$spacer * 3;
+}
+
+.a-maxThreeLines2 {
+  p {
+    display: -webkit-box;
+    flex-direction: column;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    -webkit-line-clamp: 3;
+  }
+}
+
+.a-p-static {
+  position: static !important;
 }

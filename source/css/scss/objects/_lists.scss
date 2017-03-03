@@ -35,12 +35,6 @@
       border-bottom: 1px solid $grey-medium;
     }
 
-    @include media-breakpoint-down( sm ) {
-      .a-dropdownArrow {
-        display: none;
-      }
-    }
-
     .a-clickable {
       &:hover {
         &:not(.a-expanded) {
@@ -55,8 +49,15 @@
 
     .a-dropdownArrow {
       margin: 0;
+      vertical-align: top;
       border-left: 10px solid $black;
-      transform: scale( 0.75 ) rotate( 90deg ) translate( -50% );
+      transform: scale( 0.5 ) rotate( 90deg );
+    }
+
+    .reverse-sort {
+      .a-dropdownArrow {
+        transform: scale( 0.5 ) rotate( -90deg );
+      }
     }
 
     .a-active {
@@ -150,10 +151,11 @@
 
     &.a-list-item-loadMore {
       min-height: $spacer * 4;
+      // padding: 4px 6px;
       border-bottom: none;
 
-      @include media-breakpoint-up( md ) {
-        min-height: $spacer * 6;
+      .row {
+        padding: 4px 6px;
       }
     }
 
@@ -664,6 +666,7 @@ ol {
       &::before {
         @include a-fontReg;
 
+        padding: 6px 9px 4px 10px;
         background-color: $yellow;
         border: none;
       }
@@ -699,6 +702,58 @@ ol {
 
   b {
     padding-right: 5px;
+  }
+}
+
+/*------------------------------------*\
+    Expandable list with button and sublevels
+\*------------------------------------*/
+
+.a-listWithSubLevels {
+  .a-btn-shadow-expand {
+    @include a-fontSize16;
+    padding-left: 30px;
+    margin-top: -13px;
+    background: darken( $blue-light, 5% );
+    border-top: 1px solid $grey-medium;
+
+    &.collapsed {
+      background: $blue-light;
+
+      &:hover {
+        background: darken( $blue-light, 5% );
+      }
+    }
+
+    .a-dropdownCircleArrow {
+      width: 24px;
+      min-width: 24px;
+      height: 24px;
+      margin-top: -2px;
+      margin-right: 26px;
+
+      &::before {
+        @include a-fontSize24;
+        margin-top: 2px;
+      }
+    }
+  }
+
+  .a-collapseContent {
+    position: relative;
+    z-index: 4;
+    margin-top: -12px;
+    margin-bottom: 12px;
+  }
+
+  .a-list {
+    .a-list-rowLink {
+      padding-left: 80px;
+
+      &:hover {
+        background: darken( $blue-light, 5% );
+      }
+    }
   }
 }
 

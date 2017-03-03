@@ -1,6 +1,6 @@
 ---
- state: complete
- version: 1
+state: complete
+version: 1
 ---
 
 Ekspanderbar tittel med underlinje

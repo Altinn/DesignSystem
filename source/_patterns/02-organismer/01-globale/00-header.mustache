@@ -26,24 +26,28 @@
             <p class="a-js-propagatedContentDestination replace-me" data-refclass="droplang" data-minwidth="768"></p>
           </li>
 
-    			<li class="nav-item dropdown">
+    			<li class="nav-item {{{personlogin-isDropdown}}} a-js-personSwitcherTriggerOutside">
     				<!-- Dropdown toggle -->
     				{{> atomer-innlogget }}
-            {{> organismer-meny-personbytte }}
     			</li>
 
     		</ul> <!-- End .a-globalNav-options -->
+        {{# dropdown-personswitch }}
+          {{> organismer-meny-personbytte }}
+        {{/ dropdown-personswitch }}
 
 
     		<!-- Begin .a-globalNav -->
     		<nav class="a-globalNav">
-    			<a href="{{ link.sider-forside }}" class="a-globalNav-logo"> {{> atomer-logo }} <span class="sr-only">Til forsiden</span>
+    			<a href="{{ link.sider-forside-innlogget }}" class="a-globalNav-logo"> {{> atomer-logo }} <span class="sr-only">Til forsiden</span>
           </a>
 
-    			  <button class="navbar-toggler hidden-md-up" type="button" data-toggle="collapse" data-target="#exCollapsingNavbar2"><span class="sr-only">Navigasjon</span>
+
+    			  <button class="navbar-toggler hidden-md-up" type="button">
+              <span class="sr-only">Navigasjon</span>
     			  </button>
     			  <div class="collapse navbar-toggleable-sm a-globalNav-main" id="exCollapsingNavbar2">
-    					<ul class="a-dropdownTriangle" id="exCollapsingNavbar">
+    					<ul class="" id="exCollapsingNavbar">
 
     						<li class="hidden-md-up">
                   {{# header-mobilesearch }}
@@ -77,10 +81,14 @@
     						<li><a class="a-hvr-underline {{{ globalNav-active-profile }}}" href="{{ link.sider-profil-roller-rettigheter }}"><span class="a-js-onboardingTarget-2">profil</span></a></li>
     						<li class="hidden-md-up"><a class="a-nav-link a-hvr-underline" href="{{ link.sider-seksjonsforside-v-starteogdrive }}">starte og drive bedrift</a></li>
     						<li class="hidden-md-up"><a class="a-hvr-underline" href="{{ link.sider-artikkel }}">om altinn</a></li>
-    						<li class="hidden-md-up"><a class="a-hvr-underline" href="{{ link.sider-artikkel }}">hjelp og kontakt</a></li>
     						<li class="hidden-md-up">
-    							{{> atomer-link-telefonnummer }}
-    						</li>
+                  <a class="a-hvr-underline" href="{{ link.sider-artikkel }}">
+                    {{# tel-icon }}
+                      {{> atomer-ikon }}
+                    {{/ tel-icon }}
+                    hjelp og kontakt
+                  </a>
+                </li>
     					</ul>
     			  </div>
     		</nav> <!-- End .a-globalNav -->

@@ -34,13 +34,33 @@
     position: absolute;
     top: 57px;
     left: auto;
-    z-index: 10001;
+    z-index: 10;
     width: 320px;
     padding: 0;
 
 
     @include media-breakpoint-up( sm ) {
       width: 420px;
+    }
+  }
+
+  .a-dropdown-fullWidth {
+    width: 100% !important;
+    margin-bottom: $spacer * 5;
+    transition: width 0.35s ease;
+
+    .a-btn-shadow {
+      min-height: $spacer * 7;
+
+      &.a-btn-shadow-expand {
+        min-height: $spacer * 5;
+      }
+
+      &.a-btn-shadow-more {
+        .a-btn-icon-text-second {
+          display: inline-block;
+        }
+      }
     }
   }
 
@@ -54,7 +74,7 @@
     }
     @include media-breakpoint-up( md ) {
       top: 55px;
-      right: -24px;
+      right: -13px;
     }
 
     &.a-dropdownTriangle {
@@ -81,7 +101,7 @@
     }
     @include media-breakpoint-up( md ) {
       top: 55px;
-      right: -24px;
+      right: 0 !important;
       width: 420px;
     }
 
@@ -91,8 +111,18 @@
         left: auto;
 
         @include media-breakpoint-up( md ) {
-          right: 13px;
+          right: 3px;
         }
+      }
+    }
+
+    .a-dropdown-footer {
+      display: none;
+    }
+
+    &.a-dropdown-fullWidth {
+      .a-dropdown-footer {
+        display: block;
       }
     }
 
@@ -301,10 +331,6 @@
       margin-bottom: 0;
       word-wrap: break-word;
     }
-
-    &:last-child {
-      border-bottom: none;
-    }
   }
 
   // Log out
@@ -419,7 +445,7 @@
       content: 'meny';
     }
 
-    &[aria-expanded='true'] {
+    &[data-jsexpanded='true'] {
       color: $white;
       background: $blue-dark;
 
@@ -446,11 +472,32 @@
   left: 0;
   z-index: 1001;
   min-height: 100%;
-  padding-top: $spacer * 3;
   margin-top: $spacer * 5;
   overflow: auto;
   background: $white;
-  box-shadow: $mobileMenu-shadow;
+
+  @include media-breakpoint-up( md ) {
+    position: relative;
+    z-index: auto;
+    display: block;
+    min-height: none;
+    margin-top: 2px;
+    overflow: visible;
+    background: transparent;
+    box-shadow: none;
+	}
+
+  @include media-breakpoint-up( lg ) {
+    margin-top: -2px;
+	}
+
+  .a-dropdownTriangle {
+    box-shadow: none;
+
+    &::after {
+      display: none;
+    }
+  }
 
   .indicator {
     @include a-fontSize10;
@@ -466,50 +513,9 @@
 		}
 	}
 
-  .a-dropdownTriangle {
-    box-shadow: none;
-
-    &::after {
-      right: 26px;
-      margin-left: auto;
-    }
-
-    .a-dropdownTriangle {
-      &::after {
-        display: none;
-	    }
-    }
-	}
-
-  @include media-breakpoint-up( md ) {
-    position: relative;
-    z-index: auto;
-    display: block;
-    min-height: none;
-    padding-top: 0;
-    margin-top: 2px;
-    overflow: visible;
-    background: transparent;
-    box-shadow: none;
-
-    .a-dropdownTriangle {
-      background: transparent;
-      box-shadow: none;
-		}
-
-    .a-dropdownTriangle {
-      &::after {
-        display: none;
-		  }
-    }
-	}
-
-  @include media-breakpoint-up( lg ) {
-    margin-top: -2px;
-	}
-
   ul {
     float: left;
+    margin-top: 1px;
     list-style: none;
 	}
 
@@ -632,7 +638,7 @@
       &.expand {
         width: inherit;
         min-width: 160px;
-        height: 360px;
+        height: 288px;
         border-bottom: 1px solid $blue-dark;
 			}
 
@@ -677,6 +683,14 @@
 			}
 		}
 	}
+
+  .a-form-group {
+    margin-bottom: $spacer * 3;
+  }
+
+  .ai-phone {
+    margin-left: -8px;
+  }
 }
 
 /*----------------------------------------*\
@@ -699,7 +713,7 @@
     color: $white;
     border-color: $white;
 
-    &[aria-expanded='true'] {
+    &[data-jsexpanded='true'] {
       color: $blue-dark;
       background: $white;
     }
@@ -736,6 +750,96 @@
             color: $white;
           }
         }
+      }
+    }
+  }
+}
+
+/*----------------------------------------*\
+    $ When login (Velg aktør): hide topNav,
+      and adjust personswitch
+\*----------------------------------------*/
+
+.a-login {
+  .a-globalNav-main,
+  .a-languageSwitcher,
+  .a-personSwitcher-name,
+  .a-containerFooter,
+  .navbar-toggler {
+    display: none;
+  }
+
+  .a-personSwitcher {
+    cursor: not-allowed;
+  }
+
+  .a-login-container {
+    padding-top: $spacer * 5;
+    margin-top: -22px;
+
+    @include media-breakpoint-up( lg ) {
+      margin-top: -42px;
+    }
+
+    .a-triangleShadow {
+      &::after {
+        top: -60px;
+        right: 2px;
+        left: auto;
+
+        @include media-breakpoint-up( sm ) {
+          right: 3px;
+        }
+
+        @include media-breakpoint-up( md ) {
+          right: 14px;
+        }
+
+        @include media-breakpoint-up( xl ) {
+          right: -9px;
+        }
+      }
+    }
+  }
+
+  h1 {
+    margin-bottom: $spacer * 2;
+
+    @include media-breakpoint-up( lg ) {
+      margin-bottom: 0;
+    }
+
+    .a-helpIconButton {
+      @include a-fontSize16;
+      vertical-align: middle;
+    }
+  }
+
+  .a-link-logout {
+    position: absolute;
+    top: -4px;
+    right: $spacer * 1;
+
+    @include media-breakpoint-up( sm ) {
+      right: $spacer * 2;
+    }
+
+    @include media-breakpoint-up( lg ) {
+      top: 4px;
+      right: $spacer * 5;
+    }
+  }
+
+  .a-btn-shadow {
+    min-height: $spacer * 7;
+
+    &.a-btn-shadow-expand {
+      min-height: $spacer * 5;
+    }
+
+    &.a-btn-shadow-more {
+      .a-btn-icon-text-second {
+        display: inline-block;
       }
     }
   }

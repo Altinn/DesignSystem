@@ -1,6 +1,5 @@
 // JUMBOTRON
 .a-jumbotron {
-  height: calc(100vh - 200px);
   min-height: 446px;
   max-height: 792px;
   margin-bottom: $spacer * 5;
@@ -9,6 +8,7 @@
   background-size: cover;
 
   @include media-breakpoint-up( md ) {
+    height: calc(100vh - 200px);
     margin-bottom: $spacer * 3;
   }
 
@@ -29,7 +29,6 @@
   .a-jumbotron-ingress {
     @include a-fontSize28;
     display: block;
-    max-width: 630px;
     margin-bottom: $spacer * 2;
     color: $blue-darker;
 	}
@@ -48,6 +47,31 @@
     &:focus {
       color: $white;
       border-bottom: 2px solid $white;
+    }
+  }
+
+  &.a-jumbotron-emergency {
+    background-color: $white-opacity-07;
+    background-blend-mode: luminosity;
+  }
+
+  .a-message {
+    &.a-message--arrow-off {
+      margin-top: $spacer * 1.5;
+    }
+  }
+
+  .a-form-group {
+    .a-form-group-items {
+      input {
+        background-color: $white;
+      }
+
+      .input-group-btn {
+        .btn {
+          background: $white;
+        }
+      }
     }
   }
 }
@@ -177,6 +201,19 @@
       }
     }
   }
+
+  .a-message {
+    color: $black;
+
+    a {
+      color: $black;
+      border-bottom: 1px solid $blue;
+
+      &:hover {
+        border-bottom: 1px solid $blue-dark;
+      }
+    }
+  }
 }
 
 .a-jumbotron-large {
@@ -209,16 +246,19 @@
 
   .a-personRole-icon {
     float: left;
-    padding-right: $spacer;
     margin-top: 0;
     color: $black;
   }
-
 
   .a-personRole-icon-success {
     float: left;
     padding-right: 7px;
     color: $green;
+  }
+
+  .a-dot {
+    margin-top: -5px;
+    align-self: flex-start;
   }
 
   .a-personRole-text {
@@ -582,4 +622,19 @@
       padding: 0 $spacer * 2;
     }
 	}
+}
+
+// Article list
+.a-linkArticle {
+  padding-bottom: $spacer * 3;
+}
+
+.a-articleList {
+  .a-linkArticle {
+    padding-bottom: $spacer * 2;
+
+    a {
+      @extend .a-fontSizeM;
+    }
+  }
 }

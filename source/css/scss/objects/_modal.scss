@@ -8,9 +8,19 @@
   }
 }
 
+body {
+  &.modal-open {
+    overflow-y: visible;
+  }
+}
+
 .a-modal {
+  position: absolute;
   padding-bottom: $spacer * 5;
-  background: $blue;
+
+  .a-logo-feedback {
+    display: none;
+  }
 
   .container {
     @include media-breakpoint-down( lg ) {
@@ -100,6 +110,7 @@
   .a-personSwitcher-name {
     display: inline-block;
     max-width: 160px;
+    letter-spacing: normal;
   }
 
   .a-page {
@@ -126,7 +137,7 @@
   }
 
   &.fade {
-    overflow-y: scroll;
+    overflow: visible;
     opacity: 1;
     transition: none;
 
@@ -156,7 +167,6 @@
   .a-logo {
     @include media-breakpoint-up( lg ) {
       max-width: 142px;
-      margin-top: 2px;
     }
 
     float: left;
@@ -169,19 +179,16 @@
     float: right;
 
     .a-personSwitcher {
-      @include media-breakpoint-up( lg ) {
-        margin-top: 2px;
-      }
-
       width: 200px;
       padding: 0;
       margin-top: -2px;
       margin-right: -3px;
       color: $white;
+      pointer-events: none;
     }
 
     .a-personSwitcher-icon {
-      border: 1px solid $white;
+      letter-spacing: normal;
     }
   }
 }
@@ -275,10 +282,22 @@ a {
 /*------------------------------------*\
     $MODAL PROCESS
 \*------------------------------------*/
+.a-modal-background-success,
+.a-modal-background-error {
+  .a-logo-feedback {
+    display: initial;
+  }
+
+  .a-logo-neutral {
+    display: none;
+  }
+}
 
 // MODAL WITH SUCCESS
 .a-modal-background-success {
-  background: $green-light;
+  .modal-backdrop {
+    background: $green-light;
+  }
 
   .a-modal-top {
     .a-personSwitcher {
@@ -307,7 +326,9 @@ a {
 
 // MODAL WITH ERROR
 .a-modal-background-error {
-  background: $red-light;
+  .modal-backdrop {
+    background: $red-light;
+  }
 
   .a-modal-top {
     .a-personSwitcher {

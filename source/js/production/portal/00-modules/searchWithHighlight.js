@@ -1,5 +1,8 @@
 /*
 Search datatable with highlight using external package mark.js
+Search field needs attribute data-search-algorithm="show-and-highlight"
+Searchable elements need attribute data-searchable="true"
+List elements that should be ignored during search need the class a-js-ignoreDuringSearch
 */
 var mark = function() {
   var input = $(this).val();

@@ -1,3 +1,5 @@
+// Toggles between two components.
+// Each toggable component needs to be referenced by id from data-switch-target attribute of switch
 var toggleSwitch = function() {
   var $allWithTarget = $('.switch-container input[data-switch-target]');
   var allTargets = [];

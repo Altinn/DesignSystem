@@ -35,8 +35,8 @@ gulp.task('pl-clean:public', function() {
 
 // Copy data files from source into public folder:
 gulp.task('pl-copy:data', function () {
-  return gulp.src('source/*.json')
-    .pipe(gulp.dest(paths().public.root));
+  return gulp.src('source/data/*.json')
+    .pipe(gulp.dest(paths().public.root + '/data'));
 });
 
 // Copy jQuery distribution from installed package into public JS folder:

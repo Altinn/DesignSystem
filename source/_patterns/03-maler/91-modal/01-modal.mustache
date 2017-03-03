@@ -1,13 +1,13 @@
 <div class="a-modal fade modal show {{ bodyClass }}" {{# modal-id }} id="{{ modal-id }}" {{/ modal-id }} role="dialog" {{# modal-label }} aria-labelledby="{{ modal-label }}" {{/ modal-label }} aria-hidden="false" style="display: block">
   <div class="modal-dialog modal-lg" role="document">
-    <div class="container">
+    <div class="container a-p-static">
       <div class="row">
         <div class="col-xl-12">
           {{> molekyler-modal-header }}
         </div>
       </div>
       <div class="row">
-        <div class="col-xl-10 offset-xl-1">
+        <div class="col-xl-10 offset-xl-1 a-p-static">
           {{# modal-navbar-override }}
             {{> molekyler-modal-navbar }}
           {{/ modal-navbar-override }}
@@ -37,3 +37,7 @@
     </div>
   </div>
 </div>
+
+<!-- DO NOT INCLUDE IN IMPLEMENTATION, ADDED BY BOOTSTRAP WHEN MODAL IS TRIGGERED -->
+<div class="modal-backdrop fade show"></div>
+<!-- END DO NOT INCLUDE -->

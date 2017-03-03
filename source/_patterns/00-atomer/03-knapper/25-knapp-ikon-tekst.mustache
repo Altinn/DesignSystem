@@ -1,11 +1,18 @@
-<button type="button" class="{{{ button-class }}} {{{ button-colorClass }}} {{ styleModifier }}" onclick="location.href='{{{ link-url }}}';">
+<button type="button" class="{{{ button-class }}} {{{ button-colorClass }}} {{ styleModifier }}" {{# link-url }} onclick="location.href='{{{ link-url }}}';" {{/ link-url }} >
 
   {{# button-icon }}
     {{> atomer-ikon }}
   {{/ button-icon }}
 
+  {{# button-dot }}
+    <span class="a-dot {{dot-color}}"></span>
+  {{/ button-dot }}
+
 	<span class="a-btn-icon-text {{{ button-textClass }}}">
   	{{{ button-text }}}
+    {{# button-text-second }}
+      <span class="a-btn-icon-text-second">{{{button-text-second}}}</span>
+    {{/ button-text-second }}
 	</span>
 
 	{{# button-shadow-label }}
