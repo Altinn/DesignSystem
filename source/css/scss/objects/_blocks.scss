@@ -165,20 +165,6 @@
     background-image: $dotted-border-white;
 	}
 
-  .a-item-list {
-    .a-item-list-item {
-      &.a-clickable {
-        &:hover {
-          background-color: $white-opacity-01;
-        }
-      }
-
-      .a-listItem-title {
-        color: $white;
-    	}
-    }
-  }
-
   .a-listItem-title {
     &:focus {
       background-color: $white-opacity-01;
@@ -187,15 +173,17 @@
 
   .a-clickable,
   .a-selectable {
-    &:hover,
-    &:active,
-    &:focus {
-      &:not(.a-expanded) {
-        &:not(.a-deleted) {
-          &:not(.a-completed) {
-            cursor: pointer;
-            background-color: $white-opacity-01;
-            box-shadow: none;
+    a {
+      &:hover,
+      &:active,
+      &:focus {
+        &:not(.a-expanded) {
+          &:not(.a-deleted) {
+            &:not(.a-completed) {
+              cursor: pointer;
+              background-color: $white-opacity-01;
+              box-shadow: none;
+            }
           }
         }
       }
@@ -532,10 +520,6 @@
 
   .a-mainCard-content {
     @extend .a-fontSizeM;
-
-    a {
-      @extend .a-fontSizeS;
-    }
   }
 }
 

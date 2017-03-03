@@ -1,5 +1,5 @@
 ---
-state: needsrevalidation
+state: archived
 version: 0
 ---
 

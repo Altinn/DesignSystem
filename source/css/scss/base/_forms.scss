@@ -130,6 +130,7 @@ textarea {
       &:active,
       &:focus {
         background: $blue-light;
+        outline: none;
       }
     }
   }
@@ -518,7 +519,9 @@ textarea {
     &[type='checkbox'],
     &[type='radio'] {
       &:focus+span {
-        border: 2px solid $blue-dark;
+        &:not(.override-focus) {
+          border: 2px solid $blue-dark;
+        }
       }
     }
   }
@@ -570,7 +573,7 @@ textarea {
     margin-bottom: $spacer;
     @include media-breakpoint-up( lg ) {
       display: inline-block;
-      margin-right: $spacer;
+      margin-right: $spacer * 2;
     }
 
     >input {
@@ -600,7 +603,9 @@ textarea {
   input {
     &[type='radio'] {
       &:focus+span {
-        border: 2px solid $blue-dark;
+        &:not(.override-focus) {
+          border: 2px solid $blue-dark;
+        }
       }
     }
   }
@@ -802,6 +807,12 @@ textarea {
           }
         }
       }
+
+      &:focus {
+        &+label {
+          border-style: solid;
+        }
+      }
     }
   }
 
@@ -810,7 +821,7 @@ textarea {
     @include a-fontReg;
     max-width: 100%;
     min-height: $spacer * 3;
-    padding: 4px $spacer 0 $spacer;
+    padding: 5px $spacer 0 $spacer;
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
