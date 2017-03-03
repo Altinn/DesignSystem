@@ -55,6 +55,12 @@ textarea {
 .a-form-group {
   position: relative;
 
+  label {
+    &.inactive {
+      opacity: 0.3;
+    }
+  }
+
   // Form group items (Container for Label and Input)
   .a-form-group-items,
   .input-group {
@@ -164,15 +170,6 @@ textarea {
     top: $spacer * 5;
   }
 
-  &.has-error {
-    .a-message {
-      position: absolute;
-      z-index: 9999;
-      display: block;
-      margin-bottom: $spacer * 2;
-      clear: both;
-    }
-  }
 
   // VALIDATOR: Icon, Display icon only when feedback
   .form-control-feedback {
@@ -192,7 +189,7 @@ textarea {
   }
 
   // VALIDATOR: Input has error
-  &.has-danger {
+  &.has-error {
     // Label
     .input-group-addon {
       // sass-lint:disable-block no-important
@@ -236,11 +233,19 @@ textarea {
       }
 
       .form-control {
-        &:not(.form-control-noAddon) {
+        &.a-hasIcon {
           // sass-lint:disable-block no-important
           border-left: none !important;
         }
       }
+    }
+
+    .a-message {
+      position: absolute;
+      z-index: 9999;
+      display: block;
+      margin-bottom: $spacer * 2;
+      clear: both;
     }
   }
 
@@ -310,7 +315,7 @@ textarea {
         height: 0;
       }
 
-      &:not(.form-control-noAddon) {
+      &.a-hasIcon {
         padding-left: 0;
         border-left: none;
       }

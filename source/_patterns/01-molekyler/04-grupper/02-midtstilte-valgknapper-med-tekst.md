@@ -1,5 +1,5 @@
 ---
-state: indesignreview
+state: complete
 version: 1
 js: addRightsTableHandler.js for prototype only
 ---
