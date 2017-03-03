@@ -26,9 +26,11 @@
   genericSearch,
   toggleInstant,
   articleAnchors,
-  feedbackToggle */
+  feedbackToggle,
+  setValidatorSettings */
 
 window.sharedInit = function() {
+  setValidatorSettings();
   addListExpandHandler();
   aTagSpaceExpand();
   setupOnKeypress();

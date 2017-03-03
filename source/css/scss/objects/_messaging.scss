@@ -3,61 +3,57 @@
 \*------------------------------------*/
 
 .a-message {
-  span {
-    position: relative;
-    display: block;
-    float: left;
-    min-width: 200px;
-    padding: $spacer + 2px $spacer * 2 $spacer $spacer * 2;
-    margin-top: 12px;
-    clear: both;
-    background-color: $grey-medium;
-    box-shadow: $shadow;
+  position: relative;
+  display: block;
+  float: left;
+  min-width: 200px;
+  padding: $spacer + 2px $spacer * 2 $spacer $spacer * 2;
+  margin-top: 12px;
+  clear: both;
+  background-color: $grey-medium;
+  box-shadow: $shadow;
+
+  &::after {
+    position: absolute;
+    top: 1px;
+    bottom: 100%;
+    left: 2 * $spacer;
+    box-sizing: border-box;
+    width: 0;
+    height: 0;
+    margin-left: $spacer;
+    content: ' ';
+    border: 6px solid $black;
+    border-color: transparent transparent $yellow-light $yellow-light;
+    border-width: 6px;
+    box-shadow: -2px 2px 2px -2px $black-opacity-01;
+    transform: rotate( 135deg );
+    transform-origin: 0 0;
+  }
+
+  &.a-message--arrow-off {
+    margin-top: 0;
 
     &::after {
-      position: absolute;
-      top: 1px;
-      bottom: 100%;
-      left: 2 * $spacer;
-      box-sizing: border-box;
-      width: 0;
-      height: 0;
-      margin-left: $spacer;
-      content: ' ';
-      border: 6px solid $black;
-      border-color: transparent transparent $yellow-light $yellow-light;
-      border-width: 6px;
-      box-shadow: -2px 2px 2px -2px $black-opacity-01;
-      transform: rotate( 135deg );
-      transform-origin: 0 0;
+      content: none;
     }
+  }
 
-    &.a-message--arrow-off {
-      margin-top: 0;
+  &.a-message--fullwidth {
+    float: none;
+    width: 100%;
+  }
 
-      &::after {
-        content: none;
-      }
-    }
-
-    &.a-message--fullwidth {
-      float: none;
-      width: 100%;
-    }
-
-    &.a-py-minus-1 {
-      @extend .a-py-minus-1;
-    }
+  &.a-py-minus-1 {
+    @extend .a-py-minus-1;
   }
 }
 
 .a-message-error {
-  span {
-    background-color: $red-light;
+  background-color: $red-light;
 
-    &::after {
-      border-color: transparent transparent $red-light $red-light;
-    }
+  &::after {
+    border-color: transparent transparent $red-light $red-light;
   }
 }
 
