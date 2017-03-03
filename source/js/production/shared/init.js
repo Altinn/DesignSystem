@@ -21,11 +21,15 @@
   setupOnKeypress,
   genericSearch,
   toggleInstant,
+  articleAnchors,
   feedbackToggle,
+  setValidatorSettings,
   popoverLocalInit,
   popoverGlobalInit */
 
+
 window.sharedInit = function() {
+  setValidatorSettings();
   addListExpandHandler();
   setupOnKeypress();
   handleFocus();
