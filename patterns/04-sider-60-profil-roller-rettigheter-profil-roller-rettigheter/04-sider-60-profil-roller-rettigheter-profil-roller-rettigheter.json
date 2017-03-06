@@ -39,23 +39,18 @@
 	"icon-post-text": false,
 	"icon-title": false,
 	"icon-sr-only-text": false,
+	"print-form-tag": true,
 	"text-input-id": "text-input-generic",
-	"text-input-label": "Label:",
+	"isHidden": false,
+	"top-label": "Label: ",
+	"isDisabled": false,
+	"isInactive": false,
 	"text-input-placeholder": "f.eks placeholder",
 	"input-type": "text",
-	"_commentStart": "--------------------------------------------------------------",
-	"_commentText": "OPTION 6: ICON IN LABEL - TRUE / FALSE",
-	"_commentEnd": "--------------------------------------------------------------",
+	"isRequired": false,
+	"isInputDisabled": false,
 	"extra-help": false,
-	"isHidden": "",
-	"isLarge": "",
-	"isValidator": false,
-	"validator-check": false,
-	"has-feedback": false,
-	"validator-pattern": "",
-	"validator-errorMessage": "",
-	"isInput-group": "",
-	"form-label-class": "",
+	"isLarge": false,
 	"form-label-hasIcon": false,
 	"checkbuttons": [
 		{
@@ -184,8 +179,8 @@
 	"show-arrow": true,
 	"no-decoration": true,
 	"link-text": "En lenke ser slik ut",
-	"header-text": "Lorem ipsum",
-	"intro-text": "Bacon ipsum dolor nullam",
+	"header-text": "Forklarende tittel",
+	"intro-text": "Beskrivelse av innholdet i listen:",
 	"rows": [
 		{
 			"additional-classes": "a-dotted",
@@ -231,6 +226,9 @@
 			"icon-class": "tmp-verified-user"
 		}
 	],
+	"altText": {
+		"altText": "Vis mer info"
+	},
 	"column-items": [
 		{
 			"column-text": false,
@@ -243,6 +241,7 @@
 	],
 	"action-button-text": "En knapp for å legge til",
 	"switch-radio-btn-name": "organisme-switch-cb",
+	"switch-legend": "Velg visning",
 	"switch-radio-btn-items": [
 		{
 			"switch-radio-btn-id": "switch-cb1",
@@ -307,10 +306,12 @@
 		"search-target": "clientTableId",
 		"search-algorithm": "show-and-highlight",
 		"text-input-id": "randomIdOne",
-		"text-input-label": "<span class=\"sr-only\">Finn skjema eller tjeneste</span>",
+		"top-label": "Finn skjema eller tjeneste",
+		"isHidden": true,
 		"text-input-placeholder": "Hvilken klient ser du etter?",
 		"input-type": "search",
 		"isRequired": false,
+		"isLarge": false,
 		"isInput-group": "input-group",
 		"form-label-class": "input-group-addon",
 		"form-label-hasIcon": {
@@ -319,7 +320,6 @@
 			"icon-extra-class": "",
 			"icon-text": ""
 		},
-		"no-left-padding": true,
 		"form-input-hasButton-class": "a-form-control-withBtn",
 		"form-input-hasButton": {
 			"form-input-button-action": "Utfør søk",
@@ -333,10 +333,12 @@
 		"search-algorithm": "show-and-highlight",
 		"display": true,
 		"text-input-id": "randomIdTwo",
-		"text-input-label": "<span class=\"sr-only\">Finn skjema eller tjeneste</span>",
+		"top-label": "Finn skjema eller tjeneste",
+		"isHidden": true,
 		"text-input-placeholder": "Hvem leter du etter?",
 		"input-type": "search",
 		"isRequired": false,
+		"isLarge": false,
 		"isInput-group": "input-group",
 		"form-label-class": "input-group-addon",
 		"form-label-hasIcon": {
@@ -344,7 +346,6 @@
 			"icon-class": "ai-private",
 			"icon-extra-class": ""
 		},
-		"no-left-padding": true,
 		"form-input-hasButton-class": "a-form-control-withBtn",
 		"form-input-hasButton": {
 			"form-input-button-action": "Utfør søk",
@@ -613,7 +614,8 @@
 								"column-items": [
 									{
 										"column-popover": {
-											"popover-link-text": "",
+											"popover-link-text": "Klikk for å se hva rollen gir tilgang til",
+											"popover-link-text-class": "sr-only",
 											"open-popover-class": "a-helpIconButton a-js-persistPopover a-js-popoverBig a-js-togglePopoverIcons",
 											"popover-class": "popover-big",
 											"header-text": "Hva inneholder rollen?",
@@ -808,7 +810,8 @@
 								"column-items": [
 									{
 										"column-popover": {
-											"popover-link-text": "",
+											"popover-link-text": "Klikk for å se hva rollen gir tilgang til",
+											"popover-link-text-class": "sr-only",
 											"open-popover-class": "a-helpIconButton a-js-persistPopover a-js-popoverBig a-js-togglePopoverIcons",
 											"popover-class": "popover-big",
 											"header-text": "Hva inneholder rollen?",
@@ -1076,22 +1079,14 @@
 	},
 	"shared-contactinfo-first-input": {
 		"text-input-id": "text-input-1",
-		"text-input-label": "SMS:",
+		"top-label": "SMS:",
 		"text-input-placeholder": "99000000",
 		"input-type": "tel",
 		"isRequired": false,
-		"isDisabled": "disabled",
+		"isDisabled": true,
 		"extra-help": false,
 		"isHidden": "",
-		"isLarge": "",
-		"isValidator": false,
-		"validator-delay": "2000",
-		"validator-check": "",
-		"has-feedback": false,
-		"validator-pattern": "",
-		"validator-errorMessage": "",
-		"isInput-group": "input-group",
-		"form-label-class": "input-group-addon",
+		"isLarge": false,
 		"form-label-hasIcon": {
 			"icon-prefix": "ai",
 			"icon-class": "ai-phone"
@@ -1099,22 +1094,14 @@
 	},
 	"shared-contactinfo-second-input": {
 		"text-input-id": "text-input-2",
-		"text-input-label": "E-post:",
+		"top-label": "E-post:",
 		"text-input-placeholder": "navn@epost.no",
 		"input-type": "email",
 		"isRequired": false,
-		"isDisabled": "disabled",
+		"isDisabled": true,
 		"extra-help": false,
 		"isHidden": "",
-		"isLarge": "",
-		"isValidator": false,
-		"validator-delay": "",
-		"validator-check": "",
-		"has-feedback": false,
-		"validator-pattern": "",
-		"validator-errorMessage": "",
-		"isInput-group": "input-group",
-		"form-label-class": "input-group-addon",
+		"isLarge": false,
 		"form-label-hasIcon": {
 			"icon-prefix": "ai",
 			"icon-class": "ai-closedmessage"
@@ -1124,21 +1111,14 @@
 		{
 			"add-shared-contactinfo-first-input": {
 				"text-input-id": "text-input-3",
-				"text-input-label": "SMS:",
+				"top-label": "SMS:",
 				"text-input-placeholder": "Mobilnummer",
 				"input-type": "tel",
 				"isRequired": false,
 				"extra-help": false,
 				"isHidden": "",
 				"isDisabled": "",
-				"isLarge": "",
-				"isValidator": false,
-				"validator-delay": "",
-				"validator-check": "",
-				"has-feedback": false,
-				"validator-pattern": "",
-				"validator-errorMessage": "",
-				"isInput-group": "input-group",
+				"isLarge": false,
 				"form-label-class": "input-group-addon a-input-group-addon-phone",
 				"form-label-hasIcon": {
 					"icon-prefix": "ai",
@@ -1147,22 +1127,14 @@
 			},
 			"add-shared-contactinfo-second-input": {
 				"text-input-id": "text-input-4",
-				"text-input-label": "Epost:",
+				"top-label": "Epost:",
 				"text-input-placeholder": "E-post",
 				"input-type": "email",
 				"isRequired": false,
 				"extra-help": false,
-				"isHidden": "",
-				"isDisabled": "",
-				"isLarge": "",
-				"isValidator": false,
-				"validator-delay": "",
-				"validator-check": "",
-				"has-feedback": false,
-				"validator-pattern": "",
-				"validator-errorMessage": "",
-				"isInput-group": "input-group",
-				"form-label-class": "input-group-addon",
+				"isHidden": false,
+				"isDisabled": false,
+				"isLarge": false,
 				"form-label-hasIcon": {
 					"icon-prefix": "ai",
 					"icon-class": "ai-closedmessage"
@@ -1189,21 +1161,14 @@
 		{
 			"add-shared-contactinfo-first-input": {
 				"text-input-id": "text-input-5",
-				"text-input-label": "SMS:",
+				"top-label": "SMS:",
 				"text-input-placeholder": "Mobilnummer",
 				"input-type": "tel",
 				"isRequired": false,
 				"extra-help": false,
-				"isHidden": "",
-				"isDisabled": "",
-				"isLarge": "",
-				"isValidator": false,
-				"validator-delay": "",
-				"validator-check": "",
-				"has-feedback": false,
-				"validator-pattern": "",
-				"validator-errorMessage": "",
-				"isInput-group": "input-group",
+				"isHidden": false,
+				"isDisabled": false,
+				"isLarge": false,
 				"form-label-class": "input-group-addon a-input-group-addon-phone",
 				"form-label-hasIcon": {
 					"icon-prefix": "ai",
@@ -1212,22 +1177,14 @@
 			},
 			"add-shared-contactinfo-second-input": {
 				"text-input-id": "text-input-6",
-				"text-input-label": "Epost:",
+				"top-label": "Epost:",
 				"text-input-placeholder": "E-post",
 				"input-type": "email",
 				"isRequired": false,
 				"extra-help": false,
-				"isHidden": "",
-				"isDisabled": "",
-				"isLarge": "",
-				"isValidator": false,
-				"validator-delay": "",
-				"validator-check": false,
-				"has-feedback": false,
-				"validator-pattern": "",
-				"validator-errorMessage": "",
-				"isInput-group": "input-group",
-				"form-label-class": "input-group-addon",
+				"isHidden": false,
+				"isDisabled": false,
+				"isLarge": false,
 				"form-label-hasIcon": {
 					"icon-prefix": "ai",
 					"icon-class": "ai-closedmessage"
@@ -1295,7 +1252,7 @@
 		"isInput-group": "input-group",
 		"auto-complete-off": true,
 		"text-input-id": "text-input-pw",
-		"text-input-label": "Lorem",
+		"top-label": "Lorem",
 		"text-input-placeholder": "Larem",
 		"input-type": "password",
 		"isValidator": false,
@@ -1311,12 +1268,12 @@
 	},
 	"login-info-username-input": {
 		"text-input-id": "text-input-1",
-		"text-input-label": "Ipsum",
+		"top-label": "Ipsum",
 		"text-input-placeholder": "lorem",
 		"input-type": "text",
 		"extra-help": false,
 		"isHidden": "",
-		"isLarge": "",
+		"isLarge": false,
 		"isValidator": false,
 		"validator-check": false,
 		"has-feedback": false,
@@ -1327,12 +1284,12 @@
 	},
 	"login-info-phone-input": {
 		"text-input-id": "text-input-3",
-		"text-input-label": "Lorem",
+		"top-label": "Lorem",
 		"text-input-placeholder": "lorem",
 		"input-type": "text",
 		"extra-help": false,
 		"isHidden": "",
-		"isLarge": "",
+		"isLarge": false,
 		"isValidator": false,
 		"validator-check": false,
 		"has-feedback": false,
@@ -1347,14 +1304,12 @@
 		"search-target": "serviceListId",
 		"search-algorithm": "show-and-highlight",
 		"text-input-id": "serviceListIdInput",
-		"text-input-label": "<span class=\"sr-only\">Finn skjema eller tjeneste</span>",
+		"top-label": "Finn skjema eller tjeneste",
+		"isHidden": "true",
 		"text-input-placeholder": "Finn skjema eller tjeneste",
 		"input-type": "search",
 		"isRequired": false,
-		"isHidden": "",
-		"isLarge": "",
-		"isInput-group": "input-group",
-		"form-label-class": "input-group-addon",
+		"isLarge": false,
 		"form-label-hasIcon": {
 			"icon-prefix": "ai",
 			"icon-class": "ai-document",
@@ -1515,18 +1470,16 @@
 		},
 		"first-input": {
 			"text-input-id": "text-input-10",
-			"text-input-label": "SMS:",
+			"top-label": "SMS:",
 			"text-input-placeholder": "97999999",
 			"input-type": "tel",
 			"isRequired": true,
 			"extra-help": false,
-			"isHidden": "",
-			"isLarge": "",
+			"isHidden": false,
+			"isLarge": false,
 			"isValidator": false,
 			"validator-pattern": "pattern= \"[0-9]{8}\"",
-			"validator-errorMessage": "Telefonnummer må bestå av 8 siffer",
-			"isInput-group": "input-group",
-			"form-label-class": "input-group-addon a-input-group-addon-phone",
+			"error-message": "Telefonnummer må bestå av 8 siffer",
 			"form-label-hasIcon": {
 				"icon-prefix": "ai",
 				"icon-class": "ai-phone"
@@ -1545,16 +1498,13 @@
 		},
 		"second-input": {
 			"text-input-id": "text-input-8",
-			"text-input-label": "Epost:",
+			"top-label": "Epost:",
 			"text-input-placeholder": "f.eks post@karinordmann.no",
 			"input-type": "email",
 			"isRequired": true,
 			"extra-help": false,
-			"isHidden": "",
-			"isLarge": "",
-			"isValidator": false,
-			"isInput-group": "input-group",
-			"form-label-class": "input-group-addon",
+			"isHidden": false,
+			"isLarge": false,
 			"form-label-hasIcon": {
 				"icon-prefix": "ai",
 				"icon-class": "ai-closedmessage"
@@ -1650,22 +1600,14 @@
 	},
 	"my-contact-first-input": {
 		"text-input-id": "text-input-1337",
-		"text-input-label": "Epost:",
+		"top-label": "Epost:",
 		"text-input-placeholder": "f.eks post@karinordmann.no",
 		"input-type": "email",
 		"isRequired": false,
-		"isDisabled": "disabled",
+		"isDisabled": true,
 		"extra-help": false,
-		"isHidden": "",
-		"isLarge": "",
-		"isValidator": false,
-		"validator-delay": "2000",
-		"validator-check": false,
-		"has-feedback": false,
-		"validator-pattern": "",
-		"validator-errorMessage": "",
-		"isInput-group": "input-group",
-		"form-label-class": "input-group-addon",
+		"isHidden": false,
+		"isLarge": false,
 		"form-label-hasIcon": {
 			"icon-prefix": "ai",
 			"icon-class": "ai-closedmessage"
@@ -1673,22 +1615,14 @@
 	},
 	"my-contact-second-input": {
 		"text-input-id": "text-input-20",
-		"text-input-label": "Epost:",
+		"top-label": "Epost:",
 		"text-input-placeholder": "f.eks post@karinordmann.no",
 		"input-type": "email",
 		"isRequired": false,
-		"isDisabled": "disabled",
+		"isDisabled": true,
 		"extra-help": false,
-		"isHidden": "",
-		"isLarge": "",
-		"isValidator": false,
-		"validator-delay": false,
-		"validator-check": false,
-		"has-feedback": false,
-		"validator-pattern": "",
-		"validator-errorMessage": "",
-		"isInput-group": "input-group",
-		"form-label-class": "input-group-addon",
+		"isHidden": false,
+		"isLarge": false,
 		"form-label-hasIcon": {
 			"icon-prefix": "ai",
 			"icon-class": "ai-closedmessage"
@@ -1696,22 +1630,14 @@
 	},
 	"my-contact-third-input": {
 		"text-input-id": "text-input-201",
-		"text-input-label": "Epost:",
+		"top-label": "Epost:",
 		"text-input-placeholder": "f.eks post@karinordmann.no",
 		"input-type": "email",
 		"isRequired": false,
-		"isDisabled": "disabled",
+		"isDisabled": true,
 		"extra-help": false,
-		"isHidden": "",
-		"isLarge": "",
-		"isValidator": false,
-		"validator-delay": "2000",
-		"validator-check": true,
-		"has-feedback": false,
-		"validator-pattern": "",
-		"validator-errorMessage": "",
-		"isInput-group": "input-group",
-		"form-label-class": "input-group-addon",
+		"isHidden": false,
+		"isLarge": false,
 		"form-label-hasIcon": {
 			"icon-prefix": "ai",
 			"icon-class": "ai-closedmessage"
@@ -1733,11 +1659,10 @@
 	"button-main": {
 		"button-class": "a-btn a-btn-icon a-btn-shadow a-btn-shadow a-btn-shadow-more",
 		"button-colorClass": "",
-		"button-shadow-label": false,
 		"button-dot": {
-			"dot-color": "a-dot-red"
+			"dot-color": "a-dot-green"
 		},
-		"button-text": "Pettersen foto",
+		"button-text": "Pettersen Regnskap",
 		"button-text-second": {
 			"button-text-second": "org.nr. 893 234 789"
 		},
@@ -1746,21 +1671,25 @@
 			"icon-class": "ai-corp",
 			"icon-extra-class": ""
 		},
-		"link-url": "/patterns/04-sider-50-innboks-01-innboks-start-nyoppstartet/04-sider-50-innboks-01-innboks-start-nyoppstartet.html"
+		"link-url": "/patterns/04-sider-50-innboks-00-innboks-start/04-sider-50-innboks-00-innboks-start.html"
 	},
 	"button-sub": {
-		"button-class": "a-btn a-btn-icon a-btn-shadow a-btn-shadow-expand",
+		"collapse-header-contentID": "listsublevels2",
+		"button-class": "a-btn a-btn-icon a-btn-shadow a-btn-shadow-expand collapsed",
 		"collapse-header-title": "6 underenheter",
 		"rows": [
 			{
-				"additional-classes": "",
+				"additional-classes": "a-clickable a-list-hasRowLink",
+				"isRowLink": {
+					"rowLink": "http://altinn.no"
+				},
 				"columns": [
 					{
 						"additional-classes": "col",
 						"column-items": [
 							{
 								"column-text": {
-									"text": "Første rad"
+									"text": "Pettersen Regnskap – Stavanger AS org. nr. 908 987 519"
 								}
 							}
 						]
@@ -1768,14 +1697,35 @@
 				]
 			},
 			{
-				"additional-classes": "",
+				"additional-classes": "a-clickable a-list-hasRowLink",
+				"isRowLink": {
+					"rowLink": "http://altinn.no"
+				},
 				"columns": [
 					{
 						"additional-classes": "col",
 						"column-items": [
 							{
 								"column-text": {
-									"text": "Andre rad"
+									"text": "Pettersen Regnskap – Arendal AS org. nr. 908 987 519"
+								}
+							}
+						]
+					}
+				]
+			},
+			{
+				"additional-classes": "a-clickable a-list-hasRowLink",
+				"isRowLink": {
+					"rowLink": "http://altinn.no"
+				},
+				"columns": [
+					{
+						"additional-classes": "col",
+						"column-items": [
+							{
+								"column-text": {
+									"text": "Pettersen Regnskap – Kristiansand AS org. nr. 908 987 519"
 								}
 							}
 						]
@@ -1990,7 +1940,8 @@
 		},
 		"personswitch-search": {
 			"text-input-id": "text-input-find-13",
-			"text-input-label": "<span class=\"sr-only\">Finn skjema eller tjeneste</span>",
+			"top-label": "Finn skjema eller tjeneste",
+			"isHidden": true,
 			"text-input-placeholder": "Søk etter profil",
 			"input-type": "search",
 			"isInput-group": "input-group",
@@ -2006,7 +1957,7 @@
 			}
 		}
 	},
-	"login-name": "Jan Pettersen",
+	"login-name": "JAN PETTERSEN",
 	"display-as-dropdown": true,
 	"personlogin-isDropdown": "dropdown",
 	"personlogin-isLink": "",
@@ -2079,10 +2030,10 @@
 	},
 	"header-mobilesearch": {
 		"text-input-id": "text-input-search-12",
-		"text-input-label": "Søk etter innhold",
+		"top-label": "Søk etter innhold",
 		"text-input-placeholder": "Søk etter innhold",
 		"input-type": "search",
-		"isHidden": "sr-only",
+		"isHidden": true,
 		"isInput-group": "input-group",
 		"form-label-class": "input-group-addon",
 		"form-input-hasButton-class": "a-form-control-withBtn form-control-noAddon",
@@ -2185,18 +2136,16 @@
 		"login-info-password-input": {
 			"form-control-class": "form-control-noAddon",
 			"form-label-class": "",
-			"isInput-group": "input-group",
 			"auto-complete-off": true,
 			"text-input-id": "text-input-pw",
-			"text-input-label": "Passord",
+			"top-label": "Passord",
 			"text-input-placeholder": "Passord",
 			"input-type": "password",
-			"isValidator": false,
-			"validator-check": false,
-			"isHidden": "",
-			"has-feedback": false,
-			"validator-pattern": "",
-			"validator-errorMessage": "",
+			"isRequired": true,
+			"input-regex-validation": {
+				"error-message": "Passordet er ikke gyldig. Må bestå av minst 7 tegn og inneholde både bokstaver og tall. Bare bokstavene A-Z er tillatt.",
+				"validation-pattern": "(?!^[0-9]*$)(?!^[a-zA-Z]*$)^([a-zA-Z0-9]{7,50})$"
+			},
 			"form-input-isPassword": true,
 			"form-input-showPassword-text": "Vis <span class=\"sr-only\">passord</span>",
 			"form-input-obfuscatePassword-text": "Skjul <span class=\"sr-only\">passord</span>",
@@ -2204,38 +2153,22 @@
 			"form-label-hasIcon": false
 		},
 		"login-info-username-input": {
-			"text-input-id": "text-input-1",
-			"text-input-label": "Brukernavn",
+			"text-input-id": "text-input-login-username",
+			"top-label": "Brukernavn",
 			"text-input-placeholder": "Brukernavn",
 			"input-type": "text",
 			"extra-help": false,
-			"isHidden": "",
-			"isLarge": "",
-			"isValidator": false,
-			"validator-check": false,
-			"has-feedback": false,
-			"validator-pattern": "",
-			"validator-errorMessage": "",
-			"isInput-group": "",
-			"form-label-class": "",
-			"form-label-hasIcon": false
+			"isHidden": false,
+			"isLarge": false
 		},
 		"login-info-phone-input": {
-			"text-input-id": "text-input-3",
-			"text-input-label": "Mobilnummer",
+			"text-input-id": "text-input-login-phone",
+			"top-label": "Mobilnummer",
 			"text-input-placeholder": "Mobilnummer",
 			"input-type": "text",
 			"extra-help": false,
-			"isHidden": "",
-			"isLarge": "",
-			"isValidator": false,
-			"validator-check": false,
-			"has-feedback": false,
-			"validator-pattern": "",
-			"validator-errorMessage": "",
-			"isInput-group": "",
-			"form-label-class": "",
-			"form-label-hasIcon": false
+			"isHidden": false,
+			"isLarge": false
 		}
 	},
 	"your-contact-info-panel": {
@@ -2301,23 +2234,15 @@
 		},
 		"my-contact-first-input": {
 			"text-input-id": "text-input-1337",
-			"text-input-label": "SMS:",
+			"top-label": "SMS:",
 			"text-input-placeholder": "",
 			"input-type": "tel",
 			"text-input-value": "12312123",
 			"isRequired": false,
-			"isDisabled": "disabled",
+			"isDisabled": true,
 			"extra-help": false,
-			"isHidden": "",
-			"isLarge": "",
-			"isValidator": false,
-			"validator-delay": "2000",
-			"validator-check": false,
-			"has-feedback": false,
-			"validator-pattern": "",
-			"validator-errorMessage": "",
-			"isInput-group": "input-group",
-			"form-label-class": "input-group-addon",
+			"isHidden": false,
+			"isLarge": false,
 			"form-label-hasIcon": {
 				"icon-prefix": "ai",
 				"icon-class": "ai-phone"
@@ -2326,22 +2251,14 @@
 		"my-contact-second-input": {
 			"text-input-value": "test@testesen.no",
 			"text-input-id": "text-input-20",
-			"text-input-label": "Epost:",
+			"top-label": "Epost:",
 			"text-input-placeholder": "",
 			"input-type": "email",
 			"isRequired": false,
-			"isDisabled": "disabled",
+			"isDisabled": true,
 			"extra-help": false,
-			"isHidden": "",
-			"isLarge": "",
-			"isValidator": false,
-			"validator-delay": false,
-			"validator-check": false,
-			"has-feedback": false,
-			"validator-pattern": "",
-			"validator-errorMessage": "",
-			"isInput-group": "input-group",
-			"form-label-class": "input-group-addon",
+			"isHidden": false,
+			"isLarge": false,
 			"form-label-hasIcon": {
 				"icon-prefix": "ai",
 				"icon-class": "ai-closedmessage"
@@ -2350,22 +2267,14 @@
 		"my-contact-third-input": {
 			"text-input-value": "Grev Wedels Plass 9",
 			"text-input-id": "text-input-201",
-			"text-input-label": "Adresse:",
+			"top-label": "Adresse:",
 			"text-input-placeholder": "",
 			"input-type": "text",
 			"isRequired": false,
-			"isDisabled": "disabled",
+			"isDisabled": true,
 			"extra-help": false,
 			"isHidden": "",
-			"isLarge": "",
-			"isValidator": false,
-			"validator-delay": "2000",
-			"validator-check": true,
-			"has-feedback": false,
-			"validator-pattern": "",
-			"validator-errorMessage": "",
-			"isInput-group": "input-group",
-			"form-label-class": "input-group-addon",
+			"isLarge": false,
 			"form-label-hasIcon": {
 				"icon-prefix": "ai",
 				"icon-class": "ai-corp"
@@ -2398,22 +2307,14 @@
 		},
 		"shared-contactinfo-first-input": {
 			"text-input-id": "text-input-101",
-			"text-input-label": "SMS:",
+			"top-label": "SMS:",
 			"text-input-placeholder": "99000000",
 			"input-type": "tel",
 			"isRequired": false,
-			"isDisabled": "disabled",
+			"isDisabled": true,
 			"extra-help": false,
-			"isHidden": "",
-			"isLarge": "",
-			"isValidator": false,
-			"validator-delay": "2000",
-			"validator-check": "",
-			"has-feedback": false,
-			"validator-pattern": "",
-			"validator-errorMessage": "",
-			"isInput-group": "input-group",
-			"form-label-class": "input-group-addon",
+			"isHidden": false,
+			"isLarge": false,
 			"form-label-hasIcon": {
 				"icon-prefix": "ai",
 				"icon-class": "ai-phone"
@@ -2421,22 +2322,14 @@
 		},
 		"shared-contactinfo-second-input": {
 			"text-input-id": "text-input-102",
-			"text-input-label": "E-post:",
+			"top-label": "E-post:",
 			"text-input-placeholder": "navn@epost.no",
 			"input-type": "email",
 			"isRequired": false,
-			"isDisabled": "disabled",
+			"isDisabled": true,
 			"extra-help": false,
-			"isHidden": "",
-			"isLarge": "",
-			"isValidator": false,
-			"validator-delay": "",
-			"validator-check": "",
-			"has-feedback": false,
-			"validator-pattern": "",
-			"validator-errorMessage": "",
-			"isInput-group": "input-group",
-			"form-label-class": "input-group-addon",
+			"isHidden": false,
+			"isLarge": false,
 			"form-label-hasIcon": {
 				"icon-prefix": "ai",
 				"icon-class": "ai-closedmessage"
@@ -2446,21 +2339,14 @@
 			{
 				"add-shared-contactinfo-first-input": {
 					"text-input-id": "text-input-103",
-					"text-input-label": "SMS:",
+					"top-label": "Mobilnummer: ",
 					"text-input-placeholder": "Mobilnummer",
 					"input-type": "tel",
 					"isRequired": false,
 					"extra-help": false,
-					"isHidden": "",
-					"isDisabled": "",
-					"isLarge": "",
-					"isValidator": false,
-					"validator-delay": "",
-					"validator-check": "",
-					"has-feedback": false,
-					"validator-pattern": "",
-					"validator-errorMessage": "",
-					"isInput-group": "input-group",
+					"isHidden": false,
+					"isDisabled": false,
+					"isLarge": false,
 					"form-label-class": "input-group-addon a-input-group-addon-phone",
 					"form-label-hasIcon": {
 						"icon-prefix": "ai",
@@ -2469,22 +2355,14 @@
 				},
 				"add-shared-contactinfo-second-input": {
 					"text-input-id": "text-input-104",
-					"text-input-label": "E-post:",
+					"top-label": "Epost: ",
 					"text-input-placeholder": "E-post",
 					"input-type": "email",
 					"isRequired": false,
 					"extra-help": false,
-					"isHidden": "",
-					"isDisabled": "",
-					"isLarge": "",
-					"isValidator": false,
-					"validator-delay": "",
-					"validator-check": "",
-					"has-feedback": false,
-					"validator-pattern": "",
-					"validator-errorMessage": "",
-					"isInput-group": "input-group",
-					"form-label-class": "input-group-addon",
+					"isHidden": false,
+					"isDisabled": false,
+					"isLarge": false,
 					"form-label-hasIcon": {
 						"icon-prefix": "ai",
 						"icon-class": "ai-closedmessage"
@@ -2494,7 +2372,7 @@
 					"button-type": "button",
 					"button-text": "Slett",
 					"button-textClass": "sr-only",
-					"button-class": "a-btn a-btn-icon-transparant a-delete",
+					"button-class": "a-btn a-btn-icon-transparant a-delete pt-2",
 					"button-colorClass": "",
 					"link-url-start": false,
 					"link-url": false,
@@ -2517,21 +2395,14 @@
 			{
 				"add-shared-contactinfo-first-input": {
 					"text-input-id": "text-input-105",
-					"text-input-label": "SMS:",
+					"top-label": "Mobilnummer",
 					"text-input-placeholder": "Mobilnummer",
 					"input-type": "tel",
 					"isRequired": false,
 					"extra-help": false,
-					"isHidden": "",
-					"isDisabled": "",
-					"isLarge": "",
-					"isValidator": false,
-					"validator-delay": "",
-					"validator-check": "",
-					"has-feedback": false,
-					"validator-pattern": "",
-					"validator-errorMessage": "",
-					"isInput-group": "input-group",
+					"isHidden": true,
+					"isDisabled": false,
+					"isLarge": false,
 					"form-label-class": "input-group-addon a-input-group-addon-phone",
 					"form-label-hasIcon": {
 						"icon-prefix": "ai",
@@ -2540,22 +2411,14 @@
 				},
 				"add-shared-contactinfo-second-input": {
 					"text-input-id": "text-input-106",
-					"text-input-label": "E-post:",
+					"top-label": "E-post:",
+					"isHidden": true,
 					"text-input-placeholder": "E-post",
 					"input-type": "email",
 					"isRequired": false,
 					"extra-help": false,
-					"isHidden": "",
-					"isDisabled": "",
-					"isLarge": "",
-					"isValidator": false,
-					"validator-delay": "",
-					"validator-check": false,
-					"has-feedback": false,
-					"validator-pattern": "",
-					"validator-errorMessage": "",
-					"isInput-group": "input-group",
-					"form-label-class": "input-group-addon",
+					"isDisabled": false,
+					"isLarge": false,
 					"form-label-hasIcon": {
 						"icon-prefix": "ai",
 						"icon-class": "ai-closedmessage"
@@ -2637,18 +2500,18 @@
 			},
 			"first-input": {
 				"text-input-id": "text-input-10",
-				"text-input-label": "SMS:",
+				"top-label": "SMS:",
 				"text-input-value": "97999999",
 				"text-input-placeholder": "97999999",
 				"input-type": "tel",
 				"isRequired": true,
 				"extra-help": false,
-				"isHidden": "",
-				"isLarge": "",
-				"isValidator": false,
-				"validator-pattern": "pattern= \"[0-9]{8}\"",
-				"validator-errorMessage": "Telefonnummer må bestå av 8 siffer",
-				"isInput-group": "input-group",
+				"isHidden": false,
+				"isLarge": false,
+				"input-regex-validation": {
+					"error-message": "Telefonnummer må bestå av 8 siffer",
+					"validation-pattern": "\"[0-9]{8}\""
+				},
 				"form-label-class": "input-group-addon a-input-group-addon-phone",
 				"form-label-hasIcon": {
 					"icon-prefix": "ai",
@@ -2668,17 +2531,18 @@
 			},
 			"second-input": {
 				"text-input-id": "text-input-8",
-				"text-input-label": "Epost:",
+				"top-label": "Epost:",
 				"text-input-placeholder": "f.eks post@karinordmann.no",
 				"text-input-value": "test@tester.no",
 				"input-type": "email",
 				"isRequired": true,
 				"extra-help": false,
-				"isHidden": "",
-				"isLarge": "",
-				"isValidator": false,
-				"isInput-group": "input-group",
-				"form-label-class": "input-group-addon",
+				"isHidden": false,
+				"isLarge": false,
+				"input-regex-validation": {
+					"error-message": "Feil epost verdier",
+					"validation-pattern": "(('[^']+')|(([a-zA-Z0-9!#$%&'*+-=?^_`{|}~])+(.([a-zA-Z0-9!#$%&'*+-=?^_`{|}~])+)*))@((((([a-zA-Z0-9æøåÆØÅ]([a-zA-Z0-9-æøåÆØÅ]{0,61})[a-zA-Z0-9æøåÆØÅ].)|[a-zA-Z0-9æøåÆØÅ].){1,9})([a-zA-Z]{2,14}))|((d{1,3}).(d{1,3}).(d{1,3}).(d{1,3})))"
+				},
 				"form-label-hasIcon": {
 					"icon-prefix": "ai",
 					"icon-class": "ai-closedmessage"
@@ -2734,14 +2598,12 @@
 				"search-target": "serviceListId",
 				"search-algorithm": "show-and-highlight",
 				"text-input-id": "serviceListIdInput",
-				"text-input-label": "<span class=\"sr-only\">Finn skjema eller tjeneste</span>",
+				"top-label": "Finn skjema eller tjeneste",
 				"text-input-placeholder": "Finn skjema eller tjeneste",
 				"input-type": "search",
 				"isRequired": false,
-				"isHidden": "",
-				"isLarge": "",
-				"isInput-group": "input-group",
-				"form-label-class": "input-group-addon",
+				"isHidden": true,
+				"isLarge": false,
 				"form-label-hasIcon": {
 					"icon-prefix": "ai",
 					"icon-class": "ai-document",

@@ -13,6 +13,8 @@ var addListExpandHandler = function() {
 
 /* globals currentRequest, popoverLocalInit */
 var closeModal = function(target) {
+  $('body').removeClass('a-modal-background-error');
+  $('body').removeClass('a-modal-background-success');
   $(target).modal('hide');
 };
 
@@ -145,6 +147,8 @@ var previousModalPage = function(target, pagesToPopParam) {
   }
 
   if ($(target + ' .a-current-page').data('page-index') - pagesToPop <= 0) {
+    $('body').removeClass('a-modal-background-error');
+    $('body').removeClass('a-modal-background-success');
     $(target).modal('hide');
     return;
   }
@@ -291,42 +295,6 @@ var handleFocus = function() {
         }
       });
     }
-  });
-  // Prevent focus state styling on click
-  $('body').on('mousedown', '*:not(input):not(textarea)', function(e) {
-    e.stopPropagation();
-    if ($(e.target).prop('nodeName') !== 'A' &&
-      $(e.target).prop('nodeName') !== 'BUTTON' &&
-      $(e.target).prop('nodeName') !== 'LABEL') {
-      if ($(e.target).parent().prop('nodeName') === 'A' ||
-        $(e.target).parent().prop('nodeName') === 'BUTTON' ||
-        $(e.target).parent().prop('nodeName') === 'LABEL') {
-        $(e.target).parent().trigger('mousedown');
-      }
-    }
-    // Accomodate for popovers
-    if ($(this).attr('data-toggle') !== 'popover' && !$(this).is('i')) {
-      if (!$(this).hasClass('a-custom-select')) {
-        $(this).addClass('override-focus');
-        setTimeout(function() {
-          this.blur(); this.removeClass('override-focus');
-        }.bind($(this)), 1500);
-      }
-    }
-    $(this).children('.custom-control-indicator').addClass('override-focus');
-    setTimeout(function() {
-      this.children('.custom-control-indicator').prev().blur();
-      this.children('.custom-control-indicator').removeClass('override-focus');
-    }.bind($(this)), 1500);
-    $(this).children('.a-switch-label').addClass('override-focus');
-    setTimeout(function() {
-      this.children('.a-switch-label').prev().blur();
-      this.children('.a-switch-label').removeClass('override-focus');
-    }.bind($(this)), 1500);
-    setTimeout(function() {
-      $('.a-switch-label').prev().blur();
-      $('.a-switch-label').removeClass('override-focus');
-    }, 1500);
   });
 };
 
@@ -688,6 +656,32 @@ var tooltip = function() {
   $('[data-toggle="tooltip"]').tooltip();
 };
 
+var setValidatorSettings = function() {
+  var defaultOptions = {
+    highlight: function(element, errorClass, validClass) {
+      $(element).closest('.form-group').addClass(errorClass);
+    },
+    unhighlight: function(element, errorClass, validClass) {
+      $(element).closest('.form-group').removeClass(errorClass);
+    },
+    focusInvalid: false
+  };
+  $.validator.setDefaults(defaultOptions);
+  $.validator.unobtrusive.options = {
+    errorClass: 'has-error',
+    invalidHandler: function(e, validator) {
+      try {
+        // alert('invlaidHandler needs to be set here not in jquery.validate');
+      } catch (err) {
+        // Ignore IE throwing errors when focusing hidden elements
+      }
+    }
+  };
+  $(function() {
+    $('span.field-validation-valid, span.field-validation-error').addClass('help-block');
+  });
+};
+
 /* globals questionnaireInteraction,
   drilldownInteraction,
   handleFocus,
@@ -711,11 +705,15 @@ var tooltip = function() {
   setupOnKeypress,
   genericSearch,
   toggleInstant,
+  articleAnchors,
   feedbackToggle,
+  setValidatorSettings,
   popoverLocalInit,
   popoverGlobalInit */
 
+
 window.sharedInit = function() {
+  setValidatorSettings();
   addListExpandHandler();
   setupOnKeypress();
   handleFocus();
@@ -1170,44 +1168,44 @@ var genericSearch = function() {
   }
 };
 
-/* globals $ */
-var handleValidatorLibrary = function() {
-  $('.form-group').each(function() {
-    var self = $(this);
-    if (self.attr('data-toggle') === 'validator') {
-      self.parent().attr('data-toggle', 'validator')
-        .attr('data-delay', self.attr('data-delay')).validator();
-    }
-  });
+// /* globals $ */
+// var handleValidatorLibrary = function() {
+//   $('.form-group').each(function() {
+//     var self = $(this);
+//     if (self.attr('data-toggle') === 'validator') {
+//       self.parent().attr('data-toggle', 'validator')
+//         .attr('data-delay', self.attr('data-delay')).validator();
+//     }
+//   });
 
-  $('form[data-toggle="validator"]').each(function() {
-    var $form = $(this);
-    $form.on('validate.bs.validator', function() {
-      var allValid = true;
-      $form.find('input').each(function() {
-        if (!this.validity.valid) {
-          allValid = false;
-        }
-        if ($(this).attr('type') === 'file'
-          && $(this).attr('required')
-          && $(this).val() === ''
-          && !$(this).val()) {
-          allValid = false;
-        }
-      });
+//   $('form[data-toggle="validator"]').each(function() {
+//     var $form = $(this);
+//     $form.on('validate.bs.validator', function() {
+//       var allValid = true;
+//       $form.find('input').each(function() {
+//         if (!this.validity.valid) {
+//           allValid = false;
+//         }
+//         if ($(this).attr('type') === 'file'
+//           && $(this).attr('required')
+//           && $(this).val() === ''
+//           && !$(this).val()) {
+//           allValid = false;
+//         }
+//       });
 
-      if (allValid) {
-        $form.find('.a-js-hideWhenInvalid').show();
-        $form.find('.a-js-enableWhenValid').removeAttr('disabled');
-      } else {
-        $form.find('.a-js-hideWhenInvalid').hide();
-        $form.find('.a-js-enableWhenValid').attr('disabled', true);
-      }
-    });
+//       if (allValid) {
+//         $form.find('.a-js-hideWhenInvalid').show();
+//         $form.find('.a-js-enableWhenValid').removeAttr('disabled');
+//       } else {
+//         $form.find('.a-js-hideWhenInvalid').hide();
+//         $form.find('.a-js-enableWhenValid').attr('disabled', true);
+//       }
+//     });
 
-    $(this).trigger('validate.bs.validator');
-  });
-};
+//     $(this).trigger('validate.bs.validator');
+//   });
+// };
 
 var wasDark = $('header').hasClass('a-darkBackground');
 if ($('body').width() < 768) {
@@ -1418,7 +1416,7 @@ window.infoportalInit = function() {
   drilldownInteraction();
   switchForm();
   genericSearch();
-  handleValidatorLibrary();
+ // handleValidatorLibrary();
   questionnaireInteraction();
   uniformHeight();
   articleAnchors();

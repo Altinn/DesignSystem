@@ -1,74 +1,58 @@
 <!-- START: 00-atomer-01-forms-10-tekst-input -->
-<div class="form-group a-form-group {{# has-feedback }}has-feedback{{/ has-feedback }} {{{ isLarge }}} {{# margin-override }} {{ margin-override }} {{/ margin-override }}" {{# isValidator }} data-toggle="validator" {{/ isValidator }} {{# validator-delay
-  }} data-delay="{{ validator-delay }}" {{/ validator-delay }}>
-  {{# form-input-isPassword }}
+{{# print-form-tag }}
+<form>
+  {{/ print-form-tag }}
 
-  <label class="a-form-label {{ isHidden }} {{ form-label-class }}" for="{{ text-input-id }}">
-        {{# form-label-hasIcon }}
-          {{> atomer-ikon }}
-        {{/ form-label-hasIcon }}
-        {{{ text-input-label }}}
-      </label> {{/ form-input-isPassword }} {{# top-label }}
-  <label class="a-form-label {{ isHidden }}" for="{{ text-input-id }}">
-        {{{ text-input-top-label }}}
-      </label> {{/ top-label }}
+  <div class="form-group a-form-group {{# isLarge }} a-form-group-large {{/ isLarge }} ">
 
-  <div class="a-form-group-items {{ isInput-group }} {{ isDisabled }} {{ isInactive }}">
+    {{# top-label }}
+    <label class="a-form-label {{# isHidden }} sr-only {{/ isHidden}} {{# isInactive }} inactive {{/ isInactive }}" for="{{ text-input-id }}">{{ top-label }}</label> {{/ top-label }}
 
-    {{^ form-input-isPassword }} {{^ top-label }}
-    <label class="a-form-label {{ isHidden }} {{ form-label-class }}" for="{{ text-input-id }}">
-        {{/ top-label }}
-        {{# top-label }}
-          <div class="a-form-label {{ isHidden }} {{ form-label-class }}">
-        {{/ top-label }}
-          {{# form-label-hasIcon }}
-            {{> atomer-ikon }}
-          {{/ form-label-hasIcon }}
-          {{{ text-input-label }}}
-        {{^ top-label }}
-          </label> {{/ top-label }} {{# top-label }}
-  </div>
-  {{/ top-label }} {{/ form-input-isPassword }}
+    <div class="a-form-group-items input-group  {{# isDisabled }} disabled {{/ isDisabled }} {{# isInactive }} inactive {{/ isInactive }}">
+      {{# form-label-hasIcon }}
+      <span class="input-group-addon">{{> atomer-ikon }}</span> {{/ form-label-hasIcon }}
 
-  <input type="{{ input-type }}" class="form-control {{ form-control-class }} {{ form-input-hasButton-class }} {{# no-left-padding }}pl-0{{/ no-left-padding }}" {{# text-input-id }}id="{{ text-input-id }}" {{/ text-input-id }} {{{ validator-pattern }}}
-    {{# isRequired }}required{{/ isRequired }} {{# auto-complete-off }}autocomplete="off" {{/ auto-complete-off }} {{# text-input-placeholder }}placeholder="{{ text-input-placeholder }}" {{/ text-input-placeholder }} {{# text-input-value }}value="{{ text-input-value }}"
-    {{/ text-input-value }} {{# maxlength }}maxlength="{{ maxlength }}" {{/ maxlength }} {{# validator-errorMessage }}data-error="{{ validator-errorMessage }}" {{/ validator-errorMessage }} {{# form-input-isPassword }}onkeyup="setVisibility(this, 'btn-{{ text-input-id }}')"
-    {{/ form-input-isPassword }} {{# search-algorithm }}data-search-algorithm="{{ search-algorithm }}" {{/ search-algorithm }} {{# search-target }}data-search-target="{{ search-target }}" {{/ search-target }} {{# isInactive }}disabled{{/ isInactive }} {{
-    isDisabled }}>
+      <input class="form-control {{ form-control-class }} {{# form-label-hasIcon }} a-hasIcon {{/ form-label-hasIcon }}" type="{{ input-type }}" placeholder="{{text-input-placeholder}}" name="{{ input-name }}" data-val="true" {{# text-input-id }}id="{{ text-input-id }}"
+        {{/ text-input-id }} {{# isRequired }}required{{/ isRequired }} {{# data-required }} data-val-required="{{ data-required-message }}" {{/ data-required }} {{# isDisabled }}disabled{{/ isDisabled }} {{# isInactive }}disabled{{/ isInactive }} {{# maxlength
+        }}data-val-length-max="{{ maxlength }}" {{/ maxlength }} {{# minlength }}data-val-length-min="{{ minlength }}" {{/ minlength }} {{# form-input-isPassword }}onkeyup="setVisibility(this, 'btn-{{ text-input-id }}')" {{/ form-input-isPassword }} {{#
+        search-algorithm }}data-search-algorithm="{{ search-algorithm }}" {{/ search-algorithm }} {{# search-target }}data-search-target="{{ search-target }}" {{/ search-target }} {{# input-regex-validation }} data-val-regex="{{ error-message }}" data-val-regex-pattern="{{ validation-pattern }}"
+        {{/ input-regex-validation }}>
 
-    {{# has-feedback }} {{> atomer-ikon }}
-    <span class="sr-only">Icon showing if input is valid or not</span> {{/ has-feedback }} {{# form-input-hasButton }}
-    <div class="input-group-btn">
-      <button class="btn btn-secondary {{ isInactive }}" type="button" {{ isDisabled }} {{# isInactive }}disabled{{/ isInactive }}>
-              {{> atomer-ikon }}<span class="sr-only">Søk</span>
-            </button>
+        {{# form-input-hasButton }}
+        <div class="input-group-btn">
+          <button class="btn btn-secondary {{# isInactive }} inactive {{/ isInactive }}" type="button" {{# isDisabled }} disabled {{/ isDisabled }} {{# isInactive }}disabled{{/ isInactive }}>
+            {{> atomer-ikon }}<span class="sr-only">Søk</span>
+          </button>
+        </div>
+        {{/ form-input-hasButton }} {{# form-input-isPassword }}
+        <div class="input-group-btn">
+          <button class="btn btn-secondary d-none" type="button" id="btn-{{ text-input-id }}" onclick="showPassword(this, '{{ text-input-id }}')">
+            <span class="show-password-text">
+              {{{ form-input-showPassword-text }}}
+            </span>
+            <span class="hide-password-text" style="display: none">
+              {{{ form-input-obfuscatePassword-text }}}
+            </span>
+          </button>
+        </div>
+        {{/ form-input-isPassword }} {{# postal-code }}
+        <span class="a-input-placecode a-js-place" style="display:none;"></span> {{/ postal-code }}
+
     </div>
-    {{/ form-input-hasButton }} {{# postal-code }}
-    <span class="a-input-placecode a-js-place" style="display:none;"></span> {{/ postal-code }} {{# form-input-isPassword }}
-    <div class="input-group-btn">
-      <button class="btn btn-secondary d-none" type="button" id="btn-{{ text-input-id }}" onclick="showPassword(this, '{{ text-input-id }}')">
-              <span class="show-password-text">
-                {{{ form-input-showPassword-text }}}
-              </span>
-              <span class="hide-password-text" style="display: none">
-                {{{ form-input-obfuscatePassword-text }}}
-              </span>
-            </button>
+    {{# autocomplete }}
+    <div class="a-autocomplete-container hidden-xs">
     </div>
-    {{/ form-input-isPassword }}
-    </div>
-
-    {{# extra-help }}
+    {{/ autocomplete}} {{# extra-help }}
     <small id="help" class="form-text a-validatorInfo">
         {{> atomer-ikon }}
         {{{ extra-helpText }}}
-      </small> {{/ extra-help }} {{# autocomplete }}
-    <div class="a-autocomplete-container hidden-xs">
-    </div>
-    {{/ autocomplete}} {{# validator-check }}
-    <div class="help-block with-errors a-message a-message-error {{ a-message-absolute }}">{{{ validator-errorMessage }}}</div>
-    {{/ validator-check }}
+      </small> {{/ extra-help }}
 
-    </div>
 
-    <!-- END: 00-atomer-01-forms-10-tekst-input -->
+    <div class="a-message a-message-error" data-valmsg-for="{{ input-name }}" data-valmsg-replace="true"></div>
+  </div>
+  {{# print-form-tag }}
+</form>
+{{/ print-form-tag }}
+
+<!-- END: 00-atomer-01-forms-10-tekst-input -->

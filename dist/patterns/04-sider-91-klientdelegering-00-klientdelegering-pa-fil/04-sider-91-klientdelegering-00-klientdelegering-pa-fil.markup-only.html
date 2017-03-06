@@ -128,11 +128,11 @@
 
                         <!-- END: 00-atomer-07-tekst-11-undertittel -->
 
-                        <div class="mb-4">
+                        <div class="mb-3">
                           Hvis du skal gi mange rettigheter samtidig, kan du gjøre dette gjennom klientdelegering på fil. Du vil kunne laste ned en excel-fil som du kan redigere og laste opp igjen når du er ferdig med å gjøre endringer. Hvis du synes dette blir for komplisert
                           kan du bruke
                           <!-- START: 00-atomer-02-lenker-00-link -->
-                          <a href="/patterns/04-sider-60-profil-roller-rettigheter-profil-roller-rettigheter/04-sider-60-profil-roller-rettigheter-profil-roller-rettigheter.html" class=" ">
+                          <a href="/patterns/04-sider-60-profil-roller-rettigheter-profil-roller-rettigheter/04-sider-60-profil-roller-rettigheter-profil-roller-rettigheter.html" class=" " data-toggle="collapse" data-target="#departement-filter" aria-controls="departement-filter">
   vanlig klientdelegering.
 
 </a>
@@ -173,8 +173,8 @@
                         </div>
                         <div class="mt-1 mb-1">
                           <!-- START: 00-atomer-05-Ekspansjonsknapper-26-ekspanderbar-tekst -->
-                          <a data-toggle="collapse" href="#file-delegation-ID" aria-expanded="true" aria-controls="file-delegation-ID" class="a-collapse-title a-collapse-title--flexstart a-fontBold    collapsed">
-
+                          <a data-toggle="collapse" href="#file-delegation-ID" aria-expanded="true" aria-controls="file-delegation-ID" class="a-collapse-title a-collapse-title--flexstart a-fontBold   no-decoration   collapsed">
+                            <span class="a-dropdownArrow"></span>
 
                             <span class="primary-collapse-text">
             Dette inneholder filen og slik redigerer du den riktig
@@ -245,8 +245,8 @@
                         <div class="mb-3 a-bigger-icon a-bigger-icon-span">
                           <!-- START: 00-atomer-01-forms-70-fileupload -->
 
-                          <label class="">
-  <input  required  class="a-js-fileInputChangeHandler" type="file" id="">
+                          <label class="a-btn a-btn-action a-custom-fileupload">
+  <input  required  class="a-js-fileInputChangeHandler" type="file" id="customFileuploadId">
   <!-- START: 00-atomer-09-bilder-og-media-15-ikon -->
 
 <i class="ai ai-deadline   "    ></i>
@@ -254,9 +254,35 @@
 
 <!-- END: 00-atomer-09-bilder-og-media-15-ikon -->
 
-  
+  Last opp fil
 </label>
 
+                          <div style="display: none" class="a-js-fileListContainer">
+                            <!-- START: 00-atomer-08-lister-20-liste-opplasting -->
+                            <ul class="a-item-list-icon ">
+                              <li class="a-dotted" onClick="onFileListDeleteClick(this)" aria-label="Fjern fil:">
+                                <div class="a-dotted-line-top"></div>
+                                <div class="row">
+                                  <div class="col-11">
+                                    <span class="a-js-listItemText">
+            klientrolle_delegeringer_30_05_16.csv
+          </span>
+                                  </div>
+                                  <div class="col-1">
+                                    <!-- START: 00-atomer-09-bilder-og-media-15-ikon -->
+
+                                    <i class="tmp tmp-cancel   "></i>
+
+
+                                    <!-- END: 00-atomer-09-bilder-og-media-15-ikon -->
+
+                                  </div>
+                                </div>
+                              </li>
+                            </ul>
+                            <!-- END: 00-atomer-08-lister-20-liste-opplasting -->
+
+                          </div>
                           <!-- END: 00-atomer-01-forms-70-fileupload -->
 
                         </div>
@@ -272,34 +298,34 @@
                         <div class="row">
                           <div class="col-12 col-md-8 col-xl-6 mb-1">
                             <!-- START: 00-atomer-01-forms-10-tekst-input -->
-                            <div class="form-group a-form-group   " data-toggle="validator" data-delay="2000">
+                            <form>
 
+                              <div class="form-group a-form-group  ">
 
-                              <div class="a-form-group-items input-group  ">
+                                <label class="a-form-label  " for="text-input-8">Epost:</label>
 
-                                <label class="a-form-label  input-group-addon" for="text-input-8">
-            <!-- START: 00-atomer-09-bilder-og-media-15-ikon -->
+                                <div class="a-form-group-items input-group   ">
+                                  <span class="input-group-addon"><!-- START: 00-atomer-09-bilder-og-media-15-ikon -->
 
 <i class="ai ai-closedmessage   "    ></i>
 
 
 <!-- END: 00-atomer-09-bilder-og-media-15-ikon -->
+</span>
 
-          Epost:
-          </label>
-
-                                <input type="email" class="form-control   pl-0" id="text-input-8" required placeholder="f.eks post@karinordmann.no" data-search-algorithm="show-and-highlight" data-search-target="employee-table">
-
+                                  <input class="form-control   a-hasIcon " type="email" placeholder="f.eks post@karinordmann.no" name="" data-val="true" id="text-input-8" required data-search-algorithm="show-and-highlight" data-search-target="employee-table" data-val-regex="Feil epost verdier"
+                                    data-val-regex-pattern="((&#39;[^&#39;]+&#39;)|(([a-zA-Z0-9!#$%&amp;&#39;*+-&#x3D;?^_&#x60;{|}~])+(.([a-zA-Z0-9!#$%&amp;&#39;*+-&#x3D;?^_&#x60;{|}~])+)*))@((((([a-zA-Z0-9æøåÆØÅ]([a-zA-Z0-9-æøåÆØÅ]{0,61})[a-zA-Z0-9æøåÆØÅ].)|[a-zA-Z0-9æøåÆØÅ].){1,9})([a-zA-Z]{2,14}))|((d{1,3}).(d{1,3}).(d{1,3}).(d{1,3})))">
 
 
 
+
+                                </div>
+
+
+
+                                <div class="a-message a-message-error" data-valmsg-for="" data-valmsg-replace="true"></div>
                               </div>
-
-
-
-                              <div class="help-block with-errors a-message a-message-error "></div>
-
-                            </div>
+                            </form>
 
                             <!-- END: 00-atomer-01-forms-10-tekst-input -->
 
@@ -307,7 +333,7 @@
                         </div>
 
                         <!-- START: 00-atomer-03-knapper-10-knapp -->
-                        <button type="submit" class="a-btn a-btn-success mb-0 a-js-enableWhenValid" onclick="location.href='/patterns/04-sider-60-profil-roller-rettigheter-profil-roller-rettigheter/04-sider-60-profil-roller-rettigheter-profil-roller-rettigheter.html'" /patterns/04-sider-01-forside-00-forside/04-sider-01-forside-00-forside.html>
+                        <button type="submit" class="a-btn a-btn-success mb-0 a-js-enableWhenValid" onclick="location.href='/patterns/04-sider-60-profil-roller-rettigheter-profil-roller-rettigheter/04-sider-60-profil-roller-rettigheter-profil-roller-rettigheter.html'" data-target="departement-filter">
     Ferdig
 </button>
 

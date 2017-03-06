@@ -58,23 +58,18 @@
 		"data-target": "#eksempelID2",
 		"aria-expanded": false
 	},
+	"print-form-tag": true,
 	"text-input-id": "text-input-generic",
-	"text-input-label": "<span class=\"sr-only\">Finn klient</span>",
+	"isHidden": true,
+	"top-label": "Finn klient",
+	"isDisabled": false,
+	"isInactive": false,
 	"text-input-placeholder": "Hvilken klient ser du etter?",
 	"input-type": "search",
-	"_commentStart": "--------------------------------------------------------------",
-	"_commentText": "OPTION 6: ICON IN LABEL - TRUE / FALSE",
-	"_commentEnd": "--------------------------------------------------------------",
+	"isRequired": false,
+	"isInputDisabled": false,
 	"extra-help": false,
-	"isHidden": "",
-	"isLarge": "",
-	"isValidator": false,
-	"validator-check": false,
-	"has-feedback": false,
-	"validator-pattern": "",
-	"validator-errorMessage": "",
-	"isInput-group": "input-group",
-	"form-label-class": "input-group-addon",
+	"isLarge": false,
 	"form-label-hasIcon": {
 		"icon-prefix": "ai",
 		"icon-class": "ai-private",
@@ -206,8 +201,8 @@
 	"collapse-primary-text": "Denne teksten kan man trykke på for å se utvidet informasjon om et tema",
 	"show-arrow": true,
 	"no-decoration": true,
-	"header-text": "Lorem ipsum",
-	"intro-text": "Bacon ipsum dolor nullam",
+	"header-text": "Forklarende tittel",
+	"intro-text": "Beskrivelse av innholdet i listen:",
 	"rows": [
 		{
 			"additional-classes": "a-dotted",
@@ -256,7 +251,7 @@
 			{
 				"alert-link": {
 					"link-text": "med en lenke som står i løpende tekst",
-					"link-url": "http://www.vg.no"
+					"link-url": "http://www.altinn.no"
 				}
 			},
 			{
@@ -276,6 +271,9 @@
 			"icon-class": "tmp-minus"
 		}
 	],
+	"altText": {
+		"altText": "Vis mer info"
+	},
 	"column-items": [
 		{
 			"column-text": false,
@@ -288,35 +286,26 @@
 	],
 	"local-role-header": "Opprett rolle",
 	"local-role-name-input": {
-		"text-input-id": "text-input-1",
-		"text-input-label": "Rollenavn",
+		"text-input-id": "text-input-opprett-rolle",
+		"top-label": "Rollenavn:",
 		"text-input-placeholder": "",
 		"input-type": "text",
 		"extra-help": false,
-		"isHidden": "",
-		"isLarge": "",
-		"isValidator": false,
-		"validator-check": false,
+		"isHidden": false,
+		"isLarge": false,
 		"has-feedback": false,
-		"validator-pattern": "",
-		"validator-errorMessage": "",
-		"isInput-group": "",
 		"form-label-class": ""
 	},
 	"local-role-service-search": {
 		"text-input-id": "text-input-find-13",
-		"text-input-top-label": "Legg til rettigheter",
-		"text-input-label": "",
+		"top-label": "Legg til rettigheter:",
 		"text-input-placeholder": "Finn skjema eller tjeneste",
 		"input-type": "search",
 		"isRequired": false,
-		"isInput-group": "input-group",
-		"form-label-class": "input-group-addon",
 		"form-label-hasIcon": {
 			"icon-prefix": "ai",
 			"icon-class": "ai-help"
 		},
-		"no-left-padding": true,
 		"form-input-hasButton-class": "a-form-control-withBtn",
 		"form-input-hasButton": {
 			"icon-prefix": "ai",
@@ -324,8 +313,7 @@
 			"icon-text": "<span class=\"sr-only\">Utfør søk</span>"
 		},
 		"form-control-class": "a-js-autocomplete",
-		"autocomplete": true,
-		"top-label": true
+		"autocomplete": true
 	},
 	"local-role-search-header": "Treff på «RF-1030». Velg skjema eller tjeneste:",
 	"local-role-search-result": {},
@@ -369,39 +357,33 @@
 			"add-rightholder-heading": "Hvem vil du legge til?",
 			"personnummer-input": {
 				"text-input-id": "text-fnr-brukernavn",
-				"text-input-label": "Fødselsnr/brukernavn:",
+				"top-label": "Fødselsnr/brukernavn:",
 				"text-input-placeholder": "11 siffer",
 				"input-type": "text",
 				"isRequired": true,
 				"extra-help": false,
-				"isHidden": "",
-				"isLarge": "",
-				"isValidator": true,
-				"validator-delay": "2000",
-				"validator-check": true,
-				"has-feedback": "",
-				"validator-pattern": "pattern= \"[0-9]{11}\"",
-				"validator-errorMessage": "Personnummer må bestå av 11 siffer.",
-				"isInput-group": "input-group",
-				"form-label-class": "input-group-addon",
+				"isHidden": false,
+				"isLarge": false,
+				"input-regex-validation": {
+					"validator-pattern": "\"[0-9]{11}\"",
+					"error-message": "Personnummer må bestå av 11 siffer."
+				},
 				"form-label-hasIcon": false
 			},
 			"etternavn-input": {
 				"text-input-id": "text-etternavn",
-				"text-input-label": "Etternavn:",
+				"top-label": "Etternavn:",
 				"text-input-placeholder": "",
 				"input-type": "text",
 				"isRequired": true,
 				"margin-override": "mb-0",
 				"extra-help": false,
-				"isHidden": "",
-				"isLarge": "",
-				"isValidator": true,
-				"validator-delay": "2000",
-				"validator-check": true,
-				"has-feedback": "",
-				"validator-pattern": "pattern= \"[0-9]{11}\"",
-				"validator-errorMessage": "Personnummer må bestå av 11 siffer.",
+				"isHidden": false,
+				"isLarge": false,
+				"input-regex-validation": {
+					"validator-pattern": "\"[0-9]{11}\"",
+					"error-message": "Personnummer må bestå av 11 siffer."
+				},
 				"isInput-group": "input-group",
 				"form-label-class": "input-group-addon",
 				"form-label-hasIcon": false
@@ -436,41 +418,27 @@
 			"personnummer-input": {
 				"text-input-id": "text-orgno",
 				"form-control-class": "a-js-orgNr",
-				"text-input-label": "Org.nr.:",
+				"top-label": "Org.nr.:",
 				"text-input-placeholder": "",
 				"input-type": "text",
 				"isRequired": true,
 				"extra-help": false,
-				"isHidden": "",
-				"isLarge": "",
-				"isValidator": true,
-				"validator-delay": "2000",
-				"validator-check": true,
-				"has-feedback": "has-feedback",
-				"validator-pattern": "pattern= \"[0-9]{11}\"",
-				"validator-errorMessage": "Personnummer må bestå av 11 siffer.",
+				"isHidden": false,
+				"isLarge": false,
 				"isInput-group": "input-group",
 				"form-label-class": "input-group-addon",
 				"form-label-hasIcon": false
 			},
 			"etternavn-input": {
 				"text-input-id": "text-bedriftnavn",
-				"text-input-label": "Navn:",
+				"top-label": "Navn:",
 				"text-input-placeholder": "Min. 4 første tegn",
 				"input-type": "text",
 				"isRequired": true,
 				"margin-override": "mb-0",
 				"extra-help": false,
-				"isHidden": "",
-				"isLarge": "",
-				"isValidator": true,
-				"validator-delay": "2000",
-				"validator-check": true,
-				"has-feedback": "has-feedback",
-				"validator-pattern": "pattern= \"[0-9]{11}\"",
-				"validator-errorMessage": "Personnummer må bestå av 11 siffer.",
-				"isInput-group": "input-group",
-				"form-label-class": "input-group-addon",
+				"isHidden": false,
+				"isLarge": false,
 				"form-label-hasIcon": false
 			},
 			"legg-til-knapp": {
@@ -502,42 +470,26 @@
 			"add-rightholder-heading": "Hvem vil du legge til?",
 			"personnummer-input": {
 				"text-input-id": "text-enterprise-brukernavn",
-				"text-input-label": "Brukernavn:",
+				"top-label": "Brukernavn:",
 				"text-input-placeholder": "",
 				"input-type": "text",
 				"isRequired": true,
 				"extra-help": false,
-				"isHidden": "",
-				"isLarge": "",
-				"isValidator": true,
-				"validator-delay": "2000",
-				"validator-check": true,
-				"has-feedback": "has-feedback",
-				"validator-pattern": "pattern= \"[0-9]{11}\"",
-				"validator-errorMessage": "Personnummer må bestå av 11 siffer.",
-				"isInput-group": "input-group",
-				"form-label-class": "input-group-addon",
+				"isHidden": false,
+				"isLarge": false,
 				"form-label-hasIcon": false
 			},
 			"etternavn-input": {
 				"text-input-id": "text-enterpriseuser-orgno",
-				"text-input-label": "Org.nr.:",
+				"top-label": "Org.nr.:",
 				"form-control-class": "a-js-orgNr",
 				"text-input-placeholder": "",
 				"input-type": "text",
 				"isRequired": true,
 				"margin-override": "mb-0",
 				"extra-help": false,
-				"isHidden": "",
-				"isLarge": "",
-				"isValidator": true,
-				"validator-delay": "2000",
-				"validator-check": true,
-				"has-feedback": "has-feedback",
-				"validator-pattern": "pattern= \"[0-9]{11}\"",
-				"validator-errorMessage": "Personnummer må bestå av 11 siffer.",
-				"isInput-group": "input-group",
-				"form-label-class": "input-group-addon",
+				"isHidden": false,
+				"isLarge": false,
 				"form-label-hasIcon": false
 			},
 			"legg-til-knapp": {
@@ -973,25 +925,22 @@
 	"delegation-email-text": "Vent litt... Vi mangler e-postadresse til den du gir rettighet til.<br />For å gjennomføre må du fylle inn e-post under.",
 	"delegation-email-field": {
 		"text-input-id": "text-input-8",
-		"text-input-label": "Epost:",
+		"top-label": "Epost:",
 		"text-input-placeholder": "f.eks post@karinordmann.no",
 		"input-type": "email",
 		"isRequired": true,
+		"isHidden": false,
+		"input-regex-validation": {
+			"error-message": "Feil epost verdier",
+			"validation-pattern": "(('[^']+')|(([a-zA-Z0-9!#$%&'*+-=?^_`{|}~])+(.([a-zA-Z0-9!#$%&'*+-=?^_`{|}~])+)*))@((((([a-zA-Z0-9æøåÆØÅ]([a-zA-Z0-9-æøåÆØÅ]{0,61})[a-zA-Z0-9æøåÆØÅ].)|[a-zA-Z0-9æøåÆØÅ].){1,9})([a-zA-Z]{2,14}))|((d{1,3}).(d{1,3}).(d{1,3}).(d{1,3})))"
+		},
 		"extra-help": false,
-		"isHidden": "",
-		"isLarge": "",
-		"isValidator": true,
-		"validator-delay": "2000",
-		"validator-check": true,
+		"isLarge": false,
 		"has-feedback": {
 			"icon-prefix": "ai",
 			"icon-class": "ai-plus",
 			"icon-extra-class": "form-control-feedback"
 		},
-		"validator-pattern": "",
-		"validator-errorMessage": "",
-		"isInput-group": "input-group",
-		"form-label-class": "input-group-addon",
 		"form-label-hasIcon": {
 			"icon-prefix": "ai",
 			"icon-class": "ai-closedmessage",
@@ -1081,7 +1030,8 @@
 	},
 	"delegation-needs": {
 		"has-popover-link": {
-			"popover-link-text": "",
+			"popover-link-text": "Klikk for å se hva rollen gir tilgang til",
+			"popover-link-text-class": "sr-only",
 			"open-popover-class": "a-helpIconButton a-js-persistPopover a-js-togglePopoverIcons",
 			"popover-class": "popover-big",
 			"popover-content": "Innholdet i popover fra spørsmålstegn-ikonet kommer her..",
@@ -1208,7 +1158,8 @@
 		"icon-prefix": "ai",
 		"icon-class": "ai-search"
 	},
-	"no-left-padding": true,
+	"isInput-group": "input-group",
+	"form-label-class": "input-group-addon",
 	"search-algorithm": "show-and-highlight",
 	"search-target": "employee-table",
 	"table-actions-id": "employee-table",
@@ -2417,7 +2368,7 @@
 			"icon-extra-class": "a-modal-close-icon"
 		}
 	],
-	"login-name": "Jan Pettersen",
+	"login-name": "JAN PETTERSEN",
 	"display-as-dropdown": false,
 	"personlogin-isDropdown": "dropdown",
 	"personlogin-isLink": "",
@@ -2432,9 +2383,6 @@
 	"neutral-logo": {
 		"logo": "../../images/a-logo-white.svg"
 	},
-	"feedback-logo": {
-		"logo": "../../images/a-logo-black.svg"
-	},
 	"login-show": {
 		"login-name": "Jan Pettersen",
 		"login-icon": {
@@ -2442,6 +2390,9 @@
 			"icon-class": "ai-private",
 			"icon-extra-class": "a-personSwitcher-icon"
 		}
+	},
+	"feedback-logo": {
+		"logo": "../../images/a-logo-black.svg"
 	},
 	"icon": "group_add",
 	"show-client-delegation-content": false,
@@ -2490,15 +2441,15 @@
 			},
 			"search-title": "Gi nye rettigheter:",
 			"text-input-placeholder": "Finn skjema eller tjeneste",
-			"isInactive": "inactive",
+			"isInactive": true,
 			"form-label-class": "input-group-addon inactive",
 			"form-input-hasButton-class": "a-form-control-withBtn inactive",
 			"form-input-hasButton": {
-				"isInactive": "inactive",
 				"icon-prefix": "ai",
 				"icon-class": "ai-search"
 			},
-			"text-input-label": "<span class=\"sr-only\">Finn skjema eller tjeneste</span>",
+			"top-label": "Finn skjema eller tjeneste",
+			"isHidden": true,
 			"form-label-hasIcon": {
 				"icon-prefix": "ai",
 				"icon-class": "ai-help"
