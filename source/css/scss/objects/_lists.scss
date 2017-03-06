@@ -182,194 +182,25 @@
       }
     }
   }
-}
 
-/*------------------------------------*\
-    $Item list
-\*------------------------------------*/
-.a-item-list {
-  margin: 0;
-  list-style: none;
-
-  i {
-    margin-top: -3px;
-    vertical-align: middle;
-    border: none;
-  }
-
-  div {
-    &.a-dotted {
-      position: absolute;
-      top: 0;
-      left: 0;
-      z-index: 1;
-      width: 100%;
-      height: 100%;
-    }
-  }
-
-  .a-inactive {
-    padding: $spacer / 2 0;
-  }
-
-  .a-disabled {
-    padding: $spacer / 2 0;
-    box-shadow: none;
-  }
-
-  .a-item-list-item {
-    position: relative;
-    display: flex;
-    width: 100%;
-    padding: $spacer / 2 $spacer / 2 4px $spacer / 2;
-    margin-bottom: 0;
-    align-items: center;
-
-    .a-text-left {
-      padding-left: $spacer;
-    }
-
-    .float-right {
-      i {
-        padding-left: $spacer;
-      }
-
-      .right-aligned {
-        padding-left: $spacer;
+  // No padding left if list item has no icons
+  &.a-list-noIcon {
+    li {
+      .a-list-rowLink {
+        padding-left: 0;
       }
     }
 
-    a {
-      display: block;
-      padding: 0;
-      overflow: hidden;
-
-      &:hover {
-        cursor: pointer;
-      }
-    }
-
-    &.a-clickable {
-      &:hover {
-        background-color: $blue-light;
-      }
-    }
-
-    .a-listItem-title {
-      @extend .a-fontSizeS;
-
-      color: $black;
-      text-decoration: none;
-      border: none;
-    }
-
-    .a-listItem-leftContent {
-      max-width: 50%;
-
-      &:only-child {
-        max-width: initial;
-      }
-    }
-
-    .a-listItem-rightContent {
-      max-width: 50%;
-      padding-left: $spacer;
-      margin-left: auto;
-      align-self: center;
-
-      a {
-        display: inline-block;
-      }
-    }
-  }
-
-  &.a-item-list-ordered {
-    list-style: decimal;
-    list-style-position: inside;
-
-    // Because list bullets is going to be INSIDE, and we cannot have a as block (firefox-bug), we need to add padding to li instead of a.
-    .a-item-list-item {
-      padding: 5px 0;
-
-      i {
-        float: right;
-      }
-
-      a {
-        position: relative;
-        box-shadow: none !important;
-
-        &::before {
-          position: absolute;
-          top: -7px;
-          left: -15px;
-          z-index: -1;
-          width: 117%;
-          min-height: 36px;
-          cursor: pointer;
-          content: '';
-        }
-      }
-    }
-
-    .a-listItem-title {
-      display: inline-block;
-      padding: 0;
-      vertical-align: top;
-
-      &::after {
-        position: absolute;
-        top: -5px;
-        right: -5px;
-        bottom: -5px;
-        left: -5px;
-        content: '';
-      }
-    }
-  }
-
-  &.a-item-list-large {
-    .a-listItem-title {
-      @include media-breakpoint-up( md ) {
-        @include a-fontSize20;
-      }
-    }
-
-    .a-item-list-item {
-      padding: $spacer / 2;
-    }
-  }
-
-  &.a-item-list-1col {
-    @include media-breakpoint-up( md ) {
-      width: calc( 50% - 24px );
-    }
-  }
-
-  &.a-item-list-2col {
-    @include media-breakpoint-up( md ) {
-      column-count: 2;
-      column-gap: $spacer * 4;
-
-      li {
-        break-inside: avoid;
-        page-break-inside: avoid;
-      }
+    .row {
+      padding-left: 0;
     }
   }
 }
+
+
 
 // If background BLUE-light, change color on lists
 .a-bgBlueLight {
-  .a-item-list {
-    .a-item-list-item {
-      &.a-clickable {
-        &:hover {
-          background-color: $blue-light-hover-color-dark;
-        }
-      }
-    }
-  }
 
   ul {
     &.connected-bullets {
@@ -732,9 +563,9 @@ ol {
       margin-top: -2px;
       margin-right: 26px;
 
-      &::before {
-        @include a-fontSize24;
-        margin-top: 2px;
+      i {
+        @include a-fontSize20;
+        margin-top: 0;
       }
     }
   }
