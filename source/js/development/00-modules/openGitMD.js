@@ -6,8 +6,8 @@ window.openGitMD = function(target) {
       .replace('DesignSystem/', '')
       .replace(/\.\.\//g, '')
       .replace('patterns', '/_patterns')
-      .replace(/(?:[^\\*]*)$/, '')
-      .replace('\\', '.md')
+      .replace(/(?:[^//*]*)$/, '/')
+      .replace('//', '.md')
       .replace(/-([0-9]{2})/g, '/$1'), '_blank'
   );
 };
