@@ -146,8 +146,8 @@ var drilldownInteraction = function() {
         $('.switch-container').show();
         $('.a-containerColnav-top').css('padding-bottom', '24px');
         $('.a-js-backButton').css('margin-top', '0px');
-        $('.a-js-colnavTitleBold').text('X');
-        $('.a-js-colnavTitleRegular').text('skjemaer');
+        $('.a-js-colnavTitleBold').text('');
+        $('.a-js-colnavTitleRegular').text('Alle skjemaer');
       }
     }
   }
