@@ -52,12 +52,19 @@
   }
 }
 
+//negative margin for centering icons in list
+.a-list {
+  i {
+    &.ai {
+      margin-top: -4px;
+    }
+  }
+}
+
 .a-icon {
-  @include a-fontSize48;
   display: table-cell;
-  width: 60px;
   min-width: 60px;
-  height: 60px;
+  min-height: 60px;
   text-align: center;
   vertical-align: middle;
 
@@ -115,6 +122,16 @@
     width: $spacer * 5;
     min-width: $spacer * 5;
     margin-right: $spacer;
+
+    @include media-breakpoint-up( lg ) {
+      margin-right: $spacer / 2;
+      margin-left: $spacer / 2;
+    }
+
+    @include media-breakpoint-up( xl ) {
+      margin-right: $spacer;
+      margin-left: 0;
+    }
 
     .a-date {
       margin: 0;
@@ -224,8 +241,8 @@
       }
 
       a {
-        @extend .a-fontSizeXS;
-        @include a-fontReg;
+        @extend .a-fontSizeXXS;
+        @include a-fontMedium;
       }
     }
   }
