@@ -197,6 +197,19 @@
   }
 }
 
+// If background WHITE, change color on lists
+.a-bgWhite {
+
+  ul {
+    &.connected-bullets {
+      li {
+        &::after {
+          background: $white;
+        }
+      }
+    }
+  }
+}
 
 
 // If background BLUE-light, change color on lists
@@ -385,7 +398,7 @@ ul {
         height: 25px;
         font-size: 39px;
         content: '';
-        background: $white;
+        background: $grey-light;
         border: 3px solid $blue;
         border-radius: 50%;
 
@@ -510,7 +523,7 @@ ol {
     Unordered list with icons
 \*------------------------------------*/
 
-.a-icon-list {
+.a-iconList {
   list-style-type: none;
 
   li {
@@ -518,21 +531,25 @@ ol {
   }
 
   a {
+    display: flex;
     color: $black;
     border: none;
 
-    &:hover {
-      color: $blue;
+    i {
+      padding-right: 5px;
+      align-self: center;
     }
-  }
 
-  i {
-    padding-right: 5px;
-    vertical-align: middle;
-  }
+    b {
+      padding-right: 5px;
+    }
 
-  b {
-    padding-right: 5px;
+    &:hover {
+      b,
+      i {
+        color: $blue-dark;
+      }
+    }
   }
 }
 

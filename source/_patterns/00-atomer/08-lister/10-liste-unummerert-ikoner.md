@@ -1,5 +1,5 @@
 ---
-state: specification
+state: indesignreview
 version: 1
 ---
 
