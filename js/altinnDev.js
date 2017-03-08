@@ -629,8 +629,8 @@ window.openGitMD = function(target) {
       .replace('DesignSystem/', '')
       .replace(/\.\.\//g, '')
       .replace('patterns', '/_patterns')
-      .replace(/(?:[^\\*]*)$/, '')
-      .replace('\\', '.md')
+      .replace(/(?:[^//*]*)$/, '/')
+      .replace('//', '.md')
       .replace(/-([0-9]{2})/g, '/$1'), '_blank'
   );
 };
@@ -1056,8 +1056,8 @@ var drilldownInteraction = function() {
         $('.switch-container').show();
         $('.a-containerColnav-top').css('padding-bottom', '24px');
         $('.a-js-backButton').css('margin-top', '0px');
-        $('.a-js-colnavTitleBold').text('X');
-        $('.a-js-colnavTitleRegular').text('skjemaer');
+        $('.a-js-colnavTitleBold').text('');
+        $('.a-js-colnavTitleRegular').text('Alle skjemaer');
       }
     }
   }
@@ -1589,13 +1589,17 @@ window.infoportalInit = function() {
 };
 window.infoportalInit();
 // $(document).foundation();
-$('.a-maxTwoLines').ellipsis({
-  lines: 2,
-  responsive: true
-});
-$('.a-maxThreeLines').ellipsis({
-  lines: 3,
-  responsive: true
+$(document).ready(function() {
+  setTimeout(function() {
+    $('.a-maxTwoLines').ellipsis({
+      lines: 2,
+      responsive: true
+    });
+    $('.a-maxThreeLines').ellipsis({
+      lines: 3,
+      responsive: true
+    });
+  }, 0);
 });
 
 var cardsToggle = function() {
