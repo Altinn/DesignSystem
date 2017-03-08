@@ -9,9 +9,15 @@ var onFileInputChange = function() {
   $('.a-js-fileInputChangeHandler').on('change', function() {
     var $parent = $(this).parent();
     var $fileListContainer = $parent.next();
+    var $listItemText = $fileListContainer.find('.a-js-listItemText');
+    var $listItem = $fileListContainer.find('li');
+    var $listItemLabel = $fileListContainer.find('li').attr('aria-label');
+    var fileName = $(this).val().split('\\')[$(this).val().split('\\').length - 1];
+
     $parent.hide();
     $fileListContainer.show();
-    $fileListContainer.find('.a-js-listItemText').text($(this).val().split('\\')[$(this).val().split('\\').length - 1]);
+    $listItemText.text(fileName);
+    $listItem.attr('aria-label', $listItemLabel + fileName);
   });
 };
 
