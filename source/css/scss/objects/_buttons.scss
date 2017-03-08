@@ -288,12 +288,40 @@
   @extend .a-fontSizeXS;
   @include a-fontReg;
   padding: 0;
-  line-height: 1.2;
   text-align: left;
   background: none;
   border: none;
-  border-bottom: 2px solid $link-color;
   box-shadow: none;
+
+  &:active,
+  &:focus,
+  &:hover {
+    border: none;
+
+    span {
+      border-bottom: 2px solid $blue-dark;
+    }
+
+    &.a-linkDanger {
+      border: none;
+
+      span {
+        border-bottom: 2px solid darken( $red, 15% );
+      }
+    }
+  }
+
+  span {
+    padding-bottom: 2px;
+    border-bottom: 2px solid $link-color;
+  }
+
+  &.a-linkDanger {
+    span {
+      border-bottom: 2px solid $red;
+    }
+  }
+
 }
 
 // add btn
@@ -449,14 +477,13 @@
 
   .a-boxAddBtn-inner {
     display: block;
-    min-height: 160px;
-    padding-top: $spacer * 1.5;
+    min-height: 168px;
+    padding: $spacer * 1.5 $spacer 0 $spacer;
     background-color: transparent;
     border: 2px dotted $blue;
 
     .a-boxAddBtn-icon {
       @include a-fontSize24;
-
       display: block;
       padding: $spacer * 2;
     }
@@ -563,10 +590,9 @@
     }
 
     &.a-btn-link {
-      display: inline;
+      display: inline-block;
       padding-bottom: 0;
       margin-bottom: $spacer;
-      line-height: 1.2;
     }
   }
 
@@ -574,7 +600,6 @@
     &:not(.a-btn) {
       display: inline;
       padding-bottom: 2px;
-      margin-bottom: $spacer;
     }
   }
 

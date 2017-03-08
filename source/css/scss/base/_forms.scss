@@ -206,7 +206,7 @@ textarea {
       // sass-lint:disable-block no-important
       border: 2px solid $red !important;
 
-      &.a-form-control-withBtn {
+      &.a-hasButton {
         // sass-lint:disable-block no-important
         border-right: none !important;
       }
@@ -236,6 +236,10 @@ textarea {
         &.a-hasIcon {
           // sass-lint:disable-block no-important
           border-left: none !important;
+        }
+
+        &.a-hasButton {
+          border-right: none;
         }
       }
     }
@@ -316,14 +320,18 @@ textarea {
       }
 
       &.a-hasIcon {
-        padding-left: 0;
-        border-left: none;
-      }
-    }
+        padding-left: $spacer / 2;
+        border-left: 2px solid $blue;
 
-    // If there is buttons inside the input group..
-    .a-form-control-withBtn {
-      border-right: none;
+        @include media-breakpoint-up( md ) {
+          padding-left: 0;
+          border-left: none;
+        }
+      }
+
+      &.a-hasButton {
+        border-right: none;
+      }
     }
 
     // Validator message
@@ -364,7 +372,16 @@ textarea {
       // Input
       .form-control {
         border: 2px solid $grey-medium;
-        border-left: none;
+
+        &.a-hasIcon {
+          padding-left: $spacer / 2;
+          border-left: 2px solid $grey-medium;
+
+          @include media-breakpoint-up( md ) {
+            padding-left: 0;
+            border-left: none;
+          }
+        }
       }
     }
 
@@ -384,10 +401,25 @@ textarea {
       // Input
       .form-control {
         border: 2px solid $grey-medium;
-        border-left: none;
+
+        &.a-hasIcon {
+          padding-left: $spacer / 2;
+          border-left: 2px solid $grey-medium;
+
+          @include media-breakpoint-up( md ) {
+            padding-left: 0;
+            border-left: none;
+          }
+        }
+
+        &.a-hasButton {
+          border-right: none;
+        }
+
       }
 
       .input-group-btn {
+        background-color: $white;
         border: 2px solid $grey-medium;
         border-left: none;
       }
@@ -995,4 +1027,18 @@ textarea {
       opacity: 0;
     }
   }
+}
+
+// Overriding the non-accesible styling
+// Bootstrap applies to custom controls
+.custom-control-input {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  border: none;
+  opacity: 0.1;
 }
