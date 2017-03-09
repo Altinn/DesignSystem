@@ -1688,7 +1688,6 @@
           "isHidden": false,
           "isDisabled": false,
           "isLarge": false,
-          "form-label-class": "input-group-addon a-input-group-addon-phone",
           "form-label-hasIcon": {
             "icon-prefix": "ai",
             "icon-class": "ai-phone"
@@ -1745,7 +1744,6 @@
           "isHidden": true,
           "isDisabled": false,
           "isLarge": false,
-          "form-label-class": "input-group-addon a-input-group-addon-phone",
           "form-label-hasIcon": {
             "icon-prefix": "ai",
             "icon-class": "ai-phone"
@@ -1968,7 +1966,6 @@
 
     "login-info-password-input": {
       "form-control-class": "form-control-noAddon",
-      "form-label-class" : "",
       "auto-complete-off": true,
       "text-input-id" : "text-input-pw",
       "top-label" : "Passord",
@@ -1993,17 +1990,38 @@
       "input-type" : "text",
       "extra-help" : false,
       "isHidden" : false,
-      "isLarge": false
+      "isLarge": false,
+      "data-required-message": "Feltet må fylles ut",
+      "isRequired": true,
+      "error-message-popover": true,
+      "input-name": "input-validation"
     },
 
-    "login-info-phone-input": {
-      "text-input-id" : "text-input-login-phone",
-      "top-label" : "Mobilnummer",
-      "text-input-placeholder" : "Mobilnummer",
-      "input-type" : "text",
-      "extra-help" : false,
-      "isHidden" : false,
-      "isLarge": false
+    "login-info-email-input": {
+      "text-input-id" : "text-input-login-email",
+      "top-label": "Epost: ",
+      "text-input-placeholder": "f.eks post@karinordmann.no",
+      "input-type": "email",
+      "extra-help": false,
+      "isHidden": false,
+      "isLarge": false,
+      "isValidator": false,
+      "validator-check": false,
+      "has-feedback": false,
+      "validator-pattern": "",
+      "validator-errorMessage": "",
+      "isInput-group": "",
+      "isRequired": true,
+      "error-message-popover": true,
+      "input-name": "email-field",
+      "input-regex-validation": {
+        "error-message": "Feil epost verdier",
+        "validation-pattern": "(('[^']+')|(([a-zA-Z0-9!#$%&'*+-=?^_`{|}~])+(.([a-zA-Z0-9!#$%&'*+-=?^_`{|}~])+)*))@((((([a-zA-Z0-9æøåÆØÅ]([a-zA-Z0-9-æøåÆØÅ]{0,61})[a-zA-Z0-9æøåÆØÅ].)|[a-zA-Z0-9æøåÆØÅ].){1,9})([a-zA-Z]{2,14}))|((d{1,3}).(d{1,3}).(d{1,3}).(d{1,3})))"
+      },
+      "form-label-hasIcon": {
+        "icon-prefix": "ai",
+        "icon-class": "ai-closedmessage"
+      }
     }
   },
   "your-contact-info-unit-panel": {
@@ -2051,7 +2069,6 @@
           "error-message": "Telefonnummer må bestå av 8 siffer",
           "validation-pattern": "\"[0-9]{8}\""
         },
-        "form-label-class" : "input-group-addon a-input-group-addon-phone",
         "form-label-hasIcon" : {
           "icon-prefix": "ai",
           "icon-class" : "ai-phone"
