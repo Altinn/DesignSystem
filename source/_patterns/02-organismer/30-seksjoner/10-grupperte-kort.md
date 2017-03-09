@@ -1,5 +1,5 @@
 ---
-state: arhived
+state: archived
 version: 0
 ---
 

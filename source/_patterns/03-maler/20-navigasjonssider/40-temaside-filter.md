@@ -1,6 +1,5 @@
 ---
-state: archived
-version: 1
+state: needsrevalidation
+version: 0
 ---
-
 Foreløpig ingen retningslinjer.

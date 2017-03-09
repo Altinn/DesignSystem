@@ -1,5 +1,5 @@
 ---
-state: archive
+state: archived
 version: 1
 ---
 Viser hvor mye som gjenstår av en verdi.

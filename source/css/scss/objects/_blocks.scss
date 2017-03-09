@@ -310,6 +310,10 @@
     padding: $spacer * 4 $spacer * 4;
   }
 
+  @include media-breakpoint-up( lg ) {
+    padding: $spacer * 2 89px;
+  }
+
   .a-h3 {
     margin-bottom: $spacer * 2;
 
@@ -319,6 +323,29 @@
 
     span {
       @include a-fontReg;
+    }
+  }
+
+  .a-collapseHeader {
+    &.a-h3 {
+      padding-bottom: 0;
+      margin-bottom: 0;
+
+      a {
+        margin-bottom: 0;
+      }
+    }
+  }
+
+  &.a-card-filter {
+    padding: $spacer * 1.5 $spacer * 1.5;
+
+    @include media-breakpoint-up( sm ) {
+      padding: $spacer * 2 $spacer * 2;
+    }
+
+    @include media-breakpoint-up( lg ) {
+      padding: $spacer * 2 89px;
     }
   }
 
@@ -582,7 +609,11 @@
     }
 
     &:nth-child(odd) {
+      padding-left: $spacer;
       border-right: 1px solid $blue-line;
+      @include media-breakpoint-up( md ) {
+        padding-left: $spacer * 2;
+      }
     }
 
     &:not(:last-of-type) {
@@ -597,8 +628,8 @@
 
     &:first-child {
       padding-right: $spacer;
-      padding-left: $spacer;
-      @include media-breakpoint-up( xl ) {
+
+      @include media-breakpoint-up( md ) {
         padding-left: $spacer;
       }
     }
@@ -616,7 +647,7 @@
 
 .a-articleList {
   .a-linkArticle {
-    padding-bottom: $spacer * 2;
+    padding-bottom: 0;
 
     a {
       @extend .a-fontSizeM;

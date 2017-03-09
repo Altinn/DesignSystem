@@ -1,5 +1,5 @@
 ---
-state: needsrevalidation
+state: indesignreview
 version: 0
 ---
 

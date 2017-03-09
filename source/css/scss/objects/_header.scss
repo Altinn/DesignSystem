@@ -2,6 +2,8 @@
     $HEADER
 \*------------------------------------*/
 
+
+// Header
 .a-header {
   height: $spacer * 9;
   padding-top: $spacer * 3;
@@ -36,8 +38,6 @@
     left: auto;
     z-index: 10;
     width: 320px;
-    padding: 0;
-
 
     @include media-breakpoint-up( sm ) {
       width: 420px;
@@ -233,6 +233,9 @@
     @include media-breakpoint-up( md ) {
       padding-right: 0;
     }
+    @include media-breakpoint-up( lg ) {
+      padding-left: $spacer * 2;
+    }
   }
 }
 
@@ -317,6 +320,8 @@
 .a-dropdown-languages,
 .a-dropdown-personswitchList {
   position: relative;
+  width: 420px;
+  padding: 0;
   color: $black;
   border-radius: 0;
 
@@ -529,8 +534,11 @@
 
   ul {
     float: left;
-    margin-top: -3px;
     list-style: none;
+
+    @include media-breakpoint-up( lg ) {
+      margin-top: -3px;
+    }
 	}
 
   li {
