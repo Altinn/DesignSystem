@@ -170,24 +170,6 @@ textarea {
     top: $spacer * 5;
   }
 
-
-  // VALIDATOR: Icon, Display icon only when feedback
-  .form-control-feedback {
-    @include a-fontSize20;
-    position: absolute;
-    right: $spacer;
-    bottom: 8px;
-    z-index: 9999;
-    display: none;
-    text-align: center;
-    pointer-events: none;
-
-    &.glyphicon-ok,
-    &.glyphicon-remove {
-      display: block;
-    }
-  }
-
   // VALIDATOR: Input has error
   &.has-error {
     // Label
@@ -211,21 +193,8 @@ textarea {
         border-right: none !important;
       }
 
-      &:hover,
-      &:focus {
-        // sass-lint:disable-block no-important
-        box-shadow: none !important;
-      }
     }
 
-    // Icon
-    .form-control-feedback {
-      &::before {
-        content: '\f01d';
-      }
-    }
-
-    // When inside input-group
     .input-group {
       .input-group-addon {
         // sass-lint:disable-block no-important
@@ -237,9 +206,40 @@ textarea {
           // sass-lint:disable-block no-important
           border-left: none !important;
         }
+      }
 
-        &.a-hasButton {
-          border-right: none;
+
+      // Focus state on label and input
+      // JS: If state on input is "focus",
+      // add class to input-group : "a-input-focus".
+      // add dark red color on hover and focus
+      // added setting background to white here, for input-fields that are transparent, but should be white when active.
+      &:hover,
+      &.a-input-focus {
+        .input-group-addon,
+        .form-control,
+        .input-group-btn {
+          // sass-lint:disable-block no-important
+          background-color: $white;
+          border-color: darken( $red, 15% ) !important;
+          box-shadow: none !important;
+        }
+
+        .form-control {
+          &.a-hasIcon {
+            // sass-lint:disable-block no-important
+            border-left: none !important;
+          }
+
+          &.a-hasButton {
+            // sass-lint:disable-block no-important
+            border-right: none !important;
+          }
+        }
+
+        .input-group-btn {
+          // sass-lint:disable-block no-important
+          border-left: none !important;
         }
       }
     }
@@ -250,39 +250,6 @@ textarea {
       display: block;
       margin-bottom: $spacer * 2;
       clear: both;
-    }
-  }
-
-  // VALIDATOR: Input has success
-  &.has-success {
-    .input-group-addon {
-      // sass-lint:disable-block no-important
-      border: 2px solid $green !important;
-    }
-
-    // Input
-    .form-control {
-      // sass-lint:disable-block no-important
-      border: 2px solid $green !important;
-
-      &:hover,
-      &:focus {
-        // sass-lint:disable-block no-important
-        box-shadow: none !important;
-      }
-    }
-
-    // When inside input-group
-    .input-group {
-      .input-group-addon {
-        // sass-lint:disable-block no-important
-        border-right: none !important;
-      }
-
-      .form-control {
-        // sass-lint:disable-block no-important
-        border-left: none !important;
-      }
     }
   }
 
@@ -307,7 +274,6 @@ textarea {
       &.inactive {
         border-color: $black;
       }
-
     }
 
     // input: Hide border left if there is a addon
