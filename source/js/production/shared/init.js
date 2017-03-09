@@ -29,7 +29,7 @@
 
 
 window.sharedInit = function() {
-  // setValidatorSettings();
+  setValidatorSettings();
   addListExpandHandler();
   setupOnKeypress();
   handleFocus();
