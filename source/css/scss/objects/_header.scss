@@ -44,26 +44,6 @@
     }
   }
 
-  .a-dropdown-fullWidth {
-    width: 100% !important;
-    margin-bottom: $spacer * 5;
-    transition: width 0.35s ease;
-
-    .a-btn-shadow {
-      min-height: $spacer * 7;
-
-      &.a-btn-shadow-expand {
-        min-height: $spacer * 5;
-      }
-
-      &.a-btn-shadow-more {
-        .a-btn-icon-text-second {
-          display: inline-block;
-        }
-      }
-    }
-  }
-
   .a-dropdown-languages {
     right: -90px;
     padding: 0;
@@ -115,28 +95,6 @@
         }
       }
     }
-
-    .a-dropdown-footer {
-      display: none;
-    }
-
-    &.a-dropdown-fullWidth {
-      .a-dropdown-footer {
-        display: block;
-      }
-    }
-
-    .a-btn-action {
-      &.a-fullWidthBtn  {
-        span {
-          margin-left: 0;
-        }
-
-        i {
-          margin-left: $spacer;
-        }
-      }
-    }
   }
 }
 
@@ -162,6 +120,10 @@
     border-radius: 0;
 
     @include media-breakpoint-up( sm ) {
+      padding: 13px 8px 0 8px;
+    }
+
+    @include media-breakpoint-up( md ) {
       padding: 10px 8px 0 8px;
     }
 
@@ -363,8 +325,51 @@
   }
 }
 
-// On large version
-.a-dropdown-personswitchList  {
+.a-dropdown-fullWidth {
+  width: 100% !important;
+  margin-bottom: $spacer * 5;
+  transition: width 0.35s ease;
+
+  .a-btn-shadow {
+    min-height: $spacer * 7;
+
+    &.a-btn-shadow-expand {
+      min-height: $spacer * 5;
+    }
+
+    &.a-btn-shadow-more {
+      .a-btn-icon-text-second {
+        display: inline-block;
+      }
+    }
+  }
+}
+
+.a-dropdown-personswitchList {
+
+  .a-dropdown-footer {
+    display: none;
+  }
+
+  &.a-dropdown-fullWidth {
+    .a-dropdown-footer {
+      display: block;
+    }
+  }
+
+  .a-btn-action {
+    &.a-fullWidthBtn  {
+      span {
+        margin-left: 0;
+      }
+
+      i {
+        margin-left: $spacer;
+      }
+    }
+  }
+
+  // On large version
   &.a-dropdown-personswitchList-large {
     &.a-dropdownTriangle {
       &::after {
@@ -374,6 +379,7 @@
     }
   }
 }
+
 
 // When switcher panel is open
 .nav-pills {
