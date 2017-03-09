@@ -1,15 +1,14 @@
 <!-- START: 00-atomer-08-lister-20-liste-opplasting -->
-<ul class="a-item-list-icon {{ styleModifier }}">
+<ul class="a-item-list-icon{{# fileupload-list-extraClass }} {{ fileupload-list-extraClass }}{{/ fileupload-list-extraClass }}">
   {{# item-list }}
-  <li class="{{ item-list-class }}" {{# icon-onclick }} onClick="{{{ icon-onclick }}}" {{/ icon-onclick }} aria-label="{{{ list-item-aria-label }}}">
-    <div class="a-dotted-line-top"></div>
+  <li class="{{ item-list-class }}" tabindex="0" role="button" {{# icon-onclick }} onClick="{{{ icon-onclick }}}" {{/ icon-onclick }} aria-label="{{{ list-item-aria-label }}}">
     <div class="row">
-      <div class="col-11">
+      <div class="col">
         <span class="a-js-listItemText">
             {{{ list-item-text }}}
           </span>
       </div>
-      <div class="col-1">
+      <div class="col-2 text-right">
         {{> atomer-ikon }}
       </div>
     </div>

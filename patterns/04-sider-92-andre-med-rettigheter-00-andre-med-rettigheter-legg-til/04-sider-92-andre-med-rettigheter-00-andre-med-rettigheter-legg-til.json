@@ -13,6 +13,7 @@
 	"icon-sr-only-text": false,
 	"link-text": "En lenke ser slik ut",
 	"link-url": false,
+	"sr-text": false,
 	"help-text-1": "Står du fast? Ring oss på",
 	"is-chat": false,
 	"help-text-2": false,
@@ -23,7 +24,8 @@
 	"help-link-2": {
 		"link-text": "75006000",
 		"link-url": "tel:+4775006000",
-		"data-target": false
+		"data-target": false,
+		"sr-text": "Telefonnummer til Altinn kundestøtte"
 	},
 	"modal-kvittering-content-header": "Nye roller er gitt",
 	"modal-kvittering-content": "<span class='a-fontBold'>JAR JAR BINKS</span> har fått rollene <span class='a-fontBold'>privatperson begrensede rettigheter</span> og <span class='a-fontBold'>regnskapsmedarbeider</span>, for <span class='a-fontBold'>ADMIRAL AKBAR</span>. Lorem ipsum dolores sit amet",
@@ -309,7 +311,6 @@
 			"icon-prefix": "ai",
 			"icon-class": "ai-help"
 		},
-		"form-input-hasButton-class": "a-form-control-withBtn",
 		"form-input-hasButton": {
 			"icon-prefix": "ai",
 			"icon-class": "ai-search",
@@ -874,9 +875,9 @@
 	"collapse-header-class": "",
 	"area-expanded-header": false,
 	"collapsed": true,
-	"collapse-header-contentID": "",
+	"collapse-header-contentID": false,
 	"collapse-header-title": "Dette er en utvidbar tittel med merkelapp <span class='badge badge-primary a-label badge-pill'>1</span> og lang tekst for å teste hvordan det ser ut",
-	"data-target": "departement-filter",
+	"data-target": false,
 	"aria-expanded": false,
 	"filterable-items": {
 		"checkbuttons": [
@@ -929,7 +930,7 @@
 	},
 	"delegation-email-text": "Vent litt... Vi mangler e-postadresse til den du gir rettighet til.<br />For å gjennomføre må du fylle inn e-post under.",
 	"delegation-email-field": {
-		"text-input-id": "text-input-8",
+		"text-input-id": "text-input-klientdelegering-fil",
 		"top-label": "Epost:",
 		"text-input-placeholder": "f.eks post@karinordmann.no",
 		"input-type": "email",
@@ -952,7 +953,6 @@
 			"icon-size": "",
 			"icon-extra-class": ""
 		},
-		"form-input-hasButton-class": "",
 		"form-input-hasButton": false
 	},
 	"delegation-email-submit": {
@@ -1089,9 +1089,10 @@
 	"show-tilgang-tjenester": true,
 	"show-aktivitetslogg": false,
 	"show-local-role": false,
+	"fileupload-list-extraClass": "",
 	"item-list": [
 		{
-			"item-list-class": "a-dotted",
+			"item-list-class": "a-dotted a-selectable",
 			"list-item-text": "klientrolle_delegeringer_30_05_16.csv",
 			"list-item-aria-label": "Fjern fil:",
 			"icon-onclick": "console.log('Dummy fjern opplastet fil');",
@@ -1099,21 +1100,27 @@
 			"icon-class": "tmp-cancel"
 		}
 	],
-	"custom-fileupload-class": "a-btn a-btn-action a-custom-fileupload",
+	"custom-fileupload-class": "a-btn a-btn-action a-custom-fileupload mb-0",
 	"custom-fileupload-input-id": "customFileuploadId",
 	"custom-fileupload-text": "Last opp fil",
 	"required": false,
 	"file-list": {
+		"fileupload-list-extraClass": "a-list a-list-borderTop",
 		"item-list": [
 			{
-				"item-list-class": "a-dotted",
+				"item-list-class": "a-dotted a-selectable",
 				"list-item-text": "klientrolle_delegeringer_30_05_16.csv",
 				"list-item-aria-label": "Fjern fil:",
 				"icon-onclick": "onFileListDeleteClick(this)",
-				"icon-prefix": "tmp",
-				"icon-class": "tmp-cancel"
+				"icon-prefix": "ai",
+				"icon-class": "ai-circle-exit"
 			}
 		]
+	},
+	"file-upload-icon": {
+		"icon-prefix": "ai",
+		"icon-class": "ai-upload",
+		"icon-extra-class": ""
 	},
 	"circle-variation": "a-circle-list-yellow",
 	"circle-list-items": [
@@ -1135,13 +1142,15 @@
 		}
 	],
 	"section-sub-title": "Undertittel i en seksjon",
+	"section-title": "Tittel på seksjon",
 	"file-delegation-title": {
 		"collapse-filter-id": "file-delegation-ID"
 	},
 	"file-delegation-content": {
 		"collapse-header-contentID": "file-delegation-ID",
 		"collapsed": true,
-		"aria-expanded": false
+		"aria-expanded": false,
+		"alt-text": "Illustrasjon av Excel-fil for filopplastning."
 	},
 	"file-delegation-upload": {
 		"required": true
@@ -1157,12 +1166,7 @@
 	"person-role": {
 		"show-success-icon": false
 	},
-	"form-input-hasButton-class": "a-form-control-withBtn",
-	"form-input-hasButton": {
-		"form-input-button-action": "Utfør søk",
-		"icon-prefix": "ai",
-		"icon-class": "ai-search"
-	},
+	"form-input-hasButton": false,
 	"isInput-group": "input-group",
 	"form-label-class": "input-group-addon",
 	"search-algorithm": "show-and-highlight",
@@ -2459,8 +2463,7 @@
 						"validation-pattern": "\"^([0-9]{11})\\s*$|(.*\\D+.*)\""
 					},
 					"form-label-hasIcon": false,
-					"form-input-hasButton": false,
-					"form-input-hasButton-class": ""
+					"form-input-hasButton": false
 				},
 				"etternavn-input": {
 					"text-input-id": "text-etternavn",
@@ -2473,8 +2476,7 @@
 					"isHidden": false,
 					"isLarge": false,
 					"form-label-hasIcon": false,
-					"form-input-hasButton": false,
-					"form-input-hasButton-class": ""
+					"form-input-hasButton": false
 				},
 				"legg-til-knapp": {
 					"button-text": "Neste",
@@ -2507,8 +2509,7 @@
 					"isHidden": false,
 					"isLarge": false,
 					"form-label-hasIcon": false,
-					"form-input-hasButton": false,
-					"form-input-hasButton-class": ""
+					"form-input-hasButton": false
 				},
 				"etternavn-input": {
 					"text-input-id": "text-bedriftnavn",
@@ -2521,8 +2522,7 @@
 					"isHidden": false,
 					"isLarge": false,
 					"form-label-hasIcon": false,
-					"form-input-hasButton": false,
-					"form-input-hasButton-class": ""
+					"form-input-hasButton": false
 				},
 				"legg-til-knapp": {
 					"button-text": "Neste",
@@ -2554,8 +2554,7 @@
 					"isHidden": false,
 					"isLarge": false,
 					"form-label-hasIcon": false,
-					"form-input-hasButton": false,
-					"form-input-hasButton-class": ""
+					"form-input-hasButton": false
 				},
 				"etternavn-input": {
 					"text-input-id": "text-enterpriseuser-orgno",
@@ -2569,8 +2568,7 @@
 					"isHidden": false,
 					"isLarge": false,
 					"form-label-hasIcon": false,
-					"form-input-hasButton": false,
-					"form-input-hasButton-class": ""
+					"form-input-hasButton": false
 				},
 				"legg-til-knapp": {
 					"button-text": "Neste",

@@ -1373,47 +1373,55 @@ var genericSearch = function() {
 //   });
 // };
 
+/* globals mobileNavigation */
 var wasDark = $('header').hasClass('a-darkBackground');
-if ($('body').width() < 768) {
-  $('body').on('mouseup', function(e) {
-    if ($(e.target).closest('.a-globalNav-main').length === 0 &&
+function menuHandler() {
+  if ($('body').width() < 768) {
+    $('body').on('mouseup', function(e) {
+      if ($(e.target).closest('.a-globalNav-main').length === 0 &&
       $(e.target).closest('.navbar-toggler').length === 0) {
-      if ($('.a-globalNav-main').is(':visible')) {
-        $('.navbar-toggler').attr('data-jsexpanded', 'false');
-        $('.a-globalNav-main').hide();
-        $('body').css('background-color', '');
-        if (wasDark) {
-          $('header').addClass('a-darkBackground');
-          $('.a-globalNav-logo').find('img')
+        if ($('.a-globalNav-main').is(':visible')) {
+          $('.navbar-toggler').attr('data-jsexpanded', 'false');
+          $('.a-globalNav-main').hide();
+          $('body').css('background-color', '');
+          if (wasDark) {
+            $('header').addClass('a-darkBackground');
+            $('.a-globalNav-logo').find('img')
             .attr('src', $('.a-globalNav-logo').find('img').attr('src').replace('blue', 'white'));
+          }
+          $('.a-page').children(':not(header)').removeClass('a-js-hidden');
         }
-        $('.a-page').children(':not(header)').removeClass('a-js-hidden');
-      }
-    } else if ($(e.target).closest('.navbar-toggler').length > 0) {
-      if ($('.a-globalNav-main').is(':visible')) {
-        $('.navbar-toggler').attr('data-jsexpanded', 'false');
-        $('.a-globalNav-main').hide();
-        $('body').css('background-color', '');
-        if (wasDark) {
-          $('header').addClass('a-darkBackground');
-          $('.a-globalNav-logo').find('img')
+      } else if ($(e.target).closest('.navbar-toggler').length > 0) {
+        if ($('.a-globalNav-main').is(':visible')) {
+          $('.navbar-toggler').attr('data-jsexpanded', 'false');
+          $('.a-globalNav-main').hide();
+          $('body').css('background-color', '');
+          if (wasDark) {
+            $('header').addClass('a-darkBackground');
+            $('.a-globalNav-logo').find('img')
             .attr('src', $('.a-globalNav-logo').find('img').attr('src').replace('blue', 'white'));
-        }
-        $('.a-page').children(':not(header)').removeClass('a-js-hidden');
-      } else {
-        $('.navbar-toggler').attr('data-jsexpanded', 'true');
-        $('.a-globalNav-main').show();
-        $('body').css('background-color', '#fff');
-        if (wasDark) {
-          $('header').removeClass('a-darkBackground');
-          $('.a-globalNav-logo').find('img')
+          }
+          $('.a-page').children(':not(header)').removeClass('a-js-hidden');
+        } else {
+          $('.navbar-toggler').attr('data-jsexpanded', 'true');
+          $('.a-globalNav-main').show();
+          $('body').css('background-color', '#fff');
+          if (wasDark) {
+            $('header').removeClass('a-darkBackground');
+            $('.a-globalNav-logo').find('img')
             .attr('src', $('.a-globalNav-logo').find('img').attr('src').replace('white', 'blue'));
+          }
+          $('.a-page').children(':not(header)').addClass('a-js-hidden');
         }
-        $('.a-page').children(':not(header)').addClass('a-js-hidden');
       }
-    }
-  });
+    });
+  }
 }
+menuHandler();
+$(window).on('resize', function() {
+  menuHandler();
+  mobileNavigation();
+});
 
 var wasDark = $('header').hasClass('a-darkBackground');
 if ($('.a-js-personSwitcherTriggerOutside').length > 0) {
@@ -1609,11 +1617,25 @@ var cardsToggle = function() {
 };
 
 var onFileInputChange = function() {
+  $('.a-js-fileInputChangeHandler').on('focus', function() {
+    $('.a-js-fileInputChangeHandler').closest('label').addClass('a-custom-fileupload--focused');
+  });
+  $('.a-js-fileInputChangeHandler').on('blur', function() {
+    $('.a-js-fileInputChangeHandler').closest('label').removeClass('a-custom-fileupload--focused');
+  });
+
   $('.a-js-fileInputChangeHandler').on('change', function() {
     var $parent = $(this).parent();
+    var $fileListContainer = $parent.next();
+    var $listItemText = $fileListContainer.find('.a-js-listItemText');
+    var $listItem = $fileListContainer.find('li');
+    var $listItemLabel = $fileListContainer.find('li').attr('aria-label');
+    var fileName = $(this).val().split('\\')[$(this).val().split('\\').length - 1];
+
     $parent.hide();
-    $parent.next().show();
-    $parent.next().find('.a-js-listItemText').text($(this).val().split('\\')[$(this).val().split('\\').length - 1]);
+    $fileListContainer.show();
+    $listItemText.text(fileName);
+    $listItem.attr('aria-label', $listItemLabel + fileName);
   });
 };
 
@@ -1621,7 +1643,7 @@ var onFileListDeleteClick = function(src) {
   var $fileListContainer = $(src).closest('.a-js-fileListContainer');
   $fileListContainer.prev().find('input').val('');
   $fileListContainer.hide();
-  $fileListContainer.prev().show();
+  $fileListContainer.prev().show(); // show file upload btn
 };
 
 /* globals $ */
@@ -2619,7 +2641,7 @@ var setValidatorSettings = function() {
 
 
 window.sharedInit = function() {
-  setValidatorSettings();
+  // setValidatorSettings();
   addListExpandHandler();
   setupOnKeypress();
   handleFocus();

@@ -7462,14 +7462,14 @@ textarea,
       -webkit-font-smoothing: subpixel-antialiased; } }
 
 .a-fontSizeS, h4,
-.a-h4, p, .a-radioButtons .custom-control .a-radioButtons-title, .a-btn, .a-compare-category .a-compare-container p, ul.a-bullet-list li, .a-text, .a-text > a, .a-text > ol.a-circle-list {
+.a-h4, p, .a-radioButtons .custom-control .a-radioButtons-title, .a-btn, .a-compare-category .a-compare-container p, ul.a-bullet-list li, ul.a-item-list-icon li span, .a-text, .a-text > a, .a-text > ol.a-circle-list {
   font-size: 16px;
   font-size: 1.6rem;
   line-height: 1.5;
   -webkit-font-smoothing: subpixel-antialiased; }
   @media (min-width: 768px) {
     .a-fontSizeS, h4,
-    .a-h4, p, .a-radioButtons .custom-control .a-radioButtons-title, .a-btn, .a-compare-category .a-compare-container p, ul.a-bullet-list li, .a-text, .a-text > a, .a-text > ol.a-circle-list {
+    .a-h4, p, .a-radioButtons .custom-control .a-radioButtons-title, .a-btn, .a-compare-category .a-compare-container p, ul.a-bullet-list li, ul.a-item-list-icon li span, .a-text, .a-text > a, .a-text > ol.a-circle-list {
       font-size: 18px;
       font-size: 1.8rem;
       line-height: 1.5;
@@ -7640,22 +7640,6 @@ a,
 @media (min-width: 768px) {
   .a-hvr-underline:hover {
     border-bottom: 3px solid #0062BA; } }
-
-/* Icon resizing */
-.a-bigger-icon.a-bigger-icon-before i {
-  margin-top: -4px; }
-  .a-bigger-icon.a-bigger-icon-before i::before {
-    font-size: 24px;
-    font-size: 2.4rem;
-    line-height: 1.5;
-    -webkit-font-smoothing: subpixel-antialiased; }
-
-.a-bigger-icon.a-bigger-icon-span i {
-  font-size: 24px;
-  font-size: 2.4rem;
-  line-height: 1.5;
-  -webkit-font-smoothing: subpixel-antialiased;
-  margin-top: -3px; }
 
 .a-fullWidthLink {
   position: absolute;
@@ -8615,13 +8599,8 @@ textarea {
     border: 2px solid #0062BA;
     box-shadow: none !important; }
 
-.a-custom-fileupload input[type='file'] {
-  position: absolute;
-  z-index: -1;
-  width: 0.1px;
-  height: 0.1px;
-  overflow: hidden;
-  opacity: 0; }
+.a-custom-fileupload.a-custom-fileupload--focused {
+  background: #CFF0FF; }
 
 .custom-control-input {
   position: absolute;
@@ -8802,8 +8781,7 @@ textarea {
     top: 57px;
     left: auto;
     z-index: 10;
-    width: 320px;
-    padding: 0; }
+    width: 320px; }
     @media (min-width: 576px) {
       .a-header .a-dropdown-languages,
       .a-header .a-dropdown-personswitchList {
@@ -8933,6 +8911,9 @@ textarea {
     @media (min-width: 768px) {
       .a-header-options .a-personSwitcher {
         padding-right: 0; } }
+    @media (min-width: 992px) {
+      .a-header-options .a-personSwitcher {
+        padding-left: 24px; } }
 
 .a-personSwitcher {
   font-family: "DIN-medium";
@@ -9005,6 +8986,8 @@ textarea {
 .a-dropdown-languages,
 .a-dropdown-personswitchList {
   position: relative;
+  width: 420px;
+  padding: 0;
   color: #000000;
   border-radius: 0; }
   .a-dropdown-languages .dropdown-item,
@@ -9155,8 +9138,10 @@ textarea {
       transform: rotate(-180deg); }
   .a-globalNav-main ul {
     float: left;
-    margin-top: -3px;
     list-style: none; }
+    @media (min-width: 992px) {
+      .a-globalNav-main ul {
+        margin-top: -3px; } }
   .a-globalNav-main li {
     float: left;
     width: 100%;
@@ -9718,6 +9703,11 @@ textarea {
   line-height: 1.5;
   -webkit-font-smoothing: subpixel-antialiased;
   padding: 0;
+  margin: 0;
+  margin-bottom: 12px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
   background: transparent; }
   @media (min-width: 768px) {
     .a-breadcrumb {
@@ -9730,7 +9720,8 @@ textarea {
     line-height: 36px; }
     @media (min-width: 768px) {
       .a-breadcrumb li {
-        display: block; } }
+        display: inline;
+        float: none; } }
     .a-breadcrumb li a {
       font-size: 16px;
       font-size: 1.6rem;
@@ -11003,11 +10994,27 @@ textarea {
   @media (min-width: 768px) {
     .a-card {
       padding: 48px 48px; } }
+  @media (min-width: 992px) {
+    .a-card {
+      padding: 24px 89px; } }
   .a-card .a-h3, .a-card .a-h3 a {
     margin-bottom: 24px; }
     .a-card .a-h3 span {
       font-family: "DIN-reg";
       font-weight: normal; }
+  .a-card .a-collapseHeader.a-h3, .a-card .a-h3 a.a-collapseHeader {
+    padding-bottom: 0;
+    margin-bottom: 0; }
+    .a-card .a-collapseHeader.a-h3 a, .a-card .a-h3 a.a-collapseHeader a {
+      margin-bottom: 0; }
+  .a-card.a-card-filter {
+    padding: 18px 18px; }
+    @media (min-width: 576px) {
+      .a-card.a-card-filter {
+        padding: 24px 24px; } }
+    @media (min-width: 992px) {
+      .a-card.a-card-filter {
+        padding: 24px 89px; } }
   .a-card.transparent {
     background: transparent;
     box-shadow: none; }
@@ -11179,14 +11186,17 @@ textarea {
   .a-compare-category .a-compare-container:not(:nth-of-type) {
     border-right: 1px solid #A5BCC4; }
   .a-compare-category .a-compare-container:nth-child(odd) {
+    padding-left: 12px;
     border-right: 1px solid #A5BCC4; }
+    @media (min-width: 768px) {
+      .a-compare-category .a-compare-container:nth-child(odd) {
+        padding-left: 24px; } }
   @media (min-width: 768px) {
     .a-compare-category .a-compare-container:not(:last-of-type) {
       border-right: 1px solid #A5BCC4; } }
   .a-compare-category .a-compare-container:first-child {
-    padding-right: 12px;
-    padding-left: 12px; }
-    @media (min-width: 1200px) {
+    padding-right: 12px; }
+    @media (min-width: 768px) {
       .a-compare-category .a-compare-container:first-child {
         padding-left: 12px; } }
   @media (min-width: 1200px) {
@@ -11197,7 +11207,7 @@ textarea {
   padding-bottom: 36px; }
 
 .a-articleList .a-linkArticle {
-  padding-bottom: 24px; }
+  padding-bottom: 0; }
 
 /*
   General list
@@ -11255,7 +11265,7 @@ textarea {
     line-height: 1.5;
     -webkit-font-smoothing: subpixel-antialiased;
     padding: 8px 6px; }
-  .a-list.a-dottedFirst li:first-child {
+  .a-list.a-list-borderTop li:first-child {
     background-image: linear-gradient(to right, #1EAEF7 50%, transparent 0%), linear-gradient(to right, #1EAEF7 50%, transparent 0%);
     background-repeat: repeat-x;
     background-position: 25px top, 25px bottom;
@@ -11435,23 +11445,16 @@ ul {
         /* last li's line */
         height: 6px;
         /* shorten the line so it goes only up to the bullet. Is equal to first-child:before's top */ }
-  ul.a-item-list-icon {
-    padding-right: 0;
-    margin-bottom: -1px;
-    margin-left: 0;
-    list-style-type: none; }
-    ul.a-item-list-icon li {
-      padding: 0 0 12px 0; }
-      ul.a-item-list-icon li:hover {
-        cursor: pointer;
-        background-color: #CFF0FF; }
-      ul.a-item-list-icon li .a-dotted-line-top {
-        margin-bottom: 12px; }
-      ul.a-item-list-icon li i {
-        float: right;
-        margin-right: 12px;
-        color: #1EAEF7;
-        cursor: pointer; }
+  ul.a-item-list-icon li {
+    padding: 2px 0; }
+    ul.a-item-list-icon li:hover {
+      cursor: pointer;
+      background-color: #CFF0FF; }
+    ul.a-item-list-icon li div[class^='col'] {
+      overflow: hidden;
+      text-overflow: ellipsis; }
+    ul.a-item-list-icon li i {
+      color: #1EAEF7; }
 
 /*------------------------------------*    Ordered list with circled numbers
     with regular or yellow dots
@@ -14341,14 +14344,14 @@ textarea,
       -webkit-font-smoothing: subpixel-antialiased; } }
 
 .a-fontSizeS, h4,
-.a-h4, p, .a-radioButtons .custom-control .a-radioButtons-title, .a-btn, .a-compare-category .a-compare-container p, ul.a-bullet-list li, .a-text, .a-text > a, .a-text > ol.a-circle-list {
+.a-h4, p, .a-radioButtons .custom-control .a-radioButtons-title, .a-btn, .a-compare-category .a-compare-container p, ul.a-bullet-list li, ul.a-item-list-icon li span, .a-text, .a-text > a, .a-text > ol.a-circle-list {
   font-size: 16px;
   font-size: 1.6rem;
   line-height: 1.5;
   -webkit-font-smoothing: subpixel-antialiased; }
   @media (min-width: 768px) {
     .a-fontSizeS, h4,
-    .a-h4, p, .a-radioButtons .custom-control .a-radioButtons-title, .a-btn, .a-compare-category .a-compare-container p, ul.a-bullet-list li, .a-text, .a-text > a, .a-text > ol.a-circle-list {
+    .a-h4, p, .a-radioButtons .custom-control .a-radioButtons-title, .a-btn, .a-compare-category .a-compare-container p, ul.a-bullet-list li, ul.a-item-list-icon li span, .a-text, .a-text > a, .a-text > ol.a-circle-list {
       font-size: 18px;
       font-size: 1.8rem;
       line-height: 1.5;

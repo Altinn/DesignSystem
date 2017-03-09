@@ -4,22 +4,10 @@
 	"button-disabled": false,
 	"button-type": "button",
 	"link-url-start": false,
-	"link-url": false,
+	"link-url": "/patterns/04-sider-01-forside-00-forside/04-sider-01-forside-00-forside.html",
 	"link-url-end": false,
 	"button-icon": false,
 	"display-as-link": true,
-	"icon-prefix": "ai",
-	"icon-class": "ai-deadline",
-	"icon-size": "",
-	"icon-extra-class": "",
-	"icon-text": "",
-	"icon-id": false,
-	"sr-only": false,
-	"aria-hidden": false,
-	"icon-pre-text": false,
-	"icon-post-text": false,
-	"icon-title": false,
-	"icon-sr-only-text": false,
 	"print-form-tag": true,
 	"text-input-id": "text-input-generic",
 	"isHidden": true,
@@ -38,9 +26,22 @@
 		"icon-extra-class": ""
 	},
 	"input-name": "input-field",
+	"icon-prefix": "ai",
+	"icon-class": "ai-deadline",
+	"icon-size": "",
+	"icon-extra-class": "",
+	"icon-text": "",
+	"icon-id": false,
+	"sr-only": false,
+	"aria-hidden": false,
+	"icon-pre-text": false,
+	"icon-post-text": false,
+	"icon-title": false,
+	"icon-sr-only-text": false,
+	"fileupload-list-extraClass": "",
 	"item-list": [
 		{
-			"item-list-class": "a-dotted",
+			"item-list-class": "a-dotted a-selectable",
 			"list-item-text": "klientrolle_delegeringer_30_05_16.csv",
 			"list-item-aria-label": "Fjern fil:",
 			"icon-onclick": "console.log('Dummy fjern opplastet fil');",
@@ -48,23 +49,30 @@
 			"icon-class": "tmp-cancel"
 		}
 	],
-	"custom-fileupload-class": "a-btn a-btn-action a-custom-fileupload",
+	"custom-fileupload-class": "a-btn a-btn-action a-custom-fileupload mb-0",
 	"custom-fileupload-input-id": "customFileuploadId",
 	"custom-fileupload-text": "Last opp fil",
 	"required": false,
 	"file-list": {
+		"fileupload-list-extraClass": "a-list a-list-borderTop",
 		"item-list": [
 			{
-				"item-list-class": "a-dotted",
+				"item-list-class": "a-dotted a-selectable",
 				"list-item-text": "klientrolle_delegeringer_30_05_16.csv",
 				"list-item-aria-label": "Fjern fil:",
 				"icon-onclick": "onFileListDeleteClick(this)",
-				"icon-prefix": "tmp",
-				"icon-class": "tmp-cancel"
+				"icon-prefix": "ai",
+				"icon-class": "ai-circle-exit"
 			}
 		]
 	},
+	"file-upload-icon": {
+		"icon-prefix": "ai",
+		"icon-class": "ai-upload",
+		"icon-extra-class": ""
+	},
 	"link-text": "En lenke ser slik ut",
+	"sr-text": false,
 	"circle-variation": "a-circle-list-yellow",
 	"circle-list-items": [
 		{
@@ -89,20 +97,22 @@
 	"show-arrow": true,
 	"no-decoration": true,
 	"section-sub-title": "Undertittel i en seksjon",
+	"section-title": "Tittel på seksjon",
 	"file-delegation-title": {
 		"collapse-filter-id": "file-delegation-ID"
 	},
 	"file-delegation-content": {
 		"collapse-header-contentID": "file-delegation-ID",
 		"collapsed": true,
-		"aria-expanded": false
+		"aria-expanded": false,
+		"alt-text": "Illustrasjon av Excel-fil for filopplastning."
 	},
 	"file-delegation-upload": {
 		"required": true
 	},
 	"modal-discard": {},
 	"delegation-email-field": {
-		"text-input-id": "text-input-8",
+		"text-input-id": "text-input-klientdelegering-fil",
 		"top-label": "Epost:",
 		"text-input-placeholder": "f.eks post@karinordmann.no",
 		"input-type": "email",
@@ -120,7 +130,6 @@
 			"icon-size": "",
 			"icon-extra-class": ""
 		},
-		"form-input-hasButton-class": "",
 		"form-input-hasButton": false
 	},
 	"file-delegation-done": {
@@ -133,86 +142,21 @@
 	"ferdigsegment-done": {
 		"button-text": "Ferdig",
 		"button-class": "a-btn a-btn-success",
-		"button-id": "confirm-deletion",
 		"data-toggle": "collapse",
 		"data-target": "#eksempelID2",
-		"aria-expanded": false
+		"aria-expanded": false,
+		"button-id": "confirm-deletion"
 	},
 	"ferdigsegment-cancel": {
 		"button-text": "Avbryt",
 		"button-class": "a-btn-link",
 		"display-as-link": true,
-		"button-id": "cancel-deletion",
 		"margin-right-multiplier": 3,
 		"data-toggle": "collapse",
 		"data-target": "#eksempelID2",
-		"aria-expanded": false
+		"aria-expanded": false,
+		"button-id": "cancel-deletion"
 	},
-	"checkbuttons": [
-		{
-			"checkbuttons-title": " Kun lese",
-			"checkbuttons-id": "checkbutton-read",
-			"checkbuttons-class": "",
-			"hasIcon": {
-				"icon-prefix": "ai",
-				"icon-class": "ai-read"
-			}
-		},
-		{
-			"checkbuttons-title": " Fylle ut",
-			"checkbuttons-id": "checkbutton-edit",
-			"checkbuttons-class": "",
-			"hasIcon": {
-				"icon-prefix": "ai",
-				"icon-class": "ai-write"
-			}
-		},
-		{
-			"checkbuttons-title": " Signere",
-			"checkbuttons-id": "checkbutton-sign",
-			"checkbuttons-class": "",
-			"hasIcon": {
-				"icon-prefix": "ai",
-				"icon-class": "ai-sign"
-			}
-		},
-		{
-			"checkbuttons-title": " Toggle state icon",
-			"checkbuttons-id": "checkbutton-toggle",
-			"checkbuttons-class": "a-toggle-icon",
-			"hasIcon": {
-				"icon-prefix": "ai",
-				"icon-class": "ai-plus"
-			},
-			"checkbuttons-toggle-icon": {
-				"checkbuttons-class": "a-toggle-icon",
-				"icon-prefix": "ai",
-				"icon-class": "ai-exit"
-			}
-		},
-		{
-			"checkbuttons-title": "Eksempel uten ikon",
-			"checkbuttons-id": "checkbutton-example",
-			"checkbuttons-class": "",
-			"hasIcon": false
-		},
-		{
-			"checkbuttons-title": "Eksempel på deaktivert",
-			"checkbuttons-id": "checkbutton-deactivated",
-			"checkbuttons-class": "disabled",
-			"isDisabled": true,
-			"hasIcon": {
-				"icon-prefix": "ai",
-				"icon-class": "ai-sign"
-			}
-		},
-		{
-			"checkbuttons-title": "Eksempel med veldig veldig veldig lang tekst som blir kuttet av på mobilvisning",
-			"checkbuttons-id": "checkbutton-longtext",
-			"checkbuttons-class": "",
-			"hasIcon": false
-		}
-	],
 	"sortable-action-text": "Velg roller den ansatte skal ha:",
 	"sortable-action-items": {
 		"checkbuttons": [
@@ -346,12 +290,7 @@
 	"person-role": {
 		"show-success-icon": false
 	},
-	"form-input-hasButton-class": "a-form-control-withBtn",
-	"form-input-hasButton": {
-		"form-input-button-action": "Utfør søk",
-		"icon-prefix": "ai",
-		"icon-class": "ai-search"
-	},
+	"form-input-hasButton": false,
 	"isInput-group": "input-group",
 	"form-label-class": "input-group-addon",
 	"search-algorithm": "show-and-highlight",
@@ -1409,18 +1348,13 @@
 			}
 		]
 	},
+	"displayTabs": true,
+	"tab-heading": "Tab heading",
 	"tab-items": [
 		{
 			"tab-active": true,
 			"tab-href": "home",
-			"tab-icon": {
-				"0": "p",
-				"1": "e",
-				"2": "o",
-				"3": "p",
-				"4": "l",
-				"5": "e"
-			},
+			"tab-icon": "people",
 			"tab-title": "Person",
 			"section-sub-title": "Hvem vil du legge til?",
 			"add-rightholder-heading": "Hvem vil du legge til?",
@@ -1464,24 +1398,10 @@
 			}
 		},
 		{
-			"tab-href": "enterprise",
-			"tab-icon": {
-				"0": "l",
-				"1": "o",
-				"2": "c",
-				"3": "a",
-				"4": "t",
-				"5": "i",
-				"6": "o",
-				"7": "n",
-				"8": "_",
-				"9": "c",
-				"10": "i",
-				"11": "t",
-				"12": "y"
-			},
-			"tab-title": "Ekstern virksomhet",
 			"tab-active": false,
+			"tab-href": "enterprise",
+			"tab-icon": "location_city",
+			"tab-title": "Ekstern virksomhet",
 			"section-sub-title": "Hvem vil du legge til?",
 			"add-rightholder-heading": "Hvem vil du legge til?",
 			"personnummer-input": {
@@ -1517,24 +1437,10 @@
 			}
 		},
 		{
-			"tab-href": "enterpriseuser",
-			"tab-icon": {
-				"0": "v",
-				"1": "e",
-				"2": "r",
-				"3": "i",
-				"4": "f",
-				"5": "i",
-				"6": "e",
-				"7": "d",
-				"8": "_",
-				"9": "u",
-				"10": "s",
-				"11": "e",
-				"12": "r"
-			},
-			"tab-title": "Bruker med virksomhetssertifikat",
 			"tab-active": false,
+			"tab-href": "enterpriseuser",
+			"tab-icon": "verified_user",
+			"tab-title": "Bruker med virksomhetssertifikat",
 			"section-sub-title": "Hvem vil du legge til?",
 			"add-rightholder-heading": "Hvem vil du legge til?",
 			"personnummer-input": {
@@ -1568,8 +1474,6 @@
 			}
 		}
 	],
-	"displayTabs": true,
-	"tab-heading": "Tab heading",
 	"backup": {
 		"title": "Altinn",
 		"bodyClass": "a-modal-background-success",

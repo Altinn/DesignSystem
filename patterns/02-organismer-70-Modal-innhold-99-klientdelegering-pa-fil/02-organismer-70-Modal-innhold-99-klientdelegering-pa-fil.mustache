@@ -2,7 +2,7 @@
 <div class="modal-body a-modal-body">
   <div class="py-2">
     <form data-toggle="validator">
-      {{# file-delegation-first-header }} {{> atomer-undertittel:mb-1 }} {{/ file-delegation-first-header }}
+      {{# file-delegation-first-header }} {{> atomer-seksjonstittel:mb-1|a-h3 }} {{/ file-delegation-first-header }}
       <div class="mb-3">
         {{{ file-delegation-intro-text }}} {{# file-delegation-normal-delegation-link }} {{> atomer-link }} {{/ file-delegation-normal-delegation-link }}
       </div>
@@ -10,45 +10,41 @@
       <div class="mb-1">
         {{# file-delegation-second-header }} {{> atomer-undertittel:a-fontReg }} {{/ file-delegation-second-header }}
       </div>
-      <div class="mb-3 a-bigger-icon a-bigger-icon-before">
+      <div class="mb-3">
         {{> atomer-handlingsknapp(icon-prefix: "ai", icon-class:"ai-download", icon-extra-class: "", button-class: "a-btn a-btn-action", action-button-icon: "", action-button-text: "Last ned fil") }}
       </div>
 
       <div class="mb-1">
         {{# file-delegation-third-header }} {{> atomer-undertittel:a-fontReg }} {{/ file-delegation-third-header }}
       </div>
-      {{# file-delegation-title }}
-      <div class="mt-1 mb-1">
-        {{> atomer-ekspanderbar-tekst:a-fontBold }}
-      </div>
-      {{/ file-delegation-title }}
+      {{# file-delegation-title }} {{> atomer-ekspanderbar-tekst:a-fontBold }} {{/ file-delegation-title }}
 
-      <div class="mb-3">
+      <div class="mt-1 mb-4">
         {{# file-delegation-content }}
 
-        <div id="{{ collapse-header-contentID }}" class="a-collapseContent collapse" aria-expanded="{{ aria-expanded }}">
-          <img src="../../images/sikksakk.png" class="mb-2" /> {{> atomer-liste-nummerert-sirkel-gul }}
+        <div id="{{ collapse-header-contentID }}" class="a-collapseContent collapse" aria-expanded="{{ aria-expanded }}" role="group">
+          <img src="../../images/sikksakk.png" class="mb-2" alt="{{ alt-text }}" /> {{> atomer-liste-nummerert-sirkel-gul }}
         </div>
 
         {{/ file-delegation-content }}
 
       </div>
 
-      <div class="mt-4 mb-1 ">
+      <div class="mb-1">
         {{# file-delegation-fourth-header }} {{> atomer-undertittel:a-fontReg }} {{/ file-delegation-fourth-header }}
       </div>
 
-      <div class="mb-3 a-bigger-icon a-bigger-icon-span">
+      <div class="mb-4">
         {{# file-delegation-upload }} {{> atomer-fileupload }} {{/ file-delegation-upload }}
       </div>
 
-      <div class="mt-4 mb-1 ">
+      <div class="mb-1">
         {{# file-delegation-fifth-header }} {{> atomer-undertittel:a-fontReg }} {{/ file-delegation-fifth-header }}
       </div>
 
       {{# delegation-email-field }}
       <div class="row">
-        <div class="col-12 col-md-8 col-xl-6 mb-1">
+        <div class="col-12 col-md-8 col-xl-6 mb-2">
           {{> atomer-tekst-input }}
         </div>
       </div>
