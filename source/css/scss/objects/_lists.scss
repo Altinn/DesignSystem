@@ -92,7 +92,7 @@
     }
   }
 
-  &.a-dottedFirst {
+  &.a-list-borderTop {
     li {
       &:first-child {
         background-image: $dotted-border-blue, $dotted-border-blue;
@@ -426,28 +426,28 @@ ul {
   }
 
   &.a-item-list-icon {
-    padding-right: 0;
-    margin-bottom: -1px;
-    margin-left: 0;
-    list-style-type: none;
 
     li {
-      padding: 0 0 $spacer 0;
+      padding: 2px 0;
 
       &:hover {
         cursor: pointer;
         background-color: $blue-light;
       }
 
-      .a-dotted-line-top {
-        margin-bottom: $spacer;
+      div {
+        &[class^='col'] {
+          overflow: hidden;
+          text-overflow: ellipsis;
+        }
       }
 
       i {
-        float: right;
-        margin-right: $spacer;
         color: $blue;
-        cursor: pointer;
+      }
+
+      span {
+        @extend .a-fontSizeS;
       }
     }
   }
