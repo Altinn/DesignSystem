@@ -713,7 +713,7 @@ var setValidatorSettings = function() {
 
 
 window.sharedInit = function() {
-  // setValidatorSettings();
+  setValidatorSettings();
   addListExpandHandler();
   setupOnKeypress();
   handleFocus();

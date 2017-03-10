@@ -8094,20 +8094,6 @@ textarea {
   .a-form-group .a-message-absolute {
     position: absolute;
     top: 60px; }
-  .a-form-group .form-control-feedback {
-    font-size: 20px;
-    font-size: 2rem;
-    line-height: 1.5;
-    -webkit-font-smoothing: subpixel-antialiased;
-    position: absolute;
-    right: 12px;
-    bottom: 8px;
-    z-index: 9999;
-    display: none;
-    text-align: center;
-    pointer-events: none; }
-    .a-form-group .form-control-feedback.glyphicon-ok, .a-form-group .form-control-feedback.glyphicon-remove {
-      display: block; }
   .a-form-group.has-error .input-group-addon {
     border: 2px solid #E23B53 !important; }
   .a-form-group.has-error .input-group-btn {
@@ -8116,32 +8102,30 @@ textarea {
     border: 2px solid #E23B53 !important; }
     .a-form-group.has-error .form-control.a-hasButton {
       border-right: none !important; }
-    .a-form-group.has-error .form-control:hover, .a-form-group.has-error .form-control:focus {
-      box-shadow: none !important; }
-  .a-form-group.has-error .form-control-feedback::before {
-    content: '\f01d'; }
   .a-form-group.has-error .input-group .input-group-addon {
     border-right: none !important; }
   .a-form-group.has-error .input-group .form-control.a-hasIcon {
     border-left: none !important; }
-  .a-form-group.has-error .input-group .form-control.a-hasButton {
-    border-right: none; }
+  .a-form-group.has-error .input-group:hover .input-group-addon,
+  .a-form-group.has-error .input-group:hover .form-control,
+  .a-form-group.has-error .input-group:hover .input-group-btn, .a-form-group.has-error .input-group.a-input-focus .input-group-addon,
+  .a-form-group.has-error .input-group.a-input-focus .form-control,
+  .a-form-group.has-error .input-group.a-input-focus .input-group-btn {
+    background-color: #FFFFFF;
+    border-color: #b61b31 !important;
+    box-shadow: none !important; }
+  .a-form-group.has-error .input-group:hover .form-control.a-hasIcon, .a-form-group.has-error .input-group.a-input-focus .form-control.a-hasIcon {
+    border-left: none !important; }
+  .a-form-group.has-error .input-group:hover .form-control.a-hasButton, .a-form-group.has-error .input-group.a-input-focus .form-control.a-hasButton {
+    border-right: none !important; }
+  .a-form-group.has-error .input-group:hover .input-group-btn, .a-form-group.has-error .input-group.a-input-focus .input-group-btn {
+    border-left: none !important; }
   .a-form-group.has-error .a-message {
     position: absolute;
     z-index: 9999;
     display: block;
     margin-bottom: 24px;
     clear: both; }
-  .a-form-group.has-success .input-group-addon {
-    border: 2px solid #17C96B !important; }
-  .a-form-group.has-success .form-control {
-    border: 2px solid #17C96B !important; }
-    .a-form-group.has-success .form-control:hover, .a-form-group.has-success .form-control:focus {
-      box-shadow: none !important; }
-  .a-form-group.has-success .input-group .input-group-addon {
-    border-right: none !important; }
-  .a-form-group.has-success .input-group .form-control {
-    border-left: none !important; }
   .a-form-group .input-group .input-group-addon {
     font-size: 16px;
     font-size: 1.6rem;
@@ -8786,16 +8770,6 @@ textarea {
       .a-header .a-dropdown-languages,
       .a-header .a-dropdown-personswitchList {
         width: 420px; } }
-  .a-header .a-dropdown-fullWidth {
-    width: 100% !important;
-    margin-bottom: 60px;
-    transition: width 0.35s ease; }
-    .a-header .a-dropdown-fullWidth .a-btn-shadow {
-      min-height: 84px; }
-      .a-header .a-dropdown-fullWidth .a-btn-shadow.a-btn-shadow-expand {
-        min-height: 60px; }
-      .a-header .a-dropdown-fullWidth .a-btn-shadow.a-btn-shadow-more .a-btn-icon-text-second {
-        display: inline-block; }
   .a-header .a-dropdown-languages {
     right: -90px;
     padding: 0; }
@@ -8832,14 +8806,6 @@ textarea {
       @media (min-width: 768px) {
         .a-header .a-dropdown-personswitchList.a-dropdownTriangle::after {
           right: 3px; } }
-    .a-header .a-dropdown-personswitchList .a-dropdown-footer {
-      display: none; }
-    .a-header .a-dropdown-personswitchList.a-dropdown-fullWidth .a-dropdown-footer {
-      display: block; }
-    .a-header .a-dropdown-personswitchList .a-btn-action.a-fullWidthBtn span {
-      margin-left: 0; }
-    .a-header .a-dropdown-personswitchList .a-btn-action.a-fullWidthBtn i {
-      margin-left: 12px; }
 
 .a-header-options {
   position: absolute;
@@ -8859,6 +8825,9 @@ textarea {
     padding: 12px 8px 0 8px;
     border-radius: 0; }
     @media (min-width: 576px) {
+      .a-header-options .nav-link {
+        padding: 13px 8px 0 8px; } }
+    @media (min-width: 768px) {
       .a-header-options .nav-link {
         padding: 10px 8px 0 8px; } }
     @media (min-width: 992px) {
@@ -9021,6 +8990,29 @@ textarea {
     right: 36px;
     padding-bottom: 0;
     line-height: 19px; }
+
+.a-dropdown-fullWidth {
+  width: 100% !important;
+  margin-bottom: 60px;
+  transition: width 0.35s ease; }
+  .a-dropdown-fullWidth .a-btn-shadow {
+    min-height: 84px; }
+    .a-dropdown-fullWidth .a-btn-shadow.a-btn-shadow-expand {
+      min-height: 60px; }
+    .a-dropdown-fullWidth .a-btn-shadow.a-btn-shadow-more .a-btn-icon-text-second {
+      display: inline-block; }
+
+.a-dropdown-personswitchList .a-dropdown-footer {
+  display: none; }
+
+.a-dropdown-personswitchList.a-dropdown-fullWidth .a-dropdown-footer {
+  display: block; }
+
+.a-dropdown-personswitchList .a-btn-action.a-fullWidthBtn span {
+  margin-left: 0; }
+
+.a-dropdown-personswitchList .a-btn-action.a-fullWidthBtn i {
+  margin-left: 12px; }
 
 .a-dropdown-personswitchList.a-dropdown-personswitchList-large.a-dropdownTriangle::after {
   right: 15px;
@@ -10996,7 +10988,7 @@ textarea {
       padding: 48px 48px; } }
   @media (min-width: 992px) {
     .a-card {
-      padding: 24px 89px; } }
+      padding: 48px 89px; } }
   .a-card .a-h3, .a-card .a-h3 a {
     margin-bottom: 24px; }
     .a-card .a-h3 span {
@@ -11204,7 +11196,7 @@ textarea {
       padding: 0 24px; } }
 
 .a-linkArticle {
-  padding-bottom: 36px; }
+  padding-bottom: 24px; }
 
 .a-articleList .a-linkArticle {
   padding-bottom: 0; }

@@ -298,8 +298,7 @@
 		"extra-help": false,
 		"isHidden": false,
 		"isLarge": false,
-		"has-feedback": false,
-		"form-label-class": ""
+		"has-feedback": false
 	},
 	"local-role-service-search": {
 		"text-input-id": "text-input-find-13",
@@ -367,6 +366,7 @@
 				"text-input-placeholder": "11 siffer",
 				"input-type": "text",
 				"isRequired": true,
+				"error-message-popover": true,
 				"extra-help": false,
 				"isHidden": false,
 				"isLarge": false,
@@ -382,6 +382,7 @@
 				"text-input-placeholder": "",
 				"input-type": "text",
 				"isRequired": true,
+				"error-message-popover": true,
 				"margin-override": "mb-0",
 				"extra-help": false,
 				"isHidden": false,
@@ -391,7 +392,6 @@
 					"error-message": "Personnummer må bestå av 11 siffer."
 				},
 				"isInput-group": "input-group",
-				"form-label-class": "input-group-addon",
 				"form-label-hasIcon": false
 			},
 			"legg-til-knapp": {
@@ -428,11 +428,11 @@
 				"text-input-placeholder": "",
 				"input-type": "text",
 				"isRequired": true,
+				"error-message-popover": true,
 				"extra-help": false,
 				"isHidden": false,
 				"isLarge": false,
 				"isInput-group": "input-group",
-				"form-label-class": "input-group-addon",
 				"form-label-hasIcon": false
 			},
 			"etternavn-input": {
@@ -441,6 +441,7 @@
 				"text-input-placeholder": "Min. 4 første tegn",
 				"input-type": "text",
 				"isRequired": true,
+				"error-message-popover": true,
 				"margin-override": "mb-0",
 				"extra-help": false,
 				"isHidden": false,
@@ -480,6 +481,7 @@
 				"text-input-placeholder": "",
 				"input-type": "text",
 				"isRequired": true,
+				"error-message-popover": true,
 				"extra-help": false,
 				"isHidden": false,
 				"isLarge": false,
@@ -492,6 +494,7 @@
 				"text-input-placeholder": "",
 				"input-type": "text",
 				"isRequired": true,
+				"error-message-popover": true,
 				"margin-override": "mb-0",
 				"extra-help": false,
 				"isHidden": false,
@@ -931,11 +934,12 @@
 	"delegation-email-text": "Vent litt... Vi mangler e-postadresse til den du gir rettighet til.<br />For å gjennomføre må du fylle inn e-post under.",
 	"delegation-email-field": {
 		"text-input-id": "text-input-klientdelegering-fil",
-		"top-label": "Epost:",
+		"top-label": "Epost",
 		"text-input-placeholder": "f.eks post@karinordmann.no",
 		"input-type": "email",
 		"isRequired": true,
-		"isHidden": false,
+		"error-message-popover": true,
+		"isHidden": true,
 		"input-regex-validation": {
 			"error-message": "Feil epost verdier",
 			"validation-pattern": "(('[^']+')|(([a-zA-Z0-9!#$%&'*+-=?^_`{|}~])+(.([a-zA-Z0-9!#$%&'*+-=?^_`{|}~])+)*))@((((([a-zA-Z0-9æøåÆØÅ]([a-zA-Z0-9-æøåÆØÅ]{0,61})[a-zA-Z0-9æøåÆØÅ].)|[a-zA-Z0-9æøåÆØÅ].){1,9})([a-zA-Z]{2,14}))|((d{1,3}).(d{1,3}).(d{1,3}).(d{1,3})))"
@@ -1168,7 +1172,6 @@
 	},
 	"form-input-hasButton": false,
 	"isInput-group": "input-group",
-	"form-label-class": "input-group-addon",
 	"search-algorithm": "show-and-highlight",
 	"search-target": "employee-table",
 	"table-actions-id": "employee-table",
@@ -2422,7 +2425,7 @@
 				"icon-prefix": "ai",
 				"icon-class": "ai-back",
 				"icon-extra-class": "a-modal-back-icon",
-				"button-onclick": "onclick=\"location.href='/patterns/04-sider-92-andre-med-rettigheter-00-andre-med-rettigheter-tildel-roller/04-sider-92-andre-med-rettigheter-00-andre-med-rettigheter-tildel-roller.html'\"\""
+				"button-onclick": "onclick=\"location.href='/patterns/04-sider-92-andre-med-rettigheter-00-andre-med-rettigheter-tildel-roller/04-sider-92-andre-med-rettigheter-00-andre-med-rettigheter-tildel-roller.html'\""
 			},
 			{
 				"button-class": "a-modal-close",
@@ -2437,37 +2440,48 @@
 	"is-link": false,
 	"others-with-rights": {
 		"variation-class": "",
-		"show-missing-email": true,
-		"delegation-email-header-text": {
-			"hasIcon": false,
-			"hasTextSmall": true,
-			"textSmall": "Du deler rettigheter til Julius Andreas Gimli Arn MacGyver Chewbacka Highlander Elessar-Jankov for:",
-			"icontext": "A-melding (RF0123)",
-			"isHeader": false
-		},
-		"delegation-email-text": "Vent litt... Vi mangler e-postadresse til den du gir rettighet til.<br />For å gjennomføre må du fylle inn e-post under.",
-		"delegation-email-field": {
-			"text-input-id": "text-input-andre-med-rett",
-			"top-label": "Epost:",
-			"text-input-placeholder": "f.eks post@karinordmann.no",
-			"input-type": "email",
-			"isRequired": true,
-			"extra-help": false,
-			"isHidden": false,
-			"isLarge": false,
-			"form-label-hasIcon": {
-				"icon-prefix": "ai",
-				"icon-class": "ai-closedmessage",
-				"icon-size": "",
-				"icon-extra-class": ""
+		"show-missing-email": {
+			"delegation-email-header-text": {
+				"hasIcon": false,
+				"hasTextSmall": true,
+				"textSmall": "Du deler rettigheter til Julius Andreas Gimli Arn MacGyver Chewbacka Highlander Elessar-Jankov for:",
+				"icontext": "A-melding (RF0123)",
+				"isHeader": false
 			},
-			"form-input-hasButton": false
-		},
-		"delegation-email-submit": {
-			"button-text": "Fullfør",
-			"button-class": "a-btn a-btn-success",
-			"button-type": "submit",
-			"onclick": "location.href='/patterns/04-sider-92-andre-med-rettigheter-00-andre-med-rettigheter-delegering-ok/04-sider-92-andre-med-rettigheter-00-andre-med-rettigheter-delegering-ok.html';"
+			"delegation-email-text": "Vent litt... Vi mangler e-postadresse til den du gir rettighet til.<br />For å gjennomføre må du fylle inn e-post under.",
+			"delegation-email-field": {
+				"text-input-id": "text-input-email-role-delegation",
+				"top-label": "Epost",
+				"text-input-placeholder": "f.eks post@karinordmann.no",
+				"input-type": "email",
+				"search-algorithm": false,
+				"search-target": false,
+				"isRequired": true,
+				"error-message-popover": true,
+				"extra-help": false,
+				"isHidden": false,
+				"isLarge": false,
+				"print-form-tag": true,
+				"input-name": "email-required",
+				"input-regex-validation": {
+					"error-message": "Feil epost verdier",
+					"validation-pattern": "(('[^']+')|(([a-zA-Z0-9!#$%&'*+-=?^_`{|}~])+(.([a-zA-Z0-9!#$%&'*+-=?^_`{|}~])+)*))@((((([a-zA-Z0-9æøåÆØÅ]([a-zA-Z0-9-æøåÆØÅ]{0,61})[a-zA-Z0-9æøåÆØÅ].)|[a-zA-Z0-9æøåÆØÅ].){1,9})([a-zA-Z]{2,14}))|((d{1,3}).(d{1,3}).(d{1,3}).(d{1,3})))"
+				},
+				"form-label-hasIcon": {
+					"icon-prefix": "ai",
+					"icon-class": "ai-closedmessage",
+					"icon-size": "",
+					"icon-extra-class": ""
+				},
+				"form-input-hasButton-class": "",
+				"form-input-hasButton": false
+			},
+			"delegation-email-submit": {
+				"button-text": "Fullfør",
+				"button-class": "a-btn a-btn-success",
+				"button-type": "submit",
+				"onclick": "location.href='/patterns/04-sider-92-andre-med-rettigheter-00-andre-med-rettigheter-delegering-ok/04-sider-92-andre-med-rettigheter-00-andre-med-rettigheter-delegering-ok.html';"
+			}
 		}
 	}
 }
