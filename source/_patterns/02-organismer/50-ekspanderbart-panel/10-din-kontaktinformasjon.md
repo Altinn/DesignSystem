@@ -1,5 +1,5 @@
 ---
-state: indesignreview
+state: inprogress
 version: 1
 js: togglePanel.js
 ---
