@@ -1,5 +1,5 @@
 ---
-state: needsrevalidation
+state: specification
 version: 1
 js: toggleInstant.js
 ---
