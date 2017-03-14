@@ -5,16 +5,21 @@
 
 // Header
 .a-header {
-  height: $spacer * 9;
-  padding-top: $spacer * 3;
+  height: $spacer * 8;
+  padding-top: $spacer * 2;
   margin-bottom: $spacer;
+
+  @include media-breakpoint-up( md ) {
+    height: $spacer * 9;
+    padding-top: $spacer * 3;
+  }
 
   @include media-breakpoint-up( lg ) {
     margin-bottom: $spacer * 3;
   }
 
   >.container {
-    @include media-breakpoint-down( sm ) {
+    @include media-breakpoint-down( md ) {
       padding: 0 $spacer;
     }
   }
