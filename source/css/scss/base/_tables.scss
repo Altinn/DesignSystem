@@ -20,6 +20,7 @@
 }
 
 .a-table-calculation {
+
   td,
   th {
     @include a-fontReg;
@@ -30,11 +31,18 @@
 
   td {
     @include a-fontMedium;
+    width: 20%;
+    text-align: right;
+    white-space: nowrap;
+    vertical-align: bottom;
+
     @include media-breakpoint-up( md ) {
       width: auto;
     }
+  }
 
-    width: 20%;
+  th {
+    padding: $spacer / 2 $spacer * 2 0 0;
   }
 
   tfoot {
@@ -51,7 +59,8 @@
   tbody {
     tr {
       &:last-child {
-        th {
+        th,
+        td {
           padding-bottom: $spacer;
         }
       }
