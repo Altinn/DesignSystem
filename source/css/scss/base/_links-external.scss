@@ -6,19 +6,17 @@ a[href^="http"]:not([href*='altinn.no']) {
 }
 
 a[href^="http"]:not([href*='altinn.no'])::after {
-  position: absolute;
-  top: 0px;
-  right: -18px;
+  display: inline-block;
   width: 1em;
-  overflow: hidden;
-  text-indent: 1em; // The width of the icon
-  white-space: nowrap;
-  content: '(external link)';
+  height: 1em;
   background-image: url($images-base-url + 'arrowrightup.svg');
   background-repeat: no-repeat;
-  background-position: center;
-  background-size: 136% auto;
+  background-position: -6px -1px;
+  background-size: 146% auto;
   line-height: 1;
+
+  // Alternative text
+  content: ' ';
 }
 
 .a-list {
