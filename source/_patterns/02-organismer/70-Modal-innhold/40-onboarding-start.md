@@ -1,5 +1,5 @@
 ---
-state: needsrevalidation
+state: inprogress
 version: 1
 js: clipboard.js
 ---

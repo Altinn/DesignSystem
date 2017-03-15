@@ -118,17 +118,31 @@ a,
   &:focus {
     color: $grey;
     border-bottom: none;
+    outline: none;
   }
 
   i {
     display: inline-block; // bootstrap popover toggle will pick this up to set inline-style
-    margin-top: -4px;
+    margin-top: -2px;
     vertical-align: middle;
   }
 
   &.a-helpIconButton--blue {
     color: $blue;
+
+    &:focus {
+      color: $blue-darker;
+    }
+
+    &:active {
+      color: $blue;
+    }
   }
+}
+
+h1 + .a-helpIconButton {
+  top: -4px;
+  left: 4px;
 }
 
 

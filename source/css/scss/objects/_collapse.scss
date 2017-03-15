@@ -23,7 +23,6 @@
 .a-collapsePanel {
   margin-bottom: $spacer;
 
-  // Heading inside collapsePanel
   .a-collapsePanel-heading {
     padding: 0;
     color: $black;
@@ -31,19 +30,32 @@
     border-bottom: none;
     box-shadow: $shadow2;
 
+    a {
+      display: block;
+      border: none;
+    }
+
     .a-collapseBtn {
       position: relative;
       background: $white;
     }
 
-    // DIM heading when another one is active
+    &.expanded {
+      background-color: $white;
+    }
+
     &.dim {
-      background-color: $white-opacity-05 !important;
+      background-color: $white-opacity-05;
 
       .a-icon-circle {
         color: $black;
         background-color: $white;
       }
+    }
+
+    &:focus,
+    &:hover {
+      background: $white-opacity-07;
     }
 
     .a-iconText-text-large {
@@ -56,7 +68,6 @@
     }
   }
 
-  // Body inside collapsePanel
   .a-collapsePanel-body {
     position: relative;
     width: 100%;
@@ -78,7 +89,6 @@
     }
 
     &.collapse {
-      // display: block; //remvoved because it is destrotuying the profile-page
       border-top: none;
     }
 
@@ -110,7 +120,6 @@
   }
 
   &.a-collapsePanel--large {
-    // If large collapsePanel, body has more padding left
     .a-collapsePanel-body {
       .a-collapsePanel-body-content {
         @include media-breakpoint-up( lg ) {
@@ -121,7 +130,6 @@
   }
 }
 
-// Klientdelegering
 .panel-collapse-content-section {
   background-color: $grey-light;
   border-top: 1px solid $grey-medium;
@@ -153,8 +161,10 @@
 
   .a-third-action {
     @include media-breakpoint-up( lg ) {
-      float: right;
-      padding-right: $spacer * 3;
+      position: absolute;
+      top: 0;
+      right: 0;
+      padding-right: $spacer * 5;
     }
 
     .a-third-action-spacer {
@@ -232,11 +242,15 @@
         padding: $spacer * 2 $spacer;
 
         @include media-breakpoint-up( sm ) {
-          padding: $spacer * 2 $spacer * 6;
+          padding: $spacer * 2 $spacer * 8;
         }
 
         @include media-breakpoint-up( md ) {
           padding: 40px 96px;
+        }
+
+        @include media-breakpoint-up( lg ) {
+          padding: 40px 110px;
         }
       }
     }
