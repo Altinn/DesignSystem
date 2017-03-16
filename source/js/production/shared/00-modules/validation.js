@@ -10,16 +10,6 @@ var setValidatorSettings = function() {
   };
   $.validator.setDefaults(defaultOptions);
   $.validator.unobtrusive.options = {
-    errorClass: 'has-error',
-    invalidHandler: function(e, validator) {
-      try {
-        // alert('invlaidHandler needs to be set here not in jquery.validate');
-      } catch (err) {
-        // Ignore IE throwing errors when focusing hidden elements
-      }
-    }
+    errorClass: 'has-error'
   };
-  $(function() {
-    $('span.field-validation-valid, span.field-validation-error').addClass('help-block');
-  });
 };
