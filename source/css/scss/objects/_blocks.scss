@@ -396,19 +396,23 @@
       margin-bottom: 30px;
       margin-left: auto;
     }
+
+    &+.a-card-image-text {
+      display: block;
+      margin-left: calc( 180px + 24px );
+
+      @include media-breakpoint-down( md ) {
+        margin-left: calc( 128px + 24px );
+      }
+
+      @include media-breakpoint-down( sm ) {
+        margin-left: 0;
+      }
+    }
   }
 
   .a-card-image-text {
     display: block;
-    margin-left: calc( 180px + 24px );
-
-    @include media-breakpoint-down( md ) {
-      margin-left: calc( 128px + 24px );
-    }
-
-    @include media-breakpoint-down( sm ) {
-      margin-left: 0;
-    }
   }
 
   .a-link-tel {

@@ -1,12 +1,25 @@
 <div class="a-card a-card-image transparent {{ styleModifier }}">
   {{# card-picture-content }}
-    {{> atomer-placeholder}}
+    {{# image }}
+      {{> atomer-placeholder}}
+    {{/ image }}
 
     <div class="a-card-image-text">
       <div class="a-h2">{{ card-picture-title }}</div>
       <p>{{ card-picture-description }}</p>
-      {{> atomer-link-telefonnummer }}
-      {{> atomer-link-mail:pl-1 }}
+
+      {{# tel }}
+        {{> atomer-link-telefonnummer }}
+      {{/ tel }}
+
+      {{# mail }}
+        {{> atomer-link-mail:pl-1 }}
+      {{/ mail }}
+
+      {{# linkIcon }}
+        {{> atomer-link-ikon:pl-1 }}
+      {{/ linkIcon }}
+
     </div>
 
   {{/ card-picture-content }}
