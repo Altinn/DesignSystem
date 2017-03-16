@@ -1,7 +1,7 @@
 <div class="a-page" id="smoothState">
 	{{> organismer-header }}
 
-	<div class="container" id="content" tabindex="-1">
+	<div class="container {{ wrapperClass }}" id="content" tabindex="-1" data-source="{{ wrapperSource }}">
 
 		<div class="row">
 			<div class="col-sm-12 col-lg-6 offset-lg-3 a-articleSearch">
@@ -41,9 +41,11 @@
 			<div class="row">
 				<div class="col-sm-12 col-lg-10 offset-lg-1 pb-3">
 
-					{{# list-stotteordninger }}
-							{{> molekyler-lenketittel-med-forklaring }}
-					{{/ list-stotteordninger }}
+					<span class="{{ resultList }}">
+						{{# list-stotteordninger }}
+								{{> molekyler-lenketittel-med-forklaring }}
+						{{/ list-stotteordninger }}
+					</span>
 
 					{{# list-stotteordninger-loadmore }}
 				    {{> atomer-handlingsknapp }}
