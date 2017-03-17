@@ -20,7 +20,12 @@
   // Wrapper class for the list header
   .a-list-header {
     min-height: $spacer * 3;
-    padding: $spacer / 2 $spacer / 2 4px $spacer / 2;
+    padding-right: $spacer;
+    padding-left: $spacer;
+
+    @include media-breakpoint-up( md ) {
+      padding: $spacer $spacer / 2;
+    }
 
     // Sort headers for each column
     .a-list-sortHeader {
@@ -76,12 +81,12 @@
     li {
       & > .row,
       .a-list-content {
-        min-height: $spacer * 4;
-        padding: $spacer $spacer / 2;
+        padding-right: $spacer;
+        padding-left: $spacer;
 
-        @include media-breakpoint-down( sm ) {
-          padding-right: $spacer;
-          padding-left: $spacer;
+        @include media-breakpoint-up( md ) {
+          min-height: $spacer * 4;
+          padding: $spacer $spacer / 2;
         }
       }
 
