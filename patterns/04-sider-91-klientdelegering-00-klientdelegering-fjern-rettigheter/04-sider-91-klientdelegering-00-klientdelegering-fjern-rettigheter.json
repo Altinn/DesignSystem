@@ -1,6 +1,6 @@
 {
-	"icon-prefix": "tmp",
-	"icon-class": "tmp-group-add",
+	"icon-prefix": "ai",
+	"icon-class": "ai-deadline",
 	"icon-size": "",
 	"icon-extra-class": "",
 	"icon-text": "",
@@ -62,7 +62,7 @@
 		"data-target": "#eksempelID2",
 		"aria-expanded": false
 	},
-	"print-form-tag": true,
+	"print-form-tag": false,
 	"text-input-id": "text-input-generic",
 	"isHidden": true,
 	"top-label": "Finn klient",
@@ -241,18 +241,43 @@
 		}
 	],
 	"popover-aria-label": "valid",
-	"open-popover-class": "popover-valid",
+	"open-popover-class": "a-helpIconButton a-helpIconButton--blue a-js-togglePopoverIcons",
 	"popover-data-target": "myPopup",
-	"popover-title": "Tittel på popover",
-	"popover-content": "Og her kommer innholdet...",
-	"popover-link-text": "Klikk for å se popover",
-	"popover-various-content": false,
+	"popover-title": false,
+	"popover-content": false,
+	"popover-class": "",
+	"popover-link-text": "",
+	"popover-various-content": {
+		"alert-items": [
+			{
+				"alert-text": {
+					"text": "Dette er en tekst "
+				}
+			},
+			{
+				"alert-link": {
+					"link-text": "med en lenke som står i løpende tekst",
+					"link-url": "http://www.altinn.no"
+				}
+			},
+			{
+				"alert-text": {
+					"text": "og man kan ha mer tekst etter."
+				}
+			}
+		]
+	},
 	"popover-link-icon": [
 		{
-			"icon-prefix": "tmp",
-			"icon-class": "tmp-verified-user"
+			"icon-prefix": "ai",
+			"icon-class": "ai-circle-plus"
+		},
+		{
+			"icon-prefix": "ai",
+			"icon-class": "ai-circle-minus"
 		}
 	],
+	"popover-content-id": "popoverWithIconToggle",
 	"altText": {
 		"altText": "Vis mer info"
 	},
@@ -285,7 +310,7 @@
 		"isRequired": false,
 		"form-label-hasIcon": {
 			"icon-prefix": "ai",
-			"icon-class": "ai-help"
+			"icon-class": "ai-document"
 		},
 		"form-input-hasButton": {
 			"icon-prefix": "ai",
@@ -961,9 +986,9 @@
 		"has-link": true,
 		"heading-action": {
 			"heading-text": "Høyrejustert tekst",
-			"icon-prefix": "tmp",
-			"icon-class": "tmp-remove-circle",
-			"icon-extra-class": "a-remove-icon"
+			"icon-prefix": "ai",
+			"icon-class": "ai-circle-minus",
+			"icon-extra-class": "a-danger"
 		}
 	},
 	"alert-id": "alert",
@@ -971,43 +996,6 @@
 	"alert-items": {
 		"alert-text": {
 			"text": "Dette er en beskjed."
-		}
-	},
-	"popoverIcon": {
-		"popover-link-text": "",
-		"popover-class": "footnote",
-		"popover-content": false,
-		"popover-link-icon": [
-			{
-				"icon-prefix": "tmp",
-				"icon-class": "tmp-plus"
-			},
-			{
-				"icon-prefix": "tmp",
-				"icon-class": "tmp-minus"
-			}
-		],
-		"open-popover-class": "a-helpIconButton a-helpIconButton--blue a-js-togglePopoverIcons",
-		"popover-content-id": "popoverWithIconToggle",
-		"popover-various-content": {
-			"alert-items": [
-				{
-					"alert-text": {
-						"text": "Dette er en tekst "
-					}
-				},
-				{
-					"alert-link": {
-						"link-text": "med en lenke som står i løpende tekst",
-						"link-url": "http://www.altinn.no"
-					}
-				},
-				{
-					"alert-text": {
-						"text": "og man kan ha mer tekst etter."
-					}
-				}
-			]
 		}
 	},
 	"delegation-header-text": {
@@ -1055,12 +1043,12 @@
 			"popover-content": "Innholdet i popover fra spørsmålstegn-ikonet kommer her..",
 			"popover-link-icon": [
 				{
-					"icon-prefix": "tmp",
-					"icon-class": "tmp-help"
+					"icon-prefix": "ai",
+					"icon-class": "ai-help-popicon"
 				},
 				{
-					"icon-prefix": "tmp",
-					"icon-class": "tmp-cancel"
+					"icon-prefix": "ai",
+					"icon-class": "ai-circle-exit"
 				}
 			]
 		},
@@ -1109,8 +1097,8 @@
 			"list-item-text": "klientrolle_delegeringer_30_05_16.csv",
 			"list-item-aria-label": "Fjern fil:",
 			"icon-onclick": "console.log('Dummy fjern opplastet fil');",
-			"icon-prefix": "tmp",
-			"icon-class": "tmp-cancel"
+			"icon-prefix": "ai",
+			"icon-class": "ai-circle-exit"
 		}
 	],
 	"custom-fileupload-class": "a-btn a-btn-action a-custom-fileupload mb-0",
@@ -1176,12 +1164,6 @@
 		"onclick": "location.href='/patterns/04-sider-60-profil-roller-rettigheter-profil-roller-rettigheter/04-sider-60-profil-roller-rettigheter-profil-roller-rettigheter.html'"
 	},
 	"animationClass": "a-scene-element--fadeinright",
-	"person-role": {
-		"show-success-icon": false,
-		"icon-prefix": "ai",
-		"icon-class": "ai-private",
-		"icon-extra-class": ""
-	},
 	"form-input-hasButton": false,
 	"isInput-group": "input-group",
 	"search-algorithm": "show-and-highlight",
@@ -2404,7 +2386,7 @@
 						]
 					},
 					{
-						"additional-classes": "col-2 hidden-sm-down a-list-sortHeader a-clickable",
+						"additional-classes": "col-2 col-lg-1 hidden-sm-down a-list-sortHeader a-clickable",
 						"tabable": true,
 						"role": "button",
 						"column-items": [
@@ -2443,9 +2425,9 @@
 							},
 							{
 								"column-icon": {
-									"icon-prefix": "tmp",
-									"icon-class": "tmp-remove-circle",
-									"icon-extra-class": "a-remove-icon tmp-fw"
+									"icon-prefix": "ai",
+									"icon-class": "ai-circle-minus",
+									"icon-extra-class": "a-danger ai-fw"
 								}
 							}
 						]
@@ -2453,7 +2435,7 @@
 				]
 			},
 			"is-large": true,
-			"additional-classes": "a-bgGreyLight a-full-height ",
+			"additional-classes": "a-bgGreyLight a-full-height",
 			"list-id": "employee-table",
 			"selectable": true,
 			"rows": [
@@ -2475,7 +2457,7 @@
 							]
 						},
 						{
-							"additional-classes": "col-10 col-sm-7 col-md-4 col-lg-6",
+							"additional-classes": "col col-sm-7 col-md-4 col-lg-6",
 							"onclick": false,
 							"searchable": true,
 							"column-items": [
@@ -2507,7 +2489,7 @@
 							]
 						},
 						{
-							"additional-classes": "col text-right pr-0 pr-md-2",
+							"additional-classes": "col-auto col-sm text-right pr-0 pr-md-2",
 							"onclick": false,
 							"column-items": [
 								{
@@ -2518,9 +2500,9 @@
 								},
 								{
 									"column-icon": {
-										"icon-prefix": "tmp",
-										"icon-class": "tmp-remove-circle",
-										"icon-extra-class": "a-remove-icon a-hiddenWhenSelected a-hiddenWhenDeleted tmp-fw"
+										"icon-prefix": "ai",
+										"icon-class": "ai-circle-minus",
+										"icon-extra-class": "a-danger a-hiddenWhenSelected a-hiddenWhenDeleted ai-fw"
 									}
 								},
 								{
@@ -2531,9 +2513,9 @@
 								},
 								{
 									"column-icon": {
-										"icon-prefix": "tmp",
-										"icon-class": "tmp-history",
-										"icon-extra-class": "a-remove-icon a-visibleWhenSelected a-hiddenWhenDeleted tmp-fw"
+										"icon-prefix": "ai",
+										"icon-class": "ai-undo",
+										"icon-extra-class": "a-danger a-visibleWhenSelected a-hiddenWhenDeleted ai-fw"
 									}
 								},
 								{
@@ -2544,9 +2526,9 @@
 								},
 								{
 									"column-icon": {
-										"icon-prefix": "tmp",
-										"icon-class": "tmp-fw",
-										"icon-extra-class": "a-remove-icon a-visibleWhenDeleted"
+										"icon-prefix": "ai",
+										"icon-class": "",
+										"icon-extra-class": "a-danger a-visibleWhenDeleted ai-fw"
 									}
 								}
 							]
@@ -2572,7 +2554,7 @@
 							]
 						},
 						{
-							"additional-classes": "col-10 col-sm-7 col-md-4 col-lg-6",
+							"additional-classes": "col col-sm-7 col-md-4 col-lg-6",
 							"onclick": false,
 							"searchable": true,
 							"column-items": [
@@ -2604,7 +2586,7 @@
 							]
 						},
 						{
-							"additional-classes": "col text-right pr-0 pr-md-2",
+							"additional-classes": "col-auto col-sm text-right pr-0 pr-md-2",
 							"onclick": false,
 							"column-items": [
 								{
@@ -2615,9 +2597,9 @@
 								},
 								{
 									"column-icon": {
-										"icon-prefix": "tmp",
-										"icon-class": "tmp-remove-circle",
-										"icon-extra-class": "a-remove-icon a-hiddenWhenSelected a-hiddenWhenDeleted tmp-fw"
+										"icon-prefix": "ai",
+										"icon-class": "ai-circle-minus",
+										"icon-extra-class": "a-danger a-hiddenWhenSelected a-hiddenWhenDeleted ai-fw"
 									}
 								},
 								{
@@ -2628,9 +2610,9 @@
 								},
 								{
 									"column-icon": {
-										"icon-prefix": "tmp",
-										"icon-class": "tmp-history",
-										"icon-extra-class": "a-remove-icon a-visibleWhenSelected a-hiddenWhenDeleted tmp-fw"
+										"icon-prefix": "ai",
+										"icon-class": "ai-undo",
+										"icon-extra-class": "a-danger a-visibleWhenSelected a-hiddenWhenDeleted ai-fw"
 									}
 								},
 								{
@@ -2641,9 +2623,9 @@
 								},
 								{
 									"column-icon": {
-										"icon-prefix": "tmp",
-										"icon-class": "tmp-fw",
-										"icon-extra-class": "a-remove-icon a-visibleWhenDeleted"
+										"icon-prefix": "ai",
+										"icon-class": "",
+										"icon-extra-class": "a-danger a-visibleWhenDeleted ai-fw"
 									}
 								}
 							]
@@ -2669,7 +2651,7 @@
 							]
 						},
 						{
-							"additional-classes": "col-10 col-sm-7 col-md-4 col-lg-6",
+							"additional-classes": "col col-sm-7 col-md-4 col-lg-6",
 							"onclick": false,
 							"searchable": true,
 							"column-items": [
@@ -2701,7 +2683,7 @@
 							]
 						},
 						{
-							"additional-classes": "col text-right pr-0 pr-md-2",
+							"additional-classes": "col-auto col-sm text-right pr-0 pr-md-2",
 							"onclick": false,
 							"column-items": [
 								{
@@ -2712,9 +2694,9 @@
 								},
 								{
 									"column-icon": {
-										"icon-prefix": "tmp",
-										"icon-class": "tmp-remove-circle",
-										"icon-extra-class": "a-remove-icon a-hiddenWhenSelected a-hiddenWhenDeleted tmp-fw"
+										"icon-prefix": "ai",
+										"icon-class": "ai-circle-minus",
+										"icon-extra-class": "a-danger a-hiddenWhenSelected a-hiddenWhenDeleted ai-fw"
 									}
 								},
 								{
@@ -2725,9 +2707,9 @@
 								},
 								{
 									"column-icon": {
-										"icon-prefix": "tmp",
-										"icon-class": "tmp-history",
-										"icon-extra-class": "a-remove-icon a-visibleWhenSelected a-hiddenWhenDeleted tmp-fw"
+										"icon-prefix": "ai",
+										"icon-class": "ai-undo",
+										"icon-extra-class": "a-danger a-visibleWhenSelected a-hiddenWhenDeleted ai-fw"
 									}
 								},
 								{
@@ -2738,9 +2720,9 @@
 								},
 								{
 									"column-icon": {
-										"icon-prefix": "tmp",
-										"icon-class": "tmp-fw",
-										"icon-extra-class": "a-remove-icon a-visibleWhenDeleted"
+										"icon-prefix": "ai",
+										"icon-class": "",
+										"icon-extra-class": "a-danger a-visibleWhenDeleted ai-fw"
 									}
 								}
 							]
@@ -2766,7 +2748,7 @@
 							]
 						},
 						{
-							"additional-classes": "col-10 col-sm-7 col-md-4 col-lg-6",
+							"additional-classes": "col col-sm-7 col-md-4 col-lg-6",
 							"onclick": false,
 							"searchable": true,
 							"column-items": [
@@ -2798,7 +2780,7 @@
 							]
 						},
 						{
-							"additional-classes": "col text-right pr-0 pr-md-2",
+							"additional-classes": "col-auto col-sm text-right pr-0 pr-md-2",
 							"onclick": false,
 							"column-items": [
 								{
@@ -2809,9 +2791,9 @@
 								},
 								{
 									"column-icon": {
-										"icon-prefix": "tmp",
-										"icon-class": "tmp-remove-circle",
-										"icon-extra-class": "a-remove-icon a-hiddenWhenSelected a-hiddenWhenDeleted tmp-fw"
+										"icon-prefix": "ai",
+										"icon-class": "ai-circle-minus",
+										"icon-extra-class": "a-danger a-hiddenWhenSelected a-hiddenWhenDeleted ai-fw"
 									}
 								},
 								{
@@ -2822,9 +2804,9 @@
 								},
 								{
 									"column-icon": {
-										"icon-prefix": "tmp",
-										"icon-class": "tmp-history",
-										"icon-extra-class": "a-remove-icon a-visibleWhenSelected a-hiddenWhenDeleted tmp-fw"
+										"icon-prefix": "ai",
+										"icon-class": "ai-undo",
+										"icon-extra-class": "a-danger a-visibleWhenSelected a-hiddenWhenDeleted ai-fw"
 									}
 								},
 								{
@@ -2835,9 +2817,9 @@
 								},
 								{
 									"column-icon": {
-										"icon-prefix": "tmp",
-										"icon-class": "tmp-fw",
-										"icon-extra-class": "a-remove-icon a-visibleWhenDeleted"
+										"icon-prefix": "ai",
+										"icon-class": "",
+										"icon-extra-class": "a-danger a-visibleWhenDeleted ai-fw"
 									}
 								}
 							]
@@ -2863,7 +2845,7 @@
 							]
 						},
 						{
-							"additional-classes": "col-10 col-sm-7 col-md-4 col-lg-6",
+							"additional-classes": "col col-sm-7 col-md-4 col-lg-6",
 							"onclick": false,
 							"searchable": true,
 							"column-items": [
@@ -2895,7 +2877,7 @@
 							]
 						},
 						{
-							"additional-classes": "col text-right pr-0 pr-md-2",
+							"additional-classes": "col-auto col-sm text-right pr-0 pr-md-2",
 							"onclick": false,
 							"column-items": [
 								{
@@ -2906,9 +2888,9 @@
 								},
 								{
 									"column-icon": {
-										"icon-prefix": "tmp",
-										"icon-class": "tmp-remove-circle",
-										"icon-extra-class": "a-remove-icon a-hiddenWhenSelected a-hiddenWhenDeleted tmp-fw"
+										"icon-prefix": "ai",
+										"icon-class": "ai-circle-minus",
+										"icon-extra-class": "a-danger a-hiddenWhenSelected a-hiddenWhenDeleted ai-fw"
 									}
 								},
 								{
@@ -2919,9 +2901,9 @@
 								},
 								{
 									"column-icon": {
-										"icon-prefix": "tmp",
-										"icon-class": "tmp-history",
-										"icon-extra-class": "a-remove-icon a-visibleWhenSelected a-hiddenWhenDeleted tmp-fw"
+										"icon-prefix": "ai",
+										"icon-class": "ai-undo",
+										"icon-extra-class": "a-danger a-visibleWhenSelected a-hiddenWhenDeleted ai-fw"
 									}
 								},
 								{
@@ -2932,9 +2914,9 @@
 								},
 								{
 									"column-icon": {
-										"icon-prefix": "tmp",
-										"icon-class": "tmp-fw",
-										"icon-extra-class": "a-remove-icon a-visibleWhenDeleted"
+										"icon-prefix": "ai",
+										"icon-class": "",
+										"icon-extra-class": "a-danger a-visibleWhenDeleted ai-fw"
 									}
 								}
 							]
@@ -2960,7 +2942,7 @@
 							]
 						},
 						{
-							"additional-classes": "col-10 col-sm-7 col-md-4 col-lg-6",
+							"additional-classes": "col col-sm-7 col-md-4 col-lg-6",
 							"onclick": false,
 							"searchable": true,
 							"column-items": [
@@ -2992,7 +2974,7 @@
 							]
 						},
 						{
-							"additional-classes": "col text-right pr-0 pr-md-2",
+							"additional-classes": "col-auto col-sm text-right pr-0 pr-md-2",
 							"onclick": false,
 							"column-items": [
 								{
@@ -3003,9 +2985,9 @@
 								},
 								{
 									"column-icon": {
-										"icon-prefix": "tmp",
-										"icon-class": "tmp-remove-circle",
-										"icon-extra-class": "a-remove-icon a-hiddenWhenSelected a-hiddenWhenDeleted tmp-fw"
+										"icon-prefix": "ai",
+										"icon-class": "ai-circle-minus",
+										"icon-extra-class": "a-danger a-hiddenWhenSelected a-hiddenWhenDeleted ai-fw"
 									}
 								},
 								{
@@ -3016,9 +2998,9 @@
 								},
 								{
 									"column-icon": {
-										"icon-prefix": "tmp",
-										"icon-class": "tmp-history",
-										"icon-extra-class": "a-remove-icon a-visibleWhenSelected a-hiddenWhenDeleted tmp-fw"
+										"icon-prefix": "ai",
+										"icon-class": "ai-undo",
+										"icon-extra-class": "a-danger a-visibleWhenSelected a-hiddenWhenDeleted ai-fw"
 									}
 								},
 								{
@@ -3029,9 +3011,9 @@
 								},
 								{
 									"column-icon": {
-										"icon-prefix": "tmp",
-										"icon-class": "tmp-fw",
-										"icon-extra-class": "a-remove-icon a-visibleWhenDeleted"
+										"icon-prefix": "ai",
+										"icon-class": "",
+										"icon-extra-class": "a-danger a-visibleWhenDeleted ai-fw"
 									}
 								}
 							]
@@ -3057,7 +3039,7 @@
 							]
 						},
 						{
-							"additional-classes": "col-10 col-sm-7 col-md-4 col-lg-6",
+							"additional-classes": "col col-sm-7 col-md-4 col-lg-6",
 							"onclick": false,
 							"searchable": true,
 							"column-items": [
@@ -3089,7 +3071,7 @@
 							]
 						},
 						{
-							"additional-classes": "col text-right pr-0 pr-md-2",
+							"additional-classes": "col-auto col-sm text-right pr-0 pr-md-2",
 							"onclick": false,
 							"column-items": [
 								{
@@ -3100,9 +3082,9 @@
 								},
 								{
 									"column-icon": {
-										"icon-prefix": "tmp",
-										"icon-class": "tmp-remove-circle",
-										"icon-extra-class": "a-remove-icon a-hiddenWhenSelected a-hiddenWhenDeleted tmp-fw"
+										"icon-prefix": "ai",
+										"icon-class": "ai-circle-minus",
+										"icon-extra-class": "a-danger a-hiddenWhenSelected a-hiddenWhenDeleted ai-fw"
 									}
 								},
 								{
@@ -3113,9 +3095,9 @@
 								},
 								{
 									"column-icon": {
-										"icon-prefix": "tmp",
-										"icon-class": "tmp-history",
-										"icon-extra-class": "a-remove-icon a-visibleWhenSelected a-hiddenWhenDeleted tmp-fw"
+										"icon-prefix": "ai",
+										"icon-class": "ai-undo",
+										"icon-extra-class": "a-danger a-visibleWhenSelected a-hiddenWhenDeleted ai-fw"
 									}
 								},
 								{
@@ -3126,9 +3108,9 @@
 								},
 								{
 									"column-icon": {
-										"icon-prefix": "tmp",
-										"icon-class": "tmp-fw",
-										"icon-extra-class": "a-remove-icon a-visibleWhenDeleted"
+										"icon-prefix": "ai",
+										"icon-class": "",
+										"icon-extra-class": "a-danger a-visibleWhenDeleted ai-fw"
 									}
 								}
 							]
@@ -3154,7 +3136,7 @@
 							]
 						},
 						{
-							"additional-classes": "col-10 col-sm-7 col-md-4 col-lg-6",
+							"additional-classes": "col col-sm-7 col-md-4 col-lg-6",
 							"onclick": false,
 							"searchable": true,
 							"column-items": [
@@ -3186,7 +3168,7 @@
 							]
 						},
 						{
-							"additional-classes": "col text-right pr-0 pr-md-2",
+							"additional-classes": "col-auto col-sm text-right pr-0 pr-md-2",
 							"onclick": false,
 							"column-items": [
 								{
@@ -3197,9 +3179,9 @@
 								},
 								{
 									"column-icon": {
-										"icon-prefix": "tmp",
-										"icon-class": "tmp-remove-circle",
-										"icon-extra-class": "a-remove-icon a-hiddenWhenSelected a-hiddenWhenDeleted tmp-fw"
+										"icon-prefix": "ai",
+										"icon-class": "ai-circle-minus",
+										"icon-extra-class": "a-danger a-hiddenWhenSelected a-hiddenWhenDeleted ai-fw"
 									}
 								},
 								{
@@ -3210,9 +3192,9 @@
 								},
 								{
 									"column-icon": {
-										"icon-prefix": "tmp",
-										"icon-class": "tmp-history",
-										"icon-extra-class": "a-remove-icon a-visibleWhenSelected a-hiddenWhenDeleted tmp-fw"
+										"icon-prefix": "ai",
+										"icon-class": "ai-undo",
+										"icon-extra-class": "a-danger a-visibleWhenSelected a-hiddenWhenDeleted ai-fw"
 									}
 								},
 								{
@@ -3223,9 +3205,9 @@
 								},
 								{
 									"column-icon": {
-										"icon-prefix": "tmp",
-										"icon-class": "tmp-fw",
-										"icon-extra-class": "a-remove-icon a-visibleWhenDeleted"
+										"icon-prefix": "ai",
+										"icon-class": "",
+										"icon-extra-class": "a-danger a-visibleWhenDeleted ai-fw"
 									}
 								}
 							]
@@ -3251,7 +3233,7 @@
 							]
 						},
 						{
-							"additional-classes": "col-10 col-sm-7 col-md-4 col-lg-6",
+							"additional-classes": "col col-sm-7 col-md-4 col-lg-6",
 							"onclick": false,
 							"searchable": true,
 							"column-items": [
@@ -3283,7 +3265,7 @@
 							]
 						},
 						{
-							"additional-classes": "col text-right pr-0 pr-md-2",
+							"additional-classes": "col-auto col-sm text-right pr-0 pr-md-2",
 							"onclick": false,
 							"column-items": [
 								{
@@ -3294,9 +3276,9 @@
 								},
 								{
 									"column-icon": {
-										"icon-prefix": "tmp",
-										"icon-class": "tmp-remove-circle",
-										"icon-extra-class": "a-remove-icon a-hiddenWhenSelected a-hiddenWhenDeleted tmp-fw"
+										"icon-prefix": "ai",
+										"icon-class": "ai-circle-minus",
+										"icon-extra-class": "a-danger a-hiddenWhenSelected a-hiddenWhenDeleted ai-fw"
 									}
 								},
 								{
@@ -3307,9 +3289,9 @@
 								},
 								{
 									"column-icon": {
-										"icon-prefix": "tmp",
-										"icon-class": "tmp-history",
-										"icon-extra-class": "a-remove-icon a-visibleWhenSelected a-hiddenWhenDeleted tmp-fw"
+										"icon-prefix": "ai",
+										"icon-class": "ai-undo",
+										"icon-extra-class": "a-danger a-visibleWhenSelected a-hiddenWhenDeleted ai-fw"
 									}
 								},
 								{
@@ -3320,9 +3302,9 @@
 								},
 								{
 									"column-icon": {
-										"icon-prefix": "tmp",
-										"icon-class": "tmp-fw",
-										"icon-extra-class": "a-remove-icon a-visibleWhenDeleted"
+										"icon-prefix": "ai",
+										"icon-class": "",
+										"icon-extra-class": "a-danger a-visibleWhenDeleted ai-fw"
 									}
 								}
 							]
@@ -3348,7 +3330,7 @@
 							]
 						},
 						{
-							"additional-classes": "col-10 col-sm-7 col-md-4 col-lg-6",
+							"additional-classes": "col col-sm-7 col-md-4 col-lg-6",
 							"onclick": false,
 							"searchable": true,
 							"column-items": [
@@ -3380,7 +3362,7 @@
 							]
 						},
 						{
-							"additional-classes": "col text-right pr-0 pr-md-2",
+							"additional-classes": "col-auto col-sm text-right pr-0 pr-md-2",
 							"onclick": false,
 							"column-items": [
 								{
@@ -3391,9 +3373,9 @@
 								},
 								{
 									"column-icon": {
-										"icon-prefix": "tmp",
-										"icon-class": "tmp-remove-circle",
-										"icon-extra-class": "a-remove-icon a-hiddenWhenSelected a-hiddenWhenDeleted tmp-fw"
+										"icon-prefix": "ai",
+										"icon-class": "ai-circle-minus",
+										"icon-extra-class": "a-danger a-hiddenWhenSelected a-hiddenWhenDeleted ai-fw"
 									}
 								},
 								{
@@ -3404,9 +3386,9 @@
 								},
 								{
 									"column-icon": {
-										"icon-prefix": "tmp",
-										"icon-class": "tmp-history",
-										"icon-extra-class": "a-remove-icon a-visibleWhenSelected a-hiddenWhenDeleted tmp-fw"
+										"icon-prefix": "ai",
+										"icon-class": "ai-undo",
+										"icon-extra-class": "a-danger a-visibleWhenSelected a-hiddenWhenDeleted ai-fw"
 									}
 								},
 								{
@@ -3417,9 +3399,9 @@
 								},
 								{
 									"column-icon": {
-										"icon-prefix": "tmp",
-										"icon-class": "tmp-fw",
-										"icon-extra-class": "a-remove-icon a-visibleWhenDeleted"
+										"icon-prefix": "ai",
+										"icon-class": "",
+										"icon-extra-class": "a-danger a-visibleWhenDeleted ai-fw"
 									}
 								}
 							]
@@ -3445,7 +3427,7 @@
 							]
 						},
 						{
-							"additional-classes": "col-10 col-sm-7 col-md-4 col-lg-6",
+							"additional-classes": "col col-sm-7 col-md-4 col-lg-6",
 							"onclick": false,
 							"searchable": true,
 							"column-items": [
@@ -3477,7 +3459,7 @@
 							]
 						},
 						{
-							"additional-classes": "col text-right pr-0 pr-md-2",
+							"additional-classes": "col-auto col-sm text-right pr-0 pr-md-2",
 							"onclick": false,
 							"column-items": [
 								{
@@ -3488,9 +3470,9 @@
 								},
 								{
 									"column-icon": {
-										"icon-prefix": "tmp",
-										"icon-class": "tmp-remove-circle",
-										"icon-extra-class": "a-remove-icon a-hiddenWhenSelected a-hiddenWhenDeleted tmp-fw"
+										"icon-prefix": "ai",
+										"icon-class": "ai-circle-minus",
+										"icon-extra-class": "a-danger a-hiddenWhenSelected a-hiddenWhenDeleted ai-fw"
 									}
 								},
 								{
@@ -3501,9 +3483,9 @@
 								},
 								{
 									"column-icon": {
-										"icon-prefix": "tmp",
-										"icon-class": "tmp-history",
-										"icon-extra-class": "a-remove-icon a-visibleWhenSelected a-hiddenWhenDeleted tmp-fw"
+										"icon-prefix": "ai",
+										"icon-class": "ai-undo",
+										"icon-extra-class": "a-danger a-visibleWhenSelected a-hiddenWhenDeleted ai-fw"
 									}
 								},
 								{
@@ -3514,9 +3496,9 @@
 								},
 								{
 									"column-icon": {
-										"icon-prefix": "tmp",
-										"icon-class": "tmp-fw",
-										"icon-extra-class": "a-remove-icon a-visibleWhenDeleted"
+										"icon-prefix": "ai",
+										"icon-class": "",
+										"icon-extra-class": "a-danger a-visibleWhenDeleted ai-fw"
 									}
 								}
 							]
@@ -3542,7 +3524,7 @@
 							]
 						},
 						{
-							"additional-classes": "col-10 col-sm-7 col-md-4 col-lg-6",
+							"additional-classes": "col col-sm-7 col-md-4 col-lg-6",
 							"onclick": false,
 							"searchable": true,
 							"column-items": [
@@ -3574,7 +3556,7 @@
 							]
 						},
 						{
-							"additional-classes": "col text-right pr-0 pr-md-2",
+							"additional-classes": "col-auto col-sm text-right pr-0 pr-md-2",
 							"onclick": false,
 							"column-items": [
 								{
@@ -3585,9 +3567,9 @@
 								},
 								{
 									"column-icon": {
-										"icon-prefix": "tmp",
-										"icon-class": "tmp-remove-circle",
-										"icon-extra-class": "a-remove-icon a-hiddenWhenSelected a-hiddenWhenDeleted tmp-fw"
+										"icon-prefix": "ai",
+										"icon-class": "ai-circle-minus",
+										"icon-extra-class": "a-danger a-hiddenWhenSelected a-hiddenWhenDeleted ai-fw"
 									}
 								},
 								{
@@ -3598,9 +3580,9 @@
 								},
 								{
 									"column-icon": {
-										"icon-prefix": "tmp",
-										"icon-class": "tmp-history",
-										"icon-extra-class": "a-remove-icon a-visibleWhenSelected a-hiddenWhenDeleted tmp-fw"
+										"icon-prefix": "ai",
+										"icon-class": "ai-undo",
+										"icon-extra-class": "a-danger a-visibleWhenSelected a-hiddenWhenDeleted ai-fw"
 									}
 								},
 								{
@@ -3611,9 +3593,9 @@
 								},
 								{
 									"column-icon": {
-										"icon-prefix": "tmp",
-										"icon-class": "tmp-fw",
-										"icon-extra-class": "a-remove-icon a-visibleWhenDeleted"
+										"icon-prefix": "ai",
+										"icon-class": "",
+										"icon-extra-class": "a-danger a-visibleWhenDeleted ai-fw"
 									}
 								}
 							]
@@ -3639,7 +3621,7 @@
 							]
 						},
 						{
-							"additional-classes": "col-10 col-sm-7 col-md-4 col-lg-6",
+							"additional-classes": "col col-sm-7 col-md-4 col-lg-6",
 							"onclick": false,
 							"searchable": true,
 							"column-items": [
@@ -3671,7 +3653,7 @@
 							]
 						},
 						{
-							"additional-classes": "col text-right pr-0 pr-md-2",
+							"additional-classes": "col-auto col-sm text-right pr-0 pr-md-2",
 							"onclick": false,
 							"column-items": [
 								{
@@ -3682,9 +3664,9 @@
 								},
 								{
 									"column-icon": {
-										"icon-prefix": "tmp",
-										"icon-class": "tmp-remove-circle",
-										"icon-extra-class": "a-remove-icon a-hiddenWhenSelected a-hiddenWhenDeleted tmp-fw"
+										"icon-prefix": "ai",
+										"icon-class": "ai-circle-minus",
+										"icon-extra-class": "a-danger a-hiddenWhenSelected a-hiddenWhenDeleted ai-fw"
 									}
 								},
 								{
@@ -3695,9 +3677,9 @@
 								},
 								{
 									"column-icon": {
-										"icon-prefix": "tmp",
-										"icon-class": "tmp-history",
-										"icon-extra-class": "a-remove-icon a-visibleWhenSelected a-hiddenWhenDeleted tmp-fw"
+										"icon-prefix": "ai",
+										"icon-class": "ai-undo",
+										"icon-extra-class": "a-danger a-visibleWhenSelected a-hiddenWhenDeleted ai-fw"
 									}
 								},
 								{
@@ -3708,9 +3690,9 @@
 								},
 								{
 									"column-icon": {
-										"icon-prefix": "tmp",
-										"icon-class": "tmp-fw",
-										"icon-extra-class": "a-remove-icon a-visibleWhenDeleted"
+										"icon-prefix": "ai",
+										"icon-class": "",
+										"icon-extra-class": "a-danger a-visibleWhenDeleted ai-fw"
 									}
 								}
 							]
@@ -3736,7 +3718,7 @@
 							]
 						},
 						{
-							"additional-classes": "col-10 col-sm-7 col-md-4 col-lg-6",
+							"additional-classes": "col col-sm-7 col-md-4 col-lg-6",
 							"onclick": false,
 							"searchable": true,
 							"column-items": [
@@ -3768,7 +3750,7 @@
 							]
 						},
 						{
-							"additional-classes": "col text-right pr-0 pr-md-2",
+							"additional-classes": "col-auto col-sm text-right pr-0 pr-md-2",
 							"onclick": false,
 							"column-items": [
 								{
@@ -3779,9 +3761,9 @@
 								},
 								{
 									"column-icon": {
-										"icon-prefix": "tmp",
-										"icon-class": "tmp-remove-circle",
-										"icon-extra-class": "a-remove-icon a-hiddenWhenSelected a-hiddenWhenDeleted tmp-fw"
+										"icon-prefix": "ai",
+										"icon-class": "ai-circle-minus",
+										"icon-extra-class": "a-danger a-hiddenWhenSelected a-hiddenWhenDeleted ai-fw"
 									}
 								},
 								{
@@ -3792,9 +3774,9 @@
 								},
 								{
 									"column-icon": {
-										"icon-prefix": "tmp",
-										"icon-class": "tmp-history",
-										"icon-extra-class": "a-remove-icon a-visibleWhenSelected a-hiddenWhenDeleted tmp-fw"
+										"icon-prefix": "ai",
+										"icon-class": "ai-undo",
+										"icon-extra-class": "a-danger a-visibleWhenSelected a-hiddenWhenDeleted ai-fw"
 									}
 								},
 								{
@@ -3805,9 +3787,9 @@
 								},
 								{
 									"column-icon": {
-										"icon-prefix": "tmp",
-										"icon-class": "tmp-fw",
-										"icon-extra-class": "a-remove-icon a-visibleWhenDeleted"
+										"icon-prefix": "ai",
+										"icon-class": "",
+										"icon-extra-class": "a-danger a-visibleWhenDeleted ai-fw"
 									}
 								}
 							]
@@ -3833,7 +3815,7 @@
 							]
 						},
 						{
-							"additional-classes": "col-10 col-sm-7 col-md-4 col-lg-6",
+							"additional-classes": "col col-sm-7 col-md-4 col-lg-6",
 							"onclick": false,
 							"searchable": true,
 							"column-items": [
@@ -3865,7 +3847,7 @@
 							]
 						},
 						{
-							"additional-classes": "col text-right pr-0 pr-md-2",
+							"additional-classes": "col-auto col-sm text-right pr-0 pr-md-2",
 							"onclick": false,
 							"column-items": [
 								{
@@ -3876,9 +3858,9 @@
 								},
 								{
 									"column-icon": {
-										"icon-prefix": "tmp",
-										"icon-class": "tmp-remove-circle",
-										"icon-extra-class": "a-remove-icon a-hiddenWhenSelected a-hiddenWhenDeleted tmp-fw"
+										"icon-prefix": "ai",
+										"icon-class": "ai-circle-minus",
+										"icon-extra-class": "a-danger a-hiddenWhenSelected a-hiddenWhenDeleted ai-fw"
 									}
 								},
 								{
@@ -3889,9 +3871,9 @@
 								},
 								{
 									"column-icon": {
-										"icon-prefix": "tmp",
-										"icon-class": "tmp-history",
-										"icon-extra-class": "a-remove-icon a-visibleWhenSelected a-hiddenWhenDeleted tmp-fw"
+										"icon-prefix": "ai",
+										"icon-class": "ai-undo",
+										"icon-extra-class": "a-danger a-visibleWhenSelected a-hiddenWhenDeleted ai-fw"
 									}
 								},
 								{
@@ -3902,9 +3884,9 @@
 								},
 								{
 									"column-icon": {
-										"icon-prefix": "tmp",
-										"icon-class": "tmp-fw",
-										"icon-extra-class": "a-remove-icon a-visibleWhenDeleted"
+										"icon-prefix": "ai",
+										"icon-class": "",
+										"icon-extra-class": "a-danger a-visibleWhenDeleted ai-fw"
 									}
 								}
 							]
@@ -3930,7 +3912,7 @@
 							]
 						},
 						{
-							"additional-classes": "col-10 col-sm-7 col-md-4 col-lg-6",
+							"additional-classes": "col col-sm-7 col-md-4 col-lg-6",
 							"onclick": false,
 							"searchable": true,
 							"column-items": [
@@ -3962,7 +3944,7 @@
 							]
 						},
 						{
-							"additional-classes": "col text-right pr-0 pr-md-2",
+							"additional-classes": "col-auto col-sm text-right pr-0 pr-md-2",
 							"onclick": false,
 							"column-items": [
 								{
@@ -3973,9 +3955,9 @@
 								},
 								{
 									"column-icon": {
-										"icon-prefix": "tmp",
-										"icon-class": "tmp-remove-circle",
-										"icon-extra-class": "a-remove-icon a-hiddenWhenSelected a-hiddenWhenDeleted tmp-fw"
+										"icon-prefix": "ai",
+										"icon-class": "ai-circle-minus",
+										"icon-extra-class": "a-danger a-hiddenWhenSelected a-hiddenWhenDeleted ai-fw"
 									}
 								},
 								{
@@ -3986,9 +3968,9 @@
 								},
 								{
 									"column-icon": {
-										"icon-prefix": "tmp",
-										"icon-class": "tmp-history",
-										"icon-extra-class": "a-remove-icon a-visibleWhenSelected a-hiddenWhenDeleted tmp-fw"
+										"icon-prefix": "ai",
+										"icon-class": "ai-undo",
+										"icon-extra-class": "a-danger a-visibleWhenSelected a-hiddenWhenDeleted ai-fw"
 									}
 								},
 								{
@@ -3999,9 +3981,9 @@
 								},
 								{
 									"column-icon": {
-										"icon-prefix": "tmp",
-										"icon-class": "tmp-fw",
-										"icon-extra-class": "a-remove-icon a-visibleWhenDeleted"
+										"icon-prefix": "ai",
+										"icon-class": "",
+										"icon-extra-class": "a-danger a-visibleWhenDeleted ai-fw"
 									}
 								}
 							]
@@ -4027,7 +4009,7 @@
 							]
 						},
 						{
-							"additional-classes": "col-10 col-sm-7 col-md-4 col-lg-6",
+							"additional-classes": "col col-sm-7 col-md-4 col-lg-6",
 							"onclick": false,
 							"searchable": true,
 							"column-items": [
@@ -4059,7 +4041,7 @@
 							]
 						},
 						{
-							"additional-classes": "col text-right pr-0 pr-md-2",
+							"additional-classes": "col-auto col-sm text-right pr-0 pr-md-2",
 							"onclick": false,
 							"column-items": [
 								{
@@ -4070,9 +4052,9 @@
 								},
 								{
 									"column-icon": {
-										"icon-prefix": "tmp",
-										"icon-class": "tmp-remove-circle",
-										"icon-extra-class": "a-remove-icon a-hiddenWhenSelected a-hiddenWhenDeleted tmp-fw"
+										"icon-prefix": "ai",
+										"icon-class": "ai-circle-minus",
+										"icon-extra-class": "a-danger a-hiddenWhenSelected a-hiddenWhenDeleted ai-fw"
 									}
 								},
 								{
@@ -4083,9 +4065,9 @@
 								},
 								{
 									"column-icon": {
-										"icon-prefix": "tmp",
-										"icon-class": "tmp-history",
-										"icon-extra-class": "a-remove-icon a-visibleWhenSelected a-hiddenWhenDeleted tmp-fw"
+										"icon-prefix": "ai",
+										"icon-class": "ai-undo",
+										"icon-extra-class": "a-danger a-visibleWhenSelected a-hiddenWhenDeleted ai-fw"
 									}
 								},
 								{
@@ -4096,9 +4078,9 @@
 								},
 								{
 									"column-icon": {
-										"icon-prefix": "tmp",
-										"icon-class": "tmp-fw",
-										"icon-extra-class": "a-remove-icon a-visibleWhenDeleted"
+										"icon-prefix": "ai",
+										"icon-class": "",
+										"icon-extra-class": "a-danger a-visibleWhenDeleted ai-fw"
 									}
 								}
 							]
@@ -4256,5 +4238,10 @@
 			}
 		]
 	},
-	"is-link": false
+	"is-link": false,
+	"person-role": {
+		"icon-prefix": "ai",
+		"icon-class": "ai-private",
+		"icon-extra-class": ""
+	}
 }

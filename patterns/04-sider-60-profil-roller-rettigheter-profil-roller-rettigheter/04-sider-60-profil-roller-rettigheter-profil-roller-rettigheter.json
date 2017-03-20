@@ -39,7 +39,7 @@
 	"icon-post-text": false,
 	"icon-title": false,
 	"icon-sr-only-text": false,
-	"print-form-tag": true,
+	"print-form-tag": false,
 	"text-input-id": "text-input-generic",
 	"isHidden": false,
 	"top-label": "Label: ",
@@ -217,18 +217,43 @@
 		}
 	],
 	"popover-aria-label": "valid",
-	"open-popover-class": "popover-valid",
+	"open-popover-class": "a-helpIconButton a-helpIconButton--blue a-js-togglePopoverIcons",
 	"popover-data-target": "myPopup",
-	"popover-title": "Tittel på popover",
-	"popover-content": "Og her kommer innholdet...",
-	"popover-link-text": "Klikk for å se popover",
-	"popover-various-content": false,
+	"popover-title": false,
+	"popover-content": false,
+	"popover-class": "",
+	"popover-link-text": "",
+	"popover-various-content": {
+		"alert-items": [
+			{
+				"alert-text": {
+					"text": "Dette er en tekst "
+				}
+			},
+			{
+				"alert-link": {
+					"link-text": "med en lenke som står i løpende tekst",
+					"link-url": "http://www.altinn.no"
+				}
+			},
+			{
+				"alert-text": {
+					"text": "og man kan ha mer tekst etter."
+				}
+			}
+		]
+	},
 	"popover-link-icon": [
 		{
-			"icon-prefix": "tmp",
-			"icon-class": "tmp-verified-user"
+			"icon-prefix": "ai",
+			"icon-class": "ai-circle-plus"
+		},
+		{
+			"icon-prefix": "ai",
+			"icon-class": "ai-circle-minus"
 		}
 	],
+	"popover-content-id": "popoverWithIconToggle",
 	"altText": {
 		"altText": "Vis mer info"
 	},
@@ -530,7 +555,6 @@
 	"person-rolle": {
 		"person-role-role": "Styremedlem",
 		"person-role-name": "Kari Nordmann",
-		"show-success-icon": false,
 		"user-icon": {
 			"icon-prefix": "ai",
 			"icon-class": "ai-private ai-lg",
@@ -547,9 +571,9 @@
 		"has-link": true,
 		"heading-action": {
 			"heading-text": "Høyrejustert tekst",
-			"icon-prefix": "tmp",
-			"icon-class": "tmp-remove-circle",
-			"icon-extra-class": "a-remove-icon"
+			"icon-prefix": "ai",
+			"icon-class": "ai-circle-minus",
+			"icon-extra-class": "a-danger"
 		}
 	},
 	"link-done": false,
@@ -760,12 +784,12 @@
 											},
 											"popover-link-icon": [
 												{
-													"icon-prefix": "tmp",
-													"icon-class": "tmp-help"
+													"icon-prefix": "ai",
+													"icon-class": "ai-help-popicon"
 												},
 												{
-													"icon-prefix": "tmp",
-													"icon-class": "tmp-cancel"
+													"icon-prefix": "ai",
+													"icon-class": "ai-circle-exit"
 												}
 											]
 										}
@@ -956,12 +980,12 @@
 											},
 											"popover-link-icon": [
 												{
-													"icon-prefix": "tmp",
-													"icon-class": "tmp-help"
+													"icon-prefix": "ai",
+													"icon-class": "ai-help-popicon"
 												},
 												{
-													"icon-prefix": "tmp",
-													"icon-class": "tmp-cancel"
+													"icon-prefix": "ai",
+													"icon-class": "ai-circle-exit"
 												}
 											]
 										}
@@ -1009,24 +1033,25 @@
 									{
 										"column-icon": {
 											"icon-prefix": "ai",
-											"icon-class": "ai-read ai-1_5x",
-											"icon-title": "Les"
+											"icon-class": "ai-read",
+											"icon-title": "Les",
+											"icon-size": "ai-sm"
 										}
 									},
 									{
 										"column-icon": {
 											"icon-prefix": "ai",
-											"icon-class": "ai-write ai-1_5x",
-											"icon-extra-class": "pl-1",
-											"icon-title": "Skriv"
+											"icon-class": "ai-write",
+											"icon-title": "Skriv",
+											"icon-size": "ai-sm"
 										}
 									},
 									{
 										"column-icon": {
 											"icon-prefix": "ai",
-											"icon-class": "ai-sign ai-1_5x",
-											"icon-extra-class": "pl-1",
-											"icon-title": "Signer"
+											"icon-class": "ai-sign",
+											"icon-title": "Signer",
+											"icon-size": "ai-sm"
 										}
 									}
 								]
@@ -1128,7 +1153,7 @@
 			"delete-shared-contactinfo-icon": {
 				"button-type": "button",
 				"button-text": "",
-				"button-class": "a-btn a-btn-icon-transparant a-delete",
+				"button-class": "a-btn a-btn-icon-transparant a-delete pt-3",
 				"button-colorClass": "",
 				"link-url": "",
 				"button-shadow-label": false,
@@ -1365,8 +1390,8 @@
 						"column-items": [
 							{
 								"column-icon": {
-									"icon-prefix": "tmp",
-									"icon-class": "tmp-circle",
+									"icon-prefix": "ai",
+									"icon-class": "ai-circle-exit",
 									"icon-extra-class": ""
 								}
 							}
@@ -1400,8 +1425,8 @@
 						"column-items": [
 							{
 								"column-icon": {
-									"icon-prefix": "tmp",
-									"icon-class": "tmp-circle",
+									"icon-prefix": "ai",
+									"icon-class": "ai-circle-exit",
 									"icon-extra-class": ""
 								}
 							}
@@ -1435,8 +1460,8 @@
 						"column-items": [
 							{
 								"column-icon": {
-									"icon-prefix": "tmp",
-									"icon-class": "tmp-circle",
+									"icon-prefix": "ai",
+									"icon-class": "ai-circle-exit",
 									"icon-extra-class": ""
 								}
 							}
@@ -1956,20 +1981,20 @@
 	},
 	"dropdown-item": [
 		{
-			"dropdown-item-image": "../../images/no.svg",
+			"dropdown-item-image": "../../images/norsk.svg",
 			"dropdown-item-image-class": "a-iconLeft a-flag",
 			"dropdown-item-title": "Bokmål",
 			"dropdown-item-content": "Alt innhold er tilgjengelig på bokmål."
 		},
 		{
-			"dropdown-item-image": "../../images/gb.svg",
+			"dropdown-item-image": "../../images/english.svg",
 			"dropdown-item-image-class": "a-iconLeft a-flag",
 			"language": "lang=\"en\"",
 			"dropdown-item-title": "English",
 			"dropdown-item-content": "All content is available in english."
 		},
 		{
-			"dropdown-item-image": "../../images/no.svg",
+			"dropdown-item-image": "../../images/norsk.svg",
 			"dropdown-item-image-class": "a-iconLeft a-flag",
 			"dropdown-item-title": "Nynorsk",
 			"dropdown-item-content": "Det er førebels berre skjema som er tilgjengelig på nynorsk. Andre sider vil vises med bokmål."
@@ -1988,20 +2013,20 @@
 		"dropdown-class": "a-dropdown-languages",
 		"dropdown-item": [
 			{
-				"dropdown-item-image": "../../images/no.svg",
+				"dropdown-item-image": "../../images/norsk.svg",
 				"dropdown-item-image-class": "a-iconLeft a-flag",
 				"dropdown-item-title": "Bokmål",
 				"dropdown-item-content": "Alt innhold er tilgjengelig på bokmål."
 			},
 			{
-				"dropdown-item-image": "../../images/gb.svg",
+				"dropdown-item-image": "../../images/english.svg",
 				"dropdown-item-image-class": "a-iconLeft a-flag",
 				"language": "lang=\"en\"",
 				"dropdown-item-title": "English",
 				"dropdown-item-content": "All content is available in english."
 			},
 			{
-				"dropdown-item-image": "../../images/no.svg",
+				"dropdown-item-image": "../../images/norsk.svg",
 				"dropdown-item-image-class": "a-iconLeft a-flag",
 				"dropdown-item-title": "Nynorsk",
 				"dropdown-item-content": "Det er førebels berre skjema som er tilgjengelig på nynorsk. Andre sider vil vises med bokmål."
@@ -2372,7 +2397,7 @@
 					"button-type": "button",
 					"button-text": "Slett",
 					"button-textClass": "sr-only",
-					"button-class": "a-btn a-btn-icon-transparant a-delete pt-2",
+					"button-class": "a-btn a-btn-icon-transparant a-delete pt-3",
 					"button-colorClass": "",
 					"onclick": false,
 					"button-shadow-label": false,
@@ -2629,7 +2654,7 @@
 						"role": "button",
 						"columns": [
 							{
-								"additional-classes": "col-11",
+								"additional-classes": "col",
 								"column-items": [
 									{
 										"column-text": {
@@ -2645,12 +2670,12 @@
 								]
 							},
 							{
-								"additional-classes": "col text-right",
+								"additional-classes": "text-right col-auto",
 								"column-items": [
 									{
 										"column-icon": {
-											"icon-prefix": "tmp",
-											"icon-class": "tmp-circle",
+											"icon-prefix": "ai",
+											"icon-class": "ai-circle-exit",
 											"icon-extra-class": ""
 										}
 									}
@@ -2664,7 +2689,7 @@
 						"role": "button",
 						"columns": [
 							{
-								"additional-classes": "col-11",
+								"additional-classes": "col",
 								"column-items": [
 									{
 										"column-text": {
@@ -2681,20 +2706,20 @@
 								]
 							},
 							{
-								"additional-classes": "col text-right",
+								"additional-classes": "text-right col-auto",
 								"onclick": false,
 								"column-items": [
 									{
 										"column-text": {
 											"text": "Angre",
-											"classes": "hidden-xs-down a-visibleWhenSelected a-hiddenWhenDeleted"
+											"classes": "hidden-sm-down a-visibleWhenSelected a-hiddenWhenDeleted"
 										}
 									},
 									{
 										"column-icon": {
-											"icon-prefix": "tmp",
-											"icon-class": "tmp-history",
-											"icon-extra-class": "a-remove-icon a-visibleWhenSelected a-hiddenWhenDeleted tmp-fw"
+											"icon-prefix": "ai",
+											"icon-class": "ai-undo",
+											"icon-extra-class": "a-danger a-visibleWhenSelected a-hiddenWhenDeleted"
 										}
 									}
 								]
@@ -2708,7 +2733,7 @@
 						"role": "button",
 						"columns": [
 							{
-								"additional-classes": "col-11",
+								"additional-classes": "col",
 								"column-items": [
 									{
 										"column-text": {
@@ -2724,12 +2749,12 @@
 								]
 							},
 							{
-								"additional-classes": "col text-right",
+								"additional-classes": "text-right col-auto",
 								"column-items": [
 									{
 										"column-icon": {
-											"icon-prefix": "tmp",
-											"icon-class": "tmp-circle",
+											"icon-prefix": "ai",
+											"icon-class": "ai-circle-exit",
 											"icon-extra-class": ""
 										}
 									}
@@ -2743,7 +2768,7 @@
 						"role": "button",
 						"columns": [
 							{
-								"additional-classes": "col-11",
+								"additional-classes": "col",
 								"column-items": [
 									{
 										"column-text": {
@@ -2759,12 +2784,12 @@
 								]
 							},
 							{
-								"additional-classes": "col text-right",
+								"additional-classes": "text-right col-auto",
 								"column-items": [
 									{
 										"column-icon": {
-											"icon-prefix": "tmp",
-											"icon-class": "tmp-circle",
+											"icon-prefix": "ai",
+											"icon-class": "ai-circle-exit",
 											"icon-extra-class": ""
 										}
 									}

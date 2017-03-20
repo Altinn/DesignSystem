@@ -7346,19 +7346,19 @@ figure {
 
 @font-face {
   font-family: 'DIN-light';
-  src: url("https://www.altinn.no/ui/fonts/DINWeb-Light.woff"); }
+  src: url("../../fonts/DINWeb-Light.woff"); }
 
 @font-face {
   font-family: 'DIN-reg';
-  src: url("https://www.altinn.no/ui/fonts/DINWeb.woff"); }
+  src: url("../../fonts/DINWeb.woff"); }
 
 @font-face {
   font-family: 'DIN-medium';
-  src: url("https://www.altinn.no/ui/fonts/DINWeb-Medium.woff"); }
+  src: url("../../fonts/DINWeb-Medium.woff"); }
 
 @font-face {
   font-family: 'DIN-bold';
-  src: url("https://www.altinn.no/ui/fonts/DINWeb-Bold.woff"); }
+  src: url("../../fonts/DINWeb-Bold.woff"); }
 
 button,
 input,
@@ -7624,6 +7624,7 @@ h1 + .a-helpIconButton {
   line-height: 1.5;
   -webkit-font-smoothing: subpixel-antialiased;
   position: relative;
+  padding-right: 18px;
   color: #022F51;
   border-bottom: none; }
   .a-linkIcon i {
@@ -8743,6 +8744,11 @@ textarea {
 .a-js-none {
   display: none; }
 
+.a-js-genericSearch .a-card-filter,
+.a-js-genericSearch .a-js-results,
+.a-js-genericSearch .a-js-noResults {
+  display: none; }
+
 /*------------------------------------*    $HEADER
 \*------------------------------------*/
 .a-header {
@@ -8972,9 +8978,9 @@ textarea {
   .a-dropdown-personswitchList .dropdown-item {
     display: -ms-flexbox;
     display: flex;
-    padding: 18px;
+    padding: 18px 24px;
     white-space: normal;
-    border-bottom: 1px solid #EFEFEF;
+    border-bottom: none;
     -ms-flex-align: start;
     align-items: flex-start;
     -webkit-box-align: start; }
@@ -8986,7 +8992,7 @@ textarea {
       float: left;
       width: 100%;
       max-width: 48px;
-      margin-top: 2px;
+      margin-top: 6px;
       margin-right: 12px; }
     .a-dropdown-languages .dropdown-item p,
     .a-dropdown-personswitchList .dropdown-item p {
@@ -9081,7 +9087,8 @@ textarea {
   border: 3px solid #0062BA; }
   @media (min-width: 576px) {
     .a-globalNav .navbar-toggler {
-      right: 150px; } }
+      right: 160px;
+      margin-top: -4px; } }
   .a-globalNav .navbar-toggler::after {
     content: 'meny'; }
   .a-globalNav .navbar-toggler[data-jsexpanded='true'] {
@@ -9753,7 +9760,6 @@ textarea {
           padding-right: 0;
           padding-bottom: 2px;
           margin-right: -4px;
-          margin-left: -7px;
           font-family: 'AltinnNo';
           color: #000000;
           vertical-align: middle;
@@ -10112,7 +10118,8 @@ textarea {
       border: none; }
       .a-footerNav ul li a:hover,
       .a-footerExtraNav ul li a:hover {
-        color: #0062BA; }
+        color: #0062BA;
+        border-color: #0062BA; }
       .a-footerNav ul li a i,
       .a-footerExtraNav ul li a i {
         position: absolute;
@@ -10165,9 +10172,6 @@ textarea {
         position: relative;
         color: #022F51;
         border-bottom: 1px solid #022F51; }
-        .a-footerExtraNav ul li a:focus, .a-footerExtraNav ul li a:hover {
-          border-bottom: 1px solid #1EAEF7;
-          box-shadow: none; }
         .a-footerExtraNav ul li a::before {
           position: absolute;
           top: -15px;
@@ -10390,7 +10394,7 @@ textarea {
         -webkit-font-smoothing: subpixel-antialiased; } }
 
 /**  global icon styles **/
-.a-remove-icon {
+i.a-danger {
   color: #E23B53; }
 
 /*------------------------------------*    $BUTTONS
@@ -10807,8 +10811,7 @@ textarea {
   background-size: cover; }
   @media (min-width: 768px) {
     .a-jumbotron {
-      height: calc(100vh - 200px);
-      margin-bottom: 36px; } }
+      height: calc(100vh - 200px); } }
   .a-jumbotron .a-leadText {
     max-width: 600px; }
   .a-jumbotron p {
@@ -10840,6 +10843,9 @@ textarea {
   .a-jumbotron.a-jumbotron-emergency {
     background-color: rgba(255, 255, 255, 0.7);
     background-blend-mode: luminosity; }
+  .a-jumbotron.a-jumbotron--autoHeight {
+    height: auto;
+    min-height: auto; }
   .a-jumbotron .a-message.a-message--arrow-off {
     margin-top: 18px; }
   .a-jumbotron .a-form-group .a-form-group-items input {
@@ -10864,8 +10870,7 @@ textarea {
 
 .a-jumbotron-dark {
   color: #FFFFFF;
-  background-color: #022F51;
-  background-image: url("../images/header-bg0.svg"); }
+  background-color: #022F51; }
   .a-jumbotron-dark a,
   .a-jumbotron-dark p,
   .a-jumbotron-dark .a-jumbotron-btn-textright,
@@ -10906,7 +10911,7 @@ textarea {
   .a-jumbotron-dark .a-selectable a:active:not(.a-expanded):not(.a-deleted):not(.a-completed),
   .a-jumbotron-dark .a-selectable a:focus:not(.a-expanded):not(.a-deleted):not(.a-completed) {
     cursor: pointer;
-    background-color: rgba(255, 255, 255, 0.1);
+    background-color: rgba(255, 255, 255, 0.05);
     box-shadow: none; }
   .a-jumbotron-dark .a-message {
     color: #000000; }
@@ -11224,7 +11229,11 @@ textarea {
 
 .a-list-container .a-list-header {
   min-height: 36px;
-  padding: 6px 6px 4px 6px; }
+  padding-right: 12px;
+  padding-left: 12px; }
+  @media (min-width: 768px) {
+    .a-list-container .a-list-header {
+      padding: 12px 6px; } }
   .a-list-container .a-list-header .a-list-sortHeader {
     font-size: 12px;
     font-size: 1.2rem;
@@ -11253,13 +11262,13 @@ textarea {
   list-style: none; }
   .a-list.a-list-large li > .row,
   .a-list.a-list-large li .a-list-content {
-    min-height: 48px;
-    padding: 12px 6px; }
-    @media (max-width: 767px) {
+    padding-right: 12px;
+    padding-left: 12px; }
+    @media (min-width: 768px) {
       .a-list.a-list-large li > .row,
       .a-list.a-list-large li .a-list-content {
-        padding-right: 12px;
-        padding-left: 12px; } }
+        min-height: 48px;
+        padding: 12px 6px; } }
   .a-list.a-list-large li .a-list-rowLink {
     font-size: 20px;
     font-size: 2rem;
@@ -11791,6 +11800,7 @@ ol {
     line-height: 1.5;
     -webkit-font-smoothing: subpixel-antialiased;
     position: relative;
+    display: inline-block;
     padding: 6px 0;
     color: #000000;
     text-decoration: none;
@@ -11806,20 +11816,12 @@ ol {
         -webkit-font-smoothing: subpixel-antialiased; } }
     @media (min-width: 576px) {
       .a-tabs .a-tab-btn {
-        display: -ms-flexbox;
-        display: flex;
-        -ms-flex-direction: column;
-        flex-direction: column;
-        height: 50px;
-        padding: 6px 0 6px 36px; } }
+        min-height: 45px;
+        padding: 6px 0 6px; } }
     .a-tabs .a-tab-btn.active {
       border-bottom-color: #1EAEF7; }
     .a-tabs .a-tab-btn .active:focus, .a-tabs .a-tab-btn .active:hover, .a-tabs .a-tab-btn .active:active {
       border-bottom-color: #1EAEF7; }
-    .a-tabs .a-tab-btn > i {
-      position: absolute;
-      left: 0;
-      vertical-align: middle; }
 
 .a-tabs-content {
   clear: both;
@@ -12407,9 +12409,6 @@ a.a-modal-close {
         margin-left: -12px; } }
     .a-panelAccordion .a-collapsePanel-heading.expanded + .a-collapsePanel-body .a-collapsePanel-body-content {
       padding: 24px 12px; }
-      @media (min-width: 576px) {
-        .a-panelAccordion .a-collapsePanel-heading.expanded + .a-collapsePanel-body .a-collapsePanel-body-content {
-          padding: 24px 96px; } }
       @media (min-width: 768px) {
         .a-panelAccordion .a-collapsePanel-heading.expanded + .a-collapsePanel-body .a-collapsePanel-body-content {
           padding: 40px 96px; } }
@@ -13307,6 +13306,10 @@ h1 + .a-byline {
   margin-right: auto;
   margin-left: auto; }
 
+.a-js-genericSearch .a-logo-anim {
+  margin-right: auto;
+  margin-left: auto; }
+
 .onboarding-wrapper {
   position: fixed;
   top: 0;
@@ -13746,6 +13749,9 @@ hr {
   background-position: top;
   background-size: 4px 2px; }
 
+.a-borderBottom {
+  border-bottom: 1px solid #EFEFEF; }
+
 .sr-only-focusable:active, .sr-only-focusable:focus {
   position: static;
   display: inline-block;
@@ -13821,7 +13827,7 @@ hr {
 .a-jumbotron-dark .a-selectable:active:not(.a-expanded):not(.a-deleted):not(.a-completed),
 .a-jumbotron-dark .a-selectable:focus:not(.a-expanded):not(.a-deleted):not(.a-completed) {
   cursor: pointer;
-  background-color: rgba(255, 255, 255, 0.2);
+  background-color: rgba(255, 255, 255, 0.05);
   box-shadow: none; }
 
 .a-selectable.a-selected.a-success {
@@ -14246,19 +14252,19 @@ hr {
 /* Add col */
 @font-face {
   font-family: 'DIN-light';
-  src: url("https://www.altinn.no/ui/fonts/DINWeb-Light.woff"); }
+  src: url("../../fonts/DINWeb-Light.woff"); }
 
 @font-face {
   font-family: 'DIN-reg';
-  src: url("https://www.altinn.no/ui/fonts/DINWeb.woff"); }
+  src: url("../../fonts/DINWeb.woff"); }
 
 @font-face {
   font-family: 'DIN-medium';
-  src: url("https://www.altinn.no/ui/fonts/DINWeb-Medium.woff"); }
+  src: url("../../fonts/DINWeb-Medium.woff"); }
 
 @font-face {
   font-family: 'DIN-bold';
-  src: url("https://www.altinn.no/ui/fonts/DINWeb-Bold.woff"); }
+  src: url("../../fonts/DINWeb-Bold.woff"); }
 
 button,
 input,
