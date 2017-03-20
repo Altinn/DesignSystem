@@ -1,0 +1,62 @@
+<div class="a-page" id="smoothState">
+	{{> organismer-header }}
+
+	<div class="container" id="content" tabindex="-1">
+
+		<div class="row">
+			<div class="col-sm-12 col-lg-6 offset-lg-3 a-articleSearch">
+				{{# article-search }}
+						{{> atomer-tekst-input }}
+				{{/ article-search }}
+			</div>
+		</div>
+
+			<div class="row">
+				<div class="col-sm-12 col-lg-10 offset-lg-1 pb-3">
+
+					{{# article-breadcrumb }}
+						{{> molekyler-smulesti }}
+					{{/ article-breadcrumb }}
+
+					{{> atomer-sidetittel }}
+
+					{{# hasIntro}}
+						{{> atomer-intro-tekst }}
+					{{/ hasIntro}}
+
+					{{# hasFilter}}
+						{{> atomer-valgknapp-ett-alternativ }}
+					{{/ hasFilter}}
+
+				</div>
+			</div>
+
+			<div class="row">
+				<div class="col-sm-12 col-lg-10 offset-lg-1 pb-3">
+
+					<span class="{{ resultList }}">
+						{{# list-article }}
+								{{> molekyler-lenketittel-med-forklaring }}
+						{{/ list-article }}
+					</span>
+
+					{{# list-article-loadmore }}
+				    {{> atomer-handlingsknapp }}
+				  {{/ list-article-loadmore }}
+
+				</div>
+			</div>
+
+			<div class="row">
+				<div class="col-sm-12 col-lg-6 offset-lg-3 pb-3">
+					{{> molekyler-bilde-innhold:mt-4 }}
+				</div>
+			</div>
+
+
+
+		</div> <!-- END Container -->
+
+		{{> organismer-footer }}
+
+</div>
