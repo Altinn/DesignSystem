@@ -16,7 +16,7 @@ var del = require('del');
 var buildConfig = require('./config/gulp/config');
 var config = require('./patternlab-config.json');
 var patternlab = require('patternlab-node')(config);
-var prettify = require('gulp-jsbeautifier');
+var htmltidy = require('gulp-htmltidy');
 
 function paths () { return config.paths }
 
@@ -233,7 +233,6 @@ function getConfiguredCleanOption () {
 
 function build (done) {
   patternlab.build(done, getConfiguredCleanOption());
-  // gulp.series('prettify');
 }
 
 gulp.task('pl-assets', gulp.series(
@@ -247,15 +246,53 @@ gulp.task('pl-assets', gulp.series(
   )
 );
 
-gulp.task('prettify', function() {
-  return gulp.src([paths().public.patterns + '**/*.html'])
-    .pipe(prettify({ preserve_newlines: false }))
+// See quick ref for Tidy params: http://api.html-tidy.org/tidy/quickref_5.4.0.html
+gulp.task('tidy-fragments', function() {
+  return gulp.src([paths().public.patterns + '**/*markup-only.html'])
+    .pipe(htmltidy({dropEmptyElements: false,
+                    dropProprietaryAttributes: false,
+                    forceOutput: true,
+                    hideComments: true,
+                    indent: true,
+                    indentSpaces: 2,
+                    mergeDivs: false,
+                    mergeEmphasis: false,
+                    mergeSpans: false,
+                    outputHtml: true,
+                    preserveEntities: true,
+                    showBodyOnly: true,
+                    strictTagsAttributes: false,
+                    tidyMark: false,
+                    verticalSpace: true,
+                    wrap: 260}))
     .pipe(gulp.dest(paths().public.patterns));
+});
+
+gulp.task('tidy-pages', function() {
+  return gulp.src([paths().public.root + '**/*.html', '!' + paths().public.root + '**/*markup-only.html'])
+    .pipe(htmltidy({doctype: 'html5',
+                    dropEmptyElements: false,
+                    dropProprietaryAttributes: false,
+                    forceOutput: true,
+                    hideComments: true,
+                    indent: true,
+                    indentSpaces: 2,
+                    mergeDivs: false,
+                    mergeEmphasis: false,
+                    mergeSpans: false,
+                    outputHtml: true,
+                    preserveEntities: true,
+                    showBodyOnly: false,
+                    strictTagsAttributes: false,
+                    tidyMark: false,
+                    verticalSpace: false,
+                    wrap: 260}))
+    .pipe(gulp.dest(paths().public.root));
 });
 
 gulp.task('patternlab:version', function (done) {
   patternlab.version();
-  done();
+  done();                                                                                                                                                                 
 });
 
 gulp.task('patternlab:help', function (done) {
@@ -354,6 +391,10 @@ gulp.task('patternlab:serve',
     'pl-clean:public',
     'patternlab:prebuild',
     'patternlab:build',
+    /*gulp.parallel(
+      'tidy-pages',
+      'tidy-fragments'
+    ),*/
     'patternlab:connect',
     watch
   )
