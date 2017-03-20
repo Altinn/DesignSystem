@@ -159,8 +159,8 @@ var genericSearch = function() {
             '</div>'
           );
         });
-        data.IndustryList.forEach(function(item) {
-          $('.a-js-industries').find('.d-block').prepend(
+        data.IndustryList.reverse().forEach(function(item) {
+          $('.a-js-industries').find('.d-block').before(
             '<div class="a-switch">' +
             $('.a-js-industries').find('.a-switch').eq(0).html()
               .replace(/%ID%/g, item.FilterId)
