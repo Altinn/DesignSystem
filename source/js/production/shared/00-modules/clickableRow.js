@@ -1,5 +1,5 @@
 var setupOnKeypress = function() {
-  $('.a-clickable, .a-selectable').on('keypress', function(e) {
+  $('body').on('keypress', '.a-clickable, .a-selectable', function(e) {
     var key = e.which;
     if ($(e.target).hasClass('a-clickable') || $(e.target).hasClass('a-selectable')) {
       if (key === 13) {
