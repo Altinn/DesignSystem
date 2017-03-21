@@ -887,8 +887,8 @@ var drilldownInteraction = function() {
   }
   window.drillDownGetSource = function(str) {
     var url = [
-      'http://altinn-dev.dev.bouvet.no/api/' + str,
       '/api/' + str,
+      'http://altinn-dev.dev.bouvet.no/api/' + str,
       '../../../data/' + str + '.json',
       '../../../DesignSystem/data/' + str + '.json'
     ];
