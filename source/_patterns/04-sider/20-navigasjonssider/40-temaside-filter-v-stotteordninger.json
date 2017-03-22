@@ -23,7 +23,11 @@
 
 		"wrapperClass": "a-js-genericSearch",
 		"wrapperSource": "http://altinn-dev.dev.bouvet.no/api/getsubsidy,../../data/stotteordninger.json",
+		"wrapperDimensions": "Purposes,Industries",
+		"wrapperDimensionsAliases": "Purpose,Industry",
+		"wrapperMappedKeys": "NAME=SubsidyName,DESC=SubsidyIntro,URL=SubsidyURL,ID=FilterId,TITLE=FilterName",
 		"resultList": "a-js-results",
+		"alternativeResultList": "a-js-alternativeResults",
 
 		"modal-loader" : true,
 		"modal-empty" : {
@@ -33,7 +37,7 @@
 
 		"filter-formaal" : {
 			"card-content" : false,
-			"a-card-filter" : "a-card-filter a-js-purposes",
+			"a-card-filter" : "a-card-filter a-js-filterDim1",
 			"card-filter" : {
 				"aria-expanded-header" : "false",
 				"role" : "list",
@@ -45,7 +49,7 @@
 			  "filterable-items": {
 			    "checkbuttons": [
 			      {
-			        "checkbuttons-id": "filterID%ID%",
+			        "checkbuttons-id": "filterDim1ID%ID%",
 			        "checkbuttons-title": "%TITLE%",
 			        "hasIcon": false
 			      }
@@ -55,7 +59,7 @@
 		},
 		"filter-bransje" : {
 			"card-content" : false,
-			"a-card-filter" : "a-card-filter a-js-industries",
+			"a-card-filter" : "a-card-filter a-js-filterDim2",
 			"card-filter" : {
 				"aria-expanded-header" : "false",
 				"role" : "list",
@@ -67,7 +71,7 @@
 			  "filterable-items": {
 			    "checkbuttons": [
 			      {
-			        "checkbuttons-id": "filterID%ID%",
+			        "checkbuttons-id": "filterDim2ID%ID%",
 			        "checkbuttons-title": "%TITLE%",
 			        "hasIcon": false
 			      }
@@ -76,10 +80,10 @@
 				"filter-infoText" : "* Støtteordninger som er uavhengige av bransje vil også vise i listen."
 			}
 		},
+		"extra-results-heading" : "<h2 class='a-h4 a-borderBottom mt-4 mb-2 a-js-result a-js-extraHeading'>Støtteordninger uavhengige av bransje:</h2>",
 		"list-stotteordninger" : [
 			{
 				"identifier": "%IDENTIFIER%",
-				"additional-attributes" : "%ATTRIBUTES%",
 				"heading-start" : "<h2>",
 			  "heading-end" : "</h2>",
 			  "linkTitle" : {
