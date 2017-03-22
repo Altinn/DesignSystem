@@ -8,12 +8,12 @@
     {{# heading-tekst }}
       <div class="col align-self-center d-flex a-headingTextContainer pr-2">
         <div class="d-inline-block">
-            {{# due-date }}
+            {{# due-date-content }}
               <div class="col-auto align-self-center mr-2 hidden-md-up">
                 <span class="a-duedate-lbl">{{ due-date-label }}</span>
                 <span>{{ due-date }}</span>
               </div>
-            {{/ due-date }}
+            {{/ due-date-content }}
             <h2 class="mb-0">
               <div class="a-fontSizeL a-msgDescription d-inline">{{ textDescription }}</div>
               <div class="a-fontSizeL d-inline">{{ textMain }}</div>
@@ -28,12 +28,13 @@
       </div>
     {{/ heading-tekst }}
 
-    {{# due-date }}
+    {{# due-date-content }}
+      <div class="col-auto a-dueDateIcon align-self-center mr-1">{{> atomer-ikon }}</div>
       <div class="col-auto align-self-center mr-2 hidden-sm-down">
         <span class="a-duedate-lbl">{{ due-date-label }}</span>
         <span>{{ due-date }}</span>
       </div>
-    {{/ due-date }}
+    {{/ due-date-content }}
     <div class="col-auto align-self-center hidden-sm-down mr-2 a-shortcutsContainer">
       {{# shortcut-icons }}
         {{> atomer-knapp-ikon-tekst }}
