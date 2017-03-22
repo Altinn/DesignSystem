@@ -1,8 +1,13 @@
 <div class="card a-accordion-card a-collapsePanel {{{ isLarge }}} {{{ styleModifier }}}">
   <div class="card-header a-js-index-heading a-collapsePanel-heading collapsed {{isExpanded}}" role="tab">
-    <a href="#{{ collapseID }}" tabindex="0" data-toggle="collapse" data-target="#{{{collapseID}}}" aria-expanded="false" aria-controls="#{{{collapseID}}}" {{# dataParent }}data-parent="{{{dataParent}}}"{{/ dataParent }}>
+    <a href="#{{ collapseID }}" tabindex="0" data-toggle="collapse" data-target="#{{{ collapseID }}}" aria-expanded="false" aria-controls="#{{{ collapseID }}}" {{# dataParent }}data-parent="{{{ dataParent }}}"{{/ dataParent }}>
       {{# collapseHeader }}
-        {{> molekyler-ikon-tekst }}
+        {{^ isElement }}
+          {{> molekyler-ikon-tekst }}
+        {{/ isElement }}
+        {{# isElement }}
+          {{> molekyler-innboks-header-innhold }}
+        {{/ isElement }}
       {{/ collapseHeader }}
     </a>
   </div>
