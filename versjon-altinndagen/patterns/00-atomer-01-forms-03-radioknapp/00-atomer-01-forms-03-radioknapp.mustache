@@ -1,0 +1,34 @@
+<fieldset class="form-group {{ styleModifier }}">
+
+	{{# radio-legend }}
+		<legend class="a-legend">{{{radio-legendText}}}
+			{{# titleExtra }}
+				<span class="a-titleExtra">{{{ titleExtra-text }}}</span>
+			{{/ titleExtra }}
+		</legend>
+	{{/ radio-legend }}
+
+	<div class="form-check a-radioButtons {{ isStacked }} {{ radio-class}}">
+
+		{{# radiobuttons }}
+			<label class="custom-control custom-radio">
+				<input id="{{{ radiobutton-id }}}" value="{{{ radiobutton-id }}}" type="radio" {{{isRequired}}} name="radioish" class="custom-control-input"/>
+				<span class="custom-control-indicator"></span>
+				<span class="a-radioButtons-title">
+					{{{ radiobutton-title }}}
+				</span>
+
+				{{# radiobuttons-excerpt }}
+					<span class="a-radioButtons-excerpt a-maxThreeLines">
+						{{{ radiobuttons-excerptText }}}
+					</span>
+				{{/ radiobuttons-excerpt }}
+
+			</label>
+
+		{{/ radiobuttons }}
+
+	</div>
+
+<!--</div>-->
+</fieldset>
