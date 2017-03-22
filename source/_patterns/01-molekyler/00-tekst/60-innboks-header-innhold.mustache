@@ -1,41 +1,41 @@
-<div class="a-inbox-heading-content row align-items-stretch" style="min-height:64px;">
-  {{# heading-icon }}
-    <div class="a-square-icon-wrapper col-auto px-2 align-items-center d-flex" style="background-color: lightblue">
-      {{> atomer-ikon }}
-    </div>
-  {{/ heading-icon}}
-  {{# heading-tekst }}
-    <div class="col align-self-center">
-      <div class="row">
-        <div class="row">
-          <div class="col" style="overflow:hidden; white-space:nowrap; text-overflow:ellipsis">
-            <span class="a-description a-fontSizeL" style="overflow:hidden; white-space:nowrap; text-overflow:ellipsis">{{ textDescription }}</span>
-            <span class="a-fontSizeL" style="overflow:hidden; white-space:nowrap; text-overflow:ellipsis">{{ textMain }}</span>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col">
-            <span class="" style="overflow:hidden; white-space:nowrap; text-overflow:ellipsis">{{ textSmall }}</span>
-          </div>
+<div class="container">
+  <div class="a-inbox-heading-content row align-items-stretch" style="min-height:64px;">
+    {{# heading-icon }}
+      <div class="a-square-icon-wrapper col-auto px-2 align-items-center d-flex" style="background-color: lightblue">
+        {{> atomer-ikon }}
+      </div>
+    {{/ heading-icon}}
+    {{# heading-tekst }}
+      <div class="col align-self-center d-flex py-2" style="overflow:hidden; white-space:nowrap; text-overflow:ellipsis">
+        <div class="d-inline-block" style="overflow:hidden; text-overflow:ellipsis">
+            {{# due-date }}
+              <div class="col-auto align-self-center mr-2 hidden-md-up">
+                <span class="a-duedate-lbl">frist: </span>
+                <span>{{ due-date }}</span>
+              </div>
+            {{/ due-date }}
+          <div class="a-fontSizeL a-description d-inline">{{ textDescription }}</div>
+          <div class="a-fontSizeL d-inline" style="overflow:hidden; white-space:nowrap; text-overflow:ellipsis">{{ textMain }}</div>
+          <div class="" style="overflow:hidden; white-space:nowrap; text-overflow:ellipsis">{{ textSmall }}</div>
         </div>
         {{# attachment-icon }}
-          <div class="col-auto align-self-center mx-2">
+          <div class="align-self-center mx-2">
             {{> atomer-ikon }}
           </div>
         {{/ attachment-icon }}
       </div>
-    </div>
-  {{/ heading-tekst }}
+    {{/ heading-tekst }}
 
-  {{# due-date }}
-    <div class="col-auto align-self-center mr-2">
-      <span class="a-duedate-lbl">frist: </span>
-      <span>{{ due-date }}</span>
+    {{# due-date }}
+      <div class="col-auto align-self-center mr-2 hidden-sm-down">
+        <span class="a-duedate-lbl">frist: </span>
+        <span>{{ due-date }}</span>
+      </div>
+    {{/ due-date }}
+    <div class="col-auto align-self-center hidden-sm-down">
+      {{# shortcut-icons }}
+        {{> atomer-ikon }}
+      {{/ shortcut-icons }}
     </div>
-  {{/ due-date }}
-  <div class="col-auto align-self-center hidden-sm-down">
-    {{# shortcut-icons }}
-      {{> atomer-ikon }}
-    {{/ shortcut-icons }}
   </div>
 </div>
