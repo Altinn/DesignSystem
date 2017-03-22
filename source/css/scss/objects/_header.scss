@@ -138,6 +138,7 @@
 
     &:focus {
       color: $blue-darker;
+      border-color: $blue-darker;
     }
 
     &:active {
@@ -267,7 +268,7 @@
     margin-left: 3px;
     color: $white;
     background: $blue-dark;
-    border: 1px solid $blue-dark;
+    // border: 1px solid $blue-dark;
     border-radius: $spacer * 3;
     justify-content: center;
 
@@ -294,9 +295,9 @@
 
   .dropdown-item {
     display: flex;
-    padding: $spacer * 1.5;
+    padding: $spacer * 1.5 $spacer * 2;
     white-space: normal;
-    border-bottom: 1px solid $grey-light;
+    border-bottom: none;
     align-items: flex-start;
     -webkit-box-align: start;
 
@@ -308,8 +309,12 @@
       float: left;
       width: 100%;
       max-width: $spacer * 4;
-      margin-top: 2px;
+      margin-top: 5px;
       margin-right: $spacer;
+
+      &.a-globe {
+        margin-top: 2px;
+      }
     }
 
     p {
@@ -468,7 +473,8 @@
     border: 3px solid $blue-dark;
 
     @include media-breakpoint-up( sm ) {
-      right: 150px;
+      right: 160px;
+      margin-top: -4px;
     }
 
     &::after {
@@ -720,10 +726,6 @@
   .a-form-group {
     margin-bottom: $spacer * 3;
   }
-
-  .ai-phone {
-    margin-left: -8px;
-  }
 }
 
 /*----------------------------------------*\
@@ -763,7 +765,7 @@
   .a-personSwitcher-icon {
     color: $blue-darker;
     background: $white;
-    border: 1px solid $white;
+    // border: 1px solid $white;
   }
 
   .a-header-options {

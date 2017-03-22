@@ -9,9 +9,9 @@ var genericSearch = function() {
   var afterRequest;
   var page = 1;
   var inputBy;
-  var legend = $('.a-js-genericSearch').find('.a-legend');
-  var loader = $('.a-js-genericSearch').find('.a-logo-anim');
-  var empty = $('.a-js-genericSearch').find('.a-js-noResults');
+  var legend = $('.a-js-genericSearch').next().find('.a-legend');
+  var loader = $('.a-js-genericSearch').next().find('.a-logo-anim');
+  var empty = $('.a-js-genericSearch').next().find('.a-js-noResults');
   var selected = {};
   var onSuccess = function(data) {
     afterRequest(data, false);
@@ -51,7 +51,7 @@ var genericSearch = function() {
     if (selected[dimensions[0]].length > 0 && selected[dimensions[1]].length > 0) {
       return (
         match(selected[dimensions[0]], item[dimensions[0]]) &&
-        match(selected[dimensions[1]], item[dimensions[1]]), true);
+        match(selected[dimensions[1]], item[dimensions[1]], true));
     }
     if (selected[dimensions[0]].length > 0) {
       return (
@@ -70,11 +70,11 @@ var genericSearch = function() {
   if ($('.a-js-genericSearch').length > 0) {
     loader.show();
     $('.a-js-none').show().prev().hide();
-    inputBy = $('.a-js-genericSearch').find('input[type=search]').length > 0 ? 'search' : 'filter';
+    inputBy = $('.a-js-genericSearch').next().find('input[type=search]').length > 0 ? 'search' : 'filter';
     container = inputBy === 'search' ?
-      $('.a-js-genericSearch').find('.a-list') : $('.a-js-genericSearch').find('.a-js-results');
+      $('.a-js-genericSearch').next().find('.a-list') : $('.a-js-genericSearch').next().find('.a-js-results');
     altContainer = inputBy === 'search' ?
-      null : $('.a-js-genericSearch').find('.a-js-alternativeResults');
+      null : $('.a-js-genericSearch').next().find('.a-js-alternativeResults');
     container.find('li:gt(0)').remove();
     container.find('.a-js-result:gt(0)').remove();
     altContainer.find('.a-js-result:gt(0)').remove();
@@ -89,11 +89,11 @@ var genericSearch = function() {
       var belowCount;
       var newList = data.SubsidiesList.sort(dynamicSort('SubsidyName'));
       loader.hide();
-      $('.a-js-genericSearch').find('.a-card-filter').show();
+      $('.a-js-genericSearch').next().find('.a-card-filter').show();
       container.show();
       altContainer.show();
       if (inputBy === 'search') {
-        $('.a-js-genericSearch').find('form').on('keyup keypress', function(e) {
+        $('.a-js-genericSearch').next().find('form').on('keyup keypress', function(e) {
           var keyCode = e.keyCode || e.which;
           if (keyCode === 13) {
             e.preventDefault();
@@ -101,7 +101,8 @@ var genericSearch = function() {
           }
           return true;
         });
-        $('.a-js-genericSearch').find('form').find('input[type=search]').on('keypress', function() {
+        $('.a-js-genericSearch').next().find('form').find('input[type=search]')
+        .on('keypress', function() {
           lastKeypress = new Date().getTime();
           iterate = true;
           loader.show();
@@ -110,7 +111,8 @@ var genericSearch = function() {
           container.html('');
         });
         setInterval(function() {
-          var value = $('.a-js-genericSearch').find('form').find('input[type=search]').val();
+          var value = $('.a-js-genericSearch').next().find('form').find('input[type=search]')
+            .val();
           var query = value !== undefined ? value.toLowerCase() : '';
           if (query.length > 0 && (new Date().getTime() - lastKeypress > 1500) && iterate) {
             iterate = false;
@@ -145,13 +147,13 @@ var genericSearch = function() {
           if (item.isBelow) {
             belowCount += 1;
             $('#' + item.altId)[
-              aboveCount < 20 && belowCount < ((20 * page) - aboveCount) ? 'show' : 'hide'
+              aboveCount < (20 * page) && belowCount < ((20 * page) - aboveCount) ? 'show' : 'hide'
             ]();
           }
         });
         setTimeout(function() {
           $('.a-js-extraHeading')[
-            $('.a-js-extraHeading').next().is(':visible') ? 'show' : 'hide']();
+            $('.a-js-underneath').is(':visible') ? 'show' : 'hide']();
         }, 1);
         container.next().next()[newList.filter(grinder).length < 20 * page ? 'hide' : 'show']();
         if (selected[dimensions[1]].length > 0) {
@@ -194,24 +196,24 @@ var genericSearch = function() {
           newList[index].id = 'result-' + index;
           newList[index].altId = 'altResult-' + index;
           container.append(
-            base.replace('%NAME%', item[mappedKeys.NAME] + ' – IS NORMAL – ' + newList[index].id).replace(/%URL%/g, item[mappedKeys.URL])
+            base.replace('%NAME%', item[mappedKeys.NAME]).replace(/%URL%/g, item[mappedKeys.URL])
               .replace('%DESC%', item[mappedKeys.DESC] || 'Ingen beskrivelse.')
               .replace('%IDENTIFIER%', 'result-' + index)
               .replace('a-linkArticle', 'a-linkArticle a-js-result'));
           if (item.Industries.length !== 0) {
             newList[index].isAbove = true;
             altContainer.find('.a-js-extraHeading').before(
-              base.replace('%NAME%', item[mappedKeys.NAME] + ' – IS ABOVE – ' + newList[index].altId).replace(/%URL%/g, item[mappedKeys.URL])
+              base.replace('%NAME%', item[mappedKeys.NAME]).replace(/%URL%/g, item[mappedKeys.URL])
                 .replace('%DESC%', item[mappedKeys.DESC] || 'Ingen beskrivelse.')
                 .replace('%IDENTIFIER%', 'altResult-' + index)
                 .replace('a-linkArticle', 'a-linkArticle a-js-result'));
           } else {
             newList[index].isBelow = true;
             altContainer.find('.a-js-bottom').before(
-              base.replace('%NAME%', item[mappedKeys.NAME] + ' – IS BELOW – ' + newList[index].altId).replace(/%URL%/g, item[mappedKeys.URL])
+              base.replace('%NAME%', item[mappedKeys.NAME]).replace(/%URL%/g, item[mappedKeys.URL])
                 .replace('%DESC%', item[mappedKeys.DESC] || 'Ingen beskrivelse.')
                 .replace('%IDENTIFIER%', 'altResult-' + index)
-                .replace('a-linkArticle', 'a-linkArticle a-js-result'));
+                .replace('a-linkArticle', 'a-linkArticle a-js-result a-js-underneath'));
           }
         });
         container.find('.a-js-result').each(function(index, item) {
@@ -257,7 +259,7 @@ var genericSearch = function() {
           });
           setTimeout(function() {
             $('.a-js-extraHeading')[
-              $('.a-js-extraHeading').next().is(':visible') ? 'show' : 'hide']();
+              $('.a-js-underneath').is(':visible') ? 'show' : 'hide']();
           }, 1);
           container.next().next()[newList.filter(grinder).length < 20 ? 'hide' : 'show']();
           empty[newList.filter(grinder).length === 0 ? 'show' : 'hide']();
