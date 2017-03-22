@@ -1,5 +1,5 @@
 ---
-state: needsrevalidation
+state: indesignreview
 prepend: <!-- Dummy prepended content -->
 append: <!-- Dummy appended content -->
 version: 0
