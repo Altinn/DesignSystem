@@ -153,6 +153,7 @@ var drilldownInteraction = function() {
   }
   window.drillDownGetSource = function(str) {
     var url = [
+      '/api/' + str,
       'http://altinn-dev.dev.bouvet.no/api/' + str,
       '../../../data/' + str + '.json',
       '../../../DesignSystem/data/' + str + '.json'
@@ -326,8 +327,17 @@ var drilldownInteraction = function() {
             afterRequest(data);
           },
           error: function() {
-            $.getJSON(url[2], function(data) {
-              afterRequest(data);
+            $.ajax({
+              type: 'GET',
+              url: url[2],
+              success: function(data) {
+                afterRequest(data);
+              },
+              error: function() {
+                $.getJSON(url[3], function(data) {
+                  afterRequest(data);
+                });
+              }
             });
           }
         });
