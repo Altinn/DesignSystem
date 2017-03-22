@@ -44,11 +44,11 @@
 		}
 	},
 	"footerBedriftIkon": {
-		"icon-prefix": "ai",
+		"icon-prefix": "ai ai-nw",
 		"icon-class": "ai-corp"
 	},
 	"footerHjelpIkon": {
-		"icon-prefix": "ai",
+		"icon-prefix": "ai ai-nw",
 		"icon-class": "ai-phone"
 	},
 	"telNumber": "75006000",
@@ -632,7 +632,7 @@
 		]
 	},
 	"personswitch-footer": {},
-	"myself-name": "Jan Pettersen",
+	"myself-name": "JAN PETTERSEN",
 	"myself-represent-number": "9",
 	"myself-personal-number": "Personnr. 123456 12345",
 	"user-icon": {
@@ -642,7 +642,7 @@
 	},
 	"dropdown-class": "a-dropdown-languages",
 	"personswitch-current": {
-		"myself-name": "Jan Pettersen",
+		"myself-name": "JAN PETTERSEN",
 		"myself-personal-number": "Personnr. 123456 12345",
 		"user-icon": {
 			"icon-prefix": "ai",
@@ -704,7 +704,7 @@
 		},
 		{
 			"dropdown-item-image": "../../images/globe.svg",
-			"dropdown-item-image-class": "a-iconLeft a-flag",
+			"dropdown-item-image-class": "a-iconLeft a-flag a-globe",
 			"language": "lang=\"en\"",
 			"dropdown-item-title": "Other languages",
 			"dropdown-item-content": "Information about other languages."
@@ -736,7 +736,7 @@
 			},
 			{
 				"dropdown-item-image": "../../images/globe.svg",
-				"dropdown-item-image-class": "a-iconLeft a-flag",
+				"dropdown-item-image-class": "a-iconLeft a-flag a-globe",
 				"language": "lang=\"en\"",
 				"dropdown-item-title": "Other languages",
 				"dropdown-item-content": "Information about other languages."
@@ -756,7 +756,7 @@
 		}
 	},
 	"tel-icon": {
-		"icon-prefix": "ai",
+		"icon-prefix": "ai ai-nw ai-nw-pr",
 		"icon-class": "ai-phone"
 	},
 	"title": "Altinn",
@@ -804,8 +804,12 @@
 			"lead-text-content": "Som næringsdrivende tilbyr det offentlige en rekke støtteordninger. Vi har samlet en oversikt over disse. Hvis du er usikker på hvilken som passer for deg kan du kontakte gründertelefonen hos Innovasjon Norge. "
 		},
 		"wrapperClass": "a-js-genericSearch",
-		"wrapperSource": "http://altinn-dev.dev.bouvet.no/api/getsubsidy,../../data/stotteordninger.json",
+		"wrapperSource": "../../data/stotteordninger.json,http://altinn-dev.dev.bouvet.no/api/getsubsidy",
+		"wrapperDimensions": "Purposes,Industries",
+		"wrapperDimensionsAliases": "Purpose,Industry",
+		"wrapperMappedKeys": "NAME=SubsidyName,DESC=SubsidyIntro,URL=SubsidyURL,ID=FilterId,TITLE=FilterName",
 		"resultList": "a-js-results",
+		"alternativeResultList": "a-js-alternativeResults",
 		"modal-loader": true,
 		"modal-empty": {
 			"paragraph-class": "a-js-noResults",
@@ -813,7 +817,7 @@
 		},
 		"filter-formaal": {
 			"card-content": false,
-			"a-card-filter": "a-card-filter a-js-purposes",
+			"a-card-filter": "a-card-filter a-js-filterDim1",
 			"card-filter": {
 				"aria-expanded-header": "false",
 				"role": "list",
@@ -825,7 +829,7 @@
 				"filterable-items": {
 					"checkbuttons": [
 						{
-							"checkbuttons-id": "filterID%ID%",
+							"checkbuttons-id": "filterDim1ID%ID%",
 							"checkbuttons-title": "%TITLE%",
 							"hasIcon": false
 						}
@@ -835,7 +839,7 @@
 		},
 		"filter-bransje": {
 			"card-content": false,
-			"a-card-filter": "a-card-filter a-js-industries",
+			"a-card-filter": "a-card-filter a-js-filterDim2",
 			"card-filter": {
 				"aria-expanded-header": "false",
 				"role": "list",
@@ -847,7 +851,7 @@
 				"filterable-items": {
 					"checkbuttons": [
 						{
-							"checkbuttons-id": "filterID%ID%",
+							"checkbuttons-id": "filterDim2ID%ID%",
 							"checkbuttons-title": "%TITLE%",
 							"hasIcon": false
 						}
@@ -856,10 +860,10 @@
 				"filter-infoText": "* Støtteordninger som er uavhengige av bransje vil også vise i listen."
 			}
 		},
+		"extra-results-heading": "<h2 class='a-h4 a-borderBottom mt-4 mb-2 a-js-result a-js-extraHeading'>Støtteordninger uavhengige av bransje:</h2>",
 		"list-stotteordninger": [
 			{
 				"identifier": "%IDENTIFIER%",
-				"additional-attributes": "%ATTRIBUTES%",
 				"heading-start": "<h2>",
 				"heading-end": "</h2>",
 				"linkTitle": {

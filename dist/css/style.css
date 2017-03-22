@@ -7344,19 +7344,19 @@ figure {
 
 @font-face {
   font-family: 'DIN-light';
-  src: url("../../fonts/DINWeb-Light.woff"); }
+  src: url("https://tt02.altinn.basefarm.net/ui/fonts/DINWeb-Light.woff"); }
 
 @font-face {
   font-family: 'DIN-reg';
-  src: url("../../fonts/DINWeb.woff"); }
+  src: url("https://tt02.altinn.basefarm.net/ui/fonts/DINWeb.woff"); }
 
 @font-face {
   font-family: 'DIN-medium';
-  src: url("../../fonts/DINWeb-Medium.woff"); }
+  src: url("https://tt02.altinn.basefarm.net/ui/fonts/DINWeb-Medium.woff"); }
 
 @font-face {
   font-family: 'DIN-bold';
-  src: url("../../fonts/DINWeb-Bold.woff"); }
+  src: url("https://tt02.altinn.basefarm.net/ui/fonts/DINWeb-Bold.woff"); }
 
 button,
 input,
@@ -7583,9 +7583,7 @@ a,
     color: #022F51;
     border-color: #022F51; }
   .a-linkFeatured i {
-    position: absolute;
-    right: -39px;
-    bottom: 15px; }
+    margin-top: -5px; }
 
 .a-helpIconButton {
   color: #6A6A6A;
@@ -7648,7 +7646,8 @@ h1 + .a-helpIconButton {
 .a-fullWidthLink {
   position: absolute;
   right: 0;
-  left: 0; }
+  left: 0;
+  min-height: 36px; }
 
 a[href^="http"]:not([href*='altinn.no'])::after {
   display: inline-block;
@@ -7656,7 +7655,7 @@ a[href^="http"]:not([href*='altinn.no'])::after {
   height: 1em;
   background-image: url("../node_modules/altinn-designsystem/dist/images/arrowrightup.svg");
   background-repeat: no-repeat;
-  background-position: -6px -1px;
+  background-position: -3px -1px;
   background-size: 146% auto;
   line-height: 1;
   content: '(external link)';
@@ -8744,6 +8743,7 @@ textarea {
 
 .a-js-genericSearch .a-card-filter,
 .a-js-genericSearch .a-js-results,
+.a-js-genericSearch .a-js-alternativeResults,
 .a-js-genericSearch .a-js-noResults {
   display: none; }
 
@@ -8847,7 +8847,8 @@ textarea {
       .a-header-options .nav-link {
         padding: 10px; } }
     .a-header-options .nav-link:focus {
-      color: #022F51; }
+      color: #022F51;
+      border-color: #022F51; }
     .a-header-options .nav-link:active {
       color: #0062BA; }
   .a-header-options .a-languageSwitcher {
@@ -8945,7 +8946,6 @@ textarea {
     margin-left: 3px;
     color: #FFFFFF;
     background: #0062BA;
-    border: 1px solid #0062BA;
     border-radius: 36px;
     -ms-flex-pack: center;
     justify-content: center; }
@@ -8990,8 +8990,11 @@ textarea {
       float: left;
       width: 100%;
       max-width: 48px;
-      margin-top: 6px;
+      margin-top: 5px;
       margin-right: 12px; }
+      .a-dropdown-languages .dropdown-item .a-flag.a-globe,
+      .a-dropdown-personswitchList .dropdown-item .a-flag.a-globe {
+        margin-top: 2px; }
     .a-dropdown-languages .dropdown-item p,
     .a-dropdown-personswitchList .dropdown-item p {
       margin-bottom: 0;
@@ -9262,8 +9265,6 @@ textarea {
         display: none; }
   .a-globalNav-main .a-form-group {
     margin-bottom: 36px; }
-  .a-globalNav-main .ai-phone {
-    margin-left: -8px; }
 
 /*----------------------------------------*    $ Different color versions of header
 \*----------------------------------------*/
@@ -9284,8 +9285,7 @@ textarea {
 
 .a-darkBackground .a-personSwitcher-icon {
   color: #022F51;
-  background: #FFFFFF;
-  border: 1px solid #FFFFFF; }
+  background: #FFFFFF; }
 
 .a-darkBackground .a-header-options .a-languageSwitcher,
 .a-darkBackground .a-header-options .a-personSwitcher {
@@ -10122,7 +10122,10 @@ textarea {
       .a-footerExtraNav ul li a i {
         position: absolute;
         top: 10px;
-        left: -42px; }
+        left: -32px; }
+        .a-footerNav ul li a i.ai-corp,
+        .a-footerExtraNav ul li a i.ai-corp {
+          left: -38px; }
 
 .a-footerNav {
   display: none; }
@@ -11458,9 +11461,6 @@ ul {
         /* shorten the line so it goes only up to the bullet. Is equal to first-child:before's top */ }
   ul.a-item-list-icon li {
     padding: 2px 0; }
-    ul.a-item-list-icon li:hover {
-      cursor: pointer;
-      background-color: #CFF0FF; }
     ul.a-item-list-icon li div[class^='col'] {
       overflow: hidden;
       text-overflow: ellipsis; }
@@ -12016,6 +12016,8 @@ body.modal-open {
     .a-modal .a-link-helpfunction .a-link-chat {
       color: #FFFFFF;
       border-color: #FFFFFF; }
+    .a-modal .a-link-helpfunction i {
+      margin-top: -10px; }
   .a-modal .a-modal-contentFullWidth {
     width: calc(100% + 47px);
     margin-left: -24px; }
@@ -12096,16 +12098,20 @@ body.modal-open {
         max-width: 142px; } }
   .a-modal-top .a-modal-top-user {
     position: relative;
-    float: right; }
+    float: right;
+    margin-top: 1px;
+    margin-right: 3px; }
     .a-modal-top .a-modal-top-user .a-personSwitcher {
       width: 200px;
       padding: 0;
       margin-top: -2px;
       margin-right: -3px;
-      color: #FFFFFF;
+      color: rgba(0, 0, 0, 0.7);
       pointer-events: none; }
     .a-modal-top .a-modal-top-user .a-personSwitcher-icon {
-      letter-spacing: normal; }
+      color: #FFFFFF;
+      letter-spacing: normal;
+      background-color: rgba(0, 0, 0, 0.7); }
 
 .a-modal-navbar {
   height: 48px;
@@ -12659,6 +12665,16 @@ a.a-modal-close {
 
 .a-text > h2 + h3 {
   margin-top: 12px !important; }
+
+.a-text > p a::before {
+  position: absolute;
+  top: -16px;
+  left: -12px;
+  z-index: -1;
+  width: calc( 100% + 24px);
+  min-height: 48px;
+  cursor: pointer;
+  content: ''; }
 
 .a-text > ul {
   list-style: disc; }
@@ -13304,8 +13320,10 @@ h1 + .a-byline {
   margin-right: auto;
   margin-left: auto; }
 
-.a-js-genericSearch .a-logo-anim {
+.a-js-genericSearch .a-logo-anim,
+.a-js-genericSearch + section .a-logo-anim {
   margin-right: auto;
+  margin-bottom: 20px;
   margin-left: auto; }
 
 .onboarding-wrapper {
@@ -14250,19 +14268,19 @@ hr {
 /* Add col */
 @font-face {
   font-family: 'DIN-light';
-  src: url("../../fonts/DINWeb-Light.woff"); }
+  src: url("https://tt02.altinn.basefarm.net/ui/fonts/DINWeb-Light.woff"); }
 
 @font-face {
   font-family: 'DIN-reg';
-  src: url("../../fonts/DINWeb.woff"); }
+  src: url("https://tt02.altinn.basefarm.net/ui/fonts/DINWeb.woff"); }
 
 @font-face {
   font-family: 'DIN-medium';
-  src: url("../../fonts/DINWeb-Medium.woff"); }
+  src: url("https://tt02.altinn.basefarm.net/ui/fonts/DINWeb-Medium.woff"); }
 
 @font-face {
   font-family: 'DIN-bold';
-  src: url("../../fonts/DINWeb-Bold.woff"); }
+  src: url("https://tt02.altinn.basefarm.net/ui/fonts/DINWeb-Bold.woff"); }
 
 button,
 input,
