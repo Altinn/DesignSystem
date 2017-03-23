@@ -8,10 +8,10 @@ var genericSearch = function() {
   var base;
   var afterRequest;
   var page = 1;
+  var legend;
+  var loader;
+  var empty;
   var inputBy;
-  var legend = $('.a-js-genericSearch').next().find('.a-legend');
-  var loader = $('.a-js-genericSearch').next().find('.a-logo-anim');
-  var empty = $('.a-js-genericSearch').next().find('.a-js-noResults');
   var selected = {};
   var onSuccess = function(data) {
     afterRequest(data, false);
@@ -64,21 +64,32 @@ var genericSearch = function() {
       match(selected[dimensions[1]], item[dimensions[1]], true)
     );
   };
-  loader.hide();
-  empty.hide();
-  legend.hide();
   if ($('.a-js-genericSearch').length > 0) {
-    loader.show();
     $('.a-js-none').show().prev().hide();
-    inputBy = $('.a-js-genericSearch').next().find('input[type=search]').length > 0 ? 'search' : 'filter';
+    inputBy = $('.a-js-genericSearch').find('input[type=search]').length > 0 ? 'search' : 'filter';
     container = inputBy === 'search' ?
-      $('.a-js-genericSearch').next().find('.a-list') : $('.a-js-genericSearch').next().find('.a-js-results');
+      $('.a-js-genericSearch').find('.a-list') : $('.a-js-genericSearch').next().find('.a-js-results');
     altContainer = inputBy === 'search' ?
       null : $('.a-js-genericSearch').next().find('.a-js-alternativeResults');
     container.find('li:gt(0)').remove();
     container.find('.a-js-result:gt(0)').remove();
-    altContainer.find('.a-js-result:gt(0)').remove();
-    base = container.html(); container.html(''); altContainer.html('');
+    base = container.html();
+    container.html('');
+    legend = inputBy === 'search' ?
+      $('.a-js-genericSearch').find('.a-legend') :
+      $('.a-js-genericSearch').next().find('.a-legend');
+    loader = inputBy === 'search' ?
+      $('.a-js-genericSearch').find('.a-logo-anim') :
+      $('.a-js-genericSearch').next().find('.a-logo-anim');
+    empty = inputBy === 'search' ?
+      $('.a-js-genericSearch').find('.a-js-noResults') :
+      $('.a-js-genericSearch').next().find('.a-js-noResults');
+    loader.hide();
+    empty.hide();
+    legend.hide();
+    if (altContainer) {
+      altContainer.html('');
+    }
     dataSource = $('.a-js-genericSearch').attr('data-source').split(',');
     afterRequest = function(data, paginating) {
       var lastKeypress;
@@ -87,13 +98,19 @@ var genericSearch = function() {
       var mappedKeys = {};
       var aboveCount;
       var belowCount;
-      var newList = data.SubsidiesList.sort(dynamicSort('SubsidyName'));
+      var newList;
+      if (inputBy === 'filter') {
+        newList = data.SubsidiesList.sort(dynamicSort('SubsidyName'));
+      }
       loader.hide();
       $('.a-js-genericSearch').next().find('.a-card-filter').show();
       container.show();
-      altContainer.show();
+      if (altContainer) {
+        altContainer.show();
+      }
       if (inputBy === 'search') {
-        $('.a-js-genericSearch').next().find('form').on('keyup keypress', function(e) {
+        loader.hide();
+        $('.a-js-genericSearch').find('form').on('keyup keypress', function(e) {
           var keyCode = e.keyCode || e.which;
           if (keyCode === 13) {
             e.preventDefault();
@@ -101,17 +118,18 @@ var genericSearch = function() {
           }
           return true;
         });
-        $('.a-js-genericSearch').next().find('form').find('input[type=search]')
-        .on('keypress', function() {
-          lastKeypress = new Date().getTime();
-          iterate = true;
-          loader.show();
-          legend.hide();
-          empty.hide();
-          container.html('');
-        });
+        $('.a-js-genericSearch').find('form').find('input[type=search]')
+          .on('keypress', function() {
+            lastKeypress = new Date().getTime();
+            iterate = true;
+            loader.show();
+            legend.hide();
+            empty.hide();
+            container.html('');
+          }
+        );
         setInterval(function() {
-          var value = $('.a-js-genericSearch').next().find('form').find('input[type=search]')
+          var value = $('.a-js-genericSearch').find('form').find('input[type=search]')
             .val();
           var query = value !== undefined ? value.toLowerCase() : '';
           if (query.length > 0 && (new Date().getTime() - lastKeypress > 1500) && iterate) {
