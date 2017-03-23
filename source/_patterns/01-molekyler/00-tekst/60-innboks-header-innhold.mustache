@@ -1,5 +1,5 @@
-<div class="container px-1">
-  <div class="row align-items-stretch a-inboxHeadingContent">
+<div class="container">
+  <div class="row px-1 align-items-stretch a-inboxHeadingContent{{# extra-class-headingContent }} {{ extra-class-headingContent }}{{/ extra-class-headingContent }}">
     {{# heading-icon }}
       <div class="col-auto align-items-center d-flex a-squareIconWrapper">
         {{> atomer-ikon }}
@@ -15,27 +15,22 @@
               </div>
             {{/ due-date-content }}
             <h2 class="mb-0">
-              <div class="a-fontSizeL a-msgDescription d-inline">{{ textDescription }}</div>
-              <div class="a-fontSizeL d-inline">{{ textMain }}</div>
+              <div class="a-fontSizeL d-inline">{{ textDescription }}</div>
+              <div class="a-fontSizeL d-inline a-msgTitle">{{ textMain }}</div>
             </h2>
           <div>{{ textSmall }}</div>
         </div>
-        {{# attachment-icon }}
-          <div class="col-auto align-self-center pl-2">
-            {{> atomer-ikon }}
-          </div>
-        {{/ attachment-icon }}
       </div>
     {{/ heading-tekst }}
 
     {{# due-date-content }}
-      <div class="col-auto a-dueDateIcon align-self-center mr-1">{{> atomer-ikon }}</div>
-      <div class="col-auto align-self-center mr-2 hidden-sm-down">
+      <div class="col-auto align-self-center mr-1 hidden-sm-down a-dueDateIcon">{{> atomer-ikon }}</div>
+      <div class="col-auto align-self-center hidden-sm-down mr-1">
         <span class="a-duedate-lbl">{{ due-date-label }}</span>
         <span>{{ due-date }}</span>
       </div>
     {{/ due-date-content }}
-    <div class="col-auto align-self-center hidden-sm-down mr-2 a-shortcutsContainer">
+    <div class="col-auto align-self-center hidden-sm-down mx-1 a-shortcutsContainer">
       {{# shortcut-icons }}
         {{> atomer-knapp-ikon-tekst }}
       {{/ shortcut-icons }}
