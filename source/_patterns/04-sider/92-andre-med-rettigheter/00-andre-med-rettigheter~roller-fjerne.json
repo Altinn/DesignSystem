@@ -63,14 +63,26 @@
             "heading-text": "Fjern alle roller",
             "icon-prefix": "ai",
             "icon-class": "ai-circle-minus",
-            "icon-extra-class": "a-danger"
+            "icon-extra-class": "a-danger a-hiddenWhenSelected",
+            "heading-text-class": "hidden-sm-down a-hiddenWhenSelected",
+            "heading-selected-content": {
+              "heading-selected-content-icon": {
+                "icon-prefix": "ai",
+                "icon-class": "ai-undo",
+                "icon-extra-class": "a-danger a-visibleWhenSelected"
+              },
+              "heading-selected-content-text": "Angre alle roller"
+            },
+            "is-checkbox": true
           },
           "aria-expanded-header": false,
           "aria-expanded": false,
           "has-link": false,
           "role": "list",
+          "is-checkbox": true,
           "rows": [
             {
+              "is-checkbox": false,
               "additional-classes": "a-dotted a-disabled",
               "id": "basisrolle",
               "onclick": false,
@@ -90,10 +102,10 @@
               ]
             },
             {
-              "additional-classes": "a-dotted a-danger a-clickable",
+              "additional-classes": "a-dotted a-danger a-selectable",
               "id": "signering",
               "onclick": false,
-              "tabable": true,
+              "tabable": false,
               "columns": [
                 {
                   "additional-classes": "col",
@@ -101,7 +113,7 @@
                   "column-items": [
                     {
                       "column-text": {
-                        "classes": "",
+                        "classes": "a-js-sortValue a-lineThrough-selected",
                         "text": "Begrenset signeringsrettighet"
                       }
                     }
@@ -114,14 +126,27 @@
                     {
                       "column-text": {
                         "text": "Fjern",
-                        "classes": "hidden-xs-down"
+                        "classes": "hidden-sm-down a-hiddenWhenSelected a-hiddenWhenDeleted"
                       }
                     },
                     {
                       "column-icon": {
                         "icon-prefix": "ai",
                         "icon-class": "ai-circle-minus",
-                        "icon-extra-class": "a-danger"
+                        "icon-extra-class": "a-danger a-hiddenWhenSelected a-hiddenWhenDeleted"
+                      }
+                    },
+                    {
+                      "column-text": {
+                        "text": "Angre",
+                        "classes": "hidden-sm-down a-visibleWhenSelected a-hiddenWhenDeleted"
+                      }
+                    },
+                    {
+                      "column-icon": {
+                        "icon-prefix": "ai",
+                        "icon-class": "ai-undo",
+                        "icon-extra-class": "a-danger a-visibleWhenSelected a-hiddenWhenDeleted"
                       }
                     }
                   ]
@@ -130,7 +155,7 @@
             },
             {
               "additional-classes": "a-dotted a-selectable a-danger",
-              "tabable": true,
+              "tabable": false,
               "onclick": false,
               "columns": [
                 {
@@ -153,7 +178,7 @@
                     {
                       "column-text": {
                         "text": "Fjern",
-                        "classes": "hidden-xs-down a-hiddenWhenSelected a-hiddenWhenDeleted"
+                        "classes": "hidden-sm-down a-hiddenWhenSelected a-hiddenWhenDeleted"
                       }
                     },
                     {
@@ -166,7 +191,7 @@
                     {
                       "column-text": {
                         "text": "Angre",
-                        "classes": "hidden-xs-down a-visibleWhenSelected a-hiddenWhenDeleted"
+                        "classes": "hidden-sm-down a-visibleWhenSelected a-hiddenWhenDeleted"
                       }
                     },
                     {
@@ -182,9 +207,9 @@
               "expandable-section": false
             },
             {
-              "additional-classes": "a-dotted a-selectable a-selected a-danger",
+              "additional-classes": "a-dotted a-selectable a-danger",
               "onclick": false,
-              "tabable": true,
+              "tabable": false,
               "columns": [
                 {
                   "additional-classes": "col",
@@ -206,7 +231,7 @@
                     {
                       "column-text": {
                         "text": "Fjern",
-                        "classes": "hidden-xs-down a-hiddenWhenSelected a-hiddenWhenDeleted"
+                        "classes": "hidden-sm-down a-hiddenWhenSelected a-hiddenWhenDeleted"
                       }
                     },
                     {
@@ -219,7 +244,7 @@
                     {
                       "column-text": {
                         "text": "Angre",
-                        "classes": "hidden-xs-down a-visibleWhenSelected a-hiddenWhenDeleted"
+                        "classes": "hidden-sm-down a-visibleWhenSelected a-hiddenWhenDeleted"
                       }
                     },
                     {
@@ -241,11 +266,20 @@
           "collapse-header-contentID": "exp-list-fjern-2",
           "heading-action": {
             "heading-text": "Fjern alle rettigheter",
-            "heading-text-class": "hidden-md-down",
             "icon-prefix": "ai",
             "icon-class": "ai-circle-minus",
-            "icon-extra-class": "a-danger"
+            "icon-extra-class": "a-danger a-hiddenWhenSelected",
+            "heading-text-class": "hidden-sm-down a-hiddenWhenSelected",
+            "heading-selected-content": {
+              "heading-selected-content-icon": {
+                "icon-prefix": "ai",
+                "icon-class": "ai-undo",
+                "icon-extra-class": "a-danger a-visibleWhenSelected"
+              },
+              "heading-selected-content-text": "Angre alle rettigheter"
+            }
           },
+          "is-checkbox": true,
           "collapse-header-class": "a-dotted",
           "aria-expanded-header": false,
           "aria-expanded": false,
@@ -253,8 +287,8 @@
           "role": "list",
           "rows": [
             {
-              "additional-classes": "a-dotted a-danger a-clickable",
-              "tabable": true,
+              "additional-classes": "a-dotted a-danger a-selectable",
+              "tabable": false,
               "id": "firstRow",
               "onclick": false,
               "columns": [
@@ -264,7 +298,7 @@
                   "column-items": [
                     {
                       "column-text": {
-                        "classes": "",
+                        "classes": "a-js-sortValue a-lineThrough-selected",
                         "text": "Arbeidsgivers oppfølgingsplan for sykmeldte - uten sluttbrukersystem"
                       }
                     }
@@ -277,14 +311,27 @@
                     {
                       "column-text": {
                         "text": "Fjern",
-                        "classes": "hidden-xs-down"
+                        "classes": "hidden-sm-down a-hiddenWhenSelected a-hiddenWhenDeleted"
                       }
                     },
                     {
                       "column-icon": {
                         "icon-prefix": "ai",
                         "icon-class": "ai-circle-minus",
-                        "icon-extra-class": "a-danger"
+                        "icon-extra-class": "a-danger a-hiddenWhenSelected a-hiddenWhenDeleted"
+                      }
+                    },
+                    {
+                      "column-text": {
+                        "text": "Angre",
+                        "classes": "hidden-sm-down a-visibleWhenSelected a-hiddenWhenDeleted"
+                      }
+                    },
+                    {
+                      "column-icon": {
+                        "icon-prefix": "ai",
+                        "icon-class": "ai-undo",
+                        "icon-extra-class": "a-danger a-visibleWhenSelected a-hiddenWhenDeleted"
                       }
                     }
                   ]
