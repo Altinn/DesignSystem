@@ -67,3 +67,139 @@
     }
   }
 }
+
+
+
+/*------------------------------------*\
+    $ RESOPONSIVE TABLE
+\*------------------------------------*/
+
+.a-responsiveTable-container {
+  margin: auto;
+}
+
+.a-responsiveTable {
+  @extend .a-fontSizeS;
+  width: 100%;
+  margin-bottom: $spacer * 3;
+
+  thead {
+    // Accessibly hide <thead> on narrow viewports
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    overflow: hidden;
+    clip: rect(1px, 1px, 1px, 1px);
+    border: none;
+
+    @include media-breakpoint-up( md ) {
+      // Unhide <thead> on wide viewports
+      position: relative;
+      width: auto;
+      height: auto;
+      overflow: auto;
+      clip: auto;
+    }
+
+    th {
+      color: $black;
+      text-align: left;
+      background-color: $grey-light;
+      border-bottom: 1px solid $grey-lighter;
+    }
+  }
+
+  // Set these items to display: block for narrow viewports
+  tbody,
+  tr,
+  th,
+  td {
+    display: block;
+    padding: 0;
+    text-align: left;
+    white-space: normal;
+  }
+
+  tr {
+    @include media-breakpoint-up( md ) {
+      // Undo display: block
+      display: table-row;
+    }
+  }
+
+  th,
+  td {
+    padding: $spacer / 2;
+    vertical-align: middle;
+
+    @include media-breakpoint-up( md ) {
+      // Undo display: block
+      display: table-cell;
+    }
+  }
+
+  caption {
+    @extend .a-fontSizeS;
+    text-align: left;
+  }
+
+  tbody {
+    @include media-breakpoint-up( md ) {
+      // Undo display: block
+      display: table-row-group;
+    }
+
+    tr {
+      border-bottom: 2px solid $grey-light;
+
+      @include media-breakpoint-up( md ) {
+        // Undo display: block
+        display: table-row;
+        border-width: 1px;
+      }
+
+      &:last-of-type {
+        margin-bottom: 0;
+      }
+    }
+
+    th {
+      &[scope='row'] {
+        color: $black;
+        background-color: $grey-lighter;
+
+        @include media-breakpoint-up( md ) {
+          text-align: left;
+          background-color: $white;
+        }
+      }
+    }
+
+    td {
+      text-align: right;
+      background-color: $white;
+
+      @include media-breakpoint-up( md ) {
+        text-align: left;
+        border-bottom: 1px solid $grey-lighter;
+      }
+
+      &[data-type='currency'] {
+        text-align: right;
+      }
+
+      &[data-title] {
+        &::before {
+          float: left;
+          color: $black;
+          content: attr(data-title);
+          @include media-breakpoint-up( md ) {
+            // Don’t show data-title labels
+            content: none;
+          }
+        }
+      }
+    }
+  }
+}
