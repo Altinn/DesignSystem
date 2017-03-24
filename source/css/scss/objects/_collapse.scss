@@ -525,8 +525,9 @@
 .a-inboxHeadingContent {
   min-height: $spacer * 7;
 
-  .a-squareIconWrapper {
+  .a-msgIconWrapper {
     padding: 0 $spacer;
+    color: $grey;
 
     @include media-breakpoint-up( md ) {
       padding: 0 $spacer * 2;
@@ -572,7 +573,7 @@
   }
 
   &.a-unread {
-    .a-squareIconWrapper {
+    .a-msgIconWrapper {
       color: $white;
       background-color: $blue;
     }
@@ -582,7 +583,7 @@
     }
 
     .expanded & {
-      .a-squareIconWrapper {
+      .a-msgIconWrapper {
         color: $blue;
         background-color: transparent;
       }
@@ -595,7 +596,7 @@
       color: $red;
     }
 
-    .a-squareIconWrapper {
+    .a-msgIconWrapper {
       color: $white;
       background-color: $red;
     }
@@ -605,10 +606,14 @@
     }
 
     .expanded & {
-      .a-squareIconWrapper {
+      .a-msgIconWrapper {
         color: $red;
         background-color: transparent;
       }
     }
+  }
+
+  &.a-waiting {
+    @include disabled-background ( $background-image: url($images-base-url+'disabled-background.svg') );
   }
 }
