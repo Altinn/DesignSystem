@@ -526,9 +526,11 @@ textarea {
   input {
     &[type='checkbox'],
     &[type='radio'] {
-      &:focus+span {
-        &:not(.override-focus) {
-          border: 2px solid $blue-dark;
+      &:focus~span {
+        &.custom-control-indicator {
+          &:not(.override-focus) {
+            border: 2px solid $blue-dark;
+          }
         }
       }
     }
