@@ -9,8 +9,8 @@
       <div class="col align-self-center d-flex a-headingTextContainer pr-2">
         <div class="d-inline-block">
             {{# due-date-content }}
-              <div class="col-auto align-self-center mr-2 hidden-md-up">
-                <span class="a-duedate-lbl">{{ due-date-label }}</span>
+              <div class="col-auto align-self-center mr-2 hidden-md-up a-duedate">
+                <span>{{ due-date-label }}</span>
                 <span>{{ due-date }}</span>
               </div>
             {{/ due-date-content }}
@@ -24,16 +24,20 @@
     {{/ heading-tekst }}
 
     {{# due-date-content }}
-      <div class="col-auto align-self-center mr-1 hidden-sm-down a-dueDateIcon">{{> atomer-ikon }}</div>
-      <div class="col-auto align-self-center hidden-sm-down mr-1">
-        <span class="a-duedate-lbl">{{ due-date-label }}</span>
+      {{# past-due-date }}
+        <div class="col-auto align-self-center mr-1 hidden-sm-down a-dueDateIcon">{{> atomer-ikon }}</div>
+      {{/ past-due-date }}
+      <div class="col-auto align-self-center hidden-sm-down mr-1 a-duedate">
+        <span>{{ due-date-label }}</span>
         <span>{{ due-date }}</span>
       </div>
     {{/ due-date-content }}
-    <div class="col-auto align-self-center hidden-sm-down mx-1 a-shortcutsContainer">
-      {{# shortcut-icons }}
-        {{> atomer-knapp-ikon-tekst }}
-      {{/ shortcut-icons }}
-    </div>
+    {{# shortcuts }}
+      <div class="col-auto align-self-center hidden-sm-down mx-1 a-shortcutsContainer">
+        {{# shortcut-icons }}
+          {{> atomer-knapp-ikon-tekst }}
+        {{/ shortcut-icons }}
+      </div>
+    {{/ shortcuts }}
   </div>
 </div>
