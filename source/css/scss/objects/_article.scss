@@ -53,6 +53,22 @@
     @extend .a-fontSizeS;
   }
 
+  > p {
+    a {
+      // Touch friendy link area
+      &::before {
+        position: absolute;
+        top: -16px;
+        left: -$spacer;
+        z-index: -1;
+        width: calc( 100% + 24px );
+        min-height: $spacer * 4;
+        cursor: pointer;
+        content: '';
+      }
+    }
+  }
+
   > ul {
     list-style: disc;
 
