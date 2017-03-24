@@ -49,7 +49,7 @@ var loadModal = function(url, target) {
     });
 
     $(target).on('shown.bs.modal', function() {
-      $(target).attr('aria-hidden', false);
+      $(target).removeAttr('aria-hidden');
     });
     popoverLocalInit();
     $('body').scrollTop(0);
