@@ -56,6 +56,58 @@ var loadModal = function(url, target) {
   });
 };
 
+
+var nextModalPageWithContent = function(target, isSuccess, isError, content) {
+  var current;
+  var modalPage = $('<div/>', {
+    class: 'modalPage',
+    html: content
+  });
+
+  var existingPages = $(target + ' :data(page-index)');
+  var newPage = $('<div/>', {
+    class: 'a-page a-next-page',
+    data: {
+      'page-index': existingPages.length + 1,
+      'is-success': isSuccess,
+      'is-error': isError
+    },
+    html: modalPage
+  });
+
+  // if (navigator.userAgent.match(/iPhone|iPad|iPod/i)) {
+  //   goToModalHeader();
+  // }
+
+  $(target + ' .a-modal-content-target').append(newPage);
+
+  $(target).animate({
+    scrollTop: 0
+  }, 20);
+
+  current = $(target + ' .a-current-page');
+
+  setTimeout(function() {
+    $('body').removeClass('a-modal-background-error');
+    $('body').removeClass('a-modal-background-success');
+
+    current.removeClass('a-current-page').addClass('a-previous-page');
+    newPage.removeClass('a-next-page').addClass('a-current-page');
+
+    if (isError) {
+      $('body').addClass('a-modal-background-error');
+    } else if (isSuccess) {
+      $('body').addClass('a-modal-background-success');
+    }
+  }, 0);
+
+  current.on('transitionend', function() {
+    current.hide().off();
+  });
+  popoverLocalInit();
+  $('body').scrollTop(0);
+};
+
 var nextModalPage = function(url, target, isSuccess, isError) {
   var currentRequest = $.ajax({
     url: url,
