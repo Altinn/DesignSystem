@@ -1,5 +1,5 @@
 ---
-state: needsrevalidation
+state: indesignreview
 version: 0
 ---
 NB: Dette er en variant av [link.mustache]

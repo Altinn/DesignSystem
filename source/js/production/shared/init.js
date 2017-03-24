@@ -25,7 +25,8 @@
   feedbackToggle,
   setValidatorSettings,
   popoverLocalInit,
-  popoverGlobalInit */
+  popoverGlobalInit,
+  setupSelectableCheckbox */
 
 
 window.sharedInit = function() {
@@ -43,5 +44,6 @@ window.sharedInit = function() {
   feedbackToggle();
   popoverLocalInit();
   popoverGlobalInit();
+  setupSelectableCheckbox();
 };
 window.sharedInit();
