@@ -561,10 +561,6 @@
     min-height: $spacer * 6;
   }
 
-  // .a-dueDateIcon {
-  //   display: none;
-  // }
-
   .a-shortcutsContainer {
     display: flex;
   }
@@ -575,42 +571,10 @@
     }
   }
 
-  /** different message states */
-  &.a-urgent {
-    .a-dueDateIcon {
-      display: flex;
-    }
-
-    .a-squareIconWrapper {
-      background-color: $red;
-
-      i {
-        color: $white;
-      }
-    }
-
-    .a-duedate {
-      color: $red;
-    }
-
-    .expanded & {
-      .a-squareIconWrapper {
-        background-color: transparent;
-
-        i {
-          color: $red;
-        }
-      }
-    }
-  }
-
   &.a-unread {
     .a-squareIconWrapper {
+      color: $white;
       background-color: $blue;
-
-      i {
-        color: $white;
-      }
     }
 
     .a-msgTitle {
@@ -619,13 +583,32 @@
 
     .expanded & {
       .a-squareIconWrapper {
+        color: $blue;
         background-color: transparent;
-
-        i {
-          color: $blue;
-        }
       }
     }
   }
 
+  /** different message states */
+  &.a-urgent {
+    .a-dueDateIcon {
+      color: $red;
+    }
+
+    .a-squareIconWrapper {
+      color: $white;
+      background-color: $red;
+    }
+
+    .a-duedate {
+      color: $red;
+    }
+
+    .expanded & {
+      .a-squareIconWrapper {
+        color: $red;
+        background-color: transparent;
+      }
+    }
+  }
 }
