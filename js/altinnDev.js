@@ -1068,9 +1068,9 @@ var drilldownInteraction = function() {
   window.drillDownGetSource = function(str) {
     var url = [
       '/api/' + str,
-      'http://altinn-dev.dev.bouvet.no/api/' + str,
       '../../../data/' + str + '.json',
-      '../../../DesignSystem/data/' + str + '.json'
+      '../../../DesignSystem/data/' + str + '.json',
+      'http://altinn-dev.dev.bouvet.no/api/' + str
     ];
     var act2 = function(event) {
       whenClick(event);
@@ -1296,10 +1296,10 @@ var genericSearch = function() {
   var base;
   var afterRequest;
   var page = 1;
+  var legend;
+  var loader;
+  var empty;
   var inputBy;
-  var legend = $('.a-js-genericSearch').next().find('.a-legend');
-  var loader = $('.a-js-genericSearch').next().find('.a-logo-anim');
-  var empty = $('.a-js-genericSearch').next().find('.a-js-noResults');
   var selected = {};
   var onSuccess = function(data) {
     afterRequest(data, false);
@@ -1352,21 +1352,32 @@ var genericSearch = function() {
       match(selected[dimensions[1]], item[dimensions[1]], true)
     );
   };
-  loader.hide();
-  empty.hide();
-  legend.hide();
   if ($('.a-js-genericSearch').length > 0) {
-    loader.show();
     $('.a-js-none').show().prev().hide();
-    inputBy = $('.a-js-genericSearch').next().find('input[type=search]').length > 0 ? 'search' : 'filter';
+    inputBy = $('.a-js-genericSearch').find('input[type=search]').length > 0 ? 'search' : 'filter';
     container = inputBy === 'search' ?
-      $('.a-js-genericSearch').next().find('.a-list') : $('.a-js-genericSearch').next().find('.a-js-results');
+      $('.a-js-genericSearch').find('.a-list') : $('.a-js-genericSearch').next().find('.a-js-results');
     altContainer = inputBy === 'search' ?
       null : $('.a-js-genericSearch').next().find('.a-js-alternativeResults');
     container.find('li:gt(0)').remove();
     container.find('.a-js-result:gt(0)').remove();
-    altContainer.find('.a-js-result:gt(0)').remove();
-    base = container.html(); container.html(''); altContainer.html('');
+    base = container.html();
+    container.html('');
+    legend = inputBy === 'search' ?
+      $('.a-js-genericSearch').find('.a-legend') :
+      $('.a-js-genericSearch').next().find('.a-legend');
+    loader = inputBy === 'search' ?
+      $('.a-js-genericSearch').find('.a-logo-anim') :
+      $('.a-js-genericSearch').next().find('.a-logo-anim');
+    empty = inputBy === 'search' ?
+      $('.a-js-genericSearch').find('.a-js-noResults') :
+      $('.a-js-genericSearch').next().find('.a-js-noResults');
+    loader.hide();
+    empty.hide();
+    legend.hide();
+    if (altContainer) {
+      altContainer.html('');
+    }
     dataSource = $('.a-js-genericSearch').attr('data-source').split(',');
     afterRequest = function(data, paginating) {
       var lastKeypress;
@@ -1375,13 +1386,19 @@ var genericSearch = function() {
       var mappedKeys = {};
       var aboveCount;
       var belowCount;
-      var newList = data.SubsidiesList.sort(dynamicSort('SubsidyName'));
+      var newList;
+      if (inputBy === 'filter') {
+        newList = data.SubsidiesList.sort(dynamicSort('SubsidyName'));
+      }
       loader.hide();
       $('.a-js-genericSearch').next().find('.a-card-filter').show();
       container.show();
-      altContainer.show();
+      if (altContainer) {
+        altContainer.show();
+      }
       if (inputBy === 'search') {
-        $('.a-js-genericSearch').next().find('form').on('keyup keypress', function(e) {
+        loader.hide();
+        $('.a-js-genericSearch').find('form').on('keyup keypress', function(e) {
           var keyCode = e.keyCode || e.which;
           if (keyCode === 13) {
             e.preventDefault();
@@ -1389,17 +1406,18 @@ var genericSearch = function() {
           }
           return true;
         });
-        $('.a-js-genericSearch').next().find('form').find('input[type=search]')
-        .on('keypress', function() {
-          lastKeypress = new Date().getTime();
-          iterate = true;
-          loader.show();
-          legend.hide();
-          empty.hide();
-          container.html('');
-        });
+        $('.a-js-genericSearch').find('form').find('input[type=search]')
+          .on('keypress', function() {
+            lastKeypress = new Date().getTime();
+            iterate = true;
+            loader.show();
+            legend.hide();
+            empty.hide();
+            container.html('');
+          }
+        );
         setInterval(function() {
-          var value = $('.a-js-genericSearch').next().find('form').find('input[type=search]')
+          var value = $('.a-js-genericSearch').find('form').find('input[type=search]')
             .val();
           var query = value !== undefined ? value.toLowerCase() : '';
           if (query.length > 0 && (new Date().getTime() - lastKeypress > 1500) && iterate) {
@@ -2221,11 +2239,63 @@ var loadModal = function(url, target) {
     });
 
     $(target).on('shown.bs.modal', function() {
-      $(target).attr('aria-hidden', false);
+      $(target).removeAttr('aria-hidden');
     });
     popoverLocalInit();
     $('body').scrollTop(0);
   });
+};
+
+
+var nextModalPageWithContent = function(target, isSuccess, isError, content) {
+  var current;
+  var modalPage = $('<div/>', {
+    class: 'modalPage',
+    html: content
+  });
+
+  var existingPages = $(target + ' :data(page-index)');
+  var newPage = $('<div/>', {
+    class: 'a-page a-next-page',
+    data: {
+      'page-index': existingPages.length + 1,
+      'is-success': isSuccess,
+      'is-error': isError
+    },
+    html: modalPage
+  });
+
+  // if (navigator.userAgent.match(/iPhone|iPad|iPod/i)) {
+  //   goToModalHeader();
+  // }
+
+  $(target + ' .a-modal-content-target').append(newPage);
+
+  $(target).animate({
+    scrollTop: 0
+  }, 20);
+
+  current = $(target + ' .a-current-page');
+
+  setTimeout(function() {
+    $('body').removeClass('a-modal-background-error');
+    $('body').removeClass('a-modal-background-success');
+
+    current.removeClass('a-current-page').addClass('a-previous-page');
+    newPage.removeClass('a-next-page').addClass('a-current-page');
+
+    if (isError) {
+      $('body').addClass('a-modal-background-error');
+    } else if (isSuccess) {
+      $('body').addClass('a-modal-background-success');
+    }
+  }, 0);
+
+  current.on('transitionend', function() {
+    current.hide().off();
+  });
+  popoverLocalInit();
+  $('body').scrollTop(0);
 };
 
 var nextModalPage = function(url, target, isSuccess, isError) {
@@ -2366,7 +2436,7 @@ $('body').on('click', '[data-toggle="altinn-modal"]', function() {
 });
 
 var setupOnKeypress = function() {
-  $('.a-clickable, .a-selectable').on('keypress', function(e) {
+  $('body').on('keypress', '.a-clickable, .a-selectable', function(e) {
     var key = e.which;
     if ($(e.target).hasClass('a-clickable') || $(e.target).hasClass('a-selectable')) {
       if (key === 13) {
@@ -2438,11 +2508,14 @@ var feedbackToggle = function() {
 /* globals $ */
 var handleFocus = function() {
   // If state on input is 'focus', add class to a-input: 'a-input-focus'
-  $('input.form-control').focus(function() {
+  $('body').on('focus', 'input.form-control', function() {
     $(this).parent().addClass('a-input-focus');
-  }).blur(function() {
+  });
+
+  $('body').on('blur', 'input.form-control', function() {
     $(this).parent().removeClass('a-input-focus');
   });
+
   $('.a-radioButtons-stackedList').find('input[type=radio]').change(function() {
     var me = $(this);
     if (me.is(':checked')) {
@@ -2628,6 +2701,7 @@ var popoverLocalInit = function() {
   });
 };
 
+var forceFocusTriggerElement;
 var popoverGlobalInit = function() {
   $('body').on('shown.bs.popover', '[data-toggle="popover"].a-js-tabable-popover', function(e) {
     var triggerElement = this;
@@ -2637,6 +2711,16 @@ var popoverGlobalInit = function() {
         $('[data-toggle="popover"]').popover('hide');
       });
     }, 0);
+  });
+
+  $('body').on('shown.bs.popover', '[data-toggle="popover"].a-js-popover-forceFocus', function(e) {
+    forceFocusTriggerElement = this;
+    $(forceFocusTriggerElement).on('blur', function() {
+      var that = this;
+      if (forceFocusTriggerElement) {
+        $($(this).data('bs.popover').tip).find('button,input,a,textarea').filter(':visible:first').focus();
+      }
+    });
   });
 
   // Hide all existing popovers when opening a new popover
@@ -2650,7 +2734,14 @@ var popoverGlobalInit = function() {
     var that = this;
     setTimeout(function() {
       var $focused = $(':focus');
-      if ($focused.length !== 0 && !$focused.hasClass('popover') && !$focused.parents('.popover').length >= 1) {
+      if (($focused.length !== 0 || forceFocusTriggerElement)
+        && !$focused.hasClass('popover')
+        && !$focused.parents('.popover').length >= 1) {
+        if (forceFocusTriggerElement) {
+          $(forceFocusTriggerElement).focus();
+          forceFocusTriggerElement = false;
+        }
+
         $('[data-toggle="popover"]').popover('hide');
       }
     }, 0);
@@ -2663,6 +2754,7 @@ var popoverGlobalInit = function() {
       && $(e.target).parents('[data-toggle="popover"]').length === 0
       && $(e.target).parents('.popover.show').length === 0) {
       $('[data-toggle="popover"]').popover('hide');
+      forceFocusTriggerElement = false;
     }
   });
 
@@ -2730,6 +2822,24 @@ var propagateContent = function() {
     }
   });
   $('.a-js-propagatedContentOrigin').html('');
+};
+
+var setupSelectableCheckbox = function() {
+  $('body').on('change', '.a-js-selectable-checkbox', function() {
+    if ($(this).is(':checked')) {
+      $(this).closest('.a-selectable').addClass('a-selected');
+    } else {
+      $(this).closest('.a-selectable').removeClass('a-selected');
+    }
+  });
+
+  $('body').on('focus', '.a-js-selectable-checkbox', function() {
+    $(this).closest('.a-selectable').addClass('a-focus');
+  });
+
+  $('body').on('blur', '.a-js-selectable-checkbox', function() {
+    $(this).closest('.a-selectable').removeClass('a-focus');
+  });
 };
 
 function showPassword(src, target) {
@@ -2858,7 +2968,8 @@ var setValidatorSettings = function() {
   feedbackToggle,
   setValidatorSettings,
   popoverLocalInit,
-  popoverGlobalInit */
+  popoverGlobalInit,
+  setupSelectableCheckbox */
 
 
 window.sharedInit = function() {
@@ -2876,5 +2987,6 @@ window.sharedInit = function() {
   feedbackToggle();
   popoverLocalInit();
   popoverGlobalInit();
+  setupSelectableCheckbox();
 };
 window.sharedInit();

@@ -62,11 +62,63 @@ var loadModal = function(url, target) {
     });
 
     $(target).on('shown.bs.modal', function() {
-      $(target).attr('aria-hidden', false);
+      $(target).removeAttr('aria-hidden');
     });
     popoverLocalInit();
     $('body').scrollTop(0);
   });
+};
+
+
+var nextModalPageWithContent = function(target, isSuccess, isError, content) {
+  var current;
+  var modalPage = $('<div/>', {
+    class: 'modalPage',
+    html: content
+  });
+
+  var existingPages = $(target + ' :data(page-index)');
+  var newPage = $('<div/>', {
+    class: 'a-page a-next-page',
+    data: {
+      'page-index': existingPages.length + 1,
+      'is-success': isSuccess,
+      'is-error': isError
+    },
+    html: modalPage
+  });
+
+  // if (navigator.userAgent.match(/iPhone|iPad|iPod/i)) {
+  //   goToModalHeader();
+  // }
+
+  $(target + ' .a-modal-content-target').append(newPage);
+
+  $(target).animate({
+    scrollTop: 0
+  }, 20);
+
+  current = $(target + ' .a-current-page');
+
+  setTimeout(function() {
+    $('body').removeClass('a-modal-background-error');
+    $('body').removeClass('a-modal-background-success');
+
+    current.removeClass('a-current-page').addClass('a-previous-page');
+    newPage.removeClass('a-next-page').addClass('a-current-page');
+
+    if (isError) {
+      $('body').addClass('a-modal-background-error');
+    } else if (isSuccess) {
+      $('body').addClass('a-modal-background-success');
+    }
+  }, 0);
+
+  current.on('transitionend', function() {
+    current.hide().off();
+  });
+  popoverLocalInit();
+  $('body').scrollTop(0);
 };
 
 var nextModalPage = function(url, target, isSuccess, isError) {
@@ -207,7 +259,7 @@ $('body').on('click', '[data-toggle="altinn-modal"]', function() {
 });
 
 var setupOnKeypress = function() {
-  $('.a-clickable, .a-selectable').on('keypress', function(e) {
+  $('body').on('keypress', '.a-clickable, .a-selectable', function(e) {
     var key = e.which;
     if ($(e.target).hasClass('a-clickable') || $(e.target).hasClass('a-selectable')) {
       if (key === 13) {
@@ -279,11 +331,14 @@ var feedbackToggle = function() {
 /* globals $ */
 var handleFocus = function() {
   // If state on input is 'focus', add class to a-input: 'a-input-focus'
-  $('input.form-control').focus(function() {
+  $('body').on('focus', 'input.form-control', function() {
     $(this).parent().addClass('a-input-focus');
-  }).blur(function() {
+  });
+
+  $('body').on('blur', 'input.form-control', function() {
     $(this).parent().removeClass('a-input-focus');
   });
+
   $('.a-radioButtons-stackedList').find('input[type=radio]').change(function() {
     var me = $(this);
     if (me.is(':checked')) {
@@ -469,6 +524,7 @@ var popoverLocalInit = function() {
   });
 };
 
+var forceFocusTriggerElement;
 var popoverGlobalInit = function() {
   $('body').on('shown.bs.popover', '[data-toggle="popover"].a-js-tabable-popover', function(e) {
     var triggerElement = this;
@@ -478,6 +534,16 @@ var popoverGlobalInit = function() {
         $('[data-toggle="popover"]').popover('hide');
       });
     }, 0);
+  });
+
+  $('body').on('shown.bs.popover', '[data-toggle="popover"].a-js-popover-forceFocus', function(e) {
+    forceFocusTriggerElement = this;
+    $(forceFocusTriggerElement).on('blur', function() {
+      var that = this;
+      if (forceFocusTriggerElement) {
+        $($(this).data('bs.popover').tip).find('button,input,a,textarea').filter(':visible:first').focus();
+      }
+    });
   });
 
   // Hide all existing popovers when opening a new popover
@@ -491,7 +557,14 @@ var popoverGlobalInit = function() {
     var that = this;
     setTimeout(function() {
       var $focused = $(':focus');
-      if ($focused.length !== 0 && !$focused.hasClass('popover') && !$focused.parents('.popover').length >= 1) {
+      if (($focused.length !== 0 || forceFocusTriggerElement)
+        && !$focused.hasClass('popover')
+        && !$focused.parents('.popover').length >= 1) {
+        if (forceFocusTriggerElement) {
+          $(forceFocusTriggerElement).focus();
+          forceFocusTriggerElement = false;
+        }
+
         $('[data-toggle="popover"]').popover('hide');
       }
     }, 0);
@@ -504,6 +577,7 @@ var popoverGlobalInit = function() {
       && $(e.target).parents('[data-toggle="popover"]').length === 0
       && $(e.target).parents('.popover.show').length === 0) {
       $('[data-toggle="popover"]').popover('hide');
+      forceFocusTriggerElement = false;
     }
   });
 
@@ -571,6 +645,24 @@ var propagateContent = function() {
     }
   });
   $('.a-js-propagatedContentOrigin').html('');
+};
+
+var setupSelectableCheckbox = function() {
+  $('body').on('change', '.a-js-selectable-checkbox', function() {
+    if ($(this).is(':checked')) {
+      $(this).closest('.a-selectable').addClass('a-selected');
+    } else {
+      $(this).closest('.a-selectable').removeClass('a-selected');
+    }
+  });
+
+  $('body').on('focus', '.a-js-selectable-checkbox', function() {
+    $(this).closest('.a-selectable').addClass('a-focus');
+  });
+
+  $('body').on('blur', '.a-js-selectable-checkbox', function() {
+    $(this).closest('.a-selectable').removeClass('a-focus');
+  });
 };
 
 function showPassword(src, target) {
@@ -699,7 +791,8 @@ var setValidatorSettings = function() {
   feedbackToggle,
   setValidatorSettings,
   popoverLocalInit,
-  popoverGlobalInit */
+  popoverGlobalInit,
+  setupSelectableCheckbox */
 
 
 window.sharedInit = function() {
@@ -717,6 +810,7 @@ window.sharedInit = function() {
   feedbackToggle();
   popoverLocalInit();
   popoverGlobalInit();
+  setupSelectableCheckbox();
 };
 window.sharedInit();
 

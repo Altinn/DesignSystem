@@ -6,15 +6,32 @@
         <span class="a-dropdownArrow"></span> <span>{{{ collapse-header-title }}}</span> <span class="a-js-none">{{{ collapse-header-title-none }}}</span>
       </a>
     </h2>
-    {{# heading-action }}
+    {{# heading-action }} {{^ is-checkbox }}
     <div class="a-list-heading-action" tabindex="0">
-      {{# heading-text }}
-      <span class="{{^ heading-text-class }}hidden-sm-down{{/ heading-text-class }}{{# heading-text-class }} {{ heading-text-class}} {{/ heading-text-class }}">
+      {{/ is-checkbox }} {{# is-checkbox }}
+      <label class="a-list-heading-action a-selectable">
+      {{/ is-checkbox }}
+        {{# heading-text }}
+        <span class="{{^ heading-text-class }}hidden-sm-down{{/ heading-text-class }}{{# heading-text-class }} {{ heading-text-class}} {{/ heading-text-class }}">
           {{ heading-text }}
-        </span> {{/ heading-text }} {{> atomer-ikon }}
+        </span>
+        {{/ heading-text }}
+        {{> atomer-ikon }}
+        {{# heading-selected-content }}
+          <span class="hidden-sm-down a-visibleWhenSelected">
+            {{ heading-selected-content-text }}
+          </span>
+          {{# heading-selected-content-icon }}
+            {{> atomer-ikon }}
+          {{/ heading-selected-content-icon }}
+        {{/ heading-selected-content }}
+      {{^ is-checkbox }}
+      </div>
+      {{/ is-checkbox }}
+      {{# is-checkbox }}
+        <input type="checkbox" class="sr-only a-js-selectable-checkbox"/>
+      </label> {{/ is-checkbox }} {{/ heading-action }}
     </div>
-    {{/ heading-action }}
   </div>
-</div>
 
-<!-- END: 00-atomer-05-Ekspansjonsknapper-27-ekspanderbar-tittel -->
+  <!-- END: 00-atomer-05-Ekspansjonsknapper-27-ekspanderbar-tittel -->

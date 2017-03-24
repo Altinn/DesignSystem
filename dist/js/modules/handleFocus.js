@@ -1,11 +1,14 @@
 /* globals $ */
 var handleFocus = function() {
   // If state on input is 'focus', add class to a-input: 'a-input-focus'
-  $('input.form-control').focus(function() {
+  $('body').on('focus', 'input.form-control', function() {
     $(this).parent().addClass('a-input-focus');
-  }).blur(function() {
+  });
+
+  $('body').on('blur', 'input.form-control', function() {
     $(this).parent().removeClass('a-input-focus');
   });
+
   $('.a-radioButtons-stackedList').find('input[type=radio]').change(function() {
     var me = $(this);
     if (me.is(':checked')) {
