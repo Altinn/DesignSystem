@@ -558,13 +558,25 @@
     }
   }
 
+  .a-shortcutsContainer {
+    display: flex;
+
+    .a-btn-icon {
+      min-height: $spacer * 3;
+      color: $grey;
+    }
+  }
+
+  .a-dueDateIcon {
+    color: $grey;
+  }
+
+  /** compact view */
   &.a-compact {
     min-height: $spacer * 6;
   }
 
-  .a-shortcutsContainer {
-    display: flex;
-  }
+  /** different message states */
 
   .expanded & {
     .a-shortcutsContainer {
@@ -590,7 +602,6 @@
     }
   }
 
-  /** different message states */
   &.a-urgent {
     .a-dueDateIcon {
       color: $red;
@@ -615,5 +626,18 @@
 
   &.a-waiting {
     @include disabled-background ( $background-image: url($images-base-url+'disabled-background.svg') );
+  }
+
+  &.a-forwarded {
+    .a-shortcutsContainer {
+      .a-btn-icon {
+        :nth-child(2) {
+          min-width: $spacer * 3;
+          height: $spacer * 3;
+          background-color: $yellow-light;
+          border-radius: 50%;
+        }
+      }
+    }
   }
 }
