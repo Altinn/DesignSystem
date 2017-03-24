@@ -79,7 +79,7 @@
 }
 
 .a-responsiveTable {
-  @extend .a-fontSizeS;
+  @include a-fontSize16;
   width: 100%;
   margin-bottom: $spacer * 3;
 
@@ -106,7 +106,13 @@
       color: $black;
       text-align: left;
       background-color: $grey-light;
-      border-bottom: 1px solid $grey-lighter;
+      border-bottom: 1px solid $grey-medium;
+
+      @include media-breakpoint-up( md ) {
+        @include a-fontSize14;
+        padding: 9px 24px 6px 24px;
+        text-transform: uppercase;
+      }
     }
   }
 
@@ -130,7 +136,7 @@
 
   th,
   td {
-    padding: $spacer / 2;
+    padding: 7px 24px 5px 24px;
     vertical-align: middle;
 
     @include media-breakpoint-up( md ) {
@@ -140,7 +146,7 @@
   }
 
   caption {
-    @extend .a-fontSizeS;
+    @include a-fontSize14;
     text-align: left;
   }
 
@@ -151,12 +157,12 @@
     }
 
     tr {
-      border-bottom: 2px solid $grey-light;
-
+      margin-bottom: $spacer * 3;
       @include media-breakpoint-up( md ) {
         // Undo display: block
         display: table-row;
-        border-width: 1px;
+        margin-bottom: 0;
+        border-bottom: 1px solid $grey-medium;
       }
 
       &:last-of-type {
@@ -168,10 +174,12 @@
       &[scope='row'] {
         color: $black;
         background-color: $grey-lighter;
+        border-bottom: 1px solid $grey-medium;
 
         @include media-breakpoint-up( md ) {
           text-align: left;
           background-color: $white;
+          border-bottom: none;
         }
       }
     }
@@ -179,10 +187,10 @@
     td {
       text-align: right;
       background-color: $white;
+      border-bottom: 1px solid $grey-medium;
 
       @include media-breakpoint-up( md ) {
         text-align: left;
-        border-bottom: 1px solid $grey-lighter;
       }
 
       &[data-type='currency'] {
