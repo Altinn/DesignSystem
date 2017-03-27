@@ -10,12 +10,12 @@
 
 body {
   &.modal-open {
-    overflow-y: visible;
+    overflow-y: hidden;
   }
 }
 
 .a-modal {
-  position: absolute;
+  position: fixed;
   padding-bottom: $spacer * 5;
 
   .a-logo-feedback {
@@ -53,6 +53,10 @@ body {
     .a-link-chat {
       color: $white;
       border-color: $white;
+    }
+
+    i {
+      margin-top: -10px;
     }
   }
 
@@ -138,6 +142,7 @@ body {
 
   &.fade {
     overflow: visible;
+    overflow-y: scroll;
     opacity: 1;
     transition: none;
 
@@ -177,18 +182,22 @@ body {
   .a-modal-top-user {
     position: relative;
     float: right;
+    margin-top: 1px;
+    margin-right: 3px;
 
     .a-personSwitcher {
       width: 200px;
       padding: 0;
       margin-top: -2px;
       margin-right: -3px;
-      color: $white;
+      color: $black-opacity-07;
       pointer-events: none;
     }
 
     .a-personSwitcher-icon {
+      color: $white;
       letter-spacing: normal;
+      background-color: $black-opacity-07;
     }
   }
 }
@@ -286,6 +295,12 @@ a {
 .a-modal-background-error {
   .a-logo-feedback {
     display: initial;
+  }
+
+  .a-modal-navbar {
+    button {
+      display: none;
+    }
   }
 
   .a-logo-neutral {
@@ -398,6 +413,3 @@ a {
   color: $white-opacity-07;
   vertical-align: bottom;
 }
-
-
-
