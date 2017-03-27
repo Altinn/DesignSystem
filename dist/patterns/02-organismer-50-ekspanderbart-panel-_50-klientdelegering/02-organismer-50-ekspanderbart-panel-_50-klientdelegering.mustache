@@ -1,7 +1,7 @@
 <!-- START: 02-organismer-50-ekspanderbart-panel-_50-klientdelegering -->
 <div class="card a-accordion-card a-collapsePanel {{{ styleModifier }}}">
   <div class="card-header a-js-index-heading a-collapsePanel-heading collapsed {{ isExpanded }}" id="{{ collapse-panel-header-id }}" role="tab">
-    <a href="#{{ collapseID }}" tabindex="0" data-toggle="collapse" data-target="#{{{ collapseID }}}" aria-expanded="false" aria-controls="{{{ collapseID }}}" {{# dataParent }}data-parent="{{{dataParent}}}" {{/ dataParent }}>
+    <a href="#" data-toggle="collapse" data-target="#{{{ collapseID }}}" aria-expanded="false" aria-controls="{{{ collapseID }}}" {{# dataParent }}data-parent="{{{dataParent}}}" {{/ dataParent }}>
 			{{# collapseHeader }}
 				{{> molekyler-ikon-tekst }}
 			{{/ collapseHeader }}
@@ -29,13 +29,11 @@
         {{# klientdelegering-add }} {{> atomer-handlingsknapp-full-bredde }} {{/ klientdelegering-add}}
       </div>
     </div>
-    <div>
-      <div id="firstTable">
-        {{# employee-table }} {{> molekyler-liste-unummerert }} {{/ employee-table }}
-      </div>
-      <div id="secondTable" style="display: none;">
-        {{# clients-table }} {{> molekyler-liste-unummerert }} {{/ clients-table }}
-      </div>
+    <div id="firstTable">
+      {{# employee-table }} {{> molekyler-liste-unummerert }} {{/ employee-table }}
+    </div>
+    <div id="secondTable" style="display: none;">
+      {{# clients-table }} {{> molekyler-liste-unummerert }} {{/ clients-table }}
     </div>
     {{# klientdelegering-file-mobile }}
     <div class="a-third-action-mobile hidden-lg-up">
@@ -45,5 +43,6 @@
     </div>
     {{/ klientdelegering-file-mobile }}
   </div>
+</div>
 
-  <!-- END: 02-organismer-50-ekspanderbart-panel-_50-klientdelegering -->
+<!-- END: 02-organismer-50-ekspanderbart-panel-_50-klientdelegering -->

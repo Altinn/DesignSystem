@@ -67,6 +67,9 @@
               <!-- END: 00-atomer-09-bilder-og-media-15-ikon -->
 
 
+              <span>
+      En knapp stylet som en link som antyder fare
+    </span>
               </button>
 
 
@@ -83,6 +86,9 @@
                 <!-- END: 00-atomer-09-bilder-og-media-15-ikon -->
 
 
+                <span>
+      En knapp stylet som en link som antyder fare
+    </span>
                 </button>
 
 
@@ -130,9 +136,18 @@
                         <!-- START: 01-molekyler-00-tekst-03-person-rolle -->
                         <div class="a-personRole ">
 
+                          <div class="hidden-sm-down">
+                            <!-- START: 00-atomer-09-bilder-og-media-15-ikon -->
+
+                            <i class="ai ai-private  ai-lg "></i>
+
+
+                            <!-- END: 00-atomer-09-bilder-og-media-15-ikon -->
+
+                          </div>
                           <div class="a-personRole-text">
-                            <span class="a-personRole-role"></span>
-                            <span class="a-personRole-name"></span>
+                            <span class="a-personRole-role">Styremedlem</span>
+                            <span class="a-personRole-name">William Mjelde</span>
                           </div>
                         </div>
 
@@ -142,7 +157,7 @@
                       <div class="col pt-1 hidden-xs-down">
                         <!-- START: 00-atomer-03-knapper-16-♺-knapp-link-fare -->
                         <!-- START: 00-atomer-03-knapper-10-knapp -->
-                        <button onclick="location.href='/patterns/04-sider-91-klientdelegering-00-klientdelegering-fjern-rettigheter/04-sider-91-klientdelegering-00-klientdelegering-fjern-rettigheter.html'" class="a-btn-link a-linkDanger float-right a-link-modalTop">
+                        <button type="button" onclick="location.href='/patterns/04-sider-91-klientdelegering-00-klientdelegering-fjern-rettigheter/04-sider-91-klientdelegering-00-klientdelegering-fjern-rettigheter.html'" class="a-btn-link a-linkDanger float-right a-link-modalTop">
 
   <span>
     Fjern rettigheter
@@ -164,7 +179,7 @@
 
                         <div class="form-group a-form-group  ">
 
-                          <label class="a-form-label  sr-only  " for="">Finn klient</label>
+                          <label class="a-form-label  sr-only  " for="text-input-generic">Finn klient</label>
 
                           <div class="a-form-group-items input-group   ">
                             <span class="input-group-addon hidden-sm-down"><!-- START: 00-atomer-09-bilder-og-media-15-ikon -->
@@ -176,7 +191,7 @@
 </span>
 
                             <input class="form-control   a-hasIcon 
-         " type="search" placeholder="Søk etter klient" name="" data-val="true" data-search-algorithm="show-and-highlight" data-search-target="existingClientsTable,newClientsTable">
+         " type="search" placeholder="Søk etter klient" name="input-field" data-val="true" id="text-input-generic" data-search-algorithm="show-and-highlight" data-search-target="existingClientsTable,newClientsTable">
 
 
 
@@ -466,7 +481,48 @@
 
                                         </div>
 
+                                        <div class="row">
+                                          <div class="col-12 mb-1 ml-md-7 mt-3">
+                                            <span class="ml-0 a-fontBold">
+            Vent litt... Vi mangler e-postadresse til den du gir rettighet til.<br />For å gjennomføre må du fylle inn e-post under.
+          </span>
+                                          </div>
+                                        </div>
 
+                                        <div class="row">
+                                          <div class="col-12 col-md-8 col-xl-6 mb-1 ml-md-7">
+                                            <!-- START: 00-atomer-01-forms-10-tekst-input -->
+
+                                            <div class="form-group a-form-group  ">
+
+                                              <label class="a-form-label  sr-only  " for="text-input-klientdelegering-fil">Epost</label>
+
+                                              <div class="a-form-group-items input-group   ">
+                                                <span class="input-group-addon hidden-sm-down"><!-- START: 00-atomer-09-bilder-og-media-15-ikon -->
+
+<i class="ai ai-closedmessage   "    ></i>
+
+
+<!-- END: 00-atomer-09-bilder-og-media-15-ikon -->
+</span>
+
+                                                <input class="form-control   a-hasIcon 
+         " type="email" placeholder="f.eks post@karinordmann.no" name="input-field" data-val="true" id="text-input-klientdelegering-fil" required data-search-algorithm="show-and-highlight" data-search-target="existingClientsTable,newClientsTable" data-val-regex="Feil epost verdier"
+                                                  data-val-regex-pattern="((&#39;[^&#39;]+&#39;)|(([a-zA-Z0-9!#$%&amp;&#39;*+-&#x3D;?^_&#x60;{|}~])+(.([a-zA-Z0-9!#$%&amp;&#39;*+-&#x3D;?^_&#x60;{|}~])+)*))@((((([a-zA-Z0-9æøåÆØÅ]([a-zA-Z0-9-æøåÆØÅ]{0,61})[a-zA-Z0-9æøåÆØÅ].)|[a-zA-Z0-9æøåÆØÅ].){1,9})([a-zA-Z]{2,14}))|((d{1,3}).(d{1,3}).(d{1,3}).(d{1,3})))">
+
+
+
+
+                                              </div>
+
+
+                                              <div class="a-message a-message-error" data-valmsg-for="input-field" data-valmsg-replace="true"></div>
+                                            </div>
+
+                                            <!-- END: 00-atomer-01-forms-10-tekst-input -->
+
+                                          </div>
+                                        </div>
 
                                       </div>
 
@@ -479,7 +535,7 @@
                                             <span class="mr-3">
             <!-- START: 00-atomer-03-knapper-10-knapp -->
 <button
-  
+   type="button" 
   
   class="a-btn a-btn-success collapsed a-js-confirmAddRightBtn a-js-enableWhenValid"
   
@@ -490,20 +546,20 @@
   aria-expanded="true" 
   >
 
-  
+  <span>
     Ferdig
-  
+  </span>
 
-</button>
+                                            </button>
 
-<!-- END: 00-atomer-03-knapper-10-knapp -->
+                                            <!-- END: 00-atomer-03-knapper-10-knapp -->
 
-          </span>
+                                            </span>
                                             <span class="mr-3">
             <!-- START: 00-atomer-03-knapper-15-♺-knapp-link -->
 <!-- START: 00-atomer-03-knapper-10-knapp -->
 <button
-  
+   type="button" 
   
   class="a-btn-link collapsed "
   
@@ -738,7 +794,48 @@
 
                                         </div>
 
+                                        <div class="row">
+                                          <div class="col-12 mb-1 ml-md-7 mt-3">
+                                            <span class="ml-0 a-fontBold">
+            Vent litt... Vi mangler e-postadresse til den du gir rettighet til.<br />For å gjennomføre må du fylle inn e-post under.
+          </span>
+                                          </div>
+                                        </div>
 
+                                        <div class="row">
+                                          <div class="col-12 col-md-8 col-xl-6 mb-1 ml-md-7">
+                                            <!-- START: 00-atomer-01-forms-10-tekst-input -->
+
+                                            <div class="form-group a-form-group  ">
+
+                                              <label class="a-form-label  sr-only  " for="text-input-klientdelegering-fil">Epost</label>
+
+                                              <div class="a-form-group-items input-group   ">
+                                                <span class="input-group-addon hidden-sm-down"><!-- START: 00-atomer-09-bilder-og-media-15-ikon -->
+
+<i class="ai ai-closedmessage   "    ></i>
+
+
+<!-- END: 00-atomer-09-bilder-og-media-15-ikon -->
+</span>
+
+                                                <input class="form-control   a-hasIcon 
+         " type="email" placeholder="f.eks post@karinordmann.no" name="input-field" data-val="true" id="text-input-klientdelegering-fil" required data-search-algorithm="show-and-highlight" data-search-target="existingClientsTable,newClientsTable" data-val-regex="Feil epost verdier"
+                                                  data-val-regex-pattern="((&#39;[^&#39;]+&#39;)|(([a-zA-Z0-9!#$%&amp;&#39;*+-&#x3D;?^_&#x60;{|}~])+(.([a-zA-Z0-9!#$%&amp;&#39;*+-&#x3D;?^_&#x60;{|}~])+)*))@((((([a-zA-Z0-9æøåÆØÅ]([a-zA-Z0-9-æøåÆØÅ]{0,61})[a-zA-Z0-9æøåÆØÅ].)|[a-zA-Z0-9æøåÆØÅ].){1,9})([a-zA-Z]{2,14}))|((d{1,3}).(d{1,3}).(d{1,3}).(d{1,3})))">
+
+
+
+
+                                              </div>
+
+
+                                              <div class="a-message a-message-error" data-valmsg-for="input-field" data-valmsg-replace="true"></div>
+                                            </div>
+
+                                            <!-- END: 00-atomer-01-forms-10-tekst-input -->
+
+                                          </div>
+                                        </div>
 
                                       </div>
 
@@ -751,7 +848,7 @@
                                             <span class="mr-3">
             <!-- START: 00-atomer-03-knapper-10-knapp -->
 <button
-  
+   type="button" 
   
   class="a-btn a-btn-success collapsed a-js-confirmAddRightBtn a-js-enableWhenValid"
   
@@ -762,20 +859,20 @@
   aria-expanded="true" 
   >
 
-  
+  <span>
     Ferdig
-  
+  </span>
 
-</button>
+                                            </button>
 
-<!-- END: 00-atomer-03-knapper-10-knapp -->
+                                            <!-- END: 00-atomer-03-knapper-10-knapp -->
 
-          </span>
+                                            </span>
                                             <span class="mr-3">
             <!-- START: 00-atomer-03-knapper-15-♺-knapp-link -->
 <!-- START: 00-atomer-03-knapper-10-knapp -->
 <button
-  
+   type="button" 
   
   class="a-btn-link collapsed "
   
@@ -1010,7 +1107,48 @@
 
                                         </div>
 
+                                        <div class="row">
+                                          <div class="col-12 mb-1 ml-md-7 mt-3">
+                                            <span class="ml-0 a-fontBold">
+            Vent litt... Vi mangler e-postadresse til den du gir rettighet til.<br />For å gjennomføre må du fylle inn e-post under.
+          </span>
+                                          </div>
+                                        </div>
 
+                                        <div class="row">
+                                          <div class="col-12 col-md-8 col-xl-6 mb-1 ml-md-7">
+                                            <!-- START: 00-atomer-01-forms-10-tekst-input -->
+
+                                            <div class="form-group a-form-group  ">
+
+                                              <label class="a-form-label  sr-only  " for="text-input-klientdelegering-fil">Epost</label>
+
+                                              <div class="a-form-group-items input-group   ">
+                                                <span class="input-group-addon hidden-sm-down"><!-- START: 00-atomer-09-bilder-og-media-15-ikon -->
+
+<i class="ai ai-closedmessage   "    ></i>
+
+
+<!-- END: 00-atomer-09-bilder-og-media-15-ikon -->
+</span>
+
+                                                <input class="form-control   a-hasIcon 
+         " type="email" placeholder="f.eks post@karinordmann.no" name="input-field" data-val="true" id="text-input-klientdelegering-fil" required data-search-algorithm="show-and-highlight" data-search-target="existingClientsTable,newClientsTable" data-val-regex="Feil epost verdier"
+                                                  data-val-regex-pattern="((&#39;[^&#39;]+&#39;)|(([a-zA-Z0-9!#$%&amp;&#39;*+-&#x3D;?^_&#x60;{|}~])+(.([a-zA-Z0-9!#$%&amp;&#39;*+-&#x3D;?^_&#x60;{|}~])+)*))@((((([a-zA-Z0-9æøåÆØÅ]([a-zA-Z0-9-æøåÆØÅ]{0,61})[a-zA-Z0-9æøåÆØÅ].)|[a-zA-Z0-9æøåÆØÅ].){1,9})([a-zA-Z]{2,14}))|((d{1,3}).(d{1,3}).(d{1,3}).(d{1,3})))">
+
+
+
+
+                                              </div>
+
+
+                                              <div class="a-message a-message-error" data-valmsg-for="input-field" data-valmsg-replace="true"></div>
+                                            </div>
+
+                                            <!-- END: 00-atomer-01-forms-10-tekst-input -->
+
+                                          </div>
+                                        </div>
 
                                       </div>
 
@@ -1023,7 +1161,7 @@
                                             <span class="mr-3">
             <!-- START: 00-atomer-03-knapper-10-knapp -->
 <button
-  
+   type="button" 
   
   class="a-btn a-btn-success collapsed a-js-confirmAddRightBtn a-js-enableWhenValid"
   
@@ -1034,20 +1172,20 @@
   aria-expanded="true" 
   >
 
-  
+  <span>
     Ferdig
-  
+  </span>
 
-</button>
+                                            </button>
 
-<!-- END: 00-atomer-03-knapper-10-knapp -->
+                                            <!-- END: 00-atomer-03-knapper-10-knapp -->
 
-          </span>
+                                            </span>
                                             <span class="mr-3">
             <!-- START: 00-atomer-03-knapper-15-♺-knapp-link -->
 <!-- START: 00-atomer-03-knapper-10-knapp -->
 <button
-  
+   type="button" 
   
   class="a-btn-link collapsed "
   
@@ -1415,7 +1553,48 @@
 
                                         </div>
 
+                                        <div class="row">
+                                          <div class="col-12 mb-1 ml-md-7 mt-3">
+                                            <span class="ml-0 a-fontBold">
+            Vent litt... Vi mangler e-postadresse til den du gir rettighet til.<br />For å gjennomføre må du fylle inn e-post under.
+          </span>
+                                          </div>
+                                        </div>
 
+                                        <div class="row">
+                                          <div class="col-12 col-md-8 col-xl-6 mb-1 ml-md-7">
+                                            <!-- START: 00-atomer-01-forms-10-tekst-input -->
+
+                                            <div class="form-group a-form-group  ">
+
+                                              <label class="a-form-label  sr-only  " for="text-input-klientdelegering-fil">Epost</label>
+
+                                              <div class="a-form-group-items input-group   ">
+                                                <span class="input-group-addon hidden-sm-down"><!-- START: 00-atomer-09-bilder-og-media-15-ikon -->
+
+<i class="ai ai-closedmessage   "    ></i>
+
+
+<!-- END: 00-atomer-09-bilder-og-media-15-ikon -->
+</span>
+
+                                                <input class="form-control   a-hasIcon 
+         " type="email" placeholder="f.eks post@karinordmann.no" name="input-field" data-val="true" id="text-input-klientdelegering-fil" required data-search-algorithm="show-and-highlight" data-search-target="existingClientsTable,newClientsTable" data-val-regex="Feil epost verdier"
+                                                  data-val-regex-pattern="((&#39;[^&#39;]+&#39;)|(([a-zA-Z0-9!#$%&amp;&#39;*+-&#x3D;?^_&#x60;{|}~])+(.([a-zA-Z0-9!#$%&amp;&#39;*+-&#x3D;?^_&#x60;{|}~])+)*))@((((([a-zA-Z0-9æøåÆØÅ]([a-zA-Z0-9-æøåÆØÅ]{0,61})[a-zA-Z0-9æøåÆØÅ].)|[a-zA-Z0-9æøåÆØÅ].){1,9})([a-zA-Z]{2,14}))|((d{1,3}).(d{1,3}).(d{1,3}).(d{1,3})))">
+
+
+
+
+                                              </div>
+
+
+                                              <div class="a-message a-message-error" data-valmsg-for="input-field" data-valmsg-replace="true"></div>
+                                            </div>
+
+                                            <!-- END: 00-atomer-01-forms-10-tekst-input -->
+
+                                          </div>
+                                        </div>
 
                                       </div>
 
@@ -1428,7 +1607,7 @@
                                             <span class="mr-3">
             <!-- START: 00-atomer-03-knapper-10-knapp -->
 <button
-  
+   type="button" 
   
   class="a-btn a-btn-success collapsed a-js-confirmAddRightBtn a-js-enableWhenValid"
   
@@ -1439,20 +1618,20 @@
   aria-expanded="true" 
   >
 
-  
+  <span>
     Ferdig
-  
+  </span>
 
-</button>
+                                            </button>
 
-<!-- END: 00-atomer-03-knapper-10-knapp -->
+                                            <!-- END: 00-atomer-03-knapper-10-knapp -->
 
-          </span>
+                                            </span>
                                             <span class="mr-3">
             <!-- START: 00-atomer-03-knapper-15-♺-knapp-link -->
 <!-- START: 00-atomer-03-knapper-10-knapp -->
 <button
-  
+   type="button" 
   
   class="a-btn-link collapsed "
   
@@ -1686,7 +1865,48 @@
 
                                         </div>
 
+                                        <div class="row">
+                                          <div class="col-12 mb-1 ml-md-7 mt-3">
+                                            <span class="ml-0 a-fontBold">
+            Vent litt... Vi mangler e-postadresse til den du gir rettighet til.<br />For å gjennomføre må du fylle inn e-post under.
+          </span>
+                                          </div>
+                                        </div>
 
+                                        <div class="row">
+                                          <div class="col-12 col-md-8 col-xl-6 mb-1 ml-md-7">
+                                            <!-- START: 00-atomer-01-forms-10-tekst-input -->
+
+                                            <div class="form-group a-form-group  ">
+
+                                              <label class="a-form-label  sr-only  " for="text-input-klientdelegering-fil">Epost</label>
+
+                                              <div class="a-form-group-items input-group   ">
+                                                <span class="input-group-addon hidden-sm-down"><!-- START: 00-atomer-09-bilder-og-media-15-ikon -->
+
+<i class="ai ai-closedmessage   "    ></i>
+
+
+<!-- END: 00-atomer-09-bilder-og-media-15-ikon -->
+</span>
+
+                                                <input class="form-control   a-hasIcon 
+         " type="email" placeholder="f.eks post@karinordmann.no" name="input-field" data-val="true" id="text-input-klientdelegering-fil" required data-search-algorithm="show-and-highlight" data-search-target="existingClientsTable,newClientsTable" data-val-regex="Feil epost verdier"
+                                                  data-val-regex-pattern="((&#39;[^&#39;]+&#39;)|(([a-zA-Z0-9!#$%&amp;&#39;*+-&#x3D;?^_&#x60;{|}~])+(.([a-zA-Z0-9!#$%&amp;&#39;*+-&#x3D;?^_&#x60;{|}~])+)*))@((((([a-zA-Z0-9æøåÆØÅ]([a-zA-Z0-9-æøåÆØÅ]{0,61})[a-zA-Z0-9æøåÆØÅ].)|[a-zA-Z0-9æøåÆØÅ].){1,9})([a-zA-Z]{2,14}))|((d{1,3}).(d{1,3}).(d{1,3}).(d{1,3})))">
+
+
+
+
+                                              </div>
+
+
+                                              <div class="a-message a-message-error" data-valmsg-for="input-field" data-valmsg-replace="true"></div>
+                                            </div>
+
+                                            <!-- END: 00-atomer-01-forms-10-tekst-input -->
+
+                                          </div>
+                                        </div>
 
                                       </div>
 
@@ -1699,7 +1919,7 @@
                                             <span class="mr-3">
             <!-- START: 00-atomer-03-knapper-10-knapp -->
 <button
-  
+   type="button" 
   
   class="a-btn a-btn-success collapsed a-js-confirmAddRightBtn a-js-enableWhenValid"
   
@@ -1710,20 +1930,20 @@
   aria-expanded="true" 
   >
 
-  
+  <span>
     Ferdig
-  
+  </span>
 
-</button>
+                                            </button>
 
-<!-- END: 00-atomer-03-knapper-10-knapp -->
+                                            <!-- END: 00-atomer-03-knapper-10-knapp -->
 
-          </span>
+                                            </span>
                                             <span class="mr-3">
             <!-- START: 00-atomer-03-knapper-15-♺-knapp-link -->
 <!-- START: 00-atomer-03-knapper-10-knapp -->
 <button
-  
+   type="button" 
   
   class="a-btn-link collapsed "
   
@@ -1957,7 +2177,48 @@
 
                                         </div>
 
+                                        <div class="row">
+                                          <div class="col-12 mb-1 ml-md-7 mt-3">
+                                            <span class="ml-0 a-fontBold">
+            Vent litt... Vi mangler e-postadresse til den du gir rettighet til.<br />For å gjennomføre må du fylle inn e-post under.
+          </span>
+                                          </div>
+                                        </div>
 
+                                        <div class="row">
+                                          <div class="col-12 col-md-8 col-xl-6 mb-1 ml-md-7">
+                                            <!-- START: 00-atomer-01-forms-10-tekst-input -->
+
+                                            <div class="form-group a-form-group  ">
+
+                                              <label class="a-form-label  sr-only  " for="text-input-klientdelegering-fil">Epost</label>
+
+                                              <div class="a-form-group-items input-group   ">
+                                                <span class="input-group-addon hidden-sm-down"><!-- START: 00-atomer-09-bilder-og-media-15-ikon -->
+
+<i class="ai ai-closedmessage   "    ></i>
+
+
+<!-- END: 00-atomer-09-bilder-og-media-15-ikon -->
+</span>
+
+                                                <input class="form-control   a-hasIcon 
+         " type="email" placeholder="f.eks post@karinordmann.no" name="input-field" data-val="true" id="text-input-klientdelegering-fil" required data-search-algorithm="show-and-highlight" data-search-target="existingClientsTable,newClientsTable" data-val-regex="Feil epost verdier"
+                                                  data-val-regex-pattern="((&#39;[^&#39;]+&#39;)|(([a-zA-Z0-9!#$%&amp;&#39;*+-&#x3D;?^_&#x60;{|}~])+(.([a-zA-Z0-9!#$%&amp;&#39;*+-&#x3D;?^_&#x60;{|}~])+)*))@((((([a-zA-Z0-9æøåÆØÅ]([a-zA-Z0-9-æøåÆØÅ]{0,61})[a-zA-Z0-9æøåÆØÅ].)|[a-zA-Z0-9æøåÆØÅ].){1,9})([a-zA-Z]{2,14}))|((d{1,3}).(d{1,3}).(d{1,3}).(d{1,3})))">
+
+
+
+
+                                              </div>
+
+
+                                              <div class="a-message a-message-error" data-valmsg-for="input-field" data-valmsg-replace="true"></div>
+                                            </div>
+
+                                            <!-- END: 00-atomer-01-forms-10-tekst-input -->
+
+                                          </div>
+                                        </div>
 
                                       </div>
 
@@ -1970,7 +2231,7 @@
                                             <span class="mr-3">
             <!-- START: 00-atomer-03-knapper-10-knapp -->
 <button
-  
+   type="button" 
   
   class="a-btn a-btn-success collapsed a-js-confirmAddRightBtn a-js-enableWhenValid"
   
@@ -1981,20 +2242,20 @@
   aria-expanded="true" 
   >
 
-  
+  <span>
     Ferdig
-  
+  </span>
 
-</button>
+                                            </button>
 
-<!-- END: 00-atomer-03-knapper-10-knapp -->
+                                            <!-- END: 00-atomer-03-knapper-10-knapp -->
 
-          </span>
+                                            </span>
                                             <span class="mr-3">
             <!-- START: 00-atomer-03-knapper-15-♺-knapp-link -->
 <!-- START: 00-atomer-03-knapper-10-knapp -->
 <button
-  
+   type="button" 
   
   class="a-btn-link collapsed "
   
@@ -2228,7 +2489,48 @@
 
                                         </div>
 
+                                        <div class="row">
+                                          <div class="col-12 mb-1 ml-md-7 mt-3">
+                                            <span class="ml-0 a-fontBold">
+            Vent litt... Vi mangler e-postadresse til den du gir rettighet til.<br />For å gjennomføre må du fylle inn e-post under.
+          </span>
+                                          </div>
+                                        </div>
 
+                                        <div class="row">
+                                          <div class="col-12 col-md-8 col-xl-6 mb-1 ml-md-7">
+                                            <!-- START: 00-atomer-01-forms-10-tekst-input -->
+
+                                            <div class="form-group a-form-group  ">
+
+                                              <label class="a-form-label  sr-only  " for="text-input-klientdelegering-fil">Epost</label>
+
+                                              <div class="a-form-group-items input-group   ">
+                                                <span class="input-group-addon hidden-sm-down"><!-- START: 00-atomer-09-bilder-og-media-15-ikon -->
+
+<i class="ai ai-closedmessage   "    ></i>
+
+
+<!-- END: 00-atomer-09-bilder-og-media-15-ikon -->
+</span>
+
+                                                <input class="form-control   a-hasIcon 
+         " type="email" placeholder="f.eks post@karinordmann.no" name="input-field" data-val="true" id="text-input-klientdelegering-fil" required data-search-algorithm="show-and-highlight" data-search-target="existingClientsTable,newClientsTable" data-val-regex="Feil epost verdier"
+                                                  data-val-regex-pattern="((&#39;[^&#39;]+&#39;)|(([a-zA-Z0-9!#$%&amp;&#39;*+-&#x3D;?^_&#x60;{|}~])+(.([a-zA-Z0-9!#$%&amp;&#39;*+-&#x3D;?^_&#x60;{|}~])+)*))@((((([a-zA-Z0-9æøåÆØÅ]([a-zA-Z0-9-æøåÆØÅ]{0,61})[a-zA-Z0-9æøåÆØÅ].)|[a-zA-Z0-9æøåÆØÅ].){1,9})([a-zA-Z]{2,14}))|((d{1,3}).(d{1,3}).(d{1,3}).(d{1,3})))">
+
+
+
+
+                                              </div>
+
+
+                                              <div class="a-message a-message-error" data-valmsg-for="input-field" data-valmsg-replace="true"></div>
+                                            </div>
+
+                                            <!-- END: 00-atomer-01-forms-10-tekst-input -->
+
+                                          </div>
+                                        </div>
 
                                       </div>
 
@@ -2241,7 +2543,7 @@
                                             <span class="mr-3">
             <!-- START: 00-atomer-03-knapper-10-knapp -->
 <button
-  
+   type="button" 
   
   class="a-btn a-btn-success collapsed a-js-confirmAddRightBtn a-js-enableWhenValid"
   
@@ -2252,20 +2554,20 @@
   aria-expanded="true" 
   >
 
-  
+  <span>
     Ferdig
-  
+  </span>
 
-</button>
+                                            </button>
 
-<!-- END: 00-atomer-03-knapper-10-knapp -->
+                                            <!-- END: 00-atomer-03-knapper-10-knapp -->
 
-          </span>
+                                            </span>
                                             <span class="mr-3">
             <!-- START: 00-atomer-03-knapper-15-♺-knapp-link -->
 <!-- START: 00-atomer-03-knapper-10-knapp -->
 <button
-  
+   type="button" 
   
   class="a-btn-link collapsed "
   
@@ -2499,7 +2801,48 @@
 
                                         </div>
 
+                                        <div class="row">
+                                          <div class="col-12 mb-1 ml-md-7 mt-3">
+                                            <span class="ml-0 a-fontBold">
+            Vent litt... Vi mangler e-postadresse til den du gir rettighet til.<br />For å gjennomføre må du fylle inn e-post under.
+          </span>
+                                          </div>
+                                        </div>
 
+                                        <div class="row">
+                                          <div class="col-12 col-md-8 col-xl-6 mb-1 ml-md-7">
+                                            <!-- START: 00-atomer-01-forms-10-tekst-input -->
+
+                                            <div class="form-group a-form-group  ">
+
+                                              <label class="a-form-label  sr-only  " for="text-input-klientdelegering-fil">Epost</label>
+
+                                              <div class="a-form-group-items input-group   ">
+                                                <span class="input-group-addon hidden-sm-down"><!-- START: 00-atomer-09-bilder-og-media-15-ikon -->
+
+<i class="ai ai-closedmessage   "    ></i>
+
+
+<!-- END: 00-atomer-09-bilder-og-media-15-ikon -->
+</span>
+
+                                                <input class="form-control   a-hasIcon 
+         " type="email" placeholder="f.eks post@karinordmann.no" name="input-field" data-val="true" id="text-input-klientdelegering-fil" required data-search-algorithm="show-and-highlight" data-search-target="existingClientsTable,newClientsTable" data-val-regex="Feil epost verdier"
+                                                  data-val-regex-pattern="((&#39;[^&#39;]+&#39;)|(([a-zA-Z0-9!#$%&amp;&#39;*+-&#x3D;?^_&#x60;{|}~])+(.([a-zA-Z0-9!#$%&amp;&#39;*+-&#x3D;?^_&#x60;{|}~])+)*))@((((([a-zA-Z0-9æøåÆØÅ]([a-zA-Z0-9-æøåÆØÅ]{0,61})[a-zA-Z0-9æøåÆØÅ].)|[a-zA-Z0-9æøåÆØÅ].){1,9})([a-zA-Z]{2,14}))|((d{1,3}).(d{1,3}).(d{1,3}).(d{1,3})))">
+
+
+
+
+                                              </div>
+
+
+                                              <div class="a-message a-message-error" data-valmsg-for="input-field" data-valmsg-replace="true"></div>
+                                            </div>
+
+                                            <!-- END: 00-atomer-01-forms-10-tekst-input -->
+
+                                          </div>
+                                        </div>
 
                                       </div>
 
@@ -2512,7 +2855,7 @@
                                             <span class="mr-3">
             <!-- START: 00-atomer-03-knapper-10-knapp -->
 <button
-  
+   type="button" 
   
   class="a-btn a-btn-success collapsed a-js-confirmAddRightBtn a-js-enableWhenValid"
   
@@ -2523,20 +2866,20 @@
   aria-expanded="true" 
   >
 
-  
+  <span>
     Ferdig
-  
+  </span>
 
-</button>
+                                            </button>
 
-<!-- END: 00-atomer-03-knapper-10-knapp -->
+                                            <!-- END: 00-atomer-03-knapper-10-knapp -->
 
-          </span>
+                                            </span>
                                             <span class="mr-3">
             <!-- START: 00-atomer-03-knapper-15-♺-knapp-link -->
 <!-- START: 00-atomer-03-knapper-10-knapp -->
 <button
-  
+   type="button" 
   
   class="a-btn-link collapsed "
   

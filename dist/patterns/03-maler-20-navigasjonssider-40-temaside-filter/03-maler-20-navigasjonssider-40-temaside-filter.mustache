@@ -2,7 +2,7 @@
 <div class="a-page">
   {{> organismer-header }}
 
-  <div class="container {{ wrapperClass }}" id="content" tabindex="-1" data-source="{{ wrapperSource }}" data-dimensions="{{ wrapperDimensions }}" data-dimensionsaliases="{{ wrapperDimensionsAliases }}" data-mappedkeys="{{ wrapperMappedKeys }}">
+  <div class="container {{ wrapperClass }}" data-source="{{ wrapperSource }}" data-dimensions="{{ wrapperDimensions }}" data-dimensionsaliases="{{ wrapperDimensionsAliases }}" data-mappedkeys="{{ wrapperMappedKeys }}">
 
     <div class="row">
       <div class="col-sm-12 col-lg-6 offset-lg-3 a-articleSearch">
@@ -29,16 +29,13 @@
       <div class="row">
         <div class="col-sm-12 col-lg-10 offset-lg-1 pb-3">
           {{# modal-empty }} {{> atomer-avsnitt }} {{/ modal-empty }}
-          <span class="{{ resultList }}">
-						{{# list-stotteordninger }}
-							{{> molekyler-lenketittel-med-forklaring }}
-						{{/ list-stotteordninger }}
-					</span>
-          <span class="{{ alternativeResultList }}" data-extraresultsheading="{{ extra-results-heading }}">
-						{{# list-stotteordninger }}
-							{{> molekyler-lenketittel-med-forklaring }}
-						{{/ list-stotteordninger }}
-					</span> {{# list-stotteordninger-loadmore }} {{> atomer-handlingsknapp }} {{/ list-stotteordninger-loadmore }}
+          <div class="{{ resultList }}">
+            {{# list-stotteordninger }} {{> molekyler-lenketittel-med-forklaring }} {{/ list-stotteordninger }}
+          </div>
+          <div class="{{ alternativeResultList }}" data-extraresultsheading="{{ extra-results-heading }}">
+            {{# list-stotteordninger }} {{> molekyler-lenketittel-med-forklaring }} {{/ list-stotteordninger }}
+          </div>
+          {{# list-stotteordninger-loadmore }} {{> atomer-handlingsknapp }} {{/ list-stotteordninger-loadmore }}
 
 
         </div>
