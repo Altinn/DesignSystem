@@ -11,11 +11,17 @@
   vertical-align: middle;
 
   &.ai-sm {
-    font-size: 1.5em;
+    font-size: $icon-sm-em;
   }
 
   &.ai-lg {
-    font-size: 4em;
+    font-size: $icon-lg-em;
+  }
+
+  &.ai-md-lg {
+    @include media-breakpoint-up( md ) {
+      font-size: $icon-lg-em;
+    }
   }
 
   &.ai-nw {
@@ -53,7 +59,7 @@
 
 //negative margin for centering icons in check-boxes and buttons with border
 .a-switch,
-.a-btn {
+.a-btn-action {
   i {
     &.ai {
       margin-top: -3px;
@@ -76,34 +82,6 @@
   min-height: 60px;
   align-items: center;
   justify-content: center;
-
-  &.a-icon-circle {
-    @include a-fontSize30;
-  }
-
-  &.a-icon-circle-small {
-    @include a-fontSize20;
-    float: left;
-    width: 20px;
-    min-width: 20px;
-    height: 20px;
-    margin-top: 2px;
-    margin-right: 6px;
-    color: $blue;
-    background: $white;
-    border-radius: 50%;
-  }
-}
-
-// Small icon
-.a-icon-small {
-  @include a-fontSize36;
-  width: $spacer * 4;
-  height: $spacer * 4;
-
-  &.a-icon-circle {
-    @include a-fontSize24;
-  }
 }
 
 // Icon inside circle
@@ -128,9 +106,11 @@
 
   // The icon
   .a-iconText-icon {
+    display: flex;
     width: $spacer * 5;
     min-width: $spacer * 5;
     margin-right: $spacer;
+    justify-content: center;
 
     @include media-breakpoint-up( lg ) {
       margin-right: $spacer / 2;
@@ -279,14 +259,11 @@
     }
 
     .a-icon {
-      @include a-fontSize60;
       width: $spacer * 6;
       min-width: $spacer * 6;
       height: $spacer * 6;
+      font-size: $icon-lg-em;
 
-      &.a-icon-circle {
-        @include a-fontSize36;
-      }
     }
   }
 }
