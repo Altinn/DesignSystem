@@ -524,6 +524,7 @@
 \*------------------------------------*/
 .a-inboxHeadingContent {
   min-height: $spacer * 7;
+  padding-right: $spacer * 2;
   margin-right: 0;
   margin-left: 0;
   align-items: stretch;
@@ -541,7 +542,9 @@
   }
 
   .a-msgDuedate {
-    margin-right: $spacer;
+    @extend .a-fontSizeXXS;
+
+    margin-right: $spacer * 2;
     align-self: center;
   }
 
@@ -558,6 +561,10 @@
       overflow: hidden;
       text-overflow: ellipsis;
       white-space: nowrap;
+    }
+
+    h2 {
+      @extend .a-fontSizeM;
     }
 
     .a-msgDuedate {
@@ -577,12 +584,17 @@
     margin: 0 $spacer 0 0;
     color: $grey;
     justify-content: center;
+
+    &:hover,
+    &:focus,
+    &:active {
+      color: $blue;
+    }
   }
 
   .a-msgShortcutsContainer {
     display: flex;
     margin-right: $spacer;
-    margin-left: $spacer;
     align-self: center;
   }
 
@@ -596,6 +608,10 @@
       @include media-breakpoint-up( md ) {
         width: $spacer * 6;
       }
+    }
+
+    h2 {
+      @extend .a-fontSizeS;
     }
   }
 
