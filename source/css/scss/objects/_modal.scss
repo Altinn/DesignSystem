@@ -10,12 +10,12 @@
 
 body {
   &.modal-open {
-    overflow-y: visible;
+    overflow-y: hidden;
   }
 }
 
 .a-modal {
-  position: absolute;
+  position: fixed;
   padding-bottom: $spacer * 5;
 
   .a-logo-feedback {
@@ -142,6 +142,7 @@ body {
 
   &.fade {
     overflow: visible;
+    overflow-y: scroll;
     opacity: 1;
     transition: none;
 
@@ -227,6 +228,11 @@ body {
 
 .a-modal-body {
   padding: $spacer * 2 $spacer;
+  border-bottom: 1px solid $grey-medium;
+
+  &:last-of-type {
+    border-bottom: none;
+  }
 
   @include media-breakpoint-up( md ) {
     padding: 36px 84px;
@@ -294,6 +300,12 @@ a {
 .a-modal-background-error {
   .a-logo-feedback {
     display: initial;
+  }
+
+  .a-modal-navbar {
+    button {
+      display: none;
+    }
   }
 
   .a-logo-neutral {

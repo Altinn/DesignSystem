@@ -8,7 +8,8 @@
     margin: 0;
   }
 
-  div {
+  div,
+  span {
     &[class^='col'] {
       padding: 0;
       margin: 0;
@@ -91,8 +92,10 @@
       }
 
       .a-list-rowLink {
-        @include a-fontSize20;
-        padding: 8px $spacer / 2;
+        @include media-breakpoint-up( md ) {
+          @include a-fontSize20;
+          padding: 8px $spacer / 2;
+        }
       }
     }
   }

@@ -67,3 +67,147 @@
     }
   }
 }
+
+
+
+/*------------------------------------*\
+    $ RESOPONSIVE TABLE
+\*------------------------------------*/
+
+.a-responsiveTable-container {
+  margin: auto;
+}
+
+.a-responsiveTable {
+  @include a-fontSize16;
+  width: 100%;
+  margin-bottom: $spacer * 3;
+
+  thead {
+    // Accessibly hide <thead> on narrow viewports
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    overflow: hidden;
+    clip: rect(1px, 1px, 1px, 1px);
+    border: none;
+
+    @include media-breakpoint-up( md ) {
+      // Unhide <thead> on wide viewports
+      position: relative;
+      width: auto;
+      height: auto;
+      overflow: auto;
+      clip: auto;
+    }
+
+    th {
+      color: $black;
+      text-align: left;
+      background-color: $grey-light;
+      border-bottom: 1px solid $grey-medium;
+
+      @include media-breakpoint-up( md ) {
+        @include a-fontSize14;
+        padding: 9px 24px 6px 24px;
+        text-transform: uppercase;
+      }
+    }
+  }
+
+  // Set these items to display: block for narrow viewports
+  tbody,
+  tr,
+  th,
+  td {
+    display: block;
+    padding: 0;
+    text-align: left;
+    white-space: normal;
+  }
+
+  tr {
+    @include media-breakpoint-up( md ) {
+      // Undo display: block
+      display: table-row;
+    }
+  }
+
+  th,
+  td {
+    padding: 7px 24px 5px 24px;
+    vertical-align: middle;
+
+    @include media-breakpoint-up( md ) {
+      // Undo display: block
+      display: table-cell;
+    }
+  }
+
+  caption {
+    @include a-fontSize14;
+    text-align: left;
+  }
+
+  tbody {
+    @include media-breakpoint-up( md ) {
+      // Undo display: block
+      display: table-row-group;
+    }
+
+    tr {
+      margin-bottom: $spacer * 3;
+      @include media-breakpoint-up( md ) {
+        // Undo display: block
+        display: table-row;
+        margin-bottom: 0;
+        border-bottom: 1px solid $grey-medium;
+      }
+
+      &:last-of-type {
+        margin-bottom: 0;
+      }
+    }
+
+    th {
+      &[scope='row'] {
+        color: $black;
+        background-color: $grey-lighter;
+        border-bottom: 1px solid $grey-medium;
+
+        @include media-breakpoint-up( md ) {
+          text-align: left;
+          background-color: $white;
+          border-bottom: none;
+        }
+      }
+    }
+
+    td {
+      text-align: right;
+      background-color: $white;
+      border-bottom: 1px solid $grey-medium;
+
+      @include media-breakpoint-up( md ) {
+        text-align: left;
+      }
+
+      &[data-type='currency'] {
+        text-align: right;
+      }
+
+      &[data-title] {
+        &::before {
+          float: left;
+          color: $black;
+          content: attr(data-title);
+          @include media-breakpoint-up( md ) {
+            // Don’t show data-title labels
+            content: none;
+          }
+        }
+      }
+    }
+  }
+}

@@ -33,6 +33,7 @@ var popoverLocalInit = function() {
   });
 };
 
+var forceFocusTriggerElement;
 var popoverGlobalInit = function() {
   $('body').on('shown.bs.popover', '[data-toggle="popover"].a-js-tabable-popover', function(e) {
     var triggerElement = this;
@@ -42,6 +43,16 @@ var popoverGlobalInit = function() {
         $('[data-toggle="popover"]').popover('hide');
       });
     }, 0);
+  });
+
+  $('body').on('shown.bs.popover', '[data-toggle="popover"].a-js-popover-forceFocus', function(e) {
+    forceFocusTriggerElement = this;
+    $(forceFocusTriggerElement).on('blur', function() {
+      var that = this;
+      if (forceFocusTriggerElement) {
+        $($(this).data('bs.popover').tip).find('button,input,a,textarea').filter(':visible:first').focus();
+      }
+    });
   });
 
   // Hide all existing popovers when opening a new popover
@@ -55,7 +66,14 @@ var popoverGlobalInit = function() {
     var that = this;
     setTimeout(function() {
       var $focused = $(':focus');
-      if ($focused.length !== 0 && !$focused.hasClass('popover') && !$focused.parents('.popover').length >= 1) {
+      if (($focused.length !== 0 || forceFocusTriggerElement)
+        && !$focused.hasClass('popover')
+        && !$focused.parents('.popover').length >= 1) {
+        if (forceFocusTriggerElement) {
+          $(forceFocusTriggerElement).focus();
+          forceFocusTriggerElement = false;
+        }
+
         $('[data-toggle="popover"]').popover('hide');
       }
     }, 0);
@@ -68,6 +86,7 @@ var popoverGlobalInit = function() {
       && $(e.target).parents('[data-toggle="popover"]').length === 0
       && $(e.target).parents('.popover.show').length === 0) {
       $('[data-toggle="popover"]').popover('hide');
+      forceFocusTriggerElement = false;
     }
   });
 
