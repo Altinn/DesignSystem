@@ -1,5 +1,5 @@
 ---
-state: inreview
+state: indesignreview
 version: 0
 ---
-Foreløpig ingen retningslinjer.
+Mal for innboks.
