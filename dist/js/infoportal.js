@@ -1460,7 +1460,8 @@ var genericSearch = function() {
                   .html(_index + 1);
               });
             if ($('.a-js-filterDim' + (index + 1)).find('.a-js-plural')) {
-              $('.a-js-filterDim' + (index + 1)).find('.a-js-plural').html(index > 0 ? 'r' : '');
+              $('.a-js-filterDim' + (index + 1))
+                .find('.a-js-plural')[index > 0 ? 'show' : 'hide']();
             }
           });
           newList.filter(grinder).forEach(function(item, index) {

@@ -7464,14 +7464,14 @@ textarea,
       -webkit-font-smoothing: subpixel-antialiased; } }
 
 .a-fontSizeS, h4,
-.a-h4, p, .a-radioButtons .custom-control .a-radioButtons-title, .a-btn, .a-compare-category .a-compare-container p, ul.a-bullet-list li, ul.a-item-list-icon li span, .a-text, .a-text > a, .a-text > ol.a-circle-list {
+.a-h4, p, .a-radioButtons .custom-control .a-radioButtons-title, .a-btn, .a-jumbotron .a-jumbotron-ingress.a-jumbotron-ingress--small, .a-compare-category .a-compare-container p, ul.a-bullet-list li, ul.a-item-list-icon li span, .a-text, .a-text > a, .a-text > ol.a-circle-list {
   font-size: 16px;
   font-size: 1.6rem;
   line-height: 1.5;
   -webkit-font-smoothing: subpixel-antialiased; }
   @media (min-width: 768px) {
     .a-fontSizeS, h4,
-    .a-h4, p, .a-radioButtons .custom-control .a-radioButtons-title, .a-btn, .a-compare-category .a-compare-container p, ul.a-bullet-list li, ul.a-item-list-icon li span, .a-text, .a-text > a, .a-text > ol.a-circle-list {
+    .a-h4, p, .a-radioButtons .custom-control .a-radioButtons-title, .a-btn, .a-jumbotron .a-jumbotron-ingress.a-jumbotron-ingress--small, .a-compare-category .a-compare-container p, ul.a-bullet-list li, ul.a-item-list-icon li span, .a-text, .a-text > a, .a-text > ol.a-circle-list {
       font-size: 18px;
       font-size: 1.8rem;
       line-height: 1.5;
@@ -7622,6 +7622,7 @@ h1 + .a-helpIconButton {
   line-height: 1.5;
   -webkit-font-smoothing: subpixel-antialiased;
   position: relative;
+  z-index: 1;
   padding-right: 18px;
   color: #022F51;
   border-bottom: none; }
@@ -10892,9 +10893,11 @@ i.a-danger {
   background-size: cover; }
   @media (min-width: 768px) {
     .a-jumbotron {
-      height: calc(100vh - 200px); } }
+      min-height: calc(100vh - 200px); } }
   .a-jumbotron .a-leadText {
     max-width: 600px; }
+  .a-jumbotron hr {
+    display: none; }
   .a-jumbotron p {
     font-size: 20px;
     font-size: 2rem;
@@ -12231,7 +12234,10 @@ body.modal-open {
       -webkit-font-smoothing: subpixel-antialiased; } }
 
 .a-modal-body {
-  padding: 24px 12px; }
+  padding: 24px 12px;
+  border-bottom: 1px solid #BCC7CC; }
+  .a-modal-body:last-of-type {
+    border-bottom: none; }
   @media (min-width: 768px) {
     .a-modal-body {
       padding: 36px 84px; } }
@@ -12768,15 +12774,18 @@ a.a-modal-close {
 .a-text > h2 + h3 {
   margin-top: 12px !important; }
 
-.a-text > p a::before {
-  position: absolute;
-  top: -16px;
-  left: -12px;
-  z-index: -1;
-  width: calc( 100% + 24px);
-  min-height: 48px;
-  cursor: pointer;
-  content: ''; }
+.a-text > p a {
+  position: relative;
+  z-index: 1; }
+  .a-text > p a::before {
+    position: absolute;
+    top: -16px;
+    left: -12px;
+    z-index: -1;
+    width: calc( 100% + 24px);
+    min-height: 48px;
+    cursor: pointer;
+    content: ''; }
 
 .a-text > ul {
   list-style: disc; }
@@ -14502,14 +14511,14 @@ textarea,
       -webkit-font-smoothing: subpixel-antialiased; } }
 
 .a-fontSizeS, h4,
-.a-h4, p, .a-radioButtons .custom-control .a-radioButtons-title, .a-btn, .a-compare-category .a-compare-container p, ul.a-bullet-list li, ul.a-item-list-icon li span, .a-text, .a-text > a, .a-text > ol.a-circle-list {
+.a-h4, p, .a-radioButtons .custom-control .a-radioButtons-title, .a-btn, .a-jumbotron .a-jumbotron-ingress.a-jumbotron-ingress--small, .a-compare-category .a-compare-container p, ul.a-bullet-list li, ul.a-item-list-icon li span, .a-text, .a-text > a, .a-text > ol.a-circle-list {
   font-size: 16px;
   font-size: 1.6rem;
   line-height: 1.5;
   -webkit-font-smoothing: subpixel-antialiased; }
   @media (min-width: 768px) {
     .a-fontSizeS, h4,
-    .a-h4, p, .a-radioButtons .custom-control .a-radioButtons-title, .a-btn, .a-compare-category .a-compare-container p, ul.a-bullet-list li, ul.a-item-list-icon li span, .a-text, .a-text > a, .a-text > ol.a-circle-list {
+    .a-h4, p, .a-radioButtons .custom-control .a-radioButtons-title, .a-btn, .a-jumbotron .a-jumbotron-ingress.a-jumbotron-ingress--small, .a-compare-category .a-compare-container p, ul.a-bullet-list li, ul.a-item-list-icon li span, .a-text, .a-text > a, .a-text > ol.a-circle-list {
       font-size: 18px;
       font-size: 1.8rem;
       line-height: 1.5;
