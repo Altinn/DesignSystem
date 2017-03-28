@@ -551,16 +551,21 @@
   .a-msgHeadingTextContainer {
     display: flex;
     padding-right: $spacer * 2;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
     align-self: center;
 
-    div,
-    h2 {
+    @include media-breakpoint-up( md ) {
       overflow: hidden;
       text-overflow: ellipsis;
       white-space: nowrap;
+    }
+
+    div,
+    h2 {
+      @include media-breakpoint-up( md ) {
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+      }
     }
 
     h2 {
