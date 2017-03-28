@@ -1463,6 +1463,10 @@ var genericSearch = function() {
               $('.a-js-filterDim' + (index + 1))
                 .find('.a-js-plural')[index > 0 ? 'show' : 'hide']();
             }
+            if ($('.a-js-filterDim' + (index + 1)).find('.a-js-singular')) {
+              $('.a-js-filterDim' + (index + 1))
+                .find('.a-js-singular')[index > 0 ? 'hide' : 'show']();
+            }
           });
           newList.filter(grinder).forEach(function(item, index) {
             $('#' + item.id)[index < 20 ? 'show' : 'hide']();

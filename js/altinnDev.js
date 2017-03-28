@@ -79,11 +79,6 @@ var setupAddRightsHandler = function() {
 var _anchors = function() {
   window.anchors.options.placement = 'left';
   window.anchors.options.class = 'a-sg-anchor';
-
-  // // NOTE: Disabled this until it has been clarified where this is needed,
-  // // needs to be changed so it doesn't affect all h3 tags - only the ones in articles?
-  // window.anchors.add('h3');
-
   window.anchors.remove('.sg-pattern-example h3');
   window.anchors.remove('.a-page h1');
   window.anchors.remove('.a-page h2');
@@ -1548,6 +1543,10 @@ var genericSearch = function() {
             if ($('.a-js-filterDim' + (index + 1)).find('.a-js-plural')) {
               $('.a-js-filterDim' + (index + 1))
                 .find('.a-js-plural')[index > 0 ? 'show' : 'hide']();
+            }
+            if ($('.a-js-filterDim' + (index + 1)).find('.a-js-singular')) {
+              $('.a-js-filterDim' + (index + 1))
+                .find('.a-js-singular')[index > 0 ? 'hide' : 'show']();
             }
           });
           newList.filter(grinder).forEach(function(item, index) {
