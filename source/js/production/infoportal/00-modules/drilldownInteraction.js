@@ -346,6 +346,9 @@ var drilldownInteraction = function() {
   };
   $(document).ready(function() {
     if ($('.a-colnav').length > 0) {
+      if (isSmall) {
+        $('.a-contentOverview').css('overflow-x', 'hidden');
+      }
       $('.a-colnav-wrapper').on('click', function(event) {
         if (!$(event.target).closest('ul').hasClass('a-colnav-thirdLevel')) {
           event.preventDefault();
