@@ -8,12 +8,16 @@
   background-size: cover;
 
   @include media-breakpoint-up( md ) {
-    height: calc(100vh - 200px);
+    min-height: calc(100vh - 200px);
   }
 
   .a-leadText {
     max-width: 600px;
 	}
+
+  hr {
+    display: none;
+  }
 
   p {
     @include a-fontSize20;
@@ -30,6 +34,10 @@
     display: block;
     margin-bottom: $spacer * 2;
     color: $blue-darker;
+
+    &.a-jumbotron-ingress--small {
+      @extend .a-fontSizeS;
+    }
 	}
 
   .a-jumbotron-btn-textright {
