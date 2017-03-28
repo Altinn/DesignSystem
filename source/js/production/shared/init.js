@@ -26,7 +26,8 @@
   setValidatorSettings,
   popoverLocalInit,
   popoverGlobalInit,
-  setupSelectableCheckbox */
+  setupSelectableCheckbox,
+  setupTruncateLines */
 
 
 window.sharedInit = function() {
@@ -45,5 +46,7 @@ window.sharedInit = function() {
   popoverLocalInit();
   popoverGlobalInit();
   setupSelectableCheckbox();
+  setupTruncateLines();
 };
+
 window.sharedInit();
