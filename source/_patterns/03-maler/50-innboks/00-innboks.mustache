@@ -13,27 +13,32 @@
 
 			{{> molekyler-toppoppgaver }}
 
-      {{# elementList }}
+      {{# inbox }}
         <div class="row">
-          <div class="col-sm-12 col-lg-12{{# block-margin }} {{{ block-margin }}} {{/ block-margin }}">
-              {{> atomer-sidetittel:a-h2|a-fontReg }}
+          <div class="col" id="{{ accordionId }}">
+            {{# elementList }}
+              <div class="row">
+                <div class="col-sm-12 col-lg-12{{# block-margin }} {{{ block-margin }}} {{/ block-margin }}">
+                    {{> atomer-sidetittel:a-h2|a-fontReg }}
+                </div>
+              </div>
+
+              {{# messages }}
+                <div class="row">
+                  <div class="col-sm-12 col-lg-12">
+                    <div {{# accordion-large-id }}id="{{ accordion-large-id }}"{{/ accordion-large-id }} class="a-panelAccordion" role="tablist">
+                      {{# accordion-large-items }}
+                        {{> organismer-ekspanderbart-panel }}
+                      {{/ accordion-large-items }}
+                    </div>
+                  </div>
+                </div>
+              {{/ messages }}
+            {{/ elementList }}
           </div>
         </div>
-
-        {{# messages }}
-          <div class="row">
-            <div class="col-sm-12 col-lg-12">
-              <div id="{{ accordion-large-id }}" class="a-panelAccordion" role="tablist">
-                {{# accordion-large-items }}
-                  {{> organismer-ekspanderbart-panel }}
-                {{/ accordion-large-items }}
-              </div>
-            </div>
-          </div>
-        {{/ messages }}
-      {{/ elementList }}
-		</div>
-
+      {{/ inbox }}
+    </div>
 	{{> organismer-footer }}
 
 </div>
