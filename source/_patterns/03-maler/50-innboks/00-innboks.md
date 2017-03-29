@@ -1,5 +1,5 @@
 ---
 state: indesignreview
-version: 0
+version: 1
 ---
 Mal for innboks.
