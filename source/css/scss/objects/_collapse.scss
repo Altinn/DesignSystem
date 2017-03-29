@@ -597,25 +597,25 @@
     align-self: center;
   }
 
-  .a-btn-icon {
-    min-height: $spacer * 3;
-
-    padding: 0;
-    margin: 0 $spacer 0 0;
-    color: $grey;
-    justify-content: center;
-
-    &:hover,
-    &:focus,
-    &:active {
-      color: $blue;
-    }
-  }
-
   .a-msgShortcutsContainer {
     display: flex;
     margin-right: $spacer;
     align-self: center;
+
+    .a-btn-icon {
+      min-width: $spacer * 3;
+      min-height: $spacer * 3;
+      padding: 0;
+      margin-bottom: 0;
+      color: $grey;
+      justify-content: center;
+
+      &:hover,
+      &:focus,
+      &:active {
+        color: $blue;
+      }
+    }
   }
 
   /** compact view */
@@ -692,8 +692,6 @@
   &.a-msgForwarded {
     .a-btn-icon {
       &:nth-child(2) {
-        min-width: $spacer * 3;
-        height: $spacer * 3;
         background-color: $yellow-light;
         border-radius: 50%;
       }
