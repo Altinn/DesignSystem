@@ -25,6 +25,14 @@ var feedbackToggle = function() {
             .show();
         }
       });
+      $(this).closest('form').find('button').on('click', function() {
+        $(this).closest('fieldset').next().show();
+        $(this).closest('fieldset').next().next()
+          .hide();
+        $(this).closest('fieldset').next().next()
+          .next()
+          .hide();
+      }.bind(this));
     });
   }
 };
