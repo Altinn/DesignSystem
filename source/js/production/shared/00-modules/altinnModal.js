@@ -65,16 +65,20 @@ var nextModalPageWithContent = function(target, isSuccess, isError, content, cle
 
   var existingPages;
   var newPage;
-
-  if (clearHistory) {
-    $(target + ' :data(page-index)').remove();
-  }
+  var newPageIndex;
 
   existingPages = $(target + ' :data(page-index)');
+
+  if (clearHistory) {
+    newPageIndex = 1;
+  } else {
+    newPageIndex = existingPages.length;
+  }
+
   newPage = $('<div/>', {
     class: 'a-page a-next-page',
     data: {
-      'page-index': existingPages.length + 1,
+      'page-index': newPageIndex,
       'is-success': isSuccess,
       'is-error': isError
     },
@@ -108,8 +112,13 @@ var nextModalPageWithContent = function(target, isSuccess, isError, content, cle
   }, 0);
 
   current.on('transitionend', function() {
-    current.hide().off();
+    if (clearHistory) {
+      $(target + ' :data(page-index)').not('.a-current-page').remove();
+    } else {
+      current.hide().off();
+    }
   });
+
   popoverLocalInit();
   $('body').scrollTop(0);
 };
@@ -134,16 +143,20 @@ var nextModalPage = function(url, target, isSuccess, isError, clearHistory) {
 
     var existingPages;
     var newPage;
-
-    if (clearHistory) {
-      $(target + ' :data(page-index)').remove();
-    }
+    var newPageIndex;
 
     existingPages = $(target + ' :data(page-index)');
+
+    if (clearHistory) {
+      newPageIndex = 1;
+    } else {
+      newPageIndex = existingPages.length;
+    }
+
     newPage = $('<div/>', {
       class: 'a-page a-next-page',
       data: {
-        'page-index': existingPages.length + 1,
+        'page-index': newPageIndex,
         'is-success': isSuccess,
         'is-error': isError
       },
@@ -177,8 +190,13 @@ var nextModalPage = function(url, target, isSuccess, isError, clearHistory) {
     }, 0);
 
     current.on('transitionend', function() {
-      current.hide().off();
+      if (clearHistory) {
+        $(target + ' :data(page-index)').not('.a-current-page').remove();
+      } else {
+        current.hide().off();
+      }
     });
+
     popoverLocalInit();
     $('body').scrollTop(0);
   });
