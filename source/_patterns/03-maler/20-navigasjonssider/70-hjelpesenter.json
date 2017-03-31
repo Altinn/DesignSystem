@@ -1,16 +1,18 @@
 {
 	"title": "Altinn",
-	"bodyClass": "a-bgWhite",
-
-	"logo": "../../images/a-logo-white.svg",
-	"header-color": "a-darkBackground",
+	"bodyClass": "a-bgWhite home",
 
 	"header" : true,
-	"dropdown-personswitch" : false,
-	"personlogin-isLink" : "onclick=\"location.href='../..",
-	"personlogin-isLink-end" :"'\"",
-  "personlogin-isLink-url" : "link.sider-aktorvalg",
+	"logo": "../../images/a-logo-white.svg",
+	"header-color": "a-darkBackground",
+	"login-icon": {
+    "icon-prefix": "ai",
+    "icon-class" : "ai-keyhole"
+  },
+
+	"personlogin-isDropdown" : "",
   "onclick": "location.href='link.sider-aktorvalg'",
+
 	"login-or-switchuser" : "Logg inn",
 	"login-name" : "Logg inn",
 	"url" : "link.sider-aktorvalg",
@@ -24,6 +26,87 @@
 	"jumbo-xl-class" : "col-xl-8",
 	"jumbo-xl-offset-class" : "offset-xl-2",
 
-	"jumbotron-styles" : "a-jumbotron-header a-jumbotron-dark"
+	"jumbotron-styles" : "a-jumbotron-header a-jumbotron-dark",
+	"jumbotron-bgcolor" : "#3F3161",
+	"jumbotron-image-url": "",
 
+	"pagestart" : true,
+	"pagestart" : {
+		"page-title" : "Hjelpesenter",
+		"jumbo-intro" : "Kanskje det ikke skal stå noe her. Altinn brukerservice kan hjelpe deg med inlogging, navigering, delegering, og annen bruk av Altinn. Har du spørsmål om utfylling av skjema må du kontakte etaten som eier skjemaet.",
+		"jumbo-intro-small" : true,
+		"front-main-button" : false,
+		"front-main-button-text-right" : "",
+    "jumbo-search" : {
+      "isLarge" : "a-form-group-large",
+  		"isHidden" : "sr-only",
+      "top-label": "Søk etter innhold",
+  		"text-input-placeholder" : "Hei Jan. Hva kan vi hjelpe deg med?",
+  		"isInput-group" : "input-group",
+  		"form-input-hasButton" : {
+  				"form-input-button-action" : "Utfør søk",
+          "icon-prefix": "ai",
+          "icon-class": "ai-search"
+  		}
+    }
+	},
+
+	"card-icon" : {
+		"variation-class" : "a-iconText-shadow a-iconText-background a-iconText-background--white",
+	  "hasIcon" : {
+	    "icon-prefix": "ai",
+	    "icon-class": "ai-closedmessage",
+	    "icon-extra-class": "a-icon",
+	    "icon-text": ""
+	  },
+	  "hasTextSmall": false,
+		"hasLink" : false,
+		"hasButton" : {
+			"onclick" : false,
+			"button-class": "a-btn-link",
+			"display-as-link": true,
+			"data-toggle" : {
+				"data-toggle" : "altinn-modal"
+			},
+			"data-action" : {
+				"data-action": "load"
+			},
+			"data-target" : {
+				"data-target" : "#modal"
+			},
+			"page-url" : {
+				"page-url": "/patterns/03-maler-99-modal-js-10-kontaktskjema/03-maler-99-modal-js-10-kontaktskjema.markup-only.html"
+			},
+			"button-text" : "Kontaktskjema"
+
+		}
+	},
+
+	"kontaktskjema" : {
+
+		"neutral-logo": {
+	    "logo": "../../images/a-logo-white.svg"
+	  },
+	  "feedback-logo": {
+	    "logo": "../../images/a-logo-black.svg"
+	  },
+	  "logo-class": "a-modal-top-logo",
+	  "icon": "group_add",
+	  "hasTextSmall": false,
+	  "modal-navbar-override": {
+	    "button-list": [
+	      {
+	        "button-class": "a-modal-close",
+	        "aria-label":  "Lukk",
+	        "icon-prefix": "ai",
+	        "icon-class" : "ai-exit",
+	        "icon-extra-class" : "a-modal-close-icon",
+	        "is-modal-close": {
+	          "data-target": "#modal"
+	        },
+					"onclick": "goBack()"
+	      }
+	    ]
+	  }
+	}
 }

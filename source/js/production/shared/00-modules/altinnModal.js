@@ -56,19 +56,29 @@ var loadModal = function(url, target) {
   });
 };
 
-
-var nextModalPageWithContent = function(target, isSuccess, isError, content) {
+var nextModalPageWithContent = function(target, isSuccess, isError, content, clearHistory) {
   var current;
   var modalPage = $('<div/>', {
     class: 'modalPage',
     html: content
   });
 
-  var existingPages = $(target + ' :data(page-index)');
-  var newPage = $('<div/>', {
+  var existingPages;
+  var newPage;
+  var newPageIndex;
+
+  existingPages = $(target + ' :data(page-index)');
+
+  if (clearHistory) {
+    newPageIndex = 1;
+  } else {
+    newPageIndex = existingPages.length;
+  }
+
+  newPage = $('<div/>', {
     class: 'a-page a-next-page',
     data: {
-      'page-index': existingPages.length + 1,
+      'page-index': newPageIndex,
       'is-success': isSuccess,
       'is-error': isError
     },
@@ -102,13 +112,18 @@ var nextModalPageWithContent = function(target, isSuccess, isError, content) {
   }, 0);
 
   current.on('transitionend', function() {
-    current.hide().off();
+    if (clearHistory) {
+      $(target + ' :data(page-index)').not('.a-current-page').remove();
+    } else {
+      current.hide().off();
+    }
   });
+
   popoverLocalInit();
   $('body').scrollTop(0);
 };
 
-var nextModalPage = function(url, target, isSuccess, isError) {
+var nextModalPage = function(url, target, isSuccess, isError, clearHistory) {
   var currentRequest = $.ajax({
     url: url,
     beforeSend: function() {
@@ -126,11 +141,22 @@ var nextModalPage = function(url, target, isSuccess, isError) {
       html: data
     });
 
-    var existingPages = $(target + ' :data(page-index)');
-    var newPage = $('<div/>', {
+    var existingPages;
+    var newPage;
+    var newPageIndex;
+
+    existingPages = $(target + ' :data(page-index)');
+
+    if (clearHistory) {
+      newPageIndex = 1;
+    } else {
+      newPageIndex = existingPages.length;
+    }
+
+    newPage = $('<div/>', {
       class: 'a-page a-next-page',
       data: {
-        'page-index': existingPages.length + 1,
+        'page-index': newPageIndex,
         'is-success': isSuccess,
         'is-error': isError
       },
@@ -164,8 +190,13 @@ var nextModalPage = function(url, target, isSuccess, isError) {
     }, 0);
 
     current.on('transitionend', function() {
-      current.hide().off();
+      if (clearHistory) {
+        $(target + ' :data(page-index)').not('.a-current-page').remove();
+      } else {
+        current.hide().off();
+      }
     });
+
     popoverLocalInit();
     $('body').scrollTop(0);
   });
@@ -237,7 +268,7 @@ $('body').on('click', '[data-toggle="altinn-modal"]', function() {
     loadModal($source[0].dataset.url, $source[0].dataset.target);
   } else if ($source[0].dataset.action === 'next') {
     nextModalPage($source[0].dataset.url, $source[0].dataset.target,
-      $source[0].dataset.isSuccess, $source[0].dataset.isError);
+      $source[0].dataset.isSuccess, $source[0].dataset.isError, $source[0].dataset.clearHistory);
   } else if ($source[0].dataset.action === 'back') {
     previousModalPage($source[0].dataset.target, $source[0].dataset.pages);
   } else if ($source[0].dataset.action === 'close') {
