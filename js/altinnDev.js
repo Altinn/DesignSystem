@@ -445,6 +445,7 @@ var onboarding = function() {
   $('#modalOnboarding').modal('show');
 };
 
+var isIE11 = !!window.MSInputMethodContext && !!document.documentMode;
 var onboardingBlank = function(bool, delay) {
   $('.onboarding-wrapper')
     .css('transform', 'translate3d(0, 0, 0) matrix(1, 0, 0, 1, 570, 700)')
@@ -560,13 +561,13 @@ var onboardingSeek = function(_count, _steps) {
       .css(
         'transform',
         'translate3d(0, 0, 0) matrix(' + (ratio / 5) + ', 0, 0, ' + (ratio / 5) + ',' +
-          (steps[count].offset().left + (steps[count].width() / 2)) + ',' +
+          (steps[count].offset().left + (isIE11 ? (570 * ((ratio / 5))) : 0) + (steps[count].width() / 2)) + ',' +
           ((steps[count].height() / 2)) + ')'
       )
       .css(
         '-webkit-transform',
         'translate3d(0, 0, 0) matrix(' + (ratio / 5) + ', 0, 0, ' + (ratio / 5) + ',' +
-          (steps[count].offset().left + (steps[count].width() / 2)) + ',' +
+          (steps[count].offset().left + (isIE11 ? (570 * ((ratio / 5))) : 0) + (steps[count].width() / 2)) + ',' +
           ((steps[count].height() / 2)) + ')'
       )
       .css('top', mod + 'px')
@@ -584,13 +585,13 @@ var onboardingSeek = function(_count, _steps) {
       .css(
         'transform',
         'translate3d(0, 0, 0) matrix(' + (ratio / 5) + ', 0, 0, ' + (ratio / 5) + ',' +
-          (steps[count].offset().left + (steps[count].width() / 2)) + ',' +
+          (steps[count].offset().left + (isIE11 ? (570 * ((ratio / 5))) : 0) + (steps[count].width() / 2)) + ',' +
           (steps[count].offset().top + (steps[count].height() / 2)) + ')'
       )
       .css(
         '-webkit-transform',
         'translate3d(0, 0, 0) matrix(' + (ratio / 5) + ', 0, 0, ' + (ratio / 5) + ',' +
-          (steps[count].offset().left + (steps[count].width() / 2)) + ',' +
+          (steps[count].offset().left + (isIE11 ? (570 * ((ratio / 5))) : 0) + (steps[count].width() / 2)) + ',' +
           (steps[count].offset().top + (steps[count].height() / 2)) + ')'
       )
       .css('top', verticalJiggle + 'px')
@@ -1255,6 +1256,9 @@ var drilldownInteraction = function() {
   };
   $(document).ready(function() {
     if ($('.a-colnav').length > 0) {
+      if (isSmall) {
+        $('.a-contentOverview').css('overflow-x', 'hidden');
+      }
       $('.a-colnav-wrapper').on('click', function(event) {
         if (!$(event.target).closest('ul').hasClass('a-colnav-thirdLevel')) {
           event.preventDefault();
@@ -1337,6 +1341,11 @@ var genericSearch = function() {
         match(selected[dimensions[1]], item[dimensions[1]], true));
     }
     if (selected[dimensions[0]].length > 0) {
+      if (selected[dimensions[1]].length === 0) {
+        return (
+          match(selected[dimensions[0]], item[dimensions[0]])
+        );
+      }
       return (
         match(selected[dimensions[0]], item[dimensions[0]]) &&
         match(selected[dimensions[1]], item[dimensions[1]], true)
@@ -1624,52 +1633,53 @@ var genericSearch = function() {
 
 /* globals mobileNavigation */
 var wasDark = $('header').hasClass('a-darkBackground');
+var action = function(e) {
+  if ($(e.target).closest('.a-globalNav-main').length === 0 &&
+  $(e.target).closest('.navbar-toggler').length === 0) {
+    if ($('.a-globalNav-main').is(':visible')) {
+      $('.navbar-toggler').attr('data-jsexpanded', 'false');
+      $('.a-globalNav-main').hide();
+      $('body').css('background-color', '');
+      if (wasDark) {
+        $('header').addClass('a-darkBackground');
+        $('.a-globalNav-logo').find('img')
+        .attr('src', $('.a-globalNav-logo').find('img').attr('src').replace('blue', 'white'));
+      }
+      $('.a-page').children(':not(header)').removeClass('a-js-hidden');
+    }
+  } else if ($(e.target).closest('.navbar-toggler').length > 0) {
+    if ($('.a-globalNav-main').is(':visible')) {
+      $('.navbar-toggler').attr('data-jsexpanded', 'false');
+      $('.a-globalNav-main').hide();
+      $('body').css('background-color', '');
+      if (wasDark) {
+        $('header').addClass('a-darkBackground');
+        $('.a-globalNav-logo').find('img')
+        .attr('src', $('.a-globalNav-logo').find('img').attr('src').replace('blue', 'white'));
+      }
+      $('.a-page').children(':not(header)').removeClass('a-js-hidden');
+    } else {
+      $('.navbar-toggler').attr('data-jsexpanded', 'true');
+      $('.a-globalNav-main').show();
+      $('body').css('background-color', '#fff');
+      if (wasDark) {
+        $('header').removeClass('a-darkBackground');
+        $('.a-globalNav-logo').find('img')
+        .attr('src', $('.a-globalNav-logo').find('img').attr('src').replace('white', 'blue'));
+      }
+      $('.a-page').children(':not(header)').addClass('a-js-hidden');
+    }
+  }
+};
 function menuHandler() {
   if ($('body').width() < 768) {
-    $('body').on('mouseup', function(e) {
-      if ($(e.target).closest('.a-globalNav-main').length === 0 &&
-      $(e.target).closest('.navbar-toggler').length === 0) {
-        if ($('.a-globalNav-main').is(':visible')) {
-          $('.navbar-toggler').attr('data-jsexpanded', 'false');
-          $('.a-globalNav-main').hide();
-          $('body').css('background-color', '');
-          if (wasDark) {
-            $('header').addClass('a-darkBackground');
-            $('.a-globalNav-logo').find('img')
-            .attr('src', $('.a-globalNav-logo').find('img').attr('src').replace('blue', 'white'));
-          }
-          $('.a-page').children(':not(header)').removeClass('a-js-hidden');
-        }
-      } else if ($(e.target).closest('.navbar-toggler').length > 0) {
-        if ($('.a-globalNav-main').is(':visible')) {
-          $('.navbar-toggler').attr('data-jsexpanded', 'false');
-          $('.a-globalNav-main').hide();
-          $('body').css('background-color', '');
-          if (wasDark) {
-            $('header').addClass('a-darkBackground');
-            $('.a-globalNav-logo').find('img')
-            .attr('src', $('.a-globalNav-logo').find('img').attr('src').replace('blue', 'white'));
-          }
-          $('.a-page').children(':not(header)').removeClass('a-js-hidden');
-        } else {
-          $('.navbar-toggler').attr('data-jsexpanded', 'true');
-          $('.a-globalNav-main').show();
-          $('body').css('background-color', '#fff');
-          if (wasDark) {
-            $('header').removeClass('a-darkBackground');
-            $('.a-globalNav-logo').find('img')
-            .attr('src', $('.a-globalNav-logo').find('img').attr('src').replace('white', 'blue'));
-          }
-          $('.a-page').children(':not(header)').addClass('a-js-hidden');
-        }
-      }
-    });
+    $('body').on('mouseup', action);
   }
 }
 menuHandler();
 $(window).on('resize', function() {
+  $('body').off('mouseup', action);
   menuHandler();
-  mobileNavigation();
 });
 
 var wasDark = $('header').hasClass('a-darkBackground');
@@ -2246,19 +2256,29 @@ var loadModal = function(url, target) {
   });
 };
 
-
-var nextModalPageWithContent = function(target, isSuccess, isError, content) {
+var nextModalPageWithContent = function(target, isSuccess, isError, content, clearHistory) {
   var current;
   var modalPage = $('<div/>', {
     class: 'modalPage',
     html: content
   });
 
-  var existingPages = $(target + ' :data(page-index)');
-  var newPage = $('<div/>', {
+  var existingPages;
+  var newPage;
+  var newPageIndex;
+
+  existingPages = $(target + ' :data(page-index)');
+
+  if (clearHistory) {
+    newPageIndex = 1;
+  } else {
+    newPageIndex = existingPages.length;
+  }
+
+  newPage = $('<div/>', {
     class: 'a-page a-next-page',
     data: {
-      'page-index': existingPages.length + 1,
+      'page-index': newPageIndex,
       'is-success': isSuccess,
       'is-error': isError
     },
@@ -2292,13 +2312,18 @@ var nextModalPageWithContent = function(target, isSuccess, isError, content) {
   }, 0);
 
   current.on('transitionend', function() {
-    current.hide().off();
+    if (clearHistory) {
+      $(target + ' :data(page-index)').not('.a-current-page').remove();
+    } else {
+      current.hide().off();
+    }
   });
+
   popoverLocalInit();
   $('body').scrollTop(0);
 };
 
-var nextModalPage = function(url, target, isSuccess, isError) {
+var nextModalPage = function(url, target, isSuccess, isError, clearHistory) {
   var currentRequest = $.ajax({
     url: url,
     beforeSend: function() {
@@ -2316,11 +2341,22 @@ var nextModalPage = function(url, target, isSuccess, isError) {
       html: data
     });
 
-    var existingPages = $(target + ' :data(page-index)');
-    var newPage = $('<div/>', {
+    var existingPages;
+    var newPage;
+    var newPageIndex;
+
+    existingPages = $(target + ' :data(page-index)');
+
+    if (clearHistory) {
+      newPageIndex = 1;
+    } else {
+      newPageIndex = existingPages.length;
+    }
+
+    newPage = $('<div/>', {
       class: 'a-page a-next-page',
       data: {
-        'page-index': existingPages.length + 1,
+        'page-index': newPageIndex,
         'is-success': isSuccess,
         'is-error': isError
       },
@@ -2354,8 +2390,13 @@ var nextModalPage = function(url, target, isSuccess, isError) {
     }, 0);
 
     current.on('transitionend', function() {
-      current.hide().off();
+      if (clearHistory) {
+        $(target + ' :data(page-index)').not('.a-current-page').remove();
+      } else {
+        current.hide().off();
+      }
     });
+
     popoverLocalInit();
     $('body').scrollTop(0);
   });
@@ -2427,7 +2468,7 @@ $('body').on('click', '[data-toggle="altinn-modal"]', function() {
     loadModal($source[0].dataset.url, $source[0].dataset.target);
   } else if ($source[0].dataset.action === 'next') {
     nextModalPage($source[0].dataset.url, $source[0].dataset.target,
-      $source[0].dataset.isSuccess, $source[0].dataset.isError);
+      $source[0].dataset.isSuccess, $source[0].dataset.isError, $source[0].dataset.clearHistory);
   } else if ($source[0].dataset.action === 'back') {
     previousModalPage($source[0].dataset.target, $source[0].dataset.pages);
   } else if ($source[0].dataset.action === 'close') {
@@ -2501,6 +2542,14 @@ var feedbackToggle = function() {
             .show();
         }
       });
+      $(this).closest('form').find('button').on('click', function() {
+        $(this).closest('fieldset').next().show();
+        $(this).closest('fieldset').next().next()
+          .hide();
+        $(this).closest('fieldset').next().next()
+          .next()
+          .hide();
+      }.bind(this));
     });
   }
 };

@@ -1460,6 +1460,14 @@
 }
 
 /* Modifications */
+/*------------------------------------*    $MIXINS
+\*------------------------------------*/
+/* CSS Transition
+	Usage: @include transition(width,0.3s,ease-out);
+ */
+/* Decide responsive width of container */
+/* Disabled background */
+/* Add col */
 @font-face {
   font-family: 'DIN-light';
   src: url("https://tt02.altinn.basefarm.net/ui/fonts/DINWeb-Light.woff");
@@ -1480,15 +1488,176 @@
   src: url("https://tt02.altinn.basefarm.net/ui/fonts/DINWeb-Bold.woff");
 }
 
+button,
+input,
+optgroup,
+select,
+textarea,
+.popover {
+  font-family: "DIN-reg";
+  font-weight: normal;
+}
+
+.a-fontSizeXXL {
+  font-size: 24px;
+  font-size: 2.4rem;
+  line-height: 1.5;
+  -webkit-font-smoothing: subpixel-antialiased;
+}
+
+@media (min-width: 768px) {
+  .a-fontSizeXXL {
+    font-size: 28px;
+    font-size: 2.8rem;
+    line-height: 1.4;
+    -webkit-font-smoothing: subpixel-antialiased;
+  }
+}
+
+@media (min-width: 992px) {
+  .a-fontSizeXXL {
+    font-size: 36px;
+    font-size: 3.6rem;
+    line-height: 1.2;
+    -webkit-font-smoothing: subpixel-antialiased;
+  }
+}
+
+.a-fontSizeXL {
+  font-size: 18px;
+  font-size: 1.8rem;
+  line-height: 1.5;
+  -webkit-font-smoothing: subpixel-antialiased;
+}
+
+@media (min-width: 768px) {
+  .a-fontSizeXL {
+    font-size: 22px;
+    font-size: 2.2rem;
+    line-height: 1.5;
+    -webkit-font-smoothing: subpixel-antialiased;
+  }
+}
+
+@media (min-width: 992px) {
+  .a-fontSizeXL {
+    font-size: 24px;
+    font-size: 2.4rem;
+    line-height: 1.5;
+    -webkit-font-smoothing: subpixel-antialiased;
+  }
+}
+
+@media (min-width: 1200px) {
+  .a-fontSizeXL {
+    font-size: 28px;
+    font-size: 2.8rem;
+    line-height: 1.4;
+    -webkit-font-smoothing: subpixel-antialiased;
+  }
+}
+
+.a-fontSizeL {
+  font-size: 18px;
+  font-size: 1.8rem;
+  line-height: 1.5;
+  -webkit-font-smoothing: subpixel-antialiased;
+}
+
+@media (min-width: 768px) {
+  .a-fontSizeL {
+    font-size: 20px;
+    font-size: 2rem;
+    line-height: 1.5;
+    -webkit-font-smoothing: subpixel-antialiased;
+  }
+}
+
+@media (min-width: 992px) {
+  .a-fontSizeL {
+    font-size: 24px;
+    font-size: 2.4rem;
+    line-height: 1.5;
+    -webkit-font-smoothing: subpixel-antialiased;
+  }
+}
+
+.a-fontSizeM {
+  font-size: 16px;
+  font-size: 1.6rem;
+  line-height: 1.5;
+  -webkit-font-smoothing: subpixel-antialiased;
+}
+
+@media (min-width: 768px) {
+  .a-fontSizeM {
+    font-size: 18px;
+    font-size: 1.8rem;
+    line-height: 1.5;
+    -webkit-font-smoothing: subpixel-antialiased;
+  }
+}
+
+@media (min-width: 992px) {
+  .a-fontSizeM {
+    font-size: 20px;
+    font-size: 2rem;
+    line-height: 1.5;
+    -webkit-font-smoothing: subpixel-antialiased;
+  }
+}
+
+.a-fontSizeS {
+  font-size: 16px;
+  font-size: 1.6rem;
+  line-height: 1.5;
+  -webkit-font-smoothing: subpixel-antialiased;
+}
+
+@media (min-width: 768px) {
+  .a-fontSizeS {
+    font-size: 18px;
+    font-size: 1.8rem;
+    line-height: 1.5;
+    -webkit-font-smoothing: subpixel-antialiased;
+  }
+}
+
+.a-fontSizeXS {
+  font-size: 16px;
+  font-size: 1.6rem;
+  line-height: 1.5;
+  -webkit-font-smoothing: subpixel-antialiased;
+}
+
+.a-fontSizeXXS {
+  font-size: 14px;
+  font-size: 1.4rem;
+  line-height: 1.5;
+  -webkit-font-smoothing: subpixel-antialiased;
+}
+
+.a-fontSizeXXXS {
+  font-size: 12px;
+  font-size: 1.2rem;
+  line-height: 1.5;
+  -webkit-font-smoothing: subpixel-antialiased;
+}
+
+.a-fontSizeXXXXS {
+  font-size: 10px;
+  font-size: 1rem;
+  line-height: 1.5;
+  -webkit-font-smoothing: subpixel-antialiased;
+}
+
 /* EDIT PATTERNLAB STYLE */
-#patternlab-body, #patternlab-html {
-  background: #fff;
+#patternlab-body,
+#patternlab-html {
+  background: #FFFFFF;
 }
 
-#sg-gen-container {
-  max-width: 100%;
-}
-
+#sg-gen-container,
 #sg-viewport {
   max-width: 100%;
 }
@@ -1498,10 +1667,18 @@
   background: #1eaef7;
 }
 
+/* Hacky hide */
+#atomer-popover,
+#atomer-tooltip,
+#atomer-footnote {
+  display: none;
+}
+
+/* Header */
 .sg-header {
+  font-family: "DIN-reg";
+  font-weight: normal;
   background: #bce4f7;
-  font-family: 'Roboto', sans-serif;
-  font-weight: 400;
 }
 
 .sg-header a {
@@ -1512,23 +1689,37 @@
   min-height: 36px;
 }
 
-.sg-header a.sg-acc-handle {
-  height: 36px;
+.sg-header a:hover, .sg-header a:focus, .sg-header a:active, .sg-header a.active {
+  color: #000000;
+  background: #b0dcf1;
 }
 
-.sg-nav .sg-pattern-state:before {
-  margin-top: 0;
+.sg-header a.sg-acc-handle {
+  height: 36px;
 }
 
 .sg-header .sg-icon {
   padding: 9px 12px 11px 12px;
 }
 
-.sg-header a:hover,
-.sg-header a:focus,
-.sg-header a.active {
-  color: #000;
-  background: #b0dcf1;
+.typeahead:focus {
+  color: #000000;
+  text-transform: uppercase;
+}
+
+.typeahead.tt-input {
+  background-color: #FFFFFF !important;
+  border: 2px solid #1EAEF7;
+}
+
+.sg-nav .sg-pattern-state:before {
+  margin-top: 0;
+}
+
+@media (min-width: 48em) {
+  .sg-nav > li > ol {
+    top: 36px;
+  }
 }
 
 .sg-current-size {
@@ -1541,17 +1732,17 @@
   min-width: 14em;
 }
 
-.sg-acc-panel.sg-size-options {
+.sg-acc-panel .sg-size-options {
   min-width: auto;
+}
+
+.sg-acc-panel .sg-sub-nav li {
+  background: #b0dcf1;
 }
 
 .sg-acc-panel li {
   background: #bce4f7;
   color: #000;
-}
-
-.sg-nav li {
-  border-right: none;
 }
 
 .sg-input {
@@ -1563,7 +1754,7 @@
   top: 40px;
 }
 
-@media all and (max-width: 1000px) {
+@media (max-width: 1199px) {
   .sg-controls {
     display: none;
   }
@@ -1571,24 +1762,19 @@
 
 .sg-control .sg-input:active,
 .sg-control .sg-input:focus {
-  background: #fff;
+  background: #FFFFFF;
 }
 
 .sg-current-size:hover .sg-input {
-  background: #fff;
-}
-
-@media (min-width: 48em) {
-  .sg-nav > li > ol {
-    top: 36px;
-  }
+  background: #FFFFFF;
 }
 
 .sg-acc-handle:after {
   color: #78afca;
 }
 
-.sg-acc-handle:focus:after, .sg-acc-handle:hover:after {
+.sg-acc-handle:focus:after,
+.sg-acc-handle:hover:after {
   color: #50778a;
 }
 
@@ -1602,126 +1788,16 @@
   padding: 11px 10px 10px 10px;
 }
 
-.sg-tools-toggle:hover,
-.sg-tools-toggle.active {
+.sg-tools-toggle:hover, .sg-tools-toggle.active {
   background: #b0dcf1;
 }
 
 .sg-control .sg-input:active, .sg-control .sg-input:focus, .sg-current-size:hover .sg-input {
-  color: #000;
+  color: #000000;
 }
 
 .sg-nav-toggle {
   width: 100%;
-}
-
-/* Added by Altinn */
-.a-sg-header-top {
-  width: 100%;
-  float: left;
-  padding: 10px 12px 9px 12px;
-  border-bottom: 1px solid #cff0ff;
-  height: 40px;
-}
-
-a.a-sg-header-title,
-a.a-sg-header-title:hover {
-  display: inline;
-  float: left;
-  text-transform: none;
-  color: #000;
-  font-family: 'Roboto', sans-serif;
-  font-weight: 500;
-  padding: 0;
-  margin: 0;
-  font-size: 16px;
-  background: transparent;
-}
-
-.a-sg-header-links a {
-  display: inline;
-  float: right;
-  padding: 1px 0 0 24px;
-  font-size: 12px;
-  color: #333;
-  text-transform: none;
-}
-
-.a-sg-header-links a:hover {
-  background: transparent;
-  color: #000;
-}
-
-@media all and (max-width: 600px) {
-  .a-sg-header-links {
-    display: none;
-  }
-}
-
-.sg-acc-panel.sg-sub-nav li {
-  background: #b0dcf1;
-}
-
-/**
-* Archived
-*/
-.archived:before,
-.sg-statesExplanation .sg-pattern-state-archived {
-  color: #e23b53 !important;
-}
-
-.a-sg-js-showArchived {
-  display: none;
-}
-
-.sg-pattern-state .custom-control p {
-  font-size: 16px;
-}
-
-/**
-* In specification state
-*/
-.specification:before,
-.sg-statesExplanation .sg-pattern-state-specification {
-  color: slategrey !important;
-}
-
-/**
-* In progress state
-*/
-.inprogress:before, .sg-statesExplanation .sg-pattern-state-inprogress {
-  color: orange !important;
-}
-
-/**
-* In design review state
-*/
-.indesignreview:before, .sg-statesExplanation .sg-pattern-state-indesignreview {
-  color: #0062ba !important;
-}
-
-/**
-* Complete state
-*/
-.complete:before, .sg-statesExplanation .sg-pattern-state-complete {
-  color: #17c96b !important;
-}
-
-/**
-* In needs revalidation state
-*/
-.needsrevalidation:before, .sg-statesExplanation .sg-pattern-state-needsrevalidation {
-  color: #e23b53 !important;
-}
-
-.sg-pattern-head .archived,
-.sg-pattern-head .specification, .sg-pattern-head .inprogress, .sg-pattern-head .indesignreview, .sg-pattern-head .complete, .sg-pattern-head .needsrevalidation {
-  display: inline-block;
-}
-
-/* Hacky hide */
-#atomer-popover, #atomer-tooltip, #atomer-footnote {
-  display: none;
 }
 
 /* Resolve .tag conflict */
@@ -1739,54 +1815,9 @@ pre .tag, code .tag {
   display: inline-block;
 }
 
-/* Anchors */
-.sg-pattern-head .a-sg-anchor,
-.sg-pattern-head .a-sg-anchor:hover {
-  border: none;
-  margin-top: -3px;
-  color: #000;
-  font-size: 16px !important;
-}
-
-.a-sg-patternVariations .sg-pattern-head .a-sg-anchor,
-.a-sg-patternVariations .sg-pattern-head .a-sg-anchor:hover {
-  margin-top: -8px;
-}
-
 .sg-pattern-title a:focus,
 .sg-pattern-title a:hover {
   border: none;
-}
-
-/* Profilmanual */
-@font-face {
-  font-family: "anchorjs-icons";
-  font-style: normal;
-  font-weight: normal;
-  src: url(data:application/x-font-ttf;charset=utf-8;base64,AAEAAAALAIAAAwAwT1MvMg8SBTUAAAC8AAAAYGNtYXAWi9QdAAABHAAAAFRnYXNwAAAAEAAAAXAAAAAIZ2x5Zgq29TcAAAF4AAABNGhlYWQEZM3pAAACrAAAADZoaGVhBhUDxgAAAuQAAAAkaG10eASAADEAAAMIAAAAFGxvY2EAKACuAAADHAAAAAxtYXhwAAgAVwAAAygAAAAgbmFtZQ5yJ3cAAANIAAAB2nBvc3QAAwAAAAAFJAAAACAAAwJAAZAABQAAApkCzAAAAI8CmQLMAAAB6wAzAQkAAAAAAAAAAAAAAAAAAAABEAAAAAAAAAAAAAAAAAAAAABAAADpywPA/8AAQAPAAEAAAAABAAAAAAAAAAAAAAAgAAAAAAADAAAAAwAAABwAAQADAAAAHAADAAEAAAAcAAQAOAAAAAoACAACAAIAAQAg6cv//f//AAAAAAAg6cv//f//AAH/4xY5AAMAAQAAAAAAAAAAAAAAAQAB//8ADwABAAAAAAAAAAAAAgAANzkBAAAAAAEAAAAAAAAAAAACAAA3OQEAAAAAAQAAAAAAAAAAAAIAADc5AQAAAAACADEARAJTAsAAKwBUAAABIiYnJjQ/AT4BMzIWFxYUDwEGIicmND8BNjQnLgEjIgYPAQYUFxYUBw4BIwciJicmND8BNjIXFhQPAQYUFx4BMzI2PwE2NCcmNDc2MhcWFA8BDgEjARQGDAUtLXoWOR8fORYtLTgKGwoKCjgaGg0gEhIgDXoaGgkJBQwHdR85Fi0tOAobCgoKOBoaDSASEiANehoaCQkKGwotLXoWOR8BMwUFLYEuehYXFxYugC44CQkKGwo4GkoaDQ0NDXoaShoKGwoFBe8XFi6ALjgJCQobCjgaShoNDQ0NehpKGgobCgoKLYEuehYXAAEAAAABAACiToc1Xw889QALBAAAAAAA0XnFFgAAAADRecUWAAAAAAJTAsAAAAAIAAIAAAAAAAAAAQAAA8D/wAAABAAAAAAAAlMAAQAAAAAAAAAAAAAAAAAAAAUAAAAAAAAAAAAAAAACAAAAAoAAMQAAAAAACgAUAB4AmgABAAAABQBVAAIAAAAAAAIAAAAAAAAAAAAAAAAAAAAAAAAADgCuAAEAAAAAAAEADgAAAAEAAAAAAAIABwCfAAEAAAAAAAMADgBLAAEAAAAAAAQADgC0AAEAAAAAAAUACwAqAAEAAAAAAAYADgB1AAEAAAAAAAoAGgDeAAMAAQQJAAEAHAAOAAMAAQQJAAIADgCmAAMAAQQJAAMAHABZAAMAAQQJAAQAHADCAAMAAQQJAAUAFgA1AAMAAQQJAAYAHACDAAMAAQQJAAoANAD4YW5jaG9yanMtaWNvbnMAYQBuAGMAaABvAHIAagBzAC0AaQBjAG8AbgBzVmVyc2lvbiAxLjAAVgBlAHIAcwBpAG8AbgAgADEALgAwYW5jaG9yanMtaWNvbnMAYQBuAGMAaABvAHIAagBzAC0AaQBjAG8AbgBzYW5jaG9yanMtaWNvbnMAYQBuAGMAaABvAHIAagBzAC0AaQBjAG8AbgBzUmVndWxhcgBSAGUAZwB1AGwAYQByYW5jaG9yanMtaWNvbnMAYQBuAGMAaABvAHIAagBzAC0AaQBjAG8AbgBzRm9udCBnZW5lcmF0ZWQgYnkgSWNvTW9vbi4ARgBvAG4AdAAgAGcAZQBuAGUAcgBhAHQAZQBkACAAYgB5ACAASQBjAG8ATQBvAG8AbgAuAAAAAwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==) format("truetype");
-}
-
-.ap-navbarLeft-contentContainer .a-anchor {
-  border-bottom: none !important;
-}
-
-.ap-navbarLeft-contentContainer .a-anchor:after {
-  content: attr(data-anchorjs-icon) !important;
-  opacity: 0 !important;
-  font-family: anchorjs-icons;
-  -ms-transform: scale(0.67) !important;
-      transform: scale(0.67) !important;
-  -webkit-transform: scale(0.67) !important;
-  display: inline-block !important;
-}
-
-.ap-navbarLeft-contentContainer .a-anchor:hover:after {
-  opacity: 1 !important;
-}
-
-/* PRESENTATION OF STYLE GUIDE */
-#sg-viewport {
-  max-width: 100%;
 }
 
 .sg-top {
@@ -1903,11 +1934,11 @@ pre .tag, code .tag {
   margin-top: 36px;
   float: left;
   background: rgba(255, 255, 255, 0.5);
-  border: 2px dashed #B3B3B3;
+  border: 2px dotted #1EAEF7;
   width: 100%;
 }
 
-@media all and (min-width: 768px) {
+@media (min-width: 768px) {
   .sg-pattern-category {
     width: calc(100% + 96px);
     margin-left: -48px;
@@ -2104,7 +2135,8 @@ pre .tag, code .tag {
 /* Toggle comments code in V2 */
 .sg-pattern-extra-toggle,
 .sg-pattern-extra-toggle.active,
-.sg-pattern-extra-toggle:hover {
+.sg-pattern-extra-toggle:hover,
+.sg-pattern-extra-toggle:focus {
   font-size: 14px;
   background: #fff;
   border: 1px solid #ddd;
@@ -2196,4 +2228,118 @@ body pre.language-markup {
 /* Select all for code boxes */
 .language-markup:focus {
   outline: none;
+}
+
+/**
+* Archived
+*/
+.archived:before,
+.sg-statesExplanation .sg-pattern-state-archived {
+  color: #e23b53 !important;
+}
+
+.a-sg-js-showArchived {
+  display: none;
+}
+
+.sg-pattern-state .custom-control p {
+  font-size: 16px;
+}
+
+/**
+* In specification state
+*/
+.specification:before,
+.sg-statesExplanation .sg-pattern-state-specification {
+  color: slategrey !important;
+}
+
+/**
+* In progress state
+*/
+.inprogress:before, .sg-statesExplanation .sg-pattern-state-inprogress {
+  color: orange !important;
+}
+
+/**
+* In design review state
+*/
+.indesignreview:before, .sg-statesExplanation .sg-pattern-state-indesignreview {
+  color: #0062ba !important;
+}
+
+/**
+* Complete state
+*/
+.complete:before, .sg-statesExplanation .sg-pattern-state-complete {
+  color: #17c96b !important;
+}
+
+/**
+* In needs revalidation state
+*/
+.needsrevalidation:before, .sg-statesExplanation .sg-pattern-state-needsrevalidation {
+  color: #e23b53 !important;
+}
+
+.sg-pattern-head .archived,
+.sg-pattern-head .specification, .sg-pattern-head .inprogress, .sg-pattern-head .indesignreview, .sg-pattern-head .complete, .sg-pattern-head .needsrevalidation {
+  display: inline-block;
+}
+
+.a-sg-header-top {
+  width: 100%;
+  float: left;
+  padding: 10px 12px 9px 12px;
+  border-bottom: 1px solid #cff0ff;
+  height: 40px;
+}
+
+a.a-sg-header-title,
+a.a-sg-header-title:hover {
+  font-family: "DIN-bold";
+  font-weight: normal;
+  display: inline;
+  float: left;
+  text-transform: none;
+  color: #000000;
+  padding: 0;
+  padding-top: 3px;
+  margin: 0;
+  font-size: 16px;
+  background: transparent;
+}
+
+@media (max-width: 991px) {
+  .a-sg-header-links .a-sg-header-links {
+    display: none;
+  }
+}
+
+.a-sg-header-links a {
+  display: inline;
+  float: right;
+  padding: 1px 0 0 24px;
+  font-size: 12px;
+  color: #333;
+  text-transform: none;
+}
+
+.a-sg-header-links a:hover {
+  background: transparent;
+  color: #000;
+}
+
+/* Anchors */
+.sg-pattern-head .a-sg-anchor,
+.sg-pattern-head .a-sg-anchor:hover {
+  border: none;
+  margin-top: -3px;
+  color: #000;
+  font-size: 16px !important;
+}
+
+.a-sg-patternVariations .sg-pattern-head .a-sg-anchor,
+.a-sg-patternVariations .sg-pattern-head .a-sg-anchor:hover {
+  margin-top: -8px;
 }

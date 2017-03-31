@@ -2556,8 +2556,10 @@
 					"has-link": false,
 					"aria-expanded-header": false,
 					"role": "list",
+					"is-checkbox": true,
 					"rows": [
 						{
+							"is-checkbox": false,
 							"additional-classes": "a-dotted a-disabled",
 							"id": "basisrolle",
 							"onclick": false,
@@ -2589,10 +2591,14 @@
 												"popover-content": false,
 												"popover-content-id": "popoverSampleContent",
 												"popover-title": false,
+												"id": false,
+												"popover-description-content": false,
+												"popover-various-content": false,
 												"popover-list-content": {
 													"header-text": "Hva inneholder rollen?",
 													"intro-text": "Denne rollen gir rettighet til lønns- og personalrelaterte tjenester.",
 													"additional-classes": false,
+													"id": false,
 													"rows": [
 														{
 															"additional-classes": "a-dotted a-list a-list-noIcon",
@@ -2755,17 +2761,24 @@
 							]
 						},
 						{
-							"additional-classes": "a-dotted a-inactive",
+							"additional-classes": "a-dotted a-selectable a-success",
 							"id": "signering",
 							"onclick": false,
+							"tabable": false,
 							"columns": [
 								{
 									"additional-classes": "col",
 									"onclick": false,
 									"column-items": [
 										{
+											"column-icon": {
+												"icon-prefix": "ai",
+												"icon-class": "ai-circle-plus",
+												"icon-extra-class": "a-blueText a-hiddenWhenSelected"
+											}
+										},
+										{
 											"column-text": {
-												"classes": "",
 												"text": "Begrenset signeringsrettighet"
 											}
 										}
@@ -2776,19 +2789,36 @@
 									"onclick": false,
 									"column-items": [
 										{
+											"column-text": {
+												"text": "Angre",
+												"classes": "hidden-sm-down a-visibleWhenSelected"
+											}
+										},
+										{
+											"column-icon": {
+												"icon-prefix": "ai",
+												"icon-class": "ai-undo",
+												"icon-extra-class": "a-danger a-visibleWhenSelected"
+											}
+										},
+										{
 											"column-popover": {
 												"popover-link-text": "Klikk for å se hva rollen gir tilgang til",
 												"popover-link-text-class": "sr-only",
-												"open-popover-class": "a-helpIconButton a-js-persistPopover a-js-popoverBig a-js-togglePopoverIcons",
+												"open-popover-class": "a-helpIconButton a-hiddenWhenSelected a-js-persistPopover a-js-popoverBig a-js-togglePopoverIcons",
 												"popover-class": "popover-big",
 												"header-text": "Hva inneholder rollen?",
 												"intro-text": "Rolle som følger automatisk med når en bruker får en annen Altinn-rolle",
 												"popover-content": false,
 												"popover-content-id": "popoverSampleContentSigneringsrett",
 												"popover-title": false,
+												"id": false,
+												"popover-description-content": false,
+												"popover-various-content": false,
 												"popover-list-content": {
 													"header-text": "Hva inneholder rollen?",
 													"intro-text": "Denne rollen gir rettighet til lønns- og personalrelaterte tjenester.",
+													"id": false,
 													"additional-classes": false,
 													"rows": [
 														{
@@ -2953,205 +2983,7 @@
 						},
 						{
 							"additional-classes": "a-dotted a-selectable a-success",
-							"tabable": true,
-							"columns": [
-								{
-									"additional-classes": "col",
-									"column-items": [
-										{
-											"column-icon": {
-												"icon-prefix": "ai",
-												"icon-class": "ai-circle-plus",
-												"icon-extra-class": "a-blueText"
-											}
-										},
-										{
-											"column-text": {
-												"text": "Lønn og personalmedarbeider"
-											}
-										}
-									]
-								},
-								{
-									"additional-classes": "col-auto text-right",
-									"column-items": [
-										{
-											"column-popover": {
-												"popover-link-text": "Klikk for å se hva rollen gir tilgang til",
-												"popover-link-text-class": "sr-only",
-												"open-popover-class": "a-helpIconButton a-js-persistPopover a-js-popoverBig a-js-togglePopoverIcons",
-												"popover-class": "popover-big",
-												"popover-content": false,
-												"popover-content-id": "popoverSampleContent2",
-												"popover-title": false,
-												"popover-list-content": {
-													"header-text": "Hva inneholder rollen?",
-													"additional-classes": false,
-													"intro-text": "Denne rollen gir rettighet til lønns- og personalrelaterte tjenester.",
-													"rows": [
-														{
-															"additional-classes": "a-dotted a-list a-list-noIcon",
-															"columns": [
-																{
-																	"additional-classes": "col-12",
-																	"column-items": [
-																		{
-																			"column-text": {
-																				"text": "Lønn og personalmedarbeider",
-																				"classes": "a-fontBold"
-																			}
-																		},
-																		{
-																			"column-text": {
-																				"text": "Gir rettighet til 59 tjenester",
-																				"classes": "float-right a-fontSizeXXXS"
-																			}
-																		}
-																	]
-																}
-															]
-														},
-														{
-															"additional-classes": "a-dotted a-list a-list-noIcon",
-															"columns": [
-																{
-																	"additional-classes": false,
-																	"column-items": [
-																		{
-																			"column-text": {
-																				"text": "— AFP arbeidsgiverskjema"
-																			}
-																		}
-																	]
-																}
-															]
-														},
-														{
-															"additional-classes": "a-dotted a-list a-list-noIcon",
-															"columns": [
-																{
-																	"additional-classes": false,
-																	"column-items": [
-																		{
-																			"column-text": {
-																				"text": "— AFP-avgjørelse"
-																			}
-																		}
-																	]
-																}
-															]
-														},
-														{
-															"additional-classes": "a-dotted a-list a-list-noIcon",
-															"columns": [
-																{
-																	"additional-classes": false,
-																	"column-items": [
-																		{
-																			"column-text": {
-																				"text": "— Arbeidsgivers oppfølgingsplan for sykmeldte"
-																			}
-																		}
-																	]
-																}
-															]
-														},
-														{
-															"additional-classes": "a-dotted a-list a-list-noIcon",
-															"columns": [
-																{
-																	"additional-classes": false,
-																	"column-items": [
-																		{
-																			"column-text": {
-																				"text": "— Eksempel"
-																			}
-																		}
-																	]
-																}
-															]
-														},
-														{
-															"additional-classes": "a-dotted a-list a-list-noIcon",
-															"columns": [
-																{
-																	"additional-classes": false,
-																	"column-items": [
-																		{
-																			"column-text": {
-																				"text": "— Eksempel"
-																			}
-																		}
-																	]
-																}
-															]
-														},
-														{
-															"additional-classes": "a-dotted a-list a-list-noIcon",
-															"columns": [
-																{
-																	"additional-classes": false,
-																	"column-items": [
-																		{
-																			"column-text": {
-																				"text": "— Eksempel"
-																			}
-																		}
-																	]
-																}
-															]
-														},
-														{
-															"additional-classes": "a-dotted a-list a-list-noIcon",
-															"columns": [
-																{
-																	"additional-classes": false,
-																	"column-items": [
-																		{
-																			"column-text": {
-																				"text": "— Eksempel"
-																			}
-																		}
-																	]
-																}
-															]
-														},
-														{
-															"additional-classes": "a-dotted a-list a-list-noIcon",
-															"columns": [
-																{
-																	"additional-classes": false,
-																	"column-items": [
-																		{
-																			"column-text": {
-																				"text": "— Eksempel"
-																			}
-																		}
-																	]
-																}
-															]
-														}
-													]
-												},
-												"popover-link-icon": [
-													{
-														"icon-prefix": "ai",
-														"icon-class": "ai-help-popicon"
-													},
-													{
-														"icon-prefix": "ai",
-														"icon-class": "ai-circle-exit"
-													}
-												]
-											}
-										}
-									]
-								}
-							]
-						},
-						{
-							"additional-classes": "a-dotted a-selectable a-success",
-							"tabable": true,
+							"tabable": false,
 							"columns": [
 								{
 									"additional-classes": "col",
@@ -3173,6 +3005,233 @@
 								{
 									"additional-classes": "col-auto text-right",
 									"column-items": [
+										{
+											"column-text": {
+												"text": "Angre",
+												"classes": "hidden-sm-down a-visibleWhenSelected"
+											}
+										},
+										{
+											"column-icon": {
+												"icon-prefix": "ai",
+												"icon-class": "ai-undo",
+												"icon-extra-class": "a-danger a-visibleWhenSelected"
+											}
+										},
+										{
+											"column-popover": {
+												"popover-link-text": "Klikk for å se hva rollen gir tilgang til",
+												"popover-link-text-class": "sr-only",
+												"open-popover-class": "a-helpIconButton a-hiddenWhenSelected a-js-persistPopover a-js-popoverBig a-js-togglePopoverIcons",
+												"popover-class": "popover-big",
+												"popover-content": false,
+												"popover-content-id": "popoverSampleContent2",
+												"popover-title": false,
+												"id": false,
+												"popover-description-content": false,
+												"popover-various-content": false,
+												"popover-list-content": {
+													"header-text": "Hva inneholder rollen?",
+													"additional-classes": false,
+													"intro-text": "Denne rollen gir rettighet til lønns- og personalrelaterte tjenester.",
+													"rows": [
+														{
+															"additional-classes": "a-dotted a-list a-list-noIcon",
+															"columns": [
+																{
+																	"additional-classes": "col-12",
+																	"column-items": [
+																		{
+																			"column-text": {
+																				"text": "Lønn og personalmedarbeider",
+																				"classes": "a-fontBold"
+																			}
+																		},
+																		{
+																			"column-text": {
+																				"text": "Gir rettighet til 59 tjenester",
+																				"classes": "float-right a-fontSizeXXXS"
+																			}
+																		}
+																	]
+																}
+															]
+														},
+														{
+															"additional-classes": "a-dotted a-list a-list-noIcon",
+															"columns": [
+																{
+																	"additional-classes": false,
+																	"column-items": [
+																		{
+																			"column-text": {
+																				"text": "— AFP arbeidsgiverskjema"
+																			}
+																		}
+																	]
+																}
+															]
+														},
+														{
+															"additional-classes": "a-dotted a-list a-list-noIcon",
+															"columns": [
+																{
+																	"additional-classes": false,
+																	"column-items": [
+																		{
+																			"column-text": {
+																				"text": "— AFP-avgjørelse"
+																			}
+																		}
+																	]
+																}
+															]
+														},
+														{
+															"additional-classes": "a-dotted a-list a-list-noIcon",
+															"columns": [
+																{
+																	"additional-classes": false,
+																	"column-items": [
+																		{
+																			"column-text": {
+																				"text": "— Arbeidsgivers oppfølgingsplan for sykmeldte"
+																			}
+																		}
+																	]
+																}
+															]
+														},
+														{
+															"additional-classes": "a-dotted a-list a-list-noIcon",
+															"columns": [
+																{
+																	"additional-classes": false,
+																	"column-items": [
+																		{
+																			"column-text": {
+																				"text": "— Eksempel"
+																			}
+																		}
+																	]
+																}
+															]
+														},
+														{
+															"additional-classes": "a-dotted a-list a-list-noIcon",
+															"columns": [
+																{
+																	"additional-classes": false,
+																	"column-items": [
+																		{
+																			"column-text": {
+																				"text": "— Eksempel"
+																			}
+																		}
+																	]
+																}
+															]
+														},
+														{
+															"additional-classes": "a-dotted a-list a-list-noIcon",
+															"columns": [
+																{
+																	"additional-classes": false,
+																	"column-items": [
+																		{
+																			"column-text": {
+																				"text": "— Eksempel"
+																			}
+																		}
+																	]
+																}
+															]
+														},
+														{
+															"additional-classes": "a-dotted a-list a-list-noIcon",
+															"columns": [
+																{
+																	"additional-classes": false,
+																	"column-items": [
+																		{
+																			"column-text": {
+																				"text": "— Eksempel"
+																			}
+																		}
+																	]
+																}
+															]
+														},
+														{
+															"additional-classes": "a-dotted a-list a-list-noIcon",
+															"columns": [
+																{
+																	"additional-classes": false,
+																	"column-items": [
+																		{
+																			"column-text": {
+																				"text": "— Eksempel"
+																			}
+																		}
+																	]
+																}
+															]
+														}
+													]
+												},
+												"popover-link-icon": [
+													{
+														"icon-prefix": "ai",
+														"icon-class": "ai-help-popicon"
+													},
+													{
+														"icon-prefix": "ai",
+														"icon-class": "ai-circle-exit"
+													}
+												]
+											}
+										}
+									]
+								}
+							]
+						},
+						{
+							"additional-classes": "a-dotted a-selectable a-success",
+							"tabable": false,
+							"columns": [
+								{
+									"additional-classes": "col",
+									"column-items": [
+										{
+											"column-icon": {
+												"icon-prefix": "ai",
+												"icon-class": "ai-circle-plus",
+												"icon-extra-class": "a-blueText a-hiddenWhenSelected"
+											}
+										},
+										{
+											"column-text": {
+												"text": "Lønn og personalmedarbeider"
+											}
+										}
+									]
+								},
+								{
+									"additional-classes": "col-auto text-right",
+									"column-items": [
+										{
+											"column-text": {
+												"text": "Angre",
+												"classes": "hidden-sm-down a-visibleWhenSelected"
+											}
+										},
+										{
+											"column-icon": {
+												"icon-prefix": "ai",
+												"icon-class": "ai-undo",
+												"icon-extra-class": "a-danger a-visibleWhenSelected"
+											}
+										},
 										{
 											"column-icon": {
 												"icon-prefix": "ai",
@@ -3191,11 +3250,14 @@
 											"column-popover": {
 												"popover-link-text": "Klikk for å se hva rollen gir tilgang til",
 												"popover-link-text-class": "sr-only",
-												"open-popover-class": "a-helpIconButton a-js-persistPopover a-js-popoverBig a-js-togglePopoverIcons",
+												"open-popover-class": "a-helpIconButton a-js-persistPopover a-js-popoverBig a-hiddenWhenSelected a-js-togglePopoverIcons",
 												"popover-class": "popover-big a-hiddenWhenSelected",
 												"popover-content": false,
 												"popover-content-id": "popoverSampleContent3",
 												"popover-title": false,
+												"id": false,
+												"popover-description-content": false,
+												"popover-various-content": false,
 												"popover-list-content": {
 													"additional-classes": false,
 													"header-text": "Hva inneholder rollen?",
@@ -3362,8 +3424,8 @@
 							]
 						},
 						{
-							"additional-classes": "a-dotted a-selectable a-success a-selected",
-							"tabable": true,
+							"additional-classes": "a-dotted a-selectable a-success",
+							"tabable": false,
 							"columns": [
 								{
 									"additional-classes": "col",
@@ -3385,6 +3447,19 @@
 								{
 									"additional-classes": "col-auto text-right",
 									"column-items": [
+										{
+											"column-text": {
+												"text": "Angre",
+												"classes": "hidden-sm-down a-visibleWhenSelected"
+											}
+										},
+										{
+											"column-icon": {
+												"icon-prefix": "ai",
+												"icon-class": "ai-undo",
+												"icon-extra-class": "a-danger a-visibleWhenSelected"
+											}
+										},
 										{
 											"column-icon": {
 												"icon-prefix": "ai",
@@ -3408,6 +3483,9 @@
 												"popover-content": false,
 												"popover-content-id": "popoverSampleContent11",
 												"popover-title": false,
+												"id": false,
+												"popover-description-content": false,
+												"popover-various-content": false,
 												"popover-list-content": {
 													"additional-classes": false,
 													"header-text": "Hva inneholder rollen?",
@@ -3568,19 +3646,6 @@
 													}
 												]
 											}
-										},
-										{
-											"column-text": {
-												"text": "Angre",
-												"classes": "hidden-xs-down a-visibleWhenSelected"
-											}
-										},
-										{
-											"column-icon": {
-												"icon-prefix": "ai",
-												"icon-class": "ai-undo",
-												"icon-extra-class": "a-visibleWhenSelected a-danger"
-											}
 										}
 									]
 								}
@@ -3589,6 +3654,7 @@
 						{
 							"additional-classes": "a-dotted a-clickable",
 							"tabable": true,
+							"is-checkbox": false,
 							"id": "leggtil",
 							"onclick": "location.href='/patterns/04-sider-92-andre-med-rettigheter-00-andre-med-rettigheter-egendefinert-rolle/04-sider-92-andre-med-rettigheter-00-andre-med-rettigheter-egendefinert-rolle.html'",
 							"columns": [
