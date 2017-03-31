@@ -574,7 +574,7 @@
     }
 
     div,
-    h2 {
+    h3 {
       @include media-breakpoint-up( md ) {
         overflow: hidden;
         text-overflow: ellipsis;
@@ -582,8 +582,12 @@
       }
     }
 
-    h2 {
-      @extend .a-fontSizeM;
+    h3 {
+      @include a-fontMedium;
+
+      @include media-breakpoint-up( md ) {
+        @include a-fontReg;
+      }
     }
 
     .a-msgDuedate {
@@ -635,7 +639,7 @@
       }
     }
 
-    h2 {
+    h3 {
       @extend .a-fontSizeS;
     }
   }
