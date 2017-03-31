@@ -505,7 +505,13 @@
     Inbox
 \*------------------------------------*/
 .a-inboxHeadingContent {
+  //sass-lint:disable no-duplicate-properties no-important
+
+  //IE fix for min-height
+  height: auto !important;
+  height: $spacer * 7;
   min-height: $spacer * 7;
+
   padding-right: $spacer * 2;
   margin-right: 0;
   margin-left: 0;
@@ -514,6 +520,9 @@
   .a-msgIconWrapper {
     display: flex;
     width: $spacer * 4;
+    height: auto !important;
+    height: $spacer * 7;
+    min-height: $spacer * 7;
     color: $grey;
     justify-content: center;
     align-items: center;
@@ -532,7 +541,7 @@
 
   .a-msgHeadingTextContainer {
     display: flex;
-    padding-right: $spacer * 2;
+    padding: $spacer $spacer * 2 $spacer $spacer;
     align-self: center;
 
     @include media-breakpoint-up( md ) {
@@ -542,7 +551,7 @@
     }
 
     div,
-    h2 {
+    h3 {
       @include media-breakpoint-up( md ) {
         overflow: hidden;
         text-overflow: ellipsis;
@@ -550,8 +559,12 @@
       }
     }
 
-    h2 {
-      @extend .a-fontSizeM;
+    h3 {
+      @include a-fontMedium;
+
+      @include media-breakpoint-up( md ) {
+        @include a-fontReg;
+      }
     }
 
     .a-msgDuedate {
@@ -565,39 +578,45 @@
     align-self: center;
   }
 
-  .a-btn-icon {
-    min-height: $spacer * 3;
-    padding: 0;
-    margin: 0 $spacer 0 0;
-    color: $grey;
-    justify-content: center;
-
-    &:hover,
-    &:focus,
-    &:active {
-      color: $blue;
-    }
-  }
-
   .a-msgShortcutsContainer {
     display: flex;
     margin-right: $spacer;
     align-self: center;
+
+    .a-btn-icon {
+      min-width: $spacer * 3;
+      min-height: $spacer * 3;
+      padding: 0;
+      margin-bottom: 0;
+      color: $grey;
+      justify-content: center;
+
+      &:hover,
+      &:focus,
+      &:active {
+        color: $blue;
+      }
+    }
   }
 
   /** compact view */
   &.a-msgCompact {
+    height: auto !important;
+    height: $spacer * 6;
     min-height: $spacer * 6;
 
     .a-msgIconWrapper {
       width: $spacer * 4;
+      height: auto !important;
+      height: $spacer * 6;
+      min-height: $spacer * 6;
 
       @include media-breakpoint-up( md ) {
         width: $spacer * 6;
       }
     }
 
-    h2 {
+    h3 {
       @extend .a-fontSizeS;
     }
   }
@@ -648,13 +667,12 @@
 
   &.a-msgWaiting {
     @include disabled-background ( $background-image: url($images-base-url+'disabled-background.svg') );
+    cursor: auto;
   }
 
   &.a-msgForwarded {
     .a-btn-icon {
       &:nth-child(2) {
-        min-width: $spacer * 3;
-        height: $spacer * 3;
         background-color: $yellow-light;
         border-radius: 50%;
       }
