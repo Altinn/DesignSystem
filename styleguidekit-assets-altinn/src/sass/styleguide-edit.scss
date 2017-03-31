@@ -41,7 +41,6 @@
     font-size: 12px;
     line-height: 18px;
     padding: 9px 12px 7px 12px;
-    min-height: 36px;
 
     &:hover,
     &:focus,
@@ -61,16 +60,18 @@
   }
 }
 
-.sg-find {
-  .tt-input {
-    background-color: $white;
-    border: 2px solid $blue;
-  }
-  .typeahead:focus {
+.typeahead {
+  &:focus {
     color: $black;
     text-transform: uppercase;
   }
+
+  &.tt-input {
+    background-color: $white !important;
+    border: 2px solid $blue;
+  }
 }
+
 
 .sg-nav {
   .sg-pattern-state:before {
@@ -681,11 +682,9 @@ a.a-sg-header-title:hover {
 
 .a-sg-header-links {
   @include media-breakpoint-down( md ) {
-    .a-sg-header-links {
-      display: none;
-    }
+    display: none;
   }
-  a{
+  a {
     display: inline;
     float: right;
     padding: 1px 0 0 24px;
