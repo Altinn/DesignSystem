@@ -1,3 +1,4 @@
+var isIE11 = !!window.MSInputMethodContext && !!document.documentMode;
 var onboardingBlank = function(bool, delay) {
   $('.onboarding-wrapper')
     .css('transform', 'translate3d(0, 0, 0) matrix(1, 0, 0, 1, 570, 700)')
@@ -113,13 +114,13 @@ var onboardingSeek = function(_count, _steps) {
       .css(
         'transform',
         'translate3d(0, 0, 0) matrix(' + (ratio / 5) + ', 0, 0, ' + (ratio / 5) + ',' +
-          (steps[count].offset().left + (steps[count].width() / 2)) + ',' +
+          (steps[count].offset().left + (isIE11 ? (570 * ((ratio / 5))) : 0) + (steps[count].width() / 2)) + ',' +
           ((steps[count].height() / 2)) + ')'
       )
       .css(
         '-webkit-transform',
         'translate3d(0, 0, 0) matrix(' + (ratio / 5) + ', 0, 0, ' + (ratio / 5) + ',' +
-          (steps[count].offset().left + (steps[count].width() / 2)) + ',' +
+          (steps[count].offset().left + (isIE11 ? (570 * ((ratio / 5))) : 0) + (steps[count].width() / 2)) + ',' +
           ((steps[count].height() / 2)) + ')'
       )
       .css('top', mod + 'px')
@@ -137,13 +138,13 @@ var onboardingSeek = function(_count, _steps) {
       .css(
         'transform',
         'translate3d(0, 0, 0) matrix(' + (ratio / 5) + ', 0, 0, ' + (ratio / 5) + ',' +
-          (steps[count].offset().left + (steps[count].width() / 2)) + ',' +
+          (steps[count].offset().left + (isIE11 ? (570 * ((ratio / 5))) : 0) + (steps[count].width() / 2)) + ',' +
           (steps[count].offset().top + (steps[count].height() / 2)) + ')'
       )
       .css(
         '-webkit-transform',
         'translate3d(0, 0, 0) matrix(' + (ratio / 5) + ', 0, 0, ' + (ratio / 5) + ',' +
-          (steps[count].offset().left + (steps[count].width() / 2)) + ',' +
+          (steps[count].offset().left + (isIE11 ? (570 * ((ratio / 5))) : 0) + (steps[count].width() / 2)) + ',' +
           (steps[count].offset().top + (steps[count].height() / 2)) + ')'
       )
       .css('top', verticalJiggle + 'px')

@@ -2,7 +2,7 @@
   <form>
 {{/ print-form-tag }}
 
-  <div class="form-group a-form-group {{# isLarge }} a-form-group-large {{/ isLarge }} ">
+  <div class="form-group a-form-group {{# isLarge }} a-form-group-large {{/ isLarge }} {{styleModifier}}">
 
     {{# top-label }}
       <label class="a-form-label {{# isHidden }} sr-only {{/ isHidden}} {{# isInactive }} inactive {{/ isInactive }}" for="{{ text-input-id }}">{{ top-label }}</label>
@@ -16,7 +16,7 @@
       <input class="form-control {{ form-control-class }} {{# form-label-hasIcon }} a-hasIcon {{/ form-label-hasIcon }}
         {{# form-input-hasButton }} a-hasButton {{/ form-input-hasButton }} {{# form-input-isPassword }} a-hasButton {{/ form-input-isPassword }}"
         type="{{ input-type }}"
-        placeholder="{{text-input-placeholder}}"
+        {{# text-input-placeholder }}placeholder="{{text-input-placeholder}}"{{/ text-input-placeholder }}
         name="{{ input-name }}"
         data-val="true"
         {{# text-input-id }}id="{{ text-input-id }}"{{/ text-input-id }}

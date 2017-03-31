@@ -54,6 +54,11 @@ var genericSearch = function() {
         match(selected[dimensions[1]], item[dimensions[1]], true));
     }
     if (selected[dimensions[0]].length > 0) {
+      if (selected[dimensions[1]].length === 0) {
+        return (
+          match(selected[dimensions[0]], item[dimensions[0]])
+        );
+      }
       return (
         match(selected[dimensions[0]], item[dimensions[0]]) &&
         match(selected[dimensions[1]], item[dimensions[1]], true)
@@ -258,7 +263,12 @@ var genericSearch = function() {
                   .html(_index + 1);
               });
             if ($('.a-js-filterDim' + (index + 1)).find('.a-js-plural')) {
-              $('.a-js-filterDim' + (index + 1)).find('.a-js-plural').html(index > 0 ? 'r' : '');
+              $('.a-js-filterDim' + (index + 1))
+                .find('.a-js-plural')[index > 0 ? 'show' : 'hide']();
+            }
+            if ($('.a-js-filterDim' + (index + 1)).find('.a-js-singular')) {
+              $('.a-js-filterDim' + (index + 1))
+                .find('.a-js-singular')[index > 0 ? 'hide' : 'show']();
             }
           });
           newList.filter(grinder).forEach(function(item, index) {
