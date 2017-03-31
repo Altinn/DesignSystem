@@ -54,6 +54,11 @@ var genericSearch = function() {
         match(selected[dimensions[1]], item[dimensions[1]], true));
     }
     if (selected[dimensions[0]].length > 0) {
+      if (selected[dimensions[1]].length === 0) {
+        return (
+          match(selected[dimensions[0]], item[dimensions[0]])
+        );
+      }
       return (
         match(selected[dimensions[0]], item[dimensions[0]]) &&
         match(selected[dimensions[1]], item[dimensions[1]], true)
