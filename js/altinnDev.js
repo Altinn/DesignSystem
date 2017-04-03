@@ -106,7 +106,7 @@ var codeLookup = function() {
   };
   var lastKeypress; var now; var iterate;
   var legend = $('.a-js-lookup').find('.a-legend');
-  var loader = $('.a-js-lookup').find('.modal-body').find('.a-logo-anim');
+  var loader = $('.a-js-lookup').find('.modal-body').find('.a-loader');
   var empty = $('.a-js-lookup').find('.a-js-noResults');
   var container = $('.a-js-lookup').find('.modal-body').find('.a-radioButtons');
   var check = function() {
@@ -1371,8 +1371,8 @@ var genericSearch = function() {
       $('.a-js-genericSearch').find('.a-legend') :
       $('.a-js-genericSearch').next().find('.a-legend');
     loader = inputBy === 'search' ?
-      $('.a-js-genericSearch').find('.a-logo-anim') :
-      $('.a-js-genericSearch').next().find('.a-logo-anim');
+      $('.a-js-genericSearch').find('.a-loader') :
+      $('.a-js-genericSearch').next().find('.a-loader');
     empty = inputBy === 'search' ?
       $('.a-js-genericSearch').find('.a-js-noResults') :
       $('.a-js-genericSearch').next().find('.a-js-noResults');
@@ -2950,22 +2950,28 @@ var toggleInstant = function() {
   });
 };
 
-$('.a-js-index-heading').click(function() {
-  if ($(this).hasClass('expanded')) {
-    $(this).removeClass('expanded');
-    $(this).addClass('collapsed');
-    if ($('.a-js-index-heading.expanded').length === 0) {
+$('.a-collapsePanel-body').on('show.bs.collapse', function() {
+  var that = this;
+  setTimeout(function() {
+    var $collapsePanelHeader = $(that).siblings('.a-js-index-heading').first();
+    $('.a-collapsePanel').removeClass('expanded');
+    $(that).closest('.a-collapsePanel').addClass('expanded');
+    $('.a-js-index-heading').addClass('dim');
+    $('.a-collapsePanel.expanded').find('.a-js-index-heading').removeClass('dim');
+  }, 0);
+});
+
+$('.a-collapsePanel-body').on('hide.bs.collapse', function() {
+  var that = this;
+  setTimeout(function() {
+    var $collapsePanelHeader = $(that).siblings('.a-js-index-heading').first();
+    $(that).closest('.a-collapsePanel').removeClass('expanded');
+    if ($('.a-collapsePanel.expanded').length === 0) {
       $('.a-js-index-heading').removeClass('dim');
     } else {
-      $(this).addClass('dim');
+      $collapsePanelHeader.addClass('dim');
     }
-  } else {
-    $('.a-js-index-heading').removeClass('expanded');
-    $(this).removeClass('collapsed');
-    $(this).addClass('expanded');
-    $('.a-js-index-heading').addClass('dim');
-    $('.a-js-index-heading.expanded').removeClass('dim');
-  }
+  }, 0);
 });
 
 /* globals $ */
