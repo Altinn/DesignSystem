@@ -600,11 +600,22 @@
       &:active {
         color: $blue;
       }
+
+      &:not(:last-child) {
+        margin-right: 2px;
+      }
+
+      // fix for firefox alignment
+      i {
+        width: 100%;
+        margin-right: auto;
+        margin-left: auto;
+      }
     }
   }
 
   /** compact view */
-  &.a-msgCompact {
+  .a-inboxCompact & {
     height: auto !important;
     height: $spacer * 6;
     min-height: $spacer * 6;
