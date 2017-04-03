@@ -2,6 +2,15 @@ $('.a-collapsePanel-body').on('show.bs.collapse', function() {
   var that = this;
   setTimeout(function() {
     var $collapsePanelHeader = $(that).siblings('.a-js-index-heading').first();
+    $collapsePanelHeader.find('.a-inboxHeadingContent')
+      .removeClass('a-msgUnread')
+      .find('.a-msgIconSecondary')
+      .closest('.a-msgIconWrapper')
+      .find('.ai')
+      .hide()
+      .siblings('.a-msgIconSecondary')
+      .show();
+
     $('.a-collapsePanel').removeClass('expanded');
     $(that).closest('.a-collapsePanel').addClass('expanded');
     $('.a-js-index-heading').addClass('dim');
