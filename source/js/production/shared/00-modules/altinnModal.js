@@ -53,7 +53,6 @@ var loadModal = function(url, target) {
       $(target).removeAttr('aria-hidden');
     });
     popoverLocalInit();
-    $('body').scrollTop(0);
 
     $(target).on('transitionend', function() {
       $(target).append($('.a-stickyHelp-container'));
@@ -125,7 +124,6 @@ var nextModalPageWithContent = function(target, isSuccess, isError, content, cle
   });
 
   popoverLocalInit();
-  $('body').scrollTop(0);
 };
 
 var nextModalPage = function(url, target, isSuccess, isError, clearHistory) {
@@ -203,7 +201,6 @@ var nextModalPage = function(url, target, isSuccess, isError, clearHistory) {
     });
 
     popoverLocalInit();
-    $('body').scrollTop(0);
   });
 };
 
@@ -264,7 +261,6 @@ var previousModalPage = function(target, pagesToPopParam) {
     });
     previousPages.remove();
   });
-  $('body').scrollTop(0);
 };
 
 $('body').on('click', '[data-toggle="altinn-modal"]', function() {
