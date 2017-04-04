@@ -1,5 +1,5 @@
 /* globals $, Foundation */
-var drilldownInteraction = function() {
+var colnavCustom = function() {
   var levels = ['a-colnav-firstLevel', 'a-colnav-secondLevel', 'a-colnav-thirdLevel'];
   var open = [];
   var isSmall = $(window).width() < 992;
