@@ -900,14 +900,6 @@ textarea {
 
 // TODO: merge with .a-dropdown-toggle with & revert selector? .a-dropdown-toggle { .open & {...} }
 .show {
-  .a-dropdown-toggle {
-    border-color: $blue-dark;
-
-    :hover {
-      border-color: $blue-dark;
-    }
-  }
-
   &.a-transparent {
     .a-dropdown-toggle {
       background-color: $white;
@@ -919,8 +911,10 @@ textarea {
 .a-dropdown-menu {
   @include a-fontSize16;
   width: 100%;
-  padding: 0;
+  max-height: 300px;
+  padding: 0 $spacer * 2 0 $spacer * 2;
   margin-top: 0;
+  overflow-y: scroll;
   border: 2px solid $blue-dark;
   border-top: none;
   border-radius: 0;
@@ -931,7 +925,7 @@ textarea {
   min-height: $spacer * 3;
   padding: $spacer / 2 0 0 0;
   white-space: normal;
-  border-bottom: 2px dotted $blue-dark;
+  border-bottom: 2px dotted $blue;
 
   &:hover,
   &:focus {

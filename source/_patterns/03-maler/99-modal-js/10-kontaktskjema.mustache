@@ -1,0 +1,53 @@
+<div class="modal-content">
+    <div class="modal-header a-modal-header">
+        <div class="a-iconText a-iconText-background a-iconText-large">
+            <!-- ICON -->
+            <div class="a-iconText-icon">
+                <i class="ai ai-closedmessage a-icon a-icon-circle" aria-hidden="true"></i>
+            </div>
+            <!-- TEXT -->
+            <h1 class="a-iconText-text mb-0">
+                <span class="a-iconText-text-small"></span>
+                <span class="a-iconText-text-large">Kontaktskjema</span>
+            </h1>
+
+        </div>
+    </div>
+    <div class="modal-body a-modal-body">
+
+        <p>For at vi skal kunne hjelpe deg så fort som mulig er det viktig at du oppgir tilstrekkelig med informasjon om problemstillingen din. Haster det, ta kontakt per telefon 75 00 60 00.</p>
+
+        <form data-toggle="validator">
+          <div class="row">
+            <div class="col-8">
+              {{#fornavn}}
+                {{> atomer-tekst-input:mb-2 }}
+              {{/fornavn}}
+
+              {{#etternavn}}
+                {{> atomer-tekst-input:mb-2 }}
+              {{/etternavn}}
+
+              {{#epost}}
+                {{> atomer-tekst-input:mb-2 }}
+              {{/epost}}
+
+              {{#telefon}}
+                {{> atomer-tekst-input:mb-2 }}
+              {{/telefon}}
+
+
+              {{#question}}
+                {{> atomer-tekstfelt:mb-2 }}
+              {{/question}}
+
+              <button class="a-btn" data-toggle="altinn-modal" data-action="next" data-url="{{{ page-url }}}" data-target="#modal">
+                Send inn
+              </button>
+            </div>
+          </div>
+        </form>
+
+
+    </div>
+</div>

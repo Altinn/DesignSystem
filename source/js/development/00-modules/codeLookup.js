@@ -5,7 +5,7 @@ var codeLookup = function() {
   };
   var lastKeypress; var now; var iterate;
   var legend = $('.a-js-lookup').find('.a-legend');
-  var loader = $('.a-js-lookup').find('.modal-body').find('.a-logo-anim');
+  var loader = $('.a-js-lookup').find('.modal-body').find('.a-loader');
   var empty = $('.a-js-lookup').find('.a-js-noResults');
   var container = $('.a-js-lookup').find('.modal-body').find('.a-radioButtons');
   var check = function() {
