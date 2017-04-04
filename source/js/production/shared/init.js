@@ -26,6 +26,7 @@
   setValidatorSettings,
   popoverLocalInit,
   popoverGlobalInit,
+  subscribe,
   setupSelectableCheckbox */
 
 
@@ -42,6 +43,7 @@ window.sharedInit = function() {
   tooltip();
   toggleInstant();
   feedbackToggle();
+  subscribe();
   popoverLocalInit();
   popoverGlobalInit();
   setupSelectableCheckbox();
