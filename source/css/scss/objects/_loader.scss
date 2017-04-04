@@ -1,0 +1,50 @@
+.loader {
+  position: relative;
+  display: block;
+  margin: 0 auto;
+  // font-size: 40px;
+  text-indent: -9999em;
+  transform: translateZ(0);
+
+  &.loader-ellipsis {
+    width: 0.625em;
+    height: 0.625em;
+    border-radius: 50%;
+    animation: loader-ellipsis 1.8s infinite ease-in-out;
+    animation-delay: -0.16s;
+    animation-fill-mode: both;
+
+    &::after,
+    &::before {
+      position: absolute;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      content: '';
+      border-radius: 50%;
+      animation: loader-ellipsis 1.8s infinite ease-in-out;
+      animation-fill-mode: both;
+    }
+
+    &::before {
+      left: -0.875em;
+      animation-delay: -0.32s;
+    }
+
+    &::after {
+      left: 0.875em;
+    }
+  }
+}
+
+@keyframes loader-ellipsis {
+  0%,
+  100%,
+  80% {
+    box-shadow: 0 0.625em 0 -0.325em $blue;
+  }
+
+  40% {
+    box-shadow: 0 0.625em 0 0 $blue;
+  }
+}

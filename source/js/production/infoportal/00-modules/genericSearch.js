@@ -84,8 +84,8 @@ var genericSearch = function() {
       $('.a-js-genericSearch').find('.a-legend') :
       $('.a-js-genericSearch').next().find('.a-legend');
     loader = inputBy === 'search' ?
-      $('.a-js-genericSearch').find('.a-logo-anim') :
-      $('.a-js-genericSearch').next().find('.a-logo-anim');
+      $('.a-js-genericSearch').find('.a-loader') :
+      $('.a-js-genericSearch').next().find('.a-loader');
     empty = inputBy === 'search' ?
       $('.a-js-genericSearch').find('.a-js-noResults') :
       $('.a-js-genericSearch').next().find('.a-js-noResults');
