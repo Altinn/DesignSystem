@@ -3,6 +3,7 @@ var closeModal = function(target) {
   $('body').removeClass('a-modal-background-error');
   $('body').removeClass('a-modal-background-success');
   $(target).modal('hide');
+  $('body').append($('.a-stickyHelp-container'));
 };
 
 var loadModal = function(url, target) {
@@ -53,6 +54,10 @@ var loadModal = function(url, target) {
     });
     popoverLocalInit();
     $('body').scrollTop(0);
+
+    $(target).on('transitionend', function() {
+      $(target).append($('.a-stickyHelp-container'));
+    });
   });
 };
 
