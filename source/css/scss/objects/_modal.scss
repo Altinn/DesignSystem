@@ -141,7 +141,7 @@ body {
   }
 
   &.fade {
-    overflow: visible;
+    overflow-x: hidden;
     overflow-y: scroll;
     opacity: 1;
     transition: none;
@@ -155,6 +155,20 @@ body {
       .modal-dialog {
         transition: all 0.7s cubic-bezier(0.3, 1, 0.5, 1);
         transform: translate3d(0, 0, 0);
+      }
+    }
+
+    &.a-fade--appear {
+      .modal-dialog {
+        transition: all 0.7s;
+        transform: translate3d(0, 0, 0);
+      }
+
+      &.show {
+        .modal-dialog {
+          transition: all 0.7s;
+          transform: translate3d(0, 0, 0);
+        }
       }
     }
   }

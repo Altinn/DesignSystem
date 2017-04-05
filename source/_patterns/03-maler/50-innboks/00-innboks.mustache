@@ -1,0 +1,39 @@
+{{> organismer-header }}
+<div class="container">
+  <div class="row mt-3 mb-3">
+    <div class="col-sm-8 offset-sm-2 col-lg-6 offset-lg-3">
+      {{# article-search }}
+        {{> atomer-tekst-input }}
+      {{/ article-search }}
+    </div>
+  </div>
+
+  {{> molekyler-toppoppgaver }}
+
+  {{# inbox }}
+    <div class="row{{# inbox-extra-class }} {{ inbox-extra-class }}{{/ inbox-extra-class }}">
+      <div class="col" id="{{ accordionId }}">
+        {{# elementList }}
+          <div class="row">
+            <div class="col-sm-12 col-lg-12{{# block-margin }} {{{ block-margin }}} {{/ block-margin }}">
+                {{> atomer-seksjonstittel }}
+            </div>
+          </div>
+
+          {{# messages }}
+            <div class="row">
+              <div class="col-sm-12 col-lg-12">
+                <div {{# accordion-large-id }}id="{{ accordion-large-id }}"{{/ accordion-large-id }} class="a-panelAccordion" role="tablist">
+                  {{# accordion-large-items }}
+                    {{> organismer-ekspanderbart-panel }}
+                  {{/ accordion-large-items }}
+                </div>
+              </div>
+            </div>
+          {{/ messages }}
+        {{/ elementList }}
+      </div>
+    </div>
+  {{/ inbox }}
+</div>
+{{> organismer-footer }}
