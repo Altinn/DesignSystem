@@ -10,10 +10,8 @@ var nameChecker = function() {
     '$(".a-js-validator").find(".a-validatorInfo").eq(0).hide();' +
     '$(".a-js-validator").find(".a-validatorInfo").eq(1).show();' +
     '$(".a-js-validator").find(".a-btn-group").find(".a-btn").eq(0)' +
-    '.html("Velg navn").removeAttr("onclick")' +
-    '.addClass("a-js-smoothStateEnabled");' +
-    '$(".a-js-tryAnother").show();' +
-    'window.smoothStateMod();';
+    '.html("Velg navn").removeAttr("onclick");' +
+    '$(".a-js-tryAnother").show();';
     $('.a-js-validator').find('.a-validatorInfo').eq(1).find('i')
     .addClass('a-validatorInfo-icon-approved');
     $('.a-js-validator').find('.a-validatorInfo').css('display', 'inline-block')
@@ -36,7 +34,6 @@ var nameChecker = function() {
       $('.a-js-validator').find('.a-validatorInfo').eq(1).hide();
       $('.a-js-validator').find('.a-btn-group').find('.a-btn').eq(0)
       .html(btnText)
-      .removeClass('a-js-smoothStateEnabled')
       .attr('onclick', '$(".a-js-validator").find(".a-message-error").show()')
       .hide();
       $('.a-js-validator').find('input[type=text]').val('');
