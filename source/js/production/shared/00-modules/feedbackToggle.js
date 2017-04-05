@@ -1,4 +1,4 @@
-/* globals $, smoothState */
+/* globals $ */
 var feedbackToggle = function() {
   if ($('.a-js-feedbackToggle').length > 0) {
     $('.a-js-feedbackToggle').closest('fieldset').next().hide();
