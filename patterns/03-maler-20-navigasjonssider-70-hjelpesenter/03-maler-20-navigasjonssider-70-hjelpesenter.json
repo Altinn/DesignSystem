@@ -401,6 +401,38 @@
 			"column-switches-with-text": false
 		}
 	],
+	"button-group-id": "btnGroup",
+	"button-group-items": [
+		{
+			"button-text": "En standard knapp"
+		},
+		{
+			"button-class": "a-btn a-btn-success",
+			"button-text": "En knapp som antyder suksess"
+		},
+		{
+			"button-class": "a-btn a-btn-danger",
+			"button-text": "En knapp som antyder fare"
+		},
+		{
+			"button-text": "En knapp som er stylet som en lenke, som trenger litt lengre tekst.",
+			"button-class": "a-btn-link",
+			"display-as-link": true
+		}
+	],
+	"link-group-items": [
+		{
+			"link-text": "Intern lenke"
+		},
+		{
+			"link-text": "En lenk som er stylet som en knapp",
+			"link-class": "a-btn mt-1"
+		},
+		{
+			"link-text": "Ekstern lenke",
+			"link-url": "http://www.skatteetaten.no"
+		}
+	],
 	"collapse-header-id": "",
 	"collapse-header-text": "Ekspandérbar Overskrift har mange ord for å teste hvordan det brekker",
 	"data-parent": "accordion",
@@ -426,22 +458,26 @@
 	"illustrationLink": [
 		{
 			"col": "col-6 col-lg-3",
-			"h2": "Innlogging",
+			"h2": "innlogging",
+			"text": "ID-porten, aktørvalg, mm.",
 			"icon": "ai-closedmessage"
 		},
 		{
 			"col": "col-6 col-lg-3",
 			"h2": "Profil",
+			"text": "Meldinger, filter, videresending, mm.",
 			"icon": "ai-closedmessage"
 		},
 		{
 			"col": "col-6 col-lg-3",
 			"h2": "Innboks",
+			"text": "Signering, etater, vedlegg, mm.",
 			"icon": "ai-closedmessage"
 		},
 		{
 			"col": "col-6 col-lg-3",
 			"h2": "Skjema",
+			"text": "Kontaktinformasjon, roller, rettigheter, mm.",
 			"icon": "ai-closedmessage"
 		}
 	],
@@ -490,18 +526,7 @@
 		"jumbo-intro-small": true,
 		"front-main-button": false,
 		"front-main-button-text-right": "",
-		"jumbo-search": {
-			"isLarge": "a-form-group-large",
-			"isHidden": "sr-only",
-			"top-label": "Søk etter innhold",
-			"text-input-placeholder": "Hei Jan. Hva kan vi hjelpe deg med?",
-			"isInput-group": "input-group",
-			"form-input-hasButton": {
-				"form-input-button-action": "Utfør søk",
-				"icon-prefix": "ai",
-				"icon-class": "ai-search"
-			}
-		}
+		"jumbo-search": false
 	},
 	"jumbotron-image-url": "url('../../images/header-bg6.svg')",
 	"jumbo-smulesti": false,
@@ -927,7 +952,7 @@
 	"jumbotron-bgcolor": "#3F3161",
 	"jumbo-list": {
 		"list-header": "Tittel på listen",
-		"additional-classes": "a-list-noIcon",
+		"additional-classes": "a-list-borderTop",
 		"is-large": true,
 		"rows": [
 			{
@@ -939,6 +964,13 @@
 					{
 						"additional-classes": "col",
 						"column-items": [
+							{
+								"column-icon": {
+									"icon-prefix": "ai",
+									"icon-class": "ai-send",
+									"icon-extra-class": "a-blueText"
+								}
+							},
 							{
 								"column-text": {
 									"text": "Skriv til oss"
@@ -958,6 +990,13 @@
 						"additional-classes": "col",
 						"column-items": [
 							{
+								"column-icon": {
+									"icon-prefix": "ai",
+									"icon-class": "ai-phone",
+									"icon-extra-class": "a-blueText"
+								}
+							},
+							{
 								"column-text": {
 									"text": "Ring oss"
 								}
@@ -967,6 +1006,19 @@
 				]
 			}
 		]
+	},
+	"artikkelsok": true,
+	"article-search": {
+		"isLarge": true,
+		"isHidden": true,
+		"top-label": "Søk i hjelp og annet innhold",
+		"text-input-placeholder": "Søk i hjelp og annet innhold",
+		"isInput-group": "input-group",
+		"form-input-hasButton": {
+			"form-input-button-action": "Utfør søk",
+			"icon-prefix": "ai",
+			"icon-class": "ai-search"
+		}
 	},
 	"card-icon": {
 		"variation-class": "a-iconText-shadow a-iconText-background a-iconText-background--white",
@@ -1030,7 +1082,19 @@
 			{
 				"collapse-header-id": "accordionHeaderItem1",
 				"collapse-header-text": "Hvorfor mottar jeg ikke kode på sms?",
-				"collapse-header-content": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus cumque maxime, quam commodi doloremque adipisci deserunt atque non unde rem blanditiis quos veritatis suscipit, omnis animi labore nobis delectus eaque."
+				"collapse-header-content": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus cumque maxime, quam commodi doloremque adipisci deserunt atque non unde rem blanditiis quos veritatis suscipit, omnis animi labore nobis delectus eaque.",
+				"collapse-header-buttons": {
+					"button-group-id": "btnGroup",
+					"link-group-items": [
+						{
+							"link-text": "Hjelp meg gjennom prosessen",
+							"link-class": "a-btn mt-1"
+						},
+						{
+							"link-text": "Trinn for trinn uten å logge inn"
+						}
+					]
+				}
 			},
 			{
 				"collapse-header-id": "accordionHeaderItem2",
