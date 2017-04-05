@@ -26,7 +26,8 @@
   setValidatorSettings,
   popoverLocalInit,
   popoverGlobalInit,
-  setupSelectableCheckbox */
+  setupSelectableCheckbox,
+  window */
 
 
 window.sharedInit = function() {
@@ -45,5 +46,6 @@ window.sharedInit = function() {
   popoverLocalInit();
   popoverGlobalInit();
   setupSelectableCheckbox();
+  window.altinnModal.init();
 };
 window.sharedInit();

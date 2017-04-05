@@ -1,167 +1,92 @@
 /* globals currentRequest, popoverLocalInit */
-var closeModal = function(target) {
-  $('body').removeClass('a-modal-background-error');
-  $('body').removeClass('a-modal-background-success');
-  $(target).modal('hide');
-  $('body').append($('.a-stickyHelp-container'));
-};
-
-var loadModal = function(url, target) {
-  var currentRequest = $.ajax({
-    url: url,
-    beforeSend: function() {
-      if (typeof currentRequest !== 'undefined') {
-        currentRequest.abort();
-      }
-    }
-  }).always(function() {
-    // TODO: Set loading screen / spinner
-  }).done(function(data) {
-    var modalPage = $('<div/>', {
-      class: 'modalPage',
-      html: data
-    });
-    var page = $('<div/>', {
-      class: 'a-page a-current-page',
-      data: {
-        'page-index': 1
-      },
-      html: modalPage
-    });
-
-    // TODO: Remove loading screen
-
-    // if (navigator.userAgent.match(/iPhone|iPad|iPod/i)) {
-    //   goToModalHeader();
-    // }
-
-    $(target + ' .a-modal-content-target').append(page);
-
-    // Initialize with backdrop: static to prevent modal from closing when clicking outside,
-    // and keyboard: false to prevent ESC from closing the modal
-    $(target).modal({
-      backdrop: 'static',
-      keyboard: false
-    });
-
-    $(target).on('hidden.bs.modal', function() {
-      $(target + ' .a-modal-content-target').empty();
-      $(target).attr('aria-hidden', true);
-    });
-
-    $(target).on('shown.bs.modal', function() {
-      $(target).removeAttr('aria-hidden');
-    });
-    popoverLocalInit();
-
-    $(target).on('transitionend', function() {
-      $(target).append($('.a-stickyHelp-container'));
-    });
-  });
-};
-
-var nextModalPageWithContent = function(target, isSuccess, isError, content, clearHistory) {
-  var current;
-  var modalPage = $('<div/>', {
-    class: 'modalPage',
-    html: content
-  });
-
-  var existingPages;
-  var newPage;
-  var newPageIndex;
-
-  existingPages = $(target + ' :data(page-index)');
-
-  if (clearHistory) {
-    newPageIndex = 1;
-  } else {
-    newPageIndex = existingPages.length;
-  }
-
-  newPage = $('<div/>', {
-    class: 'a-page a-next-page',
-    data: {
-      'page-index': newPageIndex,
-      'is-success': isSuccess,
-      'is-error': isError
-    },
-    html: modalPage
-  });
-
-  // if (navigator.userAgent.match(/iPhone|iPad|iPod/i)) {
-  //   goToModalHeader();
-  // }
-
-  $(target + ' .a-modal-content-target').append(newPage);
-
-  $(target).animate({
-    scrollTop: 0
-  }, 20);
-
-  current = $(target + ' .a-current-page');
-
-  setTimeout(function() {
+window.altinnModal = {
+  closeModal: function(settings) {
     $('body').removeClass('a-modal-background-error');
     $('body').removeClass('a-modal-background-success');
+    $(settings.target).modal('hide');
+    $('body').append($('.a-stickyHelp-container'));
+  },
 
-    current.removeClass('a-current-page').addClass('a-previous-page');
-    newPage.removeClass('a-next-page').addClass('a-current-page');
-
-    if (isError) {
-      $('body').addClass('a-modal-background-error');
-    } else if (isSuccess) {
-      $('body').addClass('a-modal-background-success');
-    }
-  }, 0);
-
-  current.on('transitionend', function() {
-    if (clearHistory) {
-      $(target + ' :data(page-index)').not('.a-current-page').remove();
-    } else {
-      current.hide().off();
-    }
-  });
-
-  popoverLocalInit();
-};
-
-var nextModalPage = function(url, target, isSuccess, isError, clearHistory) {
-  var currentRequest = $.ajax({
-    url: url,
-    beforeSend: function() {
-      if (typeof currentRequest !== 'undefined') {
-        currentRequest.abort();
+  loadModal: function(settings) {
+    var currentRequest = $.ajax({
+      url: settings.url,
+      beforeSend: function() {
+        if (typeof currentRequest !== 'undefined') {
+          currentRequest.abort();
+        }
       }
-    }
-  }).always(function() {
-    // TODO: Set loading screen / spinner
-  }).done(function(data) {
-    // TODO: Remove loading screen
+    }).always(function() {
+      // TODO: Set loading screen / spinner
+    }).done(function(data) {
+      var modalPage = $('<div/>', {
+        class: 'modalPage',
+        html: data
+      });
+      var page = $('<div/>', {
+        class: 'a-page a-current-page',
+        data: {
+          'page-index': 1
+        },
+        html: modalPage
+      });
+
+      // TODO: Remove loading screen
+
+      // if (navigator.userAgent.match(/iPhone|iPad|iPod/i)) {
+      //   goToModalHeader();
+      // }
+
+      $(settings.target + ' .a-modal-content-target').append(page);
+      $(settings.target).find('.a-current-page').first().data().enableDirtyPopover = settings.enableDirtyPopover;
+
+      // Initialize with backdrop: static to prevent modal from closing when clicking outside,
+      // and keyboard: false to prevent ESC from closing the modal
+      $(settings.target).modal({
+        backdrop: 'static',
+        keyboard: false
+      });
+
+      $(settings.target).on('hidden.bs.modal', function() {
+        $(settings.target + ' .a-modal-content-target').empty();
+        $(settings.target).attr('aria-hidden', true);
+      });
+
+      $(settings.target).on('shown.bs.modal', function() {
+        $(settings.target).removeAttr('aria-hidden');
+      });
+      popoverLocalInit();
+
+      $(settings.target).on('transitionend', function() {
+        $(settings.target).append($('.a-stickyHelp-container'));
+      });
+    });
+  },
+
+  nextModalPageWithContent: function(settings) {
     var current;
     var modalPage = $('<div/>', {
       class: 'modalPage',
-      html: data
+      html: settings.content
     });
 
     var existingPages;
     var newPage;
     var newPageIndex;
 
-    existingPages = $(target + ' :data(page-index)');
+    existingPages = $(settings.target + ' :data(page-index)');
 
-    if (clearHistory) {
+    if (settings.clearHistory) {
       newPageIndex = 1;
     } else {
-      newPageIndex = existingPages.length;
+      newPageIndex = existingPages.length + 1;
     }
 
     newPage = $('<div/>', {
       class: 'a-page a-next-page',
       data: {
         'page-index': newPageIndex,
-        'is-success': isSuccess,
-        'is-error': isError
+        'is-success': settings.isSuccess,
+        'is-error': settings.isError
       },
       html: modalPage
     });
@@ -170,13 +95,13 @@ var nextModalPage = function(url, target, isSuccess, isError, clearHistory) {
     //   goToModalHeader();
     // }
 
-    $(target + ' .a-modal-content-target').append(newPage);
+    $(settings.target + ' .a-modal-content-target').append(newPage);
 
-    $(target).animate({
+    $(settings.target).animate({
       scrollTop: 0
     }, 20);
 
-    current = $(target + ' .a-current-page');
+    current = $(settings.target + ' .a-current-page');
 
     setTimeout(function() {
       $('body').removeClass('a-modal-background-error');
@@ -184,6 +109,148 @@ var nextModalPage = function(url, target, isSuccess, isError, clearHistory) {
 
       current.removeClass('a-current-page').addClass('a-previous-page');
       newPage.removeClass('a-next-page').addClass('a-current-page');
+      $(newPage).data().enableDirtyPopover = settings.enableDirtyPopover;
+
+      if (settings.isError) {
+        $('body').addClass('a-modal-background-error');
+      } else if (settings.isSuccess) {
+        $('body').addClass('a-modal-background-success');
+      }
+    }, 0);
+
+    current.on('transitionend', function() {
+      if (settings.clearHistory) {
+        $(settings.target + ' :data(page-index)').not('.a-current-page').remove();
+      } else {
+        current.hide().off();
+      }
+    });
+
+    popoverLocalInit();
+  },
+
+  nextModalPage: function(settings) {
+    var currentRequest = $.ajax({
+      url: settings.url,
+      beforeSend: function() {
+        if (typeof currentRequest !== 'undefined') {
+          currentRequest.abort();
+        }
+      }
+    }).always(function() {
+      // TODO: Set loading screen / spinner
+    }).done(function(data) {
+      // TODO: Remove loading screen
+      var current;
+      var modalPage = $('<div/>', {
+        class: 'modalPage',
+        html: data
+      });
+
+      var existingPages;
+      var newPage;
+      var newPageIndex;
+
+      existingPages = $(settings.target + ' :data(page-index)');
+
+      if (settings.clearHistory) {
+        newPageIndex = 1;
+      } else {
+        newPageIndex = existingPages.length + 1;
+      }
+
+      newPage = $('<div/>', {
+        class: 'a-page a-next-page',
+        data: {
+          'page-index': newPageIndex,
+          'is-success': settings.isSuccess,
+          'is-error': settings.isError
+        },
+        html: modalPage
+      });
+
+      // if (navigator.userAgent.match(/iPhone|iPad|iPod/i)) {
+      //   goToModalHeader();
+      // }
+
+      $(settings.target + ' .a-modal-content-target').append(newPage);
+
+      $(settings.target).animate({
+        scrollTop: 0
+      }, 20);
+
+      current = $(settings.target + ' .a-current-page');
+
+      setTimeout(function() {
+        $('body').removeClass('a-modal-background-error');
+        $('body').removeClass('a-modal-background-success');
+
+        current.removeClass('a-current-page').addClass('a-previous-page');
+        newPage.removeClass('a-next-page').addClass('a-current-page');
+        $(newPage).data().enableDirtyPopover = settings.enableDirtyPopover;
+
+        if (settings.isError) {
+          $('body').addClass('a-modal-background-error');
+        } else if (settings.isSuccess) {
+          $('body').addClass('a-modal-background-success');
+        }
+      }, 0);
+
+      current.on('transitionend', function() {
+        if (settings.clearHistory) {
+          $(settings.target + ' :data(page-index)').not('.a-current-page').remove();
+        } else {
+          current.hide().off();
+        }
+      });
+
+      popoverLocalInit();
+    });
+  },
+
+  previousModalPage: function(settings) {
+    var current;
+    var allPages;
+    var previous;
+    var pagesToPop;
+    var isError;
+    var isSuccess;
+
+    if (!settings.pagesToPop) {
+      pagesToPop = 1;
+    } else {
+      pagesToPop = settings.pagesToPop;
+    }
+
+    if ($(settings.target + ' .a-current-page').data('page-index') - pagesToPop <= 0) {
+      $('body').removeClass('a-modal-background-error');
+      $('body').removeClass('a-modal-background-success');
+      $(settings.target).modal('hide');
+      return;
+    }
+
+    current = $(settings.target + ' .a-current-page');
+    allPages = $(settings.target + ' :data(page-index)');
+    previous = allPages.filter(function() {
+      return $(this).data('page-index') === allPages.length - 1;
+    });
+
+    previous.show();
+    isError = $(previous).data().isError;
+    isSuccess = $(previous).data().isSuccess;
+
+    current.addClass('a-next-page');
+    current.removeClass('a-current-page');
+
+    // if (navigator.userAgent.match(/iPhone|iPad|iPod/i)) {
+    //   goToModalHeader();
+    // }
+
+    setTimeout(function() {
+      $('body').removeClass('a-modal-background-error');
+      $('body').removeClass('a-modal-background-success');
+
+      previous.addClass('a-current-page').removeClass('a-previous-page');
 
       if (isError) {
         $('body').addClass('a-modal-background-error');
@@ -193,86 +260,76 @@ var nextModalPage = function(url, target, isSuccess, isError, clearHistory) {
     }, 0);
 
     current.on('transitionend', function() {
-      if (clearHistory) {
-        $(target + ' :data(page-index)').not('.a-current-page').remove();
-      } else {
-        current.hide().off();
+      var previousPages = allPages.filter(function() {
+        return $(this).data('page-index') > allPages.length - pagesToPop;
+      });
+      previousPages.remove();
+    });
+  },
+
+  setCurrentPageIsDirty: function(target, state) {
+    $(target).find('.a-current-page').first().data().isDirty = state;
+  },
+
+  init: function() {
+    var that = this;
+    $('body').on('click', '[data-toggle="altinn-modal"]', function() {
+      var $source = $(this);
+      if ($source.data().action === 'load') {
+        that.loadModal({
+          url: $source.data().url,
+          target: $source.data().target,
+          enableDirtyPopover: $source.data().enableDirtyPopover
+        });
+      } else if ($source.data().action === 'next') {
+        that.nextModalPage({ url: $source.data().url,
+          target: $source.data().target,
+          isSuccess: $source.data().isSuccess,
+          isError: $source.data().isError,
+          clearHistory: $source.data().clearHistory,
+          enableDirtyPopover: $source.data().enableDirtyPopover });
+      } else if ($source.data().action === 'back') {
+        that.previousModalPage({
+          target: $source.data().target,
+          pagesToPop: $source.data().pages
+        });
+      } else if ($source.data().action === 'close') {
+        that.closeModal({ target: $source.data().target });
       }
     });
 
-    popoverLocalInit();
-  });
-};
-
-var previousModalPage = function(target, pagesToPopParam) {
-  var current;
-  var allPages;
-  var previous;
-  var pagesToPop;
-  var isError;
-  var isSuccess;
-
-  if (!pagesToPopParam) {
-    pagesToPop = 1;
-  } else {
-    pagesToPop = pagesToPopParam;
-  }
-
-  if ($(target + ' .a-current-page').data('page-index') - pagesToPop <= 0) {
-    $('body').removeClass('a-modal-background-error');
-    $('body').removeClass('a-modal-background-success');
-    $(target).modal('hide');
-    return;
-  }
-
-  current = $(target + ' .a-current-page');
-  allPages = $(target + ' :data(page-index)');
-  previous = allPages.filter(function() {
-    return $(this).data('page-index') === allPages.length - pagesToPop;
-  });
-
-  previous.show();
-  isError = $(previous).data().isError;
-  isSuccess = $(previous).data().isSuccess;
-
-  current.addClass('a-next-page');
-  current.removeClass('a-current-page');
-
-  // if (navigator.userAgent.match(/iPhone|iPad|iPod/i)) {
-  //   goToModalHeader();
-  // }
-
-  setTimeout(function() {
-    $('body').removeClass('a-modal-background-error');
-    $('body').removeClass('a-modal-background-success');
-
-    previous.addClass('a-current-page').removeClass('a-previous-page');
-
-    if (isError) {
-      $('body').addClass('a-modal-background-error');
-    } else if (isSuccess) {
-      $('body').addClass('a-modal-background-success');
-    }
-  }, 0);
-
-  current.on('transitionend', function() {
-    var previousPages = allPages.filter(function() {
-      return $(this).data('page-index') > allPages.length - pagesToPop;
+    $('body').on('click', '.a-modal-back', function() {
+      var $modal = $(this).closest('.a-modal');
+      if ($modal.find('.a-current-page').first().data().enableDirtyPopover
+        && $modal.find('.a-current-page').first().data().isDirty) {
+        $(this).popover('show');
+      } else {
+        that.previousModalPage({ target: '#' + $modal[0].id });
+      }
     });
-    previousPages.remove();
-  });
-};
 
-$('body').on('click', '[data-toggle="altinn-modal"]', function() {
-  var $source = $(this);
-  if ($source[0].dataset.action === 'load') {
-    loadModal($source[0].dataset.url, $source[0].dataset.target);
-  } else if ($source[0].dataset.action === 'next') {
-    nextModalPage($source[0].dataset.url, $source[0].dataset.target,
-      $source[0].dataset.isSuccess, $source[0].dataset.isError, $source[0].dataset.clearHistory);
-  } else if ($source[0].dataset.action === 'back') {
-    previousModalPage($source[0].dataset.target, $source[0].dataset.pages);
-  } else if ($source[0].dataset.action === 'close') {
-    closeModal($source[0].dataset.target);
+    $('body').on('click', '.a-modal-close', function() {
+      var $modal = $(this).closest('.a-modal');
+      if ($modal.find('.a-current-page').first().data().enableDirtyPopover
+        && $modal.find('.a-current-page').first().data().isDirty) {
+        $(this).popover('show');
+      } else {
+        that.closeModal({ target: '#' + $modal[0].id });
+      }
+    });
+
+    $('body').on('click', '.a-js-modal-dirtyBackBtn', function() {
+      window.altinnModal.previousModalPage({ target: '#' + $(this).closest('.a-modal')[0].id });
+      $('button[aria-describedby=' + $(this).parent().parent().attr('id') + ']').popover('hide');
+    });
+
+    $('body').on('click', '.a-js-modal-dirtyCancelBtn', function() {
+      $('button[aria-describedby=' + $(this).parent().parent().attr('id') + ']').popover('hide');
+    });
+
+    $('body').on('click', '.a-js-modal-dirtyCloseBtn', function() {
+      window.altinnModal.closeModal({ target: '#' + $(this).closest('.a-modal')[0].id });
+      $('button[aria-describedby=' + $(this).parent().parent().attr('id') + ']').popover('hide');
+    });
   }
-});
+};
