@@ -53,8 +53,11 @@
     @extend .a-fontSizeS;
   }
 
-  > p {
+  p {
+    @extend .a-fontSizeS;
+  }
 
+  >p {
     a {
       position: relative;
       z-index: 1;
@@ -111,12 +114,17 @@
       @extend .a-fontSizeS;
       margin: 0 0 36px 0;
 
-      @include media-breakpoint-up( md ) {
-        margin: 0 0 36px -40px;
+      @include media-breakpoint-up( lg ) {
+        margin-left: -42px;
       }
 
       li {
         margin-bottom: $spacer * 2;
+        padding-left: 42px;
+
+        &::before {
+          margin-left: -42px;
+        }
       }
     }
 
