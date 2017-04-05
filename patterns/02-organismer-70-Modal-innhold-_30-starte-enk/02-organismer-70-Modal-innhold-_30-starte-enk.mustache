@@ -1,0 +1,163 @@
+<!-- START: 02-organismer-70-Modal-innhold-_30-starte-enk -->
+<!-- Modal -->
+<span class="a-scene a-page">
+  <div class="a-modal {{ bodyClass }}" id="{{ modal-id }}" tabindex="-1" role="dialog" aria-labelledby="{{ modal-label }}" aria-hidden="true">
+    <div class="modal-dialog modal-lg" role="document">
+
+      <div class="container">
+        <div class="row">
+          <div class="col-md-12">
+
+            <!-- Modal Header -->
+              {{> molekyler-modal-header }}
+            <!-- END Modal Header -->
+
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-xl-10 offset-xl-1">
+
+            <!-- Modal NavBar -->
+            {{> molekyler-modal-navbar }}
+            <!-- END Modal NavBar -->
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-xl-10 offset-xl-1">
+
+            <!-- Modal window -->
+            <span class="a-right-panel a-page a-scene-element {{ animationClass }}">
+
+              <div class="modal-content">
+
+                <!-- Modal Body header -->
+                {{> molekyler-modal-body-header }}
+
+                <!-- Modal Body content -->
+                <div class="modal-body a-modal-body">
+
+                  <!-- TITLE -->
+                  {{# modal-title }}
+                    {{> atomer-seksjonstittel:mb-2 }}
+                  {{/ modal-title }}
+
+                  <!-- INTROTEKST -->
+                  {{# modal-lead }}
+                    {{> atomer-intro-tekst }}
+                  {{/ modal-lead }}
+
+                  <!-- BUTTON -->
+                  {{# modal-lonelyButtons }}
+                    <div class="a-btn-group mt-2 hei">
+
+                      {{# modal-nextbutton }}
+                        {{> atomer-link }}
+                      {{/ modal-nextbutton }}
+
+                      {{# modal-discard }}
+                        {{> atomer-link }}
+                      {{/ modal-discard }}
+
+                    </div>
+                  {{/ modal-lonelyButtons }}
+
+                  <!-- INPUT: OWNER INFO -->
+                  {{# modal-input-owner }}
+                    {{> organismer-skjema-innehaver }}
+                  {{/ modal-input-owner }}
+
+
+                  <!-- *********************** --->
+                  <!-- OLD INPUT: ORG NAME REMOVE--->
+                  <!-- *********************** --->
+                  {{# modal-input-orgName-Old }}
+                    {{> atomer-tekst-input }}
+                  {{/ modal-input-orgName-Old }}
+                  <div class="a-btn-group mt-2">
+                    {{# modal-nextbutton-Old }}
+                      {{> atomer-knapp }}
+                    {{/ modal-nextbutton-Old }}
+                    {{# modal-successbutton-Old }}
+                      {{> atomer-knapp }}
+                    {{/ modal-successbutton-Old }}
+                    {{# modal-deactivated-Old }}
+                      {{> atomer-knapp }}
+                    {{/ modal-deactivated-Old }}
+                    {{# modal-discard-Old }}
+                      {{> atomer-knapp }}
+                    {{/ modal-discard-Old }}
+                  </div>
+                  <!-- *********************** --->
+                  <!-- END OLD INPUT: ORG NAME REMOVE--->
+                  <!-- *********************** --->
+
+
+
+
+
+                  <!-- FIND INDUSTY CODE -->
+
+                    <!-- INPUT: KEYWORD -->
+                    {{# modal-input-keyword }}
+                      {{> atomer-tekst-input }}
+                    {{/ modal-input-keyword }}
+
+                    <!-- LOADER -->
+                    {{# modal-loader }}
+                      {{> atomer-laster-inn }}
+                    {{/ modal-loader }}
+
+                    <!-- IF NO RESULTS -->
+                    {{# modal-empty }}
+                      {{> atomer-avsnitt }}
+                    {{/ modal-empty }}
+
+                    <!-- INPUT: CATEGORY -->
+                    {{# modal-chooseCategory }}
+                      {{> organismer-skjema-radio }}
+                    {{/ modal-chooseCategory }}
+
+                  <!-- END FIND INDUSTY CODE -->
+
+                  <!-- INPUT: DESCRIPTION -->
+                  {{# modal-input-description }}
+                     {{> organismer-skjema-beskrivelse }}
+                  {{/ modal-input-description }}
+
+                  <!-- INPUT: ADRESS -->
+                  {{# modal-input-adress }}
+                    {{> organismer-adresse }}
+                  {{/ modal-input-adress }}
+
+                  <!-- INPUT: DATE -->
+                  {{# modal-date }}
+                    {{> organismer-dato }}
+                  {{/ modal-date }}
+
+                  <!-- EXTRA INFO (Footer) -->
+                  {{# modal-extraInfo }}
+                    {{> atomer-liste-unummerert-kuler:mx-1|mt-4|a-bulletList-light }}
+                  {{/ modal-extraInfo }}
+
+                </div><!-- END Modal body -->
+
+              </div><!-- END .modal-Content -->
+
+              {{> atomer-link-hjelpefunksjon }}
+
+            </span>
+<!-- END Modal window -->
+{{> organismer-chat }}
+</div>
+</div>
+
+</div>
+
+
+</div>
+</div>
+</span>
+
+<!-- END: 02-organismer-70-Modal-innhold-_30-starte-enk -->
