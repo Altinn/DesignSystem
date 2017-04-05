@@ -1,10 +1,19 @@
 <div {{# content-id }} id="{{ content-id }}"{{/ content-id }}>
   <div class="a-list-content">
-    {{# sortable-action-text }}
-      <span class="ml-0 ml-md-7">
-        {{ sortable-action-text }}
-      </span>
-    {{/ sortable-action-text }}
+    <div class="row">
+      {{# sortable-action-text }}
+        <div class="col ml-0 ml-md-7">
+          {{ sortable-action-text }}
+        </div>
+      {{/ sortable-action-text }}
+
+      {{# sortable-action-link }}
+        <div class="col-sm-auto col-xs-12 pr-1 pr-md-5">
+          {{> atomer-knapp-ikon-tekst }}
+        </div>
+      {{/ sortable-action-link }}
+    </div>
+
     <div class="text-sm-center mt-1">
       {{# sortable-action-items }}
         {{> atomer-valgknapp}}
