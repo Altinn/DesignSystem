@@ -4,7 +4,8 @@
   genericSearch,
   questionnaireInteraction,
   uniformHeight,
-  articleAnchors
+  articleAnchors,
+  subscribe
 */
 window.infoportalInit = function() {
   colnavCustom();
@@ -13,6 +14,7 @@ window.infoportalInit = function() {
   questionnaireInteraction();
   uniformHeight();
   articleAnchors();
+  subscribe();
 };
 window.infoportalInit();
 // $(document).foundation();

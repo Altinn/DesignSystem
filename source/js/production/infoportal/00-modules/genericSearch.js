@@ -261,14 +261,15 @@ var genericSearch = function() {
                   .show()
                   .find('.badge')
                   .html(_index + 1);
-              });
+              }
+            );
             if ($('.a-js-filterDim' + (index + 1)).find('.a-js-plural')) {
               $('.a-js-filterDim' + (index + 1))
-                .find('.a-js-plural')[index > 0 ? 'show' : 'hide']();
+                .find('.a-js-plural')[selected[dimension].length > 1 ? 'show' : 'hide']();
             }
             if ($('.a-js-filterDim' + (index + 1)).find('.a-js-singular')) {
               $('.a-js-filterDim' + (index + 1))
-                .find('.a-js-singular')[index > 0 ? 'hide' : 'show']();
+                .find('.a-js-singular')[selected[dimension].length > 1 ? 'hide' : 'show']();
             }
           });
           newList.filter(grinder).forEach(function(item, index) {

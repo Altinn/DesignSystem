@@ -1,4 +1,4 @@
-/* globals $, smoothState */
+/* globals $ */
 var switchForm = function() {
   $('[name="js-switchForm"]').each(function(index) {
     $(this).attr(
