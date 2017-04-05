@@ -16,6 +16,7 @@ var closeModal = function(target) {
   $('body').removeClass('a-modal-background-error');
   $('body').removeClass('a-modal-background-success');
   $(target).modal('hide');
+  $('body').append($('.a-stickyHelp-container'));
 };
 
 var loadModal = function(url, target) {
@@ -65,7 +66,10 @@ var loadModal = function(url, target) {
       $(target).removeAttr('aria-hidden');
     });
     popoverLocalInit();
-    $('body').scrollTop(0);
+
+    $(target).on('transitionend', function() {
+      $(target).append($('.a-stickyHelp-container'));
+    });
   });
 };
 
@@ -133,7 +137,6 @@ var nextModalPageWithContent = function(target, isSuccess, isError, content, cle
   });
 
   popoverLocalInit();
-  $('body').scrollTop(0);
 };
 
 var nextModalPage = function(url, target, isSuccess, isError, clearHistory) {
@@ -211,7 +214,6 @@ var nextModalPage = function(url, target, isSuccess, isError, clearHistory) {
     });
 
     popoverLocalInit();
-    $('body').scrollTop(0);
   });
 };
 
@@ -272,7 +274,6 @@ var previousModalPage = function(target, pagesToPopParam) {
     });
     previousPages.remove();
   });
-  $('body').scrollTop(0);
 };
 
 $('body').on('click', '[data-toggle="altinn-modal"]', function() {
@@ -810,7 +811,7 @@ var setValidatorSettings = function() {
 };
 
 /* globals questionnaireInteraction,
-  drilldownInteraction,
+  colnavCustom,
   handleFocus,
   mobileNavigation,
   propagateContent,
@@ -821,7 +822,6 @@ var setValidatorSettings = function() {
   onboarding,
   nameChecker,
   codeLookup,
-  handleValidatorLibrary,
   setupAddRightsHandler,
   onFileInputChange,
   toggleInstant,
