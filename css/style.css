@@ -7464,14 +7464,14 @@ textarea,
       -webkit-font-smoothing: subpixel-antialiased; } }
 
 .a-fontSizeS, h4,
-.a-h4, .a-radioButtons .custom-control .a-radioButtons-title, .a-btn, .a-jumbotron .a-jumbotron-ingress.a-jumbotron-ingress--small, .a-compare-category .a-compare-container p, ul.a-bullet-list li, ul.a-item-list-icon li span, .a-text, .a-text > a, .a-text p, .a-text > ol.a-circle-list {
+.a-h4, .a-radioButtons .custom-control .a-radioButtons-title, .a-btn, .a-jumbotron .a-jumbotron-ingress.a-jumbotron-ingress--small, .a-compare-category .a-compare-container p, ul.a-bullet-list li, ul.a-item-list-icon li span, .a-inboxCompact .a-inboxHeadingContent h3, .a-text, .a-text > a, .a-text p, .a-text > ol.a-circle-list {
   font-size: 16px;
   font-size: 1.6rem;
   line-height: 1.5;
   -webkit-font-smoothing: subpixel-antialiased; }
   @media (min-width: 768px) {
     .a-fontSizeS, h4,
-    .a-h4, .a-radioButtons .custom-control .a-radioButtons-title, .a-btn, .a-jumbotron .a-jumbotron-ingress.a-jumbotron-ingress--small, .a-compare-category .a-compare-container p, ul.a-bullet-list li, ul.a-item-list-icon li span, .a-text, .a-text > a, .a-text p, .a-text > ol.a-circle-list {
+    .a-h4, .a-radioButtons .custom-control .a-radioButtons-title, .a-btn, .a-jumbotron .a-jumbotron-ingress.a-jumbotron-ingress--small, .a-compare-category .a-compare-container p, ul.a-bullet-list li, ul.a-item-list-icon li span, .a-inboxCompact .a-inboxHeadingContent h3, .a-text, .a-text > a, .a-text p, .a-text > ol.a-circle-list {
       font-size: 18px;
       font-size: 1.8rem;
       line-height: 1.5;
@@ -7484,7 +7484,7 @@ textarea,
   -webkit-font-smoothing: subpixel-antialiased; }
 
 .a-fontSizeXXS, .a-label, .a-validatorInfo, .a-header-options .a-languageSwitcher, .a-personSwitcher, .a-dropdown-languages .dropdown-item p,
-.a-dropdown-personswitchList .dropdown-item p, .a-footerExtraNav, .a-footerExtraNav ul li a, .a-iconText.a-iconText-smallLink .a-iconText-text a, .a-box-button .a-box-button-action, .a-box-button .a-box-button-name, .a-autocomplete-container .a-list li {
+.a-dropdown-personswitchList .dropdown-item p, .a-footerExtraNav, .a-footerExtraNav ul li a, .a-iconText.a-iconText-smallLink .a-iconText-text a, .a-box-button .a-box-button-action, .a-box-button .a-box-button-name, .a-autocomplete-container .a-list li, .a-inboxHeadingContent .a-msgDuedate {
   font-size: 14px;
   font-size: 1.4rem;
   line-height: 1.5;
@@ -11611,7 +11611,7 @@ ol {
         position: relative;
         top: 0;
         padding: 5px 9px 4px 9px;
-        margin-right: 6px;
+        margin-right: 10px;
         content: counter(step);
         counter-increment: step;
         border: 2px solid #1EAEF7;
@@ -11929,15 +11929,6 @@ ol {
 
 .a-tabs-content {
   clear: both;
-  background: #FFFFFF; }
-
-.a-bgBlueLight .a-tabs {
-  background: #CFF0FF; }
-
-.a-bgGreyLight .a-tabs {
-  background: #EFEFEF; }
-
-.a-bgWhite .a-tabs {
   background: #FFFFFF; }
 
 /*------------------------------------*    $MESSAGING
@@ -12446,25 +12437,13 @@ a.a-modal-close {
         margin-right: -12px;
         margin-left: -12px; } }
     .a-collapsePanel.expanded .a-collapsePanel-heading {
-      padding: 0 6px;
       background-color: #FFFFFF; }
       @media (min-width: 768px) {
-        .a-collapsePanel.expanded .a-collapsePanel-heading {
-          padding: 0 12px; }
-          .a-collapsePanel.expanded .a-collapsePanel-heading .a-collapseBtn {
-            border-radius: 2px 2px 0 0 !important; } }
-    .a-collapsePanel.expanded .a-collapsePanel-heading,
-    .a-collapsePanel.expanded .a-collapsePanel-body {
-      padding-right: 6px;
-      padding-left: 6px; }
-      @media (min-width: 768px) {
-        .a-collapsePanel.expanded .a-collapsePanel-heading,
-        .a-collapsePanel.expanded .a-collapsePanel-body {
-          padding-right: 12px;
-          padding-left: 12px; } }
-      .a-collapsePanel.expanded .a-collapsePanel-heading.no-background,
-      .a-collapsePanel.expanded .a-collapsePanel-body.no-background {
-        padding: 0; }
+        .a-collapsePanel.expanded .a-collapsePanel-heading .a-collapseBtn {
+          border-radius: 2px 2px 0 0 !important; } }
+    .a-collapsePanel.expanded .a-collapsePanel-heading.no-background,
+    .a-collapsePanel.expanded .a-collapsePanel-body.no-background {
+      padding: 0; }
 
 .a-collapsePanel,
 .a-collapsePanel-body,
@@ -12682,6 +12661,136 @@ a.a-modal-close {
     padding: 21px 0 18px 0;
     border-top: 1px solid #A5BCC4; }
 
+/*------------------------------------*    Inbox
+\*------------------------------------*/
+.a-inboxHeadingContent {
+  height: auto !important;
+  height: 84px;
+  min-height: 84px;
+  padding-right: 24px;
+  margin-right: 0;
+  margin-left: 0;
+  -ms-flex-align: stretch;
+  align-items: stretch;
+  /** compact view */
+  /** different message states */ }
+  .a-inboxHeadingContent .a-msgIconWrapper {
+    display: -ms-flexbox;
+    display: flex;
+    width: 48px;
+    height: auto !important;
+    height: 84px;
+    min-height: 84px;
+    color: #6A6A6A;
+    -ms-flex-pack: center;
+    justify-content: center;
+    -ms-flex-align: center;
+    align-items: center; }
+    .a-inboxHeadingContent .a-msgIconWrapper .a-msgIconSecondary {
+      display: none; }
+    @media (min-width: 768px) {
+      .a-inboxHeadingContent .a-msgIconWrapper {
+        width: 84px; } }
+  .a-inboxHeadingContent .a-msgDuedate {
+    margin-right: 24px;
+    -ms-flex-item-align: center;
+    -ms-grid-row-align: center;
+    align-self: center; }
+  .a-inboxHeadingContent .a-msgHeadingTextContainer {
+    display: -ms-flexbox;
+    display: flex;
+    padding: 12px 0 12px 12px;
+    -ms-flex-item-align: center;
+    align-self: center; }
+    @media (min-width: 768px) {
+      .a-inboxHeadingContent .a-msgHeadingTextContainer {
+        padding-right: 24px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap; } }
+    @media (min-width: 768px) {
+      .a-inboxHeadingContent .a-msgHeadingTextContainer div,
+      .a-inboxHeadingContent .a-msgHeadingTextContainer h3 {
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap; } }
+    .a-inboxHeadingContent .a-msgHeadingTextContainer h3 {
+      font-family: "DIN-medium";
+      font-weight: normal; }
+      @media (min-width: 768px) {
+        .a-inboxHeadingContent .a-msgHeadingTextContainer h3 {
+          font-family: "DIN-reg";
+          font-weight: normal; } }
+    .a-inboxHeadingContent .a-msgHeadingTextContainer .a-msgDuedate {
+      margin-right: 24px; }
+  .a-inboxHeadingContent .a-msgDuedateIcon {
+    margin-right: 12px;
+    color: #E23B53;
+    -ms-flex-item-align: center;
+    -ms-grid-row-align: center;
+    align-self: center; }
+  .a-inboxHeadingContent .a-msgShortcutsContainer {
+    display: -ms-flexbox;
+    display: flex;
+    margin-right: 12px;
+    -ms-flex-item-align: center;
+    align-self: center; }
+    .a-inboxHeadingContent .a-msgShortcutsContainer .a-btn-icon {
+      min-width: 36px;
+      min-height: 36px;
+      padding: 0;
+      margin-bottom: 0;
+      color: #6A6A6A;
+      -ms-flex-pack: center;
+      justify-content: center; }
+      .a-inboxHeadingContent .a-msgShortcutsContainer .a-btn-icon:hover, .a-inboxHeadingContent .a-msgShortcutsContainer .a-btn-icon:focus, .a-inboxHeadingContent .a-msgShortcutsContainer .a-btn-icon:active {
+        color: #1EAEF7; }
+      .a-inboxHeadingContent .a-msgShortcutsContainer .a-btn-icon:not(:last-child) {
+        margin-right: 2px; }
+      .a-inboxHeadingContent .a-msgShortcutsContainer .a-btn-icon i {
+        width: 100%;
+        margin-right: auto;
+        margin-left: auto; }
+  .a-inboxCompact .a-inboxHeadingContent {
+    height: auto !important;
+    height: 72px;
+    min-height: 72px; }
+    .a-inboxCompact .a-inboxHeadingContent .a-msgIconWrapper {
+      width: 48px;
+      height: auto !important;
+      height: 72px;
+      min-height: 72px; }
+      @media (min-width: 768px) {
+        .a-inboxCompact .a-inboxHeadingContent .a-msgIconWrapper {
+          width: 72px; } }
+  .expanded .a-inboxHeadingContent .a-msgShortcutsContainer {
+    display: none; }
+  .a-inboxHeadingContent.a-msgUnread .a-msgIconWrapper {
+    color: #FFFFFF;
+    background-color: #1EAEF7; }
+  .a-inboxHeadingContent.a-msgUnread .a-msgTitle {
+    font-family: "DIN-bold";
+    font-weight: normal; }
+  .expanded .a-inboxHeadingContent.a-msgUnread .a-msgIconWrapper {
+    color: #1EAEF7;
+    background-color: transparent; }
+  .a-inboxHeadingContent.a-msgUrgent .a-msgIconWrapper {
+    color: #FFFFFF;
+    background-color: #E23B53; }
+  .a-inboxHeadingContent.a-msgUrgent .a-msgDuedate {
+    color: #E23B53; }
+  .expanded .a-inboxHeadingContent.a-msgUrgent .a-msgIconWrapper {
+    color: #E23B53;
+    background-color: transparent; }
+  .a-inboxHeadingContent.a-msgWaiting {
+    background-image: url("../images/disabled-background.svg");
+    background-repeat: repeat;
+    background-size: auto;
+    box-shadow: 0 0 0 1px #FFFFFF inset; }
+  .a-inboxHeadingContent.a-msgForwarded .a-btn-icon:nth-child(2) {
+    background-color: #FBF6BD;
+    border-radius: 50%; }
+
 /*------------------------------------*    $PROGRESS
 \*------------------------------------*/
 .a-progress-bg {
@@ -12794,8 +12903,8 @@ a.a-modal-close {
     .a-text > ol.a-circle-list {
       margin-left: -42px; } }
   .a-text > ol.a-circle-list li {
-    margin-bottom: 24px;
-    padding-left: 42px; }
+    padding-left: 42px;
+    margin-bottom: 24px; }
     .a-text > ol.a-circle-list li::before {
       margin-left: -42px; }
 
@@ -14166,14 +14275,14 @@ textarea,
       -webkit-font-smoothing: subpixel-antialiased; } }
 
 .a-fontSizeS, h4,
-.a-h4, .a-radioButtons .custom-control .a-radioButtons-title, .a-btn, .a-jumbotron .a-jumbotron-ingress.a-jumbotron-ingress--small, .a-compare-category .a-compare-container p, ul.a-bullet-list li, ul.a-item-list-icon li span, .a-text, .a-text > a, .a-text p, .a-text > ol.a-circle-list {
+.a-h4, .a-radioButtons .custom-control .a-radioButtons-title, .a-btn, .a-jumbotron .a-jumbotron-ingress.a-jumbotron-ingress--small, .a-compare-category .a-compare-container p, ul.a-bullet-list li, ul.a-item-list-icon li span, .a-inboxCompact .a-inboxHeadingContent h3, .a-text, .a-text > a, .a-text p, .a-text > ol.a-circle-list {
   font-size: 16px;
   font-size: 1.6rem;
   line-height: 1.5;
   -webkit-font-smoothing: subpixel-antialiased; }
   @media (min-width: 768px) {
     .a-fontSizeS, h4,
-    .a-h4, .a-radioButtons .custom-control .a-radioButtons-title, .a-btn, .a-jumbotron .a-jumbotron-ingress.a-jumbotron-ingress--small, .a-compare-category .a-compare-container p, ul.a-bullet-list li, ul.a-item-list-icon li span, .a-text, .a-text > a, .a-text p, .a-text > ol.a-circle-list {
+    .a-h4, .a-radioButtons .custom-control .a-radioButtons-title, .a-btn, .a-jumbotron .a-jumbotron-ingress.a-jumbotron-ingress--small, .a-compare-category .a-compare-container p, ul.a-bullet-list li, ul.a-item-list-icon li span, .a-inboxCompact .a-inboxHeadingContent h3, .a-text, .a-text > a, .a-text p, .a-text > ol.a-circle-list {
       font-size: 18px;
       font-size: 1.8rem;
       line-height: 1.5;
@@ -14186,7 +14295,7 @@ textarea,
   -webkit-font-smoothing: subpixel-antialiased; }
 
 .a-fontSizeXXS, .a-label, .a-validatorInfo, .a-header-options .a-languageSwitcher, .a-personSwitcher, .a-dropdown-languages .dropdown-item p,
-.a-dropdown-personswitchList .dropdown-item p, .a-footerExtraNav, .a-footerExtraNav ul li a, .a-iconText.a-iconText-smallLink .a-iconText-text a, .a-box-button .a-box-button-action, .a-box-button .a-box-button-name, .a-autocomplete-container .a-list li {
+.a-dropdown-personswitchList .dropdown-item p, .a-footerExtraNav, .a-footerExtraNav ul li a, .a-iconText.a-iconText-smallLink .a-iconText-text a, .a-box-button .a-box-button-action, .a-box-button .a-box-button-name, .a-autocomplete-container .a-list li, .a-inboxHeadingContent .a-msgDuedate {
   font-size: 14px;
   font-size: 1.4rem;
   line-height: 1.5;

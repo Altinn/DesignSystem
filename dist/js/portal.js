@@ -329,7 +329,7 @@ var compareTo = function(firstItem, secondItem) {
   return 0;
 };
 
-/* globals $, smoothState */
+/* globals $ */
 var feedbackToggle = function() {
   if ($('.a-js-feedbackToggle').length > 0) {
     $('.a-js-feedbackToggle').closest('fieldset').next().hide();
@@ -705,6 +705,32 @@ var setupSelectableCheckbox = function() {
   });
 };
 
+var setupTruncateLines = function() {
+  setTimeout(function() {
+    // Intit with 3 lines instead of 2 for IE11
+    if (!!window.MSInputMethodContext
+      && !!document.documentMode
+      && window.innerWidth < 768) {
+      $('.a-js-truncate-2-sm-down').truncate({
+        lines: 3
+      });
+    } else {
+      $('.a-js-truncate-2-sm-down').truncate({
+        lines: 2
+      });
+    }
+  }, 1);
+
+  $(window).resize(function() {
+    if (window.innerWidth < 768) {
+      $('.a-js-truncate-2-sm-down').truncate('collapse');
+      $('.a-js-truncate-2-sm-down').truncate('update');
+    } else {
+      $('.a-js-truncate-2-sm-down').truncate('expand');
+    }
+  });
+};
+
 function showPassword(src, target) {
   var pwd = $('#' + target);
   if (pwd.attr('type') === 'text') {
@@ -768,6 +794,18 @@ $('.a-collapsePanel-body').on('show.bs.collapse', function() {
   var that = this;
   setTimeout(function() {
     var $collapsePanelHeader = $(that).siblings('.a-js-index-heading').first();
+    var $msgIconWrapper = $collapsePanelHeader.find('.a-inboxHeadingContent')
+    .find('.a-msgIconSecondary')
+    .closest('.a-msgIconWrapper');
+
+    $msgIconWrapper.find('.ai')
+      .hide()
+      .siblings('.a-msgIconSecondary')
+      .show();
+
+    $msgIconWrapper.find('span').attr('aria-hidden', true);
+    $msgIconWrapper.find('span:last-of-type').removeAttr('aria-hidden');
+
     $('.a-collapsePanel').removeClass('expanded');
     $(that).closest('.a-collapsePanel').addClass('expanded');
     $('.a-js-index-heading').addClass('dim');
@@ -779,6 +817,7 @@ $('.a-collapsePanel-body').on('hide.bs.collapse', function() {
   var that = this;
   setTimeout(function() {
     var $collapsePanelHeader = $(that).siblings('.a-js-index-heading').first();
+    $collapsePanelHeader.find('.a-inboxHeadingContent').removeClass('a-msgUnread');
     $(that).closest('.a-collapsePanel').removeClass('expanded');
     if ($('.a-collapsePanel.expanded').length === 0) {
       $('.a-js-index-heading').removeClass('dim');
@@ -837,7 +876,8 @@ var setValidatorSettings = function() {
   setValidatorSettings,
   popoverLocalInit,
   popoverGlobalInit,
-  setupSelectableCheckbox */
+  setupSelectableCheckbox,
+  setupTruncateLines */
 
 
 window.sharedInit = function() {
@@ -856,7 +896,9 @@ window.sharedInit = function() {
   popoverLocalInit();
   popoverGlobalInit();
   setupSelectableCheckbox();
+  setupTruncateLines();
 };
+
 window.sharedInit();
 
 var cardsToggle = function() {
