@@ -7943,9 +7943,16 @@ blockquote::before, blockquote::after {
   content: ''; }
 
 .a-illustrationLink h2 {
-  font-family: "DIN-medium";
+  font-family: "DIN-bold";
   font-weight: normal;
   text-align: center; }
+
+.a-illustrationLink p {
+  min-height: 48px;
+  text-align: center; }
+
+.a-illustrationLink:hover .a-illustration-icon {
+  background: #1EAEF7; }
 
 .a-illustration-icon {
   font-size: 36px;
@@ -7954,12 +7961,12 @@ blockquote::before, blockquote::after {
   -webkit-font-smoothing: subpixel-antialiased;
   display: -ms-flexbox;
   display: flex;
-  width: 140px;
-  height: 140px;
+  width: 170px;
+  height: 170px;
   margin: auto;
   color: #FFFFFF;
   text-align: center;
-  background: #1EAEF7;
+  background: #3F3161;
   border-radius: 50%;
   -ms-flex-item-align: center;
   align-self: center; }
@@ -9074,16 +9081,8 @@ textarea {
     justify-content: center; }
     @media (min-width: 768px) {
       .a-personSwitcher .a-personSwitcher-icon {
-        font-size: 18px;
-        font-size: 1.8rem;
-        line-height: 1.5;
-        -webkit-font-smoothing: subpixel-antialiased;
         margin-top: 0; } }
     .a-personSwitcher .a-personSwitcher-icon::before {
-      font-size: 18px;
-      font-size: 1.8rem;
-      line-height: 1.5;
-      -webkit-font-smoothing: subpixel-antialiased;
       -ms-flex-item-align: center;
       -ms-grid-row-align: center;
       align-self: center; }
@@ -11009,6 +11008,11 @@ i.a-dimmed {
     background-image: linear-gradient(to right, #FFFFFF 50%, transparent 0%); }
   .a-jumbotron-dark .a-dotted {
     background-image: linear-gradient(to right, #FFFFFF 50%, transparent 0%); }
+  .a-jumbotron-dark .a-list.a-list-borderTop li:first-child {
+    background-image: linear-gradient(to right, #FFFFFF 50%, transparent 0%), linear-gradient(to right, #FFFFFF 50%, transparent 0%);
+    background-repeat: repeat-x;
+    background-position: 25px top, 25px bottom;
+    background-size: 4px 2px; }
   .a-jumbotron-dark .a-listItem-title:focus {
     background-color: rgba(255, 255, 255, 0.1); }
   .a-jumbotron-dark .a-clickable a:hover:not(.a-expanded):not(.a-deleted):not(.a-completed), .a-jumbotron-dark .a-clickable a:active:not(.a-expanded):not(.a-deleted):not(.a-completed), .a-jumbotron-dark .a-clickable a:focus:not(.a-expanded):not(.a-deleted):not(.a-completed),
@@ -12232,6 +12236,8 @@ body.modal-open {
       padding: 36px 96px; } }
   .a-modal-body .a-btn-group {
     margin-top: 36px; }
+  .a-modal-body .a-modal-receiptContent ul {
+    margin: 24px 0 24px 36px; }
 
 .a-modal-close,
 .a-modal-back {
@@ -12568,6 +12574,8 @@ a.a-modal-close {
   justify-content: center;
   -ms-flex-align: center;
   align-items: center; }
+  .a-dropdownCircleArrow i {
+    padding-left: 3px; }
 
 .collapsed .a-dropdownArrow {
   transform: rotate(0deg); }
@@ -13358,58 +13366,58 @@ h1 + .a-byline {
       background-color: #4a3a72;
       border-radius: 0;
       transition: all 400ms cubic-bezier(0.215, 0.61, 0.355, 1); }
-    .a-stickyHelp.show .a-stickyHelp-content {
+    .a-stickyHelp.show .a-stickyHelp-box {
       position: relative;
       background: #FFFFFF;
       box-shadow: 1px 1px 4px 0 rgba(137, 137, 137, 0.5);
       opacity: 1;
       transition: all 200ms ease 400ms; }
-  .a-stickyHelp .a-stickyHelp-content {
+  .a-stickyHelp .a-stickyHelp-box {
     opacity: 0; }
-    .a-stickyHelp .a-stickyHelp-content .a-stickyHelp-header {
+    .a-stickyHelp .a-stickyHelp-box .a-stickyHelp-header {
       position: relative;
       padding: 12px;
       color: #FFFFFF;
       background: #3F3161; }
-      .a-stickyHelp .a-stickyHelp-content .a-stickyHelp-header h2 {
+      .a-stickyHelp .a-stickyHelp-box .a-stickyHelp-header h2 {
         font-family: "DIN-medium";
         font-weight: normal;
         -ms-flex-item-align: center;
         -ms-grid-row-align: center;
         align-self: center; }
-        .a-stickyHelp .a-stickyHelp-content .a-stickyHelp-header h2 i {
+        .a-stickyHelp .a-stickyHelp-box .a-stickyHelp-header h2 i {
           margin-top: -4px; }
-      .a-stickyHelp .a-stickyHelp-content .a-stickyHelp-header .a-modal-close {
+      .a-stickyHelp .a-stickyHelp-box .a-stickyHelp-header .a-modal-close {
         width: 30px;
         height: 30px;
         padding-top: 2px;
         margin-bottom: 0; }
-    .a-stickyHelp .a-stickyHelp-content .a-stickyHelp-search {
+    .a-stickyHelp .a-stickyHelp-box .a-stickyHelp-search {
       padding: 12px 12px 0 12px;
       border-bottom: 1px solid #EFEFEF; }
-    .a-stickyHelp .a-stickyHelp-content .a-stickyHelp-scrollarea {
+    .a-stickyHelp .a-stickyHelp-box .a-stickyHelp-scrollarea {
       max-height: 170px;
       overflow-y: scroll; }
-      .a-stickyHelp .a-stickyHelp-content .a-stickyHelp-scrollarea .a-stickyHelp-questionList li {
+      .a-stickyHelp .a-stickyHelp-box .a-stickyHelp-scrollarea .a-stickyHelp-questionList li {
         border-bottom: 1px solid #EFEFEF; }
-        .a-stickyHelp .a-stickyHelp-content .a-stickyHelp-scrollarea .a-stickyHelp-questionList li a {
+        .a-stickyHelp .a-stickyHelp-box .a-stickyHelp-scrollarea .a-stickyHelp-questionList li a {
           display: block;
           padding: 9px 12px 7px 12px;
           border: none; }
-          .a-stickyHelp .a-stickyHelp-content .a-stickyHelp-scrollarea .a-stickyHelp-questionList li a:hover, .a-stickyHelp .a-stickyHelp-content .a-stickyHelp-scrollarea .a-stickyHelp-questionList li a:focus, .a-stickyHelp .a-stickyHelp-content .a-stickyHelp-scrollarea .a-stickyHelp-questionList li a:active {
+          .a-stickyHelp .a-stickyHelp-box .a-stickyHelp-scrollarea .a-stickyHelp-questionList li a:hover, .a-stickyHelp .a-stickyHelp-box .a-stickyHelp-scrollarea .a-stickyHelp-questionList li a:focus, .a-stickyHelp .a-stickyHelp-box .a-stickyHelp-scrollarea .a-stickyHelp-questionList li a:active {
             background: #F5F5F5; }
-    .a-stickyHelp .a-stickyHelp-content .a-stickyHelp-footerList {
+    .a-stickyHelp .a-stickyHelp-box .a-stickyHelp-footerList {
       width: 100%;
       margin-top: 1px;
       color: #000000;
       background: #EFEFEF; }
-      .a-stickyHelp .a-stickyHelp-content .a-stickyHelp-footerList li {
+      .a-stickyHelp .a-stickyHelp-box .a-stickyHelp-footerList li {
         border-bottom: 1px solid #FFFFFF; }
-        .a-stickyHelp .a-stickyHelp-content .a-stickyHelp-footerList li a {
+        .a-stickyHelp .a-stickyHelp-box .a-stickyHelp-footerList li a {
           display: block;
           padding: 9px 12px 7px 12px;
           border: none; }
-          .a-stickyHelp .a-stickyHelp-content .a-stickyHelp-footerList li a:hover, .a-stickyHelp .a-stickyHelp-content .a-stickyHelp-footerList li a:focus, .a-stickyHelp .a-stickyHelp-content .a-stickyHelp-footerList li a:active {
+          .a-stickyHelp .a-stickyHelp-box .a-stickyHelp-footerList li a:hover, .a-stickyHelp .a-stickyHelp-box .a-stickyHelp-footerList li a:focus, .a-stickyHelp .a-stickyHelp-box .a-stickyHelp-footerList li a:active {
             background: #e2e2e2; }
 
 html {
