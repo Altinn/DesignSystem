@@ -18,12 +18,13 @@
     <li {{# onclick }} onclick="{{{ onclick }}}" {{/ onclick }} class="{{ additional-classes }}" {{# id }}id="{{ id }}" {{/ id }} {{# tabable }} tabindex="0" {{/ tabable }}{{# target-table }} data-target-table="{{ target-table }}" {{/ target-table }}{{# source-table
       }} data-source-table="{{ source-table }}" {{/ source-table }}{{# list-item-role }} role="{{ list-item-role }}" {{/ list-item-role }}>
       {{# isRowLink }}
-      <a href="{{{ rowLink }}}" class="a-list-rowLink" {{# data-toggle }} data-toggle="{{data-toggle}}" {{/ data-toggle }} {{# data-action }} data-action="{{data-action}}" {{/ data-action }} {{# data-url }} data-url="{{{data-url}}}" {{/ data-url }} {{# data-target
-        }} data-target="{{{data-target}}}" {{/ data-target }}>
-        {{/ isRowLink }} {{^ is-checkbox }}
+      <a href="{{{ rowLink }}}" class="a-list-rowLink">
+        {{/ isRowLink }}
+        {{^ is-checkbox }}
         <div class="row">
-          {{/ is-checkbox }} {{# is-checkbox }}
-          <label class="row">
+        {{/ is-checkbox }}
+        {{# is-checkbox }}
+        <label class="row">
         {{/ is-checkbox }}
           {{# columns }}
             {{^ is-checkbox }}<div {{/ is-checkbox }}{{# is-checkbox }} <span {{/ is-checkbox }} {{# additional-classes }}class="{{ additional-classes }}"{{/ additional-classes }}{{# onclick }} onclick="{{{ onclick }}}"{{/ onclick }}{{# searchable }} data-searchable="true" {{/ searchable }}>
@@ -40,16 +41,18 @@
         {{/ is-checkbox }}
         {{# is-checkbox }}
           <input type="checkbox" name="deleteme" class="sr-only a-js-selectable-checkbox" />
-        </label> {{/ is-checkbox }} {{# expandable-section }}
-          <div class="{{ additional-classes }}" {{# id }} id="{{ id }}" {{/ id }} {{# onclick }} onclick="{{{ onclick }}}" {{/ onclick }} aria-expanded="false" role="tabpanel">
-            {{> molekyler-liste-innhold }}
-          </div>
-          {{/ expandable-section }} {{# isRowLink }}
-          </a>
-          {{/ isRowLink }}
-          </li>
-          {{/ rows }}
-          </ul>
-        </div>
+        </label>
+        {{/ is-checkbox }}
+        {{# expandable-section }}
+            <div class="{{ additional-classes }}" {{# id }} id="{{ id }}" {{/ id }} {{# onclick }} onclick="{{{ onclick }}}" {{/ onclick }} aria-expanded="false" role="tabpanel">
+              {{> molekyler-liste-innhold }}
+            </div>
+        {{/ expandable-section }}
+        {{# isRowLink }}
+        </a> {{/ isRowLink }}
+      </li>
+      {{/ rows }}
+      </ul>
+</div>
 
-        <!-- END: 01-molekyler-05-lister-00-liste-unummerert -->
+<!-- END: 01-molekyler-05-lister-00-liste-unummerert -->

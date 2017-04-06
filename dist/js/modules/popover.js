@@ -22,6 +22,7 @@ var popoverLocalInit = function() {
       }
       return false;
     },
+    trigger: 'click',
     template: '<div class="popover" role="tooltip"><div class="popover-arrow"></div><div class="popover-content"></div></div>'
   };
 
