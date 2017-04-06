@@ -79,7 +79,7 @@
 	"button-class": "a-btn a-btn-icon a-btn-shadow",
 	"button-disabled": false,
 	"button-type": "button",
-	"onclick": "location.href='/patterns/04-sider-01-forside-10-aktorvalg/04-sider-01-forside-10-aktorvalg.html'",
+	"onclick": false,
 	"button-icon": {
 		"icon-prefix": "ai",
 		"icon-class": "ai-deadline"
@@ -106,9 +106,9 @@
 			"icon-extra-class": "a-modal-close-icon"
 		}
 	],
-	"login-name": "Logg inn",
+	"login-name": "JAN PETTERSEN",
 	"display-as-dropdown": true,
-	"personlogin-isDropdown": "",
+	"personlogin-isDropdown": "dropdown",
 	"login-icon": {
 		"icon-prefix": "ai",
 		"icon-class": "ai-keyhole",
@@ -401,38 +401,6 @@
 			"column-switches-with-text": false
 		}
 	],
-	"button-group-id": "btnGroup",
-	"button-group-items": [
-		{
-			"button-text": "En standard knapp"
-		},
-		{
-			"button-class": "a-btn a-btn-success",
-			"button-text": "En knapp som antyder suksess"
-		},
-		{
-			"button-class": "a-btn a-btn-danger",
-			"button-text": "En knapp som antyder fare"
-		},
-		{
-			"button-text": "En knapp som er stylet som en lenke, som trenger litt lengre tekst.",
-			"button-class": "a-btn-link",
-			"display-as-link": true
-		}
-	],
-	"link-group-items": [
-		{
-			"link-text": "Intern lenke"
-		},
-		{
-			"link-text": "En lenk som er stylet som en knapp",
-			"link-class": "a-btn mt-1"
-		},
-		{
-			"link-text": "Ekstern lenke",
-			"link-url": "http://www.skatteetaten.no"
-		}
-	],
 	"collapse-header-id": "",
 	"collapse-header-text": "Ekspandérbar Overskrift har mange ord for å teste hvordan det brekker",
 	"data-parent": "accordion",
@@ -459,26 +427,27 @@
 		{
 			"col": "col-6 col-lg-3",
 			"h2": "innlogging",
-			"text": "ID-porten, aktørvalg, mm.",
+			"text": "ID-porten, <br>aktørvalg, mm.",
+			"icon": "ai-keyhole",
+			"url": "/patterns/04-sider-20-navigasjonssider-32-temaside-v-hjelp-innlogging/04-sider-20-navigasjonssider-32-temaside-v-hjelp-innlogging.html"
+		},
+		{
+			"col": "col-6 col-lg-3",
+			"h2": "profil",
+			"text": "Meldinger, filter, <br> videresending, mm.",
+			"icon": "ai-private"
+		},
+		{
+			"col": "col-6 col-lg-3",
+			"h2": "innboks",
+			"text": "Signering, etater, <br>vedlegg, mm.",
 			"icon": "ai-closedmessage"
 		},
 		{
 			"col": "col-6 col-lg-3",
-			"h2": "Profil",
-			"text": "Meldinger, filter, videresending, mm.",
-			"icon": "ai-closedmessage"
-		},
-		{
-			"col": "col-6 col-lg-3",
-			"h2": "Innboks",
-			"text": "Signering, etater, vedlegg, mm.",
-			"icon": "ai-closedmessage"
-		},
-		{
-			"col": "col-6 col-lg-3",
-			"h2": "Skjema",
+			"h2": "skjema",
 			"text": "Kontaktinformasjon, roller, rettigheter, mm.",
-			"icon": "ai-closedmessage"
+			"icon": "ai-document"
 		}
 	],
 	"alert-id": "alert",
@@ -942,10 +911,8 @@
 		"icon-class": "ai-phone"
 	},
 	"title": "Altinn",
-	"bodyClass": "a-bgWhite home",
+	"bodyClass": "a-bgWhite",
 	"header": true,
-	"login-or-switchuser": "Logg inn",
-	"url": "/patterns/04-sider-01-forside-10-aktorvalg/04-sider-01-forside-10-aktorvalg.html",
 	"jumbo-md-class": "col-md-12",
 	"jumbo-lg-class": "col-lg-6",
 	"jumbo-xl-class": "col-xl-6",
@@ -958,7 +925,13 @@
 			{
 				"additional-classes": "a-dotted a-clickable a-list-hasRowLink",
 				"isRowLink": {
-					"rowLink": "/patterns/04-sider-30-artikkel-42-artikkel-jumbo-v-velg-foretaksform/04-sider-30-artikkel-42-artikkel-jumbo-v-velg-foretaksform.html"
+					"rowLink": "javascript:void(0)",
+					"data-toggle": "altinn-modal",
+					"data-action": "load",
+					"data-url": {
+						"data-url": "../../patterns/03-maler-99-modal-js-10-kontaktskjema/03-maler-99-modal-js-10-kontaktskjema.markup-only.html"
+					},
+					"data-target": "#modal"
 				},
 				"columns": [
 					{
@@ -968,7 +941,7 @@
 								"column-icon": {
 									"icon-prefix": "ai",
 									"icon-class": "ai-send",
-									"icon-extra-class": "a-blueText"
+									"icon-extra-class": "ai-sm"
 								}
 							},
 							{
@@ -983,7 +956,7 @@
 			{
 				"additional-classes": "a-dotted a-clickable a-list-hasRowLink",
 				"isRowLink": {
-					"rowLink": "/patterns/04-sider-20-navigasjonssider-40-temaside-filter-v-stotteordninger/04-sider-20-navigasjonssider-40-temaside-filter-v-stotteordninger.html"
+					"rowLink": "tel:+4775006000"
 				},
 				"columns": [
 					{
@@ -993,12 +966,12 @@
 								"column-icon": {
 									"icon-prefix": "ai",
 									"icon-class": "ai-phone",
-									"icon-extra-class": "a-blueText"
+									"icon-extra-class": "ai-sm"
 								}
 							},
 							{
 								"column-text": {
-									"text": "Ring oss"
+									"text": "75 00 60 00"
 								}
 							}
 						]
@@ -1084,11 +1057,10 @@
 				"collapse-header-text": "Hvorfor mottar jeg ikke kode på sms?",
 				"collapse-header-content": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus cumque maxime, quam commodi doloremque adipisci deserunt atque non unde rem blanditiis quos veritatis suscipit, omnis animi labore nobis delectus eaque.",
 				"collapse-header-buttons": {
-					"button-group-id": "btnGroup",
 					"link-group-items": [
 						{
 							"link-text": "Hjelp meg gjennom prosessen",
-							"link-class": "a-btn mt-1"
+							"link-class": "a-btn a-btn-success mt-1"
 						},
 						{
 							"link-text": "Trinn for trinn uten å logge inn"

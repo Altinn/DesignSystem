@@ -12,7 +12,11 @@
     <!-- CONTENT -->
     <div {{#collapse-header-id}} id="{{collapse-header-id}}" {{/collapse-header-id}} class="a-collapseContent collapse" role="tabpanel" {{#aria-labelledby}} aria-labelledby="{{collapseTitle-id}}" {{/aria-labelledby}}>
       <div class="a-collapseContent-inside">
-        {{ collapse-header-content }} {{# collapse-header-buttons }} {{> molekyler-grupperte-knapper }} {{/ collapse-header-buttons }}
+        {{ collapse-header-content }} {{# collapse-header-buttons }}
+        <div class="a-btn-group">
+          {{# link-group-items }} {{> atomer-link }} {{/ link-group-items }}
+        </div>
+        {{/ collapse-header-buttons }}
 
         <div class="row">
           <div class="col-md-12 col-lg-7">
