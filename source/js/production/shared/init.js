@@ -26,6 +26,7 @@
   popoverLocalInit,
   popoverGlobalInit,
   setupSelectableCheckbox,
+  window,
   setupTruncateLines */
 
 
@@ -46,6 +47,7 @@ window.sharedInit = function() {
   popoverGlobalInit();
   setupSelectableCheckbox();
   setupTruncateLines();
+  window.altinnModal.init();
 };
 
 window.sharedInit();
