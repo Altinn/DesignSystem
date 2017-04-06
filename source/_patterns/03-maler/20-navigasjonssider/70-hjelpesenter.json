@@ -1,6 +1,7 @@
+
 {
 	"title": "Altinn",
-	"bodyClass": "a-bgWhite home",
+	"bodyClass": "a-bgWhite",
 
 	"header" : true,
 	"logo": "../../images/a-logo-white.svg",
@@ -9,13 +10,6 @@
     "icon-prefix": "ai",
     "icon-class" : "ai-keyhole"
   },
-
-	"personlogin-isDropdown" : "",
-  "onclick": "location.href='link.sider-aktorvalg'",
-
-	"login-or-switchuser" : "Logg inn",
-	"login-name" : "Logg inn",
-	"url" : "link.sider-aktorvalg",
 
 	"jumbo-md-class" : "col-md-12",
 	"jumbo-md-offset-class" : "offset-md-0",
@@ -37,34 +31,36 @@
 		"jumbo-intro-small" : true,
 		"front-main-button" : false,
 		"front-main-button-text-right" : "",
-    "jumbo-search" : {
-      "isLarge" : "a-form-group-large",
-  		"isHidden" : "sr-only",
-      "top-label": "Søk etter innhold",
-  		"text-input-placeholder" : "Hei Jan. Hva kan vi hjelpe deg med?",
-  		"isInput-group" : "input-group",
-  		"form-input-hasButton" : {
-  				"form-input-button-action" : "Utfør søk",
-          "icon-prefix": "ai",
-          "icon-class": "ai-search"
-  		}
-    }
+    "jumbo-search" : false
 	},
 
 	"jumbo-list" : {
 		"list-header" : "Tittel på listen",
-		"additional-classes": "a-list-noIcon",
+		"additional-classes": "a-list-borderTop",
 		"is-large" : true,
 		"rows": [
 			{
 				"additional-classes": "a-dotted a-clickable a-list-hasRowLink",
 				"isRowLink": {
-					"rowLink": "link.sider-artikkel-jumbo-v-velg-foretaksform"
+					"rowLink": "javascript:void(0)",
+					"data-toggle" : "altinn-modal",
+					"data-action" : "load",
+					"data-url" : {
+						"data-url" : "../../patterns/03-maler-99-modal-js-10-kontaktskjema/03-maler-99-modal-js-10-kontaktskjema.markup-only.html"
+					},
+					"data-target" : "#modal"
 				},
 				"columns": [
 					{
 						"additional-classes": "col",
 						"column-items": [
+							{
+	              "column-icon": {
+	                "icon-prefix": "ai",
+	                "icon-class": "ai-send",
+	                "icon-extra-class": "ai-sm"
+	              }
+	            },
 							{
 								"column-text": {
 									"text": "Skriv til oss"
@@ -77,15 +73,22 @@
 			{
 				"additional-classes": "a-dotted a-clickable a-list-hasRowLink",
 				"isRowLink": {
-					"rowLink": "link.sider-temaside-filter-v-stotteordninger"
+					"rowLink": "tel:+4775006000"
 				},
 				"columns": [
 					{
 						"additional-classes": "col",
 						"column-items": [
 							{
+	              "column-icon": {
+	                "icon-prefix": "ai",
+	                "icon-class": "ai-phone",
+	                "icon-extra-class": "ai-sm"
+	              }
+	            },
+							{
 								"column-text": {
-									"text": "Ring oss"
+									"text": "75 00 60 00"
 								}
 							}
 						]
@@ -93,6 +96,20 @@
 				]
 			}
 		]
+	},
+
+	"artikkelsok" : true,
+	"article-search" : {
+		"isLarge": true,
+		"isHidden": true,
+		"top-label" : "Søk i hjelp og annet innhold",
+		"text-input-placeholder" : "Søk i hjelp og annet innhold",
+		"isInput-group" : "input-group",
+		"form-input-hasButton" : {
+      "form-input-button-action" : "Utfør søk",
+      "icon-prefix": "ai",
+      "icon-class": "ai-search"
+		}
 	},
 
 	"card-icon" : {
@@ -155,24 +172,29 @@
 	},
 	"illustrationLink" : [
     {
+			"url" : "link.sider-temaside-v-hjelp-innlogging",
       "col" : "col-6 col-lg-3",
-  		"h2" : "Innlogging",
+  		"h2" : "innlogging",
+			"text" : "ID-porten, <br>aktørvalg, mm.",
+  		"icon" : "ai-keyhole"
+	  },
+    {
+      "col" : "col-6 col-lg-3",
+  		"h2" : "profil",
+			"text" : "Meldinger, filter, <br> videresending, mm.",
+  		"icon" : "ai-private"
+	  },
+    {
+      "col" : "col-6 col-lg-3",
+  		"h2" : "innboks",
+			"text" : "Signering, etater, <br>vedlegg, mm.",
   		"icon" : "ai-closedmessage"
 	  },
     {
       "col" : "col-6 col-lg-3",
-  		"h2" : "Profil",
-  		"icon" : "ai-closedmessage"
-	  },
-    {
-      "col" : "col-6 col-lg-3",
-  		"h2" : "Innboks",
-  		"icon" : "ai-closedmessage"
-	  },
-    {
-      "col" : "col-6 col-lg-3",
-  		"h2" : "Skjema",
-  		"icon" : "ai-closedmessage"
+  		"h2" : "skjema",
+			"text" : "Kontaktinformasjon, roller, rettigheter, mm.",
+  		"icon" : "ai-document"
 	  }
   ],
 
@@ -183,7 +205,18 @@
 	    {
 				"collapse-header-id" : "accordionHeaderItem1",
 	      "collapse-header-text" : "Hvorfor mottar jeg ikke kode på sms?",
-	      "collapse-header-content" : "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus cumque maxime, quam commodi doloremque adipisci deserunt atque non unde rem blanditiis quos veritatis suscipit, omnis animi labore nobis delectus eaque."
+	      "collapse-header-content" : "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus cumque maxime, quam commodi doloremque adipisci deserunt atque non unde rem blanditiis quos veritatis suscipit, omnis animi labore nobis delectus eaque.",
+				"collapse-header-buttons" : {
+				  "link-group-items" : [
+				    {
+				      "link-text" : "Hjelp meg gjennom prosessen",
+				      "link-class" : "a-btn a-btn-success mt-1"
+				    },
+						{
+				      "link-text" : "Trinn for trinn uten å logge inn"
+				    }
+				  ]
+				}
 	    },
 	    {
 				"collapse-header-id" : "accordionHeaderItem2",
