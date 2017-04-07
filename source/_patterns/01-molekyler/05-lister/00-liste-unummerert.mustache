@@ -14,7 +14,11 @@
     {{# rows }}
       <li {{# onclick }} onclick="{{{ onclick }}}" {{/ onclick }} class="{{ additional-classes }}" {{# id }}id="{{ id }}"{{/ id }} {{# tabable }} tabindex="0"{{/ tabable }}{{# target-table }} data-target-table="{{ target-table }}"{{/ target-table }}{{# source-table }} data-source-table="{{ source-table }}"{{/ source-table }}{{# list-item-role }} role="{{ list-item-role }}" {{/ list-item-role }}>
         {{# isRowLink }}
-        <a href="{{{ rowLink }}}" class="a-list-rowLink">
+        <a href="{{{ rowLink }}}" class="a-list-rowLink"
+        {{# data-toggle }} data-toggle="{{data-toggle}}" {{/ data-toggle }}
+        {{# data-action }} data-action="{{data-action}}" {{/ data-action }}
+        {{# data-url }} data-url="{{{data-url}}}" {{/ data-url }}
+        {{# data-target }} data-target="{{{data-target}}}" {{/ data-target }}>
         {{/ isRowLink }}
         {{^ is-checkbox }}
         <div class="row">

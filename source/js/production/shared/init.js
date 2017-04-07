@@ -1,5 +1,5 @@
 /* globals questionnaireInteraction,
-  drilldownInteraction,
+  colnavCustom,
   handleFocus,
   mobileNavigation,
   propagateContent,
@@ -10,7 +10,6 @@
   onboarding,
   nameChecker,
   codeLookup,
-  handleValidatorLibrary,
   setupAddRightsHandler,
   onFileInputChange,
   toggleInstant,
@@ -27,6 +26,7 @@
   popoverLocalInit,
   popoverGlobalInit,
   setupSelectableCheckbox,
+  window,
   setupTruncateLines */
 
 
@@ -47,6 +47,7 @@ window.sharedInit = function() {
   popoverGlobalInit();
   setupSelectableCheckbox();
   setupTruncateLines();
+  window.altinnModal.init();
 };
 
 window.sharedInit();
