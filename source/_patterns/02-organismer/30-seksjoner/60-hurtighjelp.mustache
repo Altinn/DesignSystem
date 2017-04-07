@@ -3,12 +3,21 @@
 
   <div id="a-stickyHelp" class="collapse a-stickyHelp">
 
-    <div class="a-stickyHelp-content">
+    <div class="a-stickyHelp-box">
 
       <div class="a-stickyHelp-header d-flex">
-        <h2 class="a-h3 mb-0"><i class="ai ai-help ai-sm ai-nw ai-nw-pr"></i>Hjelp</h2>
+
+        <!-- Back button should not show on first step -->
+        {{# back-btn }}
+        <button onclick="goBack()" class="a-modal-back">
+          {{> atomer-ikon }}
+        </button>
+        {{/ back-btn }}
+
+        <h2 class="a-h3 mb-0 ml-auto mr-auto">Hjelp</h2>
+
         {{# close-icon }}
-          <button type="button" class="a-modal-close ml-auto" data-toggle="collapse" data-target="#a-stickyHelp" data-action="close" aria-expanded="true" aria-controls="a-stickyHelp">{{> atomer-ikon }}</button>
+          <button type="button" class="a-modal-close" data-toggle="collapse" data-target="#a-stickyHelp" data-action="close" aria-expanded="true" aria-controls="a-stickyHelp">{{> atomer-ikon }}</button>
         {{/ close-icon }}
       </div>
 
@@ -18,23 +27,10 @@
         {{/ stickyhelp-search }}
       </div>
 
-      <div class="a-stickyHelp-scrollarea">
-        <ul class="no-decoration a-stickyHelp-questionList">
-          <li><a href="{{ link.sider-hjelpesenter }}">Skal dette spørsmålet åpne som en accordion eller ny side?</a></li>
-          <li><a href="{{ link.sider-hjelpesenter }}">Hvordan åpner jeg en melding?</a></li>
-          <li><a href="{{ link.sider-hjelpesenter }}">Hvordan dele meldingen med andre?</a></li>
-          <li><a href="{{ link.sider-hjelpesenter }}">Hvordan åpner jeg en melding?</a></li>
-          <li><a href="{{ link.sider-hjelpesenter }}">Det er scroll i listen?</a></li>
-          <li><a href="{{ link.sider-hjelpesenter }}">Hvordan dele meldingen med andre?</a></li>
-          <li><a href="{{ link.sider-hjelpesenter }}">Hvordan åpner jeg en melding?</a></li>
-          <li><a href="{{ link.sider-hjelpesenter }}">Det er scroll i listen?</a></li>
-        </ul>
+      <div class="a-stickyHelp-content-target">
+        <!-- This iframe is just for prototyping and will be replaced by epi-solution to get correct content. -->
+        <iframe src="/patterns/03-maler-_70-hurtighjelp-innhold-00-hurtighjelp-start/03-maler-_70-hurtighjelp-innhold-00-hurtighjelp-start.html" style="border: 0; width: 100%; height: 246px;"></iframe>
       </div>
-
-      <ul class="no-decoration a-stickyHelp-footerList">
-        <li><a href="{{ link.sider-hjelpesenter }}" class=""> Gå til Hjelpesenteret</a></li>
-        <li><a href="{{ link.sider-navigasjonssider-navigasjonsartikkel-v-omaltinn }}" class="">Kontakt oss</a></li>
-      </ul>
 
     </div>
 
