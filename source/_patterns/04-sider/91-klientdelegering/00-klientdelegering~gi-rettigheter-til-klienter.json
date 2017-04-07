@@ -6,11 +6,31 @@
     "logo": "../../images/a-logo-black.svg"
   },
   "show-add-rights": {
-    "cancel-link": {
-      "button-text": "Fjern rettigheter",
-      "button-class": "a-btn-link a-linkDanger float-right",
+    "cancel-link": false,
+    "popover-link": {
+      "aria-label":  false,
       "display-as-link": true,
-      "onclick": "location.href='link.sider-klientdelegering-fjern-rettigheter'"
+      "button-text": "Fjern alle 4 klienter",
+      "button-class": "a-btn-link a-linkDanger float-left float-md-right a-js-popover-forceFocus",
+      "icon-prefix": false,
+      "icon-class" : false,
+      "enable-popover": true,
+      "popover-placement": "bottom",
+      "popover-content-id": "sampleIdPopoverButtoinLink",
+      "popover-class": "popover-warning",
+      "popover-text": "Alle klienter vil bli fjernet",
+      "popover-buttons": [
+        {
+          "button-text" : "Ok",
+          "button-class" : "a-btn a-btn-danger"
+        },
+        {
+          "button-text": "Avbryt",
+          "button-class": "a-btn-link a-linkDanger",
+          "display-as-link": true,
+          "onclick": "$('button[aria-describedby=' + $(this).parent().parent().attr('id') + ']').click();"
+        }
+      ]
     }
   },
   "modal-navbar-override": {
