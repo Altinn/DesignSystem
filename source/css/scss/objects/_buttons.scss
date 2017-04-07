@@ -238,6 +238,10 @@
   background: $blue-light;
   box-shadow: $shadow;
 
+  .a-shadow & {
+    box-shadow: none;
+  }
+
   &:hover,
   &:focus {
     color: $black;
@@ -279,6 +283,21 @@
   .a-label {
     margin-top: -1px;
     margin-left: $spacer;
+  }
+}
+
+.a-offset-border-top {
+  position: relative;
+
+  &::before {
+    position: absolute;
+    top: 0;
+    right: 30px;
+    bottom: 0;
+    left: 30px;
+    width: auto;
+    content: ' ';
+    border-top: 1px solid $grey-medium;
   }
 }
 
