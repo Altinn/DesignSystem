@@ -1,5 +1,5 @@
 ---
-state: inprogress
+state: indesignreview
 version: 0
 ---
-Brukes kun for å vise tabulære data. 
+Brukes kun for å vise tabulære data.

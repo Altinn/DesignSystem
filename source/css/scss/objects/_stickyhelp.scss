@@ -76,7 +76,7 @@
       transition: all 400ms cubic-bezier(0.215, 0.61, 0.355, 1);
     }
 
-    .a-stickyHelp-content {
+    .a-stickyHelp-box {
       position: relative;
       background: $white;
       box-shadow: $shadow;
@@ -85,7 +85,7 @@
     }
   }
 
-  .a-stickyHelp-content {
+  .a-stickyHelp-box {
     opacity: 0;
 
     .a-stickyHelp-header {
@@ -96,6 +96,7 @@
 
       h2 {
         @include a-fontMedium;
+        text-align: center;
         align-self: center;
 
         i {
@@ -103,7 +104,8 @@
         }
       }
 
-      .a-modal-close {
+      .a-modal-close,
+      .a-modal-back {
         width: 30px;
         height: 30px;
         padding-top: 2px;
@@ -113,53 +115,93 @@
 
     .a-stickyHelp-search {
       padding: $spacer $spacer 0 $spacer;
+    }
+  }
+}
+
+.a-stickyHelp-scrollarea {
+  background: $white;
+
+  h2 {
+    padding: $height42;
+    padding-left: 52px;
+    margin-bottom: 0;
+  }
+
+  .a-stickyHelp-questionList {
+    li {
       border-bottom: 1px solid $grey-light;
-    }
 
-    .a-stickyHelp-scrollarea {
-      max-height: 170px;
-      overflow-y: scroll;
+      a {
+        display: block;
+        padding: $height42;
+        padding-left: 52px;
+        border: none;
 
-      .a-stickyHelp-questionList {
-        li {
-          border-bottom: 1px solid $grey-light;
-
-          a {
-            display: block;
-            padding: 9px $spacer 7px $spacer;
-            border: none;
-
-            &:hover,
-            &:focus,
-            &:active {
-              background: $grey-lighter;
-            }
-          }
+        &:hover,
+        &:focus,
+        &:active {
+          background: $grey-lighter;
         }
+      }
+
+      &:first-child {
+        border-top: 1px solid $grey-light;
+      }
+    }
+  }
+
+  .a-stickyHelp-footer {
+    width: 100%;
+    color: $black;
+
+    a {
+      @include a-fontMedium;
+      display: block;
+      padding: $height42;
+      padding-left: 52px;
+      border-bottom: 1px solid $grey-light;
+
+      &:hover,
+      &:focus,
+      &:active {
+        background: $grey-lighter;
+      }
+
+      &:first-child {
+        border-top: 1px solid $grey-light;
+      }
+
+      i {
+        margin-top: -3px;
+      }
+    }
+  }
+
+  .a-stickyHelp-questionList + .a-stickyHelp-footer {
+    a {
+      &:first-child {
+        border-top: none !important;
+      }
+    }
+  }
+
+  .a-circle-list {
+
+    li {
+      padding: $spacer $spacer $spacer 52px;
+      margin-bottom: $spacer;
+      border-bottom: 1px solid $grey-light;
+
+      &::before {
+        margin-right: 6px;
+        margin-left: -41px;
+      }
+
+      &:first-child {
+        border-top: 1px solid $grey-light;
       }
     }
 
-    .a-stickyHelp-footerList {
-      width: 100%;
-      margin-top: 1px;
-      color: $black;
-      background: $grey-light;
-
-      li {
-        border-bottom: 1px solid $white;
-
-        a {
-          display: block;
-          padding: 9px $spacer 7px $spacer;
-          border: none;
-
-          &:hover,
-          &:focus,
-          &:active {
-            background: darken($grey-light, 5%);
-          }
-        }
-      }
-    }
   }
 }
