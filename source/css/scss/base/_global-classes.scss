@@ -431,6 +431,31 @@ hr {
   }
 }
 
+.a-deleted,
+.a-completed {
+  .row {
+    &.a-selectableExpanded {
+      &:hover,
+      &:active,
+      &:focus {
+        cursor: default;
+        background-color: transparent;
+      }
+    }
+  }
+}
+
+.row {
+  &.a-selectableExpanded {
+    &:hover,
+    &:active,
+    &:focus {
+      cursor: pointer;
+      background-color: $blue-light;
+    }
+  }
+}
+
 .a-new {
   background-color: $green-light;
 }
@@ -516,6 +541,14 @@ hr {
 .a-hiddenWhenExpanded {
   &:not(.collapsed) {
     display: none;
+  }
+}
+
+.a-visibleWhenExpanded {
+  display: none;
+
+  .a-expanded & {
+    display: inline-block;
   }
 }
 
