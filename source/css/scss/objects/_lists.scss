@@ -96,6 +96,10 @@
           @include a-fontSize20;
           padding: 8px $spacer / 2;
         }
+
+        &.a-fontSizeXS {
+          @extend .a-fontSizeXS;
+        }
       }
     }
   }
@@ -555,14 +559,14 @@ ol {
     @include a-fontSize16;
     padding-left: 30px;
     margin-top: -13px;
-    background: darken( $blue-light, 5% );
+    background: $blue-light;
 
-    &.collapsed {
-      background: $blue-light;
+    .a-login-container & {
+      @extend .a-fontSizeM;
+    }
 
-      &:hover {
-        background: darken( $blue-light, 5% );
-      }
+    &:hover {
+      background: darken( $blue-light, 5% );
     }
 
     .a-dropdownCircleArrow {
@@ -590,6 +594,14 @@ ol {
     li {
       .a-list-rowLink {
         padding-left: 80px;
+      }
+
+      &.a-clickable {
+        &.a-list-hasRowLink {
+          &:hover {
+            background: darken( $blue-light, 5% );
+          }
+        }
       }
     }
   }
