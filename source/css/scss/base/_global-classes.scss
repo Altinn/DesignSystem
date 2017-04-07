@@ -427,18 +427,30 @@ hr {
   }
 }
 
-.a-selectableExpanded {
-  &:hover,
-  &:active,
-  &:focus {
-    &:not(.a-deleted) & {
+.a-deleted,
+.a-completed {
+  .row {
+    &.a-selectableExpanded {
+      &:hover,
+      &:active,
+      &:focus {
+        cursor: default;
+        background-color: transparent;
+      }
+    }
+  }
+}
+
+.row {
+  &.a-selectableExpanded {
+    &:hover,
+    &:active,
+    &:focus {
       cursor: pointer;
       background-color: $blue-light;
     }
   }
 }
-
-
 
 .a-new {
   background-color: $green-light;
