@@ -1,5 +1,6 @@
 ---
 state: indesignreview
-version: 1
+version: 0
 ---
+
 Foreløpig ingen retningslinjer.

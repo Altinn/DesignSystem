@@ -1,18 +1,16 @@
 /* globals
-  drilldownInteraction,
+  colnavCustom,
   switchForm,
   genericSearch,
-  handleValidatorLibrary,
   questionnaireInteraction,
   uniformHeight,
   articleAnchors,
   subscribe
 */
 window.infoportalInit = function() {
-  drilldownInteraction();
+  colnavCustom();
   switchForm();
   genericSearch();
- // handleValidatorLibrary();
   questionnaireInteraction();
   uniformHeight();
   articleAnchors();
