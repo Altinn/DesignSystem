@@ -2130,8 +2130,9 @@ var addListExpandHandler = function() {
   });
 };
 
-/* globals currentRequest, popoverLocalInit */
-window.altinnModal = {
+/* globals currentRequest, popoverLocalInit, AltinnModal */
+/* globals AltinnModal:true */
+AltinnModal = {
   closeModal: function(settings) {
     $('body').removeClass('a-modal-background-error');
     $('body').removeClass('a-modal-background-success');
@@ -2451,7 +2452,7 @@ window.altinnModal = {
     });
 
     $('body').on('click', '.a-js-modal-dirtyBackBtn', function() {
-      window.altinnModal.previousModalPage({ target: '#' + $(this).closest('.a-modal')[0].id });
+      AltinnModal.previousModalPage({ target: '#' + $(this).closest('.a-modal')[0].id });
       $('button[aria-describedby=' + $(this).parent().parent().attr('id') + ']').popover('hide');
     });
 
@@ -2460,7 +2461,7 @@ window.altinnModal = {
     });
 
     $('body').on('click', '.a-js-modal-dirtyCloseBtn', function() {
-      window.altinnModal.closeModal({ target: '#' + $(this).closest('.a-modal')[0].id });
+      AltinnModal.closeModal({ target: '#' + $(this).closest('.a-modal')[0].id });
       $('button[aria-describedby=' + $(this).parent().parent().attr('id') + ']').popover('hide');
     });
   }
@@ -2728,11 +2729,16 @@ var popoverLocalInit = function() {
 
 var forceFocusTriggerElement;
 var popoverGlobalInit = function() {
+  $('body').on('show.bs.popover', '[data-toggle="popover"].a-js-tabable-popover', function(e) {
+    var triggerElement = this;
+    $(triggerElement).closest('.a-modal').scrollTop(0);
+  });
+
   $('body').on('shown.bs.popover', '[data-toggle="popover"].a-js-tabable-popover', function(e) {
     var triggerElement = this;
     setTimeout(function() {
       $(triggerElement).after($($(triggerElement).data('bs.popover').tip));
-      $(window).one('scroll', function() {
+      $(triggerElement).closest('.a-modal').one('scroll', function() {
         $('[data-toggle="popover"]').popover('hide');
       });
     }, 0);
@@ -3040,7 +3046,8 @@ var setValidatorSettings = function() {
   popoverGlobalInit,
   setupSelectableCheckbox,
   window,
-  setupTruncateLines */
+  setupTruncateLines,
+  AltinnModal */
 
 
 window.sharedInit = function() {
@@ -3060,7 +3067,7 @@ window.sharedInit = function() {
   popoverGlobalInit();
   setupSelectableCheckbox();
   setupTruncateLines();
-  window.altinnModal.init();
+  AltinnModal.init();
 };
 
 window.sharedInit();
