@@ -1,7 +1,7 @@
 ---
 state: indesignreview
 version: 1
-js: altinnModal.js
+js: AltinnModal.js
 ---
 
 Modal-komponenten er laget som en utvidelse av Bootstrap modaler, og muliggjør navigering mellom sider i en modal.
@@ -12,7 +12,7 @@ For å åpne en modal og laste gitt innhold brukes følgende attributter på tri
 
 data-action beskriver hvilken handlings som utføres, i dette tilfellet "load", data-url sier hvilken url som skal lastes som innhold og data-target er ID til modal-elementet.
 
-Alternativt kan man kalle `window.altinnModal.loadModal({ url: '/minTestSide', target: '#minModal' })` fra Javascript
+Alternativt kan man kalle `AltinnModal.loadModal({ url: '/minTestSide', target: '#minModal' })` fra Javascript
 
 
 
@@ -21,7 +21,7 @@ For å gå til en ny side i en modal brukes følgende attributter:
 
 Her brukes samme attributter som for "load", men det forutsettes at modalen allerede er åpnet med "load"
 
-Denne metoden kan også kalles direkte: `window.altinnModalnextModalPage({ url: '/minTestSideTo', target: '#minModal', isSuccess: bool, isError: bool })` hvor de siste paremetrene er for å styre om styling for grønn side eller rød side skal vises
+Denne metoden kan også kalles direkte: `AltinnModalnextModalPage({ url: '/minTestSideTo', target: '#minModal', isSuccess: bool, isError: bool })` hvor de siste paremetrene er for å styre om styling for grønn side eller rød side skal vises
 
 For å gå tilbake til en side som er lastet tidligere brukes action "back":
 `data-toggle="altinn-modal" data-action="back" data-target="#minModal"`
@@ -30,7 +30,7 @@ Her kan man også spesifisere antall sider man ønsker å gå tilbake med attrib
 Hvis man navigerer forbi første side i stacken vil modalen lukkes.
 
 Metode for bruk direkte i javascript:
-`window.altinnModalpreviousModalPage({ target: '#minModal' }) eller  window.altinnModal.previousModalPage({ target: '#minModal', pagesToPop: 1337 })`
+`AltinnModal.previousModalPage({ target: '#minModal' }) eller  AltinnModal.previousModalPage({ target: '#minModal', pagesToPop: 1337 })`
 
 
 
@@ -38,4 +38,4 @@ For å lukke en modal:
 `data-toggle="altinn-modal" data-action="close" data-target="#minModal"`
 
 Direkte i javascript:
-`window.altinnModal.closeModal({ target: '#minModal' })`
+`AltinnModal.closeModal({ target: '#minModal' })`
