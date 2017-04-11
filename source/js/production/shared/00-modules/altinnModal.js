@@ -1,5 +1,6 @@
-/* globals currentRequest, popoverLocalInit */
-window.altinnModal = {
+/* globals currentRequest, popoverLocalInit, AltinnModal */
+/* globals AltinnModal:true */
+AltinnModal = {
   closeModal: function(settings) {
     $('body').removeClass('a-modal-background-error');
     $('body').removeClass('a-modal-background-success');
@@ -319,7 +320,7 @@ window.altinnModal = {
     });
 
     $('body').on('click', '.a-js-modal-dirtyBackBtn', function() {
-      window.altinnModal.previousModalPage({ target: '#' + $(this).closest('.a-modal')[0].id });
+      AltinnModal.previousModalPage({ target: '#' + $(this).closest('.a-modal')[0].id });
       $('button[aria-describedby=' + $(this).parent().parent().attr('id') + ']').popover('hide');
     });
 
@@ -328,7 +329,7 @@ window.altinnModal = {
     });
 
     $('body').on('click', '.a-js-modal-dirtyCloseBtn', function() {
-      window.altinnModal.closeModal({ target: '#' + $(this).closest('.a-modal')[0].id });
+      AltinnModal.closeModal({ target: '#' + $(this).closest('.a-modal')[0].id });
       $('button[aria-describedby=' + $(this).parent().parent().attr('id') + ']').popover('hide');
     });
   }

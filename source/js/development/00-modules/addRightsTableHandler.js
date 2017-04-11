@@ -3,11 +3,11 @@
 var moveRowToTable = function(tableId, $row, rowCopiedClass) {
   var $rowCopy = $row.clone();
   var $existingRowCopy = $('#copy-' + $row.attr('id'));
-  var $action = $row.find('a.a-fullWidthLink span');
+  var $action = $row.find('a.a-fullWidthLink span').first();
 
   if ($action.text().trim() === 'Gi rettigheter') {
     $action.text('Gi og fjerne rettigheter');
-  } else {
+  } else if ($action.text().trim() === 'Gi og fjerne rettigheter') {
     $action.text('Gi rettigheter');
   }
 
