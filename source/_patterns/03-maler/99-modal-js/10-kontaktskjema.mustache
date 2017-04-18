@@ -54,3 +54,99 @@
 
     </div>
 </div>
+
+<script>
+   $(document).ready(function () {
+       $.validator.unobtrusive.parse("#contactForm");
+   });
+
+
+function setupFormValidation(formId, buttonId) {
+    var $submitBtn = $(buttonId);
+
+    if (!buttonId)
+        $submitBtn = $(formId + ' button[type="submit"]');
+
+    $.validator.unobtrusive.parse($(formId));
+
+    $submitBtn.addClass('disabled');
+    $submitBtn.prop('disabled', 'disabled');
+
+    var wasSubmitted = false;
+    $(formId).on('blur input change', 'input', function () {
+        wasSubmitted = !$.isEmptyObject($(formId).validate().submitted);
+
+        var isDirty = isFormDirty(formId);
+        $submitBtn.closest('.a-current-page').data().isDirty = isDirty;
+        if (isDirty && $(formId).validate().checkForm()) {
+            $submitBtn.prop('disabled', false);
+            $submitBtn.removeClass('disabled');
+        }
+        else {
+            $submitBtn.prop('disabled', 'disabled');
+            $submitBtn.addClass('disabled');
+        }
+
+        if (!wasSubmitted) {
+            $(formId).validate().submitted = {};
+        }
+    });
+
+    $(formId + ' input')
+        .on('blur',
+            function () {
+                $(formId).valid();
+            });
+}
+
+function isFormDirty(formId) {
+    return isAnyFileUploaded($(formId)) && isAnyInputFieldDirty($(formId));
+}
+
+/**
+ * Goes through all input fields in a form and compares their initial value with current value. The function returns true if any
+ * of the fields has changed.
+ *
+ * @param {jQuery} form - The form element to be checked for dirty fields.
+ *
+ * @returns {bool} true if any of the fields are dirty. Oterwise false.
+ */
+function isAnyInputFieldDirty(form) {
+    var inputs = form.find(":input")
+        .not("button")
+        .filter(function () {
+            return $(this).attr("data-dirtycheck") !== "false";
+        });
+
+    if (inputs.length > 0) {
+        var changed = false;
+        inputs.each(function () {
+            if ($(this)[0].type === "checkbox") {
+                if ($(this)[0].checked !== $(this)[0].defaultChecked) {
+                    changed = true;
+                    return false;
+                }
+            }
+            else {
+                if ($(this).attr('data-is-new-field') === 'true'
+                    || $(this)[0].value !== $(this)[0].defaultValue
+                    || $(this).attr('data-is-changed') === 'true') {
+                    changed = true;
+                    return false;
+                }
+            }
+            return true;
+        });
+        return changed;
+    }
+    return true;
+}
+
+function isAnyFileUploaded(form) {
+    var uploadFormControl = form.find("input:file");
+    if (uploadFormControl.length > 0) {
+        return uploadFormControl[0].files.length > 0;
+    }
+    return true;
+}
+</script>
