@@ -4,11 +4,14 @@
     <div class="row">
       <div class="{{ jumbo-md-class }} {{ jumbo-md-offset-class }} {{ jumbo-lg-class }} {{ jumbo-lg-offset-class }} {{ jumbo-xl-class }} {{ jumbo-xl-offset-class }}">
 
-        {{# articlestart }} {{> organismer-artikkel-start }} {{/ articlestart }} {{# pagestart }}
-
+        {{# articlestart }} {{> organismer-artikkel-start }} {{/ articlestart }} {{# pagestart }} {{#h1Title}}
+        <h1 class="a-fontBold a-pageTitle">
+          {{{ h1Title }}}
+        </h1>
+        {{/h1Title}} {{#page-title}}
         <span class="a-h1 d-block a-fontBold a-pageTitle">
             {{{ page-title }}}
-          </span>
+          </span> {{/page-title}}
 
         <span class="a-jumbotron-ingress {{# jumbo-intro-small }}a-jumbotron-ingress--small{{/ jumbo-intro-small }} ">{{{ jumbo-intro }}}</span> {{# front-main-button }} {{> atomer-link-knapp-stor }} {{/ front-main-button }} {{# front-main-button-text-right
         }}

@@ -34,11 +34,16 @@ var popoverLocalInit = function() {
 
 var forceFocusTriggerElement;
 var popoverGlobalInit = function() {
+  $('body').on('show.bs.popover', '[data-toggle="popover"].a-js-tabable-popover', function(e) {
+    var triggerElement = this;
+    $(triggerElement).closest('.a-modal').scrollTop(0);
+  });
+
   $('body').on('shown.bs.popover', '[data-toggle="popover"].a-js-tabable-popover', function(e) {
     var triggerElement = this;
     setTimeout(function() {
       $(triggerElement).after($($(triggerElement).data('bs.popover').tip));
-      $(window).one('scroll', function() {
+      $(triggerElement).closest('.a-modal').one('scroll', function() {
         $('[data-toggle="popover"]').popover('hide');
       });
     }, 0);
