@@ -4,10 +4,16 @@
 
 {{# input }}
   <label class="{{ class }}">
-    <input {{# required }} required {{/ required }} class="{{# file-list }}a-js-fileInputChangeHandler {{/ file-list }}sr-only" type="file" id="{{ custom-fileupload-input-id }}">
+    <input {{# required }} required {{/ required }} class="{{# certificate-list }}a-js-fileInputChangeHandler {{/ certificate-list }}sr-only" type="file" id="{{ custom-fileupload-input-id }}">
     {{ text }}
     {{# icon-after }}
       {{> atomer-ikon }}
     {{/ icon-after }}
   </label>
 {{/ input }}
+
+{{# certificate-list }}
+  <div style="display: none" class="a-js-certificateContainer">
+    {{> molekyler-liste-unummerert }}
+  </div>
+{{/ certificate-list }}
