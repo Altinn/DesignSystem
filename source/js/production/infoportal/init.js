@@ -5,7 +5,8 @@
   questionnaireInteraction,
   uniformHeight,
   articleAnchors,
-  subscribe
+  subscribe,
+  setupFormValidation
 */
 window.infoportalInit = function() {
   colnavCustom();
@@ -15,6 +16,7 @@ window.infoportalInit = function() {
   uniformHeight();
   articleAnchors();
   subscribe();
+  setupFormValidation();
 };
 window.infoportalInit();
 // $(document).foundation();
