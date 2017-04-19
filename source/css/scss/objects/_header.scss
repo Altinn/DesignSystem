@@ -349,7 +349,7 @@
       min-height: $spacer * 5;
     }
 
-    &.a-btn-shadow-more {
+    &.a-btn-shadow-large {
       .a-btn-icon-text-second {
         display: inline-block;
       }
@@ -798,12 +798,14 @@
 \*----------------------------------------*/
 
 .a-login {
-  .a-globalNav-main,
-  .a-languageSwitcher,
-  .a-personSwitcher-name,
-  .a-containerFooter,
-  .navbar-toggler {
-    display: none;
+  &.a-hide-menu {
+    .a-globalNav-main,
+    .a-languageSwitcher,
+    .a-personSwitcher-name,
+    .a-containerFooter,
+    .navbar-toggler {
+      display: none;
+    }
   }
 
   .a-personSwitcher {
@@ -868,13 +870,17 @@
   }
 
   .a-btn-shadow {
+    //sass-lint:disable no-duplicate-properties no-important
+    height: auto !important;
+    height: $spacer * 7;
     min-height: $spacer * 7;
 
     &.a-btn-shadow-expand {
+      height: $spacer * 5;
       min-height: $spacer * 5;
     }
 
-    &.a-btn-shadow-more {
+    &.a-btn-shadow-large {
       .a-btn-icon-text-second {
         display: inline-block;
       }
