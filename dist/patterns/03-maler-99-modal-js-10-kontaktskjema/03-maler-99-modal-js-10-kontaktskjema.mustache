@@ -4,7 +4,8 @@
     <div class="a-iconText a-iconText-background a-iconText-large">
       <!-- ICON -->
       <div class="a-iconText-icon">
-        <i class="ai ai-closedmessage a-icon a-icon-circle" aria-hidden="true"></i>
+        <i class="ai ai-closedmessage
+                 a-icon a-icon-circle" aria-hidden="true"></i>
       </div>
       <!-- TEXT -->
       <h1 class="a-iconText-text mb-0">
@@ -21,8 +22,7 @@
     <form data-toggle="validator" id="contactForm">
       <div class="row">
         <div class="col-8">
-          {{#fornavn}} {{> atomer-tekst-input:mb-2 }} {{/fornavn}} {{#etternavn}} {{> atomer-tekst-input:mb-2 }} {{/etternavn}} {{#epost}} {{> atomer-tekst-input:mb-2 }} {{/epost}} {{#telefon}} {{> atomer-tekst-input:mb-2 }} {{/telefon}} {{#tema}} {{> atomer-flervalg-stilisert:mb-2
-          }} {{/tema}} {{#question}} {{> atomer-tekstfelt:mb-2 }} {{/question}} {{#submit}} {{> atomer-knapp:mb-2 }} {{/submit}}
+          {{#navn}} {{> atomer-tekst-input:mb-2 }} {{/navn}} {{#epost}} {{> atomer-tekst-input:mb-2 }} {{/epost}} {{#submit}} {{> atomer-knapp:mb-2 }} {{/submit}}
         </div>
       </div>
     </form>
@@ -30,5 +30,18 @@
 
   </div>
 </div>
+
+<script>
+  $(document).ready(function() {
+
+    setupFormValidation("#contactForm", "#a-js-contactForm-submit");
+
+
+
+
+
+
+  });
+</script>
 
 <!-- END: 03-maler-99-modal-js-10-kontaktskjema -->

@@ -6,8 +6,6 @@
 	"onclick": false,
 	"button-icon": false,
 	"display-as-link": false,
-	"textarea-label": "Fyll inn tekst:",
-	"textarea-placeholder": "Forklarende hjelpetekst med forslag",
 	"icon-prefix": "ai",
 	"icon-class": "ai-deadline",
 	"icon-size": "",
@@ -20,40 +18,6 @@
 	"icon-post-text": false,
 	"icon-title": false,
 	"icon-sr-only-text": false,
-	"dropdown-name": "KARI NORDMANNS FORETAK",
-	"dropdown-number": "995 644 944",
-	"dropdown-number-prefix": "org. nr.",
-	"isTransparent": true,
-	"show-label": true,
-	"label-text": "For:",
-	"dropdown-items": [
-		{
-			"icon-prefix": "ai",
-			"icon-class": "ai-private",
-			"dropdown-item-name": "KARI NORDMANN",
-			"dropdown-item-number": ""
-		},
-		{
-			"icon-prefix": "ai",
-			"icon-class": "ai-private",
-			"dropdown-item-name": "OLA NORDMANN",
-			"dropdown-item-number": ""
-		},
-		{
-			"icon-prefix": "ai",
-			"icon-class": "ai-client",
-			"dropdown-item-name": "OLA NORDMANNS FORETAK",
-			"dropdown-item-number-prefix": "org. nr.",
-			"dropdown-item-number": "995 644 944"
-		},
-		{
-			"icon-prefix": "ai",
-			"icon-class": "ai-client",
-			"dropdown-item-name": "OLA NORDMANNS ANDRE FORETAK",
-			"dropdown-item-number-prefix": "org. nr.",
-			"dropdown-item-number": "995 644 944"
-		}
-	],
 	"print-form-tag": false,
 	"text-input-id": "text-input-generic",
 	"isHidden": false,
@@ -68,14 +32,14 @@
 	"isLarge": false,
 	"form-label-hasIcon": false,
 	"input-name": "input-field",
-	"fornavn": {
+	"navn": {
 		"print-form-tag": false,
-		"text-input-id": "textInputName",
+		"text-input-id": "text-input-name",
 		"isHidden": false,
-		"top-label": "Fornavn: ",
+		"top-label": "Navn: ",
 		"isDisabled": false,
 		"isInactive": false,
-		"text-input-placeholder": "f.eks Kari",
+		"text-input-placeholder": "f.eks Kari Nordmann",
 		"input-type": "text",
 		"isRequired": true,
 		"error-message-popover": true,
@@ -83,29 +47,9 @@
 		"extra-help": false,
 		"isLarge": false,
 		"form-label-hasIcon": false,
-		"input-name": "input-field",
-		"data-val-required": {
-			"data-required-message": "Fornavn er et obligatorisk felt"
-		}
-	},
-	"etternavn": {
-		"print-form-tag": false,
-		"text-input-id": "text-input-lastname",
-		"isHidden": false,
-		"top-label": "Etternavn: ",
-		"isDisabled": false,
-		"isInactive": false,
-		"text-input-placeholder": "f.eks Nordmann",
-		"input-type": "text",
-		"isRequired": true,
-		"error-message-popover": true,
-		"isInputDisabled": false,
-		"extra-help": false,
-		"isLarge": false,
-		"form-label-hasIcon": false,
-		"input-name": "input-field",
-		"data-val-required": {
-			"data-required-message": "Etternavn er et obligatorisk felt"
+		"input-name": "text-input-name",
+		"data-required": {
+			"data-required-message": "Du har ikke oppgitt navn."
 		}
 	},
 	"epost": {
@@ -116,13 +60,13 @@
 		"input-type": "email",
 		"isRequired": true,
 		"error-message-popover": true,
-		"input-name": "email-field",
+		"input-name": "text-input-epost",
 		"input-regex-validation": {
-			"error-message": "Feil epost verdier",
+			"error-message": "Du har ikke skrevet eposten korrekt",
 			"validation-pattern": "(('[^']+')|(([a-zA-Z0-9!#$%&'*+-=?^_`{|}~])+(.([a-zA-Z0-9!#$%&'*+-=?^_`{|}~])+)*))@((((([a-zA-Z0-9æøåÆØÅ]([a-zA-Z0-9-æøåÆØÅ]{0,61})[a-zA-Z0-9æøåÆØÅ].)|[a-zA-Z0-9æøåÆØÅ].){1,9})([a-zA-Z]{2,14}))|((d{1,3}).(d{1,3}).(d{1,3}).(d{1,3})))"
 		},
-		"data-val-required": {
-			"data-required-message": "Epost er et obligatorisk felt"
+		"data-required": {
+			"data-required-message": "Du har ikke oppgitt e-post."
 		},
 		"extra-help": false,
 		"isHidden": false,
@@ -140,6 +84,7 @@
 		"input-type": "tel",
 		"isRequired": true,
 		"error-message-popover": true,
+		"input-name": "text-input-tlf",
 		"extra-help": false,
 		"isHidden": false,
 		"isLarge": false,
@@ -152,8 +97,8 @@
 			"error-message": "Telefonnummer må bestå av 8 siffer",
 			"validation-pattern": "\"[0-9]{8}\""
 		},
-		"data-val-required": {
-			"data-required-message": "Telefonnummer er et obligatorisk felt"
+		"data-required": {
+			"data-required-message": "Du har ikke oppgitt telefonnummer."
 		},
 		"form-label-hasIcon": {
 			"icon-prefix": "ai",
@@ -166,11 +111,16 @@
 		"isRequired": true
 	},
 	"submit": {
-		"button-text": "Send inn",
+		"button-text": "Send sdfdsfds",
 		"button-class": "a-btn",
-		"button-type": "submit",
+		"button-id": "a-js-contactForm-submit",
+		"button-type": "button",
 		"onclick": false,
 		"button-icon": false,
-		"display-as-link": false
+		"display-as-link": false,
+		"data-action": "next",
+		"data-toggle": "altinn-modal",
+		"data-target": "#modal",
+		"page-url": "../../patterns/03-maler-99-modal-js-11-kontaktskjema-ferdig/03-maler-99-modal-js-11-kontaktskjema-ferdig.markup-only.html"
 	}
 }

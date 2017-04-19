@@ -704,19 +704,94 @@ var addListSortHandler = function() {
   defaultListSort();
 };
 
+/* globals mobileNavigation */
+var wasDark = $('header').hasClass('a-darkBackground');
+var action = function(e) {
+  if ($(e.target).closest('.a-globalNav-main').length === 0 &&
+  $(e.target).closest('.navbar-toggler').length === 0) {
+    if ($('.a-globalNav-main').is(':visible')) {
+      $('.navbar-toggler').attr('data-jsexpanded', 'false');
+      $('.a-globalNav-main').hide();
+      $('body').css('background-color', '');
+      if (wasDark) {
+        $('header').addClass('a-darkBackground');
+        $('.a-globalNav-logo').find('img')
+        .attr('src', $('.a-globalNav-logo').find('img').attr('src').replace('blue', 'white'));
+      }
+      $('.a-page').children(':not(header)').removeClass('a-js-hidden');
+    }
+  } else if ($(e.target).closest('.navbar-toggler').length > 0) {
+    if ($('.a-globalNav-main').is(':visible')) {
+      $('.navbar-toggler').attr('data-jsexpanded', 'false');
+      $('.a-globalNav-main').hide();
+      $('body').css('background-color', '');
+      if (wasDark) {
+        $('header').addClass('a-darkBackground');
+        $('.a-globalNav-logo').find('img')
+        .attr('src', $('.a-globalNav-logo').find('img').attr('src').replace('blue', 'white'));
+      }
+      $('.a-page').children(':not(header)').removeClass('a-js-hidden');
+    } else {
+      $('.navbar-toggler').attr('data-jsexpanded', 'true');
+      $('.a-globalNav-main').show();
+      $('body').css('background-color', '#fff');
+      if (wasDark) {
+        $('header').removeClass('a-darkBackground');
+        $('.a-globalNav-logo').find('img')
+        .attr('src', $('.a-globalNav-logo').find('img').attr('src').replace('white', 'blue'));
+      }
+      $('.a-page').children(':not(header)').addClass('a-js-hidden');
+    }
+  }
+};
+function menuHandler() {
+  // enable tabbing and mouse click on mobile menu btn
+  if ($('body').width() < 768) {
+    $('body').on('mouseup', action);
+    $('body').on('click', action);
+  }
+}
+menuHandler();
+$(window).on('resize', function() {
+  $('body').off('mouseup', action);
+  $('body').off('click', action);
+  menuHandler();
+});
+
 /* globals $ */
 var mobileNavigation = function() {
   window.langTriggerClick = function(e) {
     var key = e.which;
-    if (key === 13) {
+    if (key === 13) { // return, enter
       $(e.target).trigger('mousedown');
-    } else if (key === 9) {
+    } else if (key === 9) { // tab
       if (!$('#exCollapsingNavbar').find('.a-dropdown-languages').hasClass('expand')) {
         $('#exCollapsingNavbar').find('.a-dropdown-languages').find('a').attr('tabindex', '-1');
       } else {
         $('#exCollapsingNavbar').find('.a-dropdown-languages').find('a').attr('tabindex', '0');
       }
     }
+  };
+
+  window.langTriggerClickMouse = function(e) {
+    $('#exCollapsingNavbar').find('.a-dropdown-languages').find('a').attr('tabindex', '-1');
+    if (!$('#exCollapsingNavbar').find('.a-dropdown-languages').hasClass('expand')) {
+      $('#exCollapsingNavbar').find('.a-dropdown-languages').css('width', 'inherit').css('min-width', '160px');
+      $('#exCollapsingNavbar').find('.a-dropdown-languages').removeClass('after-collapse');
+      $('#exCollapsingNavbar').find('.a-dropdown-languages').find('a').attr('tabindex', '0');
+    } else {
+      setTimeout(function() {
+        if (!$('#exCollapsingNavbar').find('.a-dropdown-languages').hasClass('expand')) {
+          $('#exCollapsingNavbar').find('.a-dropdown-languages').toggleClass('after-collapse');
+        }
+        if (!$('#exCollapsingNavbar').find('.a-dropdown-languages').hasClass('after-collapse')) {
+          $('#exCollapsingNavbar').find('.a-dropdown-languages').css('width', '0px').css('min-width', '0px');
+        }
+        $('#exCollapsingNavbar').find('.a-dropdown-languages').find('a').attr('tabindex', '-1');
+      }, 250);
+    }
+    $('#exCollapsingNavbar').find('.a-dropdown-languages').toggleClass('expand');
+    $('#exCollapsingNavbar').find('.indicator').toggleClass('flip');
   };
 };
 
@@ -850,38 +925,6 @@ var popoverGlobalInit = function() {
   $(window).resize(adjustBig);
 };
 
-/* globals $ */
-var propagateContent = function() {
-  $('.a-js-propagatedContentDestination').each(function() {
-    var prefix = '.a-js-propagatedContentOrigin.';
-    if ($(this)[0].hasAttribute('data-maxwidth')) {
-      if (window.innerWidth <= parseInt($(this).attr('data-maxwidth'), 10)) {
-        if ($(this).hasClass('replace-me')) {
-          $(this).before($(prefix + $(this).attr('data-refclass')).html());
-          $(this).remove();
-        } else {
-          $(this).html($(prefix + $(this).attr('data-refclass')).html());
-        }
-      }
-    } else if ($(this)[0].hasAttribute('data-minwidth')) {
-      if (window.innerWidth >= parseInt($(this).attr('data-minwidth'), 10)) {
-        if ($(this).hasClass('replace-me')) {
-          $(this).before($(prefix + $(this).attr('data-refclass')).html());
-          $(this).remove();
-        } else {
-          $(this).html($(prefix + $(this).attr('data-refclass')).html());
-        }
-      }
-    } else if ($(this).hasClass('replace-me')) {
-      $(this).before($(prefix + $(this).attr('data-refclass')).html());
-      $(this).remove();
-    } else {
-      $(this).html($(prefix + $(this).attr('data-refclass')).html());
-    }
-  });
-  $('.a-js-propagatedContentOrigin').html('');
-};
-
 var setupSelectableCheckbox = function() {
   $('body').on('change', '.a-js-selectable-checkbox', function() {
     if ($(this).is(':checked')) {
@@ -993,7 +1036,7 @@ $('.a-collapsePanel-body').on('show.bs.collapse', function() {
     .find('.a-msgIconSecondary')
     .closest('.a-msgIconWrapper');
 
-    $msgIconWrapper.find('.ai')
+    $msgIconWrapper.find('.reg')
       .hide()
       .siblings('.a-msgIconSecondary')
       .show();
@@ -1048,7 +1091,6 @@ var setValidatorSettings = function() {
   colnavCustom,
   handleFocus,
   mobileNavigation,
-  propagateContent,
   toggleFilter,
   uniformHeight,
   tooltip,
@@ -1087,7 +1129,6 @@ window.sharedInit = function() {
   initializeDatepicker();
   addListSortHandler();
   mobileNavigation();
-  propagateContent();
   toggleFilter();
   tooltip();
   toggleInstant();
