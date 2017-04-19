@@ -51,7 +51,12 @@ var setupAddRightsHandler = function() {
   }
 
   $('.a-list .collapse').on('hide.bs.collapse', function() {
-    $(this).addClass('a-js-removeMe');
+    targetTableId = $(this).closest('li')[0].dataset.targetTable;
+    sourceTableId = $(this).closest('li')[0].dataset.sourceTable;
+
+    if (targetTableId && sourceTableId) {
+      $(this).addClass('a-js-removeMe');
+    }
     return $(this).closest('li').removeClass('a-expanded');
   });
 

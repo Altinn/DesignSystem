@@ -2,7 +2,6 @@
   colnavCustom,
   handleFocus,
   mobileNavigation,
-  propagateContent,
   toggleFilter,
   uniformHeight,
   tooltip,
@@ -28,7 +27,9 @@
   setupSelectableCheckbox,
   window,
   setupTruncateLines,
-  AltinnModal */
+  AltinnModal,
+  AltinnQuickhelp
+ */
 
 
 window.sharedInit = function() {
@@ -39,7 +40,6 @@ window.sharedInit = function() {
   initializeDatepicker();
   addListSortHandler();
   mobileNavigation();
-  propagateContent();
   toggleFilter();
   tooltip();
   toggleInstant();
@@ -49,6 +49,7 @@ window.sharedInit = function() {
   setupSelectableCheckbox();
   setupTruncateLines();
   AltinnModal.init();
+  AltinnQuickhelp.init();
 };
 
 window.sharedInit();

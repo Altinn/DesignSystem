@@ -6,7 +6,7 @@ $('.a-collapsePanel-body').on('show.bs.collapse', function() {
     .find('.a-msgIconSecondary')
     .closest('.a-msgIconWrapper');
 
-    $msgIconWrapper.find('.ai')
+    $msgIconWrapper.find('.reg')
       .hide()
       .siblings('.a-msgIconSecondary')
       .show();
