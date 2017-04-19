@@ -15,6 +15,14 @@
       margin: 0;
     }
   }
+
+  button {
+    z-index: 1;
+    display: inline-block;
+    min-height: 0;
+    padding: 0;
+    margin: 0;
+  }
 }
 
 .a-list-container {
@@ -94,7 +102,8 @@
       .a-list-rowLink {
         @include media-breakpoint-up( md ) {
           @include a-fontSize20;
-          padding: 8px $spacer / 2;
+          min-height: $spacer * 4;
+          padding: $spacer $spacer / 2;
         }
 
         &.a-fontSizeXS {
@@ -184,6 +193,12 @@
       padding: 7px $spacer / 2 5px $spacer / 2;
       border: none;
     }
+
+    .a-delete-add-container {
+      padding: $spacer $spacer $spacer * 2 $spacer / 2;
+      margin: $spacer 0;
+      background-color: $blue-light;
+    }
   }
 
   // Show list in two columns
@@ -221,7 +236,6 @@
 
 // If background WHITE, change color on lists
 .a-bgWhite {
-
   ul {
     &.connected-bullets {
       li {
@@ -236,7 +250,6 @@
 
 // If background BLUE-light, change color on lists
 .a-bgBlueLight {
-
   ul {
     &.connected-bullets {
       li {
@@ -256,62 +269,6 @@
       li {
         &::after {
           background: $grey-light;
-        }
-      }
-    }
-  }
-}
-
-
-/*------------------------------------*\
-    $Box btn list
-\*------------------------------------*/
-
-.a-box-button-list {
-  list-style: none;
-
-  &.a-box-button-list--xs1sm2md3lg4xl6 {
-    @include media-breakpoint-up( xl ) {
-      .a-box-button {
-        border: 1px solid $grey-medium;
-        border-left: none;
-      }
-
-      li {
-        .a-box-button {
-          &:hover {
-            padding: 9px 4px 9px 3px;
-          }
-        }
-
-        &:first-child {
-          .a-box-button {
-            border: 1px solid $grey-medium;
-          }
-
-          .a-box-button {
-            &:hover {
-              padding: 9px 4px 9px 4px;
-            }
-          }
-        }
-
-        &:nth-child(1n+7) {
-          .a-box-button {
-            border-top: none;
-          }
-        }
-
-        &:nth-child(7n+7) {
-          .a-box-button {
-            border-left: 1px solid $grey-medium;
-          }
-
-          .a-box-button {
-            &:hover {
-              padding: 9px 4px 9px 4px;
-            }
-          }
         }
       }
     }
@@ -555,26 +512,46 @@ ol {
 \*------------------------------------*/
 
 .a-listWithSubLevels {
+  display: flex;
+  margin-bottom: $spacer;
+  flex-wrap: wrap;
+
+  .a-btn {
+    margin-bottom: 0;
+  }
+
+  .a-list-heading {
+    width: 100%;
+  }
+
   .a-btn-shadow-expand {
     @include a-fontSize16;
-    padding-left: 30px;
-    margin-top: -13px;
+    display: block;
+    width: 100%;
+    padding-left: $spacer;
     background: $blue-lighter;
 
-    .a-login-container & {
-      @extend .a-fontSizeM;
+    @include media-breakpoint-up( md ) {
+      padding-left: $spacer * 2;
     }
 
-    &:hover {
+    &:hover,
+    &:active,
+    &:focus {
       background: darken( $blue-lighter, 5% );
     }
 
     .a-dropdownCircleArrow {
-      width: 24px;
-      min-width: 24px;
-      height: 24px;
+      width: $spacer * 2;
+      min-width: $spacer * 2;
+      height: $spacer * 2;
       margin-top: -2px;
-      margin-right: 26px;
+      margin-right: $spacer;
+
+      @include media-breakpoint-up( md ) {
+        // Manual adjustment to make text align
+        margin-right: 20px;
+      }
 
       i {
         @include a-fontSize20;
@@ -584,16 +561,21 @@ ol {
   }
 
   .a-collapseContent {
-    position: relative;
-    z-index: 4;
-    margin-top: -12px;
-    margin-bottom: 12px;
+    width: 100%;
   }
 
   .a-list {
+    padding-bottom: $spacer * 2;
+
     li {
+      border: none;
+
       .a-list-rowLink {
-        padding-left: 80px;
+        padding-left: $spacer * 4;
+        @include media-breakpoint-up( md ) {
+          // Manual adjustment to make text align
+          padding-left: 68px;
+        }
       }
 
       &.a-clickable {
