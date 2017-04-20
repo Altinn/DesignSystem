@@ -12,12 +12,17 @@
 
       {{# hasArticleStart }}
       <div class="row">
-        <div class="col-sm-12 col-lg-10 offset-lg-1 mb-2">
+        <div class="col-sm-12 col-lg-10 offset-lg-1">
           {{> molekyler-smulesti }} {{> atomer-sidetittel }} {{> atomer-byline }} {{> atomer-intro-tekst}} {{#hasArticleStartLink}}{{> atomer-link }}{{/hasArticleStartLink}}
-          <hr class="mt-2 mb-0 hidden-md-down">
         </div>
       </div>
-      {{/ hasArticleStart }} {{# hasMultipleCards }}
+      {{/ hasArticleStart }} {{# hasContent }}
+      <div class="row a-text epi-wysiwyg">
+        <div class="col-sm-12 col-lg-10 offset-lg-1 mb-2">
+          {{# 1 }} {{> atomer-avsnitt }} {{/ 1 }}
+        </div>
+      </div>
+      {{/ hasContent }} {{# hasMultipleCards }}
       <div class="row">
         <div class="col-sm-12 col-lg-12 offset-lg-0 pb-3">
           {{> organismer-grupperte-kort }}
@@ -25,14 +30,14 @@
       </div>
       {{/ hasMultipleCards }} {{# hasAccordion }}
       <div class="row">
-        <div class="col-sm-12 col-lg-8 offset-lg-2 mt-3">
+        <div class="col-sm-12 col-lg-10 offset-lg-1 mt-2">
           <h2>{{{ header-2 }}}</h2>
           {{> molekyler-trekkspill:a-accordion-largeText }}
         </div>
       </div>
       {{/ hasAccordion }} {{# hasHelp }}
       <div class="row">
-        <div class="col-sm-12 col-lg-8 offset-lg-2 py-4">
+        <div class="col-sm-12 col-lg-10 offset-lg-1 py-4">
           <h2>{{{ header-3 }}}</h2>
           <p class="a-paragraphLarge">
             {{{ help-prefix }}} {{> atomer-link:a-fontBold }} {{{ help-end }}}
