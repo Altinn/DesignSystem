@@ -97,24 +97,48 @@ blockquote {
 
 .a-illustrationLink {
   display: block;
-  margin-bottom: $spacer * 4;
+  padding: $spacer * 2 $spacer;
+  margin-bottom: $spacer * 2;
+  text-align: center;
   border: none;
 
   h2 {
     @include a-fontBold;
-    text-align: center;
+    display: inline;
+    padding-bottom: 2px;
+    border-bottom: 2px solid transparent;
   }
 
   p {
     min-height: 48px;
+    margin-top: $spacer / 2;
     text-align: center;
   }
 
-  &:hover {
+  &:hover,
+  &:focus,
+  &:active {
     border: none;
 
+    h2 {
+      color: $blue-darker;
+      border-bottom: 2px solid $blue-darker;
+    }
+
     .a-illustration-icon {
-      background: $blue-darker;
+      position: relative;
+
+      .a-illustration-overlay {
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: $white-opacity-01;
+        border-radius: 50%;
+      }
     }
   }
 }
@@ -125,6 +149,7 @@ blockquote {
   width: 100px;
   height: 100px;
   margin: auto;
+  overflow: hidden;
   color: $white;
   text-align: center;
   background: $purple;
