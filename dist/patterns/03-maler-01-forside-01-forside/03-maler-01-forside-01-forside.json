@@ -1,4 +1,30 @@
 {
+	"icon-prefix": "ai",
+	"icon-class": "ai-private",
+	"icon-size": "",
+	"icon-extra-class": "",
+	"icon-text": "",
+	"icon-id": false,
+	"sr-only": false,
+	"aria-hidden": false,
+	"icon-pre-text": false,
+	"icon-post-text": false,
+	"icon-title": false,
+	"icon-sr-only-text": false,
+	"print-form-tag": false,
+	"text-input-id": "text-input-generic",
+	"isHidden": false,
+	"top-label": "Label: ",
+	"isDisabled": false,
+	"isInactive": false,
+	"text-input-placeholder": "f.eks placeholder",
+	"input-type": "text",
+	"isRequired": false,
+	"isInputDisabled": false,
+	"extra-help": false,
+	"isLarge": false,
+	"form-label-hasIcon": false,
+	"input-name": "input-field",
 	"footer-toTop": {
 		"button-text": "til toppen",
 		"button-link": "#top",
@@ -28,18 +54,6 @@
 	"telNumber": "75006000",
 	"telNumberVisible": "75 00 60 00",
 	"telText": "Telefonnummer til Altinn kundestøtte",
-	"icon-prefix": "ai",
-	"icon-class": "ai-private",
-	"icon-size": "",
-	"icon-extra-class": "",
-	"icon-text": "",
-	"icon-id": false,
-	"sr-only": false,
-	"aria-hidden": false,
-	"icon-pre-text": false,
-	"icon-post-text": false,
-	"icon-title": false,
-	"icon-sr-only-text": false,
 	"link-text": "En lenke ser slik ut",
 	"link-url": "/patterns/04-sider-01-forside-00-forside/04-sider-01-forside-00-forside.html",
 	"sr-text": false,
@@ -71,7 +85,7 @@
 				"link-class": "a-link-title"
 			},
 			"category-element-description": "NAV er i ferd med å digitalisere sykmeldingen. Det skal gjøre det enklere for alle som er involvert i et sykefravær å samhandle. Tjenesten utvikles stegvis.",
-			"maxThreeLines": "a-maxTwoLines"
+			"maxLines": "a-js-truncate-2"
 		},
 		{
 			"linkTitle": {
@@ -80,7 +94,7 @@
 				"link-class": "a-link-title"
 			},
 			"category-element-description": "Endring knyttet til rapportering av refusjon av sykepenger, foreldrepenger og pleie-, omsorgs- og opplæringspenger til arbeidsgivere: Fra 26. november 2016 blir det endringer i den månedlige oppgjørslisten/oppgjørsrapporten (K27) som sendes til arbeidsgiverne via Altinn, og for oppgjørslisten (K37) som benyttes etter hovedberegningen av refusjon av feriepenger i mai. I tillegg blir det endringer i kodeverdier.",
-			"maxThreeLines": "a-maxTwoLines"
+			"maxLines": "a-js-truncate-2"
 		}
 	],
 	"figCaption": "Tekst under bildet med en <a href=\"{{link.sider-seksjonsforside-v-starteogdrive}}\">lenke</a>.",
@@ -124,9 +138,14 @@
 			}
 		}
 	},
+	"button-disabled": false,
+	"button-type": "button",
+	"onclick": "location.href='/patterns/04-sider-01-forside-10-aktorvalg/04-sider-01-forside-10-aktorvalg.html'",
+	"display-as-link": false,
 	"ferdigsegment-done": {
 		"button-text": "Ferdig",
 		"button-class": "a-btn a-btn-success a-js-confirmAddRightBtn",
+		"button-id": "confirm-deletion",
 		"data-toggle": "collapse",
 		"data-target": "#eksempelID2",
 		"aria-expanded": false
@@ -135,11 +154,77 @@
 		"button-text": "Avbryt",
 		"button-class": "a-btn-link",
 		"display-as-link": true,
+		"button-id": "cancel-deletion",
 		"margin-right-multiplier": 3,
 		"data-toggle": "collapse",
 		"data-target": "#eksempelID2",
 		"aria-expanded": false
 	},
+	"checkbuttons": [
+		{
+			"checkbuttons-title": " Kun lese",
+			"checkbuttons-id": "checkbutton-read",
+			"checkbuttons-class": "",
+			"hasIcon": {
+				"icon-prefix": "ai",
+				"icon-class": "ai-read"
+			}
+		},
+		{
+			"checkbuttons-title": " Fylle ut",
+			"checkbuttons-id": "checkbutton-edit",
+			"checkbuttons-class": "",
+			"hasIcon": {
+				"icon-prefix": "ai",
+				"icon-class": "ai-write"
+			}
+		},
+		{
+			"checkbuttons-title": " Signere",
+			"checkbuttons-id": "checkbutton-sign",
+			"checkbuttons-class": "",
+			"hasIcon": {
+				"icon-prefix": "ai",
+				"icon-class": "ai-sign"
+			}
+		},
+		{
+			"checkbuttons-title": " Toggle state icon",
+			"checkbuttons-id": "checkbutton-toggle",
+			"checkbuttons-class": "a-toggle-icon",
+			"hasIcon": {
+				"icon-prefix": "ai",
+				"icon-class": "ai-plus"
+			},
+			"checkbuttons-toggle-icon": {
+				"checkbuttons-class": "a-toggle-icon",
+				"icon-prefix": "ai",
+				"icon-class": "ai-check"
+			}
+		},
+		{
+			"checkbuttons-title": "Eksempel uten ikon",
+			"checkbuttons-id": "checkbutton-example",
+			"checkbuttons-class": "",
+			"hasIcon": false
+		},
+		{
+			"checkbuttons-title": "Eksempel på deaktivert",
+			"checkbuttons-id": "checkbutton-deactivated",
+			"checkbuttons-class": "disabled",
+			"isDisabled": true,
+			"hasIcon": {
+				"icon-prefix": "ai",
+				"icon-class": "ai-sign"
+			}
+		},
+		{
+			"checkbuttons-title": "Eksempel med veldig veldig veldig lang tekst som blir kuttet av på mobilvisning",
+			"checkbuttons-id": "checkbutton-longtext",
+			"checkbuttons-class": "",
+			"hasIcon": false
+		}
+	],
 	"sortable-action-text": "Velg roller den ansatte skal ha:",
 	"sortable-action-link": {
 		"button-text": "Fjern alle",
@@ -215,6 +300,38 @@
 	"column-info-delete-add": false,
 	"header-text": "Forklarende tittel",
 	"intro-text": "Beskrivelse av innholdet i listen:",
+	"rows": [
+		{
+			"additional-classes": "a-dotted",
+			"columns": [
+				{
+					"additional-classes": "col",
+					"column-items": [
+						{
+							"column-text": {
+								"text": "Første rad"
+							}
+						}
+					]
+				}
+			]
+		},
+		{
+			"additional-classes": "a-dotted",
+			"columns": [
+				{
+					"additional-classes": "col",
+					"column-items": [
+						{
+							"column-text": {
+								"text": "Andre rad"
+							}
+						}
+					]
+				}
+			]
+		}
+	],
 	"popover-aria-label": "valid",
 	"open-popover-class": "a-helpIconButton a-helpIconButton--blue a-js-togglePopoverIcons",
 	"popover-data-target": "myPopup",
@@ -265,52 +382,6 @@
 			"column-popover": false
 		}
 	],
-	"rows": [
-		{
-			"additional-classes": "a-dotted",
-			"columns": [
-				{
-					"additional-classes": "col",
-					"column-items": [
-						{
-							"column-text": {
-								"text": "Første rad"
-							}
-						}
-					]
-				}
-			]
-		},
-		{
-			"additional-classes": "a-dotted",
-			"columns": [
-				{
-					"additional-classes": "col",
-					"column-items": [
-						{
-							"column-text": {
-								"text": "Andre rad"
-							}
-						}
-					]
-				}
-			]
-		}
-	],
-	"print-form-tag": false,
-	"text-input-id": "text-input-generic",
-	"isHidden": false,
-	"top-label": "Label: ",
-	"isDisabled": false,
-	"isInactive": false,
-	"text-input-placeholder": "f.eks placeholder",
-	"input-type": "text",
-	"isRequired": false,
-	"isInputDisabled": false,
-	"extra-help": false,
-	"isLarge": false,
-	"form-label-hasIcon": false,
-	"input-name": "input-field",
 	"alert-id": "alert",
 	"alert-class": "a-message-info",
 	"alert-items": {
@@ -322,6 +393,27 @@
 		"link-class": "a-btn a-btn-border",
 		"link-text": "En lenke stylet som en stor knapp"
 	},
+	"byline-tekst": "Sist oppdatert",
+	"byline-dato": "11.10.2016",
+	"lead-text-id": "leadText",
+	"lead-text-content": "Ingress er et kort innledende avsnitt som vanligvis plasseres mellom overskriften og brødteksten. Ingressen brukes ofte til å \"gripe\" fatt i leseren, for at personen skal bli interessert i å lese resten av teksten. Den fungerer også som et visuelt skille mellom resten av teksten. Ingressen bør være lettlest og fri for vanskelige faguttrykk.",
+	"page-title": "Tittel på siden",
+	"breadcrumb-item": [
+		{
+			"breadcrumb-title": "Første nivå"
+		},
+		{
+			"breadcrumb-title": "Andre nivå"
+		},
+		{
+			"breadcrumb-title": "Tredje nivå",
+			"breadcrumb-class": "breadcrumb-mobile"
+		},
+		{
+			"breadcrumb-title": "Fjerde nivå som er siden du står på",
+			"breadcrumb-class": "active"
+		}
+	],
 	"byline": true,
 	"hr": true,
 	"jumbo-articlestart": false,
@@ -679,7 +771,6 @@
 	"login-name": "Logg inn",
 	"display-as-dropdown": true,
 	"personlogin-isDropdown": "dropdown",
-	"onclick": "location.href='/patterns/04-sider-01-forside-10-aktorvalg/04-sider-01-forside-10-aktorvalg.html'",
 	"login-icon": {
 		"icon-prefix": "ai",
 		"icon-class": "ai-private-circle-big",
@@ -964,6 +1055,24 @@
 							{
 								"column-text": {
 									"text": "Støtteordninger"
+								}
+							}
+						]
+					}
+				]
+			},
+			{
+				"additional-classes": "a-dotted a-clickable a-list-hasRowLink",
+				"isRowLink": {
+					"rowLink": "/patterns/04-sider-20-navigasjonssider-51-omraadeside/04-sider-20-navigasjonssider-51-omraadeside.html"
+				},
+				"columns": [
+					{
+						"additional-classes": "col",
+						"column-items": [
+							{
+								"column-text": {
+									"text": "A-ordningen"
 								}
 							}
 						]

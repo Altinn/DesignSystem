@@ -27,6 +27,46 @@
 		"data-target": false,
 		"sr-text": "Telefonnummer til Altinn kundestøtte"
 	},
+	"collapse-filter-id": "",
+	"collapse-primary-text": "Denne teksten kan man trykke på for å se utvidet informasjon om et tema",
+	"show-arrow": true,
+	"no-decoration": true,
+	"isCollapsed": true,
+	"button-text": "En standard knapp",
+	"button-class": "a-modal-back",
+	"button-disabled": false,
+	"button-type": "button",
+	"onclick": false,
+	"button-icon": {
+		"icon-prefix": "ai",
+		"icon-class": "ai-deadline"
+	},
+	"display-as-link": false,
+	"aria-label": "Tilbake",
+	"enable-popover": true,
+	"popover-placement": "bottom",
+	"popover-content-id": "popoverWithIconToggle",
+	"popover-class": "",
+	"popover-text": "Dette er en popover tekst",
+	"popover-buttons": [
+		{
+			"button-text": "knapp",
+			"button-class": "a-btn a-btn-danger"
+		},
+		{
+			"button-text": "link",
+			"button-class": "a-btn-link a-linkDanger",
+			"display-as-link": true
+		}
+	],
+	"person-role-role": "KLIENT",
+	"person-role-name": "Ferksfisk & Saltkjøtt AS",
+	"person-role-name-meta": false,
+	"user-icon": {
+		"icon-prefix": "ai",
+		"icon-class": "ai-client",
+		"icon-extra-class": "ai-3x"
+	},
 	"isTransparent": true,
 	"consent-first-header": "Midlertidig samtykke er gitt",
 	"consent-first-text": "Velkommen til samtykkeløsningen",
@@ -106,14 +146,11 @@
 			"link-class": "a-btn a-btn-success"
 		}
 	],
-	"button-text": "En knapp stylet som en link som antyder fare",
-	"button-class": "a-btn-link a-linkDanger",
+	"label-class": "badge-primary",
+	"label-id": "label",
+	"label-content": "9",
 	"button-colorClass": "",
 	"button-shadow-label": false,
-	"button-icon": {
-		"icon-prefix": "ai",
-		"icon-class": "ai-deadline"
-	},
 	"info-delete-add": {
 		"added-content": [
 			{
@@ -149,21 +186,103 @@
 	"ferdigsegment-done": {
 		"button-text": "Ferdig",
 		"button-class": "a-btn a-btn-success",
+		"button-id": "confirm-deletion",
 		"data-toggle": "collapse",
 		"data-target": "#eksempelID2",
-		"aria-expanded": false,
-		"button-id": "confirm-deletion"
+		"aria-expanded": false
 	},
 	"ferdigsegment-cancel": {
 		"button-text": "Avbryt",
 		"button-class": "a-btn-link",
 		"display-as-link": true,
+		"button-id": "cancel-deletion",
 		"margin-right-multiplier": 3,
 		"data-toggle": "collapse",
 		"data-target": "#eksempelID2",
-		"aria-expanded": false,
-		"button-id": "cancel-deletion"
+		"aria-expanded": false
 	},
+	"print-form-tag": false,
+	"text-input-id": "text-input-generic",
+	"top-label": "Finn klient",
+	"isDisabled": false,
+	"isInactive": false,
+	"text-input-placeholder": "Søk etter ansatt",
+	"input-type": "search",
+	"isRequired": false,
+	"isInputDisabled": false,
+	"extra-help": false,
+	"isLarge": false,
+	"form-label-hasIcon": {
+		"icon-prefix": "ai",
+		"icon-class": "ai-private",
+		"icon-extra-class": ""
+	},
+	"input-name": "input-field",
+	"checkbuttons": [
+		{
+			"checkbuttons-title": " Kun lese",
+			"checkbuttons-id": "checkbutton-read",
+			"checkbuttons-class": "",
+			"hasIcon": {
+				"icon-prefix": "ai",
+				"icon-class": "ai-read"
+			}
+		},
+		{
+			"checkbuttons-title": " Fylle ut",
+			"checkbuttons-id": "checkbutton-edit",
+			"checkbuttons-class": "",
+			"hasIcon": {
+				"icon-prefix": "ai",
+				"icon-class": "ai-write"
+			}
+		},
+		{
+			"checkbuttons-title": " Signere",
+			"checkbuttons-id": "checkbutton-sign",
+			"checkbuttons-class": "",
+			"hasIcon": {
+				"icon-prefix": "ai",
+				"icon-class": "ai-sign"
+			}
+		},
+		{
+			"checkbuttons-title": " Toggle state icon",
+			"checkbuttons-id": "checkbutton-toggle",
+			"checkbuttons-class": "a-toggle-icon",
+			"hasIcon": {
+				"icon-prefix": "ai",
+				"icon-class": "ai-plus"
+			},
+			"checkbuttons-toggle-icon": {
+				"checkbuttons-class": "a-toggle-icon",
+				"icon-prefix": "ai",
+				"icon-class": "ai-check"
+			}
+		},
+		{
+			"checkbuttons-title": "Eksempel uten ikon",
+			"checkbuttons-id": "checkbutton-example",
+			"checkbuttons-class": "",
+			"hasIcon": false
+		},
+		{
+			"checkbuttons-title": "Eksempel på deaktivert",
+			"checkbuttons-id": "checkbutton-deactivated",
+			"checkbuttons-class": "disabled",
+			"isDisabled": true,
+			"hasIcon": {
+				"icon-prefix": "ai",
+				"icon-class": "ai-sign"
+			}
+		},
+		{
+			"checkbuttons-title": "Eksempel med veldig veldig veldig lang tekst som blir kuttet av på mobilvisning",
+			"checkbuttons-id": "checkbutton-longtext",
+			"checkbuttons-class": "",
+			"hasIcon": false
+		}
+	],
 	"sortable-action-text": "Velg roller den ansatte skal ha:",
 	"sortable-action-link": {
 		"button-text": "Fjern alle",
@@ -239,56 +358,6 @@
 	"column-info-delete-add": false,
 	"header-text": "Forklarende tittel",
 	"intro-text": "Beskrivelse av innholdet i listen:",
-	"popover-aria-label": "valid",
-	"open-popover-class": "a-helpIconButton a-helpIconButton--blue a-js-togglePopoverIcons",
-	"popover-data-target": "myPopup",
-	"popover-title": false,
-	"popover-content": false,
-	"popover-class": "",
-	"popover-link-text": "",
-	"popover-various-content": {
-		"alert-items": [
-			{
-				"alert-text": {
-					"text": "Dette er en tekst "
-				}
-			},
-			{
-				"alert-link": {
-					"link-text": "med en lenke som står i løpende tekst",
-					"link-url": "http://www.altinn.no"
-				}
-			},
-			{
-				"alert-text": {
-					"text": "og man kan ha mer tekst etter."
-				}
-			}
-		]
-	},
-	"popover-link-icon": [
-		{
-			"icon-prefix": "ai",
-			"icon-class": "ai-circle-plus"
-		},
-		{
-			"icon-prefix": "ai",
-			"icon-class": "ai-circle-minus"
-		}
-	],
-	"popover-content-id": "popoverWithIconToggle",
-	"altText": {
-		"altText": "Vis mer info"
-	},
-	"column-items": [
-		{
-			"column-text": false,
-			"column-icon": false,
-			"column-link": false,
-			"column-button": false,
-			"column-popover": false
-		}
-	],
 	"rows": [
 		{
 			"additional-classes": "a-dotted",
@@ -321,27 +390,54 @@
 			]
 		}
 	],
-	"print-form-tag": false,
-	"text-input-id": "text-input-generic",
-	"top-label": "Finn klient",
-	"isDisabled": false,
-	"isInactive": false,
-	"text-input-placeholder": "Søk etter ansatt",
-	"input-type": "search",
-	"isRequired": false,
-	"isInputDisabled": false,
-	"extra-help": false,
-	"isLarge": false,
-	"form-label-hasIcon": {
-		"icon-prefix": "ai",
-		"icon-class": "ai-private",
-		"icon-extra-class": ""
+	"popover-aria-label": "valid",
+	"open-popover-class": "a-helpIconButton a-helpIconButton--blue a-js-togglePopoverIcons",
+	"popover-data-target": "myPopup",
+	"popover-title": false,
+	"popover-content": false,
+	"popover-link-text": "",
+	"popover-various-content": {
+		"alert-items": [
+			{
+				"alert-text": {
+					"text": "Dette er en tekst "
+				}
+			},
+			{
+				"alert-link": {
+					"link-text": "med en lenke som står i løpende tekst",
+					"link-url": "http://www.altinn.no"
+				}
+			},
+			{
+				"alert-text": {
+					"text": "og man kan ha mer tekst etter."
+				}
+			}
+		]
 	},
-	"input-name": "input-field",
-	"button-disabled": false,
-	"button-type": "button",
-	"onclick": false,
-	"display-as-link": true,
+	"popover-link-icon": [
+		{
+			"icon-prefix": "ai",
+			"icon-class": "ai-circle-plus"
+		},
+		{
+			"icon-prefix": "ai",
+			"icon-class": "ai-circle-minus"
+		}
+	],
+	"altText": {
+		"altText": "Vis mer info"
+	},
+	"column-items": [
+		{
+			"column-text": false,
+			"column-icon": false,
+			"column-link": false,
+			"column-button": false,
+			"column-popover": false
+		}
+	],
 	"local-role-header": "Opprett rolle",
 	"local-role-name-input": {
 		"text-input-id": "text-input-opprett-rolle",
@@ -395,13 +491,18 @@
 		"onclick": false,
 		"button-type": false
 	},
-	"displayTabs": true,
-	"tab-heading": "Tab heading",
 	"tab-items": [
 		{
 			"tab-active": true,
 			"tab-href": "home",
-			"tab-icon": "people",
+			"tab-icon": {
+				"0": "p",
+				"1": "e",
+				"2": "o",
+				"3": "p",
+				"4": "l",
+				"5": "e"
+			},
 			"tab-title": "Person",
 			"section-sub-title": "Hvem vil du legge til?",
 			"add-rightholder-heading": "Hvem vil du legge til?",
@@ -446,10 +547,24 @@
 			}
 		},
 		{
-			"tab-active": false,
 			"tab-href": "enterprise",
-			"tab-icon": "location_city",
+			"tab-icon": {
+				"0": "l",
+				"1": "o",
+				"2": "c",
+				"3": "a",
+				"4": "t",
+				"5": "i",
+				"6": "o",
+				"7": "n",
+				"8": "_",
+				"9": "c",
+				"10": "i",
+				"11": "t",
+				"12": "y"
+			},
 			"tab-title": "Ekstern virksomhet",
+			"tab-active": false,
 			"section-sub-title": "Hvem vil du legge til?",
 			"add-rightholder-heading": "Hvem vil du legge til?",
 			"personnummer-input": {
@@ -486,10 +601,24 @@
 			}
 		},
 		{
-			"tab-active": false,
 			"tab-href": "enterpriseuser",
-			"tab-icon": "verified_user",
+			"tab-icon": {
+				"0": "v",
+				"1": "e",
+				"2": "r",
+				"3": "i",
+				"4": "f",
+				"5": "i",
+				"6": "e",
+				"7": "d",
+				"8": "_",
+				"9": "u",
+				"10": "s",
+				"11": "e",
+				"12": "r"
+			},
 			"tab-title": "Bruker med virksomhetssertifikat",
+			"tab-active": false,
 			"section-sub-title": "Hvem vil du legge til?",
 			"add-rightholder-heading": "Hvem vil du legge til?",
 			"personnummer-input": {
@@ -525,6 +654,8 @@
 			}
 		}
 	],
+	"displayTabs": true,
+	"tab-heading": "Tab heading",
 	"nav-elements-first": [
 		{
 			"linktext": "A",
@@ -890,71 +1021,6 @@
 			]
 		}
 	],
-	"checkbuttons": [
-		{
-			"checkbuttons-title": " Kun lese",
-			"checkbuttons-id": "checkbutton-read",
-			"checkbuttons-class": "",
-			"hasIcon": {
-				"icon-prefix": "ai",
-				"icon-class": "ai-read"
-			}
-		},
-		{
-			"checkbuttons-title": " Fylle ut",
-			"checkbuttons-id": "checkbutton-edit",
-			"checkbuttons-class": "",
-			"hasIcon": {
-				"icon-prefix": "ai",
-				"icon-class": "ai-write"
-			}
-		},
-		{
-			"checkbuttons-title": " Signere",
-			"checkbuttons-id": "checkbutton-sign",
-			"checkbuttons-class": "",
-			"hasIcon": {
-				"icon-prefix": "ai",
-				"icon-class": "ai-sign"
-			}
-		},
-		{
-			"checkbuttons-title": " Toggle state icon",
-			"checkbuttons-id": "checkbutton-toggle",
-			"checkbuttons-class": "a-toggle-icon",
-			"hasIcon": {
-				"icon-prefix": "ai",
-				"icon-class": "ai-plus"
-			},
-			"checkbuttons-toggle-icon": {
-				"checkbuttons-class": "a-toggle-icon",
-				"icon-prefix": "ai",
-				"icon-class": "ai-check"
-			}
-		},
-		{
-			"checkbuttons-title": "Eksempel uten ikon",
-			"checkbuttons-id": "checkbutton-example",
-			"checkbuttons-class": "",
-			"hasIcon": false
-		},
-		{
-			"checkbuttons-title": "Eksempel på deaktivert",
-			"checkbuttons-id": "checkbutton-deactivated",
-			"checkbuttons-class": "disabled",
-			"isDisabled": true,
-			"hasIcon": {
-				"icon-prefix": "ai",
-				"icon-class": "ai-sign"
-			}
-		},
-		{
-			"checkbuttons-title": "Eksempel med veldig veldig veldig lang tekst som blir kuttet av på mobilvisning",
-			"checkbuttons-id": "checkbutton-longtext",
-			"checkbuttons-class": "",
-			"hasIcon": false
-		}
-	],
 	"collapse-header-class": "",
 	"area-expanded-header": false,
 	"collapsed": true,
@@ -996,6 +1062,15 @@
 			}
 		]
 	},
+	"dateDay": "20",
+	"dateMonth": "feb",
+	"hasIcon": {
+		"icon-prefix": "ai",
+		"icon-class": "ai-server",
+		"icon-extra-class": "a-icon a-icon-circle"
+	},
+	"hasTextSmall": false,
+	"icontext": "Gi og fjerne rettigheter",
 	"delegation-email-header-text": {
 		"hasIcon": false,
 		"hasTextSmall": true,
@@ -1037,14 +1112,6 @@
 	},
 	"heading-action": false,
 	"has-link": true,
-	"person-role-role": "KLIENT",
-	"person-role-name": "Ferksfisk & Saltkjøtt AS",
-	"person-role-name-meta": false,
-	"user-icon": {
-		"icon-prefix": "ai",
-		"icon-class": "ai-client",
-		"icon-extra-class": "ai-3x"
-	},
 	"search-title": "Søk:",
 	"expandable-list": {
 		"popover-various-content": false,
@@ -1158,6 +1225,17 @@
 	"show-tilgang-tjenester": true,
 	"show-aktivitetslogg": true,
 	"show-local-role": true,
+	"fileupload-list-extraClass": "",
+	"item-list": [
+		{
+			"item-list-class": "a-dotted a-selectable",
+			"list-item-text": "klientrolle_delegeringer_30_05_16.csv",
+			"list-item-aria-label": "Fjern fil:",
+			"icon-onclick": "console.log('Dummy fjern opplastet fil');",
+			"icon-prefix": "ai",
+			"icon-class": "ai-circle-exit"
+		}
+	],
 	"custom-fileupload-class": "a-btn a-btn-action a-custom-fileupload mb-0",
 	"custom-fileupload-input-id": "customFileuploadId",
 	"custom-fileupload-text": "Last opp fil",
@@ -1203,11 +1281,6 @@
 			}
 		}
 	],
-	"collapse-filter-id": "",
-	"collapse-primary-text": "Denne teksten kan man trykke på for å se utvidet informasjon om et tema",
-	"show-arrow": true,
-	"no-decoration": true,
-	"isCollapsed": true,
 	"section-sub-title": "Undertittel i en seksjon",
 	"section-title": "Tittel på seksjon",
 	"extra-class": false,
@@ -1231,21 +1304,6 @@
 		"onclick": "location.href='/patterns/04-sider-60-profil-roller-rettigheter-profil-roller-rettigheter/04-sider-60-profil-roller-rettigheter-profil-roller-rettigheter.html'"
 	},
 	"animationClass": "a-scene-element--fadeinright",
-	"aria-label": "knapp med popover",
-	"enable-popover": true,
-	"popover-placement": "bottom",
-	"popover-text": "Dette er en popover tekst",
-	"popover-buttons": [
-		{
-			"button-text": "knapp",
-			"button-class": "a-btn a-btn-danger"
-		},
-		{
-			"button-text": "link",
-			"button-class": "a-btn-link a-linkDanger",
-			"display-as-link": true
-		}
-	],
 	"form-input-hasButton": false,
 	"isInput-group": "input-group",
 	"search-algorithm": "show-and-highlight",
@@ -2424,6 +2482,28 @@
 								"column-text": {
 									"classes": "",
 									"text": "Last flere"
+								}
+							}
+						]
+					}
+				]
+			},
+			{
+				"additional-classes": "a-bgGreyLight a-js-ignoreDuringSearch",
+				"tabable": false,
+				"columns": [
+					{
+						"additional-classes": "a-w-7 hidden-sm-down",
+						"onclick": false,
+						"column-items": []
+					},
+					{
+						"additional-classes": "col",
+						"column-items": [
+							{
+								"column-text": {
+									"classes": "a-js-noSearchResults",
+									"text": "Ingen treff på søkeresultatet <em class=\"a-js-noSearchResults-phrase\">{0}</em>, prøv et nytt søkeord"
 								}
 							}
 						]
@@ -3956,6 +4036,28 @@
 						]
 					}
 				]
+			},
+			{
+				"additional-classes": "a-bgGreyLight a-js-ignoreDuringSearch",
+				"tabable": false,
+				"columns": [
+					{
+						"additional-classes": "a-w-7 hidden-sm-down",
+						"onclick": false,
+						"column-items": []
+					},
+					{
+						"additional-classes": "col",
+						"column-items": [
+							{
+								"column-text": {
+									"classes": "a-js-noSearchResults",
+									"text": "Ingen treff på søkeresultatet <em class=\"a-js-noSearchResults-phrase\">{0}</em>, prøv et nytt søkeord"
+								}
+							}
+						]
+					}
+				]
 			}
 		]
 	},
@@ -4098,13 +4200,6 @@
 	},
 	"show-file-delegation": false,
 	"variation-class": "a-iconText-background a-iconText-large",
-	"hasIcon": {
-		"icon-prefix": "ai",
-		"icon-class": "ai-server",
-		"icon-extra-class": "a-icon a-icon-circle"
-	},
-	"hasTextSmall": false,
-	"icontext": "Gi og fjerne rettigheter",
 	"isHeader": true,
 	"button-list": [
 		{
