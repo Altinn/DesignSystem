@@ -4,11 +4,16 @@
 \*------------------------------------*/
 
 // sass-lint:disable-block no-disallowed-properties
-.ai {
+.ai,
+.reg {
   @include a-fontSize-icon-reg;
   width: 1em;
   text-align: center;
   vertical-align: middle;
+
+  &.ai-xs {
+    font-size: $icon-xs-em;
+  }
 
   &.ai-sm {
     font-size: $icon-sm-em;
@@ -45,14 +50,15 @@
   }
 }
 
-
-// negative margin for centering icons in forms with border
 .form-group {
-  .a-form-group-items {
+  i {
+    margin-top: -2px;
+    font-size: $icon-sm-em;
+  }
+
+  &.a-form-group-large {
     i {
-      &.ai {
-        margin-top: -2px;
-      }
+      @include a-fontSize-icon-reg;
     }
   }
 }
@@ -61,17 +67,26 @@
 .a-switch,
 .a-btn-action {
   i {
-    &.ai {
-      margin-top: -3px;
+    margin-top: -3px;
+    font-size: $icon-sm-em;
+  }
+
+  &.a-fullWidthBtn {
+    i {
+      @include a-fontSize-icon-reg;
     }
   }
 }
 
-//negative margin for centering icons in list
 .a-list {
   i {
-    &.ai {
-      margin-top: -4px;
+    margin-top: -4px; //negative margin for centering icons in list
+    font-size: $icon-sm-em;
+  }
+
+  &.a-list-large {
+    i {
+      margin-top: 0;
     }
   }
 }

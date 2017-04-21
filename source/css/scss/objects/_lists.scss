@@ -18,6 +18,7 @@
 
   button {
     z-index: 1;
+    display: inline-block;
     min-height: 0;
     padding: 0;
     margin: 0;
@@ -101,6 +102,7 @@
       .a-list-rowLink {
         @include media-breakpoint-up( md ) {
           @include a-fontSize20;
+          min-height: $spacer * 4;
           padding: 8px $spacer / 2;
         }
 
@@ -302,10 +304,10 @@ ul {
       margin-bottom: $spacer;
 
       &::before {
-        @include a-fontSize36;
+        @include a-fontSize30;
 
         position: absolute;
-        top: -8px;
+        top: -5px;
         left: -3px;
         padding-right: 5px;
         color: $blue;
@@ -448,7 +450,7 @@ ol {
         position: relative;
         top: 0;
         padding: 5px 9px 4px 9px;
-        margin-right: 10px;
+        margin-right: 15px;
         content: counter( step );
         counter-increment: step;
         border: 2px solid $blue;
@@ -510,26 +512,46 @@ ol {
 \*------------------------------------*/
 
 .a-listWithSubLevels {
+  display: flex;
+  margin-bottom: $spacer;
+  flex-wrap: wrap;
+
+  .a-btn {
+    margin-bottom: 0;
+  }
+
+  .a-list-heading {
+    width: 100%;
+  }
+
   .a-btn-shadow-expand {
     @include a-fontSize16;
-    padding-left: 30px;
-    margin-top: -13px;
+    display: block;
+    width: 100%;
+    padding-left: $spacer;
     background: $blue-lighter;
 
-    .a-login-container & {
-      @extend .a-fontSizeM;
+    @include media-breakpoint-up( md ) {
+      padding-left: $spacer * 2;
     }
 
-    &:hover {
+    &:hover,
+    &:active,
+    &:focus {
       background: darken( $blue-lighter, 5% );
     }
 
     .a-dropdownCircleArrow {
-      width: 24px;
-      min-width: 24px;
-      height: 24px;
+      width: $spacer * 2;
+      min-width: $spacer * 2;
+      height: $spacer * 2;
       margin-top: -2px;
-      margin-right: 26px;
+      margin-right: $spacer;
+
+      @include media-breakpoint-up( md ) {
+        // Manual adjustment to make text align
+        margin-right: 20px;
+      }
 
       i {
         @include a-fontSize20;
@@ -539,16 +561,21 @@ ol {
   }
 
   .a-collapseContent {
-    position: relative;
-    z-index: 4;
-    margin-top: -12px;
-    margin-bottom: 12px;
+    width: 100%;
   }
 
   .a-list {
+    padding-bottom: $spacer * 2;
+
     li {
+      border: none;
+
       .a-list-rowLink {
-        padding-left: 80px;
+        padding-left: $spacer * 4;
+        @include media-breakpoint-up( md ) {
+          // Manual adjustment to make text align
+          padding-left: 68px;
+        }
       }
 
       &.a-clickable {

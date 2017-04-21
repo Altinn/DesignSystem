@@ -3,4 +3,4 @@ state: complete
 version: 0
 ---
 
-Foreløpig ingen retningslinjer.
+Bruker rammeverket truncate.js for å legge på ellipsis på linje 2. 

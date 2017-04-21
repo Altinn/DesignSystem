@@ -2,7 +2,6 @@
   colnavCustom,
   handleFocus,
   mobileNavigation,
-  propagateContent,
   toggleFilter,
   uniformHeight,
   tooltip,
@@ -41,7 +40,6 @@ window.sharedInit = function() {
   initializeDatepicker();
   addListSortHandler();
   mobileNavigation();
-  propagateContent();
   toggleFilter();
   tooltip();
   toggleInstant();
