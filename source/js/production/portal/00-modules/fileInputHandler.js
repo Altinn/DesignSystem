@@ -19,6 +19,22 @@ var onFileInputChange = function() {
     $listItemText.text(fileName);
     $listItem.attr('aria-label', $listItemLabel + fileName);
   });
+
+  $('.a-js-certificateContainer').on('change', function() {
+    $('.a-js-certificateEdit').show();
+    $('.a-js-certificateContainer1').show();
+    $('.a-js-certificateUpload').hide();
+  });
+
+  $('.a-js-certificateStep1').on('click', function() {
+    $('.a-js-certificateContainer1').hide();
+    $('.a-js-certificateContainer2').show();
+  });
+  $('.a-js-certificateStep2').on('click', function() {
+    $('.a-js-certificateEdit').hide();
+    $('.a-js-certificateContainer1').hide();
+    $('.a-js-certificateUpload').show();
+  });
 };
 
 var onFileListDeleteClick = function(src) {
