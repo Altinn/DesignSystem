@@ -5,7 +5,9 @@
 
 // sass-lint:disable-block no-disallowed-properties
 .ai,
-.reg {
+.reg,
+.ai-stack,
+.reg-stack {
   @include a-fontSize-icon-reg;
   width: 1em;
   text-align: center;
@@ -47,6 +49,31 @@
 
   &.ai-right {
     text-align: right;
+  }
+
+  // @at-root {
+  //   span#{&} { // workaround for &span
+  //     @include a-fontSize-icon-reg;
+
+  //     width: 1em;
+  //     height: 1em;
+
+  //     i {
+  //       font-size: inherit;
+  //     }
+  //   }
+  // }
+}
+
+.ai-stack,
+.reg-stack {
+  @include a-fontSize-icon-reg;
+
+  width: 1em;
+  height: 1em;
+
+  i {
+    font-size: inherit;
   }
 }
 
