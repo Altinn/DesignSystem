@@ -41,13 +41,11 @@ var action = function(e) {
 function menuHandler() {
   // enable tabbing and mouse click on mobile menu btn
   if ($('body').width() < 768) {
-    $('body').on('mouseup', action);
     $('body').on('click', action);
   }
 }
 menuHandler();
 $(window).on('resize', function() {
-  $('body').off('mouseup', action);
   $('body').off('click', action);
   menuHandler();
 });
