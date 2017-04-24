@@ -12,40 +12,62 @@
 
   <section id="content" tabindex="-1">
 
-    <div class="container">
-      <div class="row">
-        <div class="col-sm-8 col-lg-6 offset-lg-1">
-          <h1 class="a-h3 a-fontReg"><b>10 av 123 treff</b> på skjema og artikler med <b>"MVA"</b></h1>
+    <div class="container a-searchResults">
+      <div class="row mb-3">
+        <div class="col-8 col-lg-8 offset-lg-1">
+          <h1 class="a-h2 a-fontReg"><b>10 av 123 treff</b> på skjema og artikler med <b>"MVA"</b></h1>
         </div>
         {{# filterSearch }}
-        <div class="col-sm-4 col-lg-4">
-          {{> atomer-knapp }}
+        <div class="col-4 col-lg-2 d-flex justify-content-end">
+          {{> atomer-knapp:a-searchResults-filter }}
         </div>
         {{/ filterSearch }}
       </div>
+
+      {{# hit-form-1 }}
       <div class="row">
-        <div class="col-sm-12 col-lg-10 offset-lg-1 pb-3">
-
-          {{# item1 }} {{> molekyler-ikon-link }} {{/ item1 }} {{# item2 }} {{> molekyler-lenketittel-med-forklaring }} {{/ item2 }}
-
+        <div class="col-sm-12 col-lg-12 pb-3 {{a-searchResults-lastOfType}}">
+          {{> molekyler-ikon-link }}
         </div>
       </div>
-
+      {{/ hit-form-1 }} {{# hit-article-1 }}
       <div class="row">
-        <div class="col-sm-12 col-lg-12 pb-3">
-          {{# card-bottom }} {{> molekyler-ikon-link }} {{/ card-bottom }}
-
+        <div class="col-sm-12 col-lg-10 offset-lg-1 pt-2 pb-0 a-borderBottom">
+          {{> molekyler-lenketittel-med-forklaring }}
         </div>
       </div>
-
-      {{# hr }}
-      <hr> {{/ hr }}
-
+      {{/ hit-article-1 }} {{# infoAboutMail }}
       <div class="row">
-        <div class="col-sm-12 col-lg-6 offset-lg-3 pb-3">
-          {{> molekyler-bilde-innhold:mt-4 }}
+        <div class="col-sm-12 col-lg-12 pb-0">
+          {{> molekyler-bilde-innhold:a-cardImage-border|a-cardImage-largePadding }}
         </div>
       </div>
+      {{/ infoAboutMail }} {{# hit-article-2 }}
+      <div class="row">
+        <div class="col-sm-12 col-lg-10 offset-lg-1 pt-2 pb-0 a-borderBottom {{a-searchResults-lastOfType}}">
+          {{> molekyler-lenketittel-med-forklaring }}
+        </div>
+      </div>
+      {{/ hit-article-2 }} {{# hit-form-2 }}
+      <div class="row">
+        <div class="col-sm-12 col-lg-12 pb-3 {{a-searchResults-lastOfType}}">
+          {{> molekyler-ikon-link }}
+        </div>
+      </div>
+      {{/ hit-form-2 }} {{# hit-article-3 }}
+      <div class="row">
+        <div class="col-sm-12 col-lg-10 offset-lg-1 pt-2 pb-0 a-borderBottom {{a-searchResults-lastOfType}}">
+          {{> molekyler-lenketittel-med-forklaring }}
+        </div>
+      </div>
+      {{/ hit-article-3 }} {{# loadmoreSearch }}
+      <div class="row">
+        <div class="col-sm-12 col-lg-10 offset-lg-1">
+          {{> atomer-handlingsknapp }}
+        </div>
+      </div>
+      {{/ loadmoreSearch }}
+
 
     </div>
     <!-- END Container -->
