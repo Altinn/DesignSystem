@@ -18,8 +18,8 @@ body {
   position: fixed;
   padding-bottom: $spacer * 5;
 
-  .a-logo-feedback {
-    display: none;
+  .a-modal-top-logo {
+    opacity: 0.7;
   }
 
   .container {
@@ -274,11 +274,9 @@ body {
 
 .a-modal-close,
 .a-modal-back {
-  width: 36px;
-  height: 36px;
-  padding: 4px 0 $spacer / 2 0;
+  padding: 0;
   margin-bottom: 12px;
-  background: $white;
+  cursor: pointer;
   border: none;
   border-radius: 50%;
 
@@ -291,6 +289,19 @@ body {
     background: $blue-light;
     border: none;
   }
+
+  span {
+    &.ai-stack,
+    &.reg-stack {
+      i {
+        line-height: 1em;
+
+        &:first-of-type {
+          color: $white;
+        }
+      }
+    }
+  }
 }
 
 .a-modal-close {
@@ -302,12 +313,6 @@ a {
     padding-top: 6px;
     text-align: center;
   }
-}
-
-.a-modal-close-icon,
-.a-modal-back-icon {
-  vertical-align: middle;
-  cursor: pointer;
 }
 
 .a-modal-close-icon {
@@ -324,18 +329,10 @@ a {
 \*------------------------------------*/
 .a-modal-background-success,
 .a-modal-background-error {
-  .a-logo-feedback {
-    display: initial;
-  }
-
   .a-modal-navbar {
     button {
       display: none;
     }
-  }
-
-  .a-logo-neutral {
-    display: none;
   }
 }
 

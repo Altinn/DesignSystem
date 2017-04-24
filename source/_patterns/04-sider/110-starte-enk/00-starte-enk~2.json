@@ -1,12 +1,12 @@
 {
-		"page-starte-enk" : {
+	"page-starte-enk" : {
 		"modal-starte-enk" : {
 
 			"_commentStart":"--------------------------------------------------------------",
 			"_commentText": "MODALWINDOW",
 			"_commentEnd":  "--------------------------------------------------------------",
 
-			"bodyClass": "a-modal-background",
+			"bodyClass": "a-modal-background a-js-lookup",
 			"logo" : "../../images/a-logo-white.svg",
 			"login-name" : "JAN PETTERSEN",
 			"animationClass" : "a-scene-element--fadeinright",
@@ -18,6 +18,10 @@
           "icon-prefix": "ai",
           "icon-class" : "ai-back",
           "icon-extra-class" : "a-modal-back-icon",
+          "stacked-background": {
+            "icon-prefix": "ai",
+            "icon-class": "ai-plain-circle"
+          },
 		      "onclick": "goBack()",
 		      "enable-popover": false
 		    },
@@ -27,6 +31,10 @@
           "icon-prefix": "ai",
           "icon-class" : "ai-exit",
           "icon-extra-class" : "a-modal-close-icon",
+          "stacked-background": {
+            "icon-prefix": "ai",
+            "icon-class": "ai-plain-circle"
+          },
 		      "onclick": false,
 		      "enable-popover": true,
 		      "popover-placement": "bottom",
@@ -37,7 +45,7 @@
 						{
 		          "button-text" : "Ja, avslutt.",
 		          "button-class" : "a-btn a-btn-danger",
-						  "onclick": "location.href='../../patterns/04-sider-10-seksjonsforsider-30-seksjonsforside-v-starteogdrive/04-sider-10-seksjonsforsider-30-seksjonsforside-v-starteogdrive.html'"
+							"onclick": "location.href='../../patterns/04-sider-10-seksjonsforsider-30-seksjonsforside-v-starteogdrive/04-sider-10-seksjonsforsider-30-seksjonsforside-v-starteogdrive.html'"
 		        },
 		        {
 		          "button-text": "Fortsett",
@@ -66,13 +74,13 @@
 			"_commentEnd":  "--------------------------------------------------------------",
 
 			"modal-title" : {
-				"section-title": "Vanskelig å finne en kategori?",
-				"titleExtra" : false
+				"section-title": "Hva skal du drive med?",
+				"titleExtra" : {
+					"titleExtra-text" : "(Skriv stikkord så foreslår vi næringskoder)"
+				}
 			},
 
-			"modal-lead" : {
-		    "lead-text-content" : "Nå har du søkt tre ganger uten å finne noe som passer. Du kan også få hjelp av saksbehandler til å finne riktig kategori. Beskriv virksomheten din så spesifikt som mulig, så finner vi riktig kode for deg."
-		  },
+			"modal-lead" : false,
 
 			"_commentStart":"--------------------------------------------------------------",
 			"_commentText": "BUTTONS",
@@ -81,110 +89,71 @@
 			"modal-nextbutton" : false,
 			"modal-discard" : false,
 
-
 			"_commentStart":"--------------------------------------------------------------",
 			"_commentText": "INPUT",
 			"_commentEnd":  "--------------------------------------------------------------",
 
-		  "modal-input-orgName" : false,
+
+		  "modal-input-keyword" : {
+				"isValidator" : false,
+				"input-label-class" : "sr-only",
+				"input-type" : "text",
+				"text-input-id" : "bransje",
+				"isLarge": true,
+				"isHidden": true,
+		    "top-label" : "Virksomhet:",
+		    "text-input-placeholder" : "søk med stikkord som tapetsering, fotografering, campingplasser.."
+		  },
+			"modal-loader" : true,
+			"modal-empty" : {
+				"paragraph-class" : "a-js-noResults",
+				"paragraph-content": "Ingen treff. Prøv å søke med andre stikkord."
+			},
 			"modal-validatorInfo" : false,
 			"modal-validatorInfoOK" : false,
-
-			"modal-input-textArea" : {
-				"textarea-label" : "Gi en kort beskrivelse av hovedaktiviteten:",
-				"textarea-placeholder" : "Beskriv virksomheten, rolle og hva du skal selge. Vær nøyaktig og spesifikk i beskrivelsen."
-			},
-			"modal-input-radio" : {
-				"radio-legend" : {
-					"radio-legendText" : "Tilhører du noen av de følgende virksomhetene?"
-				},
-				"radiobuttons" : [
-					{
-						"radiobutton-title" : "Landbruk og fiske",
-						"radiobutton-id" : "radio26"
-					},
-					{
-						"radiobutton-title" : "Kultur og underholdning",
-						"radiobutton-id" : "radio27"
-					},
-					{
-						"radiobutton-title" : "Varehandel",
-						"radiobutton-id" : "radio27"
-					},
-					{
-						"radiobutton-title" : "Ingen av disse",
-						"radiobutton-id" : "radio27"
-					}
-				]
-			},
+		  "modal-input-textArea" : false,
+		  "modal-input-radio" : false,
 		  "modal-date" : false,
-
-
-
-					"_commentStart":"--------------------------------------------------------------",
-				  "_commentText": "INPUT: DESCRIPTION",
-				  "_commentEnd":  "--------------------------------------------------------------",
-
-					"modal-input-description" : {
-						"input-description" : {
-					    "isRequired": true,
-              "error-message-popover": true,
-							"textarea-label" : "Gi en kort beskrivelse av hovedaktiviteten:",
-							"textarea-placeholder" : "Beskriv virksomheten, rolle og hva du skal selge. Vær nøyaktig og spesifikk i beskrivelsen."
-					  },
-
-					  "input-radio" : {
-					    "radio-legend" : {
-					      "radio-legendText" : "Tilhører du noen av de følgende virksomhetene?"
-					    },
-							"isRequired": true,
-              "error-message-popover": true,
-							"isStacked" : "",
-					    "radio-class" : "",
-							"radiobuttons" : [
-								{
-									"radiobutton-title" : "Landbruk og fiske",
-									"radiobutton-id" : "radio26"
-								},
-								{
-									"radiobutton-title" : "Kultur og underholdning",
-									"radiobutton-id" : "radio27"
-								},
-								{
-									"radiobutton-title" : "Varehandel",
-									"radiobutton-id" : "radio27"
-								},
-								{
-									"radiobutton-title" : "Ingen av disse",
-									"radiobutton-id" : "radio27"
-								}
-							]
-					  },
-
-					  "button-submit" : {
-					    "button-text" : "Neste",
-							"button-class" : "a-btn",
-					    "button-type" : "submit",
-              "onclick": false,
-							"button-href" : "link.sider-starte-enk-4"
-					  },
-					  "chooseCategory-findself" : {
-					    "link-text" : "Finn næringskode selv",
-					    "link-url" : "link.sider-starte-enk-3",
-							"button-href" : "link.sider-starte-enk-4"
-					  },
-
-						"url" :"link.sider-starte-enk-4"
-					},
-
 
 		  "_commentStart":"--------------------------------------------------------------",
 		  "_commentText": "CHOOSE CATEGORY (RADIOBUTTONS)",
 		  "_commentEnd":  "--------------------------------------------------------------",
 
-		  "modal-chooseCategory" : false,
-
-
+		  "modal-chooseCategory" : {
+				"radio-id" : "a-js-radio-bransje",
+		    "radio-legend" : {
+		      "radio-legendText" : "Våre forslag:",
+					"titleExtra" : {
+						"titleExtra-text" : "(hvis ingen passer kan du prøve nytt stikkord)"
+					}
+		    },
+				"isRequired": true,
+        "error-message-popover": true,
+		    "radio-stacked" : "custom-controls-stacked",
+		    "radio-class" : "a-radioButtons-stackedList a-radioButtons-searchResult",
+		    "radiobuttons" : [
+		      {
+		        "radiobutton-title" : "%PATH% <span style='color: #000'>%NAME%</span>",
+		        "radiobutton-id" : "%ID%",
+		        "radiobuttons-excerpt" : {
+		          "radiobuttons-excerptText" : "%DESCRIPTION%"
+		        }
+		      }
+		    ],
+				"chooseCategory-submit" : {
+					"button-text" : "Velg denne næringskoden",
+					"button-class" : "a-btn",
+					"button-disabled": "disabled",
+			    "button-type" : "submit",
+          "onclick": false,
+					"button-href" : "link.sider-starte-enk-4"
+				},
+				"chooseCategory-findself" : {
+			    "link-text" : "Finn næringskode selv",
+			    "link-url" : "link.sider-starte-enk-2"
+			  },
+				"url" :"link.sider-starte-enk-4"
+		  },
 
 			"_commentStart":"--------------------------------------------------------------",
 			"_commentText": "ADRESS AND CHECKBOX",
@@ -192,15 +161,17 @@
 
 			"modal-input-adress" : false,
 
-
-		  "_commentStart":"--------------------------------------------------------------",
+			"_commentStart":"--------------------------------------------------------------",
 		  "_commentText": "EXTRA INFO",
 		  "_commentEnd":  "--------------------------------------------------------------",
 
 		  "modal-extraInfo" : {
 				"bulletListItems" : [
 			    {
-			      "listItemDescription" : "Dette alternativet krever manuell saksbehandling. Du må beregne 3 til 4 dagers behandlingstid på dette."
+			      "listItemDescription" : "Her finner vi riktig kode for den virksomheten du skal drive med. Dette kan påvirke hva slags støtte og fradrag du kan ha krav på. Benyttes også til statistiske formål i det offentlige."
+			    },
+			    {
+			      "listItemDescription" : "Mange driver med forskjellige ting som passer i flere kategorier. Velg derfor stikkord som beskriver hovedaktiviteten du skal drive med."
 			    }
 			  ]
 			},
@@ -218,8 +189,8 @@
           "icon-class": "ai-help"
         },
 			"help-link-2" : {
-				"link-text" : "80033840",
-				"link-url" : "tel:+4780033840"
+				"link-text" : "75006000",
+				"link-url" : "tel:+4775006000"
 			},
 
 		"_commentStart":"--------------------------------------------------------------",
@@ -234,9 +205,9 @@
 			"isHidden": true,
 			"isInput-group" : "input-group",
 			"form-input-hasButton" : {
-        "form-input-button-action" : "Send",
-        "icon-prefix": "ai",
-        "icon-class" : "ai-send"
+					"form-input-button-action" : "Send",
+          "icon-prefix": "ai",
+          "icon-class" : "ai-send"
 				}
 			}
 		}
