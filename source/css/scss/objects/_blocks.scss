@@ -313,6 +313,7 @@
   img {
     width: 40%;
     margin: 0 auto;
+    border-radius: 50%;
 
     @include media-breakpoint-up( sm ) {
       width: 60%;
@@ -422,6 +423,7 @@
     float: left;
     width: 180px;
     margin-left: 0;
+    border-radius: 50%;
 
     @include media-breakpoint-down( md ) {
       width: 128px;
@@ -459,6 +461,23 @@
 }
 
 
+// Card group
+
+.a-card-group {
+  .a-card {
+    padding: $spacer * 3 $spacer * 4 0 $spacer * 4;
+
+    h2 {
+      a {
+        padding-bottom: 1px;
+      }
+    }
+  }
+}
+
+
+
+// Questions (guide)
 .a-question-wrapper {
   display: inline-block;
   padding: 0;
@@ -478,6 +497,8 @@
   }
 
   .a-circle-list {
+    margin-left: 0;
+
     li {
       padding-top: $spacer * 2;
       padding-right: $spacer * 2;
@@ -492,7 +513,7 @@
       &::before {
         position: absolute;
         top: $spacer * 1.5;
-        left: $spacer * 2;
+        left: $spacer * 6;
         width: $spacer * 3;
         height: $spacer * 3;
 
@@ -501,7 +522,7 @@
 
         @include media-breakpoint-up( md ) {
           top: $spacer * 2.5;
-          left: $spacer * 3;
+          left: $spacer * 7;
         }
       }
 

@@ -5,11 +5,17 @@
 
 // sass-lint:disable-block no-disallowed-properties
 .ai,
-.reg {
+.reg,
+.ai-stack,
+.reg-stack {
   @include a-fontSize-icon-reg;
   width: 1em;
   text-align: center;
   vertical-align: middle;
+
+  &.ai-xs {
+    font-size: $icon-xs-em;
+  }
 
   &.ai-sm {
     font-size: $icon-sm-em;
@@ -43,6 +49,31 @@
 
   &.ai-right {
     text-align: right;
+  }
+
+  // @at-root {
+  //   span#{&} { // workaround for &span
+  //     @include a-fontSize-icon-reg;
+
+  //     width: 1em;
+  //     height: 1em;
+
+  //     i {
+  //       font-size: inherit;
+  //     }
+  //   }
+  // }
+}
+
+.ai-stack,
+.reg-stack {
+  @include a-fontSize-icon-reg;
+
+  width: 1em;
+  height: 1em;
+
+  i {
+    font-size: inherit;
   }
 }
 
@@ -82,7 +113,7 @@
 
   &.a-list-large {
     i {
-      @include a-fontSize-icon-reg;
+      margin-top: 0;
     }
   }
 }
