@@ -21,19 +21,19 @@ var onFileInputChange = function() {
   });
 
   $('.a-js-certificateContainer').on('change', function() {
-    $('.a-js-certificateEdit').show();
-    $('.a-js-certificateContainer1').show();
-    $('.a-js-certificateUpload').hide();
+    $('.a-js-certificateEdit').removeClass('hidden-xs-up');
+    $('.a-js-certificateContainer1').removeClass('hidden-xs-up');
+    $('.a-js-certificateUpload').addClass('hidden-xs-up');
   });
 
   $('.a-js-certificateStep1').on('click', function() {
-    $('.a-js-certificateContainer1').hide();
-    $('.a-js-certificateContainer2').show();
+    $('.a-js-certificateContainer1').addClass('hidden-xs-up');
+    $('.a-js-certificateContainer2').removeClass('hidden-xs-up');
   });
   $('.a-js-certificateStep2').on('click', function() {
-    $('.a-js-certificateEdit').hide();
-    $('.a-js-certificateContainer1').hide();
-    $('.a-js-certificateUpload').show();
+    $('.a-js-certificateEdit').addClass('hidden-xs-up');
+    $('.a-js-certificateContainer1').addClass('hidden-xs-up');
+    $('.a-js-certificateUpload').removeClass('hidden-xs-up');
   });
 };
 
