@@ -2554,8 +2554,8 @@
       },
       "computersystem-name": {
         "text-input-id": "text-input-computersystem-name",
-        "isHidden": true,
-        "top-label": "navn på datasystem ",
+        "isHidden": false,
+        "top-label": "Navn på datasystem ",
         "isDisabled": false,
         "isInactive": false,
         "text-input-placeholder": "Hva vil du kalle systemet?",
@@ -2567,31 +2567,40 @@
         "form-label-hasIcon": false,
         "input-name": "input-field"
       },
+      "computersystem-list-heading": "Hvilket system bruker du?",
+      "computersystem-description-id": "dropdown-description",
+      "computersystem-list-heading-class": "a-fontMedium a-pb-half",
       "computersystem-list": {
-        "dropdown-name": "Hvilket system bruker du?",
+        "dropdown-name": "Datasystemer",
+        "aria-describedby": "dropdown-description",
         "dropdown-number": "",
         "dropdown-number-prefix": "",
         "icon-prefix": "ai",
         "icon-class": "ai-server",
+        "icon-extra-class": "hidden-md-down",
         "isTransparent": true,
         "show-label": false,
         "label-text": "",
+        "dropdown-name-class": "pl-1 pl-lg-0",
         "dropdown-items": [
           {
             "icon-prefix": "ai",
             "icon-class": "ai-server",
+            "icon-extra-class": "hidden-md-down",
             "dropdown-item-name": "Agro Økonimi",
             "dropdown-item-number": ""
           },
           {
             "icon-prefix": "ai",
             "icon-class": "ai-server",
+            "icon-extra-class": "hidden-md-down",
             "dropdown-item-name": "Aksjeservice",
             "dropdown-item-number": ""
           },
           {
             "icon-prefix": "ai",
             "icon-class": "ai-server",
+            "icon-extra-class": "hidden-md-down",
             "dropdown-item-name": "Akvadok",
             "dropdown-item-number-prefix": "",
             "dropdown-item-number": ""
@@ -2599,6 +2608,7 @@
           {
             "icon-prefix": "ai",
             "icon-class": "ai-server",
+            "icon-extra-class": "hidden-md-down",
             "dropdown-item-name": "AR6 Økonomi",
             "dropdown-item-number-prefix": "",
             "dropdown-item-number": ""
@@ -2606,6 +2616,7 @@
           {
             "icon-prefix": "ai",
             "icon-class": "ai-server",
+            "icon-extra-class": "hidden-md-down",
             "dropdown-item-name": "ASPECT4 HRM",
             "dropdown-item-number-prefix": "",
             "dropdown-item-number": ""
@@ -2613,6 +2624,7 @@
           {
             "icon-prefix": "ai",
             "icon-class": "ai-server",
+            "icon-extra-class": "hidden-md-down",
             "dropdown-item-name": "Aureus AltUt",
             "dropdown-item-number-prefix": "",
             "dropdown-item-number": ""
@@ -2620,6 +2632,7 @@
           {
             "icon-prefix": "ai",
             "icon-class": "ai-server",
+            "icon-extra-class": "hidden-md-down",
             "dropdown-item-name": "Autodata",
             "dropdown-item-number-prefix": "",
             "dropdown-item-number": ""
@@ -2627,6 +2640,7 @@
           {
             "icon-prefix": "ai",
             "icon-class": "ai-server",
+            "icon-extra-class": "hidden-md-down",
             "dropdown-item-name": "Avendo Skatt",
             "dropdown-item-number-prefix": "",
             "dropdown-item-number": ""
@@ -2634,6 +2648,7 @@
           {
             "icon-prefix": "ai",
             "icon-class": "ai-server",
+            "icon-extra-class": "hidden-md-down",
             "dropdown-item-name": "BAS",
             "dropdown-item-number-prefix": "",
             "dropdown-item-number": ""
@@ -2641,6 +2656,7 @@
           {
             "icon-prefix": "ai",
             "icon-class": "ai-server",
+            "icon-extra-class": "hidden-md-down",
             "dropdown-item-name": "Bluegarden Paga",
             "dropdown-item-number-prefix": "",
             "dropdown-item-number": ""
@@ -2648,6 +2664,7 @@
         ]
       },
       "computersystem-name-message": {
+        "alert-id" : "alert-systemname",
         "alert-class": "a-message-info a-message--fullwidth",
         "alert-items": [
           {
@@ -2659,8 +2676,8 @@
       },
       "computersystem-password": {
         "text-input-id": "text-input-computersystem-password",
-        "isHidden": true,
-        "top-label": "passord",
+        "isHidden": false,
+        "top-label": "Passord",
         "text-input-placeholder": "Lag et passord",
         "input-type": "password",
         "isRequired": false,
@@ -2672,7 +2689,7 @@
       },
       "computersystem-repeat-password": {
         "text-input-id": "text-input-computersystem-rep-password",
-        "isHidden": true,
+        "isHidden": false,
         "top-label": "Bekreft passord",
         "text-input-placeholder": "Bekreft passord",
         "input-type": "password",
@@ -2729,7 +2746,7 @@
             ]
           },
           {
-            "additional-classes": "a-dotted a-selectable",
+            "additional-classes": "a-dotted",
             "id": "computersystem-secondRow",
             "onclick": false,
             "columns": [
@@ -2757,24 +2774,26 @@
               },
               {
                 "additional-classes": "col-3 text-right",
-                "onclick": false,
+                "onclick": true,
                 "column-items": [
                   {
-                    "column-icon": {
-                      "icon-prefix": "ai",
-                      "icon-class": "ai-write ai-sm"
+                    "column-icon-link": {
+                      "linkIcon-url": "#",
+                      "linkIcon-text" : "Rediger",
+                      "icon-prefix": "ai ai-sm",
+                      "icon-class": "ai-write",
+                      "link-icon-class": "a-btn-blue-noUnderline pr-0",
+                      "text-class": "hidden-md-down a-fontSizeXS pr-1"
                     }
                   },
                   {
-                    "column-text": {
-                      "classes": "hidden-xs-down",
-                      "text": "Rediger "
-                    }
-                  },
-                  {
-                    "column-icon": {
+                    "column-icon-link": {
+                      "linkIcon-url": "#",
+                      "linkIcon-text" : "Slett",
+                      "text-class": "sr-only",
                       "icon-prefix": "ai",
-                      "icon-class": "ai-circle-exit ai-sm ml-1 a-danger"
+                      "icon-class": "ai-circle-exit ai-sm ml-0 mr-0 a-danger",
+                      "link-icon-class": "pr-0"
                     }
                   }
                 ]
@@ -2782,7 +2801,7 @@
             ]
           },
           {
-            "additional-classes": "a-dotted a-selectable",
+            "additional-classes": "a-dotted",
             "id": "computersystem-ThirdRow",
             "onclick": false,
             "columns": [
@@ -2813,21 +2832,23 @@
                 "onclick": false,
                 "column-items": [
                   {
-                    "column-icon": {
-                      "icon-prefix": "ai",
-                      "icon-class": "ai-write ai-sm"
+                    "column-icon-link": {
+                      "linkIcon-url": "#",
+                      "linkIcon-text" : "Rediger",
+                      "icon-prefix": "ai ai-sm",
+                      "icon-class": "ai-write",
+                      "link-icon-class": "a-btn-blue-noUnderline pr-0",
+                      "text-class": "hidden-md-down a-fontSizeXS pr-1"
                     }
                   },
                   {
-                    "column-text": {
-                      "classes": "hidden-xs-down",
-                      "text": "Rediger "
-                    }
-                  },
-                  {
-                    "column-icon": {
+                    "column-icon-link": {
+                      "linkIcon-url": "#",
+                      "linkIcon-text" : "Slett",
+                      "text-class": "sr-only",
                       "icon-prefix": "ai",
-                      "icon-class": "ai-circle-exit ai-sm ml-1 a-danger"
+                      "icon-class": "ai-circle-exit ai-sm ml-0 mr-0 a-danger",
+                      "link-icon-class": "pr-0"
                     }
                   }
                 ]
@@ -2837,6 +2858,7 @@
         ]
       },
       "computersystem-ID-message": {
+        "alert-id" : "alert-systemnumber",
         "alert-class": "a-message-info a-message--fullwidth",
         "alert-items": [
           {
