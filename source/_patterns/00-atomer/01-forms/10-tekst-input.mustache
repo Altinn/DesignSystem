@@ -17,6 +17,7 @@
         {{# form-input-hasButton }} a-hasButton {{/ form-input-hasButton }} {{# form-input-isPassword }} a-hasButton {{/ form-input-isPassword }}"
         type="{{ input-type }}"
         {{# text-input-placeholder }}placeholder="{{text-input-placeholder}}"{{/ text-input-placeholder }}
+        {{# text-input-value }}value="{{text-input-value}}"{{/ text-input-value }}
         name="{{ input-name }}"
         data-val="true"
         {{# text-input-id }}id="{{ text-input-id }}"{{/ text-input-id }}
@@ -38,7 +39,7 @@
 
       {{# form-input-hasButton }}
         <div class="input-group-btn">
-          <button class="btn btn-secondary {{# isInactive }} inactive {{/ isInactive }}" type="button" {{# isDisabled }} disabled {{/ isDisabled }} {{# isInactive }}disabled{{/ isInactive }}>
+          <button {{# onclick }}onclick="{{{onclick}}}"{{/ onclick }} class="btn btn-secondary {{# isInactive }} inactive {{/ isInactive }}" type="button" {{# isDisabled }} disabled {{/ isDisabled }} {{# isInactive }}disabled{{/ isInactive }}>
             {{> atomer-ikon }}<span class="sr-only">Søk</span>
           </button>
         </div>
