@@ -18,7 +18,8 @@ body {
 }
 
 // Selection style
-::selection {
+::selection,
+.a-searchSelected {
   color: $black;
   background: $purple-light;
 }
@@ -329,6 +330,10 @@ hr {
   border-bottom: 1px solid $grey-light;
 }
 
+.a-borderBottomDark {
+  border-bottom: 1px solid $grey-medium;
+}
+
 // SR-only
 .sr-only-focusable {
   &:active,
@@ -543,7 +548,7 @@ hr {
 }
 
 .a-hiddenWhenExpanded {
-  &:not(.collapsed) {
+  .a-expanded & {
     display: none;
   }
 }
@@ -553,6 +558,16 @@ hr {
 
   .a-expanded & {
     display: inline-block;
+  }
+}
+
+.a-noUnderline {
+  padding-bottom: 0;
+  border: none;
+
+  &:hover,
+  &:focus {
+    border: none;
   }
 }
 

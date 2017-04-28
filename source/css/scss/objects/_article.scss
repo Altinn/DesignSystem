@@ -55,6 +55,16 @@
 
   p {
     @extend .a-fontSizeS;
+
+    > a {
+      border-width: 1px;
+    }
+
+    strong {
+      > a {
+        border-width: 2px;
+      }
+    }
   }
 
   >p {
@@ -76,9 +86,42 @@
     }
   }
 
-  > ul {
-    list-style: disc;
+  > ul,
+  > .a-bullet-list {
+    &:not(.connected-bullets) {
+      @extend .a-bullet-list;
+    }
+  }
 
+  > ol,
+  > .a-circle-list {
+    @extend .a-fontSizeS;
+    margin: 0 0 36px 0;
+
+    @include media-breakpoint-up( lg ) {
+      margin-left: -42px;
+    }
+
+    li {
+      padding-left: 42px;
+      margin-bottom: $spacer * 1.5;
+
+      &::before {
+        @include a-fontBold;
+        position: relative;
+        top: 0;
+        padding: 5px 9px 4px 9px;
+        margin-right: 15px;
+        margin-left: -46px;
+        content: counter( step );
+        counter-increment: step;
+        border: 2px solid $blue;
+        border-radius: 50%;
+      }
+    }
+  }
+
+  > ul {
     &.a-iconList {
       li {
         margin-bottom: $spacer * 1.5;
@@ -92,55 +135,10 @@
         margin: 0;
       }
     }
-
-    &.a-bullet-list {
-      @include media-breakpoint-up( md ) {
-        margin-left: -$spacer * 2;
-      }
-
-      margin-top: $spacer;
-      margin-left: 0;
-      list-style: none;
-    }
-
-    ul {
-      margin-top: 10px;
-      margin-bottom: 0;
-    }
-  }
-
-  > ol {
-    &.a-circle-list {
-      @extend .a-fontSizeS;
-      margin: 0 0 36px 0;
-
-      @include media-breakpoint-up( lg ) {
-        margin-left: -42px;
-      }
-
-      li {
-        padding-left: 42px;
-        margin-bottom: $spacer * 2;
-
-        &::before {
-          margin-left: -42px;
-        }
-      }
-    }
-
-    ol {
-      margin-top: 10px;
-      margin-bottom: 0;
-    }
   }
 
   > ul,
   > ol {
-    margin: $spacer * 2 0 $spacer * 2 $spacer * 3;
-
-    li {
-      margin-bottom: 10px;
-    }
 
     &.no-decoration {
       margin: 0;
@@ -171,7 +169,8 @@
   // Lists inside collapse content
   &.a-collapseContent {
     ul {
-      margin-bottom: 0;
+      margin-bottom: $spacer * 1.5;
+      margin-left: 0;
     }
   }
 

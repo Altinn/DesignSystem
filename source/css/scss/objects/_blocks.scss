@@ -313,6 +313,7 @@
   img {
     width: 40%;
     margin: 0 auto;
+    border-radius: 50%;
 
     @include media-breakpoint-up( sm ) {
       width: 60%;
@@ -403,7 +404,7 @@
 
 .a-bgWhite {
   .a-card {
-    &:not(.transparent) {
+    &:not(.transparent, .a-cardImage) {
       background: $grey-light;
 
       hr {
@@ -415,50 +416,89 @@
   }
 }
 
-.a-card-image {
+.a-cardImage {
+  display: flex;
   padding: 0;
+  background: transparent;
+  box-shadow: none;
+  align-items: center;
+  flex-wrap: wrap;
+
+  @include media-breakpoint-up( md ) {
+    flex-wrap: nowrap;
+  }
+
 
   img {
-    float: left;
-    width: 180px;
-    margin-left: 0;
+    width: 150px;
+    margin-right: auto;
+    margin-left: auto;
+    border-radius: 50%;
 
-    @include media-breakpoint-down( md ) {
-      width: 128px;
+    @include media-breakpoint-up( md ) {
+      width: 126px;
+      margin-right: $spacer * 3;
+      margin-bottom: 0;
     }
-
-    @include media-breakpoint-down( sm ) {
-      display: block;
-      float: none;
-      margin-right: auto;
-      margin-bottom: 30px;
-      margin-left: auto;
-    }
-
-    &+.a-card-image-text {
-      display: block;
-      margin-left: calc( 180px + 24px );
-
-      @include media-breakpoint-down( md ) {
-        margin-left: calc( 128px + 24px );
-      }
-
-      @include media-breakpoint-down( sm ) {
-        margin-left: 0;
-      }
+    @include media-breakpoint-up( lg ) {
+      width: 180px;
     }
   }
 
-  .a-card-image-text {
-    display: block;
+  .a-cardImage-text {
+    margin-top: $spacer * 2;
+
+    @include media-breakpoint-up( md ) {
+      margin-top: 0;
+    }
   }
 
   .a-link-tel {
     margin-left: -5px;
   }
+
+  &.a-cardImage-border {
+    padding: $spacer * 2 $spacer * 2;
+    margin-top: -1px;
+    border: 1px solid $grey-medium;
+
+    .a-cardImage-text {
+      p {
+        @extend .a-fontSizeL;
+      }
+    }
+  }
+
+  &.a-cardImage-largePadding {
+
+    @include media-breakpoint-up( md ) {
+      padding: $spacer * 2 $spacer * 3;
+    }
+
+    @include media-breakpoint-up( lg ) {
+      padding: $spacer * 2 $spacer * 7;
+    }
+  }
 }
 
 
+// Card group
+
+.a-card-group {
+  .a-card {
+    padding: $spacer * 3 $spacer * 4 $spacer $spacer * 4;
+
+    h2 {
+      a {
+        padding-bottom: 1px;
+      }
+    }
+  }
+}
+
+
+
+// Questions (guide)
 .a-question-wrapper {
   display: inline-block;
   padding: 0;
@@ -478,6 +518,8 @@
   }
 
   .a-circle-list {
+    margin-left: 0;
+
     li {
       padding-top: $spacer * 2;
       padding-right: $spacer * 2;
@@ -492,7 +534,7 @@
       &::before {
         position: absolute;
         top: $spacer * 1.5;
-        left: $spacer * 2;
+        left: $spacer * 6;
         width: $spacer * 3;
         height: $spacer * 3;
 
@@ -501,7 +543,7 @@
 
         @include media-breakpoint-up( md ) {
           top: $spacer * 2.5;
-          left: $spacer * 3;
+          left: $spacer * 7;
         }
       }
 

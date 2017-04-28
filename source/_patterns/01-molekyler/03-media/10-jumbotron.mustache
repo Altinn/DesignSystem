@@ -1,7 +1,7 @@
 <div class="jumbotron jumbotron-fluid a-jumbotron {{{ jumbotron-styles }}}" style="background-color: {{{ jumbotron-bgcolor }}}; {{# jumbotron-image-url }} background-image: {{{ jumbotron-image-url }}} {{/ jumbotron-image-url }}" >
   <div class="container">
     <div class="row">
-      <div class="{{ jumbo-md-class }} {{ jumbo-md-offset-class }} {{ jumbo-lg-class }} {{ jumbo-lg-offset-class }} {{ jumbo-xl-class }} {{ jumbo-xl-offset-class }}">
+      <div class="{{ jumbo-sm-class }} {{ jumbo-sm-offset-class }} {{ jumbo-md-class }} {{ jumbo-md-offset-class }} {{ jumbo-lg-class }} {{ jumbo-lg-offset-class }} {{ jumbo-xl-class }} {{ jumbo-xl-offset-class }}">
 
         {{# articlestart }}
       		{{> organismer-artikkel-start }}
@@ -9,9 +9,17 @@
 
         {{# pagestart }}
 
+          {{#h1Title}}
+          <h1 class="a-fontBold a-pageTitle">
+            {{{ h1Title }}}
+          </h1>
+          {{/h1Title}}
+
+          {{#page-title}}
           <span class="a-h1 d-block a-fontBold a-pageTitle">
             {{{ page-title }}}
           </span>
+          {{/page-title}}
 
           <span class="a-jumbotron-ingress {{# jumbo-intro-small }}a-jumbotron-ingress--small{{/ jumbo-intro-small }} ">{{{ jumbo-intro }}}</span>
 

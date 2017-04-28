@@ -1,13 +1,19 @@
-.a-stickyHelp-toggle {
+.a-stickyHelp-body {
+  overflow: hidden;
+}
+
+// BUTTON: OPEN STICKYHELP
+.a-stickyHelp-open {
   @include a-fontMedium;
   position: fixed;
   right: $spacer * 2;
   bottom: $spacer * 2;
-  z-index: 999998;
+  z-index: 20;
   padding: $spacer $spacer * 2;
   margin-bottom: 0;
   color: $white;
   background: $purple;
+  border: 2px solid $white;
   border-radius: 50px;
 
   i {
@@ -19,16 +25,18 @@
   &:focus {
     color: $white;
     background: $purple-hover-color;
+    border: 2px solid $white;
   }
 }
 
-.a-stickyHelp {
+// Iframe container
+.a-iframeToggle {
   position: fixed;
   right: $spacer;
   bottom: $spacer;
-  z-index: 999999;
+  z-index: 21;
   width: 356px;
-  visibility: hidden;
+  // overflow: hidden;
   background: transparent;
   transition: all 400ms;
   transform: translate(0, 0);
@@ -53,8 +61,21 @@
     &::before {
       background: $purple;
     }
+
+    .a-stickyHelp-close {
+      opacity: 0;
+    }
   }
 
+  iframe {
+    opacity: 0;
+  }
+
+  .a-stickyHelp-close {
+    opacity: 0;
+  }
+
+  // VISIBLE (After animation)
   &.show {
     right: $spacer;
     bottom: $spacer;
@@ -68,58 +89,124 @@
       right: 0%;
       display: block;
       width: 356px;
-      height: 368px;
-      margin-top: -184px;
+      height: 514px;
+      margin-top: -261px;
       margin-left: -178px;
       background-color: $purple-hover-color;
       border-radius: 0;
       transition: all 400ms cubic-bezier(0.215, 0.61, 0.355, 1);
     }
 
-    .a-stickyHelp-box {
+    iframe {
       position: relative;
+      overflow: hidden;
       background: $white;
+      border: none;
       box-shadow: $shadow;
       opacity: 1;
       transition: all 200ms ease 400ms;
     }
-  }
 
-  .a-stickyHelp-box {
-    opacity: 0;
+    .a-stickyHelp-close {
+      position: absolute;
+      top: $spacer;
+      right: $spacer;
+      z-index: 22;
+      width: 30px;
+      height: 30px;
+      padding: 2px 0 $spacer / 2 0;
+      margin-bottom: 0;
+      cursor: pointer;
+      background: $white;
+      border: none;
+      border-radius: 50%;
+      opacity: 1;
+      transition-delay: 400ms;
 
-    .a-stickyHelp-header {
-      position: relative;
-      padding: $spacer;
-      color: $white;
-      background: $purple;
-
-      h2 {
-        @include a-fontMedium;
-        text-align: center;
-        align-self: center;
-
-        i {
-          margin-top: -4px;
-        }
+      &:hover {
+        border: none;
+        opacity: 0.7;
       }
 
-      .a-modal-close,
-      .a-modal-back {
-        width: 30px;
-        height: 30px;
-        padding-top: 2px;
-        margin-bottom: 0;
+      &:focus {
+        background: $blue-light;
+        border: none;
       }
-    }
-
-    .a-stickyHelp-search {
-      padding: $spacer $spacer 0 $spacer;
     }
   }
 }
 
-.a-stickyHelp-scrollarea {
+.a-stickyHelp {
+  .a-stickyHelp-header {
+    position: relative;
+    min-height: 54px;
+    padding: $spacer;
+    color: $white;
+    background: $purple;
+
+    h2 {
+      @include a-fontMedium;
+      text-align: center;
+      align-self: center;
+
+      i {
+        margin-top: -4px;
+      }
+    }
+
+    // Back button
+    .a-stickyHelp-back {
+      position: absolute;
+      top: $spacer;
+      left: $spacer;
+      width: 30px;
+      height: 30px;
+      padding: 2px 0 $spacer / 2 0;
+      margin-bottom: 0;
+      cursor: pointer;
+      background: $white;
+      border: none;
+      border-radius: 50%;
+
+      &:hover {
+        border: none;
+        opacity: 0.7;
+      }
+
+      &:focus {
+        background: $blue-light;
+        border: none;
+      }
+    }
+  }
+
+  .a-stickyHelp-search {
+    padding: $spacer $spacer 0 $spacer;
+  }
+
+  .a-page {
+    height: 400px;
+    overflow-x: hidden;
+    overflow-y: scroll;
+    transition: transform 0.5s cubic-bezier(0.3, 1, 0.5, 1);
+
+    &.a-next-page {
+      transform: translate3d(180%, 0, 0);
+    }
+
+    &.a-current-page {
+      visibility: visible;
+      transform: translate3d(0, 0, 0);
+    }
+
+    &.a-previous-page {
+      transform: translate3d(-180%, 0, 0);
+    }
+  }
+}
+
+.a-stickyHelp-content-target {
+  overflow: hidden;
   background: $white;
 
   h2 {
@@ -142,6 +229,14 @@
         &:focus,
         &:active {
           background: $grey-lighter;
+        }
+
+        &.a-stickyHelp-iconLeft {
+          padding-left: 25px;
+        }
+
+        i {
+          margin-top: -3px;
         }
       }
 
@@ -170,6 +265,10 @@
 
       &:first-child {
         border-top: 1px solid $grey-light;
+      }
+
+      &.a-stickyHelp-iconLeft {
+        padding-left: 25px;
       }
 
       i {
@@ -201,7 +300,11 @@
       &:first-child {
         border-top: 1px solid $grey-light;
       }
-    }
 
+      &:last-child {
+        margin-bottom: 0;
+        border-bottom: none;
+      }
+    }
   }
 }

@@ -1,0 +1,178 @@
+{
+	"page-starte-enk" : {
+		"modal-starte-enk" : {
+			"_commentStart":"--------------------------------------------------------------",
+			"_commentText": "MODALWINDOW",
+			"_commentEnd":  "--------------------------------------------------------------",
+
+			"bodyClass": "a-modal-background",
+			"logo" : "../../images/a-logo-white.svg",
+			"login-name" : "JAN PETTERSEN",
+			"animationClass" : "a-scene-element--fadeinright",
+
+			"button-list": [
+		    {
+		      "button-class": "a-modal-back",
+		      "aria-label":  "Gå tilbake",
+          "icon-prefix": "ai",
+          "icon-class" : "ai-back",
+          "icon-extra-class" : "a-modal-back-icon",
+          "stacked-background": {
+            "icon-prefix": "ai",
+            "icon-class": "ai-plain-circle"
+          },
+		      "onclick": "goBack()",
+		      "enable-popover": false
+		    },
+		    {
+		      "button-class": "a-modal-close",
+		      "aria-label":  "Lukk",
+          "icon-prefix": "ai",
+          "icon-class" : "ai-exit",
+          "icon-extra-class" : "a-modal-close-icon",
+          "stacked-background": {
+            "icon-prefix": "ai",
+            "icon-class": "ai-plain-circle"
+          },
+		      "onclick": false,
+		      "enable-popover": true,
+		      "popover-placement": "bottom",
+		      "popover-content-id": "sampleIdPopover",
+		      "popover-class": "popover-warning",
+					"popover-text": "Er du sikker på at du vil avslutte registrering av Enkeltpersonforetak?",
+					"popover-buttons": [
+						{
+		          "button-text" : "Ja, avslutt.",
+		          "button-class" : "a-btn a-btn-danger",
+						  "onclick": "location.href='../../patterns/04-sider-10-seksjonsforsider-30-seksjonsforside-v-starteogdrive/04-sider-10-seksjonsforsider-30-seksjonsforside-v-starteogdrive.html'"
+		        },
+		        {
+		          "button-text": "Fortsett",
+		          "button-class": "a-btn-link a-linkDanger",
+              "display-as-link": true,
+							"onclick" : "$('button[aria-describedby=' + $(this).parent().parent().attr('id') + ']').click();"
+		        }
+		      ]
+		    }
+		  ],
+
+
+			"_commentStart":"--------------------------------------------------------------",
+			"_commentText": "HEADER",
+			"_commentEnd":  "--------------------------------------------------------------",
+
+			"header-color" : "a-darkBackground",
+			"modalHeader-icon" : "&#xE0AF;",
+			"isIntroText" : {
+				"modalHeader-introText" : "Brønnøysundregistrene"
+			},
+			"modalHeader-title" : "Starte Enkeltpersonforetak",
+			"modalHeader-title-code" : "(ENK)",
+
+			"_commentStart":"--------------------------------------------------------------",
+			"_commentText": "TITLE",
+			"_commentEnd":  "--------------------------------------------------------------",
+
+			"modal-title" : {
+				"section-title": "Hva skal være forretningsadressen?",
+				"titleExtra" : false
+			},
+			"modal-lead" : {
+		    "lead-text-content" : "Foretaket ditt må registreres på en adresse. Du kan bruke din hjemmeadresse, slik vi har foreslått eller legge inn en annen adresse."
+		  },
+
+			"_commentStart":"--------------------------------------------------------------",
+		  "_commentText": "INPUT",
+		  "_commentEnd":  "--------------------------------------------------------------",
+
+			"modal-input-orgName" : false,
+			"modal-validatorInfo" : false,
+			"modal-validatorInfoOK" : false,
+			"modal-input-textArea" : false,
+			"modal-input-radio" : false,
+			"modal-date" : false,
+
+		  "_commentStart":"--------------------------------------------------------------",
+		  "_commentText": "CHOOSE CATEGORY (RADIOBUTTONS)",
+		  "_commentEnd":  "--------------------------------------------------------------",
+
+		  "modal-chooseCategory" : false,
+
+			"_commentStart":"--------------------------------------------------------------",
+			"_commentText": "ADRESS AND CHECKBOX",
+			"_commentEnd":  "--------------------------------------------------------------",
+
+			"modal-input-adress" : {
+
+				"text-input-adress" : {
+			    "text-input-id" : "text-input-100",
+			    "top-label" : "Adresse",
+			    "text-input-placeholder" : "F.eks Storgata 12",
+			    "input-type" : "text",
+					"isRequired": true,
+          "error-message-popover": true,
+					"text-input-value" : "Storgata 12"
+			  },
+
+			  "text-input-postalcode" : {
+			    "text-input-id" : "postnummer",
+			    "top-label" : "Postnummer:",
+			    "text-input-placeholder" : "4 siffer",
+			    "input-type" : "text",
+			    "maxlength" : "4",
+			    "postal-code" : true,
+			    "form-control-class" : "a-input-postnumber",
+					"isRequired": true,
+          "error-message-popover": true,
+					"text-input-value" : "0123"
+			  },
+
+				"isStacked" : "custom-controls-stacked",
+				"checkboxes" :  [
+					{
+						"checkboxes-title" : "Gjør adressen privat"
+					}
+				],
+				"adress-submit" : {
+					"button-text" : "Neste",
+					"button-class" : "a-btn",
+					"button-type" : "submit",
+					"button-href" : "link.sider-starte-enk-5",
+          "onclick": false
+				},
+				"url" : "link.sider-starte-enk-5"
+			},
+
+		  "_commentStart":"--------------------------------------------------------------",
+		  "_commentText": "BUTTONS",
+		  "_commentEnd":  "--------------------------------------------------------------",
+
+			"modal-nextbutton" : false,
+			"modal-discard" : false,
+
+			"_commentStart":"--------------------------------------------------------------",
+		  "_commentText": "EXTRA INFO",
+		  "_commentEnd":  "--------------------------------------------------------------",
+
+		  "modal-extraInfo" : false,
+
+		"_commentStart":"--------------------------------------------------------------",
+		"_commentText": "CHAT",
+		"_commentEnd":  "--------------------------------------------------------------",
+
+			"input-chat": {
+				"text-input-id" : "text-input-search-11",
+			"top-label" : "Ditt spørsmål her",
+			"text-input-placeholder" : "Ditt spørsmål her",
+			"input-type" : "text",
+			"isHidden": true,
+			"isInput-group" : "input-group",
+			"form-input-hasButton" : {
+        "form-input-button-action" : "Send",
+        "icon-prefix": "ai",
+        "icon-class" : "ai-send"
+				}
+			}
+		}
+	}
+}

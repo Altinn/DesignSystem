@@ -1,57 +1,69 @@
 <div class="a-page">
-	{{> organismer-header }}
-	<div class="container">
-		<div class="row">
-			<div class="col-sm-12 col-lg-6 offset-lg-3 py-3">
-				{{# article-search }}
-					{{> atomer-tekst-input }}
-				{{/ article-search }}
-			</div>
-		</div>
-	</div>
-
+	{{# header }}
+    {{> organismer-header }}
+  {{/ header }}
 	<section id="content" tabindex="-1">
 
-		<div class="container">
-			<div class="row">
-				<div class="col-sm-12 col-lg-10 offset-lg-1 pb-2">
-					{{> molekyler-smulesti }}
-				</div>
-			</div>
+  	<div class="container" id="content" tabindex="-1">
+  		<div class="row">
+  			<div class="col-sm-12 col-lg-6 offset-lg-3 a-articleSearch">
+  				{{# article-search }}
+  					{{> atomer-tekst-input }}
+  				{{/ article-search }}
+  			</div>
+  		</div>
 
-			<div class="row">
-				<div class="col-sm-12 col-lg-10 offset-lg-1 pb-3">
-					{{> atomer-sidetittel }}
-					{{> atomer-byline }}
-					{{> atomer-avsnitt }}
+			{{# hasArticleStart }}
+				<div class="row">
+					<div class="col-sm-12 col-lg-10 offset-lg-1">
+						{{> molekyler-smulesti }}
+						{{> atomer-sidetittel }}
+						{{> atomer-byline }}
+						{{> atomer-intro-tekst}}
+						{{#hasArticleStartLink}}{{> atomer-link }}{{/hasArticleStartLink}}
+					</div>
 				</div>
-			</div>
-			<div class="row">
-				<div class="col-sm-12 col-lg-12 offset-lg-0 pb-3">
-					{{> organismer-grupperte-kort }}
+  		{{/ hasArticleStart }}
+
+			{{# hasContent }}
+  			<div class="row a-text epi-wysiwyg">
+  				<div class="col-sm-12 col-lg-10 offset-lg-1 mb-2">
+  					{{# 1 }}
+  						{{> atomer-avsnitt }}
+  					{{/ 1 }}
+  				</div>
+  			</div>
+  		{{/ hasContent }}
+
+			{{# hasMultipleCards }}
+				<div class="row">
+					<div class="col-sm-12 col-lg-12 offset-lg-0 pb-3">
+						{{> organismer-grupperte-kort }}
+					</div>
 				</div>
-			</div>
-			<div class="row">
-				<div class="col-sm-12 col-lg-10 offset-lg-1 pb-3">
-					<h2>{{{ header-2 }}}</h2>
-					{{> molekyler-trekkspill }}
-				</div>
-			</div>
-			<div class="row">
-				<div class="col-sm-6 col-lg-5 offset-lg-1 py-3">
-					<h2>{{{ header-3 }}}</h2>
-					{{# help }}
-						{{{ help-prefix }}}
-						{{> atomer-link }}
-					{{/ help }}
-				</div>
-				<div class="col-sm-6 col-lg-5 offset-lg-0 py-3">
-					<h2>{{{ header-4 }}}</h2>
-					{{# help-links }}
-					  {{> atomer-knapp-ikon-tekst }}
-				  {{/ help-links }}
-				</div>
-			</div>
+			{{/ hasMultipleCards }}
+
+			{{# hasAccordion }}
+	  		<div class="row">
+	  			<div class="col-sm-12 col-lg-10 offset-lg-1 mt-2">
+	  				<h2>{{{ header-2 }}}</h2>
+	  				{{> molekyler-trekkspill:a-accordion-largeText }}
+	  			</div>
+	  		</div>
+  		{{/ hasAccordion }}
+
+			{{# hasHelp }}
+	  		<div class="row">
+	  			<div class="col-sm-12 col-lg-10 offset-lg-1 py-4">
+	  				<h2>{{{ header-3 }}}</h2>
+	  				<p class="a-paragraphLarge">
+	  					{{{ help-prefix }}}
+	  					{{> atomer-link:a-fontBold }}
+	  					{{{ help-end }}}
+	  				</p>
+	  			</div>
+	  		</div>
+  		{{/ hasHelp }}
 
 		</div> <!-- END Container -->
 
