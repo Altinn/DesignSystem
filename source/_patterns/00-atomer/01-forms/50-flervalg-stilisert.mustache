@@ -1,8 +1,8 @@
-<div class="form-group input-group transparent a-form-group">
+<div class="form-group input-group transparent a-form-group"{{# aria-describedby }} aria-describedby="{{ aria-describedby }}"{{/ aria-describedby }}>
   <div class="dropdown{{# isTransparent }} a-transparent {{/ isTransparent }}a-fullWidthXs">
     <button class="btn dropdown-toggle a-dropdown-toggle" type="button" id="dropdownMenu" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
       {{> atomer-ikon }}
-      <span class="a-form-text">
+      <span class="a-form-text {{ dropdown-name-class }}">
         {{ dropdown-name }} 
       </span>
     </button>
@@ -10,7 +10,7 @@
       {{# dropdown-items }}
         <a class="dropdown-item a-dropdown-item" href="#">
           {{> atomer-ikon }}
-          <span class="a-form-text">
+          <span class="a-form-text {{ dropdown-name-class }}">
             {{ dropdown-item-name }} 
           </span>
         </a>
