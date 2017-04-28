@@ -153,6 +153,7 @@
     min-width: $spacer * 5;
     margin-right: $spacer;
     justify-content: center;
+    align-self: flex-start;
 
     @include media-breakpoint-up( lg ) {
       margin-right: $spacer / 2;
@@ -219,8 +220,15 @@
     a,
     .a-btn-link {
       @include a-fontSize18;
-      // TODO: Make custom mixin for link-fontsizes. lineheight needs to be larger on links because of double border
       @include a-fontBold;
+
+      @include media-breakpoint-up( md ) {
+        @include a-fontSize20;
+      }
+    }
+
+    .a-formCode {
+      @include a-fontSize18;
 
       @include media-breakpoint-up( md ) {
         @include a-fontSize20;
@@ -243,7 +251,7 @@
 
   // VARIATION: Backgrounds
   &.a-iconText-background {
-    padding: $spacer;
+    padding: $spacer * 1.5 $spacer;
     color: $white;
     background: $grey;
 
