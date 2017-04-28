@@ -2598,8 +2598,8 @@
       },
       "computersystem-name": {
         "text-input-id": "text-input-computersystem-name",
-        "isHidden": true,
-        "top-label": "navn på datasystem ",
+        "isHidden": false,
+        "top-label": "Navn på datasystem ",
         "isDisabled": false,
         "isInactive": false,
         "text-input-placeholder": "Hva vil du kalle systemet?",
@@ -2611,31 +2611,40 @@
         "form-label-hasIcon": false,
         "input-name": "input-field"
       },
+      "computersystem-list-heading": "Hvilket system bruker du?",
+      "computersystem-description-id": "dropdown-description",
+      "computersystem-list-heading-class": "a-fontMedium a-pb-half",
       "computersystem-list": {
-        "dropdown-name": "Hvilket system bruker du?",
+        "dropdown-name": "Datasystemer",
+        "aria-describedby": "dropdown-description",
         "dropdown-number": "",
         "dropdown-number-prefix": "",
         "icon-prefix": "ai",
         "icon-class": "ai-server",
+        "icon-extra-class": "hidden-md-down",
         "isTransparent": true,
         "show-label": false,
         "label-text": "",
+        "dropdown-name-class": "pl-1 pl-lg-0",
         "dropdown-items": [
           {
             "icon-prefix": "ai",
             "icon-class": "ai-server",
+            "icon-extra-class": "hidden-md-down",
             "dropdown-item-name": "Agro Økonimi",
             "dropdown-item-number": ""
           },
           {
             "icon-prefix": "ai",
             "icon-class": "ai-server",
+            "icon-extra-class": "hidden-md-down",
             "dropdown-item-name": "Aksjeservice",
             "dropdown-item-number": ""
           },
           {
             "icon-prefix": "ai",
             "icon-class": "ai-server",
+            "icon-extra-class": "hidden-md-down",
             "dropdown-item-name": "Akvadok",
             "dropdown-item-number-prefix": "",
             "dropdown-item-number": ""
@@ -2643,6 +2652,7 @@
           {
             "icon-prefix": "ai",
             "icon-class": "ai-server",
+            "icon-extra-class": "hidden-md-down",
             "dropdown-item-name": "AR6 Økonomi",
             "dropdown-item-number-prefix": "",
             "dropdown-item-number": ""
@@ -2650,6 +2660,7 @@
           {
             "icon-prefix": "ai",
             "icon-class": "ai-server",
+            "icon-extra-class": "hidden-md-down",
             "dropdown-item-name": "ASPECT4 HRM",
             "dropdown-item-number-prefix": "",
             "dropdown-item-number": ""
@@ -2657,6 +2668,7 @@
           {
             "icon-prefix": "ai",
             "icon-class": "ai-server",
+            "icon-extra-class": "hidden-md-down",
             "dropdown-item-name": "Aureus AltUt",
             "dropdown-item-number-prefix": "",
             "dropdown-item-number": ""
@@ -2664,6 +2676,7 @@
           {
             "icon-prefix": "ai",
             "icon-class": "ai-server",
+            "icon-extra-class": "hidden-md-down",
             "dropdown-item-name": "Autodata",
             "dropdown-item-number-prefix": "",
             "dropdown-item-number": ""
@@ -2671,6 +2684,7 @@
           {
             "icon-prefix": "ai",
             "icon-class": "ai-server",
+            "icon-extra-class": "hidden-md-down",
             "dropdown-item-name": "Avendo Skatt",
             "dropdown-item-number-prefix": "",
             "dropdown-item-number": ""
@@ -2678,6 +2692,7 @@
           {
             "icon-prefix": "ai",
             "icon-class": "ai-server",
+            "icon-extra-class": "hidden-md-down",
             "dropdown-item-name": "BAS",
             "dropdown-item-number-prefix": "",
             "dropdown-item-number": ""
@@ -2685,6 +2700,7 @@
           {
             "icon-prefix": "ai",
             "icon-class": "ai-server",
+            "icon-extra-class": "hidden-md-down",
             "dropdown-item-name": "Bluegarden Paga",
             "dropdown-item-number-prefix": "",
             "dropdown-item-number": ""
@@ -2692,6 +2708,7 @@
         ]
       },
       "computersystem-name-message": {
+        "alert-id" : "alert-systemname",
         "alert-class": "a-message-info a-message--fullwidth",
         "alert-items": [
           {
@@ -2703,8 +2720,8 @@
       },
       "computersystem-password": {
         "text-input-id": "text-input-computersystem-password",
-        "isHidden": true,
-        "top-label": "passord",
+        "isHidden": false,
+        "top-label": "Passord",
         "text-input-placeholder": "Lag et passord",
         "input-type": "password",
         "isRequired": false,
@@ -2716,7 +2733,7 @@
       },
       "computersystem-repeat-password": {
         "text-input-id": "text-input-computersystem-rep-password",
-        "isHidden": true,
+        "isHidden": false,
         "top-label": "Bekreft passord",
         "text-input-placeholder": "Bekreft passord",
         "input-type": "password",
@@ -2773,7 +2790,7 @@
             ]
           },
           {
-            "additional-classes": "a-dotted a-selectable",
+            "additional-classes": "a-dotted",
             "id": "computersystem-secondRow",
             "onclick": false,
             "columns": [
@@ -2801,24 +2818,26 @@
               },
               {
                 "additional-classes": "col-3 text-right",
-                "onclick": false,
+                "onclick": true,
                 "column-items": [
                   {
-                    "column-icon": {
-                      "icon-prefix": "ai",
-                      "icon-class": "ai-write ai-sm"
+                    "column-icon-link": {
+                      "linkIcon-url": "#",
+                      "linkIcon-text" : "Rediger",
+                      "icon-prefix": "ai ai-sm",
+                      "icon-class": "ai-write",
+                      "link-icon-class": "a-btn-blue-noUnderline pr-0",
+                      "text-class": "hidden-md-down a-fontSizeXS pr-1"
                     }
                   },
                   {
-                    "column-text": {
-                      "classes": "hidden-xs-down",
-                      "text": "Rediger "
-                    }
-                  },
-                  {
-                    "column-icon": {
+                    "column-icon-link": {
+                      "linkIcon-url": "#",
+                      "linkIcon-text" : "Slett",
+                      "text-class": "sr-only",
                       "icon-prefix": "ai",
-                      "icon-class": "ai-circle-exit ai-sm ml-1 a-danger"
+                      "icon-class": "ai-circle-exit ai-sm ml-0 mr-0 a-danger",
+                      "link-icon-class": "pr-0"
                     }
                   }
                 ]
@@ -2826,7 +2845,7 @@
             ]
           },
           {
-            "additional-classes": "a-dotted a-selectable",
+            "additional-classes": "a-dotted",
             "id": "computersystem-ThirdRow",
             "onclick": false,
             "columns": [
@@ -2857,21 +2876,23 @@
                 "onclick": false,
                 "column-items": [
                   {
-                    "column-icon": {
-                      "icon-prefix": "ai",
-                      "icon-class": "ai-write ai-sm"
+                    "column-icon-link": {
+                      "linkIcon-url": "#",
+                      "linkIcon-text" : "Rediger",
+                      "icon-prefix": "ai ai-sm",
+                      "icon-class": "ai-write",
+                      "link-icon-class": "a-btn-blue-noUnderline pr-0",
+                      "text-class": "hidden-md-down a-fontSizeXS pr-1"
                     }
                   },
                   {
-                    "column-text": {
-                      "classes": "hidden-xs-down",
-                      "text": "Rediger "
-                    }
-                  },
-                  {
-                    "column-icon": {
+                    "column-icon-link": {
+                      "linkIcon-url": "#",
+                      "linkIcon-text" : "Slett",
+                      "text-class": "sr-only",
                       "icon-prefix": "ai",
-                      "icon-class": "ai-circle-exit ai-sm ml-1 a-danger"
+                      "icon-class": "ai-circle-exit ai-sm ml-0 mr-0 a-danger",
+                      "link-icon-class": "pr-0"
                     }
                   }
                 ]
@@ -2881,6 +2902,7 @@
         ]
       },
       "computersystem-ID-message": {
+        "alert-id" : "alert-systemnumber",
         "alert-class": "a-message-info a-message--fullwidth",
         "alert-items": [
           {
@@ -2890,6 +2912,418 @@
           }
         ]
       }
+    },
+    "enterprise-certificate": {
+      "overview-enterprise-certificate": {
+        "enterprise-certificate-heading": "Registrer ny bruker med virksomhetssertifikat",
+        "upload-certificate": true,
+        "users": {
+          "header": false,
+          "additional-classes": "a-list-borderTop",
+          "users-heading": "Registrerte brukere",
+          "rows": [
+            {
+              "additional-classes": "a-dotted a-selectable",
+              "onclick": false,
+              "columns": [
+                {
+                  "additional-classes": "col-auto pr-2 pb-1 pb-md-0",
+                  "onclick": false,
+                  "searchable": false,
+                  "column-items": [
+                    {
+                      "column-text": {
+                        "classes": "",
+                        "text": "ReceiverUser2"
+                      }
+                    }
+                  ]
+                },
+                {
+                  "additional-classes": "col-12 hidden-md-up pb-1",
+                  "onclick": false,
+                  "column-items": [
+                    {
+                      "column-link": {
+                        "link-icon-left": {
+                          "icon-prefix": "ai",
+                          "icon-class": "ai-edit",
+                          "icon-extra-class": "a-hiddenWhenExpanded ai-left a-blueText"
+                        },
+                        "link-icon": false,
+                        "link-class": "collapsed a-hiddenWhenExpanded a-noUnderline a-pr-half",
+                        "link-url": "#",
+                        "link-text": "<span>Rediger</span>",
+                        "data-target": "collapseIdSampleSertificate1"
+                      }
+                    },
+                    {
+                      "column-link": {
+                        "link-class": "a-visibleWhenExpanded",
+                        "link-url": "#",
+                        "link-text": "<span>Avbryt</span>",
+                        "data-target": "collapseIdSampleSertificate1"
+                      }
+                    }
+                  ]
+                },
+                {
+                  "additional-classes": "col-12 col-md-auto a-visibleWhenExpanded pr-2 pb-1 pb-md-0",
+                  "onclick": false,
+                  "column-items": [
+                    {
+                      "column-button": {
+                        "button-text": "Slett",
+                        "button-class": "a-btn a-btn-icon",
+                        "link-url": false,
+                        "button-shadow-label": false,
+                        "button-icon": {
+                          "icon-prefix": "ai",
+                          "icon-class" : "ai-circle-exit",
+                          "icon-extra-class" : "a-danger a-blueText ai-left"
+                        }
+                      }
+                    }
+                  ]
+                },
+                {
+                  "additional-classes": "col-12 col-md-auto a-visibleWhenExpanded pb-1 pb-md-0",
+                  "onclick": false,
+                  "column-items": [
+                    {
+                      "column-button": {
+                        "button-text": "Endre",
+                        "button-class": "a-btn a-btn-icon",
+                        "link-url": false,
+                        "button-shadow-label": false,
+                        "button-icon": {
+                          "icon-prefix": "ai",
+                          "icon-class" : "ai-edit",
+                          "icon-extra-class" : "a-blueText ai-left"
+                        }
+                      }
+                    }
+                  ]
+                },
+                {
+                  "additional-classes": "col a-visibleWhenExpanded",
+                  "onclick": false,
+                  "column-items": false
+                },
+                {
+                  "additional-classes": "col-auto text-right hidden-sm-down",
+                  "onclick": false,
+                  "column-items": [
+                    {
+                      "column-link": {
+                        "link-icon-left": {
+                          "icon-prefix": "ai",
+                          "icon-class": "ai-edit",
+                          "icon-extra-class": "a-hiddenWhenExpanded ai-fw a-blueText"
+                        },
+                        "link-icon": false,
+                        "link-class": "collapsed a-fullWidthLink a-hiddenWhenExpanded a-noUnderline a-pr-half",
+                        "link-url": "#",
+                        "link-text": "<span>Rediger</span>",
+                        "data-target": "collapseIdSampleSertificate1"
+                      }
+                    },
+                    {
+                      "column-link": {
+                        "link-class": "a-fullWidthLink a-fullWidthLink--underline a-visibleWhenExpanded a-pr-half",
+                        "link-url": "#",
+                        "link-text": "<span>Avbryt</span>",
+                        "data-target": "collapseIdSampleSertificate1"
+                      }
+                    }
+                  ]
+                }
+              ],
+              "expandable-section": {
+                "additional-classes": "col-12 collapse",
+                "id": "collapseIdSampleSertificate1",
+                "content-id": "collapseIdSampleContentSertificate1",
+                "column-items": [
+                  {
+                  "column-info-delete-add": {
+                    "info-delete-add": {
+                      "added-content": [
+                        {
+                          "title": "SFTP-sertifikat",
+                          "delete-btn": {
+                            "button-text": "Slett sertifikat",
+                            "button-class": "a-btn a-btn-icon",
+                            "button-colorClass": "",
+                            "link-url": "",
+                            "button-shadow-label": false,
+                            "button-icon": {
+                              "icon-prefix": "ai",
+                              "icon-class": "ai-circle-exit",
+                              "icon-extra-class": "a-danger"
+                            }
+                          },
+                          "description": "Dette sertifikatet kan brukes til filoverføring med SFTP. Det kan ikke brukes mot webservices eller til innlogging på altinn.no."
+                        }
+                      ],
+                      "add-btn": {
+                        "button-text": "Legg til",
+                        "button-class": "a-btn a-btn-icon",
+                        "button-colorClass": "",
+                        "link-url": "",
+                        "button-shadow-label": false,
+                        "button-icon": {
+                          "icon-prefix": "ai",
+                          "icon-class": "ai-circle-plus",
+                          "icon-extra-class": "a-blueText"
+                        }
+                      }
+                    }
+                  }
+                  }
+                ]
+              }
+            },
+            {
+              "additional-classes": "a-dotted a-selectable",
+              "onclick": false,
+              "columns": [
+                {
+                  "additional-classes": "col-auto pr-2 pb-1 pb-md-0",
+                  "onclick": false,
+                  "searchable": false,
+                  "column-items": [
+                    {
+                      "column-text": {
+                        "classes": "",
+                        "text": "AnotherUser1"
+                      }
+                    }
+                  ]
+                },
+                {
+                  "additional-classes": "col-12 hidden-md-up pb-1",
+                  "onclick": false,
+                  "column-items": [
+                    {
+                      "column-link": {
+                        "link-icon-left": {
+                          "icon-prefix": "ai",
+                          "icon-class": "ai-edit",
+                          "icon-extra-class": "a-hiddenWhenExpanded ai-left a-blueText"
+                        },
+                        "link-icon": false,
+                        "link-class": "collapsed a-hiddenWhenExpanded a-noUnderline a-pr-half",
+                        "link-url": "#",
+                        "link-text": "<span>Rediger</span>",
+                        "data-target": "collapseIdSampleSertificate2"
+                      }
+                    },
+                    {
+                      "column-link": {
+                        "link-class": "a-visibleWhenExpanded",
+                        "link-url": "#",
+                        "link-text": "<span>Avbryt</span>",
+                        "data-target": "collapseIdSampleSertificate2"
+                      }
+                    }
+                  ]
+                },
+                {
+                  "additional-classes": "col-12 col-md-auto a-visibleWhenExpanded pr-2 pb-1 pb-md-0",
+                  "onclick": false,
+                  "column-items": [
+                    {
+                      "column-button": {
+                        "button-text": "Slett",
+                        "button-class": "a-btn a-btn-icon",
+                        "link-url": false,
+                        "button-shadow-label": false,
+                        "button-icon": {
+                          "icon-prefix": "ai",
+                          "icon-class" : "ai-circle-exit",
+                          "icon-extra-class" : "a-danger a-blueText ai-left"
+                        }
+                      }
+                    }
+                  ]
+                },
+                {
+                  "additional-classes": "col-12 col-md-auto a-visibleWhenExpanded pb-1 pb-md-0",
+                  "onclick": false,
+                  "column-items": [
+                    {
+                      "column-button": {
+                        "button-text": "Endre",
+                        "button-class": "a-btn a-btn-icon",
+                        "link-url": false,
+                        "button-shadow-label": false,
+                        "button-icon": {
+                          "icon-prefix": "ai",
+                          "icon-class" : "ai-edit",
+                          "icon-extra-class" : "a-blueText ai-left"
+                        }
+                      }
+                    }
+                  ]
+                },
+                {
+                  "additional-classes": "col a-visibleWhenExpanded",
+                  "onclick": false,
+                  "column-items": false
+                },
+                {
+                  "additional-classes": "col-auto text-right hidden-sm-down",
+                  "onclick": false,
+                  "column-items": [
+                    {
+                      "column-link": {
+                        "link-icon-left": {
+                          "icon-prefix": "ai",
+                          "icon-class": "ai-edit",
+                          "icon-extra-class": "a-hiddenWhenExpanded ai-fw a-blueText"
+                        },
+                        "link-icon": false,
+                        "link-class": "collapsed a-fullWidthLink a-hiddenWhenExpanded a-noUnderline a-pr-half",
+                        "link-url": "#",
+                        "link-text": "<span>Rediger</span>",
+                        "data-target": "collapseIdSampleSertificate2"
+                      }
+                    },
+                    {
+                      "column-link": {
+                        "link-class": "a-fullWidthLink a-fullWidthLink--underline a-visibleWhenExpanded a-pr-half",
+                        "link-url": "#",
+                        "link-text": "<span>Avbryt</span>",
+                        "data-target": "collapseIdSampleSertificate2"
+                      }
+                    }
+                  ]
+                }
+              ],
+              "expandable-section": {
+                "additional-classes": "col-12 collapse",
+                "id": "collapseIdSampleSertificate2",
+                "content-id": "collapseIdSampleContentSertificate2",
+                "column-items": [
+                  {
+                  "column-info-delete-add": {
+                    "info-delete-add": {
+                      "added-content": [
+                        {
+                          "title": "SFTP Sertifikat",
+                          "delete-btn": {
+                            "button-text": "Slett sertifikat",
+                            "button-class": "a-btn a-btn-icon",
+                            "button-colorClass": "",
+                            "link-url": "",
+                            "button-shadow-label": false,
+                            "button-icon": {
+                              "icon-prefix": "ai",
+                              "icon-class": "ai-circle-exit",
+                              "icon-extra-class": "a-danger"
+                            }
+                          },
+                          "description": "Dette sertifikatet kan brukes til filoverføring med SFTP. Det kan ikke brukes mot webservices eller til innlogging på altinn.no"
+                          },
+                        {
+                          "title": "Et annet Sertifikat",
+                          "delete-btn": {
+                            "button-text": "Slett sertifikat",
+                            "button-class": "a-btn a-btn-icon",
+                            "button-colorClass": "",
+                            "link-url": "",
+                            "button-shadow-label": false,
+                            "button-icon": {
+                              "icon-prefix": "ai",
+                              "icon-class": "ai-circle-exit",
+                              "icon-extra-class": "a-danger"
+                            }
+                          },
+                          "description": "Dette sertifikatet kan ikke brukes til filoverføring med SFTP. Det kan kun brukes mot webservices eller til innlogging på altinn.no"
+                          }
+                        ]
+                      }
+                    }
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      }
+    },
+    "enterprise-certificate-edit": {
+      "register-enterprise-certificate-steps": [
+        {
+          "additional-class": "a-js-certificateContainer1 hidden-xs-up",
+          "enterprise-certificate-heading": "Registrer ny bruker med virksomhetssertifikat",
+          "enterprise-certificate-text": "Du registrerer virksomhetssertifikatet",
+          "enterprise-certificate-name": "sedquiaconsequunturmagni.cer",
+          "enterprise-certificate-step-text": "Trinn 1 av 2:",
+          "enterprise-certificate-step-info": "Dette sertifikatet kan brukes med webservices eller til innlogging på altinn.no. Det kan ikke brukes til filoverføring med SFTP.",
+          "next-btn": {
+            "button-text": "Neste",
+            "button-class": "a-btn a-btn-success mr-1 a-js-certificateStep1",
+            "onclick": false,
+            "button-icon": false
+          },
+          "cancel-btn": {
+            "link-text": "Avbryt",
+            "link-url": "#",
+            "onclick": false
+          },
+          "enterprise-certificate-input-fields": false
+        },
+        {
+          "additional-class": "a-js-certificateContainer2 hidden-xs-up",
+          "enterprise-certificate-heading": "Registrer ny bruker med virksomhetssertifikat",
+          "enterprise-certificate-text": "Du registrerer virksomhetssertifikatet:",
+          "enterprise-certificate-name": "sedquiaconsequunturmagni.cer",
+          "enterprise-certificate-step-text": "Trinn 2 av 2:",
+          "enterprise-certificate-step-info": "Du må opprette en virksomhetsbruker for sertifikatet. Brukernavn og passord skal senere brukes sammen med sertifikatet ved autentisering.",
+          "next-btn": {
+            "button-text": "Neste",
+            "button-class": "a-btn a-btn-success mr-1 a-js-certificateStep2",
+            "onclick": false,
+            "button-icon": false
+          },
+          "cancel-btn": {
+            "link-text": "Avbryt",
+            "link-url": "#",
+            "onclick": false
+          },
+          "enterprise-certificate-input-fields": {
+            "enterprise-certificate-username": {
+              "text-input-id": "text-input-name",
+              "isHidden": false,
+              "top-label": "Brukernavn",
+              "isDisabled": false,
+              "isInactive": false,
+              "text-input-placeholder": "",
+              "input-type": "text",
+              "isRequired": false,
+              "isInputDisabled": false,
+              "extra-help": false,
+              "isLarge": false,
+              "form-label-hasIcon": false,
+              "input-name": "input-field"
+            },
+            "enterprise-certificate-password": {
+              "text-input-id": "text-input-passord",
+              "isHidden": false,
+              "top-label": "Passord",
+              "text-input-placeholder": "Passord",
+              "input-type": "password",
+              "isRequired": false,
+              "isInputDisabled": false,
+              "extra-help": false,
+              "isLarge": false,
+              "form-label-hasIcon": false,
+              "input-name": "input-field"
+            }
+          }
+        }
+      ]
     }
   }
 }

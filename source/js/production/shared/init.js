@@ -28,7 +28,8 @@
   window,
   setupTruncateLines,
   AltinnModal,
-  AltinnQuickhelp
+  AltinnQuickhelp,
+  setupExpandContent
  */
 
 
@@ -48,6 +49,7 @@ window.sharedInit = function() {
   popoverGlobalInit();
   setupSelectableCheckbox();
   setupTruncateLines();
+  setupExpandContent();
   AltinnModal.init();
   AltinnQuickhelp.init();
 };

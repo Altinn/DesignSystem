@@ -1,6 +1,6 @@
 ---
-state: indesignreview
+state: inprogress
 version: 1
 ---
 
-Ekspanderbart panel innhold for å legge til virksomhetssertifikat
+Ekspanderbart panel-innhold for virksomhetssertifikat

@@ -680,6 +680,10 @@
 
     .a-msgTitle {
       @include a-fontBold;
+
+      .expanded & {
+        @include a-fontReg;
+      }
     }
 
     .expanded & {
@@ -721,6 +725,32 @@
         background-color: $yellow-light;
         border-radius: 50%;
       }
+    }
+  }
+}
+
+.a-expandable-content {
+  position: relative;
+  max-height: 320px;
+  overflow: hidden;
+  border-bottom: $spacer * 2 solid $white;
+
+  &::before {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    height: 150px;
+    content: ' ';
+    background: linear-gradient(transparent, $white);
+  }
+
+  &.a-expanded {
+    max-height: none;
+    border-bottom: none;
+
+    &::before {
+      content: none;
     }
   }
 }
