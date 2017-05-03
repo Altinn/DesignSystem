@@ -52,11 +52,14 @@ textarea {
   }
 }
 
-.a-form-group {
+.a-form-group,
+.form-group {
   position: relative;
 
-  label {
+  label,
+  div {
     &.inactive {
+      cursor: not-allowed;
       opacity: 0.3;
     }
   }
@@ -466,6 +469,8 @@ textarea {
 \*------------------------------------*/
 
 .a-form-checkboxes {
+  margin-bottom: 0; // bootstrap override
+
   label {
     span {
       display: block;
@@ -484,6 +489,14 @@ textarea {
     background-color: $white;
     border: 2px solid $blue;
     border-radius: 0;
+  }
+
+  .custom-checkbox {
+    &.inactive {
+      .custom-control-indicator {
+        border: 2px solid $grey-medium;
+      }
+    }
   }
 
   .custom-control {

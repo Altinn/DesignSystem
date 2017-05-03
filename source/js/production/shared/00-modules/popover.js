@@ -50,13 +50,18 @@ var popoverGlobalInit = function() {
   });
 
   $('body').on('shown.bs.popover', '[data-toggle="popover"].a-js-popover-forceFocus', function(e) {
+    $('body').append($('<button class="sr-only a-js-popoverTrick">ignoreme</button>'));
     forceFocusTriggerElement = this;
-    $(forceFocusTriggerElement).on('blur', function() {
+    $(forceFocusTriggerElement).one('blur', function() {
       var that = this;
       if (forceFocusTriggerElement) {
         $($(this).data('bs.popover').tip).find('button,input,a,textarea').filter(':visible:first').focus();
       }
     });
+  });
+
+  $('body').on('hidden.bs.popover', '[data-toggle="popover"].a-js-popover-forceFocus', function(e) {
+    $('body').find('.a-js-popoverTrick').remove();
   });
 
   // Hide all existing popovers when opening a new popover
@@ -67,12 +72,11 @@ var popoverGlobalInit = function() {
   // Hide all existing popovers when focusing a new element
   // which is not the open popover or any of its content
   $('body').on('blur', '[data-toggle="popover"], .popover *', function(e) {
-    var that = this;
     setTimeout(function() {
       var $focused = $(':focus');
-      if (($focused.length !== 0 || forceFocusTriggerElement)
+      if ((($focused.length !== 0 || forceFocusTriggerElement)
         && !$focused.hasClass('popover')
-        && !$focused.parents('.popover').length >= 1) {
+        && !$focused.parents('.popover').length >= 1) || $focused.hasClass('a-js-popoverTrick')) {
         if (forceFocusTriggerElement) {
           $(forceFocusTriggerElement).focus();
           forceFocusTriggerElement = false;

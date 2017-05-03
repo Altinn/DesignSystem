@@ -5,8 +5,7 @@ var setupExpandContent = function() {
   };
 
   $('*[data-toggle="altinn-expand"]').each(function() {
-    var targetId = $(this).data('target');
-    var $target = $(targetId);
+    var $target = $($(this).data('target'));
 
     var targetHeight = $target.outerHeight();
     $(this).off('click', expandContent);
@@ -18,4 +17,3 @@ var setupExpandContent = function() {
     }
   });
 };
-

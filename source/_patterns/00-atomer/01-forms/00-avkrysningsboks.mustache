@@ -4,11 +4,21 @@
 {{/ check-legend }}
     <div class="form-check a-form-checkboxes {{ isDiscreet }} {{ isCenter }} {{ isStacked }}">
       {{# checkboxes }}
-        <label class="custom-control custom-checkbox">
-          <input type="checkbox" class="custom-control-input">
+        {{^ inactive }}
+          <label class="custom-control custom-checkbox">
+            <input type="checkbox" class="custom-control-input">
+        {{/ inactive }}
+        {{# inactive }}
+          <div class="custom-control custom-checkbox inactive">
+        {{/ inactive }}
           <span class="custom-control-indicator"></span>
           <span class="ml-1">{{{ checkboxes-title }}}</span>
-        </label>
+        {{^ inactive }}
+          </label>
+        {{/ inactive }}
+        {{# inactive }}
+          </div>
+        {{/ inactive }}
       {{/ checkboxes }}
     </div>
 {{# check-legend }}

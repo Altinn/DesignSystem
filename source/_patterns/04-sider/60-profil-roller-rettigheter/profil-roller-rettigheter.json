@@ -2044,6 +2044,154 @@
         "icon-prefix": "ai",
         "icon-class": "ai-closedmessage"
       }
+    },
+    "certificate": false
+  },
+  "login-info-panel-enterprise": {
+    "collapseID": "loginInfoEnterprisePanel",
+    "dataParent": "#accordion",
+    "collapse-panel-header-id": "loginInfoEnterprisePanelHeader",
+    "collapseHeader": {
+      "variation-class": "a-iconText-shadow a-iconText-large a-collapseBtn collapsed",
+      "hasIcon": {
+        "icon-prefix": "ai",
+        "icon-class": "ai-private",
+        "icon-extra-class": "a-icon a-icon-circle"
+      },
+      "hasTextSmall": false,
+      "isHeader": {
+        "isH2": true
+      },
+      "icontext": "Innloggingsinformasjon - Virksomhetsbruker"
+    },
+    "login-info-header": false,
+    "login-info-save-btn": {
+      "button-text": "Lagre",
+      "button-class": "a-btn a-btn-success",
+      "onclick": false,
+      "button-icon": false,
+      "button-type": false
+    },
+    "login-info-password-link": {
+      "button-text": "Endre passord",
+      "button-class": "a-btn-link",
+      "display-as-link": true,
+      "onclick": "$(this).closest('.a-js-password-link').hide().next().show().find('input').first().focus();",
+      "button-type": false
+    },
+    "login-info-checkbox": false,
+    "login-info-password-input": {
+      "form-control-class": "form-control-noAddon",
+      "auto-complete-off": true,
+      "text-input-id": "text-input-pw-enterprise",
+      "top-label": "Passord",
+      "text-input-placeholder": "Passord",
+      "input-type": "password",
+      "isRequired": true,
+      "error-message-popover": true,
+      "input-regex-validation": {
+        "error-message": "Passordet er ikke gyldig. Må bestå av minst 7 tegn og inneholde både bokstaver og tall. Bare bokstavene A-Z er tillatt.",
+        "validation-pattern": "(?!^[0-9]*$)(?!^[a-zA-Z]*$)^([a-zA-Z0-9]{7,50})$"
+      },
+      "form-input-isPassword": true,
+      "form-input-showPassword-text": "Vis <span class=\"sr-only\">passord</span>",
+      "form-input-obfuscatePassword-text": "Skjul <span class=\"sr-only\">passord</span>",
+      "form-label-hasIcon": false
+    },
+    "login-info-username-input": {
+      "text-input-id": "text-input-login-username",
+      "top-label": "Brukernavn",
+      "text-input-placeholder": "Brukernavn",
+      "input-type": "text",
+      "extra-help": false,
+      "isHidden": false,
+      "isLarge": false,
+      "data-required-message": "Feltet må fylles ut",
+      "isRequired": true,
+      "error-message-popover": true,
+      "input-name": "input-validation"
+    },
+    "login-info-email-input": {
+      "text-input-id": "text-input-login-email",
+      "top-label": "Epost: ",
+      "text-input-placeholder": "f.eks post@karinordmann.no",
+      "input-type": "email",
+      "extra-help": false,
+      "isHidden": false,
+      "isLarge": false,
+      "isValidator": false,
+      "validator-check": false,
+      "has-feedback": false,
+      "validator-pattern": "",
+      "validator-errorMessage": "",
+      "isInput-group": "",
+      "isRequired": true,
+      "error-message-popover": true,
+      "input-name": "email-field",
+      "input-regex-validation": {
+        "error-message": "Feil epost verdier",
+        "validation-pattern": "(('[^']+')|(([a-zA-Z0-9!#$%&'*+-=?^_`{|}~])+(.([a-zA-Z0-9!#$%&'*+-=?^_`{|}~])+)*))@((((([a-zA-Z0-9æøåÆØÅ]([a-zA-Z0-9-æøåÆØÅ]{0,61})[a-zA-Z0-9æøåÆØÅ].)|[a-zA-Z0-9æøåÆØÅ].){1,9})([a-zA-Z]{2,14}))|((d{1,3}).(d{1,3}).(d{1,3}).(d{1,3})))"
+      },
+      "form-label-hasIcon": {
+        "icon-prefix": "ai",
+        "icon-class": "ai-closedmessage"
+      }
+    },
+    "certificate": {
+      "upload": {
+        "label": {
+          "class": "a-h3",
+          "text": "Nytt virksomhetssertifikat"
+        },
+        "input": {
+          "class": "a-btn a-btn-action a-iconRight a-custom-certupload mb-1 mt-1",
+          "text": "Last opp sertifikat",
+          "id": "newCertificateInput",
+          "icon-after": {
+            "icon-prefix": "ai",
+            "icon-class" : "ai-upload",
+            "icon-size": "",
+            "icon-extra-class": ""
+          }
+        },
+        "cancel-link": {
+          "button-text": "Avbryt",
+          "button-class": "a-btn-link d-block mt-1",
+          "display-as-link": true,
+          "button-id": "cancel-upload",
+          "margin-right-multiplier": 0
+        }
+      },
+      "certificates": {
+        "users-heading": "Virksomhetssertifikat",
+        "alert-id" : "alert",
+        "alert-class" : "a-message-edit a-message--arrow-off a-message--fullwidth a-message--no-dropshadow",
+        "alert-items" : [
+          {
+            "alert-header": {
+              "classes": "pb-1 a-fontBold",
+              "text": "Portal/webservice-sertifikat"
+            }
+          },
+          {
+            "alert-text": {
+              "text": "Dette sertifikatet kan brukes sammen med virksomhetsbruker mot webservices eller til innlogging på altinn.no. Det kan ikke brukes til filoverføring med SFTP."
+            }
+          }
+        ],
+        "add-btn": {
+          "button-text": "Legg til",
+          "button-class": "a-btn a-btn-icon pl-0 a-js-addcertificate",
+          "button-colorClass": "",
+          "link-url": "",
+          "button-shadow-label": false,
+          "button-icon": {
+            "icon-prefix": "ai",
+            "icon-class": "ai-circle-plus",
+            "icon-extra-class": "a-blueText"
+          }
+        }
+      }
     }
   },
   "your-contact-info-unit-panel": {
@@ -2764,7 +2912,7 @@
                 ]
               },
               {
-                "additional-classes": "col-6",
+                "additional-classes": "col",
                 "onclick": false,
                 "column-items": [
                   {
@@ -2776,7 +2924,7 @@
                 ]
               },
               {
-                "additional-classes": "col-3 text-right",
+                "additional-classes": "col-auto",
                 "onclick": false,
                 "column-items": [
                   {
@@ -2806,7 +2954,7 @@
                 ]
               },
               {
-                "additional-classes": "col-6",
+                "additional-classes": "col",
                 "onclick": false,
                 "column-items": [
                   {
@@ -2817,26 +2965,32 @@
                 ]
               },
               {
-                "additional-classes": "col-3 text-right",
-                "onclick": true,
+                "additional-classes": "col-auto",
+                "onclick": false,
                 "column-items": [
                   {
                     "column-icon-link": {
                       "linkIcon-url": "#",
                       "linkIcon-text" : "Rediger",
                       "icon-prefix": "ai ai-sm",
-                      "icon-class": "ai-write",
+                      "icon-class": "ai-edit",
                       "link-icon-class": "a-btn-blue-noUnderline pr-0",
                       "text-class": "hidden-md-down a-fontSizeXS pr-1"
                     }
-                  },
+                  }
+                ]
+              },
+              {
+                "additional-classes": "col-auto",
+                "onclick": false,
+                "column-items": [
                   {
                     "column-icon-link": {
                       "linkIcon-url": "#",
                       "linkIcon-text" : "Slett",
                       "text-class": "sr-only",
                       "icon-prefix": "ai",
-                      "icon-class": "ai-circle-exit ai-sm ml-0 mr-0 a-danger",
+                      "icon-class": "ai-circle-exit ai-nw ai-sm ml-0 mr-0 a-danger",
                       "link-icon-class": "pr-0"
                     }
                   }
@@ -2861,7 +3015,7 @@
                 ]
               },
               {
-                "additional-classes": "col-6",
+                "additional-classes": "col",
                 "onclick": false,
                 "column-items": [
                   {
@@ -2872,7 +3026,7 @@
                 ]
               },
               {
-                "additional-classes": "col-3 text-right",
+                "additional-classes": "col-auto",
                 "onclick": false,
                 "column-items": [
                   {
@@ -2880,18 +3034,24 @@
                       "linkIcon-url": "#",
                       "linkIcon-text" : "Rediger",
                       "icon-prefix": "ai ai-sm",
-                      "icon-class": "ai-write",
+                      "icon-class": "ai-edit",
                       "link-icon-class": "a-btn-blue-noUnderline pr-0",
                       "text-class": "hidden-md-down a-fontSizeXS pr-1"
                     }
-                  },
+                  }
+                ]
+              },
+              {
+                "additional-classes": "col-auto",
+                "onclick": false,
+                "column-items": [
                   {
                     "column-icon-link": {
                       "linkIcon-url": "#",
                       "linkIcon-text" : "Slett",
                       "text-class": "sr-only",
                       "icon-prefix": "ai",
-                      "icon-class": "ai-circle-exit ai-sm ml-0 mr-0 a-danger",
+                      "icon-class": "ai-circle-exit ai-nw ai-sm ml-0 mr-0 a-danger",
                       "link-icon-class": "pr-0"
                     }
                   }
@@ -3324,6 +3484,39 @@
           }
         }
       ]
+    },
+    "default-reportee": {
+      "heading": "Forhåndsvalgt aktør",
+      "checks": [
+        {
+          "check-legend": false,
+          "checkboxes":  [
+            {
+              "checkboxes-title": "Forhåndsvalgt aktør (Åpner innboks automatisk på denne aktøren når jeg logger inn)"
+            }
+          ]
+        },
+        {
+          "check-legend": false,
+          "checkboxes":  [
+            {
+              "checkboxes-title": "Jeg ønsker ikke å bli spurt om aktør hver gang jeg starter utfylling av et nytt skjema"
+            }
+          ]
+        },
+        {
+          "check-legend": false,
+          "checkboxes":  [
+            {
+              "checkboxes-title": "Jeg ønsker å se klienter med tilhørende data (gjelder regnskapsførere og revisorer)"
+            }
+          ]
+        }
+      ],
+      "save-btn": {
+        "button-text": "Lagre",
+        "button-class" : "a-btn a-btn-success"
+      }
     }
   }
 }

@@ -82,6 +82,10 @@ AltinnModal = {
       newPageIndex = existingPages.length + 1;
     }
 
+    if (settings.clearHistory) {
+      $(settings.target + ' :data(page-index)').not('.a-current-page').remove();
+    }
+
     newPage = $('<div/>', {
       class: 'a-page a-next-page',
       data: {
@@ -158,6 +162,10 @@ AltinnModal = {
         newPageIndex = 1;
       } else {
         newPageIndex = existingPages.length + 1;
+      }
+
+      if (settings.clearHistory) {
+        $(settings.target + ' :data(page-index)').not('.a-current-page').remove();
       }
 
       newPage = $('<div/>', {

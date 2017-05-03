@@ -1,25 +1,20 @@
-<div class="a-page">
   {{# header }}
     {{> organismer-header }}
   {{/ header }}
 
-  <section id="content" tabindex="-1">
 
-    <div class="container-fluid a-login-container a-bgWhite a-shadow">
+    <div class="container-fluid a-login-container a-bgWhite a-shadow" id="content" tabindex="-1">
       <div class="container a-triangleShadow">
         {{^ is-first-time }}
-          <div class="row pb-6">
+          <div class="row pb-2 pb-md-6 px-2 px-md-1">
             <div class="col">
               {{# personswitch-current }}
                 {{> molekyler-person-privat }}
               {{/ personswitch-current }}
             </div>
-            <div class="col-auto">
-              {{> atomer-link(link-class: "a-link-logout", link-text: "Logg ut", link-url: "/patterns/04-sider-01-forside-00-forside/04-sider-01-forside-00-forside.html") }}
-            </div>
           </div>
         {{/ is-first-time }}
-        <div class="row px-lg-3 pb-2">
+        <div class="row px-2 px-md-1">
           <div class="col-12 col-lg-4 mb-1">
             {{# is-first-time }}
               <h1 class="a-h2 d-inline">Velg profil</h1>
@@ -31,7 +26,7 @@
               <h1 class="a-h2 d-inline">Alle dine profiler:</h1>
             {{/ is-first-time }}
           </div>
-          <div class="col-12 col-lg-5">
+          <div class="col-12 col-lg-5 ">
             {{# personswitch-search }}
               {{> atomer-tekst-input }}
               {{# no-results-text }}
