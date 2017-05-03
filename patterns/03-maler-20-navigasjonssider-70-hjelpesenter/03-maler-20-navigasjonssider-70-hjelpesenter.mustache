@@ -1,0 +1,64 @@
+<!-- START: 03-maler-20-navigasjonssider-70-hjelpesenter -->
+<div class="a-page">
+  {{# header }} {{> organismer-header }} {{/ header }}
+
+  <section id="content" tabindex="-1">
+
+    {{> molekyler-jumbotron }}
+
+    <div class="container">
+      <div class="row mt-4 mb-3">
+        <div class="col-sm-8 offset-sm-2 col-lg-6 offset-lg-3">
+          {{# article-search }} {{> atomer-tekst-input }} {{/ article-search }}
+        </div>
+      </div>
+
+      {{> molekyler-illustrasjonslenke:mt-4 }} {{# help-questions }}
+      <div class="row mt-6">
+        <div class="col-sm-12 col-lg-10 offset-lg-1">
+          {{> atomer-seksjonstittel }}
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-sm-12">
+          {{> molekyler-trekkspill-overskrifter:a-accordion-large--offset }}
+        </div>
+      </div>
+      {{/ help-questions }} {{# kontaktskjema }} {{> organismer-modal }} {{/ kontaktskjema }}
+
+    </div>
+    <!-- END Container -->
+
+  </section>
+
+  {{> organismer-footer:a-footer--noLine }}
+</div>
+
+
+
+<!-- - - - - - - - - - - - - - - - - - - - - - - - - -->
+<!-- Should be included for pages that has quickhelp -->
+<!-- - - - - - - - - - - - - - - - - - - - - - - - - -->
+
+<div class="a-stickyHelp-container">
+
+  <!-- Open-button for .a-iframeToggle -->
+  <button type="button" class="a-btn a-stickyHelp-open collapsed" data-toggle="collapse" data-target="#a-iframeToggle" aria-expanded="false" aria-controls="a-iframeToggle"><i class="ai ai-help ai-sm ai-nw ai-nw-pr"></i>Hjelp</button>
+
+  <div id="a-iframeToggle" class="a-iframeToggle collapse">
+
+    <!-- Close-button for .a-iframeToggle -->
+    {{# stickyHelp-close }}
+    <button type="button" class="a-stickyHelp-close" data-toggle="collapse" data-target="#a-iframeToggle" data-action="close" aria-expanded="true" aria-controls="a-iframeToggle"> {{> atomer-ikon }} </button> {{/ stickyHelp-close }}
+
+    <iframe src="../../{{link.sider-hurtighjelp}}" width="100%" height="" onload="this.style.height=this.contentDocument.body.scrollHeight +'px';"></iframe>
+
+  </div>
+
+</div>
+
+<!-- - - - - - - - - - - - - - - - - - - - - - - - - -->
+<!-- End quickhelp -->
+<!-- - - - - - - - - - - - - - - - - - - - - - - - - -->
+
+<!-- END: 03-maler-20-navigasjonssider-70-hjelpesenter -->
