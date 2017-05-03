@@ -41,7 +41,7 @@
 
         {{# is-first-time }}
           <div class="row">
-            <div class="col-sm-12 pb-3">
+            <div class="col-sm-12{{^ is-simple }} pb-3{{/ is-simple }}">
               {{# mainPerson }}
                 {{> molekyler-ekspanderbar-liste-status }}
               {{/ mainPerson }}
@@ -50,13 +50,16 @@
         {{/ is-first-time }}
         <div class="row">
           <div class="col-sm-12 pb-3">
-            
             {{# is-first-time }}
-              <h2 class="a-h4 px-lg-3">
-                  Alle dine profiler:
-              </h2>
+              {{^ is-simple }}
+                <h2 class="a-h4 px-lg-3">
+                    Alle dine profiler:
+                </h2>
+              {{/ is-simple }}
             {{/ is-first-time }}
-            {{> organismer-personbytte}}
+            {{# personswitch }}
+             {{> organismer-personbytte}}
+            {{/ personswitch }}
           </div>
         </div>
       </div>
