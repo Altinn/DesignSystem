@@ -14,19 +14,17 @@
 
           <li class="nav-item dropdown hidden-sm-down">
             <!-- Dropdown toggle -->
-            <button lang="en" class="nav-link dropdown-toggle a-languageSwitcher hidden-sm-down" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <a lang="en" class="nav-link dropdown-toggle a-languageSwitcher" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
               Language
-            </button> {{# dropdown-languages }} {{> organismer-meny-spraakvalg }} {{/ dropdown-languages }}
+            </a> {{# dropdown-languages }} {{> organismer-meny-spraakvalg }} {{/ dropdown-languages }}
           </li>
 
-          <li class="nav-item {{{personlogin-isDropdown}}} a-js-personSwitcherTriggerOutside">
+          <li class="nav-item">
             <!-- Dropdown toggle -->
             {{> atomer-innlogget }} {{# dropdown-personswitch }} {{> organismer-meny-personbytte }} {{/ dropdown-personswitch }}
           </li>
-
         </ul>
         <!-- End .a-globalNav-options -->
-
         <!-- Begin .a-globalNav -->
         <nav class="a-globalNav">
           <a href="{{ link.sider-forside-innlogget }}" class="a-globalNav-logo"> {{> atomer-logo }} <span class="sr-only">Til forsiden</span>
@@ -38,13 +36,13 @@
     			  </button>
           <div class="collapse navbar-toggleable-sm a-globalNav-main" id="exCollapsingNavbar2">
             <ul class="" id="exCollapsingNavbar">
-
               <li class="hidden-md-up">
                 {{# header-mobilesearch }} {{> atomer-tekst-input }} {{/ header-mobilesearch }}
               </li>
-              <li class="hidden-md-up"><a class="a-hvr-underline" onkeyup="langTriggerClick(event)" onmousedown="langTriggerClickMouse(event)" href="#">language<span class="indicator">▼</span></a></li>
-              <li class="hidden-md-up">
-                {{# dropdown-languages }} {{> organismer-meny-spraakvalg }} {{/ dropdown-languages }}
+              <li class="hidden-md-up dropdown">
+                <a lang="en" class="nav-link dropdown-toggle a-languageSwitcher" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    language
+                  </a> {{# dropdown-languages }} {{> organismer-meny-spraakvalg }} {{/ dropdown-languages }}
               </li>
               <li><a class="a-hvr-underline {{{ globalNav-active-inbox }}} " href="{{ link.sider-innboks }}">innboks</a></li>
               <li><a class="a-hvr-underline {{{ globalNav-active }}}" href="{{ link.sider-kolonnenavigasjon-v-skjemaoversikt }}">alle skjema</a></li>

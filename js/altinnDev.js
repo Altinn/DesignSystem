@@ -673,6 +673,55 @@ var prototypingInteractionStarteENK = function() {
   });
 };
 
+/*
+Search datatable with highlight using external package mark.js
+Search field needs attribute data-search-algorithm="show-and-highlight"
+Searchable elements need attribute data-searchable="true"
+List elements that should be ignored during search need the class a-js-ignoreDuringSearch
+*/
+var mark = function() {
+  var $elements;
+  var input = $(this).val();
+  var options = {
+    // comment out to ignore html tags in searchable strings
+    // ie: string1 <tag>string2</tag>
+    separateWordSearch: false
+  };
+
+  $.each(this.dataset.searchTarget.split(','), function() {
+    // Reset visibility of all rows
+    var target = '#' + this.toString();
+
+    $(target + ' li:not(.a-js-ignoreDuringSearch):not(.a-list-header)').show();
+
+    $(target).find('*[data-searchable="true"]').unmark().mark(input, options);
+
+    // Hide unmarked rows
+    if (input.length > 0) {
+      $elements = $(target + ' li:not(.a-js-ignoreDuringSearch):not(.a-list-header)');
+      $elements.each(function() {
+        if ($(this).find('mark').length === 0) {
+          $(this).hide();
+        }
+      });
+    } else {
+      $elements = null;
+    }
+
+    if (!$elements || $elements.find('mark').length > 0) {
+      $(target + ' .a-js-noSearchResults').closest('li').hide();
+    } else {
+      $(target + ' .a-js-noSearchResults-phrase').text(input);
+      $(target + ' .a-js-noSearchResults').closest('li').show();
+    }
+  });
+};
+
+var initSearchWithHighlight = function() {
+  $('.a-js-noSearchResults').closest('li').hide();
+  $('input[data-search-algorithm="show-and-highlight"]').on('input', mark);
+};
+
 /* globals $ */
 var selectAll = function() {
   var ctrlDown = false;
@@ -784,7 +833,7 @@ var toggleTheme = function() {
 /* globals _anchors, hideIntroInSubs, insetVariations, toggleArchivedState,
   selectAll, toggleTheme, fixPatternLinks,
   preOpenModals, prototypingInteractionStarteENK, $, onboarding, codeLookup, nameChecker,
-  setupAddRightsHandler */
+  setupAddRightsHandler, initSearchWithHighlight */
 window.devInit = function() {
   _anchors();
   hideIntroInSubs();
@@ -798,6 +847,7 @@ window.devInit = function() {
   onboarding();
   codeLookup();
   nameChecker();
+  initSearchWithHighlight();
   setupAddRightsHandler();
   selectAll();
   toggleTheme();
@@ -1686,6 +1736,35 @@ var onFileInputChange = function() {
     $listItemText.text(fileName);
     $listItem.attr('aria-label', $listItemLabel + fileName);
   });
+
+  $('.a-js-certificateContainer').on('change', function() {
+    $('.a-js-certificateEdit').removeClass('hidden-xs-up');
+    $('.a-js-certificateContainer1').removeClass('hidden-xs-up');
+    $('.a-js-certificateUpload').addClass('hidden-xs-up');
+  });
+
+  $('.a-js-certificateStep1').on('click', function() {
+    $('.a-js-certificateContainer1').addClass('hidden-xs-up');
+    $('.a-js-certificateContainer2').removeClass('hidden-xs-up');
+  });
+  $('.a-js-certificateStep2').on('click', function() {
+    $('.a-js-certificateEdit').addClass('hidden-xs-up');
+    $('.a-js-certificateContainer1').addClass('hidden-xs-up');
+    $('.a-js-certificateUpload').removeClass('hidden-xs-up');
+  });
+
+  $('.a-js-addcertificate').on('click', function() {
+    $('.a-js-certificateList').addClass('hidden-xs-up');
+    $('.a-js-certificateUpload').removeClass('hidden-xs-up');
+  });
+  $('.a-custom-certupload').on('change', function() {
+    $('.a-js-certificateList').removeClass('hidden-xs-up');
+    $('.a-js-certificateUpload').addClass('hidden-xs-up');
+  });
+  $('#cancel-upload').on('click', function() {
+    $('.a-js-certificateList').removeClass('hidden-xs-up');
+    $('.a-js-certificateUpload').addClass('hidden-xs-up');
+  });
 };
 
 var onFileListDeleteClick = function(src) {
@@ -1762,6 +1841,12 @@ var setupListRowSelect = function() {
     $list.find('li:not(.a-list-header)').removeClass('a-selected');
     $segmentDone.hide();
   });
+};
+
+var removeListRow = function(src) {
+  if (src) {
+    $(src).remove();
+  }
 };
 
 // Hard-coded data, should be replaced with JSON
@@ -1849,55 +1934,6 @@ var searchWithAutocomplete = function() {
   });
 };
 
-/*
-Search datatable with highlight using external package mark.js
-Search field needs attribute data-search-algorithm="show-and-highlight"
-Searchable elements need attribute data-searchable="true"
-List elements that should be ignored during search need the class a-js-ignoreDuringSearch
-*/
-var mark = function() {
-  var $elements;
-  var input = $(this).val();
-  var options = {
-    // comment out to ignore html tags in searchable strings
-    // ie: string1 <tag>string2</tag>
-    separateWordSearch: false
-  };
-
-  $.each(this.dataset.searchTarget.split(','), function() {
-    // Reset visibility of all rows
-    var target = '#' + this.toString();
-
-    $(target + ' li:not(.a-js-ignoreDuringSearch):not(.a-list-header)').show();
-
-    $(target).find('*[data-searchable="true"]').unmark().mark(input, options);
-
-    // Hide unmarked rows
-    if (input.length > 0) {
-      $elements = $(target + ' li:not(.a-js-ignoreDuringSearch):not(.a-list-header)');
-      $elements.each(function() {
-        if ($(this).find('mark').length === 0) {
-          $(this).hide();
-        }
-      });
-    } else {
-      $elements = null;
-    }
-
-    if (!$elements || $elements.find('mark').length > 0) {
-      $(target + ' .a-js-noSearchResults').closest('li').hide();
-    } else {
-      $(target + ' .a-js-noSearchResults-phrase').text(input);
-      $(target + ' .a-js-noSearchResults').closest('li').show();
-    }
-  });
-};
-
-var initSearchWithHighlight = function() {
-  $('.a-js-noSearchResults').closest('li').hide();
-  $('input[data-search-algorithm="show-and-highlight"]').on('input', mark);
-};
-
 // Toggles between two components.
 // Each toggable component needs to be referenced by id from data-switch-target attribute of switch
 var toggleSwitch = function() {
@@ -1968,7 +2004,6 @@ var truncateBoxButtonNames = function() {
   cardsToggle,
   onConfirmDeletionClick,
   setupListRowSelect,
-  initSearchWithHighlight,
   toggleSwitch,
   searchWithAutocomplete,
   truncateBoxButtonNames,
@@ -1979,7 +2014,6 @@ window.portalInit = function() {
   cardsToggle();
   onConfirmDeletionClick();
   setupListRowSelect();
-  initSearchWithHighlight();
   toggleSwitch();
   searchWithAutocomplete();
   truncateBoxButtonNames();
@@ -2084,6 +2118,10 @@ AltinnModal = {
       newPageIndex = existingPages.length + 1;
     }
 
+    if (settings.clearHistory) {
+      $(settings.target + ' :data(page-index)').not('.a-current-page').remove();
+    }
+
     newPage = $('<div/>', {
       class: 'a-page a-next-page',
       data: {
@@ -2160,6 +2198,10 @@ AltinnModal = {
         newPageIndex = 1;
       } else {
         newPageIndex = existingPages.length + 1;
+      }
+
+      if (settings.clearHistory) {
+        $(settings.target + ' :data(page-index)').not('.a-current-page').remove();
       }
 
       newPage = $('<div/>', {
@@ -2484,7 +2526,7 @@ AltinnQuickhelp = {
 };
 
 var setupOnKeypress = function() {
-  $('body').on('keypress', '.a-clickable, .a-selectable', function(e) {
+  $('body').on('keydown', '.a-clickable, .a-selectable', function(e) {
     var key = e.which;
     if ($(e.target).hasClass('a-clickable') || $(e.target).hasClass('a-selectable')) {
       if (key === 13) {
@@ -2492,7 +2534,6 @@ var setupOnKeypress = function() {
         return false;
       }
     }
-
     return true;
   });
 };
@@ -2520,6 +2561,26 @@ var compareTo = function(firstItem, secondItem) {
     return 1;
   }
   return 0;
+};
+
+var setupExpandContent = function() {
+  var expandContent = function() {
+    $($(this).data('target')).addClass('a-expanded');
+    $(this).hide();
+  };
+
+  $('*[data-toggle="altinn-expand"]').each(function() {
+    var $target = $($(this).data('target'));
+
+    var targetHeight = $target.outerHeight();
+    $(this).off('click', expandContent);
+    if (targetHeight > 320) {
+      $target.addClass('a-expandable-content');
+      $(this).on('click', expandContent);
+    } else {
+      $(this).hide();
+    }
+  });
 };
 
 /* globals $ */
@@ -2646,13 +2707,13 @@ var sortListAlphanumerically = function(src, sortIndex) {
   var active = $(src).hasClass('a-active');
   if (!active) {
     $(src).closest('.a-list-container').find('.a-list-sortHeader').removeClass('a-active')
-      .removeClass('reverse-sort');
+      .removeClass('a-js-reverse-sort');
     $(src).addClass('a-active');
   } else {
-    $(src).toggleClass('reverse-sort');
+    $(src).toggleClass('a-js-reverse-sort');
   }
 
-  reverse = $(src).hasClass('reverse-sort');
+  reverse = $(src).hasClass('a-js-reverse-sort');
 
   rows.sort(function(a, b) {
     var A = $($($($(a).children()[0]).children()[sortIndex]).find('.a-js-sortValue')[0]).text()
@@ -2747,39 +2808,20 @@ $(window).on('resize', function() {
 
 /* globals $ */
 var mobileNavigation = function() {
-  window.langTriggerClick = function(e) {
-    var key = e.which;
-    if (key === 13) { // return, enter
-      $(e.target).trigger('mousedown');
-    } else if (key === 9) { // tab
-      if (!$('#exCollapsingNavbar').find('.a-dropdown-languages').hasClass('expand')) {
-        $('#exCollapsingNavbar').find('.a-dropdown-languages').find('a').attr('tabindex', '-1');
-      } else {
-        $('#exCollapsingNavbar').find('.a-dropdown-languages').find('a').attr('tabindex', '0');
-      }
-    }
-  };
+  $('.a-globalNav .dropdown').on('show.bs.dropdown', function(e) {
+    var that = this;
+    setTimeout(function() {
+      $(that).find('.a-dropdown-languages').addClass('expand');
+      $(that).find('.a-dropdown-languages a').removeAttr('tabindex');
+      $(that).find('.a-dropdown-languages a').removeAttr('aria-hidden');
+    }, 0);
+  });
 
-  window.langTriggerClickMouse = function(e) {
-    $('#exCollapsingNavbar').find('.a-dropdown-languages').find('a').attr('tabindex', '-1');
-    if (!$('#exCollapsingNavbar').find('.a-dropdown-languages').hasClass('expand')) {
-      $('#exCollapsingNavbar').find('.a-dropdown-languages').css('width', 'inherit').css('min-width', '160px');
-      $('#exCollapsingNavbar').find('.a-dropdown-languages').removeClass('after-collapse');
-      $('#exCollapsingNavbar').find('.a-dropdown-languages').find('a').attr('tabindex', '0');
-    } else {
-      setTimeout(function() {
-        if (!$('#exCollapsingNavbar').find('.a-dropdown-languages').hasClass('expand')) {
-          $('#exCollapsingNavbar').find('.a-dropdown-languages').toggleClass('after-collapse');
-        }
-        if (!$('#exCollapsingNavbar').find('.a-dropdown-languages').hasClass('after-collapse')) {
-          $('#exCollapsingNavbar').find('.a-dropdown-languages').css('width', '0px').css('min-width', '0px');
-        }
-        $('#exCollapsingNavbar').find('.a-dropdown-languages').find('a').attr('tabindex', '-1');
-      }, 250);
-    }
-    $('#exCollapsingNavbar').find('.a-dropdown-languages').toggleClass('expand');
-    $('#exCollapsingNavbar').find('.indicator').toggleClass('flip');
-  };
+  $('.a-globalNav .dropdown').on('hide.bs.dropdown', function(e) {
+    $(this).find('.a-dropdown-languages').removeClass('expand');
+    $(this).find('.a-dropdown-languages a').attr('tabindex', '-1');
+    $(this).find('.a-dropdown-languages a').attr('aria-hidden', 'true');
+  });
 };
 
 /* globals $ */
@@ -2834,13 +2876,18 @@ var popoverGlobalInit = function() {
   });
 
   $('body').on('shown.bs.popover', '[data-toggle="popover"].a-js-popover-forceFocus', function(e) {
+    $('body').append($('<button class="sr-only a-js-popoverTrick">ignoreme</button>'));
     forceFocusTriggerElement = this;
-    $(forceFocusTriggerElement).on('blur', function() {
+    $(forceFocusTriggerElement).one('blur', function() {
       var that = this;
       if (forceFocusTriggerElement) {
         $($(this).data('bs.popover').tip).find('button,input,a,textarea').filter(':visible:first').focus();
       }
     });
+  });
+
+  $('body').on('hidden.bs.popover', '[data-toggle="popover"].a-js-popover-forceFocus', function(e) {
+    $('body').find('.a-js-popoverTrick').remove();
   });
 
   // Hide all existing popovers when opening a new popover
@@ -2851,12 +2898,11 @@ var popoverGlobalInit = function() {
   // Hide all existing popovers when focusing a new element
   // which is not the open popover or any of its content
   $('body').on('blur', '[data-toggle="popover"], .popover *', function(e) {
-    var that = this;
     setTimeout(function() {
       var $focused = $(':focus');
-      if (($focused.length !== 0 || forceFocusTriggerElement)
+      if ((($focused.length !== 0 || forceFocusTriggerElement)
         && !$focused.hasClass('popover')
-        && !$focused.parents('.popover').length >= 1) {
+        && !$focused.parents('.popover').length >= 1) || $focused.hasClass('a-js-popoverTrick')) {
         if (forceFocusTriggerElement) {
           $(forceFocusTriggerElement).focus();
           forceFocusTriggerElement = false;
@@ -3114,11 +3160,25 @@ var setValidatorSettings = function() {
   window,
   setupTruncateLines,
   AltinnModal,
-  AltinnQuickhelp
+  AltinnQuickhelp,
+  setupExpandContent
  */
 
-
 window.sharedInit = function() {
+  $.fn.modal.Constructor.prototype._enforceFocus = function() {
+    $(document)
+      .off('focusin.bs.modal')
+      .on('focusin.bs.modal', $.proxy(function(event) {
+        if (document !== event.target &&
+            this._element !== event.target &&
+            !$(this._element).has(event.target).length
+            && !$(event.target).hasClass('popover')
+            && !$(event.target).closest('.popover').length > 0) {
+          this._element.focus();
+        }
+      }, this));
+  };
+
   setValidatorSettings();
   addListExpandHandler();
   setupOnKeypress();
@@ -3134,8 +3194,9 @@ window.sharedInit = function() {
   popoverGlobalInit();
   setupSelectableCheckbox();
   setupTruncateLines();
+  setupExpandContent();
   AltinnModal.init();
-  AltinnQuickhelp.init();
+  // AltinnQuickhelp.init();
 };
 
 window.sharedInit();

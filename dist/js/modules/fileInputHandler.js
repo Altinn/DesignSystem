@@ -19,6 +19,35 @@ var onFileInputChange = function() {
     $listItemText.text(fileName);
     $listItem.attr('aria-label', $listItemLabel + fileName);
   });
+
+  $('.a-js-certificateContainer').on('change', function() {
+    $('.a-js-certificateEdit').removeClass('hidden-xs-up');
+    $('.a-js-certificateContainer1').removeClass('hidden-xs-up');
+    $('.a-js-certificateUpload').addClass('hidden-xs-up');
+  });
+
+  $('.a-js-certificateStep1').on('click', function() {
+    $('.a-js-certificateContainer1').addClass('hidden-xs-up');
+    $('.a-js-certificateContainer2').removeClass('hidden-xs-up');
+  });
+  $('.a-js-certificateStep2').on('click', function() {
+    $('.a-js-certificateEdit').addClass('hidden-xs-up');
+    $('.a-js-certificateContainer1').addClass('hidden-xs-up');
+    $('.a-js-certificateUpload').removeClass('hidden-xs-up');
+  });
+
+  $('.a-js-addcertificate').on('click', function() {
+    $('.a-js-certificateList').addClass('hidden-xs-up');
+    $('.a-js-certificateUpload').removeClass('hidden-xs-up');
+  });
+  $('.a-custom-certupload').on('change', function() {
+    $('.a-js-certificateList').removeClass('hidden-xs-up');
+    $('.a-js-certificateUpload').addClass('hidden-xs-up');
+  });
+  $('#cancel-upload').on('click', function() {
+    $('.a-js-certificateList').removeClass('hidden-xs-up');
+    $('.a-js-certificateUpload').addClass('hidden-xs-up');
+  });
 };
 
 var onFileListDeleteClick = function(src) {

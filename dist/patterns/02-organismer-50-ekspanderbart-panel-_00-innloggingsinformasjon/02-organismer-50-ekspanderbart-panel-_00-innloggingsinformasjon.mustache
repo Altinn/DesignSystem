@@ -11,6 +11,24 @@
     <div class="a-collapsePanel-body-content">
       {{> organismer-innloggingsinformasjon-innhold }}
     </div>
+    {{# certificate }} {{# upload }}
+    <div class="a-collapsePanel-body-content hidden-xs-up a-js-certificateUpload">
+      <div class="row">
+        <div class="col-12">
+          {{> atomer-upload }} {{# cancel-link }} {{> atomer-knapp-link }} {{/ cancel-link }}
+        </div>
+      </div>
+    </div>
+    {{/ upload}} {{# certificates }}
+    <div class="a-collapsePanel-body-content a-js-certificateList">
+      <div class="row">
+        <div class="col-12">
+          <h3>{{ users-heading }}</h3>
+          {{> atomer-varsel }} {{# add-btn }} {{> atomer-knapp-ikon-tekst }} {{/ add-btn }}
+        </div>
+      </div>
+    </div>
+    {{/ certificates }} {{/ certificate }}
   </div>
 </div>
 <!-- END: 02-organismer-50-ekspanderbart-panel-_00-innloggingsinformasjon -->
