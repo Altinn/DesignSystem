@@ -10,9 +10,32 @@
     padding-bottom: $spacer * 2 !important;
   }
 
+  .a-searchResults-counter {
+    @include a-fontReg;
+    display: block;
+
+    @include media-breakpoint-up( md ) {
+      display: inline;
+    }
+  }
+
   .a-searchResults-filter {
-    text-align: right;
-    align-self: flex-start;
+    padding-top: $spacer / 2;
+    padding-bottom: $spacer / 2;
+    margin-top: $spacer;
+    margin-bottom: $spacer * 3;
+    border-top: 1px solid $grey-medium;
+    border-bottom: 1px solid $grey-medium;
+
+    @include media-breakpoint-up( lg ) {
+      padding-right: 8.33333%;
+      padding-left: 8.33333%;
+    }
+
+    .a-switch {
+      margin-top: $spacer / 3;
+      margin-bottom: $spacer / 3;
+    }
   }
 
   .a-searchResults-breadcrumb {

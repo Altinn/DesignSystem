@@ -1,10 +1,12 @@
+{{#hidewhenempty-start}}
 <div class="hidewhenempty">
+{{/hidewhenempty-start}}
 
 	{{# radiobuttons }}
 
-		<div class="a-switch">
+		<div class="a-switch {{styleModifier}}">
 
-			<input {{# radiobuttons-id }}id="{{{ radiobuttons-id }}}" {{/ radiobuttons-id }} class="sr-only" type="radio" name="{{{ radiobuttons-name }}}" onfocus="$('label[for=\'{{{ radiobuttons-id }}}']').addClass('focused'))" onblur="$('label[for=\'{{{ radiobuttons-id }}}\']').removeClass('focused')" value="radiobutton-read" {{# isChecked }} checked {{/ isChecked }}>
+			<input {{# radiobuttons-id }}id="{{{ radiobuttons-id }}}" {{/ radiobuttons-id }} class="sr-only" type="radio" name="{{{ radiobuttons-name }}}" value="radiobutton-read" {{# isChecked }} checked {{/ isChecked }} {{# onclick }} onclick="{{{ onclick }}}" {{/ onclick }}/>
 
 			<label for="{{{ radiobuttons-id }}}" class="a-switch-label {{{ radiobuttons-class }}}">
 				{{# hasIcon }}
@@ -17,4 +19,6 @@
 
 	{{/ radiobuttons }}
 
+{{#hidewhenempty-end}}
 </div>
+{{/hidewhenempty-end}}
