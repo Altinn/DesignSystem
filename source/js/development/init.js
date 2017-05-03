@@ -1,7 +1,7 @@
 /* globals _anchors, hideIntroInSubs, insetVariations, toggleArchivedState,
   selectAll, toggleTheme, fixPatternLinks,
   preOpenModals, prototypingInteractionStarteENK, $, onboarding, codeLookup, nameChecker,
-  setupAddRightsHandler */
+  setupAddRightsHandler, initSearchWithHighlight */
 window.devInit = function() {
   _anchors();
   hideIntroInSubs();
@@ -15,6 +15,7 @@ window.devInit = function() {
   onboarding();
   codeLookup();
   nameChecker();
+  initSearchWithHighlight();
   setupAddRightsHandler();
   selectAll();
   toggleTheme();
