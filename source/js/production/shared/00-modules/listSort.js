@@ -7,13 +7,13 @@ var sortListAlphanumerically = function(src, sortIndex) {
   var active = $(src).hasClass('a-active');
   if (!active) {
     $(src).closest('.a-list-container').find('.a-list-sortHeader').removeClass('a-active')
-      .removeClass('reverse-sort');
+      .removeClass('a-js-reverse-sort');
     $(src).addClass('a-active');
   } else {
-    $(src).toggleClass('reverse-sort');
+    $(src).toggleClass('a-js-reverse-sort');
   }
 
-  reverse = $(src).hasClass('reverse-sort');
+  reverse = $(src).hasClass('a-js-reverse-sort');
 
   rows.sort(function(a, b) {
     var A = $($($($(a).children()[0]).children()[sortIndex]).find('.a-js-sortValue')[0]).text()
