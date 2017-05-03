@@ -64,7 +64,7 @@ window.sharedInit = function() {
   setupTruncateLines();
   setupExpandContent();
   AltinnModal.init();
-  // AltinnQuickhelp.init();
+  AltinnQuickhelp.init();
 };
 
 window.sharedInit();
