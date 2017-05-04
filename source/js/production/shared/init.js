@@ -28,11 +28,25 @@
   window,
   setupTruncateLines,
   AltinnModal,
-  AltinnQuickhelp
+  AltinnQuickhelp,
+  setupExpandContent
  */
 
-
 window.sharedInit = function() {
+  $.fn.modal.Constructor.prototype._enforceFocus = function() {
+    $(document)
+      .off('focusin.bs.modal')
+      .on('focusin.bs.modal', $.proxy(function(event) {
+        if (document !== event.target &&
+            this._element !== event.target &&
+            !$(this._element).has(event.target).length
+            && !$(event.target).hasClass('popover')
+            && !$(event.target).closest('.popover').length > 0) {
+          this._element.focus();
+        }
+      }, this));
+  };
+
   setValidatorSettings();
   addListExpandHandler();
   setupOnKeypress();
@@ -48,6 +62,7 @@ window.sharedInit = function() {
   popoverGlobalInit();
   setupSelectableCheckbox();
   setupTruncateLines();
+  setupExpandContent();
   AltinnModal.init();
   AltinnQuickhelp.init();
 };

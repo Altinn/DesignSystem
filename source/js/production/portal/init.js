@@ -3,7 +3,6 @@
   cardsToggle,
   onConfirmDeletionClick,
   setupListRowSelect,
-  initSearchWithHighlight,
   toggleSwitch,
   searchWithAutocomplete,
   truncateBoxButtonNames,
@@ -14,7 +13,6 @@ window.portalInit = function() {
   cardsToggle();
   onConfirmDeletionClick();
   setupListRowSelect();
-  initSearchWithHighlight();
   toggleSwitch();
   searchWithAutocomplete();
   truncateBoxButtonNames();

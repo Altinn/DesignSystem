@@ -252,3 +252,116 @@
     border: none;
   }
 }
+
+/*------------------------------------*\
+    Category tabs
+\*------------------------------------*/
+
+.a-categoryTabs {
+  display: flex;
+  flex-wrap: wrap;
+
+  @include media-breakpoint-up( sm ) {
+    flex-wrap: nowrap;
+  }
+
+  .a-switch {
+    margin-right: 1px;
+    margin-bottom: 0;
+
+    @include media-breakpoint-up( sm ) {
+      margin-right: $spacer / 2;
+    }
+
+    input {
+      &[type='checkbox'],
+      &[type='radio'] {
+
+        &:not(:checked) {
+          &+label {
+            padding: 9px $spacer / 2 7px $spacer / 2;
+            background: $blue-lighter;
+            border: none;
+            border-radius: 0;
+
+            @include media-breakpoint-up( sm ) {
+              padding: 9px $spacer 7px $spacer;
+            }
+          }
+
+          &:hover {
+            &+label {
+              background-color: $blue-light;
+            }
+          }
+        }
+
+        &:checked {
+          &+label {
+            padding: 9px $spacer / 2 7px $spacer / 2;
+            background-color: $blue;
+            border: none;
+            border-radius: 0;
+
+            @include media-breakpoint-up( sm ) {
+              padding: 9px $spacer 7px $spacer;
+            }
+          }
+        }
+
+        &:focus {
+          &+label {
+            border: none;
+          }
+        }
+      }
+    }
+
+    .a-switch-label {
+      @include a-fontSize14;
+      @include a-fontMedium;
+      width: 100%;
+      text-align: center;
+
+      @include media-breakpoint-up( sm ) {
+        @include a-fontSize16;
+      }
+
+      @include media-breakpoint-up( md ) {
+        @include a-fontSize18;
+      }
+    }
+
+    &.a-switch-limitedWidth {
+      max-width: calc(100% - 30px);
+    }
+  }
+
+  .a-linkFeatured--border {
+    @include a-fontSize14;
+    @include a-fontMedium;
+    display: block;
+    min-height: 58px;
+    padding: 8px $spacer / 2 6px $spacer / 2;
+    text-align: center;
+
+    i {
+      margin-top: -3px;
+      @media screen and (max-width: 368px) {
+        display: none;
+      }
+    }
+
+    @include media-breakpoint-up( sm ) {
+      @include a-fontSize16;
+      min-height: auto;
+      padding: 8px $spacer 6px $spacer;
+    }
+
+    @include media-breakpoint-up( md ) {
+      @include a-fontSize18;
+    }
+
+  }
+
+}

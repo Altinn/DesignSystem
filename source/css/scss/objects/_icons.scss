@@ -155,8 +155,13 @@
     display: flex;
     width: $spacer * 5;
     min-width: $spacer * 5;
-    margin-right: $spacer;
+    margin-right: 0;
     justify-content: center;
+    align-self: center;
+
+    @include media-breakpoint-up( sm ) {
+      margin-right: $spacer;
+    }
 
     @include media-breakpoint-up( lg ) {
       margin-right: $spacer / 2;
@@ -173,6 +178,10 @@
 
     &:empty {
       display: none;
+    }
+
+    &.a-iconText-icon--start {
+      align-self: flex-start;
     }
   }
 
@@ -223,8 +232,15 @@
     a,
     .a-btn-link {
       @include a-fontSize18;
-      // TODO: Make custom mixin for link-fontsizes. lineheight needs to be larger on links because of double border
       @include a-fontBold;
+
+      @include media-breakpoint-up( md ) {
+        @include a-fontSize20;
+      }
+    }
+
+    .a-formCode {
+      @include a-fontSize18;
 
       @include media-breakpoint-up( md ) {
         @include a-fontSize20;
@@ -247,9 +263,13 @@
 
   // VARIATION: Backgrounds
   &.a-iconText-background {
-    padding: $spacer;
+    padding: $spacer * 1.5 $spacer $spacer * 1.5 0;
     color: $white;
     background: $grey;
+
+    @include media-breakpoint-up( sm ) {
+      padding: $spacer * 1.5 $spacer;
+    }
 
     .a-icon-circle {
       color: $black;
@@ -263,6 +283,11 @@
     &.a-iconText-background--white {
       color: $black;
       background: $white;
+    }
+
+    &.a-iconText-background--transparent {
+      color: $black;
+      background: transparent;
     }
   }
 

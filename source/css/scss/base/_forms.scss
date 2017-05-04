@@ -52,11 +52,14 @@ textarea {
   }
 }
 
-.a-form-group {
+.a-form-group,
+.form-group {
   position: relative;
 
-  label {
+  label,
+  div {
     &.inactive {
+      cursor: not-allowed;
       opacity: 0.3;
     }
   }
@@ -466,6 +469,8 @@ textarea {
 \*------------------------------------*/
 
 .a-form-checkboxes {
+  margin-bottom: 0; // bootstrap override
+
   label {
     span {
       display: block;
@@ -484,6 +489,14 @@ textarea {
     background-color: $white;
     border: 2px solid $blue;
     border-radius: 0;
+  }
+
+  .custom-checkbox {
+    &.inactive {
+      .custom-control-indicator {
+        border: 2px solid $grey-medium;
+      }
+    }
   }
 
   .custom-control {
@@ -838,7 +851,27 @@ textarea {
   &.a-switch-limitedWidth {
     max-width: calc(100% - 30px);
   }
+
+  &.a-switch--small {
+    .a-switch-label {
+      @include a-fontSize14;
+      min-height: 24px;
+      padding: 2px 12px 0 12px;
+
+      &::before {
+        position: absolute;
+        top: -5px;
+        left: 0;
+        z-index: 1;
+        width: calc( 100% + 24px );
+        min-height: 36px;
+        cursor: pointer;
+        content: '';
+      }
+    }
+  }
 }
+
 
 /*------------------------------------*\
  * Dropdown

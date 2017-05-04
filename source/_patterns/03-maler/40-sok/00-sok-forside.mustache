@@ -14,15 +14,30 @@
 	<section id="content" tabindex="-1">
 
 		<div class="container a-searchResults">
-				<div class="row mb-3">
-					<div class="col-8 col-lg-8 offset-lg-1">
+				<div class="row mb-1 mb-md-2">
+					<div class="col-12 col-lg-10 offset-lg-1">
 						<h1 class="a-h2 a-fontReg"><b>10 av 123 treff</b> på skjema og artikler med <b>"MVA"</b></h1>
 					</div>
-					{{# filterSearch }}
-					<div class="col-4 col-lg-2 d-flex justify-content-end">
-						{{> atomer-knapp:a-searchResults-filter }}
+				</div>
+
+				<div class="row">
+					<div class="col-12 col-lg-9 col-xl-8 offset-lg-1">
+						{{> molekyler-kategorifaner }}
 					</div>
-					{{/ filterSearch }}
+				</div>
+
+				<div class="row">
+					<div class="col-12 px-0 px-sm-1">
+						<form class="a-searchResults-filter d-flex align-items-center">
+							<span class="a-legend d-inline-flex">Begrens treffet:
+							</span>
+							<div class="d-block pl-1">
+							{{# filter-search }}
+								{{> atomer-valgknapp:d-inline-flex|flex-wrap|a-switch--small }}
+							{{/ filter-search }}
+							</div>
+						</form>
+					</div>
 				</div>
 
 				{{# hit-form-1 }}
