@@ -6,7 +6,8 @@
   uniformHeight,
   articleAnchors,
   subscribe,
-  setupFormValidation
+  setupFormValidation,
+  autoFootnotes
 */
 window.infoportalInit = function() {
   colnavCustom();
@@ -17,6 +18,7 @@ window.infoportalInit = function() {
   articleAnchors();
   subscribe();
   setupFormValidation();
+  autoFootnotes();
 };
 window.infoportalInit();
 // $(document).foundation();
