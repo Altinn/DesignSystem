@@ -22,11 +22,32 @@
     </div>
   </div>
 {{/ message-text-block }}
+{{# attachments }}
+  <div class="row mb-3">
+    <div class="col mt-1">
+      {{> atomer-liste-unummerert-ikoner:ai-fontSizeS }}
+    </div>
+  </div> 
+{{/ attachments }}
+{{# info-notice }}
+  <div class="row mb-3">
+    <div class="col">
+      {{> atomer-varsel }}
+    </div>
+  </div>
+{{/ info-notice }}
+{{# expandable-content }}
+  <div class="row mb-3">
+    <div class="col">
+      {{> atomer-handlingsknapp-ekspanderbart-innhold }}
+    </div>
+  </div>
+{{/ expandable-content }}
 {{# actions-row }}
   <div class="row mb-3">
     <div class="{{ button-wrapper-class}}">
       {{# action-button }}
-        {{> atomer-knapp }}
+        {{> atomer-knapp:mb-2 }}
       {{/ action-button }}
     </div>
     <div class="{{ button-icons-wrapper-class }}">
@@ -36,17 +57,3 @@
     </div>
   </div>
 {{/ actions-row }}
-{{# attachments }}
-  <div class="row mb-3">
-    <div class="col">
-      {{> atomer-liste-unummerert-ikoner:ai-fontSizeS }}
-    </div>
-  </div> 
-{{/ attachments }}
-{{# info-notice }}
-  <div class="row">
-    <div class="col">
-      {{> atomer-varsel }}
-    </div>
-  </div>
-{{/ info-notice }}
