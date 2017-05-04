@@ -6,6 +6,7 @@ var colnavCustom = function() {
   var drilldownLegendDefault = $('.a-js-drilldownLegend').html();
   var movedDuringTouch = false;
   var shifted;
+  var savedResults = {};
   function urlQuery(query) {
     var _query = query.replace(/[[]/, '[').replace(/[\]]/, '\\]');
     var expr = '[\\?&]' + _query + '=([^&#]*)';
@@ -197,6 +198,7 @@ var colnavCustom = function() {
     var afterRequest = function(data) {
       var depth = 3;
       var markup = '';
+      savedResults[str] = data;
       data.forEach(function(item) {
         var level2 = '';
         item[item.SubCategory ? 'SubCategory' : 'List'].forEach(function(_item) {
@@ -313,36 +315,40 @@ var colnavCustom = function() {
         });
       }
     };
-    $.ajax({
-      type: 'GET',
-      url: url[0],
-      success: function(data) {
-        afterRequest(data);
-      },
-      error: function() {
-        $.ajax({
-          type: 'GET',
-          url: url[1],
-          success: function(data) {
-            afterRequest(data);
-          },
-          error: function() {
-            $.ajax({
-              type: 'GET',
-              url: url[2],
-              success: function(data) {
-                afterRequest(data);
-              },
-              error: function() {
-                $.getJSON(url[3], function(data) {
+    if (savedResults[str]) {
+      afterRequest(savedResults[str]);
+    } else {
+      $.ajax({
+        type: 'GET',
+        url: url[0],
+        success: function(data) {
+          afterRequest(data);
+        },
+        error: function() {
+          $.ajax({
+            type: 'GET',
+            url: url[1],
+            success: function(data) {
+              afterRequest(data);
+            },
+            error: function() {
+              $.ajax({
+                type: 'GET',
+                url: url[2],
+                success: function(data) {
                   afterRequest(data);
-                });
-              }
-            });
-          }
-        });
-      }
-    });
+                },
+                error: function() {
+                  $.getJSON(url[3], function(data) {
+                    afterRequest(data);
+                  });
+                }
+              });
+            }
+          });
+        }
+      });
+    }
   };
   $(document).ready(function() {
     if ($('.a-colnav').length > 0) {
