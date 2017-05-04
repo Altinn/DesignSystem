@@ -851,6 +851,25 @@ textarea {
   &.a-switch-limitedWidth {
     max-width: calc(100% - 30px);
   }
+
+  &.a-switch--small {
+    .a-switch-label {
+      @include a-fontSize14;
+      min-height: 24px;
+      padding: 2px 12px 0 12px;
+
+      &::before {
+        position: absolute;
+        top: -5px;
+        left: 0;
+        z-index: 1;
+        width: calc( 100% + 24px );
+        min-height: 36px;
+        cursor: pointer;
+        content: '';
+      }
+    }
+  }
 }
 
 

@@ -151,9 +151,13 @@
     display: flex;
     width: $spacer * 5;
     min-width: $spacer * 5;
-    margin-right: $spacer;
+    margin-right: 0;
     justify-content: center;
     align-self: center;
+
+    @include media-breakpoint-up( sm ) {
+      margin-right: $spacer;
+    }
 
     @include media-breakpoint-up( lg ) {
       margin-right: $spacer / 2;
@@ -255,9 +259,13 @@
 
   // VARIATION: Backgrounds
   &.a-iconText-background {
-    padding: $spacer * 1.5 $spacer;
+    padding: $spacer * 1.5 $spacer $spacer * 1.5 0;
     color: $white;
     background: $grey;
+
+    @include media-breakpoint-up( sm ) {
+      padding: $spacer * 1.5 $spacer;
+    }
 
     .a-icon-circle {
       color: $black;
