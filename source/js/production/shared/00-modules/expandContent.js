@@ -5,9 +5,10 @@ var setupExpandContent = function() {
   };
 
   $('*[data-toggle="altinn-expand"]').each(function() {
+    var targetHeight;
     var $target = $($(this).data('target'));
-
-    var targetHeight = $target.outerHeight();
+    $target.removeClass('a-expandable-content');
+    targetHeight = $target.outerHeight();
     $(this).off('click', expandContent);
     if (targetHeight > 320) {
       $target.addClass('a-expandable-content');

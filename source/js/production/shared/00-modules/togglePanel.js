@@ -23,7 +23,6 @@ $('.a-collapsePanel-body').on('show.bs.collapse', function() {
     $(that).closest('.a-collapsePanel').addClass('expanded');
     $('.a-js-index-heading').addClass('dim');
     $('.a-collapsePanel.expanded').find('.a-js-index-heading').removeClass('dim');
-
     setupExpandContent();
   }, 0);
 });
