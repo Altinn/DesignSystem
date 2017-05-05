@@ -29,7 +29,8 @@
   setupTruncateLines,
   AltinnModal,
   AltinnQuickhelp,
-  setupExpandContent
+  setupExpandContent,
+  AltinnDropdown
  */
 
 window.sharedInit = function() {
@@ -65,6 +66,7 @@ window.sharedInit = function() {
   setupExpandContent();
   AltinnModal.init();
   AltinnQuickhelp.init();
+  AltinnDropdown.init();
 };
 
 window.sharedInit();
