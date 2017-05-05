@@ -8424,6 +8424,8 @@ textarea {
     border-radius: 0; }
   .a-form-checkboxes .custom-checkbox.inactive .custom-control-indicator {
     border: 2px solid #BCC7CC; }
+  .a-form-checkboxes .custom-checkbox.inactive .custom-control-indicator + span {
+    display: block; }
   .a-form-checkboxes .custom-control {
     display: block;
     padding-left: 24px;
@@ -9081,7 +9083,6 @@ textarea {
     position: absolute;
     top: 57px;
     left: auto;
-    z-index: 10;
     width: 320px; }
     @media (min-width: 576px) {
       .a-header .a-dropdown-languages,
@@ -10631,6 +10632,11 @@ textarea {
   .ai-stack.ai-sm,
   .reg-stack.ai-sm {
     font-size: 1.8em; }
+  .ai.ai-md,
+  .reg.ai-md,
+  .ai-stack.ai-md,
+  .reg-stack.ai-md {
+    font-size: 3.2em; }
   .ai.ai-lg,
   .reg.ai-lg,
   .ai-stack.ai-lg,
@@ -11333,6 +11339,11 @@ i.a-dimmed {
     .a-link-helpfunction div.a-link-helpfunction-text {
       margin-left: 12px; }
 
+@media (max-width: 767px) {
+  .a-btn-md-block {
+    display: block;
+    margin-bottom: 24px; } }
+
 .a-jumbotron {
   min-height: 446px;
   max-height: 792px;
@@ -11964,8 +11975,6 @@ ul {
         margin-left: -24px; } }
     ul.a-bullet-list li, .a-text > ul:not(.connected-bullets) li,
     .a-text > ul.a-bullet-list:not(.connected-bullets) li {
-      font-family: "DIN-medium";
-      font-weight: normal;
       position: relative;
       padding-left: 24px;
       margin-bottom: 12px; }
@@ -12551,6 +12560,7 @@ body.modal-open {
 
 .a-modal {
   position: fixed;
+  padding-right: 0 !important;
   padding-bottom: 60px; }
   .a-modal .a-modal-top-logo {
     opacity: 0.7; }
@@ -15623,14 +15633,16 @@ pre.prettyprint {
 /*------------------------------------*    $ONLY FOR EPISERVER, NOT PROD
 \*------------------------------------*/
 @media (min-width: 992px) {
-  .epi-wysiwyg .a-responsiveTable-container {
+  .epi-wysiwyg .a-responsiveTable-container,
+  .epi-wysiwyg .a-gridMinusOneCol {
     width: calc( 100% + 156px);
     margin-left: -78px; } }
 
 @media (min-width: 1200px) {
-  .epi-wysiwyg .a-responsiveTable-container {
-    width: calc( 100% + 184px);
-    margin-left: -92px; } }
+  .epi-wysiwyg .a-responsiveTable-container,
+  .epi-wysiwyg .a-gridMinusOneCol {
+    width: calc( 100% + 180px);
+    margin-left: -90px; } }
 
 @media (min-width: 992px) {
   .epi-wysiwyg .a-media,
