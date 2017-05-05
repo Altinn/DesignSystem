@@ -11,7 +11,9 @@ var setupExpandContent = function() {
     $(this).off('click', expandContent);
     if (targetHeight > 320) {
       $target.addClass('a-expandable-content');
+      $target.removeClass('a-expanded');
       $(this).on('click', expandContent);
+      $(this).show();
     } else {
       $(this).hide();
     }
