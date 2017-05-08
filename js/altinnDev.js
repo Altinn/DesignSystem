@@ -1336,6 +1336,19 @@ var genericSearch = function() {
     );
   };
   if ($('.a-js-genericSearch').length > 0) {
+    if ($('.a-js-expandResults').length > 0) {
+      $('.a-js-results').addClass('a-js-forceHidden');
+      $('.a-js-alternativeResults').addClass('a-js-forceHidden');
+      $('.a-js-moreResults').addClass('a-js-forceHidden');
+      $('.a-js-expandResults').attr('disabled', 'disabled');
+      $('.a-js-expandResults').on('click', function() {
+        $('.a-collapse-title').not('.collapsed').click();
+        $('.a-js-results').removeClass('a-js-forceHidden');
+        $('.a-js-alternativeResults').removeClass('a-js-forceHidden');
+        $('.a-js-moreResults').removeClass('a-js-forceHidden');
+        $('.a-js-expandResults').hide();
+      });
+    }
     $('.a-js-none').show().prev().hide();
     inputBy = $('.a-js-genericSearch').find('input[type=search]').length > 0 ? 'search' : 'filter';
     container = inputBy === 'search' ?
@@ -1511,6 +1524,13 @@ var genericSearch = function() {
         container.next().next().show();
         altContainer.hide();
         $('.a-card-filter').find('input[type=checkbox]').on('change', function() {
+          if ($('.a-js-expandResults').length > 0) {
+            $('.a-js-expandResults').removeAttr('disabled');
+            $('.a-js-results').addClass('a-js-forceHidden');
+            $('.a-js-alternativeResults').addClass('a-js-forceHidden');
+            $('.a-js-moreResults').addClass('a-js-forceHidden');
+            $('.a-js-expandResults').show();
+          }
           aboveCount = 0;
           belowCount = 0;
           page = 1;
@@ -1593,8 +1613,33 @@ var questionnaireInteraction = function() {
 function setupFormValidation(formId, buttonId) {
   var $submitBtn = $(buttonId);
   var wasSubmitted = false;
+  var validDropdown = function(el) {
+    if (
+      el.attr('required') !== undefined && el.attr('required') === 'required' &&
+      el.attr('data-dropdowndefaultvalue') === el.find('.a-form-text').text()
+    ) {
+      el.closest('.a-form-group').addClass('has-error').find('.a-message-error').css('display', 'table');
+    } else {
+      el.closest('.a-form-group').removeClass('has-error').find('.a-message-error').css('display', 'none');
+    }
+  };
+  var validAllDropdowns = function() {
+    var invalids = [];
+    $('.a-js-dropdownToValidate').each(function(index, el) {
+      if (
+        $(el).attr('required') !== undefined && $(el).attr('required') === 'required' &&
+        $(el).attr('data-dropdowndefaultvalue') === $(el).find('.a-form-text').text()
+      ) {
+        invalids.push(index);
+      }
+    });
+    return invalids.length === 0;
+  };
   var validateBackwards = function(el) {
-    if (el.prev().hasClass('form-group')) {
+    if (el.prev().find('.a-js-dropdownToValidate').length > 0) {
+      validDropdown(el.prev().find('.a-js-dropdownToValidate'));
+      validateBackwards(el.prev());
+    } else if (el.prev().hasClass('form-group')) {
       if (el.prev().find('input').length > 0) {
         el.prev().find('input').valid();
       }
@@ -1604,6 +1649,9 @@ function setupFormValidation(formId, buttonId) {
       validateBackwards(el.prev());
     }
   };
+  $(formId + ' .a-js-dropdownToValidate').each(function() {
+    $(this).attr('data-dropdowndefaultvalue', $(this).find('.a-form-text').text());
+  });
 
   if (!buttonId) {
     $submitBtn = $(formId + ' button[type="submit"]');
@@ -1614,7 +1662,7 @@ function setupFormValidation(formId, buttonId) {
   $submitBtn.prop('disabled', 'disabled');
 
   $(formId).on('blur input change', '*', function() {
-    if ($(formId).validate().checkForm()) {
+    if ($(formId).validate().checkForm() && validAllDropdowns()) {
       $submitBtn.prop('disabled', false);
       $submitBtn.removeClass('disabled');
     } else {
@@ -1628,14 +1676,24 @@ function setupFormValidation(formId, buttonId) {
   });
 
   $(formId + ' input').on('blur', function() {
-    // $(formId).valid();
     $(this).valid();
     validateBackwards($(this).closest('.form-group'));
   });
 
   $(formId + ' textarea').on('blur', function() {
-    // $(formId).valid();
     $(this).valid();
+    validateBackwards($(this).closest('.form-group'));
+  });
+
+  $(formId + ' .a-js-dropdownToValidate').next().on('click', function() {
+    setTimeout(function() {
+      validDropdown($(this).prev());
+    }.bind(this), 0);
+    validateBackwards($(this).closest('.form-group'));
+  });
+
+  $(formId + ' .a-js-dropdownToValidate').on('blur', function() {
+    validDropdown($(this));
     validateBackwards($(this).closest('.form-group'));
   });
 }
