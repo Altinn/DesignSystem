@@ -74,7 +74,9 @@ var genericSearch = function() {
       $('.a-js-results').addClass('a-js-forceHidden');
       $('.a-js-alternativeResults').addClass('a-js-forceHidden');
       $('.a-js-moreResults').addClass('a-js-forceHidden');
+      $('.a-js-expandResults').attr('disabled', 'disabled');
       $('.a-js-expandResults').on('click', function() {
+        $('.a-collapse-title').not('.collapsed').click();
         $('.a-js-results').removeClass('a-js-forceHidden');
         $('.a-js-alternativeResults').removeClass('a-js-forceHidden');
         $('.a-js-moreResults').removeClass('a-js-forceHidden');
@@ -257,6 +259,7 @@ var genericSearch = function() {
         altContainer.hide();
         $('.a-card-filter').find('input[type=checkbox]').on('change', function() {
           if ($('.a-js-expandResults').length > 0) {
+            $('.a-js-expandResults').removeAttr('disabled');
             $('.a-js-results').addClass('a-js-forceHidden');
             $('.a-js-alternativeResults').addClass('a-js-forceHidden');
             $('.a-js-moreResults').addClass('a-js-forceHidden');
