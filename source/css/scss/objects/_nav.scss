@@ -259,19 +259,42 @@
 
 .a-categoryTabs {
   display: flex;
+  width: 100%;
   flex-wrap: wrap;
 
   @include media-breakpoint-up( sm ) {
     flex-wrap: nowrap;
   }
 
-  .a-switch {
-    margin-right: 1px;
-    margin-bottom: 0;
+  .a-categoryTabs-item {
+    width: 22%;
+    padding-left: 1px;
+    margin-right: 0;
 
-    @include media-breakpoint-up( sm ) {
-      margin-right: $spacer / 2;
+    @include media-breakpoint-up( md ) {
+      width: auto;
+      margin-left: $spacer / 2;
     }
+
+    &:first-child {
+      padding-left: 0;
+
+      @include media-breakpoint-up( md ) {
+        margin-left: 0;
+      }
+    }
+
+    &.a-categoryTabs-item--wide {
+      width: 34%;
+
+      @include media-breakpoint-up( md ) {
+        width: auto;
+      }
+    }
+  }
+
+  .a-switch {
+    margin-bottom: 0;
 
     input {
       &[type='checkbox'],
