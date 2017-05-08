@@ -1,8 +1,16 @@
 <div class="form-group a-form-group {{ styleModifier }}">
-	  <label for="textarea" class="a-form-label">{{{ textarea-label }}}</label>
+	  <label for="{{ text-input-id }}" class="a-form-label">{{{ textarea-label }}}</label>
 	  <textarea class="form-control a-textarea"
       rows="3"
       placeholder="{{{ textarea-placeholder }}}"
       {{# isRequired }}required{{/ isRequired }}
-      id="textarea" ></textarea>
+			{{# data-required }} data-val-required="{{ data-required-message }}" {{/ data-required }}
+			name="{{ input-name }}"
+			{{# text-input-id }}id="{{ text-input-id }}"{{/ text-input-id }}
+			></textarea>
+		{{# error-message-popover }}
+			<div class="a-message a-message-error" data-valmsg-for="{{ input-name }}" data-valmsg-replace="false">
+				<span class="has-error">{{# data-required }}{{ data-required-message }}{{/ data-required }}</span>
+			</div>
+		{{/ error-message-popover }}
 </div>
