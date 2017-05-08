@@ -7467,8 +7467,8 @@ textarea,
       -webkit-font-smoothing: subpixel-antialiased; } }
 
 .a-fontSizeS, h4,
-.a-h4, .a-radioButtons .custom-control .a-radioButtons-title, .a-btn, .a-jumbotron .a-jumbotron-ingress.a-jumbotron-ingress--small, .a-compare-category .a-compare-container p, ul.a-bullet-list li, .a-text > ul:not(.connected-bullets) li,
-.a-text > ul.a-bullet-list:not(.connected-bullets) li, ul.a-item-list-icon li span, .a-inboxCompact .a-inboxHeadingContent h3, .a-text, .a-text > a, .a-text p, .a-text > ol,
+.a-h4, .a-radioButtons .custom-control .a-radioButtons-title, .a-btn, .a-jumbotron .a-jumbotron-ingress.a-jumbotron-ingress--small, .a-compare-category .a-compare-container p, ul.a-bullet-list li, .a-text > ul:not(.connected-bullets):not(.no-decoration) li,
+.a-text > ul.a-bullet-list:not(.connected-bullets):not(.no-decoration) li, ul.a-item-list-icon li span, .a-inboxCompact .a-inboxHeadingContent h3, .a-text, .a-text > a, .a-text p, .a-text > ol,
 .a-text > .a-circle-list {
   font-size: 16px;
   font-size: 1.6rem;
@@ -7476,8 +7476,8 @@ textarea,
   -webkit-font-smoothing: subpixel-antialiased; }
   @media (min-width: 768px) {
     .a-fontSizeS, h4,
-    .a-h4, .a-radioButtons .custom-control .a-radioButtons-title, .a-btn, .a-jumbotron .a-jumbotron-ingress.a-jumbotron-ingress--small, .a-compare-category .a-compare-container p, ul.a-bullet-list li, .a-text > ul:not(.connected-bullets) li,
-    .a-text > ul.a-bullet-list:not(.connected-bullets) li, ul.a-item-list-icon li span, .a-inboxCompact .a-inboxHeadingContent h3, .a-text, .a-text > a, .a-text p, .a-text > ol,
+    .a-h4, .a-radioButtons .custom-control .a-radioButtons-title, .a-btn, .a-jumbotron .a-jumbotron-ingress.a-jumbotron-ingress--small, .a-compare-category .a-compare-container p, ul.a-bullet-list li, .a-text > ul:not(.connected-bullets):not(.no-decoration) li,
+    .a-text > ul.a-bullet-list:not(.connected-bullets):not(.no-decoration) li, ul.a-item-list-icon li span, .a-inboxCompact .a-inboxHeadingContent h3, .a-text, .a-text > a, .a-text p, .a-text > ol,
     .a-text > .a-circle-list {
       font-size: 18px;
       font-size: 1.8rem;
@@ -8698,7 +8698,7 @@ textarea {
 /*------------------------------------* * Dropdown
 \*------------------------------------*/
 .a-form-text {
-  padding: 7px 50px 5px 0; }
+  padding: 7px 50px 5px 6px; }
 
 .a-dropdown-toggle {
   width: 100%;
@@ -8726,6 +8726,9 @@ textarea {
     width: 100%;
     height: 48px;
     content: ''; }
+
+.dropdown i {
+  margin-left: 6px; }
 
 .dropdown.a-transparent .a-dropdown-toggle {
   background-color: transparent; }
@@ -10357,18 +10360,33 @@ textarea {
 .a-categoryTabs {
   display: -ms-flexbox;
   display: flex;
+  width: 100%;
   -ms-flex-wrap: wrap;
   flex-wrap: wrap; }
   @media (min-width: 576px) {
     .a-categoryTabs {
       -ms-flex-wrap: nowrap;
       flex-wrap: nowrap; } }
+  .a-categoryTabs .a-categoryTabs-item {
+    width: 22%;
+    padding-left: 1px;
+    margin-right: 0; }
+    @media (min-width: 768px) {
+      .a-categoryTabs .a-categoryTabs-item {
+        width: auto;
+        margin-left: 6px; } }
+    .a-categoryTabs .a-categoryTabs-item:first-child {
+      padding-left: 0; }
+      @media (min-width: 768px) {
+        .a-categoryTabs .a-categoryTabs-item:first-child {
+          margin-left: 0; } }
+    .a-categoryTabs .a-categoryTabs-item.a-categoryTabs-item--wide {
+      width: 34%; }
+      @media (min-width: 768px) {
+        .a-categoryTabs .a-categoryTabs-item.a-categoryTabs-item--wide {
+          width: auto; } }
   .a-categoryTabs .a-switch {
-    margin-right: 1px;
     margin-bottom: 0; }
-    @media (min-width: 576px) {
-      .a-categoryTabs .a-switch {
-        margin-right: 6px; } }
     .a-categoryTabs .a-switch input[type='checkbox']:not(:checked) + label, .a-categoryTabs .a-switch .a-form-group input[type='checkbox']:not(:checked) + .a-form-label-inline, .a-form-group .a-categoryTabs .a-switch input[type='checkbox']:not(:checked) + .a-form-label-inline, .a-categoryTabs .a-switch
     .form-group input[type='checkbox']:not(:checked) + .a-form-label-inline,
     .form-group .a-categoryTabs .a-switch input[type='checkbox']:not(:checked) + .a-form-label-inline, .a-categoryTabs .a-switch input[type='radio']:not(:checked) + label, .a-categoryTabs .a-switch .a-form-group input[type='radio']:not(:checked) + .a-form-label-inline, .a-form-group .a-categoryTabs .a-switch input[type='radio']:not(:checked) + .a-form-label-inline, .a-categoryTabs .a-switch
@@ -11961,23 +11979,23 @@ ul {
   ul.no-decoration {
     margin: none;
     list-style: none; }
-  ul.a-bullet-list, .a-text > ul:not(.connected-bullets),
-  .a-text > ul.a-bullet-list:not(.connected-bullets) {
+  ul.a-bullet-list, .a-text > ul:not(.connected-bullets):not(.no-decoration),
+  .a-text > ul.a-bullet-list:not(.connected-bullets):not(.no-decoration) {
     margin-top: 12px;
     margin-left: 0;
     color: #000000;
     list-style: none; }
     @media (min-width: 768px) {
-      ul.a-bullet-list, .a-text > ul:not(.connected-bullets),
-      .a-text > ul.a-bullet-list:not(.connected-bullets) {
+      ul.a-bullet-list, .a-text > ul:not(.connected-bullets):not(.no-decoration),
+      .a-text > ul.a-bullet-list:not(.connected-bullets):not(.no-decoration) {
         margin-left: -24px; } }
-    ul.a-bullet-list li, .a-text > ul:not(.connected-bullets) li,
-    .a-text > ul.a-bullet-list:not(.connected-bullets) li {
+    ul.a-bullet-list li, .a-text > ul:not(.connected-bullets):not(.no-decoration) li,
+    .a-text > ul.a-bullet-list:not(.connected-bullets):not(.no-decoration) li {
       position: relative;
       padding-left: 24px;
       margin-bottom: 12px; }
-      ul.a-bullet-list li::before, .a-text > ul:not(.connected-bullets) li::before,
-      .a-text > ul.a-bullet-list:not(.connected-bullets) li::before {
+      ul.a-bullet-list li::before, .a-text > ul:not(.connected-bullets):not(.no-decoration) li::before,
+      .a-text > ul.a-bullet-list:not(.connected-bullets):not(.no-decoration) li::before {
         font-size: 30px;
         font-size: 3rem;
         line-height: 1.3;
@@ -11988,14 +12006,14 @@ ul {
         padding-right: 5px;
         color: #1EAEF7;
         content: '•'; }
-    ul.a-bullet-list.a-bulletList-light li, .a-text > ul.a-bulletList-light:not(.connected-bullets) li {
+    ul.a-bullet-list.a-bulletList-light li, .a-text > ul.a-bulletList-light:not(.connected-bullets):not(.no-decoration) li {
       font-family: "DIN-light";
       font-weight: normal;
       font-size: 16px;
       font-size: 1.6rem;
       line-height: 1.5;
       -webkit-font-smoothing: subpixel-antialiased; }
-      ul.a-bullet-list.a-bulletList-light li::before, .a-text > ul.a-bulletList-light:not(.connected-bullets) li::before {
+      ul.a-bullet-list.a-bulletList-light li::before, .a-text > ul.a-bulletList-light:not(.connected-bullets):not(.no-decoration) li::before {
         font-size: 24px;
         font-size: 2.4rem;
         line-height: 1.5;
@@ -12918,6 +12936,13 @@ a.a-modal-close {
           padding: 40px 84px; } }
       .a-collapsePanel .a-collapsePanel-body .a-collapsePanel-body-content:last-of-type {
         border-bottom: none; }
+    .a-collapsePanel .a-collapsePanel-body.a-msg-body .a-collapsePanel-body-content {
+      padding-right: 12px;
+      padding-left: 12px; }
+      @media (min-width: 768px) {
+        .a-collapsePanel .a-collapsePanel-body.a-msg-body .a-collapsePanel-body-content {
+          padding-right: 48px;
+          padding-left: 96px; } }
   @media (min-width: 992px) {
     .a-collapsePanel.a-collapsePanel--large .a-collapsePanel-body .a-collapsePanel-body-content {
       padding: 36px 96px; } }
@@ -13842,14 +13867,12 @@ h1 + .a-byline {
   margin-bottom: 0;
   color: #FFFFFF;
   background: #3F3161;
-  border: 2px solid #FFFFFF;
   border-radius: 50px; }
   .a-stickyHelp-open i {
     margin-top: -2px; }
   .a-stickyHelp-open:hover, .a-stickyHelp-open:active, .a-stickyHelp-open:focus {
     color: #FFFFFF;
-    background: #4a3a72;
-    border: 2px solid #FFFFFF; }
+    background: #4a3a72; }
 
 .a-iframeToggle {
   position: fixed;
@@ -15006,8 +15029,8 @@ textarea,
       -webkit-font-smoothing: subpixel-antialiased; } }
 
 .a-fontSizeS, h4,
-.a-h4, .a-radioButtons .custom-control .a-radioButtons-title, .a-btn, .a-jumbotron .a-jumbotron-ingress.a-jumbotron-ingress--small, .a-compare-category .a-compare-container p, ul.a-bullet-list li, .a-text > ul:not(.connected-bullets) li,
-.a-text > ul.a-bullet-list:not(.connected-bullets) li, ul.a-item-list-icon li span, .a-inboxCompact .a-inboxHeadingContent h3, .a-text, .a-text > a, .a-text p, .a-text > ol,
+.a-h4, .a-radioButtons .custom-control .a-radioButtons-title, .a-btn, .a-jumbotron .a-jumbotron-ingress.a-jumbotron-ingress--small, .a-compare-category .a-compare-container p, ul.a-bullet-list li, .a-text > ul:not(.connected-bullets):not(.no-decoration) li,
+.a-text > ul.a-bullet-list:not(.connected-bullets):not(.no-decoration) li, ul.a-item-list-icon li span, .a-inboxCompact .a-inboxHeadingContent h3, .a-text, .a-text > a, .a-text p, .a-text > ol,
 .a-text > .a-circle-list {
   font-size: 16px;
   font-size: 1.6rem;
@@ -15015,8 +15038,8 @@ textarea,
   -webkit-font-smoothing: subpixel-antialiased; }
   @media (min-width: 768px) {
     .a-fontSizeS, h4,
-    .a-h4, .a-radioButtons .custom-control .a-radioButtons-title, .a-btn, .a-jumbotron .a-jumbotron-ingress.a-jumbotron-ingress--small, .a-compare-category .a-compare-container p, ul.a-bullet-list li, .a-text > ul:not(.connected-bullets) li,
-    .a-text > ul.a-bullet-list:not(.connected-bullets) li, ul.a-item-list-icon li span, .a-inboxCompact .a-inboxHeadingContent h3, .a-text, .a-text > a, .a-text p, .a-text > ol,
+    .a-h4, .a-radioButtons .custom-control .a-radioButtons-title, .a-btn, .a-jumbotron .a-jumbotron-ingress.a-jumbotron-ingress--small, .a-compare-category .a-compare-container p, ul.a-bullet-list li, .a-text > ul:not(.connected-bullets):not(.no-decoration) li,
+    .a-text > ul.a-bullet-list:not(.connected-bullets):not(.no-decoration) li, ul.a-item-list-icon li span, .a-inboxCompact .a-inboxHeadingContent h3, .a-text, .a-text > a, .a-text p, .a-text > ol,
     .a-text > .a-circle-list {
       font-size: 18px;
       font-size: 1.8rem;

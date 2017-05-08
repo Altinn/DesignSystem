@@ -11,6 +11,22 @@ var addListExpandHandler = function() {
   });
 };
 
+/* globals AltinnDropdown */
+/* globals AltinnDropdown:true */
+AltinnDropdown = {
+  init: function() {
+    var that = this;
+    $('body').on('click', '[data-toggle="altinn-dropdown"] .a-dropdown-item', function() {
+      var $dropdownElement = $(this).closest('[data-toggle="altinn-dropdown"');
+      if ($(this).data('value')) {
+        $dropdownElement.find('.a-js-altinnDropdown-value').val($(this).data('value'));
+      }
+
+      $dropdownElement.find('.a-dropdown-toggle').html($(this).html());
+    });
+  }
+};
+
 /* globals currentRequest, popoverLocalInit, AltinnModal */
 /* globals AltinnModal:true */
 AltinnModal = {
@@ -557,13 +573,16 @@ var setupExpandContent = function() {
   };
 
   $('*[data-toggle="altinn-expand"]').each(function() {
+    var targetHeight;
     var $target = $($(this).data('target'));
-
-    var targetHeight = $target.outerHeight();
+    $target.removeClass('a-expandable-content');
+    targetHeight = $target.outerHeight();
     $(this).off('click', expandContent);
     if (targetHeight > 320) {
       $target.addClass('a-expandable-content');
+      $target.removeClass('a-expanded');
       $(this).on('click', expandContent);
+      $(this).show();
     } else {
       $(this).hide();
     }
@@ -1058,8 +1077,13 @@ var toggleInstant = function() {
   });
 };
 
+/* globals
+  setupExpandContent
+*/
 $('.a-collapsePanel-body').on('show.bs.collapse', function() {
   var that = this;
+
+
   setTimeout(function() {
     var $collapsePanelHeader = $(that).siblings('.a-js-index-heading').first();
     var $msgIconWrapper = $collapsePanelHeader.find('.a-inboxHeadingContent')
@@ -1078,6 +1102,7 @@ $('.a-collapsePanel-body').on('show.bs.collapse', function() {
     $(that).closest('.a-collapsePanel').addClass('expanded');
     $('.a-js-index-heading').addClass('dim');
     $('.a-collapsePanel.expanded').find('.a-js-index-heading').removeClass('dim');
+    setupExpandContent();
   }, 0);
 });
 
@@ -1148,7 +1173,8 @@ var setValidatorSettings = function() {
   setupTruncateLines,
   AltinnModal,
   AltinnQuickhelp,
-  setupExpandContent
+  setupExpandContent,
+  AltinnDropdown
  */
 
 window.sharedInit = function() {
@@ -1184,6 +1210,7 @@ window.sharedInit = function() {
   setupExpandContent();
   AltinnModal.init();
   AltinnQuickhelp.init();
+  AltinnDropdown.init();
 };
 
 window.sharedInit();

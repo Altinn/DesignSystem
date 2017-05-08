@@ -1593,6 +1593,17 @@ var questionnaireInteraction = function() {
 function setupFormValidation(formId, buttonId) {
   var $submitBtn = $(buttonId);
   var wasSubmitted = false;
+  var validateBackwards = function(el) {
+    if (el.prev().hasClass('form-group')) {
+      if (el.prev().find('input').length > 0) {
+        el.prev().find('input').valid();
+      }
+      if (el.prev().find('textarea').length > 0) {
+        el.prev().find('textarea').valid();
+      }
+      validateBackwards(el.prev());
+    }
+  };
 
   if (!buttonId) {
     $submitBtn = $(formId + ' button[type="submit"]');
@@ -1602,7 +1613,7 @@ function setupFormValidation(formId, buttonId) {
   $submitBtn.addClass('disabled');
   $submitBtn.prop('disabled', 'disabled');
 
-  $(formId).on('blur input change', 'input', function() {
+  $(formId).on('blur input change', '*', function() {
     if ($(formId).validate().checkForm()) {
       $submitBtn.prop('disabled', false);
       $submitBtn.removeClass('disabled');
@@ -1617,7 +1628,15 @@ function setupFormValidation(formId, buttonId) {
   });
 
   $(formId + ' input').on('blur', function() {
-    $(formId).valid();
+    // $(formId).valid();
+    $(this).valid();
+    validateBackwards($(this).closest('.form-group'));
+  });
+
+  $(formId + ' textarea').on('blur', function() {
+    // $(formId).valid();
+    $(this).valid();
+    validateBackwards($(this).closest('.form-group'));
   });
 }
 
@@ -2068,6 +2087,22 @@ var addListExpandHandler = function() {
       $(this).closest('li').removeClass('a-expanded');
     }
   });
+};
+
+/* globals AltinnDropdown */
+/* globals AltinnDropdown:true */
+AltinnDropdown = {
+  init: function() {
+    var that = this;
+    $('body').on('click', '[data-toggle="altinn-dropdown"] .a-dropdown-item', function() {
+      var $dropdownElement = $(this).closest('[data-toggle="altinn-dropdown"');
+      if ($(this).data('value')) {
+        $dropdownElement.find('.a-js-altinnDropdown-value').val($(this).data('value'));
+      }
+
+      $dropdownElement.find('.a-dropdown-toggle').html($(this).html());
+    });
+  }
 };
 
 /* globals currentRequest, popoverLocalInit, AltinnModal */
@@ -2616,13 +2651,16 @@ var setupExpandContent = function() {
   };
 
   $('*[data-toggle="altinn-expand"]').each(function() {
+    var targetHeight;
     var $target = $($(this).data('target'));
-
-    var targetHeight = $target.outerHeight();
+    $target.removeClass('a-expandable-content');
+    targetHeight = $target.outerHeight();
     $(this).off('click', expandContent);
     if (targetHeight > 320) {
       $target.addClass('a-expandable-content');
+      $target.removeClass('a-expanded');
       $(this).on('click', expandContent);
+      $(this).show();
     } else {
       $(this).hide();
     }
@@ -3117,8 +3155,13 @@ var toggleInstant = function() {
   });
 };
 
+/* globals
+  setupExpandContent
+*/
 $('.a-collapsePanel-body').on('show.bs.collapse', function() {
   var that = this;
+
+
   setTimeout(function() {
     var $collapsePanelHeader = $(that).siblings('.a-js-index-heading').first();
     var $msgIconWrapper = $collapsePanelHeader.find('.a-inboxHeadingContent')
@@ -3137,6 +3180,7 @@ $('.a-collapsePanel-body').on('show.bs.collapse', function() {
     $(that).closest('.a-collapsePanel').addClass('expanded');
     $('.a-js-index-heading').addClass('dim');
     $('.a-collapsePanel.expanded').find('.a-js-index-heading').removeClass('dim');
+    setupExpandContent();
   }, 0);
 });
 
@@ -3207,7 +3251,8 @@ var setValidatorSettings = function() {
   setupTruncateLines,
   AltinnModal,
   AltinnQuickhelp,
-  setupExpandContent
+  setupExpandContent,
+  AltinnDropdown
  */
 
 window.sharedInit = function() {
@@ -3243,6 +3288,7 @@ window.sharedInit = function() {
   setupExpandContent();
   AltinnModal.init();
   AltinnQuickhelp.init();
+  AltinnDropdown.init();
 };
 
 window.sharedInit();
