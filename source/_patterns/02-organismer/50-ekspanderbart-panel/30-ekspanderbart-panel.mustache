@@ -1,5 +1,5 @@
 <div class="card a-accordion-card a-collapsePanel{{# isLarge }} {{{ isLarge }}}{{/ isLarge }} {{{ styleModifier }}}">
-  <div class="card-header a-js-index-heading a-collapsePanel-heading collapsed {{isExpanded}}"{{# collapse-panel-header-id }} id="{{ collapse-panel-header-id }}"{{/ collapse-panel-header-id }} role="tab">
+  <div class="card-header a-js-index-heading a-collapsePanel-heading collapsed{{# isExpanded }} {{ isExpanded }}{{/ isExpanded }}"{{# collapse-panel-header-id }} id="{{ collapse-panel-header-id }}"{{/ collapse-panel-header-id }} role="tab">
     <a href="#" data-toggle="collapse" data-target="#{{{ collapseID }}}" aria-expanded="false" aria-controls="{{ collapseID }}" {{# dataParent }}data-parent="{{{dataParent}}}"{{/ dataParent }}>
       {{# collapseHeader }}
         {{^ isElement }}
@@ -11,9 +11,14 @@
       {{/ collapseHeader }}
     </a>
   </div>
-  <div id="{{ collapseID }}" class="a-collapsePanel-body collapse {{ isVisibleFromStart }}" role="tabpanel" aria-labelledby="{{ collapse-panel-header-id }}">
+  <div id="{{ collapseID }}" class="a-collapsePanel-body collapse{{# isVisibleFromStart }} {{ isVisibleFromStart }}{{/ isVisibleFromStart }}{{# extraPanelBodyClass}} {{ extraPanelBodyClass }}{{/ extraPanelBodyClass }}" role="tabpanel" aria-labelledby="{{ collapse-panel-header-id }}">
     <div class="card-block a-text a-collapsePanel-body-content a-collapseContent-delay">
-      {{{ collapse-panel-content }}}
+      {{^ messageBody }}
+        {{{ collapse-panel-content }}}
+      {{/ messageBody }}
+      {{# messageBody }}
+        {{> organismer-innboks-panel-innhold }}
+      {{/ messageBody }}
     </div>
   </div>
 </div>

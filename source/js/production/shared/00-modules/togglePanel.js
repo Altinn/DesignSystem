@@ -1,5 +1,10 @@
+/* globals
+  setupExpandContent
+*/
 $('.a-collapsePanel-body').on('show.bs.collapse', function() {
   var that = this;
+
+
   setTimeout(function() {
     var $collapsePanelHeader = $(that).siblings('.a-js-index-heading').first();
     var $msgIconWrapper = $collapsePanelHeader.find('.a-inboxHeadingContent')
@@ -18,6 +23,7 @@ $('.a-collapsePanel-body').on('show.bs.collapse', function() {
     $(that).closest('.a-collapsePanel').addClass('expanded');
     $('.a-js-index-heading').addClass('dim');
     $('.a-collapsePanel.expanded').find('.a-js-index-heading').removeClass('dim');
+    setupExpandContent();
   }, 0);
 });
 
