@@ -1,0 +1,59 @@
+<div class="row mb-3">
+  {{# message-info }}
+    <div class="col">
+      <span class="{{ message-status-class }}">{{ message-status }}</span><span class="{{ message-date-class }}">{{ message-date }}</span>
+    </div>
+  {{/ message-info }}
+  {{# activitylog }}
+    <div class="col-md-auto col-12">
+      {{> atomer-link-ikon:a-fontReg|a-fontSizeXS|pr-0 }}
+    </div>
+  {{/ activitylog }}
+</div>
+{{# message-text-block }}
+  <div class="row mb-3">
+    <div class="col">
+      {{# text-paragraph }}
+        <p class="my-0 {{ text-paragraph-class }}">{{ message-text }}</p>
+      {{/ text-paragraph }}
+      {{# text-link }}
+        {{> atomer-link }}
+      {{/ text-link }}
+    </div>
+  </div>
+{{/ message-text-block }}
+{{# attachments }}
+  <div class="row mb-3">
+    <div class="col mt-1">
+      {{> atomer-liste-unummerert-ikoner:ai-fontSizeS }}
+    </div>
+  </div> 
+{{/ attachments }}
+{{# info-notice }}
+  <div class="row mb-3">
+    <div class="col">
+      {{> atomer-varsel }}
+    </div>
+  </div>
+{{/ info-notice }}
+{{# expandable-content }}
+  <div class="row mb-3">
+    <div class="col">
+      {{> atomer-handlingsknapp-ekspanderbart-innhold }}
+    </div>
+  </div>
+{{/ expandable-content }}
+{{# actions-row }}
+  <div class="row mb-3">
+    <div class="{{ button-wrapper-class}}">
+      {{# action-button }}
+        {{> atomer-knapp:mb-2 }}
+      {{/ action-button }}
+    </div>
+    <div class="{{ button-icons-wrapper-class }}">
+      {{# action-button-icon }}
+        {{> atomer-knapp-ikon-tekst }}
+      {{/ action-button-icon }}
+    </div>
+  </div>
+{{/ actions-row }}

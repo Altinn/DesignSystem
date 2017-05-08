@@ -108,6 +108,18 @@
         border-bottom: none;
       }
     }
+
+    &.a-msg-body {
+      .a-collapsePanel-body-content {
+        padding-right: $spacer;
+        padding-left: $spacer;
+
+        @include media-breakpoint-up (md) {
+          padding-right: $spacer * 4;
+          padding-left: $spacer * 8;
+        }
+      }
+    }
   }
 
   &.a-collapsePanel--large {
@@ -122,11 +134,8 @@
 
   &.expanded {
     // Add top / bottom margin to add more space around expanded items
-    // margin-top: $spacer * 2;
 
     margin-right: -$spacer / 2;
-
-    // margin-bottom: $spacer * 2;
 
     margin-left: -$spacer / 2;
 
@@ -136,11 +145,9 @@
     }
 
     .a-collapsePanel-heading {
-      // padding: 0 $spacer / 2;
       background-color: $white;
 
       @include media-breakpoint-up( md ) {
-        // padding: 0 $spacer;
 
         .a-collapseBtn {
           border-radius: 2px 2px 0 0 !important;
@@ -150,14 +157,6 @@
 
     .a-collapsePanel-heading,
     .a-collapsePanel-body {
-      // padding-right: $spacer / 2;
-      // padding-left: $spacer / 2;
-
-      @include media-breakpoint-up( md ) {
-        // padding-right: $spacer;
-        // padding-left: $spacer;
-      }
-
       &.no-background {
         padding: 0;
       }
