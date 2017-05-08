@@ -81,6 +81,7 @@ var genericSearch = function() {
         $('.a-js-alternativeResults').removeClass('a-js-forceHidden');
         $('.a-js-moreResults').removeClass('a-js-forceHidden');
         $('.a-js-expandResults').hide();
+        $('body').scrollTop($('.a-js-filterDim1').offset().top - 12);
       });
     }
     $('.a-js-none').show().prev().hide();
