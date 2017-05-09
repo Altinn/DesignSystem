@@ -6,6 +6,13 @@ var onFileInputChange = function() {
     $('.a-js-fileInputChangeHandler').closest('label').removeClass('a-custom-fileupload--focused');
   });
 
+  $('.a-js-certificateContainer').on('focus', function() {
+    $('.a-js-certificateContainer').closest('label').addClass('a-custom-fileupload--focused');
+  });
+  $('.a-js-certificateContainer').on('blur', function() {
+    $('.a-js-certificateContainer').closest('label').removeClass('a-custom-fileupload--focused');
+  });
+
   $('.a-js-fileInputChangeHandler').on('change', function() {
     var $parent = $(this).parent();
     var $fileListContainer = $parent.next();
