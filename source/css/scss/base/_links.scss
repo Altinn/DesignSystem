@@ -113,17 +113,36 @@ a,
 
 // Help icon
 .a-helpIconButton {
-  color: $grey;
+  color: $grey-light;
   border: none;
 
+  .ai-stack {
+    @extend .ai-xs;
+
+    i {
+      margin-top: -2px;
+
+      &.ai {
+        // sass-lint:disable-block no-disallowed-properties
+        // need to set font-size here, not sure how to get around it.
+        font-size: 1em;
+        line-height: 1em;
+
+        &:first-of-type {
+          color: $grey;
+        }
+      }
+    }
+  }
+
   &:hover {
-    color: $grey;
+    color: $grey-light;
     text-decoration: none;
     border-bottom: none;
   }
 
   &:focus {
-    color: $grey;
+    color: $grey-light;
     border-bottom: none;
     outline: none;
   }

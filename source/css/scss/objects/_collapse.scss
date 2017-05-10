@@ -97,7 +97,7 @@
         padding: $spacer * 2 $spacer * 7;
       }
       @include media-breakpoint-up( md ) {
-        padding: 40px 84px;
+        padding: $spacer * 3 $spacer * 7 $spacer * 5 $spacer * 7;
       }
 
       padding: $spacer * 2 $spacer;
@@ -117,6 +117,10 @@
         @include media-breakpoint-up (md) {
           padding-right: $spacer * 4;
           padding-left: $spacer * 8;
+
+          .a-inboxCompact & {
+            padding-left: $spacer * 7;
+          }
         }
       }
     }
@@ -136,7 +140,6 @@
     // Add top / bottom margin to add more space around expanded items
 
     margin-right: -$spacer / 2;
-
     margin-left: -$spacer / 2;
 
     @include media-breakpoint-up( md ) {
@@ -628,8 +631,15 @@
         color: $blue;
       }
 
-      &:not(:last-child) {
-        margin-right: 2px;
+      &.a-inactive {
+        opacity: 0.5;
+
+        &:hover,
+        &:focus,
+        &:active {
+          color: $grey;
+          cursor: not-allowed;
+        }
       }
 
       // fix for firefox alignment
@@ -646,6 +656,11 @@
     height: auto !important;
     height: $spacer * 6;
     min-height: $spacer * 6;
+    padding-right: $spacer;
+
+    @include media-breakpoint-up( md ) {
+      padding-right: 0;
+    }
 
     .a-msgIconWrapper {
       width: $spacer * 4;
@@ -662,10 +677,15 @@
       @extend .a-fontSizeS;
     }
   }
-
   /** different message states */
 
   .expanded & {
+    .a-inboxCompact & {
+      @include media-breakpoint-up( md ) {
+        padding-right: $spacer * 2;
+      }
+    }
+
     .a-msgShortcutsContainer {
       display: none;
     }
@@ -720,9 +740,15 @@
 
   &.a-msgForwarded {
     .a-btn-icon {
-      &:nth-child(2) {
+      &:nth-child(1) {
+        margin-right: $spacer / 2;
         background-color: $yellow-light;
         border-radius: 50%;
+
+        &:hover {
+          color: $grey;
+          cursor: default;
+        }
       }
     }
   }
