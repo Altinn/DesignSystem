@@ -858,6 +858,162 @@ $('.html-escape').each(function() {
 });
 // $('form').validate();
 
+/* globals currentRequest, AltinnQuickhelp */
+/* globals AltinnQuickhelp:true */
+AltinnQuickhelp = {
+  loadQuickhelp: function(settings) {
+    var that = this;
+    var currentRequest = $.ajax({
+      url: settings.url,
+      beforeSend: function() {
+        if (typeof currentRequest !== 'undefined') {
+          currentRequest.abort();
+        }
+      }
+    }).done(function(data) {
+      var quickhelpPage = $('<div/>', {
+        class: 'a-quickhelpPage-start',
+        id: 'a-js-quickhelpPage',
+        html: data
+      });
+      var page = $('<div/>', {
+        class: 'a-page a-current-page',
+        data: {
+          'page-index': 1
+        },
+        html: quickhelpPage
+      });
+      $(settings.target + ' .a-stickyHelp-content-target').append(page);
+      $(settings.target).find('.a-current-page').first().data();
+      $('.a-js-stickyHelpCategory').html($(settings.target).find('.a-stickyHelp-content-target').attr('data-category'));
+      $('.a-js-stickyHelpCategoryLink').attr('data-url', $(settings.target).find('.a-stickyHelp-content-target').attr('data-url'));
+    });
+  },
+  listeners: function(target) {
+    var that = this;
+    $('.a-stickyHelp-search').find('input').on('keyup', function(e) {
+      var keyCode = e.keyCode || e.which;
+      if (keyCode === 13 && encodeURIComponent($(this)[0].value).length > 0) {
+        that.nextquickhelpPage({
+          url: 'http://altinn-dev.dev.bouvet.no/api/quicksearch/' + encodeURIComponent($(this)[0].value) + '/no',
+          target: target
+        });
+      }
+    });
+    $('.a-stickyHelp-search').find('button').on('click', function(e) {
+      if (encodeURIComponent($('.a-js-stickyhelpSearch')[0].value).length > 0) {
+        that.nextquickhelpPage({
+          url: 'http://altinn-dev.dev.bouvet.no/api/quicksearch/' + encodeURIComponent($('.a-js-stickyhelpSearch')[0].value) + '/no',
+          target: target
+        });
+      }
+    });
+  },
+  nextquickhelpPage: function(settings) {
+    var currentRequest = $.ajax({
+      url: settings.url,
+      beforeSend: function() {
+        if (typeof currentRequest !== 'undefined') {
+          currentRequest.abort();
+        }
+      }
+    }).done(function(data) {
+      var current;
+      var quickhelpPage = $('<div/>', {
+        class: 'quickhelpPage',
+        html: data
+      });
+      var existingPages;
+      var newPage;
+      var newPageIndex;
+      existingPages = $(settings.target + ' :data(page-index)');
+      newPageIndex = existingPages.length + 1;
+      newPage = $('<div/>', {
+        class: 'a-page a-next-page',
+        data: {
+          'page-index': newPageIndex
+        },
+        html: quickhelpPage
+      });
+      $(settings.target + ' .a-stickyHelp-content-target').append(newPage);
+      $(settings.target).animate({
+        scrollTop: 0
+      }, 20);
+      current = $(settings.target + ' .a-current-page');
+      setTimeout(function() {
+        current.removeClass('a-current-page').addClass('a-previous-page');
+        newPage.removeClass('a-next-page').addClass('a-current-page');
+        $(newPage).data();
+      }, 0);
+      current.on('transitionend', function() {
+        if (settings.clearHistory) {
+          $(settings.target + ' :data(page-index)').not('.a-current-page').remove();
+        } else {
+          // current.hide().off();
+          current.off();
+        }
+      });
+      $('#a-js-stickyHelp-back').addClass('d-block');
+    });
+  },
+  previousquickhelpPage: function(settings) {
+    var current;
+    var allPages;
+    var previous;
+    var pagesToPop;
+    if (!settings.pagesToPop) {
+      pagesToPop = 1;
+    } else {
+      pagesToPop = settings.pagesToPop;
+    }
+    current = $(settings.target + ' .a-current-page');
+    allPages = $(settings.target + ' :data(page-index)');
+    previous = allPages.filter(function() {
+      return $(this).data('page-index') === allPages.length - 1;
+    });
+    // previous.show();
+    previous.addClass('a-current-page').removeClass('a-next-page');
+    current.removeClass('a-current-page').addClass('a-next-page');
+    setTimeout(function() {
+      previous.addClass('a-current-page').removeClass('a-previous-page');
+    }, 0);
+    current.on('transitionend', function() {
+      var previousPages = allPages.filter(function() {
+        return $(this).data('page-index') > allPages.length - pagesToPop;
+      });
+      previousPages.remove();
+    });
+    if (allPages.length === 2) {
+      $('#a-js-stickyHelp-back').removeClass('d-block');
+    }
+  },
+  init: function() {
+    var that = this;
+    that.listeners('#a-stickyHelp');
+    that.loadQuickhelp({
+      url: '../../patterns/03-maler-_70-hurtighjelp-10-hurtighjelp-start/03-maler-_70-hurtighjelp-10-hurtighjelp-start.markup-only.html',
+      target: '#a-stickyHelp'
+    });
+    $('body').on('click', '[data-toggle="quickhelp"]', function() {
+      var $source = $(this);
+      if ($source.data().action === 'load') {
+        that.loadQuickhelp({
+          url: $source.data().url,
+          target: $source.data().target
+        });
+      } else if ($source.data().action === 'next') {
+        that.nextquickhelpPage({ url: $source.data().url,
+          target: $source.data().target });
+      } else if ($source.data().action === 'back') {
+        that.previousquickhelpPage({
+          target: $source.data().target,
+          pagesToPop: $source.data().pages
+        });
+      }
+    });
+  }
+};
+
 var articleAnchors = function() {
   if ($('.epi-wysiwyg').length > 0 && $('.sg-pattern-category').length === 0) {
     window.anchors.options.placement = 'left';
@@ -1347,6 +1503,7 @@ var genericSearch = function() {
         $('.a-js-alternativeResults').removeClass('a-js-forceHidden');
         $('.a-js-moreResults').removeClass('a-js-forceHidden');
         $('.a-js-expandResults').hide();
+        $('body').scrollTop($('.a-js-filterDim1').offset().top - 12);
       });
     }
     $('.a-js-none').show().prev().hide();
@@ -1803,7 +1960,8 @@ var uniformHeight = function() {
   articleAnchors,
   subscribe,
   setupFormValidation,
-  autoFootnotes
+  autoFootnotes,
+  AltinnQuickhelp
 */
 window.infoportalInit = function() {
   colnavCustom();
@@ -1815,6 +1973,7 @@ window.infoportalInit = function() {
   subscribe();
   setupFormValidation();
   autoFootnotes();
+  AltinnQuickhelp.init();
 };
 window.infoportalInit();
 // $(document).foundation();
@@ -1831,6 +1990,13 @@ var onFileInputChange = function() {
   });
   $('.a-js-fileInputChangeHandler').on('blur', function() {
     $('.a-js-fileInputChangeHandler').closest('label').removeClass('a-custom-fileupload--focused');
+  });
+
+  $('.a-js-certificateContainer').on('focus', function() {
+    $('.a-js-certificateContainer').closest('label').addClass('a-custom-fileupload--focused');
+  });
+  $('.a-js-certificateContainer').on('blur', function() {
+    $('.a-js-certificateContainer').closest('label').removeClass('a-custom-fileupload--focused');
   });
 
   $('.a-js-fileInputChangeHandler').on('change', function() {
@@ -2508,162 +2674,6 @@ AltinnModal = {
   }
 };
 
-/* globals currentRequest, AltinnQuickhelp */
-/* globals AltinnQuickhelp:true */
-AltinnQuickhelp = {
-  loadQuickhelp: function(settings) {
-    var that = this;
-    var currentRequest = $.ajax({
-      url: settings.url,
-      beforeSend: function() {
-        if (typeof currentRequest !== 'undefined') {
-          currentRequest.abort();
-        }
-      }
-    }).done(function(data) {
-      var quickhelpPage = $('<div/>', {
-        class: 'a-quickhelpPage-start',
-        id: 'a-js-quickhelpPage',
-        html: data
-      });
-      var page = $('<div/>', {
-        class: 'a-page a-current-page',
-        data: {
-          'page-index': 1
-        },
-        html: quickhelpPage
-      });
-      $(settings.target + ' .a-stickyHelp-content-target').append(page);
-      $(settings.target).find('.a-current-page').first().data();
-      $('.a-js-stickyHelpCategory').html($(settings.target).find('.a-stickyHelp-content-target').attr('data-category'));
-      $('.a-js-stickyHelpCategoryLink').attr('data-url', $(settings.target).find('.a-stickyHelp-content-target').attr('data-url'));
-    });
-  },
-  listeners: function(target) {
-    var that = this;
-    $('.a-stickyHelp-search').find('input').on('keyup', function(e) {
-      var keyCode = e.keyCode || e.which;
-      if (keyCode === 13 && encodeURIComponent($(this)[0].value).length > 0) {
-        that.nextquickhelpPage({
-          url: 'http://altinn-dev.dev.bouvet.no/api/quicksearch/' + encodeURIComponent($(this)[0].value) + '/no',
-          target: target
-        });
-      }
-    });
-    $('.a-stickyHelp-search').find('button').on('click', function(e) {
-      if (encodeURIComponent($('.a-js-stickyhelpSearch')[0].value).length > 0) {
-        that.nextquickhelpPage({
-          url: 'http://altinn-dev.dev.bouvet.no/api/quicksearch/' + encodeURIComponent($('.a-js-stickyhelpSearch')[0].value) + '/no',
-          target: target
-        });
-      }
-    });
-  },
-  nextquickhelpPage: function(settings) {
-    var currentRequest = $.ajax({
-      url: settings.url,
-      beforeSend: function() {
-        if (typeof currentRequest !== 'undefined') {
-          currentRequest.abort();
-        }
-      }
-    }).done(function(data) {
-      var current;
-      var quickhelpPage = $('<div/>', {
-        class: 'quickhelpPage',
-        html: data
-      });
-      var existingPages;
-      var newPage;
-      var newPageIndex;
-      existingPages = $(settings.target + ' :data(page-index)');
-      newPageIndex = existingPages.length + 1;
-      newPage = $('<div/>', {
-        class: 'a-page a-next-page',
-        data: {
-          'page-index': newPageIndex
-        },
-        html: quickhelpPage
-      });
-      $(settings.target + ' .a-stickyHelp-content-target').append(newPage);
-      $(settings.target).animate({
-        scrollTop: 0
-      }, 20);
-      current = $(settings.target + ' .a-current-page');
-      setTimeout(function() {
-        current.removeClass('a-current-page').addClass('a-previous-page');
-        newPage.removeClass('a-next-page').addClass('a-current-page');
-        $(newPage).data();
-      }, 0);
-      current.on('transitionend', function() {
-        if (settings.clearHistory) {
-          $(settings.target + ' :data(page-index)').not('.a-current-page').remove();
-        } else {
-          // current.hide().off();
-          current.off();
-        }
-      });
-      $('#a-js-stickyHelp-back').addClass('d-block');
-    });
-  },
-  previousquickhelpPage: function(settings) {
-    var current;
-    var allPages;
-    var previous;
-    var pagesToPop;
-    if (!settings.pagesToPop) {
-      pagesToPop = 1;
-    } else {
-      pagesToPop = settings.pagesToPop;
-    }
-    current = $(settings.target + ' .a-current-page');
-    allPages = $(settings.target + ' :data(page-index)');
-    previous = allPages.filter(function() {
-      return $(this).data('page-index') === allPages.length - 1;
-    });
-    // previous.show();
-    previous.addClass('a-current-page').removeClass('a-next-page');
-    current.removeClass('a-current-page').addClass('a-next-page');
-    setTimeout(function() {
-      previous.addClass('a-current-page').removeClass('a-previous-page');
-    }, 0);
-    current.on('transitionend', function() {
-      var previousPages = allPages.filter(function() {
-        return $(this).data('page-index') > allPages.length - pagesToPop;
-      });
-      previousPages.remove();
-    });
-    if (allPages.length === 2) {
-      $('#a-js-stickyHelp-back').removeClass('d-block');
-    }
-  },
-  init: function() {
-    var that = this;
-    that.listeners('#a-stickyHelp');
-    that.loadQuickhelp({
-      url: '../../patterns/03-maler-_70-hurtighjelp-10-hurtighjelp-start/03-maler-_70-hurtighjelp-10-hurtighjelp-start.markup-only.html',
-      target: '#a-stickyHelp'
-    });
-    $('body').on('click', '[data-toggle="quickhelp"]', function() {
-      var $source = $(this);
-      if ($source.data().action === 'load') {
-        that.loadQuickhelp({
-          url: $source.data().url,
-          target: $source.data().target
-        });
-      } else if ($source.data().action === 'next') {
-        that.nextquickhelpPage({ url: $source.data().url,
-          target: $source.data().target });
-      } else if ($source.data().action === 'back') {
-        that.previousquickhelpPage({
-          target: $source.data().target,
-          pagesToPop: $source.data().pages
-        });
-      }
-    });
-  }
-};
-
 var setupOnKeypress = function() {
   $('body').on('keydown', '.a-clickable, .a-selectable', function(e) {
     var key = e.which;
@@ -2996,7 +3006,7 @@ var popoverLocalInit = function() {
   $('[data-toggle="popover"]').popover(options);
 
   $('.a-js-togglePopoverIcons').each(function() {
-    $(this).find('i').eq(1).hide();
+    $(this).find('.a-js-popoverIconExpanded').hide();
   });
 };
 
@@ -3077,13 +3087,17 @@ var popoverGlobalInit = function() {
   }
 
   $('body').on('shown.bs.popover', '.a-js-togglePopoverIcons', function(e) {
-    $(e.target).find('i').eq(0).hide();
-    $(e.target).find('i').eq(1).show();
+    $(e.target).find('.a-js-popoverIconInitial').hide();
+    $(e.target).find('.a-js-popoverIconExpanded').show();
+    // $(e.target).find('i').eq(0).hide();
+    // $(e.target).find('i').eq(1).show();
   });
 
   $('body').on('hidden.bs.popover', '.a-js-togglePopoverIcons', function(e) {
-    $(e.target).find('i').eq(0).show();
-    $(e.target).find('i').eq(1).hide();
+    $(e.target).find('.a-js-popoverIconInitial').show();
+    $(e.target).find('.a-js-popoverIconExpanded').hide();
+    // $(e.target).find('i').eq(0).show();
+    // $(e.target).find('i').eq(1).hide();
   });
 
   $('body').on('shown.bs.popover', '.a-js-persistPopover', function() {
@@ -3308,7 +3322,6 @@ var setValidatorSettings = function() {
   window,
   setupTruncateLines,
   AltinnModal,
-  AltinnQuickhelp,
   setupExpandContent,
   AltinnDropdown
  */
@@ -3345,7 +3358,6 @@ window.sharedInit = function() {
   setupTruncateLines();
   setupExpandContent();
   AltinnModal.init();
-  AltinnQuickhelp.init();
   AltinnDropdown.init();
 };
 

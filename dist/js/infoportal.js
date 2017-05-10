@@ -372,162 +372,6 @@ AltinnModal = {
   }
 };
 
-/* globals currentRequest, AltinnQuickhelp */
-/* globals AltinnQuickhelp:true */
-AltinnQuickhelp = {
-  loadQuickhelp: function(settings) {
-    var that = this;
-    var currentRequest = $.ajax({
-      url: settings.url,
-      beforeSend: function() {
-        if (typeof currentRequest !== 'undefined') {
-          currentRequest.abort();
-        }
-      }
-    }).done(function(data) {
-      var quickhelpPage = $('<div/>', {
-        class: 'a-quickhelpPage-start',
-        id: 'a-js-quickhelpPage',
-        html: data
-      });
-      var page = $('<div/>', {
-        class: 'a-page a-current-page',
-        data: {
-          'page-index': 1
-        },
-        html: quickhelpPage
-      });
-      $(settings.target + ' .a-stickyHelp-content-target').append(page);
-      $(settings.target).find('.a-current-page').first().data();
-      $('.a-js-stickyHelpCategory').html($(settings.target).find('.a-stickyHelp-content-target').attr('data-category'));
-      $('.a-js-stickyHelpCategoryLink').attr('data-url', $(settings.target).find('.a-stickyHelp-content-target').attr('data-url'));
-    });
-  },
-  listeners: function(target) {
-    var that = this;
-    $('.a-stickyHelp-search').find('input').on('keyup', function(e) {
-      var keyCode = e.keyCode || e.which;
-      if (keyCode === 13 && encodeURIComponent($(this)[0].value).length > 0) {
-        that.nextquickhelpPage({
-          url: 'http://altinn-dev.dev.bouvet.no/api/quicksearch/' + encodeURIComponent($(this)[0].value) + '/no',
-          target: target
-        });
-      }
-    });
-    $('.a-stickyHelp-search').find('button').on('click', function(e) {
-      if (encodeURIComponent($('.a-js-stickyhelpSearch')[0].value).length > 0) {
-        that.nextquickhelpPage({
-          url: 'http://altinn-dev.dev.bouvet.no/api/quicksearch/' + encodeURIComponent($('.a-js-stickyhelpSearch')[0].value) + '/no',
-          target: target
-        });
-      }
-    });
-  },
-  nextquickhelpPage: function(settings) {
-    var currentRequest = $.ajax({
-      url: settings.url,
-      beforeSend: function() {
-        if (typeof currentRequest !== 'undefined') {
-          currentRequest.abort();
-        }
-      }
-    }).done(function(data) {
-      var current;
-      var quickhelpPage = $('<div/>', {
-        class: 'quickhelpPage',
-        html: data
-      });
-      var existingPages;
-      var newPage;
-      var newPageIndex;
-      existingPages = $(settings.target + ' :data(page-index)');
-      newPageIndex = existingPages.length + 1;
-      newPage = $('<div/>', {
-        class: 'a-page a-next-page',
-        data: {
-          'page-index': newPageIndex
-        },
-        html: quickhelpPage
-      });
-      $(settings.target + ' .a-stickyHelp-content-target').append(newPage);
-      $(settings.target).animate({
-        scrollTop: 0
-      }, 20);
-      current = $(settings.target + ' .a-current-page');
-      setTimeout(function() {
-        current.removeClass('a-current-page').addClass('a-previous-page');
-        newPage.removeClass('a-next-page').addClass('a-current-page');
-        $(newPage).data();
-      }, 0);
-      current.on('transitionend', function() {
-        if (settings.clearHistory) {
-          $(settings.target + ' :data(page-index)').not('.a-current-page').remove();
-        } else {
-          // current.hide().off();
-          current.off();
-        }
-      });
-      $('#a-js-stickyHelp-back').addClass('d-block');
-    });
-  },
-  previousquickhelpPage: function(settings) {
-    var current;
-    var allPages;
-    var previous;
-    var pagesToPop;
-    if (!settings.pagesToPop) {
-      pagesToPop = 1;
-    } else {
-      pagesToPop = settings.pagesToPop;
-    }
-    current = $(settings.target + ' .a-current-page');
-    allPages = $(settings.target + ' :data(page-index)');
-    previous = allPages.filter(function() {
-      return $(this).data('page-index') === allPages.length - 1;
-    });
-    // previous.show();
-    previous.addClass('a-current-page').removeClass('a-next-page');
-    current.removeClass('a-current-page').addClass('a-next-page');
-    setTimeout(function() {
-      previous.addClass('a-current-page').removeClass('a-previous-page');
-    }, 0);
-    current.on('transitionend', function() {
-      var previousPages = allPages.filter(function() {
-        return $(this).data('page-index') > allPages.length - pagesToPop;
-      });
-      previousPages.remove();
-    });
-    if (allPages.length === 2) {
-      $('#a-js-stickyHelp-back').removeClass('d-block');
-    }
-  },
-  init: function() {
-    var that = this;
-    that.listeners('#a-stickyHelp');
-    that.loadQuickhelp({
-      url: '../../patterns/03-maler-_70-hurtighjelp-10-hurtighjelp-start/03-maler-_70-hurtighjelp-10-hurtighjelp-start.markup-only.html',
-      target: '#a-stickyHelp'
-    });
-    $('body').on('click', '[data-toggle="quickhelp"]', function() {
-      var $source = $(this);
-      if ($source.data().action === 'load') {
-        that.loadQuickhelp({
-          url: $source.data().url,
-          target: $source.data().target
-        });
-      } else if ($source.data().action === 'next') {
-        that.nextquickhelpPage({ url: $source.data().url,
-          target: $source.data().target });
-      } else if ($source.data().action === 'back') {
-        that.previousquickhelpPage({
-          target: $source.data().target,
-          pagesToPop: $source.data().pages
-        });
-      }
-    });
-  }
-};
-
 var setupOnKeypress = function() {
   $('body').on('keydown', '.a-clickable, .a-selectable', function(e) {
     var key = e.which;
@@ -860,7 +704,7 @@ var popoverLocalInit = function() {
   $('[data-toggle="popover"]').popover(options);
 
   $('.a-js-togglePopoverIcons').each(function() {
-    $(this).find('i').eq(1).hide();
+    $(this).find('.a-js-popoverIconExpanded').hide();
   });
 };
 
@@ -941,13 +785,17 @@ var popoverGlobalInit = function() {
   }
 
   $('body').on('shown.bs.popover', '.a-js-togglePopoverIcons', function(e) {
-    $(e.target).find('i').eq(0).hide();
-    $(e.target).find('i').eq(1).show();
+    $(e.target).find('.a-js-popoverIconInitial').hide();
+    $(e.target).find('.a-js-popoverIconExpanded').show();
+    // $(e.target).find('i').eq(0).hide();
+    // $(e.target).find('i').eq(1).show();
   });
 
   $('body').on('hidden.bs.popover', '.a-js-togglePopoverIcons', function(e) {
-    $(e.target).find('i').eq(0).show();
-    $(e.target).find('i').eq(1).hide();
+    $(e.target).find('.a-js-popoverIconInitial').show();
+    $(e.target).find('.a-js-popoverIconExpanded').hide();
+    // $(e.target).find('i').eq(0).show();
+    // $(e.target).find('i').eq(1).hide();
   });
 
   $('body').on('shown.bs.popover', '.a-js-persistPopover', function() {
@@ -1172,7 +1020,6 @@ var setValidatorSettings = function() {
   window,
   setupTruncateLines,
   AltinnModal,
-  AltinnQuickhelp,
   setupExpandContent,
   AltinnDropdown
  */
@@ -1209,11 +1056,166 @@ window.sharedInit = function() {
   setupTruncateLines();
   setupExpandContent();
   AltinnModal.init();
-  AltinnQuickhelp.init();
   AltinnDropdown.init();
 };
 
 window.sharedInit();
+
+/* globals currentRequest, AltinnQuickhelp */
+/* globals AltinnQuickhelp:true */
+AltinnQuickhelp = {
+  loadQuickhelp: function(settings) {
+    var that = this;
+    var currentRequest = $.ajax({
+      url: settings.url,
+      beforeSend: function() {
+        if (typeof currentRequest !== 'undefined') {
+          currentRequest.abort();
+        }
+      }
+    }).done(function(data) {
+      var quickhelpPage = $('<div/>', {
+        class: 'a-quickhelpPage-start',
+        id: 'a-js-quickhelpPage',
+        html: data
+      });
+      var page = $('<div/>', {
+        class: 'a-page a-current-page',
+        data: {
+          'page-index': 1
+        },
+        html: quickhelpPage
+      });
+      $(settings.target + ' .a-stickyHelp-content-target').append(page);
+      $(settings.target).find('.a-current-page').first().data();
+      $('.a-js-stickyHelpCategory').html($(settings.target).find('.a-stickyHelp-content-target').attr('data-category'));
+      $('.a-js-stickyHelpCategoryLink').attr('data-url', $(settings.target).find('.a-stickyHelp-content-target').attr('data-url'));
+    });
+  },
+  listeners: function(target) {
+    var that = this;
+    $('.a-stickyHelp-search').find('input').on('keyup', function(e) {
+      var keyCode = e.keyCode || e.which;
+      if (keyCode === 13 && encodeURIComponent($(this)[0].value).length > 0) {
+        that.nextquickhelpPage({
+          url: 'http://altinn-dev.dev.bouvet.no/api/quicksearch/' + encodeURIComponent($(this)[0].value) + '/no',
+          target: target
+        });
+      }
+    });
+    $('.a-stickyHelp-search').find('button').on('click', function(e) {
+      if (encodeURIComponent($('.a-js-stickyhelpSearch')[0].value).length > 0) {
+        that.nextquickhelpPage({
+          url: 'http://altinn-dev.dev.bouvet.no/api/quicksearch/' + encodeURIComponent($('.a-js-stickyhelpSearch')[0].value) + '/no',
+          target: target
+        });
+      }
+    });
+  },
+  nextquickhelpPage: function(settings) {
+    var currentRequest = $.ajax({
+      url: settings.url,
+      beforeSend: function() {
+        if (typeof currentRequest !== 'undefined') {
+          currentRequest.abort();
+        }
+      }
+    }).done(function(data) {
+      var current;
+      var quickhelpPage = $('<div/>', {
+        class: 'quickhelpPage',
+        html: data
+      });
+      var existingPages;
+      var newPage;
+      var newPageIndex;
+      existingPages = $(settings.target + ' :data(page-index)');
+      newPageIndex = existingPages.length + 1;
+      newPage = $('<div/>', {
+        class: 'a-page a-next-page',
+        data: {
+          'page-index': newPageIndex
+        },
+        html: quickhelpPage
+      });
+      $(settings.target + ' .a-stickyHelp-content-target').append(newPage);
+      $(settings.target).animate({
+        scrollTop: 0
+      }, 20);
+      current = $(settings.target + ' .a-current-page');
+      setTimeout(function() {
+        current.removeClass('a-current-page').addClass('a-previous-page');
+        newPage.removeClass('a-next-page').addClass('a-current-page');
+        $(newPage).data();
+      }, 0);
+      current.on('transitionend', function() {
+        if (settings.clearHistory) {
+          $(settings.target + ' :data(page-index)').not('.a-current-page').remove();
+        } else {
+          // current.hide().off();
+          current.off();
+        }
+      });
+      $('#a-js-stickyHelp-back').addClass('d-block');
+    });
+  },
+  previousquickhelpPage: function(settings) {
+    var current;
+    var allPages;
+    var previous;
+    var pagesToPop;
+    if (!settings.pagesToPop) {
+      pagesToPop = 1;
+    } else {
+      pagesToPop = settings.pagesToPop;
+    }
+    current = $(settings.target + ' .a-current-page');
+    allPages = $(settings.target + ' :data(page-index)');
+    previous = allPages.filter(function() {
+      return $(this).data('page-index') === allPages.length - 1;
+    });
+    // previous.show();
+    previous.addClass('a-current-page').removeClass('a-next-page');
+    current.removeClass('a-current-page').addClass('a-next-page');
+    setTimeout(function() {
+      previous.addClass('a-current-page').removeClass('a-previous-page');
+    }, 0);
+    current.on('transitionend', function() {
+      var previousPages = allPages.filter(function() {
+        return $(this).data('page-index') > allPages.length - pagesToPop;
+      });
+      previousPages.remove();
+    });
+    if (allPages.length === 2) {
+      $('#a-js-stickyHelp-back').removeClass('d-block');
+    }
+  },
+  init: function() {
+    var that = this;
+    that.listeners('#a-stickyHelp');
+    that.loadQuickhelp({
+      url: '../../patterns/03-maler-_70-hurtighjelp-10-hurtighjelp-start/03-maler-_70-hurtighjelp-10-hurtighjelp-start.markup-only.html',
+      target: '#a-stickyHelp'
+    });
+    $('body').on('click', '[data-toggle="quickhelp"]', function() {
+      var $source = $(this);
+      if ($source.data().action === 'load') {
+        that.loadQuickhelp({
+          url: $source.data().url,
+          target: $source.data().target
+        });
+      } else if ($source.data().action === 'next') {
+        that.nextquickhelpPage({ url: $source.data().url,
+          target: $source.data().target });
+      } else if ($source.data().action === 'back') {
+        that.previousquickhelpPage({
+          target: $source.data().target,
+          pagesToPop: $source.data().pages
+        });
+      }
+    });
+  }
+};
 
 var articleAnchors = function() {
   if ($('.epi-wysiwyg').length > 0 && $('.sg-pattern-category').length === 0) {
@@ -1693,6 +1695,20 @@ var genericSearch = function() {
     );
   };
   if ($('.a-js-genericSearch').length > 0) {
+    if ($('.a-js-expandResults').length > 0) {
+      $('.a-js-results').addClass('a-js-forceHidden');
+      $('.a-js-alternativeResults').addClass('a-js-forceHidden');
+      $('.a-js-moreResults').addClass('a-js-forceHidden');
+      $('.a-js-expandResults').attr('disabled', 'disabled');
+      $('.a-js-expandResults').on('click', function() {
+        $('.a-collapse-title').not('.collapsed').click();
+        $('.a-js-results').removeClass('a-js-forceHidden');
+        $('.a-js-alternativeResults').removeClass('a-js-forceHidden');
+        $('.a-js-moreResults').removeClass('a-js-forceHidden');
+        $('.a-js-expandResults').hide();
+        $('body').scrollTop($('.a-js-filterDim1').offset().top - 12);
+      });
+    }
     $('.a-js-none').show().prev().hide();
     inputBy = $('.a-js-genericSearch').find('input[type=search]').length > 0 ? 'search' : 'filter';
     container = inputBy === 'search' ?
@@ -1868,6 +1884,13 @@ var genericSearch = function() {
         container.next().next().show();
         altContainer.hide();
         $('.a-card-filter').find('input[type=checkbox]').on('change', function() {
+          if ($('.a-js-expandResults').length > 0) {
+            $('.a-js-expandResults').removeAttr('disabled');
+            $('.a-js-results').addClass('a-js-forceHidden');
+            $('.a-js-alternativeResults').addClass('a-js-forceHidden');
+            $('.a-js-moreResults').addClass('a-js-forceHidden');
+            $('.a-js-expandResults').show();
+          }
           aboveCount = 0;
           belowCount = 0;
           page = 1;
@@ -1950,8 +1973,33 @@ var questionnaireInteraction = function() {
 function setupFormValidation(formId, buttonId) {
   var $submitBtn = $(buttonId);
   var wasSubmitted = false;
+  var validDropdown = function(el) {
+    if (
+      el.attr('required') !== undefined && el.attr('required') === 'required' &&
+      el.attr('data-dropdowndefaultvalue') === el.find('.a-form-text').text()
+    ) {
+      el.closest('.a-form-group').addClass('has-error').find('.a-message-error').css('display', 'table');
+    } else {
+      el.closest('.a-form-group').removeClass('has-error').find('.a-message-error').css('display', 'none');
+    }
+  };
+  var validAllDropdowns = function() {
+    var invalids = [];
+    $('.a-js-dropdownToValidate').each(function(index, el) {
+      if (
+        $(el).attr('required') !== undefined && $(el).attr('required') === 'required' &&
+        $(el).attr('data-dropdowndefaultvalue') === $(el).find('.a-form-text').text()
+      ) {
+        invalids.push(index);
+      }
+    });
+    return invalids.length === 0;
+  };
   var validateBackwards = function(el) {
-    if (el.prev().hasClass('form-group')) {
+    if (el.prev().find('.a-js-dropdownToValidate').length > 0) {
+      validDropdown(el.prev().find('.a-js-dropdownToValidate'));
+      validateBackwards(el.prev());
+    } else if (el.prev().hasClass('form-group')) {
       if (el.prev().find('input').length > 0) {
         el.prev().find('input').valid();
       }
@@ -1961,6 +2009,9 @@ function setupFormValidation(formId, buttonId) {
       validateBackwards(el.prev());
     }
   };
+  $(formId + ' .a-js-dropdownToValidate').each(function() {
+    $(this).attr('data-dropdowndefaultvalue', $(this).find('.a-form-text').text());
+  });
 
   if (!buttonId) {
     $submitBtn = $(formId + ' button[type="submit"]');
@@ -1971,7 +2022,7 @@ function setupFormValidation(formId, buttonId) {
   $submitBtn.prop('disabled', 'disabled');
 
   $(formId).on('blur input change', '*', function() {
-    if ($(formId).validate().checkForm()) {
+    if ($(formId).validate().checkForm() && validAllDropdowns()) {
       $submitBtn.prop('disabled', false);
       $submitBtn.removeClass('disabled');
     } else {
@@ -1985,14 +2036,24 @@ function setupFormValidation(formId, buttonId) {
   });
 
   $(formId + ' input').on('blur', function() {
-    // $(formId).valid();
     $(this).valid();
     validateBackwards($(this).closest('.form-group'));
   });
 
   $(formId + ' textarea').on('blur', function() {
-    // $(formId).valid();
     $(this).valid();
+    validateBackwards($(this).closest('.form-group'));
+  });
+
+  $(formId + ' .a-js-dropdownToValidate').next().on('click', function() {
+    setTimeout(function() {
+      validDropdown($(this).prev());
+    }.bind(this), 0);
+    validateBackwards($(this).closest('.form-group'));
+  });
+
+  $(formId + ' .a-js-dropdownToValidate').on('blur', function() {
+    validDropdown($(this));
     validateBackwards($(this).closest('.form-group'));
   });
 }
@@ -2102,7 +2163,8 @@ var uniformHeight = function() {
   articleAnchors,
   subscribe,
   setupFormValidation,
-  autoFootnotes
+  autoFootnotes,
+  AltinnQuickhelp
 */
 window.infoportalInit = function() {
   colnavCustom();
@@ -2114,6 +2176,7 @@ window.infoportalInit = function() {
   subscribe();
   setupFormValidation();
   autoFootnotes();
+  AltinnQuickhelp.init();
 };
 window.infoportalInit();
 // $(document).foundation();

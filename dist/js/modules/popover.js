@@ -28,7 +28,7 @@ var popoverLocalInit = function() {
   $('[data-toggle="popover"]').popover(options);
 
   $('.a-js-togglePopoverIcons').each(function() {
-    $(this).find('i').eq(1).hide();
+    $(this).find('.a-js-popoverIconExpanded').hide();
   });
 };
 
@@ -109,13 +109,17 @@ var popoverGlobalInit = function() {
   }
 
   $('body').on('shown.bs.popover', '.a-js-togglePopoverIcons', function(e) {
-    $(e.target).find('i').eq(0).hide();
-    $(e.target).find('i').eq(1).show();
+    $(e.target).find('.a-js-popoverIconInitial').hide();
+    $(e.target).find('.a-js-popoverIconExpanded').show();
+    // $(e.target).find('i').eq(0).hide();
+    // $(e.target).find('i').eq(1).show();
   });
 
   $('body').on('hidden.bs.popover', '.a-js-togglePopoverIcons', function(e) {
-    $(e.target).find('i').eq(0).show();
-    $(e.target).find('i').eq(1).hide();
+    $(e.target).find('.a-js-popoverIconInitial').show();
+    $(e.target).find('.a-js-popoverIconExpanded').hide();
+    // $(e.target).find('i').eq(0).show();
+    // $(e.target).find('i').eq(1).hide();
   });
 
   $('body').on('shown.bs.popover', '.a-js-persistPopover', function() {
