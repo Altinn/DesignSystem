@@ -9,6 +9,10 @@
 
         {{# pagestart }}
 
+          {{#breadcrumb}}
+            {{> molekyler-smulesti }}
+          {{/breadcrumb}}
+
           {{#h1Title}}
           <h1 class="a-fontBold a-pageTitle">
             {{{ h1Title }}}
@@ -21,7 +25,9 @@
           </span>
           {{/page-title}}
 
-          <span class="a-jumbotron-ingress {{# jumbo-intro-small }}a-jumbotron-ingress--small{{/ jumbo-intro-small }} ">{{{ jumbo-intro }}}</span>
+          {{#jumbo-intro}}
+            <span class="a-jumbotron-ingress {{# jumbo-intro-small }}a-jumbotron-ingress--small{{/ jumbo-intro-small }} ">{{{ jumbo-intro }}}</span>
+          {{/jumbo-intro}}
 
           {{# front-main-button }}
             {{> atomer-link-knapp-stor }}
