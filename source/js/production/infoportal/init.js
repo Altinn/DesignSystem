@@ -7,7 +7,8 @@
   articleAnchors,
   subscribe,
   setupFormValidation,
-  autoFootnotes
+  autoFootnotes,
+  AltinnQuickhelp
 */
 window.infoportalInit = function() {
   colnavCustom();
@@ -19,6 +20,7 @@ window.infoportalInit = function() {
   subscribe();
   setupFormValidation();
   autoFootnotes();
+  AltinnQuickhelp.init();
 };
 window.infoportalInit();
 // $(document).foundation();

@@ -631,8 +631,15 @@
         color: $blue;
       }
 
-      &:not(:last-child) {
-        margin-right: 2px;
+      &.a-inactive {
+        opacity: 0.5;
+
+        &:hover,
+        &:focus,
+        &:active {
+          color: $grey;
+          cursor: not-allowed;
+        }
       }
 
       // fix for firefox alignment
@@ -649,6 +656,11 @@
     height: auto !important;
     height: $spacer * 6;
     min-height: $spacer * 6;
+    padding-right: $spacer;
+
+    @include media-breakpoint-up( md ) {
+      padding-right: 0;
+    }
 
     .a-msgIconWrapper {
       width: $spacer * 4;
@@ -665,10 +677,15 @@
       @extend .a-fontSizeS;
     }
   }
-
   /** different message states */
 
   .expanded & {
+    .a-inboxCompact & {
+      @include media-breakpoint-up( md ) {
+        padding-right: $spacer * 2;
+      }
+    }
+
     .a-msgShortcutsContainer {
       display: none;
     }
@@ -723,9 +740,15 @@
 
   &.a-msgForwarded {
     .a-btn-icon {
-      &:nth-child(2) {
+      &:nth-child(1) {
+        margin-right: $spacer / 2;
         background-color: $yellow-light;
         border-radius: 50%;
+
+        &:hover {
+          color: $grey;
+          cursor: default;
+        }
       }
     }
   }
