@@ -100,8 +100,21 @@
     padding-top: 170px;
   }
 
-  .row {
-    margin: 0;
+  &.a-jumbotron-header--small {
+    padding-top: 130px;
+    padding-bottom: $spacer * 3;
+    margin-bottom: $spacer * 3;
+
+    @include media-breakpoint-up( md ) {
+      padding-top: 144px;
+      padding-bottom: $spacer * 6;
+      margin-bottom: $spacer * 5;
+    }
+
+    @include media-breakpoint-up( lg ) {
+      padding-top: 144px;
+      padding-bottom: $spacer * 9;
+    }
   }
 }
 
@@ -165,6 +178,15 @@
           &:hover {
             border: none;
           }
+        }
+      }
+
+      &.breadcrumb-mobile {
+        @include media-breakpoint-down( sm ) {
+          &::before {
+            color: $white;
+          }
+
         }
       }
     }
@@ -233,6 +255,10 @@
         border-bottom: 1px solid $blue-dark;
       }
     }
+  }
+
+  &.a-jumbotron-dark--purple {
+    background: $purple;
   }
 }
 
