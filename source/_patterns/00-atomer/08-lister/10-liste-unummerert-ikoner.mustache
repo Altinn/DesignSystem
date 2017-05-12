@@ -1,13 +1,17 @@
 <ul class="no-decoration a-iconList">
     {{# icon-list-items }}
         <li>
-          <a href="#" class="">
-            {{> atomer-ikon }}
-            <span>
-              <b>{{ list-item-name }}</b>
-              {{ listItemDescription }}
-            </span>
-          </a>
+          {{^ disable-link }}
+            <a href="#" class="">
+          {{/ disable-link }}
+          {{> atomer-ikon }}
+          <span>
+            <b>{{ list-item-name }}</b>
+            {{ listItemDescription }}
+          </span>
+          {{^ disable-link }}
+            </a>
+          {{/ disable-link}}
         </li>
     {{/ icon-list-items }}
 </ul>
