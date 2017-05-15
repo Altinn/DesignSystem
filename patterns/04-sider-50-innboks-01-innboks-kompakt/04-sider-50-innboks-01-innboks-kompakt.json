@@ -11,6 +11,12 @@
 	"icon-post-text": false,
 	"icon-title": false,
 	"icon-sr-only-text": false,
+	"stickyHelp-close": {
+		"icon-prefix": "ai",
+		"icon-class": "ai-exit ai-sm",
+		"icon-id": "close-stickyHelp",
+		"icon-sr-only-text": "Minimer hjelpevinduet"
+	},
 	"print-form-tag": false,
 	"text-input-id": "text-input-generic",
 	"isHidden": false,
@@ -20,7 +26,6 @@
 	"text-input-placeholder": "f.eks placeholder",
 	"input-type": "text",
 	"isRequired": false,
-	"isInputDisabled": false,
 	"extra-help": false,
 	"isLarge": false,
 	"form-label-hasIcon": false,
@@ -55,23 +60,17 @@
 	"telNumber": "75006000",
 	"telNumberVisible": "75 00 60 00",
 	"telText": "Telefonnummer til Altinn kundestøtte",
-	"label-class": "badge-primary",
-	"label-id": "label",
-	"label-content": "9",
-	"button-text": "En knapp med ikon",
 	"button-class": "a-btn a-btn-icon a-btn-shadow",
-	"button-colorClass": "",
-	"link-url": "/patterns/04-sider-01-forside-00-forside/04-sider-01-forside-00-forside.html",
-	"button-shadow-label": false,
+	"action-button-text": "En knapp for å legge til",
+	"button-text": "En knapp med ikon",
+	"button-disabled": false,
+	"button-type": "button",
+	"onclick": false,
 	"button-icon": {
 		"icon-prefix": "ai",
 		"icon-class": "ai-deadline"
 	},
-	"button-disabled": false,
-	"button-type": "button",
-	"onclick": false,
 	"display-as-link": false,
-	"action-button-text": "En knapp for å legge til",
 	"expandable-content": {
 		"button-class": "a-btn a-btn-action a-fullWidthBtn",
 		"icon-prefix": "ai",
@@ -95,6 +94,7 @@
 		}
 	},
 	"link-text": "En lenke ser slik ut",
+	"link-url": "/patterns/04-sider-01-forside-00-forside/04-sider-01-forside-00-forside.html",
 	"sr-text": false,
 	"alert-id": "alert",
 	"alert-class": "a-message-info",
@@ -103,6 +103,11 @@
 			"text": "Dette er en beskjed."
 		}
 	},
+	"label-class": "badge-primary",
+	"label-id": "label",
+	"label-content": "9",
+	"button-colorClass": "",
+	"button-shadow-label": false,
 	"icon-list-items": [
 		{
 			"list-item-name": "Forretningsplan.doc",
@@ -125,9 +130,14 @@
 	],
 	"linkIcon-url": "#",
 	"linkIcon-text": "En lenke",
+	"recipient-info": {
+		"to-recipient-class": "a-fontBold",
+		"to-recipient": "til: ",
+		"recipients": "Kari Nordmann, Effektive Timer AS, Randi Nyhaug"
+	},
 	"message-info": {
 		"message-status-class": "a-fontBold",
-		"message-status": "motatt: ",
+		"message-status": "mottatt: ",
 		"message-date": "05.03.2016"
 	},
 	"activitylog": {
@@ -144,7 +154,7 @@
 		"text-link": false
 	},
 	"actions-row": {
-		"button-icons-wrapper-class": "col-md-auto col-12",
+		"button-icons-wrapper-class": "col-lg-auto col-12",
 		"button-wrapper-class": "col",
 		"action-button": {
 			"button-text": "Ok",
@@ -224,11 +234,22 @@
 				"icon-prefix": "reg",
 				"icon-class": "reg-attachment-pdf ai-md ai-nw pr-1"
 			}
-		]
+		],
+		"download-all": {
+			"button-text": "Last ned alle",
+			"button-class": "a-btn-link",
+			"button-colorClass": "",
+			"link-url": "",
+			"button-shadow-label": false,
+			"button-icon": {
+				"icon-prefix": "reg",
+				"icon-class": "reg-download"
+			}
+		}
 	},
 	"info-notice": {
 		"alert-id": false,
-		"alert-class": "a-message-info a-message--arrow-off a-message--fullwidth a-message--no-dropshadow pb-4 pt-2",
+		"alert-class": "a-message-info a-message--arrow-off a-message--extendLeft a-message--no-dropshadow pb-4 pt-2",
 		"alert-items": [
 			{
 				"alert-header": {
@@ -298,6 +319,7 @@
 	},
 	"hasTextSmall": false,
 	"icontext": "Stor tekst",
+	"top-notification": false,
 	"collapseID": "collapseEx1",
 	"dataParent": "#accordion",
 	"collapseHeader": {
@@ -630,11 +652,13 @@
 	"popover-link-icon": [
 		{
 			"icon-prefix": "ai",
-			"icon-class": "ai-circle-plus"
+			"icon-class": "ai-circle-plus",
+			"icon-extra-class": "a-js-popoverIconInitial"
 		},
 		{
 			"icon-prefix": "ai",
-			"icon-class": "ai-circle-minus"
+			"icon-class": "ai-circle-minus",
+			"icon-extra-class": "a-js-popoverIconExpanded"
 		}
 	],
 	"popover-content-id": "popoverWithIconToggle",
@@ -1141,7 +1165,7 @@
 								"info-notice": false,
 								"expandable-content": false,
 								"actions-row": {
-									"button-icons-wrapper-class": "col-md-auto col-12",
+									"button-icons-wrapper-class": "col-lg-auto col-12",
 									"button-wrapper-class": "col",
 									"action-button": {
 										"button-text": "Start innsending",
@@ -1155,17 +1179,6 @@
 										"data-toggle": false
 									},
 									"action-button-icon": [
-										{
-											"button-text": "Hjelp",
-											"button-class": "a-btn-link a-btn-md-block mr-2",
-											"button-colorClass": "",
-											"link-url": "",
-											"button-shadow-label": false,
-											"button-icon": {
-												"icon-prefix": "reg",
-												"icon-class": "reg-help reg-nw pr-1"
-											}
-										},
 										{
 											"button-text": "Arkiver",
 											"button-class": "a-btn-link a-btn-md-block mr-2",
@@ -1189,14 +1202,25 @@
 											}
 										},
 										{
-											"button-text": "Videresend",
-											"button-class": "a-btn-link a-btn-md-block",
+											"button-text": "Videresend i Altinn",
+											"button-class": "a-btn-link a-btn-md-block mr-2",
 											"button-colorClass": "",
 											"link-url": "",
 											"button-shadow-label": false,
 											"button-icon": {
 												"icon-prefix": "reg",
 												"icon-class": "reg-forward reg-nw pr-1"
+											}
+										},
+										{
+											"button-text": "Videresend på e-post",
+											"button-class": "a-btn-link a-btn-md-block",
+											"button-colorClass": "",
+											"link-url": "/patterns/04-sider-50-innboks-02-videresend-pa-epost/04-sider-50-innboks-02-videresend-pa-epost.html",
+											"button-shadow-label": false,
+											"button-icon": {
+												"icon-prefix": "reg",
+												"icon-class": "reg-forward-msg reg-nw pr-1"
 											}
 										}
 									]
@@ -1268,7 +1292,7 @@
 								"info-notice": false,
 								"expandable-content": false,
 								"actions-row": {
-									"button-icons-wrapper-class": "col-md-auto col-12",
+									"button-icons-wrapper-class": "col-lg-auto col-12",
 									"button-wrapper-class": "col",
 									"action-button": {
 										"button-text": "Start innsending",
@@ -1282,17 +1306,6 @@
 										"data-toggle": false
 									},
 									"action-button-icon": [
-										{
-											"button-text": "Hjelp",
-											"button-class": "a-btn-link a-btn-md-block mr-2",
-											"button-colorClass": "",
-											"link-url": "",
-											"button-shadow-label": false,
-											"button-icon": {
-												"icon-prefix": "reg",
-												"icon-class": "reg-help reg-nw pr-1"
-											}
-										},
 										{
 											"button-text": "Arkiver",
 											"button-class": "a-btn-link a-btn-md-block mr-2",
@@ -1316,14 +1329,25 @@
 											}
 										},
 										{
-											"button-text": "Videresend",
-											"button-class": "a-btn-link a-btn-md-block",
+											"button-text": "Videresend i Altinn",
+											"button-class": "a-btn-link a-btn-md-block mr-2",
 											"button-colorClass": "",
 											"link-url": "",
 											"button-shadow-label": false,
 											"button-icon": {
 												"icon-prefix": "reg",
 												"icon-class": "reg-forward reg-nw pr-1"
+											}
+										},
+										{
+											"button-text": "Videresend på e-post",
+											"button-class": "a-btn-link a-btn-md-block",
+											"button-colorClass": "",
+											"link-url": "/patterns/04-sider-50-innboks-02-videresend-pa-epost/04-sider-50-innboks-02-videresend-pa-epost.html",
+											"button-shadow-label": false,
+											"button-icon": {
+												"icon-prefix": "reg",
+												"icon-class": "reg-forward-msg reg-nw pr-1"
 											}
 										}
 									]
@@ -1413,7 +1437,7 @@
 									}
 								],
 								"actions-row": {
-									"button-icons-wrapper-class": "col-md-auto col-12",
+									"button-icons-wrapper-class": "col-lg-auto col-12",
 									"button-wrapper-class": "col",
 									"action-button": {
 										"button-text": "Bekreft mottatt melding",
@@ -1450,14 +1474,25 @@
 											}
 										},
 										{
-											"button-text": "Videresend",
-											"button-class": "a-btn-link a-btn-md-block",
+											"button-text": "Videresend i Altinn",
+											"button-class": "a-btn-link a-btn-md-block mr-2",
 											"button-colorClass": "",
 											"link-url": "",
 											"button-shadow-label": false,
 											"button-icon": {
 												"icon-prefix": "reg",
 												"icon-class": "reg-forward reg-nw pr-1"
+											}
+										},
+										{
+											"button-text": "Videresend på e-post",
+											"button-class": "a-btn-link a-btn-md-block",
+											"button-colorClass": "",
+											"link-url": "/patterns/04-sider-50-innboks-02-videresend-pa-epost/04-sider-50-innboks-02-videresend-pa-epost.html",
+											"button-shadow-label": false,
+											"button-icon": {
+												"icon-prefix": "reg",
+												"icon-class": "reg-forward-msg reg-nw pr-1"
 											}
 										}
 									]
@@ -1532,13 +1567,13 @@
 							"messageBody": {
 								"message-info": {
 									"message-status-class": "a-fontBold",
-									"message-status": "motatt: ",
+									"message-status": "mottatt: ",
 									"message-date": "05.03.2016"
 								},
 								"activitylog": false,
 								"message-text-block": false,
 								"actions-row": {
-									"button-icons-wrapper-class": "col-md-auto col-12",
+									"button-icons-wrapper-class": "col-lg-auto col-12",
 									"button-wrapper-class": "col",
 									"action-button": {
 										"button-text": "Last ned alle filer",
@@ -1552,17 +1587,6 @@
 										"data-toggle": false
 									},
 									"action-button-icon": [
-										{
-											"button-text": "Hjelp",
-											"button-class": "a-btn-link a-btn-md-block mr-2",
-											"button-colorClass": "",
-											"link-url": "",
-											"button-shadow-label": false,
-											"button-icon": {
-												"icon-prefix": "reg",
-												"icon-class": "reg-help reg-nw pr-1"
-											}
-										},
 										{
 											"button-text": "Arkiver",
 											"button-class": "a-btn-link a-btn-md-block mr-2",
@@ -1586,14 +1610,25 @@
 											}
 										},
 										{
-											"button-text": "Videresend",
-											"button-class": "a-btn-link a-btn-md-block",
+											"button-text": "Videresend i Altinn",
+											"button-class": "a-btn-link a-btn-md-block mr-2",
 											"button-colorClass": "",
 											"link-url": "",
 											"button-shadow-label": false,
 											"button-icon": {
 												"icon-prefix": "reg",
 												"icon-class": "reg-forward reg-nw pr-1"
+											}
+										},
+										{
+											"button-text": "Videresend på e-post",
+											"button-class": "a-btn-link a-btn-md-block",
+											"button-colorClass": "",
+											"link-url": "/patterns/04-sider-50-innboks-02-videresend-pa-epost/04-sider-50-innboks-02-videresend-pa-epost.html",
+											"button-shadow-label": false,
+											"button-icon": {
+												"icon-prefix": "reg",
+												"icon-class": "reg-forward-msg reg-nw pr-1"
 											}
 										}
 									]
@@ -1693,7 +1728,7 @@
 								"activitylog": false,
 								"message-text-block": false,
 								"actions-row": {
-									"button-icons-wrapper-class": "col-md-auto col-12",
+									"button-icons-wrapper-class": "col-lg-auto col-12",
 									"button-wrapper-class": "col",
 									"action-button": {
 										"button-text": "Last ned",
@@ -1730,14 +1765,25 @@
 											}
 										},
 										{
-											"button-text": "Videresend",
-											"button-class": "a-btn-link a-btn-md-block",
+											"button-text": "Videresend i Altinn",
+											"button-class": "a-btn-link a-btn-md-block mr-2",
 											"button-colorClass": "",
 											"link-url": "",
 											"button-shadow-label": false,
 											"button-icon": {
 												"icon-prefix": "reg",
 												"icon-class": "reg-forward reg-nw pr-1"
+											}
+										},
+										{
+											"button-text": "Videresend på e-post",
+											"button-class": "a-btn-link a-btn-md-block",
+											"button-colorClass": "",
+											"link-url": "/patterns/04-sider-50-innboks-02-videresend-pa-epost/04-sider-50-innboks-02-videresend-pa-epost.html",
+											"button-shadow-label": false,
+											"button-icon": {
+												"icon-prefix": "reg",
+												"icon-class": "reg-forward-msg reg-nw pr-1"
 											}
 										}
 									]
@@ -1773,6 +1819,15 @@
 							"isExpanded": false,
 							"isLarge": false,
 							"dataParent": "#accordion",
+							"top-notification": {
+								"notification-text-class": "d-inline",
+								"notification-text": "Dette skjemaet inngår i ",
+								"text-link": {
+									"link-text": "e-dialog konkursbehandling",
+									"link-url": "#",
+									"sr-text": false
+								}
+							},
 							"collapseHeader": {
 								"isElement": true,
 								"variation-class": "a-iconText-shadow a-collapseBtn collapsed",
@@ -1784,7 +1839,7 @@
 								},
 								"heading-icon": {
 									"icon-prefix": "reg",
-									"icon-class": "reg-edialogue",
+									"icon-class": "reg-write",
 									"icon-size": "reg-md-lg",
 									"icon-extra-class": "reg-nw",
 									"aria-hidden": true,
@@ -1832,7 +1887,7 @@
 								"info-notice": false,
 								"expandable-content": false,
 								"actions-row": {
-									"button-icons-wrapper-class": "col-md-auto col-12",
+									"button-icons-wrapper-class": "col-lg-auto col-12",
 									"button-wrapper-class": "col",
 									"action-button": {
 										"button-text": "Start",
@@ -1846,17 +1901,6 @@
 										"data-toggle": false
 									},
 									"action-button-icon": [
-										{
-											"button-text": "Hjelp",
-											"button-class": "a-btn-link a-btn-md-block mr-2",
-											"button-colorClass": "",
-											"link-url": "",
-											"button-shadow-label": false,
-											"button-icon": {
-												"icon-prefix": "reg",
-												"icon-class": "reg-help reg-nw pr-1"
-											}
-										},
 										{
 											"button-text": "Arkiver",
 											"button-class": "a-btn-link a-btn-md-block mr-2",
@@ -1880,14 +1924,25 @@
 											}
 										},
 										{
-											"button-text": "Videresend",
-											"button-class": "a-btn-link a-btn-md-block",
+											"button-text": "Videresend i Altinn",
+											"button-class": "a-btn-link a-btn-md-block mr-2",
 											"button-colorClass": "",
 											"link-url": "",
 											"button-shadow-label": false,
 											"button-icon": {
 												"icon-prefix": "reg",
 												"icon-class": "reg-forward reg-nw pr-1"
+											}
+										},
+										{
+											"button-text": "Videresend på e-post",
+											"button-class": "a-btn-link a-btn-md-block",
+											"button-colorClass": "",
+											"link-url": "/patterns/04-sider-50-innboks-02-videresend-pa-epost/04-sider-50-innboks-02-videresend-pa-epost.html",
+											"button-shadow-label": false,
+											"button-icon": {
+												"icon-prefix": "reg",
+												"icon-class": "reg-forward-msg reg-nw pr-1"
 											}
 										}
 									]
@@ -1901,6 +1956,15 @@
 							"isExpanded": false,
 							"isLarge": false,
 							"dataParent": "#accordion",
+							"top-notification": {
+								"notification-text-class": "d-inline",
+								"notification-text": "Dette skjemaet inngår i ",
+								"text-link": {
+									"link-text": "e-dialog konkursbehandling",
+									"link-url": "#",
+									"sr-text": false
+								}
+							},
 							"collapseHeader": {
 								"isElement": true,
 								"variation-class": "a-iconText-shadow a-collapseBtn collapsed",
@@ -1912,7 +1976,7 @@
 								},
 								"heading-icon": {
 									"icon-prefix": "reg",
-									"icon-class": "reg-edialogue",
+									"icon-class": "reg-write",
 									"icon-size": "reg-md-lg",
 									"icon-extra-class": "reg-nw",
 									"aria-hidden": true,
@@ -1960,7 +2024,7 @@
 								"info-notice": false,
 								"expandable-content": false,
 								"actions-row": {
-									"button-icons-wrapper-class": "col-md-auto col-12",
+									"button-icons-wrapper-class": "col-lg-auto col-12",
 									"button-wrapper-class": "col",
 									"action-button": {
 										"button-text": "Start",
@@ -1974,17 +2038,6 @@
 										"data-toggle": false
 									},
 									"action-button-icon": [
-										{
-											"button-text": "Hjelp",
-											"button-class": "a-btn-link a-btn-md-block mr-2",
-											"button-colorClass": "",
-											"link-url": "",
-											"button-shadow-label": false,
-											"button-icon": {
-												"icon-prefix": "reg",
-												"icon-class": "reg-help reg-nw pr-1"
-											}
-										},
 										{
 											"button-text": "Arkiver",
 											"button-class": "a-btn-link a-btn-md-block mr-2",
@@ -2008,14 +2061,25 @@
 											}
 										},
 										{
-											"button-text": "Videresend",
-											"button-class": "a-btn-link a-btn-md-block",
+											"button-text": "Videresend i Altinn",
+											"button-class": "a-btn-link a-btn-md-block mr-2",
 											"button-colorClass": "",
 											"link-url": "",
 											"button-shadow-label": false,
 											"button-icon": {
 												"icon-prefix": "reg",
 												"icon-class": "reg-forward reg-nw pr-1"
+											}
+										},
+										{
+											"button-text": "Videresend på e-post",
+											"button-class": "a-btn-link a-btn-md-block",
+											"button-colorClass": "",
+											"link-url": "/patterns/04-sider-50-innboks-02-videresend-pa-epost/04-sider-50-innboks-02-videresend-pa-epost.html",
+											"button-shadow-label": false,
+											"button-icon": {
+												"icon-prefix": "reg",
+												"icon-class": "reg-forward-msg reg-nw pr-1"
 											}
 										}
 									]
@@ -2102,7 +2166,7 @@
 								"attachments": false,
 								"info-notice": {
 									"alert-id": false,
-									"alert-class": "a-message-info a-message--arrow-off a-message--fullwidth a-message--no-dropshadow pb-4 pt-2",
+									"alert-class": "a-message-info a-message--arrow-off a-message--extendLeft a-message--no-dropshadow pb-4 pt-2",
 									"alert-items": [
 										{
 											"alert-header": {
@@ -2119,7 +2183,7 @@
 								},
 								"expandable-content": false,
 								"actions-row": {
-									"button-icons-wrapper-class": "col-md-auto col-12",
+									"button-icons-wrapper-class": "col-lg-auto col-12",
 									"button-wrapper-class": "col",
 									"action-button": {
 										"button-text": "Start innsending",
@@ -2133,17 +2197,6 @@
 										"data-toggle": false
 									},
 									"action-button-icon": [
-										{
-											"button-text": "Hjelp",
-											"button-class": "a-btn-link a-btn-md-block mr-2",
-											"button-colorClass": "",
-											"link-url": "",
-											"button-shadow-label": false,
-											"button-icon": {
-												"icon-prefix": "reg",
-												"icon-class": "reg-help reg-nw pr-1"
-											}
-										},
 										{
 											"button-text": "Arkiver",
 											"button-class": "a-btn-link a-btn-md-block mr-2",
@@ -2167,14 +2220,25 @@
 											}
 										},
 										{
-											"button-text": "Videresend",
-											"button-class": "a-btn-link a-btn-md-block",
+											"button-text": "Videresend i Altinn",
+											"button-class": "a-btn-link a-btn-md-block mr-2",
 											"button-colorClass": "",
 											"link-url": "",
 											"button-shadow-label": false,
 											"button-icon": {
 												"icon-prefix": "reg",
 												"icon-class": "reg-forward reg-nw pr-1"
+											}
+										},
+										{
+											"button-text": "Videresend på e-post",
+											"button-class": "a-btn-link a-btn-md-block",
+											"button-colorClass": "",
+											"link-url": "/patterns/04-sider-50-innboks-02-videresend-pa-epost/04-sider-50-innboks-02-videresend-pa-epost.html",
+											"button-shadow-label": false,
+											"button-icon": {
+												"icon-prefix": "reg",
+												"icon-class": "reg-forward-msg reg-nw pr-1"
 											}
 										}
 									]
@@ -2251,7 +2315,7 @@
 								"attachments": false,
 								"info-notice": {
 									"alert-id": false,
-									"alert-class": "a-message-info a-message--arrow-off a-message--fullwidth a-message--no-dropshadow pb-4 pt-2",
+									"alert-class": "a-message-info a-message--arrow-off a-message--extendLeft a-message--no-dropshadow pb-4 pt-2",
 									"alert-items": [
 										{
 											"alert-header": {
@@ -2268,7 +2332,7 @@
 								},
 								"expandable-content": false,
 								"actions-row": {
-									"button-icons-wrapper-class": "col-md-auto col-12",
+									"button-icons-wrapper-class": "col-lg-auto col-12",
 									"button-wrapper-class": "col",
 									"action-button": {
 										"button-text": "Start innsending",
@@ -2282,17 +2346,6 @@
 										"data-toggle": false
 									},
 									"action-button-icon": [
-										{
-											"button-text": "Hjelp",
-											"button-class": "a-btn-link a-btn-md-block mr-2",
-											"button-colorClass": "",
-											"link-url": "",
-											"button-shadow-label": false,
-											"button-icon": {
-												"icon-prefix": "reg",
-												"icon-class": "reg-help reg-nw pr-1"
-											}
-										},
 										{
 											"button-text": "Arkiver",
 											"button-class": "a-btn-link a-btn-md-block mr-2",
@@ -2316,14 +2369,25 @@
 											}
 										},
 										{
-											"button-text": "Videresend",
-											"button-class": "a-btn-link a-btn-md-block",
+											"button-text": "Videresend i Altinn",
+											"button-class": "a-btn-link a-btn-md-block mr-2",
 											"button-colorClass": "",
 											"link-url": "",
 											"button-shadow-label": false,
 											"button-icon": {
 												"icon-prefix": "reg",
 												"icon-class": "reg-forward reg-nw pr-1"
+											}
+										},
+										{
+											"button-text": "Videresend på e-post",
+											"button-class": "a-btn-link a-btn-md-block",
+											"button-colorClass": "",
+											"link-url": "/patterns/04-sider-50-innboks-02-videresend-pa-epost/04-sider-50-innboks-02-videresend-pa-epost.html",
+											"button-shadow-label": false,
+											"button-icon": {
+												"icon-prefix": "reg",
+												"icon-class": "reg-forward-msg reg-nw pr-1"
 											}
 										}
 									]
@@ -2411,7 +2475,7 @@
 									}
 								],
 								"actions-row": {
-									"button-icons-wrapper-class": "col-md-auto col-12",
+									"button-icons-wrapper-class": "col-lg-auto col-12",
 									"button-wrapper-class": "col",
 									"action-button": {
 										"button-text": "Bekreftet mottatt",
@@ -2448,14 +2512,25 @@
 											}
 										},
 										{
-											"button-text": "Videresend",
-											"button-class": "a-btn-link a-btn-md-block",
+											"button-text": "Videresend i Altinn",
+											"button-class": "a-btn-link a-btn-md-block mr-2",
 											"button-colorClass": "",
 											"link-url": "",
 											"button-shadow-label": false,
 											"button-icon": {
 												"icon-prefix": "reg",
 												"icon-class": "reg-forward reg-nw pr-1"
+											}
+										},
+										{
+											"button-text": "Videresend på e-post",
+											"button-class": "a-btn-link a-btn-md-block",
+											"button-colorClass": "",
+											"link-url": "/patterns/04-sider-50-innboks-02-videresend-pa-epost/04-sider-50-innboks-02-videresend-pa-epost.html",
+											"button-shadow-label": false,
+											"button-icon": {
+												"icon-prefix": "reg",
+												"icon-class": "reg-forward-msg reg-nw pr-1"
 											}
 										}
 									]
@@ -2568,7 +2643,7 @@
 									}
 								],
 								"actions-row": {
-									"button-icons-wrapper-class": "col-md-auto col-12",
+									"button-icons-wrapper-class": "col-lg-auto col-12",
 									"button-wrapper-class": "col",
 									"action-button": {
 										"button-text": "Bekreft mottatt melding",
@@ -2605,14 +2680,25 @@
 											}
 										},
 										{
-											"button-text": "Videresend",
-											"button-class": "a-btn-link a-btn-md-block",
+											"button-text": "Videresend i Altinn",
+											"button-class": "a-btn-link a-btn-md-block mr-2",
 											"button-colorClass": "",
 											"link-url": "",
 											"button-shadow-label": false,
 											"button-icon": {
 												"icon-prefix": "reg",
 												"icon-class": "reg-forward reg-nw pr-1"
+											}
+										},
+										{
+											"button-text": "Videresend på e-post",
+											"button-class": "a-btn-link a-btn-md-block",
+											"button-colorClass": "",
+											"link-url": "/patterns/04-sider-50-innboks-02-videresend-pa-epost/04-sider-50-innboks-02-videresend-pa-epost.html",
+											"button-shadow-label": false,
+											"button-icon": {
+												"icon-prefix": "reg",
+												"icon-class": "reg-forward-msg reg-nw pr-1"
 											}
 										}
 									]
@@ -2629,7 +2715,7 @@
 								},
 								"info-notice": {
 									"alert-id": false,
-									"alert-class": "a-message-info a-message--arrow-off a-message--fullwidth a-message--no-dropshadow pb-4 pt-2",
+									"alert-class": "a-message-info a-message--arrow-off a-message--extendLeft a-message--no-dropshadow pb-4 pt-2",
 									"alert-items": {
 										"alert-text": {
 											"text": "Denne meldingen krever lesebekreftelse. Du mangler de nødvendige rettighetene til å utføre dette hos KAJAKK OG SKI AS."
@@ -2713,7 +2799,7 @@
 								"attachments": false,
 								"info-notice": {
 									"alert-id": false,
-									"alert-class": "a-message-info a-message--arrow-off a-message--fullwidth a-message--no-dropshadow pb-4 pt-2",
+									"alert-class": "a-message-info a-message--arrow-off a-message--extendLeft a-message--no-dropshadow pb-4 pt-2",
 									"alert-items": [
 										{
 											"alert-header": {
@@ -2730,7 +2816,7 @@
 								},
 								"expandable-content": false,
 								"actions-row": {
-									"button-icons-wrapper-class": "col-md-auto col-12",
+									"button-icons-wrapper-class": "col-lg-auto col-12",
 									"button-wrapper-class": "col",
 									"action-button": {
 										"button-text": "Innsendt",
@@ -2744,17 +2830,6 @@
 										"data-toggle": false
 									},
 									"action-button-icon": [
-										{
-											"button-text": "Hjelp",
-											"button-class": "a-btn-link a-btn-md-block mr-2",
-											"button-colorClass": "",
-											"link-url": "",
-											"button-shadow-label": false,
-											"button-icon": {
-												"icon-prefix": "reg",
-												"icon-class": "reg-help reg-nw pr-1"
-											}
-										},
 										{
 											"button-text": "Arkiver",
 											"button-class": "a-btn-link a-btn-md-block mr-2",
@@ -2778,14 +2853,25 @@
 											}
 										},
 										{
-											"button-text": "Videresend",
-											"button-class": "a-btn-link a-btn-md-block",
+											"button-text": "Videresend i Altinn",
+											"button-class": "a-btn-link a-btn-md-block mr-2",
 											"button-colorClass": "",
 											"link-url": "",
 											"button-shadow-label": false,
 											"button-icon": {
 												"icon-prefix": "reg",
 												"icon-class": "reg-forward reg-nw pr-1"
+											}
+										},
+										{
+											"button-text": "Videresend på e-post",
+											"button-class": "a-btn-link a-btn-md-block",
+											"button-colorClass": "",
+											"link-url": "/patterns/04-sider-50-innboks-02-videresend-pa-epost/04-sider-50-innboks-02-videresend-pa-epost.html",
+											"button-shadow-label": false,
+											"button-icon": {
+												"icon-prefix": "reg",
+												"icon-class": "reg-forward-msg reg-nw pr-1"
 											}
 										}
 									]
@@ -2873,7 +2959,7 @@
 									}
 								],
 								"actions-row": {
-									"button-icons-wrapper-class": "col-md-auto col-12",
+									"button-icons-wrapper-class": "col-lg-auto col-12",
 									"button-wrapper-class": "col",
 									"action-button": {
 										"button-text": "Last ned",
@@ -2910,14 +2996,25 @@
 											}
 										},
 										{
-											"button-text": "Videresend",
-											"button-class": "a-btn-link a-btn-md-block",
+											"button-text": "Videresend i Altinn",
+											"button-class": "a-btn-link a-btn-md-block mr-2",
 											"button-colorClass": "",
 											"link-url": "",
 											"button-shadow-label": false,
 											"button-icon": {
 												"icon-prefix": "reg",
 												"icon-class": "reg-forward reg-nw pr-1"
+											}
+										},
+										{
+											"button-text": "Videresend på e-post",
+											"button-class": "a-btn-link a-btn-md-block",
+											"button-colorClass": "",
+											"link-url": "/patterns/04-sider-50-innboks-02-videresend-pa-epost/04-sider-50-innboks-02-videresend-pa-epost.html",
+											"button-shadow-label": false,
+											"button-icon": {
+												"icon-prefix": "reg",
+												"icon-class": "reg-forward-msg reg-nw pr-1"
 											}
 										}
 									]
@@ -3030,7 +3127,7 @@
 									}
 								],
 								"actions-row": {
-									"button-icons-wrapper-class": "col-md-auto col-12",
+									"button-icons-wrapper-class": "col-lg-auto col-12",
 									"button-wrapper-class": "col",
 									"action-button": {
 										"button-text": "Last ned",
@@ -3067,14 +3164,25 @@
 											}
 										},
 										{
-											"button-text": "Videresend",
-											"button-class": "a-btn-link a-btn-md-block",
+											"button-text": "Videresend i Altinn",
+											"button-class": "a-btn-link a-btn-md-block mr-2",
 											"button-colorClass": "",
 											"link-url": "",
 											"button-shadow-label": false,
 											"button-icon": {
 												"icon-prefix": "reg",
 												"icon-class": "reg-forward reg-nw pr-1"
+											}
+										},
+										{
+											"button-text": "Videresend på e-post",
+											"button-class": "a-btn-link a-btn-md-block",
+											"button-colorClass": "",
+											"link-url": "/patterns/04-sider-50-innboks-02-videresend-pa-epost/04-sider-50-innboks-02-videresend-pa-epost.html",
+											"button-shadow-label": false,
+											"button-icon": {
+												"icon-prefix": "reg",
+												"icon-class": "reg-forward-msg reg-nw pr-1"
 											}
 										}
 									]
@@ -3163,7 +3271,7 @@
 								"info-notice": false,
 								"expandable-content": false,
 								"actions-row": {
-									"button-icons-wrapper-class": "col-md-auto col-12",
+									"button-icons-wrapper-class": "col-lg-auto col-12",
 									"button-wrapper-class": "col",
 									"action-button": {
 										"button-text": "Fortsett utfylling",
@@ -3177,17 +3285,6 @@
 										"data-toggle": false
 									},
 									"action-button-icon": [
-										{
-											"button-text": "Hjelp",
-											"button-class": "a-btn-link a-btn-md-block mr-2",
-											"button-colorClass": "",
-											"link-url": "",
-											"button-shadow-label": false,
-											"button-icon": {
-												"icon-prefix": "reg",
-												"icon-class": "reg-help reg-nw pr-1"
-											}
-										},
 										{
 											"button-text": "Arkiver",
 											"button-class": "a-btn-link a-btn-md-block mr-2",
@@ -3211,14 +3308,25 @@
 											}
 										},
 										{
-											"button-text": "Videresend",
-											"button-class": "a-btn-link a-btn-md-block",
+											"button-text": "Videresend i Altinn",
+											"button-class": "a-btn-link a-btn-md-block mr-2",
 											"button-colorClass": "",
 											"link-url": "",
 											"button-shadow-label": false,
 											"button-icon": {
 												"icon-prefix": "reg",
 												"icon-class": "reg-forward reg-nw pr-1"
+											}
+										},
+										{
+											"button-text": "Videresend på e-post",
+											"button-class": "a-btn-link a-btn-md-block",
+											"button-colorClass": "",
+											"link-url": "/patterns/04-sider-50-innboks-02-videresend-pa-epost/04-sider-50-innboks-02-videresend-pa-epost.html",
+											"button-shadow-label": false,
+											"button-icon": {
+												"icon-prefix": "reg",
+												"icon-class": "reg-forward-msg reg-nw pr-1"
 											}
 										}
 									]
@@ -3285,7 +3393,7 @@
 								"info-notice": false,
 								"expandable-content": false,
 								"actions-row": {
-									"button-icons-wrapper-class": "col-md-auto col-12",
+									"button-icons-wrapper-class": "col-lg-auto col-12",
 									"button-wrapper-class": "col",
 									"action-button": {
 										"button-text": "Fortsett utfylling",
@@ -3299,17 +3407,6 @@
 										"data-toggle": false
 									},
 									"action-button-icon": [
-										{
-											"button-text": "Hjelp",
-											"button-class": "a-btn-link a-btn-md-block mr-2",
-											"button-colorClass": "",
-											"link-url": "",
-											"button-shadow-label": false,
-											"button-icon": {
-												"icon-prefix": "reg",
-												"icon-class": "reg-help reg-nw pr-1"
-											}
-										},
 										{
 											"button-text": "Arkiver",
 											"button-class": "a-btn-link a-btn-md-block mr-2",
@@ -3333,14 +3430,25 @@
 											}
 										},
 										{
-											"button-text": "Videresend",
-											"button-class": "a-btn-link a-btn-md-block",
+											"button-text": "Videresend i Altinn",
+											"button-class": "a-btn-link a-btn-md-block mr-2",
 											"button-colorClass": "",
 											"link-url": "",
 											"button-shadow-label": false,
 											"button-icon": {
 												"icon-prefix": "reg",
 												"icon-class": "reg-forward reg-nw pr-1"
+											}
+										},
+										{
+											"button-text": "Videresend på e-post",
+											"button-class": "a-btn-link a-btn-md-block",
+											"button-colorClass": "",
+											"link-url": "/patterns/04-sider-50-innboks-02-videresend-pa-epost/04-sider-50-innboks-02-videresend-pa-epost.html",
+											"button-shadow-label": false,
+											"button-icon": {
+												"icon-prefix": "reg",
+												"icon-class": "reg-forward-msg reg-nw pr-1"
 											}
 										}
 									]
@@ -3416,7 +3524,7 @@
 								"info-notice": false,
 								"expandable-content": false,
 								"actions-row": {
-									"button-icons-wrapper-class": "col-md-auto col-12",
+									"button-icons-wrapper-class": "col-lg-auto col-12",
 									"button-wrapper-class": "col",
 									"action-button": {
 										"button-text": "Start innsending",
@@ -3430,17 +3538,6 @@
 										"data-toggle": false
 									},
 									"action-button-icon": [
-										{
-											"button-text": "Hjelp",
-											"button-class": "a-btn-link a-btn-md-block mr-2",
-											"button-colorClass": "",
-											"link-url": "",
-											"button-shadow-label": false,
-											"button-icon": {
-												"icon-prefix": "reg",
-												"icon-class": "reg-help reg-nw pr-1"
-											}
-										},
 										{
 											"button-text": "Arkiver",
 											"button-class": "a-btn-link a-btn-md-block mr-2",
@@ -3464,14 +3561,25 @@
 											}
 										},
 										{
-											"button-text": "Videresend",
-											"button-class": "a-btn-link a-btn-md-block",
+											"button-text": "Videresend i Altinn",
+											"button-class": "a-btn-link a-btn-md-block mr-2",
 											"button-colorClass": "",
 											"link-url": "",
 											"button-shadow-label": false,
 											"button-icon": {
 												"icon-prefix": "reg",
 												"icon-class": "reg-forward reg-nw pr-1"
+											}
+										},
+										{
+											"button-text": "Videresend på e-post",
+											"button-class": "a-btn-link a-btn-md-block",
+											"button-colorClass": "",
+											"link-url": "/patterns/04-sider-50-innboks-02-videresend-pa-epost/04-sider-50-innboks-02-videresend-pa-epost.html",
+											"button-shadow-label": false,
+											"button-icon": {
+												"icon-prefix": "reg",
+												"icon-class": "reg-forward-msg reg-nw pr-1"
 											}
 										}
 									]
@@ -3548,7 +3656,7 @@
 									}
 								],
 								"actions-row": {
-									"button-icons-wrapper-class": "col-md-auto col-12",
+									"button-icons-wrapper-class": "col-lg-auto col-12",
 									"button-wrapper-class": "col",
 									"action-button": {
 										"button-text": "Last ned",
@@ -3585,14 +3693,25 @@
 											}
 										},
 										{
-											"button-text": "Videresend",
-											"button-class": "a-btn-link a-btn-md-block",
+											"button-text": "Videresend i Altinn",
+											"button-class": "a-btn-link a-btn-md-block mr-2",
 											"button-colorClass": "",
 											"link-url": "",
 											"button-shadow-label": false,
 											"button-icon": {
 												"icon-prefix": "reg",
 												"icon-class": "reg-forward reg-nw pr-1"
+											}
+										},
+										{
+											"button-text": "Videresend på e-post",
+											"button-class": "a-btn-link a-btn-md-block",
+											"button-colorClass": "",
+											"link-url": "/patterns/04-sider-50-innboks-02-videresend-pa-epost/04-sider-50-innboks-02-videresend-pa-epost.html",
+											"button-shadow-label": false,
+											"button-icon": {
+												"icon-prefix": "reg",
+												"icon-class": "reg-forward-msg reg-nw pr-1"
 											}
 										}
 									]
@@ -3694,7 +3813,7 @@
 									}
 								],
 								"actions-row": {
-									"button-icons-wrapper-class": "col-md-auto col-12",
+									"button-icons-wrapper-class": "col-lg-auto col-12",
 									"button-wrapper-class": "col",
 									"action-button": {
 										"button-text": "Last ned",
@@ -3731,14 +3850,25 @@
 											}
 										},
 										{
-											"button-text": "Videresend",
-											"button-class": "a-btn-link a-btn-md-block",
+											"button-text": "Videresend i Altinn",
+											"button-class": "a-btn-link a-btn-md-block mr-2",
 											"button-colorClass": "",
 											"link-url": "",
 											"button-shadow-label": false,
 											"button-icon": {
 												"icon-prefix": "reg",
 												"icon-class": "reg-forward reg-nw pr-1"
+											}
+										},
+										{
+											"button-text": "Videresend på e-post",
+											"button-class": "a-btn-link a-btn-md-block",
+											"button-colorClass": "",
+											"link-url": "/patterns/04-sider-50-innboks-02-videresend-pa-epost/04-sider-50-innboks-02-videresend-pa-epost.html",
+											"button-shadow-label": false,
+											"button-icon": {
+												"icon-prefix": "reg",
+												"icon-class": "reg-forward-msg reg-nw pr-1"
 											}
 										}
 									]
@@ -3821,7 +3951,7 @@
 								"info-notice": false,
 								"expandable-content": false,
 								"actions-row": {
-									"button-icons-wrapper-class": "col-md-auto col-12",
+									"button-icons-wrapper-class": "col-lg-auto col-12",
 									"button-wrapper-class": "col",
 									"action-button": {
 										"button-text": "Innsendt",
@@ -3835,17 +3965,6 @@
 										"data-toggle": false
 									},
 									"action-button-icon": [
-										{
-											"button-text": "Hjelp",
-											"button-class": "a-btn-link a-btn-md-block mr-2",
-											"button-colorClass": "",
-											"link-url": "",
-											"button-shadow-label": false,
-											"button-icon": {
-												"icon-prefix": "reg",
-												"icon-class": "reg-help reg-nw pr-1"
-											}
-										},
 										{
 											"button-text": "Arkiver",
 											"button-class": "a-btn-link a-btn-md-block mr-2",
@@ -3869,14 +3988,25 @@
 											}
 										},
 										{
-											"button-text": "Videresend",
-											"button-class": "a-btn-link a-btn-md-block",
+											"button-text": "Videresend i Altinn",
+											"button-class": "a-btn-link a-btn-md-block mr-2",
 											"button-colorClass": "",
 											"link-url": "",
 											"button-shadow-label": false,
 											"button-icon": {
 												"icon-prefix": "reg",
 												"icon-class": "reg-forward reg-nw pr-1"
+											}
+										},
+										{
+											"button-text": "Videresend på e-post",
+											"button-class": "a-btn-link a-btn-md-block",
+											"button-colorClass": "",
+											"link-url": "/patterns/04-sider-50-innboks-02-videresend-pa-epost/04-sider-50-innboks-02-videresend-pa-epost.html",
+											"button-shadow-label": false,
+											"button-icon": {
+												"icon-prefix": "reg",
+												"icon-class": "reg-forward-msg reg-nw pr-1"
 											}
 										}
 									]
@@ -3953,7 +4083,7 @@
 									}
 								],
 								"actions-row": {
-									"button-icons-wrapper-class": "col-md-auto col-12",
+									"button-icons-wrapper-class": "col-lg-auto col-12",
 									"button-wrapper-class": "col",
 									"action-button": {
 										"button-text": "Last ned",
@@ -3990,14 +4120,25 @@
 											}
 										},
 										{
-											"button-text": "Videresend",
-											"button-class": "a-btn-link a-btn-md-block",
+											"button-text": "Videresend i Altinn",
+											"button-class": "a-btn-link a-btn-md-block mr-2",
 											"button-colorClass": "",
 											"link-url": "",
 											"button-shadow-label": false,
 											"button-icon": {
 												"icon-prefix": "reg",
 												"icon-class": "reg-forward reg-nw pr-1"
+											}
+										},
+										{
+											"button-text": "Videresend på e-post",
+											"button-class": "a-btn-link a-btn-md-block",
+											"button-colorClass": "",
+											"link-url": "/patterns/04-sider-50-innboks-02-videresend-pa-epost/04-sider-50-innboks-02-videresend-pa-epost.html",
+											"button-shadow-label": false,
+											"button-icon": {
+												"icon-prefix": "reg",
+												"icon-class": "reg-forward-msg reg-nw pr-1"
 											}
 										}
 									]
@@ -4099,7 +4240,7 @@
 									}
 								],
 								"actions-row": {
-									"button-icons-wrapper-class": "col-md-auto col-12",
+									"button-icons-wrapper-class": "col-lg-auto col-12",
 									"button-wrapper-class": "col",
 									"action-button": {
 										"button-text": "Last ned",
@@ -4136,14 +4277,25 @@
 											}
 										},
 										{
-											"button-text": "Videresend",
-											"button-class": "a-btn-link a-btn-md-block",
+											"button-text": "Videresend i Altinn",
+											"button-class": "a-btn-link a-btn-md-block mr-2",
 											"button-colorClass": "",
 											"link-url": "",
 											"button-shadow-label": false,
 											"button-icon": {
 												"icon-prefix": "reg",
 												"icon-class": "reg-forward reg-nw pr-1"
+											}
+										},
+										{
+											"button-text": "Videresend på e-post",
+											"button-class": "a-btn-link a-btn-md-block",
+											"button-colorClass": "",
+											"link-url": "/patterns/04-sider-50-innboks-02-videresend-pa-epost/04-sider-50-innboks-02-videresend-pa-epost.html",
+											"button-shadow-label": false,
+											"button-icon": {
+												"icon-prefix": "reg",
+												"icon-class": "reg-forward-msg reg-nw pr-1"
 											}
 										}
 									]
@@ -4167,5 +4319,13 @@
 			}
 		],
 		"inbox-extra-class": "a-inboxCompact"
+	},
+	"load-more-btn": {
+		"button-class": "a-btn a-btn-action a-fullWidthBtn pl-1",
+		"action-button-text": "Last flere",
+		"onclick": "location.href='#'",
+		"icon-prefix": "ai",
+		"icon-class": "ai-plus",
+		"icon-extra-class": ""
 	}
 }

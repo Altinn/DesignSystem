@@ -704,6 +704,7 @@ var popoverLocalInit = function() {
   $('[data-toggle="popover"]').popover(options);
 
   $('.a-js-togglePopoverIcons').each(function() {
+    // $(this).find('i').eq(1).hide();
     $(this).find('.a-js-popoverIconExpanded').hide();
   });
 };
@@ -1126,6 +1127,14 @@ var onFileInputChange = function() {
     $('.a-js-certificateList').removeClass('hidden-xs-up');
     $('.a-js-certificateUpload').addClass('hidden-xs-up');
     $('#loginInfoEnterprisePanelHeader').find('a').first().focus();
+  });
+  $('.a-js-certificateEdit').on('click', function() {
+    $('.a-js-edit-userpass').removeClass('hidden-xs-up');
+    $('.a-js-certificates').addClass('hidden-xs-up');
+  });
+  $('.a-js-certificateSave').on('click', function() {
+    $('.a-js-certificates').removeClass('hidden-xs-up');
+    $('.a-js-edit-userpass').addClass('hidden-xs-up');
   });
 };
 

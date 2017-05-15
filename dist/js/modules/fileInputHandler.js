@@ -58,6 +58,14 @@ var onFileInputChange = function() {
     $('.a-js-certificateUpload').addClass('hidden-xs-up');
     $('#loginInfoEnterprisePanelHeader').find('a').first().focus();
   });
+  $('.a-js-certificateEdit').on('click', function() {
+    $('.a-js-edit-userpass').removeClass('hidden-xs-up');
+    $('.a-js-certificates').addClass('hidden-xs-up');
+  });
+  $('.a-js-certificateSave').on('click', function() {
+    $('.a-js-certificates').removeClass('hidden-xs-up');
+    $('.a-js-edit-userpass').addClass('hidden-xs-up');
+  });
 };
 
 var onFileListDeleteClick = function(src) {

@@ -704,6 +704,7 @@ var popoverLocalInit = function() {
   $('[data-toggle="popover"]').popover(options);
 
   $('.a-js-togglePopoverIcons').each(function() {
+    // $(this).find('i').eq(1).hide();
     $(this).find('.a-js-popoverIconExpanded').hide();
   });
 };
