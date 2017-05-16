@@ -8,7 +8,7 @@
   background-size: cover;
 
   @include media-breakpoint-up( md ) {
-    min-height: calc(100vh - 200px);
+    height: calc(100vh - 200px);
   }
 
   .a-leadText {
@@ -455,12 +455,13 @@
     flex-wrap: nowrap;
   }
 
-
   img {
+    flex-grow: 0;
     width: 150px;
     margin-right: auto;
     margin-left: auto;
     border-radius: 50%;
+    flex-shrink: 0;
 
     @include media-breakpoint-up( md ) {
       width: 126px;
@@ -670,6 +671,10 @@
 
   .a-mainCard-content {
     @extend .a-fontSizeM;
+
+    ul {
+      margin-left: 0;
+    }
   }
 }
 
