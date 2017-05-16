@@ -19,15 +19,57 @@
 
     <p>For at vi skal kunne hjelpe deg så fort som mulig er det viktig at du oppgir tilstrekkelig med informasjon om problemstillingen din. Haster det, ta kontakt per telefon 75 00 60 00.</p>
 
-    <form data-toggle="validator" id="contactForm">
-      <div class="row">
-        <div class="col-8">
-          {{#navn}} {{> atomer-tekst-input:mb-2 }} {{/navn}} {{#epost}} {{> atomer-tekst-input:mb-2 }} {{/epost}} {{#telefon}} {{> atomer-tekst-input:mb-2 }} {{/telefon}} {{#tema}} {{> atomer-flervalg-stilisert }} {{/tema}} {{#question}} {{> atomer-tekstfelt:mb-2
-          }} {{/question}} {{#submit}} {{> atomer-knapp:mb-2 }} {{/submit}}
-        </div>
-      </div>
-    </form>
+    <h2 class="a-h3">Hva kan vi hjelpe deg med?</h2>
 
+    <ul class="nav nav-tabs custom-radio a-radioButtons a-navTabsRadio" role="tablist">
+      <li class="nav-item">
+        <a class="nav-link" data-toggle="tab" href="#home" role="tab">
+          <span class="custom-control-indicator"></span> Hvordan bruke Altinn
+        </a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" data-toggle="tab" href="#profile" role="tab">
+          <span class="custom-control-indicator"></span> Starte og drive bedrift
+        </a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" data-toggle="tab" href="#messages" role="tab">
+          <span class="custom-control-indicator"></span> Innhold i skjema og meldinger
+        </a>
+      </li>
+    </ul>
+
+    <!-- Tab panes -->
+    <div class="tab-content">
+
+      <div class="tab-pane" id="home" role="tabpanel">
+        <form data-toggle="validator" id="contactForm">
+          <div class="row">
+            <div class="col-8">
+              {{#navn}} {{> atomer-tekst-input:mb-2 }} {{/navn}} {{#epost}} {{> atomer-tekst-input:mb-2 }} {{/epost}} {{#telefon}} {{> atomer-tekst-input:mb-2 }} {{/telefon}} {{#emne}} {{> atomer-tekst-input:mb-2 }} {{/emne}} {{#question}} {{> atomer-tekstfelt:mb-2
+              }} {{/question}} {{#submit}} {{> atomer-knapp:mb-2 }} {{/submit}}
+            </div>
+          </div>
+        </form>
+      </div>
+
+      <div class="tab-pane" id="profile" role="tabpanel">
+        {{#form2}}
+        <form data-toggle="validator" id="contactForm2">
+          <div class="row">
+            <div class="col-8">
+              {{#navn}} {{> atomer-tekst-input:mb-2 }} {{/navn}} {{#epost}} {{> atomer-tekst-input:mb-2 }} {{/epost}} {{#telefon}} {{> atomer-tekst-input:mb-2 }} {{/telefon}} {{#emne}} {{> atomer-tekst-input:mb-2 }} {{/emne}} {{#question}} {{> atomer-tekstfelt:mb-2
+              }} {{/question}} {{#attachment}} {{> atomer-upload }} {{/attachment}} {{#submit}} {{> atomer-knapp:mb-2 }} {{/submit}}
+            </div>
+          </div>
+        </form>
+        {{/form2}}
+      </div>
+
+      <div class="tab-pane" id="messages" role="tabpanel">
+        <p>Spørsmål om innholdet i skjema og meldinger må stilles til etaten/kommunen som eier skjemaet eller har sendt deg meldingen. Du finner kontaktinformasjon til de ulike skjemaeierne under <a href="{{link.sider-kolonnenavigasjon-v-skjemaoversikt}}">Alle skjema</a></p>
+      </div>
+    </div>
 
   </div>
 </div>
@@ -35,6 +77,7 @@
 <script>
   $(document).ready(function() {
     setupFormValidation("#contactForm", "#a-js-contactForm-submit");
+    setupFormValidation("#contactForm2", "#a-js-contactForm-submit2");
   });
 </script>
 
