@@ -1,6 +1,6 @@
 ---
-state: inprogress
+state: indesignreview
 version: 1
 ---
 
-Modal for melingsinnhold ved videresending i altinn
+Modal for meldingsinnhold ved videresending i Altinn
