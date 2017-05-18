@@ -143,13 +143,19 @@
 
   &.expanded {
     // Add top / bottom margin to add more space around expanded items
-
+    padding-top: $spacer;
+    padding-bottom: $spacer;
     margin-right: -$spacer / 2;
     margin-left: -$spacer / 2;
 
     @include media-breakpoint-up( md ) {
-      margin-right: -$spacer;
-      margin-left: -$spacer;
+      margin-right: -$spacer * 2;
+      margin-left: -$spacer * 2;
+    }
+
+    @include media-breakpoint-up( xl ) {
+      margin-right: -$spacer * 3;
+      margin-left: -$spacer * 3;
     }
 
     .a-collapsePanel-heading {
@@ -169,6 +175,10 @@
         padding: 0;
       }
     }
+  }
+
+  &:first-of-type {
+    padding-top: 0;
   }
 }
 
