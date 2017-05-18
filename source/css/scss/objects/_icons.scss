@@ -146,22 +146,9 @@
     display: flex;
     width: $spacer * 5;
     min-width: $spacer * 5;
-    margin-right: 0;
+    margin-right: $spacer;
     justify-content: center;
     align-self: center;
-
-    @include media-breakpoint-up( sm ) {
-      margin-right: $spacer;
-    }
-
-    @include media-breakpoint-up( lg ) {
-      margin-right: $spacer / 2;
-    }
-
-    @include media-breakpoint-up( xl ) {
-      margin-right: $spacer;
-      margin-left: $spacer / 2;
-    }
 
     .a-date {
       margin: 0;
@@ -183,6 +170,7 @@
   // The text
   .a-iconText-text {
     flex: 1; //fix for flexbox wordwrap ie
+    font-size: inherit;
 
     .a-iconText-text-small {
       @include a-fontSize14;
@@ -254,13 +242,9 @@
 
   // VARIATION: Backgrounds
   &.a-iconText-background {
-    padding: $spacer * 1.5 $spacer $spacer * 1.5 0;
+    padding: $spacer;
     color: $white;
     background: $grey;
-
-    @include media-breakpoint-up( sm ) {
-      padding: $spacer * 1.5 $spacer;
-    }
 
     .a-icon-circle {
       color: $black;
@@ -269,6 +253,14 @@
     &.a-iconText-background--blueDarker {
       color: $white;
       background: $blue-darker;
+
+      .a-iconText-icon {
+        margin-right: 0;
+
+        @include media-breakpoint-up( md ) {
+          margin-right: $spacer;
+        }
+      }
     }
 
     &.a-iconText-background--white {
