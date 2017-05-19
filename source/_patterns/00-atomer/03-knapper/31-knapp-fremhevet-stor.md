@@ -1,5 +1,5 @@
 ---
-state: inprogress
+state: complete
 version: 1
 js: cardsToggle.js, truncateLines.js
 ---
