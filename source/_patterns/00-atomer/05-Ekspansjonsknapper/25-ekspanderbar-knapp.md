@@ -1,5 +1,5 @@
 ---
-state: indesignreview
+state: complete
 version: 0
 ---
 

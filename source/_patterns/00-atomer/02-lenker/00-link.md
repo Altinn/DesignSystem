@@ -1,5 +1,5 @@
 ---
-state: indesignreview
+state: complete
 version: 0
 ---
 En vanlig lenke som benytter < a >...< /a > er blå med 2px strek under.

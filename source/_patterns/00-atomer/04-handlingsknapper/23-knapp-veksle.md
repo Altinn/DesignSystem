@@ -1,5 +1,5 @@
 ---
-state: inprogress
+state: complete
 version: 1
 js: toggleSwitch.js
 ---
