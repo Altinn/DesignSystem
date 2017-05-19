@@ -96,8 +96,13 @@
       @include media-breakpoint-up( sm ) {
         padding: $spacer * 2 $spacer * 7;
       }
+
       @include media-breakpoint-up( md ) {
         padding: $spacer * 3 $spacer * 7 $spacer * 5 $spacer * 7;
+      }
+
+      @include media-breakpoint-up( lg ) {
+        padding: $spacer * 3 $spacer * 8 $spacer * 5 $spacer * 8;
       }
 
       padding: $spacer * 2 $spacer;
@@ -138,13 +143,19 @@
 
   &.expanded {
     // Add top / bottom margin to add more space around expanded items
-
+    padding-top: $spacer;
+    padding-bottom: $spacer;
     margin-right: -$spacer / 2;
     margin-left: -$spacer / 2;
 
     @include media-breakpoint-up( md ) {
-      margin-right: -$spacer;
-      margin-left: -$spacer;
+      margin-right: -$spacer * 2;
+      margin-left: -$spacer * 2;
+    }
+
+    @include media-breakpoint-up( xl ) {
+      margin-right: -$spacer * 3;
+      margin-left: -$spacer * 3;
     }
 
     .a-collapsePanel-heading {
@@ -164,6 +175,10 @@
         padding: 0;
       }
     }
+  }
+
+  &:first-of-type {
+    padding-top: 0;
   }
 }
 
