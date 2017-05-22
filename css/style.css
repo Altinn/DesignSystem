@@ -7351,19 +7351,19 @@ figure {
 
 @font-face {
   font-family: 'DIN-light';
-  src: url("https://tt02.altinn.basefarm.net/ui/fonts/DINWeb-Light.woff"); }
+  src: url("https://tt02.altinn.no/ui/fonts/DINWeb-Light.woff"); }
 
 @font-face {
   font-family: 'DIN-reg';
-  src: url("https://tt02.altinn.basefarm.net/ui/fonts/DINWeb.woff"); }
+  src: url("https://tt02.altinn.no/ui/fonts/DINWeb.woff"); }
 
 @font-face {
   font-family: 'DIN-medium';
-  src: url("https://tt02.altinn.basefarm.net/ui/fonts/DINWeb-Medium.woff"); }
+  src: url("https://tt02.altinn.no/ui/fonts/DINWeb-Medium.woff"); }
 
 @font-face {
   font-family: 'DIN-bold';
-  src: url("https://tt02.altinn.basefarm.net/ui/fonts/DINWeb-Bold.woff"); }
+  src: url("https://tt02.altinn.no/ui/fonts/DINWeb-Bold.woff"); }
 
 button,
 input,
@@ -10838,21 +10838,11 @@ textarea {
     display: flex;
     width: 60px;
     min-width: 60px;
-    margin-right: 0;
+    margin-right: 12px;
     -ms-flex-pack: center;
     justify-content: center;
     -ms-flex-item-align: center;
     align-self: center; }
-    @media (min-width: 576px) {
-      .a-iconText .a-iconText-icon {
-        margin-right: 12px; } }
-    @media (min-width: 992px) {
-      .a-iconText .a-iconText-icon {
-        margin-right: 6px; } }
-    @media (min-width: 1200px) {
-      .a-iconText .a-iconText-icon {
-        margin-right: 12px;
-        margin-left: 6px; } }
     .a-iconText .a-iconText-icon .a-date {
       margin: 0; }
     .a-iconText .a-iconText-icon:empty {
@@ -10864,7 +10854,8 @@ textarea {
     min-height: auto; }
   .a-iconText .a-iconText-text {
     -ms-flex: 1;
-    flex: 1; }
+    flex: 1;
+    font-size: inherit; }
     .a-iconText .a-iconText-text .a-iconText-text-small {
       font-size: 14px;
       font-size: 1.4rem;
@@ -10934,17 +10925,19 @@ textarea {
     padding: 10px;
     border: 2px dotted #1EAEF7; }
   .a-iconText.a-iconText-background {
-    padding: 18px 12px 18px 0;
+    padding: 12px;
     color: #FFFFFF;
     background: #6A6A6A; }
-    @media (min-width: 576px) {
-      .a-iconText.a-iconText-background {
-        padding: 18px 12px; } }
     .a-iconText.a-iconText-background .a-icon-circle {
       color: #000000; }
     .a-iconText.a-iconText-background.a-iconText-background--blueDarker {
       color: #FFFFFF;
       background: #022F51; }
+      .a-iconText.a-iconText-background.a-iconText-background--blueDarker .a-iconText-icon {
+        margin-right: 0; }
+        @media (min-width: 768px) {
+          .a-iconText.a-iconText-background.a-iconText-background--blueDarker .a-iconText-icon {
+            margin-right: 12px; } }
     .a-iconText.a-iconText-background.a-iconText-background--white {
       color: #000000;
       background: #FFFFFF; }
@@ -12733,10 +12726,10 @@ body.modal-open {
       .a-modal .a-iconText {
         height: auto; } }
     .a-modal .a-iconText.a-iconText-background {
-      padding: 0; }
+      padding: 0 12px 0 6px; }
       @media (min-width: 768px) {
         .a-modal .a-iconText.a-iconText-background {
-          padding: 18px 12px 18px 0; } }
+          padding: 12px; } }
     .a-modal .a-iconText .a-iconText-text {
       padding-top: 12px;
       padding-bottom: 12px; }
@@ -13104,6 +13097,9 @@ a.a-modal-close {
       @media (min-width: 768px) {
         .a-collapsePanel .a-collapsePanel-body .a-collapsePanel-body-content {
           padding: 36px 84px 60px 84px; } }
+      @media (min-width: 992px) {
+        .a-collapsePanel .a-collapsePanel-body .a-collapsePanel-body-content {
+          padding: 36px 96px 60px 96px; } }
       .a-collapsePanel .a-collapsePanel-body .a-collapsePanel-body-content:last-of-type {
         border-bottom: none; }
     .a-collapsePanel .a-collapsePanel-body.a-msg-body .a-collapsePanel-body-content {
@@ -13119,12 +13115,18 @@ a.a-modal-close {
     .a-collapsePanel.a-collapsePanel--large .a-collapsePanel-body .a-collapsePanel-body-content {
       padding: 36px 96px; } }
   .a-collapsePanel.expanded {
+    padding-top: 12px;
+    padding-bottom: 12px;
     margin-right: -6px;
     margin-left: -6px; }
     @media (min-width: 768px) {
       .a-collapsePanel.expanded {
-        margin-right: -12px;
-        margin-left: -12px; } }
+        margin-right: -24px;
+        margin-left: -24px; } }
+    @media (min-width: 1200px) {
+      .a-collapsePanel.expanded {
+        margin-right: -36px;
+        margin-left: -36px; } }
     .a-collapsePanel.expanded .a-collapsePanel-heading {
       background-color: #FFFFFF; }
       @media (min-width: 768px) {
@@ -13133,6 +13135,8 @@ a.a-modal-close {
     .a-collapsePanel.expanded .a-collapsePanel-heading.no-background,
     .a-collapsePanel.expanded .a-collapsePanel-body.no-background {
       padding: 0; }
+  .a-collapsePanel:first-of-type {
+    padding-top: 0; }
 
 .a-collapsePanel,
 .a-collapsePanel-body,
@@ -15119,19 +15123,19 @@ hr {
 /* Add col */
 @font-face {
   font-family: 'DIN-light';
-  src: url("https://tt02.altinn.basefarm.net/ui/fonts/DINWeb-Light.woff"); }
+  src: url("https://tt02.altinn.no/ui/fonts/DINWeb-Light.woff"); }
 
 @font-face {
   font-family: 'DIN-reg';
-  src: url("https://tt02.altinn.basefarm.net/ui/fonts/DINWeb.woff"); }
+  src: url("https://tt02.altinn.no/ui/fonts/DINWeb.woff"); }
 
 @font-face {
   font-family: 'DIN-medium';
-  src: url("https://tt02.altinn.basefarm.net/ui/fonts/DINWeb-Medium.woff"); }
+  src: url("https://tt02.altinn.no/ui/fonts/DINWeb-Medium.woff"); }
 
 @font-face {
   font-family: 'DIN-bold';
-  src: url("https://tt02.altinn.basefarm.net/ui/fonts/DINWeb-Bold.woff"); }
+  src: url("https://tt02.altinn.no/ui/fonts/DINWeb-Bold.woff"); }
 
 button,
 input,
