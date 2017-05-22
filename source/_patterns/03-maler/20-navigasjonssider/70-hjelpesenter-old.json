@@ -1,29 +1,33 @@
 
 {
-	"header-color": "",
-  "bodyClass": "a-bgWhite",
+	"title": "Altinn",
+	"bodyClass": "a-bgWhite",
 
 	"header": {
-	  "logo": "../../images/a-logo-blue.svg"
+	  "logo": "../../images/a-logo-white.svg"
   },
 
+	"header-color": "a-darkBackground",
 	"login-icon": {
     "icon-prefix": "ai",
     "icon-class": "ai-keyhole-circle"
   },
 
-	"jumbo-md-class": "col-md-12",
+	"jumbo-sm-class": "col-10",
+	"jumbo-sm-offset-class": "offset-0",
+
+	"jumbo-md-class": "col-md-8",
 	"jumbo-md-offset-class": "offset-md-0",
 
-	"jumbo-lg-class": "col-lg-10",
+	"jumbo-lg-class": "col-lg-6",
 	"jumbo-lg-offset-class": "offset-lg-1",
 
-	"jumbo-xl-class": "col-xl-8",
-	"jumbo-xl-offset-class": "offset-xl-2",
+	"jumbo-xl-class": "col-xl-6",
+	"jumbo-xl-offset-class": "offset-xl-1",
 
-	"jumbotron-styles": "a-jumbotron-header a-jumbotron-light",
+	"jumbotron-styles": "a-jumbotron-header a-jumbotron-dark",
 	"jumbotron-bgcolor": "#3F3161",
-	"jumbotron-image-url": "url('../../images/header-bg7.svg')",
+	"jumbotron-image-url": "url('../../images/header-bg6.svg')",
 
 	"pagestart": true,
 	"pagestart": {
@@ -33,54 +37,88 @@
 		"jumbo-intro-small": true,
 		"front-main-button": false,
 		"front-main-button-text-right": "",
-		"jumbo-search": {
-      "isLarge": "a-form-group-large",
-  		"isHidden": "sr-only",
-      "top-label": "Hva kan vi hjelpe deg med?",
-  		"text-input-placeholder": "Hva kan vi hjelpe deg med?",
-  		"isInput-group": "input-group",
-  		"form-input-hasButton": {
-  				"form-input-button-action": "Utfør søk",
-          "icon-prefix": "ai",
-          "icon-class": "ai-search",
-					"onclick": "location.href='link.sider-sok-hjelp';"
-  		}
-    }
+    "jumbo-search": false
 	},
 
-	"artikkelsok": false,
-
-	"kontakt" : {
-		"card-picture-content": {
-			"border-top": "a-borderTop",
-			"image": false,
-			"card-picture-title": "Står du fast?",
-			"card-picture-description": "",
-			"tel": {
-				"telNumber": "75006000",
-				"telNumberVisible": "75 00 60 00",
-				"telText": "Telefonnummer til Altinn brukerstøtte",
-				"tel-icon": {
-					"icon-prefix": "ai ai-nw ai-nw-pr",
-					"icon-class": "ai-phone"
-				}
-			},
-			"mail": false,
-			"linkIcon": {
-				"linkIcon-text": "Skriv til oss",
-				"icon-prefix": "ai ai-nw ai-nw-pr",
-				"icon-class": "ai-send",
-				"linkIcon-url": "javascript:void(0)",
-				"data-toggle": "altinn-modal",
-				"data-action": "load",
-				"data-url": {
-					"data-url": "../../patterns/02-organismer-80-Modal-js-innhold-10-kontaktskjema/02-organismer-80-Modal-js-innhold-10-kontaktskjema.markup-only.html"
+	"jumbo-list": {
+		"list-header": "Tittel på listen",
+		"additional-classes": "a-list-borderTop",
+		"is-large": true,
+		"rows": [
+			{
+				"additional-classes": "a-dotted a-clickable a-list-hasRowLink",
+				"isRowLink": {
+					"rowLink": "javascript:void(0)",
+					"data-toggle": "altinn-modal",
+					"data-action": "load",
+					"data-url": {
+						"data-url": "../../patterns/02-organismer-80-Modal-js-innhold-10-kontaktskjema/02-organismer-80-Modal-js-innhold-10-kontaktskjema.markup-only.html"
+					},
+					"data-target": "#modal"
 				},
-				"data-target": "#modal"
+				"columns": [
+					{
+						"additional-classes": "col",
+						"column-items": [
+							{
+	              "column-icon": {
+	                "icon-prefix": "ai",
+	                "icon-class": "ai-send",
+	                "icon-extra-class": "ai-sm"
+	              }
+	            },
+							{
+								"column-text": {
+									"text": "Skriv til oss"
+								}
+							}
+						]
+					}
+				]
+			},
+			{
+				"additional-classes": "a-dotted a-clickable a-list-hasRowLink",
+				"isRowLink": {
+					"rowLink": "tel:+4775006000"
+				},
+				"columns": [
+					{
+						"additional-classes": "col",
+						"column-items": [
+							{
+	              "column-icon": {
+	                "icon-prefix": "ai",
+	                "icon-class": "ai-phone",
+	                "icon-extra-class": "ai-sm"
+	              }
+	            },
+							{
+								"column-text": {
+									"text": "75 00 60 00"
+								}
+							}
+						]
+					}
+				]
 			}
+		]
+	},
+
+	"artikkelsok": true,
+	"article-search": {
+		"isLarge": true,
+		"isHidden": true,
+		"top-label": "Søk i hjelpesenteret",
+		"text-input-placeholder": "Søk i hjelpesenteret",
+		"text-input-id": "help-search5",
+		"isInput-group": "input-group",
+		"form-input-hasButton": {
+      "icon-prefix": "ai",
+      "icon-class": "ai-search",
+			"form-input-button-action": "Utfør søk",
+			"onclick": "location.href='link.sider-sok-hjelp';"
 		}
 	},
-
 
 	"kontaktskjema": {
 
