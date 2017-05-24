@@ -37,6 +37,21 @@
   }
 }
 
+.loader-container {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 3;
+  background-color: $white-opacity-09;
+
+  .loader {
+    top: 40%;
+    margin: auto;
+  }
+}
+
 @keyframes loader-ellipsis {
   0%,
   100%,
@@ -46,5 +61,19 @@
 
   40% {
     box-shadow: 0 0.625em 0 0 $blue;
+  }
+}
+
+.a-loader-loading {
+  &::after,
+  &::before {
+    position: absolute;
+    top: 0;
+    width: 0.625em;
+    height: 0.625em;
+    content: '';
+    border-radius: 50%;
+    animation: loader-ellipsis 1.8s infinite ease-in-out;
+    animation-fill-mode: both;
   }
 }
