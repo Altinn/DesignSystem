@@ -1,20 +1,22 @@
 <div {{# isModal }} class="modal-body a-modal-body" {{/ isModal }}>
-  <div class="row">
-    <div class="col-12 col-md-6 col-lg-7">
-      {{# person-rolle }}
-        {{> molekyler-person-rolle }}
-      {{/ person-rolle }}
-    </div>
-
-    {{# showButton }}
-      <div class="col-12 col-md pt-1">
-        {{> atomer-knapp-med-popover }}
+  {{^ hide-top-section }}
+    <div class="row">
+      <div class="col-12 col-md-6 col-lg-7">
+        {{# person-rolle }}
+          {{> molekyler-person-rolle }}
+        {{/ person-rolle }}
       </div>
-    {{/ showButton }}
-  </div>
+
+      {{# showButton }}
+        <div class="col-12 col-md pt-1">
+          {{> atomer-knapp-med-popover }}
+        </div>
+      {{/ showButton }}
+    </div>
+  {{/ hide-top-section }}
   <div class="row">
     <div class="col">
-      <h2 class="mt-4 a-fontSizeS a-fontBold">
+      <h2 class="{{^ hide-top-section }}mt-4 {{/ hide-top-section }}a-fontSizeS a-fontBold">
         {{ consent-first-header }}
       </h2>
       <p class="a-fontSizeXS mb-1">
@@ -44,4 +46,13 @@
       </p>
     </div>
   </div>
+  {{# bottom-button-row}}
+    <div class="row">
+      <div class="col mt-3">
+        {{# buttons }}
+          {{> atomer-knapp }}
+        {{/ buttons }}
+      </div>
+    </div>
+  {{/ bottom-button-row }}
 </div>
