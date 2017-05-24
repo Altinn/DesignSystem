@@ -79,10 +79,14 @@
 
         &.open {
           background: $blue !important;
+
+          &:focus {
+            background: $blue-light !important;
+          }
         }
 
         &:focus {
-          background: $blue;
+          background: $blue-light;
           outline: none;
         }
 
@@ -131,8 +135,14 @@
       padding-right: 0;
       padding-left: 0;
       margin-top: -1px;
-      box-shadow: none;
-      // border-bottom: none;
+      box-shadow: $shadow-left;
+
+      @include media-breakpoint-up( md ) {
+        &:not(.stacked) {
+          transition: none;
+        }
+      }
+
       @include media-breakpoint-down( md ) {
         &.stacked {
           margin-left: 1px;
@@ -142,6 +152,7 @@
       li {
         margin-left: 0;
       }
+
     }
 
     // Third level
@@ -153,7 +164,8 @@
       padding-left: 0;
       margin-left: -1px;
       background: $white;
-      box-shadow: none;
+      box-shadow: $shadow-left;
+
       @include media-breakpoint-down( md ) {
         margin-left: 1px;
       }
@@ -174,6 +186,7 @@
         @include a-fontMedium;
       }
     }
+
   }
 
   // Show dropdown version for large screens, styled as COLUMN NAV
@@ -242,9 +255,10 @@
             }
 
             &.a-js-colnavLinkAlt {
-              padding: $spacer / 2 $spacer * 2 3px $spacer * 2;
+              padding: $spacer $spacer * 2 11px $spacer * 2;
+              background: $grey-light;
               border-right: none;
-              border-bottom: 1px solid $grey-light;
+              border-bottom: 1px solid $black-opacity-01;
             }
 
             &:hover {

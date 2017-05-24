@@ -154,7 +154,6 @@ var colnavCustom = function() {
   }
   window.drillDownGetSource = function(str) {
     var url = [
-      '/api/' + str,
       '../../../data/' + str + '.json',
       '../../../DesignSystem/data/' + str + '.json',
       'http://altinn-dev.dev.bouvet.no/api/' + str
@@ -280,6 +279,7 @@ var colnavCustom = function() {
       if (depth === 2) {
         $('.a-colnav').find('.a-colnav-thirdLevel').remove();
         $('.a-colnav').find('.a-js-colnavLink').remove();
+        $('.a-colnav').find('.a-leadText').remove();
       } else {
         $('.a-colnav').find('.a-js-colnavLinkAlt').remove();
       }
