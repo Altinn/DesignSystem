@@ -1332,6 +1332,7 @@ var colnavCustom = function() {
       if (depth === 2) {
         $('.a-colnav').find('.a-colnav-thirdLevel').remove();
         $('.a-colnav').find('.a-js-colnavLink').remove();
+        $('.a-colnav').find('.a-leadText').remove();
       } else {
         $('.a-colnav').find('.a-js-colnavLinkAlt').remove();
       }
