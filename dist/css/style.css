@@ -9752,8 +9752,10 @@ textarea {
         background: rgba(255, 255, 255, 0.7); }
       .a-colnav-wrapper .a-colnav li a.open {
         background: #1EAEF7 !important; }
+        .a-colnav-wrapper .a-colnav li a.open:focus {
+          background: #CFF0FF !important; }
       .a-colnav-wrapper .a-colnav li a:focus {
-        background: #1EAEF7;
+        background: #CFF0FF;
         outline: none; }
       .a-colnav-wrapper .a-colnav li a.is-active {
         text-decoration: none; }
@@ -9784,7 +9786,10 @@ textarea {
     padding-right: 0;
     padding-left: 0;
     margin-top: -1px;
-    box-shadow: none; }
+    box-shadow: -1px 0 5px 0 rgba(137, 137, 137, 0.5); }
+    @media (min-width: 768px) {
+      .a-colnav-wrapper .a-colnav .a-colnav-secondLevel:not(.stacked) {
+        transition: none; } }
     @media (max-width: 991px) {
       .a-colnav-wrapper .a-colnav .a-colnav-secondLevel.stacked {
         margin-left: 1px; } }
@@ -9798,7 +9803,7 @@ textarea {
     padding-left: 0;
     margin-left: -1px;
     background: #FFFFFF;
-    box-shadow: none; }
+    box-shadow: -1px 0 5px 0 rgba(137, 137, 137, 0.5); }
     @media (max-width: 991px) {
       .a-colnav-wrapper .a-colnav .a-colnav-thirdLevel {
         margin-left: 1px; } }
@@ -9859,9 +9864,10 @@ textarea {
     .a-colnav-wrapper .dropdown.a-colnav .a-colnav-secondLevel .is-dropdown-submenu-item a {
       border-right: none; } }
   .a-colnav-wrapper .dropdown.a-colnav .a-colnav-secondLevel .is-dropdown-submenu-item a.a-js-colnavLinkAlt {
-    padding: 6px 24px 3px 24px;
+    padding: 12px 24px 11px 24px;
+    background: #EFEFEF;
     border-right: none;
-    border-bottom: 1px solid #EFEFEF; }
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1); }
   .a-colnav-wrapper .dropdown.a-colnav .a-colnav-secondLevel .is-dropdown-submenu-item a:hover {
     background: #F5F5F5; }
   .a-colnav-wrapper .dropdown.a-colnav .a-colnav-secondLevel .is-dropdown-submenu-item a h3 {
@@ -12945,6 +12951,7 @@ a.a-modal-close {
   text-align: center; }
 
 .a-modal-close-icon {
+  margin-top: -1px;
   color: #E23B53; }
 
 .a-modal-footer {

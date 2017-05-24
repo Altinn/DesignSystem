@@ -1207,7 +1207,6 @@ var colnavCustom = function() {
   }
   window.drillDownGetSource = function(str) {
     var url = [
-      '/api/' + str,
       '../../../data/' + str + '.json',
       '../../../DesignSystem/data/' + str + '.json',
       'http://altinn-dev.dev.bouvet.no/api/' + str
