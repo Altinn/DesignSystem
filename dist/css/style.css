@@ -8246,10 +8246,6 @@ textarea {
     background-color: #FFFFFF;
     border-color: #b61b31 !important;
     box-shadow: none !important; }
-  .a-form-group.has-error .input-group:hover .form-control.a-hasIcon, .a-form-group.has-error .input-group.a-input-focus .form-control.a-hasIcon,
-  .form-group.has-error .input-group:hover .form-control.a-hasIcon,
-  .form-group.has-error .input-group.a-input-focus .form-control.a-hasIcon {
-    border-left: none !important; }
   .a-form-group.has-error .input-group:hover .form-control.a-hasButton, .a-form-group.has-error .input-group.a-input-focus .form-control.a-hasButton,
   .form-group.has-error .input-group:hover .form-control.a-hasButton,
   .form-group.has-error .input-group.a-input-focus .form-control.a-hasButton {
@@ -12622,29 +12618,24 @@ ol {
         margin-left: -60px; } }
   .a-message.a-message--no-dropshadow {
     box-shadow: none; }
-
-.a-message-error {
-  background-color: #F9CAD3; }
-  .a-message-error::after {
-    border-color: transparent transparent #F9CAD3 #F9CAD3; }
-
-.a-message-default {
-  background-color: #EFEFEF; }
-  .a-message-default::after {
-    border-color: transparent transparent #EFEFEF #EFEFEF; }
-
-.a-message-success {
-  background-color: #D4F9E4; }
-  .a-message-success::after {
-    border-color: transparent transparent #D4F9E4 #D4F9E4; }
-
-.a-message-info {
-  background-color: #FBF6BD; }
-  .a-message-info::after {
-    border-bottom-color: #FBF6BD; }
-
-.a-message-edit {
-  background-color: #CFF0FF; }
+  .a-message.a-message-error {
+    background-color: #F9CAD3; }
+    .a-message.a-message-error::after {
+      border-color: transparent transparent #F9CAD3 #F9CAD3; }
+  .a-message.a-message-default {
+    background-color: #EFEFEF; }
+    .a-message.a-message-default::after {
+      border-color: transparent transparent #EFEFEF #EFEFEF; }
+  .a-message.a-message-success {
+    background-color: #D4F9E4; }
+    .a-message.a-message-success::after {
+      border-color: transparent transparent #D4F9E4 #D4F9E4; }
+  .a-message.a-message-info {
+    background-color: #FBF6BD; }
+    .a-message.a-message-info::after {
+      border-bottom-color: #FBF6BD; }
+  .a-message.a-message-edit {
+    background-color: #CFF0FF; }
 
 .a-link-chat {
   position: relative;
@@ -13093,6 +13084,7 @@ a.a-modal-close {
       height: auto;
       border-top: 1px solid #EFEFEF; }
     .a-collapsePanel .a-collapsePanel-body .a-collapsePanel-body-content {
+      position: relative;
       padding: 24px 12px;
       margin: 0;
       border-bottom: 1px solid #BCC7CC; }
@@ -13859,6 +13851,18 @@ h1 + .a-byline {
     .loader.loader-ellipsis::after {
       left: 0.875em; }
 
+.loader-container {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 3;
+  background-color: rgba(255, 255, 255, 0.9); }
+  .loader-container .loader {
+    top: 40%;
+    margin: auto; }
+
 @keyframes loader-ellipsis {
   0%,
   100%,
@@ -13866,6 +13870,16 @@ h1 + .a-byline {
     box-shadow: 0 0.625em 0 -0.325em #1EAEF7; }
   40% {
     box-shadow: 0 0.625em 0 0 #1EAEF7; } }
+
+.a-loader-loading::after, .a-loader-loading::before {
+  position: absolute;
+  top: 0;
+  width: 0.625em;
+  height: 0.625em;
+  content: '';
+  border-radius: 50%;
+  animation: loader-ellipsis 1.8s infinite ease-in-out;
+  animation-fill-mode: both; }
 
 .onboarding-wrapper {
   position: fixed;

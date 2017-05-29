@@ -1,5 +1,5 @@
 /* globals currentRequest, popoverLocalInit, AltinnModal */
-/* globals AltinnModal:true */
+/* globals AltinnModal:true, AltinnLoader */
 AltinnModal = {
   closeModal: function(settings) {
     $('body').removeClass('a-modal-background-error');
@@ -15,9 +15,10 @@ AltinnModal = {
         if (typeof currentRequest !== 'undefined') {
           currentRequest.abort();
         }
+
+        AltinnLoader.addLoader($('body'));
       }
     }).always(function() {
-      // TODO: Set loading screen / spinner
     }).done(function(data) {
       var modalPage = $('<div/>', {
         class: 'modalPage',
@@ -30,8 +31,6 @@ AltinnModal = {
         },
         html: modalPage
       });
-
-      // TODO: Remove loading screen
 
       // if (navigator.userAgent.match(/iPhone|iPad|iPod/i)) {
       //   goToModalHeader();
@@ -57,6 +56,7 @@ AltinnModal = {
       });
       popoverLocalInit();
 
+      AltinnLoader.removeLoader($('body'));
       $(settings.target).on('transitionend', function() {
         $(settings.target).append($('.a-stickyHelp-container'));
       });
@@ -141,11 +141,10 @@ AltinnModal = {
         if (typeof currentRequest !== 'undefined') {
           currentRequest.abort();
         }
+        AltinnLoader.addLoader($(settings.target).find('.a-current-page .a-modal-body'));
       }
     }).always(function() {
-      // TODO: Set loading screen / spinner
     }).done(function(data) {
-      // TODO: Remove loading screen
       var current;
       var modalPage = $('<div/>', {
         class: 'modalPage',
@@ -211,6 +210,8 @@ AltinnModal = {
         } else {
           current.hide().off();
         }
+
+        AltinnLoader.removeLoader(current.find('.a-modal-body'));
       });
 
       popoverLocalInit();
