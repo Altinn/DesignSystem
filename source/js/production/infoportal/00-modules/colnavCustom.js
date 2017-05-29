@@ -194,6 +194,11 @@ var colnavCustom = function() {
       movedDuringTouch = true;
       event.stopPropagation();
     };
+    var act11 = function(event) {
+      if ($(window).scrollTop() > $('.a-colnav').offset().top) {
+        $('html,body').animate({ scrollTop: $('.a-colnav').offset().top }, 300);
+      }
+    };
     var afterRequest = function(data) {
       var depth = 3;
       var markup = '';
@@ -244,12 +249,14 @@ var colnavCustom = function() {
       $('.a-colnav-item').off('keydown', act3);
       $('.a-colnav-item-second').off('keydown', act4);
       $('.a-colnav-item-third').off('keydown', act5);
+      $('.a-colnav-item').off('click', act11);
       $('.a-colnav').find('a').off('mouseup', act6);
       $('.a-colnav-item').off('focus', act7);
       $('.a-js-backButton').off('click', act8);
       $('.a-colnav').find('a').off('touchstart', act9);
       $('.a-colnav').find('a').off('touchmove', act10);
       $('.a-colnav').html(markup).foundation();
+      $('.a-js-drilldownLoader').hide();
       if ($('.a-colnav-wrapper').length > 0 && !isSmall) {
         $('.a-colnav-wrapper')
           .html($('.a-colnav-wrapper').html().replace(/drilldown/g, 'dropdown'))
@@ -262,6 +269,7 @@ var colnavCustom = function() {
       $('.a-colnav-item').on('keydown', act3);
       $('.a-colnav-item-second').on('keydown', act4);
       $('.a-colnav-item-third').on('keydown', act5);
+      $('.a-colnav-item').on('click', act11);
       if (isSmall) {
         if ($('.a-colnav-wrapper').length > 0) {
           $('.a-colnav-wrapper').html($('.a-colnav-wrapper').html()
@@ -315,6 +323,7 @@ var colnavCustom = function() {
         });
       }
     };
+    $('.a-js-drilldownLoader').show();
     if (savedResults[str]) {
       afterRequest(savedResults[str]);
     } else {
@@ -352,6 +361,7 @@ var colnavCustom = function() {
   };
   $(document).ready(function() {
     if ($('.a-colnav').length > 0) {
+      $('.a-js-drilldownLoader').css('margin-bottom', '-10px');
       if (isSmall) {
         $('.a-contentOverview').css('overflow-x', 'hidden');
       }
