@@ -1,23 +1,32 @@
 <!-- START: 00-atomer-01-forms-07-valgknapp-ett-alternativ -->
 {{#hidewhenempty-start}}
 <div class="hidewhenempty">
-  {{/hidewhenempty-start}} {{# radiobuttons }}
+  {{/hidewhenempty-start}}
 
-  <div class="a-switch {{styleModifier}} {{isWide}}">
+  <fieldset>
+    <legend class="sr-only">{{ switch-legend }}</legend>
 
-    <input {{# radiobuttons-id }}id="{{{ radiobuttons-id }}}" {{/ radiobuttons-id }} class="sr-only" type="radio" name="{{{ radiobuttons-name }}}" value="radiobutton-read" {{# isChecked }} checked {{/ isChecked }} {{# onclick }} onclick="{{{ onclick }}}"
-      {{/ onclick }}/>
+    {{# radiobuttons }}
 
-    <label for="{{{ radiobuttons-id }}}" class="a-switch-label {{{ radiobuttons-class }}}">
-				{{# hasIcon }}
-	        {{> atomer-ikon }}
-	      {{/ hasIcon }}
-        {{{radiobuttons-title}}}
-      </label>
+    <div class="a-switch {{styleModifier}} {{isWide}}">
 
-  </div>
+      <input {{# radiobuttons-id }}id="{{{ radiobuttons-id }}}" {{/ radiobuttons-id }} class="sr-only" type="radio" name="{{{ radiobuttons-name }}}" value="radiobutton-read" {{# isChecked }} checked {{/ isChecked }} {{# onclick }} onclick="{{{ onclick }}}"
+        {{/ onclick }}/>
 
-  {{/ radiobuttons }} {{#hidewhenempty-end}}
+      <label for="{{{ radiobuttons-id }}}" class="a-switch-label {{{ radiobuttons-class }}}">
+					{{# hasIcon }}
+		        {{> atomer-ikon }}
+		      {{/ hasIcon }}
+	        {{{radiobuttons-title}}}
+	      </label>
+
+    </div>
+
+    {{/ radiobuttons }}
+
+  </fieldset>
+
+  {{#hidewhenempty-end}}
 </div>
 {{/hidewhenempty-end}}
 
