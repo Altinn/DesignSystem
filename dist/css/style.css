@@ -7676,7 +7676,7 @@ h1 + .a-helpIconButton {
     .a-fullWidthLink.a-fullWidthLink--underline span:hover {
       border-bottom: 2px solid #0062BA; }
 
-a[href^="http"]:not([href*='altinn.no'])::after {
+a[href^="http"]:not([href*='altinn.no']):not(a[href$=".pdf"])::after {
   display: inline-block;
   width: 1em;
   height: 1em;
@@ -7689,6 +7689,14 @@ a[href^="http"]:not([href*='altinn.no'])::after {
   white-space: nowrap;
   overflow: hidden;
   text-indent: 1em; }
+
+/* Add " (PDF)" text after links that go to PDFs */
+a[href$=".pdf"]::after {
+  content: " (PDF)" !important; }
+
+/* If file size specified as data attribute, use that too */
+a[href$=".pdf"][data-size]:after {
+  content: " (PDF, " attr(data-size) ")" !important; }
 
 a.a-linkFeatured[href^="http"]:not([href*='altinn.no'])::after {
   background-position: -10px -7px;
@@ -9126,7 +9134,12 @@ textarea {
         right: -38px; } }
     @media (min-width: 768px) {
       .a-header .a-dropdown-languages {
-        top: 55px;
+        right: -20px; } }
+    @media (min-width: 992px) {
+      .a-header .a-dropdown-languages {
+        right: -24px; } }
+    @media (min-width: 1200px) {
+      .a-header .a-dropdown-languages {
         right: -13px; } }
     .a-header .a-dropdown-languages.a-dropdownTriangle::after {
       right: 79px;
@@ -9146,7 +9159,7 @@ textarea {
     @media (min-width: 768px) {
       .a-header .a-dropdown-personswitchList {
         top: 55px;
-        right: 12px !important;
+        right: -3px !important;
         width: 420px; } }
     .a-header .a-dropdown-personswitchList.a-dropdownTriangle::after {
       right: 1px;
@@ -9275,7 +9288,6 @@ textarea {
   .a-personSwitcher .a-personSwitcher-icon {
     display: -ms-inline-flexbox;
     display: inline-flex;
-    width: 36px;
     height: 36px;
     margin-left: 3px;
     color: #0062BA; }
@@ -9450,7 +9462,7 @@ textarea {
     .a-globalNav-main {
       position: relative;
       z-index: auto;
-      display: block;
+      display: block !important;
       min-height: auto;
       margin-top: 2px;
       overflow: visible;
@@ -9515,6 +9527,7 @@ textarea {
       display: block;
       padding: 12px 12px;
       color: #0062BA;
+      text-transform: lowercase;
       border: none;
       border-bottom: 1px solid #0062BA; }
       .a-globalNav-main li a:hover, .a-globalNav-main li a:focus, .a-globalNav-main li a:active {
@@ -10610,7 +10623,8 @@ textarea {
       .a-footerExtraNav ul li a i {
         position: absolute;
         top: 10px;
-        left: -32px; }
+        left: -32px;
+        line-height: 0; }
         .a-footerNav ul li a i.ai-corp,
         .a-footerExtraNav ul li a i.ai-corp {
           left: -38px; }
@@ -10682,7 +10696,6 @@ textarea {
 .reg-stack {
   font-size: 2.25em;
   -webkit-font-smoothing: subpixel-antialiased;
-  line-height: 0;
   width: 1em;
   text-align: center;
   vertical-align: middle; }
@@ -10777,7 +10790,6 @@ textarea {
 .reg-stack {
   font-size: 2.25em;
   -webkit-font-smoothing: subpixel-antialiased;
-  line-height: 0;
   width: 1em;
   height: 1em; }
   .ai-stack i,
@@ -10790,8 +10802,7 @@ textarea {
 
 .form-group.a-form-group-large i {
   font-size: 2.25em;
-  -webkit-font-smoothing: subpixel-antialiased;
-  line-height: 0; }
+  -webkit-font-smoothing: subpixel-antialiased; }
 
 .a-switch i,
 .a-btn-action i {
@@ -10801,8 +10812,7 @@ textarea {
 .a-switch.a-fullWidthBtn i,
 .a-btn-action.a-fullWidthBtn i {
   font-size: 2.25em;
-  -webkit-font-smoothing: subpixel-antialiased;
-  line-height: 0; }
+  -webkit-font-smoothing: subpixel-antialiased; }
 
 .a-list i {
   margin-top: -4px;
@@ -10838,11 +10848,14 @@ textarea {
     display: flex;
     width: 60px;
     min-width: 60px;
-    margin-right: 12px;
+    margin-right: 0;
     -ms-flex-pack: center;
     justify-content: center;
     -ms-flex-item-align: center;
     align-self: center; }
+    @media (min-width: 768px) {
+      .a-iconText .a-iconText-icon {
+        margin-right: 12px; } }
     .a-iconText .a-iconText-icon .a-date {
       margin: 0; }
     .a-iconText .a-iconText-icon:empty {
@@ -10927,17 +10940,9 @@ textarea {
   .a-iconText.a-iconText-background {
     padding: 12px;
     color: #FFFFFF;
-    background: #6A6A6A; }
+    background: #022F51; }
     .a-iconText.a-iconText-background .a-icon-circle {
       color: #000000; }
-    .a-iconText.a-iconText-background.a-iconText-background--blueDarker {
-      color: #FFFFFF;
-      background: #022F51; }
-      .a-iconText.a-iconText-background.a-iconText-background--blueDarker .a-iconText-icon {
-        margin-right: 0; }
-        @media (min-width: 768px) {
-          .a-iconText.a-iconText-background.a-iconText-background--blueDarker .a-iconText-icon {
-            margin-right: 12px; } }
     .a-iconText.a-iconText-background.a-iconText-background--white {
       color: #000000;
       background: #FFFFFF; }
@@ -12864,7 +12869,8 @@ body.modal-open {
 
 .a-modal-header {
   min-height: 60px;
-  padding: 0; }
+  padding: 0;
+  border: none; }
   @media (min-width: 768px) {
     .a-modal-header {
       min-height: 84px; } }
@@ -12952,6 +12958,10 @@ a.a-modal-close {
 .a-modal-background-success .a-modal-navbar button,
 .a-modal-background-error .a-modal-navbar button {
   display: none; }
+
+.a-modal-background-success .a-iconText.a-iconText-background,
+.a-modal-background-error .a-iconText.a-iconText-background {
+  color: #000000; }
 
 .a-modal-background-success .modal-backdrop {
   background: #D4F9E4; }
@@ -14168,7 +14178,7 @@ h1 + .a-byline {
       z-index: 22;
       width: 30px;
       height: 30px;
-      padding: 2px 0 6px 0;
+      padding: 3px 0 6px 0;
       margin-bottom: 0;
       cursor: pointer;
       background: #FFFFFF;
@@ -14204,7 +14214,7 @@ h1 + .a-byline {
     left: 12px;
     width: 30px;
     height: 30px;
-    padding: 2px 0 6px 0;
+    padding: 3px 0 6px 0;
     margin-bottom: 0;
     cursor: pointer;
     background: #FFFFFF;
@@ -14324,7 +14334,7 @@ h1 + .a-byline {
       padding-right: 8.33333%;
       padding-left: 8.33333%; } }
   .a-searchResults .a-searchResults-filter .a-searchResults-filter-options {
-    padding-left: 84px; }
+    padding-left: 108px; }
     @media (min-width: 768px) {
       .a-searchResults .a-searchResults-filter .a-searchResults-filter-options {
         padding-left: 120px; } }
@@ -14336,7 +14346,6 @@ h1 + .a-byline {
     position: absolute;
     top: 27px;
     width: auto;
-    max-width: 84px;
     padding-right: 0;
     margin-bottom: 0;
     -ms-flex-item-align: center;
@@ -15122,6 +15131,15 @@ hr {
 .a-mr-half {
   margin-right: 6px; }
 
+@media (min-width: 992px) {
+  .a-offset-alignContent .a-iconText .a-iconText-icon {
+    margin-right: 6px; } }
+
+@media (min-width: 1200px) {
+  .a-offset-alignContent .a-iconText .a-iconText-icon {
+    width: 64px;
+    margin-right: 12px; } }
+
 @media print {
   .a-dontPrint,
   .a-globalNav,
@@ -15133,8 +15151,12 @@ hr {
   .a-linkFeatured,
   .a-btn,
   .a-jumbotron-btn-textright,
-  .a-question-wrapper {
+  .a-question-wrapper,
+  .switch-container,
+  .a-illustration-icon {
     display: none !important; }
+  .a-collapseContent {
+    display: block !important; }
   .p0-print {
     padding: 0 !important; }
   .a-jumbotron {
@@ -15142,7 +15164,14 @@ hr {
     min-height: auto;
     max-height: auto;
     padding: 0;
-    margin: 0; }
+    margin: 0;
+    color: #000000; }
+  .a-jumbotron-dark {
+    color: #000000; }
+    .a-jumbotron-dark p,
+    .a-jumbotron-dark a,
+    .a-jumbotron-dark .a-jumbotron-ingress {
+      color: #000000; }
   .a-mediaBlock,
   .a-cardImage {
     margin-bottom: 0; }
@@ -15150,7 +15179,10 @@ hr {
     .a-cardImage img {
       display: none; }
   .a-blockquote {
-    border: none; } }
+    border: none; }
+  .a-js-alternativeResults,
+  .a-js-result {
+    display: block !important; } }
 
 /*------------------------------------*    $ALTINN PROFILE MANUAL PRESENTATION
 \*------------------------------------*/
@@ -15917,8 +15949,8 @@ pre.prettyprint {
 @media (min-width: 1200px) {
   .epi-wysiwyg .a-responsiveTable-container,
   .epi-wysiwyg .a-gridMinusOneCol {
-    width: calc( 100% + 180px);
-    margin-left: -90px; } }
+    width: calc( 100% + 176px);
+    margin-left: -88px; } }
 
 @media (min-width: 992px) {
   .epi-wysiwyg .a-media,

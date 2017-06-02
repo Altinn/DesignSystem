@@ -1,6 +1,5 @@
-// for PatternLab only
 var addListExpandHandler = function() {
-  $('.a-list *[data-toggle="collapse"]').on('click', function() {
+  $('body').on('click', '.a-list *[data-toggle="collapse"]', function() {
     // This script runs before the bootstrap collapse handler, so the collapsed-class will still be
     // present even though the content is about to be expanded
     if ($(this).hasClass('collapsed')) {
@@ -3264,6 +3263,7 @@ var questionnaireInteraction = function() {
   $('.a-trigger-question').each(function() {
     $(this).find('input').on('change', function() {
       $(this).parent().parent().parent()
+        .parent()
         .next()
         .css('display', 'block');
     });
