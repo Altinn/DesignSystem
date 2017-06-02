@@ -146,9 +146,13 @@
     display: flex;
     width: $spacer * 5;
     min-width: $spacer * 5;
-    margin-right: $spacer;
+    margin-right: 0;
     justify-content: center;
     align-self: center;
+
+    @include media-breakpoint-up( md ) {
+      margin-right: $spacer;
+    }
 
     .a-date {
       margin: 0;
@@ -244,24 +248,12 @@
   &.a-iconText-background {
     padding: $spacer;
     color: $white;
-    background: $grey;
+    background: $blue-darker;
 
     .a-icon-circle {
       color: $black;
     }
 
-    &.a-iconText-background--blueDarker {
-      color: $white;
-      background: $blue-darker;
-
-      .a-iconText-icon {
-        margin-right: 0;
-
-        @include media-breakpoint-up( md ) {
-          margin-right: $spacer;
-        }
-      }
-    }
 
     &.a-iconText-background--white {
       color: $black;

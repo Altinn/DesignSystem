@@ -1,7 +1,7 @@
 /* globals _anchors, hideIntroInSubs, insetVariations, toggleArchivedState,
   selectAll, toggleTheme, fixPatternLinks,
   preOpenModals, prototypingInteractionStarteENK, $, onboarding, codeLookup, nameChecker,
-  setupAddRightsHandler, initSearchWithHighlight */
+  setupAddRightsHandler, initSearchWithHighlight, certificateHandler */
 window.devInit = function() {
   _anchors();
   hideIntroInSubs();
@@ -19,6 +19,7 @@ window.devInit = function() {
   setupAddRightsHandler();
   selectAll();
   toggleTheme();
+  certificateHandler();
 };
 window.devInit();
 $('.html-escape').each(function() {
