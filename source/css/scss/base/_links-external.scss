@@ -1,8 +1,7 @@
 // External Links with explanation and arrow
 // sass-lint:disable-all
 
-
-a[href^="http"]:not([href*='altinn.no'])::after {
+a[href^="http"]:not([href*='altinn.no']):not(a[href$=".pdf"])::after {
   display: inline-block;
   width: 1em;
   height: 1em;
@@ -18,6 +17,17 @@ a[href^="http"]:not([href*='altinn.no'])::after {
   overflow: hidden;
   text-indent: 1em; // The width of the icon
 }
+
+/* Add " (PDF)" text after links that go to PDFs */
+a[href$=".pdf"]::after {
+  content: " (PDF)" !important;
+}
+
+/* If file size specified as data attribute, use that too */
+a[href$=".pdf"][data-size]:after {
+  content: " (PDF, " attr(data-size) ")" !important;
+}
+
 
 a.a-linkFeatured[href^="http"]:not([href*='altinn.no'])::after {
   background-position: -10px -7px;

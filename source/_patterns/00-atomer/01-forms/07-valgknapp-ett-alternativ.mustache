@@ -2,22 +2,31 @@
 <div class="hidewhenempty">
 {{/hidewhenempty-start}}
 
-	{{# radiobuttons }}
+	{{#hasFieldset}}
+	<fieldset>
+	  <legend class="sr-only">{{ switch-legend }}</legend>
+	{{/hasFieldset}}
 
-		<div class="a-switch {{styleModifier}} {{isWide}}">
+		{{# radiobuttons }}
 
-			<input {{# radiobuttons-id }}id="{{{ radiobuttons-id }}}" {{/ radiobuttons-id }} class="sr-only" type="radio" name="{{{ radiobuttons-name }}}" value="radiobutton-read" {{# isChecked }} checked {{/ isChecked }} {{# onclick }} onclick="{{{ onclick }}}" {{/ onclick }}/>
+			<div class="a-switch {{styleModifier}} {{isWide}}">
 
-			<label for="{{{ radiobuttons-id }}}" class="a-switch-label {{{ radiobuttons-class }}}">
-				{{# hasIcon }}
-	        {{> atomer-ikon }}
-	      {{/ hasIcon }}
-        {{{radiobuttons-title}}}
-      </label>
+				<input {{# radiobuttons-id }}id="{{{ radiobuttons-id }}}" {{/ radiobuttons-id }} class="sr-only" type="radio" name="{{{ radiobuttons-name }}}" value="radiobutton-read" {{# isChecked }} checked {{/ isChecked }} {{# onclick }} onclick="{{{ onclick }}}" {{/ onclick }}/>
 
-		</div>
+				<label for="{{{ radiobuttons-id }}}" class="a-switch-label {{{ radiobuttons-class }}}">
+					{{# hasIcon }}
+		        {{> atomer-ikon }}
+		      {{/ hasIcon }}
+	        {{{radiobuttons-title}}}
+	      </label>
 
-	{{/ radiobuttons }}
+			</div>
+
+		{{/ radiobuttons }}
+
+	{{#hasFieldset}}
+	</fieldset>
+	{{/hasFieldset}}
 
 {{#hidewhenempty-end}}
 </div>
