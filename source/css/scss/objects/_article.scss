@@ -69,7 +69,7 @@
     }
   }
 
-  >p {
+  p {
     a {
       position: relative;
       z-index: 1;
@@ -88,17 +88,19 @@
     }
   }
 
-  > ul,
-  > .a-bullet-list {
+  ul,
+  .a-bullet-list {
     &:not(.connected-bullets) {
       &:not(.no-decoration) {
-        @extend .a-bullet-list;
+        &:not(.a-list) {
+          @extend .a-bullet-list;
+        }
       }
     }
   }
 
-  > ol,
-  > .a-circle-list {
+  ol,
+  .a-circle-list {
     @extend .a-fontSizeS;
     margin: 0 0 36px 0;
 
@@ -125,7 +127,52 @@
     }
   }
 
-  > ul {
+  .a-question-wrapper {
+    .a-circle-list {
+      margin-left: 0;
+
+      @include media-breakpoint-up( lg ) {
+        margin-left: 0;
+      }
+
+      li {
+        padding-left: $spacer * 6;
+        margin-bottom: 0;
+
+        @include media-breakpoint-up( md ) {
+          padding-left: $spacer * 7;
+        }
+
+        &::before {
+          position: absolute;
+          top: $spacer * 1.5;
+          left: $spacer * 6;
+          width: $spacer * 3;
+          height: $spacer * 3;
+
+          padding: 5px 0 0 0;
+          text-align: center;
+
+          @include media-breakpoint-up( md ) {
+            top: $spacer * 2.5;
+            left: $spacer * 7;
+          }
+        }
+
+        &:last-of-type {
+          display: none;
+          padding: 0;
+          margin-bottom: 0;
+
+          &::before {
+            display: none;
+          }
+        }
+      }
+    }
+  }
+
+  ul {
     &.a-iconList {
       li {
         margin-bottom: $spacer * 1.5;
@@ -141,8 +188,8 @@
     }
   }
 
-  > ul,
-  > ol {
+  ul,
+  ol {
 
     &.no-decoration {
       margin: 0;
@@ -158,17 +205,6 @@
       }
     }
   }
-
-  .a-question-wrapper {
-    .a-circle-list {
-      margin: 0;
-
-      li {
-        margin-bottom: 0;
-      }
-    }
-  }
-
 
   // Lists inside collapse content
   &.a-collapseContent {
