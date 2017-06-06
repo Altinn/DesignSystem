@@ -7467,20 +7467,20 @@ textarea,
       -webkit-font-smoothing: subpixel-antialiased; } }
 
 .a-fontSizeS, h4,
-.a-h4, .a-radioButtons .custom-control .a-radioButtons-title, .a-btn, .a-compare-category .a-compare-container p, ul.a-bullet-list li, .a-text > ul:not(.connected-bullets):not(.no-decoration) li,
-.a-text > ul.a-bullet-list:not(.connected-bullets):not(.no-decoration) li, ul.a-item-list-icon li span, .a-inboxCompact .a-inboxHeadingContent h3, .a-text, .a-text > a, .a-text p,
-.a-text li, .a-text > ol,
-.a-text > .a-circle-list {
+.a-h4, .a-radioButtons .custom-control .a-radioButtons-title, .a-btn, .a-compare-category .a-compare-container p, ul.a-bullet-list li, .a-text ul:not(.connected-bullets):not(.no-decoration):not(.a-list) li,
+.a-text ul.a-bullet-list:not(.connected-bullets):not(.no-decoration):not(.a-list) li, ul.a-item-list-icon li span, .a-inboxCompact .a-inboxHeadingContent h3, .a-text, .a-text > a, .a-text p,
+.a-text li, .a-text ol,
+.a-text .a-circle-list {
   font-size: 16px;
   font-size: 1.6rem;
   line-height: 1.5;
   -webkit-font-smoothing: subpixel-antialiased; }
   @media (min-width: 768px) {
     .a-fontSizeS, h4,
-    .a-h4, .a-radioButtons .custom-control .a-radioButtons-title, .a-btn, .a-compare-category .a-compare-container p, ul.a-bullet-list li, .a-text > ul:not(.connected-bullets):not(.no-decoration) li,
-    .a-text > ul.a-bullet-list:not(.connected-bullets):not(.no-decoration) li, ul.a-item-list-icon li span, .a-inboxCompact .a-inboxHeadingContent h3, .a-text, .a-text > a, .a-text p,
-    .a-text li, .a-text > ol,
-    .a-text > .a-circle-list {
+    .a-h4, .a-radioButtons .custom-control .a-radioButtons-title, .a-btn, .a-compare-category .a-compare-container p, ul.a-bullet-list li, .a-text ul:not(.connected-bullets):not(.no-decoration):not(.a-list) li,
+    .a-text ul.a-bullet-list:not(.connected-bullets):not(.no-decoration):not(.a-list) li, ul.a-item-list-icon li span, .a-inboxCompact .a-inboxHeadingContent h3, .a-text, .a-text > a, .a-text p,
+    .a-text li, .a-text ol,
+    .a-text .a-circle-list {
       font-size: 18px;
       font-size: 1.8rem;
       line-height: 1.5;
@@ -7676,7 +7676,7 @@ h1 + .a-helpIconButton {
     .a-fullWidthLink.a-fullWidthLink--underline span:hover {
       border-bottom: 2px solid #0062BA; }
 
-a[href^="http"]:not([href*='altinn.no']):not(a[href$=".pdf"])::after {
+a[href^="http"]:not([href*='altinn.no'])::after {
   display: inline-block;
   width: 1em;
   height: 1em;
@@ -7692,7 +7692,8 @@ a[href^="http"]:not([href*='altinn.no']):not(a[href$=".pdf"])::after {
 
 /* Add " (PDF)" text after links that go to PDFs */
 a[href$=".pdf"]::after {
-  content: " (PDF)" !important; }
+  content: " (PDF)" !important;
+  display: inline !important; }
 
 /* If file size specified as data attribute, use that too */
 a[href$=".pdf"][data-size]:after {
@@ -11730,19 +11731,23 @@ i.a-dimmed {
     -ms-flex-positive: 0;
     flex-grow: 0;
     width: 150px;
+    height: 150px;
     margin-right: auto;
     margin-left: auto;
     border-radius: 50%;
+    object-fit: cover;
     -ms-flex-negative: 0;
     flex-shrink: 0; }
     @media (min-width: 768px) {
       .a-cardImage img {
         width: 126px;
+        height: 126px;
         margin-right: 36px;
         margin-bottom: 0; } }
     @media (min-width: 992px) {
       .a-cardImage img {
-        width: 180px; } }
+        width: 180px;
+        height: 180px; } }
   .a-cardImage .a-cardImage-text {
     margin-top: 24px; }
     @media (min-width: 768px) {
@@ -11781,6 +11786,9 @@ i.a-dimmed {
       display: block; }
   .a-question-wrapper .a-circle-list {
     margin-left: 0; }
+    @media (min-width: 992px) {
+      .a-question-wrapper .a-circle-list {
+        margin-left: 0; } }
     .a-question-wrapper .a-circle-list li {
       padding-top: 24px;
       padding-right: 24px;
@@ -12096,23 +12104,23 @@ ul {
   ul.no-decoration {
     margin: 0;
     list-style: none; }
-  ul.a-bullet-list, .a-text > ul:not(.connected-bullets):not(.no-decoration),
-  .a-text > ul.a-bullet-list:not(.connected-bullets):not(.no-decoration) {
+  ul.a-bullet-list, .a-text ul:not(.connected-bullets):not(.no-decoration):not(.a-list),
+  .a-text ul.a-bullet-list:not(.connected-bullets):not(.no-decoration):not(.a-list) {
     margin-top: 12px;
     margin-left: 0;
     color: #000000;
     list-style: none; }
     @media (min-width: 768px) {
-      ul.a-bullet-list, .a-text > ul:not(.connected-bullets):not(.no-decoration),
-      .a-text > ul.a-bullet-list:not(.connected-bullets):not(.no-decoration) {
+      ul.a-bullet-list, .a-text ul:not(.connected-bullets):not(.no-decoration):not(.a-list),
+      .a-text ul.a-bullet-list:not(.connected-bullets):not(.no-decoration):not(.a-list) {
         margin-left: -24px; } }
-    ul.a-bullet-list li, .a-text > ul:not(.connected-bullets):not(.no-decoration) li,
-    .a-text > ul.a-bullet-list:not(.connected-bullets):not(.no-decoration) li {
+    ul.a-bullet-list li, .a-text ul:not(.connected-bullets):not(.no-decoration):not(.a-list) li,
+    .a-text ul.a-bullet-list:not(.connected-bullets):not(.no-decoration):not(.a-list) li {
       position: relative;
       padding-left: 24px;
       margin-bottom: 12px; }
-      ul.a-bullet-list li::before, .a-text > ul:not(.connected-bullets):not(.no-decoration) li::before,
-      .a-text > ul.a-bullet-list:not(.connected-bullets):not(.no-decoration) li::before {
+      ul.a-bullet-list li::before, .a-text ul:not(.connected-bullets):not(.no-decoration):not(.a-list) li::before,
+      .a-text ul.a-bullet-list:not(.connected-bullets):not(.no-decoration):not(.a-list) li::before {
         font-size: 30px;
         font-size: 3rem;
         line-height: 1.3;
@@ -12123,14 +12131,14 @@ ul {
         padding-right: 5px;
         color: #1EAEF7;
         content: '•'; }
-    ul.a-bullet-list.a-bulletList-light li, .a-text > ul.a-bulletList-light:not(.connected-bullets):not(.no-decoration) li {
+    ul.a-bullet-list.a-bulletList-light li, .a-text ul.a-bulletList-light:not(.connected-bullets):not(.no-decoration):not(.a-list) li {
       font-family: "DIN-light";
       font-weight: normal;
       font-size: 16px;
       font-size: 1.6rem;
       line-height: 1.5;
       -webkit-font-smoothing: subpixel-antialiased; }
-      ul.a-bullet-list.a-bulletList-light li::before, .a-text > ul.a-bulletList-light:not(.connected-bullets):not(.no-decoration) li::before {
+      ul.a-bullet-list.a-bulletList-light li::before, .a-text ul.a-bulletList-light:not(.connected-bullets):not(.no-decoration):not(.a-list) li::before {
         font-size: 24px;
         font-size: 2.4rem;
         line-height: 1.5;
@@ -13643,10 +13651,10 @@ a.a-modal-close {
 .a-text li b > a {
   border-width: 2px; }
 
-.a-text > p a {
+.a-text p a {
   position: relative;
   z-index: 1; }
-  .a-text > p a::before {
+  .a-text p a::before {
     position: absolute;
     top: -16px;
     left: -12px;
@@ -13656,19 +13664,19 @@ a.a-modal-close {
     cursor: pointer;
     content: ''; }
 
-.a-text > ol,
-.a-text > .a-circle-list {
+.a-text ol,
+.a-text .a-circle-list {
   margin: 0 0 36px 0; }
   @media (min-width: 992px) {
-    .a-text > ol,
-    .a-text > .a-circle-list {
+    .a-text ol,
+    .a-text .a-circle-list {
       margin-left: -42px; } }
-  .a-text > ol li,
-  .a-text > .a-circle-list li {
+  .a-text ol li,
+  .a-text .a-circle-list li {
     padding-left: 42px;
     margin-bottom: 18px; }
-    .a-text > ol li::before,
-    .a-text > .a-circle-list li::before {
+    .a-text ol li::before,
+    .a-text .a-circle-list li::before {
       font-family: "DIN-bold";
       font-weight: normal;
       position: relative;
@@ -13681,31 +13689,56 @@ a.a-modal-close {
       border: 2px solid #1EAEF7;
       border-radius: 50%; }
 
-.a-text > ul.a-iconList li {
+.a-text .a-question-wrapper .a-circle-list {
+  margin-left: 0; }
+  @media (min-width: 992px) {
+    .a-text .a-question-wrapper .a-circle-list {
+      margin-left: 0; } }
+  .a-text .a-question-wrapper .a-circle-list li {
+    padding-left: 72px;
+    margin-bottom: 0; }
+    @media (min-width: 768px) {
+      .a-text .a-question-wrapper .a-circle-list li {
+        padding-left: 84px; } }
+    .a-text .a-question-wrapper .a-circle-list li::before {
+      position: absolute;
+      top: 18px;
+      left: 72px;
+      width: 36px;
+      height: 36px;
+      padding: 5px 0 0 0;
+      text-align: center; }
+      @media (min-width: 768px) {
+        .a-text .a-question-wrapper .a-circle-list li::before {
+          top: 30px;
+          left: 84px; } }
+    .a-text .a-question-wrapper .a-circle-list li:last-of-type {
+      display: none;
+      padding: 0;
+      margin-bottom: 0; }
+      .a-text .a-question-wrapper .a-circle-list li:last-of-type::before {
+        display: none; }
+
+.a-text ul.a-iconList li {
   margin-bottom: 18px; }
 
-.a-text > ul.connected-bullets {
+.a-text ul.connected-bullets {
   margin-left: 0; }
-  .a-text > ul.connected-bullets li {
+  .a-text ul.connected-bullets li {
     margin: 0; }
 
-.a-text > ul.no-decoration,
-.a-text > ol.no-decoration {
+.a-text ul.no-decoration,
+.a-text ol.no-decoration {
   margin: 0;
   list-style-type: none; }
 
-.a-text > ul.a-list,
-.a-text > ol.a-list {
+.a-text ul.a-list,
+.a-text ol.a-list {
   margin: 0;
   list-style: none; }
-  .a-text > ul.a-list li,
-  .a-text > ol.a-list li {
+  .a-text ul.a-list li,
+  .a-text ol.a-list li {
     margin: 0; }
-
-.a-text .a-question-wrapper .a-circle-list {
-  margin: 0; }
-  .a-text .a-question-wrapper .a-circle-list li {
-    margin-bottom: 0; }
 
 .a-text.a-collapseContent ul {
   margin-bottom: 18px;
@@ -14178,7 +14211,7 @@ h1 + .a-byline {
       z-index: 22;
       width: 30px;
       height: 30px;
-      padding: 3px 0 6px 0;
+      padding: 1px 0 6px 0;
       margin-bottom: 0;
       cursor: pointer;
       background: #FFFFFF;
@@ -14214,7 +14247,7 @@ h1 + .a-byline {
     left: 12px;
     width: 30px;
     height: 30px;
-    padding: 3px 0 6px 0;
+    padding: 1px 0 6px 0;
     margin-bottom: 0;
     cursor: pointer;
     background: #FFFFFF;
@@ -15314,20 +15347,20 @@ textarea,
       -webkit-font-smoothing: subpixel-antialiased; } }
 
 .a-fontSizeS, h4,
-.a-h4, .a-radioButtons .custom-control .a-radioButtons-title, .a-btn, .a-compare-category .a-compare-container p, ul.a-bullet-list li, .a-text > ul:not(.connected-bullets):not(.no-decoration) li,
-.a-text > ul.a-bullet-list:not(.connected-bullets):not(.no-decoration) li, ul.a-item-list-icon li span, .a-inboxCompact .a-inboxHeadingContent h3, .a-text, .a-text > a, .a-text p,
-.a-text li, .a-text > ol,
-.a-text > .a-circle-list {
+.a-h4, .a-radioButtons .custom-control .a-radioButtons-title, .a-btn, .a-compare-category .a-compare-container p, ul.a-bullet-list li, .a-text ul:not(.connected-bullets):not(.no-decoration):not(.a-list) li,
+.a-text ul.a-bullet-list:not(.connected-bullets):not(.no-decoration):not(.a-list) li, ul.a-item-list-icon li span, .a-inboxCompact .a-inboxHeadingContent h3, .a-text, .a-text > a, .a-text p,
+.a-text li, .a-text ol,
+.a-text .a-circle-list {
   font-size: 16px;
   font-size: 1.6rem;
   line-height: 1.5;
   -webkit-font-smoothing: subpixel-antialiased; }
   @media (min-width: 768px) {
     .a-fontSizeS, h4,
-    .a-h4, .a-radioButtons .custom-control .a-radioButtons-title, .a-btn, .a-compare-category .a-compare-container p, ul.a-bullet-list li, .a-text > ul:not(.connected-bullets):not(.no-decoration) li,
-    .a-text > ul.a-bullet-list:not(.connected-bullets):not(.no-decoration) li, ul.a-item-list-icon li span, .a-inboxCompact .a-inboxHeadingContent h3, .a-text, .a-text > a, .a-text p,
-    .a-text li, .a-text > ol,
-    .a-text > .a-circle-list {
+    .a-h4, .a-radioButtons .custom-control .a-radioButtons-title, .a-btn, .a-compare-category .a-compare-container p, ul.a-bullet-list li, .a-text ul:not(.connected-bullets):not(.no-decoration):not(.a-list) li,
+    .a-text ul.a-bullet-list:not(.connected-bullets):not(.no-decoration):not(.a-list) li, ul.a-item-list-icon li span, .a-inboxCompact .a-inboxHeadingContent h3, .a-text, .a-text > a, .a-text p,
+    .a-text li, .a-text ol,
+    .a-text .a-circle-list {
       font-size: 18px;
       font-size: 1.8rem;
       line-height: 1.5;
