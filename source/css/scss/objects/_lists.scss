@@ -511,6 +511,23 @@ ol {
       }
     }
   }
+
+  &.a-number-list {
+    @include a-fontSize16;
+
+    li {
+      margin-bottom: 6px;
+
+      &::before {
+        @include a-fontBold;
+        top: 0;
+        padding: 5px 9px 4px 9px;
+        margin-left: -10px;
+        content: counter( step ) '.';
+        counter-increment: step;
+      }
+    }
+  }
 }
 
 

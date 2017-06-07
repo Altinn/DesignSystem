@@ -10,6 +10,18 @@
 
   {{> molekyler-toppoppgaver }}
 
+  {{# empty-inbox }}
+    <div class="row">
+      <div class="col">
+        <h2 class="a-fontSizeM a-fontBold mt-3 mb-0">{{ empty-inbox-heading }}</h2>
+        <p class="a-fontSizeM">{{ empty-inbox-title }}</p>
+        <h3 class="mb-1 mt-3 a-fontSizeXS a-fontReg">{{ empty-inbox-list-title }}</h3>
+        {{> atomer-liste-nummerert }}
+        <p class="mt-2">{{ empty-inbox-undertext }}{{> atomer-link }}</p>
+      </div>
+    </div>
+  {{/ empty-inbox }}
+
   {{# inbox }}
     <div class="row{{# inbox-extra-class }} {{ inbox-extra-class }}{{/ inbox-extra-class }}">
       <div class="col" id="{{ accordionId }}">
