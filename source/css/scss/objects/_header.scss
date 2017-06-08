@@ -124,30 +124,26 @@
   }
 
   .nav-link {
-    padding: $spacer 8px 0 8px;
+    padding: $spacer 8px 10px 8px;
     border-radius: 0;
 
     @include media-breakpoint-up( sm ) {
-      padding: 13px 8px 0 8px;
+      padding: 13px 8px 10px 8px;
     }
 
     @include media-breakpoint-up( md ) {
-      padding: 10px 8px 0 8px;
+      padding: 10px 8px 10px 8px;
     }
 
     @include media-breakpoint-up( lg ) {
       padding: 10px;
     }
 
-    &:focus {
-      color: $blue-darker;
-      border-color: $blue-darker;
-    }
-
+    &:focus,
     &:active {
       color: $blue-dark;
+      border-color: $blue-dark;
     }
-
   }
 
   // Language switcher (Button)
@@ -178,6 +174,20 @@
       margin-right: $spacer * 2;
     }
 
+    &:focus {
+      &::before {
+        position: absolute;
+        top: -7px;
+        left: -18px;
+        width: calc(100% + 36px);
+        height: calc(100% + 24px);
+        content: ' ';
+        background: $black-opacity-03;
+        border: none;
+        border-radius: 50px;
+      }
+    }
+
     &:hover,
     &:focus,
     &:active {
@@ -203,7 +213,8 @@
     padding-right: $spacer;
 
     @include media-breakpoint-up( sm ) {
-      padding-right: 0;
+      padding-right: $spacer;
+      margin-right: -$spacer;
     }
 
     @include media-breakpoint-up( md ) {
@@ -236,6 +247,12 @@
 
   &::after {
     display: none;
+  }
+
+  &:focus {
+    background: $black-opacity-03;
+    border-color: $blue-darker;
+    border-radius: 50px;
   }
 
   &:hover,
@@ -833,15 +850,15 @@
         left: auto;
 
         @include media-breakpoint-up( sm ) {
-          right: 5px;
+          right: 1px;
         }
 
         @include media-breakpoint-up( lg ) {
-          right: 16px;
+          right: 13px;
         }
 
         @include media-breakpoint-up( xl ) {
-          right: -6px;
+          right: -11px;
         }
       }
     }
