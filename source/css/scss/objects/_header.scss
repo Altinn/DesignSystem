@@ -120,7 +120,7 @@
   }
 
   @include media-breakpoint-up( lg ) {
-    margin-top: -4px;
+    margin-top: -6px;
   }
 
   .nav-link {
@@ -182,7 +182,7 @@
         width: calc(100% + 36px);
         height: calc(100% + 24px);
         content: ' ';
-        background: $black-opacity-03;
+        background: $black-opacity-01;
         border: none;
         border-radius: 50px;
       }
@@ -250,7 +250,7 @@
   }
 
   &:focus {
-    background: $black-opacity-03;
+    background: $black-opacity-01;
     border-color: $blue-darker;
     border-radius: 50px;
   }
@@ -497,10 +497,7 @@
     border: 3px solid $blue-dark;
 
     @include media-breakpoint-up( sm ) {
-      position: relative;
-      right: 0;
-      float: right;
-      margin-top: -4px;
+      right: 160px;
     }
 
     &::after {
@@ -759,12 +756,35 @@
 
 // Dark background, white text
 .a-darkBackground {
+
   @include media-breakpoint-up( md ) {
     .a-globalNav-main {
       li {
         a {
           color: $white;
         }
+      }
+    }
+  }
+
+  .a-header-options {
+    .a-languageSwitcher,
+    .a-personSwitcher {
+      color: $white;
+      border-color: $white;
+    }
+
+    .a-languageSwitcher {
+      &:focus {
+        &::before {
+          background: $white-opacity-02;
+        }
+      }
+    }
+
+    .a-personSwitcher {
+      &:focus {
+        background: $white-opacity-02;
       }
     }
   }
@@ -793,14 +813,6 @@
     // border: 1px solid $white;
   }
 
-  .a-header-options {
-    .a-languageSwitcher,
-    .a-personSwitcher {
-      color: $white;
-      border-color: $white;
-    }
-  }
-
   .nav-pills {
     .nav-item {
       &.show {
@@ -809,6 +821,26 @@
           &.a-personSwitcher {
             color: $white;
           }
+        }
+      }
+    }
+  }
+}
+
+.a-bgBlueLight {
+  .a-header {
+    .a-header-options {
+      .a-languageSwitcher {
+        &:focus {
+          &::before {
+            background: $white-opacity-03;
+          }
+        }
+      }
+
+      .a-personSwitcher {
+        &:focus {
+          background: $white-opacity-03;
         }
       }
     }
