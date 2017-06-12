@@ -120,34 +120,30 @@
   }
 
   @include media-breakpoint-up( lg ) {
-    margin-top: -4px;
+    margin-top: -6px;
   }
 
   .nav-link {
-    padding: $spacer 8px 0 8px;
+    padding: $spacer 8px 10px 8px;
     border-radius: 0;
 
     @include media-breakpoint-up( sm ) {
-      padding: 13px 8px 0 8px;
+      padding: 13px 8px 10px 8px;
     }
 
     @include media-breakpoint-up( md ) {
-      padding: 10px 8px 0 8px;
+      padding: 10px 8px 10px 8px;
     }
 
     @include media-breakpoint-up( lg ) {
       padding: 10px;
     }
 
-    &:focus {
-      color: $blue-darker;
-      border-color: $blue-darker;
-    }
-
+    &:focus,
     &:active {
       color: $blue-dark;
+      border-color: $blue-dark;
     }
-
   }
 
   // Language switcher (Button)
@@ -178,6 +174,20 @@
       margin-right: $spacer * 2;
     }
 
+    &:focus {
+      &::before {
+        position: absolute;
+        top: -7px;
+        left: -18px;
+        width: calc(100% + 36px);
+        height: calc(100% + 24px);
+        content: ' ';
+        background: $black-opacity-01;
+        border: none;
+        border-radius: 50px;
+      }
+    }
+
     &:hover,
     &:focus,
     &:active {
@@ -203,7 +213,8 @@
     padding-right: $spacer;
 
     @include media-breakpoint-up( sm ) {
-      padding-right: 0;
+      padding-right: $spacer;
+      margin-right: -$spacer;
     }
 
     @include media-breakpoint-up( md ) {
@@ -236,6 +247,12 @@
 
   &::after {
     display: none;
+  }
+
+  &:focus {
+    background: $black-opacity-01;
+    border-color: $blue-darker;
+    border-radius: 50px;
   }
 
   &:hover,
@@ -272,9 +289,9 @@
 
   .a-personSwitcher-icon {
     display: inline-flex;
-    // width: 36px;
     height: 36px;
     margin-left: 3px;
+    line-height: 1;
     color: $blue-dark;
 
     @include media-breakpoint-up( md ) {
@@ -480,10 +497,7 @@
     border: 3px solid $blue-dark;
 
     @include media-breakpoint-up( sm ) {
-      position: relative;
-      right: 0;
-      float: right;
-      margin-top: -4px;
+      right: 160px;
     }
 
     &::after {
@@ -682,15 +696,15 @@
     border-radius: 0;
 
     &.a-dropdown-languages {
+      display: none;
       min-width: 0;
-      height: 0;
       overflow: hidden;
       transition: height 0.25s ease-in-out;
 
       &.expand {
+        display: block;
         width: inherit;
         min-width: 160px;
-        height: 216px;
         border-bottom: 1px solid $blue-dark;
 			}
 		}
@@ -742,12 +756,35 @@
 
 // Dark background, white text
 .a-darkBackground {
+
   @include media-breakpoint-up( md ) {
     .a-globalNav-main {
       li {
         a {
           color: $white;
         }
+      }
+    }
+  }
+
+  .a-header-options {
+    .a-languageSwitcher,
+    .a-personSwitcher {
+      color: $white;
+      border-color: $white;
+    }
+
+    .a-languageSwitcher {
+      &:focus {
+        &::before {
+          background: $white-opacity-02;
+        }
+      }
+    }
+
+    .a-personSwitcher {
+      &:focus {
+        background: $white-opacity-02;
       }
     }
   }
@@ -776,14 +813,6 @@
     // border: 1px solid $white;
   }
 
-  .a-header-options {
-    .a-languageSwitcher,
-    .a-personSwitcher {
-      color: $white;
-      border-color: $white;
-    }
-  }
-
   .nav-pills {
     .nav-item {
       &.show {
@@ -792,6 +821,26 @@
           &.a-personSwitcher {
             color: $white;
           }
+        }
+      }
+    }
+  }
+}
+
+.a-bgBlueLight {
+  .a-header {
+    .a-header-options {
+      .a-languageSwitcher {
+        &:focus {
+          &::before {
+            background: $white-opacity-03;
+          }
+        }
+      }
+
+      .a-personSwitcher {
+        &:focus {
+          background: $white-opacity-03;
         }
       }
     }
@@ -833,15 +882,15 @@
         left: auto;
 
         @include media-breakpoint-up( sm ) {
-          right: 5px;
+          right: 1px;
         }
 
         @include media-breakpoint-up( lg ) {
-          right: 16px;
+          right: 13px;
         }
 
         @include media-breakpoint-up( xl ) {
-          right: -6px;
+          right: -11px;
         }
       }
     }

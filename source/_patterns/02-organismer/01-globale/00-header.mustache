@@ -1,4 +1,16 @@
 <!-- Begin .header -->
+
+<nav class="jumpnav">
+    <div class="jumpnav__inner">
+        <ul class="list-inline list-inline--medium-up">
+            <li><a class="sr-only sr-only-focusable" href="#content">Hopp til innhold</a></li>
+            <li><a class="sr-only sr-only-focusable" href="#primary-nav">Hopp til hovedmeny</a></li>
+            <li><a class="sr-only sr-only-focusable" href="#secondary-nav">Hopp til sekundærmeny</a></li>
+            <li><a class="sr-only sr-only-focusable" href="#search">Hopp til søk</a></li>
+        </ul>
+    </div>
+</nav>
+
 <a href="#content" class="sr-only sr-only-focusable">Hopp til hovedinnholdet</a>
 <!-- Skip to main content -->
 
@@ -8,31 +20,8 @@
     <div class="row">
       <div class="col-12">
 
-    		<!-- Begin .a-globalNav-options -->
-    		<ul class="nav nav-pills a-header-options">
-
-    			<li class="nav-item dropdown hidden-sm-down">
-            <!-- Dropdown toggle -->
-            <a lang="en" class="nav-link dropdown-toggle a-languageSwitcher" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              Language
-            </a>
-
-            {{# dropdown-languages }}
-              {{> organismer-meny-spraakvalg }}
-            {{/ dropdown-languages }}
-          </li>
-
-    			<li class="nav-item">
-    				<!-- Dropdown toggle -->
-    				{{> atomer-innlogget }}
-            {{# dropdown-personswitch }}
-              {{> organismer-meny-personbytte }}
-            {{/ dropdown-personswitch }}
-    			</li>
-    		</ul> <!-- End .a-globalNav-options -->
-
     		<!-- Begin .a-globalNav -->
-    		<nav class="a-globalNav">
+    		<nav id="primary-nav" class="a-globalNav">
     			<a href="{{ link.sider-forside-innlogget }}" class="a-globalNav-logo"> {{> atomer-logo }} <span class="sr-only">Til forsiden</span>
           </a>
 
@@ -61,7 +50,7 @@
     						<li class="hidden-md-up"><a class="a-nav-link a-hvr-underline" href="{{ link.sider-seksjonsforside-v-starteogdrive }}">starte og drive bedrift</a></li>
     						<li class="hidden-md-up"><a class="a-hvr-underline" href="{{ link.sider-navigasjonsartikkel-v-omaltinn-v2 }}">om altinn</a></li>
     						<li class="hidden-md-up">
-                  <a class="a-hvr-underline" href="{{ link.sider-artikkel }}">
+                  <a class="a-hvr-underline" href="{{ link.sider-hjelpesenter }}">
                     {{# tel-icon }}
                       {{> atomer-ikon }}
                     {{/ tel-icon }}
@@ -71,6 +60,29 @@
     					</ul>
     			  </div>
     		</nav> <!-- End .a-globalNav -->
+
+        <!-- Begin .a-globalNav-options -->
+    		<ul id="secondary-nav" class="nav nav-pills a-header-options">
+
+    			<li class="nav-item dropdown hidden-sm-down">
+            <!-- Dropdown toggle -->
+            <a lang="en" class="nav-link dropdown-toggle a-languageSwitcher" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Language
+            </a>
+
+            {{# dropdown-languages }}
+              {{> organismer-meny-spraakvalg }}
+            {{/ dropdown-languages }}
+          </li>
+
+    			<li class="nav-item">
+    				<!-- Dropdown toggle -->
+    				{{> atomer-innlogget }}
+            {{# dropdown-personswitch }}
+              {{> organismer-meny-personbytte }}
+            {{/ dropdown-personswitch }}
+    			</li>
+    		</ul> <!-- End .a-globalNav-options -->
 
       </div><!-- End .col -->
 

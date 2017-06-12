@@ -82,6 +82,10 @@
       .input-group-btn {
         .btn {
           background: $white;
+
+          &:focus {
+            background: $blue-light;
+          }
         }
       }
     }
@@ -348,7 +352,7 @@
 
   .a-mediaBlock-caption {
     padding-top: $spacer * 2;
-    text-align: left;
+    text-align: center;
   }
 }
 
@@ -458,18 +462,22 @@
   img {
     flex-grow: 0;
     width: 150px;
+    height: 150px;
     margin-right: auto;
     margin-left: auto;
     border-radius: 50%;
+    object-fit: cover;
     flex-shrink: 0;
 
     @include media-breakpoint-up( md ) {
       width: 126px;
+      height: 126px;
       margin-right: $spacer * 3;
       margin-bottom: 0;
     }
     @include media-breakpoint-up( lg ) {
       width: 180px;
+      height: 180px;
     }
   }
 
@@ -524,8 +532,6 @@
   }
 }
 
-
-
 // Questions (guide)
 .a-question-wrapper {
   display: inline-block;
@@ -547,6 +553,10 @@
 
   .a-circle-list {
     margin-left: 0;
+
+    @include media-breakpoint-up( lg ) {
+      margin-left: 0;
+    }
 
     li {
       padding-top: $spacer * 2;
@@ -579,7 +589,6 @@
         display: none;
         padding: 0;
         margin-bottom: 0;
-        // TODO: Disable linting for special case line heights
 
         &::before {
           display: none;

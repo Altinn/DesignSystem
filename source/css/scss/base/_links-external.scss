@@ -1,7 +1,7 @@
 // External Links with explanation and arrow
 // sass-lint:disable-all
 
-a[href^="http"]:not([href*='altinn.no']):not(a[href$=".pdf"])::after {
+a[href^="http"]:not([href*='altinn.no'])::after {
   display: inline-block;
   width: 1em;
   height: 1em;
@@ -21,6 +21,7 @@ a[href^="http"]:not([href*='altinn.no']):not(a[href$=".pdf"])::after {
 /* Add " (PDF)" text after links that go to PDFs */
 a[href$=".pdf"]::after {
   content: " (PDF)" !important;
+  display: inline !important;
 }
 
 /* If file size specified as data attribute, use that too */
