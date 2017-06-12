@@ -112,7 +112,7 @@
       z-index: 22;
       width: 30px;
       height: 30px;
-      padding: 3px 0 $spacer / 2 0;
+      padding: 1px 0 $spacer / 2 0;
       margin-bottom: 0;
       cursor: pointer;
       background: $white;
@@ -159,7 +159,7 @@
       left: $spacer;
       width: 30px;
       height: 30px;
-      padding: 3px 0 $spacer / 2 0;
+      padding: 1px 0 $spacer / 2 0;
       margin-bottom: 0;
       cursor: pointer;
       background: $white;
@@ -287,8 +287,26 @@
     }
   }
 
-  .a-circle-list {
+}
 
+
+// QUICKHELP:  On last level when article is loaded from epi (quickHelpPage), format it:
+.quickHelpPage {
+
+  .a-current-page {
+    overflow: hidden;
+  }
+
+  h1 {
+    @extend .a-h2;
+  }
+
+  p,
+  .a-leadText {
+    @include a-fontSize16;
+  }
+
+  .a-circle-list {
     li {
       padding: $spacer $spacer $spacer 52px;
       margin-bottom: $spacer;
