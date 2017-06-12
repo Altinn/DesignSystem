@@ -1143,7 +1143,7 @@ AltinnQuickhelp = {
     }).done(function(data) {
       var current;
       var quickhelpPage = $('<div/>', {
-        class: 'quickhelpPage hei',
+        class: 'quickhelpPage',
         html: data
       });
       var existingPages;
