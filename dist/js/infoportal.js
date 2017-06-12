@@ -1235,6 +1235,10 @@ AltinnQuickhelp = {
       }
     });
   }
+  if($('.quickhelpPage').find('.a-text').length !== 0) {
+    $('.quickhelpPage').parent('.a-page').addClass('a-page-hasArticleInside')
+  }
+
 };
 
 var articleAnchors = function() {
