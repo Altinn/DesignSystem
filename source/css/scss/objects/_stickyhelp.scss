@@ -9,15 +9,11 @@
   right: $spacer * 2;
   bottom: $spacer * 2;
   z-index: 1051;
-  padding: $spacer $spacer * 2;
+  padding: 14px 24px 9px 24px;
   margin-bottom: 0;
   color: $white;
   background: $purple;
   border-radius: 50px;
-
-  i {
-    margin-top: -2px;
-  }
 
   &:hover,
   &:active,
@@ -25,7 +21,71 @@
     color: $white;
     background: $purple-hover-color;
   }
+
+  &.a-stickyHelp-animationHint {
+    animation: hintTextSlideIn 400ms;
+    animation-timing-function: linear;
+    animation-delay: 2s;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
+
+    .a-stickyHelp-openText {
+      position: absolute;
+      left: 0;
+      display: block;
+      float: left;
+      width: 100%;
+      height: auto;
+      padding-top: 5px;
+      padding-right: 18px;
+      clip: auto;
+      opacity: 0;
+
+      animation: hintTextAppear 300ms;
+      animation-timing-function: linear;
+      animation-delay: 2.7s;
+      animation-iteration-count: 1;
+      animation-fill-mode: forwards;
+    }
+  }
+
+  &[aria-expanded='true'] {
+    &.a-stickyHelp-animationHint {
+      animation: none;
+
+      .a-stickyHelp-openText {
+        animation: none;
+      }
+    }
+  }
+
+  i {
+    @include a-fontSize30;
+    font-style: normal;
+  }
 }
+
+@keyframes hintTextSlideIn {
+  0% {
+    padding-left: 24px;
+  }
+
+  100% {
+    padding-left: 180px;
+  }
+}
+
+@keyframes hintTextAppear {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+
 
 // Iframe container
 .a-iframeToggle {
@@ -112,7 +172,7 @@
       z-index: 22;
       width: 30px;
       height: 30px;
-      padding: 1px 0 $spacer / 2 0;
+      padding: 3px 0 $spacer / 2 0;
       margin-bottom: 0;
       cursor: pointer;
       background: $white;
@@ -142,7 +202,7 @@
     color: $white;
     background: $purple;
 
-    h2 {
+    h1 {
       @include a-fontMedium;
       text-align: center;
       align-self: center;
@@ -159,7 +219,7 @@
       left: $spacer;
       width: 30px;
       height: 30px;
-      padding: 1px 0 $spacer / 2 0;
+      padding: 3px 0 $spacer / 2 0;
       margin-bottom: 0;
       cursor: pointer;
       background: $white;
@@ -204,6 +264,82 @@
     &+.a-page {
       margin-top: -400px;
     }
+
+    // Article (level 3)
+    .a-text {
+      &.epi-wysiwyg {
+        padding: $height42;
+        padding-left: 52px;
+
+        &.pt-2 {
+          padding-top: 0 !important;
+        }
+
+        &.pt-lg-3 {
+          padding-top: 0 !important;
+        }
+
+        h1 {
+          @include a-fontSize20;
+          padding-top: 0;
+          margin-top: 0;
+        }
+
+        p,
+        .a-leadText {
+          @include a-fontSize16;
+        }
+
+        h2 {
+          @include a-fontSize18;
+          padding-top: 0;
+          padding-left: 0;
+          margin-top: 0;
+        }
+
+        .a-circle-list {
+          width: calc(100% + 26px);
+          margin-left: -52px;
+
+          li {
+            width: calc(100% + 40px);
+            padding: $spacer $spacer $spacer 52px;
+            margin-bottom: $spacer;
+            margin-left: 0;
+            border-bottom: 1px solid $grey-light;
+
+            &::before {
+              margin-right: 10px;
+              margin-left: -41px;
+            }
+
+            &:first-child {
+              border-top: 1px solid $grey-light;
+            }
+
+            &:last-child {
+              margin-bottom: 0;
+              border-bottom: none;
+            }
+          }
+        }
+
+        .a-stickyHelp-footer {
+          width: calc(100% + 64px);
+          margin-left: -52px;
+        }
+      }
+
+      .a-stickyHelp-footer {
+        width: calc(100% + 24px);
+        margin-left: -$spacer;
+      }
+    }
+  }
+
+  // Article has its own scroll, don't need scroll from parent.
+  .a-page-hasArticleInside {
+    overflow: hidden;
   }
 }
 
@@ -211,7 +347,9 @@
   overflow: hidden;
   background: $white;
 
+
   h2 {
+    @include a-fontSize18;
     padding: $height42;
     padding-left: 52px;
     margin-bottom: 0;
@@ -234,7 +372,7 @@
         }
 
         &.a-stickyHelp-iconLeft {
-          padding-left: 25px;
+          padding-left: 23px;
         }
 
         i {
@@ -287,44 +425,4 @@
     }
   }
 
-}
-
-
-// QUICKHELP:  On last level when article is loaded from epi (quickHelpPage), format it:
-.quickHelpPage {
-
-  .a-current-page {
-    overflow: hidden;
-  }
-
-  h1 {
-    @extend .a-h2;
-  }
-
-  p,
-  .a-leadText {
-    @include a-fontSize16;
-  }
-
-  .a-circle-list {
-    li {
-      padding: $spacer $spacer $spacer 52px;
-      margin-bottom: $spacer;
-      border-bottom: 1px solid $grey-light;
-
-      &::before {
-        margin-right: 6px;
-        margin-left: -41px;
-      }
-
-      &:first-child {
-        border-top: 1px solid $grey-light;
-      }
-
-      &:last-child {
-        margin-bottom: 0;
-        border-bottom: none;
-      }
-    }
-  }
 }
