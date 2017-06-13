@@ -984,7 +984,7 @@ AltinnQuickhelp = {
     }).done(function(data) {
       var current;
       var quickhelpPage = $('<div/>', {
-        class: 'quickhelpPage hei',
+        class: 'quickhelpPage',
         html: data
       });
       var existingPages;
@@ -1075,7 +1075,11 @@ AltinnQuickhelp = {
         });
       }
     });
+    if ($('.quickhelpPage').find('.a-text').length !== 0) {
+      $('.quickhelpPage').parent('.a-page').addClass('a-page-hasArticleInside');
+    }
   }
+
 };
 
 var articleAnchors = function() {

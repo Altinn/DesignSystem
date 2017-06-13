@@ -9087,6 +9087,9 @@ textarea {
 
 /*------------------------------------*    $HEADER
 \*------------------------------------*/
+.a-jumpnav {
+  background: #FFFFFF; }
+
 .a-header {
   height: 96px;
   padding-top: 24px;
@@ -14185,16 +14188,58 @@ body > .loader-container {
   right: 24px;
   bottom: 24px;
   z-index: 1051;
-  padding: 12px 24px;
+  padding: 14px 24px 9px 24px;
   margin-bottom: 0;
   color: #FFFFFF;
   background: #3F3161;
   border-radius: 50px; }
-  .a-stickyHelp-open i {
-    margin-top: -2px; }
   .a-stickyHelp-open:hover, .a-stickyHelp-open:active, .a-stickyHelp-open:focus {
     color: #FFFFFF;
     background: #4a3a72; }
+  .a-stickyHelp-open.a-stickyHelp-animationHint {
+    animation: hintTextSlideIn 400ms;
+    animation-timing-function: linear;
+    animation-delay: 2s;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards; }
+    .a-stickyHelp-open.a-stickyHelp-animationHint .a-stickyHelp-openText {
+      position: absolute;
+      left: 0;
+      display: block;
+      float: left;
+      width: 100%;
+      height: auto;
+      padding-top: 5px;
+      padding-right: 18px;
+      clip: auto;
+      opacity: 0;
+      animation: hintTextAppear 300ms;
+      animation-timing-function: linear;
+      animation-delay: 2.7s;
+      animation-iteration-count: 1;
+      animation-fill-mode: forwards; }
+  .a-stickyHelp-open[aria-expanded='true'].a-stickyHelp-animationHint {
+    animation: none; }
+    .a-stickyHelp-open[aria-expanded='true'].a-stickyHelp-animationHint .a-stickyHelp-openText {
+      animation: none; }
+  .a-stickyHelp-open i {
+    font-size: 30px;
+    font-size: 3rem;
+    line-height: 1.3;
+    -webkit-font-smoothing: subpixel-antialiased;
+    font-style: normal; }
+
+@keyframes hintTextSlideIn {
+  0% {
+    padding-left: 24px; }
+  100% {
+    padding-left: 180px; } }
+
+@keyframes hintTextAppear {
+  0% {
+    opacity: 0; }
+  100% {
+    opacity: 1; } }
 
 .a-iframeToggle {
   position: fixed;
@@ -14338,7 +14383,7 @@ body > .loader-container {
       font-size: 2rem;
       line-height: 1.5;
       -webkit-font-smoothing: subpixel-antialiased;
-      padding-top: 12px;
+      padding-top: 0;
       margin-top: 0; }
     .a-stickyHelp .a-page .a-text.epi-wysiwyg p,
     .a-stickyHelp .a-page .a-text.epi-wysiwyg .a-leadText {
@@ -14351,15 +14396,17 @@ body > .loader-container {
       font-size: 1.8rem;
       line-height: 1.5;
       -webkit-font-smoothing: subpixel-antialiased;
-      padding-left: 40px; }
+      padding-top: 0;
+      padding-left: 0;
+      margin-top: 0; }
     .a-stickyHelp .a-page .a-text.epi-wysiwyg .a-circle-list {
       width: calc(100% + 26px);
       margin-left: -52px; }
       .a-stickyHelp .a-page .a-text.epi-wysiwyg .a-circle-list li {
-        width: calc(100% + 24px);
+        width: calc(100% + 40px);
         padding: 12px 12px 12px 52px;
         margin-bottom: 12px;
-        margin-left: -12px;
+        margin-left: 0;
         border-bottom: 1px solid #EFEFEF; }
         .a-stickyHelp .a-page .a-text.epi-wysiwyg .a-circle-list li::before {
           margin-right: 10px;
@@ -14369,6 +14416,9 @@ body > .loader-container {
         .a-stickyHelp .a-page .a-text.epi-wysiwyg .a-circle-list li:last-child {
           margin-bottom: 0;
           border-bottom: none; }
+    .a-stickyHelp .a-page .a-text.epi-wysiwyg .a-stickyHelp-footer {
+      width: calc(100% + 64px);
+      margin-left: -52px; }
   .a-stickyHelp .a-page .a-text .a-stickyHelp-footer {
     width: calc(100% + 24px);
     margin-left: -12px; }
