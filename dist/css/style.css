@@ -7613,11 +7613,11 @@ a,
       .a-helpIconButton .ai-stack i.ai:first-of-type {
         color: #6A6A6A; }
   .a-helpIconButton:hover {
-    color: #EFEFEF;
+    color: #F5F5F5;
     text-decoration: none;
     border-bottom: none; }
   .a-helpIconButton:focus {
-    color: #EFEFEF;
+    color: #F5F5F5;
     border-bottom: none;
     outline: none; }
   .a-helpIconButton i {
@@ -8438,7 +8438,6 @@ textarea {
     height: 24px;
     margin-top: -4px;
     background-color: #FFFFFF;
-    background-position: 5px 5px;
     border: 2px solid #1EAEF7;
     border-radius: 0; }
   .a-form-checkboxes .custom-checkbox.inactive .custom-control-indicator {
@@ -8466,7 +8465,9 @@ textarea {
       background-size: 100%; }
     .a-form-checkboxes .custom-control > input:focus ~ .custom-control-indicator {
       box-shadow: none; }
-  .a-form-checkboxes input[type='checkbox']:focus ~ span.custom-control-indicator:not(.override-focus), .a-form-checkboxes input[type='radio']:focus ~ span.custom-control-indicator:not(.override-focus) {
+  .a-form-checkboxes input[type='checkbox']:focus ~ span.custom-control-indicator:not(.override-focus),
+  .a-form-checkboxes input[type='checkbox']:hover ~ span.custom-control-indicator:not(.override-focus), .a-form-checkboxes input[type='radio']:focus ~ span.custom-control-indicator:not(.override-focus),
+  .a-form-checkboxes input[type='radio']:hover ~ span.custom-control-indicator:not(.override-focus) {
     border: 2px solid #0062BA; }
   .a-form-checkboxes.custom-controls-stacked .custom-control {
     display: block;
@@ -8680,11 +8681,21 @@ textarea {
       .form-group input[type='radio']:checked + .a-toggle-icon.a-form-label-inline i:nth-of-type(2),
       .form-group .a-switch input[type='radio']:checked + .a-toggle-icon.a-form-label-inline i:nth-of-type(2) {
         display: inline-block; }
+  .a-switch input[type='checkbox']:checked:focus + label, .a-switch .a-form-group input[type='checkbox']:checked:focus + .a-form-label-inline, .a-form-group .a-switch input[type='checkbox']:checked:focus + .a-form-label-inline, .a-switch
+  .form-group input[type='checkbox']:checked:focus + .a-form-label-inline,
+  .form-group .a-switch input[type='checkbox']:checked:focus + .a-form-label-inline, .a-switch input[type='radio']:checked:focus + label, .a-switch .a-form-group input[type='radio']:checked:focus + .a-form-label-inline, .a-form-group .a-switch input[type='radio']:checked:focus + .a-form-label-inline, .a-switch
+  .form-group input[type='radio']:checked:focus + .a-form-label-inline,
+  .form-group .a-switch input[type='radio']:checked:focus + .a-form-label-inline {
+    background: rgba(207, 240, 255, 0.9); }
   .a-switch input[type='checkbox']:focus + label, .a-switch .a-form-group input[type='checkbox']:focus + .a-form-label-inline, .a-form-group .a-switch input[type='checkbox']:focus + .a-form-label-inline, .a-switch
   .form-group input[type='checkbox']:focus + .a-form-label-inline,
-  .form-group .a-switch input[type='checkbox']:focus + .a-form-label-inline, .a-switch input[type='radio']:focus + label, .a-switch .a-form-group input[type='radio']:focus + .a-form-label-inline, .a-form-group .a-switch input[type='radio']:focus + .a-form-label-inline, .a-switch
+  .form-group .a-switch input[type='checkbox']:focus + .a-form-label-inline, .a-switch input[type='checkbox']:active + label, .a-switch .a-form-group input[type='checkbox']:active + .a-form-label-inline, .a-form-group .a-switch input[type='checkbox']:active + .a-form-label-inline, .a-switch
+  .form-group input[type='checkbox']:active + .a-form-label-inline,
+  .form-group .a-switch input[type='checkbox']:active + .a-form-label-inline, .a-switch input[type='radio']:focus + label, .a-switch .a-form-group input[type='radio']:focus + .a-form-label-inline, .a-form-group .a-switch input[type='radio']:focus + .a-form-label-inline, .a-switch
   .form-group input[type='radio']:focus + .a-form-label-inline,
-  .form-group .a-switch input[type='radio']:focus + .a-form-label-inline {
+  .form-group .a-switch input[type='radio']:focus + .a-form-label-inline, .a-switch input[type='radio']:active + label, .a-switch .a-form-group input[type='radio']:active + .a-form-label-inline, .a-form-group .a-switch input[type='radio']:active + .a-form-label-inline, .a-switch
+  .form-group input[type='radio']:active + .a-form-label-inline,
+  .form-group .a-switch input[type='radio']:active + .a-form-label-inline {
     border-style: solid; }
   .a-switch .a-switch-label {
     font-family: "DIN-reg";
@@ -11270,7 +11281,7 @@ i.a-dimmed {
     padding: 6px 12px 4px 12px; }
   .a-btn-action:hover, .a-btn-action:focus {
     color: #000000;
-    background: #CFF0FF;
+    background: #E3F7FF;
     border: 2px dotted #1EAEF7; }
   .a-btn-action:not(.a-fullWidthBtn) span {
     margin-left: 12px; }
@@ -12610,7 +12621,7 @@ ol {
         padding: 6px 0 6px; } }
     .a-tabs .a-tab-btn.active {
       border-bottom-color: #1EAEF7; }
-    .a-tabs .a-tab-btn .active:focus, .a-tabs .a-tab-btn .active:hover, .a-tabs .a-tab-btn .active:active {
+    .a-tabs .a-tab-btn .active, .a-tabs .a-tab-btn:focus, .a-tabs .a-tab-btn:hover, .a-tabs .a-tab-btn:active {
       border-bottom-color: #1EAEF7; }
 
 .a-tabs-content {
@@ -14409,6 +14420,7 @@ body > .loader-container {
         margin-left: 0;
         border-bottom: 1px solid #EFEFEF; }
         .a-stickyHelp .a-page .a-text.epi-wysiwyg .a-circle-list li::before {
+          padding: 7px 9px 4px;
           margin-right: 10px;
           margin-left: -41px; }
         .a-stickyHelp .a-page .a-text.epi-wysiwyg .a-circle-list li:first-child {
