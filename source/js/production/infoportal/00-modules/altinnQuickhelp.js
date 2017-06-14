@@ -155,5 +155,4 @@ AltinnQuickhelp = {
       $('.quickhelpPage').parent('.a-page').addClass('a-page-hasArticleInside');
     }
   }
-
 };
