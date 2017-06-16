@@ -292,7 +292,7 @@ gulp.task('tidy-pages', function() {
 
 gulp.task('patternlab:version', function (done) {
   patternlab.version();
-  done();                                                                                                                                                                 
+  done();
 });
 
 gulp.task('patternlab:help', function (done) {
@@ -336,19 +336,10 @@ function getSupportedTemplateExtensions () {
   return engines.getSupportedFileExtensions();
 }
 
-function getTemplateWatches (projectFolders) {
-  var templateWatches = [];
-  getSupportedTemplateExtensions().forEach(function (dotExtension) {
-    if(projectFolders && projectFolders.length > 0) {
-      templateWatches = templateWatches.concat(projectFolders.map(function (folder) {
-        return paths().source.patterns + folder + '/**/*' + dotExtension;
-      }));
-    } else {
-      templateWatches.push(paths().source.patterns + '**/*' + dotExtension);
-    }
+function getTemplateWatches () {
+  return getSupportedTemplateExtensions().map(function (dotExtension) {
+    return paths().source.patterns + '**/*' + dotExtension;
   });
-  console.log(templateWatches);
-  return templateWatches;
 }
 
 function reload () {
@@ -377,38 +368,6 @@ function watch () {
   gulp.watch(patternWatches, { awaitWriteFinish: true }).on('change', gulp.series(build, reload));
 }
 
-var commonPatternPaths = [
-  paths().source.patterns + '00-atomer/**/*.json',
-  paths().source.patterns + '00-atomer/**/*.md',
-  paths().source.patterns + '01-molekyler/**/*.json',
-  paths().source.patterns + '01-molekyler/**/*.md',
-  paths().source.patterns + '02-organismer/**/*.json',
-  paths().source.patterns + '02-organismer/**/*.md'
-];
-
-function watchProject (projectName) {
-  gulp.watch(paths().source.css + '**/*.scss', { awaitWriteFinish: true })
-    .on('change', gulp.series('pl-copy:css', reload));
-  gulp.watch(paths().source.styleguide + '**/*.*', { awaitWriteFinish: true })
-    .on('change', gulp.series('pl-copy:styleguide', reload));
-  gulp.watch([paths().source.js + 'production/**/*.js', paths().source.js + 'development/**/*.js'])
-    .on('change', gulp.series('pl-copy:designsystemdev-js', reload));
-  // gulp.watch(paths().source.js + 'development/**/*.js')
-  //   .on('change', gulp.series('pl-copy:distribution-js', 'pl-copy:distribution-vendor-portal-js','pl-copy:distribution-portal-js', 'pl-copy:designsystemdev-js', reload));
-
-  var patternWatches = commonPatternPaths.concat([
-    paths().source.patterns + '03-maler-' + projectName + '/**/*.json',
-    paths().source.patterns + '03-maler-' + projectName + '/**/*.md',
-    paths().source.patterns + '04-sider-' + projectName + '/**/*.json',
-    paths().source.patterns + '04-sider-' + projectName + '/**/*.md',
-    paths().source.data + '*.json',
-    paths().source.images + '*',
-    paths().source.meta + '*'
-  ]).concat(getTemplateWatches(['03-maler-' + projectName, '04-sider-' + projectName]));
-
-  gulp.watch(patternWatches, { awaitWriteFinish: true }).on('change', gulp.series(build, reload));
-}
-
 gulp.task('patternlab:connect', gulp.series(function (done) {
   browserSync.init({
     server: { baseDir: paths().public.root },
@@ -427,9 +386,8 @@ gulp.task('patternlab:connect', gulp.series(function (done) {
 }));
 
 gulp.task('patternlab:watch', gulp.series('patternlab:build', watch));
-
-function serve(projectName) {
-  return gulp.series(
+gulp.task('patternlab:serve',
+  gulp.series(
     'pl-clean:public',
     'patternlab:prebuild',
     'patternlab:build',
@@ -438,15 +396,9 @@ function serve(projectName) {
       'tidy-fragments'
     ),*/
     'patternlab:connect',
-    projectName === 'all' ? watch : function() { watchProject(projectName) }
+    watch
   )
-}
-
-gulp.task('patternlab:serve-all', serve('all'));
-gulp.task('patternlab:serve-altinnett', serve('altinnett'));
-gulp.task('patternlab:serve-infoportal', serve('infoportal'));
-gulp.task('patternlab:serve-portal', serve('portal'));
-
+);
 gulp.task('dist',
   gulp.series(
     'pl-clean:dist',
@@ -464,4 +416,4 @@ gulp.task('dist',
     'pl-copy:distribution-portal-js-modules'
   )
 );
-gulp.task('default', gulp.series('patternlab:serve-all'));
+gulp.task('default', gulp.series('patternlab:serve'));
