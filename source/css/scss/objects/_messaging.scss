@@ -79,7 +79,18 @@
   }
 
   &.a-py-minus-1 {
-    @extend .a-py-minus-1;
+    width: calc(100% + 36px);
+    margin-left: -18px;
+
+    @include media-breakpoint-up( sm ) {
+      width: calc(100% + 24px);
+      margin-left: -12px;
+    }
+
+    @include media-breakpoint-up( lg ) {
+      width: 100%;
+      margin-left: auto;
+    }
   }
 
   &.a-message-error {
@@ -116,6 +127,12 @@
 
   &.a-message-edit {
     background-color: $blue-light;
+  }
+
+  p {
+    &:last-child {
+      margin-bottom: 0;
+    }
   }
 }
 
