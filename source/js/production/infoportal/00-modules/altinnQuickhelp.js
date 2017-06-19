@@ -131,7 +131,7 @@ AltinnQuickhelp = {
     var that = this;
     that.listeners('#a-stickyHelp');
     that.loadQuickhelp({
-      url: '../../patterns/03-maler-_70-hurtighjelp-10-hurtighjelp-start/03-maler-_70-hurtighjelp-10-hurtighjelp-start.markup-only.html',
+      url: '../../patterns/03-maler-portal-_70-hurtighjelp-10-hurtighjelp-start/03-maler-portal-_70-hurtighjelp-10-hurtighjelp-start.markup-only.html',
       target: '#a-stickyHelp'
     });
     $('body').on('click', '[data-toggle="quickhelp"]', function() {
