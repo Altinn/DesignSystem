@@ -489,7 +489,6 @@ textarea {
     height: $spacer * 2;
     margin-top: -4px;
     background-color: $white;
-    background-position: 5px 5px;
     border: 2px solid $blue;
     border-radius: 0;
   }
@@ -542,7 +541,8 @@ textarea {
   input {
     &[type='checkbox'],
     &[type='radio'] {
-      &:focus~span {
+      &:focus~span,
+      &:hover~span {
         &.custom-control-indicator {
           &:not(.override-focus) {
             border: 2px solid $blue-dark;
@@ -832,9 +832,16 @@ textarea {
             }
           }
         }
+
+        &:focus {
+          &+label {
+            background: $blue-light-opacity-09;
+          }
+        }
       }
 
-      &:focus {
+      &:focus,
+      &:active {
         &+label {
           border-style: solid;
         }
