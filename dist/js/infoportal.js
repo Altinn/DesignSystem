@@ -1658,8 +1658,7 @@ function _classCallCheck(t, e) {
                 }), "drilldown" === n && e.attr({
                     "aria-expanded": !1
                 }), i.addClass("submenu " + o).attr({
-                    "data-submenu": "",
-                    role: "menu"
+                    "data-submenu": ""
                 }), "drilldown" === n && i.attr({
                     "aria-hidden": !0
                 })), e.parent("[data-submenu]").length && e.addClass("is-submenu-item " + s)

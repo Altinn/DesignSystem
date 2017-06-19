@@ -5346,12 +5346,6 @@ var Popover = function ($) {
 
 }();
 
-/**
- * AnchorJS - v3.2.2 - 2016-10-05
- * https://github.com/bryanbraun/anchorjs
- * Copyright (c) 2016 Bryan Braun; Licensed MIT
- */
-
 /* eslint-env amd, node */
 
 // https://github.com/umdjs/umd/blob/master/templates/returnExports.js
@@ -5436,13 +5430,13 @@ var Popover = function ($) {
 
       // Provide a sensible default selector, if none is given.
       if (!selector) {
-        selector = 'h1, h2, h3, h4, h5, h6';
+        selector = 'h2, h3, h4, h5, h6';
       }
 
       elements = _getElements(selector);
 
       if (elements.length === 0) {
-        return false;
+        return this;
       }
 
       _addBaselineStyles();
@@ -5461,6 +5455,8 @@ var Popover = function ($) {
 
         if (elements[i].hasAttribute('id')) {
           elementID = elements[i].getAttribute('id');
+        } else if (elements[i].hasAttribute('data-anchor-id')) {
+          elementID = elements[i].getAttribute('data-anchor-id');
         } else {
           tidyText = this.urlify(elements[i].textContent);
 
@@ -5531,7 +5527,7 @@ var Popover = function ($) {
     /**
      * Removes all anchorjs-links from elements targed by the selector.
      * @param  {String|Array|Nodelist} selector - A CSS selector string targeting elements with anchor links,
-     *                                       	  	OR a nodeList / array containing the DOM elements.
+     *                                            OR a nodeList / array containing the DOM elements.
      * @return {this}                           - The AnchorJS object
      */
     this.remove = function(selector) {
@@ -5571,8 +5567,8 @@ var Popover = function ($) {
      * @return {String}      - hyphen-delimited text for use in IDs and URLs.
      */
     this.urlify = function(text) {
-      // Regex for finding the nonsafe URL characters (many need escaping): & +$,:;=?@"#{}|^~[`%!']./()*\
-      var nonsafeChars = /[& +$,:;=?@"#{}|^~[`%!'\]\.\/\(\)\*\\]/g,
+      // Regex for finding the nonsafe URL characters (many need escaping): & +$,:;=?@"#{}|^~[`%!'<>]./()*\
+      var nonsafeChars = /[& +$,:;=?@"#{}|^~[`%!'<>\]\.\/\(\)\*\\]/g,
           urlText;
 
       // The reason we include this _applyRemainingDefaultOptions is so urlify can be called independently,
@@ -5611,7 +5607,7 @@ var Popover = function ($) {
      * Turns a selector, nodeList, or array of elements into an array of elements (so we can use array methods).
      * It also throws errors on any other inputs. Used to handle inputs to .add and .remove.
      * @param  {String|Array|Nodelist} input - A CSS selector string targeting elements with anchor links,
-     *                                       	 OR a nodeList / array containing the DOM elements.
+     *                                         OR a nodeList / array containing the DOM elements.
      * @return {Array} - An array containing the elements we want.
      */
     function _getElements(input) {
