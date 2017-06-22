@@ -1,0 +1,78 @@
+<!-- START: 03-maler-infoportal-35-skjemaartikkel-52-artikkel-skjema -->
+<div class="a-page">
+  {{# header }} {{> organismer-header }} {{/ header }}
+
+  <section id="content" tabindex="-1">
+
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-12 col-lg-6 offset-lg-3 a-articleSearch">
+          {{# article-search }} {{> atomer-tekst-input }} {{/ article-search }}
+        </div>
+      </div>
+
+      {{# hasCard }}
+      <div class="row">
+        <div class="col-sm-12 col-lg-10 offset-lg-1 mb-2">
+          {{> molekyler-smulesti }}
+        </div>
+      </div>
+      {{# hasWarning }} {{> atomer-varsel:a-py-minus-1 }} {{/ hasWarning }} {{> molekyler-kort-hoved:a-py-minus-1 }} {{/ hasCard }} {{# hasArticleStart }}
+      <div class="row">
+        <div class="col-sm-12 col-lg-10 offset-lg-1 mb-2">
+          {{> molekyler-smulesti }} {{> atomer-sidetittel }} {{> atomer-byline }} {{> atomer-intro-tekst}} {{#hasArticleStartLink}}{{> atomer-link }}{{/hasArticleStartLink}}
+          <hr class="mt-2 mb-0 hidden-md-down">
+        </div>
+      </div>
+      {{/ hasArticleStart }} {{# hasContent }}
+      <div class="row">
+        <div class="col-sm-12 col-lg-8 offset-lg-1 mb-2">
+          {{# 1 }} {{> atomer-avsnitt }} {{/ 1 }} {{# 2 }} {{> atomer-seksjonstittel }} {{> atomer-avsnitt }} {{/ 2 }}
+        </div>
+      </div>
+      {{/ hasContent }} {{# hasMessage }} {{> atomer-varsel:a-py-minus-1 }} {{/ hasMessage }} {{# hasSearch }}
+      <div class="row">
+        <div class="col-sm-12 col-lg-6 offset-lg-1 mt-2 {{ section-class }}" data-source="{{ section-source }}">
+          {{> atomer-seksjonstittel }}
+          <form class="mt-2">
+            {{# modal-input-keyword }} {{> atomer-tekst-input }} {{/ modal-input-keyword }} {{# modal-loader }} {{> atomer-laster-inn }} {{/ modal-loader }} {{# modal-empty }} {{> atomer-avsnitt }} {{/ modal-empty }} {{# resultList }} {{> molekyler-liste-unummerert
+            }} {{/ resultList }}
+          </form>
+        </div>
+      </div>
+      {{/ hasSearch }} {{# hasAccordion }}
+      <div class="row">
+        <div class="col-sm-12 col-lg-8 offset-lg-1 mt-3">
+          <h2>{{{ header-2 }}}</h2>
+          {{> molekyler-trekkspill:a-accordion-largeText }}
+        </div>
+      </div>
+      {{/ hasAccordion }} {{# hasAttachmentList }}
+      <div class="row">
+        <div class="col-md-8 col-lg-6 offset-lg-1 mt-4">
+          <h2 class="a-h3">
+            {{{ list-header }}}
+          </h2>
+          {{> molekyler-liste-unummerert }}
+        </div>
+      </div>
+      {{/ hasAttachmentList }} {{# hasHelp }}
+      <div class="row">
+        <div class="col-sm-12 col-lg-8 offset-lg-1 py-4">
+          <h2>{{{ header-3 }}}</h2>
+          <p class="a-paragraphLarge">
+            {{{ help-prefix }}} {{> atomer-link:a-fontBold }} {{{ help-end }}}
+          </p>
+        </div>
+      </div>
+      {{/ hasHelp }}
+
+    </div>
+    <!-- END Container -->
+
+  </section>
+
+  {{> organismer-footer }}
+</div>
+
+<!-- END: 03-maler-infoportal-35-skjemaartikkel-52-artikkel-skjema -->

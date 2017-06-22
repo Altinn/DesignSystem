@@ -5346,12 +5346,6 @@ var Popover = function ($) {
 
 }();
 
-/**
- * AnchorJS - v3.2.2 - 2016-10-05
- * https://github.com/bryanbraun/anchorjs
- * Copyright (c) 2016 Bryan Braun; Licensed MIT
- */
-
 /* eslint-env amd, node */
 
 // https://github.com/umdjs/umd/blob/master/templates/returnExports.js
@@ -5436,13 +5430,13 @@ var Popover = function ($) {
 
       // Provide a sensible default selector, if none is given.
       if (!selector) {
-        selector = 'h1, h2, h3, h4, h5, h6';
+        selector = 'h2, h3, h4, h5, h6';
       }
 
       elements = _getElements(selector);
 
       if (elements.length === 0) {
-        return false;
+        return this;
       }
 
       _addBaselineStyles();
@@ -5461,6 +5455,8 @@ var Popover = function ($) {
 
         if (elements[i].hasAttribute('id')) {
           elementID = elements[i].getAttribute('id');
+        } else if (elements[i].hasAttribute('data-anchor-id')) {
+          elementID = elements[i].getAttribute('data-anchor-id');
         } else {
           tidyText = this.urlify(elements[i].textContent);
 
@@ -5531,7 +5527,7 @@ var Popover = function ($) {
     /**
      * Removes all anchorjs-links from elements targed by the selector.
      * @param  {String|Array|Nodelist} selector - A CSS selector string targeting elements with anchor links,
-     *                                       	  	OR a nodeList / array containing the DOM elements.
+     *                                            OR a nodeList / array containing the DOM elements.
      * @return {this}                           - The AnchorJS object
      */
     this.remove = function(selector) {
@@ -5571,8 +5567,8 @@ var Popover = function ($) {
      * @return {String}      - hyphen-delimited text for use in IDs and URLs.
      */
     this.urlify = function(text) {
-      // Regex for finding the nonsafe URL characters (many need escaping): & +$,:;=?@"#{}|^~[`%!']./()*\
-      var nonsafeChars = /[& +$,:;=?@"#{}|^~[`%!'\]\.\/\(\)\*\\]/g,
+      // Regex for finding the nonsafe URL characters (many need escaping): & +$,:;=?@"#{}|^~[`%!'<>]./()*\
+      var nonsafeChars = /[& +$,:;=?@"#{}|^~[`%!'<>\]\.\/\(\)\*\\]/g,
           urlText;
 
       // The reason we include this _applyRemainingDefaultOptions is so urlify can be called independently,
@@ -5611,7 +5607,7 @@ var Popover = function ($) {
      * Turns a selector, nodeList, or array of elements into an array of elements (so we can use array methods).
      * It also throws errors on any other inputs. Used to handle inputs to .add and .remove.
      * @param  {String|Array|Nodelist} input - A CSS selector string targeting elements with anchor links,
-     *                                       	 OR a nodeList / array containing the DOM elements.
+     *                                         OR a nodeList / array containing the DOM elements.
      * @return {Array} - An array containing the elements we want.
      */
     function _getElements(input) {
@@ -5686,7 +5682,7 @@ var Popover = function ($) {
 }));
 
 /*!
- * clipboard.js v1.5.16
+ * clipboard.js v1.7.1
  * https://zenorocha.github.io/clipboard.js
  *
  * Licensed MIT © Zeno Rocha
@@ -5697,7 +5693,7 @@ var DOCUMENT_NODE_TYPE = 9;
 /**
  * A polyfill for Element.matches()
  */
-if (Element && !Element.prototype.matches) {
+if (typeof Element !== 'undefined' && !Element.prototype.matches) {
     var proto = Element.prototype;
 
     proto.matches = proto.matchesSelector ||
@@ -5716,7 +5712,10 @@ if (Element && !Element.prototype.matches) {
  */
 function closest (element, selector) {
     while (element && element.nodeType !== DOCUMENT_NODE_TYPE) {
-        if (element.matches(selector)) return element;
+        if (typeof element.matches === 'function' &&
+            element.matches(selector)) {
+          return element;
+        }
         element = element.parentNode;
     }
 }
@@ -5927,8 +5926,18 @@ function select(element) {
         selectedText = element.value;
     }
     else if (element.nodeName === 'INPUT' || element.nodeName === 'TEXTAREA') {
-        element.focus();
+        var isReadOnly = element.hasAttribute('readonly');
+
+        if (!isReadOnly) {
+            element.setAttribute('readonly', '');
+        }
+
+        element.select();
         element.setSelectionRange(0, element.value.length);
+
+        if (!isReadOnly) {
+            element.removeAttribute('readonly');
+        }
 
         selectedText = element.value;
     }
@@ -6097,6 +6106,7 @@ module.exports = E;
                 var options = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
 
                 this.action = options.action;
+                this.container = options.container;
                 this.emitter = options.emitter;
                 this.target = options.target;
                 this.text = options.text;
@@ -6125,7 +6135,7 @@ module.exports = E;
                 this.fakeHandlerCallback = function () {
                     return _this.removeFake();
                 };
-                this.fakeHandler = document.body.addEventListener('click', this.fakeHandlerCallback) || true;
+                this.fakeHandler = this.container.addEventListener('click', this.fakeHandlerCallback) || true;
 
                 this.fakeElem = document.createElement('textarea');
                 // Prevent zooming on iOS
@@ -6139,13 +6149,12 @@ module.exports = E;
                 this.fakeElem.style[isRTL ? 'right' : 'left'] = '-9999px';
                 // Move element to the same position vertically
                 var yPosition = window.pageYOffset || document.documentElement.scrollTop;
-                this.fakeElem.addEventListener('focus', window.scrollTo(0, yPosition));
                 this.fakeElem.style.top = yPosition + 'px';
 
                 this.fakeElem.setAttribute('readonly', '');
                 this.fakeElem.value = this.text;
 
-                document.body.appendChild(this.fakeElem);
+                this.container.appendChild(this.fakeElem);
 
                 this.selectedText = (0, _select2.default)(this.fakeElem);
                 this.copyText();
@@ -6154,13 +6163,13 @@ module.exports = E;
             key: 'removeFake',
             value: function removeFake() {
                 if (this.fakeHandler) {
-                    document.body.removeEventListener('click', this.fakeHandlerCallback);
+                    this.container.removeEventListener('click', this.fakeHandlerCallback);
                     this.fakeHandler = null;
                     this.fakeHandlerCallback = null;
                 }
 
                 if (this.fakeElem) {
-                    document.body.removeChild(this.fakeElem);
+                    this.container.removeChild(this.fakeElem);
                     this.fakeElem = null;
                 }
             }
@@ -6196,8 +6205,8 @@ module.exports = E;
         }, {
             key: 'clearSelection',
             value: function clearSelection() {
-                if (this.target) {
-                    this.target.blur();
+                if (this.trigger) {
+                    this.trigger.focus();
                 }
 
                 window.getSelection().removeAllRanges();
@@ -6279,6 +6288,12 @@ module.exports = E;
         };
     }
 
+    var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) {
+        return typeof obj;
+    } : function (obj) {
+        return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj;
+    };
+
     function _classCallCheck(instance, Constructor) {
         if (!(instance instanceof Constructor)) {
             throw new TypeError("Cannot call a class as a function");
@@ -6359,6 +6374,7 @@ module.exports = E;
                 this.action = typeof options.action === 'function' ? options.action : this.defaultAction;
                 this.target = typeof options.target === 'function' ? options.target : this.defaultTarget;
                 this.text = typeof options.text === 'function' ? options.text : this.defaultText;
+                this.container = _typeof(options.container) === 'object' ? options.container : document.body;
             }
         }, {
             key: 'listenClick',
@@ -6382,6 +6398,7 @@ module.exports = E;
                     action: this.action(trigger),
                     target: this.target(trigger),
                     text: this.text(trigger),
+                    container: this.container,
                     trigger: trigger,
                     emitter: this
                 });
@@ -6414,6 +6431,20 @@ module.exports = E;
                     this.clipboardAction.destroy();
                     this.clipboardAction = null;
                 }
+            }
+        }], [{
+            key: 'isSupported',
+            value: function isSupported() {
+                var action = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : ['copy', 'cut'];
+
+                var actions = typeof action === 'string' ? [action] : action;
+                var support = !!document.queryCommandSupported;
+
+                actions.forEach(function (action) {
+                    support = support && !!document.queryCommandSupported(action);
+                });
+
+                return support;
             }
         }]);
 
@@ -8538,7 +8569,7 @@ module.exports = E;
 }));
 
 /*!***************************************************
- * mark.js v8.8.0
+ * mark.js v8.10.1
  * https://github.com/julmot/mark.js
  * Copyright (c) 2014–2017, Julian Motz
  * Released under the MIT license https://git.io/vwTVl
@@ -8599,6 +8630,9 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         }, {
             key: "createRegExp",
             value: function createRegExp(str) {
+                if (this.opt.wildcards !== "disabled") {
+                    str = this.setupWildcardsRegExp(str);
+                }
                 str = this.escapeStr(str);
                 if (Object.keys(this.opt.synonyms).length) {
                     str = this.createSynonymsRegExp(str);
@@ -8613,6 +8647,9 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
                 if (this.opt.ignoreJoiners) {
                     str = this.createIgnoreJoinersRegExp(str);
                 }
+                if (this.opt.wildcards !== "disabled") {
+                    str = this.createWildcardsRegExp(str);
+                }
                 str = this.createAccuracyRegExp(str);
                 return str;
             }
@@ -8624,12 +8661,31 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
                 for (var index in syn) {
                     if (syn.hasOwnProperty(index)) {
                         var value = syn[index],
-                            k1 = this.escapeStr(index),
-                            k2 = this.escapeStr(value);
-                        str = str.replace(new RegExp("(" + k1 + "|" + k2 + ")", "gm" + sens), "(" + k1 + "|" + k2 + ")");
+                            k1 = this.opt.wildcards !== "disabled" ? this.setupWildcardsRegExp(index) : this.escapeStr(index),
+                            k2 = this.opt.wildcards !== "disabled" ? this.setupWildcardsRegExp(value) : this.escapeStr(value);
+                        if (k1 !== "" && k2 !== "") {
+                            str = str.replace(new RegExp("(" + k1 + "|" + k2 + ")", "gm" + sens), "(" + k1 + "|" + k2 + ")");
+                        }
                     }
                 }
                 return str;
+            }
+        }, {
+            key: "setupWildcardsRegExp",
+            value: function setupWildcardsRegExp(str) {
+                str = str.replace(/(?:\\)*\?/g, function (val) {
+                    return val.charAt(0) === "\\" ? "?" : "\x01";
+                });
+
+                return str.replace(/(?:\\)*\*/g, function (val) {
+                    return val.charAt(0) === "\\" ? "*" : "\x02";
+                });
+            }
+        }, {
+            key: "createWildcardsRegExp",
+            value: function createWildcardsRegExp(str) {
+                var spaces = this.opt.wildcards === "withSpaces";
+                return str.replace(/\u0001/g, spaces ? "[\\S\\s]?" : "\\S?").replace(/\u0002/g, spaces ? "[\\S\\s]*?" : "\\S*");
             }
         }, {
             key: "setupIgnoreJoinersRegExp",
@@ -8652,7 +8708,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
             key: "createDiacriticsRegExp",
             value: function createDiacriticsRegExp(str) {
                 var sens = this.opt.caseSensitive ? "" : "i",
-                    dct = this.opt.caseSensitive ? ["aàáâãäåāąă", "AÀÁÂÃÄÅĀĄĂ", "cçćč", "CÇĆČ", "dđď", "DĐĎ", "eèéêëěēę", "EÈÉÊËĚĒĘ", "iìíîïī", "IÌÍÎÏĪ", "lł", "LŁ", "nñňń", "NÑŇŃ", "oòóôõöøō", "OÒÓÔÕÖØŌ", "rř", "RŘ", "sšśșş", "SŠŚȘŞ", "tťțţ", "TŤȚŢ", "uùúûüůū", "UÙÚÛÜŮŪ", "yÿý", "YŸÝ", "zžżź", "ZŽŻŹ"] : ["aÀÁÂÃÄÅàáâãäåĀāąĄăĂ", "cÇçćĆčČ", "dđĐďĎ", "eÈÉÊËèéêëěĚĒēęĘ", "iÌÍÎÏìíîïĪī", "lłŁ", "nÑñňŇńŃ", "oÒÓÔÕÖØòóôõöøŌō", "rřŘ", "sŠšśŚșȘşŞ", "tťŤțȚţŢ", "uÙÚÛÜùúûüůŮŪū", "yŸÿýÝ", "zŽžżŻźŹ"];
+                    dct = this.opt.caseSensitive ? ["aàáâãäåāąă", "AÀÁÂÃÄÅĀĄĂ", "cçćč", "CÇĆČ", "dđď", "DĐĎ", "eèéêëěēę", "EÈÉÊËĚĒĘ", "iìíîïī", "IÌÍÎÏĪ", "lł", "LŁ", "nñňń", "NÑŇŃ", "oòóôõöøō", "OÒÓÔÕÖØŌ", "rř", "RŘ", "sšśșş", "SŠŚȘŞ", "tťțţ", "TŤȚŢ", "uùúûüůū", "UÙÚÛÜŮŪ", "yÿý", "YŸÝ", "zžżź", "ZŽŻŹ"] : ["aàáâãäåāąăAÀÁÂÃÄÅĀĄĂ", "cçćčCÇĆČ", "dđďDĐĎ", "eèéêëěēęEÈÉÊËĚĒĘ", "iìíîïīIÌÍÎÏĪ", "lłLŁ", "nñňńNÑŇŃ", "oòóôõöøōOÒÓÔÕÖØŌ", "rřRŘ", "sšśșşSŠŚȘŞ", "tťțţTŤȚŢ", "uùúûüůūUÙÚÛÜŮŪ", "yÿýYŸÝ", "zžżźZŽŻŹ"];
                 var handled = [];
                 str.split("").forEach(function (ch) {
                     dct.every(function (dct) {
@@ -8679,6 +8735,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
             value: function createAccuracyRegExp(str) {
                 var _this = this;
 
+                var chars = "!\"#$%&'()*+,-./:;<=>?@[\\]^_`{|}~\xA1\xBF";
                 var acc = this.opt.accuracy,
                     val = typeof acc === "string" ? acc : acc.value,
                     ls = typeof acc === "string" ? [] : acc.limiters,
@@ -8691,7 +8748,8 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
                     default:
                         return "()(" + str + ")";
                     case "complementary":
-                        return "()([^\\s" + lsJoin + "]*" + str + "[^\\s" + lsJoin + "]*)";
+                        lsJoin = "\\s" + (lsJoin ? lsJoin : this.escapeStr(chars));
+                        return "()([^" + lsJoin + "]*" + str + "[^" + lsJoin + "]*)";
                     case "exactly":
                         return "(^|\\s" + lsJoin + ")(" + str + ")(?=$|\\s" + lsJoin + ")";
                 }
@@ -8723,9 +8781,100 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
                 };
             }
         }, {
+            key: "isNumeric",
+            value: function isNumeric(value) {
+                return Number(parseFloat(value)) == value;
+            }
+        }, {
+            key: "checkRanges",
+            value: function checkRanges(array) {
+                var _this3 = this;
+
+                if (!Array.isArray(array) || Object.prototype.toString.call(array[0]) !== "[object Object]") {
+                    this.log("markRanges() will only accept an array of objects");
+                    this.opt.noMatch(array);
+                    return [];
+                }
+                var stack = [];
+                var last = 0;
+                array.sort(function (a, b) {
+                    return a.start - b.start;
+                }).forEach(function (item) {
+                    var _callNoMatchOnInvalid = _this3.callNoMatchOnInvalidRanges(item, last),
+                        start = _callNoMatchOnInvalid.start,
+                        end = _callNoMatchOnInvalid.end,
+                        valid = _callNoMatchOnInvalid.valid;
+
+                    if (valid) {
+                        item.start = start;
+                        item.length = end - start;
+                        stack.push(item);
+                        last = end;
+                    }
+                });
+                return stack;
+            }
+        }, {
+            key: "callNoMatchOnInvalidRanges",
+            value: function callNoMatchOnInvalidRanges(range, last) {
+                var start = void 0,
+                    end = void 0,
+                    valid = false;
+                if (range && typeof range.start !== "undefined") {
+                    start = parseInt(range.start, 10);
+                    end = start + parseInt(range.length, 10);
+
+                    if (this.isNumeric(range.start) && this.isNumeric(range.length) && end - last > 0 && end - start > 0) {
+                        valid = true;
+                    } else {
+                        this.log("Ignoring invalid or overlapping range: " + ("" + JSON.stringify(range)));
+                        this.opt.noMatch(range);
+                    }
+                } else {
+                    this.log("Ignoring invalid range: " + JSON.stringify(range));
+                    this.opt.noMatch(range);
+                }
+                return {
+                    start: start,
+                    end: end,
+                    valid: valid
+                };
+            }
+        }, {
+            key: "checkWhitespaceRanges",
+            value: function checkWhitespaceRanges(range, originalLength, string) {
+                var end = void 0,
+                    valid = true,
+                    max = string.length,
+                    offset = originalLength - max,
+                    start = parseInt(range.start, 10) - offset;
+
+                start = start > max ? max : start;
+                end = start + parseInt(range.length, 10);
+                if (end > max) {
+                    end = max;
+                    this.log("End range automatically set to the max value of " + max);
+                }
+                if (start < 0 || end - start < 0 || start > max || end > max) {
+                    valid = false;
+                    this.log("Invalid range: " + JSON.stringify(range));
+                    this.opt.noMatch(range);
+                } else if (string.substring(start, end).replace(/\s+/g, "") === "") {
+                    valid = false;
+
+                    this.log("Skipping whitespace only range: " + JSON.stringify(range));
+                    this.opt.noMatch(range);
+                }
+                return {
+                    start: start,
+                    end: end,
+                    valid: valid
+                };
+            }
+        }, {
             key: "getTextNodes",
             value: function getTextNodes(cb) {
-                var _this3 = this;
+                var _this4 = this;
 
                 var val = "",
                     nodes = [];
@@ -8736,7 +8885,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
                         node: node
                     });
                 }, function (node) {
-                    if (_this3.matchesExclude(node.parentNode)) {
+                    if (_this4.matchesExclude(node.parentNode)) {
                         return NodeFilter.FILTER_REJECT;
                     } else {
                         return NodeFilter.FILTER_ACCEPT;
@@ -8771,45 +8920,37 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         }, {
             key: "wrapRangeInMappedTextNode",
             value: function wrapRangeInMappedTextNode(dict, start, end, filterCb, eachCb) {
-                var _this4 = this;
+                var _this5 = this;
 
                 dict.nodes.every(function (n, i) {
                     var sibl = dict.nodes[i + 1];
                     if (typeof sibl === "undefined" || sibl.start > start) {
-                        var _ret = function () {
-                            if (!filterCb(n.node)) {
-                                return {
-                                    v: false
-                                };
-                            }
+                        if (!filterCb(n.node)) {
+                            return false;
+                        }
 
-                            var s = start - n.start,
-                                e = (end > n.end ? n.end : end) - n.start,
-                                startStr = dict.value.substr(0, n.start),
-                                endStr = dict.value.substr(e + n.start);
-                            n.node = _this4.wrapRangeInTextNode(n.node, s, e);
+                        var s = start - n.start,
+                            e = (end > n.end ? n.end : end) - n.start,
+                            startStr = dict.value.substr(0, n.start),
+                            endStr = dict.value.substr(e + n.start);
+                        n.node = _this5.wrapRangeInTextNode(n.node, s, e);
 
-                            dict.value = startStr + endStr;
-                            dict.nodes.forEach(function (k, j) {
-                                if (j >= i) {
-                                    if (dict.nodes[j].start > 0 && j !== i) {
-                                        dict.nodes[j].start -= e;
-                                    }
-                                    dict.nodes[j].end -= e;
+                        dict.value = startStr + endStr;
+                        dict.nodes.forEach(function (k, j) {
+                            if (j >= i) {
+                                if (dict.nodes[j].start > 0 && j !== i) {
+                                    dict.nodes[j].start -= e;
                                 }
-                            });
-                            end -= e;
-                            eachCb(n.node.previousSibling, n.start);
-                            if (end > n.end) {
-                                start = n.end;
-                            } else {
-                                return {
-                                    v: false
-                                };
+                                dict.nodes[j].end -= e;
                             }
-                        }();
-
-                        if ((typeof _ret === "undefined" ? "undefined" : _typeof(_ret)) === "object") return _ret.v;
+                        });
+                        end -= e;
+                        eachCb(n.node.previousSibling, n.start);
+                        if (end > n.end) {
+                            start = n.end;
+                        } else {
+                            return false;
+                        }
                     }
                     return true;
                 });
@@ -8817,7 +8958,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         }, {
             key: "wrapMatches",
             value: function wrapMatches(regex, ignoreGroups, filterCb, eachCb, endCb) {
-                var _this5 = this;
+                var _this6 = this;
 
                 var matchIdx = ignoreGroups === 0 ? 0 : ignoreGroups + 1;
                 this.getTextNodes(function (dict) {
@@ -8834,7 +8975,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
                                     pos += match[i].length;
                                 }
                             }
-                            node = _this5.wrapRangeInTextNode(node, pos, pos + match[matchIdx].length);
+                            node = _this6.wrapRangeInTextNode(node, pos, pos + match[matchIdx].length);
                             eachCb(node.previousSibling);
 
                             regex.lastIndex = 0;
@@ -8846,7 +8987,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         }, {
             key: "wrapMatchesAcrossElements",
             value: function wrapMatchesAcrossElements(regex, ignoreGroups, filterCb, eachCb, endCb) {
-                var _this6 = this;
+                var _this7 = this;
 
                 var matchIdx = ignoreGroups === 0 ? 0 : ignoreGroups + 1;
                 this.getTextNodes(function (dict) {
@@ -8860,13 +9001,37 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
                         }
                         var end = start + match[matchIdx].length;
 
-                        _this6.wrapRangeInMappedTextNode(dict, start, end, function (node) {
+                        _this7.wrapRangeInMappedTextNode(dict, start, end, function (node) {
                             return filterCb(match[matchIdx], node);
                         }, function (node, lastIndex) {
                             regex.lastIndex = lastIndex;
                             eachCb(node);
                         });
                     }
+                    endCb();
+                });
+            }
+        }, {
+            key: "wrapRangeFromIndex",
+            value: function wrapRangeFromIndex(ranges, filterCb, eachCb, endCb) {
+                var _this8 = this;
+
+                this.getTextNodes(function (dict) {
+                    var originalLength = dict.value.length;
+                    ranges.forEach(function (range, counter) {
+                        var _checkWhitespaceRange = _this8.checkWhitespaceRanges(range, originalLength, dict.value),
+                            start = _checkWhitespaceRange.start,
+                            end = _checkWhitespaceRange.end,
+                            valid = _checkWhitespaceRange.valid;
+
+                        if (valid) {
+                            _this8.wrapRangeInMappedTextNode(dict, start, end, function (node) {
+                                return filterCb(node, range, dict.value.substring(start, end), counter);
+                            }, function (node) {
+                                eachCb(node, range);
+                            });
+                        }
+                    });
                     endCb();
                 });
             }
@@ -8904,7 +9069,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         }, {
             key: "markRegExp",
             value: function markRegExp(regexp, opt) {
-                var _this7 = this;
+                var _this9 = this;
 
                 this.opt = opt;
                 this.log("Searching with expression \"" + regexp + "\"");
@@ -8912,24 +9077,24 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
                     fn = "wrapMatches";
                 var eachCb = function eachCb(element) {
                     totalMatches++;
-                    _this7.opt.each(element);
+                    _this9.opt.each(element);
                 };
                 if (this.opt.acrossElements) {
                     fn = "wrapMatchesAcrossElements";
                 }
                 this[fn](regexp, this.opt.ignoreGroups, function (match, node) {
-                    return _this7.opt.filter(node, match, totalMatches);
+                    return _this9.opt.filter(node, match, totalMatches);
                 }, eachCb, function () {
                     if (totalMatches === 0) {
-                        _this7.opt.noMatch(regexp);
+                        _this9.opt.noMatch(regexp);
                     }
-                    _this7.opt.done(totalMatches);
+                    _this9.opt.done(totalMatches);
                 });
             }
         }, {
             key: "mark",
             value: function mark(sv, opt) {
-                var _this8 = this;
+                var _this10 = this;
 
                 this.opt = opt;
                 var totalMatches = 0,
@@ -8940,21 +9105,21 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
                     kwArrLen = _getSeparatedKeywords.length,
                     sens = this.opt.caseSensitive ? "" : "i",
                     handler = function handler(kw) {
-                    var regex = new RegExp(_this8.createRegExp(kw), "gm" + sens),
+                    var regex = new RegExp(_this10.createRegExp(kw), "gm" + sens),
                         matches = 0;
-                    _this8.log("Searching with expression \"" + regex + "\"");
-                    _this8[fn](regex, 1, function (term, node) {
-                        return _this8.opt.filter(node, kw, totalMatches, matches);
+                    _this10.log("Searching with expression \"" + regex + "\"");
+                    _this10[fn](regex, 1, function (term, node) {
+                        return _this10.opt.filter(node, kw, totalMatches, matches);
                     }, function (element) {
                         matches++;
                         totalMatches++;
-                        _this8.opt.each(element);
+                        _this10.opt.each(element);
                     }, function () {
                         if (matches === 0) {
-                            _this8.opt.noMatch(kw);
+                            _this10.opt.noMatch(kw);
                         }
                         if (kwArr[kwArrLen - 1] === kw) {
-                            _this8.opt.done(totalMatches);
+                            _this10.opt.done(totalMatches);
                         } else {
                             handler(kwArr[kwArr.indexOf(kw) + 1]);
                         }
@@ -8971,9 +9136,31 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
                 }
             }
         }, {
+            key: "markRanges",
+            value: function markRanges(rawRanges, opt) {
+                var _this11 = this;
+
+                this.opt = opt;
+                var totalMatches = 0,
+                    ranges = this.checkRanges(rawRanges);
+                if (ranges && ranges.length) {
+                    this.log("Starting to mark with the following ranges: " + JSON.stringify(ranges));
+                    this.wrapRangeFromIndex(ranges, function (node, range, match, counter) {
+                        return _this11.opt.filter(node, range, match, counter);
+                    }, function (element, range) {
+                        totalMatches++;
+                        _this11.opt.each(element, range);
+                    }, function () {
+                        _this11.opt.done(totalMatches);
+                    });
+                } else {
+                    this.opt.done(totalMatches);
+                }
+            }
+        }, {
             key: "unmark",
             value: function unmark(opt) {
-                var _this9 = this;
+                var _this12 = this;
 
                 this.opt = opt;
                 var sel = this.opt.element ? this.opt.element : "*";
@@ -8983,10 +9170,10 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
                 }
                 this.log("Removal selector \"" + sel + "\"");
                 this.iterator.forEachNode(NodeFilter.SHOW_ELEMENT, function (node) {
-                    _this9.unwrapMatches(node);
+                    _this12.unwrapMatches(node);
                 }, function (node) {
                     var matchesSel = DOMIterator.matches(node, sel),
-                        matchesExclude = _this9.matchesExclude(node);
+                        matchesExclude = _this12.matchesExclude(node);
                     if (!matchesSel || matchesExclude) {
                         return NodeFilter.FILTER_REJECT;
                     } else {
@@ -9011,6 +9198,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
                     "caseSensitive": false,
                     "ignoreJoiners": false,
                     "ignoreGroups": 0,
+                    "wildcards": "disabled",
                     "each": function each() {},
                     "noMatch": function noMatch() {},
                     "filter": function filter() {
@@ -9027,10 +9215,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         }, {
             key: "iterator",
             get: function get() {
-                if (!this._iterator) {
-                    this._iterator = new DOMIterator(this.ctx, this.opt.iframes, this.opt.exclude, this.opt.iframesTimeout);
-                }
-                return this._iterator;
+                return new DOMIterator(this.ctx, this.opt.iframes, this.opt.exclude, this.opt.iframesTimeout);
             }
         }]);
 
@@ -9111,7 +9296,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         }, {
             key: "observeIframeLoad",
             value: function observeIframeLoad(ifr, successFn, errorFn) {
-                var _this10 = this;
+                var _this13 = this;
 
                 var called = false,
                     tout = null;
@@ -9122,9 +9307,9 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
                     called = true;
                     clearTimeout(tout);
                     try {
-                        if (!_this10.isIframeBlank(ifr)) {
+                        if (!_this13.isIframeBlank(ifr)) {
                             ifr.removeEventListener("load", listener);
-                            _this10.getIframeContents(ifr, successFn, errorFn);
+                            _this13.getIframeContents(ifr, successFn, errorFn);
                         }
                     } catch (e) {
                         errorFn();
@@ -9153,14 +9338,14 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         }, {
             key: "waitForIframes",
             value: function waitForIframes(ctx, done) {
-                var _this11 = this;
+                var _this14 = this;
 
                 var eachCalled = 0;
                 this.forEachIframe(ctx, function () {
                     return true;
                 }, function (ifr) {
                     eachCalled++;
-                    _this11.waitForIframes(ifr.querySelector("html"), function () {
+                    _this14.waitForIframes(ifr.querySelector("html"), function () {
                         if (! --eachCalled) {
                             done();
                         }
@@ -9174,7 +9359,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         }, {
             key: "forEachIframe",
             value: function forEachIframe(ctx, filter, each) {
-                var _this12 = this;
+                var _this15 = this;
 
                 var end = arguments.length > 3 && arguments[3] !== undefined ? arguments[3] : function () {};
 
@@ -9191,10 +9376,10 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
                     checkEnd();
                 }
                 ifr.forEach(function (ifr) {
-                    if (DOMIterator.matches(ifr, _this12.exclude)) {
+                    if (DOMIterator.matches(ifr, _this15.exclude)) {
                         checkEnd();
                     } else {
-                        _this12.onIframeReady(ifr, function (con) {
+                        _this15.onIframeReady(ifr, function (con) {
                             if (filter(ifr)) {
                                 handled++;
                                 each(con);
@@ -9280,12 +9465,12 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         }, {
             key: "handleOpenIframes",
             value: function handleOpenIframes(ifr, whatToShow, eCb, fCb) {
-                var _this13 = this;
+                var _this16 = this;
 
                 ifr.forEach(function (ifrDict) {
                     if (!ifrDict.handled) {
-                        _this13.getIframeContents(ifrDict.val, function (con) {
-                            _this13.createInstanceOnIframe(con).forEachNode(whatToShow, eCb, fCb);
+                        _this16.getIframeContents(ifrDict.val, function (con) {
+                            _this16.createInstanceOnIframe(con).forEachNode(whatToShow, eCb, fCb);
                         });
                     }
                 });
@@ -9293,7 +9478,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         }, {
             key: "iterateThroughNodes",
             value: function iterateThroughNodes(whatToShow, ctx, eachCb, filterCb, doneCb) {
-                var _this14 = this;
+                var _this17 = this;
 
                 var itr = this.createIterator(ctx, whatToShow, filterCb);
                 var ifr = [],
@@ -9301,7 +9486,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
                     node = void 0,
                     prevNode = void 0,
                     retrieveNodes = function retrieveNodes() {
-                    var _getIteratorNode = _this14.getIteratorNode(itr);
+                    var _getIteratorNode = _this17.getIteratorNode(itr);
 
                     prevNode = _getIteratorNode.prevNode;
                     node = _getIteratorNode.node;
@@ -9311,9 +9496,11 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
                 while (retrieveNodes()) {
                     if (this.iframes) {
                         this.forEachIframe(ctx, function (currIfr) {
-                            return _this14.checkIframeFilter(node, prevNode, currIfr, ifr);
+                            return _this17.checkIframeFilter(node, prevNode, currIfr, ifr);
                         }, function (con) {
-                            _this14.createInstanceOnIframe(con).forEachNode(whatToShow, eachCb, filterCb);
+                            _this17.createInstanceOnIframe(con).forEachNode(whatToShow, function (ifrNode) {
+                                return elements.push(ifrNode);
+                            }, filterCb);
                         });
                     }
 
@@ -9330,7 +9517,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         }, {
             key: "forEachNode",
             value: function forEachNode(whatToShow, each, filter) {
-                var _this15 = this;
+                var _this18 = this;
 
                 var done = arguments.length > 3 && arguments[3] !== undefined ? arguments[3] : function () {};
 
@@ -9341,15 +9528,15 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
                 }
                 contexts.forEach(function (ctx) {
                     var ready = function ready() {
-                        _this15.iterateThroughNodes(whatToShow, ctx, each, filter, function () {
+                        _this18.iterateThroughNodes(whatToShow, ctx, each, filter, function () {
                             if (--open <= 0) {
                                 done();
                             }
                         });
                     };
 
-                    if (_this15.iframes) {
-                        _this15.waitForIframes(ctx, ready);
+                    if (_this18.iframes) {
+                        _this18.waitForIframes(ctx, ready);
                     } else {
                         ready();
                     }
@@ -9385,6 +9572,10 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     };
     $.fn.markRegExp = function (regexp, opt) {
         new Mark(this.get()).markRegExp(regexp, opt);
+        return this;
+    };
+    $.fn.markRanges = function (ranges, opt) {
+        new Mark(this.get()).markRanges(ranges, opt);
         return this;
     };
     $.fn.unmark = function (opt) {
