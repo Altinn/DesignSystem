@@ -23,6 +23,14 @@
     margin-bottom: $spacer * 3;
   }
 
+  &.a-compact {
+    height: $spacer * 6;
+
+    @include media-breakpoint-up( md ) {
+      height: $spacer * 9;
+    }
+  }
+
   >.container {
     @include media-breakpoint-down( md ) {
       padding: 0 $spacer;
@@ -265,6 +273,20 @@
   &:active {
     color: $blue-dark;
     border: none;
+  }
+
+  &.search-header {
+    color: $white;
+
+    &:hover,
+    &:focus,
+    &:active {
+      color: $white !important;
+    }
+
+    .a-personSwitcher-icon {
+      color: $white;
+    }
   }
 
   .a-personSwitcher-name {
