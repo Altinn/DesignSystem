@@ -1,6 +1,5 @@
 /* globals
   colnavCustom,
-  switchForm,
   genericSearch,
   questionnaireInteraction,
   uniformHeight,
@@ -12,7 +11,6 @@
 */
 window.infoportalInit = function() {
   colnavCustom();
-  switchForm();
   genericSearch();
   questionnaireInteraction();
   uniformHeight();

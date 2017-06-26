@@ -12,7 +12,6 @@
   setupAddRightsHandler,
   onFileInputChange,
   toggleInstant,
-  switchForm,
   addListExpandHandler,
   addListSortHandler,
   setupListRowSelect,
