@@ -358,6 +358,15 @@ var colnavCustom = function() {
         url: url,
         success: function(data) {
           afterRequest(data); // Perform populating logic
+        },
+        error: function() {
+          $.ajax({
+            type: 'GET',
+            url: url + '.json',
+            success: function(data) {
+              afterRequest(data); // Perform populating logic
+            }
+          });
         }
       });
     }
