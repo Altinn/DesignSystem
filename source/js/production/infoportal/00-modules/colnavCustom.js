@@ -186,7 +186,7 @@ var colnavCustom = function() {
   }
   function getDrilldownSource(str) { // Drilldown logic
     var url = $('[name="js-switchForm"]').parent().parent().parent()
-      .attr('data-switchEndpoint') + str + '.json';
+      .attr('data-switchEndpoint') + str;
     var afterRequest = function(data) { // Populating logic
       var depth = 3; // Assume a depth of three levels
       var markup = []; // Array to store markup
