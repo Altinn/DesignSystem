@@ -79,8 +79,23 @@ var colnavCustom = function() {
     levels.forEach(function(str, index) { // Iterate through levels
       var wasStacked; // Boolean to determine if level was stacked
       if (el.closest('ul').hasClass(str)) { // Check if element exists
+        if (isSmall && el.closest('ul').hasClass('stacked')) {
+          text = el.closest('ul').prev().find('h2').text() || ''; // Get name from parent
+          if (history.pushState) { // Modify the browser history object
+            newurl = window.location.protocol + '//' + window.location.host +
+              window.location.pathname + '?position=' + text.toLowerCase().replace(/ /g, '-');
+            window.history.pushState({ path: newurl }, '', newurl);
+          }
+          open = []; // Clear array for open levels
+          // Hide lower levels:
+          $('.' + levels[index + 1]).removeClass('noTrans').css('left', '250%');
+          $('.' + levels[2]).removeClass('noTrans').css('left', '250%');
+          calc(index > 0 ? el.closest('ul') : 0, 3 / index); // Calculate left position for parent
+          // Reset markup:
+          el.closest('ul').removeClass('stacked').find('.open').removeClass('open');
+          el.closest('ul').find('.dim').removeClass('dim');
         // Check it item is already open:
-        if (el.closest('a').hasClass('open') || el.find('a').hasClass('open') ||
+        } else if (el.closest('a').hasClass('open') || el.find('a').hasClass('open') ||
           el.hasClass('open')) {
           text = el.closest('ul').prev().find('h2').text() || ''; // Get name from parent
           if (history.pushState) { // Modify the browser history object
