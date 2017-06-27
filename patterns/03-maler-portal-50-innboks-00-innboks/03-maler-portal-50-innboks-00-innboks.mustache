@@ -1,5 +1,5 @@
 <!-- START: 03-maler-portal-50-innboks-00-innboks -->
-{{> organismer-header }}
+{{# show-mainheader }} {{> organismer-header }} {{/ show-mainheader }} {{# show-subheader }} {{> organismer-subheader }} {{/ show-subheader }}
 <div class="container">
   <div class="row mt-3 mb-3">
     <div class="col-sm-8 offset-sm-2 col-lg-6 offset-lg-3">
@@ -17,7 +17,9 @@
       <p class="mt-2">{{ empty-inbox-undertext }}{{> atomer-link }}</p>
     </div>
   </div>
-  {{/ empty-inbox }} {{# inbox }}
+  {{/ empty-inbox }} {{# heading }}
+  <h1 class="{{ heading-class }}">{{ heading }}</h1>
+  {{/ heading }} {{# inbox }}
   <div class="row{{# inbox-extra-class }} {{ inbox-extra-class }}{{/ inbox-extra-class }}">
     <div class="col" id="{{ accordionId }}">
       {{# elementList }}

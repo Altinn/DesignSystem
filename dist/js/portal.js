@@ -1024,7 +1024,6 @@ var setValidatorSettings = function() {
   setupAddRightsHandler,
   onFileInputChange,
   toggleInstant,
-  switchForm,
   addListExpandHandler,
   addListSortHandler,
   setupListRowSelect,
