@@ -3838,6 +3838,7 @@ var colnavCustom = function() {
     levels.forEach(function(str, index) { // Iterate through levels
       var wasStacked; // Boolean to determine if level was stacked
       if (el.closest('ul').hasClass(str)) { // Check if element exists
+        // Check if device is small and level is stacked
         if (isSmall && el.closest('ul').hasClass('stacked')) {
           text = el.closest('ul').prev().find('h2').text() || ''; // Get name from parent
           if (history.pushState) { // Modify the browser history object
@@ -3853,7 +3854,10 @@ var colnavCustom = function() {
           // Reset markup:
           el.closest('ul').removeClass('stacked').find('.open').removeClass('open');
           el.closest('ul').find('.dim').removeClass('dim');
-        // Check it item is already open:
+          if (isSmall) {
+            el.closest('ul').css('width', calc(1.5, null, index - 1));
+          }
+        // Check if item is already open:
         } else if (el.closest('a').hasClass('open') || el.find('a').hasClass('open') ||
           el.hasClass('open')) {
           text = el.closest('ul').prev().find('h2').text() || ''; // Get name from parent
@@ -3870,6 +3874,9 @@ var colnavCustom = function() {
           // Reset markup:
           el.closest('ul').removeClass('stacked').find('.open').removeClass('open');
           el.closest('ul').find('.dim').removeClass('dim');
+          if (isSmall) {
+            el.closest('ul').css('width', calc(1.5, null, index - 1));
+          }
         // If item is not open:
         } else {
           if (history.pushState) { // Modify the browser history object
@@ -3941,6 +3948,9 @@ var colnavCustom = function() {
             (parseInt($('.a-colnav-thirdLevel:visible').height(), 10) - 2) :
             (parseInt($('.a-colnav-secondLevel:visible').height(), 10) - 2)
           + 'px');
+    }
+    if (!$('.a-colnav-firstLevel').hasClass('stacked')) {
+      $('.a-colnav-firstLevel').css('height', 'auto');
     }
   }
   function getDrilldownSource(str) { // Drilldown logic
@@ -4136,6 +4146,9 @@ var colnavCustom = function() {
     getDrilldownSource($('[name="js-switchForm"]:checked').attr('data-switchUrl'));
     // Ensure reset of markup
     $('.switch-container').show(); $('.a-js-colnavTitleRegular').text('Alle skjemaer');
+    if (isSmall) { // Small screen specific style (can be moved to stylesheet)
+      $('.a-contentOverview').css('overflow-x', 'hidden');
+    }
   }
   $(document).ready(function() {
     var resizeTimeout; // Timeout variable for resizing
@@ -4713,6 +4726,12 @@ window.infoportalInit = function() {
   setupFormValidation();
   autoFootnotes();
   AltinnQuickhelp.init();
+  $('body').on('focus', '#contactForm', function() {
+    setupFormValidation('#contactForm', '#a-js-contactForm-submit');
+  });
+  $('body').on('focus', '#contactForm2', function() {
+    setupFormValidation('#contactForm2', '#a-js-contactForm-submit2');
+  });
 };
 window.infoportalInit();
 // $(document).foundation();
