@@ -196,11 +196,11 @@ try {
  */
 
 var urlHandler = {
-
+  
   // set-up some default vars
   skipBack: false,
   targetOrigin: (window.location.protocol == "file:") ? "*" : window.location.protocol+"//"+window.location.host,
-
+  
   /**
   * get the real file name for a given pattern name
   * @param  {String}       the shorthand partials syntax for a given pattern
@@ -209,51 +209,51 @@ var urlHandler = {
   * @return {String}       the real file path
   */
   getFileName: function (name, withRenderedSuffix) {
-
+    
     var baseDir     = "patterns";
     var fileName    = "";
-
+    
     if (name === undefined) {
       return fileName;
     }
-
+    
     if (withRenderedSuffix === undefined) {
       withRenderedSuffix = true;
     }
-
+    
     if (name == "all") {
       return "styleguide/html/styleguide.html";
     } else if (name == "snapshots") {
       return "snapshots/index.html";
     }
-
+    
     var paths = (name.indexOf("viewall-") != -1) ? viewAllPaths : patternPaths;
     var nameClean = name.replace("viewall-","");
-
+    
     // look at this as a regular pattern
     var bits        = this.getPatternInfo(nameClean, paths);
     var patternType = bits[0];
     var pattern     = bits[1];
-
+    
     if ((paths[patternType] !== undefined) && (paths[patternType][pattern] !== undefined)) {
-
+      
       fileName = paths[patternType][pattern];
-
+      
     } else if (paths[patternType] !== undefined) {
-
+      
       for (var patternMatchKey in paths[patternType]) {
         if (patternMatchKey.indexOf(pattern) != -1) {
           fileName = paths[patternType][patternMatchKey];
           break;
         }
       }
-
+    
     }
-
+    
     if (fileName === "") {
       return fileName;
     }
-
+    
     var regex = /\//g;
     if ((name.indexOf("viewall-") !== -1) && (name.indexOf("viewall-") === 0) && (fileName !== "")) {
       fileName = baseDir+"/"+fileName.replace(regex,"-")+"/index.html";
@@ -264,11 +264,11 @@ var urlHandler = {
         fileName = fileName+fileSuffixRendered+".html";
       }
     }
-
+    
     return fileName;
-
+    
   },
-
+  
   /**
   * break up a pattern into its parts, pattern type and pattern name
   * @param  {String}       the shorthand partials syntax for a given pattern
@@ -277,31 +277,31 @@ var urlHandler = {
   * @return {Array}        the pattern type and pattern name
   */
   getPatternInfo: function (name, paths) {
-
+    
     var patternBits = name.split("-");
-
+    
     var i = 1;
     var c = patternBits.length;
-
+    
     var patternType = patternBits[0];
     while ((paths[patternType] === undefined) && (i < c)) {
       patternType += "-"+patternBits[i];
       i++;
     }
-
+    
     var pattern = name.slice(patternType.length+1,name.length);
-
+    
     return [patternType, pattern];
-
+    
   },
-
+  
   /**
   * search the request vars for a particular item
   *
   * @return {Object}       a search of the window.location.search vars
   */
   getRequestVars: function() {
-
+    
     // the following is taken from https://developer.mozilla.org/en-US/docs/Web/API/window.location
     var oGetVars = new (function (sSearch) {
       if (sSearch.length > 1) {
@@ -311,11 +311,11 @@ var urlHandler = {
         }
       }
     })(window.location.search);
-
+    
     return oGetVars;
-
+    
   },
-
+  
   /**
   * push a pattern onto the current history based on a click
   * @param  {String}       the shorthand partials syntax for a given pattern
@@ -338,47 +338,49 @@ var urlHandler = {
         history.pushState(data, null, addressReplacement);
       }
       document.getElementById("title").innerHTML = "Pattern Lab - "+pattern;
-      if (document.getElementById("sg-raw") !== undefined) {
+      if (document.getElementById("sg-raw") !== null) {
         document.getElementById("sg-raw").setAttribute("href",urlHandler.getFileName(pattern));
       }
     }
   },
-
+  
   /**
   * based on a click forward or backward modify the url and iframe source
   * @param  {Object}      event info like state and properties set in pushState()
   */
   popPattern: function (e) {
-
+    
     var patternName;
     var state = e.state;
-
+    
     if (state === null) {
       this.skipBack = false;
       return;
     } else if (state !== null) {
       patternName = state.pattern;
     }
-
+    
     var iFramePath = "";
     iFramePath = this.getFileName(patternName);
     if (iFramePath === "") {
       iFramePath = "styleguide/html/styleguide.html";
     }
-
+    
     var obj = JSON.stringify({ "event": "patternLab.updatePath", "path": iFramePath });
     document.getElementById("sg-viewport").contentWindow.postMessage( obj, urlHandler.targetOrigin);
     document.getElementById("title").innerHTML = "Pattern Lab - "+patternName;
-    document.getElementById("sg-raw").setAttribute("href",urlHandler.getFileName(patternName));
-
+    if (document.getElementById("sg-raw") !== null) {
+      document.getElementById("sg-raw").setAttribute("href",urlHandler.getFileName(patternName));
+    }
+    
     /*
     if (wsnConnected !== undefined) {
       wsn.send( '{"url": "'+iFramePath+'", "patternpartial": "'+patternName+'" }' );
     }
     */
-
+    
   }
-
+  
 };
 
 /**
@@ -402,29 +404,29 @@ window.onpopstate = function (event) {
  */
 
 var modalViewer = {
-
+  
   // set up some defaults
   active:        false,
   switchText:    true,
   template:      'info',
   patternData:   {},
   targetOrigin:  (window.location.protocol === 'file:') ? '*' : window.location.protocol+'//'+window.location.host,
-
+  
   /**
   * initialize the modal window
   */
   onReady: function() {
-
+    
     // make sure the listener for checkpanels is set-up
     Dispatcher.addListener('insertPanels', modalViewer.insert);
-
+    
     // watch for resizes and hide the modal container as appropriate when the modal is already hidden
     $(window).on('resize', function() {
       if (DataSaver.findValue('modalActive') === 'false') {
         modalViewer.slide($('#sg-modal-container').outerHeight());
       }
     });
-
+    
     // add the info/code panel onclick handler
     $('#sg-t-patterninfo').click(function(e) {
       e.preventDefault();
@@ -432,45 +434,45 @@ var modalViewer = {
       $(this).parents('ul').removeClass('active');
       modalViewer.toggle();
     });
-
+    
     // make sure the close button handles the click
     $('#sg-modal-close-btn').on('click', function(e) {
-
+      
       e.preventDefault();
-
+      
       // hide any open annotations
       obj = JSON.stringify({ 'event': 'patternLab.annotationsHighlightHide' });
       document.getElementById('sg-viewport').contentWindow.postMessage(obj, modalViewer.targetOrigin);
-
+      
       // hide the viewer
       modalViewer.close();
-
+      
     });
-
+    
     // see if the modal is already active, if so update attributes as appropriate
     if (DataSaver.findValue('modalActive') === 'true') {
       modalViewer.active = true;
-      $('#sg-t-patterninfo').html("Skjul info på alle komponenter");
+      $('#sg-t-patterninfo').html("Hide Pattern Info");
     }
-
+    
     // make sure the modal viewer is not viewable, it's alway hidden by default. the pageLoad event determines when it actually opens
     modalViewer.hide();
-
+    
     // review the query strings in case there is something the modal viewer is supposed to handle by default
     var queryStringVars = urlHandler.getRequestVars();
-
+    
     // show the modal if code view is called via query string
     if ((queryStringVars.view !== undefined) && ((queryStringVars.view === 'code') || (queryStringVars.view === 'c'))) {
       modalViewer.queryPattern();
     }
-
+    
     // show the modal if the old annotations view is called via query string
     if ((queryStringVars.view !== undefined) && ((queryStringVars.view === 'annotations') || (queryStringVars.view === 'a'))) {
       modalViewer.queryPattern();
     }
-
+    
   },
-
+  
   /**
   * toggle the modal window open and closed
   */
@@ -483,12 +485,12 @@ var modalViewer = {
       modalViewer.close();
     }
   },
-
+  
   /**
   * open the modal window
   */
   open: function() {
-
+    
     // make sure the modal viewer and other options are off just in case
     modalViewer.close();
 
@@ -501,48 +503,48 @@ var modalViewer = {
 
     //Add active class to modal
     $('#sg-modal-container').addClass('active');
-
+    
     // show the modal
     modalViewer.show();
-
+    
   },
-
+  
   /**
   * close the modal window
   */
   close: function() {
-
+    
     var obj;
-
+    
     // not that the modal viewer is no longer active
     DataSaver.updateValue('modalActive', 'false');
     modalViewer.active = false;
-
+    
     //Add active class to modal
     $('#sg-modal-container').removeClass('active');
-
+    
     // remove the active class from all of the checkbox items
     $('.sg-checkbox').removeClass('active');
-
+    
     // hide the modal
     modalViewer.hide();
-
+    
     // update the wording
-    $('#sg-t-patterninfo').html("Vis info på alle komponenter");
-
+    $('#sg-t-patterninfo').html("Show Pattern Info");
+    
     // tell the styleguide to close
     obj = JSON.stringify({ 'event': 'patternLab.patternModalClose' });
     document.getElementById('sg-viewport').contentWindow.postMessage(obj, modalViewer.targetOrigin);
-
+    
   },
-
+  
   /**
   * hide the modal window, add 30px to account for the X box
   */
   hide: function() {
     modalViewer.slide($('#sg-modal-container').outerHeight()+30);
   },
-
+  
   /**
   * insert the copy for the modal window. if it's meant to be sent back to the iframe do do
   * @param  {String}       the rendered template that should be inserted
@@ -551,28 +553,28 @@ var modalViewer = {
   * @param  {Boolean}      if the text in the dropdown should be switched
   */
   insert: function(templateRendered, patternPartial, iframePassback, switchText) {
-
+    
     if (iframePassback) {
-
+      
       // send a message to the pattern
       var obj = JSON.stringify({ 'event': 'patternLab.patternModalInsert', 'patternPartial': patternPartial, 'modalContent': templateRendered.outerHTML });
       document.getElementById('sg-viewport').contentWindow.postMessage(obj, modalViewer.targetOrigin);
-
+      
     } else {
-
+      
       // insert the panels and open the viewer
       $('#sg-modal-content').html(templateRendered);
       modalViewer.open();
-
+      
     }
-
+    
     // update the wording unless this is a default viewall opening
     if (switchText === true) {
-      $('#sg-t-patterninfo').html("Skjul info på alle komponenter ");
+      $('#sg-t-patterninfo').html("Hide Pattern Info");
     }
-
+    
   },
-
+  
   /**
   * refresh the modal if a new pattern is loaded and the modal is active
   * @param  {Object}       the patternData sent back from the query
@@ -580,17 +582,17 @@ var modalViewer = {
   * @param  {Boolean}      if the text in the dropdown should be switched
   */
   refresh: function(patternData, iframePassback, switchText) {
-
+    
     // if this is a styleguide view close the modal
     if (iframePassback) {
       modalViewer.hide();
     }
-
+    
     // gather the data that will fill the modal window
     panelsViewer.gatherPanels(patternData, iframePassback, switchText);
-
+    
   },
-
+  
   /**
   * slides the modal window into or out of view
   * @param  {Integer}      where the modal window should be slide to
@@ -599,19 +601,19 @@ var modalViewer = {
     pos = (pos === 0) ? 0 : -pos;
     $('#sg-modal-container').css('bottom',pos);
   },
-
+  
   /**
   * slides the modal window to a particular annotation
   * @param  {Integer}      the number for the element that should be highlighted
   */
   slideToAnnotation: function(pos) {
-
+    
     // remove active class
     els = document.querySelectorAll('#sg-annotations > .sg-annotations-list > li');
     for (i = 0; i < els.length; ++i) {
       els[i].classList.remove('active');
     }
-
+    
     // add active class to called element and scroll to it
     for (i = 0; i < els.length; ++i) {
       if ((i+1) == pos) {
@@ -619,76 +621,76 @@ var modalViewer = {
         $('.sg-pattern-extra-info').animate({scrollTop: els[i].offsetTop - 10}, 600);
       }
     }
-
+    
   },
-
+  
   /**
   * alias for slide
   */
   show: function() {
     modalViewer.slide(0);
   },
-
+  
   /**
   * ask the pattern for info so we can open the modal window and populate it
   * @param  {Boolean}      if the dropdown text should be changed
   */
   queryPattern: function(switchText) {
-
+    
     // note that the modal is active and set switchText
     if ((switchText === undefined) || (switchText)) {
       switchText = true;
       DataSaver.updateValue('modalActive', 'true');
       modalViewer.active = true;
     }
-
+    
     // send a message to the pattern
     var obj = JSON.stringify({ 'event': 'patternLab.patternQuery', 'switchText': switchText });
     document.getElementById('sg-viewport').contentWindow.postMessage(obj, modalViewer.targetOrigin);
-
+    
   },
-
+  
   /**
   * toggle the comment pop-up based on a user clicking on the pattern
   * based on the great MDN docs at https://developer.mozilla.org/en-US/docs/Web/API/window.postMessage
   * @param  {Object}      event info
   */
   receiveIframeMessage: function(event) {
-
+    
     var els, i;
-
+    
     // does the origin sending the message match the current host? if not dev/null the request
     if ((window.location.protocol !== 'file:') && (event.origin !== window.location.protocol+'//'+window.location.host)) {
       return;
     }
-
+    
     var data = {};
     try {
       data = (typeof event.data !== 'string') ? event.data : JSON.parse(event.data);
     } catch(e) {}
-
+    
     if ((data.event !== undefined) && (data.event == "patternLab.pageLoad")) {
-
+      
       if ((modalViewer.active === false) && (data.patternpartial !== undefined) && (data.patternpartial.indexOf('viewall-') === 0) && (config.defaultShowPatternInfo !== undefined) && (config.defaultShowPatternInfo)) {
         modalViewer.queryPattern(false);
       } else if (modalViewer.active === true) {
         modalViewer.queryPattern();
       }
-
+      
     } else if ((data.event !== undefined) && (data.event == 'patternLab.patternQueryInfo')) {
-
+      
       // refresh the modal if a new pattern is loaded and the modal is active
       modalViewer.refresh(data.patternData, data.iframePassback, data.switchText);
-
+      
     } else if ((data.event !== undefined) && (data.event == 'patternLab.annotationNumberClicked')) {
-
+      
       // slide to a given annoation
       modalViewer.slideToAnnotation(data.displayNumber);
-
+      
     }
-
+    
   }
-
+  
 };
 
 // when the document is ready make sure the modal is ready
@@ -834,6 +836,7 @@ var Panels = {
   },
   
   add: function(panel) {
+    
     // if ID already exists in panels array ignore the add()
     for (i = 0; i < this.panels.length; ++i) {
       if (panel.id === this.panels[i].id) {
@@ -843,7 +846,9 @@ var Panels = {
     
     // it wasn't found so push the tab onto the tabs
     this.panels.push(panel);
+    
   }
+  
 };
 
 // set-up the base file extensions to fetch
@@ -852,7 +857,7 @@ var fileSuffixMarkup  = ((config.outputFileSuffixes !== undefined) && (config.ou
 
 // add the default panels
 Panels.add({ 'id': 'sg-panel-pattern', 'default': true, 'templateID': 'pl-panel-template-code', 'httpRequest': true, 'httpRequestReplace': fileSuffixPattern, 'httpRequestCompleted': false, 'prismHighlight': true, 'keyCombo': 'ctrl+shift+u' });
-Panels.add({ 'id': 'sg-panel-html', 'name': 'HTML', 'default': false, 'templateID': 'pl-panel-template-code', 'httpRequest': true, 'httpRequestReplace': fileSuffixMarkup +'.html', 'httpRequestCompleted': false, 'prismHighlight': true, 'language': 'markup', 'keyCombo': 'ctrl+shift+y' });
+Panels.add({ 'id': 'sg-panel-html', 'name': 'HTML', 'default': false, 'templateID': 'pl-panel-template-code', 'httpRequest': true, 'httpRequestReplace': fileSuffixMarkup+'.html', 'httpRequestCompleted': false, 'prismHighlight': true, 'language': 'markup', 'keyCombo': 'ctrl+shift+y' });
 
 // gather panels from plugins
 Dispatcher.trigger('setupPanels');
@@ -919,7 +924,7 @@ var panelsViewer = {
       
       // catch pattern panel since it doesn't have a name defined by default
       if (panel.name === undefined) {
-        panel.name = patternData.patternExtension;
+        panel.name = patternData.patternEngineName || patternData.patternExtension;
         panel.httpRequestReplace = panel.httpRequestReplace+'.'+patternData.patternExtension;
         panel.language = patternData.patternExtension;
       }
@@ -1229,7 +1234,7 @@ $('#sg-find .typeahead').blur(function() {
 
 // alert the iframe parent that the pattern has loaded assuming this view was loaded in an iframe
 if (self != top) {
-
+  
   // handle the options that could be sent to the parent window
   //   - all get path
   //   - pattern & view all get a pattern partial, styleguide gets all
@@ -1237,18 +1242,17 @@ if (self != top) {
   var path = window.location.toString();
   var parts = path.split("?");
   var options = { "event": "patternLab.pageLoad", "path": parts[0] };
-
-  // patternData = document.getElementById('sg-pattern-data-footer').innerHTML;
-  patternData = '{}';
+  
+  patternData = document.getElementById('sg-pattern-data-footer').innerHTML;
   patternData = JSON.parse(patternData);
   options.patternpartial = (patternData.patternPartial !== undefined) ? patternData.patternPartial : "all";
   if (patternData.lineage !== "") {
     options.lineage = patternData.lineage;
   }
-
+  
   var targetOrigin = (window.location.protocol == "file:") ? "*" : window.location.protocol+"//"+window.location.host;
   parent.postMessage(options, targetOrigin);
-
+  
   // find all links and add an onclick handler for replacing the iframe address so the history works
   var aTags = document.getElementsByTagName('a');
   for (var i = 0; i < aTags.length; i++) {
@@ -1259,7 +1263,6 @@ if (self != top) {
         // just do normal stuff
       } else if (href && href !== "#") {
         e.preventDefault();
-        // Links in content
         window.location.replace(href);
       } else {
         e.preventDefault();
@@ -1267,56 +1270,47 @@ if (self != top) {
       }
     };
   }
-
+  
 }
 
 // watch the iframe source so that it can be sent back to everyone else.
 function receiveIframeMessage(event) {
-
+  
   // does the origin sending the message match the current host? if not dev/null the request
   if ((window.location.protocol != "file:") && (event.origin !== window.location.protocol+"//"+window.location.host)) {
     return;
   }
-
+  
   var path;
   var data = {};
   try {
     data = (typeof event.data !== 'string') ? event.data : JSON.parse(event.data);
   } catch(e) {}
-
+  
   if ((data.event !== undefined) && (data.event == "patternLab.updatePath")) {
-
+    
     if (patternData.patternPartial !== undefined) {
-
+      
       // handle patterns and the view all page
       var re = /(patterns|snapshots)\/(.*)$/;
       path = window.location.protocol+"//"+window.location.host+window.location.pathname.replace(re,'')+data.path+'?'+Date.now();
       window.location.replace(path);
-
+      
     } else {
-
+      
       // handle the style guide
       path = window.location.protocol+"//"+window.location.host+window.location.pathname.replace("styleguide\/html\/styleguide.html","")+data.path+'?'+Date.now();
-      var count = (path.match(/\.html/g) || []).length;
-      if (count < 2) {
-        window.location.replace(path);
-      } else if (data.path !== 'styleguide/html/styleguide.html') {
-        var re2 = /(patterns|snapshots)\/(.*)$/;
-        path = window.location.protocol+"//"+window.location.host+window.location.pathname.replace(re2,'')+data.path+'?'+Date.now();
-        window.location.replace(path);
-      // } else if (window.location.pathname !== 'styleguide/html/styleguide.html') {
-        // window.location.replace(window.location.protocol+"//"+window.location.host+'/DesignSystem/');
-      }
-
+      window.location.replace(path);
+      
     }
-
+    
   } else if ((data.event !== undefined) && (data.event == "patternLab.reload")) {
-
+    
     // reload the location if there was a message to do so
     window.location.reload();
-
+    
   }
-
+  
 }
 window.addEventListener("message", receiveIframeMessage, false);
 
@@ -1329,10 +1323,26 @@ window.addEventListener("message", receiveIframeMessage, false);
 (function (w) {
 
   var sw = document.body.clientWidth, //Viewport Width
-    sh = $(document).height(), //Viewport Height
-    minViewportWidth = parseInt(config.ishMinimum), //Minimum Size for Viewport
-    maxViewportWidth = parseInt(config.ishMaximum), //Maxiumum Size for Viewport
-    viewportResizeHandleWidth = 14, //Width of the viewport drag-to-resize handle
+    sh = $(document).height(); //Viewport Height
+
+    var minViewportWidth = 240;
+    var maxViewportWidth = 2600;
+
+    //set minimum and maximum viewport based on confg
+    if (config.ishMinimum !== undefined) {
+      minViewportWidth = parseInt(config.ishMinimum); //Minimum Size for Viewport
+    }
+    if (config.ishMaximum !== undefined) {
+      maxViewportWidth = parseInt(config.ishMaximum); //Maxiumum Size for Viewport
+    }
+
+    //alternatively, use the ishViewportRange object
+    if (config.ishViewportRange !== undefined) {
+      minViewportWidth = config.ishViewportRange.s[0];
+      maxViewportWidth = config.ishViewportRange.l[1];
+    }
+
+    var viewportResizeHandleWidth = 14, //Width of the viewport drag-to-resize handle
     $sgViewport = $('#sg-viewport'), //Viewport element
     $sizePx = $('.sg-size-px'), //Px size input element in toolbar
     $sizeEms = $('.sg-size-em'), //Em size input element in toolbar
@@ -1427,7 +1437,10 @@ window.addEventListener("message", receiveIframeMessage, false);
     killDisco();
     killHay();
     fullMode = false;
-    sizeiframe(getRandom(minViewportWidth,500));
+    sizeiframe(getRandom(
+      minViewportWidth,
+      config.ishViewportRange !== undefined ? parseInt(config.ishViewportRange.s[1]) : 500
+    ));
   }
 
   $('#sg-size-s').on("click", function(e){
@@ -1445,7 +1458,10 @@ window.addEventListener("message", receiveIframeMessage, false);
     killDisco();
     killHay();
     fullMode = false;
-    sizeiframe(getRandom(500,800));
+    sizeiframe(getRandom(
+      config.ishViewportRange !== undefined ? parseInt(config.ishViewportRange.m[0]) : 500,
+      config.ishViewportRange !== undefined ? parseInt(config.ishViewportRange.m[1]) : 800
+    ));
   }
 
   $('#sg-size-m').on("click", function(e){
@@ -1463,7 +1479,10 @@ window.addEventListener("message", receiveIframeMessage, false);
     killDisco();
     killHay();
     fullMode = false;
-    sizeiframe(getRandom(800,1200));
+    sizeiframe(getRandom(
+      config.ishViewportRange !== undefined ? parseInt(config.ishViewportRange.l[0]) : 800,
+      config.ishViewportRange !== undefined ? parseInt(config.ishViewportRange.l[1]) : 1200
+    ));
   }
 
   $('#sg-size-l').on("click", function(e){
@@ -1827,7 +1846,6 @@ window.addEventListener("message", receiveIframeMessage, false);
   // set up the defaults for the
   var baseIframePath = window.location.protocol+"//"+window.location.host+window.location.pathname.replace("index.html","");
   var patternName    = ((config.defaultPattern !== undefined) && (typeof config.defaultPattern === 'string') && (config.defaultPattern.trim().length > 0)) ? config.defaultPattern : 'all';
-  // DUCK!
   var iFramePath     = baseIframePath+"styleguide/html/styleguide.html?"+Date.now();
   if ((oGetVars.p !== undefined) || (oGetVars.pattern !== undefined)) {
     patternName = (oGetVars.p !== undefined) ? oGetVars.p : oGetVars.pattern;
@@ -1840,7 +1858,7 @@ window.addEventListener("message", receiveIframeMessage, false);
     history.replaceState({ "pattern": patternName }, null, null);
   }
 
-  if (document.getElementById("sg-raw") !== undefined) {
+  if (document.getElementById("sg-raw") !== null) {
     document.getElementById("sg-raw").setAttribute("href",urlHandler.getFileName(patternName));
   }
 
