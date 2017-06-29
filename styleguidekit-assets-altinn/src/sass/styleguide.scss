@@ -1143,16 +1143,15 @@ $sg-border-radius-med : 6px;
 }
 
 //Override the default Prism CSS to force code examples to wrap on smaller screen sizes for legibility
-.language-markup {
-  code[class*=language-],
-  pre[class*=language-] {
-    white-space: pre-wrap;
-  }
-}
-
-
-
-
+ .language-markup {
+   code[class*=language-],
+   pre[class*=language-] {
+     white-space: pre-wrap;
+     @media all and (min-width: 42em) {
+       white-space: pre;
+     }
+   }
+ }
 
 /*------------------------------------*\
 #TABS

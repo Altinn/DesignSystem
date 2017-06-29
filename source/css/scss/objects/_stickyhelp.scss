@@ -90,14 +90,22 @@
 // Iframe container
 .a-iframeToggle {
   position: fixed;
-  right: $spacer;
   bottom: $spacer;
+  left: $spacer;
   z-index: 1052;
-  width: 356px;
+  width: calc(100% - 24px) !important;
+  max-width: 100% !important;
   // overflow: hidden;
   background: transparent;
   transition: all 400ms;
   transform: translate(0, 0);
+
+  @include media-breakpoint-up( sm ) {
+    right: $spacer;
+    left: auto;
+    width: 356px !important;
+    max-width: 356px !important;
+  }
 
   &::before {
     position: absolute;
@@ -126,7 +134,18 @@
   }
 
   iframe {
+    width: 100% !important;
+    max-width: 100% !important;
+    height: 414px !important;
+    max-height: 414px !important;
     opacity: 0;
+
+    @include media-breakpoint-up( sm ) {
+      width: 356px !important;
+      max-width: 356px !important;
+      height: 514px !important;
+      max-height: 514px !important;
+    }
   }
 
   .a-stickyHelp-close {
@@ -136,23 +155,31 @@
   // VISIBLE (After animation)
   &.show {
     right: $spacer;
-    bottom: $spacer;
+    bottom: $spacer / 2;
     display: block;
     visibility: visible;
     transition: all 400ms;
     transform: translate(0, 0) !important;
 
     &::before {
-      top: 50%;
+      top: auto;
       right: 0%;
+      bottom: 8px;
       display: block;
-      width: 356px;
-      height: 514px;
+      width: 100% !important;
+      max-width: 100% !important;
+      height: 414px !important;
       margin-top: -261px;
       margin-left: -178px;
       background-color: $purple-hover-color;
       border-radius: 0;
       transition: all 400ms cubic-bezier(0.215, 0.61, 0.355, 1);
+
+      @include media-breakpoint-up( sm ) {
+        width: 356px !important;
+        max-width: 356px !important;
+        height: 514px !important;
+      }
     }
 
     iframe {
@@ -266,6 +293,22 @@
     }
 
     // Article (level 3)
+    .a-stickyHelp-articleIntro {
+      padding: $height42;
+      padding-left: 52px;
+
+      h1 {
+        @include a-fontSize20;
+        padding-top: 0;
+        margin-top: 0;
+      }
+
+      p,
+      .a-leadText {
+        @include a-fontSize16;
+      }
+    }
+
     .a-text {
       &.epi-wysiwyg {
         padding: $height42;
@@ -277,17 +320,6 @@
 
         &.pt-lg-3 {
           padding-top: 0 !important;
-        }
-
-        h1 {
-          @include a-fontSize20;
-          padding-top: 0;
-          margin-top: 0;
-        }
-
-        p,
-        .a-leadText {
-          @include a-fontSize16;
         }
 
         h2 {
