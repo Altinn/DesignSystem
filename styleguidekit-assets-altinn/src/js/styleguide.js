@@ -494,7 +494,7 @@
 
   // capture the viewport width that was loaded and modify it so it fits with the pull bar
   var origViewportWidth = $("#sg-viewport").width();
-  $("#sg-gen-container").width(origViewportWidth);
+  $("#sg-gen-container").width(origViewportWidth - 300);
 
   var testWidth = screen.width;
   if (window.orientation !== undefined) {
@@ -503,7 +503,7 @@
   if (($(window).width() == testWidth) && ('ontouchstart' in document.documentElement) && ($(window).width() <= 1024)) {
     $("#sg-rightpull-container").width(0);
   } else {
-    $("#sg-viewport").width(origViewportWidth - 14);
+    $("#sg-viewport").width(origViewportWidth - 314);
   }
   updateSizeReading($("#sg-viewport").width());
 
