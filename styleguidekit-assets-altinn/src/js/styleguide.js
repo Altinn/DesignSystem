@@ -7,10 +7,26 @@
 (function (w) {
 
   var sw = document.body.clientWidth, //Viewport Width
-    sh = $(document).height(), //Viewport Height
-    minViewportWidth = parseInt(config.ishMinimum), //Minimum Size for Viewport
-    maxViewportWidth = parseInt(config.ishMaximum), //Maxiumum Size for Viewport
-    viewportResizeHandleWidth = 14, //Width of the viewport drag-to-resize handle
+    sh = $(document).height(); //Viewport Height
+
+    var minViewportWidth = 240;
+    var maxViewportWidth = 2600;
+
+    //set minimum and maximum viewport based on confg
+    if (config.ishMinimum !== undefined) {
+      minViewportWidth = parseInt(config.ishMinimum); //Minimum Size for Viewport
+    }
+    if (config.ishMaximum !== undefined) {
+      maxViewportWidth = parseInt(config.ishMaximum); //Maxiumum Size for Viewport
+    }
+
+    //alternatively, use the ishViewportRange object
+    if (config.ishViewportRange !== undefined) {
+      minViewportWidth = config.ishViewportRange.s[0];
+      maxViewportWidth = config.ishViewportRange.l[1];
+    }
+
+    var viewportResizeHandleWidth = 14, //Width of the viewport drag-to-resize handle
     $sgViewport = $('#sg-viewport'), //Viewport element
     $sizePx = $('.sg-size-px'), //Px size input element in toolbar
     $sizeEms = $('.sg-size-em'), //Em size input element in toolbar
@@ -105,7 +121,10 @@
     killDisco();
     killHay();
     fullMode = false;
-    sizeiframe(getRandom(minViewportWidth,500));
+    sizeiframe(getRandom(
+      minViewportWidth,
+      config.ishViewportRange !== undefined ? parseInt(config.ishViewportRange.s[1]) : 500
+    ));
   }
 
   $('#sg-size-s').on("click", function(e){
@@ -123,7 +142,10 @@
     killDisco();
     killHay();
     fullMode = false;
-    sizeiframe(getRandom(500,800));
+    sizeiframe(getRandom(
+      config.ishViewportRange !== undefined ? parseInt(config.ishViewportRange.m[0]) : 500,
+      config.ishViewportRange !== undefined ? parseInt(config.ishViewportRange.m[1]) : 800
+    ));
   }
 
   $('#sg-size-m').on("click", function(e){
@@ -141,7 +163,10 @@
     killDisco();
     killHay();
     fullMode = false;
-    sizeiframe(getRandom(800,1200));
+    sizeiframe(getRandom(
+      config.ishViewportRange !== undefined ? parseInt(config.ishViewportRange.l[0]) : 800,
+      config.ishViewportRange !== undefined ? parseInt(config.ishViewportRange.l[1]) : 1200
+    ));
   }
 
   $('#sg-size-l').on("click", function(e){
@@ -469,7 +494,7 @@
 
   // capture the viewport width that was loaded and modify it so it fits with the pull bar
   var origViewportWidth = $("#sg-viewport").width();
-  $("#sg-gen-container").width(origViewportWidth);
+  $("#sg-gen-container").width(origViewportWidth - 300);
 
   var testWidth = screen.width;
   if (window.orientation !== undefined) {
@@ -478,7 +503,7 @@
   if (($(window).width() == testWidth) && ('ontouchstart' in document.documentElement) && ($(window).width() <= 1024)) {
     $("#sg-rightpull-container").width(0);
   } else {
-    $("#sg-viewport").width(origViewportWidth - 14);
+    $("#sg-viewport").width(origViewportWidth - 314);
   }
   updateSizeReading($("#sg-viewport").width());
 
@@ -505,7 +530,6 @@
   // set up the defaults for the
   var baseIframePath = window.location.protocol+"//"+window.location.host+window.location.pathname.replace("index.html","");
   var patternName    = ((config.defaultPattern !== undefined) && (typeof config.defaultPattern === 'string') && (config.defaultPattern.trim().length > 0)) ? config.defaultPattern : 'all';
-  // DUCK!
   var iFramePath     = baseIframePath+"styleguide/html/styleguide.html?"+Date.now();
   if ((oGetVars.p !== undefined) || (oGetVars.pattern !== undefined)) {
     patternName = (oGetVars.p !== undefined) ? oGetVars.p : oGetVars.pattern;
@@ -518,7 +542,7 @@
     history.replaceState({ "pattern": patternName }, null, null);
   }
 
-  if (document.getElementById("sg-raw") !== undefined) {
+  if (document.getElementById("sg-raw") !== null) {
     document.getElementById("sg-raw").setAttribute("href",urlHandler.getFileName(patternName));
   }
 

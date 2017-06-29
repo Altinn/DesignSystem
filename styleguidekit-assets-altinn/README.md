@@ -18,6 +18,7 @@ In order to modify these assets you need to install the following:
 * the [Development Edition of Pattern Lab PHP](https://github.com/pattern-lab/edition-php-development)
 * [Node.js](http://nodejs.org) and NPM
 * [Bower](http://bower.io)
+* [Ruby Sass](http://sass-lang.com/install)
 	
 ## Development Set-up
 
