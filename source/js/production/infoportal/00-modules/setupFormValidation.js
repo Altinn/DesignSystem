@@ -51,6 +51,7 @@ function setupFormValidation(formId, buttonId) {
   $submitBtn.prop('disabled', 'disabled');
 
   $(formId).on('blur input change', '*', function() {
+    var str;
     if ($(formId).validate().checkForm() && validAllDropdowns()) {
       $submitBtn.prop('disabled', false);
       $submitBtn.removeClass('disabled');
@@ -90,5 +91,23 @@ function setupFormValidation(formId, buttonId) {
   });
   $('.a-js-certificateContainer').on('blur', function() {
     $('.a-js-certificateContainer').closest('label').removeClass('a-custom-fileupload--focused');
+  });
+  $('.a-js-validateThisAgainstPrev').on('change blur focus keyup', function(e) {
+    e.stopPropagation();
+    $(this).closest('.form-group').find('.a-message-error').text(
+      $(this).closest('.form-group').prev().find('.a-message-error')
+        .text()
+    );
+    if ($(this).val() !==
+      $(this).closest('.form-group').prev().find('input')
+        .val() || $(this).val() === '') {
+      setTimeout(function() {
+        $(this).closest('.a-form-group').addClass('has-error').find('.a-message-error')
+          .css('display', 'table');
+      }.bind(this), 0);
+    } else {
+      $(this).closest('.a-form-group').removeClass('has-error').find('.a-message-error')
+        .css('display', 'none');
+    }
   });
 }
