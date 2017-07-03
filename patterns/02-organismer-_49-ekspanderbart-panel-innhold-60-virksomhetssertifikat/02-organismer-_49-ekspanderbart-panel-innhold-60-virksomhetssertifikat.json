@@ -492,16 +492,22 @@
 			"input-name": "input-field"
 		},
 		"enterprise-certificate-password": {
-			"text-input-id": "text-input-passord",
-			"isHidden": false,
+			"form-control-class": "form-control-noAddon",
+			"auto-complete-off": true,
+			"text-input-id": "text-input-pw-update",
 			"top-label": "Passord",
 			"text-input-placeholder": "Passord",
 			"input-type": "password",
-			"isRequired": false,
-			"extra-help": false,
-			"isLarge": false,
-			"form-label-hasIcon": false,
-			"input-name": "input-field"
+			"isRequired": true,
+			"error-message-popover": true,
+			"input-regex-validation": {
+				"error-message": "Passordet er ikke gyldig. Må bestå av minst 7 tegn og inneholde både bokstaver og tall. Bare bokstavene A-Z er tillatt.",
+				"validation-pattern": "(?!^[0-9]*$)(?!^[a-zA-Z]*$)^([a-zA-Z0-9]{7,50})$"
+			},
+			"form-input-isPassword": true,
+			"form-input-showPassword-text": "Vis <span class=\"sr-only\">passord</span>",
+			"form-input-obfuscatePassword-text": "Skjul <span class=\"sr-only\">passord</span>",
+			"form-label-hasIcon": false
 		},
 		"next-btn": {
 			"button-text": "Lagre",

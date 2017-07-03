@@ -657,16 +657,26 @@
 			"input-name": "input-field"
 		},
 		"enterprise-certificate-password": {
-			"text-input-id": "text-input-passord",
+			"text-input-id": "text-input-pw-update",
 			"isHidden": false,
 			"top-label": "Passord",
 			"text-input-placeholder": "Passord",
 			"input-type": "password",
-			"isRequired": false,
+			"isRequired": true,
 			"extra-help": false,
 			"isLarge": false,
 			"form-label-hasIcon": false,
-			"input-name": "input-field"
+			"input-name": "input-field",
+			"form-control-class": "form-control-noAddon",
+			"auto-complete-off": true,
+			"error-message-popover": true,
+			"input-regex-validation": {
+				"error-message": "Passordet er ikke gyldig. Må bestå av minst 7 tegn og inneholde både bokstaver og tall. Bare bokstavene A-Z er tillatt.",
+				"validation-pattern": "(?!^[0-9]*$)(?!^[a-zA-Z]*$)^([a-zA-Z0-9]{7,50})$"
+			},
+			"form-input-isPassword": true,
+			"form-input-showPassword-text": "Vis <span class=\"sr-only\">passord</span>",
+			"form-input-obfuscatePassword-text": "Skjul <span class=\"sr-only\">passord</span>"
 		},
 		"next-btn": {
 			"button-text": "Lagre",
@@ -3909,10 +3919,18 @@
 				"alert-class": "a-message-edit a-message--arrow-off a-message--fullwidth a-message--no-dropshadow",
 				"alert-items": [
 					{
-						"alert-header": {
-							"classes": "pb-1 a-fontBold",
-							"text": "Portal/webservice-sertifikat"
-						}
+						"use-row": true,
+						"row-extra-class": "a-delete-add-container",
+						"alert-header": [
+							{
+								"classes": "col pb-1 a-fontBold",
+								"text": "Portal/webservice-sertifikat"
+							},
+							{
+								"classes": "col-md-auto col-sm-12 pb-sm-1",
+								"text": "<button type='button' class='a-btn a-btn-icon a-btn-delete'><i class='ai ai-sm ai-circle-exit a-danger ai-left' aria-hidden='true'></i><span class='a-btn-icon-text'>Slett sertifikat</span></button>"
+							}
+						]
 					},
 					{
 						"alert-text": {
@@ -6514,16 +6532,26 @@
 							"input-name": "input-field"
 						},
 						"enterprise-certificate-password": {
-							"text-input-id": "text-input-passord",
+							"text-input-id": "text-input-pw-sert",
 							"isHidden": false,
 							"top-label": "Passord",
 							"text-input-placeholder": "Passord",
 							"input-type": "password",
-							"isRequired": false,
+							"isRequired": true,
 							"extra-help": false,
 							"isLarge": false,
 							"form-label-hasIcon": false,
-							"input-name": "input-field"
+							"input-name": "input-field",
+							"form-control-class": "form-control-noAddon",
+							"auto-complete-off": true,
+							"error-message-popover": true,
+							"input-regex-validation": {
+								"error-message": "Passordet er ikke gyldig. Må bestå av minst 7 tegn og inneholde både bokstaver og tall. Bare bokstavene A-Z er tillatt.",
+								"validation-pattern": "(?!^[0-9]*$)(?!^[a-zA-Z]*$)^([a-zA-Z0-9]{7,50})$"
+							},
+							"form-input-isPassword": true,
+							"form-input-showPassword-text": "Vis <span class=\"sr-only\">passord</span>",
+							"form-input-obfuscatePassword-text": "Skjul <span class=\"sr-only\">passord</span>"
 						}
 					}
 				}
