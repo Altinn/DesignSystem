@@ -2,6 +2,7 @@
 function setupFormValidation(formId, buttonId) {
   var $submitBtn = $(buttonId);
   var wasSubmitted = false;
+  var storedString = '';
   var validDropdown = function(el) {
     if (
       el.attr('required') !== undefined && el.attr('required') === 'required' &&
@@ -24,13 +25,27 @@ function setupFormValidation(formId, buttonId) {
     });
     return invalids.length === 0;
   };
+  var validAllReferancials = function() {
+    var invalids = [];
+    $('.a-js-validateThisAgainstPrev').each(function(index, el) {
+      if (
+        $(el).closest('.a-form-group').hasClass('has-error')
+      ) {
+        invalids.push(index);
+      }
+    });
+    return invalids.length === 0;
+  };
   var validateBackwards = function(el) {
     if (el.prev().find('.a-js-dropdownToValidate').length > 0) {
       validDropdown(el.prev().find('.a-js-dropdownToValidate'));
       validateBackwards(el.prev());
     } else if (el.prev().hasClass('form-group')) {
-      if (el.prev().find('input').length > 0) {
-        el.prev().find('input').valid();
+      if (el.prev().find('input:not(.a-js-validateThisAgainstPrev)').length > 0) {
+        el.prev().find('input:not(.a-js-validateThisAgainstPrev)').valid();
+      }
+      if (el.prev().find('.a-js-validateThisAgainstPrev').length > 0) {
+        el.prev().find('.a-js-validateThisAgainstPrev').trigger('change');
       }
       if (el.prev().find('textarea').length > 0) {
         el.prev().find('textarea').valid();
@@ -51,7 +66,8 @@ function setupFormValidation(formId, buttonId) {
   $submitBtn.prop('disabled', 'disabled');
 
   $(formId).on('blur input change', '*', function() {
-    if ($(formId).validate().checkForm() && validAllDropdowns()) {
+    var str;
+    if ($(formId).validate().checkForm() && validAllDropdowns() && validAllReferancials()) {
       $submitBtn.prop('disabled', false);
       $submitBtn.removeClass('disabled');
     } else {
@@ -90,5 +106,36 @@ function setupFormValidation(formId, buttonId) {
   });
   $('.a-js-certificateContainer').on('blur', function() {
     $('.a-js-certificateContainer').closest('label').removeClass('a-custom-fileupload--focused');
+  });
+  $('.a-js-validateThisAgainstPrev').each(function() {
+    storedString = $(this).closest('.form-group').prev().find('input')
+      .attr('data-val-regex');
+  });
+  $('.a-js-validateThisAgainstPrev').on('change blur keyup', function(e) {
+    e.stopPropagation();
+    if ($(this).closest('.form-group').prev().find('.a-message-error')
+      .text() !== '') {
+      $(this).closest('.form-group').find('.a-message-error').text(
+        $(this).closest('.form-group').prev().find('.a-message-error')
+          .text()
+      );
+      storedString = $(this).closest('.form-group').prev().find('.a-message-error')
+        .text();
+    } else {
+      $(this).closest('.form-group').find('.a-message-error').text(
+        storedString
+      );
+    }
+    if ($(this).val() !==
+      $(this).closest('.form-group').prev().find('input')
+        .val() || $(this).val() === '') {
+      setTimeout(function() {
+        $(this).closest('.a-form-group').addClass('has-error').find('.a-message-error')
+          .css('display', 'table');
+      }.bind(this), 0);
+    } else {
+      $(this).closest('.a-form-group').removeClass('has-error').find('.a-message-error')
+        .css('display', 'none');
+    }
   });
 }
