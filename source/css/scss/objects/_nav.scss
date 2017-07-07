@@ -168,45 +168,47 @@
     Top tasks
 \*------------------------------------*/
 .a-topTasks {
-  @include media-breakpoint-up( xl ) {
-    margin: 0 $spacer * 5 0 $spacer * 5;
-	}
-  // On mobile, show buttons with text below icon (centered)
-  @include media-breakpoint-down( md ) {
-    @include add-col-properties {
-      padding-right: 1px;
-      padding-left: 1px;
+  padding: 0;
+  margin: 0;
+
+  div,
+  span {
+    &[class^='col'] {
+      padding: 0;
+      margin: 0;
     }
+  }
 
-    padding: 0 $spacer * 2;
+  .a-btn {
+    @include a-fontBold;
+    @include a-fontSize16;
 
-    .a-btn-transparentWhite {
-      height: 84px;
-      padding: $spacer 0;
-      text-align: center;
+    min-height: $spacer * 6;
+    padding: $spacer;
+    margin-bottom: 0;
+    text-align: center;
+    border: none;
+    border-bottom: 1px solid $grey-light;
+
+    &:hover {
+      border-bottom: 1px solid $grey-light;
+    }
+  }
+
+  @include media-breakpoint-down( sm ) {
+    .a-btn {
+      display: block;
+      padding: $spacer / 2;
 
       .a-btn-icon-symbol {
-        display: flex;
-        margin: auto;
-        margin-bottom: 3px;
+        margin-bottom: $spacer / 2;
       }
 
-      .a-btn-icon-text {
-        @include a-fontSize14;
-
-        padding-left: 0;
-      }
-		}
-	}
-  @include media-breakpoint-down( xs ) {
-    padding: 0 0;
-
-    .a-btn-transparentWhite {
-      .a-btn-icon-text {
-        @include a-fontSize12;
+      span {
+        padding: 0;
       }
     }
-	}
+  }
 }
 
 .a-inline-page-link {

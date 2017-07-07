@@ -214,16 +214,36 @@
   .a-btn-icon-symbol {
     // @include a-fontSize18;
     display: inline-flex;
-    width: $spacer * 3;
-    min-height: $spacer * 3;
+    width: 40px;
+    min-height: 40px;
     padding: 0;
-    color: $white;
-    background: $blue;
+    color: $blue;
+    background: $white;
     border-radius: 50px;
     justify-content: center;
 
     &::before {
       align-self: center;
+    }
+
+    &.a-button-icon-symbol--secondary {
+      background: $transparent;
+      border: 2px dotted $blue;
+    }
+
+    @include media-breakpoint-up( md ) {
+      width: $spacer * 4;
+      min-height: $spacer * 4;
+    }
+  }
+
+  &.a-active,
+  &:hover {
+    background: $white;
+
+    .a-btn-icon-symbol {
+      color: $white;
+      background: $blue;
     }
   }
 
@@ -232,19 +252,6 @@
   }
 }
 
-.a-btn-transparentWhite-active {
-  color: $white;
-  background: $blue;
-
-  .a-btn-icon-symbol {
-    color: $blue;
-    background: $white;
-  }
-
-  &:hover {
-    @extend .a-btn-transparentWhite-active;
-  }
-}
 
 // BTN WITH SHADOW
 .a-btn-shadow {
