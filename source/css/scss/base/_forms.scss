@@ -123,17 +123,21 @@ textarea {
   .input-group-btn {
     border: 2px solid $blue;
     border-left: none;
+   
+   &.a-noBorder-right {
+     border-right: none;     
+   }
 
     .btn {
-      width: $spacer * 4;
+      min-width: $spacer * 4;
       height: 100%;
       padding: 0;
       padding-right: 6px;
-      color: $black;
+      color: $black;      
       text-align: right;
       cursor: pointer;
       border: none;
-      transition: none;
+      transition: none;      
 
       &.inactive {
         cursor: no-drop;
@@ -144,9 +148,24 @@ textarea {
       &:focus {
         background: $blue-light;
         outline: none;
-      }
+      }    
+    }    
+
+    .a-dropdownArrow {
+      border-left-color: $black;
+      border-right: none;
+      margin-right: 0;
+      margin-bottom: 0;
+      margin-top: 2px;
+      vertical-align: text-top;
+      transform: scale( 0.75 ) rotate( 90deg );   
+
+      &.a-expanded,
+      .a-expanded & {
+        transform: scale( 0.75 ) rotate( -90deg );   
+      }                  
     }
-  }
+  }  
 
   // Form group with LARGE input field
   &.a-form-group-large {
