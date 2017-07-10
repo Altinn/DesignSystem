@@ -124,8 +124,12 @@ textarea {
     border: 2px solid $blue;
     border-left: none;
 
+    &.a-noBorder-right {
+      border-right: none;
+   }
+
     .btn {
-      width: $spacer * 4;
+      min-width: $spacer * 4;
       height: 100%;
       padding: 0;
       padding-right: 6px;
@@ -144,6 +148,21 @@ textarea {
       &:focus {
         background: $blue-light;
         outline: none;
+      }
+    }
+
+    .a-dropdownArrow {
+      margin-top: 2px;
+      margin-right: 0;
+      margin-bottom: 0;
+      vertical-align: text-top;
+      border-right: none;
+      border-left-color: $black;
+      transform: scale( 0.75 ) rotate( 90deg );
+
+      &.a-expanded,
+      .a-expanded & {
+        transform: scale( 0.75 ) rotate( -90deg );
       }
     }
   }
