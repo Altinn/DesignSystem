@@ -28,7 +28,8 @@
   setupTruncateLines,
   AltinnModal,
   setupExpandContent,
-  AltinnDropdown
+  AltinnDropdown,
+  setupNestedCheckboxes
  */
 
 window.sharedInit = function() {
@@ -64,6 +65,7 @@ window.sharedInit = function() {
   setupExpandContent();
   AltinnModal.init();
   AltinnDropdown.init();
+  setupNestedCheckboxes();
 };
 
 window.sharedInit();
