@@ -12,57 +12,66 @@
       {{/ article-search }}
     </div>
   </div>
-
-  {{> molekyler-toppoppgaver }}
-
-  {{# empty-inbox }}
-    <div class="row">
-      <div class="col">
-        <h2 class="a-fontSizeM a-fontBold mt-3 mb-0">{{ empty-inbox-heading }}</h2>
-        <p class="a-fontSizeM">{{ empty-inbox-title }}</p>
-        <h3 class="mb-1 mt-3 a-fontSizeXS a-fontReg">{{ empty-inbox-list-title }}</h3>
-        {{> atomer-liste-nummerert }}
-        <p class="mt-2">{{ empty-inbox-undertext }}{{> atomer-link }}</p>
+  <div class="row">
+    <div class="col-md-3 col-12">
+      <div class="hidden-sm-down">
+        {{# new-form }}
+          {{> atomer-handlingsknapp }}
+        {{/ new-form }}
       </div>
+      {{> molekyler-toppoppgaver }}
     </div>
-  {{/ empty-inbox }}
+    {{# empty-inbox }}
+      <div class="row">
+        <div class="col">
+          <h2 class="a-fontSizeM a-fontBold mt-3 mb-0">{{ empty-inbox-heading }}</h2>
+          <p class="a-fontSizeM">{{ empty-inbox-title }}</p>
+          <h3 class="mb-1 mt-3 a-fontSizeXS a-fontReg">{{ empty-inbox-list-title }}</h3>
+          {{> atomer-liste-nummerert }}
+          <p class="mt-2">{{ empty-inbox-undertext }}{{> atomer-link }}</p>
+        </div>
+      </div>
+    {{/ empty-inbox }}
 
-  {{# heading }}
-    <h1 class="{{ heading-class }}">{{ heading }}</h1>
-  {{/ heading }}
-
-  {{# inbox }}
-    <div class="row{{# inbox-extra-class }} {{ inbox-extra-class }}{{/ inbox-extra-class }}">
-      <div class="col" id="{{ accordionId }}">
-        {{# elementList }}
-          <div class="row">
-            <div class="col-sm-12 col-lg-12{{# block-margin }} {{{ block-margin }}} {{/ block-margin }}">
-                {{> atomer-seksjonstittel }}
-            </div>
-          </div>
-
-          {{# messages }}
-            <div class="row">
-              <div class="col-sm-12 col-lg-12">
-                <div {{# accordion-large-id }}id="{{ accordion-large-id }}"{{/ accordion-large-id }} class="a-panelAccordion" role="tablist">
-                  {{# accordion-large-items }}
-                    {{> organismer-ekspanderbart-panel }}
-                  {{/ accordion-large-items }}
+    {{# heading }}
+      <h1 class="{{ heading-class }}">{{ heading }}</h1>
+    {{/ heading }}
+    
+    <div class="col-md-9 col-12">
+      {{# inbox }}
+        <div class="row{{# inbox-extra-class }} {{ inbox-extra-class }}{{/ inbox-extra-class }}">
+          <div class="col" id="{{ accordionId }}">
+            {{# elementList }}
+              <div class="row">
+                <div class="col-sm-12 col-lg-12{{# block-margin }} {{{ block-margin }}} {{/ block-margin }}">
+                    {{> atomer-seksjonstittel }}
                 </div>
               </div>
-            </div>
-          {{/ messages }}
-        {{/ elementList }}
-      </div>
+
+              {{# messages }}
+                <div class="row">
+                  <div class="col-sm-12 col-lg-12">
+                    <div {{# accordion-large-id }}id="{{ accordion-large-id }}"{{/ accordion-large-id }} class="a-panelAccordion" role="tablist">
+                      {{# accordion-large-items }}
+                        {{> organismer-ekspanderbart-panel }}
+                      {{/ accordion-large-items }}
+                    </div>
+                  </div>
+                </div>
+              {{/ messages }}
+            {{/ elementList }}
+          </div>
+        </div>
+      {{/ inbox }}
+      {{# load-more-btn }}
+        <div class="row">
+          <div class="col">
+              {{> atomer-handlingsknapp-full-bredde }}
+          </div>
+        </div>
+      {{/ load-more-btn }}
     </div>
-  {{/ inbox }}
-  {{# load-more-btn }}
-    <div class="row">
-      <div class="col">
-          {{> atomer-handlingsknapp-full-bredde }}
-      </div>
-    </div>
-  {{/ load-more-btn }}
+  </div>
 </div>
 {{> organismer-footer }}
 
