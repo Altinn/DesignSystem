@@ -1195,6 +1195,7 @@ AltinnQuickhelp = {
     previous = allPages.filter(function() {
       return $(this).data('page-index') === allPages.length - 1;
     });
+    console.log(1, previous);
     // previous.show();
     previous.addClass('a-current-page').removeClass('a-next-page');
     current.removeClass('a-current-page').addClass('a-next-page');
