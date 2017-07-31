@@ -1192,7 +1192,7 @@ AltinnQuickhelp = {
     console.log(1, pagesToPop);
     current = $(settings.target + ' .a-current-page');
     allPages = $(settings.target + ' :data(page-index)');
-    console.log('Test', allPages.eq(0));
+    console.log('Test!', allPages.eq(0).data());
     previous = allPages.filter(function() {
       return $(this).data('page-index') === allPages.length - 1;
     });
