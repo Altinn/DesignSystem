@@ -1183,11 +1183,13 @@ AltinnQuickhelp = {
     var allPages;
     var previous;
     var pagesToPop;
+    console.log(1, settings);
     if (!settings.pagesToPop) {
       pagesToPop = 1;
     } else {
       pagesToPop = settings.pagesToPop;
     }
+    console.log(1, pagesToPop);
     current = $(settings.target + ' .a-current-page');
     allPages = $(settings.target + ' :data(page-index)');
     previous = allPages.filter(function() {
