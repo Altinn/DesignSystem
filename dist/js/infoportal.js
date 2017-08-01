@@ -1231,7 +1231,10 @@ AltinnQuickhelp = {
   init: function() {
     var that = this;
     that.listeners('#a-stickyHelp');
-    console.log('TEST');
+    that.loadQuickhelp({
+      url: $('#a-stickyHelp').attr('data-start'),
+      target: '#a-stickyHelp'
+    });
     $('body').on('click', '[data-toggle="quickhelp"]', function() {
       var $source = $(this);
       if ($source.data().action === 'load') {
