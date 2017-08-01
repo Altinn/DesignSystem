@@ -1105,7 +1105,7 @@ AltinnQuickhelp = {
         },
         html: quickhelpPage
       });
-      console.log('created a page with index 1');
+      console.log('111 created a page with index 1');
       $(settings.target + ' .a-stickyHelp-content-target').append(page);
       $(settings.target).find('.a-current-page').first().data();
       $('.a-js-stickyHelpCategory').html($(settings.target).find('.a-stickyHelp-content-target').attr('data-category'));
@@ -1158,7 +1158,7 @@ AltinnQuickhelp = {
         },
         html: quickhelpPage
       });
-      console.log('created a page with index ' + newPageIndex);
+      console.log('111 created a page with index ' + newPageIndex);
       $(settings.target + ' .a-stickyHelp-content-target').append(newPage);
       $(settings.target).animate({
         scrollTop: 0
