@@ -11,7 +11,9 @@
       <!-- CONTENT -->
       <div {{#collapse-header-id}} id="{{collapse-header-id}}" {{/collapse-header-id}} class="a-collapseContent collapse" role="tabpanel" {{#aria-labelledby}} aria-labelledby="{{collapseTitle-id}}" {{/aria-labelledby}}>
         <div class="a-collapseContent-inside">
-          {{ collapse-header-content }}
+          {{# collapse-header-content }}
+            {{ collapse-header-content }}
+          {{/ collapse-header-content }}
 
           {{# collapse-header-buttons }}
             <div class="a-btn-group mt-2">
@@ -21,6 +23,15 @@
             </div>
           {{/ collapse-header-buttons }}
 
+          {{# radiogroup-date}}
+            {{> molekyler-valgknapper-og-tekstfelt}}
+          {{/ radiogroup-date}}
+
+          {{# checkboxes}}
+            {{> molekyler-nestede-avkrysningsbokser}}
+          {{/ checkboxes}}  
+
+          {{# listLinkAndImage-content}}
           <div class="row">
             <div class="col-md-12 col-lg-7">
               {{# collapse-panel-list }}
@@ -36,6 +47,7 @@
               {{/ collapse-panel-img }}
             </div>
           </div>
+          {{/ listLinkAndImage-content}}
         </div>
       </div>
     </div>
