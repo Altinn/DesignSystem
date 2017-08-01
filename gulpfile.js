@@ -18,6 +18,16 @@ var config = require('./patternlab-config.json');
 var patternlab = require('patternlab-node')(config);
 var htmltidy = require('gulp-htmltidy');
 
+var path = require('path');
+var concat = require('gulp-concat');
+var uglify = require('gulp-uglify');
+var chalk = require('chalk');
+var copy = require('gulp-copy');
+var rename = require('gulp-rename');
+var regexRename = require('gulp-regex-rename');
+var gulpRemoveHtml = require('gulp-remove-html');
+
+
 function paths () { return config.paths }
 
 // tasks for deleting files in build-folders
@@ -465,3 +475,64 @@ gulp.task('dist',
   )
 );
 gulp.task('default', gulp.series('patternlab:serve-all'));
+
+
+
+/******************************************************
+ * COPY TASKS - stream assets from source to destination
+******************************************************/
+
+// This is the task that exports the results from Pattern Lab
+// into the Jekyll style guide that lives outside of this repository
+gulp.task('copy:export-to-styleguide', function (done) {
+
+    // Export public/patterns directory to style guide's includes
+    // This is used to include the actual code into the code samples
+    gulp.src(['public/patterns/**/*', '!public/patterns/**/*.rendered.html'])
+        .pipe(regexRename(/atomer/g, 'atoms'))
+        .pipe(regexRename(/molekyler/g, 'molecules'))
+        .pipe(regexRename(/organismer/g, 'organisms'))
+        .pipe(gulp.dest('../styleguideguide/_includes/patterns'));
+
+    // Export public/patterns directory to style guide patterns directory
+    // This is used to pipe the live patterns into the iframe
+    gulp.src(['public/patterns/**/*.html'])
+        .pipe(rename(function (path) {
+            path.basename += ".rendered";
+            path.extname = ".html"
+        }))
+        .pipe(regexRename(/atomer/g, 'atoms'))
+        .pipe(regexRename(/molekyler/g, 'molecules'))
+        .pipe(regexRename(/organismer/g, 'organisms'))
+        .pipe(gulp.dest('../styleguideguide/patterns'));
+
+    // Export css directory to style guide css directory
+    gulp.src('public/css/**/*')
+        .pipe(gulp.dest('../styleguideguide/css'));
+
+    // Export js directory to style guide js directory
+    gulp.src('public/js/**/*')
+        .pipe(gulp.dest('../styleguideguide/js'));
+
+    // Export icons to style guide root directory
+    // gulp.src('public/icons.svg')
+        // .pipe(gulp.dest('../styleguideguide'));
+
+    // Export images directory to style guide images directory
+    gulp.src('public/images/**/*')
+        .pipe(gulp.dest('../styleguideguide/images'));
+
+    // Export images directory to style guide images directory
+    gulp.src('public/images/**/*')
+        .pipe(gulp.dest('../styleguideguide/images'));
+
+    done();
+});
+
+
+
+
+/******************************************************
+ * COMPOUND TASKS
+******************************************************/
+gulp.task('style-guide-export', gulp.series('copy:export-to-styleguide'));
