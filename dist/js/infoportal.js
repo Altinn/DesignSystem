@@ -4954,6 +4954,7 @@ window.infoportalInit = function() {
   subscribe();
   setupFormValidation();
   autoFootnotes();
+  console.log('initializing QH script');
   AltinnQuickhelp.init();
   function setupForm1() {
     $('body').off('focus', '#contactForm', setupForm1);
