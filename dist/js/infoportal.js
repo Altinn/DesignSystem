@@ -1105,6 +1105,7 @@ AltinnQuickhelp = {
         },
         html: quickhelpPage
       });
+      console.log('created a page with index 1');
       $(settings.target + ' .a-stickyHelp-content-target').append(page);
       $(settings.target).find('.a-current-page').first().data();
       $('.a-js-stickyHelpCategory').html($(settings.target).find('.a-stickyHelp-content-target').attr('data-category'));
@@ -1157,6 +1158,7 @@ AltinnQuickhelp = {
         },
         html: quickhelpPage
       });
+      console.log('created a page with index ' + newPageIndex);
       $(settings.target + ' .a-stickyHelp-content-target').append(newPage);
       $(settings.target).animate({
         scrollTop: 0
@@ -1183,21 +1185,16 @@ AltinnQuickhelp = {
     var allPages;
     var previous;
     var pagesToPop;
-    console.log(1, settings);
     if (!settings.pagesToPop) {
       pagesToPop = 1;
     } else {
       pagesToPop = settings.pagesToPop;
     }
-    console.log(1, pagesToPop);
     current = $(settings.target + ' .a-current-page');
     allPages = $(settings.target + ' :data(page-index)');
-    console.log('Test', allPages.length);
     previous = allPages.filter(function() {
-      console.log('i', $(this).data('page-index'), allPages.length - 1);
       return $(this).data('page-index') === allPages.length - 1;
     });
-    console.log(1, previous);
     // previous.show();
     previous.addClass('a-current-page').removeClass('a-next-page');
     current.removeClass('a-current-page').addClass('a-next-page');
