@@ -1118,7 +1118,7 @@ AltinnQuickhelp = {
       var keyCode = e.keyCode || e.which;
       if (keyCode === 13 && encodeURIComponent($(this)[0].value).length > 0) {
         that.nextquickhelpPage({
-          url: 'http://altinn-dev.dev.bouvet.no/api/quicksearch/' + encodeURIComponent($(this)[0].value) + '/no',
+          url: $('#a-stickyHelp').attr('data-api') + encodeURIComponent($(this)[0].value) + '/no',
           target: target
         });
       }
@@ -1126,7 +1126,7 @@ AltinnQuickhelp = {
     $('.a-stickyHelp-search').find('button').on('click', function(e) {
       if (encodeURIComponent($('.a-js-stickyhelpSearch')[0].value).length > 0) {
         that.nextquickhelpPage({
-          url: 'http://altinn-dev.dev.bouvet.no/api/quicksearch/' + encodeURIComponent($('.a-js-stickyhelpSearch')[0].value) + '/no',
+          url: $('#a-stickyHelp').attr('data-api') + encodeURIComponent($('.a-js-stickyhelpSearch')[0].value) + '/no',
           target: target
         });
       }
@@ -1215,7 +1215,7 @@ AltinnQuickhelp = {
     var that = this;
     that.listeners('#a-stickyHelp');
     that.loadQuickhelp({
-      url: '../../patterns/03-maler-infoportal-_70-hurtighjelp-10-hurtighjelp-start/03-maler-infoportal-_70-hurtighjelp-10-hurtighjelp-start.markup-only.html',
+      url: $('#a-stickyHelp').attr('data-start'),
       target: '#a-stickyHelp'
     });
     $('body').on('click', '[data-toggle="quickhelp"]', function() {
@@ -1233,6 +1233,11 @@ AltinnQuickhelp = {
           target: $source.data().target,
           pagesToPop: $source.data().pages
         });
+      }
+    });
+    $('.a-stickyHelp-open').on('click', function() {
+      if (!$('.a-js-stickyHelpFrame').attr('src')) {
+        $('.a-js-stickyHelpFrame').attr('src', $('.a-js-stickyHelpFrame').attr('data-src'));
       }
     });
     if ($('.quickhelpPage').find('.a-text').length !== 0) {
