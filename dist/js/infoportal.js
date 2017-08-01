@@ -1194,6 +1194,7 @@ AltinnQuickhelp = {
     allPages = $(settings.target + ' :data(page-index)');
     console.log('Test!', allPages.eq(0).data());
     previous = allPages.filter(function() {
+      console.log('i', $(this).data('page-index'), allPages.length - 1);
       return $(this).data('page-index') === allPages.length - 1;
     });
     console.log(1, previous);
