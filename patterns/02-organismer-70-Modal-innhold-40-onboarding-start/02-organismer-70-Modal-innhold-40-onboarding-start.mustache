@@ -1,0 +1,56 @@
+<!-- START: 02-organismer-70-Modal-innhold-40-onboarding-start JS doc: clipboard.js -->
+<!-- Button trigger modal-->
+<button type="button" class="a-btn a-js-modalLauncher" data-toggle="modal" data-target="#{{modal-id}}">
+<!-- <button type="button" class="a-btn a-js-modalLauncher hidden-xl-down" data-toggle="modal" data-target="#{{modal-id}}"> -->
+    {{ modal-launch-title }}
+</button>
+
+<!-- Modal -->
+<div class="modal a-modal fade {{ modalClass }}" id="{{modal-id}}" role="dialog" aria-labelledby="{{ modal-label }}" aria-hidden="true" data-backdrop="false">
+
+  <div class="a-modal-bottomBG">
+
+    <div class="modal-dialog" role="document">
+
+      {{# onboarding-steps }}
+
+      <div class="modal-content">
+
+        <div class="modal-header">
+          <!--<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>-->
+          <h4 class="modal-title" id="myModalLabel">{{{step-counter}}}</h4>
+        </div>
+
+        <div class="modal-body">
+
+          <div class="clearfix">
+
+            {{> atomer-intro-tekst }} {{# viewOrgnr}}
+            <div class="a-textureLines clearfix">
+              <button class="a-js-btnCopy a-btn-noStyle" data-clipboard-text="{{{ orgnr }}}">
+                    {{{ orgnr }}}
+                  </button>
+            </div>
+            <span class="a-js-clipboardMsg"></span> {{/ viewOrgnr}}
+
+          </div>
+
+        </div>
+
+        <div class="modal-footer">
+          <div class="a-btn-group">
+            {{# buttons}} {{> atomer-knapp }} {{/ buttons}}
+          </div>
+        </div>
+
+      </div>
+
+      {{/ onboarding-steps }}
+
+    </div>
+  </div>
+</div>
+
+<!-- END: 02-organismer-70-Modal-innhold-40-onboarding-start -->
