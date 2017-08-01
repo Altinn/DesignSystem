@@ -292,7 +292,7 @@ gulp.task('tidy-pages', function() {
 
 gulp.task('patternlab:version', function (done) {
   patternlab.version();
-  done();                                                                                                                                                                 
+  done();
 });
 
 gulp.task('patternlab:help', function (done) {
