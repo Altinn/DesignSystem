@@ -1231,7 +1231,10 @@ AltinnQuickhelp = {
   init: function() {
     var that = this;
     that.listeners('#a-stickyHelp');
-    console.log('test');
+    that.loadQuickhelp({
+      url: $('#a-stickyHelp').attr('data-start'),
+      target: '#a-stickyHelp'
+    });
     $('body').on('click', '[data-toggle="quickhelp"]', function() {
       var $source = $(this);
       if ($source.data().action === 'load') {
@@ -4951,7 +4954,6 @@ window.infoportalInit = function() {
   subscribe();
   setupFormValidation();
   autoFootnotes();
-  console.log('initializing QH script');
   AltinnQuickhelp.init();
   function setupForm1() {
     $('body').off('focus', '#contactForm', setupForm1);
