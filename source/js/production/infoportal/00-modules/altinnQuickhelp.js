@@ -35,7 +35,7 @@ AltinnQuickhelp = {
       var keyCode = e.keyCode || e.which;
       if (keyCode === 13 && encodeURIComponent($(this)[0].value).length > 0) {
         that.nextquickhelpPage({
-          url: $('#a-stickyHelp').attr('data-api') + encodeURIComponent($(this)[0].value) + '/no',
+          url: $('#a-stickyHelp').attr('data-api') + encodeURIComponent($(this)[0].value) + '/' + $('html').attr('lang'),
           target: target
         });
       }
@@ -43,7 +43,7 @@ AltinnQuickhelp = {
     $('.a-stickyHelp-search').find('button').on('click', function(e) {
       if (encodeURIComponent($('.a-js-stickyhelpSearch')[0].value).length > 0) {
         that.nextquickhelpPage({
-          url: $('#a-stickyHelp').attr('data-api') + encodeURIComponent($('.a-js-stickyhelpSearch')[0].value) + '/no',
+          url: $('#a-stickyHelp').attr('data-api') + encodeURIComponent($('.a-js-stickyhelpSearch')[0].value) + '/' + $('html').attr('lang'),
           target: target
         });
       }

@@ -17,11 +17,11 @@ var genericSearch = function() {
     afterRequest(data, false);
   };
   var onSecondError = function() {
-    $.getJSON(dataSource[2], onSuccess);
+    $.getJSON(dataSource[2] + '/' + $('html').attr('lang'), onSuccess);
   };
   var onError = function() {
     $.ajax({
-      type: 'GET', url: dataSource[1], success: onSuccess, error: onSecondError
+      type: 'GET', url: dataSource[1] + '/' + $('html').attr('lang'), success: onSuccess, error: onSecondError
     });
   };
   var match = function(arr1, arr2, allowEmpty) {
@@ -323,6 +323,6 @@ var genericSearch = function() {
         });
       }
     };
-    $.ajax({ type: 'GET', url: dataSource[0], success: onSuccess, error: onError });
+    $.ajax({ type: 'GET', url: dataSource[0] + '/' + $('html').attr('lang'), success: onSuccess, error: onError });
   }
 };
