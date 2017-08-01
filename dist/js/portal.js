@@ -688,6 +688,23 @@ var mobileNavigation = function() {
   });
 };
 
+var setupNestedCheckboxes = function() {
+  $('[data-toggle="nestedCheckbox"]').on('change', function() {
+    var target = $(this).data('target');
+    if ($(this).is(':checked')) {
+      $(target).show();
+    } else {
+      $(target).hide();
+    }
+  });
+
+  $('[data-toggle="nestedCheckbox"]').each(function() {
+    if (!$(this).is(':checked')) {
+      $($(this).data('target')).hide();
+    }
+  });
+};
+
 $('.a-dropdown-personswitchList').on('click', 'button[data-toggle="collapse"]', function(event) {
   event.preventDefault();
   event.stopPropagation();
@@ -1040,7 +1057,8 @@ var setValidatorSettings = function() {
   setupTruncateLines,
   AltinnModal,
   setupExpandContent,
-  AltinnDropdown
+  AltinnDropdown,
+  setupNestedCheckboxes
  */
 
 window.sharedInit = function() {
@@ -1076,6 +1094,7 @@ window.sharedInit = function() {
   setupExpandContent();
   AltinnModal.init();
   AltinnDropdown.init();
+  setupNestedCheckboxes();
 };
 
 window.sharedInit();
