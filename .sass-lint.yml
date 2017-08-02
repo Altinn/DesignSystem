@@ -1,0 +1,429 @@
+# Linter Options
+options:
+# Don't merge default rules
+merge-default-rules: false
+# Set the formatter to 'html'
+#formatter: html
+#formatter: html
+# Output file instead of logging results
+#output-file: 'linters/sass-lint.html'
+
+# Raise an error if more than 50 warnings are generated
+#max-warnings: 50
+
+# File Options
+files:
+  include: 'source/css/scss/**/*.s+(a|c)ss'
+  ignore:
+    - 'sass/vendor/**/*.*'
+
+# Rule Configuration
+## 0 = turned off
+## 1 = warnings
+## 2 = error
+
+rules:
+
+# ref: https://github.com/sasstools/sass-lint/blob/master/docs/rules/attribute-quotes.md
+  attribute-quotes: 2
+
+# ref: https://github.com/sasstools/sass-lint/blob/master/docs/rules/border-zero.md
+  border-zero:
+    - 2
+    - convention: 'none'
+
+# ref: https://github.com/sasstools/sass-lint/blob/master/docs/rules/brace-style.md
+  brace-style: 2
+  # defaults to 1tbs
+
+# ref: https://github.com/sasstools/sass-lint/blob/master/docs/rules/class-name-format.md
+  class-name-format:
+    - 0
+    - convention: ^([a-z]+[A-Z]?-?)+$
+    - allow-leading-underscore: false
+
+# ref: https://github.com/sasstools/sass-lint/blob/master/docs/rules/declarations-before-nesting.md
+  declarations-before-nesting: 2
+
+# ref: https://github.com/sasstools/sass-lint/blob/master/docs/rules/empty-line-between-blocks.md
+  empty-line-between-blocks:
+    - 2
+    - ignore-single-line-rulesets: false
+
+# ref: https://github.com/sasstools/sass-lint/blob/master/docs/rules/extends-before-declarations.md
+  extends-before-declarations: 2
+
+# ref: https://github.com/sasstools/sass-lint/blob/master/docs/rules/extends-before-mixins.md
+  extends-before-mixins: 2
+
+# ref: https://github.com/sasstools/sass-lint/blob/master/docs/rules/final-newline.md
+  final-newline: 2
+
+# ref: https://github.com/sasstools/sass-lint/blob/master/docs/rules/force-attribute-nesting.md
+  force-attribute-nesting: 2
+
+# ref: https://github.com/sasstools/sass-lint/blob/master/docs/rules/force-element-nesting.md
+  force-element-nesting: 2
+
+# ref: https://github.com/sasstools/sass-lint/blob/master/docs/rules/force-pseudo-nesting.md
+  force-pseudo-nesting: 2
+
+# ref: https://github.com/sasstools/sass-lint/blob/master/docs/rules/hex-length.md
+  hex-length:
+    - 2
+    - style: long
+
+# ref: https://github.com/sasstools/sass-lint/blob/master/docs/rules/hex-notation.md
+  hex-notation:
+    - 2
+    - style: uppercase
+
+# ref: https://github.com/sasstools/sass-lint/blob/master/docs/rules/indentation.md
+  indentation:
+    - 2
+    -
+      size: 2
+
+# ref: https://github.com/sasstools/sass-lint/blob/master/docs/rules/leading-zero.md
+  leading-zero:
+    - 2
+    - include: true
+
+# ref: https://github.com/sasstools/sass-lint/blob/master/docs/rules/mixins-before-declarations.md
+  mixins-before-declarations:
+    - 2
+    - exclude:
+        - media-breakpoint-up
+        - media-breakpoint-down
+        - breakpoint
+
+# ref: https://github.com/sasstools/sass-lint/blob/master/docs/rules/mixin-name-format.md
+  mixin-name-format:
+    - 0
+    - allow-leading-underscore: true
+    - convention: 'hyphenatedlowercase'
+
+# ref: https://github.com/sasstools/sass-lint/blob/master/docs/rules/nesting-depth.md
+  nesting-depth:
+    - 1
+    - max-depth: 4
+
+# ref: https://github.com/sasstools/sass-lint/blob/master/docs/rules/no-color-keywords.md
+  no-color-keywords: 2
+
+# We should not use multiline comments, rather do this: https://github.com/sasstools/sass-lint/blob/master/docs/rules/no-css-comments.md
+  no-css-comments: 0
+
+# ref: https://github.com/sasstools/sass-lint/blob/master/docs/rules/no-color-literals.md
+  no-color-literals: 2
+
+# ref: https://github.com/sasstools/sass-lint/blob/master/docs/rules/no-disallowed-properties.md
+  no-disallowed-properties:
+    - 2
+    -
+      'properties':
+        - 'font-size'
+        - 'font-family'
+        - 'font-weight'
+
+# ref: https://github.com/sasstools/sass-lint/blob/master/docs/rules/no-duplicate-properties.md
+  no-duplicate-properties: 2
+
+#ref: https://github.com/sasstools/sass-lint/blob/master/docs/rules/no-empty-rulesets.md
+  no-empty-rulesets: 2
+
+# ref: https://github.com/sasstools/sass-lint/blob/master/docs/rules/no-ids.md
+  no-ids: 2
+
+# ref: https://github.com/sasstools/sass-lint/blob/master/docs/rules/no-important.md
+  no-important: 1
+
+# ref: https://github.com/sasstools/sass-lint/blob/master/docs/rules/no-mergeable-selectors.md
+# This one can have a whitelist with an array of selectors
+  no-mergeable-selectors: 2
+
+# ref: https://github.com/sasstools/sass-lint/blob/master/docs/rules/no-misspelled-properties.md
+  no-misspelled-properties:
+    - 2
+    # -
+    #   'extra-properties':
+    #   - 'transit1on'
+
+# ref: https://github.com/sasstools/sass-lint/blob/master/docs/rules/no-qualifying-elements.md
+  no-qualifying-elements:
+    - 0
+    # - allow-element-with-attribute: false
+    #   allow-element-with-class: false
+    #   allow-element-with-id: false
+
+# ref: https://github.com/sasstools/sass-lint/blob/master/docs/rules/no-trailing-whitespace.md
+  no-trailing-whitespace: 2
+
+# ref: https://github.com/sasstools/sass-lint/blob/master/docs/rules/no-trailing-zero.md
+  no-trailing-zero: 2
+
+# ref: https://github.com/sasstools/sass-lint/blob/master/docs/rules/no-transition-all.md
+  no-transition-all: 1
+
+# ref: https://github.com/sasstools/sass-lint/blob/master/docs/rules/no-universal-selectors.md
+  no-universal-selectors: 2
+
+# Disabling this for now. Should be turned on, and use autoprefixer to add vendor-prefixes.
+  no-vendor-prefixes: 1
+
+# ref: https://github.com/sasstools/sass-lint/blob/master/docs/rules/one-declaration-per-line.md
+  one-declaration-per-line: 2
+
+# ref: https://github.com/sasstools/sass-lint/blob/master/docs/rules/placeholder-in-extend.md
+  placeholder-in-extend: 0
+
+# ref: https://github.com/sasstools/sass-lint/blob/master/docs/rules/property-sort-order.md
+# order: 'alphabetical', 'concentric', 'recess', 'smacss', or [array of properties] (defaults to alphabetical.
+  property-sort-order:
+    - 2
+    - order:
+      - position
+      - top
+      - right
+      - bottom
+      - left
+      - z-index
+      - box-sizing
+      - display
+      - flex
+      - flex-align
+      - flex-basis
+      - flex-direction
+      - flex-flow
+      - flex-grow
+      - flex-order
+      - flex-pack
+      - float
+      - width
+      - min-width
+      - max-width
+      - height
+      - min-height
+      - max-height
+      - padding
+      - padding-top
+      - padding-right
+      - padding-bottom
+      - padding-left
+      - margin
+      - margin-top
+      - margin-right
+      - margin-bottom
+      - margin-left
+      - overflow
+      - overflow-x
+      - overflow-y
+      - clip
+      - clear
+      - font
+      - font-family
+      - font-size
+      - font-style
+      - font-weight
+      - font-variant
+      - font-size-adjust
+      - font-stretch
+      - font-effect
+      - font-emphasize
+      - font-emphasize-position
+      - font-emphasize-style
+      - font-smooth
+      - hyphens
+      - line-height
+      - color
+      - text-align
+      - text-align-last
+      - text-emphasis
+      - text-emphasis-color
+      - text-emphasis-style
+      - text-emphasis-position
+      - text-decoration
+      - text-indent
+      - text-justify
+      - text-outline
+      - text-overflow
+      - text-overflow-ellipsis
+      - text-overflow-mode
+      - text-shadow
+      - text-transform
+      - text-wrap
+      - letter-spacing
+      - word-break
+      - word-spacing
+      - word-wrap
+      - tab-size
+      - white-space
+      - vertical-align
+      - list-style
+      - list-style-position
+      - list-style-type
+      - list-style-image
+      - pointer-events
+      - touch-action
+      - cursor
+      - visibility
+      - zoom
+      - table-layout
+      - empty-cells
+      - caption-side
+      - border-spacing
+      - border-collapse
+      - content
+      - quotes
+      - counter-reset
+      - counter-increment
+      - resize
+      - user-select
+      - nav-index
+      - nav-up
+      - nav-right
+      - nav-down
+      - nav-left
+      - background
+      - background-color
+      - background-image
+      - filter:progid:DXImageTransform.Microsoft.gradient
+      - filter:progid:DXImageTransform.Microsoft.AlphaImageLoader
+      - filter
+      - background-repeat
+      - background-attachment
+      - background-position
+      - background-position-x
+      - background-position-y
+      - background-clip
+      - background-origin
+      - background-size
+      - border
+      - border-color
+      - border-style
+      - border-width
+      - border-top
+      - border-top-color
+      - border-top-style
+      - border-top-width
+      - border-right
+      - border-right-color
+      - border-right-style
+      - border-right-width
+      - border-bottom
+      - border-bottom-color
+      - border-bottom-style
+      - border-bottom-width
+      - border-left
+      - border-left-color
+      - border-left-style
+      - border-left-width
+      - border-radius
+      - border-top-left-radius
+      - border-top-right-radius
+      - border-bottom-right-radius
+      - border-bottom-left-radius
+      - border-image
+      - border-image-source
+      - border-image-slice
+      - border-image-width
+      - border-image-outset
+      - border-image-repeat
+      - outline
+      - outline-width
+      - outline-style
+      - outline-color
+      - outline-offset
+      - box-shadow
+      - filter:progid:DXImageTransform.Microsoft.Alpha(Opacity
+      - opacity
+      - transition
+      - transition-delay
+      - transition-timing-function
+      - transition-duration
+      - transition-property
+      - transform
+      - transform-origin
+      - animation
+      - animation-name
+      - animation-duration
+      - animation-play-state
+      - animation-timing-function
+      - animation-delay
+      - animation-iteration-count
+
+# ref: https://github.com/sasstools/sass-lint/blob/master/docs/rules/property-units.md
+  property-units: 0
+    # global: ['em', 'px', 'rem', etc] defaults to [] or all units allowed
+    # per-property: { width: ['rem', 'px', etc], height: ['rem', 'px', etc], } defaults to {} or no property-specific units
+
+# ref: https://github.com/sasstools/sass-lint/blob/master/docs/rules/pseudo-element.md
+  pseudo-element: 2
+
+# ref: https://github.com/sasstools/sass-lint/blob/master/docs/rules/quotes.md
+  quotes:
+    - 2
+    - style: 'single'
+
+# ref: https://github.com/sasstools/sass-lint/blob/master/docs/rules/single-line-per-selector.md
+  single-line-per-selector: 2
+
+# ref: https://github.com/sasstools/sass-lint/blob/master/docs/rules/shorthand-values.md
+  shorthand-values: 0
+
+#ref: https://github.com/sasstools/sass-lint/blob/master/docs/rules/space-after-bang.md
+  space-after-bang:
+    - 2
+    - include: false
+
+# ref: https://github.com/sasstools/sass-lint/blob/master/docs/rules/space-after-colon.md
+  space-after-colon:
+    - 2
+    - include: true
+
+# ref: https://github.com/sasstools/sass-lint/blob/master/docs/rules/space-after-comma.md
+  space-after-comma:
+    - 2
+    - include: true
+
+# ref: https://github.com/sasstools/sass-lint/blob/master/docs/rules/space-around-operator.md
+  space-around-operator:
+    - 2
+    - include: true
+
+# ref: https://github.com/sasstools/sass-lint/blob/master/docs/rules/space-before-brace.md
+  space-before-brace:
+    - 2
+    - include: true
+
+# ref: https://github.com/sasstools/sass-lint/blob/master/docs/rules/space-before-bang.md
+  space-before-bang:
+    - 2
+    - include: true
+
+# ref: https://github.com/sasstools/sass-lint/blob/master/docs/rules/space-before-colon.md
+  space-before-colon:
+    - 2
+    - include: false
+
+# ref: https://github.com/sasstools/sass-lint/blob/master/docs/rules/space-between-parens.md
+  space-between-parens:
+    - 0
+    - include: true
+
+# ref: https://github.com/sasstools/sass-lint/blob/master/docs/rules/trailing-semicolon.md
+  trailing-semicolon: 2
+
+# ref: https://github.com/sasstools/sass-lint/blob/master/docs/rules/url-quotes.md
+  url-quotes: 2
+
+# ref: https://github.com/sasstools/sass-lint/blob/master/docs/rules/variable-name-format.md
+  variable-name-format:
+    - 0
+    - convention: hyphenatedlowercase
+    - allow-leading-underscore: false
+
+# ref: https://github.com/sasstools/sass-lint/blob/master/docs/rules/zero-unit.md
+  zero-unit:
+    - 2
+    - include: false

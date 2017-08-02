@@ -1,0 +1,32 @@
+/*------------------------------------*\
+    $PROGRESS
+\*------------------------------------*/
+
+.a-progress-bg {
+  background: url($images-base-url + 'disabled-background_white.svg');
+}
+
+.a-progress {
+  height: $spacer * 4;
+
+  &[aria-valuenow] {
+    animation: animateBar 1s ease forwards;
+  }
+}
+
+@keyframes animateBar {
+  from { width: 0%; }
+  to { width: 100% !important; }
+}
+
+.a-progress-numbers {
+  display: none;
+
+  @include media-breakpoint-up( sm ) {
+    @include a-fontMedium;
+    @include a-fontSize14;
+    display: flex;
+    width: 117%;
+	}
+
+}

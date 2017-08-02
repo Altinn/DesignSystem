@@ -1,0 +1,141 @@
+
+//------------------------------------\\
+//    Page Transitions
+//------------------------------------\\
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    transform: translate3d(0, 100%, 0);
+  }
+
+  100% {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@keyframes fadeInRight {
+  0% {
+    opacity: 0;
+    transform: translate3d(125%, 0, 0);
+  }
+
+  50% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@keyframes fadeOutRight {
+  0% {
+    opacity: 1;
+    transform: none;
+  }
+
+  50% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 0;
+    transform: translate3d(125%, 0, 0);
+  }
+}
+
+@keyframes fadeOutLeft {
+  0% {
+    opacity: 1;
+    transform: none;
+  }
+
+  50% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 0;
+    transform: translate3d(-125%, 0, 0);
+  }
+}
+
+@keyframes fadeInLeft {
+  0% {
+    opacity: 0;
+    transform: translate3d(-125%, 0, 0);
+  }
+
+  50% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+//------------------------------------\\
+//   CSS Page Transitions
+//------------------------------------\\
+
+.a-scene {
+  display: block;
+  overflow: hidden;
+
+  // Basic styles for an animated element
+  .a-scene-element {
+    display: block;
+    opacity: 1;
+    transition-timing-function: ease-in;
+    // Is this needed once the animation is completed?
+    // Removed this temporarily as it breaks fixed positioning
+    // transform: translate3d(0, 0, 0);
+    animation-duration: 0.5s;
+    animation-fill-mode: both;
+  }
+
+  // An element that fades in
+  .a-scene-element--fadein {
+    animation-name: fadeIn;
+  }
+
+  // An element that fades in and slides up
+  .a-scene-element--fadeinup {
+    animation-name: fadeInUp;
+  }
+
+  /** An element that fades in and slides from the right */
+  .a-scene-element--fadeinright {
+    animation-name: fadeInRight;
+  }
+
+  /** An element that fades in and slides from the right */
+  .a-scene-element--fadeoutright {
+    animation-name: fadeOutRight;
+  }
+
+  /** An element that fades out and slides to the left */
+  .a-scene-element--fadeoutleft {
+    animation-name: fadeOutLeft;
+  }
+
+  /** An element that fades out and slides to the left */
+  .a-scene-element--fadeinleft {
+    animation-name: fadeInLeft;
+  }
+}

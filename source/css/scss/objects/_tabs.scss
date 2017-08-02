@@ -1,0 +1,75 @@
+.a-tabs {
+  display: block;
+  width: 100%;
+  overflow-x: auto;
+  overflow-y: hidden;
+
+  @include media-breakpoint-up( sm ) {
+    display: flex;
+    float: left;
+    justify-content: space-between;
+  }
+
+  &.a-tabs-lg {
+    display: flex;
+    margin-bottom: -2px;
+
+    .a-tab {
+      margin-bottom: 0;
+    }
+
+    .a-tab-btn {
+      @extend .a-fontSizeXL;
+    }
+  }
+
+  .a-tab {
+    margin-right: $spacer;
+    margin-bottom: $spacer;
+    @include media-breakpoint-up( sm ) {
+      margin-right: $spacer * 2;
+      margin-bottom: 0;
+    }
+
+    @include media-breakpoint-up( md ) {
+      margin-right: $spacer * 3;
+    }
+  }
+
+  .a-tab-btn {
+    @include a-fontSize14;
+    position: relative;
+    display: inline-block;
+    padding: $spacer / 2 0;
+    color: $black;
+    text-decoration: none;
+    cursor: pointer;
+    border-bottom: 2px solid transparent;
+    justify-content: center;
+
+    @include media-breakpoint-up( md ) {
+      @include a-fontSize16;
+    }
+
+    @include media-breakpoint-up( sm ) {
+      min-height: 45px;
+      padding: $spacer / 2 0 $spacer / 2;
+    }
+
+    &.active {
+      border-bottom-color: $blue;
+    }
+
+    .active,
+    &:focus,
+    &:hover,
+    &:active {
+      border-bottom-color: $blue;
+    }
+  }
+}
+
+.a-tabs-content {
+  clear: both;
+  background: $white;
+}

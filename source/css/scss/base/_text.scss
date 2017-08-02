@@ -1,0 +1,248 @@
+// ----------------------------------
+// HEADINGS
+// ----------------------------------
+h1,
+.a-h1 {
+  @extend .a-fontSizeXXL; // 36px
+  margin-bottom: $spacer;
+}
+
+h2,
+.a-h2 {
+  @extend .a-fontSizeXL; // 28px
+  @include a-fontMedium;
+  margin-bottom: $spacer;
+
+  @include media-breakpoint-up( md ) {
+    @include a-fontReg;
+  }
+}
+
+h3,
+.a-h3 {
+  @extend .a-fontSizeM; // 20px
+  @include a-fontBold;
+  margin-bottom: $spacer / 2;
+}
+
+h4,
+.a-h4 {
+  @extend .a-fontSizeS; // 16px
+  @include a-fontBold;
+  margin-bottom: $spacer / 2;
+}
+
+.a-fontLight {
+  @include a-fontLight;
+}
+
+.a-fontReg {
+  @include a-fontReg;
+}
+
+.a-fontMedium {
+  @include a-fontMedium;
+}
+
+.a-fontBold,
+b,
+strong {
+  @include a-fontBold;
+}
+
+// ----------------------------------
+// Paragraph
+// ----------------------------------
+p {
+  @extend .a-fontSizeXS;
+  @include a-fontReg;
+  margin-bottom: $spacer * 1.5;
+
+  &.a-paragraphLarge {
+    @extend .a-fontSizeM;
+  }
+}
+
+
+// ----------------------------------
+// Ingress
+// ----------------------------------
+.a-leadText {
+  @include a-fontSize18;
+  @include media-breakpoint-up( lg ) {
+    @include a-fontSize20;
+  }
+  margin-bottom: $spacer * 1.5;
+}
+
+// ----------------------------------
+// Meta text
+// ----------------------------------
+.a-meta-text {
+  @extend .a-fontSizeXS;
+}
+
+.a-titleExtra {
+  @extend .a-fontSizeXS;
+  @include a-fontLight;
+}
+
+// ----------------------------------
+// Text colors
+// ----------------------------------
+.a-dimText7 {
+  color: $black-opacity-07;
+}
+
+.a-dimText3 {
+  color: $black-opacity-03;
+}
+
+.a-blueText {
+  color: $blue;
+}
+
+.a-blueDarkText {
+  color: $blue-dark;
+}
+
+.a-blueDarkerText {
+  color: $blue-darker;
+}
+
+// Mark
+mark,
+.a-mark {
+  padding: 0;
+  background-color: $yellow-light;
+}
+
+// Label
+.a-label {
+  @extend .a-fontSizeXXS;
+  @include a-fontReg;
+  min-width: 24px;
+  min-height: 24px;
+  padding: 3px 9px 0 9px;
+  margin-right: 6px;
+  color: $black;
+  text-align: center;
+  vertical-align: middle;
+  border-radius: 24px;
+}
+
+h1 {
+  .a-label {
+    margin-top: -8px;
+  }
+}
+
+// Speech-bubbles
+.a-textBubble {
+  @extend .a-fontSizeXS;
+  position: relative;
+  float: left;
+  min-width: 48px;
+  max-width: 300px;
+  height: auto;
+  padding: $spacer;
+  margin-bottom: $spacer * 3;
+  clear: both;
+  background-color: $white;
+
+  &::after {
+    position: absolute;
+    bottom: -$spacer;
+    left: $spacer;
+    display: block;
+    width: 0;
+    content: '';
+    border: none;
+    border-color: transparent $white;
+    border-style: solid;
+    border-right-color: transparent;
+    border-bottom-width: $spacer;
+    border-left-width: $spacer;
+  }
+
+  .a-textBubble-metaText {
+    @include a-fontSize10;
+    position: absolute;
+    right: 0;
+    bottom: -$spacer * 4;
+    color: $grey-medium;
+    text-align: right;
+  }
+}
+
+.a-textBubble-from {
+  float: right;
+  min-width: 80px;
+  clear: both;
+  background-color: $blue-light;
+
+  &::after {
+    position: absolute;
+    right: $spacer;
+    bottom: -$spacer;
+    left: auto;
+    border-color: transparent $blue-light;
+    border-right-width: $spacer;
+    border-left-width: 0;
+  }
+
+  .a-textBubble-metaText {
+    position: absolute;
+    bottom: -$spacer * 3;
+    left: 0;
+    text-align: left;
+  }
+}
+
+
+/* Text with pattern */
+.a-textureLines {
+  @include a-fontSize36;
+  display: inline-block;
+  height: 60px;
+  padding: 6px 12px;
+  color: $white;
+  background-color: transparent;
+  background-image: url($images-base-url + 'disabled-background_blue.svg');
+}
+
+/* Dot before text */
+
+.a-dot {
+  @include a-fontReg;
+
+  &::before {
+    @include a-fontSize30;
+    display: inline-block;
+    margin-right: 4px;
+    text-decoration: none;
+    vertical-align: bottom;
+    content: '\2022';
+  }
+
+  // Rød: Purring
+  &.a-dot-red {
+    &::before {
+      color: $red;
+    }
+  }
+
+  // Grønn: Kvittering
+  &.a-dot-green {
+    &::before {
+      color: $green;
+    }
+  }
+
+  // Blå: Ny melding
+  &.a-dot-blue {
+    &::before {
+      color: $blue;
+    }
+  }
+}

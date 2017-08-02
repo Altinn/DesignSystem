@@ -1,0 +1,234 @@
+// Layout
+
+/* Grid Edit */
+.container-fluid {
+  padding: 0;
+}
+
+.container {
+  padding: 0 $spacer;
+
+  @include media-breakpoint-up( sm ) {
+    padding: 0 $spacer * 2;
+  }
+
+  @include media-breakpoint-up( xl ) {
+    padding: 0; // 24x
+  }
+}
+
+.a-container-fluid-small {
+  @include media-breakpoint-down( sm ) {
+    width: auto;
+    padding: 0;
+  }
+}
+
+.a-noColPadding {
+  @include add-col-properties {
+    padding-right: 0;
+    padding-left: 0;
+  }
+  margin: 0;
+}
+
+// Text line break for small screens
+.a-rwd-break {
+  display: block;
+
+  @include media-breakpoint-up( sm ) {
+    display: none;
+  }
+}
+
+/* Padding */
+.a-pl-5andhalf {
+  padding-left: $spacer * 5.5;
+}
+
+.a-pl-4andhalf {
+  padding-left: $spacer * 4.5;
+}
+
+/* Padding 108px for large screens */
+.a-p-x9-xl {
+  margin-bottom: $spacer;
+
+  @include media-breakpoint-up( xl ) {
+    padding-right: $spacer * 9;
+    padding-left: $spacer * 9;
+  }
+}
+
+/* Push one space out for mobile */
+.a-py-minus-1 {
+  width: calc(100% + 36px);
+  margin-left: -18px;
+
+  @include media-breakpoint-up( sm ) {
+    width: calc(100% + 24px);
+    margin-left: -12px;
+  }
+
+  @include media-breakpoint-up( lg ) {
+    width: auto;
+    margin-left: auto;
+  }
+}
+
+/* Push one space out for mobile */
+.a-py-minus-2 {
+  width: calc(100% + 48px);
+  margin-left: -24px;
+
+  @include media-breakpoint-up( sm ) {
+    width: auto;
+    margin-left: auto;
+  }
+}
+
+/* Padding that push one col */
+
+.a-py-1 {
+  padding-right: $onecol;
+  padding-left: $onecol;
+}
+
+.a-pl-1 {
+  padding-left: $onecol;
+}
+
+// Use flexbox grid with a maximum of columns
+.col-max-2 {
+  min-width: 50%;
+
+  &:nth-of-type(n + 3) {
+    max-width: 50%;
+  }
+}
+
+.col-max-3 {
+  min-width: 33.33333%;
+
+  &:nth-of-type(n + 4) {
+    max-width: 33.33333%;
+  }
+}
+
+.col-max-4 {
+  min-width: 25%;
+
+  &:nth-of-type(n + 5) {
+    max-width: 25%;
+  }
+}
+
+.col-max-5 {
+  min-width: 20%;
+
+  &:nth-of-type(n + 6) {
+    max-width: 20%;
+  }
+}
+
+.col-max-6 {
+  min-width: 16.6666666%;
+
+  &:nth-of-type(n + 7) {
+    max-width: 16.6666666%;
+  }
+}
+
+// Thumbnails
+.a-thumbnail {
+  img {
+    margin-bottom: $spacer;
+    border: 1px solid $grey-light;
+  }
+
+  a {
+    display: block;
+    padding: $spacer;
+    margin-bottom: 24px;
+    background: $white;
+    border: 2px dotted $blue-light;
+
+    .a-thumbnail-title {
+      @include a-fontMedium;
+      @include a-fontSize12;
+      margin: 0;
+      color: $black;
+      text-transform: uppercase;
+    }
+
+    &:hover {
+      background: $blue-light;
+      border: 2px dotted $blue-light;
+    }
+  }
+}
+
+/*
+  Responsive spacing utility classes,
+  these needs important to override the bootstrap utility classes
+*/
+.a-pt-half {
+  padding-top: $spacer / 2 !important;
+}
+
+.a-pb-half {
+  padding-bottom: $spacer / 2 !important;
+}
+
+.a-pt-9 {
+  padding-top: 9px;
+}
+
+.a-pr-half {
+  padding-right: $spacer / 2;
+}
+
+.a-pl-half {
+  padding-left: $spacer / 2;
+}
+
+.a-w-3-sm-down {
+  @include media-breakpoint-down( sm ) {
+    width: $spacer * 3;
+  }
+}
+
+.a-w-7 {
+  width: $spacer * 7;
+}
+
+.a-w-8 {
+  width: $spacer * 8;
+}
+
+.a-mr-half {
+  margin-right: $spacer / 2;
+}
+
+.a-lh-3 {
+  line-height: $spacer * 3;
+}
+
+// a-offset-alignContent is used to align elements to the same vertical line as a column using offset.
+
+.a-offset-alignContent {
+
+  .a-iconText {
+    .a-iconText-icon {
+
+      @include media-breakpoint-up( lg ) {
+        margin-right: 6px;
+      }
+
+      @include media-breakpoint-up( xl ) {
+        width: 64px;
+        margin-right: $spacer;
+      }
+    }
+  }
+}
