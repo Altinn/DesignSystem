@@ -1,0 +1,35 @@
+<!-- START: 01-molekyler-02-navigasjon-01-trekkspill-overskrifter -->
+<div class="a-accordion-large {{styleModifier}}" id="accordion{{id}}" role="tablist" aria-multiselectable="true">
+
+  {{# accordion-header-items }}
+  <div class="card">
+
+    <!-- TITLE -->
+    <div {{#collapseTitle-id}} id="{{collapseTitle-id}}" {{/collapseTitle-id}}>
+      {{> atomer-ekspanderbar-overskrift }}
+    </div>
+
+    <!-- CONTENT -->
+    <div {{#collapse-header-id}} id="{{collapse-header-id}}" {{/collapse-header-id}} class="a-collapseContent collapse" role="tabpanel" {{#aria-labelledby}} aria-labelledby="{{collapseTitle-id}}" {{/aria-labelledby}}>
+      <div class="a-collapseContent-inside">
+        {{# collapse-header-content }} {{ collapse-header-content }} {{/ collapse-header-content }} {{# collapse-header-buttons }}
+        <div class="a-btn-group mt-2">
+          {{# link-group-items }} {{> atomer-link }} {{/ link-group-items }}
+        </div>
+        {{/ collapse-header-buttons }} {{# hasRadiogroup-date}} {{> molekyler-valgknapper-og-tekstfelt}} {{/ hasRadiogroup-date}} {{# hasCheckboxes}} {{> molekyler-nestede-avkrysningsbokser}} {{/ hasCheckboxes}} {{# listLinkAndImage-content}}
+        <div class="row">
+          <div class="col-md-12 col-lg-7">
+            {{# collapse-panel-list }} {{> molekyler-liste-unummerert:a-list-large|pb-2 }} {{/ collapse-panel-list }} {{# collapse-panel-link }} {{> atomer-link:a-link-large }} {{/ collapse-panel-link }}
+          </div>
+          <div class="col-lg-4 offset-lg-1 col-xl-3 offset-xl-2 hidden-md-down a-collapseContent-img">
+            {{# collapse-panel-img }} {{> atomer-placeholder }} {{/ collapse-panel-img }}
+          </div>
+        </div>
+        {{/ listLinkAndImage-content}}
+      </div>
+    </div>
+  </div>
+  {{/ accordion-header-items }}
+</div>
+
+<!-- END: 01-molekyler-02-navigasjon-01-trekkspill-overskrifter -->

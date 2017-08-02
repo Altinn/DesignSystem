@@ -1,0 +1,70 @@
+<!-- START: 03-maler-infoportal-20-navigasjonssider-51-omraadeside -->
+<div class="a-page">
+  {{# header }} {{> organismer-header }} {{/ header }}
+  <section id="content" tabindex="-1">
+
+    <div class="container a-offset-alignContent">
+      <div class="row">
+        <div class="col-sm-12 col-lg-6 offset-lg-3 a-articleSearch">
+          {{# article-search }} {{> atomer-tekst-input }} {{/ article-search }}
+        </div>
+      </div>
+
+      {{# hasArticleStart }}
+      <div class="row">
+        <div class="col-sm-12 col-lg-10 offset-lg-1">
+          {{> molekyler-smulesti }} {{> atomer-sidetittel }} {{> atomer-byline }} {{> atomer-intro-tekst}} {{#hasArticleStartLink}}{{> atomer-link }}{{/hasArticleStartLink}}
+        </div>
+      </div>
+      {{/ hasArticleStart }}
+
+      <div class="row">
+        <div class="col-sm-12 col-lg-10 offset-lg-1 a-text epi-wysiwyg">
+          {{# p1 }} {{> atomer-avsnitt }} {{/ p1 }} {{# hit-form-1 }}
+          <div class="a-gridMinusOneCol pt-2">
+            {{> molekyler-ikon-link }}
+          </div>
+          {{/ hit-form-1 }}
+
+          <h2>Forenklet a-melding</h2>
+          <p>Er du privatperson eller representerer en veldedig eller almennyttig organisasjon, kan du sende forenklet a-melding(!?) Nei, det blir feil. Skriv denne teksten på en annen måte.</p>
+
+          {{# hit-form-2 }}
+          <div class="a-gridMinusOneCol pt-2">
+            {{> molekyler-ikon-link }}
+          </div>
+          {{/ hit-form-2 }}
+
+          <h2>Andre tjenester</h2>
+          <p>Tekst om at du kan bestille avstemmingsrapport (A06) og <a href="#">lenke</a></p>
+
+        </div>
+      </div>
+
+      {{# hasAccordion }}
+      <div class="row">
+        <div class="col-sm-12 col-lg-10 offset-lg-1 mt-2">
+          <h2>{{{ header-2 }}}</h2>
+          {{> molekyler-trekkspill:a-accordion-largeText }}
+        </div>
+      </div>
+      {{/ hasAccordion }} {{# hasHelp }}
+      <div class="row">
+        <div class="col-sm-12 col-lg-10 offset-lg-1 py-4">
+          <h2>{{{ header-3 }}}</h2>
+          <p class="a-paragraphLarge">
+            {{{ help-prefix }}} {{> atomer-link:a-fontBold }} {{{ help-end }}}
+          </p>
+        </div>
+      </div>
+      {{/ hasHelp }}
+
+    </div>
+    <!-- END Container -->
+
+  </section>
+
+  {{> organismer-footer }}
+</div>
+
+<!-- END: 03-maler-infoportal-20-navigasjonssider-51-omraadeside -->

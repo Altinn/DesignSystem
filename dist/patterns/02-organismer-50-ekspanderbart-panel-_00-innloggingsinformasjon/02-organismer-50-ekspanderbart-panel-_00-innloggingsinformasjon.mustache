@@ -1,0 +1,34 @@
+<!-- START: 02-organismer-50-ekspanderbart-panel-_00-innloggingsinformasjon JS doc: togglePanel.js -->
+<div class="card a-accordion-card a-collapsePanel {{{ styleModifier }}}">
+  <div class="card-header a-js-index-heading a-collapsePanel-heading collapsed {{isExpanded}}" id="{{ collapse-panel-header-id }}" role="tab">
+    <a href="#" data-toggle="collapse" data-target="#{{{ collapseID }}}" aria-expanded="false" aria-controls="{{ collapseID }}" {{# dataParent }}data-parent="{{{dataParent}}}" {{/ dataParent }}>
+      {{# collapseHeader }}
+        {{> molekyler-ikon-tekst }}
+      {{/ collapseHeader }}
+    </a>
+  </div>
+  <div id="{{ collapseID }}" class="a-collapsePanel-body collapse {{{ isVisibleFromStart }}}" role="tabpanel" aria-labelledby="{{ collapse-panel-header-id }}">
+    <div class="a-collapsePanel-body-content">
+      {{> organismer-innloggingsinformasjon-innhold }}
+    </div>
+    {{# certificate }} {{# upload }}
+    <div class="a-collapsePanel-body-content hidden-xs-up a-js-certificateUpload">
+      <div class="row">
+        <div class="col-12">
+          {{> atomer-upload }} {{# cancel-link }} {{> atomer-knapp-link }} {{/ cancel-link }}
+        </div>
+      </div>
+    </div>
+    {{/ upload}} {{# certificates }}
+    <div class="a-collapsePanel-body-content a-js-certificateList">
+      <div class="row">
+        <div class="col-12">
+          <h3>{{ users-heading }}</h3>
+          {{> atomer-varsel }} {{# add-btn }} {{> atomer-knapp-ikon-tekst }} {{/ add-btn }}
+        </div>
+      </div>
+    </div>
+    {{/ certificates }} {{/ certificate }}
+  </div>
+</div>
+<!-- END: 02-organismer-50-ekspanderbart-panel-_00-innloggingsinformasjon -->
