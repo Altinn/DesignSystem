@@ -4200,11 +4200,10 @@ var colnavCustom = function() {
             whenKey(event, '.a-colnav-item-third');
           });
           $('.a-colnav-item').on('click', function(event) {
-            if ($(window).scrollTop() > $('.a-colnav').offset().top) {
-              setTimeout(function() {
-                $('html,body').animate({ scrollTop: $('.a-colnav').offset().top }, 300);
-              }, 5000);
-            }
+            alert('Test');
+            // if ($(window).scrollTop() > $('.a-colnav').offset().top) {
+              // $('html,body').animate({ scrollTop: $('.a-colnav').offset().top }, 300);
+            // }
           });
           $('.a-colnav-item').attr('tabindex', '0').on('focus', function() {
             if ($('.a-colnav-secondLevel.submenu.is-active').length === 1) {
