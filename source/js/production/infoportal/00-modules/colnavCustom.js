@@ -363,20 +363,20 @@ var colnavCustom = function() {
     if (savedResults[str]) { // Get stored results if present
       afterRequest(savedResults[str]);
     } else { // Perform request
+      if (window.location.pathname.indexOf('DesignSystem') === 1 || window.location.origin.indexOf('localhost') !== -1) {
+        $.ajax({
+          type: 'GET',
+          url: url + '.json',
+          success: function(data) {
+            afterRequest(data); // Perform populating logic
+          }
+        });
+      }
       $.ajax({
         type: 'GET',
         url: url,
         success: function(data) {
           afterRequest(data); // Perform populating logic
-        },
-        error: function() {
-          $.ajax({
-            type: 'GET',
-            url: url + '.json',
-            success: function(data) {
-              afterRequest(data); // Perform populating logic
-            }
-          });
         }
       });
     }
