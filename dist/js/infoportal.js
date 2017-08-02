@@ -4320,6 +4320,7 @@ var colnavCustom = function() {
       });
       $('body').on('click', function(e) {
         var arr = [];
+        alert('test 1', isSmall);
         if (!isSmall) {
           if ($(e.target).closest('.a-colnav-firstLevel').length === 0) {
             $('a.open').each(function() {
