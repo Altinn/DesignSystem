@@ -1233,7 +1233,6 @@ AltinnQuickhelp = {
   init: function() {
     var that = this;
     that.listeners('#a-stickyHelp');
-    console.log('T E S T');
     $('body').on('click', '[data-toggle="quickhelp"]', function() {
       var $source = $(this);
       console.log('x', $source.data().action);
@@ -1254,6 +1253,7 @@ AltinnQuickhelp = {
       }
     });
     $('.a-stickyHelp-open').on('click', function() {
+      console.log('y', $('.a-js-stickyHelpFrame').attr('data-src'));
       if (!$('.a-js-stickyHelpFrame').attr('src')) {
         $('.a-js-stickyHelpFrame').attr('src', $('.a-js-stickyHelpFrame').attr('data-src'));
       }
