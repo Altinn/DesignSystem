@@ -4201,7 +4201,9 @@ var colnavCustom = function() {
           });
           $('.a-colnav-item').on('click', function(event) {
             if ($(window).scrollTop() > $('.a-colnav').offset().top) {
-              $('html,body').animate({ scrollTop: $('.a-colnav').offset().top }, 300);
+              setTimeout(function() {
+                $('html,body').animate({ scrollTop: $('.a-colnav').offset().top }, 300);
+              }, 5000);
             }
           });
           $('.a-colnav-item').attr('tabindex', '0').on('focus', function() {
