@@ -4150,7 +4150,9 @@ var colnavCustom = function() {
           });
           $(h2).text(item.Heading).appendTo($(a));
           $(p).text(item.Description).addClass('a-leadText').appendTo($(a));
-          $(a).attr('href', '#').addClass('a-colnav-item').appendTo($(li));
+          $(a)
+            // .attr('href', '#')
+            .addClass('a-colnav-item').appendTo($(li));
           $(ul).addClass('a-colnav').addClass('a-colnav-vertical').addClass('a-colnav-secondLevel')
             .append(level2)
             .appendTo($(li));
