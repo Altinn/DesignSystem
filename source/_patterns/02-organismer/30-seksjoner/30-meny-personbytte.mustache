@@ -13,9 +13,11 @@
       </div>
     {{/ personswitch-current }}
 
-    <p class="a-h2">
-        Alle dine profiler:
-    </p>
+    {{# profile-text }}
+      <p class="a-h2">
+        {{ profile-text }}
+      </p>
+    {{/ profile-text }}
 
     {{# personswitch-search }}
       {{> atomer-tekst-input }}
@@ -26,8 +28,15 @@
       {{/ no-results-text }}
     {{/ personswitch-search }}
 
+  {{# personswitch-button }}
+    {{> atomer-knapp }} 
+  {{/ personswitch-button }}
+
   </div>
 
-  {{> organismer-personbytte:px-1}}
+  {{# personswitch-overview }}
+    {{> organismer-personbytte:px-1}}
+  {{/ personswitch-overview }}
+
 
 </div>
