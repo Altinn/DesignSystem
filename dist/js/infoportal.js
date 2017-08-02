@@ -1237,6 +1237,7 @@ AltinnQuickhelp = {
     $('body').on('click', '[data-toggle="quickhelp"]', function() {
       var $source = $(this);
       if ($source.data().action === 'load') {
+        console.log('c', $source.data().url);
         that.loadQuickhelp({
           url: $source.data().url,
           target: $source.data().target
