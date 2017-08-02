@@ -1252,7 +1252,7 @@ AltinnQuickhelp = {
         });
       }
     });
-    $('.a-stickyHelp-open').on('click', function() {
+    $('body').on('click', '.a-stickyHelp-open', function() {
       console.log('y', $('.a-js-stickyHelpFrame').attr('data-src'));
       if (!$('.a-js-stickyHelpFrame').attr('src')) {
         $('.a-js-stickyHelpFrame').attr('src', $('.a-js-stickyHelpFrame').attr('data-src'));
