@@ -235,7 +235,9 @@ var colnavCustom = function() {
             }
             $(_h3).text(_item.Heading || _item.Title).appendTo($(_a1));
             $(_h4).text(_item.Heading || _item.Title).appendTo($(_a2));
-            $(_a1).attr('href', '#').addClass('a-colnav-item-second').addClass('a-js-colnavLink')
+            $(_a1)
+              // .attr('href', '#')
+              .addClass('a-colnav-item-second').addClass('a-js-colnavLink')
               .appendTo($(_li));
             $(_a2).attr('href', _item.Url).addClass('a-colnav-item-second')
               .addClass('a-js-colnavLinkAlt')
@@ -248,7 +250,9 @@ var colnavCustom = function() {
           });
           $(h2).text(item.Heading).appendTo($(a));
           $(p).text(item.Description).addClass('a-leadText').appendTo($(a));
-          $(a).attr('href', '#').addClass('a-colnav-item').appendTo($(li));
+          $(a)
+            // .attr('href', '#')
+            .addClass('a-colnav-item').appendTo($(li));
           $(ul).addClass('a-colnav').addClass('a-colnav-vertical').addClass('a-colnav-secondLevel')
             .append(level2)
             .appendTo($(li));
