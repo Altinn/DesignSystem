@@ -24,8 +24,18 @@ var colnavCustom = function() {
       return (x === parseInt(x, 10) || x === parseFloat(x, 10)) ?
         ((a - ((z + 1) * 40)) - (1.5 * (z + 1))) + 'px' : x.css('left', '40px');
     }
+    if (x !== parseInt(x, 10) && x !== parseFloat(x, 10)) {
+      if (x.hasClass('a-colnav-thirdLevel') && parseInt(x.css('left'), 10) < 200) {
+        return x;
+      }
+    }
     return (x === parseInt(x, 10) || x === parseFloat(x, 10)) ?
-      parseInt(a / x / (y || 1), 10) : x.css('left', parseInt(a / y / (z || 1), 10) + 'px');
+      parseInt(
+        a / x / (y || 1), 10
+      ) :
+      x.css('left',
+        parseInt(a / y / (z || 1), 10) + 'px'
+      );
   }
   function whenKey(e, classToQuery) { // Logic for keypresses on items
     var code = e.keyCode || e.which;
