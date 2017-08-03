@@ -925,41 +925,14 @@ $('.html-escape').each(function() {
 /* globals currentRequest, AltinnQuickhelp */
 /* globals AltinnQuickhelp:true */
 AltinnQuickhelp = {
-  loadQuickhelp: function(settings) {
-    var that = this;
-    var currentRequest = $.ajax({
-      url: settings.url,
-      beforeSend: function() {
-        if (typeof currentRequest !== 'undefined') {
-          currentRequest.abort();
-        }
-      }
-    }).done(function(data) {
-      var quickhelpPage = $('<div/>', {
-        class: 'a-quickhelpPage-start',
-        id: 'a-js-quickhelpPage',
-        html: data
-      });
-      var page = $('<div/>', {
-        class: 'a-page a-current-page',
-        data: {
-          'page-index': 1
-        },
-        html: quickhelpPage
-      });
-      $(settings.target + ' .a-stickyHelp-content-target').append(page);
-      $(settings.target).find('.a-current-page').first().data();
-      $('.a-js-stickyHelpCategory').html($(settings.target).find('.a-stickyHelp-content-target').attr('data-category'));
-      $('.a-js-stickyHelpCategoryLink').attr('data-url', $(settings.target).find('.a-stickyHelp-content-target').attr('data-url'));
-    });
-  },
   listeners: function(target) {
     var that = this;
     $('.a-stickyHelp-search').find('input').on('keyup', function(e) {
       var keyCode = e.keyCode || e.which;
       if (keyCode === 13 && encodeURIComponent($(this)[0].value).length > 0) {
         that.nextquickhelpPage({
-          url: $('#a-stickyHelp').attr('data-api') + encodeURIComponent($(this)[0].value) + '/' + $('html').attr('lang'),
+          url: $('#a-stickyHelp').attr('data-api') +
+            encodeURIComponent($(this)[0].value) + '/' + $('html').attr('lang'),
           target: target
         });
       }
@@ -967,7 +940,9 @@ AltinnQuickhelp = {
     $('.a-stickyHelp-search').find('button').on('click', function(e) {
       if (encodeURIComponent($('.a-js-stickyhelpSearch')[0].value).length > 0) {
         that.nextquickhelpPage({
-          url: $('#a-stickyHelp').attr('data-api') + encodeURIComponent($('.a-js-stickyhelpSearch')[0].value) + '/' + $('html').attr('lang'),
+          url: $('#a-stickyHelp').attr('data-api') +
+            encodeURIComponent($('.a-js-stickyhelpSearch')[0].value) + '/' +
+            $('html').attr('lang'),
           target: target
         });
       }
@@ -982,27 +957,17 @@ AltinnQuickhelp = {
         }
       }
     }).done(function(data) {
-      var current;
-      var quickhelpPage = $('<div/>', {
-        class: 'quickhelpPage',
-        html: data
-      });
-      var existingPages;
-      var newPage;
-      var newPageIndex;
+      var quickhelpPage = $('<div/>', { class: 'quickhelpPage', html: data });
+      var current; var existingPages; var newPage; var newPageIndex;
       existingPages = $(settings.target + ' :data(page-index)');
       newPageIndex = existingPages.length + 1;
       newPage = $('<div/>', {
         class: 'a-page a-next-page',
-        data: {
-          'page-index': newPageIndex
-        },
+        data: { 'page-index': newPageIndex },
         html: quickhelpPage
       });
       $(settings.target + ' .a-stickyHelp-content-target').append(newPage);
-      $(settings.target).animate({
-        scrollTop: 0
-      }, 20);
+      $(settings.target).animate({ scrollTop: 0 }, 20);
       current = $(settings.target + ' .a-current-page');
       setTimeout(function() {
         current.removeClass('a-current-page').addClass('a-previous-page');
@@ -1011,9 +976,9 @@ AltinnQuickhelp = {
       }, 0);
       current.on('transitionend', function() {
         if (settings.clearHistory) {
-          $(settings.target + ' :data(page-index)').not('.a-current-page').remove();
+          $(settings.target + ' :data(page-index)').not('.a-current-page')
+            .remove();
         } else {
-          // current.hide().off();
           current.off();
         }
       });
@@ -1021,10 +986,7 @@ AltinnQuickhelp = {
     });
   },
   previousquickhelpPage: function(settings) {
-    var current;
-    var allPages;
-    var previous;
-    var pagesToPop;
+    var current; var allPages; var previous; var pagesToPop;
     if (!settings.pagesToPop) {
       pagesToPop = 1;
     } else {
@@ -1035,7 +997,6 @@ AltinnQuickhelp = {
     previous = allPages.filter(function() {
       return $(this).data('page-index') === allPages.length - 1;
     });
-    // previous.show();
     previous.addClass('a-current-page').removeClass('a-next-page');
     current.removeClass('a-current-page').addClass('a-next-page');
     setTimeout(function() {
@@ -1052,32 +1013,31 @@ AltinnQuickhelp = {
     }
   },
   init: function() {
-    var that = this;
-    that.listeners('#a-stickyHelp');
-    that.loadQuickhelp({
-      url: $('#a-stickyHelp').attr('data-start'),
-      target: '#a-stickyHelp'
-    });
+    var that = this; that.listeners('#a-stickyHelp');
     $('body').on('click', '[data-toggle="quickhelp"]', function() {
       var $source = $(this);
-      if ($source.data().action === 'load') {
-        that.loadQuickhelp({
-          url: $source.data().url,
-          target: $source.data().target
+      if ($source.data().action === 'next') {
+        that.nextquickhelpPage({
+          url: $source.data().url, target: $source.data().target
         });
-      } else if ($source.data().action === 'next') {
-        that.nextquickhelpPage({ url: $source.data().url,
-          target: $source.data().target });
       } else if ($source.data().action === 'back') {
         that.previousquickhelpPage({
-          target: $source.data().target,
-          pagesToPop: $source.data().pages
+          target: $source.data().target, pagesToPop: $source.data().pages
         });
       }
     });
-    $('.a-stickyHelp-open').on('click', function() {
+    $('.a-current-page').data({ 'page-index': 1 });
+    $('.a-js-stickyHelpCategory')
+      .html($('#a-stickyHelp').find('.a-stickyHelp-content-target')
+        .attr('data-category')
+      );
+    $('.a-js-stickyHelpCategoryLink').attr('data-url', $('#a-stickyHelp')
+        .find('.a-stickyHelp-content-target').attr('data-url')
+      );
+    $('body').on('click', '.a-stickyHelp-open', function() {
       if (!$('.a-js-stickyHelpFrame').attr('src')) {
-        $('.a-js-stickyHelpFrame').attr('src', $('.a-js-stickyHelpFrame').attr('data-src'));
+        $('.a-js-stickyHelpFrame')
+          .attr('src', $('.a-js-stickyHelpFrame').attr('data-src'));
       }
     });
     if ($('.quickhelpPage').find('.a-text').length !== 0) {
@@ -3999,7 +3959,9 @@ var colnavCustom = function() {
             }
             $(_h3).text(_item.Heading || _item.Title).appendTo($(_a1));
             $(_h4).text(_item.Heading || _item.Title).appendTo($(_a2));
-            $(_a1).attr('href', '#').addClass('a-colnav-item-second').addClass('a-js-colnavLink')
+            $(_a1)
+              // .attr('href', '#')
+              .addClass('a-colnav-item-second').addClass('a-js-colnavLink')
               .appendTo($(_li));
             $(_a2).attr('href', _item.Url).addClass('a-colnav-item-second')
               .addClass('a-js-colnavLinkAlt')
@@ -4012,7 +3974,9 @@ var colnavCustom = function() {
           });
           $(h2).text(item.Heading).appendTo($(a));
           $(p).text(item.Description).addClass('a-leadText').appendTo($(a));
-          $(a).attr('href', '#').addClass('a-colnav-item').appendTo($(li));
+          $(a)
+            // .attr('href', '#')
+            .addClass('a-colnav-item').appendTo($(li));
           $(ul).addClass('a-colnav').addClass('a-colnav-vertical').addClass('a-colnav-secondLevel')
             .append(level2)
             .appendTo($(li));
@@ -4127,20 +4091,20 @@ var colnavCustom = function() {
     if (savedResults[str]) { // Get stored results if present
       afterRequest(savedResults[str]);
     } else { // Perform request
+      if (window.location.pathname.indexOf('DesignSystem') === 1 || window.location.origin.indexOf('localhost') !== -1) {
+        $.ajax({
+          type: 'GET',
+          url: url + '.json',
+          success: function(data) {
+            afterRequest(data); // Perform populating logic
+          }
+        });
+      }
       $.ajax({
         type: 'GET',
         url: url,
         success: function(data) {
           afterRequest(data); // Perform populating logic
-        },
-        error: function() {
-          $.ajax({
-            type: 'GET',
-            url: url + '.json',
-            success: function(data) {
-              afterRequest(data); // Perform populating logic
-            }
-          });
         }
       });
     }
@@ -5446,6 +5410,23 @@ AltinnModal = {
       AltinnModal.closeModal({ target: '#' + $(this).closest('.a-modal')[0].id });
       $('button[aria-describedby=' + $(this).parent().parent().attr('id') + ']').popover('hide');
     });
+
+    function urlQuery(query) { // Parse current URL for query value
+      var _query = query.replace(/[[]/, '[').replace(/[\]]/, '\\]');
+      var expr = '[\\?&]' + _query + '=([^&#]*)';
+      var regex = new RegExp(expr);
+      var results = regex.exec(window.location.href);
+      if (results !== null) {
+        return results[1];
+      }
+      return false;
+    }
+    if (urlQuery('form') === '1') {
+      AltinnModal.loadModal({
+        url: '/hjelp/kontaktskjema-for-hjelp/',
+        target: '#modal'
+      });
+    }
   }
 };
 

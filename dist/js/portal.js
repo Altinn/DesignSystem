@@ -383,6 +383,23 @@ AltinnModal = {
       AltinnModal.closeModal({ target: '#' + $(this).closest('.a-modal')[0].id });
       $('button[aria-describedby=' + $(this).parent().parent().attr('id') + ']').popover('hide');
     });
+
+    function urlQuery(query) { // Parse current URL for query value
+      var _query = query.replace(/[[]/, '[').replace(/[\]]/, '\\]');
+      var expr = '[\\?&]' + _query + '=([^&#]*)';
+      var regex = new RegExp(expr);
+      var results = regex.exec(window.location.href);
+      if (results !== null) {
+        return results[1];
+      }
+      return false;
+    }
+    if (urlQuery('form') === '1') {
+      AltinnModal.loadModal({
+        url: '/hjelp/kontaktskjema-for-hjelp/',
+        target: '#modal'
+      });
+    }
   }
 };
 

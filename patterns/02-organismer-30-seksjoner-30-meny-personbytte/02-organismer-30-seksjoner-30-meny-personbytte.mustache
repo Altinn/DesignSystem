@@ -10,21 +10,20 @@
         {{> molekyler-person-privat }}
       </div>
     </div>
-    {{/ personswitch-current }}
-
+    {{/ personswitch-current }} {{# profile-text }}
     <p class="a-h2">
-      Alle dine profiler:
+      {{ profile-text }}
     </p>
-
-    {{# personswitch-search }} {{> atomer-tekst-input }} {{# no-results-text }}
+    {{/ profile-text }} {{# personswitch-search }} {{> atomer-tekst-input }} {{# no-results-text }}
     <p class="a-fontBold a-fontSizeXS">
       {{ no-results-text }}
       <p>
-        {{/ no-results-text }} {{/ personswitch-search }}
+        {{/ no-results-text }} {{/ personswitch-search }} {{# personswitch-button }} {{> atomer-knapp }} {{/ personswitch-button }}
 
   </div>
 
-  {{> organismer-personbytte:px-1}}
+  {{# personswitch-overview }} {{> organismer-personbytte:px-1}} {{/ personswitch-overview }}
+
 
 </div>
 
