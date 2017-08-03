@@ -366,16 +366,15 @@ var colnavCustom = function() {
     };
     if (savedResults[str]) { // Get stored results if present
       afterRequest(savedResults[str]);
-    } else { // Perform request
-      if (window.location.pathname.indexOf('DesignSystem') === 1 || window.location.origin.indexOf('localhost') !== -1) {
-        $.ajax({
-          type: 'GET',
-          url: url + '.json',
-          success: function(data) {
-            afterRequest(data); // Perform populating logic
-          }
-        });
-      }
+    } else if (window.location.pathname.indexOf('DesignSystem') === 1 || window.location.origin.indexOf('localhost') !== -1 || window.location.origin.indexOf('10.4.67.79') !== -1) {
+      $.ajax({
+        type: 'GET',
+        url: url + '.json',
+        success: function(data) {
+          afterRequest(data); // Perform populating logic
+        }
+      });
+    } else {
       $.ajax({
         type: 'GET',
         url: url,
@@ -387,10 +386,12 @@ var colnavCustom = function() {
   }
   function resizedWindow() { // What happens upon window resize
     isSmall = $('.a-contentOverview').width() < 900; // Redefine boolean for determining screen size
-    // Perform drilldown logic with currently selected source:
-    getDrilldownSource($('[name="js-switchForm"]:checked').attr('data-switchUrl'));
-    // Ensure reset of markup
-    $('.switch-container').show(); $('.a-js-colnavTitleRegular').text('Alle skjemaer');
+    if (!isSmall) {
+      // Perform drilldown logic with currently selected source:
+      getDrilldownSource($('[name="js-switchForm"]:checked').attr('data-switchUrl'));
+      // Ensure reset of markup
+      $('.switch-container').show(); $('.a-js-colnavTitleRegular').text('Alle skjemaer');
+    }
     if (isSmall) { // Small screen specific style (can be moved to stylesheet)
       $('.a-contentOverview').css('overflow-x', 'hidden');
     }
