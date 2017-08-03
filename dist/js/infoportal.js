@@ -1240,6 +1240,7 @@ AltinnQuickhelp = {
   }
 };
 
+
 var articleAnchors = function() {
   if ($('.epi-wysiwyg').length > 0 && $('.sg-pattern-category').length === 0) {
     window.anchors.options.placement = 'left';
