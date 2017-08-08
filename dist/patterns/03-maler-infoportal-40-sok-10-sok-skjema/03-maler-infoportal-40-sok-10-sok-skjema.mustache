@@ -13,15 +13,10 @@
   <section id="content" tabindex="-1">
 
     <div class="container a-searchResults a-offset-alignContent">
-      <div class="row mb-1 mb-md-2">
-        <div class="col-12 col-lg-10 offset-lg-1">
-          <h1 class="a-h2 a-fontReg"><b>33 treff</b> på skjema med <b>"MVA"</b></h1>
-        </div>
-      </div>
-
       <div class="row">
-        <div class="col-12 col-lg-10 offset-lg-1 px-0 px-sm-1">
-          {{> molekyler-kategorifaner }}
+        <div class="col-12 col-lg-10 offset-lg-1">
+          {{# searchWhere}} {{> molekyler-faner-og-knapp }} {{/ searchWhere}}
+          <h1 class="a-h2 a-fontReg mt-2"><b>33 treff</b> på skjema med <b>"MVA"</b></h1>
         </div>
       </div>
 
@@ -32,7 +27,7 @@
               <legend class="a-legend">Begrens treffet:
               </legend>
               <div class="a-searchResults-filter-options">
-                {{# filter-search }} {{> atomer-valgknapp:a-switch--small }} {{/ filter-search }}
+                {{# filter-search }} {{> atomer-valgknapp-ett-alternativ:a-switch--small }} {{/ filter-search }}
               </div>
             </fieldset>
           </form>
