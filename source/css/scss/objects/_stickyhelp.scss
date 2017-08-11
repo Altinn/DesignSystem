@@ -171,7 +171,7 @@
       height: 414px !important;
       margin-top: -261px;
       margin-left: -178px;
-      background-color: $purple-hover-color;
+      // background-color: $purple-hover-color;
       border-radius: 0;
       transition: all 400ms cubic-bezier(0.215, 0.61, 0.355, 1);
 
@@ -205,8 +205,24 @@
       background: $white;
       border: none;
       border-radius: 50%;
-      opacity: 1;
-      transition-delay: 400ms;
+      opacity: 0;
+
+
+      @keyframes showCloseButtonAfterLoad {
+        0% {
+          opacity: 0;
+        }
+
+        100% {
+          opacity: 1;
+        }
+      }
+
+      animation: showCloseButtonAfterLoad 100ms;
+      animation-timing-function: linear;
+      animation-delay: 600ms;
+      animation-iteration-count: 1;
+      animation-fill-mode: forwards;
 
       &:hover {
         border: none;
