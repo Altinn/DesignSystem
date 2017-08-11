@@ -94,7 +94,7 @@ var colnavCustom = function() {
           text = el.closest('ul').prev().find('h2').text() || ''; // Get name from parent
           if (history.pushState) { // Modify the browser history object
             newurl = window.location.protocol + '//' + window.location.host +
-              window.location.pathname + '?position=' + text.toLowerCase().replace(/ /g, '-');
+              window.location.pathname + '?position=' + text.toLowerCase().replace(/ /g, '%20');
             window.history.pushState({ path: newurl }, '', newurl);
           }
           open = []; // Clear array for open levels
@@ -114,7 +114,7 @@ var colnavCustom = function() {
           text = el.closest('ul').prev().find('h2').text() || ''; // Get name from parent
           if (history.pushState) { // Modify the browser history object
             newurl = window.location.protocol + '//' + window.location.host +
-              window.location.pathname + '?position=' + text.toLowerCase().replace(/ /g, '-');
+              window.location.pathname + '?position=' + text.toLowerCase().replace(/ /g, '%20');
             window.history.pushState({ path: newurl }, '', newurl);
           }
           open = []; // Clear array for open levels
@@ -132,7 +132,7 @@ var colnavCustom = function() {
         } else {
           if (history.pushState) { // Modify the browser history object
             newurl = window.location.protocol + '//' + window.location.host +
-              window.location.pathname + '?position=' + text.toLowerCase().replace(/ /g, '-');
+              window.location.pathname + '?position=' + text.toLowerCase().replace(/ /g, '%20');
             window.history.pushState({ path: newurl }, '', newurl);
           }
           if (index === 0) { // If on first level, reset markup and hide lower levels
@@ -270,6 +270,7 @@ var colnavCustom = function() {
         });
         $('.a-colnav').html(markup); // Append markup
         setTimeout(function() {
+          var queryHit = false;
           // (Re)initialize Foundation library logic:
           if ($('.a-colnav').attr('data-dropdown-menu')) {
             pluginInstance.destroy();
@@ -350,26 +351,33 @@ var colnavCustom = function() {
                   .replace(/%C3%86/g, 'Æ')
                   .replace(/%C3%98/g, 'Ø')
                   .replace(/%C3%85/g, 'Å')
-                  .replace(/-/g, ' ')) {
+                  .replace(/%20/g, ' ')) {
+                queryHit = true;
                 whenClick($(this), true);
               }
             });
-            $('.a-colnav').find('a.a-colnav-item-second').each(function() {
-              if ($(this).find('h3').text().toLowerCase() ===
-                urlQuery('position')
-                  .replace(/%C3%A6/g, 'æ')
-                  .replace(/%C3%B8/g, 'ø')
-                  .replace(/%C3%A5/g, 'å')
-                  .replace(/%C3%86/g, 'Æ')
-                  .replace(/%C3%98/g, 'Ø')
-                  .replace(/%C3%85/g, 'Å')
-                  .replace(/-/g, ' ')) {
-                whenClick($(this).closest('ul').prev(), true);
-                setTimeout(function() {
-                  whenClick($(this), true);
-                }.bind(this), 250);
-              }
-            });
+            if ($('[name="js-switchForm"]').eq(0).is(':checked')) {
+              $('.a-colnav').find('a.a-colnav-item-second').each(function() {
+                if ($(this).find('h3').text().toLowerCase() ===
+                  urlQuery('position')
+                    .replace(/%C3%A6/g, 'æ')
+                    .replace(/%C3%B8/g, 'ø')
+                    .replace(/%C3%A5/g, 'å')
+                    .replace(/%C3%86/g, 'Æ')
+                    .replace(/%C3%98/g, 'Ø')
+                    .replace(/%C3%85/g, 'Å')
+                    .replace(/%20/g, ' ')) {
+                  queryHit = true;
+                  whenClick($(this).closest('ul').prev(), true);
+                  setTimeout(function() {
+                    whenClick($(this), true);
+                  }.bind(this), 250);
+                }
+              });
+            }
+            if (!queryHit && $('[name="js-switchForm"]').eq(0).is(':checked')) {
+              $('[name="js-switchForm"]').eq(1)[0].click();
+            }
           }
         }, 0);
       }, 0);
