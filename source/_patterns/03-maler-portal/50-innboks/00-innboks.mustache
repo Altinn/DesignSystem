@@ -5,13 +5,14 @@
   {{> organismer-subheader }}
 {{/ show-subheader }}
 <div class="container">
-  <div class="row mt-3 mb-3">
-    <div class="col-sm-8 offset-sm-2 col-lg-6 offset-lg-3">
-      {{# article-search }}
+
+  {{# article-search }}
+    <div class="row mt-3 mb-3">
+      <div class="col-sm-8 offset-sm-2 col-lg-6 offset-lg-3">
         {{> atomer-tekst-input }}
-      {{/ article-search }}
+      </div>
     </div>
-  </div>
+  {{/ article-search }}
 
   {{# sidebar }}
   <div class="row">
@@ -33,6 +34,25 @@
       </div>
     </div>
     {{/ sidebar }}
+
+    {{# customize-saved-searches }}
+      <div class="row pt-6 pb-3">
+        <div class="col">
+          {{# custom-title }}
+            <h1 class="a-fontSizeM">
+              {{# text-items }}
+                {{# classes }} <span class="{{ classes }}"> {{/ classes }}
+                {{{ text }}}
+                {{# classes }} </span> {{/ classes }}
+              {{/ text-items }}
+            </h1>
+          {{/ custom-title }}
+          {{# elements }}
+            {{> molekyler-liste-unummerert }}
+          {{/ elements }}
+        </div>
+      </div>
+    {{/ customize-saved-searches }}
 
     {{# empty-inbox }}
       <div class="row">
