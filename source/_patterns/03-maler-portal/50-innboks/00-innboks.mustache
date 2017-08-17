@@ -1,10 +1,13 @@
+<div class="a-overlay-container hidden-xs-up" tabindex="-1">
+  {{> organismer-filter }}
+</div>
 {{# show-mainheader }}
   {{> organismer-header }}
 {{/ show-mainheader }}
 {{# show-subheader }}
   {{> organismer-subheader }}
 {{/ show-subheader }}
-<div class="container">
+<div class="container inbox-wrapper">
   <div class="row mt-3 mb-3">
     <div class="col-sm-8 offset-sm-2 col-lg-6 offset-lg-3">
       {{# article-search }}
@@ -12,11 +15,14 @@
       {{/ article-search }}
     </div>
   </div>
+  {{# heading }}
+    <h1 class="{{ heading-class }}">{{ heading }}</h1>
+  {{/ heading }}
 
   {{# sidebar }}
-  <div class="row">
-    <div class="col-md-3 col-12">
-      <div class="hidden-sm-down my-3">
+  <div class="row {{# has-bigger-container }} bigger-container {{/ has-bigger-container}}">
+    <div class="col-lg-2 col-12 mr-3 mr-lg-5 px-0">
+      <div class="hidden-md-down my-3">
         {{# new-form }}
           {{> atomer-handlingsknapp }}
         {{/ new-form }}
@@ -25,7 +31,7 @@
         {{> molekyler-toppoppgaver }}
       {{/ vis-toppoppgaver }}
 
-      <div class="hidden-sm-down">
+      <div class="hidden-md-down">
         <p class="a-fontSizeS mt-2 mb-1">Lagrede søk</p>
         {{# vis-lagrede-sok }}
             {{> molekyler-toppoppgaver }}
@@ -49,11 +55,12 @@
     {{# search-result-menu }}
       {{> molekyler-faner-og-knapp }}
     {{/ search-result-menu }}
+
     {{# limit-hits }}
       <div class="mt-4">
         <p class="d-inline a-fontSizeM">{{ limit-hits-text }}</p>
         {{> atomer-valgknapp:a-switch--small }}
-        {{> atomer-ikon}}
+        {{> atomer-knapp-ikon}}
       </div>
     {{/ limit-hits }}
 
@@ -63,19 +70,15 @@
         {{> organismer-innboks-ingen-treff }}
       </div>
     {{/ inbox-no-results }}
-
-    {{# heading }}
-      <h1 class="{{ heading-class }}">{{ heading }}</h1>
-    {{/ heading }}
     
     {{# sidebar }}
-    <div class="col-md-9 col-12">
+    <div class="col-lg-9 col-12">
     {{/ sidebar }}
       {{# inbox }}
-        <div class="row{{# inbox-extra-class }} {{ inbox-extra-class }}{{/ inbox-extra-class }}">
+        <div class="row">
           <div class="col" id="{{ accordionId }}">
             {{# elementList }}
-              <div class="row">
+              <div class="row  {{# element-extra-class }} {{ element-extra-class }}{{/ element-extra-class }}">
                 <div class="col-sm-12 col-lg-12{{# block-margin }} {{{ block-margin }}} {{/ block-margin }}">
                     {{> atomer-seksjonstittel }}
                 </div>
