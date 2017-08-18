@@ -7,13 +7,13 @@ function searchFilterView() {
     if (searchFilters.hasClass(hideClass)) {
       searchFilters.removeClass(hideClass);
       inboxWrapper.addClass(hideClass);
-      searchFilters.attr('tabindex', '1');
+      searchFilters.removeAttr('tabindex');
       inboxWrapper.attr('tabindex', '-1');
     } else {
       searchFilters.addClass(hideClass);
       inboxWrapper.removeClass(hideClass);
       searchFilters.attr('tabindex', '-1');
-      inboxWrapper.attr('tabindex', '1');
+      inboxWrapper.removeAttr('tabindex');
     }
   });
 
