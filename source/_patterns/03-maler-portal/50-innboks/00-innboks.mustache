@@ -1,4 +1,4 @@
-<div class="a-overlay-container hidden-xs-up" tabindex="-1">
+<div class="a-overlay-container d-none" tabindex="-1">
   {{> organismer-filter }}
 </div>
 {{# show-mainheader }}
@@ -7,7 +7,7 @@
 {{# show-subheader }}
   {{> organismer-subheader }}
 {{/ show-subheader }}
-<div class="container inbox-wrapper">
+<div class="container a-js-inbox-wrapper">
   <div class="row mt-3 mb-3">
     <div class="col-sm-8 offset-sm-2 col-lg-6 offset-lg-3">
       {{# article-search }}
@@ -16,7 +16,11 @@
     </div>
   </div>
   {{# heading }}
-    <h1 class="{{ heading-class }}">{{ heading }}</h1>
+    <div class="row">
+      <div class="col">
+        <h1 class="{{ heading-class }}">{{ heading }}</h1>
+      </div>
+    </div>
   {{/ heading }}
 
   {{# sidebar }}
