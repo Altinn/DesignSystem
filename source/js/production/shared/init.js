@@ -29,7 +29,8 @@
   AltinnModal,
   setupExpandContent,
   AltinnDropdown,
-  setupNestedCheckboxes
+  setupNestedCheckboxes,
+  searchFilterView
  */
 
 window.sharedInit = function() {
@@ -66,6 +67,7 @@ window.sharedInit = function() {
   AltinnModal.init();
   AltinnDropdown.init();
   setupNestedCheckboxes();
+  searchFilterView();
 };
 
 window.sharedInit();

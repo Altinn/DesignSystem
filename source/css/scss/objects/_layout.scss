@@ -32,6 +32,51 @@
   margin: 0;
 }
 
+.bigger-container {
+  margin-right: -$spacer * 9;
+  margin-left: -$spacer * 4;
+
+  @include media-breakpoint-down(lg) {
+    margin-right: -$spacer;
+    margin-left: -$spacer;
+  }
+}
+
+.a-overlay-container {
+  position: absolute;
+  z-index: 100;
+  width: 100%;
+  height: auto;
+  min-height: 100%;
+  background: $white;
+
+  .filter-limit-hits-spacer {
+    height: 55px;
+  }
+
+  .a-btn {
+    &.a-btn-icon {
+      min-height: 0;
+
+      &:hover {
+        color: $black;
+      }
+
+      i {
+        color: $grey-light;
+        background-color: $black;
+        border-top: 7px solid $black;
+        border-bottom: 7px solid $black;
+        border-radius: 50%;
+
+        &::before {
+          margin-left: -2px;
+        }
+      }
+    }
+  }
+}
+
 // Text line break for small screens
 .a-rwd-break {
   display: block;
