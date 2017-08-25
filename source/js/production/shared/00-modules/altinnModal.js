@@ -118,7 +118,7 @@ AltinnModal = {
 
       if (settings.isError) {
         $('body').addClass('a-modal-background-error');
-        if (settings.showModalNav) { 
+        if (settings.showModalNav) {
           $('body').addClass('a-displayNav');
         }
       } else if (settings.isSuccess) {
