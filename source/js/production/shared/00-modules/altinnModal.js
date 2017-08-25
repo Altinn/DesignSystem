@@ -2,7 +2,7 @@
 /* globals AltinnModal:true, AltinnLoader */
 AltinnModal = {
   closeModal: function(settings) {
-    $('body').removeClass('a-modal-background-error');
+    $('body').removeClass('a-modal-background-error a-displayNav');
     $('body').removeClass('a-modal-background-success');
     $(settings.target).modal('hide');
     $('body').append($('.a-stickyHelp-container'));
@@ -109,7 +109,7 @@ AltinnModal = {
     current = $(settings.target + ' .a-current-page');
 
     setTimeout(function() {
-      $('body').removeClass('a-modal-background-error');
+      $('body').removeClass('a-modal-background-error a-displayNav');
       $('body').removeClass('a-modal-background-success');
 
       current.removeClass('a-current-page').addClass('a-previous-page');
@@ -118,6 +118,9 @@ AltinnModal = {
 
       if (settings.isError) {
         $('body').addClass('a-modal-background-error');
+        if (settings.showModalNav) { 
+          $('body').addClass('a-displayNav');
+        }
       } else if (settings.isSuccess) {
         $('body').addClass('a-modal-background-success');
       }
@@ -190,7 +193,7 @@ AltinnModal = {
       current = $(settings.target + ' .a-current-page');
 
       setTimeout(function() {
-        $('body').removeClass('a-modal-background-error');
+        $('body').removeClass('a-modal-background-error a-displayNav');
         $('body').removeClass('a-modal-background-success');
 
         current.removeClass('a-current-page').addClass('a-previous-page');
@@ -199,6 +202,9 @@ AltinnModal = {
 
         if (settings.isError) {
           $('body').addClass('a-modal-background-error');
+          if (settings.showModalNav) {
+            $('body').addClass('a-displayNav');
+          }
         } else if (settings.isSuccess) {
           $('body').addClass('a-modal-background-success');
         }
@@ -224,6 +230,7 @@ AltinnModal = {
     var previous;
     var pagesToPop;
     var isError;
+    var showModalNav;
     var isSuccess;
 
     if (!settings.pagesToPop) {
@@ -233,7 +240,7 @@ AltinnModal = {
     }
 
     if ($(settings.target + ' .a-current-page').data('page-index') - pagesToPop <= 0) {
-      $('body').removeClass('a-modal-background-error');
+      $('body').removeClass('a-modal-background-error a-displayNav');
       $('body').removeClass('a-modal-background-success');
       $(settings.target).modal('hide');
       return;
@@ -247,6 +254,7 @@ AltinnModal = {
 
     previous.show();
     isError = $(previous).data().isError;
+    isError = $(previous).data().showModalNav;
     isSuccess = $(previous).data().isSuccess;
 
     current.addClass('a-next-page');
@@ -257,7 +265,7 @@ AltinnModal = {
     // }
 
     setTimeout(function() {
-      $('body').removeClass('a-modal-background-error');
+      $('body').removeClass('a-modal-background-error a-displayNav');
       $('body').removeClass('a-modal-background-success');
 
       previous.addClass('a-current-page').removeClass('a-previous-page');
@@ -296,6 +304,7 @@ AltinnModal = {
           target: $source.data().target,
           isSuccess: $source.data().isSuccess,
           isError: $source.data().isError,
+          showModalNav: $source.data().showModalNav,
           clearHistory: $source.data().clearHistory,
           enableDirtyPopover: $source.data().enableDirtyPopover });
       } else if ($source.data().action === 'back') {
