@@ -91,7 +91,8 @@ AltinnModal = {
       data: {
         'page-index': newPageIndex,
         'is-success': settings.isSuccess,
-        'is-error': settings.isError
+        'is-error': settings.isError,
+        'show-ModalNav': settings.showModalNav
       },
       html: modalPage
     });
@@ -175,7 +176,8 @@ AltinnModal = {
         data: {
           'page-index': newPageIndex,
           'is-success': settings.isSuccess,
-          'is-error': settings.isError
+          'is-error': settings.isError,
+          'show-ModalNav': settings.showModalNav
         },
         html: modalPage
       });
