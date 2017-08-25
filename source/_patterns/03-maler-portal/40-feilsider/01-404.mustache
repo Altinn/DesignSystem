@@ -1,6 +1,6 @@
-<div class="a-page">
-  {{> organismer-header }}
+{{> organismer-header }}
 
+<section id="content" tabindex="-1">
   <div class="container">
     <div class="row">
       <div class="col-sm-12 col-lg-6 offset-lg-3 a-articleSearch">
@@ -9,45 +9,42 @@
         {{/ article-search }}
       </div>
     </div>
-  </div>
 
-  <section id="content" tabindex="-1">
+    <div class="row">
+      <div class="col-sm-12 col-md-7 col-lg-6 offset-lg-1">
+        {{# page-label }}
+          {{> atomer-avsnitt }}
+        {{/ page-label }}
+      </div>
+    </div>
 
-    <div class="container">
+    <div class="row">
+      <div class="col-sm-12 col-md-7 col-lg-6 offset-lg-1">
+        {{> atomer-sidetittel }}
 
-      <div class="row">
-        <div class="col-sm-12 col-md-7 col-lg-6 offset-lg-1">
-          {{# page-label }}
+        {{# elements-errorpage }}
+          {{# paragraph }}
             {{> atomer-avsnitt }}
-          {{/ page-label }}
-        </div>
+          {{/ paragraph }}
+
+          {{# link }}
+            <p class="pb-1">{{> atomer-link }}</p>
+          {{/ link }}
+
+          {{# notice }}
+            {{> atomer-varsel }} 
+          {{/ notice }}
+        {{/ elements-errorpage }}
+
       </div>
-
-      <div class="row">
-        <div class="col-sm-12 col-md-7 col-lg-6 offset-lg-1">
-          {{> atomer-sidetittel }}
-
-          {{# elements }}
-            {{# paragraph }}
-              {{> atomer-avsnitt }}
-            {{/ paragraph }}
-
-            {{# link }}
-              <p class="pb-1">{{> atomer-link }}</p>
-            {{/ link }}
-          {{/ elements }}
-
-        </div>
-        <div class="col-sm-12 col-md-5">
-          {{> molekyler-bilde-innhold-under:fullWidth }}
-        </div>
+      <div class="col-sm-12 col-md-5">
+        {{> molekyler-bilde-innhold-under:fullWidth }}
       </div>
-    </div> <!-- END Container -->
+    </div>
+  </div> <!-- END Container -->
 
-  </section>
+</section>
 
-  {{> organismer-footer }}
-</div>
-
+{{> organismer-footer }}
 
 {{> molekyler-hjelp-container }}

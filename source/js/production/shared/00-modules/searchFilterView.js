@@ -1,25 +1,25 @@
 function searchFilterView() {
   $(document.body).on('click', '.a-js-searchFilterToggle', function(e) {
     var hideClass = 'd-none';
+    var hideMainInbox = $('.a-js-hideElement');
     var searchField = $('.a-js-filterFocus');
-    var inboxWrapper = $('.a-js-inbox-wrapper');
     var searchFilters = $('.a-overlay-container');
 
     if (searchFilters.hasClass(hideClass)) {
       searchFilters.removeClass(hideClass);
-      inboxWrapper.addClass(hideClass);
+      hideMainInbox.addClass(hideClass);
       searchFilters.removeAttr('tabindex');
-      inboxWrapper.attr('tabindex', '-1');
+      hideMainInbox.attr('tabindex', '-1');
       searchField.attr('tabindex', '1').focus();
     } else {
       searchFilters.addClass(hideClass);
-      inboxWrapper.removeClass(hideClass);
+      hideMainInbox.removeClass(hideClass);
       searchFilters.attr('tabindex', '-1');
-      inboxWrapper.removeAttr('tabindex');
+      hideMainInbox.removeAttr('tabindex');
     }
   });
 
-  $('.a-overlay-container').on('click', 'input', function(e) {
+  $('.a-overlay-container').on('change', 'input', function(e) {
     var hideClass = 'd-none';
     var searchFilerActionWrapper = $('.a-search-filer-action-wrapper');
 
