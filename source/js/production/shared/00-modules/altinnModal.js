@@ -17,7 +17,8 @@ AltinnModal = {
         }
 
         AltinnLoader.addLoader($('body'));
-      }
+      },
+      data: settings.data
     }).always(function() {
     }).done(function(data) {
       var modalPage = $('<div/>', {
@@ -55,6 +56,15 @@ AltinnModal = {
         $(settings.target).removeAttr('aria-hidden');
       });
       popoverLocalInit();
+
+      if (settings.isError) {
+        $('body').addClass('a-modal-background-error');
+        if (settings.showModalNav) {
+          $('body').addClass('a-displayNav');
+        }
+      } else if (settings.isSuccess) {
+        $('body').addClass('a-modal-background-success');
+      }
 
       AltinnLoader.removeLoader($('body'));
       $(settings.target).on('transitionend', function() {
@@ -146,7 +156,8 @@ AltinnModal = {
           currentRequest.abort();
         }
         AltinnLoader.addLoader($(settings.target).find('.a-current-page .a-modal-body'));
-      }
+      },
+      data: settings.data
     }).always(function() {
     }).done(function(data) {
       var current;
