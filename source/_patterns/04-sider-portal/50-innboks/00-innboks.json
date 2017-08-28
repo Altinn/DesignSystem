@@ -1,6 +1,7 @@
 {
   "show-subheader": false,
   "empty-inbox": false,
+  "has-bigger-container": true,
   "title": "Altinn",
   "bodyClass": "a-bgGreyLight",
   "globalNav-active-inbox": "globalNav-active",
@@ -22,24 +23,45 @@
   "myself-represent-number": "",
   "myself-personal-number": "Org.nr. 321.431.123",
   "article-search": {
-    "isLarge": true,
+    "text-input-id": "text-input-find-12",
+    "top-label": "Søk etter innhold",
+    "text-input-placeholder": "Søk i på tittel",
+    "input-type": "search",
+    "isRequired": false,
+    "extra-help": false,
     "isHidden": true,
-    "top-label": "Søk i meldinger og annet innhold",
-    "text-input-placeholder": "Søk i meldinger og annet innhold",
-    "isInput-group": "input-group",
-    "form-input-hasButton": {
-      "form-input-button-action": "Utfør søk",
-      "button-icon": {
-        "icon-prefix": "ai",
-        "icon-class": "ai-search"
+    "isLarge": true,
+    "form-label-hasIcon": false,
+    "form-input-hasButton": [
+      {
+        "formBtnExtraclass": "a-js-searchFilterToggle",
+        "no-border": true,
+        "button-icon": false,
+        "button-text": [
+          {
+            "button-text-value": "avansert",
+            "button-text-class": "hidden-sm-down"
+          },
+          {
+            "button-text-class": "a-dropdownArrow hidden-sm-down"
+          }
+        ],
+        "onclick": false
       },
-      "button-text": [
-        {
-          "button-text-value": "Søk",
-          "button-text-class": "sr-only"
-        }
-      ]
-    }
+      {
+        "button-icon": {
+          "icon-prefix": "ai",
+          "icon-class": "ai-search"
+        },
+        "button-text": [
+          {
+            "button-text-value": "Søk",
+            "button-text-class": "sr-only"
+          }
+        ],
+        "onclick": false
+      }
+    ]
   },
   "buttonTab-first": {
     "link-url": "link.sider-portal-innboks-mva-og-skatt",
@@ -56,9 +78,10 @@
   "sidebar": {
     "new-form": {
       "icon-prefix": "ai",
-      "icon-class": "ai-circle-plus",
+      "icon-class": "ai-plus",
       "icon-extra-class": "a-blue",
-      "button-class": "a-btn a-btn-action a-fullWidthBtn btnBigger mt-2",
+      "button-class": "a-btn a-btn-action a-fullWidthBtn a-btnBigger mt-2",
+      "textstyling-button": "a-fontSizeXS",
       "action-button-text": "nytt skjema"
     },
     "vis-toppoppgaver": {
@@ -66,8 +89,8 @@
         {
           "button-class": "a-btn a-active a-btn-icon a-btn-transparentWhite",
           "button-colorClass": "",
-          "link-url": "link.sider-portal-innboks-mva-og-skatt-nyoppstartet",
-          "button-text": "alle",
+          "link-url": "link.sider-portal-innboks",
+          "button-text": "innboks",
           "responsive-br": true,
           "button-icon": {
             "icon-prefix": "ai",
@@ -79,7 +102,7 @@
         {
           "button-class": "a-btn a-btn-icon a-btn-transparentWhite",
           "button-colorClass": "",
-          "link-url": "link.sider-portal-innboks-frister-nyoppstartet",
+          "link-url": "link.sider-portal-innboks-arkiv",
           "button-text": "arkiv",
           "responsive-br": true,
           "button-icon": {
@@ -92,7 +115,7 @@
         {
           "button-class": "a-btn a-btn-icon a-btn-transparentWhite",
           "button-colorClass": "",
-          "link-url": "link.sider-portal-innboks-mva-og-skatt",
+          "link-url": "link.sider-portal-innboks-slettede-meldinger",
           "button-text": "slettede",
           "responsive-br": true,
           "button-icon": {
@@ -103,7 +126,7 @@
           "button-shadow-label": false
         },
         {
-          "wrapper-class": "hidden-md-up",
+          "wrapper-class": "hidden-lg-up",
           "button-class": "a-btn a-btn-icon a-btn-transparentWhite",
           "button-colorClass": "",
           "link-url": "link.sider-portal-innboks-mva-og-skatt",
@@ -117,7 +140,7 @@
           "button-shadow-label": false
         },
         {
-          "wrapper-class": "hidden-md-up",
+          "wrapper-class": "hidden-lg-up",
           "button-class": "a-btn a-btn-icon a-btn-transparentWhite",
           "button-colorClass": "",
           "link-url": "link.sider-portal-innboks-mva-og-skatt",
@@ -135,7 +158,7 @@
     "vis-lagrede-sok": {
       "topTaskButtons": [
         {
-          "button-class": "a-btn a-active a-btn-icon a-btn-transparentWhite",
+          "button-class": "a-btn a-btn-icon a-btn-transparentWhite",
           "button-colorClass": "",
           "link-url": "link.sider-portal-innboks-mva-og-skatt-nyoppstartet",
           "button-text": "Mattilsynet",
@@ -163,7 +186,7 @@
         {
           "button-class": "a-btn a-btn-icon a-btn-transparentWhite",
           "button-colorClass": "",
-          "link-url": "link.sider-portal-innboks-mva-og-skatt",
+          "link-url": "link.sider-portal-innboks-rediger-lagrede-sok",
           "button-text": "tilpass",
           "responsive-br": true,
           "button-icon": {
@@ -185,6 +208,14 @@
         "block-margin": "mt-1",
         "messages": {
           "accordion-large-id": false,
+          "inbox-element-removed": {
+            "infotext-withboarder-text": "Melding slettet",
+            "infotext-withboarder-button": {
+              "button-text": "angre",
+              "button-class": "a-btn-link float-right float-md-none",
+              "display-as-link": true
+            }
+          },
           "accordion-large-items": [
             {
               "collapseID": "accordionItem11",
