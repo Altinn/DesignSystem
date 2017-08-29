@@ -32,16 +32,16 @@ var searchWithAutocomplete = function() {
         li.children().first().attr('role', 'button');
       });
 
-      if (iLength >= 3) {
-        ul.prepend('<li class=\'a-js-autocomplete-header a-dotted a-info\'>' + moreThanMaxLabel + '</li>');
-      }
-
       if (iLength === availableTags.length) {
         ul.prepend('<li class=\'a-js-autocomplete-header a-dotted\'>' + title + '</li>');
       } else if (!items[0].isNoResultsLabel) {
         ul.prepend('<li class=\'a-js-autocomplete-header a-dotted\'>' + iLength + ' treff </li>');
       } else {
         $('.ui-autocomplete').children().first().addClass('a-js-autocomplete-header');
+      }
+
+      if (iLength >= 3) {
+        ul.append('<li class=\'a-js-autocomplete-header a-dotted a-info\'>' + moreThanMaxLabel + '</li>');
       }
     }
   }));
