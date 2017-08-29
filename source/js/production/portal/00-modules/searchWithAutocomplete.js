@@ -43,7 +43,6 @@ var searchWithAutocomplete = function() {
       } else {
         $('.ui-autocomplete').children().first().addClass('a-js-autocomplete-header');
       }
-
     }
   }));
 
