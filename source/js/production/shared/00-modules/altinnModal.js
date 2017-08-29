@@ -28,10 +28,16 @@ AltinnModal = {
       var page = $('<div/>', {
         class: 'a-page a-current-page',
         data: {
-          'page-index': 1
+          pageIndex: 1,
+          isSuccess: settings.isSuccess,
+          isError: settings.isError,
+          showModalNav: settings.showModalNav
         },
         html: modalPage
       });
+
+      $('body').removeClass('a-modal-background-error a-displayNav');
+      $('body').removeClass('a-modal-background-success');
 
       // if (navigator.userAgent.match(/iPhone|iPad|iPod/i)) {
       //   goToModalHeader();
@@ -99,10 +105,10 @@ AltinnModal = {
     newPage = $('<div/>', {
       class: 'a-page a-next-page',
       data: {
-        'page-index': newPageIndex,
-        'is-success': settings.isSuccess,
-        'is-error': settings.isError,
-        'show-ModalNav': settings.showModalNav
+        pageIndex: newPageIndex,
+        isSuccess: settings.isSuccess,
+        isError: settings.isError,
+        showModalNav: settings.showModalNav
       },
       html: modalPage
     });
@@ -185,10 +191,10 @@ AltinnModal = {
       newPage = $('<div/>', {
         class: 'a-page a-next-page',
         data: {
-          'page-index': newPageIndex,
-          'is-success': settings.isSuccess,
-          'is-error': settings.isError,
-          'show-ModalNav': settings.showModalNav
+          pageIndex: newPageIndex,
+          isSuccess: settings.isSuccess,
+          isError: settings.isError,
+          showModalNav: settings.showModalNav
         },
         html: modalPage
       });
@@ -253,8 +259,11 @@ AltinnModal = {
     }
 
     if ($(settings.target + ' .a-current-page').data('page-index') - pagesToPop <= 0) {
-      $('body').removeClass('a-modal-background-error a-displayNav');
-      $('body').removeClass('a-modal-background-success');
+      $(settings.target).one('hidden.bs.modal', function() {
+        $('body').removeClass('a-modal-background-error a-displayNav');
+        $('body').removeClass('a-modal-background-success');
+      });
+
       $(settings.target).modal('hide');
       return;
     }
@@ -267,7 +276,7 @@ AltinnModal = {
 
     previous.show();
     isError = $(previous).data().isError;
-    isError = $(previous).data().showModalNav;
+    showModalNav = $(previous).data().showModalNav;
     isSuccess = $(previous).data().isSuccess;
 
     current.addClass('a-next-page');
@@ -285,6 +294,9 @@ AltinnModal = {
 
       if (isError) {
         $('body').addClass('a-modal-background-error');
+        if (showModalNav) {
+          $('body').addClass('a-displayNav');
+        }
       } else if (isSuccess) {
         $('body').addClass('a-modal-background-success');
       }
