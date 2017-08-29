@@ -12,6 +12,7 @@ var availableTags = [
 var title = 'Vanligste skjema og tjenester i din organisasjon';
 var numberOfResultsLabel = ' treff. Bruk pil opp og pil ned for å navigere i resultatene.';
 var noResultsLabel = 'Ingen treff';
+var moreThanMaxLabel = 'Listen viser kun de første 100 treff. Vennligst begrens søket ditt';
 
 var searchWithAutocomplete = function() {
   $.widget('custom.catcomplete', $.ui.autocomplete, ({
@@ -22,6 +23,7 @@ var searchWithAutocomplete = function() {
     },
     _renderMenu: function(ul, items) {
       var that = this;
+      var iLength = items.length;
 
       $.each(items, function(index, item) {
         var li = that._renderItemData(ul, item);
@@ -29,13 +31,19 @@ var searchWithAutocomplete = function() {
         li.addClass('a-dotted');
         li.children().first().attr('role', 'button');
       });
-      if (items.length === availableTags.length) {
+
+      if (iLength >= 3) {
+        ul.prepend('<li class=\'a-js-autocomplete-header a-dotted a-info\'>' + moreThanMaxLabel + '</li>');
+      }
+
+      if (iLength === availableTags.length) {
         ul.prepend('<li class=\'a-js-autocomplete-header a-dotted\'>' + title + '</li>');
       } else if (!items[0].isNoResultsLabel) {
-        ul.prepend('<li class=\'a-js-autocomplete-header a-dotted\'>' + items.length + ' treff </li>');
+        ul.prepend('<li class=\'a-js-autocomplete-header a-dotted\'>' + iLength + ' treff </li>');
       } else {
         $('.ui-autocomplete').children().first().addClass('a-js-autocomplete-header');
       }
+
     }
   }));
 
