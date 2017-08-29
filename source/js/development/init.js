@@ -1,7 +1,7 @@
 /* globals _anchors, hideIntroInSubs, insetVariations, toggleArchivedState,
   selectAll, toggleTheme, fixPatternLinks,
   preOpenModals, prototypingInteractionStarteENK, $, onboarding, codeLookup, nameChecker,
-  setupAddRightsHandler, initSearchWithHighlight, certificateHandler */
+  setupAddRightsHandler, initSearchWithHighlight, certificateHandler, searchWithAutocomplete */
 window.devInit = function() {
   _anchors();
   hideIntroInSubs();
@@ -20,6 +20,7 @@ window.devInit = function() {
   selectAll();
   toggleTheme();
   certificateHandler();
+  searchWithAutocomplete();
 };
 window.devInit();
 $('.html-escape').each(function() {
