@@ -267,7 +267,7 @@ AltinnModal = {
 
     previous.show();
     isError = $(previous).data().isError;
-    isError = $(previous).data().showModalNav;
+    showModalNav = $(previous).data().showModalNav;
     isSuccess = $(previous).data().isSuccess;
 
     current.addClass('a-next-page');
