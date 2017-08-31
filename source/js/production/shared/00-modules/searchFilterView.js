@@ -21,7 +21,7 @@ function searchFilterView() {
 
   $('.a-overlay-container').on('change', 'input', function(e) {
     var hideClass = 'd-none';
-    var searchFilerActionWrapper = $('.a-search-filer-action-wrapper');
+    var searchFilerActionWrapper = $('.a-search-filter-action-wrapper');
 
     if (searchFilerActionWrapper.hasClass(hideClass)) {
       searchFilerActionWrapper.removeClass(hideClass);
