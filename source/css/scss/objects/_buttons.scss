@@ -610,16 +610,42 @@
     }
   }
 
-  &.btnBigger {
-    min-height: $spacer * 6;
+  &.a-btnBigger {
+    min-height: 77px;
+    padding: 12;
+
+    i {
+      width: 45px;
+      height: 45px;
+      padding-top: 21px;
+      color: $white;
+      background: $blue;
+      border-radius: 50px;
+      justify-content: center;
+    }
 
     span {
+      width: 56%;
       margin: 0;
     }
   }
 }
 
+.a-bgGrey {
+  .a-fullWidthBtn {
+    .a-btnBigger {
+      &:hover {
+        background: $white;
+      }
+    }
+  }
+}
 
+.a-btn-icon-inline {
+  display: inline !important;
+  width: $spacer * 2;
+  padding: 0;
+}
 
 // SWITCH ACTION (RADIO) BUTTON
 .switch-container {
@@ -769,5 +795,22 @@ button {
     min-height: 0;
     padding: 0;
     margin: 0;
+  }
+}
+
+
+// Search filter action button
+.a-search-filter-action-wrapper {
+  div {
+    position: fixed;
+    bottom: 10%;
+    z-index: 101;
+    min-width: 230px;
+    margin-left: 50%;
+
+    button {
+      position: relative;
+      left: -50%;
+    }
   }
 }

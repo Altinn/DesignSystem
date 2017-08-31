@@ -6,8 +6,7 @@
   articleAnchors,
   subscribe,
   setupFormValidation,
-  autoFootnotes,
-  AltinnQuickhelp
+  autoFootnotes
 */
 window.infoportalInit = function() {
   colnavCustom();
@@ -18,7 +17,6 @@ window.infoportalInit = function() {
   subscribe();
   setupFormValidation();
   autoFootnotes();
-  AltinnQuickhelp.init();
   function setupForm1() {
     $('body').off('focus', '#contactForm', setupForm1);
     setupFormValidation('#contactForm', '#a-js-contactForm-submit');

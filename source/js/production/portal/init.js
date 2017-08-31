@@ -4,7 +4,6 @@
   onConfirmDeletionClick,
   setupListRowSelect,
   toggleSwitch,
-  searchWithAutocomplete,
   truncateBoxButtonNames,
   onFileInputChange
 */
@@ -14,7 +13,6 @@ window.portalInit = function() {
   onConfirmDeletionClick();
   setupListRowSelect();
   toggleSwitch();
-  searchWithAutocomplete();
   truncateBoxButtonNames();
   onFileInputChange();
 };
