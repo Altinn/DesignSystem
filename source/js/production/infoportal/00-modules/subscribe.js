@@ -1,7 +1,7 @@
 /* globals $ */
 var subscribe = function() {
   var validate = function(elem, skipVal) {
-    var re = new RegExp(elem.attr('data-val-regex-pattern'))
+    var re = new RegExp(elem.attr('data-val-regex-pattern'));
     if (re.test(elem.val())) {
       elem.closest('.a-card').find('button').removeAttr('disabled')
         .removeClass('disabled');
