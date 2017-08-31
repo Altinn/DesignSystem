@@ -1,18 +1,11 @@
 /* globals $ */
 var subscribe = function() {
   var validate = function(elem, skipVal) {
-    if (skipVal) {
-      $(elem).trigger('blur');
-      $(elem).trigger('focus');
-    } else if (elem[0].hasAttribute('aria-invalid')) {
-      if (elem.attr('aria-invalid') === 'true') {
-        elem.closest('.a-card').find('button').attr('disabled', 'disabled')
-          .addClass('disabled');
-      } else {
-        elem.closest('.a-card').find('button').removeAttr('disabled')
-          .removeClass('disabled');
-      }
-    } else if (elem.val().length === 0) {
+    var re = new RegExp(elem.attr('data-val-regex-pattern'))
+    if (re.test(elem.val())) {
+      elem.closest('.a-card').find('button').removeAttr('disabled')
+        .removeClass('disabled');
+    } else {
       elem.closest('.a-card').find('button').attr('disabled', 'disabled')
         .addClass('disabled');
     }
@@ -23,12 +16,6 @@ var subscribe = function() {
       _this.closest('.a-card').find('.a-js-finishText').hide();
       _this.closest('.a-card').find('.a-js-altText').hide();
       _this.find('input').on('input', function() {
-        validate($(this), true);
-      });
-      _this.find('input').on('focus', function() {
-        validate($(this));
-      });
-      _this.find('input').on('blur', function() {
         validate($(this));
       });
       _this.find('input').on('keypress', function(e) {
