@@ -37,12 +37,19 @@
     </div>
     {{/ is-first-time }}
     <div class="row">
+      {{# is-first-time }} {{^ is-simple }}
+      <div class="col">
+        <h2 class="a-h4 px-lg-3">Alle dine profiler:</h2>
+      </div>
+
+      {{# utvidet-sok }}
+      <div class="col-auto">
+        {{> atomer-link-ikon }}
+      </div>
+      {{/ utvidet-sok }} {{/ is-simple }} {{/ is-first-time }}
+
       <div class="col-sm-12 pb-3">
-        {{# is-first-time }} {{^ is-simple }}
-        <h2 class="a-h4 px-lg-3">
-          Alle dine profiler:
-        </h2>
-        {{/ is-simple }} {{/ is-first-time }} {{# personswitch }} {{> organismer-personbytte}} {{/ personswitch }}
+        {{# personswitch }} {{> organismer-personbytte}} {{/ personswitch }}
       </div>
     </div>
   </div>

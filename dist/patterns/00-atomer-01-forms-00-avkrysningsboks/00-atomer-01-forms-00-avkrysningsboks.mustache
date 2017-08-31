@@ -3,7 +3,7 @@
 <fieldset class="form-group mb-0">
   <legend class="a-legend">{{{check-legendText}}}</legend>
   {{/ check-legend }}
-  <div class="form-check a-form-checkboxes {{ isDiscreet }} {{ isCenter }} {{ isStacked }}">
+  <div class="form-check a-form-checkboxes {{ isDiscreet }} {{ isCenter }} {{ isStacked }} {{styleModifier}}">
     {{# checkboxes }} {{^ inactive }}
     <label class="custom-control custom-checkbox">
             <input type="checkbox" class="custom-control-input"{{# data-toggle }} data-toggle="{{ data-toggle }}"{{/ data-toggle }}{{# data-target }} data-target="{{ data-target }}"{{/ data-target }}>
@@ -12,7 +12,7 @@
           <div class="custom-control custom-checkbox inactive">
         {{/ inactive }}
           <span class="custom-control-indicator"></span>
-          <span class="ml-1">{{{ checkboxes-title }}}</span>
+          <span class="ml-1{{# checkboxes-title-class }} {{ checkboxes-title-class }}{{/ checkboxes-title-class }}">{{{ checkboxes-title }}}</span>
         {{^ inactive }}
           </label> {{/ inactive }} {{# inactive }}
   </div>

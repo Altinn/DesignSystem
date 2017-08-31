@@ -11,11 +11,18 @@
       <div class="col-auto hidden-md-up a-msgDuedate">
         <span class="a-fontBold">{{ due-date-label }}</span> {{ due-date }}
       </div>
-      {{/ due-date-content }}
+      {{/ due-date-content }} {{^ is-h1 }}
       <h3 class="mb-0 a-js-truncate-2-sm-down">
         {{ textDescription }}
         <span class="a-msgTitle">{{ textMain }}</span>
       </h3>
+      {{/ is-h1 }} {{# is-h1 }}
+      <h1 class="mb-0 a-js-truncate-2-sm-down">
+        {{ textDescription }}
+        <span class="a-msgTitle">{{ textMain }}</span>
+      </h1>
+      {{/ is-h1 }}
+
       <div class="a-fontSizeXXS">{{ textSmall }}</div>
     </div>
   </div>

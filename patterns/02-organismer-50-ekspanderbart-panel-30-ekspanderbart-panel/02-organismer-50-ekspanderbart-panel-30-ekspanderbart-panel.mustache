@@ -1,7 +1,10 @@
 <!-- START: 02-organismer-50-ekspanderbart-panel-30-ekspanderbart-panel JS doc: togglePanel.js -->
-<div class="card a-accordion-card a-collapsePanel{{# isLarge }} {{{ isLarge }}}{{/ isLarge }} {{{ styleModifier }}}">
-  <div class="card-header a-js-index-heading a-collapsePanel-heading collapsed{{# isExpanded }} {{ isExpanded }}{{/ isExpanded }}" {{# collapse-panel-header-id }} id="{{ collapse-panel-header-id }}" {{/ collapse-panel-header-id }} role="tab">
+<div class="{{^ is-static }}card a-accordion-card {{/ is-static }}a-collapsePanel{{# isLarge }} {{{ isLarge }}}{{/ isLarge }} {{{ styleModifier }}}">
+  <div class="card-header {{^ is-static }}a-js-index-heading{{/ is-static }} a-collapsePanel-heading collapsed{{# isExpanded }} {{ isExpanded }}{{/ isExpanded }}{{# panel-extra-class }} {{ panel-extra-class }}{{/ panel-extra-class }}" {{^ is-static }}{{#
+    collapse-panel-header-id }} id="{{ collapse-panel-header-id }}" {{/ collapse-panel-header-id }} role="tab" {{/ is-static }}>
+    {{^ is-static }}
     <a href="#" data-toggle="collapse" data-target="#{{{ collapseID }}}" aria-expanded="false" aria-controls="{{ collapseID }}" {{# dataParent }}data-parent="{{{dataParent}}}" {{/ dataParent }}>
+    {{/ is-static }}
       {{# collapseHeader }}
         {{^ isElement }}
           {{> molekyler-ikon-tekst }}
@@ -10,9 +13,12 @@
           {{> molekyler-innboks-header-innhold }}
         {{/ isElement }}
       {{/ collapseHeader }}
-    </a>
+
+    {{^ is-static }}
+      </a> {{/ is-static }}
   </div>
-  <div id="{{ collapseID }}" class="a-collapsePanel-body collapse{{# isVisibleFromStart }} {{ isVisibleFromStart }}{{/ isVisibleFromStart }}{{# extraPanelBodyClass}} {{ extraPanelBodyClass }}{{/ extraPanelBodyClass }}" role="tabpanel" aria-labelledby="{{ collapse-panel-header-id }}">
+  <div class="a-collapsePanel-body collapse{{# isVisibleFromStart }} {{ isVisibleFromStart }}{{/ isVisibleFromStart }}{{# extraPanelBodyClass}} {{ extraPanelBodyClass }}{{/ extraPanelBodyClass }}" {{^ is-static }} role="tabpanel" aria-labelledby="{{ collapse-panel-header-id }}"
+    id="{{ collapseID }}" {{/ is-static }}>
     {{# top-notification }}
     <div class="col pr-4 pl-2 py-1 a-collapsePanel-body-secondary a-no-sideborder">
       <p class="{{ notification-text-class }}">{{{ notification-text }}}</p>
