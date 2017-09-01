@@ -3718,7 +3718,6 @@ var colnavCustom = function() {
         ((a - ((z + 1) * 40)) - (1.5 * (z + 1))) + 'px' : x.css('left', '40px');
     }
     if (x !== parseInt(x, 10) && x !== parseFloat(x, 10)) {
-      console.log('wefew', $('[name="js-switchForm"]').eq(1).is(':checked'), (x.hasClass('a-colnav-secondLevel') && parseInt(x.css('left'), 10) < 200));
       if (
         (
           $('[name="js-switchForm"]').eq(1).is(':checked') &&
@@ -3731,7 +3730,6 @@ var colnavCustom = function() {
           parseInt(x.css('left'), 10) < 200
         )
       ) {
-        console.log('IUGPIUGIUGIU');
         return x;
       }
     }
@@ -4488,6 +4486,81 @@ var genericSearch = function() {
   }
 };
 
+/* globals $, Foundation */
+var listenForAttachmentChanges = function(formId, errorMessageCallback) {
+  var maxSizeInMb = 15;
+  var maxSizeInBytes = maxSizeInMb * 1024 * 1024;
+  var allowedExtensions = [
+    'bmp', 'jpg', 'jpeg', 'png', 'gif', 'txt', 'log', 'csv', 'doc', 'docx', 'xls', 'xlsx', 'ppt',
+    'pptx', 'pdf', 'odt', 'ods', 'odp', 'rtf', 'rar', 'zip', '7z', 'gdoc', 'gsheet', 'gslide', 'htm',
+    'html', 'eml', 'msg'
+  ];
+
+  var fileInput = $(formId).find('.a-js-uploadAttachment').find('#newCertificateInput');
+  var attachmentErrorBox = $(formId).find('.a-js-upload-error');
+  var attachmentBox = $(formId).find('.a-js-attachment-box');
+  var attachmentNameText = $(attachmentBox).find('.a-js-attachment-name');
+  var deleteAttachmentButton = $(attachmentBox).find('.a-btn-delete');
+  var selectedFile = '';
+
+  attachmentErrorBox.hide();
+  attachmentBox.hide();
+
+  deleteAttachmentButton.click(function() {
+    fileInput.val(''); // reset content
+    attachmentBox.hide();
+    attachmentErrorBox.hide();
+    fileInput.parent().show();
+  });
+
+  $(fileInput).change(function(event) {
+    if (event.target.files.length > 0) {
+      selectedFile = event.target.files[0];
+    }
+
+    function handleFile(file) {
+      var fileName = file.name;
+      var extension = fileName.split('.').pop();
+      var byteSize = file.size;
+
+      var validExtension = $.inArray(extension, allowedExtensions) > -1;
+      var validFileSize = maxSizeInBytes > byteSize;
+
+      if (validExtension && validFileSize) {
+        // success:
+        // set file name and show 'attachment box'
+        // hide 'error box'
+        // hide upload button
+
+        attachmentNameText.text(fileName);
+        attachmentBox.show();
+        attachmentErrorBox.hide();
+        fileInput.parent().hide();
+      } else {
+        // failure:
+        // hide 'attachment box'
+        // show 'error box'
+        // show upload button
+        attachmentBox.hide();
+        attachmentErrorBox.show();
+        fileInput.parent().show();
+      }
+
+      if (!validFileSize) {
+        attachmentErrorBox.find('.a-message-error').text(errorMessageCallback('size') + ': ' + maxSizeInMb + 'MB');
+      } else if (!validExtension) {
+        attachmentErrorBox.find('.a-message-error').text(errorMessageCallback('ext') + ': ' + allowedExtensions.join(', '));
+      }
+    }
+
+    if (selectedFile) {
+      handleFile(selectedFile);
+    } else {
+      attachmentBox.hide();
+    }
+  });
+};
+
 /* globals $ */
 var questionnaireInteraction = function() {
   $('.a-trigger-question').each(function() {
@@ -4645,18 +4718,11 @@ function setupFormValidation(formId, buttonId) {
 /* globals $ */
 var subscribe = function() {
   var validate = function(elem, skipVal) {
-    if (skipVal) {
-      $(elem).trigger('blur');
-      $(elem).trigger('focus');
-    } else if (elem[0].hasAttribute('aria-invalid')) {
-      if (elem.attr('aria-invalid') === 'true') {
-        elem.closest('.a-card').find('button').attr('disabled', 'disabled')
-          .addClass('disabled');
-      } else {
-        elem.closest('.a-card').find('button').removeAttr('disabled')
-          .removeClass('disabled');
-      }
-    } else if (elem.val().length === 0) {
+    var re = new RegExp(elem.attr('data-val-regex-pattern'));
+    if (re.test(elem.val())) {
+      elem.closest('.a-card').find('button').removeAttr('disabled')
+        .removeClass('disabled');
+    } else {
       elem.closest('.a-card').find('button').attr('disabled', 'disabled')
         .addClass('disabled');
     }
@@ -4667,12 +4733,6 @@ var subscribe = function() {
       _this.closest('.a-card').find('.a-js-finishText').hide();
       _this.closest('.a-card').find('.a-js-altText').hide();
       _this.find('input').on('input', function() {
-        validate($(this), true);
-      });
-      _this.find('input').on('focus', function() {
-        validate($(this));
-      });
-      _this.find('input').on('blur', function() {
         validate($(this));
       });
       _this.find('input').on('keypress', function(e) {
@@ -4730,7 +4790,8 @@ var uniformHeight = function() {
   articleAnchors,
   subscribe,
   setupFormValidation,
-  autoFootnotes
+  autoFootnotes,
+  listenForAttachmentChanges
 */
 window.infoportalInit = function() {
   colnavCustom();
@@ -4741,6 +4802,7 @@ window.infoportalInit = function() {
   subscribe();
   setupFormValidation();
   autoFootnotes();
+  listenForAttachmentChanges();
   function setupForm1() {
     $('body').off('focus', '#contactForm', setupForm1);
     setupFormValidation('#contactForm', '#a-js-contactForm-submit');
@@ -4751,6 +4813,18 @@ window.infoportalInit = function() {
   }
   $('body').on('focus', '#contactForm', setupForm1);
   $('body').on('focus', '#contactForm2', setupForm2);
+
+  function errorMessageCallback(type) {
+    if (type === 'ext') {
+      // Prefix to error message where the user tried to upload a forbidden file type
+      return 'Tillatte filtyper';
+    } else if (type === 'size') {
+      // Prefix to error message where the user tried to upload a file which is too big
+      return 'Maksimum filstørrelse';
+    }
+    return 'Det oppstod en feil';
+  }
+  listenForAttachmentChanges('#contactForm2', errorMessageCallback);
 };
 window.infoportalInit();
 // $(document).foundation();
