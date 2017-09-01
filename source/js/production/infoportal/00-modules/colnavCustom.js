@@ -25,7 +25,6 @@ var colnavCustom = function() {
         ((a - ((z + 1) * 40)) - (1.5 * (z + 1))) + 'px' : x.css('left', '40px');
     }
     if (x !== parseInt(x, 10) && x !== parseFloat(x, 10)) {
-      console.log('wefew', $('[name="js-switchForm"]').eq(1).is(':checked'), (x.hasClass('a-colnav-secondLevel') && parseInt(x.css('left'), 10) < 200));
       if (
         (
           $('[name="js-switchForm"]').eq(1).is(':checked') &&
@@ -38,7 +37,6 @@ var colnavCustom = function() {
           parseInt(x.css('left'), 10) < 200
         )
       ) {
-        console.log('IUGPIUGIUGIU');
         return x;
       }
     }
