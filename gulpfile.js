@@ -487,6 +487,7 @@ gulp.task('copy:export-to-styleguide', function (done) {
     // Export public/patterns directory to style guide's includes
     // This is used to include the actual code into the code samples
     gulp.src(['public/patterns/**/*', '!public/patterns/**/*.rendered.html'])
+        .pipe(regexRename(/♺-/g, ''))
         .pipe(regexRename(/atomer/g, 'atoms'))
         .pipe(regexRename(/molekyler/g, 'molecules'))
         .pipe(regexRename(/organismer/g, 'organisms'))
@@ -499,6 +500,7 @@ gulp.task('copy:export-to-styleguide', function (done) {
             path.basename += ".rendered";
             path.extname = ".html"
         }))
+        .pipe(regexRename(/♺-/g, ''))
         .pipe(regexRename(/atomer/g, 'atoms'))
         .pipe(regexRename(/molekyler/g, 'molecules'))
         .pipe(regexRename(/organismer/g, 'organisms'))
