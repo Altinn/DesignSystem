@@ -280,7 +280,6 @@
 
 .a-overflow-dropdown {
   display: block;
-  min-width: 320px;
   padding: $spacer * 2;
   border-bottom: 1px solid $grey-light;
 }
@@ -296,6 +295,23 @@ a {
   }
 }
 
+.a-dropdown-overflow-menu {
+  right: 0;
+  left: auto;
+  width: 300px;
+
+  &.a-dropdownTriangle {
+    &::after {
+      @include media-breakpoint-down( xs ) {
+        left: 35%;
+      }
+    }
+  }
+
+  @include media-breakpoint-down( xs ) {
+    right: -53px;
+  }
+}
 
 /*------------------------------------*\
     Nav tabs that looks like radio btns
