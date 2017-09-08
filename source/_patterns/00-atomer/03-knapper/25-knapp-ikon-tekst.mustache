@@ -1,5 +1,6 @@
 <button type="button" class="{{{ button-class }}} {{{ button-colorClass }}} {{ styleModifier }}"
-  {{# aria-label }} aria-label="{{ aria-label }}" {{/ aria-label }} {{# link-url }} onclick="location.href='{{{ link-url }}}';" {{/ link-url }}{{# disabled }} disabled{{/ disabled}}>
+  {{# aria-label }} aria-label="{{ aria-label }}" {{/ aria-label }} {{# link-url }} onclick="location.href='{{{ link-url }}}';" {{/ link-url }}{{# disabled }} disabled{{/ disabled}} 
+  {{# dropdown-overflow }}  data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" {{/ dropdown-overflow }}>
 
   {{# button-icon }}
     {{> atomer-ikon }}
@@ -25,3 +26,7 @@
 	{{/ button-shadow-label }}
 
 </button>
+
+{{# dropdown-overflow }}
+  {{> organismer-dropdown-overflow }}
+{{/ dropdown-overflow }}
