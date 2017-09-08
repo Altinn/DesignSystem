@@ -26,7 +26,7 @@ var copy = require('gulp-copy');
 var rename = require('gulp-rename');
 var regexRename = require('gulp-regex-rename');
 var gulpRemoveHtml = require('gulp-remove-html');
-
+var replace = require('gulp-string-replace');
 
 function paths () { return config.paths }
 
@@ -487,9 +487,11 @@ gulp.task('copy:export-to-styleguide', function (done) {
     // Export public/patterns directory to style guide's includes
     // This is used to include the actual code into the code samples
     gulp.src(['public/patterns/**/*', '!public/patterns/**/*.rendered.html'])
+        .pipe(regexRename(/♺-/g, ''))
         .pipe(regexRename(/atomer/g, 'atoms'))
         .pipe(regexRename(/molekyler/g, 'molecules'))
         .pipe(regexRename(/organismer/g, 'organisms'))
+        .pipe(replace('<body class=""', '<body class="bg-white"'))
         .pipe(gulp.dest('../styleguideguide/_includes/patterns'));
 
     // Export public/patterns directory to style guide patterns directory
@@ -499,9 +501,11 @@ gulp.task('copy:export-to-styleguide', function (done) {
             path.basename += ".rendered";
             path.extname = ".html"
         }))
+        .pipe(regexRename(/♺-/g, ''))
         .pipe(regexRename(/atomer/g, 'atoms'))
         .pipe(regexRename(/molekyler/g, 'molecules'))
         .pipe(regexRename(/organismer/g, 'organisms'))
+        .pipe(replace('<body class=""', '<body class="bg-white"'))
         .pipe(gulp.dest('../styleguideguide/patterns'));
 
     // Export css directory to style guide css directory
