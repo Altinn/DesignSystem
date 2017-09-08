@@ -26,7 +26,7 @@ var copy = require('gulp-copy');
 var rename = require('gulp-rename');
 var regexRename = require('gulp-regex-rename');
 var gulpRemoveHtml = require('gulp-remove-html');
-
+var replace = require('gulp-string-replace');
 
 function paths () { return config.paths }
 
@@ -491,7 +491,8 @@ gulp.task('copy:export-to-styleguide', function (done) {
         .pipe(regexRename(/atomer/g, 'atoms'))
         .pipe(regexRename(/molekyler/g, 'molecules'))
         .pipe(regexRename(/organismer/g, 'organisms'))
-        .pipe(gulp.dest('../designsystem-styleguide/_includes/patterns'));
+        .pipe(replace('<body class=""', '<body class="bg-white"'))
+        .pipe(gulp.dest('../styleguideguide/_includes/patterns'));
 
     // Export public/patterns directory to style guide patterns directory
     // This is used to pipe the live patterns into the iframe
@@ -504,27 +505,28 @@ gulp.task('copy:export-to-styleguide', function (done) {
         .pipe(regexRename(/atomer/g, 'atoms'))
         .pipe(regexRename(/molekyler/g, 'molecules'))
         .pipe(regexRename(/organismer/g, 'organisms'))
-        .pipe(gulp.dest('../designsystem-styleguide/patterns'));
+        .pipe(replace('<body class=""', '<body class="bg-white"'))
+        .pipe(gulp.dest('../styleguideguide/patterns'));
 
     // Export css directory to style guide css directory
     gulp.src('public/css/**/*')
-        .pipe(gulp.dest('../designsystem-styleguide/css'));
+        .pipe(gulp.dest('../styleguideguide/css'));
 
     // Export js directory to style guide js directory
     gulp.src('public/js/**/*')
-        .pipe(gulp.dest('../designsystem-styleguide/js'));
+        .pipe(gulp.dest('../styleguideguide/js'));
 
     // Export icons to style guide root directory
     // gulp.src('public/icons.svg')
-        // .pipe(gulp.dest('../designsystem-styleguide'));
+        // .pipe(gulp.dest('../styleguideguide'));
 
     // Export images directory to style guide images directory
     gulp.src('public/images/**/*')
-        .pipe(gulp.dest('../designsystem-styleguide/images'));
+        .pipe(gulp.dest('../styleguideguide/images'));
 
     // Export images directory to style guide images directory
     gulp.src('public/images/**/*')
-        .pipe(gulp.dest('../designsystem-styleguide/images'));
+        .pipe(gulp.dest('../styleguideguide/images'));
 
     done();
 });
