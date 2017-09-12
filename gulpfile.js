@@ -491,8 +491,8 @@ gulp.task('copy:export-to-styleguide', function (done) {
         .pipe(regexRename(/atomer/g, 'atoms'))
         .pipe(regexRename(/molekyler/g, 'molecules'))
         .pipe(regexRename(/organismer/g, 'organisms'))
-        .pipe(replace('<body class=""', '<body class="bg-white"'))
-        .pipe(gulp.dest('../styleguideguide/_includes/patterns'));
+        .pipe(replace('<body class=""', '<body class="a-bg-white"'))
+        .pipe(gulp.dest('../designsystem-styleguide/_includes/patterns'));
 
     // Export public/patterns directory to style guide patterns directory
     // This is used to pipe the live patterns into the iframe
@@ -506,27 +506,27 @@ gulp.task('copy:export-to-styleguide', function (done) {
         .pipe(regexRename(/molekyler/g, 'molecules'))
         .pipe(regexRename(/organismer/g, 'organisms'))
         .pipe(replace('<body class=""', '<body class="bg-white"'))
-        .pipe(gulp.dest('../styleguideguide/patterns'));
+        .pipe(gulp.dest('../designsystem-styleguide/patterns'));
 
     // Export css directory to style guide css directory
     gulp.src('public/css/**/*')
-        .pipe(gulp.dest('../styleguideguide/css'));
+        .pipe(gulp.dest('../designsystem-styleguide/css'));
 
     // Export js directory to style guide js directory
     gulp.src('public/js/**/*')
-        .pipe(gulp.dest('../styleguideguide/js'));
+        .pipe(gulp.dest('../designsystem-styleguide/js'));
 
     // Export icons to style guide root directory
     // gulp.src('public/icons.svg')
-        // .pipe(gulp.dest('../styleguideguide'));
+        // .pipe(gulp.dest('../designsystem-styleguide'));
 
     // Export images directory to style guide images directory
     gulp.src('public/images/**/*')
-        .pipe(gulp.dest('../styleguideguide/images'));
+        .pipe(gulp.dest('../designsystem-styleguide/images'));
 
     // Export images directory to style guide images directory
     gulp.src('public/images/**/*')
-        .pipe(gulp.dest('../styleguideguide/images'));
+        .pipe(gulp.dest('../designsystem-styleguide/images'));
 
     done();
 });
