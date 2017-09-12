@@ -41,17 +41,7 @@
         {{/ custom-title }} {{# elements }} {{> molekyler-liste-unummerert }} {{/ elements }}
       </div>
     </div>
-    {{/ customize-saved-searches }} {{# empty-inbox }}
-    <div class="row">
-      <div class="col">
-        <h2 class="a-fontSizeM a-fontBold mt-3 mb-0">{{ empty-inbox-heading }}</h2>
-        <p class="a-fontSizeM">{{ empty-inbox-title }}</p>
-        <h3 class="mb-1 mt-3 a-fontSizeXS a-fontReg">{{ empty-inbox-list-title }}</h3>
-        {{> atomer-liste-nummerert }}
-        <p class="mt-2">{{ empty-inbox-undertext }}{{> atomer-link }}</p>
-      </div>
-    </div>
-    {{/ empty-inbox }} {{# search-result-menu }} {{> molekyler-faner-og-knapp }} {{/ search-result-menu }} {{# limit-hits }}
+    {{/ customize-saved-searches }} {{# search-result-menu }} {{> molekyler-faner-og-knapp }} {{/ search-result-menu }} {{# limit-hits }}
     <div class="mt-4">
       <p class="d-inline a-fontSizeM">{{ limit-hits-text }}</p>
       {{# active-filters }} {{> atomer-merkelapp }} {{/ active-filters }} {{> atomer-knapp-ikon}}
@@ -93,7 +83,13 @@
           {{/ messages }} {{/ elementList }}
         </div>
       </div>
-      {{/ inbox }} {{# load-more-btn }}
+      {{/ inbox }} {{# empty-inbox }}
+      <h2 class="a-fontSizeM a-fontBold mt-3 mb-0">{{ empty-inbox-heading }}</h2>
+      <p class="a-fontSizeM">{{ empty-inbox-title }}</p>
+      <h3 class="mb-1 mt-3 a-fontSizeXS a-fontReg">{{ empty-inbox-list-title }}</h3>
+      {{> atomer-liste-nummerert }}
+      <p class="mt-2">{{ empty-inbox-undertext }}{{> atomer-link }}</p>
+      {{/ empty-inbox }} {{# load-more-btn }}
       <div class="row">
         <div class="col">
           {{> atomer-handlingsknapp-full-bredde }}

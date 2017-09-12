@@ -58,6 +58,7 @@ a:hover {
 abbr[title] {
   border-bottom: none;
   text-decoration: underline;
+  -webkit-text-decoration: underline dotted;
   text-decoration: underline dotted; }
 
 b,
@@ -9203,6 +9204,12 @@ textarea {
   .form-group .input-group-btn {
     border: 2px solid #1EAEF7;
     border-left: none; }
+    .a-form-group .input-group-btn.a-icon-right,
+    .form-group .input-group-btn.a-icon-right {
+      font-size: 16px;
+      font-size: 1.6rem;
+      line-height: 1.5;
+      -webkit-font-smoothing: subpixel-antialiased; }
     .a-form-group .input-group-btn.a-noBorder-right,
     .form-group .input-group-btn.a-noBorder-right {
       border-right: none; }
@@ -9340,6 +9347,10 @@ textarea {
     .a-form-group .input-group .input-group-addon.inactive,
     .form-group .input-group .input-group-addon.inactive {
       border-color: #000000; }
+    .a-form-group .input-group .input-group-addon.a-icon-right,
+    .form-group .input-group .input-group-addon.a-icon-right {
+      border-right: 2px solid #1EAEF7;
+      border-left: none; }
   .a-form-group .input-group .form-control,
   .form-group .input-group .form-control {
     -webkit-box-orient: horizontal;
@@ -10241,7 +10252,7 @@ textarea {
   -ms-flex-direction: column;
   flex-direction: column; }
 
-.dropdown-menu.a-dropdown-personswitchList {
+.dropdown-menu.a-dropdown-personswitchList, .dropdown-menu.a-dropdown-overflow-menu {
   display: none; }
 
 .a-js-none {
@@ -11126,9 +11137,12 @@ textarea {
 
 .a-colnav-wrapper .dropdown.a-colnav .a-colnav-thirdLevel .is-dropdown-submenu-item a {
   position: relative;
-  padding: 12px 24px 11px 24px;
+  padding: 12px 12px 11px 12px;
   border-right: none;
   border-bottom: 1px solid rgba(0, 0, 0, 0.1); }
+  @media (min-width: 768px) {
+    .a-colnav-wrapper .dropdown.a-colnav .a-colnav-thirdLevel .is-dropdown-submenu-item a {
+      padding: 12px 24px 11px 24px; } }
   .a-colnav-wrapper .dropdown.a-colnav .a-colnav-thirdLevel .is-dropdown-submenu-item a:hover {
     background: #F5F5F5; }
   .a-colnav-wrapper .dropdown.a-colnav .a-colnav-thirdLevel .is-dropdown-submenu-item a h4 {
@@ -11138,26 +11152,31 @@ textarea {
     -webkit-font-smoothing: subpixel-antialiased;
     font-family: "DIN-reg";
     font-weight: normal;
-    max-width: calc( 100% - 60px);
-    padding-right: 60px;
     margin-bottom: 0; }
+    @media screen and (min-width: 370px) {
+      .a-colnav-wrapper .dropdown.a-colnav .a-colnav-thirdLevel .is-dropdown-submenu-item a h4 {
+        max-width: calc( 100% - 60px);
+        padding-right: 60px; } }
   .a-colnav-wrapper .dropdown.a-colnav .a-colnav-thirdLevel .is-dropdown-submenu-item a .a-colnav-rightText {
-    font-size: 14px;
-    font-size: 1.4rem;
-    line-height: 1.5;
-    -webkit-font-smoothing: subpixel-antialiased;
-    position: absolute;
-    top: 14px;
-    right: 36px;
-    display: block;
-    width: 108px;
-    overflow: hidden;
-    text-align: right;
-    text-overflow: ellipsis;
-    white-space: nowrap; }
-    @media (min-width: 768px) {
+    display: none; }
+    @media screen and (min-width: 370px) {
       .a-colnav-wrapper .dropdown.a-colnav .a-colnav-thirdLevel .is-dropdown-submenu-item a .a-colnav-rightText {
-        right: 12px; } }
+        font-size: 14px;
+        font-size: 1.4rem;
+        line-height: 1.5;
+        -webkit-font-smoothing: subpixel-antialiased;
+        position: absolute;
+        top: 14px;
+        right: 12px;
+        display: block;
+        width: 108px;
+        overflow: hidden;
+        text-align: right;
+        text-overflow: ellipsis;
+        white-space: nowrap; } }
+    @media (min-width: 992px) {
+      .a-colnav-wrapper .dropdown.a-colnav .a-colnav-thirdLevel .is-dropdown-submenu-item a .a-colnav-rightText {
+        right: 24px; } }
 
 .a-colnav-wrapper .is-dropdown-submenu-parent {
   position: static; }
@@ -11450,6 +11469,26 @@ textarea {
   padding-bottom: 6px; }
   .a-page-nav-dest a {
     border: none; }
+
+.a-overflow-dropdown {
+  display: block;
+  padding: 24px;
+  border-bottom: 1px solid #EFEFEF; }
+
+a.a-overflow-dropdown:active, a.a-overflow-dropdown:focus, a.a-overflow-dropdown:hover {
+  background: #EFEFEF;
+  border-bottom: 1px solid #EFEFEF; }
+
+.a-dropdown-overflow-menu {
+  right: 0;
+  left: auto;
+  width: 300px; }
+  @media (max-width: 575px) {
+    .a-dropdown-overflow-menu.a-dropdownTriangle::after {
+      left: 35%; } }
+  @media (max-width: 575px) {
+    .a-dropdown-overflow-menu {
+      right: -53px; } }
 
 /*------------------------------------*    Nav tabs that looks like radio btns
 \*------------------------------------*/
@@ -12082,7 +12121,8 @@ i.a-blue {
     border-radius: 50px;
     -webkit-box-pack: center;
     -ms-flex-pack: center;
-    justify-content: center; }
+    justify-content: center;
+    line-height: 46px; }
     .a-btn-transparentWhite .a-btn-icon-symbol::before {
       -ms-flex-item-align: center;
       align-self: center; }
@@ -12092,7 +12132,8 @@ i.a-blue {
     @media (min-width: 768px) {
       .a-btn-transparentWhite .a-btn-icon-symbol {
         width: 48px;
-        min-height: 48px; } }
+        min-height: 48px;
+        line-height: 54px; } }
   .a-btn-transparentWhite.a-active, .a-btn-transparentWhite:hover {
     background: #FFFFFF; }
     .a-btn-transparentWhite.a-active .a-btn-icon-symbol, .a-btn-transparentWhite:hover .a-btn-icon-symbol {
@@ -12661,7 +12702,7 @@ button.a-btn-delete {
       background-size: cover; } }
   @media (min-width: 1600px) {
     .a-jumbotron-top {
-      max-width: 1800px;
+      max-width: 2200px;
       margin-right: auto;
       margin-left: auto; } }
 
@@ -15358,25 +15399,6 @@ body > .loader-container {
         background: #1EAEF7; }
       .datepicker.datepicker-dropdown table tr td.day.active:hover span, .datepicker.datepicker-dropdown table tr td.day.active:active span, .datepicker.datepicker-dropdown table tr td.day.active:focus span {
         background: #1EAEF7; }
-  .datepicker.datepicker-dropdown .prev,
-  .datepicker.datepicker-dropdown .next {
-    color: transparent; }
-    .datepicker.datepicker-dropdown .prev::before,
-    .datepicker.datepicker-dropdown .next::before {
-      display: inline-block;
-      width: 48px;
-      font: normal normal normal 14px/1 'AltinnNo';
-      font-size: inherit;
-      line-height: 48px;
-      color: #FFFFFF;
-      text-align: center;
-      content: '\f00a';
-      -webkit-font-smoothing: antialiased;
-      -moz-osx-font-smoothing: grayscale;
-      text-rendering: auto; }
-  .datepicker.datepicker-dropdown .prev::before {
-    -webkit-transform: rotate(180deg);
-    transform: rotate(180deg); }
   .datepicker.datepicker-dropdown .old,
   .datepicker.datepicker-dropdown .new {
     background: #F5F5F5; }
@@ -16163,6 +16185,10 @@ hr {
   @media (max-width: 767px) {
     .a-border-bottom.a-no-border-small {
       border-bottom: none; } }
+
+.noPointer {
+  pointer-events: none;
+  cursor: default; }
 
 .a-clickable.a-focus:not(.a-expanded):not(.a-deleted):not(.a-completed), .a-clickable:hover:not(.a-expanded):not(.a-deleted):not(.a-completed), .a-clickable:active:not(.a-expanded):not(.a-deleted):not(.a-completed), .a-clickable:focus:not(.a-expanded):not(.a-deleted):not(.a-completed),
 .a-selectable.a-focus:not(.a-expanded):not(.a-deleted):not(.a-completed),
