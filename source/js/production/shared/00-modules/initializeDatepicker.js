@@ -12,10 +12,14 @@ var initializeDatepicker = function() {
     orientation: 'bottom left',
     autoclose: true,
     maxViewMode: 0,
-    container: '#picker-container'
+    container: '#picker-container',
+    templates: {
+      leftArrow: '<i class="ai ai-back"></i>',
+      rightArrow: '<i class="ai ai-arrowright"></i>'
+    }
   }).on('show', function(e) {
-    $('.datepicker').find('.next').html('');
-    $('.datepicker').find('.prev').html('');
+    // $('.datepicker').find('.next').html('');
+    // $('.datepicker').find('.prev').html('');
     $('.datepicker').find('table').attr('cellpadding', '0');
     $('.datepicker').find('table').attr('cellspacing', '0');
     $('.datepicker').each(function() {
