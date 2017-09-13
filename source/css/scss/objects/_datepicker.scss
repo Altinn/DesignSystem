@@ -78,18 +78,15 @@
           border-left: solid 1px $grey-light;
 
           &:hover,
-          &:focus {
+          &:focus,
+          &:active {
             color: $black;
             text-shadow: none;
-            background: $blue-light !important;
+            background: $white !important;
             border-bottom: solid 1px $grey-light;
             border-left: solid 1px $grey-light;
-          }
-
-          &:active {
-            text-shadow: none;
-            border-bottom: solid 1px $grey-light;
-            border-left: solid 1px $grey-light;
+            outline: 2px solid $blue;
+            outline-offset: -2px;
           }
 
           &.day {
@@ -97,8 +94,9 @@
 
             &.today,
             &.active {
-              color: $white;
-              background: $grey;
+              color: $black;
+              text-shadow: none;
+              background: $blue-light;
               border-bottom: solid 1px $grey-light;
               border-left: solid 1px $grey-light;
             }
@@ -109,10 +107,9 @@
 
             &:hover,
             &:focus {
-              color: $black;
+              background: $blue-light;
             }
           }
-
         }
       }
     }
