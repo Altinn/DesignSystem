@@ -78,20 +78,15 @@
           border-left: solid 1px $grey-light;
 
           &:hover,
-          &:focus {
-            background: $blue-light !important;
-            border-bottom: solid 1px $grey-light;
-            border-left: solid 1px $grey-light;
-          }
-
+          &:focus,
           &:active {
+            color: $black;
+            text-shadow: none;
+            background: $white !important;
             border-bottom: solid 1px $grey-light;
             border-left: solid 1px $grey-light;
-          }
-
-          span {
-            float: none;
-            margin: auto !important;
+            outline: 2px solid $blue;
+            outline-offset: -2px;
           }
 
           &.day {
@@ -99,46 +94,20 @@
 
             &.today,
             &.active {
-              padding-top: 0;
-              color: $white;
+              color: $black;
               text-shadow: none;
-              background: transparent;
-              border: none;
-              border-color: transparent;
+              background: $blue-light;
               border-bottom: solid 1px $grey-light;
               border-left: solid 1px $grey-light;
-
-              span {
-                width: 37px;
-                height: 37px;
-                padding-top: 2px;
-                margin: 5px;
-                // TODO: Disable linting for special case line heights
-                line-height: 37px;
-                pointer-events: none;
-                background: $grey;
-                border-radius: 19px;
-              }
-
-              &:hover,
-              &:active,
-              &:focus {
-                @extend .today;
-              }
             }
 
             &.active {
-              span {
-                background: $blue;
-              }
+              background: $blue;
+            }
 
-              &:hover,
-              &:active,
-              &:focus {
-                span {
-                  background: $blue;
-                }
-              }
+            &:hover,
+            &:focus {
+              background: $blue-light;
             }
           }
         }
