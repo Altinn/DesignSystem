@@ -15573,11 +15573,12 @@ body > .loader-container {
       position: absolute;
       top: 12px;
       right: 12px;
-      z-index: 22;
+      z-index: 9999;
       width: 30px;
       height: 30px;
       padding: 3px 0 6px 0;
       margin-bottom: 0;
+      pointer-events: auto;
       cursor: pointer;
       background: #FFFFFF;
       border: none;
@@ -15593,6 +15594,15 @@ body > .loader-container {
       animation-iteration-count: 1;
       -webkit-animation-fill-mode: forwards;
       animation-fill-mode: forwards; }
+      .a-iframeToggle.show .a-stickyHelp-close::before {
+        position: absolute;
+        top: -15px;
+        left: -16px;
+        z-index: 1;
+        width: calc( 100% + 30px);
+        min-height: 60px;
+        cursor: pointer;
+        content: ''; }
 
 @-webkit-keyframes showCloseButtonAfterLoad {
   0% {
