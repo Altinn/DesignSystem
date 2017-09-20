@@ -179,7 +179,7 @@
         width: 356px !important;
         max-width: 356px !important;
         height: 414px !important;
-        background: #fff;
+        background: $white;
       }
     }
 
@@ -209,18 +209,6 @@
       border-radius: 50%;
       opacity: 0;
 
-      &::before {
-        position: absolute;
-        top: -15px;
-        left: -16px;
-        z-index: 1;
-        width: calc( 100% + 30px);
-        min-height: 60px;
-        cursor: pointer;
-        content: '';
-      }
-
-
       @keyframes showCloseButtonAfterLoad {
         0% {
           opacity: 0;
@@ -245,6 +233,17 @@
       &:focus {
         background: $blue-light;
         border: none;
+      }
+
+      &::before {
+        position: absolute;
+        top: -15px;
+        left: -16px;
+        z-index: 1;
+        width: calc( 100% + 30px);
+        min-height: 60px;
+        cursor: pointer;
+        content: '';
       }
     }
   }
