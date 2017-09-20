@@ -1,4 +1,6 @@
 .a-stickyHelp-body {
+  position: fixed;
+  width: 100%;
   overflow: hidden;
 }
 
@@ -137,14 +139,12 @@
     width: 100% !important;
     max-width: 100% !important;
     height: 414px !important;
-    max-height: 414px !important;
+    max-height: calc(100vh - 24px);
     opacity: 0;
 
     @include media-breakpoint-up( sm ) {
       width: 356px !important;
       max-width: 356px !important;
-      height: 514px !important;
-      max-height: 514px !important;
     }
   }
 
@@ -178,7 +178,8 @@
       @include media-breakpoint-up( sm ) {
         width: 356px !important;
         max-width: 356px !important;
-        height: 514px !important;
+        height: 414px !important;
+        background: #fff;
       }
     }
 
@@ -196,16 +197,28 @@
       position: absolute;
       top: $spacer;
       right: $spacer;
-      z-index: 22;
+      z-index: 9999;
       width: 30px;
       height: 30px;
       padding: 3px 0 $spacer / 2 0;
       margin-bottom: 0;
+      pointer-events: auto;
       cursor: pointer;
       background: $white;
       border: none;
       border-radius: 50%;
       opacity: 0;
+
+      &::before {
+        position: absolute;
+        top: -15px;
+        left: -16px;
+        z-index: 1;
+        width: calc( 100% + 30px);
+        min-height: 60px;
+        cursor: pointer;
+        content: '';
+      }
 
 
       @keyframes showCloseButtonAfterLoad {
@@ -290,7 +303,7 @@
   }
 
   .a-page {
-    height: 400px;
+    height: 300px;
     overflow-x: hidden;
     overflow-y: scroll;
     transition: transform 0.5s cubic-bezier(0.3, 1, 0.5, 1);
@@ -309,7 +322,7 @@
     }
 
     &+.a-page {
-      margin-top: -400px;
+      margin-top: -300px;
     }
 
     // Article (level 3)
