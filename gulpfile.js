@@ -491,7 +491,7 @@ gulp.task('copy:export-to-styleguide', function (done) {
         .pipe(regexRename(/atomer/g, 'atoms'))
         .pipe(regexRename(/molekyler/g, 'molecules'))
         .pipe(regexRename(/organismer/g, 'organisms'))
-        .pipe(replace('<body class=""', '<body class="a-bg-white"'))
+        .pipe(replace('<body class=""', '<body class="a-bgWhite"'))
         .pipe(gulp.dest('../designsystem-styleguide/_includes/patterns'));
 
     // Export public/patterns directory to style guide patterns directory
@@ -505,7 +505,7 @@ gulp.task('copy:export-to-styleguide', function (done) {
         .pipe(regexRename(/atomer/g, 'atoms'))
         .pipe(regexRename(/molekyler/g, 'molecules'))
         .pipe(regexRename(/organismer/g, 'organisms'))
-        .pipe(replace('<body class=""', '<body class="bg-white"'))
+        .pipe(replace('<body class=""', '<body class="a-bgWhite"'))
         .pipe(gulp.dest('../designsystem-styleguide/patterns'));
 
     // Export css directory to style guide css directory
