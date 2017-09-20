@@ -9918,6 +9918,20 @@ textarea {
   border: none;
   opacity: 0.1; }
 
+table {
+  font-family: "DIN-reg";
+  font-weight: normal;
+  font-size: 16px;
+  font-size: 1.6rem;
+  line-height: 1.5;
+  -webkit-font-smoothing: subpixel-antialiased; }
+  table th {
+    font-family: "DIN-medium";
+    font-weight: normal; }
+  table th,
+  table td {
+    padding-right: 24px; }
+
 /*------------------------------------*    $Table for tabell-regnestykke
 \*------------------------------------*/
 .a-table thead th {
@@ -10538,7 +10552,10 @@ textarea {
     .a-dropdown-languages .dropdown-item .a-flag,
     .a-dropdown-personswitchList .dropdown-item .a-flag {
       width: 48px;
+      min-width: 48px;
+      max-width: 48px;
       height: 29px;
+      max-height: 29px;
       margin-top: 5px;
       margin-right: 12px; }
       .a-dropdown-languages .dropdown-item .a-flag.a-globe,
@@ -11473,6 +11490,17 @@ textarea {
   display: block;
   padding: 24px;
   border-bottom: 1px solid #EFEFEF; }
+  .a-overflow-dropdown .a-charIcon {
+    margin-top: -12px;
+    margin-bottom: -12px; }
+    .a-overflow-dropdown .a-charIcon span {
+      font-family: "DIN-bold";
+      font-weight: normal;
+      font-size: 24px;
+      font-size: 2.4rem;
+      line-height: 1.5;
+      -webkit-font-smoothing: subpixel-antialiased;
+      font-style: normal; }
 
 a.a-overflow-dropdown:active, a.a-overflow-dropdown:focus, a.a-overflow-dropdown:hover {
   background: #EFEFEF;
@@ -12108,6 +12136,26 @@ i.a-blue {
   .a-btn-transparentWhite:hover, .a-btn-transparentWhite:focus {
     color: #000000;
     background: #FFFFFF; }
+  .a-btn-transparentWhite .a-charIcon {
+    width: 48px;
+    min-height: 48px;
+    color: #1EAEF7;
+    background: #FFFFFF;
+    border-radius: 48px; }
+    .a-btn-transparentWhite .a-charIcon span {
+      font-size: 24px;
+      font-size: 2.4rem;
+      line-height: 1.5;
+      -webkit-font-smoothing: subpixel-antialiased;
+      display: inline-block;
+      width: 30px;
+      height: 30px;
+      margin-top: 11px;
+      margin-left: 1px;
+      font-style: normal;
+      line-height: 28px; }
+    .a-btn-transparentWhite .a-charIcon:hover, .a-btn-transparentWhite .a-charIcon:focus {
+      background: #1EAEF7; }
   .a-btn-transparentWhite .a-btn-icon-symbol {
     display: -webkit-inline-box;
     display: -ms-inline-flexbox;
@@ -12135,7 +12183,9 @@ i.a-blue {
         line-height: 54px; } }
   .a-btn-transparentWhite.a-active, .a-btn-transparentWhite:hover {
     background: #FFFFFF; }
-    .a-btn-transparentWhite.a-active .a-btn-icon-symbol, .a-btn-transparentWhite:hover .a-btn-icon-symbol {
+    .a-btn-transparentWhite.a-active .a-btn-icon-symbol,
+    .a-btn-transparentWhite.a-active .a-charIcon, .a-btn-transparentWhite:hover .a-btn-icon-symbol,
+    .a-btn-transparentWhite:hover .a-charIcon {
       color: #FFFFFF;
       background: #1EAEF7; }
   .a-btn-transparentWhite .a-btn-icon-text {
@@ -15557,7 +15607,7 @@ body > .loader-container {
           width: 356px !important;
           max-width: 356px !important;
           height: 414px !important;
-          background: #fff; } }
+          background: #FFFFFF; } }
     .a-iframeToggle.show iframe {
       position: relative;
       overflow: hidden;
@@ -15593,15 +15643,6 @@ body > .loader-container {
       animation-iteration-count: 1;
       -webkit-animation-fill-mode: forwards;
       animation-fill-mode: forwards; }
-      .a-iframeToggle.show .a-stickyHelp-close::before {
-        position: absolute;
-        top: -15px;
-        left: -16px;
-        z-index: 1;
-        width: calc( 100% + 30px);
-        min-height: 60px;
-        cursor: pointer;
-        content: ''; }
 
 @-webkit-keyframes showCloseButtonAfterLoad {
   0% {
@@ -15620,6 +15661,15 @@ body > .loader-container {
       .a-iframeToggle.show .a-stickyHelp-close:focus {
         background: #CFF0FF;
         border: none; }
+      .a-iframeToggle.show .a-stickyHelp-close::before {
+        position: absolute;
+        top: -15px;
+        left: -16px;
+        z-index: 1;
+        width: calc( 100% + 30px);
+        min-height: 60px;
+        cursor: pointer;
+        content: ''; }
 
 .a-stickyHelp .a-stickyHelp-header {
   position: relative;
@@ -16183,7 +16233,7 @@ hr {
     .a-border-bottom.a-no-border-small {
       border-bottom: none; } }
 
-.noPointer {
+.a-noPointer {
   pointer-events: none;
   cursor: default; }
 
