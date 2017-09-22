@@ -8,7 +8,7 @@ You can always test the [live version](https://altinn.github.io/DesignSystem) of
 
 ## Dependencies
 
-Make sure that [Node.js](https://nodejs.org) (version 6 or newer) is installed. The package manager [npm](https://www.npmjs.com/) will be included.
+Make sure that [Node.js](https://nodejs.org) (version 6 or newer) is installed. The package manager [npm](https://www.npmjs.com/) will be included. 
 
 Install [bower](https://bower.io/) and [gulp](http://gulpjs.com/):
 
@@ -20,10 +20,11 @@ npm install -g gulpjs/gulp-cli
 ## Setup
 
 Navigate to the root of the code and run `npm install`.  
-Also make sure the project in _styleguidekit-assets-altinn_ is built:
+Also make sure the project in _styleguidekit-assets-altinn_ is built. This requires Ruby to be installed in order to install the [sass](http://sass-lang.com/install) gem. For Windows users, see [Ruby](https://rubyinstaller.org/)
 
 ```shell
 cd styleguidekit-assets-altinn
+gem install sass # run with sudo if you get an error
 npm install
 bower install
 gulp
@@ -35,7 +36,7 @@ cd ..
 This will take a couple of minutes...
 
 ```shell
-gulp patternlab:serve
+npm run start
 ```
 
 The command will build and run the design system locally on <http://localhost:3000> and automatically rebuild if the source code is changed.
