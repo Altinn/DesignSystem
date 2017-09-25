@@ -1,6 +1,6 @@
 ---
 state: complete
-version: 0
+version: 1
 ---
 NB: Dette er en variant av [knapp.mustache]
 
