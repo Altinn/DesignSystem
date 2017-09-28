@@ -6059,11 +6059,13 @@ function searchFilterView() {
       searchFilters.removeAttr('tabindex');
       hideMainInbox.attr('tabindex', '-1');
       searchField.attr('tabindex', '1').focus();
+      $('input#inbox_search_filter').val($('input#inbox_search').val());
     } else {
       searchFilters.addClass(hideClass);
       hideMainInbox.removeClass(hideClass);
       searchFilters.attr('tabindex', '-1');
       hideMainInbox.removeAttr('tabindex');
+      $('input#inbox_search').val($('input#inbox_search_filter').val());
     }
   });
 
