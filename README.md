@@ -17,6 +17,13 @@ npm install -g bower
 npm install -g gulpjs/gulp-cli
 ```
 
+If you are going to work on the style guide kit, you'll need to install these packages too:
+```shell
+npm install -g gifsicle
+npm install -g optipng-bin
+npm install -g pngquant-bin
+```
+
 ## Setup
 
 Navigate to the root of the code and run `npm install`.  
