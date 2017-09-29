@@ -484,8 +484,10 @@ var colnavCustom = function() {
         else {
             var url = endPointUrl + str;
             console.log(url);
+            // These hardcoded paths and IPs need to be fixed probably
             if (window.location.pathname.indexOf('DesignSystem') === 1 ||
                 window.location.origin.indexOf('localhost') !== -1 ||
+                window.location.origin.indexOf('10.4.67.79') !== -1 ||
                 window.location.origin.indexOf('192.168.10.153') !== -1) {
                 url = url + '.json';
             }
