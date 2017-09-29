@@ -17,7 +17,7 @@ npm install -g bower
 npm install -g gulpjs/gulp-cli
 ```
 
-If you are going to work on the style guide kit, you'll need to install these packages too:
+If you are going to work on the design system, you'll need to install these packages too:
 ```shell
 npm install -g gifsicle
 npm install -g optipng-bin
@@ -26,7 +26,13 @@ npm install -g pngquant-bin
 
 ## Setup
 
-Navigate to the root of the code and run `npm install`.  
+Navigate to the root of the code and install the dependencies.  
+
+```shell
+cd DesignSystem
+npm install
+```
+
 Also make sure the project in _styleguidekit-assets-altinn_ is built. This requires Ruby to be installed in order to install the [sass](http://sass-lang.com/install) gem. For Windows users, see [Ruby](https://rubyinstaller.org/)
 
 ```shell
@@ -43,7 +49,7 @@ cd ..
 This will take a couple of minutes...
 
 ```shell
-npm run start
+npm start
 ```
 
 The command will build and run the design system locally on <http://localhost:3000> and automatically rebuild if the source code is changed.
