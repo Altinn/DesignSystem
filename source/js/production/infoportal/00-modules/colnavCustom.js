@@ -163,19 +163,20 @@ var colnavCustom = function() {
             // Ref.: http://api.jquery.com/event.which/
             return;
         }
-        var el = alt === undefined ? $(eventOrElement.target) : eventOrElement; // Determine element
+        // Determine element
+        var el = alt === undefined ? $(eventOrElement.target) : eventOrElement;
         var li = el.closest('li').hasClass('is-dropdown-submenu-parent') ? el.closest('li') : el;
         if (li.is('h4')) {
-          console.log(li);
           li = li.parents().eq(1);
         }
-        console.log(li);
-        var position = li.find('h2').length > 0 ? li.find('h2').attr(keys.dataId) : li.find('h3').attr(keys.dataId);
+        
         // If item holds an actual link, redirect
         if (li.children('a').hasClass('a-js-colnavLinkAlt')) { 
             window.location = li.children('a').prop('href');
             return;
         }
+        var text = li.find('h2').length > 0 ? li.find('h2').text() : li.find('h3').text();
+        var position = li.find('h2').length > 0 ? li.find('h2').attr(keys.dataId) : li.find('h3').attr(keys.dataId);
         // Iterate through levels
         levels.forEach(function(str, index) {
             var wasStacked;
@@ -193,9 +194,10 @@ var colnavCustom = function() {
                     // Reset markup:
                     el.closest('ul').removeClass('stacked').find('.open').removeClass('open');
                     el.closest('ul').find('.dim').removeClass('dim');
-                    if (isSmall) {
-                        el.closest('ul').css('width', calc(1.5, null, index - 1));
-                    }                    
+                    el.closest('ul').css('width', calc(1.5, null, index - 1));
+                    //el.addClass('open').closest('a').addClass('open');
+                    //calc(li.find('.' + levels[index + 1]), 3, index + 1).css('width', calc(1.5, null, index))
+                    //    .show();
                 }
                 // Check if item is already open:
                 else if (el.closest('a').hasClass('open') || el.find('a').hasClass('open') ||
@@ -390,9 +392,6 @@ var colnavCustom = function() {
                     }
                 });
             }
-            /*if (!queryHit && $(keys.toggleInput).eq(0).is(keys.checked)) {
-                $(keys.toggleInput).eq(1)[0].click();
-            }*/
         }
     }
 
