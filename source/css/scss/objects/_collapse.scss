@@ -584,6 +584,31 @@
 /*------------------------------------*\
     Inbox
 \*------------------------------------*/
+
+a {
+  &[aria-expanded='false'] {
+    .a-inboxHeadingContent {
+      .a-msgHeadingTextContainer {
+        @include media-breakpoint-up( md ) {
+          overflow: hidden;
+          text-overflow: ellipsis;
+          white-space: nowrap;
+        }
+
+        div,
+        h1,
+        h3 {
+          @include media-breakpoint-up( md ) {
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+          }
+        }
+      }
+    }
+  }
+}
+
 .a-inboxHeadingContent {
   //sass-lint:disable no-duplicate-properties no-important
 
@@ -630,29 +655,12 @@
 
     @include media-breakpoint-up( md ) {
       padding-right: $spacer * 2;
-      overflow: hidden;
-      text-overflow: ellipsis;
-      white-space: nowrap;
-    }
-
-    div,
-    h1,
-    h3 {
-      @include media-breakpoint-up( md ) {
-        overflow: hidden;
-        text-overflow: ellipsis;
-        white-space: nowrap;
-      }
     }
 
     h1,
     h3 {
       @extend .a-fontSizeM;
-      @include a-fontMedium;
-
-      @include media-breakpoint-up( md ) {
-        @include a-fontReg;
-      }
+      @include a-fontReg;
     }
 
     .a-msgDuedate {
