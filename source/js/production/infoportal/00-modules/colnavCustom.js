@@ -152,8 +152,8 @@ var colnavCustom = function() {
     var li = null;
     var text = null;
     var position = null;
-    if (eventOrElement.which === 3) {
-      // Right-click, stop processing the event
+    if (eventOrElement.which === 2 || eventOrElement.which === 3) {
+      // Middle-click or right-click, stop processing the event
       // Ref.: http://api.jquery.com/event.which/
       return;
     }
