@@ -27,6 +27,8 @@ var rename = require('gulp-rename');
 var regexRename = require('gulp-regex-rename');
 var gulpRemoveHtml = require('gulp-remove-html');
 var replace = require('gulp-string-replace');
+var sassVariables = require('gulp-sass-variables');
+var unzip = require('gulp-unzip');
 
 function paths () { return config.paths }
 
@@ -96,6 +98,18 @@ gulp.task('pl-copy:styleguide', function () {
     });
 });
 
+// Unzip fortawesone iconfonts and put them in the correct folder for the npm package
+gulp.task('pl-copy:distribution-fonts', function(done){
+  gulp.src("./source/fortAwesome/kit-altinn-no-ed31cded.zip")
+    .pipe(unzip())
+    .pipe(gulp.dest('./dist/fonts/icons/ai/'))
+
+  gulp.src("./source/fortAwesome/kit-altinn-reg-no-df832575.zip")
+    .pipe(unzip())
+    .pipe(gulp.dest('./dist/fonts/icons/reg/'))
+  done();
+});
+
 // Create flat distribution CSS file (no Patternlab CSS or styleguide UI CSS)
 // and copy into distribution folder:
 gulp.task('pl-copy:distribution-css', function (done) {
@@ -111,6 +125,9 @@ gulp.task('pl-copy:distribution-css', function (done) {
         '// Automatically removed');
       fs.writeFileSync('./source/css/style-temp.scss', src);
       gulp.src(paths().source.css + 'style-temp.scss')
+        .pipe(sassVariables({
+          $env: 'prod'
+        }))
         .pipe(sass().on('error', sass.logError))
         .pipe(autoprefixer({
             browsers: ['last 2 versions'],
@@ -460,6 +477,7 @@ gulp.task('dist',
     'pl-clean:dist',
     'patternlab:prebuild',
     'patternlab:build',
+    'pl-copy:distribution-fonts',
     'pl-copy:distribution-css',
     'pl-copy:distribution-images',
     'pl-copy:distribution-epi',
