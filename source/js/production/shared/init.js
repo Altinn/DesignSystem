@@ -21,6 +21,7 @@
   articleAnchors,
   feedbackToggle,
   setValidatorSettings,
+  autoFootnotes,
   popoverLocalInit,
   popoverGlobalInit,
   setupSelectableCheckbox,
@@ -60,6 +61,7 @@ window.sharedInit = function() {
   tooltip();
   toggleInstant();
   feedbackToggle();
+  autoFootnotes();
   popoverLocalInit();
   popoverGlobalInit();
   setupSelectableCheckbox();
