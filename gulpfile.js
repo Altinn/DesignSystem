@@ -27,6 +27,7 @@ var rename = require('gulp-rename');
 var regexRename = require('gulp-regex-rename');
 var gulpRemoveHtml = require('gulp-remove-html');
 var replace = require('gulp-string-replace');
+var sassVariables = require('gulp-sass-variables');
 
 function paths () { return config.paths }
 
@@ -111,6 +112,9 @@ gulp.task('pl-copy:distribution-css', function (done) {
         '// Automatically removed');
       fs.writeFileSync('./source/css/style-temp.scss', src);
       gulp.src(paths().source.css + 'style-temp.scss')
+        .pipe(sassVariables({
+          $env: 'prod'
+        }))
         .pipe(sass().on('error', sass.logError))
         .pipe(autoprefixer({
             browsers: ['last 2 versions'],
