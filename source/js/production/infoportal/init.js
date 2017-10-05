@@ -6,7 +6,6 @@
   articleAnchors,
   subscribe,
   setupFormValidation,
-  autoFootnotes,
   listenForAttachmentChanges
 */
 window.infoportalInit = function() {
@@ -17,7 +16,6 @@ window.infoportalInit = function() {
   articleAnchors();
   subscribe();
   setupFormValidation();
-  autoFootnotes();
   listenForAttachmentChanges();
   function setupForm1() {
     $('body').off('focus', '#contactForm', setupForm1);
@@ -36,7 +34,7 @@ window.infoportalInit = function() {
       return 'Tillatte filtyper';
     } else if (type === 'size') {
       // Prefix to error message where the user tried to upload a file which is too big
-      return 'Maksimum filst�rrelse';
+      return 'Maksimum filstørrelse';
     }
     return 'Det oppstod en feil';
   }

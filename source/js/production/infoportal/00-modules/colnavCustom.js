@@ -152,11 +152,16 @@ var colnavCustom = function() {
     var li = null;
     var text = null;
     var position = null;
-    if (eventOrElement.which === 3) {
-      // Right-click, stop processing the event
+    if (eventOrElement.which === 2 || eventOrElement.which === 3) {
+      // Middle-click or right-click, stop processing the event
       // Ref.: http://api.jquery.com/event.which/
       return;
     }
+
+    if (eventOrElement.target && eventOrElement.target.tagName === 'UL') {
+      return;
+    }
+
     // Determine element
     el = alt === undefined ? $(eventOrElement.target) : eventOrElement;
     li = el.closest('li').hasClass('is-dropdown-submenu-parent') ? el.closest('li') : el;
