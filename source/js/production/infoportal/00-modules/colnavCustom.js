@@ -157,6 +157,11 @@ var colnavCustom = function() {
       // Ref.: http://api.jquery.com/event.which/
       return;
     }
+
+    if (eventOrElement.target && eventOrElement.target.tagName === 'UL') {
+      return;
+    }
+
     // Determine element
     el = alt === undefined ? $(eventOrElement.target) : eventOrElement;
     li = el.closest('li').hasClass('is-dropdown-submenu-parent') ? el.closest('li') : el;
