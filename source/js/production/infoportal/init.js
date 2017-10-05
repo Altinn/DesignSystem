@@ -36,11 +36,11 @@ window.infoportalInit = function() {
       return 'Tillatte filtyper';
     } else if (type === 'size') {
       // Prefix to error message where the user tried to upload a file which is too big
-      return 'Maksimum filstørrelse';
+      return 'Maksimum filstï¿½rrelse';
     }
     return 'Det oppstod en feil';
   }
-  listenForAttachmentChanges('#contactForm2', errorMessageCallback);
+  listenForAttachmentChanges('#js-attachmentForm', errorMessageCallback);
 };
 window.infoportalInit();
 // $(document).foundation();
