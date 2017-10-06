@@ -56,12 +56,12 @@ AltinnModal = {
       $(settings.target).on('hidden.bs.modal', function() {
         $(settings.target + ' .a-modal-content-target').empty();
         $(settings.target).attr('aria-hidden', true);
-        $('.a-containerFooter').removeClass('d-none');
+        $('#altinnModal').siblings('.row').removeClass('d-none');
       });
 
       $(settings.target).on('shown.bs.modal', function() {
         $(settings.target).removeAttr('aria-hidden');
-        $('.a-containerFooter').addClass('d-none');
+        $('#altinnModal').siblings('.row').addClass('d-none');
       });
       popoverLocalInit();
 
