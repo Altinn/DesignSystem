@@ -1,0 +1,23 @@
+<button
+  type="button"
+  class="{{ button-class }}"
+  data-dismiss="modal"
+  {{{ button-onclick }}}
+  aria-label="{{ aria-label }}"
+  {{# enable-popover }}
+    data-toggle="popover"
+    data-placement="{{ popover-placement}}"
+    data-popover-content="{{ popover-content-id }}"
+    data-template="{{> atomer-popover }}"
+  {{/ enable-popover }}>
+  <i class="{{ button-icon-class }}">{{{ button-icon-text }}}</i>
+</button>
+
+{{# enable-popover }}
+  <div id="{{ popover-content-id }}" class="hidden-xs-up">
+    <div class="p-y-1">{{ popover-text }}</div>
+    {{# popover-buttons }}
+      {{> atomer-knapp:m-r-1 }}
+    {{/ popover-buttons }}
+  </div>
+{{/ enable-popover }}

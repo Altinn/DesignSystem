@@ -561,6 +561,31 @@ AltinnQuickhelp = {
   }
 };
 
+/* globals $ */
+var autoFootnotes = function() {
+  // Ideally we should have a generic class name here, but it would break
+  // existing articles
+  $('.epi-footnote').not('popovered').each(function(index) {
+    $(this).hide().addClass('popovered');
+    $(this).after(
+      '<a href="javascript:void(0)" ' +
+        'tabindex="0" ' +
+        'class="a-linkArea a-helpIconButton a-helpIconButton--blue a-js-togglePopoverIcons" ' +
+        'role="button" ' +
+        'data-toggle="popover" ' +
+        'data-popover-class="footnote"' +
+        'data-trigger="click"' +
+        'data-popover-content="epiFootnote_' + index + '">' +
+        '<i class="ai ai-circle-plus a-js-popoverIconInitial"></i>' +
+        '<i class="ai ai-circle-minus a-js-popoverIconExpanded"></i>' +
+      '</a>' +
+      '<div id="epiFootnote_' + index + '" style="display: none">' +
+        $(this).html() +
+      '</div>'
+    );
+  });
+};
+
 var setupOnKeypress = function() {
   $('body').on('keydown', '.a-clickable, .a-selectable', function(e) {
     var key = e.which;
@@ -907,8 +932,17 @@ var popoverLocalInit = function() {
   $('[data-toggle="popover"]').popover(options);
 
   $('.a-js-togglePopoverIcons').each(function() {
-    // $(this).find('i').eq(1).hide();
-    $(this).find('.a-js-popoverIconExpanded').hide();
+    $(this).find('i').eq(1).hide();
+    // $(this).find('.a-js-popoverIconExpanded').hide();
+  });
+
+  $('.a-js-popoverIconExpanded').on('click', function() {
+    $(this).hide();
+    $(this).parent().find('.a-js-popoverIconInitial').show();
+  });
+  $('.a-js-popoverIconInitial').on('click', function() {
+    $(this).hide();
+    $(this).parent().find('.a-js-popoverIconExpanded').show();
   });
 };
 
@@ -1101,6 +1135,20 @@ var setupTruncateLines = function() {
       $('.a-js-truncate-2-sm-down').truncate('expand');
     }
   });
+
+  $('.a-collapsePanel-body').on('shown.bs.collapse', function() {
+    var el = $(this).siblings('.a-collapsePanel-heading').find('.a-js-truncate-2-sm-down');
+    if (window.innerWidth < 768) {
+      el.truncate('expand');
+    }
+  });
+
+  $('.a-collapsePanel-body').on('hide.bs.collapse', function() {
+    var el = $(this).siblings('.a-collapsePanel-heading').find('.a-js-truncate-2-sm-down');
+    if (window.innerWidth < 768) {
+      el.truncate('collapse');
+    }
+  });
 };
 
 function showPassword(src, target) {
@@ -1249,6 +1297,7 @@ var setValidatorSettings = function() {
   articleAnchors,
   feedbackToggle,
   setValidatorSettings,
+  autoFootnotes,
   popoverLocalInit,
   popoverGlobalInit,
   setupSelectableCheckbox,
@@ -1288,6 +1337,7 @@ window.sharedInit = function() {
   tooltip();
   toggleInstant();
   feedbackToggle();
+  autoFootnotes();
   popoverLocalInit();
   popoverGlobalInit();
   setupSelectableCheckbox();

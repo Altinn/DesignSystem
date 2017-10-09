@@ -1,0 +1,25 @@
+// Mixins
+// --------------------------
+
+@mixin ai-icon() {
+  display: inline-block;
+  font: normal normal normal #{$ai-font-size-base}/#{$ai-line-height-base} "AltinnNo";
+  font-size: inherit;
+  text-rendering: auto;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+@mixin ai-icon-rotate($degrees, $rotation) {
+  filter: "progid:DXImageTransform.Microsoft.BasicImage(rotation=#{$rotation})";
+  -webkit-transform: rotate($degrees);
+  -ms-transform: rotate($degrees);
+  transform: rotate($degrees);
+}
+
+@mixin ai-icon-flip($horiz, $vert, $rotation) {
+  filter: "progid:DXImageTransform.Microsoft.BasicImage(rotation=#{$rotation})";
+  -webkit-transform: scale($horiz, $vert);
+  -ms-transform: scale($horiz, $vert);
+  transform: scale($horiz, $vert);
+}

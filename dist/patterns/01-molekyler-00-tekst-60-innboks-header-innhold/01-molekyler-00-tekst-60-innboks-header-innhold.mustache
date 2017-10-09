@@ -11,7 +11,11 @@
       <div class="col-auto hidden-md-up a-msgDuedate">
         <span class="a-fontBold">{{ due-date-label }}</span> {{ due-date }}
       </div>
-      {{/ due-date-content }} {{^ is-h1 }}
+      {{/ due-date-content }} {{# state-content }}
+      <div class="col-auto hidden-md-up a-msgState">
+        <span{{# state-class }} class="{{ state-class }}" {{/ state-class }}>{{ state-text }}</span>
+      </div>
+      {{/ state-content }} {{^ is-h1 }}
       <h3 class="mb-0 a-js-truncate-2-sm-down">
         {{ textDescription }}
         <span class="a-msgTitle">{{ textMain }}</span>
@@ -34,7 +38,11 @@
   <div class="col-auto hidden-sm-down a-msgDuedate">
     <span class="a-fontBold">{{ due-date-label }}</span> {{ due-date }}
   </div>
-  {{/ due-date-content }} {{# shortcuts }}
+  {{/ due-date-content }} {{# state-content }}
+  <div class="col-auto hidden-sm-down a-msgState">
+    <span{{# state-class }} class="{{ state-class }}" {{/ state-class }}>{{ state-text }}</span>
+  </div>
+  {{/ state-content }} {{# shortcuts }}
   <div class="col-auto hidden-sm-down a-msgShortcutsContainer">
     {{# shortcut-icons }}
     <div{{# button-class }} class="{{ button-class }}" {{/ button-class }}{{^ disabled }} role="button" tabindex="0" {{/ disabled }}{{# aria-label }} aria-label="{{ aria-label }}" {{/ aria-label }}{{# aria-hidden }} aria-hidden="true" {{/ aria-hidden }}>
