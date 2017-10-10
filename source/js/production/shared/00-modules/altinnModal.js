@@ -56,10 +56,12 @@ AltinnModal = {
       $(settings.target).on('hidden.bs.modal', function() {
         $(settings.target + ' .a-modal-content-target').empty();
         $(settings.target).attr('aria-hidden', true);
+        $('#altinnModal').siblings('.row').removeClass('d-none');
       });
 
       $(settings.target).on('shown.bs.modal', function() {
         $(settings.target).removeAttr('aria-hidden');
+        $('#altinnModal').siblings('.row').addClass('d-none');
       });
       popoverLocalInit();
 
