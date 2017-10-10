@@ -12,6 +12,7 @@ var genericSearch = function() {
   var elements = {
     $altContainer: null,
     $container: null,
+    $extraResultsHeading: null,
     $noResultsMessage: null,
     $genericSearch: null,
     $legend: null,
@@ -27,13 +28,15 @@ var genericSearch = function() {
     tagFilterSectionSelector: '.a-card-filter'
   };
 
-  var grinder = function(item) {
+  function grinder(item) {
     var i;
     var j;
     var itemDimension;
     var isMatch = false;
+    var itemDimensionsCount = 0;
 
     for (i = 0; i < dimensions.length; i += 1) {
+      itemDimensionsCount += item[dimensions[i].name].length;
       for (j = 0; j < item[dimensions[i].name].length; j += 1) {
         itemDimension = item[dimensions[i].name][j];
         if (selection.includes('d' + (i + 1) + '-' + itemDimension)) {
@@ -43,8 +46,13 @@ var genericSearch = function() {
       }
     }
 
+    // General item
+    if (itemDimensionsCount === 0) {
+      isMatch = true;
+    }
+
     return isMatch;
-  };
+  }
 
   function tags() {
     return $(keys.tagFilterSectionSelector).find('input[type="checkbox"].sr-only');
@@ -126,16 +134,6 @@ var genericSearch = function() {
     }
   }
 
-  function setContainerVisibility() {
-    if (dimensions[1].isSelected) {
-      elements.$container.hide();
-      elements.$altContainer.show();
-    } else {
-      elements.$container.show();
-      elements.$altContainer.hide();
-    }
-  }
-
   function setResultsButtonVisibility() {
     if (userHasSelectedTags()) {
       elements.$showResultsButton.removeAttr('disabled');
@@ -144,6 +142,28 @@ var genericSearch = function() {
     } else {
       elements.$showResultsButton.addClass(keys.forceHiddenClass);
       elements.$showResultsButton.hide();
+    }
+  }
+
+  function setElementsVisibility(filteredList) {
+    if (userHasSelectedTags()) {
+      elements.$loadMoreButton[filteredList.length < articlesPerPage * page ? 'hide' : 'show']();
+      elements.$noResultsMessage[filteredList.length === 0 ? 'show' : 'hide']();
+      setResultsButtonVisibility();
+  
+      if (dimensions[1].isSelected) {
+        elements.$container.hide();
+        elements.$altContainer.show();
+        elements.$altContainer.removeClass(keys.forceHiddenClass);
+      } else {
+        elements.$container.show();
+        elements.$container.removeClass(keys.forceHiddenClass);
+        elements.$altContainer.hide();
+      }
+    } else {
+      elements.$showResultsButton.hide();
+      elements.$container.hide();
+      elements.$altContainer.hide();
     }
   }
 
@@ -156,13 +176,6 @@ var genericSearch = function() {
     $('body').scrollTop($('.a-js-filterDim1').offset().top - 12);
   }
 
-  function hideResults() {
-    // $('.a-js-results').addClass(keys.forceHiddenClass);
-    // $('.a-js-alternativeResults').addClass(keys.forceHiddenClass);
-    // $('.a-js-moreResults').addClass(keys.forceHiddenClass);
-    setResultsButtonVisibility();
-  }
-
   function filterArticles() {
     var aboveCount = 0;
     var belowCount = 0;
@@ -170,6 +183,8 @@ var genericSearch = function() {
     var $dimensionSectionContainer = null;
     var $noSelectionLabel = null;
     var $selectionLabel = null;
+    var showExtraHeading = false;
+    var $altItem = null;
 
     getSelection();
     setHistoryState();
@@ -203,50 +218,75 @@ var genericSearch = function() {
         $('#' + item.altId)[aboveCount < articlesPerPage * page ? 'show' : 'hide']();
       }
     });
-    filteredList.forEach(function(item, index) {
-      if (item.isBelow) {
+    filteredList.forEach(function(item) {
+      if (!item.isAbove) {
+        $altItem = $('#' + item.altId);
+        if (aboveCount < articlesPerPage * page && belowCount < ((articlesPerPage * page) - aboveCount)) {
+          showExtraHeading = true;
+          $altItem.show();
+        } else {
+          $altItem.hide();
+        }
         belowCount += 1;
-        $('#' + item.altId)[
-          aboveCount < articlesPerPage * page && belowCount < ((articlesPerPage * page) - aboveCount) ? 'show' : 'hide']();
       }
     });
-    setTimeout(function() {
-      $('.a-js-extraHeading')[
-        $('.a-js-underneath').is(':visible') ? 'show' : 'hide']();
-    }, 1);
-    elements.$loadMoreButton[filteredList.length < articlesPerPage * page ? 'hide' : 'show']();
-    elements.$noResultsMessage[filteredList.length === 0 ? 'show' : 'hide']();
-    setContainerVisibility();
-    hideResults();
+    if (showExtraHeading) {
+      elements.$extraResultsHeading.show();
+    } else {
+      elements.$extraResultsHeading.hide();
+    }
+    
+    setElementsVisibility(filteredList);
   }
 
-  function appendExtraContentHeading() {
+  function appendExtraResultsHeading() {
     elements.$altContainer.append('<span class="a-js-top"></span>');
     elements.$altContainer.append(elements.$altContainer.attr('data-extraresultsheading'));
     elements.$altContainer.append('<span class="a-js-bottom"></span>');
+    elements.$extraResultsHeading = $('.a-js-extraHeading');
+  }
+
+  function createResultElement(template, name, url, description, id, cssClasses) {
+    return template.replace('%NAME%', name)
+      .replace(/%URL%/g, url)
+      .replace('%DESC%', description || 'Ingen beskrivelse.')
+      .replace('%IDENTIFIER%', id)
+      .replace('a-linkArticle', cssClasses);
   }
 
   function buildResultsList(mappedKeys) {
     var element;
-    var extraCssClass = '';
+    var name;
+    var url;
+    var description;
+    var id;
+    var cssClasses;
+
     dataList.forEach(function(item, index) {
       dataList[index].id = 'result-' + index;
       dataList[index].altId = 'altResult-' + index;
-      if (item.Industries.length !== 0) {
-        extraCssClass = '';
+      if (item.Purposes.length !== 0 || item.Industries.length !== 0) {
         dataList[index].isAbove = true;
       } else {
-        dataList[index].isBelow = true;
-        extraCssClass = ' a-js-underneath';
+        dataList[index].isAbove = false;
       }
-      element = base.replace('%NAME%', item[mappedKeys.NAME]).replace(/%URL%/g, item[mappedKeys.URL])
-        .replace('%DESC%', item[mappedKeys.DESC] || 'Ingen beskrivelse.')
-        .replace('%IDENTIFIER%', 'result-' + index)
-        .replace('a-linkArticle', 'a-linkArticle a-js-result');
+      name = item[mappedKeys.NAME];
+      url = item[mappedKeys.URL];
+      description = item[mappedKeys.DESC] || 'Ingen beskrivelse.';
+      id = 'result-' + index;
+      cssClasses = 'a-linkArticle a-js-result';
+      element = createResultElement(base, name, url, description, id, cssClasses);
       elements.$container.append(element);
-      elements.$altContainer.find('.a-js-extraHeading')
-        .before(element
-          .replace('a-js-result', 'a-js-result' + extraCssClass));
+      
+      id = 'altResult-' + index;
+      if (dataList[index].isAbove) {
+        element = createResultElement(base, name, url, description, id, cssClasses);
+        elements.$extraResultsHeading.before(element);
+      } else {
+        cssClasses = 'a-linkArticle a-js-result a-js-underneath';
+        element = createResultElement(base, name, url, description, id, cssClasses);
+        elements.$extraResultsHeading.after(element);
+      }
     });
     elements.$container.find('.a-js-result').each(function(index, item) {
       $(this)[index < articlesPerPage * page ? 'show' : 'hide']();
@@ -309,7 +349,6 @@ var genericSearch = function() {
       });
       $('.a-js-filterDim' + (index + 1)).find('.a-switch').eq(0).hide();
     });
-    appendExtraContentHeading();
     tags().on('change', toggleTag);
     // Give the browser time to update the UI
     setTimeout(function() {
@@ -326,10 +365,6 @@ var genericSearch = function() {
       dataList = data.SubsidiesList;
     }
     $(keys.genericSearchSelector).next().find(keys.tagFilterSectionSelector).show();
-    /* elements.$container.show();
-    if (elements.$altContainer) {
-      elements.$altContainer.show();
-    }*/
     if (inputBy === 'search') {
       $(keys.genericSearchSelector).find('form').on('keyup keypress', function(e) {
         var keyCode = e.keyCode || e.which;
@@ -416,6 +451,7 @@ var genericSearch = function() {
     elements.$container.find('li:gt(0)').remove();
     elements.$container.find('.a-js-result:gt(0)').remove();
     elements.$container.html('');
+    elements.$altContainer.html('');
   }
 
   function getInputType() {
@@ -424,7 +460,8 @@ var genericSearch = function() {
 
   function getData() {
     var dataUrl = dataSource[0];
-    dataUrl = '/data/getsubsidy.json';
+    // This line only for development, do not commit uncommented
+    // dataUrl = '/data/getsubsidy.json';
     $.ajax({ type: 'GET', url: dataUrl, success: processData, error: onError });
   }
 
@@ -438,6 +475,7 @@ var genericSearch = function() {
     getInputType();
     findElements();
     initialLayout();
+    appendExtraResultsHeading();
     addEventHandlers();
     // Give the browser time to update the UI
     setTimeout(getData, 0);
