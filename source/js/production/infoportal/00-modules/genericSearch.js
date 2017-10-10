@@ -1,7 +1,6 @@
 /* globals $ */
 var genericSearch = function() {
   var dimensions;
-  var dataSource;
   var base;
   var page = 0;
   var articlesPerPage = 5;
@@ -85,6 +84,13 @@ var genericSearch = function() {
     return false;
   }
 
+  function getDataSource(index) {
+    var dataSources = $(keys.genericSearchSelector).attr('data-source').split(',');
+    var dataUrl = dataSources[index] + '/' + $('html').attr('lang');
+
+    return dataUrl;
+  }
+
   function getSelection() {
     var id;
     var idPattern = /d(\d+)-.*/;
@@ -135,22 +141,13 @@ var genericSearch = function() {
     }
   }
 
-  function setResultsButtonVisibility() {
-    if (userHasSelectedTags()) {
-      elements.$showResultsButton.removeAttr('disabled');
-      elements.$showResultsButton.removeClass(keys.forceHiddenClass);
-      elements.$showResultsButton.show();
-    } else {
-      elements.$showResultsButton.addClass(keys.forceHiddenClass);
-      elements.$showResultsButton.hide();
-    }
-  }
-
   function setElementsVisibility(filteredList) {
     if (userHasSelectedTags()) {
       elements.$loadMoreButton[filteredList.length < articlesPerPage * page ? 'hide' : 'show']();
       elements.$noResultsMessage[filteredList.length === 0 ? 'show' : 'hide']();
-      setResultsButtonVisibility();
+      elements.$showResultsButton.removeAttr('disabled');
+      elements.$showResultsButton.removeClass(keys.forceHiddenClass);
+      elements.$showResultsButton.show();
   
       if (dimensions[1].isSelected) {
         elements.$container.hide();
@@ -165,6 +162,8 @@ var genericSearch = function() {
       elements.$showResultsButton.hide();
       elements.$container.hide();
       elements.$altContainer.hide();
+      elements.$showResultsButton.addClass(keys.forceHiddenClass);
+      elements.$showResultsButton.hide();
     }
   }
 
@@ -335,8 +334,14 @@ var genericSearch = function() {
 
     dimensions.forEach(function(dimension, index) {
       var hasNote = $('.a-js-filterDim' + (index + 1)).find('.d-block').length > 0;
+      var dimensionListName = dimension.name + 'List';
+      var dimensionListName2 = dimension.alias + 'List';
+      console.log('dimensionListName = ' + dimensionListName);
+      console.log('dimensionListName2 = ' + dimensionListName2);
+      console.log(Object.keys(data));
       var where = data[dimension.name + 'List'] ?
         data[dimension.name + 'List'] : data[dimensions[index].alias + 'List'];
+        console.log('where = ' + data);
       where.forEach(function(item) {
         var $tag = $('<div class="a-switch">' +
           $('.a-js-filterDim' + (index + 1)).find('.a-switch').eq(0).html()
@@ -413,12 +418,12 @@ var genericSearch = function() {
   }
 
   function onSecondError() {
-    $.getJSON(dataSource[2] + '/' + $('html').attr('lang'), processData);
+    $.getJSON(getDataSource(2), processData);
   }
 
   function onError() {
     $.ajax({
-      type: 'GET', url: dataSource[1] + '/' + $('html').attr('lang'), success: processData, error: onSecondError
+      type: 'GET', url: getDataSource(1), success: processData, error: onSecondError
     });
   }
   
@@ -462,19 +467,14 @@ var genericSearch = function() {
   }
 
   function getData() {
-    var dataUrl = dataSource[0];
+    var dataUrl = getDataSource(0);
     // This line only for development, do not commit uncommented
     // dataUrl = '/data/getsubsidy.json';
     $.ajax({ type: 'GET', url: dataUrl, success: processData, error: onError });
   }
 
-  function getDataSource() {
-    dataSource = $(keys.genericSearchSelector).attr('data-source').split(',');
-  }
-
   if ($(keys.genericSearchSelector).length > 0) {
     getUrlFilter();
-    getDataSource();
     getInputType();
     findElements();
     initialLayout();
