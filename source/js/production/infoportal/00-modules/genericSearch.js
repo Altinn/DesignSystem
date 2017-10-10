@@ -25,7 +25,8 @@ var genericSearch = function() {
     forceHiddenClass: 'a-js-forceHidden',
     genericSearchSelector: '.a-js-genericSearch',
     showResultsButtonSelector: '.a-js-expandResults',
-    tagFilterSectionSelector: '.a-card-filter'
+    tagFilterSectionSelector: '.a-card-filter',
+    generalArticleSelector: 'a-js-underneath'
   };
 
   function grinder(item) {
@@ -222,7 +223,9 @@ var genericSearch = function() {
       if (!item.isAbove) {
         $altItem = $('#' + item.altId);
         if (aboveCount < articlesPerPage * page && belowCount < ((articlesPerPage * page) - aboveCount)) {
-          showExtraHeading = true;
+          if ($altItem.hasClass(keys.generalArticleSelector)) {
+            showExtraHeading = true;
+          }
           $altItem.show();
         } else {
           $altItem.hide();
@@ -235,7 +238,7 @@ var genericSearch = function() {
     } else {
       elements.$extraResultsHeading.hide();
     }
-    
+
     setElementsVisibility(filteredList);
   }
 
@@ -283,7 +286,7 @@ var genericSearch = function() {
         element = createResultElement(base, name, url, description, id, cssClasses);
         elements.$extraResultsHeading.before(element);
       } else {
-        cssClasses = 'a-linkArticle a-js-result a-js-underneath';
+        cssClasses = 'a-linkArticle a-js-result ' + keys.generalArticleSelector;
         element = createResultElement(base, name, url, description, id, cssClasses);
         elements.$extraResultsHeading.after(element);
       }
