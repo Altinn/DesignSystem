@@ -4930,8 +4930,8 @@ var genericSearch = function() {
 
     dimensions.forEach(function(dimension, index) {
       var hasNote = $('.a-js-filterDim' + (index + 1)).find('.d-block').length > 0;
-      var where = data[dimension + 'List'] ?
-        data[dimension + 'List'] : data[dimensions[index].alias + 'List'];
+      var where = data[dimension.name + 'List'] ?
+        data[dimension.name + 'List'] : data[dimensions[index].alias + 'List'];
       where.forEach(function(item) {
         var $tag = $('<div class="a-switch">' +
           $('.a-js-filterDim' + (index + 1)).find('.a-switch').eq(0).html()
