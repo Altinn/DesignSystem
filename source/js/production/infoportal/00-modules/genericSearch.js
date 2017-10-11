@@ -3,22 +3,11 @@ var genericSearch = function() {
   var dimensions;
   var base;
   var page = 0;
-  var articlesPerPage = 5;
+  var articlesPerPage = 20;
   var inputBy;
   var selection = [];
   var dataList;
-
-  var elements = {
-    $altContainer: null,
-    $container: null,
-    $extraResultsHeading: null,
-    $noResultsMessage: null,
-    $genericSearch: null,
-    $legend: null,
-    $loader: null,
-    $loadMoreButton: null,
-    $showResultsButton: null
-  };
+  var elements = {};
 
   var keys = {
     forceHiddenClass: 'a-js-forceHidden',
@@ -141,53 +130,50 @@ var genericSearch = function() {
     }
   }
 
+  function hideContainers() {
+    elements.$container.hide();
+    elements.$altContainer.hide();
+  }
+
+  function showContainers() {
+    if (dimensions[1].isSelected) {
+      elements.$container.hide();
+      elements.$altContainer.show();
+      elements.$altContainer.removeClass(keys.forceHiddenClass);
+    } else {
+      elements.$container.show();
+      elements.$container.removeClass(keys.forceHiddenClass);
+      elements.$altContainer.hide();
+    }
+  }
+
   function setElementsVisibility(filteredList) {
     if (userHasSelectedTags()) {
-      elements.$loadMoreButton[filteredList.length < articlesPerPage * page ? 'hide' : 'show']();
+      elements.$loadMoreButton[filteredList.length <= articlesPerPage * page ? 'hide' : 'show']();
       elements.$noResultsMessage[filteredList.length === 0 ? 'show' : 'hide']();
       elements.$showResultsButton.removeAttr('disabled');
       elements.$showResultsButton.removeClass(keys.forceHiddenClass);
       elements.$showResultsButton.show();
-  
-      if (dimensions[1].isSelected) {
-        elements.$container.hide();
-        elements.$altContainer.show();
-        elements.$altContainer.removeClass(keys.forceHiddenClass);
-      } else {
-        elements.$container.show();
-        elements.$container.removeClass(keys.forceHiddenClass);
-        elements.$altContainer.hide();
-      }
     } else {
-      elements.$showResultsButton.hide();
-      elements.$container.hide();
-      elements.$altContainer.hide();
-      elements.$showResultsButton.addClass(keys.forceHiddenClass);
       elements.$showResultsButton.hide();
     }
   }
 
   function showResults() {
     $('.a-collapse-title').not('.collapsed').click();
-    $('.a-js-results').removeClass(keys.forceHiddenClass);
-    $('.a-js-alternativeResults').removeClass(keys.forceHiddenClass);
-    $('.a-js-moreResults').removeClass(keys.forceHiddenClass);
-    $(keys.showResultsButtonSelector).hide();
+    elements.$container.removeClass(keys.forceHiddenClass);
+    elements.$altContainer.removeClass(keys.forceHiddenClass);
+    elements.$loadMoreButton.removeClass(keys.forceHiddenClass);
+    elements.$showResultsButton.hide();
+    showContainers();
     $('body').scrollTop($('.a-js-filterDim1').offset().top - 12);
   }
 
-  function filterArticles() {
-    var aboveCount = 0;
-    var belowCount = 0;
-    var filteredList = [];
+  function setDimenstionLabels() {
     var $dimensionSectionContainer = null;
     var $noSelectionLabel = null;
     var $selectionLabel = null;
-    var showExtraHeading = false;
-    var $altItem = null;
 
-    getSelection();
-    setHistoryState();
     dimensions.forEach(function(dimension, index) {
       $dimensionSectionContainer = $('.a-js-filterDim' + (index + 1));
       $noSelectionLabel = $dimensionSectionContainer.find('.a-js-none');
@@ -204,34 +190,78 @@ var genericSearch = function() {
         break;
       default:
         $noSelectionLabel.hide();
-        $selectionLabel.show(); 
+        $selectionLabel.show();
         break;
       }
     });
+  }
+
+  function hideResultItems() {
     elements.$container.find('.a-js-result').hide();
     elements.$altContainer.find('.a-js-result').hide();
-    filteredList = dataList.filter(grinder);
-    filteredList.forEach(function(item, index) {
-      $('#' + item.id)[index < articlesPerPage * page ? 'show' : 'hide']();
+  }
+
+  function setAboveItemsVisibility(filteredList, maxNumberOfItemsToDisplay) {
+    var aboveCount = 0;
+    var i = 0;
+    var item;
+
+    while (i < filteredList.length && aboveCount < maxNumberOfItemsToDisplay) {
+      item = filteredList[i];
+      $('#' + item.id).show();
       if (item.isAbove) {
+        $('#' + item.altId).show();
         aboveCount += 1;
-        $('#' + item.altId)[aboveCount < articlesPerPage * page ? 'show' : 'hide']();
       }
-    });
-    filteredList.forEach(function(item) {
+      i += 1;
+    }
+
+    return aboveCount;
+  }
+
+  function setBelowItemsVisibility(filteredList, maxNumberOfItemsToDisplay) {
+    var showExtraHeading = false;
+    var belowCount = 0;
+    var i = 0;
+    var item;
+    var $altItem = null;
+
+    while (i < filteredList.length
+      && belowCount < maxNumberOfItemsToDisplay) {
+      item = filteredList[i];
       if (!item.isAbove) {
         $altItem = $('#' + item.altId);
-        if (aboveCount < articlesPerPage * page && belowCount < ((articlesPerPage * page) - aboveCount)) {
-          if ($altItem.hasClass(keys.generalArticleSelector)) {
-            showExtraHeading = true;
-          }
-          $altItem.show();
-        } else {
-          $altItem.hide();
+        if ($altItem.hasClass(keys.generalArticleSelector)) {
+          showExtraHeading = true;
         }
+        $altItem.show();
         belowCount += 1;
       }
-    });
+      i += 1;
+    }
+
+    return showExtraHeading;
+  }
+
+  function filterArticles() {
+    var aboveCount = 0;
+    var filteredList = [];
+    var showExtraHeading;
+    var maxNumberOfItemsToDisplay;
+
+    getSelection();
+    setHistoryState();
+    setDimenstionLabels();
+    hideResultItems();
+    filteredList = dataList.filter(grinder);
+    maxNumberOfItemsToDisplay = articlesPerPage * page;
+
+    aboveCount = setAboveItemsVisibility(filteredList, maxNumberOfItemsToDisplay);
+    if (aboveCount < maxNumberOfItemsToDisplay) {
+      maxNumberOfItemsToDisplay -= aboveCount;
+      showExtraHeading = setBelowItemsVisibility(filteredList, maxNumberOfItemsToDisplay);
+    }
+
     if (showExtraHeading) {
       elements.$extraResultsHeading.show();
     } else {
@@ -239,6 +269,7 @@ var genericSearch = function() {
     }
 
     setElementsVisibility(filteredList);
+    hideContainers();
   }
 
   function appendExtraResultsHeading() {
@@ -279,7 +310,7 @@ var genericSearch = function() {
       cssClasses = 'a-linkArticle a-js-result';
       element = createResultElement(base, name, url, description, id, cssClasses);
       elements.$container.append(element);
-      
+
       id = 'altResult-' + index;
       if (dataList[index].isAbove) {
         element = createResultElement(base, name, url, description, id, cssClasses);
@@ -287,14 +318,12 @@ var genericSearch = function() {
       } else {
         cssClasses = 'a-linkArticle a-js-result ' + keys.generalArticleSelector;
         element = createResultElement(base, name, url, description, id, cssClasses);
-        elements.$extraResultsHeading.after(element);
+        elements.$altContainer.append(element);
       }
     });
     elements.$container.find('.a-js-result').each(function(index, item) {
       $(this)[index < articlesPerPage * page ? 'show' : 'hide']();
     });
-    elements.$loadMoreButton.show();
-    elements.$altContainer.hide();
     resetPage();
     elements.$loader.hide();
     filterArticles();
@@ -305,10 +334,7 @@ var genericSearch = function() {
     filterArticles();
   }
 
-  function buildTagsAndDimensions(data) {
-    var lastKeypress;
-    var iterate;
-    var mappedKeys = {};
+  function getDimensionNames() {
     var dimensionNames;
     var dimensionAliases;
     var dimensionIndex;
@@ -326,11 +352,27 @@ var genericSearch = function() {
         selectedCount: 0
       });
     }
+  }
+
+  function getMappedKeys() {
+    var mappedKeys = {};
+    var parts;
 
     $(keys.genericSearchSelector).attr('data-mappedkeys').split(',').forEach(function(pair) {
       parts = pair.split('=');
       mappedKeys[parts[0]] = parts[1];
     });
+
+    return mappedKeys;
+  }
+
+  function buildTagsAndDimensions(data) {
+    var lastKeypress;
+    var iterate;
+    var mappedKeys;
+
+    getDimensionNames();
+    mappedKeys = getMappedKeys();
 
     dimensions.forEach(function(dimension, index) {
       var hasNote = $('.a-js-filterDim' + (index + 1)).find('.d-block').length > 0;
@@ -420,12 +462,13 @@ var genericSearch = function() {
       type: 'GET', url: getDataSource(1), success: processData, error: onSecondError
     });
   }
-  
+
   function addEventHandlers() {
-    $(keys.showResultsButtonSelector).on('click', showResults);
+    elements.$showResultsButton.on('click', showResults);
     elements.$loadMoreButton.on('click', function() {
       page += 1;
       filterArticles();
+      showContainers();
     });
   }
 
@@ -446,7 +489,7 @@ var genericSearch = function() {
     elements.$loader = elements.$genericSearch.find('.a-loader');
     elements.$noResultsMessage = elements.$genericSearch.find('.a-js-noResults');
     elements.$showResultsButton = $(keys.showResultsButtonSelector);
-    elements.$loadMoreButton = elements.$container.next().next();
+    elements.$loadMoreButton = $('.a-js-moreResults');
   }
 
   function initialLayout() {
@@ -463,7 +506,7 @@ var genericSearch = function() {
   function getData() {
     var dataUrl = getDataSource(0);
     // This line only for development, do not commit uncommented
-    // dataUrl = '/data/getsubsidy.json';
+    //dataUrl = '/data/getsubsidy.json';
     $.ajax({ type: 'GET', url: dataUrl, success: processData, error: onError });
   }
 
