@@ -334,14 +334,8 @@ var genericSearch = function() {
 
     dimensions.forEach(function(dimension, index) {
       var hasNote = $('.a-js-filterDim' + (index + 1)).find('.d-block').length > 0;
-      var dimensionListName = dimension.name + 'List';
-      var dimensionListName2 = dimension.alias + 'List';
-      console.log('dimensionListName = ' + dimensionListName);
-      console.log('dimensionListName2 = ' + dimensionListName2);
-      console.log(Object.keys(data));
       var where = data[dimension.name + 'List'] ?
         data[dimension.name + 'List'] : data[dimensions[index].alias + 'List'];
-        console.log('where = ' + data);
       where.forEach(function(item) {
         var $tag = $('<div class="a-switch">' +
           $('.a-js-filterDim' + (index + 1)).find('.a-switch').eq(0).html()
