@@ -8490,8 +8490,7 @@ textarea,
       -webkit-font-smoothing: subpixel-antialiased; } }
 
 .a-fontSizeS, h4,
-.a-h4, .a-radioButtons .custom-control .a-radioButtons-title, .a-btn, .a-compare-category .a-compare-container p, ul.a-bullet-list li, .a-text ul:not(.connected-bullets):not(.no-decoration):not(.a-list) li,
-.a-text ul.a-bullet-list:not(.connected-bullets):not(.no-decoration):not(.a-list) li, ul.a-item-list-icon li span, .a-inboxCompact .a-inboxHeadingContent h3, .a-text, .a-text > a, .a-text p,
+.a-h4, .a-radioButtons .custom-control .a-radioButtons-title, .a-btn, .a-compare-category .a-compare-container p, ul.a-bullet-list li, .a-text ul:not(.connected-bullets):not(.no-decoration):not(.a-list) li, ul.a-text.a-bullet-list:not(.connected-bullets):not(.no-decoration):not(.a-list) li, ul.a-item-list-icon li span, .a-inboxCompact .a-inboxHeadingContent h3, .a-text, .a-text > a, .a-text p,
 .a-text li, .a-text ol,
 .a-text .a-circle-list {
   font-size: 16px;
@@ -8500,8 +8499,7 @@ textarea,
   -webkit-font-smoothing: subpixel-antialiased; }
   @media (min-width: 768px) {
     .a-fontSizeS, h4,
-    .a-h4, .a-radioButtons .custom-control .a-radioButtons-title, .a-btn, .a-compare-category .a-compare-container p, ul.a-bullet-list li, .a-text ul:not(.connected-bullets):not(.no-decoration):not(.a-list) li,
-    .a-text ul.a-bullet-list:not(.connected-bullets):not(.no-decoration):not(.a-list) li, ul.a-item-list-icon li span, .a-inboxCompact .a-inboxHeadingContent h3, .a-text, .a-text > a, .a-text p,
+    .a-h4, .a-radioButtons .custom-control .a-radioButtons-title, .a-btn, .a-compare-category .a-compare-container p, ul.a-bullet-list li, .a-text ul:not(.connected-bullets):not(.no-decoration):not(.a-list) li, ul.a-text.a-bullet-list:not(.connected-bullets):not(.no-decoration):not(.a-list) li, ul.a-item-list-icon li span, .a-inboxCompact .a-inboxHeadingContent h3, .a-text, .a-text > a, .a-text p,
     .a-text li, .a-text ol,
     .a-text .a-circle-list {
       font-size: 18px;
@@ -8524,7 +8522,7 @@ textarea,
     -webkit-font-smoothing: subpixel-antialiased; } }
 
 .a-fontSizeXXS, .a-label, .a-validatorInfo, .a-header-options .a-languageSwitcher, .a-personSwitcher, .a-dropdown-languages .dropdown-item p,
-.a-dropdown-personswitchList .dropdown-item p, .a-footerExtraNav, .a-footerExtraNav ul li a, .a-iconText.a-iconText-smallLink .a-iconText-text a, .a-box-button .a-box-button-action, .a-box-button .a-box-button-name, .a-autocomplete-container .a-list li, .a-inboxHeadingContent .a-msgDuedate, .a-searchResults .a-searchResults-breadcrumb {
+.a-dropdown-personswitchList .dropdown-item p, .a-footerExtraNav, .a-footerExtraNav ul li a, .a-iconText.a-iconText-smallLink .a-iconText-text a, .a-box-button .a-box-button-action, .a-box-button .a-box-button-name, .a-autocomplete-container .a-list li, .a-inboxHeadingContent .a-msgDuedate, .a-inboxHeadingContent .a-msgState, .a-searchResults .a-searchResults-breadcrumb {
   font-size: 14px;
   font-size: 1.4rem;
   line-height: 1.5;
@@ -8798,7 +8796,7 @@ p {
   line-height: 1.5;
   -webkit-font-smoothing: subpixel-antialiased;
   margin-bottom: 18px; }
-  @media (min-width: 992px) {
+  @media (min-width: 768px) {
     .a-leadText {
       font-size: 20px;
       font-size: 2rem;
@@ -10977,6 +10975,7 @@ table {
 .a-colnav-wrapper .a-colnav {
   -webkit-box-sizing: border-box;
   box-sizing: border-box;
+  display: none;
   width: 100%;
   padding-left: 10px;
   margin: 0;
@@ -12109,6 +12108,7 @@ i.a-blue {
     -ms-flex-item-align: center;
     align-self: center; }
   .a-btn-icon .a-btn-icon-text {
+    text-align: left;
     -ms-flex-item-align: center;
     align-self: center; }
   .a-btn-icon .a-btn-icon-symbol {
@@ -12138,6 +12138,7 @@ i.a-blue {
     background: #FFFFFF; }
   .a-btn-transparentWhite .a-charIcon {
     width: 48px;
+    min-width: 48px;
     min-height: 48px;
     color: #1EAEF7;
     background: #FFFFFF;
@@ -13284,23 +13285,16 @@ ul {
   ul.no-decoration {
     margin: 0;
     list-style: none; }
-  ul.a-bullet-list, .a-text ul:not(.connected-bullets):not(.no-decoration):not(.a-list),
-  .a-text ul.a-bullet-list:not(.connected-bullets):not(.no-decoration):not(.a-list) {
+  ul.a-bullet-list, .a-text ul:not(.connected-bullets):not(.no-decoration):not(.a-list), ul.a-text.a-bullet-list:not(.connected-bullets):not(.no-decoration):not(.a-list) {
     margin-top: 12px;
     margin-left: 0;
     color: #000000;
     list-style: none; }
-    @media (min-width: 768px) {
-      ul.a-bullet-list, .a-text ul:not(.connected-bullets):not(.no-decoration):not(.a-list),
-      .a-text ul.a-bullet-list:not(.connected-bullets):not(.no-decoration):not(.a-list) {
-        margin-left: -24px; } }
-    ul.a-bullet-list li, .a-text ul:not(.connected-bullets):not(.no-decoration):not(.a-list) li,
-    .a-text ul.a-bullet-list:not(.connected-bullets):not(.no-decoration):not(.a-list) li {
+    ul.a-bullet-list li, .a-text ul:not(.connected-bullets):not(.no-decoration):not(.a-list) li, ul.a-text.a-bullet-list:not(.connected-bullets):not(.no-decoration):not(.a-list) li {
       position: relative;
       padding-left: 24px;
       margin-bottom: 12px; }
-      ul.a-bullet-list li::before, .a-text ul:not(.connected-bullets):not(.no-decoration):not(.a-list) li::before,
-      .a-text ul.a-bullet-list:not(.connected-bullets):not(.no-decoration):not(.a-list) li::before {
+      ul.a-bullet-list li::before, .a-text ul:not(.connected-bullets):not(.no-decoration):not(.a-list) li::before, ul.a-text.a-bullet-list:not(.connected-bullets):not(.no-decoration):not(.a-list) li::before {
         font-size: 30px;
         font-size: 3rem;
         line-height: 1.3;
@@ -13311,14 +13305,14 @@ ul {
         padding-right: 5px;
         color: #1EAEF7;
         content: '•'; }
-    ul.a-bullet-list.a-bulletList-light li, .a-text ul.a-bulletList-light:not(.connected-bullets):not(.no-decoration):not(.a-list) li {
+    ul.a-bullet-list.a-bulletList-light li, .a-text ul.a-bulletList-light:not(.connected-bullets):not(.no-decoration):not(.a-list) li, ul.a-bulletList-light.a-text.a-bullet-list:not(.connected-bullets):not(.no-decoration):not(.a-list) li {
       font-family: "DIN-light";
       font-weight: normal;
       font-size: 16px;
       font-size: 1.6rem;
       line-height: 1.5;
       -webkit-font-smoothing: subpixel-antialiased; }
-      ul.a-bullet-list.a-bulletList-light li::before, .a-text ul.a-bulletList-light:not(.connected-bullets):not(.no-decoration):not(.a-list) li::before {
+      ul.a-bullet-list.a-bulletList-light li::before, .a-text ul.a-bulletList-light:not(.connected-bullets):not(.no-decoration):not(.a-list) li::before, ul.a-bulletList-light.a-text.a-bullet-list:not(.connected-bullets):not(.no-decoration):not(.a-list) li::before {
         font-size: 24px;
         font-size: 2.4rem;
         line-height: 1.5;
@@ -13336,7 +13330,8 @@ ul {
       list-style: none; }
       @media (min-width: 768px) {
         ul.connected-bullets li {
-          padding-left: 0; } }
+          padding-left: 0;
+          margin-left: 36px; } }
       ul.connected-bullets li::before {
         position: absolute;
         left: 12px;
@@ -14110,7 +14105,7 @@ body.modal-open {
       margin-top: -2px;
       margin-right: -3px;
       color: rgba(0, 0, 0, 0.7);
-      pointer-events: none; }
+      cursor: not-allowed; }
     .a-modal-top .a-modal-top-user .a-personSwitcher-icon {
       color: rgba(0, 0, 0, 0.7);
       letter-spacing: normal; }
@@ -14679,6 +14674,20 @@ a.a-modal-close {
 
 /*------------------------------------*    Inbox
 \*------------------------------------*/
+@media (min-width: 768px) {
+  a[aria-expanded='false'] .a-inboxHeadingContent .a-msgHeadingTextContainer {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap; } }
+
+@media (min-width: 768px) {
+  a[aria-expanded='false'] .a-inboxHeadingContent .a-msgHeadingTextContainer div,
+  a[aria-expanded='false'] .a-inboxHeadingContent .a-msgHeadingTextContainer h1,
+  a[aria-expanded='false'] .a-inboxHeadingContent .a-msgHeadingTextContainer h3 {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap; } }
+
 .a-inboxHeadingContent {
   height: auto !important;
   height: 84px;
@@ -14715,6 +14724,10 @@ a.a-modal-close {
     margin-right: 24px;
     -ms-flex-item-align: center;
     align-self: center; }
+  .a-inboxHeadingContent .a-msgState {
+    margin-right: 24px;
+    -ms-flex-item-align: center;
+    align-self: center; }
   .a-inboxHeadingContent .a-msgHeadingTextContainer {
     display: -webkit-box;
     display: -ms-flexbox;
@@ -14724,26 +14737,11 @@ a.a-modal-close {
     align-self: center; }
     @media (min-width: 768px) {
       .a-inboxHeadingContent .a-msgHeadingTextContainer {
-        padding-right: 24px;
-        overflow: hidden;
-        text-overflow: ellipsis;
-        white-space: nowrap; } }
-    @media (min-width: 768px) {
-      .a-inboxHeadingContent .a-msgHeadingTextContainer div,
-      .a-inboxHeadingContent .a-msgHeadingTextContainer h1,
-      .a-inboxHeadingContent .a-msgHeadingTextContainer h3 {
-        overflow: hidden;
-        text-overflow: ellipsis;
-        white-space: nowrap; } }
+        padding-right: 24px; } }
     .a-inboxHeadingContent .a-msgHeadingTextContainer h1,
     .a-inboxHeadingContent .a-msgHeadingTextContainer h3 {
-      font-family: "DIN-medium";
+      font-family: "DIN-reg";
       font-weight: normal; }
-      @media (min-width: 768px) {
-        .a-inboxHeadingContent .a-msgHeadingTextContainer h1,
-        .a-inboxHeadingContent .a-msgHeadingTextContainer h3 {
-          font-family: "DIN-reg";
-          font-weight: normal; } }
     .a-inboxHeadingContent .a-msgHeadingTextContainer .a-msgDuedate {
       margin-right: 24px; }
   .a-inboxHeadingContent .a-msgDuedateIcon {
@@ -14815,7 +14813,7 @@ a.a-modal-close {
     color: #FFFFFF;
     background-color: #E23B53; }
   .a-inboxHeadingContent.a-msgUrgent .a-msgDuedate {
-    color: #E23B53; }
+    color: #BF0032; }
   .expanded .a-inboxHeadingContent.a-msgUrgent .a-msgIconWrapper {
     color: #E23B53;
     background-color: transparent; }
@@ -14969,6 +14967,10 @@ a.a-modal-close {
     cursor: pointer;
     content: ''; }
 
+@media (min-width: 768px) {
+  .a-text ul:not(.connected-bullets):not(.no-decoration):not(.a-list), .a-text ul.a-text:not(.connected-bullets):not(.no-decoration):not(.a-list), .a-text.a-bullet-list:not(.connected-bullets):not(.no-decoration):not(.a-list) {
+    margin-left: -24px; } }
+
 .a-text ol,
 .a-text .a-circle-list {
   margin: 0 0 36px 0; }
@@ -14993,6 +14995,17 @@ a.a-modal-close {
       counter-increment: step;
       border: 2px solid #1EAEF7;
       border-radius: 50%; }
+    .a-text ol li ul li,
+    .a-text .a-circle-list li ul li {
+      padding: 0;
+      margin-left: 24px; }
+      .a-text ol li ul li::before,
+      .a-text .a-circle-list li ul li::before {
+        padding: 0;
+        margin-right: 0;
+        margin-left: 0;
+        counter-increment: none;
+        border: none; }
 
 .a-text .a-question-wrapper .a-circle-list {
   margin-left: 0; }
@@ -15030,7 +15043,11 @@ a.a-modal-close {
 .a-text ul.connected-bullets {
   margin-left: 0; }
   .a-text ul.connected-bullets li {
+    padding-left: 36px;
     margin: 0; }
+    @media (min-width: 768px) {
+      .a-text ul.connected-bullets li {
+        padding-left: 0; } }
 
 .a-text ul.no-decoration,
 .a-text ol.no-decoration {
@@ -16646,6 +16663,8 @@ hr {
   background: #FFFFFF; }
   .a-overlay-container .filter-limit-hits-spacer {
     height: 55px; }
+  .a-overlay-container .a-personSwitcher {
+    cursor: not-allowed; }
   .a-overlay-container .a-btn.a-btn-icon {
     min-height: 0; }
     .a-overlay-container .a-btn.a-btn-icon:hover {
@@ -16984,8 +17003,7 @@ textarea,
       -webkit-font-smoothing: subpixel-antialiased; } }
 
 .a-fontSizeS, h4,
-.a-h4, .a-radioButtons .custom-control .a-radioButtons-title, .a-btn, .a-compare-category .a-compare-container p, ul.a-bullet-list li, .a-text ul:not(.connected-bullets):not(.no-decoration):not(.a-list) li,
-.a-text ul.a-bullet-list:not(.connected-bullets):not(.no-decoration):not(.a-list) li, ul.a-item-list-icon li span, .a-inboxCompact .a-inboxHeadingContent h3, .a-text, .a-text > a, .a-text p,
+.a-h4, .a-radioButtons .custom-control .a-radioButtons-title, .a-btn, .a-compare-category .a-compare-container p, ul.a-bullet-list li, .a-text ul:not(.connected-bullets):not(.no-decoration):not(.a-list) li, ul.a-text.a-bullet-list:not(.connected-bullets):not(.no-decoration):not(.a-list) li, ul.a-item-list-icon li span, .a-inboxCompact .a-inboxHeadingContent h3, .a-text, .a-text > a, .a-text p,
 .a-text li, .a-text ol,
 .a-text .a-circle-list {
   font-size: 16px;
@@ -16994,8 +17012,7 @@ textarea,
   -webkit-font-smoothing: subpixel-antialiased; }
   @media (min-width: 768px) {
     .a-fontSizeS, h4,
-    .a-h4, .a-radioButtons .custom-control .a-radioButtons-title, .a-btn, .a-compare-category .a-compare-container p, ul.a-bullet-list li, .a-text ul:not(.connected-bullets):not(.no-decoration):not(.a-list) li,
-    .a-text ul.a-bullet-list:not(.connected-bullets):not(.no-decoration):not(.a-list) li, ul.a-item-list-icon li span, .a-inboxCompact .a-inboxHeadingContent h3, .a-text, .a-text > a, .a-text p,
+    .a-h4, .a-radioButtons .custom-control .a-radioButtons-title, .a-btn, .a-compare-category .a-compare-container p, ul.a-bullet-list li, .a-text ul:not(.connected-bullets):not(.no-decoration):not(.a-list) li, ul.a-text.a-bullet-list:not(.connected-bullets):not(.no-decoration):not(.a-list) li, ul.a-item-list-icon li span, .a-inboxCompact .a-inboxHeadingContent h3, .a-text, .a-text > a, .a-text p,
     .a-text li, .a-text ol,
     .a-text .a-circle-list {
       font-size: 18px;
@@ -17018,7 +17035,7 @@ textarea,
     -webkit-font-smoothing: subpixel-antialiased; } }
 
 .a-fontSizeXXS, .a-label, .a-validatorInfo, .a-header-options .a-languageSwitcher, .a-personSwitcher, .a-dropdown-languages .dropdown-item p,
-.a-dropdown-personswitchList .dropdown-item p, .a-footerExtraNav, .a-footerExtraNav ul li a, .a-iconText.a-iconText-smallLink .a-iconText-text a, .a-box-button .a-box-button-action, .a-box-button .a-box-button-name, .a-autocomplete-container .a-list li, .a-inboxHeadingContent .a-msgDuedate, .a-searchResults .a-searchResults-breadcrumb {
+.a-dropdown-personswitchList .dropdown-item p, .a-footerExtraNav, .a-footerExtraNav ul li a, .a-iconText.a-iconText-smallLink .a-iconText-text a, .a-box-button .a-box-button-action, .a-box-button .a-box-button-name, .a-autocomplete-container .a-list li, .a-inboxHeadingContent .a-msgDuedate, .a-inboxHeadingContent .a-msgState, .a-searchResults .a-searchResults-breadcrumb {
   font-size: 14px;
   font-size: 1.4rem;
   line-height: 1.5;
@@ -17698,5 +17715,9 @@ pre.prettyprint {
 .epi-wysiwyg .a-compare-header,
 .epi-wysiwyg .a-compare-category {
   margin-bottom: 84px; }
+
+@media (min-width: 1600px) {
+  .epiEditor .a-jumbotron {
+    min-height: 650px; } }
 
 /*# sourceMappingURL=maps/style.css.map */
