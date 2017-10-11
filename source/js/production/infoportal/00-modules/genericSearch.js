@@ -173,12 +173,14 @@ var genericSearch = function() {
     var $dimensionSectionContainer = null;
     var $noSelectionLabel = null;
     var $selectionLabel = null;
+    var $selectionLabelType = null;
 
     dimensions.forEach(function(dimension, index) {
       $dimensionSectionContainer = $('.a-js-filterDim' + (index + 1));
       $noSelectionLabel = $dimensionSectionContainer.find('.a-js-none');
       $selectionLabel = $noSelectionLabel.prev();
       $selectionLabel.find('.badge').html(dimension.selectedCount);
+      $selectionLabelType = $selectionLabel.find('.a-js-card-filter-type');
       switch (dimension.selectedCount) {
       case 0:
         $noSelectionLabel.show();
@@ -187,10 +189,12 @@ var genericSearch = function() {
       case 1:
         $noSelectionLabel.hide();
         $selectionLabel.show();
+        $selectionLabelType.text($selectionLabelType.attr('data-singular-text'));
         break;
       default:
         $noSelectionLabel.hide();
         $selectionLabel.show();
+        $selectionLabelType.text($selectionLabelType.attr('data-plural-text'));
         break;
       }
     });
@@ -506,7 +510,7 @@ var genericSearch = function() {
   function getData() {
     var dataUrl = getDataSource(0);
     // This line only for development, do not commit uncommented
-    //dataUrl = '/data/getsubsidy.json';
+    // dataUrl = '/data/getsubsidy.json';
     $.ajax({ type: 'GET', url: dataUrl, success: processData, error: onError });
   }
 
