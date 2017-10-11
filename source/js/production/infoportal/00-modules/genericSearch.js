@@ -151,7 +151,7 @@ var genericSearch = function() {
       elements.$loadMoreButton[filteredList.length < articlesPerPage * page ? 'hide' : 'show']();
       elements.$noResultsMessage[filteredList.length === 0 ? 'show' : 'hide']();
       setResultsButtonVisibility();
-  
+
       if (dimensions[1].isSelected) {
         elements.$container.hide();
         elements.$altContainer.show();
@@ -205,7 +205,7 @@ var genericSearch = function() {
         break;
       default:
         $noSelectionLabel.hide();
-        $selectionLabel.show(); 
+        $selectionLabel.show();
         break;
       }
     });
@@ -222,7 +222,8 @@ var genericSearch = function() {
     filteredList.forEach(function(item) {
       if (!item.isAbove) {
         $altItem = $('#' + item.altId);
-        if (aboveCount < articlesPerPage * page && belowCount < ((articlesPerPage * page) - aboveCount)) {
+        if (aboveCount < articlesPerPage * page &&
+          belowCount < ((articlesPerPage * page) - aboveCount)) {
           if ($altItem.hasClass(keys.generalArticleSelector)) {
             showExtraHeading = true;
           }
@@ -280,7 +281,7 @@ var genericSearch = function() {
       cssClasses = 'a-linkArticle a-js-result';
       element = createResultElement(base, name, url, description, id, cssClasses);
       elements.$container.append(element);
-      
+
       id = 'altResult-' + index;
       if (dataList[index].isAbove) {
         element = createResultElement(base, name, url, description, id, cssClasses);
@@ -421,7 +422,7 @@ var genericSearch = function() {
       type: 'GET', url: dataSource[1] + '/' + $('html').attr('lang'), success: processData, error: onSecondError
     });
   }
-  
+
   function addEventHandlers() {
     $(keys.showResultsButtonSelector).on('click', showResults);
     elements.$loadMoreButton.on('click', function() {
