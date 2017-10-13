@@ -17,6 +17,22 @@ var genericSearch = function() {
     generalArticleSelector: 'a-js-underneath'
   };
 
+  function arrayIncludes(array, element) {
+    var newArray;
+    var includes;
+
+    if (array.includes) {
+      includes = array.includes(element);
+    } else { // IE
+      newArray = array.filter(function(el) {
+        return el === element;
+      });
+      includes = newArray.length > 0;
+    }
+
+    return includes;
+  }
+
   function grinder(item) {
     var i;
     var j;
@@ -28,7 +44,7 @@ var genericSearch = function() {
       itemDimensionsCount += item[dimensions[i].name].length;
       for (j = 0; j < item[dimensions[i].name].length; j += 1) {
         itemDimension = item[dimensions[i].name][j];
-        if (selection.includes('d' + (i + 1) + '-' + itemDimension)) {
+        if (arrayIncludes(selection, 'd' + (i + 1) + '-' + itemDimension)) {
           isMatch = true;
           break;
         }
@@ -389,7 +405,7 @@ var genericSearch = function() {
             .replace('%TITLE%', item[mappedKeys.TITLE]) + '</div>');
         var $input = $tag.find('input[type="checkbox"]');
         var tagId = urlFilterPrefix($input.attr('id'));
-        if (selection.includes(tagId)) {
+        if (arrayIncludes(selection, tagId)) {
           $input.attr('checked', true);
         }
         $('.a-js-filterDim' + (index + 1))
