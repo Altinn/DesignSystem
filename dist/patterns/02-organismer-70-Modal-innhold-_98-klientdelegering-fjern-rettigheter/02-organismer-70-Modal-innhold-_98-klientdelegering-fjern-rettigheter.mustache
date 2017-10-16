@@ -2,10 +2,14 @@
 <div class="modal-body a-modal-body">
   <div class="row">
     <div class="col-12 col-md-8">
-      {{# person-role }} {{> molekyler-person-rolle }} {{/ person-role }}
+      {{# person-role }}
+        {{> molekyler-person-rolle }}
+      {{/ person-role }}
     </div>
     <div class="col-12 col-md pt-1">
-      {{# cancel-link }} {{> atomer-knapp-link-fare:a-link-modalTop }} {{/ cancel-link }}
+      {{# cancel-link }}
+        {{> atomer-knapp-link-fare:a-link-modalTop }}
+      {{/ cancel-link }}
     </div>
   </div>
   <div class="row">
@@ -16,16 +20,22 @@
   <div role="tablist">
     <div role="tab">
       {{# remove-rights-title }}
-      <div class="mt-1 mb-1">
-        {{> atomer-ekspanderbar-tittel }}
-      </div>
-      {{/ remove-rights-title }} {{# remove-rights-table }}
-      <div class="a-full-width">
-        <div id="{{ collapse-header-contentID }}" class="a-collapseContent collapse show" role="tabpanel" aria-expanded="{{ aria-expanded }}">
-          {{# sortable-table-override }} {{> molekyler-liste-unummerert }} {{/ sortable-table-override }}
+        <div class="mt-1 mb-1">
+          {{> atomer-ekspanderbar-tittel }}
         </div>
-      </div>
-      {{/ remove-rights-table }} {{# done-segment }} {{> molekyler-ferdigsegment:segment-done }} {{/ done-segment }}
+      {{/ remove-rights-title }}
+      {{# remove-rights-table }}
+        <div class="a-full-width">
+          <div id="{{ collapse-header-contentID }}" class="a-collapseContent collapse show" role="tabpanel" aria-expanded="{{ aria-expanded }}">
+            {{# sortable-table-override }}
+              {{> molekyler-liste-unummerert }}
+            {{/ sortable-table-override }}
+          </div>
+        </div>
+      {{/ remove-rights-table }}
+      {{# done-segment }}
+        {{> molekyler-ferdigsegment:segment-done }}
+      {{/ done-segment }}
     </div>
   </div>
 </div>
