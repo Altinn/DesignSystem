@@ -25,7 +25,14 @@ npm install -g pngquant-bin
 ```
 
 ## Setup
-Navigate to the root of the code and run `npm install`.  
+```shell
+git clone https://github.com/Altinn/DesignSystem.git
+```
+
+Navigate to the root of the code and run:
+```shell
+npm install
+```
 
 Also make sure the project in _styleguidekit-assets-altinn_ is built. This requires Ruby to be installed in order to install the [sass](http://sass-lang.com/install) gem. For Windows users, see [Ruby](https://rubyinstaller.org/)
 
