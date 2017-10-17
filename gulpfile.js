@@ -215,8 +215,10 @@ gulp.task('pl-copy:distribution-portal-vendor-js', function () {
 // Create custom js distibution for Portal.
 gulp.task('pl-copy:distribution-portal-js', function () {
   return gulp.src(buildConfig.portal.jsFiles.files)
+    .pipe(sourcemaps.init())
     .pipe(gulp_concat('concat.js'))
     .pipe(gulp_rename(buildConfig.portal.jsFiles.filename))
+    .pipe(sourcemaps.write('./maps'))
     .pipe(gulp.dest('dist/js'));
 });
 
