@@ -33,12 +33,16 @@ var popoverLocalInit = function() {
   });
 
   $('.a-js-popoverIconExpanded').on('click', function() {
-    $(this).hide();
-    $(this).parent().find('.a-js-popoverIconInitial').show();
+    $('.a-js-popoverIconExpanded').hide();
+    $('.a-js-popoverIconInitial').show();
+    // $(this).hide();
+    // $('.a-js-popoverIconInitial').show();
   });
   $('.a-js-popoverIconInitial').on('click', function() {
     $(this).hide();
     $(this).parent().find('.a-js-popoverIconExpanded').show();
+    // $(this).hide();
+    // $(this).parent().find('.a-js-popoverIconExpanded').show();
   });
 };
 
