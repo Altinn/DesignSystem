@@ -31,6 +31,15 @@ var popoverLocalInit = function() {
     // $(this).find('i').eq(1).hide();
     $(this).find('.a-js-popoverIconExpanded').hide();
   });
+
+  $('.a-js-popoverIconExpanded').on('click', function() {
+    $(this).hide();
+    $(this).parent().find('.a-js-popoverIconInitial').show();
+  });
+  $('.a-js-popoverIconInitial').on('click', function() {
+    $(this).hide();
+    $(this).parent().find('.a-js-popoverIconExpanded').show();
+  });
 };
 
 var forceFocusTriggerElement;
@@ -96,6 +105,8 @@ var popoverGlobalInit = function() {
       && $(e.target).parents('.popover.show').length === 0) {
       $('[data-toggle="popover"]').popover('hide');
       forceFocusTriggerElement = false;
+      $(this).parent().find('.a-js-popoverIconInitial').show();
+      $(this).parent().find('.a-js-popoverIconExpanded').hide();
     }
   });
 
@@ -109,19 +120,19 @@ var popoverGlobalInit = function() {
     }
   }
 
-  $('body').on('shown.bs.popover', '.a-js-togglePopoverIcons', function(e) {
-    $(e.target).find('.a-js-popoverIconInitial').hide();
-    $(e.target).find('.a-js-popoverIconExpanded').show();
-    // $(e.target).find('i').eq(0).hide();
-    // $(e.target).find('i').eq(1).show();
-  });
+  // $('body').on('shown.bs.popover', '.a-js-togglePopoverIcons', function(e) {
+  //   $(e.target).find('.a-js-popoverIconInitial').hide();
+  //   $(e.target).find('.a-js-popoverIconExpanded').show();
+  //   // $(e.target).find('i').eq(0).hide();
+  //   // $(e.target).find('i').eq(1).show();
+  // });
 
-  $('body').on('hidden.bs.popover', '.a-js-togglePopoverIcons', function(e) {
-    $(e.target).find('.a-js-popoverIconInitial').show();
-    $(e.target).find('.a-js-popoverIconExpanded').hide();
-    // $(e.target).find('i').eq(0).show();
-    // $(e.target).find('i').eq(1).hide();
-  });
+  // $('body').on('hidden.bs.popover', '.a-js-togglePopoverIcons', function(e) {
+  //   $(e.target).find('.a-js-popoverIconInitial').show();
+  //   $(e.target).find('.a-js-popoverIconExpanded').hide();
+  //   // $(e.target).find('i').eq(0).show();
+  //   // $(e.target).find('i').eq(1).hide();
+  // });
 
   $('body').on('shown.bs.popover', '.a-js-persistPopover', function() {
     // Adjust the popover arrow correctly as the popover fills the full width

@@ -360,10 +360,6 @@ ul {
       $Bullet list
   \*------------------------------------*/
   &.a-bullet-list {
-    @include media-breakpoint-up( md ) {
-      margin-left: -$spacer * 2;
-    }
-
     margin-top: $spacer;
     margin-left: 0;
     color: $black;
@@ -410,15 +406,16 @@ ul {
     margin-top: -1px;
 
     li {
-      @include media-breakpoint-up( md ) {
-        padding-left: 0;
-      }
-
       position: relative;
       padding-bottom: $spacer * 2;
       padding-left: 36px;
       margin-bottom: 0;
       list-style: none;
+
+      @include media-breakpoint-up( md ) {
+        padding-left: 0;
+        margin-left: 36px;
+      }
 
       &::before {
         @include media-breakpoint-up( md ) {

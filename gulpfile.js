@@ -27,6 +27,8 @@ var rename = require('gulp-rename');
 var regexRename = require('gulp-regex-rename');
 var gulpRemoveHtml = require('gulp-remove-html');
 var replace = require('gulp-string-replace');
+var sassVariables = require('gulp-sass-variables');
+var unzip = require('gulp-unzip');
 
 function paths () { return config.paths }
 
@@ -96,6 +98,18 @@ gulp.task('pl-copy:styleguide', function () {
     });
 });
 
+// Unzip fortawesone iconfonts and put them in the correct folder for the npm package
+gulp.task('pl-copy:distribution-fonts', function(done){
+  gulp.src("./source/fortAwesome/kit-altinn-no-ed31cded.zip")
+    .pipe(unzip())
+    .pipe(gulp.dest('./dist/fonts/icons/ai/'))
+
+  gulp.src("./source/fortAwesome/kit-altinn-reg-no-df832575.zip")
+    .pipe(unzip())
+    .pipe(gulp.dest('./dist/fonts/icons/reg/'))
+  done();
+});
+
 // Create flat distribution CSS file (no Patternlab CSS or styleguide UI CSS)
 // and copy into distribution folder:
 gulp.task('pl-copy:distribution-css', function (done) {
@@ -111,6 +125,9 @@ gulp.task('pl-copy:distribution-css', function (done) {
         '// Automatically removed');
       fs.writeFileSync('./source/css/style-temp.scss', src);
       gulp.src(paths().source.css + 'style-temp.scss')
+        .pipe(sassVariables({
+          $env: 'prod'
+        }))
         .pipe(sass().on('error', sass.logError))
         .pipe(autoprefixer({
             browsers: ['last 2 versions'],
@@ -198,8 +215,10 @@ gulp.task('pl-copy:distribution-portal-vendor-js', function () {
 // Create custom js distibution for Portal.
 gulp.task('pl-copy:distribution-portal-js', function () {
   return gulp.src(buildConfig.portal.jsFiles.files)
+    .pipe(sourcemaps.init())
     .pipe(gulp_concat('concat.js'))
     .pipe(gulp_rename(buildConfig.portal.jsFiles.filename))
+    .pipe(sourcemaps.write('./maps'))
     .pipe(gulp.dest('dist/js'));
 });
 
@@ -460,6 +479,7 @@ gulp.task('dist',
     'pl-clean:dist',
     'patternlab:prebuild',
     'patternlab:build',
+    'pl-copy:distribution-fonts',
     'pl-copy:distribution-css',
     'pl-copy:distribution-images',
     'pl-copy:distribution-epi',
@@ -491,8 +511,8 @@ gulp.task('copy:export-to-styleguide', function (done) {
         .pipe(regexRename(/atomer/g, 'atoms'))
         .pipe(regexRename(/molekyler/g, 'molecules'))
         .pipe(regexRename(/organismer/g, 'organisms'))
-        .pipe(replace('<body class=""', '<body class="bg-white"'))
-        .pipe(gulp.dest('../styleguideguide/_includes/patterns'));
+        .pipe(replace('<body class=""', '<body class="a-bgWhite p-1"'))
+        .pipe(gulp.dest('../designsystem-styleguide/_includes/patterns'));
 
     // Export public/patterns directory to style guide patterns directory
     // This is used to pipe the live patterns into the iframe
@@ -505,28 +525,28 @@ gulp.task('copy:export-to-styleguide', function (done) {
         .pipe(regexRename(/atomer/g, 'atoms'))
         .pipe(regexRename(/molekyler/g, 'molecules'))
         .pipe(regexRename(/organismer/g, 'organisms'))
-        .pipe(replace('<body class=""', '<body class="bg-white"'))
-        .pipe(gulp.dest('../styleguideguide/patterns'));
+        .pipe(replace('<body class=""', '<body class="a-bgWhite p-1"'))
+        .pipe(gulp.dest('../designsystem-styleguide/patterns'));
 
     // Export css directory to style guide css directory
     gulp.src('public/css/**/*')
-        .pipe(gulp.dest('../styleguideguide/css'));
+        .pipe(gulp.dest('../designsystem-styleguide/css'));
 
     // Export js directory to style guide js directory
     gulp.src('public/js/**/*')
-        .pipe(gulp.dest('../styleguideguide/js'));
+        .pipe(gulp.dest('../designsystem-styleguide/js'));
 
     // Export icons to style guide root directory
     // gulp.src('public/icons.svg')
-        // .pipe(gulp.dest('../styleguideguide'));
+        // .pipe(gulp.dest('../designsystem-styleguide'));
 
     // Export images directory to style guide images directory
     gulp.src('public/images/**/*')
-        .pipe(gulp.dest('../styleguideguide/images'));
+        .pipe(gulp.dest('../designsystem-styleguide/images'));
 
     // Export images directory to style guide images directory
     gulp.src('public/images/**/*')
-        .pipe(gulp.dest('../styleguideguide/images'));
+        .pipe(gulp.dest('../designsystem-styleguide/images'));
 
     done();
 });

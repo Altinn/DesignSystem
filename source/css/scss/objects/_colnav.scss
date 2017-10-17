@@ -38,6 +38,7 @@
 
   .a-colnav {
     box-sizing: border-box;
+    display: none;
     width: 100%;
     padding-left: 10px;
     margin: 0;
@@ -250,6 +251,7 @@
             position: relative;
             padding: 18px $spacer * 2 17px $spacer * 2;
             border-bottom: 1px solid $grey-medium;
+
             @include media-breakpoint-up( md ) {
               border-right: none;
             }
@@ -286,9 +288,13 @@
         .is-dropdown-submenu-item {
           a {
             position: relative;
-            padding: $spacer $spacer * 2 11px $spacer * 2;
+            padding: $spacer $spacer 11px $spacer;
             border-right: none;
             border-bottom: 1px solid $black-opacity-01;
+
+            @include media-breakpoint-up( md ) {
+              padding: $spacer $spacer * 2 11px $spacer * 2;
+            }
 
             &:hover {
               background: $grey-lighter;
@@ -297,25 +303,32 @@
             h4 {
               @include a-fontSize16;
               @include a-fontReg;
-              max-width: calc( 100% - 60px );
-              padding-right: $spacer * 5;
               margin-bottom: 0;
+
+              @media screen and (min-width: 370px) {
+                max-width: calc( 100% - 60px );
+                padding-right: $spacer * 5;
+              }
             }
 
             .a-colnav-rightText {
-              @include a-fontSize14;
-              position: absolute;
-              top: 14px;
-              right: $spacer * 3;
-              display: block;
-              width: 108px;
-              overflow: hidden;
-              text-align: right;
-              text-overflow: ellipsis;
-              white-space: nowrap;
+              display: none;
 
-              @include media-breakpoint-up( md ) {
+              @media screen and (min-width: 370px) {
+                @include a-fontSize14;
+                position: absolute;
+                top: 14px;
                 right: $spacer;
+                display: block;
+                width: 108px;
+                overflow: hidden;
+                text-align: right;
+                text-overflow: ellipsis;
+                white-space: nowrap;
+              }
+
+              @include media-breakpoint-up( lg ) {
+                right: $spacer * 2;
               }
             }
           }

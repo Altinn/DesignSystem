@@ -173,6 +173,7 @@
   }
 
   .a-btn-icon-text {
+    text-align: left;
     align-self: center;
   }
 
@@ -214,6 +215,31 @@
     background: $white;
   }
 
+  .a-charIcon {
+    width: 48px;
+    min-width: 48px;
+    min-height: 48px;
+    color: $blue;
+    background: $white;
+    border-radius: 48px;
+
+    span {
+      @include a-fontSize24;
+      display: inline-block;
+      width: 30px;
+      height: 30px;
+      margin-top: 11px;
+      margin-left: 1px;
+      font-style: normal;
+      line-height: 28px;
+    }
+
+    &:hover,
+    &:focus {
+      background: $blue;
+    }
+  }
+
   .a-btn-icon-symbol {
     // @include a-fontSize18;
     display: inline-flex;
@@ -249,7 +275,8 @@
   &:hover {
     background: $white;
 
-    .a-btn-icon-symbol {
+    .a-btn-icon-symbol,
+    .a-charIcon {
       color: $white;
       background: $blue;
     }
@@ -654,7 +681,7 @@
 // SWITCH ACTION (RADIO) BUTTON
 .switch-container {
   width: 100%;
-  height: $spacer * 3;
+  min-height: $spacer * 3;
   border: 2px solid $blue;
 
   .radio {

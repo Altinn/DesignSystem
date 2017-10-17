@@ -32,4 +32,18 @@ var setupTruncateLines = function() {
       $('.a-js-truncate-2-sm-down').truncate('expand');
     }
   });
+
+  $('.a-collapsePanel-body').on('shown.bs.collapse', function() {
+    var el = $(this).siblings('.a-collapsePanel-heading').find('.a-js-truncate-2-sm-down');
+    if (window.innerWidth < 768) {
+      el.truncate('expand');
+    }
+  });
+
+  $('.a-collapsePanel-body').on('hide.bs.collapse', function() {
+    var el = $(this).siblings('.a-collapsePanel-heading').find('.a-js-truncate-2-sm-down');
+    if (window.innerWidth < 768) {
+      el.truncate('collapse');
+    }
+  });
 };

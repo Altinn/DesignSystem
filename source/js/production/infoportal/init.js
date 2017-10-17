@@ -6,7 +6,6 @@
   articleAnchors,
   subscribe,
   setupFormValidation,
-  autoFootnotes,
   listenForAttachmentChanges
 */
 window.infoportalInit = function() {
@@ -17,7 +16,6 @@ window.infoportalInit = function() {
   articleAnchors();
   subscribe();
   setupFormValidation();
-  autoFootnotes();
   listenForAttachmentChanges();
   function setupForm1() {
     $('body').off('focus', '#contactForm', setupForm1);
@@ -36,11 +34,11 @@ window.infoportalInit = function() {
       return 'Tillatte filtyper';
     } else if (type === 'size') {
       // Prefix to error message where the user tried to upload a file which is too big
-      return 'Maksimum filstørrelse';
+      return 'Maksimum filstÃ¸rrelse';
     }
     return 'Det oppstod en feil';
   }
-  listenForAttachmentChanges('#contactForm2', errorMessageCallback);
+  listenForAttachmentChanges('#js-attachmentForm', errorMessageCallback);
 };
 window.infoportalInit();
 // $(document).foundation();
