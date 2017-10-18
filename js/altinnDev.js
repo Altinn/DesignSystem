@@ -4273,6 +4273,22 @@ var genericSearch = function() {
     generalArticleSelector: 'a-js-underneath'
   };
 
+  function arrayIncludes(array, element) {
+    var newArray;
+    var includes;
+
+    if (array.includes) {
+      includes = array.includes(element);
+    } else { // IE
+      newArray = array.filter(function(el) {
+        return el === element;
+      });
+      includes = newArray.length > 0;
+    }
+
+    return includes;
+  }
+
   function grinder(item) {
     var i;
     var j;
@@ -4284,7 +4300,7 @@ var genericSearch = function() {
       itemDimensionsCount += item[dimensions[i].name].length;
       for (j = 0; j < item[dimensions[i].name].length; j += 1) {
         itemDimension = item[dimensions[i].name][j];
-        if (selection.includes('d' + (i + 1) + '-' + itemDimension)) {
+        if (arrayIncludes(selection, 'd' + (i + 1) + '-' + itemDimension)) {
           isMatch = true;
           break;
         }
@@ -4645,7 +4661,7 @@ var genericSearch = function() {
             .replace('%TITLE%', item[mappedKeys.TITLE]) + '</div>');
         var $input = $tag.find('input[type="checkbox"]');
         var tagId = urlFilterPrefix($input.attr('id'));
-        if (selection.includes(tagId)) {
+        if (arrayIncludes(selection, tagId)) {
           $input.attr('checked', true);
         }
         $('.a-js-filterDim' + (index + 1))
@@ -6241,13 +6257,15 @@ var popoverLocalInit = function() {
   $('[data-toggle="popover"]').popover(options);
 
   $('.a-js-togglePopoverIcons').each(function() {
-    $(this).find('i').eq(1).hide();
-    // $(this).find('.a-js-popoverIconExpanded').hide();
+    // $(this).find('i').eq(1).hide();
+    $(this).find('.a-js-popoverIconExpanded').hide();
   });
 
   $('.a-js-popoverIconExpanded').on('click', function() {
-    $(this).hide();
-    $(this).parent().find('.a-js-popoverIconInitial').show();
+    $('.a-js-popoverIconExpanded').hide();
+    $('.a-js-popoverIconInitial').show();
+    // $(this).hide();
+    // $('.a-js-popoverIconInitial').show();
   });
   $('.a-js-popoverIconInitial').on('click', function() {
     $(this).hide();
@@ -6318,6 +6336,8 @@ var popoverGlobalInit = function() {
       && $(e.target).parents('.popover.show').length === 0) {
       $('[data-toggle="popover"]').popover('hide');
       forceFocusTriggerElement = false;
+      $(this).parent().find('.a-js-popoverIconInitial').show();
+      $(this).parent().find('.a-js-popoverIconExpanded').hide();
     }
   });
 

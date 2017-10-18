@@ -28,13 +28,15 @@ var popoverLocalInit = function() {
   $('[data-toggle="popover"]').popover(options);
 
   $('.a-js-togglePopoverIcons').each(function() {
-    $(this).find('i').eq(1).hide();
-    // $(this).find('.a-js-popoverIconExpanded').hide();
+    // $(this).find('i').eq(1).hide();
+    $(this).find('.a-js-popoverIconExpanded').hide();
   });
 
   $('.a-js-popoverIconExpanded').on('click', function() {
-    $(this).hide();
-    $(this).parent().find('.a-js-popoverIconInitial').show();
+    $('.a-js-popoverIconExpanded').hide();
+    $('.a-js-popoverIconInitial').show();
+    // $(this).hide();
+    // $('.a-js-popoverIconInitial').show();
   });
   $('.a-js-popoverIconInitial').on('click', function() {
     $(this).hide();
@@ -105,6 +107,8 @@ var popoverGlobalInit = function() {
       && $(e.target).parents('.popover.show').length === 0) {
       $('[data-toggle="popover"]').popover('hide');
       forceFocusTriggerElement = false;
+      $(this).parent().find('.a-js-popoverIconInitial').show();
+      $(this).parent().find('.a-js-popoverIconExpanded').hide();
     }
   });
 
