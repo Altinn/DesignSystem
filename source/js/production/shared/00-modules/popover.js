@@ -41,8 +41,6 @@ var popoverLocalInit = function() {
   $('.a-js-popoverIconInitial').on('click', function() {
     $(this).hide();
     $(this).parent().find('.a-js-popoverIconExpanded').show();
-    // $(this).hide();
-    // $(this).parent().find('.a-js-popoverIconExpanded').show();
   });
 };
 
