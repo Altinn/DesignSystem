@@ -6,7 +6,8 @@
   articleAnchors,
   subscribe,
   setupFormValidation,
-  listenForAttachmentChanges
+  listenForAttachmentChanges,
+  newsArchive
 */
 window.infoportalInit = function() {
   colnavCustom();
@@ -17,6 +18,7 @@ window.infoportalInit = function() {
   subscribe();
   setupFormValidation();
   listenForAttachmentChanges();
+  newsArchive();
   function setupForm1() {
     $('body').off('focus', '#contactForm', setupForm1);
     setupFormValidation('#contactForm', '#a-js-contactForm-submit');
