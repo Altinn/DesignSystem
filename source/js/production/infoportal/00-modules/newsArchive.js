@@ -3,7 +3,7 @@
 var newsArchive = function() {
   var page = 1;
   var numberOfItemsPerPage = 5;
-  var rootSelector = '.newsArchive';
+  var rootSelector = '.a-newsArchive';
   var articleCssSelector = '.a-linkArticle';
   var $loadMoreButton = $('.a-btn-loadMore');
   var articlesCount = $(articleCssSelector).length;
