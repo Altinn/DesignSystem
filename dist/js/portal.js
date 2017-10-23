@@ -117,9 +117,10 @@ AltinnModal = {
       }
 
       AltinnLoader.removeLoader($('body'));
-      $(settings.target).on('transitionend', function() {
-        $(settings.target).append($('.a-stickyHelp-container'));
-      });
+      // causes issues in IE11 (blinking quickhelp when modal is open)
+      // $(settings.target).on('transitionend', function() {
+      // $(settings.target).append($('.a-stickyHelp-container'));
+      // });
     });
   },
 
