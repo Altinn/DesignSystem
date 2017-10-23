@@ -2,9 +2,7 @@
 <div {{# isModal }} class="modal-body a-modal-body" {{/ isModal }}>
   <div class="row">
     <div class="col-12 col-md-6 col-lg-7">
-      {{# person-rolle }}
-        {{> molekyler-person-rolle }}
-      {{/ person-rolle }}
+      {{# person-rolle }} {{> molekyler-person-rolle }} {{/ person-rolle }}
     </div>
 
     {{# showButton }}
@@ -26,26 +24,20 @@
       {{> atomer-tekst-input }}
     </div>
   </div>
-  {{/ search-rights }}
-
-  {{# expandable-list }}
-    <div class="row">
-      <div class="col-12">
-        <div class="mt-1 mb-2">
-          {{> molekyler-ekspanderbar-liste }}
-        </div>
+  {{/ search-rights }} {{# expandable-list }}
+  <div class="row">
+    <div class="col-12">
+      <div class="mt-1 mb-2">
+        {{> molekyler-ekspanderbar-liste }}
       </div>
     </div>
-  {{/ expandable-list }}
-
-  {{# has-links }}
-    <div class="row">
-      <div class="col mt-1">
-        {{# link-done }}
-            {{> atomer-link }}
-        {{/ link-done }}
-      </div>
+  </div>
+  {{/ expandable-list }} {{# has-links }}
+  <div class="row">
+    <div class="col mt-1">
+      {{# link-done }} {{> atomer-link }} {{/ link-done }}
     </div>
+  </div>
   {{/ has-links }}
 </div>
 <!-- END: 02-organismer-70-Modal-innhold-_93-delegering-roller -->
