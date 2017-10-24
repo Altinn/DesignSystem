@@ -14,10 +14,12 @@ var colnavCustom = function() {
     category: 'category',
     checked: ':checked',
     dataId: 'data-id',
+    disabled: 'disabled',
     colnavWrapper: '.a-colnav-wrapper',
     loaderClass: '.a-js-drilldownLoader',
-    toggleInput: '[name="js-switchForm"]',
-    switchurl: 'switchurl'
+    radioClassSelector: '.radio',
+    switchurl: 'switchurl',
+    toggleInput: '[name="js-switchForm"]'
   };
 
   var category = {
@@ -80,13 +82,13 @@ var colnavCustom = function() {
   }
 
   function disableToggles() {
-    $(keys.toggleInput).css('cursor', 'wait');
-    $(keys.toggleInput).attr('disabled', true);
+    $(keys.toggleInput).closest(keys.radioClassSelector).addClass(keys.disabled);
+    $(keys.toggleInput).attr(keys.disabled, true);
   }
 
   function enableToggles() {
-    $(keys.toggleInput).css('cursor', 'pointer');
-    $(keys.toggleInput).attr('disabled', false);
+    $(keys.toggleInput).closest(keys.radioClassSelector).removeClass(keys.disabled);
+    $(keys.toggleInput).attr(keys.disabled, false);
   }
 
   function setHistoryState(position) {
@@ -305,7 +307,7 @@ var colnavCustom = function() {
           });
       }
 
-      // enableToggles();
+      enableToggles();
     }
     $(document).on('keyup keydown', function(e) { // Detect shift key
       shifted = e.shiftKey;
@@ -463,14 +465,13 @@ var colnavCustom = function() {
   function getDrilldownSource(str) {
     var url = endPointUrl + str;
     showLoader();
+    disableToggles();
     if (savedResults[str]) { // Get stored results if present
       afterRequest(str, savedResults[str]);
     } else {
       // These hardcoded paths and IPs need to be fixed probably
       if (window.location.pathname.indexOf('DesignSystem') === 1 ||
-        window.location.origin.indexOf('localhost') !== -1 ||
-        window.location.origin.indexOf('10.4.67.79') !== -1 ||
-        window.location.origin.indexOf('192.168.10.153') !== -1) {
+        window.location.origin.indexOf('localhost') !== -1) {
         url += '.json';
       }
       $.ajax({
@@ -538,7 +539,6 @@ var colnavCustom = function() {
 
   function onToggleChange() {
     if ($(this).is(keys.checked)) {
-      // disableToggles();
       setHistoryState(null);
       getDrilldownSource($(this).data(keys.switchurl));
     }
