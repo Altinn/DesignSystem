@@ -53,66 +53,7 @@ function setupFormValidation(formId, buttonId) {
       validateBackwards(el.prev());
     }
   };
-  $(formId + ' .a-js-dropdownToValidate').each(function() {
-    $(this).attr('data-dropdowndefaultvalue', $(this).find('.a-form-text').text());
-  });
-
-  if (!buttonId) {
-    $submitBtn = $(formId + ' button[type="submit"]');
-  }
-  $.validator.unobtrusive.parse($(formId));
-
-  $submitBtn.addClass('disabled');
-  $submitBtn.prop('disabled', 'disabled');
-
-  $(formId).on('blur input change', '*', function() {
-    var str;
-    if ($(formId).validate().checkForm() && validAllDropdowns() && validAllReferancials()) {
-      $submitBtn.prop('disabled', false);
-      $submitBtn.removeClass('disabled');
-    } else {
-      $submitBtn.prop('disabled', 'disabled');
-      $submitBtn.addClass('disabled');
-    }
-
-    if (!wasSubmitted) {
-      $(formId).validate().submitted = {};
-    }
-  });
-
-  $(formId + ' input').on('blur', function() {
-    $(this).valid();
-    validateBackwards($(this).closest('.form-group'));
-  });
-
-  $(formId + ' textarea').on('blur', function() {
-    $(this).valid();
-    validateBackwards($(this).closest('.form-group'));
-  });
-
-  $(formId + ' .a-js-dropdownToValidate').next().on('click', function() {
-    setTimeout(function() {
-      validDropdown($(this).prev());
-    }.bind(this), 0);
-    validateBackwards($(this).closest('.form-group'));
-  });
-
-  $(formId + ' .a-js-dropdownToValidate').on('blur', function() {
-    validDropdown($(this));
-    validateBackwards($(this).closest('.form-group'));
-  });
-  $('.a-js-certificateContainer').on('focus', function() {
-    $('.a-js-certificateContainer').closest('label').addClass('a-custom-fileupload--focused');
-  });
-  $('.a-js-certificateContainer').on('blur', function() {
-    $('.a-js-certificateContainer').closest('label').removeClass('a-custom-fileupload--focused');
-  });
-  $('.a-js-validateThisAgainstPrev').each(function() {
-    storedString = $(this).closest('.form-group').prev().find('input')
-      .attr('data-val-regex');
-  });
-  $('.a-js-validateThisAgainstPrev').on('change blur keyup', function(e) {
-    e.stopPropagation();
+  var validateAgainstPrev = function() {
     if ($(this).closest('.form-group').prev().find('.a-message-error')
       .text() !== '') {
       $(this).closest('.form-group').find('.a-message-error').text(
@@ -137,5 +78,78 @@ function setupFormValidation(formId, buttonId) {
       $(this).closest('.a-form-group').removeClass('has-error').find('.a-message-error')
         .css('display', 'none');
     }
+  };
+
+  var validateForm = function() {
+    var str;
+    if ($(formId).validate().checkForm() && validAllDropdowns() && validAllReferancials()) {
+      $submitBtn.prop('disabled', false);
+      $submitBtn.removeClass('disabled');
+    } else {
+      $submitBtn.prop('disabled', 'disabled');
+      $submitBtn.addClass('disabled');
+    }
+
+    if (!wasSubmitted) {
+      $(formId).validate().submitted = {};
+    }
+  };
+
+  $(formId + ' .a-js-dropdownToValidate').each(function() {
+    $(this).attr('data-dropdowndefaultvalue', $(this).find('.a-form-text').text());
+  });
+
+  if (!buttonId) {
+    $submitBtn = $(formId + ' button[type="submit"]');
+  }
+  $.validator.unobtrusive.parse($(formId));
+
+  $submitBtn.addClass('disabled');
+  $submitBtn.prop('disabled', 'disabled');
+
+  $(formId).on('blur input change', '*', validateForm);
+
+  $(formId + ' .a-js-dropdownToValidate').next().on('click', function() {
+    setTimeout(function() {
+      validDropdown($(this).prev());
+    }.bind(this), 0);
+    validateBackwards($(this).closest('.form-group'));
+  });
+
+  $(formId + ' .a-js-dropdownToValidate').on('blur', function() {
+    validDropdown($(this));
+    validateBackwards($(this).closest('.form-group'));
+  });
+  $('.a-js-certificateContainer').on('focus', function() {
+    $('.a-js-certificateContainer').closest('label').addClass('a-custom-fileupload--focused');
+  });
+  $('.a-js-certificateContainer').on('blur', function() {
+    $('.a-js-certificateContainer').closest('label').removeClass('a-custom-fileupload--focused');
+  });
+  $('.a-js-validateThisAgainstPrev').each(function() {
+    storedString = $(this).closest('.form-group').prev().find('input')
+      .attr('data-val-regex');
+  });
+
+  $(formId + ' .form-control').not('.a-js-validateThisAgainstPrev').on('blur change', function() {
+    var $nextInput = $('#text-input-epost1').closest('.form-group').next().find('.a-js-validateThisAgainstPrev');
+    if ($nextInput.length > 0 && $nextInput.val() !== '') {
+      validateAgainstPrev.bind($nextInput)();
+      setTimeout(function() {
+        validateForm();
+      }, 0);
+    }
+  });
+  $('.a-js-validateThisAgainstPrev').on('keyup', function(e) {
+    var hasError = $(this).closest('.form-group').hasClass('has-error');
+    e.stopPropagation();
+    if (hasError) {
+      validateAgainstPrev.bind(this)();
+    }
+  });
+
+  $('.a-js-validateThisAgainstPrev').on('change blur', function(e) {
+    e.stopPropagation();
+    validateAgainstPrev.bind(this)();
   });
 }
