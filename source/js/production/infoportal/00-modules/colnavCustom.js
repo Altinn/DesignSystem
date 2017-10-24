@@ -55,9 +55,9 @@ var colnavCustom = function() {
     var contentOverviewWith = $('.a-contentOverview').width();
     if (isSmall) {
       if (isNaN(x)) {
-        returnValue = x.css('left', '40px');
+        returnValue = x.css('left', '50px');
       } else {
-        returnValue = ((contentOverviewWith - ((z + 1) * 40)) - (1.5 * (z + 1))) + 'px';
+        returnValue = ((contentOverviewWith - ((z + 1) * 50)) - (1.5 * (z + 1))) + 'px';
       }
     } else if (isNaN(x)) {
       left = parseInt(x.css('left'), 10);
@@ -77,6 +77,16 @@ var colnavCustom = function() {
     }
 
     return returnValue;
+  }
+
+  function disableToggles() {
+    $(keys.toggleInput).css('cursor', 'wait');
+    $(keys.toggleInput).attr('disabled', true);
+  }
+
+  function enableToggles() {
+    $(keys.toggleInput).css('cursor', 'pointer');
+    $(keys.toggleInput).attr('disabled', false);
   }
 
   function setHistoryState(position) {
@@ -180,21 +190,7 @@ var colnavCustom = function() {
     levels.forEach(function(str, index) {
       var wasStacked;
       if (el.closest('ul').hasClass(str)) { // Check if element exists
-        // Check if device is small and level is stacked
-        if (isSmall && el.closest('ul').hasClass('stacked')) {
-          // Get name from parent
-          position = el.closest('ul').prev().find('h2').attr(keys.dataId) || '';
-          setHistoryState(position);
-          open = []; // Clear array for open levels
-          // Hide lower levels:
-          $('.' + levels[index + 1]).removeClass('noTrans').css('left', '250%');
-          $('.' + levels[2]).removeClass('noTrans').css('left', '250%');
-          calc(index > 0 ? el.closest('ul') : 0, 3 / index); // Calculate left position for parent
-          // Reset markup:
-          el.closest('ul').removeClass('stacked').find('.open').removeClass('open');
-          el.closest('ul').find('.dim').removeClass('dim');
-          el.closest('ul').css('width', calc(1.5, null, index - 1));
-        } else if (el.closest('a').hasClass('open') || el.find('a').hasClass('open') || el.hasClass('open')) { // Check if item is already open:
+        if (el.closest('a').hasClass('open') || el.find('a').hasClass('open') || el.hasClass('open')) { // Check if item is already open:
           position = el.closest('ul').prev().find('h2').attr(keys.dataId) || '';
           setHistoryState(position);
           open = []; // Clear array for open levels
@@ -308,6 +304,8 @@ var colnavCustom = function() {
             return false;
           });
       }
+
+      // enableToggles();
     }
     $(document).on('keyup keydown', function(e) { // Detect shift key
       shifted = e.shiftKey;
@@ -521,8 +519,8 @@ var colnavCustom = function() {
   }
 
   function performResizeLogicAfterResizeEvents() {
-    var resizeTimeout; // Timeout variable for resizing
-    window.onresize = function() { // Perform resize logic after resize events
+    var resizeTimeout;
+    window.onresize = function() {
       clearTimeout(resizeTimeout);
       resizeTimeout = setTimeout(resizedWindow, 100);
     };
@@ -541,6 +539,7 @@ var colnavCustom = function() {
 
   function onToggleChange() {
     if ($(this).is(keys.checked)) {
+      // disableToggles();
       setHistoryState(null);
       getDrilldownSource($(this).data(keys.switchurl));
     }
