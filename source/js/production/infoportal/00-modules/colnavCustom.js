@@ -45,7 +45,7 @@ var colnavCustom = function() {
   }
 
   // This code awful. It can return a number or an element (!),
-  // the argument name don't convey any information and there
+  // the argument names don't convey any information and there
   // a few magical numbers.
   // Should be the first target of a refactoring in the future.
   // Perform various calculations to determine placements and widths
@@ -491,9 +491,8 @@ var colnavCustom = function() {
     if (isSmall === wasSmall) {
       return;
     }
+    getDrilldownSource($(keys.toggleInput + keys.checked).data(keys.switchurl));
     if (!isSmall) {
-      // Perform drilldown logic with currently selected source:
-      getDrilldownSource($(keys.toggleInput + keys.checked).data(keys.switchurl));
       // Ensure reset of markup
       $('.switch-container').show();
       $('.a-js-colnavTitleRegular').text('Alle skjemaer');
