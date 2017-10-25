@@ -73,7 +73,7 @@ gulp.task('pl-copy:favicon', function () {
 
 // Create flat designsystem CSS file and put into public CSS folder:
 gulp.task('pl-copy:css', function () {
-  return gulp.src(paths().source.css + 'style.scss')
+  return gulp.src([paths().source.css + 'style.scss', paths().source.css + 'style-altinnett.scss'])
     .pipe(sourcemaps.init())
     .pipe(sass().on('error', sass.logError))
     // We will add this line after removing most of the unused css.
