@@ -72,7 +72,6 @@ gulp.task('pl-copy:favicon', function() {
 // Create flat designsystem CSS file and put into public CSS folder:
 gulp.task('pl-copy:css', function(done) {
   buildConfig.production.forEach(function(element) {
-    console.log('element: ', element)
     return gulp.src(paths().source.css + element.scssFilename + '.scss')
     .pipe(sourcemaps.init())
     .pipe(sass().on('error', sass.logError))
@@ -116,7 +115,6 @@ gulp.task('pl-copy:distribution-fonts', function(done){
 // and copy into distribution folder:
 gulp.task('pl-copy:distribution-css', function(done) {
   buildConfig.production.forEach(function(element) {
-    console.log('element: ', element)
   fs.readFile('./source/css/' + element.scssFilename + '.scss', 'utf-8',
     function(err, custom) {
       if (err) {
@@ -184,7 +182,6 @@ gulp.task('pl-copy:distribution-profile', function(done) {
         .pipe(gulp.dest('dist/css'));
       done();
     }
-    // TODO: Delete profile-temp.scss from source folder. Again, Ivar????
   );
 });
 
