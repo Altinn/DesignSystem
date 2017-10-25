@@ -44,19 +44,19 @@ gulp.task('pl-clean:public', function() {
 });
 
 // Copy data files from source into public folder:
-gulp.task('pl-copy:data', function() {
+gulp.task('pl-copy:data', function () {
   return gulp.src('source/data/*.json')
     .pipe(gulp.dest(paths().public.root + '/data'));
 });
 
 // Copy jQuery distribution from installed package into public JS folder:
-gulp.task('pl-copy:jq', function() {
+gulp.task('pl-copy:jq', function () {
   return gulp.src('node_modules/jquery/dist/jquery.min.js')
   .pipe(gulp.dest(paths().public.js))
 });
 
 // Copy image files from source into public images folder:
-gulp.task('pl-copy:img', function() {
+gulp.task('pl-copy:img', function () {
   return gulp.src(
     ['**/*.gif', '**/*.png', '**/*.jpg', '**/*.jpeg', '**/*.svg'],
     { cwd: paths().source.images }
