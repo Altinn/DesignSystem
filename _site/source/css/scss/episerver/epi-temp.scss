@@ -1,0 +1,61 @@
+@import '../generic/variables'; // Altinn variables
+@import '../generic/bootstrap-custom';
+@import './../../../../node_modules/bootstrap/scss/mixins';
+
+.epi-wysiwyg {
+
+  // Minus One col
+  .a-responsiveTable-container,
+  .a-gridMinusOneCol {
+    @include media-breakpoint-up ( lg ) {
+      width: calc( 100% + 156px );
+      margin-left: -78px;
+    }
+    @include media-breakpoint-up ( xl ) {
+      width: calc( 100% + 176px );
+      margin-left: -88px;
+    }
+  }
+
+  // Minus Two col
+  .a-media,
+  .a-iconText-minusBothMargins,
+  .a-box,
+  .a-question-wrapper,
+  .a-iconText-extraWidth,
+  .a-compare-header,
+  .a-compare-category {
+    @include media-breakpoint-up ( lg ) {
+      width: calc( 100% + 312px );
+      margin-left: -156px;
+    }
+    @include media-breakpoint-up ( xl ) {
+      width: calc( 100% + 368px );
+      margin-left: -184px;
+    }
+  }
+
+  .a-media,
+  .a-iconText-minusBothMargins,
+  .a-box,
+  .a-question-wrapper,
+  .a-iconText-extraWidth {
+    margin-top: $spacer * 3;
+    margin-bottom: $spacer * 3;
+  }
+
+  .a-compare-header,
+  .a-compare-category {
+    margin-bottom: $spacer * 7;
+  }
+}
+
+// EDIT MODE IN EPI NEED SOM FIXES
+
+.epiEditor {
+  .a-jumbotron {
+    @include media-breakpoint-up( xxl ) {
+      min-height: 650px;
+    }
+  }
+}

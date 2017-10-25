@@ -511,6 +511,9 @@ gulp.task('copy:export-to-styleguide', function (done) {
         .pipe(regexRename(/atomer/g, 'atoms'))
         .pipe(regexRename(/molekyler/g, 'molecules'))
         .pipe(regexRename(/organismer/g, 'organisms'))
+        .pipe(replace(new RegExp('<!-- START.*-->', 'g'), ''))
+        .pipe(replace(new RegExp('<!-- END.*-->', 'g'), ''))
+        .pipe(replace(new RegExp('[\n\r]{2,}', 'g'), '\n\r'))
         .pipe(replace('<body class=""', '<body class="a-bgWhite p-1"'))
         .pipe(gulp.dest('../designsystem-styleguide/_includes/patterns'));
 
