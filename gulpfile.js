@@ -1,4 +1,3 @@
-// Dependencies:
 var browserSync = require('browser-sync').create();
 var fs = require('fs');
 var gulp = require('gulp');
@@ -27,7 +26,6 @@ var rename = require('gulp-rename');
 var regexRename = require('gulp-regex-rename');
 var gulpRemoveHtml = require('gulp-remove-html');
 var replace = require('gulp-string-replace');
-var sassVariables = require('gulp-sass-variables');
 var unzip = require('gulp-unzip');
 
 function paths () { return config.paths }
@@ -46,19 +44,19 @@ gulp.task('pl-clean:public', function() {
 });
 
 // Copy data files from source into public folder:
-gulp.task('pl-copy:data', function () {
+gulp.task('pl-copy:data', function() {
   return gulp.src('source/data/*.json')
     .pipe(gulp.dest(paths().public.root + '/data'));
 });
 
 // Copy jQuery distribution from installed package into public JS folder:
-gulp.task('pl-copy:jq', function () {
+gulp.task('pl-copy:jq', function() {
   return gulp.src('node_modules/jquery/dist/jquery.min.js')
   .pipe(gulp.dest(paths().public.js))
 });
 
 // Copy image files from source into public images folder:
-gulp.task('pl-copy:img', function () {
+gulp.task('pl-copy:img', function() {
   return gulp.src(
     ['**/*.gif', '**/*.png', '**/*.jpg', '**/*.jpeg', '**/*.svg'],
     { cwd: paths().source.images }
@@ -66,14 +64,15 @@ gulp.task('pl-copy:img', function () {
 });
 
 // Copy favicon file from source into public folder:
-gulp.task('pl-copy:favicon', function () {
+gulp.task('pl-copy:favicon', function() {
   return gulp.src('favicon.ico', { cwd: paths().source.root })
     .pipe(gulp.dest(paths().public.root));
 });
 
 // Create flat designsystem CSS file and put into public CSS folder:
-gulp.task('pl-copy:css', function () {
-  return gulp.src(paths().source.css + 'style.scss')
+gulp.task('pl-copy:css', function(done) {
+  buildConfig.dev.forEach(function(element) {
+    return gulp.src(paths().source.css + element.scssFilename + '.scss')
     .pipe(sourcemaps.init())
     .pipe(sass().on('error', sass.logError))
     // We will add this line after removing most of the unused css.
@@ -85,14 +84,16 @@ gulp.task('pl-copy:css', function () {
     .pipe(sourcemaps.write('./maps'))
     .pipe(gulp.dest(paths().public.css))
     .pipe(browserSync.stream());
+  });
+  done();
 });
 
 // Copy Styleguide distribution folder from installed package into public
 // styleguide folder:
-gulp.task('pl-copy:styleguide', function () {
+gulp.task('pl-copy:styleguide', function() {
   return gulp.src(paths().source.styleguide + '**/*')
     .pipe(gulp.dest(paths().public.root))
-    .pipe(browserSync.stream()).on('end', function () {
+    .pipe(browserSync.stream()).on('end', function() {
       gulp.src('./source/images/lab5.png')
         .pipe(gulp.dest('./public/styleguide/images'))
     });
@@ -112,9 +113,10 @@ gulp.task('pl-copy:distribution-fonts', function(done){
 
 // Create flat distribution CSS file (no Patternlab CSS or styleguide UI CSS)
 // and copy into distribution folder:
-gulp.task('pl-copy:distribution-css', function (done) {
-  fs.readFile('./source/css/style.dist.scss', 'utf-8',
-    function (err, custom) {
+gulp.task('pl-copy:distribution-css', function(done) {
+  buildConfig.production.forEach(function(element) {
+  fs.readFile('./source/css/' + element.scssFilename + '.scss', 'utf-8',
+    function(err, custom) {
       if (err) {
         console.log(err);
       }
@@ -123,31 +125,29 @@ gulp.task('pl-copy:distribution-css', function (done) {
         '// Automatically removed');
       src = src.replace('@import "scss/episerver/episerver";',
         '// Automatically removed');
-      fs.writeFileSync('./source/css/style-temp.scss', src);
-      gulp.src(paths().source.css + 'style-temp.scss')
-        .pipe(sassVariables({
-          $env: 'prod'
-        }))
+      fs.writeFileSync('./source/css/' + element.scssFilename + '-temp.scss', src);
+      gulp.src(paths().source.css + element.scssFilename + '-temp.scss')
         .pipe(sass().on('error', sass.logError))
         .pipe(autoprefixer({
             browsers: ['last 2 versions'],
             cascade: false
         }))
-        .pipe(gulp_rename('style.css'))
+        .pipe(gulp_rename(element.scssFilename + '.css'))
         .pipe(gulp.dest('dist/css'))
         .pipe(cleanCSS())
-        .pipe(gulp_rename('style.min.css'))
+        .pipe(gulp_rename(element.scssFilename + '.min.css'))
         .pipe(gulp.dest('dist/css'));
+        del('./source/css/' + element.scssFilename + '-temp.scss');
       done();
     }
-    // TODO: Delete style-temp.scss from source folder
   );
+  });
 });
 
 // Create distribution CSS file for EPI and copy into distribution folder:
-gulp.task('pl-copy:distribution-epi', function (done) {;
+gulp.task('pl-copy:distribution-epi', function(done) {;
   fs.readFile('./source/css/scss/episerver/_episerver.scss', 'utf-8',
-    function (err, src) {
+    function(err, src) {
       if (err) {
         console.log(err);
       }
@@ -161,14 +161,14 @@ gulp.task('pl-copy:distribution-epi', function (done) {;
         .pipe(gulp.dest('dist/css'));
       done();
     }
-    // TODO: Delete epi-temp.scss from source folder
+    // TODO: Delete epi-temp.scss from source folder.
   );
 });
 
 // Create distribution CSS file for "Profilmanual" and copy into distribution folder:
-gulp.task('pl-copy:distribution-profile', function (done) {
+gulp.task('pl-copy:distribution-profile', function(done) {
   fs.readFile('./source/css/scss/episerver/_profile-presentation.scss', 'utf-8',
-    function (err, src) {
+    function(err, src) {
       if (err) {
         console.log(err);
       }
@@ -182,13 +182,12 @@ gulp.task('pl-copy:distribution-profile', function (done) {
         .pipe(gulp.dest('dist/css'));
       done();
     }
-    // TODO: Delete profile-temp.scss from source folder
   );
 });
 
 // Create distribution JS (bundles all JS resources for production, except for
 // jQuery) and copy into distribution folder:
-gulp.task('pl-copy:distribution-infoportal-js', function () {
+gulp.task('pl-copy:distribution-infoportal-js', function() {
   return gulp.src(buildConfig.infoportal.jsFiles.files)
     .pipe(gulp_concat('concat.js'))
     .pipe(gulp_rename(buildConfig.infoportal.jsFiles.filename))
@@ -197,7 +196,7 @@ gulp.task('pl-copy:distribution-infoportal-js', function () {
 
 // Create distribution JS (bundles all JS resources for production, except for
 // jQuery) and copy into distribution folder:
-gulp.task('pl-copy:distribution-infoportal-vendor-js', function () {
+gulp.task('pl-copy:distribution-infoportal-vendor-js', function() {
   return gulp.src(buildConfig.infoportal.vendorJsFiles.files)
     .pipe(gulp_concat('concat.js'))
     .pipe(gulp_rename(buildConfig.infoportal.vendorJsFiles.filename))
@@ -205,7 +204,7 @@ gulp.task('pl-copy:distribution-infoportal-vendor-js', function () {
 });
 
 // Create vendor distibution for Portal. Custom js will be in a different file
-gulp.task('pl-copy:distribution-portal-vendor-js', function () {
+gulp.task('pl-copy:distribution-portal-vendor-js', function() {
   return gulp.src(buildConfig.portal.vendorJsFiles.files)
     .pipe(gulp_concat('concat.js'))
     .pipe(gulp_rename(buildConfig.portal.vendorJsFiles.filename))
@@ -213,7 +212,7 @@ gulp.task('pl-copy:distribution-portal-vendor-js', function () {
 });
 
 // Create custom js distibution for Portal.
-gulp.task('pl-copy:distribution-portal-js', function () {
+gulp.task('pl-copy:distribution-portal-js', function() {
   return gulp.src(buildConfig.portal.jsFiles.files)
     .pipe(sourcemaps.init())
     .pipe(gulp_concat('concat.js'))
@@ -223,33 +222,33 @@ gulp.task('pl-copy:distribution-portal-js', function () {
 });
 
 // Flatten development JS and copy into public JS folder:
-gulp.task('pl-copy:designsystemdev-js', function () {
+gulp.task('pl-copy:designsystemdev-js', function() {
   return gulp.src(buildConfig.altinnDev.jsFiles.files)
     .pipe(gulp_concat('concat.js')).pipe(gulp_rename(buildConfig.altinnDev.jsFiles.filename))
     .pipe(gulp.dest('public/js'));
 });
 
 // Flatten development JS and copy into public JS folder:
-gulp.task('pl-copy:designsystemdev-vendor-js', function () {
+gulp.task('pl-copy:designsystemdev-vendor-js', function() {
   return gulp.src(buildConfig.altinnDev.vendorJsFiles.files)
     .pipe(gulp_concat('concat.js')).pipe(gulp_rename(buildConfig.altinnDev.vendorJsFiles.filename))
     .pipe(gulp.dest('public/js'));
 });
 
 // Create custom js distibution for Portal.
-gulp.task('pl-copy:distribution-patterns', function () {
+gulp.task('pl-copy:distribution-patterns', function() {
   return gulp.src('public/patterns/**')
     .pipe(gulp.dest('dist/patterns'));
 });
 
 // Copy the images folder
-gulp.task('pl-copy:distribution-images', function () {
+gulp.task('pl-copy:distribution-images', function() {
   return gulp.src('public/images/**')
     .pipe(gulp.dest('dist/images'));
 });
 
 // Create custom js distibution for Portal.
-gulp.task('pl-copy:distribution-portal-js-modules', function () {
+gulp.task('pl-copy:distribution-portal-js-modules', function() {
   return gulp.src(buildConfig.portal.jsFiles.files)
     .pipe(gulp.dest('dist/js/modules'));
 });
@@ -267,7 +266,7 @@ gulp.task('pl-assets', gulp.series(
     'pl-copy:designsystemdev-js',
     'pl-copy:designsystemdev-vendor-js'
   ),
-    function (done) {
+    function(done) {
       done();
     }
   )
@@ -276,72 +275,74 @@ gulp.task('pl-assets', gulp.series(
 // See quick ref for Tidy params: http://api.html-tidy.org/tidy/quickref_5.4.0.html
 gulp.task('tidy-fragments', function() {
   return gulp.src([paths().public.patterns + '**/*markup-only.html'])
-    .pipe(htmltidy({dropEmptyElements: false,
-                    dropProprietaryAttributes: false,
-                    forceOutput: true,
-                    hideComments: true,
-                    indent: true,
-                    indentSpaces: 2,
-                    mergeDivs: false,
-                    mergeEmphasis: false,
-                    mergeSpans: false,
-                    outputHtml: true,
-                    preserveEntities: true,
-                    showBodyOnly: true,
-                    strictTagsAttributes: false,
-                    tidyMark: false,
-                    verticalSpace: true,
-                    wrap: 260}))
+    .pipe(htmltidy({
+      dropEmptyElements: false,
+      dropProprietaryAttributes: false,
+      forceOutput: true,
+      hideComments: true,
+      indent: true,
+      indentSpaces: 2,
+      mergeDivs: false,
+      mergeEmphasis: false,
+      mergeSpans: false,
+      outputHtml: true,
+      preserveEntities: true,
+      showBodyOnly: true,
+      strictTagsAttributes: false,
+      tidyMark: false,
+      verticalSpace: true,
+      wrap: 260}))
     .pipe(gulp.dest(paths().public.patterns));
 });
 
 gulp.task('tidy-pages', function() {
   return gulp.src([paths().public.root + '**/*.html', '!' + paths().public.root + '**/*markup-only.html'])
-    .pipe(htmltidy({doctype: 'html5',
-                    dropEmptyElements: false,
-                    dropProprietaryAttributes: false,
-                    forceOutput: true,
-                    hideComments: true,
-                    indent: true,
-                    indentSpaces: 2,
-                    mergeDivs: false,
-                    mergeEmphasis: false,
-                    mergeSpans: false,
-                    outputHtml: true,
-                    preserveEntities: true,
-                    showBodyOnly: false,
-                    strictTagsAttributes: false,
-                    tidyMark: false,
-                    verticalSpace: false,
-                    wrap: 260}))
+    .pipe(htmltidy({
+      doctype: 'html5',
+      dropEmptyElements: false,
+      dropProprietaryAttributes: false,
+      forceOutput: true,
+      hideComments: true,
+      indent: true,
+      indentSpaces: 2,
+      mergeDivs: false,
+      mergeEmphasis: false,
+      mergeSpans: false,
+      outputHtml: true,
+      preserveEntities: true,
+      showBodyOnly: false,
+      strictTagsAttributes: false,
+      tidyMark: false,
+      verticalSpace: false,
+      wrap: 260}))
     .pipe(gulp.dest(paths().public.root));
 });
 
-gulp.task('patternlab:version', function (done) {
+gulp.task('patternlab:version', function(done) {
   patternlab.version();
   done();
 });
 
-gulp.task('patternlab:help', function (done) {
+gulp.task('patternlab:help', function(done) {
   patternlab.help();
   done();
 });
 
-gulp.task('patternlab:patternsonly', function (done) {
+gulp.task('patternlab:patternsonly', function(done) {
   patternlab.patternsonly(done, getConfiguredCleanOption());
 });
 
-gulp.task('patternlab:liststarterkits', function (done) {
+gulp.task('patternlab:liststarterkits', function(done) {
   patternlab.liststarterkits();
   done();
 });
 
-gulp.task('patternlab:loadstarterkit', function (done) {
+gulp.task('patternlab:loadstarterkit', function(done) {
   patternlab.loadstarterkit(argv.kit, argv.clean);
   done();
 });
 
-gulp.task('patternlab:build', gulp.series('pl-assets', build, function (done) {
+gulp.task('patternlab:build', gulp.series('pl-assets', build, function(done) {
   done();
 }));
 
@@ -353,7 +354,7 @@ gulp.task('patternlab:prebuild',
     'pl-copy:css',
     'pl-copy:styleguide',
     'pl-copy:data',
-    function (done) { done(); }
+    function(done) { done(); }
   )
 );
 
@@ -365,9 +366,9 @@ function getSupportedTemplateExtensions () {
 
 function getTemplateWatches (projectFolders) {
   var templateWatches = [];
-  getSupportedTemplateExtensions().forEach(function (dotExtension) {
+  getSupportedTemplateExtensions().forEach(function(dotExtension) {
     if(projectFolders && projectFolders.length > 0) {
-      templateWatches = templateWatches.concat(projectFolders.map(function (folder) {
+      templateWatches = templateWatches.concat(projectFolders.map(function(folder) {
         return paths().source.patterns + folder + '/**/*' + dotExtension;
       }));
     } else {
@@ -436,7 +437,7 @@ function watchProject (projectName) {
   gulp.watch(patternWatches, { awaitWriteFinish: true }).on('change', gulp.series(build, reload));
 }
 
-gulp.task('patternlab:connect', gulp.series(function (done) {
+gulp.task('patternlab:connect', gulp.series(function(done) {
   browserSync.init({
     server: { baseDir: paths().public.root },
     snippetOptions: { blacklist: ['/index.html', '/', '/?*'] },
@@ -449,7 +450,7 @@ gulp.task('patternlab:connect', gulp.series(function (done) {
         'color: white', 'text-align: center'
       ]
     }
-  }, function () { console.log('PATTERN LAB NODE WATCHING FOR CHANGES') });
+  }, function() { console.log('PATTERN LAB NODE WATCHING FOR CHANGES') });
   done();
 }));
 
@@ -494,65 +495,60 @@ gulp.task('dist',
 );
 gulp.task('default', gulp.series('patternlab:serve-all'));
 
-
-
 /******************************************************
  * COPY TASKS - stream assets from source to destination
 ******************************************************/
 
 // This is the task that exports the results from Pattern Lab
 // into the Jekyll style guide that lives outside of this repository
-gulp.task('copy:export-to-styleguide', function (done) {
+gulp.task('copy:export-to-styleguide', function(done) {
 
-    // Export public/patterns directory to style guide's includes
-    // This is used to include the actual code into the code samples
-    gulp.src(['public/patterns/**/*', '!public/patterns/**/*.rendered.html'])
-        .pipe(regexRename(/♺-/g, ''))
-        .pipe(regexRename(/atomer/g, 'atoms'))
-        .pipe(regexRename(/molekyler/g, 'molecules'))
-        .pipe(regexRename(/organismer/g, 'organisms'))
-        .pipe(replace('<body class=""', '<body class="a-bgWhite p-1"'))
-        .pipe(gulp.dest('../designsystem-styleguide/_includes/patterns'));
+  // Export public/patterns directory to style guide's includes
+  // This is used to include the actual code into the code samples
+  gulp.src(['public/patterns/**/*', '!public/patterns/**/*.rendered.html'])
+    .pipe(regexRename(/♺-/g, ''))
+    .pipe(regexRename(/atomer/g, 'atoms'))
+    .pipe(regexRename(/molekyler/g, 'molecules'))
+    .pipe(regexRename(/organismer/g, 'organisms'))
+    .pipe(replace('<body class=""', '<body class="a-bgWhite p-1"'))
+    .pipe(gulp.dest('../designsystem-styleguide/_includes/patterns'));
 
     // Export public/patterns directory to style guide patterns directory
     // This is used to pipe the live patterns into the iframe
-    gulp.src(['public/patterns/**/*.html'])
-        .pipe(rename(function (path) {
-            path.basename += ".rendered";
-            path.extname = ".html"
-        }))
-        .pipe(regexRename(/♺-/g, ''))
-        .pipe(regexRename(/atomer/g, 'atoms'))
-        .pipe(regexRename(/molekyler/g, 'molecules'))
-        .pipe(regexRename(/organismer/g, 'organisms'))
-        .pipe(replace('<body class=""', '<body class="a-bgWhite p-1"'))
-        .pipe(gulp.dest('../designsystem-styleguide/patterns'));
+  gulp.src(['public/patterns/**/*.html'])
+    .pipe(rename(function(path) {
+      path.basename += '.rendered';
+      path.extname = '.html';
+    }))
+  .pipe(regexRename(/♺-/g, ''))
+  .pipe(regexRename(/atomer/g, 'atoms'))
+  .pipe(regexRename(/molekyler/g, 'molecules'))
+  .pipe(regexRename(/organismer/g, 'organisms'))
+  .pipe(replace('<body class=""', '<body class="a-bgWhite p-1"'))
+  .pipe(gulp.dest('../designsystem-styleguide/patterns'));
 
-    // Export css directory to style guide css directory
-    gulp.src('public/css/**/*')
-        .pipe(gulp.dest('../designsystem-styleguide/css'));
+  // Export css directory to style guide css directory
+  gulp.src('public/css/**/*')
+  .pipe(gulp.dest('../designsystem-styleguide/css'));
 
-    // Export js directory to style guide js directory
-    gulp.src('public/js/**/*')
-        .pipe(gulp.dest('../designsystem-styleguide/js'));
+  // Export js directory to style guide js directory
+  gulp.src('public/js/**/*')
+  .pipe(gulp.dest('../designsystem-styleguide/js'));
 
-    // Export icons to style guide root directory
-    // gulp.src('public/icons.svg')
-        // .pipe(gulp.dest('../designsystem-styleguide'));
+  // Export icons to style guide root directory
+  // gulp.src('public/icons.svg')
+  // .pipe(gulp.dest('../designsystem-styleguide'));
 
-    // Export images directory to style guide images directory
-    gulp.src('public/images/**/*')
-        .pipe(gulp.dest('../designsystem-styleguide/images'));
+  // Export images directory to style guide images directory
+  gulp.src('public/images/**/*')
+  .pipe(gulp.dest('../designsystem-styleguide/images'));
 
-    // Export images directory to style guide images directory
-    gulp.src('public/images/**/*')
-        .pipe(gulp.dest('../designsystem-styleguide/images'));
+  // Export images directory to style guide images directory
+  gulp.src('public/images/**/*')
+  .pipe(gulp.dest('../designsystem-styleguide/images'));
 
-    done();
+  done();
 });
-
-
-
 
 /******************************************************
  * COMPOUND TASKS
