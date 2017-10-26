@@ -408,7 +408,7 @@ var colnavCustom = function() {
             var __span = document.createElement('span');
             $(__h4).text(__item.Heading || __item.Title).appendTo($(__a));
             $(__h4).attr(keys.dataId, __item.Id);
-            $(__span).addClass('a-colnav-rightText').text(__item.Provider || '–')
+            $(__span).addClass('a-colnav-rightText').text(__item.Provider || 'Skatteetaten')
               .appendTo($(__a));
             $(__a).prop('href', __item.Url)
               .addClass('a-colnav-item-third')
