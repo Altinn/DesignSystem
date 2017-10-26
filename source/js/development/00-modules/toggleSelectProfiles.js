@@ -12,5 +12,6 @@ var toggleSelectProfiles = function() {
   $('#profiles-selected').on('click', function() {
     $('#forSelectionList').toggle();
     $('#selectedProfiles').toggle();
+    $(this).toggleClass('active');
   });
 };
