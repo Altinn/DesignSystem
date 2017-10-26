@@ -1,4 +1,13 @@
-/* globals questionnaireInteraction,
+/*
+  globals
+  formatOrgNr,
+  cardsToggle,
+  onConfirmDeletionClick,
+  setupListRowSelect,
+  toggleSwitch,
+  truncateBoxButtonNames,
+  onFileInputChange,
+  questionnaireInteraction,
   colnavCustom,
   handleFocus,
   mobileNavigation,
@@ -33,9 +42,9 @@
   setupNestedCheckboxes,
   searchFilterView,
   AltinnQuickhelp
- */
 
-window.sharedInit = function() {
+*/
+window.portalInit = function() {
   $.fn.modal.Constructor.prototype._enforceFocus = function() {
     $(document)
       .off('focusin.bs.modal')
@@ -50,6 +59,13 @@ window.sharedInit = function() {
       }, this));
   };
 
+  formatOrgNr();
+  cardsToggle();
+  onConfirmDeletionClick();
+  setupListRowSelect();
+  toggleSwitch();
+  truncateBoxButtonNames();
+  onFileInputChange();
   setValidatorSettings();
   addListExpandHandler();
   setupOnKeypress();
@@ -73,5 +89,4 @@ window.sharedInit = function() {
   setupNestedCheckboxes();
   searchFilterView();
 };
-
-window.sharedInit();
+window.portalInit();
