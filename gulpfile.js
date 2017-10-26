@@ -500,6 +500,14 @@ gulp.task('default', gulp.series('patternlab:serve-all'));
  * COPY TASKS - stream assets from source to destination
 ******************************************************/
 
+gulp.task('clean:styleguide-dest-paths', function (done) {
+    del([
+      '../designsystem-styleguide/_includes/patterns/**/*',
+      '../designsystem-styleguide/patterns/**/*'
+    ], { force: true });
+    done();
+});
+
 // This is the task that exports the results from Pattern Lab
 // into the Jekyll style guide that lives outside of this repository
 gulp.task('copy:export-to-styleguide', function (done) {
@@ -560,4 +568,4 @@ gulp.task('copy:export-to-styleguide', function (done) {
 /******************************************************
  * COMPOUND TASKS
 ******************************************************/
-gulp.task('style-guide-export', gulp.series('copy:export-to-styleguide'));
+gulp.task('style-guide-export', gulp.series('clean:styleguide-dest-paths', 'copy:export-to-styleguide'));
