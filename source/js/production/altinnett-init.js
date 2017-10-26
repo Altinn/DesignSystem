@@ -1,8 +1,8 @@
 /* globals
-   setupTruncateLines
+  setupTruncateLines
 */
-window.altinnettInit = function () {
-    setupTruncateLines();
+window.altinnettInit = function() {
+  setupTruncateLines();
 };
 
 window.altinnettInit();
