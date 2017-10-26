@@ -14,10 +14,12 @@ var colnavCustom = function() {
     category: 'category',
     checked: ':checked',
     dataId: 'data-id',
+    disabled: 'disabled',
     colnavWrapper: '.a-colnav-wrapper',
     loaderClass: '.a-js-drilldownLoader',
-    toggleInput: '[name="js-switchForm"]',
-    switchurl: 'switchurl'
+    radioClassSelector: '.radio',
+    switchurl: 'switchurl',
+    toggleInput: '[name="js-switchForm"]'
   };
 
   var category = {
@@ -45,7 +47,7 @@ var colnavCustom = function() {
   }
 
   // This code awful. It can return a number or an element (!),
-  // the argument name don't convey any information and there
+  // the argument names don't convey any information and there
   // a few magical numbers.
   // Should be the first target of a refactoring in the future.
   // Perform various calculations to determine placements and widths
@@ -55,9 +57,9 @@ var colnavCustom = function() {
     var contentOverviewWith = $('.a-contentOverview').width();
     if (isSmall) {
       if (isNaN(x)) {
-        returnValue = x.css('left', '40px');
+        returnValue = x.css('left', '50px');
       } else {
-        returnValue = ((contentOverviewWith - ((z + 1) * 40)) - (1.5 * (z + 1))) + 'px';
+        returnValue = ((contentOverviewWith - ((z + 1) * 50)) - (1.5 * (z + 1))) + 'px';
       }
     } else if (isNaN(x)) {
       left = parseInt(x.css('left'), 10);
@@ -77,6 +79,16 @@ var colnavCustom = function() {
     }
 
     return returnValue;
+  }
+
+  function disableToggles() {
+    $(keys.toggleInput).closest(keys.radioClassSelector).addClass(keys.disabled);
+    $(keys.toggleInput).attr(keys.disabled, true);
+  }
+
+  function enableToggles() {
+    $(keys.toggleInput).closest(keys.radioClassSelector).removeClass(keys.disabled);
+    $(keys.toggleInput).attr(keys.disabled, false);
   }
 
   function setHistoryState(position) {
@@ -180,21 +192,7 @@ var colnavCustom = function() {
     levels.forEach(function(str, index) {
       var wasStacked;
       if (el.closest('ul').hasClass(str)) { // Check if element exists
-        // Check if device is small and level is stacked
-        if (isSmall && el.closest('ul').hasClass('stacked')) {
-          // Get name from parent
-          position = el.closest('ul').prev().find('h2').attr(keys.dataId) || '';
-          setHistoryState(position);
-          open = []; // Clear array for open levels
-          // Hide lower levels:
-          $('.' + levels[index + 1]).removeClass('noTrans').css('left', '250%');
-          $('.' + levels[2]).removeClass('noTrans').css('left', '250%');
-          calc(index > 0 ? el.closest('ul') : 0, 3 / index); // Calculate left position for parent
-          // Reset markup:
-          el.closest('ul').removeClass('stacked').find('.open').removeClass('open');
-          el.closest('ul').find('.dim').removeClass('dim');
-          el.closest('ul').css('width', calc(1.5, null, index - 1));
-        } else if (el.closest('a').hasClass('open') || el.find('a').hasClass('open') || el.hasClass('open')) { // Check if item is already open:
+        if (el.closest('a').hasClass('open') || el.find('a').hasClass('open') || el.hasClass('open')) { // Check if item is already open:
           position = el.closest('ul').prev().find('h2').attr(keys.dataId) || '';
           setHistoryState(position);
           open = []; // Clear array for open levels
@@ -308,6 +306,8 @@ var colnavCustom = function() {
             return false;
           });
       }
+
+      enableToggles();
     }
     $(document).on('keyup keydown', function(e) { // Detect shift key
       shifted = e.shiftKey;
@@ -408,7 +408,7 @@ var colnavCustom = function() {
             var __span = document.createElement('span');
             $(__h4).text(__item.Heading || __item.Title).appendTo($(__a));
             $(__h4).attr(keys.dataId, __item.Id);
-            $(__span).addClass('a-colnav-rightText').text(__item.Provider || '–')
+            $(__span).addClass('a-colnav-rightText').text(__item.Provider || 'Skatteetaten')
               .appendTo($(__a));
             $(__a).prop('href', __item.Url)
               .addClass('a-colnav-item-third')
@@ -465,14 +465,13 @@ var colnavCustom = function() {
   function getDrilldownSource(str) {
     var url = endPointUrl + str;
     showLoader();
+    disableToggles();
     if (savedResults[str]) { // Get stored results if present
       afterRequest(str, savedResults[str]);
     } else {
       // These hardcoded paths and IPs need to be fixed probably
       if (window.location.pathname.indexOf('DesignSystem') === 1 ||
-        window.location.origin.indexOf('localhost') !== -1 ||
-        window.location.origin.indexOf('10.4.67.79') !== -1 ||
-        window.location.origin.indexOf('192.168.10.153') !== -1) {
+        window.location.origin.indexOf('localhost') !== -1) {
         url += '.json';
       }
       $.ajax({
@@ -493,9 +492,8 @@ var colnavCustom = function() {
     if (isSmall === wasSmall) {
       return;
     }
+    getDrilldownSource($(keys.toggleInput + keys.checked).data(keys.switchurl));
     if (!isSmall) {
-      // Perform drilldown logic with currently selected source:
-      getDrilldownSource($(keys.toggleInput + keys.checked).data(keys.switchurl));
       // Ensure reset of markup
       $('.switch-container').show();
       $('.a-js-colnavTitleRegular').text('Alle skjemaer');
@@ -521,8 +519,8 @@ var colnavCustom = function() {
   }
 
   function performResizeLogicAfterResizeEvents() {
-    var resizeTimeout; // Timeout variable for resizing
-    window.onresize = function() { // Perform resize logic after resize events
+    var resizeTimeout;
+    window.onresize = function() {
       clearTimeout(resizeTimeout);
       resizeTimeout = setTimeout(resizedWindow, 100);
     };
