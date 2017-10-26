@@ -71,7 +71,7 @@ gulp.task('pl-copy:favicon', function() {
 
 // Create flat designsystem CSS file and put into public CSS folder:
 gulp.task('pl-copy:css', function(done) {
-  buildConfig.production.forEach(function(element) {
+  buildConfig.dev.forEach(function(element) {
     return gulp.src(paths().source.css + element.scssFilename + '.scss')
     .pipe(sourcemaps.init())
     .pipe(sass().on('error', sass.logError))
