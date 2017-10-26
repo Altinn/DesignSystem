@@ -130,7 +130,16 @@
     },
     {
       "id": "altinnett",
-      "scssFilename": "style.dist.altinnett"
+      "scssFilename": "style.dist.altinnett",
+      "javascript": [
+        {
+          "filename": "altinnett.vendor.js",
+          "files": [
+            "node_modules/tether/dist/js/tether.js",
+            "node_modules/bootstrap/dist/js/bootstrap.js"
+          ]
+        }
+      ]
     }
   ],
   "dev": [
@@ -168,7 +177,29 @@
             "source/js/production//modules/*",
             "source/js/development/init.js",
             "source/js/production/portal-init.js",
-            "source/js/production/infoportal-init.js"
+            "source/js/production/infoportal-init.js",
+            "source/js/production/altinnett-init.js"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "dev-altinnett",
+      "scssFilename": "style-altinnett",
+      "javascript": [
+        {
+          "filename": "altinnettDev.vendor.js",
+          "files": [
+            "node_modules/tether/dist/js/tether.js",
+            "node_modules/bootstrap/dist/js/bootstrap.js",
+            "node_modules/truncate.js/dist/truncate.js"
+          ]
+        },
+        {
+          "filename": "altinnettDev.js",
+          "files": [
+            "source/js/production/modules/setupTruncateLines.js",
+            "source/js/production/altinnett-init.js"
           ]
         }
       ]
