@@ -73,15 +73,15 @@ gulp.task('pl-copy:favicon', function() {
 
 // Create flat designsystem CSS file and put into public CSS folder:
 gulp.task('pl-copy:css', function(done) {
-  buildConfig.production.forEach(function(element) {
+  buildConfig.dev.forEach(function(element) {
     return gulp.src(paths().source.css + element.scssFilename + '.scss')
     .pipe(sourcemaps.init())
     .pipe(sass().on('error', sass.logError))
-    // We will add this line after removing most of the unused css.
     .pipe(autoprefixer({
       browsers: ['last 2 versions'],
       cascade: false
     }))
+    // the purify function removes unused css, but is a bit aggressive.
     // .pipe(purify(['./public/**/*.js', './public/**/*.html']))
     .pipe(sourcemaps.write('./maps'))
     .pipe(gulp.dest(paths().public.css))
@@ -189,54 +189,36 @@ gulp.task('pl-copy:distribution-profile', function(done) {
   );
 });
 
-// Create distribution JS (bundles all JS resources for production, except for
-// jQuery) and copy into distribution folder:
-gulp.task('pl-copy:distribution-infoportal-js', function() {
-  return gulp.src(buildConfig.infoportal.jsFiles.files)
-    .pipe(gulp_concat('concat.js'))
-    .pipe(gulp_rename(buildConfig.infoportal.jsFiles.filename))
-    .pipe(gulp.dest('dist/js'));
-});
-
-// Create distribution JS (bundles all JS resources for production, except for
-// jQuery) and copy into distribution folder:
-gulp.task('pl-copy:distribution-infoportal-vendor-js', function() {
-  return gulp.src(buildConfig.infoportal.vendorJsFiles.files)
-    .pipe(gulp_concat('concat.js'))
-    .pipe(gulp_rename(buildConfig.infoportal.vendorJsFiles.filename))
-    .pipe(gulp.dest('dist/js'));
-});
-
-// Create vendor distibution for Portal. Custom js will be in a different file
-gulp.task('pl-copy:distribution-portal-vendor-js', function() {
-  return gulp.src(buildConfig.portal.vendorJsFiles.files)
-    .pipe(gulp_concat('concat.js'))
-    .pipe(gulp_rename(buildConfig.portal.vendorJsFiles.filename))
-    .pipe(gulp.dest('dist/js'));
-});
-
-// Create custom js distibution for Portal.
-gulp.task('pl-copy:distribution-portal-js', function() {
-  return gulp.src(buildConfig.portal.jsFiles.files)
-    .pipe(sourcemaps.init())
-    .pipe(gulp_concat('concat.js'))
-    .pipe(gulp_rename(buildConfig.portal.jsFiles.filename))
-    .pipe(sourcemaps.write('./maps'))
-    .pipe(gulp.dest('dist/js'));
+// all js tasks for production merged into one.
+gulp.task('pl-copy:distribution-js', function (done) {
+  buildConfig.production.forEach(function(element) {
+    if(element.javascript) {
+      element.javascript.forEach(function(bundle) {
+        return gulp.src(bundle.files)
+        .pipe(sourcemaps.init())
+        .pipe(gulp_concat('concat.js'))
+        .pipe(gulp_rename(bundle.filename))
+        .pipe(sourcemaps.write('./maps'))
+        .pipe(gulp.dest('dist/js'));      
+      })
+    }
+  });
+  done();
 });
 
 // Flatten development JS and copy into public JS folder:
-gulp.task('pl-copy:designsystemdev-js', function() {
-  return gulp.src(buildConfig.altinnDev.jsFiles.files)
-    .pipe(gulp_concat('concat.js')).pipe(gulp_rename(buildConfig.altinnDev.jsFiles.filename))
-    .pipe(gulp.dest('public/js'));
-});
-
-// Flatten development JS and copy into public JS folder:
-gulp.task('pl-copy:designsystemdev-vendor-js', function() {
-  return gulp.src(buildConfig.altinnDev.vendorJsFiles.files)
-    .pipe(gulp_concat('concat.js')).pipe(gulp_rename(buildConfig.altinnDev.vendorJsFiles.filename))
-    .pipe(gulp.dest('public/js'));
+gulp.task('pl-copy:designsystemdev-js', function(done) {
+  buildConfig.dev.forEach(function(element) {
+    if(element.javascript) {
+      element.javascript.forEach(function(bundle) {
+        return gulp.src(bundle.files)
+        .pipe(gulp_concat('concat.js'))
+        .pipe(gulp_rename(bundle.filename))
+        .pipe(gulp.dest('public/js'));      
+      })
+    }
+  });
+  done();
 });
 
 // Create custom js distibution for Portal.
@@ -267,8 +249,7 @@ function build(done) {
 
 gulp.task('pl-assets', gulp.series(
   gulp.parallel(
-    'pl-copy:designsystemdev-js',
-    'pl-copy:designsystemdev-vendor-js'
+    'pl-copy:designsystemdev-js'
   ),
     function(done) {
       done();
@@ -509,11 +490,12 @@ gulp.task('dist',
     'pl-copy:distribution-epi',
     'pl-copy:distribution-profile',
     'pl-copy:distribution-patterns',
-    'pl-copy:distribution-portal-js',
-    'pl-copy:distribution-portal-vendor-js',
-    'pl-copy:distribution-infoportal-js',
-    'pl-copy:distribution-infoportal-vendor-js',
-    'pl-copy:distribution-portal-js-modules'
+    // 'pl-copy:distribution-portal-js',
+    // 'pl-copy:distribution-portal-vendor-js',
+    // 'pl-copy:distribution-infoportal-js',
+    // 'pl-copy:distribution-infoportal-vendor-js',
+    // 'pl-copy:distribution-portal-js-modules'
+    'pl-copy:distribution-js'
   )
 );
 gulp.task('default', gulp.series('patternlab:serve-all'));
