@@ -148,18 +148,24 @@ var genericSearch = function() {
 
   function hideContainers() {
     elements.$container.hide();
-    elements.$altContainer.hide();
+    if (elements.$altContainer !== null) {
+      elements.$altContainer.hide();
+    }
   }
 
   function showContainers() {
     if (dimensions[1].isSelected) {
       elements.$container.hide();
-      elements.$altContainer.show();
-      elements.$altContainer.removeClass(keys.forceHiddenClass);
+      if (elements.$altContainer !== null) {
+        elements.$altContainer.show();
+        elements.$altContainer.removeClass(keys.forceHiddenClass);
+      }
     } else {
       elements.$container.show();
       elements.$container.removeClass(keys.forceHiddenClass);
-      elements.$altContainer.hide();
+      if (elements.$altContainer !== null) {
+        elements.$altContainer.hide();
+      }
     }
   }
 
@@ -178,7 +184,9 @@ var genericSearch = function() {
   function showResults() {
     $('.a-collapse-title').not('.collapsed').click();
     elements.$container.removeClass(keys.forceHiddenClass);
-    elements.$altContainer.removeClass(keys.forceHiddenClass);
+    if (elements.$altContainer !== null) {
+      elements.$altContainer.removeClass(keys.forceHiddenClass);
+    }
     elements.$loadMoreButton.removeClass(keys.forceHiddenClass);
     elements.$showResultsButton.hide();
     showContainers();
@@ -218,7 +226,9 @@ var genericSearch = function() {
 
   function hideResultItems() {
     elements.$container.find('.a-js-result').hide();
-    elements.$altContainer.find('.a-js-result').hide();
+    if (elements.$altContainer !== null) {
+      elements.$altContainer.find('.a-js-result').hide();
+    }
   }
 
   function setAboveItemsVisibility(filteredList, maxNumberOfItemsToDisplay) {
@@ -293,10 +303,12 @@ var genericSearch = function() {
   }
 
   function appendExtraResultsHeading() {
-    elements.$altContainer.append('<span class="a-js-top"></span>');
-    elements.$altContainer.append(elements.$altContainer.attr('data-extraresultsheading'));
-    elements.$altContainer.append('<span class="a-js-bottom"></span>');
-    elements.$extraResultsHeading = $('.a-js-extraHeading');
+    if (elements.$altContainer !== null) {
+      elements.$altContainer.append('<span class="a-js-top"></span>');
+      elements.$altContainer.append(elements.$altContainer.attr('data-extraresultsheading'));
+      elements.$altContainer.append('<span class="a-js-bottom"></span>');
+      elements.$extraResultsHeading = $('.a-js-extraHeading');
+    }
   }
 
   function createResultElement(template, name, url, description, id, cssClasses) {
@@ -338,7 +350,9 @@ var genericSearch = function() {
       } else {
         cssClasses = 'a-linkArticle a-js-result ' + keys.generalArticleSelector;
         element = createResultElement(base, name, url, description, id, cssClasses);
-        elements.$altContainer.append(element);
+        if (elements.$altContainer !== null) {
+          elements.$altContainer.append(element);
+        }
       }
     });
     elements.$container.find('.a-js-result').each(function(index, item) {
@@ -516,7 +530,9 @@ var genericSearch = function() {
     elements.$container.find('li:gt(0)').remove();
     elements.$container.find('.a-js-result:gt(0)').remove();
     elements.$container.html('');
-    elements.$altContainer.html('');
+    if (elements.$altContainer !== null) {
+      elements.$altContainer.html('');
+    }
   }
 
   function getInputType() {
