@@ -199,7 +199,7 @@ gulp.task('pl-copy:distribution-js', function (done) {
         .pipe(gulp_concat('concat.js'))
         .pipe(gulp_rename(bundle.filename))
         .pipe(sourcemaps.write('./maps'))
-        .pipe(gulp.dest('dist/js'));      
+        .pipe(gulp.dest('dist/js'));
       })
     }
   });
@@ -214,7 +214,7 @@ gulp.task('pl-copy:designsystemdev-js', function(done) {
         return gulp.src(bundle.files)
         .pipe(gulp_concat('concat.js'))
         .pipe(gulp_rename(bundle.filename))
-        .pipe(gulp.dest('public/js'));      
+        .pipe(gulp.dest('public/js'));
       })
     }
   });
@@ -562,10 +562,17 @@ gulp.task('copy:export-to-styleguide', function(done) {
   gulp.src('public/images/**/*')
   .pipe(gulp.dest('../designsystem-styleguide/images'));
 
+  // Export storefront-css to style guide css directory
+  gulp.src('dist/css/style.dist.storefront.*')
+  .pipe(gulp.dest('../designsystem-styleguide/css'));
+
   done();
 });
 
 /** ***************************************************
  * COMPOUND TASKS
 ******************************************************/
-gulp.task('style-guide-export', gulp.series('clean:styleguide-dest-paths', 'copy:export-to-styleguide'));
+gulp.task('style-guide-export', gulp.series(
+  'pl-copy:distribution-css',
+  'clean:styleguide-dest-paths',
+  'copy:export-to-styleguide'));
