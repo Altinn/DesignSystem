@@ -9,9 +9,4 @@ var toggleSelectProfiles = function() {
   $('#select-profile-checkbutton-2').on('click', function() {
     $('#profile-selection').show();
   });
-  $('#profiles-selected').on('click', function() {
-    $('#forSelectionList').toggle();
-    $('#selectedProfiles').toggle();
-    $(this).toggleClass('active');
-  });
 };
