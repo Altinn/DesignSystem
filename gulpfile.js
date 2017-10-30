@@ -526,6 +526,8 @@ gulp.task('copy:export-to-styleguide', function(done) {
     .pipe(replace(new RegExp('<!-- END.*-->', 'g'), ''))
     .pipe(replace(new RegExp('[\n\r]{2,}', 'g'), '\n\r'))
     .pipe(replace('<body class=""', '<body class="a-bgWhite p-1"'))
+    .pipe(replace('../../images/', '/designsystem-styleguide/images/'))
+    .pipe(replace('..&#x2F;..&#x2F;images&#x2F;', '/designsystem-styleguide/images/'))
     .pipe(gulp.dest('../designsystem-styleguide/_includes/patterns'));
 
     // Export public/patterns directory to style guide patterns directory
@@ -540,6 +542,8 @@ gulp.task('copy:export-to-styleguide', function(done) {
   .pipe(regexRename(/molekyler/g, 'molecules'))
   .pipe(regexRename(/organismer/g, 'organisms'))
   .pipe(replace('<body class=""', '<body class="a-bgWhite p-1"'))
+  .pipe(replace('../../images/', '/designsystem-styleguide/images/'))
+  .pipe(replace('..&#x2F;..&#x2F;images&#x2F;', '/designsystem-styleguide/images/'))
   .pipe(gulp.dest('../designsystem-styleguide/patterns'));
 
   // Export css directory to style guide css directory
