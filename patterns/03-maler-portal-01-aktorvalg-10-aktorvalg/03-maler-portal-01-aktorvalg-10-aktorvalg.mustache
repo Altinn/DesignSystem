@@ -14,9 +14,9 @@
     <div class="row px-2 px-md-1">
       <div class="col-12 col-lg-4 mb-1">
         {{# is-first-time }}
-        <h1 class="a-h2 d-inline">Velg profil</h1>
+        <h1 class="a-h2 d-inline">Velg aktør</h1>
         {{# headerFootnote}} {{> atomer-link-med-popover-ikon }} {{/ headerFootnote }} {{/ is-first-time }} {{^ is-first-time }}
-        <h1 class="a-h2 d-inline">Alle dine profiler:</h1>
+        <h1 class="a-h2 d-inline">Alle dine aktører:</h1>
         {{/ is-first-time }}
       </div>
       <div class="col-12 col-lg-5 ">
@@ -26,7 +26,11 @@
           <p>
             {{/ no-results-text }} {{/ personswitch-search }}
       </div>
-      {{> atomer-link(link-class: "a-link-logout", link-text: "Logg ut", link-url: "/patterns/04-sider-infoportal-01-forside-00-forside/04-sider-infoportal-01-forside-00-forside.html") }}
+      {{^ is-first-time }} {{# utvidet-sok }}
+      <div class="col-12 col-lg-3">
+        {{> atomer-link-ikon }}
+      </div>
+      {{/ utvidet-sok }} {{/ is-first-time }} {{> atomer-link(link-class: "a-link-logout", link-text: "Logg ut", link-url: "/patterns/04-sider-infoportal-01-forside-00-forside/04-sider-infoportal-01-forside-00-forside.html") }}
     </div>
 
     {{# is-first-time }}
@@ -39,7 +43,7 @@
     <div class="row">
       {{# is-first-time }} {{^ is-simple }}
       <div class="col">
-        <h2 class="a-h4 px-lg-3">Alle dine profiler:</h2>
+        <h2 class="a-h4 px-lg-3">Alle dine aktører:</h2>
       </div>
 
       {{# utvidet-sok }}
