@@ -42,7 +42,6 @@
   setupNestedCheckboxes,
   searchFilterView,
   AltinnQuickhelp
-
 */
 window.portalInit = function() {
   $.fn.modal.Constructor.prototype._enforceFocus = function() {
