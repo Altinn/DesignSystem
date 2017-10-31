@@ -1,88 +1,82 @@
-/* globals
-  colnavCustom,
-  genericSearch,
-  questionnaireInteraction,
-  uniformHeight,
-  articleAnchors,
-  subscribe,
-  setupFormValidation,
-  listenForAttachmentChanges,
-  newsArchive
-  formatOrgNr,
-  cardsToggle,
-  onConfirmDeletionClick,
-  setupListRowSelect,
-  toggleSwitch,
-  truncateBoxButtonNames,
-  onFileInputChange,
-  questionnaireInteraction,
-  colnavCustom,
-  handleFocus,
-  mobileNavigation,
-  toggleFilter,
-  uniformHeight,
-  tooltip,
-  initializeDatepicker,
-  onboarding,
-  nameChecker,
-  codeLookup,
-  setupAddRightsHandler,
-  onFileInputChange,
-  toggleInstant,
+/*
+  globals
+  AltinnDropdown,
+  AltinnModal,
+  AltinnQuickhelp
   addListExpandHandler,
   addListSortHandler,
-  setupListRowSelect,
-  setupOnKeypress,
-  genericSearch,
-  toggleInstant,
   articleAnchors,
-  feedbackToggle,
-  setValidatorSettings,
   autoFootnotes,
-  popoverLocalInit,
+  cardsToggle,
+  codeLookup,
+  colnavCustom,
+  feedbackToggle,
+  formatOrgNr,
+  genericSearch,
+  handleFocus,
+  initializeDatepicker,
+  listenForAttachmentChanges,
+  mobileNavigation,
+  nameChecker,
+  newsArchive
+  onboarding,
+  onConfirmDeletionClick,
+  onFileInputChange,
   popoverGlobalInit,
-  setupSelectableCheckbox,
-  window,
-  setupTruncateLines,
-  AltinnModal,
-  setupExpandContent,
-  AltinnDropdown,
-  setupNestedCheckboxes,
+  popoverLocalInit,
+  questionnaireInteraction,
   searchFilterView,
-  AltinnQuickhelp
+  setupAddRightsHandler,
+  setupExpandContent,
+  setupFormValidation,
+  setupListRowSelect,
+  setupNestedCheckboxes,
+  setupOnKeypress,
+  setupSelectableCheckbox,
+  setupTruncateLines,
+  setValidatorSettings,
+  subscribe,
+  toggleFilter,
+  toggleInstant,
+  toggleSwitch,
+  tooltip,
+  truncateBoxButtonNames,
+  uniformHeight,
+  window,
 */
 window.infoportalInit = function() {
-  colnavCustom();
-  genericSearch();
-  questionnaireInteraction();
-  uniformHeight();
-  articleAnchors();
-  subscribe();
-  setupFormValidation();
-  listenForAttachmentChanges();
-  newsArchive();
-  setValidatorSettings();
-  addListExpandHandler();
-  setupOnKeypress();
-  handleFocus();
-  initializeDatepicker();
-  addListSortHandler();
-  mobileNavigation();
-  toggleFilter();
-  tooltip();
-  toggleInstant();
-  feedbackToggle();
-  autoFootnotes();
-  popoverLocalInit();
-  popoverGlobalInit();
-  setupSelectableCheckbox();
-  setupTruncateLines();
-  setupExpandContent();
   AltinnModal.init();
   AltinnDropdown.init();
   AltinnQuickhelp.init();
-  setupNestedCheckboxes();
+  addListExpandHandler();
+  addListSortHandler();
+  articleAnchors();
+  autoFootnotes();
+  colnavCustom();
+  feedbackToggle();
+  genericSearch();
+  handleFocus();
+  initializeDatepicker();
+  listenForAttachmentChanges();
+  mobileNavigation();
+  newsArchive();
+  popoverGlobalInit();
+  popoverLocalInit();
+  questionnaireInteraction();
   searchFilterView();
+  setupExpandContent();
+  setupFormValidation();
+  setupNestedCheckboxes();
+  setupOnKeypress();
+  setupSelectableCheckbox();
+  setupTruncateLines();
+  setValidatorSettings();
+  subscribe();
+  toggleFilter();
+  toggleInstant();
+  tooltip();
+  uniformHeight();
+
   $.fn.modal.Constructor.prototype._enforceFocus = function() {
     $(document)
       .off('focusin.bs.modal')
