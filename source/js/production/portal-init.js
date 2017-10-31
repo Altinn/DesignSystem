@@ -1,48 +1,46 @@
 /*
   globals
-  formatOrgNr,
-  cardsToggle,
-  onConfirmDeletionClick,
-  setupListRowSelect,
-  toggleSwitch,
-  truncateBoxButtonNames,
-  onFileInputChange,
-  questionnaireInteraction,
-  colnavCustom,
-  handleFocus,
-  mobileNavigation,
-  toggleFilter,
-  uniformHeight,
-  tooltip,
-  initializeDatepicker,
-  onboarding,
-  nameChecker,
-  codeLookup,
-  setupAddRightsHandler,
-  onFileInputChange,
-  toggleInstant,
+  AltinnDropdown,
+  AltinnModal,
+  AltinnQuickhelp
   addListExpandHandler,
   addListSortHandler,
-  setupListRowSelect,
-  setupOnKeypress,
-  genericSearch,
-  toggleInstant,
   articleAnchors,
-  feedbackToggle,
-  setValidatorSettings,
   autoFootnotes,
-  popoverLocalInit,
+  cardsToggle,
+  codeLookup,
+  colnavCustom,
+  feedbackToggle,
+  formatOrgNr,
+  genericSearch,
+  handleFocus,
+  initializeDatepicker,
+  mobileNavigation,
+  nameChecker,
+  onboarding,
+  onConfirmDeletionClick,
+  onFileInputChange,
   popoverGlobalInit,
-  setupSelectableCheckbox,
-  window,
-  setupTruncateLines,
-  AltinnModal,
-  setupExpandContent,
-  AltinnDropdown,
-  setupNestedCheckboxes,
+  popoverLocalInit,
+  questionnaireInteraction,
   searchFilterView,
-  AltinnQuickhelp
+  setupAddRightsHandler,
+  setupExpandContent,
+  setupListRowSelect,
+  setupNestedCheckboxes,
+  setupOnKeypress,
+  setupSelectableCheckbox,
+  setupTruncateLines,
+  setValidatorSettings,
+  toggleFilter,
+  toggleInstant,
+  toggleSwitch,
+  tooltip,
+  truncateBoxButtonNames,
+  uniformHeight,
+  window,
 */
+
 window.portalInit = function() {
   $.fn.modal.Constructor.prototype._enforceFocus = function() {
     $(document)
@@ -58,34 +56,34 @@ window.portalInit = function() {
       }, this));
   };
 
-  formatOrgNr();
-  cardsToggle();
-  onConfirmDeletionClick();
-  setupListRowSelect();
-  toggleSwitch();
-  truncateBoxButtonNames();
-  onFileInputChange();
-  setValidatorSettings();
-  addListExpandHandler();
-  setupOnKeypress();
-  handleFocus();
-  initializeDatepicker();
-  addListSortHandler();
-  mobileNavigation();
-  toggleFilter();
-  tooltip();
-  toggleInstant();
-  feedbackToggle();
-  autoFootnotes();
-  popoverLocalInit();
-  popoverGlobalInit();
-  setupSelectableCheckbox();
-  setupTruncateLines();
-  setupExpandContent();
   AltinnModal.init();
   AltinnDropdown.init();
   AltinnQuickhelp.init();
-  setupNestedCheckboxes();
+  addListExpandHandler();
+  addListSortHandler();
+  autoFootnotes();
+  cardsToggle();
+  feedbackToggle();
+  formatOrgNr();
+  handleFocus();
+  initializeDatepicker();
+  mobileNavigation();
+  onConfirmDeletionClick();
+  onFileInputChange();
+  popoverGlobalInit();
+  popoverLocalInit();
   searchFilterView();
+  setupExpandContent();
+  setupListRowSelect();
+  setupNestedCheckboxes();
+  setupOnKeypress();
+  setupSelectableCheckbox();
+  setupTruncateLines();
+  setValidatorSettings();
+  toggleFilter();
+  toggleInstant();
+  toggleSwitch();
+  tooltip();
+  truncateBoxButtonNames();
 };
 window.portalInit();
