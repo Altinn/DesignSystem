@@ -4,43 +4,30 @@
   AltinnModal,
   AltinnQuickhelp,
   addListExpandHandler,
-  addListSortHandler,
-  articleAnchors,
-  autoFootnotes,
   cardsToggle,
   codeLookup,
-  colnavCustom,
   feedbackToggle,
   formatOrgNr,
-  genericSearch,
   handleFocus,
-  initializeDatepicker,
   listenForAttachmentChanges,
   mobileNavigation,
   nameChecker,
-  newsArchive,
   onConfirmDeletionClick,
   onFileInputChange,
   popoverGlobalInit,
   popoverLocalInit,
-  questionnaireInteraction,
-  searchFilterView,
   setupAddRightsHandler,
   setupExpandContent,
   setupFormValidation,
   setupListRowSelect,
-  setupNestedCheckboxes,
   setupOnKeypress,
   setupSelectableCheckbox,
   setupTruncateLines,
   setValidatorSettings,
-  subscribe,
   toggleFilter,
   toggleInstant,
   toggleSwitch,
-  tooltip,
   truncateBoxButtonNames,
-  uniformHeight,
   window,
 */
 window.infoportalInit = function() {
@@ -48,33 +35,20 @@ window.infoportalInit = function() {
   AltinnDropdown.init();
   AltinnQuickhelp.init();
   addListExpandHandler();
-  addListSortHandler();
-  articleAnchors();
-  autoFootnotes(); // This should be called before popoverLocalInit
-  colnavCustom();
   feedbackToggle();
-  genericSearch();
   handleFocus();
-  initializeDatepicker();
   listenForAttachmentChanges();
   mobileNavigation();
-  newsArchive();
   popoverGlobalInit();
   popoverLocalInit();
-  questionnaireInteraction();
-  searchFilterView();
   setupExpandContent();
   setupFormValidation();
-  setupNestedCheckboxes();
   setupOnKeypress();
   setupSelectableCheckbox();
   setupTruncateLines();
   setValidatorSettings();
-  subscribe();
   toggleFilter();
   toggleInstant();
-  tooltip();
-  uniformHeight();
 
   $.fn.modal.Constructor.prototype._enforceFocus = function() {
     $(document)
