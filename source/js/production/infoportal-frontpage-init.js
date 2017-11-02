@@ -6,6 +6,7 @@
   addListExpandHandler,
   cardsToggle,
   codeLookup,
+  contactForm,
   feedbackToggle,
   formatOrgNr,
   handleFocus,
@@ -35,6 +36,7 @@ window.infoportalInit = function() {
   AltinnDropdown.init();
   AltinnQuickhelp.init();
   addListExpandHandler();
+  contactForm();
   feedbackToggle();
   handleFocus();
   listenForAttachmentChanges();

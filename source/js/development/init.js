@@ -13,6 +13,7 @@
   certificateHandler,
   codeLookup,
   colnavCustom,
+  contactForm,
   feedbackToggle,
   fixPatternLinks,
   formatOrgNr,
@@ -72,6 +73,7 @@ window.devInit = function() {
   certificateHandler();
   codeLookup();
   colnavCustom();
+  contactForm();
   feedbackToggle();
   fixPatternLinks();
   formatOrgNr();
