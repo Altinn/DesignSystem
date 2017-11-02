@@ -206,7 +206,7 @@ gulp.task('pl-copy:distribution-js', function (done) {
   done();
 });
 
-// Flatten development JS and copy into public JS folder:
+// Flatten prototyping JS and copy into public JS folder:
 gulp.task('pl-copy:designsystemdev-js', function(done) {
   buildConfig.dev.forEach(function(element) {
     if(element.javascript) {
@@ -375,9 +375,9 @@ function watch() {
     .on('change', gulp.series('pl-copy:css', reload));
   gulp.watch(paths().source.styleguide + '**/*.*', { awaitWriteFinish: true })
     .on('change', gulp.series('pl-copy:styleguide', reload));
-  gulp.watch([paths().source.js + 'production/**/*.js', paths().source.js + 'development/**/*.js'])
+  gulp.watch([paths().source.js + 'production/**/*.js', paths().source.js + 'prototyping/**/*.js'])
     .on('change', gulp.series('pl-copy:designsystemdev-js', reload));
-  // gulp.watch(paths().source.js + 'development/**/*.js')
+  // gulp.watch(paths().source.js + 'prototyping/**/*.js')
   //   .on('change', gulp.series(
   //     'pl-copy:distribution-js',
   //     'pl-copy:distribution-vendor-portal-js',
@@ -412,9 +412,9 @@ function watchProject(projectName) {
     .on('change', gulp.series('pl-copy:css', reload));
   gulp.watch(paths().source.styleguide + '**/*.*', { awaitWriteFinish: true })
     .on('change', gulp.series('pl-copy:styleguide', reload));
-  gulp.watch([paths().source.js + 'production/**/*.js', paths().source.js + 'development/**/*.js'])
+  gulp.watch([paths().source.js + 'production/**/*.js', paths().source.js + 'prototyping/**/*.js'])
     .on('change', gulp.series('pl-copy:designsystemdev-js', reload));
-  // gulp.watch(paths().source.js + 'development/**/*.js')
+  // gulp.watch(paths().source.js + 'prototyping/**/*.js')
   //   .on(
   //     'change',
   //     gulp.series(
