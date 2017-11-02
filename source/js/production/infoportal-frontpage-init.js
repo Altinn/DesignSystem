@@ -6,9 +6,11 @@
   addListExpandHandler,
   cardsToggle,
   codeLookup,
+  contactForm,
   feedbackToggle,
   formatOrgNr,
   handleFocus,
+  iOS11BugWorkAround,
   listenForAttachmentChanges,
   mobileNavigation,
   nameChecker,
@@ -35,8 +37,10 @@ window.infoportalInit = function() {
   AltinnDropdown.init();
   AltinnQuickhelp.init();
   addListExpandHandler();
+  contactForm();
   feedbackToggle();
   handleFocus();
+  iOS11BugWorkAround();
   listenForAttachmentChanges();
   mobileNavigation();
   popoverGlobalInit();

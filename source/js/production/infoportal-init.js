@@ -10,11 +10,13 @@
   cardsToggle,
   codeLookup,
   colnavCustom,
+  contactForm,
   feedbackToggle,
   formatOrgNr,
   genericSearch,
   handleFocus,
   initializeDatepicker,
+  iOS11BugWorkAround,
   listenForAttachmentChanges,
   mobileNavigation,
   nameChecker,
@@ -52,10 +54,12 @@ window.infoportalInit = function() {
   articleAnchors();
   autoFootnotes(); // This should be called before popoverLocalInit
   colnavCustom();
+  contactForm();
   feedbackToggle();
   genericSearch();
   handleFocus();
   initializeDatepicker();
+  iOS11BugWorkAround();
   listenForAttachmentChanges();
   mobileNavigation();
   newsArchive();

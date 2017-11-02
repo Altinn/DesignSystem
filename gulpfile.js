@@ -147,48 +147,6 @@ gulp.task('pl-copy:distribution-css', function(done) {
   });
 });
 
-// Create distribution CSS file for EPI and copy into distribution folder:
-gulp.task('pl-copy:distribution-epi', function(done) {
-  fs.readFile('./source/css/scss/episerver/_episerver.scss', 'utf-8',
-    function(err, src) {
-      if (err) {
-        console.log(err);
-      }
-      fs.writeFileSync('./source/css/scss/episerver/epi-temp.scss', src);
-      gulp.src(paths().source.epi + 'epi-temp.scss')
-        .pipe(sass().on('error', sass.logError))
-        .pipe(gulp_rename('epi.css'))
-        .pipe(gulp.dest('dist/css'))
-        .pipe(cleanCSS())
-        .pipe(gulp_rename('epi.min.css'))
-        .pipe(gulp.dest('dist/css'));
-      done();
-    }
-    // TODO: Delete epi-temp.scss from source folder.
-  );
-});
-
-// Create distribution CSS file for "Profilmanual" and copy into distribution folder:
-gulp.task('pl-copy:distribution-profile', function(done) {
-  fs.readFile('./source/css/scss/episerver/_profile-presentation.scss', 'utf-8',
-    function(err, src) {
-      if (err) {
-        console.log(err);
-      }
-      fs.writeFileSync('./source/css/scss/episerver/profile-temp.scss', src);
-      gulp.src(paths().source.epi + 'profile-temp.scss')
-        .pipe(sass().on('error', sass.logError))
-        .pipe(gulp_rename('profile.css'))
-        .pipe(gulp.dest('dist/css'))
-        .pipe(cleanCSS())
-        .pipe(gulp_rename('profile.min.css'))
-        .pipe(gulp.dest('dist/css'));
-      done();
-    }
-    // TODO: Delete profile-temp.scss from source folder. Again, Ivar????
-  );
-});
-
 // all js tasks for production merged into one.
 gulp.task('pl-copy:distribution-js', function (done) {
   buildConfig.production.forEach(function(element) {
@@ -206,7 +164,7 @@ gulp.task('pl-copy:distribution-js', function (done) {
   done();
 });
 
-// Flatten development JS and copy into public JS folder:
+// Flatten prototyping JS and copy into public JS folder:
 gulp.task('pl-copy:designsystemdev-js', function(done) {
   buildConfig.dev.forEach(function(element) {
     if(element.javascript) {
@@ -375,9 +333,9 @@ function watch() {
     .on('change', gulp.series('pl-copy:css', reload));
   gulp.watch(paths().source.styleguide + '**/*.*', { awaitWriteFinish: true })
     .on('change', gulp.series('pl-copy:styleguide', reload));
-  gulp.watch([paths().source.js + 'production/**/*.js', paths().source.js + 'development/**/*.js'])
+  gulp.watch([paths().source.js + 'production/**/*.js', paths().source.js + 'prototyping/**/*.js'])
     .on('change', gulp.series('pl-copy:designsystemdev-js', reload));
-  // gulp.watch(paths().source.js + 'development/**/*.js')
+  // gulp.watch(paths().source.js + 'prototyping/**/*.js')
   //   .on('change', gulp.series(
   //     'pl-copy:distribution-js',
   //     'pl-copy:distribution-vendor-portal-js',
@@ -412,9 +370,9 @@ function watchProject(projectName) {
     .on('change', gulp.series('pl-copy:css', reload));
   gulp.watch(paths().source.styleguide + '**/*.*', { awaitWriteFinish: true })
     .on('change', gulp.series('pl-copy:styleguide', reload));
-  gulp.watch([paths().source.js + 'production/**/*.js', paths().source.js + 'development/**/*.js'])
+  gulp.watch([paths().source.js + 'production/**/*.js', paths().source.js + 'prototyping/**/*.js'])
     .on('change', gulp.series('pl-copy:designsystemdev-js', reload));
-  // gulp.watch(paths().source.js + 'development/**/*.js')
+  // gulp.watch(paths().source.js + 'prototyping/**/*.js')
   //   .on(
   //     'change',
   //     gulp.series(
@@ -487,8 +445,6 @@ gulp.task('dist',
     'pl-copy:distribution-fonts',
     'pl-copy:distribution-css',
     'pl-copy:distribution-images',
-    'pl-copy:distribution-epi',
-    'pl-copy:distribution-profile',
     'pl-copy:distribution-patterns',
     // 'pl-copy:distribution-portal-js',
     // 'pl-copy:distribution-portal-vendor-js',
