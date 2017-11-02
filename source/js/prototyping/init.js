@@ -23,6 +23,7 @@
   initializeDatepicker,
   initSearchWithHighlight,
   insetVariations,
+  iOS11BugWorkAround,
   listenForAttachmentChanges,
   mobileNavigation,
   nameChecker,
@@ -83,6 +84,7 @@ window.devInit = function() {
   initializeDatepicker();
   insetVariations();
   initSearchWithHighlight();
+  iOS11BugWorkAround();
   listenForAttachmentChanges();
   mobileNavigation();
   nameChecker();

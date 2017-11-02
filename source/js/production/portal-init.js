@@ -16,6 +16,7 @@
   genericSearch,
   handleFocus,
   initializeDatepicker,
+  iOS11BugWorkAround,
   mobileNavigation,
   nameChecker,
   onboarding,
@@ -69,6 +70,7 @@ window.portalInit = function() {
   formatOrgNr();
   handleFocus();
   initializeDatepicker();
+  iOS11BugWorkAround();
   mobileNavigation();
   onConfirmDeletionClick();
   onFileInputChange();
