@@ -6,6 +6,7 @@
   uniformHeight,
   tooltip,
   initializeDatepicker,
+  iOS11BugWorkAround,
   onboarding,
   nameChecker,
   codeLookup,
@@ -56,6 +57,7 @@ window.sharedInit = function() {
   setupOnKeypress();
   handleFocus();
   initializeDatepicker();
+  iOS11BugWorkAround();
   addListSortHandler();
   mobileNavigation();
   toggleFilter();

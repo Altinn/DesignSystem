@@ -43,4 +43,3 @@ window.infoportalInit = function() {
   listenForAttachmentChanges('#js-attachmentForm', errorMessageCallback);
 };
 window.infoportalInit();
-// $(document).foundation();
