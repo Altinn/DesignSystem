@@ -10,6 +10,7 @@
   cardsToggle,
   codeLookup,
   colnavCustom,
+  contactForm,
   feedbackToggle,
   formatOrgNr,
   genericSearch,
@@ -63,6 +64,7 @@ window.portalInit = function() {
   addListSortHandler();
   autoFootnotes();
   cardsToggle();
+  contactForm();
   feedbackToggle();
   formatOrgNr();
   handleFocus();

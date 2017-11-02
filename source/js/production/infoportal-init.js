@@ -10,6 +10,7 @@
   cardsToggle,
   codeLookup,
   colnavCustom,
+  contactForm,
   feedbackToggle,
   formatOrgNr,
   genericSearch,
@@ -52,6 +53,7 @@ window.infoportalInit = function() {
   articleAnchors();
   autoFootnotes(); // This should be called before popoverLocalInit
   colnavCustom();
+  contactForm();
   feedbackToggle();
   genericSearch();
   handleFocus();
