@@ -16,6 +16,7 @@
   genericSearch,
   handleFocus,
   initializeDatepicker,
+  iOS11BugWorkAround,
   listenForAttachmentChanges,
   mobileNavigation,
   nameChecker,
@@ -58,6 +59,7 @@ window.infoportalInit = function() {
   genericSearch();
   handleFocus();
   initializeDatepicker();
+  iOS11BugWorkAround();
   listenForAttachmentChanges();
   mobileNavigation();
   newsArchive();

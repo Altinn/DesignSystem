@@ -10,6 +10,7 @@
   feedbackToggle,
   formatOrgNr,
   handleFocus,
+  iOS11BugWorkAround,
   listenForAttachmentChanges,
   mobileNavigation,
   nameChecker,
@@ -39,6 +40,7 @@ window.infoportalInit = function() {
   contactForm();
   feedbackToggle();
   handleFocus();
+  iOS11BugWorkAround();
   listenForAttachmentChanges();
   mobileNavigation();
   popoverGlobalInit();
