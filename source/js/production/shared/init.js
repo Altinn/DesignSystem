@@ -32,6 +32,7 @@
   AltinnDropdown,
   setupNestedCheckboxes,
   searchFilterView,
+  contactForm,
   AltinnQuickhelp
  */
 
@@ -72,6 +73,7 @@ window.sharedInit = function() {
   AltinnQuickhelp.init();
   setupNestedCheckboxes();
   searchFilterView();
+  contactForm();
 };
 
 window.sharedInit();
