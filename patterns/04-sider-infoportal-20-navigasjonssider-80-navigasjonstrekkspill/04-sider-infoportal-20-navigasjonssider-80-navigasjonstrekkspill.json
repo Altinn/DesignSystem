@@ -65,15 +65,12 @@
 	"telNumber": "75006000",
 	"telNumberVisible": "75 00 60 00",
 	"telText": "Telefonnummer til Altinn kundestøtte",
-	"button-text": "En knapp med ikon",
+	"button-text": "En standard knapp",
 	"button-class": "a-btn a-btn-icon a-btn-shadow",
 	"button-disabled": false,
 	"button-type": "button",
 	"onclick": false,
-	"button-icon": {
-		"icon-prefix": "ai",
-		"icon-class": "ai-deadline"
-	},
+	"button-icon": false,
 	"display-as-link": false,
 	"form-abonner": {
 		"text-input-id": "text-input-epost",
@@ -147,7 +144,7 @@
 				"icon-size": "",
 				"icon-extra-class": "a-blue"
 			},
-			"dropdown-item-content": "Lagre søk",
+			"dropdown-item-content": "Alt innhold er tilgjengelig på bokmål.",
 			"dropdown-item-content-class": "a-fontBold",
 			"dropdown-item-image": "../../images/norsk.svg",
 			"dropdown-item-image-class": "a-iconLeft a-flag",
@@ -160,7 +157,7 @@
 				"icon-size": "",
 				"icon-extra-class": "a-blue"
 			},
-			"dropdown-item-content": "Annet lagret søk",
+			"dropdown-item-content": "All content is available in english.",
 			"dropdown-item-content-class": "a-fontBold",
 			"dropdown-item-image": "../../images/english.svg",
 			"dropdown-item-image-class": "a-iconLeft a-flag",
@@ -174,7 +171,7 @@
 				"icon-size": "",
 				"icon-extra-class": "a-blue"
 			},
-			"dropdown-item-content": "tilpass",
+			"dropdown-item-content": "Det er førebels berre skjema som er tilgjengelig på nynorsk. Andre sider vil vises med bokmål.",
 			"dropdown-item-content-class": "a-fontBold",
 			"dropdown-item-image": "../../images/norsk.svg",
 			"dropdown-item-image-class": "a-iconLeft a-flag",
@@ -189,7 +186,7 @@
 		}
 	],
 	"label-class": "badge-primary",
-	"label-id": "label",
+	"label-id": false,
 	"label-content": "9",
 	"button-colorClass": "",
 	"link-url": "/patterns/04-sider-infoportal-01-forside-00-forside/04-sider-infoportal-01-forside-00-forside.html",
@@ -475,15 +472,18 @@
 	},
 	"checkboxes": [
 		{
+			"isChecked": false,
 			"checkboxes-title": "Kryss av i den første avkrysningsboksen"
 		},
 		{
+			"isChecked": false,
 			"checkboxes-title": "Kryss av i den andre avkrysningsboksen"
 		}
 	],
 	"firstLevelColClass": "col-12",
 	"secondLevelColClass": "col-12 col-md-3",
 	"hrExtraClass": "a-hrLight",
+	"loadmoreSearch": false,
 	"firstLevelCheckboxes": [
 		{
 			"hasSecondLevel": true,
@@ -543,6 +543,134 @@
 				}
 			],
 			"hasSecondLevel": false
+		}
+	],
+	"profile-sok": {
+		"text-input-id": "search-for-profiles-1",
+		"text-input-placeholder": "Søk etter profil",
+		"input-type": "search",
+		"isRequired": false,
+		"extra-help": false,
+		"isHidden": false,
+		"isLarge": false,
+		"top-label": false,
+		"form-control-class": "",
+		"form-input-hasButton": false,
+		"form-input-isPassword": false,
+		"form-label-hasIcon": {
+			"icon-prefix": "ai",
+			"icon-class": "ai-others"
+		}
+	},
+	"select-all": {
+		"check-legend": false,
+		"checkboxes": [
+			{
+				"checkboxes-title-class": "a-fontBold ml-1",
+				"checkboxes-title": "Velg alle"
+			}
+		]
+	},
+	"selected-items": {
+		"label-class": "badge-primary a-bgBlueLighter",
+		"label-id": "profiles-selected",
+		"label-content": "2 profiler valgt"
+	},
+	"checkbox-list": [
+		{
+			"checkbox-list-id": "forSelectionList",
+			"loadmoreSearch": {
+				"icon-prefix": "ai ai-nw ai-nw-pr",
+				"icon-class": "ai-plus",
+				"icon-size": "",
+				"icon-extra-class": "",
+				"icon-text": "",
+				"icon-id": false,
+				"sr-only": false,
+				"aria-hidden": false,
+				"stacked-background": false,
+				"icon-post-text": false,
+				"icon-title": false,
+				"icon-sr-only-text": false,
+				"linkIcon-url": "#",
+				"linkIcon-text": "Last flere",
+				"text-class": "a-fontBold"
+			},
+			"firstLevelCheckboxes": [
+				{
+					"hasSecondLevel": false,
+					"isStacked": "custom-controls-stacked",
+					"secondLevelId": "secondNestedLevel",
+					"check-legend": false,
+					"checkboxes": [
+						{
+							"checkboxes-title": "<b>Organisasjon 1 AS</b> org. nr. 123 456 001"
+						}
+					]
+				},
+				{
+					"hasSecondLevel": false,
+					"isStacked": "custom-controls-stacked",
+					"secondLevelId": "secondNestedLevel",
+					"check-legend": false,
+					"checkboxes": [
+						{
+							"checkboxes-title": "<b>Organisasjon 2 AS</b> org. nr. 123 456 002"
+						}
+					]
+				},
+				{
+					"hasSecondLevel": false,
+					"isStacked": "custom-controls-stacked",
+					"secondLevelId": "secondNestedLevel",
+					"check-legend": false,
+					"checkboxes": [
+						{
+							"checkboxes-title": "<b>Organisasjon 3 AS</b> org. nr. 123 456 003"
+						}
+					]
+				},
+				{
+					"hasSecondLevel": false,
+					"isStacked": "custom-controls-stacked",
+					"secondLevelId": "secondNestedLevel",
+					"check-legend": false,
+					"checkboxes": [
+						{
+							"checkboxes-title": "<b>Organisasjon 4 AS</b> org. nr. 123 456 004"
+						}
+					]
+				}
+			]
+		},
+		{
+			"checkbox-list-id": "selectedProfiles",
+			"firstLevelCheckboxes": [
+				{
+					"hasSecondLevel": false,
+					"isStacked": "custom-controls-stacked",
+					"secondLevelId": "secondNestedLevel",
+					"check-legend": false,
+					"checkboxes": [
+						{
+							"isChecked": true,
+							"checkboxes-title": "<b>Organisasjon 5 AS</b> org. nr. 123 456 005"
+						}
+					]
+				},
+				{
+					"hasSecondLevel": false,
+					"isStacked": "custom-controls-stacked",
+					"secondLevelId": "secondNestedLevel",
+					"check-legend": false,
+					"checkboxes": [
+						{
+							"isChecked": true,
+							"checkboxes-title": "<b>Organisasjon 6 AS</b> org. nr. 123 456 006"
+						}
+					]
+				}
+			]
 		}
 	],
 	"date-input-label": "Dato:",

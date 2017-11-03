@@ -947,6 +947,19 @@ var toggleArchivedState = function() {
 };
 
 /* globals $ */
+var toggleSelectProfiles = function() {
+  $('#selectedProfiles').hide();
+  $('#profile-selection').hide();
+
+  $('#alle-jeg-kan-representere-checkbutton-1').on('click', function() {
+    $('#profile-selection').hide();
+  });
+  $('#select-profile-checkbutton-2').on('click', function() {
+    $('#profile-selection').show();
+  });
+};
+
+/* globals $ */
 var toggleTheme = function() {
   $(function() {
     var toggleStuff = function(className) {
@@ -4857,6 +4870,27 @@ var compareTo = function(firstItem, secondItem) {
   return 0;
 };
 
+/* globals $ */
+var contactForm = function() {
+  var $contactFormTrigger = $('#contact-form-trigger');
+
+  if ($contactFormTrigger.length > 0) {
+    $contactFormTrigger.on('click', function() {
+      var ScontactFormLink;
+      var fallbackUrl = $(this).data('fallback-url');
+
+      if (window.parent.$) {
+        ScontactFormLink = window.parent.$('#contact-form-link');
+        if (ScontactFormLink.length > 0) {
+          ScontactFormLink.click();
+        } else if (fallbackUrl) {
+          window.parent.location = fallbackUrl;
+        }
+      }
+    });
+  }
+};
+
 var setupExpandContent = function() {
   var expandContent = function() {
     $($(this).data('target')).addClass('a-expanded');
@@ -5571,6 +5605,54 @@ var initializeDatepicker = function() {
     });
   }
 };
+
+/* globals enableIOS11Fix, disableIOS11Fix, iOS11BugWorkAround */
+
+var enableIOS11Fix = function() {
+  // We disable scrolling by hiding everything not in view
+  document.body.style.overflow = 'hidden';
+  document.body.style.position = 'fixed';
+  // It seems we don't need to set these, but I'm leaving there here for now
+  // Should be reversed in the disableIOS11Fix function if we enable them
+  // document.body.style.height = '100%';
+  // document.body.style.width = '100%';
+};
+
+var disableIOS11Fix = function() {
+  document.body.style.overflow = 'auto';
+  document.body.style.position = 'static';
+};
+
+var isAffectedPlatform = function() {
+  // Needs to be updated if new versions are affected
+  var ua = navigator.userAgent;
+  var iOS = /iPad|iPhone|iPod/.test(ua);
+  var iOS11 = /OS 11_/.test(ua);
+
+  return (iOS && iOS11);
+};
+
+var iOS11BugWorkAround = function() {
+  // Detect iOS 11_x affected by cursor position bug
+  // Bug report: https://bugs.webkit.org/show_bug.cgi?id=176896
+  if (isAffectedPlatform()) {
+    // This should run in the parent page only, not in the modal
+    if ($('body.a-stickyHelp-body').length === 0) {
+      // We enable the fix only when the help button is clicked/tapped
+      $('.a-stickyHelp-open').on('click', function() {
+        enableIOS11Fix();
+      });
+    }
+
+    // This should be running inside the iframe
+    $('.a-stickyHelp-close').on('click', function() {
+      // When the close button in the sticky help window is clicked/tapped
+      // we disable the fix, otherwise the page will not scroll
+      window.parent.disableIOS11Fix();
+    });
+  }
+};
+
 
 /* globals goBack */
 var onConfirmDeletionClick = function() {
@@ -6570,214 +6652,128 @@ var setValidatorSettings = function() {
   };
 };
 
-/* globals _anchors, hideIntroInSubs, insetVariations, toggleArchivedState,
-  selectAll, toggleTheme, fixPatternLinks,
-  preOpenModals, prototypingInteractionStarteENK, $, onboarding, codeLookup, nameChecker,
-  setupAddRightsHandler, initSearchWithHighlight, certificateHandler, searchWithAutocomplete */
-window.devInit = function() {
-  _anchors();
-  hideIntroInSubs();
-  insetVariations();
-  toggleArchivedState();
-  selectAll();
-  toggleTheme();
-  fixPatternLinks();
-  preOpenModals();
-  prototypingInteractionStarteENK();
-  onboarding();
-  codeLookup();
-  nameChecker();
-  initSearchWithHighlight();
-  setupAddRightsHandler();
-  selectAll();
-  toggleTheme();
-  certificateHandler();
-  searchWithAutocomplete();
-};
-window.devInit();
-$('.html-escape').each(function() {
-  $(this).text($(this).html());
-});
-// $('form').validate();
-
 /*
   globals
-  formatOrgNr,
-  cardsToggle,
-  onConfirmDeletionClick,
-  setupListRowSelect,
-  toggleSwitch,
-  truncateBoxButtonNames,
-  onFileInputChange,
-  questionnaireInteraction,
-  colnavCustom,
-  handleFocus,
-  mobileNavigation,
-  toggleFilter,
-  uniformHeight,
-  tooltip,
-  initializeDatepicker,
-  onboarding,
-  nameChecker,
-  codeLookup,
-  setupAddRightsHandler,
-  onFileInputChange,
-  toggleInstant,
+  $,
+  _anchors,
   addListExpandHandler,
   addListSortHandler,
-  setupListRowSelect,
-  setupOnKeypress,
-  genericSearch,
-  toggleInstant,
   articleAnchors,
-  feedbackToggle,
-  setValidatorSettings,
   autoFootnotes,
-  popoverLocalInit,
-  popoverGlobalInit,
-  setupSelectableCheckbox,
-  window,
-  setupTruncateLines,
-  AltinnModal,
-  setupExpandContent,
   AltinnDropdown,
-  setupNestedCheckboxes,
-  searchFilterView,
+  AltinnModal,
   AltinnQuickhelp
-
-*/
-window.portalInit = function() {
-  $.fn.modal.Constructor.prototype._enforceFocus = function() {
-    $(document)
-      .off('focusin.bs.modal')
-      .on('focusin.bs.modal', $.proxy(function(event) {
-        if (document !== event.target &&
-            this._element !== event.target &&
-            !$(this._element).has(event.target).length
-            && !$(event.target).hasClass('popover')
-            && !$(event.target).closest('.popover').length > 0) {
-          this._element.focus();
-        }
-      }, this));
-  };
-
-  formatOrgNr();
-  cardsToggle();
-  onConfirmDeletionClick();
-  setupListRowSelect();
-  toggleSwitch();
-  truncateBoxButtonNames();
-  onFileInputChange();
-  setValidatorSettings();
-  addListExpandHandler();
-  setupOnKeypress();
-  handleFocus();
-  initializeDatepicker();
-  addListSortHandler();
-  mobileNavigation();
-  toggleFilter();
-  tooltip();
-  toggleInstant();
-  feedbackToggle();
-  autoFootnotes();
-  popoverLocalInit();
-  popoverGlobalInit();
-  setupSelectableCheckbox();
-  setupTruncateLines();
-  setupExpandContent();
-  AltinnModal.init();
-  AltinnDropdown.init();
-  AltinnQuickhelp.init();
-  setupNestedCheckboxes();
-  searchFilterView();
-};
-window.portalInit();
-
-/* globals
+  cardsToggle,
+  certificateHandler,
+  codeLookup,
   colnavCustom,
+  contactForm,
+  feedbackToggle,
+  fixPatternLinks,
+  formatOrgNr,
   genericSearch,
-  questionnaireInteraction,
-  uniformHeight,
-  articleAnchors,
-  subscribe,
-  setupFormValidation,
+  handleFocus,
+  hideIntroInSubs,
+  initializeDatepicker,
+  initSearchWithHighlight,
+  insetVariations,
+  iOS11BugWorkAround,
   listenForAttachmentChanges,
-  newsArchive
-  formatOrgNr,
-  cardsToggle,
-  onConfirmDeletionClick,
-  setupListRowSelect,
-  toggleSwitch,
-  truncateBoxButtonNames,
-  onFileInputChange,
-  questionnaireInteraction,
-  colnavCustom,
-  handleFocus,
   mobileNavigation,
-  toggleFilter,
-  uniformHeight,
-  tooltip,
-  initializeDatepicker,
-  onboarding,
   nameChecker,
-  codeLookup,
-  setupAddRightsHandler,
+  newsArchive
+  onboarding,
+  onConfirmDeletionClick,
   onFileInputChange,
-  toggleInstant,
-  addListExpandHandler,
-  addListSortHandler,
-  setupListRowSelect,
-  setupOnKeypress,
-  genericSearch,
-  toggleInstant,
-  articleAnchors,
-  feedbackToggle,
-  setValidatorSettings,
-  autoFootnotes,
-  popoverLocalInit,
   popoverGlobalInit,
-  setupSelectableCheckbox,
-  window,
-  setupTruncateLines,
-  AltinnModal,
-  setupExpandContent,
-  AltinnDropdown,
-  setupNestedCheckboxes,
+  popoverLocalInit,
+  preOpenModals,
+  prototypingInteractionStarteENK,
+  questionnaireInteraction,
   searchFilterView,
-  AltinnQuickhelp
+  searchWithAutocomplete,
+  selectAll,
+  setupAddRightsHandler,
+  setupExpandContent,
+  setupFormValidation,
+  setupListRowSelect,
+  setupNestedCheckboxes,
+  setupOnKeypress,
+  setupSelectableCheckbox,
+  setupTruncateLines,
+  setValidatorSettings,
+  subscribe,
+  toggleArchivedState,
+  toggleFilter,
+  toggleInstant,
+  toggleSelectProfiles,
+  toggleSwitch,
+  toggleTheme,
+  tooltip,
+  truncateBoxButtonNames,
+  uniformHeight,
+  window
 */
-window.infoportalInit = function() {
-  colnavCustom();
-  genericSearch();
-  questionnaireInteraction();
-  uniformHeight();
-  articleAnchors();
-  subscribe();
-  setupFormValidation();
-  listenForAttachmentChanges();
-  newsArchive();
-  setValidatorSettings();
+
+window.devInit = function() {
+  _anchors();
   addListExpandHandler();
-  setupOnKeypress();
-  handleFocus();
-  initializeDatepicker();
   addListSortHandler();
-  mobileNavigation();
-  toggleFilter();
-  tooltip();
-  toggleInstant();
-  feedbackToggle();
+  articleAnchors();
   autoFootnotes();
-  popoverLocalInit();
+  AltinnDropdown.init();
+  AltinnModal.init();
+  AltinnQuickhelp.init();
+  cardsToggle();
+  certificateHandler();
+  codeLookup();
+  colnavCustom();
+  contactForm();
+  feedbackToggle();
+  fixPatternLinks();
+  formatOrgNr();
+  handleFocus();
+  hideIntroInSubs();
+  genericSearch();
+  initializeDatepicker();
+  insetVariations();
+  initSearchWithHighlight();
+  iOS11BugWorkAround();
+  listenForAttachmentChanges();
+  mobileNavigation();
+  nameChecker();
+  newsArchive();
+  onboarding();
+  onConfirmDeletionClick();
+  onFileInputChange();
   popoverGlobalInit();
+  popoverLocalInit();
+  preOpenModals();
+  prototypingInteractionStarteENK();
+  questionnaireInteraction();
+  searchFilterView();
+  searchWithAutocomplete();
+  selectAll();
+  setupAddRightsHandler();
+  setupExpandContent();
+  setupFormValidation();
+  setupListRowSelect();
+  setupNestedCheckboxes();
+  setupOnKeypress();
   setupSelectableCheckbox();
   setupTruncateLines();
-  setupExpandContent();
-  AltinnModal.init();
-  AltinnDropdown.init();
-  AltinnQuickhelp.init();
-  setupNestedCheckboxes();
-  searchFilterView();
+  setValidatorSettings();
+  subscribe();
+  toggleArchivedState();
+  toggleFilter();
+  toggleInstant();
+  toggleSelectProfiles();
+  toggleSwitch();
+  toggleTheme();
+  tooltip();
+  truncateBoxButtonNames();
+  uniformHeight();
+
   $.fn.modal.Constructor.prototype._enforceFocus = function() {
     $(document)
       .off('focusin.bs.modal')
@@ -6791,6 +6787,7 @@ window.infoportalInit = function() {
         }
       }, this));
   };
+
   function setupForm1() {
     $('body').off('focus', '#contactForm', setupForm1);
     setupFormValidation('#contactForm', '#a-js-contactForm-submit');
@@ -6814,14 +6811,8 @@ window.infoportalInit = function() {
   }
   listenForAttachmentChanges('#js-attachmentForm', errorMessageCallback);
 };
-window.infoportalInit();
-// $(document).foundation();
-
-/* globals
-  setupTruncateLines
-*/
-window.altinnettInit = function() {
-  setupTruncateLines();
-};
-
-window.altinnettInit();
+window.devInit();
+$('.html-escape').each(function() {
+  $(this).text($(this).html());
+});
+// $('form').validate();
