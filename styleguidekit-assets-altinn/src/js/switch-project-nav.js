@@ -21,12 +21,10 @@ $.fn.toggleProjectComponent = function(hide) {
     } else {
       $(this).show();
     }
+  } else if (hide === true) {
+    $(this).closest('.sg-pattern').hide(); // Gjemmer div på siden med html
   } else {
-    if (hide === true) {
-      $(this).closest('.sg-pattern').hide(); // Gjemmer div på siden med html
-    } else {
-      $(this).closest('.sg-pattern').show();
-    }
+    $(this).closest('.sg-pattern').show();
   }
 };
 
@@ -44,7 +42,7 @@ var checkComponentElements = function(elements) {
   var availableProjects = ['altinn', 'brreg', 'altinnett'];
   var project = getSelectedProject();
   if (getSelectedProject() === null) {
-        setSelectedProject('altinn');
+    setSelectedProject('altinn');
   }
   $.each(elements, function(index, element) {
     if ($(element).hasAnyProjectStateClass(availableProjects)) {
@@ -65,21 +63,22 @@ var removeComponentsNotRelevantForProject = function() {
   checkComponentElements(iframeElements);
 };
 
-$(document).ready(function() {
+$('#sg-viewport').load(function() {
     removeComponentsNotRelevantForProject();
-    $(".selLabel").click(function () {
-        $('.dropdown').toggleClass('active');
-    });
+});
 
-    $(".dropdown-list li").click(function() {
-        var selected = $(this).text();
-        /*console.log('You Selected: ' + $(this).attr("data-value"));*/
-        $('.selLabel').html($(this).html());
-        $('.dropdown').removeClass('active');
-        /*window.localStorage.setItem('selected_project', $(this).attr("data-value"));
-        console.log('Project selection ' + window.localStorage.getItem('selected_project') + ' saved to localStorage')*/
-        removeComponentsNotRelevantForProject();
-    });
+$(document).ready(function() {
+  $('.selLabel').click(function() {
+    $('.dropdown').toggleClass('active');
+  });
 
-    $(".dropdown-list li:first-child").click();
+  $('.dropdown-list li').click(function() {
+    $('.selLabel').html($(this).html());
+    $('.dropdown').removeClass('active');
+    window.localStorage.setItem('selected_project', $(this).attr('data-value'));
+    console.log('Project selection ' + window.localStorage.getItem('selected_project') + ' saved to localStorage');
+    removeComponentsNotRelevantForProject();
+  });
+
+  $('.dropdown-list li:first-child').click();
 });
