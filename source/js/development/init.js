@@ -50,6 +50,7 @@
   toggleArchivedState,
   toggleFilter,
   toggleInstant,
+  toggleSavedEdit,
   toggleSelectProfiles,
   toggleSwitch,
   toggleTheme,
@@ -109,6 +110,7 @@ window.devInit = function() {
   toggleArchivedState();
   toggleFilter();
   toggleInstant();
+  toggleSavedEdit();
   toggleSelectProfiles();
   toggleSwitch();
   toggleTheme();
