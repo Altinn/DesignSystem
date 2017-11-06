@@ -10,11 +10,13 @@
   cardsToggle,
   codeLookup,
   colnavCustom,
+  contactForm,
   feedbackToggle,
   formatOrgNr,
   genericSearch,
   handleFocus,
   initializeDatepicker,
+  iOS11BugWorkAround,
   mobileNavigation,
   nameChecker,
   onboarding,
@@ -63,10 +65,12 @@ window.portalInit = function() {
   addListSortHandler();
   autoFootnotes();
   cardsToggle();
+  contactForm();
   feedbackToggle();
   formatOrgNr();
   handleFocus();
   initializeDatepicker();
+  iOS11BugWorkAround();
   mobileNavigation();
   onConfirmDeletionClick();
   onFileInputChange();

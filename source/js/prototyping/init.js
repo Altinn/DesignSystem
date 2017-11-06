@@ -13,6 +13,7 @@
   certificateHandler,
   codeLookup,
   colnavCustom,
+  contactForm,
   feedbackToggle,
   fixPatternLinks,
   formatOrgNr,
@@ -22,6 +23,7 @@
   initializeDatepicker,
   initSearchWithHighlight,
   insetVariations,
+  iOS11BugWorkAround,
   listenForAttachmentChanges,
   mobileNavigation,
   nameChecker,
@@ -73,6 +75,7 @@ window.devInit = function() {
   certificateHandler();
   codeLookup();
   colnavCustom();
+  contactForm();
   feedbackToggle();
   fixPatternLinks();
   formatOrgNr();
@@ -82,6 +85,7 @@ window.devInit = function() {
   initializeDatepicker();
   insetVariations();
   initSearchWithHighlight();
+  iOS11BugWorkAround();
   listenForAttachmentChanges();
   mobileNavigation();
   nameChecker();
