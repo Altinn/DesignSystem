@@ -73,7 +73,7 @@ gulp.task('pl-copy:favicon', function() {
 
 // Create flat designsystem CSS file and put into public CSS folder:
 gulp.task('pl-copy:css', function(done) {
-  buildConfig.dev.forEach(function(element) {
+  buildConfig.prototyping.forEach(function(element) {
     return gulp.src(paths().source.css + element.scssFilename + '.scss')
     .pipe(sourcemaps.init())
     .pipe(sass().on('error', sass.logError))
@@ -166,7 +166,7 @@ gulp.task('pl-copy:distribution-js', function (done) {
 
 // Flatten prototyping JS and copy into public JS folder:
 gulp.task('pl-copy:designsystemdev-js', function(done) {
-  buildConfig.dev.forEach(function(element) {
+  buildConfig.prototyping.forEach(function(element) {
     if(element.javascript) {
       element.javascript.forEach(function(bundle) {
         return gulp.src(bundle.files)
