@@ -56,15 +56,74 @@ var checkComponentElements = function(elements) {
   });
 };
 
+var removePagesAndTemplatesFromNav = function() {
+  var project = getSelectedProject();
+  $('a').filter('.sg-acc-handle').show();
+  console.log('removePagesAndTemplatesFromNav');
+  if (project === 'altinn') {
+    $('a').filter(function() {
+      return ('.sg-acc-handle' && $(this).text().toLowerCase() === 'maler-brreg');
+    }).hide();
+    $('a').filter(function() {
+      return ('.sg-acc-handle' && $(this).text().toLowerCase() === 'sider-brreg');
+    }).hide();
+    $('a').filter(function() {
+      return ('.sg-acc-handle' && $(this).text().toLowerCase() === 'maler-altinnett');
+    }).hide();
+    $('a').filter(function() {
+      return ('.sg-acc-handle' && $(this).text().toLowerCase() === 'sider-altinnett');
+    }).hide();
+  } else if (project === 'brreg') {
+    $('a').filter(function() {
+      return ('.sg-acc-handle' && $(this).text().toLowerCase() === 'maler-infoportal');
+    }).hide();
+    $('a').filter(function() {
+      return ('.sg-acc-handle' && $(this).text().toLowerCase() === 'sider-infoportal');
+    }).hide();
+    $('a').filter(function() {
+      return ('.sg-acc-handle' && $(this).text().toLowerCase() === 'maler-altinnett');
+    }).hide();
+    $('a').filter(function() {
+      return ('.sg-acc-handle' && $(this).text().toLowerCase() === 'sider-altinnett');
+    }).hide();
+    $('a').filter(function() {
+      return ('.sg-acc-handle' && $(this).text().toLowerCase() === 'maler-portal');
+    }).hide();
+    $('a').filter(function() {
+      return ('.sg-acc-handle' && $(this).text().toLowerCase() === 'sider-portal');
+    }).hide();
+  } else if (project === 'altinnett') {
+    $('a').filter(function() {
+      return ('.sg-acc-handle' && $(this).text().toLowerCase() === 'maler-brreg');
+    }).hide();
+    $('a').filter(function() {
+      return ('.sg-acc-handle' && $(this).text().toLowerCase() === 'sider-brreg');
+    }).hide();
+    $('a').filter(function() {
+      return ('.sg-acc-handle' && $(this).text().toLowerCase() === 'maler-infoportal');
+    }).hide();
+    $('a').filter(function() {
+      return ('.sg-acc-handle' && $(this).text().toLowerCase() === 'sider-infoportal');
+    }).hide();
+    $('a').filter(function() {
+      return ('.sg-acc-handle' && $(this).text().toLowerCase() === 'maler-portal');
+    }).hide();
+    $('a').filter(function() {
+      return ('.sg-acc-handle' && $(this).text().toLowerCase() === 'sider-portal');
+    }).hide();
+  }
+};
+
 var removeComponentsNotRelevantForProject = function() {
   var allHeaderElements = document.querySelectorAll('.sg-pattern-state');
   var iframeElements = document.querySelector('#sg-viewport').contentDocument.querySelectorAll('.sg-pattern-state');
   checkComponentElements(allHeaderElements);
   checkComponentElements(iframeElements);
+  removePagesAndTemplatesFromNav();
 };
 
 $('#sg-viewport').load(function() {
-    removeComponentsNotRelevantForProject();
+  removeComponentsNotRelevantForProject();
 });
 
 $(document).ready(function() {
