@@ -43,6 +43,8 @@ var checkComponentElements = function(elements) {
   var project = getSelectedProject();
   if (getSelectedProject() === null) {
     setSelectedProject('altinn');
+    $('.display-altinnett').hide();
+    $('.display-brreg').hide();
   }
   $.each(elements, function(index, element) {
     if ($(element).hasAnyProjectStateClass(availableProjects)) {
@@ -60,7 +62,8 @@ var removePagesAndTemplatesFromNav = function() {
   var project = getSelectedProject();
   $('a').filter('.sg-acc-handle').show();
   console.log('removePagesAndTemplatesFromNav');
-  if (project === 'altinn') {
+  switch (project) {
+  case 'altinn':
     $('a').filter(function() {
       return ('.sg-acc-handle' && $(this).text().toLowerCase() === 'maler-brreg');
     }).hide();
@@ -73,7 +76,9 @@ var removePagesAndTemplatesFromNav = function() {
     $('a').filter(function() {
       return ('.sg-acc-handle' && $(this).text().toLowerCase() === 'sider-altinnett');
     }).hide();
-  } else if (project === 'brreg') {
+    break;
+
+  case 'brreg':
     $('a').filter(function() {
       return ('.sg-acc-handle' && $(this).text().toLowerCase() === 'maler-infoportal');
     }).hide();
@@ -92,7 +97,8 @@ var removePagesAndTemplatesFromNav = function() {
     $('a').filter(function() {
       return ('.sg-acc-handle' && $(this).text().toLowerCase() === 'sider-portal');
     }).hide();
-  } else if (project === 'altinnett') {
+    break;
+  case 'altinnett' :
     $('a').filter(function() {
       return ('.sg-acc-handle' && $(this).text().toLowerCase() === 'maler-brreg');
     }).hide();
@@ -111,6 +117,26 @@ var removePagesAndTemplatesFromNav = function() {
     $('a').filter(function() {
       return ('.sg-acc-handle' && $(this).text().toLowerCase() === 'sider-portal');
     }).hide();
+
+  }
+};
+
+var changeCss = function() {
+  var project = getSelectedProject();
+  var $head = $('#sg-viewport').contents().find('head link[rel=\'stylesheet\']');
+  switch (project) {
+  case 'altinn':
+    $('#sg-viewport.head link[href~=\'/css/style.dist.altinnett.css\']').remove();
+    $('#sg-viewport.head link[href~=\'/css/style.dist.brreg.css\']').remove();
+    break;
+  case 'altinnett':
+    $head.last().after('<link rel=\'stylesheet\' href=\'/css/style.dist.altinnett.css\' type=\'text/css\' media=\'screen\'>');
+    $('#sg-viewport head link[href~=\'/css/style.dist.brreg.css\']').remove();
+    break;
+  case 'brreg':
+    $head.last().after('<link rel=\'stylesheet\' href=\'/css/style.dist.brreg.css\' type=\'text/css\' media=\'screen\'>');
+    $('#sg-viewport head link[rel=\'stylesheet\'][href~=\'/css/style.dist.altinnett.css\']').remove();
+    break;
   }
 };
 
@@ -120,9 +146,10 @@ var removeComponentsNotRelevantForProject = function() {
   checkComponentElements(allHeaderElements);
   checkComponentElements(iframeElements);
   removePagesAndTemplatesFromNav();
+  changeCss();
 };
 
-$('#sg-viewport').load(function() {
+$('#sg-viewport').load(function() {   // iframe
   removeComponentsNotRelevantForProject();
 });
 
