@@ -126,16 +126,16 @@ var changeCss = function() {
   var $head = $('#sg-viewport').contents().find('head link[rel=\'stylesheet\']');
   switch (project) {
   case 'altinn':
-    $('#sg-viewport.head link[href~=\'/css/style.dist.altinnett.css\']').remove();
-    $('#sg-viewport.head link[href~=\'/css/style.dist.brreg.css\']').remove();
+    $('#sg-viewport').contents().find('head link[href~=\'/css/style.dist.altinnett.css\']').remove();
+    $('#sg-viewport').contents().find('head link[href~=\'/css/style.dist.brreg.css\']').remove();
     break;
   case 'altinnett':
     $head.last().after('<link rel=\'stylesheet\' href=\'/css/style.dist.altinnett.css\' type=\'text/css\' media=\'screen\'>');
-    $('#sg-viewport head link[href~=\'/css/style.dist.brreg.css\']').remove();
+    $('#sg-viewport').contents().find('head link[href~=\'/css/style.dist.brreg.css\']').remove();
     break;
   case 'brreg':
     $head.last().after('<link rel=\'stylesheet\' href=\'/css/style.dist.brreg.css\' type=\'text/css\' media=\'screen\'>');
-    $('#sg-viewport head link[rel=\'stylesheet\'][href~=\'/css/style.dist.altinnett.css\']').remove();
+    $('#sg-viewport').contents().find('head link[href~=\'/css/style.dist.altinnett.css\']').remove();
     break;
   }
 };
