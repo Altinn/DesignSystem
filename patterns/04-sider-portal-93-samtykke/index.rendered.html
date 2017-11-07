@@ -1,0 +1,817 @@
+<!DOCTYPE html>
+<html lang="no" class="">
+
+  <head>
+    <title>Altinn</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width" />
+    <meta name = "format-detection" content = "telephone=no">
+
+    <!-- Favicons -->
+    <link rel="apple-touch-icon" sizes="57x57" href="/designsystem-styleguide/images/favicons/apple-touch-icon-57x57.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="/designsystem-styleguide/images/favicons/apple-touch-icon-60x60.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="/designsystem-styleguide/images/favicons/apple-touch-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="/designsystem-styleguide/images/favicons/apple-touch-icon-76x76.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="/designsystem-styleguide/images/favicons/apple-touch-icon-114x114.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="/designsystem-styleguide/images/favicons/apple-touch-icon-120x120.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="/designsystem-styleguide/images/favicons/apple-touch-icon-144x144.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="/designsystem-styleguide/images/favicons/apple-touch-icon-152x152.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/designsystem-styleguide/images/favicons/apple-touch-icon-180x180.png">
+    <link rel="icon" type="image/png" href="/designsystem-styleguide/images/favicons/favicon-32x32.png" sizes="32x32">
+    <link rel="icon" type="image/png" href="/designsystem-styleguide/images/favicons/android-chrome-192x192.png" sizes="192x192">
+    <link rel="icon" type="image/png" href="/designsystem-styleguide/images/favicons/favicon-96x96.png" sizes="96x96">
+    <link rel="icon" type="image/png" href="/designsystem-styleguide/images/favicons/favicon-16x16.png" sizes="16x16">
+    <link rel="manifest" href="/designsystem-styleguide/images/favicons/manifest.json">
+    <link rel="mask-icon" href="/designsystem-styleguide/images/favicons/safari-pinned-tab.svg">
+    <meta name="apple-mobile-web-app-title" content="Altinn">
+    <meta name="application-name" content="Altinn">
+    <meta name="msapplication-TileColor" content="#da532c">
+    <meta name="msapplication-TileImage" content="/mstile-144x144.png">
+    <meta name="theme-color" content="#ffffff">
+
+    <!-- FortAwesome icons-->
+    <script src="https://use.fortawesome.com/ed31cded.js"></script>
+    <script src="https://use.fortawesome.com/df832575.js"></script>
+
+    <!-- Theme stylesheet -->
+    <link rel="stylesheet" href="../../css/style.css?1510055669486" media="all" /> 
+    <!-- <link rel="stylesheet" href="../../css/pattern-scaffolding.css?1510055669486" media="all" /> -->
+    
+    <!-- Begin Pattern Lab (Required for Pattern Lab to run properly) -->
+    <!-- never cache patterns -->
+<meta http-equiv="cache-control" content="max-age=0" />
+<meta http-equiv="cache-control" content="no-cache" />
+<meta http-equiv="expires" content="0" />
+<meta http-equiv="expires" content="Tue, 01 Jan 1980 1:00:00 GMT" />
+<meta http-equiv="pragma" content="no-cache" />
+
+<link rel="stylesheet" href="../../styleguide/css/styleguide.min.css?1510055669486" media="all">
+<link rel="stylesheet" href="../../styleguide/css/prism-typeahead.min.css?1510055669486" media="all" />
+
+    <!-- End Pattern Lab -->
+
+  </head>
+  <body class="a-bgWhite p-1" id="top">
+<div class="sg-top">
+	<div class="container">
+		<div class="row">
+	    <div class="col-12 col-sm-12 col-md-12 col-lg-8 col-xl-8">
+				<h1><span class="a-h4">PATTERN LAB</span><br>Levende designsystem og prototypeverktøy for Altinns webløsninger </h1>
+				<p class="a-leadText">Designsystemet er laget med Pattern Lab, basert på atomisk designmetodikk. Vi bruker dette systemet til å opprettholde frontend-kode og visuell konsistens på tvers av løsningene. Målet er å skape et felles sted for UI-mønstre og stilsett, som etterhvert skal benyttes av alle løsningene til Altinn.</p>
+
+				<div class="a-btn-group a-btn-group-exLinks">
+					<a href="https://altinn.github.io/designsystem-styleguide/" target="_blank">Les mer om designsystemet </a>
+
+					<a href="http://altinn.github.io/DesignSystem/patterns/04-sider-infoportal-01-forside-00-forside/04-sider-infoportal-01-forside-00-forside.html?1498551267012" target="_blank">
+					    Åpne prototype
+					</a>
+
+
+				</div>
+			</div>
+			<div class="col-12 col-sm-12 col-md-12 col-lg-4 col-xl-4">
+			  <span class="sg-atom hidden-md-down"></span>
+		  </div>
+		</div>
+	</div>
+</div>
+<div class="sg-statesExplanation">
+	<div class="container">
+
+		<div class="sg-pattern-state specification">
+			<span class="sg-pattern-state-specification">UNDER SPESIFISERING (specification)</span> - komponenten er under spesifisering. <br />
+		</div>
+		<div class="sg-pattern-state inprogress">
+			<span class="sg-pattern-state-inprogress">ARBEID PÅGÅR (inprogress)</span> - komponenten er under utvikling, og blir jobbet på for øyeblikket. <br />
+		</div>
+		<div class="sg-pattern-state indesignreview">
+				<span class="sg-pattern-state-indesignreview">TIL DESIGN REVIEW (indesignreview)</span> - komponenten er klar for design gjennomgang/diskusjon, og venter på godkjenning. <br />
+		</div>
+		<div class="sg-pattern-state complete">
+			<span class="sg-pattern-state-complete">FERDIG (complete)</span> - komponenten anses som ferdig og klar for bruk.<br />
+		</div>
+		<div class="sg-pattern-state needsrevalidation">
+				<span class="sg-pattern-state-needsrevalidation">MÅ REVALIDERES (needsrevalidation)</span> - det er gjort endringer i rammeverk / platform som gjør at denne komponenten må revalideres. <br />
+		</div>
+		<div class="sg-pattern-state archived">
+			<span class="sg-pattern-state-archived">ARKIVERT</span> - komponenten er arkivert og blir ikke vedlikeholdt for øyeblikket.
+
+	    <div class="form-check a-form-checkboxes d-inline pl-1">
+					<label class="custom-control custom-checkbox">
+						<input type="checkbox" class="custom-control-input a-sg-js-toggleArchived">
+						<span class="custom-control-indicator"></span>
+						<p>Vis arkiverte komponenter</p>
+					</label>
+	    </div>
+		</div>
+		<br />
+		<span class="sg-pattern-variations">
+			<span class="sg-pattern-state-variations">♺</span> VARIASJONER - En variasjon av en annen komponent
+			<a href="javascript:;" aria-label="info" tabindex="0" class="a-helpIconButton" role="button" data-toggle="popover" data-template='<div class="popover " role="tooltip"><div class="popover-arrow"></div><h3 class="popover-title"></h3><div class="popover-content"></div></div>' data-target="#myPopup3" data-placement="bottom" data-trigger="focus" title="Variasjoner" data-content="Variasjonskomponentene har samme HTML-struktur som sin hovedkomponent, men viser ulike variasjoner av stilsetting man kan oppnå ved å benytte ulike CSS-klasser etc.">
+				<i class="ai ai-info-circle"></i><span class="sr-only">Vis mer info om variasjonskomponentene</span>
+			</a>
+		</span>
+	</div>
+</div>
+<div class="container clearfix">
+  <!-- View All Patterns in a Pattern Sub-Type -->
+  <div class="sg-main" role="main">
+    <!-- Patterns -->
+    <div id="sg-patterns" class="clearfix">
+<div id="viewall-sider-portal-samtykke" class="sg-pattern-category">
+  <h2 class="sg-pattern-category-title"><a href="../../patterns/04-sider-portal-93-samtykke&#x2F;index.html" class="patternLink" data-patternpartial="viewall-sider-portal-samtykke">samtykke</a></h2>
+
+  <div class="sg-pattern-category-body">
+    
+  </div><!--end sg-pattern-category-body-->
+  
+</div><!--end sg-pattern-category-->
+<div id="sider-portal-se-og-fjern-samtykke" class="sg-pattern">
+  <div class="sg-pattern-head">
+    <h3 class="sg-pattern-title">
+      <a href="../../patterns/04-sider-portal-93-samtykke-00-se-og-fjern-samtykke&#x2F;04-sider-portal-93-samtykke-00-se-og-fjern-samtykke.html" class="patternLink" data-patternpartial="sider-portal-se-og-fjern-samtykke" title="Link to Pattern">
+          Se Og Fjern Samtykke
+            <span class="sg-pattern-state indesignreview">indesignreview</span>
+      </a>
+    </h3>
+    <div class="sg-pattern-breadcrumb"></div>
+    <a href="#" data-patternpartial="sider-portal-se-og-fjern-samtykke" title="View Pattern Info" id="sg-pattern-extra-toggle-sider-portal-se-og-fjern-samtykke" class="sg-pattern-extra-toggle"><span>&#9660;</span></a>
+  </div>
+  <div class="sg-pattern-extra" id="sg-pattern-extra-sider-portal-se-og-fjern-samtykke">
+    
+  </div>
+  <div class="sg-pattern-example">
+    <!-- START: 04-sider-portal-93-samtykke-00-se-og-fjern-samtykke -->
+<!-- START: 03-maler-portal-91-modal-01-modal -->
+<div class="a-modal fade modal show " tabindex="-1" role="dialog" style="display: block">
+  <div class="modal-dialog modal-lg" role="document">
+    <div class="container a-p-static">
+      <div class="row">
+        <div class="col-xl-12">
+          <!-- START: 01-molekyler-20-modalelementer-05-modal-header -->
+          <div class="a-modal-top">
+            <a href="&#x2F;patterns&#x2F;04-sider-infoportal-01-forside-00-forside&#x2F;04-sider-infoportal-01-forside-00-forside.html" class="no-decoration">
+              <!-- START: 00-atomer-09-bilder-og-media-01-logo -->
+
+              <img src="/designsystem-styleguide/images/a-logo-black.svg" alt="Altinn logo" class="a-logo a-modal-top-logo ">
+
+              <!-- END: 00-atomer-09-bilder-og-media-01-logo -->
+
+            </a>
+            <div class="a-modal-top-user">
+              <!-- START: 00-atomer-07-tekst-40-innlogget -->
+              <div class="a-personSwitcher ">
+                <span class="a-personSwitcher-name">
+    <span class="d-block">JAN PETTERSEN</span>
+                <span class="d-block"></span>
+                </span>
+                <!-- START: 00-atomer-09-bilder-og-media-15-ikon -->
+                <i class="ai ai-private-circle-big  a-personSwitcher-icon "></i>
+
+
+                <!-- END: 00-atomer-09-bilder-og-media-15-ikon -->
+
+
+              </div>
+
+              <!-- END: 00-atomer-07-tekst-40-innlogget -->
+
+            </div>
+          </div>
+
+          <!-- END: 01-molekyler-20-modalelementer-05-modal-header -->
+
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-xl-10 offset-xl-1 a-p-static">
+          <!-- START: 01-molekyler-20-modalelementer-10-modal-navbar -->
+          <div class="a-modal-navbar">
+            <!-- START: 00-atomer-04-handlingsknapper-10-knapp-ikon -->
+            <button type="button" class="a-modal-back a-js-tabable-popover" onclick="location.href&#x3D;&#39;&#x2F;patterns&#x2F;04-sider-portal-60-profil-roller-rettigheter-profil-roller-rettigheter&#x2F;04-sider-portal-60-profil-roller-rettigheter-profil-roller-rettigheter.html&#39;"
+              aria-label="Tilbake">
+  <!-- START: 00-atomer-09-bilder-og-media-15-ikon -->
+  <span class="ai-stack">
+    <i class="ai ai-stack-1x ai-plain-circle-big"></i>
+<i class="ai-stack-1x ai ai-back   "    ></i>
+  </span>
+
+
+<!-- END: 00-atomer-09-bilder-og-media-15-ikon -->
+
+
+</button>
+
+
+            <!-- END: 00-atomer-04-handlingsknapper-10-knapp-ikon -->
+
+            <!-- START: 00-atomer-04-handlingsknapper-10-knapp-ikon -->
+            <button type="button" class="a-modal-close a-js-tabable-popover" onclick="location.href&#x3D;&#39;&#x2F;patterns&#x2F;04-sider-portal-60-profil-roller-rettigheter-profil-roller-rettigheter&#x2F;04-sider-portal-60-profil-roller-rettigheter-profil-roller-rettigheter.html&#39;"
+              aria-label="Lukk">
+  <!-- START: 00-atomer-09-bilder-og-media-15-ikon -->
+  <span class="ai-stack">
+    <i class="ai ai-stack-1x ai-plain-circle-big"></i>
+<i class="ai-stack-1x ai ai-exit  a-modal-close-icon "    ></i>
+  </span>
+
+
+<!-- END: 00-atomer-09-bilder-og-media-15-ikon -->
+
+
+</button>
+
+
+            <!-- END: 00-atomer-04-handlingsknapper-10-knapp-ikon -->
+
+          </div>
+
+          <!-- END: 01-molekyler-20-modalelementer-10-modal-navbar -->
+
+          <div class="a-modal-content-target">
+            <div class="a-page a-current-page">
+              <div class="modalPage">
+                <div class="modal-content">
+                  <!-- START: 01-molekyler-20-modalelementer-15-modal-body-header -->
+                  <div class="modal-header a-modal-header">
+                    <!-- START: 01-molekyler-00-tekst-30-ikon-tekst -->
+                    <div class="a-iconText a-iconText-background a-iconText-large ">
+                      <div class="a-iconText-icon ">
+                        <!-- START: 00-atomer-09-bilder-og-media-15-ikon -->
+                        <i class="ai ai-read  a-icon "></i>
+
+
+                        <!-- END: 00-atomer-09-bilder-og-media-15-ikon -->
+                      </div>
+                      <h1 class="a-iconText-text mb-0">
+                        <span class="a-iconText-text-large">Se og fjern samtykke  </span>
+                      </h1>
+                    </div>
+
+                    <!-- END: 01-molekyler-00-tekst-30-ikon-tekst -->
+
+                  </div>
+
+
+                  <!-- END: 01-molekyler-20-modalelementer-15-modal-body-header -->
+
+                  <!-- START: 02-organismer-70-Modal-innhold-20-se-og-fjern-samtykke -->
+                  <div class="modal-body a-modal-body">
+                    <div class="row">
+                      <div class="col-12 col-md-6 col-lg-7">
+                        <!-- START: 01-molekyler-00-tekst-03-person-rolle -->
+                        <div class="a-personRole ">
+
+                          <div class="hidden-sm-down">
+                            <!-- START: 00-atomer-09-bilder-og-media-15-ikon -->
+                            <i class="ai ai-read ai-lg   "></i>
+
+
+                            <!-- END: 00-atomer-09-bilder-og-media-15-ikon -->
+
+                          </div>
+                          <div class="a-personRole-text">
+                            <span class="a-personRole-role">MIDLERTIDIG INNSYN</span>
+                            <span class="a-personRole-name">Altinn1 ANS</span>
+                          </div>
+                        </div>
+
+                        <!-- END: 01-molekyler-00-tekst-03-person-rolle -->
+
+                      </div>
+
+                      <div class="col-12 col-md pt-1">
+                        <!-- START: 00-atomer-05-Ekspansjonsknapper-35-knapp-med-popover -->
+                        <!-- START: 00-atomer-04-handlingsknapper-10-knapp-ikon -->
+                        <button type="button" class="a-btn-link a-linkDanger float-left float-md-right a-js-popover-forceFocus " data-toggle="popover" data-placement="bottom" data-animation="false" data-popover-content="sampleIdPopoverButtoinLink" data-popover-class="popover-warning">
+  <!-- START: 00-atomer-09-bilder-og-media-15-ikon -->
+<i class="false false   "    ></i>
+
+
+<!-- END: 00-atomer-09-bilder-og-media-15-ikon -->
+
+
+    <span>
+      Fjern samtykke
+    </span>
+</button>
+
+                        <div id="sampleIdPopoverButtoinLink" class="hidden-xs-up">
+                          <div class="pb-1">Samtykke vil bli slettet</div>
+                          <!-- START: 00-atomer-03-knapper-10-knapp -->
+                          <button type="button" class="a-btn a-btn-danger mr-1">
+  <span>
+    Ok
+  </span>
+</button>
+
+                          <!-- END: 00-atomer-03-knapper-10-knapp -->
+
+                          <!-- START: 00-atomer-03-knapper-10-knapp -->
+                          <button type="button" onclick="$('button[aria-describedby=' + $(this).parent().parent().attr('id') + ']').click();" class="a-btn-link a-linkDanger mr-1">
+  <span>
+    Avbryt
+  </span>
+</button>
+
+                          <!-- END: 00-atomer-03-knapper-10-knapp -->
+
+                        </div>
+
+                        <!-- END: 00-atomer-04-handlingsknapper-10-knapp-ikon -->
+
+                        <!-- END: 00-atomer-05-Ekspansjonsknapper-35-knapp-med-popover -->
+
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col">
+                        <h2 class="mt-4 a-fontSizeS a-fontBold">
+                          Midlertidig samtykke er gitt
+                        </h2>
+                        <p class="a-fontSizeXS mb-1">
+                          Velkommen til samtykkeløsningen
+                        </p>
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col">
+                        <h2 class="mt-2 mb-0 a-fontSizeS">
+                          Følgende informasjon er omfattet av samtykket:
+                        </h2>
+                        <!-- START: 00-atomer-05-Ekspansjonsknapper-26-ekspanderbar-tekst JS doc: toggleFilter.js -->
+                        <a data-toggle="collapse" href="#" data-target="#myidtesting" aria-expanded="true" aria-controls="myidtesting" class="a-collapse-title a-collapse-title--flexstart a-fontSizeXS a-fontBold mt-1   no-decoration   ">
+   <span class="a-dropdownArrow"></span> 
+
+    <span class="primary-collapse-text">
+      Denne teksten kan man trykke på for å se utvidet informasjon om et tema
+    </span>
+</a>
+
+                        <!-- END: 00-atomer-05-Ekspansjonsknapper-26-ekspanderbar-tekst -->
+
+                        <div id="myidtesting" class="a-collapse-body collapse show" aria-expanded="true" role="tabpanel" class="collapse show">
+                          <p class="a-fontSizeXS pt-1 mb-0 pb-1">
+                            Tekst 1
+                          </p>
+                        </div>
+                        <!-- START: 00-atomer-05-Ekspansjonsknapper-26-ekspanderbar-tekst JS doc: toggleFilter.js -->
+                        <a data-toggle="collapse" href="#" data-target="#myidtesting2" aria-expanded="true" aria-controls="myidtesting2" class="a-collapse-title a-collapse-title--flexstart a-fontSizeXS a-fontBold mt-1   no-decoration   ">
+   <span class="a-dropdownArrow"></span> 
+
+    <span class="primary-collapse-text">
+      Denne teksten kan man trykke på for å se utvidet informasjon om et tema
+    </span>
+</a>
+
+                        <!-- END: 00-atomer-05-Ekspansjonsknapper-26-ekspanderbar-tekst -->
+
+                        <div id="myidtesting2" class="a-collapse-body collapse show" aria-expanded="true" role="tabpanel" class="collapse show">
+                          <p class="a-fontSizeXS pt-1 mb-0 pb-1">
+                            Tekst 2
+                          </p>
+                        </div>
+                        <!-- START: 00-atomer-05-Ekspansjonsknapper-26-ekspanderbar-tekst JS doc: toggleFilter.js -->
+                        <a data-toggle="collapse" href="#" data-target="#myidtesting3" aria-expanded="true" aria-controls="myidtesting3" class="a-collapse-title a-collapse-title--flexstart a-fontSizeXS a-fontBold mt-1   no-decoration   ">
+   <span class="a-dropdownArrow"></span> 
+
+    <span class="primary-collapse-text">
+      Denne teksten kan man trykke på for å se utvidet informasjon om et tema
+    </span>
+</a>
+
+                        <!-- END: 00-atomer-05-Ekspansjonsknapper-26-ekspanderbar-tekst -->
+
+                        <div id="myidtesting3" class="a-collapse-body collapse show" aria-expanded="true" role="tabpanel" class="collapse show">
+                          <p class="a-fontSizeXS pt-1 mb-0 pb-1">
+                            Tekst 3
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col">
+                        <p class="mt-2 a-fontBold a-fontSizeXS mb-1">
+                          Dette innsynet er tidsavgrenset og vil gå ut .....
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                  <!-- END: 02-organismer-70-Modal-innhold-20-se-og-fjern-samtykke -->
+
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- DO NOT INCLUDE IN IMPLEMENTATION, ADDED BY BOOTSTRAP WHEN MODAL IS TRIGGERED -->
+<div class="modal-backdrop fade show"></div>
+<!-- END DO NOT INCLUDE -->
+
+<!-- START: 01-molekyler-06-hjelp-00-hjelp-container -->
+<!-- - - - - - - - - - - - - - - - - - - - - - - - - -->
+<!-- Should be included for pages that has quickhelp -->
+<!-- - - - - - - - - - - - - - - - - - - - - - - - - -->
+
+<div class="a-stickyHelp-container">
+
+  <!-- Open-button for .a-iframeToggle -->
+  <!-- HELP ANIMATION:
+  On pages that have help in context (step for step guide), add class "a-stickyHelp-animationHint" when users has not been active for 10 seconds -->
+  <button type="button" class="a-btn a-stickyHelp-open  collapsed" data-toggle="collapse" data-target="#a-iframeToggle" aria-expanded="false" aria-controls="a-iframeToggle">
+
+    <span class="sr-only a-stickyHelp-openText">Trenger du hjelp</span>
+    <i>?</i>
+  </button>
+
+  <div id="a-iframeToggle" class="a-iframeToggle collapse">
+
+    <!-- Close-button for .a-iframeToggle -->
+    <button type="button" class="a-stickyHelp-close" data-toggle="collapse" data-target="#a-iframeToggle" data-action="close" aria-expanded="true" aria-controls="a-iframeToggle"> <!-- START: 00-atomer-09-bilder-og-media-15-ikon -->
+<i class="ai ai-exit ai-sm   "   id="close-stickyHelp"   ></i>
+  <span class="sr-only">Minimer hjelpevinduet</span>
+
+
+<!-- END: 00-atomer-09-bilder-og-media-15-ikon -->
+ </button>
+
+    <iframe class="a-js-stickyHelpFrame" data-src="../../&#x2F;patterns&#x2F;04-sider-infoportal-70-hurtighjelp-60-hurtighjelp&#x2F;04-sider-infoportal-70-hurtighjelp-60-hurtighjelp.html"></iframe>
+
+  </div>
+
+</div>
+
+<!-- - - - - - - - - - - - - - - - - - - - - - - - - -->
+<!-- End quickhelp -->
+<!-- - - - - - - - - - - - - - - - - - - - - - - - - -->
+
+<!-- END: 01-molekyler-06-hjelp-00-hjelp-container -->
+
+<!-- END: 03-maler-portal-91-modal-01-modal -->
+
+
+<!-- END: 04-sider-portal-93-samtykke-00-se-og-fjern-samtykke -->
+  </div>
+  <script type="text/json" id="sg-pattern-data-sider-portal-se-og-fjern-samtykke" class="sg-pattern-data">
+    
+  </script>
+</div><!--end .sg-pattern-->
+<div id="sider-portal-gi-samtykke" class="sg-pattern">
+  <div class="sg-pattern-head">
+    <h3 class="sg-pattern-title">
+      <a href="../../patterns/04-sider-portal-93-samtykke-01-gi-samtykke&#x2F;04-sider-portal-93-samtykke-01-gi-samtykke.html" class="patternLink" data-patternpartial="sider-portal-gi-samtykke" title="Link to Pattern">
+          Gi Samtykke
+            <span class="sg-pattern-state indesignreview">indesignreview</span>
+      </a>
+    </h3>
+    <div class="sg-pattern-breadcrumb"></div>
+    <a href="#" data-patternpartial="sider-portal-gi-samtykke" title="View Pattern Info" id="sg-pattern-extra-toggle-sider-portal-gi-samtykke" class="sg-pattern-extra-toggle"><span>&#9660;</span></a>
+  </div>
+  <div class="sg-pattern-extra" id="sg-pattern-extra-sider-portal-gi-samtykke">
+    
+  </div>
+  <div class="sg-pattern-example">
+    <!-- START: 04-sider-portal-93-samtykke-01-gi-samtykke -->
+<!-- START: 03-maler-portal-91-modal-01-modal -->
+<div class="a-modal fade modal show " tabindex="-1" role="dialog" style="display: block">
+  <div class="modal-dialog modal-lg" role="document">
+    <div class="container a-p-static">
+      <div class="row">
+        <div class="col-xl-12">
+          <!-- START: 02-organismer-01-globale-10-subheader -->
+          <header class="a-header ">
+            <div class="container">
+              <div class="row">
+                <div class="col-12">
+                  <nav id="primary-nav" class="a-globalNav float-left">
+                    <a href="&#x2F;patterns&#x2F;04-sider-infoportal-01-forside-02-forside-innlogget&#x2F;04-sider-infoportal-01-forside-02-forside-innlogget.html" class="a-globalNav-logo">
+                      <!-- START: 00-atomer-09-bilder-og-media-01-logo -->
+
+                      <img src="/designsystem-styleguide/images/a-logo-black.svg" alt="Altinn logo" class="a-logo a-modal-top-logo ">
+
+                      <!-- END: 00-atomer-09-bilder-og-media-01-logo -->
+                      <span class="sr-only">Til forsiden</span></a>
+                  </nav>
+                  <ul id="secondary-nav" class="nav nav-pills a-header-options">
+                    <li class="nav-item">
+                      <!-- START: 00-atomer-07-tekst-40-innlogget -->
+                      <button class="nav-link dropdown-toggle a-personSwitcher subheader-dark  disabled " type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+  <span
+    class="a-personSwitcher-name">
+    <span class="d-block">JAN PETTERSEN</span>
+    <span class="d-block"></span>
+  </span>
+    <!-- START: 00-atomer-09-bilder-og-media-15-ikon -->
+<i class="ai ai-private-circle-big  a-personSwitcher-icon a-js-onboardingTarget-1 "    ></i>
+  <span class="sr-only">Min profil</span>
+
+
+<!-- END: 00-atomer-09-bilder-og-media-15-ikon -->
+
+
+  </button>
+
+                      <!-- END: 00-atomer-07-tekst-40-innlogget -->
+
+                      <!-- START: 02-organismer-30-seksjoner-30-meny-personbytte -->
+                      <!-- Begin #a-dropdown-personswitchList - -->
+                      <div class="dropdown-menu a-dropdown-personswitchList a-dropdownTriangle">
+
+                        <div class="pt-5 pl-3 pr-3">
+
+                          <!-- START: 00-atomer-02-lenker-00-link -->
+                          <a href="/patterns/04-sider-infoportal-01-forside-00-forside/04-sider-infoportal-01-forside-00-forside.html" class="a-link-logout ">
+  Logg ut
+  
+</a>
+
+                          <!-- END: 00-atomer-02-lenker-00-link -->
+
+
+                          <div class="row">
+                            <div class="col-sm-12 mb-2">
+                              <!-- START: 01-molekyler-00-tekst-01-person-privat -->
+                              <div class="a-personRole">
+                                <!-- START: 00-atomer-09-bilder-og-media-15-ikon -->
+                                <i class="ai ai-private  ai-lg "></i>
+
+
+                                <!-- END: 00-atomer-09-bilder-og-media-15-ikon -->
+
+                                <div class="a-personRole-text">
+                                  <span class="a-personRole-name">JAN PETTERSEN</span>
+                                  <span class="a-personRole-role"></span>
+                                </div>
+                              </div>
+
+                              <!-- END: 01-molekyler-00-tekst-01-person-privat -->
+
+                            </div>
+                          </div>
+
+                          <p class="a-h3">
+                            Er dette ikke deg?
+                          </p>
+
+
+                          <!-- START: 00-atomer-03-knapper-10-knapp -->
+                          <button type="button" class="a-btn mb-5 mt-1 ">
+  
+    Bytt bruker 
+  
+</button>
+
+                          <!-- END: 00-atomer-03-knapper-10-knapp -->
+
+
+                        </div>
+
+
+
+                      </div>
+
+                      <!-- END: 02-organismer-30-seksjoner-30-meny-personbytte -->
+
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </header>
+          <!-- END: 02-organismer-01-globale-10-subheader -->
+
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-xl-10 offset-xl-1 a-p-static">
+          <div class="a-modal-content-target">
+            <div class="a-page a-current-page">
+              <div class="modalPage">
+                <div class="modal-content">
+                  <!-- START: 01-molekyler-20-modalelementer-15-modal-body-header -->
+                  <div class="modal-header a-modal-header">
+                    <!-- START: 01-molekyler-00-tekst-30-ikon-tekst -->
+                    <div class="a-iconText a-iconText-background a-iconText-background--white a-iconText-large ">
+                      <div class="a-iconText-icon ">
+                        <!-- START: 00-atomer-09-bilder-og-media-15-ikon -->
+                        <i class="ai ai-read  a-icon a-icon-circle "></i>
+
+
+                        <!-- END: 00-atomer-09-bilder-og-media-15-ikon -->
+                      </div>
+                      <h1 class="a-iconText-text mb-0">
+                        <span class="a-iconText-text-large">Samtykke til bruk av dine data  </span>
+                      </h1>
+                    </div>
+
+                    <!-- END: 01-molekyler-00-tekst-30-ikon-tekst -->
+
+                  </div>
+
+
+                  <!-- END: 01-molekyler-20-modalelementer-15-modal-body-header -->
+
+                  <!-- START: 02-organismer-70-Modal-innhold-20-se-og-fjern-samtykke -->
+                  <div class="modal-body a-modal-body">
+                    <div class="row">
+                      <div class="col">
+                        <h2 class="a-fontSizeS a-fontBold">
+                          Altinn1 ANS ønsker midlertidig innsyn
+                        </h2>
+                        <p class="a-fontSizeXS mb-1">
+                          Velkommen til samtykkeløsningen
+                        </p>
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col">
+                        <h2 class="mt-2 mb-0 a-fontSizeS">
+                          Følgende informasjon er omfattet av samtykket:
+                        </h2>
+                        <!-- START: 00-atomer-05-Ekspansjonsknapper-26-ekspanderbar-tekst JS doc: toggleFilter.js -->
+                        <a data-toggle="collapse" href="#" data-target="#myidtesting" aria-expanded="true" aria-controls="myidtesting" class="a-collapse-title a-collapse-title--flexstart a-fontSizeXS a-fontBold mt-1   no-decoration   ">
+   <span class="a-dropdownArrow"></span> 
+
+    <span class="primary-collapse-text">
+      Denne teksten kan man trykke på for å se utvidet informasjon om et tema
+    </span>
+</a>
+
+                        <!-- END: 00-atomer-05-Ekspansjonsknapper-26-ekspanderbar-tekst -->
+
+                        <div id="myidtesting" class="a-collapse-body collapse show" aria-expanded="true" role="tabpanel" class="collapse show">
+                          <p class="a-fontSizeXS pt-1 mb-0 pb-1">
+                            Tekst 1
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col">
+                        <p class="mt-2 a-fontBold a-fontSizeXS mb-1">
+                          Dette innsynet er tidsavgrenset og vil gå ut 2099-01-01 23:59:59
+                        </p>
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col mt-3">
+                        <!-- START: 00-atomer-03-knapper-10-knapp -->
+                        <button type="button" class="a-btn a-btn-success mr-1 ">
+  
+    Gi samtykke
+  
+</button>
+
+                        <!-- END: 00-atomer-03-knapper-10-knapp -->
+
+                        <!-- START: 00-atomer-03-knapper-10-knapp -->
+                        <button type="button" class="a-btn ">
+  
+    Nei, jeg vil ikke gi samtykke
+  
+</button>
+
+                        <!-- END: 00-atomer-03-knapper-10-knapp -->
+
+                      </div>
+                    </div>
+                  </div>
+                  <!-- END: 02-organismer-70-Modal-innhold-20-se-og-fjern-samtykke -->
+
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- START: 01-molekyler-06-hjelp-00-hjelp-container -->
+<!-- - - - - - - - - - - - - - - - - - - - - - - - - -->
+<!-- Should be included for pages that has quickhelp -->
+<!-- - - - - - - - - - - - - - - - - - - - - - - - - -->
+
+<div class="a-stickyHelp-container">
+
+  <!-- Open-button for .a-iframeToggle -->
+  <!-- HELP ANIMATION:
+  On pages that have help in context (step for step guide), add class "a-stickyHelp-animationHint" when users has not been active for 10 seconds -->
+  <button type="button" class="a-btn a-stickyHelp-open  collapsed" data-toggle="collapse" data-target="#a-iframeToggle" aria-expanded="false" aria-controls="a-iframeToggle">
+
+    <span class="sr-only a-stickyHelp-openText">Trenger du hjelp</span>
+    <i>?</i>
+  </button>
+
+  <div id="a-iframeToggle" class="a-iframeToggle collapse">
+
+    <!-- Close-button for .a-iframeToggle -->
+    <button type="button" class="a-stickyHelp-close" data-toggle="collapse" data-target="#a-iframeToggle" data-action="close" aria-expanded="true" aria-controls="a-iframeToggle"> <!-- START: 00-atomer-09-bilder-og-media-15-ikon -->
+<i class="ai ai-exit ai-sm   "   id="close-stickyHelp"   ></i>
+  <span class="sr-only">Minimer hjelpevinduet</span>
+
+
+<!-- END: 00-atomer-09-bilder-og-media-15-ikon -->
+ </button>
+
+    <iframe class="a-js-stickyHelpFrame" data-src="../../&#x2F;patterns&#x2F;04-sider-infoportal-70-hurtighjelp-60-hurtighjelp&#x2F;04-sider-infoportal-70-hurtighjelp-60-hurtighjelp.html"></iframe>
+
+  </div>
+
+</div>
+
+<!-- - - - - - - - - - - - - - - - - - - - - - - - - -->
+<!-- End quickhelp -->
+<!-- - - - - - - - - - - - - - - - - - - - - - - - - -->
+
+<!-- END: 01-molekyler-06-hjelp-00-hjelp-container -->
+
+<!-- END: 03-maler-portal-91-modal-01-modal -->
+
+
+<!-- END: 04-sider-portal-93-samtykke-01-gi-samtykke -->
+  </div>
+  <script type="text/json" id="sg-pattern-data-sider-portal-gi-samtykke" class="sg-pattern-data">
+    
+  </script>
+</div><!--end .sg-pattern-->
+    </div> <!--end #sg-patterns-->
+  </div> <!--end .sg-main-->
+</div> <!--end .container-->
+    <!-- DO NOT REMOVE -->
+    <script type="text/json" id="sg-pattern-data-footer" class="sg-pattern-data">
+  {"patternPartial":"viewall-sider-portal-samtykke"}
+</script>
+
+<script>
+  /*!
+   * scriptLoader - v0.1
+   *
+   * Copyright (c) 2014 Dave Olsen, http://dmolsen.com
+   * Licensed under the MIT license
+   *
+   */
+  
+  var scriptLoader = {
+    
+    run: function(js,cb,target) {
+      var s  = document.getElementById(target+'-'+cb);
+      for (var i = 0; i < js.length; i++) {
+        var src = (typeof js[i] != 'string') ? js[i].src : js[i];
+        var c   = document.createElement('script');
+        c.src   = '../../'+src+'?'+cb;
+        if (typeof js[i] != 'string') {
+          if (js[i].dep !== undefined) {
+            c.onload = function(dep,cb,target) {
+              return function() {
+                scriptLoader.run(dep,cb,target);
+              }
+            }(js[i].dep,cb,target);
+          }
+        }
+        s.parentNode.insertBefore(c,s);
+      }
+    }
+    
+  }
+</script>
+
+<script id="pl-js-polyfill-insert-1510055669486">
+  (function() {
+    if (self != top) {
+      var cb = '1510055669486';
+      var js = [];
+      if (typeof document !== 'undefined' && !('classList' in document.documentElement)) {
+        js.push('styleguide/bower_components/classList.min.js');
+      }
+      scriptLoader.run(js,cb,'pl-js-polyfill-insert');
+    }
+  })();
+</script>
+
+<script id="pl-js-insert-1510055669486">
+  (function() {
+    if (self != top) {
+      var cb = '1510055669486';
+      var js = [ { 'src': 'styleguide/bower_components/jwerty.min.js', 'dep': [ 'styleguide/js/patternlab-pattern.min.js' ] } ];
+      scriptLoader.run(js,cb,'pl-js-insert');
+    }
+  })();
+</script>
+
+	  <!-- JQUERY -->
+    <script src="../../js/jquery.min.js"></script>
+    <!-- CODE PRETTIFY: Prettify code snippets in HTML -->
+    <script src="https://cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js?lang=css&amp;skin=sunburst"></script>
+    <!-- Bundled assets -->
+    <script src="../../js/altinnPrototyping.vendor.js"></script>
+    <!-- ALTINN DEV custom JavaScript -->
+    <script src="./../../js/altinnPrototyping.js"></script>
+  </body>
+</html>
