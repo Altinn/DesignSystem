@@ -1,0 +1,38 @@
+<!-- START: 00-atomer-01-forms-04-radioknapp -->
+<fieldset class="form-group {{ styleModifier }}">
+
+  {{# radio-legend }}
+  <legend class="a-legend">{{{radio-legendText}}} {{# titleExtra }}
+    <span class="a-titleExtra">{{{ titleExtra-text }}}</span> {{/ titleExtra }}
+  </legend>
+  {{/ radio-legend }}
+
+  <div class="form-check a-radioButtons {{ isStacked }} {{ radio-class}}">
+
+    {{# radiobuttons }}
+    <label class="custom-control custom-radio">
+				<input type="radio"
+          name="radioish"
+          class="custom-control-input"
+          {{# radiobutton-id }} id="{{{ radiobutton-id }}}" {{/ radiobutton-id }}
+          value="{{{ radiobutton-id }}}"
+          {{# isRequired }}required{{/ isRequired }} />
+				<span class="custom-control-indicator"></span>
+				<span class="a-radioButtons-title">
+					{{{ radiobutton-title }}}
+				</span>
+
+				{{# radiobuttons-excerpt }}
+					<span class="a-radioButtons-excerpt a-maxThreeLines">
+						{{{ radiobuttons-excerptText }}}
+					</span>
+				{{/ radiobuttons-excerpt }}
+
+			</label> {{/ radiobuttons }}
+
+  </div>
+
+  <!--</div>-->
+</fieldset>
+
+<!-- END: 00-atomer-01-forms-04-radioknapp -->

@@ -1,0 +1,44 @@
+<!-- START: 02-organismer-70-Modal-innhold-_92-delegering-legg-til JS doc: formatter.js for org nr, requires a-js-orgNr class -->
+<div class="modal-body a-modal-body">
+  <div class="pb-2">
+    {{# displayTabs }}
+    <h2 class="a-h4">{{ tab-heading }}</h2>
+    <div class="pb-2 clearfix">
+      {{> molekyler-faner }}
+    </div>
+    <div class="tab-content a-tabs-content">
+      {{/ displayTabs }} {{# tab-items }} {{# displayTabs }}
+      <div class="tab-pane {{# tab-active }}active{{/ tab-active }}" id="{{ tab-href }}" role="tabpanel">
+        {{/ displayTabs }}
+        <form data-toggle="validator" data-disable="true">
+          <div class="row">
+            <div class="col-12 col-lg-7">
+              <h3 class="a-h4">{{ add-rightholder-heading }}</h3>
+              {{# personnummer-input }} {{> atomer-tekst-input }} {{/ personnummer-input }}
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-12 col-lg-7">
+              <div class="mt-1">
+                {{# etternavn-input }} {{> atomer-tekst-input }} {{/ etternavn-input }}
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-12">
+              <div class="mt-3">
+                {{# legg-til-knapp }} {{> atomer-knapp:mb-0 }} {{/ legg-til-knapp }}
+              </div>
+            </div>
+          </div>
+        </form>
+        {{# displayTabs }}
+      </div>
+      {{/ displayTabs }} {{/ tab-items }} {{# displayTabs }}
+    </div>
+    {{/ displayTabs }}
+  </div>
+</div>
+
+
+<!-- END: 02-organismer-70-Modal-innhold-_92-delegering-legg-til -->

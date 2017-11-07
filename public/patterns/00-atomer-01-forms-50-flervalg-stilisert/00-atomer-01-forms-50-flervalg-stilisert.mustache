@@ -1,0 +1,27 @@
+<!-- START: 00-atomer-01-forms-50-flervalg-stilisert -->
+<div class="form-group input-group transparent a-js-forceFlexColumn a-form-group" {{# aria-describedby }} aria-describedby="{{ aria-describedby }}" {{/ aria-describedby }}>
+  <div data-toggle="altinn-dropdown" class="dropdown{{# isTransparent }} a-transparent {{/ isTransparent }}a-fullWidthXs">
+    <input type="hidden" class="a-js-altinnDropdown-value" {{# defaultValue }} value="{{ defaultValue }}" {{/ defaultValue }} />
+    <button class="btn dropdown-toggle a-dropdown-toggle form-control-alt {{# extraDropdownClass }}{{ extraDropdownClass }}{{/ extraDropdownClass }} a-js-dropdownToValidate" type="button" id="dropdownMenu" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
+      {{# isRequired }}required{{/ isRequired }}>
+      {{> atomer-ikon }}
+      <span class="a-form-text {{ dropdown-name-class }}">
+        {{ dropdown-name }}
+      </span>
+    </button>
+    <div class="dropdown-menu a-dropdown-menu" aria-labelledby="dropdownMenu">
+      {{# dropdown-items }}
+      <a class="dropdown-item a-dropdown-item" href="#" {{# value }} data-value="{{ value }}" {{/ value }}>
+          {{> atomer-ikon }}
+          <span class="a-form-text {{ dropdown-name-class }}">
+            {{ dropdown-item-name }}
+          </span>
+        </a> {{/ dropdown-items }}
+    </div>
+  </div>
+  <div class="a-message a-message-error a-js-adjustedError" data-valmsg-for="{{ input-name }}" data-valmsg-replace="false">
+    <span class="has-error">{{# data-required }}{{ data-required-message }}{{/ data-required }}</span>
+  </div>
+</div>
+
+<!-- END: 00-atomer-01-forms-50-flervalg-stilisert -->
