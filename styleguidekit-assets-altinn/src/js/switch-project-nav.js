@@ -73,12 +73,58 @@ $(document).ready(function() {
   });
 
   $('.dropdown-list li').click(function() {
-    $('.selLabel').html($(this).html());
-    $('.dropdown').removeClass('active');
-    window.localStorage.setItem('selected_project', $(this).attr('data-value'));
-    console.log('Project selection ' + window.localStorage.getItem('selected_project') + ' saved to localStorage');
-    removeComponentsNotRelevantForProject();
+      
+      resetSwitchLayout();
+      
+      $('.selLabel').html($(this).html());
+      $('.dropdown').removeClass('active');
+      
+      var selected  =  $(this).attr('data-value');
+      window.localStorage.setItem('selected_project', selected);
+      console.log('Project selection ' + window.localStorage.getItem('selected_project') + ' saved to localStorage');
+      
+      updateSwitchLayout(selected);
+      
+      removeComponentsNotRelevantForProject();
   });
 
   $('.dropdown-list li:first-child').click();
 });
+
+var resetSwitchLayout = function() {
+    console.log('Resetting switch layout ...');
+    $('ul.dropdown-list li').each(function (){
+        if ($(this).css('display') !== null){
+            $(this).removeAttr('style');
+        }
+    });
+    $('ul.dropdown-list').removeClass(window.localStorage.getItem('selected_project'));
+};
+
+var updateSwitchLayout = function(selectedProject) {
+    console.log('Updating project project switch based on ' + selectedProject + ' option ...');
+
+    switch (selectedProject){
+        case 'altinn':
+            console.log('Processing option altinn');
+            $('ul.dropdown-list li').eq(0).css('display', 'none');
+            $('ul.dropdown-list').addClass('altinn');
+            break;
+        case 'brreg':
+            console.log('option brreg');
+
+            $('ul.dropdown-list li').eq(1).css('display', 'none');
+            $('ul.dropdown-list').addClass('brreg');
+            break;
+        case 'altinnett':
+            console.log('option altinnett');
+            $('ul.dropdown-list li').eq(2).css('display', 'none');
+            $('ul.dropdown-list').addClass('altinnett');
+            break;
+        default:
+            console.error('Selected project [' + selectedProject + '] not found');
+            break;
+    }
+};
+
+

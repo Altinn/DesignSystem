@@ -116,7 +116,7 @@
 }
 
 .sg-controls {
-  top: 40px;
+  top: 56px;
 
   @include media-breakpoint-down( lg ) {
     display: none;
@@ -675,30 +675,33 @@ body pre.language-markup {
 .a-sg-header-top {
   padding: 10px $spacer 9px $spacer;
   border-bottom: 1px solid #cff0ff;
-  height: 80px;
+  height: 54px;
+  display: flex;
+  align-items: center;
 }
 
 a.a-sg-header-title,
 a.a-sg-header-title:hover {
   @include a-fontBold;
-  display: inline;
-  float: left;
+  /* display: inline;
+   float: left;*/
   text-transform: none;
   color: $black;
-  padding: 0;
-  padding-top: 3px;
+  padding: 0 0 0 2px;
   margin: 0;
   font-size: 16px;
   background: transparent;
 }
 
 .a-sg-header-links {
+  flex-grow: 1;
+  text-align: right;
   @include media-breakpoint-down( md ) {
     display: none;
   }
   a {
-    display: inline;
-    float: right;
+    /*display: inline;
+    float: right;*/
     padding: 1px 0 0 24px;
     font-size: 12px;
     color: #333;
@@ -725,189 +728,6 @@ a.a-sg-header-title:hover {
 .a-sg-patternVariations .sg-pattern-head .a-sg-anchor:hover {
   margin-top: -8px;
 }
-//--------------------------------------------------*\
-// MAIN SWITCH - switches between designsystems
-//--------------------------------------------------*/
-.a-st-logoArea {
-  width: 200px;
-  text-align: left;
-
-  //LOGO
-  .c-logo {
-    align-self: center;
-  }
-
-  .c-logo__link {
-    border: none;
-    width: 160px;
-    padding-top: 22px;
-    margin: 0 auto 0 auto;
-    text-align: center;
-
-    svg {
-      width: 60px;
-      margin-bottom: 12px;
-      height: 40px;
-    }
-
-    &:hover,
-    &:focus,
-    &:active {
-      border: none;
-    }
-
-    &:focus {
-
-      .a-st-title {
-        color: #000;
-      }
-    }
-  }
-
-  .a-st-title {
-    text-align: center;
-    width: 100%;
-    font-size: 18px;
-    color: #999;
-  }
-  // VERSION inside LogoArea
-  .a-st-version {
-    font-size: 12px;
-    text-align: center;
-    width: 100%;
-    color: #333;
-    margin-bottom: 24px;
-    border: none;
-    display: block;
-
-    &:hover,
-    &:focus,
-    &:active {
-      border-bottom: none;
-      color: $blue-dark;
-    }
-
-    &:after {
-      width: 0;
-    }
-  }
-
-  // DROP DOWN THEME INSIDE logoArea
-  .a-dropdown-toggle {
-    border: none;
-    padding: 0 0 0 12px;
-    background: $blue-dark;
-    min-height: 60px;
-    transition: none;
-
-    .svg-logo-color {
-      fill: #fff !important;
-    }
-
-    &::after {
-      top: 28px;
-      color: #fff;
-    }
-
-    &:focus {
-      .svg-logo-color {
-        fill: #aaa;
-      }
-    }
-  }
-
-  .a-form-group {
-    border-top: 1px solid #ddd;
-    padding: 0;
-    margin-bottom: 0;
-    border-bottom: none;
-
-    .a-dropdown-menu {
-      max-height: none;
-      padding: 0;
-      overflow-y: auto;
-      border: none;
-      position: relative;
-      top: 0;
-    }
-
-    .a-dropdown-item {
-      padding: 12px 0 12px 12px;
-      border-bottom: 1px solid rgba(0, 98, 186, 0.2);;
-      background: rgba(0, 98, 186, 0.05);
-
-      &:hover,
-      &:focus,
-      &:active {
-        border-bottom: 1px solid #ddd;//
-        background: #ddd;
-      }
-
-      &:first-child {
-        border-top: 1px solid #ddd;
-      }
-    }
-
-    .a-st-dropdownLogo {
-      display: block;
-      svg {
-        height: 16px;
-        margin-top: 4px;
-      }
-    }
-
-    .a-dropdown-item--long {
-      display: block;
-      .a-st-dropdownLogo {
-        svg {
-          height: 24px;
-          margin-top: 4px;
-        }
-      }
-    }
-
-    .a-form-text {
-      padding: 0;
-    }
-  }
-}
-
-/*------------------------------------*    Javascript classes
-\*------------------------------------*/
-.a-js-bodyClassPersist {
-  display: none; }
-
-.container:focus,
-.row:focus {
-  -webkit-box-shadow: none !important;
-  box-shadow: none !important; }
-
-.a-js-hidden {
-  display: none; }
-
-.a-js-forceHidden {
-  display: none !important; }
-
-.a-js-forceFlexColumn {
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-  -ms-flex-direction: column;
-  flex-direction: column; }
-
-.dropdown-menu.a-dropdown-personswitchList {
-  display: none; }
-
-.a-js-none {
-  display: none; }
-
-.a-js-genericSearch .a-card-filter,
-.a-js-genericSearch .a-js-results,
-.a-js-genericSearch .a-js-alternativeResults,
-.a-js-genericSearch .a-js-noResults {
-  display: none; }
-
-.a-js-adjustedError {
-  margin-bottom: 12px; }
 
 /* brreg/altinn switch*/
 @import "switch-project-nav";
