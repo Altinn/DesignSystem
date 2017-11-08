@@ -43,6 +43,8 @@ var checkComponentElements = function(elements) {
   var project = getSelectedProject();
   if (getSelectedProject() === null) {
     setSelectedProject('altinn');
+    $('.display-altinnett').hide();
+    $('.display-brreg').hide();
   }
   $.each(elements, function(index, element) {
     if ($(element).hasAnyProjectStateClass(availableProjects)) {
@@ -56,15 +58,99 @@ var checkComponentElements = function(elements) {
   });
 };
 
+var removePagesAndTemplatesFromNav = function() {
+  var project = getSelectedProject();
+  $('a').filter('.sg-acc-handle').show();
+  console.log('removePagesAndTemplatesFromNav');
+  switch (project) {
+  case 'altinn':
+    $('a').filter(function() {
+      return ('.sg-acc-handle' && $(this).text().toLowerCase() === 'maler-brreg');
+    }).hide();
+    $('a').filter(function() {
+      return ('.sg-acc-handle' && $(this).text().toLowerCase() === 'sider-brreg');
+    }).hide();
+    $('a').filter(function() {
+      return ('.sg-acc-handle' && $(this).text().toLowerCase() === 'maler-altinnett');
+    }).hide();
+    $('a').filter(function() {
+      return ('.sg-acc-handle' && $(this).text().toLowerCase() === 'sider-altinnett');
+    }).hide();
+    break;
+
+  case 'brreg':
+    $('a').filter(function() {
+      return ('.sg-acc-handle' && $(this).text().toLowerCase() === 'maler-infoportal');
+    }).hide();
+    $('a').filter(function() {
+      return ('.sg-acc-handle' && $(this).text().toLowerCase() === 'sider-infoportal');
+    }).hide();
+    $('a').filter(function() {
+      return ('.sg-acc-handle' && $(this).text().toLowerCase() === 'maler-altinnett');
+    }).hide();
+    $('a').filter(function() {
+      return ('.sg-acc-handle' && $(this).text().toLowerCase() === 'sider-altinnett');
+    }).hide();
+    $('a').filter(function() {
+      return ('.sg-acc-handle' && $(this).text().toLowerCase() === 'maler-portal');
+    }).hide();
+    $('a').filter(function() {
+      return ('.sg-acc-handle' && $(this).text().toLowerCase() === 'sider-portal');
+    }).hide();
+    break;
+  case 'altinnett' :
+    $('a').filter(function() {
+      return ('.sg-acc-handle' && $(this).text().toLowerCase() === 'maler-brreg');
+    }).hide();
+    $('a').filter(function() {
+      return ('.sg-acc-handle' && $(this).text().toLowerCase() === 'sider-brreg');
+    }).hide();
+    $('a').filter(function() {
+      return ('.sg-acc-handle' && $(this).text().toLowerCase() === 'maler-infoportal');
+    }).hide();
+    $('a').filter(function() {
+      return ('.sg-acc-handle' && $(this).text().toLowerCase() === 'sider-infoportal');
+    }).hide();
+    $('a').filter(function() {
+      return ('.sg-acc-handle' && $(this).text().toLowerCase() === 'maler-portal');
+    }).hide();
+    $('a').filter(function() {
+      return ('.sg-acc-handle' && $(this).text().toLowerCase() === 'sider-portal');
+    }).hide();
+
+  }
+};
+
+var changeCss = function() {
+  var project = getSelectedProject();
+  var $head = $('#sg-viewport').contents().find('head link[rel=\'stylesheet\']');
+  switch (project) {
+  case 'altinn':
+    $('#sg-viewport').contents().find('head link[href~=\'/css/style.dist.altinnett.css\']').remove();
+    $('#sg-viewport').contents().find('head link[href~=\'/css/style.dist.brreg.css\']').remove();
+    break;
+  case 'altinnett':
+    $head.last().after('<link rel=\'stylesheet\' href=\'/css/style.dist.altinnett.css\' type=\'text/css\' media=\'screen\'>');
+    $('#sg-viewport').contents().find('head link[href~=\'/css/style.dist.brreg.css\']').remove();
+    break;
+  case 'brreg':
+    $head.last().after('<link rel=\'stylesheet\' href=\'/css/style.dist.brreg.css\' type=\'text/css\' media=\'screen\'>');
+    $('#sg-viewport').contents().find('head link[href~=\'/css/style.dist.altinnett.css\']').remove();
+    break;
+  }
+};
+
 var removeComponentsNotRelevantForProject = function() {
   var allHeaderElements = document.querySelectorAll('.sg-pattern-state');
   var iframeElements = document.querySelector('#sg-viewport').contentDocument.querySelectorAll('.sg-pattern-state');
   checkComponentElements(allHeaderElements);
   checkComponentElements(iframeElements);
+  removePagesAndTemplatesFromNav();
+  changeCss();
 };
 
-$('#sg-viewport').load(function() {
-    removeComponentsNotRelevantForProject();
+$('#sg-viewport').load(function() {   // iframe
+  removeComponentsNotRelevantForProject();
 });
 
 $(document).ready(function() {
