@@ -2,9 +2,21 @@ $black-color: #000000;
 $blue-background-color: #bce4f7;
 $blue-background-hover-color: #b0dcf1;
 
+$option-li-size: 48px;
+
+.project-text-format {
+  @include a-fontBold;
+  text-transform: none;
+  color: $black-color;
+  padding: 0 0 0 2px;
+  margin: 0;
+  font-size: 16px;
+}
 
 @mixin transform_switch($child1, $child2, $child3) {
   li {
+    height: $option-li-size;
+    line-height: $option-li-size;
     &:nth-child(1) {
       transform: translateY($child1);
     }
@@ -14,23 +26,21 @@ $blue-background-hover-color: #b0dcf1;
     &:nth-child(3) {
       transform: translateY($child3);
     }
-    .st-dropdownLogo {
-      display: block;
-      svg {
-        height: 28px;
-        margin-top: 4px;
-        vertical-align: middle;
-      }
+    .project-name {
+      @include a-fontBold;
+      @extend .project-text-format;
     }
   }
 }
-
-.dropdown {
+.switch-dropdown {
   margin: 0;
-  width: 340px;
+  width: 260px;
   text-align: left;
   position: relative;
   perspective: 800px;
+  .selLabel {
+    @extend .project-text-format;
+  }
   &.active {
     z-index: 99999;
     .selLabel {
@@ -38,7 +48,9 @@ $blue-background-hover-color: #b0dcf1;
         content: '\25B2';
       }
     }
-    .dropdown-list {
+    .switch-dropdown-list {
+      display: flex;
+      align-items: center;
       &.altinn {
           @include transform_switch(0%, 100%, 200%);
       }
@@ -53,13 +65,13 @@ $blue-background-hover-color: #b0dcf1;
   > span {
     //box-shadow: 0 1px 1px rgba(0,0,0,0.1);
     width: 100%;
-    height: 48px;
-    line-height: 48px;
+    height: $option-li-size;
+    line-height: $option-li-size;
     color: $black-color;
     background: $blue-background-color;
 
     display: block;
-    padding: 0 50px 0 20px;
+    padding: 0 50px 0 0;
     position: relative;
     z-index: 99999;
     cursor: pointer;
@@ -79,11 +91,9 @@ $blue-background-hover-color: #b0dcf1;
       width: 50px;
       text-align: center;
       font-size: 12px;
-      vertical-align: middle;
       
       height: 70%;
-      line-height: 24px;
-      border-left: 1px solid $black-color;
+      line-height: 36px;
     }
     &:active {
       transform: rotateX(45deg);
@@ -93,15 +103,16 @@ $blue-background-hover-color: #b0dcf1;
     }
   }
 }
-.dropdown-list {
+.switch-dropdown-list {
   position: absolute;
   top: 0;
-  width: 280px;
+  width: 220px;
   li {
     height: 50px;
     display: block;
     list-style: none;
-    left: 0;
+    left: -10px;
+    padding-left: 10px;
     opacity: 1;
     transition: transform 300ms ease;
     position: absolute;
