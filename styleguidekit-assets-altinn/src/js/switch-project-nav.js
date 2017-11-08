@@ -1,5 +1,3 @@
-
-
 function getLocalStorageValue(key) {
   return window.localStorage.getItem(key);
 }
@@ -40,9 +38,8 @@ $.fn.hasAnyProjectStateClass = function(availableProjects) {
   return false;
 };
 
-var checkComponentElements = function(elements) {
+function checkAndChangeComponentElements(project, elements) {
   var availableProjects = ['altinn', 'brreg', 'altinnett'];
-  var project = getSelectedProject();
   if (getSelectedProject() === null) {
     setSelectedProject('altinn');
     $('.display-altinnett').hide();
@@ -58,12 +55,10 @@ var checkComponentElements = function(elements) {
       }
     }
   });
-};
+}
 
-var removePagesAndTemplatesFromNav = function() {
-  var project = getSelectedProject();
+function removePagesAndTemplatesFromNav(project) {
   $('a').filter('.sg-acc-handle').show();
-  console.log('removePagesAndTemplatesFromNav');
   switch (project) {
   case 'altinn':
     $('a').filter(function() {
@@ -79,7 +74,6 @@ var removePagesAndTemplatesFromNav = function() {
       return ('.sg-acc-handle' && $(this).text().toLowerCase() === 'sider-altinnett');
     }).hide();
     break;
-
   case 'brreg':
     $('a').filter(function() {
       return ('.sg-acc-handle' && $(this).text().toLowerCase() === 'maler-infoportal');
@@ -119,44 +113,62 @@ var removePagesAndTemplatesFromNav = function() {
     $('a').filter(function() {
       return ('.sg-acc-handle' && $(this).text().toLowerCase() === 'sider-portal');
     }).hide();
-
+    break;
+  default:
+    break;
   }
-};
+}
 
-var changeCss = function() {
-  var project = getSelectedProject();
+function changeCss(project) {
   var $head = $('#sg-viewport').contents().find('head link[rel=\'stylesheet\']');
   switch (project) {
-  case 'altinn':
-    $('#sg-viewport').contents().find('head link[href~=\'/css/style.dist.altinnett.css\']').remove();
-    $('#sg-viewport').contents().find('head link[href~=\'/css/style.dist.brreg.css\']').remove();
-    break;
   case 'altinnett':
     $head.last().after('<link rel=\'stylesheet\' href=\'/css/style.dist.altinnett.css\' type=\'text/css\' media=\'screen\'>');
     $('#sg-viewport').contents().find('head link[href~=\'/css/style.dist.brreg.css\']').remove();
     break;
   case 'brreg':
     $head.last().after('<link rel=\'stylesheet\' href=\'/css/style.dist.brreg.css\' type=\'text/css\' media=\'screen\'>');
-    $('#sg-viewport').contents().find('head link[href~=\'/css/style.dist.altinnett.css\']').remove();
+      $('#sg-viewport').contents().find('head link[href~=\'/css/style.dist.altinnett.css\']').remove();
+    break;
+  default:
+      $('#sg-viewport').contents().find('head link[href~=\'/css/style.dist.altinnett.css\']').remove();
+      $('#sg-viewport').contents().find('head link[href~=\'/css/style.dist.brreg.css\']').remove();
     break;
   }
-};
+}
 
-var removeComponentsNotRelevantForProject = function() {
+function toggleWelcomeText(project) {
+  if (project === 'brreg') {
+      $('#sg-viewport').contents().find('.welcome-panel-brreg').show();
+      $('#sg-viewport').contents().find('.welcome-panel-altinn').hide();
+  } else {
+      $('#sg-viewport').contents().find('.welcome-panel-brreg').hide();
+      $('#sg-viewport').contents().find('.welcome-panel-altinn').show();
+  }
+}
+
+function changeContentNotRelevantForProject() {
   var allHeaderElements = document.querySelectorAll('.sg-pattern-state');
   var iframeElements = document.querySelector('#sg-viewport').contentDocument.querySelectorAll('.sg-pattern-state');
-  checkComponentElements(allHeaderElements);
-  checkComponentElements(iframeElements);
-  removePagesAndTemplatesFromNav();
-  changeCss();
-};
-
-$('#sg-viewport').load(function() {   // iframe
-  removeComponentsNotRelevantForProject();
-});
-
+  var project = getSelectedProject();
+  if (getSelectedProject() === null) {
+    setSelectedProject('altinn');
+  }
+  checkAndChangeComponentElements(project, allHeaderElements);
+  checkAndChangeComponentElements(project, iframeElements);
+  removePagesAndTemplatesFromNav(project);
+  changeCss(project);
+  toggleWelcomeText(project);
+}
 
 var resetSwitchLayout = function() {
+  console.log('Resetting switch layout ...');
+  $('ul.dropdown-list li').each(function() {
+    if ($(this).css('display') !== null) {
+      $(this).removeAttr('style');
+    }
+  });
+  $('ul.dropdown-list').removeClass(window.localStorage.getItem('selected_project'));
   console.log('Resetting switch layout ...');
   $('ul.switch-dropdown-list li').each(function() {
     if ($(this).css('display') !== null) {
@@ -194,6 +206,25 @@ var updateDropdownLayout = function(selectedProject) {
   }
 };
 
+$('#sg-viewport').load(function() {   // iframe
+  changeContentNotRelevantForProject();
+});
+
+$(document).ready(function() {
+  $('.selLabel').click(function() {
+    $('.dropdown').toggleClass('active');
+  });
+  $('.dropdown-list li').click(function() {
+    resetSwitchLayout();
+    $('.selLabel').html($(this).html());
+    $('.dropdown').removeClass('active');
+    var selected = $(this).attr('data-value');
+    window.localStorage.setItem('selected_project', selected);
+    updateDropdownLayout(selected);
+    changeContentNotRelevantForProject();
+  });
+  $('.dropdown-list li:first-child').click();
+});
 $(document).ready(function() {
   'use strict';
 
