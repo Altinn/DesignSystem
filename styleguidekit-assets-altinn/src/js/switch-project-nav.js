@@ -1,3 +1,38 @@
+var resetSwitchLayout = function() {
+  $('ul.dropdown-list li').each(function() {
+    if ($(this).css('display') !== null) {
+      $(this).removeAttr('style');
+    }
+  });
+  $('ul.dropdown-list').removeClass(window.localStorage.getItem('selected_project'));
+  $('ul.switch-dropdown-list li').each(function() {
+    if ($(this).css('display') !== null) {
+      $(this).removeAttr('style');
+    }
+  });
+  $('ul.switch-dropdown-list').removeClass(window.localStorage.getItem('selected_project'));
+};
+
+var updateDropdownLayout = function(selectedProject) {
+  var switchClass = 'ul.switch-dropdown-list';
+  switch (selectedProject) {
+  case 'altinn':
+    $(switchClass + ' li').eq(0).css('display', 'none');
+    $(switchClass).addClass('altinn');
+    break;
+  case 'brreg':
+    $(switchClass + ' li').eq(1).css('display', 'none');
+    $(switchClass).addClass('brreg');
+    break;
+  case 'altinnett':
+    $(switchClass + ' li').eq(2).css('display', 'none');
+    $(switchClass).addClass('altinnett');
+    break;
+  default:
+    break;
+  }
+};
+
 function getLocalStorageValue(key) {
   return window.localStorage.getItem(key);
 }
@@ -162,70 +197,10 @@ function changeContentNotRelevantForProject() {
   toggleWelcomeText(project);
 }
 
-var resetSwitchLayout = function() {
-  console.log('Resetting switch layout ...');
-  $('ul.dropdown-list li').each(function() {
-    if ($(this).css('display') !== null) {
-      $(this).removeAttr('style');
-    }
-  });
-  $('ul.dropdown-list').removeClass(window.localStorage.getItem('selected_project'));
-  console.log('Resetting switch layout ...');
-  $('ul.switch-dropdown-list li').each(function() {
-    if ($(this).css('display') !== null) {
-      $(this).removeAttr('style');
-    }
-  });
-  $('ul.switch-dropdown-list').removeClass(window.localStorage.getItem('selected_project'));
-};
-
-var updateDropdownLayout = function(selectedProject) {
-  'use strict';
-
-  var switchClass = 'ul.switch-dropdown-list';
-  console.log('Updating project project switch based on ' + selectedProject + ' option ...');
-
-  switch (selectedProject) {
-  case 'altinn':
-    console.log('Processing option altinn');
-    $(switchClass + ' li').eq(0).css('display', 'none');
-    $(switchClass).addClass('altinn');
-    break;
-  case 'brreg':
-    console.log('option brreg');
-    $(switchClass + ' li').eq(1).css('display', 'none');
-    $(switchClass).addClass('brreg');
-    break;
-  case 'altinnett':
-    console.log('option altinnett');
-    $(switchClass + ' li').eq(2).css('display', 'none');
-    $(switchClass).addClass('altinnett');
-    break;
-  default:
-    console.error('Selected project [' + selectedProject + '] not found');
-    break;
-  }
-};
-
 $('#sg-viewport').load(function() {   // iframe
   changeContentNotRelevantForProject();
 });
 
-$(document).ready(function() {
-  $('.selLabel').click(function() {
-    $('.dropdown').toggleClass('active');
-  });
-  $('.dropdown-list li').click(function() {
-    resetSwitchLayout();
-    $('.selLabel').html($(this).html());
-    $('.dropdown').removeClass('active');
-    var selected = $(this).attr('data-value');
-    window.localStorage.setItem('selected_project', selected);
-    updateDropdownLayout(selected);
-    changeContentNotRelevantForProject();
-  });
-  $('.dropdown-list li:first-child').click();
-});
 $(document).ready(function() {
   'use strict';
 
@@ -240,10 +215,9 @@ $(document).ready(function() {
 
     $(switchClass + ' .selLabel').text($(this).text());
     $(switchClass).removeClass('active');
-    window.localStorage.setItem('selected_project', selected);
+    setLocalStorageValue('selected_project', selected);
     updateDropdownLayout(selected);
     changeContentNotRelevantForProject();
-    console.log('Local storage value: ' + getSelectedProject());
   });
   if (getSelectedProject() === null) {
     $(switchClass + '-list li:first-child').click();
@@ -251,6 +225,5 @@ $(document).ready(function() {
     $(switchClass + ' .selLabel').text($(switchClass + '-list li #project-' + getSelectedProject()).text());
     updateDropdownLayout(getSelectedProject());
   }
-  console.log('Local storage value: ' + getSelectedProject());
 });
 
