@@ -15,14 +15,14 @@ function setSelectedProject(value) {
 }
 
 $.fn.toggleProjectComponent = function(hide) {
-  if ($(this).is('a')) {     // Gjemmer menypunkt
+  if ($(this).is('a')) {     // Hide compoenent in the menu
     if (hide === true) {
       $(this).hide();
     } else {
       $(this).show();
     }
   } else if (hide === true) {
-    $(this).closest('.sg-pattern').hide(); // Gjemmer div på siden med html
+    $(this).closest('.sg-pattern').hide(); // Hides div in the iframe
   } else {
     $(this).closest('.sg-pattern').show();
   }
@@ -46,9 +46,10 @@ function checkAndChangeComponentElements(project, elements) {
     $('.display-brreg').hide();
   }
   $.each(elements, function(index, element) {
+      // Checks if there is any project theme set on the state of the compoenent
     if ($(element).hasAnyProjectStateClass(availableProjects)) {
-            // ligger prosjektdef på staten til patternet i md-fila
-      if ($(element).hasClass(project)) {   // samsvar mellom valgt theme og staten på patternet
+      if ($(element).hasClass(project)) {
+          // there is set a state that is the same as the choosen theme
         $(element).toggleProjectComponent(false);
       } else {
         $(element).toggleProjectComponent(true);
@@ -128,22 +129,22 @@ function changeCss(project) {
     break;
   case 'brreg':
     $head.last().after('<link rel=\'stylesheet\' href=\'/css/style.dist.brreg.css\' type=\'text/css\' media=\'screen\'>');
-      $('#sg-viewport').contents().find('head link[href~=\'/css/style.dist.altinnett.css\']').remove();
+    $('#sg-viewport').contents().find('head link[href~=\'/css/style.dist.altinnett.css\']').remove();
     break;
   default:
-      $('#sg-viewport').contents().find('head link[href~=\'/css/style.dist.altinnett.css\']').remove();
-      $('#sg-viewport').contents().find('head link[href~=\'/css/style.dist.brreg.css\']').remove();
+    $('#sg-viewport').contents().find('head link[href~=\'/css/style.dist.altinnett.css\']').remove();
+    $('#sg-viewport').contents().find('head link[href~=\'/css/style.dist.brreg.css\']').remove();
     break;
   }
 }
 
 function toggleWelcomeText(project) {
   if (project === 'brreg') {
-      $('#sg-viewport').contents().find('.welcome-panel-brreg').show();
-      $('#sg-viewport').contents().find('.welcome-panel-altinn').hide();
+    $('#sg-viewport').contents().find('.welcome-panel-brreg').show();
+    $('#sg-viewport').contents().find('.welcome-panel-altinn').hide();
   } else {
-      $('#sg-viewport').contents().find('.welcome-panel-brreg').hide();
-      $('#sg-viewport').contents().find('.welcome-panel-altinn').show();
+    $('#sg-viewport').contents().find('.welcome-panel-brreg').hide();
+    $('#sg-viewport').contents().find('.welcome-panel-altinn').show();
   }
 }
 
@@ -241,7 +242,7 @@ $(document).ready(function() {
     $(switchClass).removeClass('active');
     window.localStorage.setItem('selected_project', selected);
     updateDropdownLayout(selected);
-    removeComponentsNotRelevantForProject();
+    changeContentNotRelevantForProject();
     console.log('Local storage value: ' + getSelectedProject());
   });
   if (getSelectedProject() === null) {
