@@ -15,14 +15,14 @@ function setSelectedProject(value) {
 }
 
 $.fn.toggleProjectComponent = function(hide) {
-  if ($(this).is('a')) {     // Hide compoenent in the menu
+  if ($(this).is('a')) {     // Gjemmer menypunkt
     if (hide === true) {
       $(this).hide();
     } else {
       $(this).show();
     }
   } else if (hide === true) {
-    $(this).closest('.sg-pattern').hide(); // Hides div in the iframe
+    $(this).closest('.sg-pattern').hide(); // Gjemmer div på siden med html
   } else {
     $(this).closest('.sg-pattern').show();
   }
