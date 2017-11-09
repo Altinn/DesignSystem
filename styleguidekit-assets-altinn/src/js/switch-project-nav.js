@@ -94,61 +94,33 @@ function checkAndChangeComponentElements(project, elements) {
 }
 
 function removePagesAndTemplatesFromNav(project) {
-  $('a').filter('.sg-acc-handle').show();
+  var $patternTypeLinks = $('li a.sg-acc-handle');
+  var projectLinksToHide = [];
+  $patternTypeLinks.show();
   switch (project) {
   case 'altinn':
-    $('a').filter(function() {
-      return ('.sg-acc-handle' && $(this).text().toLowerCase() === 'maler-brreg');
-    }).hide();
-    $('a').filter(function() {
-      return ('.sg-acc-handle' && $(this).text().toLowerCase() === 'sider-brreg');
-    }).hide();
-    $('a').filter(function() {
-      return ('.sg-acc-handle' && $(this).text().toLowerCase() === 'maler-altinnett');
-    }).hide();
-    $('a').filter(function() {
-      return ('.sg-acc-handle' && $(this).text().toLowerCase() === 'sider-altinnett');
-    }).hide();
+    projectLinksToHide = ['maler-brreg', 'sider-brreg', 'maler-altinnett', 'sider-altinnett'];
+    $patternTypeLinks.each(function() {
+      if ($.inArray($(this).text().toLowerCase(), projectLinksToHide) !== -1) {
+        $(this).hide();
+      }
+    });
     break;
   case 'brreg':
-    $('a').filter(function() {
-      return ('.sg-acc-handle' && $(this).text().toLowerCase() === 'maler-infoportal');
-    }).hide();
-    $('a').filter(function() {
-      return ('.sg-acc-handle' && $(this).text().toLowerCase() === 'sider-infoportal');
-    }).hide();
-    $('a').filter(function() {
-      return ('.sg-acc-handle' && $(this).text().toLowerCase() === 'maler-altinnett');
-    }).hide();
-    $('a').filter(function() {
-      return ('.sg-acc-handle' && $(this).text().toLowerCase() === 'sider-altinnett');
-    }).hide();
-    $('a').filter(function() {
-      return ('.sg-acc-handle' && $(this).text().toLowerCase() === 'maler-portal');
-    }).hide();
-    $('a').filter(function() {
-      return ('.sg-acc-handle' && $(this).text().toLowerCase() === 'sider-portal');
-    }).hide();
+    projectLinksToHide = ['maler-infoportal', 'sider-infoportal', 'maler-altinnett', 'sider-altinnett', 'maler-portal', 'sider-portal'];
+    $patternTypeLinks.each(function() {
+      if ($.inArray($(this).text().toLowerCase(), projectLinksToHide) !== -1) {
+        $(this).hide();
+      }
+    });
     break;
   case 'altinnett' :
-    $('a').filter(function() {
-      return ('.sg-acc-handle' && $(this).text().toLowerCase() === 'maler-brreg');
-    }).hide();
-    $('a').filter(function() {
-      return ('.sg-acc-handle' && $(this).text().toLowerCase() === 'sider-brreg');
-    }).hide();
-    $('a').filter(function() {
-      return ('.sg-acc-handle' && $(this).text().toLowerCase() === 'maler-infoportal');
-    }).hide();
-    $('a').filter(function() {
-      return ('.sg-acc-handle' && $(this).text().toLowerCase() === 'sider-infoportal');
-    }).hide();
-    $('a').filter(function() {
-      return ('.sg-acc-handle' && $(this).text().toLowerCase() === 'maler-portal');
-    }).hide();
-    $('a').filter(function() {
-      return ('.sg-acc-handle' && $(this).text().toLowerCase() === 'sider-portal');
-    }).hide();
+    projectLinksToHide = ['maler-brreg', 'sider-brreg', 'maler-infoportal', 'sider-infoportal', 'maler-portal', 'sider-portal'];
+    $patternTypeLinks.each(function() {
+      if ($.inArray($(this).text().toLowerCase(), projectLinksToHide) !== -1) {
+        $(this).hide();
+      }
+    });
     break;
   default:
     break;
@@ -156,30 +128,32 @@ function removePagesAndTemplatesFromNav(project) {
 }
 
 function changeCss(project) {
-  var $head = $('#sg-viewport').contents().find('head link[rel=\'stylesheet\']');
+  var $viewPortContents = $('#sg-viewport').contents();
+  var $viewPortContentsHead = $viewPortContents.find('head link[rel=\'stylesheet\']');
   switch (project) {
   case 'altinnett':
-    $head.last().after('<link rel=\'stylesheet\' href=\'/css/style.dist.altinnett.css\' type=\'text/css\' media=\'screen\'>');
-    $('#sg-viewport').contents().find('head link[href~=\'/css/style.dist.brreg.css\']').remove();
+    $viewPortContentsHead.last().after('<link rel=\'stylesheet\' href=\'/css/style.dist.altinnett.css\' type=\'text/css\' media=\'screen\'>');
+    $viewPortContents.find('head link[href~=\'/css/style.dist.brreg.css\']').remove();
     break;
   case 'brreg':
-    $head.last().after('<link rel=\'stylesheet\' href=\'/css/style.dist.brreg.css\' type=\'text/css\' media=\'screen\'>');
-    $('#sg-viewport').contents().find('head link[href~=\'/css/style.dist.altinnett.css\']').remove();
+    $viewPortContentsHead.last().after('<link rel=\'stylesheet\' href=\'/css/style.dist.brreg.css\' type=\'text/css\' media=\'screen\'>');
+    $viewPortContents.contents().find('head link[href~=\'/css/style.dist.altinnett.css\']').remove();
     break;
   default:
-    $('#sg-viewport').contents().find('head link[href~=\'/css/style.dist.altinnett.css\']').remove();
-    $('#sg-viewport').contents().find('head link[href~=\'/css/style.dist.brreg.css\']').remove();
+    $viewPortContents.find('head link[href~=\'/css/style.dist.altinnett.css\']').remove();
+    $viewPortContents.find('head link[href~=\'/css/style.dist.brreg.css\']').remove();
     break;
   }
 }
 
 function toggleWelcomeText(project) {
+  var $viewPortContents = $('#sg-viewport').contents();
   if (project === 'brreg') {
-    $('#sg-viewport').contents().find('.welcome-panel-brreg').show();
-    $('#sg-viewport').contents().find('.welcome-panel-altinn').hide();
+    $viewPortContents.find('.welcome-panel-brreg').show();
+    $viewPortContents.find('.welcome-panel-altinn').hide();
   } else {
-    $('#sg-viewport').contents().find('.welcome-panel-brreg').hide();
-    $('#sg-viewport').contents().find('.welcome-panel-altinn').show();
+    $viewPortContents.find('.welcome-panel-brreg').hide();
+    $viewPortContents.find('.welcome-panel-altinn').show();
   }
 }
 
@@ -202,8 +176,6 @@ $('#sg-viewport').load(function() {   // iframe
 });
 
 $(document).ready(function() {
-  'use strict';
-
   var switchClass = '.switch-dropdown';
   $('.selLabel').click(function() {
     $('.switch-dropdown').toggleClass('active');
