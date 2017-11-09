@@ -1,20 +1,22 @@
 var resetSwitchLayout = function() {
-  $('ul.dropdown-list li').each(function() {
+  var $elementToReset = 'ul.a-sg-switch-dropdown-list';
+  var $elementLiToReset = $elementToReset + ' li';
+  $($elementLiToReset).each(function() {
     if ($(this).css('display') !== null) {
       $(this).removeAttr('style');
     }
   });
-  $('ul.dropdown-list').removeClass(window.localStorage.getItem('selected_project'));
-  $('ul.switch-dropdown-list li').each(function() {
+  $($elementToReset).removeClass(window.localStorage.getItem('selected_project'));
+  $($elementLiToReset).each(function() {
     if ($(this).css('display') !== null) {
       $(this).removeAttr('style');
     }
   });
-  $('ul.switch-dropdown-list').removeClass(window.localStorage.getItem('selected_project'));
+  $($elementToReset).removeClass(window.localStorage.getItem('selected_project'));
 };
 
 var updateDropdownLayout = function(selectedProject) {
-  var switchClass = 'ul.switch-dropdown-list';
+  var switchClass = 'ul.a-sg-switch-dropdown-list';
   switch (selectedProject) {
   case 'altinn':
     $(switchClass + ' li').eq(0).css('display', 'none');
@@ -149,8 +151,8 @@ function changeCss(project) {
 function toggleWelcomeText(project) {
   var $viewPortContents = $('#sg-viewport').contents();
   if (project === 'brreg') {
-    $viewPortContents.find('.welcome-panel-brreg').show();
     $viewPortContents.find('.welcome-panel-altinn').hide();
+    $viewPortContents.find('.welcome-panel-brreg').show();
   } else {
     $viewPortContents.find('.welcome-panel-brreg').hide();
     $viewPortContents.find('.welcome-panel-altinn').show();
@@ -176,25 +178,26 @@ $('#sg-viewport').load(function() {   // iframe
 });
 
 $(document).ready(function() {
-  var switchClass = '.switch-dropdown';
-  $('.selLabel').click(function() {
-    $('.switch-dropdown').toggleClass('active');
+  var $switchClass = '.a-sg-switch-dropdown';
+  var $switchLabelClass = $switchClass + ' .a-sg-selLabel';
+  $($switchLabelClass).click(function() {
+    $($switchClass).toggleClass('active');
   });
 
-  $(switchClass + '-list li').click(function() {
+  $($switchClass + '-list li').click(function() {
     var selected = $(this).attr('data-value');
     resetSwitchLayout();
 
-    $(switchClass + ' .selLabel').text($(this).text());
-    $(switchClass).removeClass('active');
+    $($switchLabelClass).text($(this).text());
+    $($switchClass).removeClass('active');
     setLocalStorageValue('selected_project', selected);
     updateDropdownLayout(selected);
     changeContentNotRelevantForProject();
   });
   if (getSelectedProject() === null) {
-    $(switchClass + '-list li:first-child').click();
+    $($switchClass + '-list li:first-child').click();
   } else {
-    $(switchClass + ' .selLabel').text($(switchClass + '-list li #project-' + getSelectedProject()).text());
+    $($switchLabelClass).text($($switchClass + '-list li #project-' + getSelectedProject()).text());
     updateDropdownLayout(getSelectedProject());
   }
 });
