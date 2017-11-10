@@ -5,6 +5,14 @@
 @import '../../../source/css/scss/generic/bootstrap-custom.scss';
 @import '../../../source/css/scss/generic/mixins.scss';
 @import '../../../source/css/scss/base/font.scss';
+/* brreg/altinn switch*/
+@import "switch-project-nav";
+
+$color_atom_electron: #feaf16;
+$color_atom_orbit: #0078cc;
+$color_atom_core: #eb5c31;
+$color_atom_orbit_hover: #ccc;
+$color_atom_electron_hover: #aa3444;
 
 
 /* EDIT PATTERNLAB STYLE */
@@ -550,7 +558,6 @@ pre .tag, code .tag {
   margin: 0;
 }
 
-
 /* Spesific styling for components used in all */
 
 .sg-pattern-example .a-mediaBlock{
@@ -667,8 +674,6 @@ body pre.language-markup {
   display: inline-block;
 }
 
-
-
 //------------------------------------*\
 //  Custom additions (prefix: a-sg-)
 //------------------------------------*/
@@ -730,55 +735,56 @@ a.a-sg-header-title:hover {
 }
 
 .sg-atom-brreg {
-  display: block;
+  display: flex;
   width: 250px;
   height: 250px;
   position: relative;
-  float: right;
+  align-items: center;
+  justify-content: flex-end;
 }
-
-.electron {
+.sg-electron-brreg {
   position: absolute;
   left: 64px;
   top: 0;
   display: inline-block;
   width: 23px;
   height: 23px;
+  //Instead of the line below you could use @include border-radius($radius, $vertical-radius)
   border-radius: 50%;
-  background-color: #FEAF16;
+  background-color: $color_atom_electron;
   transition: top 1s ease-out, width .4s, height .4s, background-color .8s;
 }
-.orbit {
+.sg-orbit-brreg {
   position: relative;
   display: inline-block;
   width: 100px;
   height: 100px;
   border-radius: 50%;
-  border: 8px solid #0078cc;
+  border: 8px solid $color_atom_orbit;
   transition: border-color .7s;
   animation: spin 20s linear infinite;
+  &:hover {
+    border-color: $color_atom_orbit_hover;
+    .core {
+      margin-left: 180px;
+    }
+    .sg-electron-brreg {
+      top: 140px;
+      width: 30px;
+      height: 30px;
+      background-color: $color_atom_electron_hover;
+    }
+  }
 }
-.core {
+.sg-core-brreg {
   margin-top: 17px;
   margin-left: 17px;
   display: inline-block;
   width: 50px;
   height: 50px;
-  background-color: #eb5c31;
+  background-color: $color_atom_core;
   border-radius: 50%;
   transition: margin-left .8s;
-}
-.orbit:hover {
-  border-color: #ccc;
-}
-.orbit:hover .core {
-  margin-left: 180px;
-}
-.orbit:hover .electron {
-  top: 140px;
-  width: 30px;
-  height: 30px;
-  background-color: #aa3444;
 }
 
 @keyframes spin {
@@ -789,5 +795,4 @@ a.a-sg-header-title:hover {
     transform: rotate(0);
   }
 }
-/* brreg/altinn switch*/
-@import "switch-project-nav";
+
