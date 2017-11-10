@@ -729,5 +729,65 @@ a.a-sg-header-title:hover {
   margin-top: -8px;
 }
 
+.sg-atom-brreg {
+  display: block;
+  width: 250px;
+  height: 250px;
+  position: relative;
+  float: right;
+}
+
+.electron {
+  position: absolute;
+  left: 64px;
+  top: 0;
+  display: inline-block;
+  width: 23px;
+  height: 23px;
+  border-radius: 50%;
+  background-color: #FEAF16;
+  transition: top 1s ease-out, width .4s, height .4s, background-color .8s;
+}
+.orbit {
+  position: relative;
+  display: inline-block;
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  border: 8px solid #0078cc;
+  transition: border-color .7s;
+  animation: spin 20s linear infinite;
+}
+.core {
+  margin-top: 17px;
+  margin-left: 17px;
+  display: inline-block;
+  width: 50px;
+  height: 50px;
+  background-color: #eb5c31;
+  border-radius: 50%;
+  transition: margin-left .8s;
+}
+.orbit:hover {
+  border-color: #ccc;
+}
+.orbit:hover .core {
+  margin-left: 180px;
+}
+.orbit:hover .electron {
+  top: 140px;
+  width: 30px;
+  height: 30px;
+  background-color: #aa3444;
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(-360deg);
+  }
+  to {
+    transform: rotate(0);
+  }
+}
 /* brreg/altinn switch*/
 @import "switch-project-nav";
