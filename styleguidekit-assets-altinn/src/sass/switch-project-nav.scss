@@ -1,111 +1,105 @@
 $black-color: #000000;
-$blue-background-color: #bce4f7;
-$blue-background-hover-color: #b0dcf1;
+$blue-background-color: #BCE4F7;
+$blue-background-hover-color: #B0DCF1;
 $sg-animate-quick: 0.1s;
 $option-li-size: 48px;
+$nav-caret-color-active: #78AFCA;
 
-.a-sg-project-text-format {
+%a-sg-project-text-format {
   @include a-fontBold;
-  text-transform: none;
-  color: $black-color;
   padding: 0 0 0 2px;
   margin: 0;
-  font-size: 16px;
+  color: $black-color;
+  text-transform: none;
 }
 
-@mixin a-sg-transform_switch($child1, $child2, $child3) {
+@mixin a-sg-transform-switch($child1, $child2, $child3) {
   li {
     height: $option-li-size;
     line-height: $option-li-size;
+    
     &:nth-child(1) {
       transform: translateY($child1);
     }
+    
     &:nth-child(2) {
       transform: translateY($child2);
     }
+    
     &:nth-child(3) {
       transform: translateY($child3);
     }
+    
     .a-sg-project-name {
+      @extend %a-sg-project-text-format;
       @include a-fontBold;
-      @extend .a-sg-project-text-format;
     }
   }
 }
 
 .a-sg-switch-dropdown {
-  margin: 0;
-  width: 260px;
-  text-align: left;
   position: relative;
+  width: 260px;
+  margin: 0;
+  text-align: left;
   perspective: 800px;
-  .a-sg-selLabel {
-    @extend .a-sg-project-text-format;
+
+  .a-sg-sellabel {
+    @extend %a-sg-project-text-format;
   }
+  
   &.active {
     z-index: 99999;
-    .a-sg-selLabel {
+    
+    .a-sg-sellabel {
+      
       &:after {
-        color: #78afca;
-        -webkit-transform: rotate(180deg);
-        -ms-transform: rotate(180deg);
+        color: $nav-caret-color-active;
         transform: rotate(180deg);
       }
+      
     }
+    
     .a-sg-switch-dropdown-list {
       display: flex;
       align-items: center;
+      
       &.altinn {
-        @include a-sg-transform_switch(0%, 100%, 200%);
+        @include a-sg-transform-switch(0%, 100%, 200%);
       }
+      
       &.brreg {
-        @include a-sg-transform_switch(100%, 0%, 200%);
+        @include a-sg-transform-switch(100%, 0%, 200%);
       }
+      
       &.altinnett {
-        @include a-sg-transform_switch(100%, 200%, 0%);
+        @include a-sg-transform-switch(100%, 200%, 0%);
       }
     }
   }
+  
   > span {
-    width: 100%;
-    height: $option-li-size;
-    line-height: $option-li-size;
-    color: $black-color;
-    background: $blue-background-color;
-
-    display: block;
-    padding: 0 50px 0 0;
     position: relative;
     z-index: 99999;
+    display: block;
+    width: 212px;
+    height: $option-li-size;
+    padding: 0 50px 0 0;
+    line-height: $option-li-size;
+    color: $black-color;
     cursor: pointer;
-
-    transform-style: preserve-3d;
-    transform-origin: 50% 0;
-    transition: transform 300ms;
-    -webkit-backface-visibility: hidden;
-    -webkit-touch-callout: none;
     user-select: none;
+    background-color: $blue-background-color;
+    transition: transform 300ms;
+    transform-origin: 50% 0;
+
     &:after {
-      content: '\25BC';
-      color: #78afca;
-      display: inline-block;
-      font-size: 10px;
-      position: relative;
-      right: -4px;
-      transition: all $sg-animate-quick ease-out;
-
-      @media all and (min-width: $sg-bp-med) {
-        float: none;
-      }
+      @extend .sg-acc-handle:after;
+      top: -1px;
     }
-
-    &:hover, &:focus {
-      &:after {
-        color: #50778a;
-      }
-    }
-    &.active {
-      color: #50778a;
+    &:hover{
+      cursor: pointer;
+      background-color: $blue-background-hover-color;
     }
   }
 }
@@ -114,48 +108,31 @@ $option-li-size: 48px;
   position: absolute;
   top: 0;
   width: 220px;
+
   li {
-    height: 50px;
-    display: block;
-    list-style: none;
-    left: -10px;
-    padding-left: 10px;
-    opacity: 1;
-    transition: transform 300ms ease;
     position: absolute;
     top: 0;
+    left: -10px;
+    display: block;
     width: 100%;
+    height: 50px;
+    padding-left: 10px;
+    list-style: none;
     background-color: $blue-background-color;
+    opacity: 1;
+    transition: transform 300ms ease;
+    
     &:hover {
-      cursor: pointer !important;
+      cursor: pointer; 
+      background-color: $blue-background-hover-color;
     }
-    &:nth-child(1) {
-      z-index: 4;
-      &:hover {
-        background-color: $blue-background-hover-color;
-      }
-    }
-    &:nth-child(2) {
-      z-index: 3;
-      &:hover {
-        background-color: $blue-background-hover-color;
-      }
-    }
-    &:nth-child(3) {
-      z-index: 2;
-      &:hover {
-        background-color: $blue-background-hover-color;
-      }
-    }
+    
     span {
-      -webkit-backface-visibility: hidden;
-      -webkit-touch-callout: none;
-      user-select: none;
-      width: 100%;
-      font-size: 18px;
-      padding: 0 20px;
       display: block;
+      width: 100%;
+      padding: 0 20px;
       cursor: pointer;
+      user-select: none;
     }
   }
 }
