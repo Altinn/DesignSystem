@@ -2,7 +2,7 @@
   globals
   AltinnDropdown,
   AltinnModal,
-  AltinnQuickhelp
+  AltinnQuickhelp,
   addListExpandHandler,
   addListSortHandler,
   articleAnchors,
@@ -10,16 +10,17 @@
   cardsToggle,
   codeLookup,
   colnavCustom,
+  contactForm,
   feedbackToggle,
   formatOrgNr,
   genericSearch,
   handleFocus,
   initializeDatepicker,
+  iOS11BugWorkAround,
   listenForAttachmentChanges,
   mobileNavigation,
   nameChecker,
-  newsArchive
-  onboarding,
+  newsArchive,
   onConfirmDeletionClick,
   onFileInputChange,
   popoverGlobalInit,
@@ -51,12 +52,14 @@ window.infoportalInit = function() {
   addListExpandHandler();
   addListSortHandler();
   articleAnchors();
-  autoFootnotes();
+  autoFootnotes(); // This should be called before popoverLocalInit
   colnavCustom();
+  contactForm();
   feedbackToggle();
   genericSearch();
   handleFocus();
   initializeDatepicker();
+  iOS11BugWorkAround();
   listenForAttachmentChanges();
   mobileNavigation();
   newsArchive();
