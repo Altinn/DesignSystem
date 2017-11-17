@@ -92,7 +92,7 @@ gulp.task('build:images', ['clean:images'], function() {
 });
 
 gulp.task('build:js-viewer', ['clean:js'], function() {
-	return gulp.src(['src/js/*.js','!src/js/modal-styleguide.js', '!src/js/switch-nav-styleguide.js'])
+	return gulp.src(['src/js/*.js','!src/js/modal-styleguide.js'])
 		.pipe(plugins.jshint('.jshintrc'))
 		.pipe(plugins.jshint.reporter('default'))
 		.pipe(plugins.resolveDependencies( { pattern: /\* @requires [\s-]*(.*?\.js)/g } ))
