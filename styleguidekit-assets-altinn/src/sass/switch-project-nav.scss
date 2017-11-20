@@ -17,19 +17,19 @@ $nav-caret-color-active: #78AFCA;
   li {
     height: $option-li-size;
     line-height: $option-li-size;
-    
+
     &:nth-child(1) {
       transform: translateY($child1);
     }
-    
+
     &:nth-child(2) {
       transform: translateY($child2);
     }
-    
+
     &:nth-child(3) {
       transform: translateY($child3);
     }
-    
+
     .a-sg-project-name {
       @extend %a-sg-project-text-format;
       @include a-fontBold;
@@ -47,37 +47,37 @@ $nav-caret-color-active: #78AFCA;
   .a-sg-sellabel {
     @extend %a-sg-project-text-format;
   }
-  
+
   &.active {
     z-index: 99999;
-    
+
     .a-sg-sellabel {
-      
-      &:after {
+
+      &::after {
         color: $nav-caret-color-active;
         transform: rotate(180deg);
       }
-      
+
     }
-    
+
     .a-sg-switch-dropdown-list {
       display: flex;
       align-items: center;
-      
+
       &.altinn {
         @include a-sg-transform-switch(0%, 100%, 200%);
       }
-      
+
       &.brreg {
         @include a-sg-transform-switch(100%, 0%, 200%);
       }
-      
+
       &.altinnett {
         @include a-sg-transform-switch(100%, 200%, 0%);
       }
     }
   }
-  
+
   > span {
     position: relative;
     z-index: 99999;
@@ -93,11 +93,12 @@ $nav-caret-color-active: #78AFCA;
     transition: transform 300ms;
     transform-origin: 50% 0;
 
-    &:after {
+    &::after {
       @extend .sg-acc-handle:after;
       top: -1px;
-    }
-    &:hover{
+     }
+
+    &:hover {
       cursor: pointer;
       background-color: $blue-background-hover-color;
     }
@@ -121,12 +122,12 @@ $nav-caret-color-active: #78AFCA;
     background-color: $blue-background-color;
     opacity: 1;
     transition: transform 300ms ease;
-    
+
     &:hover {
-      cursor: pointer; 
+      cursor: pointer;
       background-color: $blue-background-hover-color;
     }
-    
+
     span {
       display: block;
       width: 100%;

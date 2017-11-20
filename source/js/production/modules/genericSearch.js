@@ -91,7 +91,11 @@ var genericSearch = function() {
 
   function getDataSource(index) {
     var dataSources = $(keys.genericSearchSelector).attr('data-source').split(',');
-    var dataUrl = dataSources[index] + '/' + $('html').attr('lang');
+    var dataUrl = dataSources[index];
+    if (window.location.pathname.indexOf('/DesignSystem/') === -1 && window.location.origin.indexOf('/localhost') === -1) {
+      // Do not add the language attribute when running locally or in Github
+      dataUrl += '/' + $('html').attr('lang');
+    }
 
     return dataUrl;
   }

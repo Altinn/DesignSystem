@@ -2217,7 +2217,7 @@ $('#sg-viewport').load(function() {   // iframe
 
 $(document).ready(function() {
   var $switchClass = '.a-sg-switch-dropdown';
-  var $switchLabelClass = $switchClass + ' .a-sg-selLabel';
+  var $switchLabelClass = $switchClass + ' .a-sg-sellabel';
   $($switchLabelClass).click(function() {
     $($switchClass).toggleClass('active');
   });
