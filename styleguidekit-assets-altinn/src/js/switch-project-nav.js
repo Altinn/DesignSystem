@@ -96,7 +96,7 @@ function checkAndChangeComponentElements(project, elements) {
 }
 
 function removePagesAndTemplatesFromNav(project) {
-  var $patternTypeLinks = $('li a.sg-acc-handle');
+  var $patternTypeLinks = $('li a.sg-nav-menus');
   var projectLinksToHide = [];
   $patternTypeLinks.show();
   switch (project) {
@@ -133,6 +133,10 @@ function changeCss(project) {
   var $viewPortContents = $('#sg-viewport').contents();
   var $viewPortContentsHead = $viewPortContents.find('head link[rel=\'stylesheet\']');
   switch (project) {
+      case 'altinn':
+          $viewPortContents.find('head link[href~=\'/css/style.dist.brreg.css\']').remove();
+          $viewPortContents.find('head link[href~=\'/css/style.dist.altinnett.css\']').remove();
+          break;
   case 'altinnett':
     $viewPortContentsHead.last().after('<link rel=\'stylesheet\' href=\'/css/style.dist.altinnett.css\' type=\'text/css\' media=\'screen\'>');
     $viewPortContents.find('head link[href~=\'/css/style.dist.brreg.css\']').remove();
@@ -176,6 +180,7 @@ function changeContentNotRelevantForProject() {
 $('#sg-viewport').load(function() {   // iframe
   changeContentNotRelevantForProject();
 });
+
 
 $(document).ready(function() {
   var $switchClass = '.a-sg-switch-dropdown';
