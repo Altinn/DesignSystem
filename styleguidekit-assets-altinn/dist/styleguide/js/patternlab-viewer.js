@@ -2134,7 +2134,7 @@ function checkAndChangeComponentElements(project, elements) {
 }
 
 function removePagesAndTemplatesFromNav(project) {
-  var $patternTypeLinks = $('li a.sg-acc-handle');
+  var $patternTypeLinks = $('li a.sg-nav-menus');
   var projectLinksToHide = [];
   $patternTypeLinks.show();
   switch (project) {
