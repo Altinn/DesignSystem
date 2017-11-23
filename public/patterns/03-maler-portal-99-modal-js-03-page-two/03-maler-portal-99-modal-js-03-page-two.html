@@ -35,8 +35,8 @@
   <script src="https://use.fortawesome.com/df832575.js"></script>
 
   <!-- Theme stylesheet -->
-  <link rel="stylesheet" href="../../css/style.css?1510566205749" media="all" />
-  <!-- <link rel="stylesheet" href="../../css/pattern-scaffolding.css?1510566205749" media="all" /> -->
+  <link rel="stylesheet" href="../../css/style.css?1511439241290" media="all" />
+  <!-- <link rel="stylesheet" href="../../css/pattern-scaffolding.css?1511439241290" media="all" /> -->
 
   <!-- Begin Pattern Lab (Required for Pattern Lab to run properly) -->
   <!-- never cache patterns -->
@@ -46,8 +46,8 @@
   <meta http-equiv="expires" content="Tue, 01 Jan 1980 1:00:00 GMT" />
   <meta http-equiv="pragma" content="no-cache" />
 
-  <link rel="stylesheet" href="../../styleguide/css/styleguide.min.css?1510566205749" media="all">
-  <link rel="stylesheet" href="../../styleguide/css/prism-typeahead.min.css?1510566205749" media="all" />
+  <link rel="stylesheet" href="../../styleguide/css/styleguide.min.css?1511439241290" media="all">
+  <link rel="stylesheet" href="../../styleguide/css/prism-typeahead.min.css?1511439241290" media="all" />
 
   <!-- End Pattern Lab -->
 
@@ -59,24 +59,48 @@
     <div class="modal-header a-modal-header">
       <div class="a-iconText a-iconText-background a-iconText-large">
         <div class="a-iconText-icon">
-          <i class="ai ai-circle-plus a-icon a-icon-circle" aria-hidden="true"></i>
+          <i class="ai ai-sign a-icon" aria-hidden="true"></i>
         </div>
         <h1 class="a-iconText-text mb-0">
           <span class="a-iconText-text-small"></span>
-          <span class="a-iconText-text-large">Side 2</span>
+          <span class="a-iconText-text-large">Tittel på andre side i modalen</span>
         </h1>
       </div>
     </div>
     <div class="modal-body a-modal-body">
-      <button class="a-btn" onclick="AltinnModal.setCurrentPageIsDirty('#modal', true);">
-          Endre state til endret
-        </button>
-      <button class="a-btn" onclick="AltinnModal.setCurrentPageIsDirty('#modal', false);">
-          Endre state til uendret
-        </button>
-      <button class="a-btn" data-toggle="altinn-modal" data-action="next" data-url="/patterns/03-maler-portal-99-modal-js-02-page-error/03-maler-portal-99-modal-js-02-page-error.markup-only.html" data-target="#modal">
-          Gå til side 1
-        </button>
+      <h2 class="a-h4">Endringer på innholdet i modalen</h2>
+      <p>Dersom du har gjort endringer på innholdet inni modalen, og deretter forsøker å lukke modalen skal du få en advarsel om at endringene ikke vil bli lagret. Dersom du ikke har endret noe, vil du ikke få dette spørsmålet. Prøv selv ved å sette Endret-state
+        til "true" og trykk på krysset oppe til høyre:</p>
+
+      <fieldset class="form-group">
+        <div class="form-check a-radioButtons">
+          <label class="custom-control custom-radio">
+      				<input type="radio" name="radioish" class="custom-control-input" id="isDirtyTrue" value="isDirtyTrue" onclick="AltinnModal.setCurrentPageIsDirty('#modal', true);"/>
+      				<span class="custom-control-indicator"></span>
+      				<span class="a-radioButtons-title">
+      					Endret: True
+      				</span>
+      			</label>
+          <label class="custom-control custom-radio">
+      				<input type="radio" name="radioish" class="custom-control-input" id="isDirtyFalse" value="isDirtyFalse" onclick="AltinnModal.setCurrentPageIsDirty('#modal', false);"/>
+      				<span class="custom-control-indicator"></span>
+      				<span class="a-radioButtons-title">
+      					Endret: False
+      				</span>
+      			</label>
+        </div>
+      </fieldset>
+
+      <h2 class="a-h4">Fullført eller mislykket prosess</h2>
+      <p>Dersom det er flere steg i modalen, vil man ved siste steg få en grønn bekreftelse på at prosssen er fullført, eller eventuelt et rødt varsel dersom noe har gått galt.</p>
+      <div class="a-btn-group">
+        <button class="a-btn a-btn-success" data-toggle="altinn-modal" data-action="next" data-url="/patterns/03-maler-portal-99-modal-js-05-page-success/03-maler-portal-99-modal-js-05-page-success.markup-only.html" data-target="#modal" data-is-success="true">
+            Vis fullført prosess
+          </button>
+        <button class="a-btn a-btn-danger" data-toggle="altinn-modal" data-action="next" data-url="/patterns/03-maler-portal-99-modal-js-06-page-error/03-maler-portal-99-modal-js-06-page-error.markup-only.html" data-target="#modal" data-is-error="true">
+            Vis mislykket prosess
+          </button>
+      </div>
     </div>
   </div>
 
@@ -139,10 +163,10 @@
     }
   </script>
 
-  <script id="pl-js-polyfill-insert-1510566205749">
+  <script id="pl-js-polyfill-insert-1511439241290">
     (function() {
       if (self != top) {
-        var cb = '1510566205749';
+        var cb = '1511439241290';
         var js = [];
         if (typeof document !== 'undefined' && !('classList' in document.documentElement)) {
           js.push('styleguide/bower_components/classList.min.js');
@@ -152,10 +176,10 @@
     })();
   </script>
 
-  <script id="pl-js-insert-1510566205749">
+  <script id="pl-js-insert-1511439241290">
     (function() {
       if (self != top) {
-        var cb = '1510566205749';
+        var cb = '1511439241290';
         var js = [{
           'src': 'styleguide/bower_components/jwerty.min.js',
           'dep': ['styleguide/js/patternlab-pattern.min.js']

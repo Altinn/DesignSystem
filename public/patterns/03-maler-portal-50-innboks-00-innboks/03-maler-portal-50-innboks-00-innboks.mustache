@@ -10,7 +10,13 @@
       {{> atomer-tekst-input }}
     </div>
   </div>
-  {{/ article-search }} {{# heading }}
+  {{/ article-search }} {{# search-across-transition }}
+  <div class="row">
+    <div class="col">
+      {{> atomer-varsel}}
+    </div>
+  </div>
+  {{/ search-across-transition }} {{# heading }}
   <div class="row">
     <div class="col">
       <h1 class="{{ heading-class }}">{{ heading }}</h1>
@@ -41,7 +47,34 @@
         {{/ custom-title }} {{# elements }} {{> molekyler-liste-unummerert }} {{/ elements }}
       </div>
     </div>
-    {{/ customize-saved-searches }} {{# search-result-menu }} {{> molekyler-faner-og-knapp }} {{/ search-result-menu }} {{# limit-hits }}
+    {{/ customize-saved-searches }} {{# saved-search-across-actors }}
+    <div class="row pt-6 pb-1">
+      <div class="col">
+        {{# custom-title }}
+        <h1 class="a-fontSizeM mb-0">
+          {{# text-items }} {{# classes }} <span class="{{ classes }}"> {{/ classes }}
+                {{{ text }}}
+                {{# classes }} </span> {{/ classes }} {{/ text-items }}
+        </h1>
+        {{/ custom-title }}
+      </div>
+      {{# edit-link }}
+      <div class="col-auto text-right px-1">
+        {{> atomer-link }}
+      </div>
+      {{/ edit-link }}
+    </div>
+    <div class="row">
+      <div class="col">
+        <hr class="a-hrSolidLight mt-0" />
+      </div>
+    </div>
+    <div class="row pb-3">
+      <div class="col">
+        {{# elements }} {{> molekyler-liste-unummerert }} {{/ elements }}
+      </div>
+    </div>
+    {{/ saved-search-across-actors }} {{# search-result-menu }} {{> molekyler-faner-og-knapp }} {{/ search-result-menu }} {{# limit-hits }}
     <div class="mt-4">
       <p class="d-inline a-fontSizeM">{{ limit-hits-text }}</p>
       {{# active-filters }} {{> atomer-merkelapp }} {{/ active-filters }} {{> atomer-knapp-ikon}}
