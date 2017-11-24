@@ -1,3 +1,6 @@
+var $switchClass = '.a-sg-switch-dropdown';
+var $switchLabelClass = $switchClass + ' .a-sg-sellabel';
+
 var resetSwitchLayout = function() {
   var $elementToReset = 'ul.a-sg-switch-dropdown-list';
   var $elementLiToReset = $elementToReset + ' li';
@@ -134,22 +137,24 @@ function changeCss(project) {
   var $viewPortContentsHead = $viewPortContents.find('head link[rel=\'stylesheet\']');
   switch (project) {
       case 'altinn':
-          $viewPortContents.find('head link[href~=\'/css/style.dist.brreg.css\']').remove();
-          $viewPortContents.find('head link[href~=\'/css/style.dist.altinnett.css\']').remove();
+          $viewPortContents.find('head link[href~=\'/css/style.dist.brreg.css\']').prop('disabled', true);
+          $viewPortContents.find('head link[href~=\'/css/style.dist.altinnett.css\']').prop('disabled', true);
+          $viewPortContents.find('head link[href~=\'/css/style.css\']').prop('disabled', false);
           break;
   case 'altinnett':
-    $viewPortContentsHead.last().after('<link rel=\'stylesheet\' href=\'/css/style.dist.altinnett.css\' type=\'text/css\' media=\'screen\'>');
-    $viewPortContents.find('head link[href~=\'/css/style.dist.brreg.css\']').remove();
+      $viewPortContents.find('head link[href~=\'/css/style.dist.brreg.css\']').prop('disabled', true);
+      $viewPortContents.find('head link[href~=\'/css/style.dist.altinnett.css\']').prop('disabled', false);
+      $viewPortContents.find('head link[href~=\'/css/style.css\']').prop('disabled', true);
     break;
   case 'brreg':
-    $viewPortContentsHead.last().after('<link rel=\'stylesheet\' href=\'/css/style.dist.brreg.css\' type=\'text/css\' media=\'screen\'>');
-    $viewPortContents.contents().find('head link[href~=\'/css/style.dist.altinnett.css\']').remove();
+      $viewPortContents.find('head link[href~=\'/css/style.dist.brreg.css\']').prop('disabled', false);
+      $viewPortContents.find('head link[href~=\'/css/style.dist.altinnett.css\']').prop('disabled', true);
+      $viewPortContents.find('head link[href~=\'/css/style.css\']').prop('disabled', true);
     break;
   default:
-    $viewPortContents.find('head link[href~=\'/css/style.dist.altinnett.css\']').remove();
-    $viewPortContents.find('head link[href~=\'/css/style.dist.brreg.css\']').remove();
     break;
   }
+    $('#sg-viewport').load(location.href + " #sg-viewport");
 }
 
 function toggleWelcomeText(project) {
@@ -167,9 +172,6 @@ function changeContentNotRelevantForProject() {
   var allHeaderElements = document.querySelectorAll('.sg-pattern-state');
   var iframeElements = document.querySelector('#sg-viewport').contentDocument.querySelectorAll('.sg-pattern-state');
   var project = getSelectedProject();
-  if (getSelectedProject() === null) {
-    setSelectedProject('altinn');
-  }
   checkAndChangeComponentElements(project, allHeaderElements);
   checkAndChangeComponentElements(project, iframeElements);
   removePagesAndTemplatesFromNav(project);
@@ -177,14 +179,25 @@ function changeContentNotRelevantForProject() {
   toggleWelcomeText(project);
 }
 
-$('#sg-viewport').load(function() {   // iframe
-  changeContentNotRelevantForProject();
+$('#sg-viewport').load(function() {  // iframe
+    initSwitch();
 });
 
+// $(window).on('beforeunload',function(){
+//     changeContentNotRelevantForProject();
+// });
+
+function initSwitch (){
+    if (getSelectedProject() === null) {
+        $($switchClass + '-list li:first-child').click();
+    } else {
+        $($switchLabelClass).text($($switchClass + '-list li #project-' + getSelectedProject()).text());
+        updateDropdownLayout(getSelectedProject());
+        changeContentNotRelevantForProject();
+    }
+}
 
 $(document).ready(function() {
-  var $switchClass = '.a-sg-switch-dropdown';
-  var $switchLabelClass = $switchClass + ' .a-sg-sellabel';
   $($switchLabelClass).click(function() {
     $($switchClass).toggleClass('active');
   });
@@ -199,11 +212,6 @@ $(document).ready(function() {
     updateDropdownLayout(selected);
     changeContentNotRelevantForProject();
   });
-  if (getSelectedProject() === null) {
-    $($switchClass + '-list li:first-child').click();
-  } else {
-    $($switchLabelClass).text($($switchClass + '-list li #project-' + getSelectedProject()).text());
-    updateDropdownLayout(getSelectedProject());
-  }
+    initSwitch();
 });
 
