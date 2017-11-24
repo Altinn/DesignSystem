@@ -135,25 +135,25 @@ function removePagesAndTemplatesFromNav(project) {
 function changeCss(project) {
   var $viewPortContents = $('#sg-viewport').contents();
   switch (project) {
-      case 'altinn':
-          $viewPortContents.find('head link[href~=\'/css/style.dist.brreg.css\']').prop('disabled', true);
-          $viewPortContents.find('head link[href~=\'/css/style.dist.altinnett.css\']').prop('disabled', true);
-          $viewPortContents.find('head link[href~=\'/css/style.css\']').prop('disabled', false);
-          break;
+  case 'altinn':
+    $viewPortContents.find('head link[href~=\'/css/style.dist.brreg.css\']').prop('disabled', true);
+    $viewPortContents.find('head link[href~=\'/css/style.dist.altinnett.css\']').prop('disabled', true);
+    $viewPortContents.find('head link[href~=\'/css/style.css\']').prop('disabled', false);
+    break;
   case 'altinnett':
-      $viewPortContents.find('head link[href~=\'/css/style.dist.brreg.css\']').prop('disabled', true);
-      $viewPortContents.find('head link[href~=\'/css/style.dist.altinnett.css\']').prop('disabled', false);
-      $viewPortContents.find('head link[href~=\'/css/style.css\']').prop('disabled', true);
+    $viewPortContents.find('head link[href~=\'/css/style.dist.brreg.css\']').prop('disabled', true);
+    $viewPortContents.find('head link[href~=\'/css/style.dist.altinnett.css\']').prop('disabled', false);
+    $viewPortContents.find('head link[href~=\'/css/style.css\']').prop('disabled', true);
     break;
   case 'brreg':
-      $viewPortContents.find('head link[href~=\'/css/style.dist.brreg.css\']').prop('disabled', false);
-      $viewPortContents.find('head link[href~=\'/css/style.dist.altinnett.css\']').prop('disabled', true);
-      $viewPortContents.find('head link[href~=\'/css/style.css\']').prop('disabled', true);
+    $viewPortContents.find('head link[href~=\'/css/style.dist.brreg.css\']').prop('disabled', false);
+    $viewPortContents.find('head link[href~=\'/css/style.dist.altinnett.css\']').prop('disabled', true);
+    $viewPortContents.find('head link[href~=\'/css/style.css\']').prop('disabled', true);
     break;
   default:
     break;
   }
-    $('#sg-viewport').load(location.href + " #sg-viewport");
+  $('#sg-viewport').load(location.href + ' #sg-viewport');
 }
 
 function toggleWelcomeText(project) {
@@ -178,25 +178,25 @@ function changeContentNotRelevantForProject() {
   toggleWelcomeText(project);
 }
 
-function initSwitch (){
-    if (getSelectedProject() === null) {
-        $($switchClass + '-list li:first-child').click();
-    } else {
-        $($switchLabelClass).text($($switchClass + '-list li #project-' + getSelectedProject()).text());
-        updateDropdownLayout(getSelectedProject());
-        changeContentNotRelevantForProject();
-    }
+function initSwitch() {
+  if (getSelectedProject() === null) {
+    $($switchClass + '-list li:first-child').click();
+  } else {
+    $($switchLabelClass).text($($switchClass + '-list li #project-' + getSelectedProject()).text());
+    updateDropdownLayout(getSelectedProject());
+    changeContentNotRelevantForProject();
+  }
 }
 
 $('#sg-viewport').load(function() {  // iframe
-    initSwitch();
+  initSwitch();
 });
 
-$(window).on('load', function() { 
-    $('body').css({'overflow':'hidden'});
-    $('#a-sg-content-preloader-status').fadeOut(); 
-    $('#a-sg-content-preloader').delay(350).fadeOut('slow'); 
-    $('body').delay(350).css({'overflow':'visible'});
+$(window).on('load', function() {
+  $('body').css({ overflow: 'hidden' });
+  $('#a-sg-content-preloader-status').fadeOut();
+  $('#a-sg-content-preloader').delay(350).fadeOut('slow');
+  $('body').delay(350).css({ overflow: 'visible' });
 });
 
 $(document).ready(function() {
@@ -214,6 +214,6 @@ $(document).ready(function() {
     updateDropdownLayout(selected);
     changeContentNotRelevantForProject();
   });
-    initSwitch();
+  initSwitch();
 });
 
