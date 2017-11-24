@@ -4,6 +4,8 @@ $blue-background-hover-color: #B0DCF1;
 $sg-animate-quick: 0.1s;
 $option-li-size: 48px;
 $nav-caret-color-active: #78AFCA;
+$preloader-status-border-color: #F3F3F3;
+$preloader-status-border-top-color: #3498DB;
 
 %a-sg-project-text-format {
   @include a-fontBold;
@@ -136,4 +138,28 @@ $nav-caret-color-active: #78AFCA;
       user-select: none;
     }
   }
+}
+
+#a-sg-content-preloader {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 99;
+  background-color: $blue-background-color;
+}
+
+#a-sg-content-preloader-status {
+  border: 16px solid $preloader-status-border-color;
+  border-radius: 50%;
+  border-top: 16px solid $preloader-status-border-top-color;
+  -webkit-animation: spin 2s linear infinite;
+  animation: spin 2s linear infinite;
+  width: 120px;
+  height: 120px;
+  position: absolute;
+  left: 50%; 
+  top: 50%; 
+  margin: -100px 0 0 -100px; 
 }

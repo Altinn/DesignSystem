@@ -134,7 +134,6 @@ function removePagesAndTemplatesFromNav(project) {
 
 function changeCss(project) {
   var $viewPortContents = $('#sg-viewport').contents();
-  var $viewPortContentsHead = $viewPortContents.find('head link[rel=\'stylesheet\']');
   switch (project) {
       case 'altinn':
           $viewPortContents.find('head link[href~=\'/css/style.dist.brreg.css\']').prop('disabled', true);
@@ -179,14 +178,6 @@ function changeContentNotRelevantForProject() {
   toggleWelcomeText(project);
 }
 
-$('#sg-viewport').load(function() {  // iframe
-    initSwitch();
-});
-
-// $(window).on('beforeunload',function(){
-//     changeContentNotRelevantForProject();
-// });
-
 function initSwitch (){
     if (getSelectedProject() === null) {
         $($switchClass + '-list li:first-child').click();
@@ -196,6 +187,17 @@ function initSwitch (){
         changeContentNotRelevantForProject();
     }
 }
+
+$('#sg-viewport').load(function() {  // iframe
+    initSwitch();
+});
+
+$(window).on('load', function() { 
+    $('body').css({'overflow':'hidden'});
+    $('#a-sg-content-preloader-status').fadeOut(); 
+    $('#a-sg-content-preloader').delay(350).fadeOut('slow'); 
+    $('body').delay(350).css({'overflow':'visible'});
+});
 
 $(document).ready(function() {
   $($switchLabelClass).click(function() {
