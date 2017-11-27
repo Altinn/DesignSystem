@@ -95,7 +95,7 @@ $preloader-status-border-top-color: #3498DB;
     transition: transform 300ms;
     transform-origin: 50% 0;
 
-    &::after {
+    &:after {
       @extend .sg-acc-handle:after;
       top: -1px;
      }
@@ -140,7 +140,7 @@ $preloader-status-border-top-color: #3498DB;
   }
 }
 
-#a-sg-content-preloader {
+.a-sg-content-preloader {
   position: fixed;
   top: 0;
   right: 0;
@@ -150,16 +150,16 @@ $preloader-status-border-top-color: #3498DB;
   background-color: $blue-background-color;
 }
 
-#a-sg-content-preloader-status {
-  border: 16px solid $preloader-status-border-color;
-  border-radius: 50%;
-  border-top: 16px solid $preloader-status-border-top-color;
-  -webkit-animation: spin 2s linear infinite;
-  animation: spin 2s linear infinite;
+.a-sg-content-preloader-status {
+  position: absolute;
+  top: 50%;
+  left: 50%;
   width: 120px;
   height: 120px;
-  position: absolute;
-  left: 50%; 
-  top: 50%; 
-  margin: -100px 0 0 -100px; 
+  margin: -100px 0 0 -100px;
+  border: 16px solid $preloader-status-border-color;
+  border-top: 16px solid $preloader-status-border-top-color;
+  border-radius: 50%;
+  animation: spin 2s linear infinite;
+  -webkit-animation: spin 2s linear infinite;
 }

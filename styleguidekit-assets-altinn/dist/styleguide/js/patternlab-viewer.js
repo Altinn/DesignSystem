@@ -2036,6 +2036,9 @@ var pluginLoader = {
 
 pluginLoader.init();
 
+var $switchClass = '.a-sg-switch-dropdown';
+var $switchLabelClass = $switchClass + ' .a-sg-sellabel';
+
 var resetSwitchLayout = function() {
   var $elementToReset = 'ul.a-sg-switch-dropdown-list';
   var $elementLiToReset = $elementToReset + ' li';
@@ -2090,7 +2093,7 @@ function setSelectedProject(value) {
 }
 
 $.fn.toggleProjectComponent = function(hide) {
-  if ($(this).is('a')) {     // Gjemmer menypunkt
+  if ($(this).is('a')) { // Gjemmer menypunkt
     if (hide === true) {
       $(this).hide();
     } else {
@@ -2120,11 +2123,12 @@ function checkAndChangeComponentElements(project, elements) {
     $('.display-altinnett').hide();
     $('.display-brreg').hide();
   }
+
   $.each(elements, function(index, element) {
-      // Checks if there is any project theme set on the state of the compoenent
+    // Checks if there is any project theme set on the state of the compoenent
     if ($(element).hasAnyProjectStateClass(availableProjects)) {
       if ($(element).hasClass(project)) {
-          // there is set a state that is the same as the choosen theme
+        // there is set a state that is the same as the choosen theme
         $(element).toggleProjectComponent(false);
       } else {
         $(element).toggleProjectComponent(true);
@@ -2154,7 +2158,7 @@ function removePagesAndTemplatesFromNav(project) {
       }
     });
     break;
-  case 'altinnett' :
+  case 'altinnett':
     projectLinksToHide = ['maler-brreg', 'sider-brreg', 'maler-infoportal', 'sider-infoportal', 'maler-portal', 'sider-portal'];
     $patternTypeLinks.each(function() {
       if ($.inArray($(this).text().toLowerCase(), projectLinksToHide) !== -1) {
@@ -2169,21 +2173,27 @@ function removePagesAndTemplatesFromNav(project) {
 
 function changeCss(project) {
   var $viewPortContents = $('#sg-viewport').contents();
-  var $viewPortContentsHead = $viewPortContents.find('head link[rel=\'stylesheet\']');
   switch (project) {
+  case 'altinn':
+    $viewPortContents.find('head link[href~=\'/css/style.dist.brreg.css\']').prop('disabled', true);
+    $viewPortContents.find('head link[href~=\'/css/style.dist.altinnett.css\']').prop('disabled', true);
+    $viewPortContents.find('head link[href~=\'/css/style.css\']').prop('disabled', false);
+    break;
   case 'altinnett':
-    $viewPortContentsHead.last().after('<link rel=\'stylesheet\' href=\'/css/style.dist.altinnett.css\' type=\'text/css\' media=\'screen\'>');
-    $viewPortContents.find('head link[href~=\'/css/style.dist.brreg.css\']').remove();
+    $viewPortContents.find('head link[href~=\'/css/style.dist.brreg.css\']').prop('disabled', true);
+    $viewPortContents.find('head link[href~=\'/css/style.dist.altinnett.css\']').prop('disabled', false);
+    $viewPortContents.find('head link[href~=\'/css/style.css\']').prop('disabled', true);
     break;
   case 'brreg':
-    $viewPortContentsHead.last().after('<link rel=\'stylesheet\' href=\'/css/style.dist.brreg.css\' type=\'text/css\' media=\'screen\'>');
-    $viewPortContents.contents().find('head link[href~=\'/css/style.dist.altinnett.css\']').remove();
+    $viewPortContents.find('head link[href~=\'/css/style.dist.brreg.css\']').prop('disabled', false);
+    $viewPortContents.find('head link[href~=\'/css/style.dist.altinnett.css\']').prop('disabled', true);
+    $viewPortContents.find('head link[href~=\'/css/style.css\']').prop('disabled', true);
     break;
   default:
-    $viewPortContents.find('head link[href~=\'/css/style.dist.altinnett.css\']').remove();
-    $viewPortContents.find('head link[href~=\'/css/style.dist.brreg.css\']').remove();
     break;
   }
+
+  //$('#sg-viewport').load(location.href + ' #sg-viewport');
 }
 
 function toggleWelcomeText(project) {
@@ -2201,9 +2211,6 @@ function changeContentNotRelevantForProject() {
   var allHeaderElements = document.querySelectorAll('.sg-pattern-state');
   var iframeElements = document.querySelector('#sg-viewport').contentDocument.querySelectorAll('.sg-pattern-state');
   var project = getSelectedProject();
-  if (getSelectedProject() === null) {
-    setSelectedProject('altinn');
-  }
   checkAndChangeComponentElements(project, allHeaderElements);
   checkAndChangeComponentElements(project, iframeElements);
   removePagesAndTemplatesFromNav(project);
@@ -2211,13 +2218,29 @@ function changeContentNotRelevantForProject() {
   toggleWelcomeText(project);
 }
 
-$('#sg-viewport').load(function() {   // iframe
-  changeContentNotRelevantForProject();
+function initSwitch() {
+  if (getSelectedProject() === null) {
+    $($switchClass + '-list li:first-child').click();
+  } else {
+    $($switchLabelClass).text($($switchClass + '-list li #project-' + getSelectedProject()).text());
+    updateDropdownLayout(getSelectedProject());
+    changeContentNotRelevantForProject();
+  }
+}
+
+$('#sg-viewport').load(function() { // iframe
+  initSwitch();
+});
+
+$(window).on('load', function() {
+  var $body = 'body';
+  $($body).css({ overflow: 'hidden' });
+  $('.a-sg-content-preloader-status').fadeOut();
+  $('.a-sg-content-preloader').delay(350).fadeOut('slow');
+  $($body).delay(350).css({ overflow: 'visible' });
 });
 
 $(document).ready(function() {
-  var $switchClass = '.a-sg-switch-dropdown';
-  var $switchLabelClass = $switchClass + ' .a-sg-sellabel';
   $($switchLabelClass).click(function() {
     $($switchClass).toggleClass('active');
   });
@@ -2232,11 +2255,5 @@ $(document).ready(function() {
     updateDropdownLayout(selected);
     changeContentNotRelevantForProject();
   });
-  if (getSelectedProject() === null) {
-    $($switchClass + '-list li:first-child').click();
-  } else {
-    $($switchLabelClass).text($($switchClass + '-list li #project-' + getSelectedProject()).text());
-    updateDropdownLayout(getSelectedProject());
-  }
+  initSwitch();
 });
-

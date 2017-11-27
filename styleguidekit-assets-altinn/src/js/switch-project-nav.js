@@ -55,7 +55,7 @@ function setSelectedProject(value) {
 }
 
 $.fn.toggleProjectComponent = function(hide) {
-  if ($(this).is('a')) {     // Gjemmer menypunkt
+  if ($(this).is('a')) { // Gjemmer menypunkt
     if (hide === true) {
       $(this).hide();
     } else {
@@ -85,11 +85,12 @@ function checkAndChangeComponentElements(project, elements) {
     $('.display-altinnett').hide();
     $('.display-brreg').hide();
   }
+
   $.each(elements, function(index, element) {
-      // Checks if there is any project theme set on the state of the compoenent
+    // Checks if there is any project theme set on the state of the compoenent
     if ($(element).hasAnyProjectStateClass(availableProjects)) {
       if ($(element).hasClass(project)) {
-          // there is set a state that is the same as the choosen theme
+        // there is set a state that is the same as the choosen theme
         $(element).toggleProjectComponent(false);
       } else {
         $(element).toggleProjectComponent(true);
@@ -119,7 +120,7 @@ function removePagesAndTemplatesFromNav(project) {
       }
     });
     break;
-  case 'altinnett' :
+  case 'altinnett':
     projectLinksToHide = ['maler-brreg', 'sider-brreg', 'maler-infoportal', 'sider-infoportal', 'maler-portal', 'sider-portal'];
     $patternTypeLinks.each(function() {
       if ($.inArray($(this).text().toLowerCase(), projectLinksToHide) !== -1) {
@@ -153,7 +154,6 @@ function changeCss(project) {
   default:
     break;
   }
-  $('#sg-viewport').load(location.href + ' #sg-viewport');
 }
 
 function toggleWelcomeText(project) {
@@ -188,15 +188,16 @@ function initSwitch() {
   }
 }
 
-$('#sg-viewport').load(function() {  // iframe
+$('#sg-viewport').load(function() { // iframe
   initSwitch();
 });
 
 $(window).on('load', function() {
-  $('body').css({ overflow: 'hidden' });
-  $('#a-sg-content-preloader-status').fadeOut();
-  $('#a-sg-content-preloader').delay(350).fadeOut('slow');
-  $('body').delay(350).css({ overflow: 'visible' });
+  var $body = 'body';
+  $($body).css({ overflow: 'hidden' });
+  $('.a-sg-content-preloader-status').fadeOut();
+  $('.a-sg-content-preloader').delay(350).fadeOut('slow');
+  $($body).delay(350).css({ overflow: 'visible' });
 });
 
 $(document).ready(function() {
@@ -216,4 +217,3 @@ $(document).ready(function() {
   });
   initSwitch();
 });
-
