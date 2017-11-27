@@ -93,8 +93,10 @@ var popoverGlobalInit = function() {
           $(forceFocusTriggerElement).focus();
           forceFocusTriggerElement = false;
         }
-
-        $('[data-toggle="popover"]').popover('hide');
+        // disable blur when in modal to allow use of non-original scrollbar
+        if ($('.modal.show').length > 0) {
+          $('[data-toggle="popover"]').popover('hide');
+        }
       }
     }, 0);
   });
@@ -112,40 +114,53 @@ var popoverGlobalInit = function() {
     }
   });
 
+  function resetTranslate() {
+    $('.popover-big').attr('style', $('.popover-big').attr('style').replace(/translateX\(.*?\)/, 'translateX(0px)'));
+  }
+
   function adjustBig() {
+    var modalHeight;
+    var padding;
     if ($('.popover-big').length > 0) {
-      $('.popover-big').attr('style',
-        $('.popover-big').attr('style').replace(
-          /translateX\(.*?\)/, 'translateX(0px)'
-        )
-      );
+      if ($('.modal.show').length > 0) {
+        // Add padding to make sure modal is big enough to contain popover
+        modalHeight = $('.modal-dialog').height() + $('.modalPage').height();
+        padding = ($('.popover').offset().top + $('.modal').scrollTop() + $('.popover').height() + 5) - modalHeight;
+        $('.modalPage').css('padding-bottom', padding + 'px');
+        // tranlate is somehow added by Bootstrap later when in modal??
+        setTimeout(resetTranslate, 0);
+      } else {
+        resetTranslate();
+      }
     }
   }
 
-  // $('body').on('shown.bs.popover', '.a-js-togglePopoverIcons', function(e) {
-  //   $(e.target).find('.a-js-popoverIconInitial').hide();
-  //   $(e.target).find('.a-js-popoverIconExpanded').show();
-  //   // $(e.target).find('i').eq(0).hide();
-  //   // $(e.target).find('i').eq(1).show();
-  // });
-
-  // $('body').on('hidden.bs.popover', '.a-js-togglePopoverIcons', function(e) {
-  //   $(e.target).find('.a-js-popoverIconInitial').show();
-  //   $(e.target).find('.a-js-popoverIconExpanded').hide();
-  //   // $(e.target).find('i').eq(0).show();
-  //   // $(e.target).find('i').eq(1).hide();
-  // });
-
   $('body').on('shown.bs.popover', '.a-js-persistPopover', function() {
-    // Adjust the popover arrow correctly as the popover fills the full width
-    $('body').append(
-      '<style>.popover-big:after { left: ' + ($(this).offset().left + 10.5) + 'px !important; }</style>');
+    $('.popover-arrow').html('<style>.popover-big:after { left: ' + ($(this).offset().left + 10.5) + 'px !important; }</style>');
     $('html, body').animate({
       scrollTop: $('.a-js-persistPopover').offset().top - 50
     }, 250);
+
+    // bind scroll wheel to modal popover
+    if ($('.modal.show').length > 0) {
+      $('.popover-big').bind('wheel', function(e) {
+        var scrollTo;
+        if (e.originalEvent.deltaY > 0 || e.originalEvent.deltaY < 0) {
+          scrollTo = (e.originalEvent.deltaY) + $('.modal').scrollTop();
+          $('.modal').scrollTop(scrollTo);
+        }
+      });
+    }
+
     adjustBig();
   });
 
+  // clean up modal page fix
+  $('body').on('hidden.bs.popover', 'a-js-persistPopover', function(e) {
+    $('.modalPage').css('padding-bottom', '0px');
+  });
+
   $(window).scroll(adjustBig);
+  $('.modal').scroll(adjustBig);
   $(window).resize(adjustBig);
 };
