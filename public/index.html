@@ -21,11 +21,30 @@
 
   </head>
   <body id="patternlab-body">
+  <!-- Pre-loader -->
+  <div class="a-sg-content-preloader">
+      <div class="a-sg-content-preloader-status">&nbsp;</div>
+  </div>
 
     <!--Style Guide Header-->
     <header class="sg-header" role="banner">
-      <div class="a-sg-header-top">
-        <a href="styleguide/html/styleguide.html" class="sg-pop a-sg-header-title" data-patternpartial="all" >Altinn Designsystem (Workshop)</a>
+        <div class="a-sg-header-top">
+            
+     <div class="a-sg-switch-dropdown">
+            <span class="a-sg-sellabel">Select project space</span>
+            <input type="hidden" name="cd-dropdown">
+            <ul class="a-sg-switch-dropdown-list">
+                <li data-value="altinn">
+                    <span id="project-altinn" class="a-sg-project-name">Altinn Designsystem</span>
+                </li>
+                <li data-value="brreg">
+                    <span id="project-brreg" class="a-sg-project-name">BRREG Designsystem</span>
+                </li>
+                <li data-value="altinnett">
+                    <span id="project-altinnett" class="a-sg-project-name">altinNETT Designsystem</span>
+                </li>
+            </ul>
+        </div>
         <div class="a-sg-header-links">
           <a href="https://altinn.github.io/designsystem-styleguide/">Designsystemet (Storefront)</a>
           <a href="https://github.com/Altinn/DesignSystem">Åpne i Github </a>
@@ -70,10 +89,10 @@
     <!-- mustache templates -->
     <script type="text/mustache" id="pl-pattern-nav-template">
       {{^ ishControlsHide.views-all }}
-  <li><a href="styleguide/html/styleguide.html" class="sg-pop" data-patternpartial="all">Alle komponenter</a></li>
+  <li><a href="styleguide/html/styleguide.html" class="sg-pop sg-nav-menus" style="display: none;" data-patternpartial="all">Alle komponenter</a></li>
 {{/ ishControlsHide.views-all }}
 {{# patternTypes }}
-  <li><a class="sg-acc-handle">{{ patternTypeUC }}</a><ol class="sg-acc-panel">
+  <li><a class="sg-acc-handle sg-nav-menus" style="display: none;">{{ patternTypeUC }}</a><ol class="sg-acc-panel">
   {{# patternTypeItems }}
     <li><a class="sg-acc-handle">{{ patternSubtypeUC }}</a><ol class="sg-acc-panel sg-sub-nav">
     {{# patternSubtypeItems }}
