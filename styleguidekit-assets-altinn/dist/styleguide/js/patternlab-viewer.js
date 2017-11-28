@@ -2192,8 +2192,6 @@ function changeCss(project) {
   default:
     break;
   }
-
-  //$('#sg-viewport').load(location.href + ' #sg-viewport');
 }
 
 function toggleWelcomeText(project) {
