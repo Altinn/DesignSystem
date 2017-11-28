@@ -137,19 +137,19 @@ function changeCss(project) {
   var $viewPortContents = $('#sg-viewport').contents();
   switch (project) {
   case 'altinn':
-    $viewPortContents.find('head link[href~=\'/css/style.dist.brreg.css\']').prop('disabled', true);
-    $viewPortContents.find('head link[href~=\'/css/style.dist.altinnett.css\']').prop('disabled', true);
-    $viewPortContents.find('head link[href~=\'/css/style.css\']').prop('disabled', false);
+    $viewPortContents.find('head link[href~=\'../../css/style.dist.brreg.css\']').prop('disabled', true);
+    $viewPortContents.find('head link[href~=\'../../css/style.dist.altinnett.css\']').prop('disabled', true);
+    $viewPortContents.find('head link[href~=\'../../css/style.css\']').prop('disabled', false);
     break;
   case 'altinnett':
-    $viewPortContents.find('head link[href~=\'/css/style.dist.brreg.css\']').prop('disabled', true);
-    $viewPortContents.find('head link[href~=\'/css/style.dist.altinnett.css\']').prop('disabled', false);
-    $viewPortContents.find('head link[href~=\'/css/style.css\']').prop('disabled', true);
+    $viewPortContents.find('head link[href~=\'../../css/style.dist.brreg.css\']').prop('disabled', true);
+    $viewPortContents.find('head link[href~=\'../../css/style.dist.altinnett.css\']').prop('disabled', false);
+    $viewPortContents.find('head link[href~=\'../../css/style.css\']').prop('disabled', true);
     break;
   case 'brreg':
-    $viewPortContents.find('head link[href~=\'/css/style.dist.brreg.css\']').prop('disabled', false);
-    $viewPortContents.find('head link[href~=\'/css/style.dist.altinnett.css\']').prop('disabled', true);
-    $viewPortContents.find('head link[href~=\'/css/style.css\']').prop('disabled', true);
+    $viewPortContents.find('head link[href~=\'../../css/style.dist.brreg.css\']').prop('disabled', false);
+    $viewPortContents.find('head link[href~=\'../../css/style.dist.altinnett.css\']').prop('disabled', true);
+    $viewPortContents.find('head link[href~=\'../../css/style.css\']').prop('disabled', true);
     break;
   default:
     break;
