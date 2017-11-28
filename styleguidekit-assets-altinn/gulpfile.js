@@ -1,10 +1,5 @@
-/* load command line arguments */
-var args = require('yargs').argv;
-
-/* load gulp */
 var gulp = require('gulp');
-
-/* load the plugins */
+var args = require('yargs').argv;
 var gulpLoadPlugins    = require('gulp-load-plugins');
 var plugins            = gulpLoadPlugins({ scope: ['devDependencies'] });
 plugins.del            = require("del");
@@ -129,7 +124,7 @@ gulp.task('default', ['build:bower', 'build:css-patternlab', 'build:html', 'buil
 	if (args.watch !== undefined) {
 		gulp.watch(['src/bower_components/**/*'], ['build:bower']);
 		gulp.watch(['src/css/prism-okaidia.css'],['build:css-general']);
-		gulp.watch(['src/sass/styleguide.scss'], ['build:css-patternlab']);
+		gulp.watch(['src/sass/*'], ['build:css-patternlab']);
 		gulp.watch(['src/html/*'], ['build:html']);
 		gulp.watch(['src/js/*'], ['build:js-pattern']);
 	}
