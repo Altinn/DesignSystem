@@ -2,7 +2,8 @@
   setupTruncateLines
 */
 window.altinnettInit = function() {
-  setupTruncateLines();
+    AltinnModal.init();
+    setupTruncateLines();
 };
 
 window.altinnettInit();
