@@ -1,0 +1,174 @@
+// Bootstrap overrides
+//
+// Copy variables from `_variables.scss` to this file to override default values
+// without modifying source files.
+// Colors
+//
+// Grayscale and brand colors for use across Bootstrap.
+$gray-dark: $grey;
+$gray: $grey;
+$gray-light: $grey-light;
+$gray-lighter: $grey-lighter;
+$gray-lightest: $grey-lighter;
+$brand-primary: $blue;
+$brand-success: $green;
+$brand-info: $blue;
+$brand-warning: $red;
+$brand-danger: $red;
+
+// Options
+$enable-flex: true !default;
+
+// Spacing
+$spacer: 12px;
+$spacers: ( 0: ( x: 0,
+    y: 0),
+  1: ( x: $spacer,
+    y: $spacer),
+  1o5: ( x: ($spacer * 1.5),
+    y: ($spacer * 1.5)),
+  2: ( x: ($spacer * 2),
+    y: ($spacer * 2)),
+  3: ( x: ($spacer * 3),
+    y: ($spacer * 3)),
+  4: ( x: ($spacer * 4),
+    y: ($spacer * 4)),
+  5: ( x: ($spacer * 5),
+    y: ($spacer * 5)),
+  6: ( x: ($spacer * 6),
+    y: ($spacer * 6)),
+  7: ( x: ($spacer * 7),
+    y: ($spacer * 7)),
+  8: ( x: ($spacer * 8),
+    y: ($spacer * 8))) !default;
+
+$grid-gutter-width: 48px;
+
+// Typography
+$font-family-sans-serif: 'Helvetica Neue',
+Helvetica,
+Arial,
+sans-serif !default;
+$font-family-serif: Georgia,
+'Times New Roman',
+Times,
+serif !default;
+$font-family-monospace: Menlo,
+Monaco,
+Consolas,
+'Courier New',
+monospace !default;
+
+$line-height: 1.5 !default;
+
+$text-muted: $grey-medium;
+
+$font-size-base: 1.6rem;
+
+// Tables
+$table-bg-accent: #F9F9F9 !default;
+$table-bg-hover: #F5F5F5 !default;
+
+// Buttons
+$btn-padding-y: 0.375rem !default;
+$btn-font-weight: normal !default;
+$btn-padding-x-sm: 0.75rem !default;
+
+$btn-padding-x-lg: 1.25rem !default;
+
+$btn-border-radius: 0 !default;
+$btn-border-radius-lg: 0 !default;
+$btn-border-radius-sm: 0 !default;
+
+// Forms
+$input-padding-y: 0.375rem !default;
+
+$input-border-color: #CCCCCC !default;
+
+$input-padding-x-sm: 0.75rem !default;
+$input-padding-y-sm: 0.275rem !default;
+$input-padding-x-lg: 1.25rem !default;
+
+// Form validation icons
+$form-icon-success: 'data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA2MTIgNzkyIj48cGF0aCBmaWxsPSIjNWNiODVjIiBkPSJNMjMzLjggNjEwYy0xMy4zIDAtMjYtNi0zNC0xNi44TDkwLjUgNDQ4LjhDNzYuMyA0MzAgODAgNDAzLjMgOTguOCAzODljMTguOC0xNC4yIDQ1LjUtMTAuNCA1OS44IDguNGw3MiA5NUw0NTEuMyAyNDJjMTIuNS0yMCAzOC44LTI2LjIgNTguOC0xMy43IDIwIDEyLjQgMjYgMzguNyAxMy43IDU4LjhMMjcwIDU5MGMtNy40IDEyLTIwLjIgMTkuNC0zNC4zIDIwaC0yeiIvPjwvc3ZnPg==' !default;
+$form-icon-warning: 'data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA2MTIgNzkyIj48cGF0aCBmaWxsPSIjZjBhZDRlIiBkPSJNNjAzIDY0MC4ybC0yNzguNS01MDljLTMuOC02LjYtMTAuOC0xMC42LTE4LjUtMTAuNnMtMTQuNyA0LTE4LjUgMTAuNkw5IDY0MC4yYy0zLjcgNi41LTMuNiAxNC40LjIgMjAuOCAzLjggNi41IDEwLjggMTAuNCAxOC4zIDEwLjRoNTU3YzcuNiAwIDE0LjYtNCAxOC40LTEwLjQgMy41LTYuNCAzLjYtMTQuNCAwLTIwLjh6bS0yNjYuNC0zMGgtNjEuMlY1NDloNjEuMnY2MS4yem0wLTEwN2gtNjEuMlYzMDRoNjEuMnYxOTl6Ii8+PC9zdmc+' !default;
+$form-icon-danger: 'data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA2MTIgNzkyIj48cGF0aCBmaWxsPSIjZDk1MzRmIiBkPSJNNDQ3IDU0NC40Yy0xNC40IDE0LjQtMzcuNiAxNC40LTUyIDBsLTg5LTkyLjctODkgOTIuN2MtMTQuNSAxNC40LTM3LjcgMTQuNC01MiAwLTE0LjQtMTQuNC0xNC40LTM3LjYgMC01Mmw5Mi40LTk2LjMtOTIuNC05Ni4zYy0xNC40LTE0LjQtMTQuNC0zNy42IDAtNTJzMzcuNi0xNC4zIDUyIDBsODkgOTIuOCA4OS4yLTkyLjdjMTQuNC0xNC40IDM3LjYtMTQuNCA1MiAwIDE0LjMgMTQuNCAxNC4zIDM3LjYgMCA1MkwzNTQuNiAzOTZsOTIuNCA5Ni40YzE0LjQgMTQuNCAxNC40IDM3LjYgMCA1MnoiLz48L3N2Zz4=' !default;
+
+// Dropdowns
+$dropdown-link-color: #000000;
+$dropdown-link-hover-color: #000000;
+
+// Cards
+$card-border-color: #E5E5E5 !default;
+
+// Labels
+$badge-default-bg: #BCC7CC;
+$badge-primary-bg: #1EAEF7;
+$badge-success-bg: #17C96B;
+$badge-info-bg: #1EAEF7;
+$badge-warning-bg: #FFDA06;
+$badge-danger-bg: #E23B53;
+
+// Modals
+$modal-title-line-height: $line-height !default;
+
+$modal-backdrop-bg: #1EAEF7 !default;
+$modal-backdrop-opacity: 1 !default;
+$modal-header-border-color: #E5E5E5 !default;
+$modal-footer-border-color: $modal-header-border-color !default;
+
+// Alerts
+$alert-padding: 15px !default;
+
+// Progress bars
+$progress-bg:                 transparent;
+$progress-bar-color:          #FFFFFF !default;
+$progress-border-radius:      0;
+
+$progress-bar-info-bg:        $blue;
+
+// Breadcrumbs
+$breadcrumb-divider-color: $grey-medium;
+
+
+
+
+// Grid breakpoints
+//
+// Define the minimum dimensions at which your layout will change,
+// adapting to different screen sizes, for use in media queries.
+
+$grid-breakpoints: (
+  xs: 0,
+  sm: 576px,
+  md: 768px,
+  lg: 992px,
+  xl: 1200px,
+  xxl: 1600px
+) !default;
+
+// Grid containers
+//
+// Define the maximum width of `.container` for different screen sizes.
+
+$container-max-widths: (
+  sm: 540px,
+  md: 720px,
+  lg: 960px,
+  xl: 1056px
+) !default;
+
+// Grid columns
+//
+// Set the number of columns and specify the width of the gutters.
+
+$grid-columns:               12 !default;
+$grid-gutter-width-base:     24px !default;
+$grid-gutter-width-large:    24px;
+$grid-gutter-widths: (
+  xs: $grid-gutter-width-base,
+  sm: $grid-gutter-width-base,
+  md: $grid-gutter-width-base,
+  lg: $grid-gutter-width-base,
+  xl: $grid-gutter-width-large
+) !default;
