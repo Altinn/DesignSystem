@@ -1,0 +1,70 @@
+<!-- START: 02-organismer-01-globale-90-header-altinnett -->
+<!-- Skip to main content -->
+<nav class="a-jumpnav">
+  <ul class="no-decoration d-flex">
+    <li><a class="sr-only sr-only-focusable" href="#content">Hopp til hovedinnholdet</a></li>
+    <li><a class="sr-only sr-only-focusable" href="#primary-nav">Hopp til hovedmeny</a></li>
+    <li><a class="sr-only sr-only-focusable" href="#search">Hopp til søk</a></li>
+  </ul>
+</nav>
+
+<!-- Begin .header -->
+<header class="a-header an-header {{{ header-color }}} {{# hide-header }} a-js-hideElement {{/ hide-header}}">
+  <!-- Begin .container -->
+  <div class="container">
+    <div class="row">
+      <div class="col-12">
+
+        <!-- Begin .a-globalNav -->
+        <nav id="primary-nav" class="a-globalNav">
+          <a href="{{ link.sider-altinnett-forside }}" class="a-globalNav-logo">
+                        <img src="{{ headerlogo }}" alt="Altinnett logo" class="a-logo {{ logo-class }} {{ styleModifier }}">
+                        <span class="sr-only">Til forsiden</span>
+                    </a>
+          <button class="navbar-toggler hidden-md-up" type="button">
+                        <span class="sr-only">Vis/skjul meny</span>
+                    </button>
+          <div class="collapse navbar-toggleable-sm a-globalNav-main" id="exCollapsingNavbar2">
+            <ul class="" id="exCollapsingNavbar">
+              <li class="hidden-md-up">
+                {{# header-mobilesearch }} {{> atomer-tekst-input }} {{/ header-mobilesearch }}
+              </li>
+
+              <li><a class="a-hvr-underline {{{ globalNav-active-tjenester }}}" href="#">Tjenester</a></li>
+              <li><a class="a-hvr-underline {{{ globalNav-active-varsling }}}" href="{{ link.sider-altinnett-varsling-seksjonsforside }}">Varsling</a></li>
+              <li><a class="a-hvr-underline {{{ globalNav-active-aktuelt }}}" href="#">Aktuelt</a></li>
+              <li class="hidden-md-up"><a class="a-nav-link a-hvr-underline" href="#">Ekstra menypunkt 1</a></li>
+              <li class="hidden-md-up"><a class="a-hvr-underline" href="#">Ekstra menypunkt 2</a></li>
+              <li class="hidden-md-up">
+                <a class="a-hvr-underline" href="#">
+                                    {{# tel-icon }}
+                                    {{> atomer-ikon }}
+                                    {{/ tel-icon }}
+                                    Hjelp og kontakt
+                                </a>
+              </li>
+            </ul>
+          </div>
+        </nav>
+        <!-- End .a-globalNav -->
+        <!-- Begin .a-globalNav-options -->
+        <ul id="secondary-nav" class="nav nav-pills a-header-options">
+
+          <li class="nav-item">
+            <!-- Dropdown toggle -->
+            {{> atomer-innlogget }} {{# dropdown-personswitch }} {{> organismer-login-dropdown }} {{/ dropdown-personswitch }}
+          </li>
+        </ul>
+        <!-- End .a-globalNav-options -->
+
+      </div>
+      <!-- End .col -->
+
+    </div>
+    <!-- End .row -->
+
+  </div>
+  <!-- End .container -->
+</header>
+<!-- End .header -->
+<!-- END: 02-organismer-01-globale-90-header-altinnett -->
