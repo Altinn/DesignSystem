@@ -102,8 +102,32 @@ object {
   box-shadow: $shadow;
 }
 
-/* Shadow arrow */
 
+// Dropdown-menu with arrow
+.a-dropdownTriangle {
+  box-sizing: border-box;
+  background: $white;
+  box-shadow: 2px 2px 9px 0 $black-opacity-04;
+
+  &::after {
+    position: absolute;
+    top: 1px;
+    bottom: 100%;
+    left: 50%;
+    box-sizing: border-box;
+    width: 0;
+    height: 0;
+    margin-left: 130px;
+    content: '';
+    border: 8px solid $black;
+    border-color: transparent transparent $white $white;
+    box-shadow: -2px 2px 3px 0 $black-opacity-01;
+    transform: rotate(135deg);
+    transform-origin: 0 0;
+  }
+}
+
+/* Shadow arrow */
 // Dropdown-menu with arrow
 .a-triangleShadow {
   &::after {
@@ -163,7 +187,6 @@ hr {
     border-bottom: 2px solid $blue;
   }
 }
-
 
 
 // Horizontal Rule - Dotted border

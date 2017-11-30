@@ -1,20 +1,6 @@
-/*------------------------------------*\
-    BOOTSTRAP EXTENDED
-    Collapse horizontal
-\*------------------------------------*/
-
-// .collapse {
-//   display: block;
-
-//   &.width {
-//     height: auto;
-//     transition: width 0.35s ease;
-//   }
-// }
-
-/*------------------------------------*\
-    $COLLAPSE PANEL
-\*------------------------------------*/
+// ----------------------------------
+// COLLAPSE PANEL
+// ----------------------------------
 .a-accordion-card {
   background-color: transparent;
   border: none;
@@ -256,9 +242,9 @@
   }
 }
 
-/*------------------------------------*\
-    $PANEL ACCORDION
-\*------------------------------------*/
+// ----------------------------------
+// PANEL ACCORDION
+// ----------------------------------
 
 .a-panelAccordion {
   // When "a-collapsePanel" is inside accordion, it should animate the active panel larger than the other one
@@ -313,10 +299,9 @@
 }
 
 
-
-/*------------------------------------*\
-    $COLLAPSE HEADER
-\*------------------------------------*/
+// ----------------------------------
+// COLLAPSE HEADER
+// ----------------------------------
 
 .a-collapseHeader {
   display: inline-block;
@@ -434,9 +419,9 @@
 }
 
 
-/*------------------------------------*\
-    $COLLAPSE IN DELAY
-\*------------------------------------*/
+// ----------------------------------
+// COLLAPSE IN DELAY
+// ----------------------------------
 
 .a-collapseContent-delay {
   opacity: 0;
@@ -453,12 +438,9 @@
   }
 }
 
-
-
-/*------------------------------------*\
-    $COLLAPSE BTN
-\*------------------------------------*/
-
+// ----------------------------------
+// COLLAPSE BTN
+// ----------------------------------
 .a-collapse-title {
   display: flex;
   padding-bottom: 3px;
@@ -518,9 +500,9 @@
   padding-left: 18px; // Custom margin to match the position of the arrow
 }
 
-//------------------------------------*\
-//  Small accordion
-//------------------------------------*/
+// ----------------------------------
+// SMALL ACCORDION
+// ----------------------------------
 
 .a-accordion-small {
   .card {
@@ -557,10 +539,9 @@
   }
 }
 
-
-/*------------------------------------*\
-    Large accordion
-\*------------------------------------*/
+// ----------------------------------
+// LARGE ACCORDION
+// ----------------------------------
 .a-accordion-large {
   border-bottom: 1px solid $blue-line;
 
@@ -596,254 +577,9 @@
   }
 }
 
-
-/*------------------------------------*\
-    Inbox
-\*------------------------------------*/
-
-a {
-  &[aria-expanded='false'] {
-    .a-inboxHeadingContent {
-      .a-msgHeadingTextContainer {
-        @include media-breakpoint-up( md ) {
-          overflow: hidden;
-          text-overflow: ellipsis;
-          white-space: nowrap;
-        }
-
-        div,
-        h1,
-        h3 {
-          @include media-breakpoint-up( md ) {
-            overflow: hidden;
-            text-overflow: ellipsis;
-            white-space: nowrap;
-          }
-        }
-      }
-    }
-  }
-}
-
-.a-inboxHeadingContent {
-  //sass-lint:disable no-duplicate-properties no-important
-
-  //IE fix for min-height
-  height: auto !important;
-  height: $spacer * 7;
-  min-height: $spacer * 7;
-
-  padding-right: $spacer * 2;
-  margin-right: 0;
-  margin-left: 0;
-  align-items: stretch;
-
-  .a-msgIconWrapper {
-    display: flex;
-    width: $spacer * 4;
-    height: auto !important;
-    height: $spacer * 7;
-    min-height: $spacer * 7;
-    color: $grey;
-    justify-content: center;
-    align-items: center;
-
-    .a-msgIconSecondary {
-      display: none;
-    }
-
-    @include media-breakpoint-up( md ) {
-      width: $spacer * 7;
-    }
-  }
-
-  .a-postHeaderIcon {
-    padding-left: $spacer;
-    margin-top: $spacer / 2;
-  }
-
-  .a-msgDuedate {
-    @extend .a-fontSizeXXS;
-
-    margin-right: $spacer * 2;
-    align-self: center;
-  }
-
-  .a-msgState {
-    @extend .a-fontSizeXXS;
-
-    margin-right: $spacer * 2;
-    align-self: center;
-  }
-
-  .a-msgHeadingTextContainer {
-    display: flex;
-    padding: $spacer 0 $spacer $spacer;
-    align-self: center;
-
-    @include media-breakpoint-up( md ) {
-      padding-right: $spacer * 2;
-    }
-
-    h1,
-    h3 {
-      @extend .a-fontSizeM;
-      @include a-fontReg;
-    }
-
-    .a-msgDuedate {
-      margin-right: $spacer * 2;
-    }
-  }
-
-  .a-msgDuedateIcon {
-    margin-right: $spacer;
-    color: $red;
-    align-self: center;
-  }
-
-  .a-msgShortcutsContainer {
-    display: flex;
-    margin-right: $spacer;
-    align-self: center;
-
-    .a-btn-icon {
-      min-width: $spacer * 3;
-      min-height: $spacer * 3;
-      padding: 0;
-      margin-bottom: 0;
-      color: $grey;
-      justify-content: center;
-
-      &:hover,
-      &:focus,
-      &:active {
-        color: $blue;
-      }
-
-      &.a-inactive {
-        opacity: 0.5;
-
-        &:hover,
-        &:focus,
-        &:active {
-          color: $grey;
-          cursor: not-allowed;
-        }
-      }
-
-      // fix for firefox alignment
-      i {
-        width: 100%;
-        margin-right: auto;
-        margin-left: auto;
-      }
-    }
-  }
-
-  /** compact view */
-  .a-inboxCompact & {
-    height: auto !important;
-    height: $spacer * 6;
-    min-height: $spacer * 6;
-    padding-right: $spacer;
-
-    @include media-breakpoint-up( md ) {
-      padding-right: 0;
-    }
-
-    .a-msgIconWrapper {
-      width: $spacer * 4;
-      height: auto !important;
-      height: $spacer * 6;
-      min-height: $spacer * 6;
-
-      @include media-breakpoint-up( md ) {
-        width: $spacer * 6;
-      }
-    }
-
-    h3 {
-      @extend .a-fontSizeS;
-    }
-  }
-  /** different message states */
-
-  .expanded & {
-    .a-inboxCompact & {
-      @include media-breakpoint-up( md ) {
-        padding-right: $spacer * 2;
-      }
-    }
-
-    .a-msgShortcutsContainer {
-      display: none;
-    }
-  }
-
-  &.a-msgUnread {
-    .a-msgIconWrapper {
-      color: $white;
-      background-color: $blue;
-    }
-
-    .a-msgTitle {
-      @include a-fontBold;
-
-      .expanded & {
-        @include a-fontReg;
-      }
-    }
-
-    .expanded & {
-      .a-msgIconWrapper {
-        color: $blue;
-        background-color: transparent;
-      }
-    }
-  }
-
-  &.a-msgUrgent {
-    .a-msgIconWrapper {
-      color: $white;
-      background-color: $red;
-    }
-
-    .a-msgDuedate {
-      color: $red-dark;
-    }
-
-    .expanded & {
-      .a-msgIconWrapper {
-        color: $red;
-        background-color: transparent;
-      }
-    }
-  }
-
-  &.a-msgWaiting {
-    background-image: url( $images-base-url+'disabled-background.svg' );
-    background-repeat: repeat;
-    background-size: auto;
-    box-shadow: 0 0 0 1px $white inset;
-  }
-
-  &.a-msgForwarded {
-    .a-btn-icon {
-      &:nth-child(1) {
-        margin-right: $spacer / 2;
-        background-color: $yellow-light;
-        border-radius: 50%;
-
-        &:hover {
-          color: $grey;
-          cursor: default;
-        }
-      }
-    }
-  }
-}
-
+// ----------------------------------
+// EXPANDABLE CONTENT
+// ----------------------------------
 .a-expandable-content {
   position: relative;
   max-height: 320px;

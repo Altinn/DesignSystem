@@ -63,7 +63,6 @@ p {
   }
 }
 
-
 // ----------------------------------
 // Ingress
 // ----------------------------------
@@ -88,7 +87,7 @@ p {
 }
 
 // ----------------------------------
-// Text colors
+// Text dim
 // ----------------------------------
 .a-dimText7 {
   color: $black-opacity-07;
@@ -98,26 +97,18 @@ p {
   color: $black-opacity-03;
 }
 
-.a-blueText {
-  color: $blue;
-}
-
-.a-blueDarkText {
-  color: $blue-dark;
-}
-
-.a-blueDarkerText {
-  color: $blue-darker;
-}
-
+// ----------------------------------
 // Mark
+// ----------------------------------
 mark,
 .a-mark {
   padding: 0;
   background-color: $yellow-light;
 }
 
+// ----------------------------------
 // Label
+// ----------------------------------
 .a-label {
   @extend .a-fontSizeXXS;
   @include a-fontReg;
@@ -137,70 +128,9 @@ h1 {
   }
 }
 
-// Speech-bubbles
-.a-textBubble {
-  @extend .a-fontSizeXS;
-  position: relative;
-  float: left;
-  min-width: 48px;
-  max-width: 300px;
-  height: auto;
-  padding: $spacer;
-  margin-bottom: $spacer * 3;
-  clear: both;
-  background-color: $white;
-
-  &::after {
-    position: absolute;
-    bottom: -$spacer;
-    left: $spacer;
-    display: block;
-    width: 0;
-    content: '';
-    border: none;
-    border-color: transparent $white;
-    border-style: solid;
-    border-right-color: transparent;
-    border-bottom-width: $spacer;
-    border-left-width: $spacer;
-  }
-
-  .a-textBubble-metaText {
-    @include a-fontSize10;
-    position: absolute;
-    right: 0;
-    bottom: -$spacer * 4;
-    color: $grey-medium;
-    text-align: right;
-  }
-}
-
-.a-textBubble-from {
-  float: right;
-  min-width: 80px;
-  clear: both;
-  background-color: $blue-light;
-
-  &::after {
-    position: absolute;
-    right: $spacer;
-    bottom: -$spacer;
-    left: auto;
-    border-color: transparent $blue-light;
-    border-right-width: $spacer;
-    border-left-width: 0;
-  }
-
-  .a-textBubble-metaText {
-    position: absolute;
-    bottom: -$spacer * 3;
-    left: 0;
-    text-align: left;
-  }
-}
-
-
-/* Text with pattern */
+// ----------------------------------
+// Text with pattern
+// ----------------------------------
 .a-textureLines {
   @include a-fontSize36;
   display: inline-block;
@@ -211,8 +141,9 @@ h1 {
   background-image: url($images-base-url + 'disabled-background_blue.svg');
 }
 
-/* Dot before text */
-
+// ----------------------------------
+// Dot before text
+// ----------------------------------
 .a-dot {
   @include a-fontReg;
 
