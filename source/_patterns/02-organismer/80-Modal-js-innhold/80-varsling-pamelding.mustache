@@ -6,14 +6,51 @@
                  a-icon" aria-hidden="true"></i>
             </div>
             <h1 class="a-iconText-text mb-0">
-                <span class="a-iconText-text-small"></span>
                 <span class="a-iconText-text-large">Meld deg på varslingstjenesten vår</span>
             </h1>
         </div>
     </div>
     <div class="modal-body a-modal-body">
+        <div class="row">
+            <div class="col-12">
+                <h2 class="a-h3">Din kontaktinformasjon:</h2> 
+            </div>
 
-                  {{> atomer-tekst-input:mb-2 }}
+            <div class="col-12 col-lg-7">
 
+                {{# email }}
+                    {{> atomer-tekst-input }}
+                {{/ email }}
+
+                {{# phoneNumber }}
+                    {{> atomer-tekst-input }}
+                {{/ phoneNumber }}
+
+                {{# smsMessage }}
+                    {{> atomer-varsel:mt-0 }}
+                {{/ smsMessage }}
+
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-12 mt-3">
+                <b>Hvilken varslingstjeneste vil du melde deg på?</b>
+            </div>
+
+            <div class="col-lg-12">
+                {{# chooseServices }}
+                    {{> atomer-avkrysningsboks }}
+                {{/ chooseServices }}
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-lg-12 mt-2">
+                {{# submitButton }}
+                    {{> atomer-knapp }}
+                {{/ submitButton }}
+            </div>
+        </div>
     </div>
 </div>
