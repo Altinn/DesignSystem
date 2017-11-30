@@ -1,9 +1,10 @@
 /* globals
+  AltinnModal
   setupTruncateLines
 */
 window.altinnettInit = function() {
-    AltinnModal.init();
-    setupTruncateLines();
+  AltinnModal.init();
+  setupTruncateLines();
 };
 
 window.altinnettInit();
