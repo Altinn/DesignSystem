@@ -1,12 +1,12 @@
 <div class="a-page">
   {{# header }}
-  {{> organismer-header-altinnett }}
+    {{> organismer-header-altinnett }}
   {{/ header }}
 
   <section id="content" tabindex="-1">
     <div class="container">
       <div class="row mt-6">
-        <div class="col-sm-8 offset-sm-2 col-lg-8 offset-lg-2">
+        <div class="col-sm-12 col-lg-8 offset-lg-2">
           {{# pageTitle }}
             {{> atomer-sidetittel }}
           {{/ pageTitle }}
@@ -14,6 +14,10 @@
           {{# pageIntro }}
             {{> atomer-intro-tekst }}
           {{/ pageIntro }}
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-sm-12 col-lg-8 offset-lg-2 a-text epi-wysiwyg"
 
           {{# subscribeLink }}
             {{> atomer-link }}
@@ -23,26 +27,20 @@
             {{> organismer-modal }}
           {{/ subscribeModal }}
 
-          {{# loginIntro }}
-            {{> atomer-intro-tekst:mt-2 }}
-          {{/ loginIntro }}
+          <p class="mt-2">Hvis du allerede har en bruker kan du logge deg inn for å gjøre endringer eller du kan be om å få opprette en bruker.</p>
 
-          {{# loginButton }} {{> atomer-knapp }} {{/ loginButton }}
+          <div class="mb-3">
+            {{# loginButton }} {{> atomer-knapp }} {{/ loginButton }}
 
-          <span class="px-1">eller</span> {{# createUserLink }} {{> atomer-link }} {{/ createUserLink }}
-        </div>
-      </div>
-
-      <div class="row mt-6">
-        <div class="col-sm-8 offset-sm-2 col-lg-8 offset-lg-2">
-          <div class="a-list-heading">
-            {{# categoriesExpandableTitle }}
-              {{> atomer-ekspanderbar-tittel }}
-            {{/ categoriesExpandableTitle }}
+            <span class="px-1">eller</span> {{# createUserLink }} {{> atomer-link }} {{/ createUserLink }}
           </div>
+
+          {{# categoriesExpandableTitle }}
+            {{> atomer-ekspanderbar-tittel }}
+          {{/ categoriesExpandableTitle }}
         </div>
       </div>
-    </section>
-    {{> organismer-footer }}
-
-  </div>
+    </div>
+  </section>
+  {{> organismer-footer }}
+</div>
