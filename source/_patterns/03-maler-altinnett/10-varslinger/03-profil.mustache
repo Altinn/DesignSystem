@@ -1,0 +1,27 @@
+<div class="a-page" >
+  {{# header }}
+    {{> organismer-header-altinnett }}
+  {{/ header }}
+
+  <section id="content" tabindex="-1">
+    <div class="container">
+      <div class="row">
+        <div class="col-12">
+          <h1 class="mb-3 mt-0 a-fontSizeL">
+            {{{ profile-login-prefix }}}
+            <span class="a-fontBold">
+              {{{ profile-login-name }}}
+            </span>
+            {{{ profile-login-organization }}}
+          </h1>
+          <div id="{{ accordion-large-id }}" class="a-panelAccordion" role="tablist">
+            {{# yourProfilePanel }}
+              {{> organismer-din-kontaktinformasjon }}
+            {{/ yourProfilePanel }}
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  {{> organismer-footer }}
+</div>
