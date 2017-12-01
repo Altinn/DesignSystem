@@ -1,12 +1,64 @@
-    <!-- DO NOT REMOVE -->
-    {{{ patternLabFoot }}}
-	  <!-- JQUERY -->
-    <script src="../../js/jquery.min.js"></script>
-    <!-- CODE PRETTIFY: Prettify code snippets in HTML -->
-    <script src="https://cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js?lang=css&amp;skin=sunburst"></script>
-    <!-- Bundled assets -->
-    <script src="{{{themeJsVendor}}}"></script>
-    <!-- ALTINN DEV custom JavaScript -->
-    <script src="{{{themeJs}}}"></script>
-  </body>
+<!-- DO NOT REMOVE -->
+{{{ patternLabFoot }}}
+<!-- JQUERY -->
+<script src="../../js/jquery.min.js"></script>
+<!-- CODE PRETTIFY: Prettify code snippets in HTML -->
+<script src="https://cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js?lang=css&amp;skin=sunburst"></script>
+<!-- Bundled assets -->
+<script src="{{{themeJsVendor}}}"></script>
+<!-- ALTINN DEV custom JavaScript -->
+<script src="{{{themeJs}}}"></script>
+<!-- CSS uploader inline javascript -->
+
+<script type="text/javascript">
+    <!-- Check if current Window is in iFrame -->
+    if (self === top) {
+        $(window).on('load', function () {
+            var $body = 'body';
+            var $altinnCss = 'link[href*="style.css"]';
+            var $altinnettCss = 'link[href*="style.dist.altinnett.css"]';
+            var $brregCss = 'link[href*="style.dist.brreg.css"]';
+            var $panelBrreg = '.welcome-panel-brreg';
+            var $panelaltinn = '.welcome-panel-altinn';
+            $($body).css({overflow: 'hidden'});
+            switch (window.localStorage.getItem('selected_project')) {
+                case 'altinn':
+                    console.log('altinn');
+                    $($brregCss).prop('disabled', true);
+                    $($altinnettCss).prop('disabled', true);
+                    $($altinnCss).prop('disabled', false);
+                    $($panelBrreg).hide();
+                    $($panelaltinn).show();
+                    break;
+                case 'altinnett':
+                    console.log('altinnett');
+                    $($brregCss).prop('disabled', true);
+                    $($altinnettCss).prop('disabled', false);
+                    $($altinnCss).prop('disabled', true);
+                    $($panelBrreg).hide();
+                    $($panelaltinn).show();
+                    break;
+                case 'brreg':
+                    console.log('brreg');
+                    $($brregCss).prop('disabled', false);
+                    $($altinnettCss).prop('disabled', true);
+                    $($altinnCss).prop('disabled', true);
+                    $($panelaltinn).hide();
+                    $($panelBrreg).show();
+                    break;
+                default:
+                    $($brregCss).prop('disabled', true);
+                    $($altinnettCss).prop('disabled', true);
+                    $($altinnCss).prop('disabled', false);
+                    $($panelBrreg).hide();
+                    $($panelaltinn).show();
+                    break;
+            }
+            $('.a-sg-content-preloader-status').fadeOut();
+            $('.a-sg-content-preloader').delay(350).fadeOut('slow');
+            $($body).delay(350).css({overflow: 'visible'});
+        });
+    }
+</script>
+</body>
 </html>
