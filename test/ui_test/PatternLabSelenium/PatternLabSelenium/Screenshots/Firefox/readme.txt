@@ -1,1 +1,0 @@
-folder used for selenium driver to place test images. should not be tracked
