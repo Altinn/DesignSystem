@@ -1,0 +1,93 @@
+// MEDIA BLOCK
+.a-mediaBlock {
+  margin-bottom: $spacer * 4;
+  text-align: center;
+
+  img {
+    width: 40%;
+    margin: 0 auto;
+    border-radius: 50%;
+
+    @include media-breakpoint-up( sm ) {
+      width: 60%;
+    }
+  }
+
+  &.a-img-large {
+    img {
+      width: 60%;
+
+      @include media-breakpoint-up( md ) {
+        width: 100%;
+        max-width: 320px;
+      }
+    }
+  }
+  .a-mediaBlock-caption {
+    padding-top: $spacer * 2;
+    text-align: center;
+  }
+}
+
+// PERSON ROLE
+.a-personRole {
+  display: flex;
+  float: left;
+  width: 100%;
+  min-height: $spacer * 3;
+  align-items: center;
+
+  .a-dot {
+    margin-top: -5px;
+    align-self: flex-start;
+  }
+
+  .a-personRole-text {
+    float: left;
+
+    .a-personRole-role {
+      @include a-fontSize12;
+      display: block;
+      padding-bottom: 3px;
+      text-transform: uppercase;
+    }
+
+    .a-personRole-name {
+      @include a-fontSize20;
+      @include a-fontBold;
+    }
+  }
+
+  .a-label {
+    margin-top: -2px;
+  }
+}
+
+// Filter guide
+.a-filterGuide {
+  .a-btn {
+    &:disabled {
+      display: none;
+    }
+  }
+}
+
+// Article list
+.a-linkArticle {
+  padding-bottom: $spacer * 2;
+}
+
+.a-articleList {
+  .a-linkArticle {
+    padding-bottom: 0;
+
+    a {
+      @extend .a-fontSizeM;
+    }
+  }
+}
+
+.card-block,
+.a-message {
+  overflow-wrap: break-word;
+}

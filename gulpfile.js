@@ -446,11 +446,6 @@ gulp.task('dist',
     'pl-copy:distribution-css',
     'pl-copy:distribution-images',
     'pl-copy:distribution-patterns',
-    // 'pl-copy:distribution-portal-js',
-    // 'pl-copy:distribution-portal-vendor-js',
-    // 'pl-copy:distribution-infoportal-js',
-    // 'pl-copy:distribution-infoportal-vendor-js',
-    // 'pl-copy:distribution-portal-js-modules'
     'pl-copy:distribution-js'
   )
 );

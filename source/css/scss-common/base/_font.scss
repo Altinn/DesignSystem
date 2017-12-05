@@ -1,0 +1,245 @@
+// sass-lint:disable no-disallowed-properties, no-duplicate-properties
+
+// --------------------------------------------------
+// DIN FONT
+// --------------------------------------------------
+
+@font-face {
+  font-family: 'DIN-light';
+  src: url($font-url-start + 'DINWeb-Light.woff');
+}
+
+@font-face {
+  font-family: 'DIN-reg';
+  src: url($font-url-start + 'DINWeb.woff');
+}
+
+@font-face {
+  font-family: 'DIN-medium';
+  src: url($font-url-start + 'DINWeb-Medium.woff');
+}
+
+@font-face {
+  font-family: 'DIN-bold';
+  src: url($font-url-start + 'DINWeb-Bold.woff');
+}
+
+// ----------------------------------
+// Font family and weight
+// ----------------------------------
+@mixin a-fontLight {
+  font-family: $font-light;
+  font-weight: $font-weight-light;
+}
+
+@mixin a-fontReg {
+  font-family: $font-reg;
+  font-weight: $font-weight-reg;
+}
+
+@mixin a-fontMedium {
+  font-family: $font-medium;
+  font-weight: $font-weight-medium;
+}
+
+@mixin a-fontBold {
+  font-family: $font-bold;
+  font-weight: $font-weight-bold;
+}
+
+button,
+input,
+optgroup,
+select,
+textarea,
+.popover {
+  font-family: $font-reg;
+  font-weight: $font-weight-reg;
+}
+
+// --------------------------------------------------
+//  FONT SIZING
+// --------------------------------------------------
+
+// Defaults values
+$default-line-height: 1.5 !default;
+$default-font-smoothing: subpixel-antialiased !default;
+
+// Function to convert pixels to rems
+@function px-to-rem($size) {
+  @return ($size / 10);
+}
+
+// Mixin
+// sass-lint:disable-all
+@mixin font-size($fs: false, $sm: $default-font-smoothing, $lh: $default-line-height ) {
+  @if $fs {
+    font-size: $fs  + px;
+    font-size: px-to-rem($fs) + rem;
+  }
+  line-height: $lh;
+
+  @if $sm {
+    -webkit-font-smoothing: $sm;
+  }
+}
+
+// --------------------------------------------------
+// FONT SIZE & LINEHEIGHT
+// --------------------------------------------------
+// Important: This is the only place
+// font-size and line-height should be defined,
+// so they always have the same ratio
+//
+// Defined in PX, calculated to REM by mixin "font-size"
+// --------------------------------------------------
+
+@mixin a-fontSize10 {
+  @include font-size($fs: 10, $sm: subpixel-antialiased);
+}
+
+@mixin a-fontSize12 {
+  @include font-size($fs: 12, $sm: subpixel-antialiased);
+}
+
+@mixin a-fontSize14 {
+  @include font-size($fs: 14, $sm: subpixel-antialiased);
+}
+
+@mixin a-fontSize16 {
+  @include font-size($fs: 16, $sm: subpixel-antialiased);
+}
+
+@mixin a-fontSize18 {
+  @include font-size($fs: 18, $sm: subpixel-antialiased);
+}
+
+@mixin a-fontSize20 {
+  @include font-size($fs: 20, $sm: subpixel-antialiased);
+}
+
+@mixin a-fontSize22 {
+  @include font-size($fs: 22, $sm: subpixel-antialiased);
+}
+
+@mixin a-fontSize24 {
+  @include font-size($fs: 24, $sm: subpixel-antialiased);
+}
+
+@mixin a-fontSize28 {
+  @include font-size($fs: 28, $sm: subpixel-antialiased, $lh: 1.4);
+}
+
+@mixin a-fontSize30 {
+  @include font-size($fs: 30, $sm: subpixel-antialiased, $lh: 1.3);
+}
+
+@mixin a-fontSize32 {
+  @include font-size($fs: 32, $sm: subpixel-antialiased, $lh: 1.3);
+}
+
+@mixin a-fontSize36 {
+  @include font-size($fs: 36, $sm: subpixel-antialiased, $lh: 1.2);
+}
+
+@mixin a-fontSize48 {
+  @include font-size($fs: 48, $sm: subpixel-antialiased, $lh: 1.2);
+}
+
+@mixin a-fontSize60 {
+  @include font-size($fs: 60, $sm: subpixel-antialiased, $lh: 1.1);
+}
+
+
+// Icons should inherit lineheight
+@mixin a-fontSize-icon-reg {
+  font-size: $icon-reg-em;
+  -webkit-font-smoothing: subpixel-antialiased;
+  line-height: 0px;
+}
+
+// --------------------------------------------------
+// Responsive font sizes
+// --------------------------------------------------
+
+// Extra Extra Large
+.a-fontSizeXXL {
+  @include a-fontSize24;
+  // Tablet
+  @include media-breakpoint-up( md ) {
+    @include a-fontSize28;
+  }
+  // Laptop
+  @include media-breakpoint-up( lg ) {
+    @include a-fontSize36;
+  }
+}
+
+// Extra Large
+.a-fontSizeXL {
+  @include a-fontSize18;
+  @include media-breakpoint-up( md ) {
+    @include a-fontSize22;
+  }
+  @include media-breakpoint-up( lg) {
+    @include a-fontSize24;
+  }
+  @include media-breakpoint-up( xl) {
+    @include a-fontSize28;
+  }
+}
+
+// Large
+.a-fontSizeL {
+  @include a-fontSize18;
+  @include media-breakpoint-up( md ) {
+    @include a-fontSize20;
+  }
+  @include media-breakpoint-up( lg) {
+    @include a-fontSize24;
+  }
+}
+
+// Medium
+.a-fontSizeM {
+  @include a-fontSize16;
+  @include media-breakpoint-up( md ) {
+    @include a-fontSize18;
+  }
+  @include media-breakpoint-up( lg) {
+    @include a-fontSize20;
+  }
+}
+
+// Small
+.a-fontSizeS {
+  @include a-fontSize16;
+  @include media-breakpoint-up( md ) {
+    @include a-fontSize18;
+  }
+}
+
+// Extra small
+.a-fontSizeXS {
+  @include a-fontSize16;
+}
+
+.a-md-fontSizeXS {
+  @include media-breakpoint-up( md ) {
+    @include a-fontSize16;
+  }
+}
+
+// Extra Extra small
+.a-fontSizeXXS {
+  @include a-fontSize14;
+}
+
+.a-fontSizeXXXS {
+  @include a-fontSize12;
+}
+
+.a-fontSizeXXXXS {
+  @include a-fontSize10;
+}
+// USAGE: @extend .a-fontSizeXXS;

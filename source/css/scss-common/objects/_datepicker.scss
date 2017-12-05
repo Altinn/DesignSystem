@@ -1,0 +1,132 @@
+// ----------------------------------
+// Datepicker
+// ----------------------------------
+
+.a-form-group-datepicker {
+  @include media-breakpoint-up( lg ) {
+    max-width: 427px;
+  }
+
+  max-width: 200px;
+}
+
+.datepicker {
+  @include media-breakpoint-down( sm ) {
+    border-top: 1px solid $white;
+  }
+
+  &.datepicker-dropdown {
+    @include media-breakpoint-down( sm ) {
+      left: 0 !important;
+      width: 100%;
+    }
+
+    padding: 0;
+    margin-top: 0;
+    border: none;
+    border-radius: 0;
+
+    &::before,
+    &::after {
+      display: none;
+    }
+
+    table {
+      @include media-breakpoint-down( sm ) {
+        width: 100%;
+      }
+
+      thead {
+        tr {
+          color: $white;
+          background-color: $blue;
+
+          // Hiding day names
+          &:nth-of-type(3) {
+            display: none;
+          }
+        }
+      }
+
+      tbody {
+        border-right: solid 1px $grey-light;
+        border-bottom: solid 1px $grey-light;
+      }
+
+      tr {
+        td,
+        th {
+          width: $spacer * 4;
+          height: $spacer * 4;
+          border-radius: 0;
+        }
+
+        th {
+          border-right: solid 1px $blue;
+          border-left: solid 1px $blue;
+
+          &:hover,
+          &:focus {
+            &:not(.dow) {
+              background: $blue-hover-color;
+            }
+          }
+        }
+
+        td {
+          border-bottom: solid 1px $grey-light;
+          border-left: solid 1px $grey-light;
+
+          &:hover,
+          &:focus,
+          &:active {
+            color: $black;
+            text-shadow: none;
+            background: $white !important;
+            border-bottom: solid 1px $grey-light;
+            border-left: solid 1px $grey-light;
+            outline: 2px solid $blue;
+            outline-offset: -2px;
+          }
+
+          &.day {
+            padding-top: 4px;
+
+            &.today,
+            &.active {
+              color: $black;
+              text-shadow: none;
+              background: $blue-light;
+              border-bottom: solid 1px $grey-light;
+              border-left: solid 1px $grey-light;
+            }
+
+            &.active {
+              background: $blue;
+            }
+
+            &:hover,
+            &:focus {
+              background: $blue-light;
+            }
+          }
+        }
+      }
+    }
+
+    .old,
+    .new {
+      background: $grey-lighter;
+    }
+
+    .datepicker-switch {
+      cursor: auto;
+      background: $blue !important;
+
+      &:hover,
+      &:focus {
+        @extend .datepicker-switch;
+      }
+    }
+  }
+}

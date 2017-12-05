@@ -141,17 +141,17 @@ function changeCss(project) {
   case 'altinn':
     $($viewPortContents).contents().find('head link[href~=\'../../css/style.dist.brreg.css\']').prop('disabled', true);
     $($viewPortContents).contents().find('head link[href~=\'../../css/style.dist.altinnett.css\']').prop('disabled', true);
-    $($viewPortContents).contents().find('head link[href~=\'../../css/style.css\']').prop('disabled', false);
+    $($viewPortContents).contents().find('head link[href~=\'../../css/style.prototype.altinn.css\']').prop('disabled', false);
     break;
   case 'altinnett':
     $($viewPortContents).contents().find('head link[href~=\'../../css/style.dist.brreg.css\']').prop('disabled', true);
     $($viewPortContents).contents().find('head link[href~=\'../../css/style.dist.altinnett.css\']').prop('disabled', false);
-    $($viewPortContents).contents().find('head link[href~=\'../../css/style.css\']').prop('disabled', true);
+    $($viewPortContents).contents().find('head link[href~=\'../../css/style.prototype.altinn.css\']').prop('disabled', true);
     break;
   case 'brreg':
     $($viewPortContents).contents().find('head link[href~=\'../../css/style.dist.brreg.css\']').prop('disabled', false);
     $($viewPortContents).contents().find('head link[href~=\'../../css/style.dist.altinnett.css\']').prop('disabled', true);
-    $($viewPortContents).contents().find('head link[href~=\'../../css/style.css\']').prop('disabled', true);
+    $($viewPortContents).contents().find('head link[href~=\'../../css/style.prototype.altinn.css\']').prop('disabled', true);
     break;
   default:
     break;
