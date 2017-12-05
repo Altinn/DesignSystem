@@ -1,6 +1,9 @@
-// External Links with explanation and arrow
+//------------------------------------\
+//  EXTERNAL LINKS
+//------------------------------------/
 // sass-lint:disable-all
 
+// Add arrow to external Links
 a[href^="http"]:not([href*='altinn.no']):not([href*='basefarm.net']):not([href*='local.altinn'])::after {
   display: inline-block;
   width: 1.3em;
@@ -18,23 +21,24 @@ a[href^="http"]:not([href*='altinn.no']):not([href*='basefarm.net']):not([href*=
   text-indent: 1.3em; // The width of the icon
 }
 
-/* Add " (PDF)" text after links that go to PDFs */
+// Add " (PDF)" text after links that go to PDFs
 a[href$=".pdf"]::after {
   content: " (PDF)" !important;
   display: inline !important;
 }
 
-/* If file size specified as data attribute, use that too */
+// If file size specified as data attribute, use that too
 a[href$=".pdf"][data-size]:after {
   content: " (PDF, " attr(data-size) ")" !important;
 }
 
-
+// Fix arrow for featured links
 a.a-linkFeatured[href^="http"]:not([href*='altinn.no'])::after {
   background-position: -6px -2px;
   background-size: 142% auto;
 }
 
+// Fix arrow for links in lists
 .a-list {
   li {
     &.a-list-hasRowLink {
