@@ -1,0 +1,57 @@
+// ------------------------------------\
+// MIXINS
+// ------------------------------------/
+
+// CSS Transition
+// Usage: @include transition(width,0.3s,ease-out);
+
+@mixin transition($transition-property, $transition-time, $method) {
+  transition: $transition-property $transition-time $method;
+  -webkit-transition: $transition-property $transition-time $method;
+  -moz-transition: $transition-property $transition-time $method;
+  -ms-transition: $transition-property $transition-time $method;
+  -o-transition: $transition-property $transition-time $method;
+}
+
+// Decide responsive width of container
+
+@mixin make-container-widths( $widths: $container-widths ) {
+  // sass-lint:disable-block brace-style
+  @each $breakpoint,
+  $container-width in $widths {
+    @include media-breakpoint-up( $breakpoint ) {
+      width: $container-width;
+    }
+  }
+}
+
+// Disabled background
+
+@mixin disabled-background( $color: $black, $background-color: $white, $box-shadow: 0 0 0 1px $white inset, $background-image: url( $images-base-url+'disabled-background.svg' ), $background-image-extra: null ) {
+  color: $color;
+  cursor: not-allowed;
+  background-color: $background-color;
+  background-image: $background-image, $background-image-extra;
+  background-repeat: repeat;
+  background-size: auto;
+  box-shadow: $box-shadow;
+}
+
+// Add col
+
+@mixin add-col-properties {
+  $breakpoint-counter: 0;
+  @each $breakpoint in map-keys($grid-breakpoints) {
+    $breakpoint-counter: ($breakpoint-counter + 1);
+
+    @for $i from 1 through $grid-columns {
+      .col-#{$breakpoint}-#{$i} {
+        @content;
+      }
+    }
+
+    .col-#{$breakpoint} {
+      @content;
+    }
+  }
+}

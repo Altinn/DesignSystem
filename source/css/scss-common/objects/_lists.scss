@@ -1,0 +1,762 @@
+// ----------------------------------
+// GENERAL LIST
+// ----------------------------------
+
+.a-list-header,
+.a-list {
+  position: relative;
+
+  .row {
+    margin: 0;
+  }
+
+  div,
+  span {
+    &[class^='col'] {
+      padding: 0;
+      margin: 0;
+    }
+  }
+
+  li {
+    >div,
+    >a >div {
+      &:not(.collapse) {
+        button {
+          z-index: 1;
+          display: inline-block;
+          min-height: 0;
+          padding: 0;
+          margin: 0;
+        }
+      }
+    }
+
+    &.a-clickable {
+      &.a-list-hasRowLink {
+        &:hover {
+          background-color: $blue-light-opacity-04;
+        }
+      }
+    }
+  }
+}
+
+.a-list-container {
+  // Wrapper class for the list header
+  .a-list-header {
+    min-height: $spacer * 3;
+    padding-right: $spacer;
+    padding-left: $spacer;
+
+    @include media-breakpoint-up( md ) {
+      padding: $spacer $spacer / 2;
+    }
+
+    // Sort headers for each column
+    .a-list-sortHeader {
+      @include a-fontSize12;
+      margin-top: 4px;
+      margin-bottom: -$spacer / 2;
+      cursor: pointer;
+    }
+
+    &:not(.a-dotted) {
+      border-top: 1px solid $grey-medium;
+      border-bottom: 1px solid $grey-medium;
+    }
+
+    .a-clickable {
+      &:hover {
+        &:not(.a-expanded) {
+          &:not(.a-deleted) {
+            &:not(.a-completed) {
+              background-color: inherit;
+            }
+          }
+        }
+      }
+    }
+
+    .a-dropdownArrow {
+      margin: 0;
+      vertical-align: top;
+      border-left: 10px solid $black;
+      transform: scale( 0.5 ) rotate( 90deg );
+    }
+
+    .a-js-reverse-sort {
+      .a-dropdownArrow {
+        transform: scale( 0.5 ) rotate( -90deg );
+      }
+    }
+
+    .a-active {
+      .a-dropdownArrow {
+        border-left: 10px solid $blue;
+      }
+    }
+  }
+}
+
+.a-list {
+  margin: 0;
+  list-style: none;
+
+  &.a-list-large {
+    li {
+      & > .row,
+      .a-list-content {
+        padding-right: $spacer;
+        padding-left: $spacer;
+
+        @include media-breakpoint-up( md ) {
+          min-height: $spacer * 4;
+          padding: $spacer $spacer / 2;
+        }
+      }
+
+      .a-list-rowLink {
+        @include a-fontSize20;
+        min-height: $spacer * 4;
+        padding: 10px $spacer / 2 7px $spacer / 2;
+
+        &.a-fontSizeXS {
+          @extend .a-fontSizeXS;
+        }
+      }
+    }
+
+    &.a-list-borderTopFirst {
+      li {
+        &:first-of-type {
+          border-top: 1px solid $grey-medium;
+        }
+      }
+    }
+  }
+
+  &.a-list-large-forMD {
+    @include media-breakpoint-up( md ) {
+      li {
+        & > .row,
+        .a-list-content {
+          min-height: $spacer * 4;
+          padding: $spacer $spacer / 2;
+        }
+
+        .a-list-rowLink {
+          @include a-fontSize20;
+          min-height: $spacer * 4;
+          padding: 10px $spacer / 2 7px $spacer / 2;
+        }
+      }
+    }
+  }
+
+  &.a-list-borderTop {
+    li {
+      &:first-child {
+        background-image: $dotted-border-blue, $dotted-border-blue;
+        background-repeat: repeat-x;
+        background-position: 25px top, 25px bottom;
+        background-size: 4px 2px;
+      }
+    }
+  }
+
+  &.a-list-borderTopSolid {
+    li {
+      &:first-child {
+        border-top: 2px solid $blue;
+      }
+    }
+  }
+
+  &.a-list-large-rows {
+    li {
+      & > .row,
+      .a-list-content {
+        padding: $spacer $spacer / 2 $spacer $spacer / 2;
+      }
+    }
+  }
+
+  li {
+    & > .row,
+    .a-list-content {
+      min-height: $spacer * 3;
+      padding: $spacer / 2 $spacer / 2 4px $spacer / 2;
+    }
+
+    &:not(.a-dotted) {
+      border-bottom: 1px solid $grey-medium;
+    }
+
+    &.a-selected {
+      .a-lineThrough-selected {
+        text-decoration: line-through;
+      }
+    }
+
+    &.card {
+      display: list-item;
+      margin-bottom: 0;
+      background-color: transparent;
+      border: none;
+      border-radius: 0;
+
+      &.a-expanded {
+        background-color: $white;
+      }
+
+      &:not(.a-dotted) {
+        border-bottom: 1px solid $grey-medium;
+      }
+    }
+
+    &.a-list-item-centered {
+      > div {
+        align-items: center;
+
+        > div {
+          &[class^='col'] {
+            display: inline-block;
+            vertical-align: middle;
+          }
+        }
+      }
+    }
+
+    &.a-list-item-loadMore {
+      border-bottom: none;
+
+      .row {
+        min-height: $spacer * 4;
+        padding: 4px 6px;
+        align-items: center;
+      }
+    }
+
+    &.a-list-hasRowLink {
+      padding: 0;
+    }
+
+    &.a-offset-border-top {
+      border: none;
+    }
+
+    .a-list-rowLink {
+      display: block;
+      padding: 7px $spacer / 2 5px $spacer / 2;
+      border: none;
+    }
+
+    .a-delete-add-container {
+      padding: $spacer $spacer $spacer * 2 $spacer / 2;
+      margin: $spacer 0;
+      background-color: $blue-light;
+
+      button {
+        z-index: 1;
+        display: inline-block;
+        min-height: 0;
+        padding: 0;
+        margin: 0;
+      }
+    }
+
+    button {
+      &.a-add-certificate {
+        z-index: 1;
+        display: inline-block;
+        min-height: 0;
+        padding: 0;
+        margin: 0;
+      }
+    }
+  }
+
+  // Show list in two columns
+  &.a-list-2col {
+    @include media-breakpoint-up( md ) {
+      column-count: 2;
+      column-gap: $spacer * 4;
+
+      li {
+        break-inside: avoid;
+        page-break-inside: avoid;
+      }
+    }
+  }
+
+  &.a-list-1col {
+    @include media-breakpoint-up( md ) {
+      width: calc( 50% - 24px );
+    }
+  }
+
+  // No padding left if list item has no icons
+  &.a-list-noIcon {
+    li {
+      .a-list-rowLink {
+        padding-left: 0;
+      }
+    }
+
+    .row {
+      padding-left: 0;
+    }
+  }
+}
+
+// If background WHITE, change color on lists
+.a-bgWhite {
+  ul {
+    &.connected-bullets {
+      li {
+        &::after {
+          background: $white;
+        }
+      }
+    }
+  }
+}
+
+// If background BLUE-light, change color on lists
+.a-bgBlueLight {
+  ul {
+    &.connected-bullets {
+      li {
+        &::after {
+          background: $blue-light;
+        }
+      }
+    }
+  }
+}
+
+// If background GREY-light, change color on list
+.a-bgGreyLight,
+.a-bgGrey {
+  ul {
+    &.connected-bullets {
+      li {
+        &::after {
+          background: $grey-light;
+        }
+      }
+    }
+  }
+}
+
+ul {
+
+  &.no-decoration {
+    margin: 0;
+    list-style: none;
+  }
+
+  // Bullet list
+  &.a-bullet-list {
+    margin-top: $spacer;
+    margin-left: 0;
+    color: $black;
+    list-style: none;
+
+    li {
+      @extend .a-fontSizeS;
+      position: relative;
+      padding-left: $spacer * 2;
+      margin-bottom: $spacer;
+
+      &::before {
+        @include a-fontSize30;
+
+        position: absolute;
+        top: -5px;
+        left: -3px;
+        padding-right: 5px;
+        color: $blue;
+        content: '•';
+      }
+    }
+
+    &.a-bulletList-light {
+      li {
+        @include a-fontLight;
+        @include a-fontSize16;
+
+        &::before {
+          @include a-fontSize24;
+
+          top: -3px;
+          color: $grey-medium;
+        }
+      }
+    }
+  }
+
+  // Unordered bullet list with connection
+  &.connected-bullets {
+    padding-left: 0;
+    margin-top: -1px;
+
+    li {
+      position: relative;
+      padding-bottom: $spacer * 2;
+      padding-left: 36px;
+      margin-bottom: 0;
+      list-style: none;
+
+      @include media-breakpoint-up( md ) {
+        padding-left: 0;
+        margin-left: 36px;
+      }
+
+      &::before {
+        @include media-breakpoint-up( md ) {
+          left: -25px;
+        }
+
+        position: absolute;
+        left: 12px;
+        width: 3px;
+        height: 100%;
+        /* lines */
+        content: '';
+        border-left: 3px solid $blue;
+
+      }
+
+      &::after {
+        // sass-lint:disable-block no-disallowed-properties
+        @include a-fontBold;
+        @include media-breakpoint-up( md ) {
+          left: -36px;
+        }
+
+        position: absolute;
+        top: -1px;
+        left: 0;
+        width: 25px;
+        height: 25px;
+        font-size: 39px;
+        content: '';
+        background: $grey-light;
+        border: 3px solid $blue;
+        border-radius: 50%;
+
+        @include media-breakpoint-up( md ) {
+          left: -36px;
+        }
+      }
+
+      &:first-child {
+        &::before {
+          // first li's line
+          top: 6px;
+          // moves the line down so that it disappears under the bullet. Adjust manually
+        }
+      }
+
+      &:last-child {
+        &::before {
+          // last li's line */
+          height: 6px;
+          // shorten the line so it goes only up to the bullet. Is equal to first-child:before's top */
+        }
+      }
+    }
+  }
+
+  &.a-item-list-icon {
+
+    li {
+      padding: 2px 0;
+
+      div {
+        &[class^='col'] {
+          overflow: hidden;
+          text-overflow: ellipsis;
+        }
+      }
+
+      i {
+        color: $blue;
+      }
+
+      span {
+        @extend .a-fontSizeS;
+      }
+    }
+  }
+}
+
+
+// Ordered list with circled numbers
+// with regular or yellow dots
+
+ol {
+  padding-right: 0;
+  margin-left: 0;
+  list-style-type: none;
+  counter-reset: step;
+
+  &.a-circle-list {
+    @include a-fontSize16;
+    margin-left: 42px;
+
+    li {
+      margin-bottom: $spacer * 1.5;
+
+      &::before {
+        @include a-fontBold;
+        position: relative;
+        top: 0;
+        padding: 6px 9px 3px 9px;
+        margin-right: 15px;
+        margin-left: -46px;
+        content: counter( step );
+        counter-increment: step;
+        border: 2px solid $blue;
+        border-radius: 50%;
+      }
+    }
+  }
+
+  &.a-circle-list-yellow {
+    li {
+      &::before {
+        @include a-fontReg;
+
+        padding: 6px 9px 4px 10px;
+        background-color: $yellow;
+        border: none;
+      }
+    }
+  }
+
+  &.a-number-list {
+    @include a-fontSize16;
+
+    li {
+      margin-bottom: 6px;
+
+      &::before {
+        @include a-fontBold;
+        top: 0;
+        padding: 5px 9px 4px 9px;
+        margin-left: -10px;
+        content: counter( step ) '.';
+        counter-increment: step;
+      }
+    }
+
+    &.a-number-list--extra-air {
+      li {
+        margin-bottom: $spacer * 1.5;
+      }
+    }
+
+  }
+}
+
+// Unordered list with icons
+.a-iconList {
+  list-style-type: none;
+
+  li {
+    margin-bottom: $spacer * 1.5;
+  }
+
+  a {
+    display: flex;
+    color: $black;
+    border: none;
+
+    i {
+      padding-right: 5px;
+      align-self: center;
+    }
+
+    b {
+      padding-right: 5px;
+    }
+
+    &:hover {
+      b,
+      i {
+        color: $blue-dark;
+      }
+    }
+  }
+}
+
+// Expandable list with button and sublevels
+.a-listWithSubLevels {
+  display: flex;
+  margin-bottom: $spacer;
+  flex-wrap: wrap;
+
+  .a-btn {
+    margin-bottom: 0;
+  }
+
+  .a-list-heading {
+    width: 100%;
+  }
+
+  .a-btn-shadow-expand {
+    @include a-fontSize16;
+    display: block;
+    width: 100%;
+    padding-left: $spacer;
+    background: $blue-lighter;
+
+    @include media-breakpoint-up( md ) {
+      padding-left: $spacer * 2;
+    }
+
+    &:hover,
+    &:active,
+    &:focus {
+      background: darken( $blue-lighter, 5% );
+    }
+
+    .a-dropdownCircleArrow {
+      width: $spacer * 2;
+      min-width: $spacer * 2;
+      height: $spacer * 2;
+      margin-top: -2px;
+      margin-right: $spacer;
+
+      @include media-breakpoint-up( md ) {
+        // Manual adjustment to make text align
+        margin-right: 20px;
+      }
+
+      i {
+        @include a-fontSize20;
+        margin-top: 0;
+      }
+    }
+  }
+
+  .a-collapseContent {
+    width: 100%;
+  }
+
+  .a-list {
+    padding-bottom: $spacer * 2;
+
+    li {
+      border: none;
+
+      .a-list-rowLink {
+        @include a-fontSize16;
+        padding-left: $spacer * 4;
+        @include media-breakpoint-up( md ) {
+          // Manual adjustment to make text align
+          padding-top: $spacer;
+          padding-left: 68px;
+        }
+      }
+
+      &.a-clickable {
+        &.a-list-hasRowLink {
+          &:hover {
+            background: darken( $blue-lighter, 5% );
+          }
+        }
+      }
+    }
+  }
+}
+
+// Diverse - Flyttes??
+.a-btn-group {
+  ol {
+    &.show-numbers {
+      list-style-type: decimal;
+    }
+  }
+}
+
+.a-list-heading {
+  position: relative;
+
+  .a-list-heading-action {
+    margin-right: $spacer * 1.5;
+
+    &:hover {
+      cursor: pointer;
+    }
+
+    i {
+      vertical-align: middle;
+    }
+  }
+}
+
+// Overriding jquery autocomplete
+.a-autocomplete-container {
+  position: absolute;
+  z-index: 10;
+  display: block;
+  width: 100%;
+  margin-top: -2px;
+  overflow: auto;
+  background-color: $white;
+  border-color: $blue;
+  border-width: 2px;
+
+  @include media-breakpoint-up( md ) {
+    width: 150%;
+  }
+
+  .a-list {
+    max-height: $spacer * 26;
+    overflow-x: hidden;
+    border: 2px solid $blue;
+
+    li {
+      @extend .a-fontSizeXXS;
+
+      margin: 0 $spacer * 2;
+
+      &:first-of-type {
+        @include a-fontBold;
+      }
+
+      &:last-of-type {
+        margin-bottom: $spacer;
+      }
+
+      &.a-js-autocomplete-header {
+        padding: 5px 0;
+      }
+
+      .ui-menu-item-wrapper {
+        padding: 5px 0;
+
+        &.ui-state-active {
+          background: linear-gradient(to top, transparent 2px, $blue-light 2px); // keep dotted bottom border
+          outline: none;
+        }
+      }
+    }
+  }
+
+  // copy from jquery ui css
+  .ui-helper-hidden-accessible {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
+    border: none;
+  }
+}

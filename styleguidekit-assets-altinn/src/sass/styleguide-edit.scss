@@ -1,10 +1,10 @@
 @import '../../../node_modules/bootstrap/scss/variables';
 @import '../../../node_modules/bootstrap/scss/mixins';
-@import '../../../source/css/scss/generic/variables';
+@import '../../../source/css/scss-altinn/generic/variables';
 
-@import '../../../source/css/scss/generic/bootstrap-custom';
-@import '../../../source/css/scss/generic/mixins';
-@import '../../../source/css/scss/base/font'; /* brreg/altinn switch*/
+@import '../../../source/css/scss-altinn/generic/bootstrap-custom';
+@import '../../../source/css/scss-common/generic/mixins';
+@import '../../../source/css/scss-common/base/font';
 @import 'switch-project-nav';
 
 $color-atom-electron: #FEAF16;
@@ -706,7 +706,7 @@ a.a-sg-header-title:hover {
 .a-sg-header-links {
   flex-grow: 1;
   text-align: right;
-  
+
   @include media-breakpoint-down(md) {
     display: none;
   }
@@ -724,7 +724,7 @@ a.a-sg-header-title:hover {
     }
   }
 }
-//Anchors 
+//Anchors
 %anchors {
   margin-top: -3px;
   font-size: 16px !important;
@@ -778,11 +778,11 @@ a.a-sg-header-title:hover {
   animation: spin 20s linear infinite;
   &:hover {
     border-color: $color-atom-orbit-hover;
-    
+
     .core {
       margin-left: 180px;
     }
-    
+
     .sg-electron-brreg {
       top: 140px;
       width: 30px;
@@ -815,4 +815,21 @@ a.a-sg-header-title:hover {
 
 .sg-nav-container {
   min-height: 34px;
+}
+
+
+// Dont display theme-switch outside of PatternLab
+.sg-switchtheme {
+  display: none;
+}
+
+// Don't show anchor links deep in the markup
+.a-sg-anchor {
+  display: none !important;
+}
+
+.sg-pattern {
+  .a-sg-anchor {
+    display: inline-block !important;
+  }
 }

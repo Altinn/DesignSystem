@@ -1,0 +1,364 @@
+// ----------------------------------
+// Jumbotron
+// ----------------------------------
+
+.a-jumbotron {
+  min-height: 550px;
+  max-height: 792px;
+  margin-bottom: $spacer * 3;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+
+  @include media-breakpoint-up( sm ) {
+    min-height: 600px;
+    margin-bottom: $spacer * 5;
+  }
+
+  @include media-breakpoint-up( md ) {
+    min-height: 650px;
+  }
+  @include media-breakpoint-up( xxl ) {
+    min-height: calc(100vh - 200px);
+  }
+
+  .a-leadText {
+    max-width: 600px;
+	}
+
+  hr {
+    display: none;
+  }
+
+  p {
+    @include a-fontSize20;
+    color: $blue-darker;
+	}
+
+  .a-jumbotron-title {
+    display: block;
+    margin-bottom: $spacer;
+	}
+
+  .a-jumbotron-ingress {
+    @extend .a-fontSizeXL;
+    display: block;
+    margin-bottom: $spacer * 2;
+    color: $blue-darker;
+
+    &.a-jumbotron-ingress--small {
+      @extend .a-fontSizeM;
+    }
+	}
+
+  .a-jumbotron-btn-textright {
+    display: none;
+
+    @include media-breakpoint-up( sm ) {
+      display: inline;
+      padding-left: $spacer;
+    }
+  }
+
+  &.a-jumbotron-emergency {
+    background-color: $white-opacity-07;
+    background-blend-mode: luminosity;
+  }
+
+  &.a-jumbotron--autoHeight {
+    height: auto;
+    min-height: auto;
+  }
+
+  .a-message {
+    &.a-message--arrow-off {
+      margin-top: $spacer * 1.5;
+    }
+  }
+
+  .a-form-group {
+    .a-form-group-items {
+      input {
+        background-color: $white;
+      }
+
+      .input-group-btn {
+        .btn {
+          background: $white;
+
+          &:focus {
+            background: $blue-light;
+          }
+        }
+      }
+    }
+  }
+}
+
+.a-jumbotron-header {
+  padding-top: 130px;
+  margin-top: -144px;
+  background-position: right 120px;
+  background-size: 945px;
+
+  @include media-breakpoint-up( sm ) {
+    background-position: right 0;
+    background-size: cover;
+  }
+
+  @include media-breakpoint-up( md ) {
+    padding-top: 150px;
+  }
+
+  @include media-breakpoint-up( lg ) {
+    padding-top: 130px;
+  }
+
+  @include media-breakpoint-up( xl ) {
+    background-position: center 0;
+  }
+
+  @include media-breakpoint-up( xxl ) {
+    padding-top: 9%;
+  }
+
+  &.a-jumbotron-header--small {
+    padding-top: 130px;
+    padding-bottom: $spacer * 3;
+    margin-bottom: $spacer * 3;
+
+    @include media-breakpoint-up( md ) {
+      padding-top: 144px;
+      padding-bottom: $spacer * 6;
+      margin-bottom: $spacer * 5;
+    }
+
+    @include media-breakpoint-up( lg ) {
+      padding-top: 144px;
+      padding-bottom: $spacer * 9;
+    }
+  }
+
+  &.a-jumbotron-header--left {
+    background-position: left 120px;
+
+    @include media-breakpoint-up( sm ) {
+      background-position: left 0;
+    }
+
+    @include media-breakpoint-up( xl ) {
+      background-position: center 0;
+    }
+  }
+}
+
+.a-jumbotron-light {
+  background-image: url($images-base-url + 'header-bg1.svg');
+
+  a {
+    &:hover,
+    &:focus {
+      color: $blue-darker;
+      border-bottom: 2px solid $blue-darker;
+    }
+  }
+
+  .a-dotted {
+    background-image: $dotted-border-black;
+	}
+
+  .a-list {
+    .a-clickable,
+    .a-selectable {
+      &.a-list-hasRowLink {
+        &:hover,
+        &:active,
+        &:focus {
+          background-color: $white-opacity-03;
+        }
+      }
+    }
+  }
+}
+
+// If dark background
+.a-jumbotron-dark {
+  color: $white;
+  background-color: $blue-darker;
+
+  a,
+  p,
+  .a-jumbotron-btn-textright,
+  .a-jumbotron-btn-textright,
+  .a-jumbotron-ingress {
+    color: $white;
+	}
+
+  a {
+    border-color: $white;
+
+    &:hover,
+    &:focus,
+    &:active {
+      color: $white;
+      border-color: $white;
+  	}
+  }
+
+  .a-btn {
+    &.a-btn-border {
+      color: $white;
+      background: transparent;
+      border: 2px solid $white;
+
+      &:hover,
+      &:focus {
+        color: $white;
+        background: $white-opacity-01;
+      }
+  	}
+  }
+
+  .a-breadcrumb {
+    a {
+      border-bottom: 2px solid $blue;
+
+      &:hover {
+        color: $white;
+      }
+    }
+
+    li {
+      &.active {
+        a {
+          color: $white;
+          border-bottom: none;
+
+          &:hover {
+            border: none;
+          }
+        }
+      }
+
+      &.breadcrumb-mobile {
+        @include media-breakpoint-down( sm ) {
+          &::before {
+            color: $white;
+          }
+
+        }
+      }
+    }
+  }
+
+  .a-breadcrumb>li+li {
+    &::before {
+      color: $white;
+    }
+	}
+
+  .a-dotted-line {
+    background-image: $dotted-border-white;
+	}
+
+  .a-dotted {
+    background-image: $dotted-border-white;
+	}
+
+  .a-list {
+    &.a-list-borderTop {
+      li {
+        &:first-child {
+          background-image: $dotted-border-white, $dotted-border-white;
+          background-repeat: repeat-x;
+          background-position: 25px top, 25px bottom;
+          background-size: 4px 2px;
+        }
+      }
+    }
+  }
+
+  .a-listItem-title {
+    &:focus {
+      background-color: $white-opacity-01;
+    }
+  }
+
+  .a-clickable,
+  .a-selectable {
+    a {
+      &:hover,
+      &:active,
+      &:focus {
+        &:not(.a-expanded) {
+          &:not(.a-deleted) {
+            &:not(.a-completed) {
+              cursor: pointer;
+              background-color: $white-opacity-005;
+              box-shadow: none;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .a-message {
+    color: $black;
+
+    a {
+      color: $black;
+      border-bottom: 1px solid $blue;
+
+      &:hover {
+        border-bottom: 1px solid $blue-dark;
+      }
+    }
+  }
+
+  &.a-jumbotron-dark--purple {
+    background: $purple;
+  }
+}
+
+.a-jumbotron-large {
+  @include media-breakpoint-up( md ) {
+    height: 600px;
+	}
+  @include media-breakpoint-up( lg ) {
+    height: 700px;
+	}
+}
+
+.a-jumbotron-bottom {
+  background-color: $blue-darker;
+  background-position: bottom right;
+  background-size: 60%;
+
+  @include media-breakpoint-up( lg ) {
+    min-height: 580px;
+    background-position: center;
+    background-size: cover;
+	}
+}
+
+.a-jumbotron-top {
+  padding-top: 357px;
+  background-position: right -50px;
+  background-size: 890px;
+
+  @include media-breakpoint-up( md ) {
+    display: flex;
+    min-height: 580px;
+    padding-top: $spacer * 3;
+    margin-bottom: $spacer * 3;
+    background-position: bottom center;
+    background-size: cover;
+    align-items: center;
+  }
+  @include media-breakpoint-up( xxl ) {
+    max-width: 2200px;
+    margin-right: auto;
+    margin-left: auto;
+  }
+}

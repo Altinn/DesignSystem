@@ -1,0 +1,252 @@
+// ------------------------------------\
+// LINKS
+// ------------------------------------/
+
+a,
+.a-btn-link {
+  position: relative;
+  padding-bottom: 2px;
+  color: $black;
+  text-decoration: none;
+  cursor: pointer;
+  border-bottom: 2px solid $link-color;
+
+  &:active,
+  &:focus,
+  &:hover {
+    color: $black;
+    text-decoration: none;
+    cursor: pointer;
+    border-bottom: 2px solid $blue-dark;
+
+    &.a-linkDanger {
+      border-bottom: 2px solid darken( $red, 15% );
+    }
+  }
+
+  &.a-notActive {
+    pointer-events: none;
+    cursor: default;
+    opacity: 0.7;
+  }
+
+  &.a-linkDanger {
+    border-color: $red;
+  }
+
+  &.no-decoration {
+    padding-bottom: 0;
+    color: $black;
+    text-decoration: none;
+    border: none;
+
+    &:hover,
+    &:focus {
+      text-decoration: none;
+      border-bottom: none;
+    }
+  }
+
+  &.a-link-large {
+    @extend .a-fontSizeM;
+  }
+
+  &.a-link-modalTop {
+    @include media-breakpoint-up( md ) {
+      margin-right: -3 * $spacer;
+    }
+  }
+
+  &.a-link-title {
+    @include a-fontBold;
+    @include a-fontSize20;
+    display: inline;
+    padding-bottom: 0;
+    margin-right: $spacer / 2;
+
+    &+p {
+      margin-top: $spacer;
+    }
+  }
+
+  .a-h3 & {
+    padding-bottom: 2px;
+  }
+
+  &>i {
+    position: relative;
+  }
+}
+
+// Set the touch and focus area of the link
+.a-linkArea {
+  position: relative;
+  z-index: 1;
+
+  &::before {
+    position: absolute;
+    top: -11px;
+    left: -$spacer;
+    z-index: -1;
+    width: calc( 100% + 24px );
+    min-height: $spacer * 4;
+    cursor: pointer;
+    content: '';
+  }
+}
+
+// FEATURED LINK
+.a-linkFeatured {
+  @extend .a-fontSizeM;
+  @include a-fontBold;
+  color: $blue-darker;
+  border: none;
+
+  &:active,
+  &:focus,
+  &:hover {
+    color: $blue-darker;
+    border-color: $blue-darker;
+  }
+
+  i {
+    margin-top: -5px;
+  }
+
+  &.a-linkFeatured--border {
+    padding: 7px $spacer 5px $spacer;
+    border: 1px solid $grey-light;
+
+    &:hover {
+      border: 1px solid $blue-darker;
+    }
+  }
+}
+
+// Help icon
+.a-helpIconButton {
+  color: $grey;
+  border: none;
+
+  .ai-stack {
+    @extend .ai-xs;
+
+    i {
+      margin-top: -2px;
+
+      &.ai {
+        // sass-lint:disable-block no-disallowed-properties
+        // need to set font-size here, not sure how to get around it.
+        font-size: 1em;
+        line-height: 1em;
+
+        &:first-of-type {
+          color: $grey;
+        }
+      }
+    }
+  }
+
+  &:hover {
+    color: $grey-medium;
+    text-decoration: none;
+    border-bottom: none;
+  }
+
+  &:focus {
+    color: $grey-medium;
+    border-bottom: none;
+    outline: none;
+  }
+
+  i {
+    @extend .ai-xs;
+    display: inline-block; // bootstrap popover toggle will pick this up to set inline-style
+    margin-top: -2px;
+    vertical-align: middle;
+  }
+
+  &.a-helpIconButton--blue {
+    color: $blue;
+
+    &:focus {
+      color: $blue-darker;
+    }
+
+    &:active {
+      color: $blue;
+    }
+  }
+}
+
+h1 + .a-helpIconButton {
+  top: -4px;
+  left: 4px;
+}
+
+
+// Link icon
+.a-linkIcon {
+  @include a-fontReg;
+  position: relative;
+  z-index: 1;
+  display: inline-block;
+  padding-right: $spacer * 1.5;
+  color: $blue-darker;
+  border-bottom: none;
+
+  i {
+    margin-top: -3px;
+    vertical-align: middle;
+  }
+
+  span {
+    &.a-link--underline {
+      border-bottom: 2px solid $blue;
+
+      &:hover {
+        border-bottom: 2px solid $blue-dark;
+      }
+    }
+  }
+
+  &:focus,
+  &:active,
+  &:hover {
+    border: none;
+  }
+
+  + .a-linkIcon {
+    padding-left: $spacer;
+  }
+}
+
+// Hover underline
+
+.a-hvr-underline {
+  &:hover {
+    @include media-breakpoint-up( md ) {
+      border-bottom: 3px solid $blue-dark;
+    }
+  }
+}
+
+.a-fullWidthLink {
+  position: absolute;
+  right: 0;
+  left: 0;
+  min-height: $spacer * 3;
+
+  &.a-fullWidthLink--underline {
+    @extend .a-noUnderline;
+
+    span {
+      padding-bottom: 2px;
+      border-bottom: 2px solid $blue;
+
+      &:hover {
+        border-bottom: 2px solid $blue-dark;
+      }
+    }
+  }
+}

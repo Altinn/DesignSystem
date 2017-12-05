@@ -1,0 +1,240 @@
+// ------------------------------------\
+// POPOVER / TOOLTIP
+// ------------------------------------/
+
+.popover {
+  @extend .a-fontSizeXS;
+  background-color: $yellow-light;
+  border: none;
+  border-radius: 0;
+  box-shadow: $shadow2;
+
+  &::before {
+    border-right-color: $black-opacity-01;
+    border-left-color: $black-opacity-01;
+  }
+
+  &::after {
+    border-right-color: $yellow-light;
+    border-left-color: $yellow-light;
+  }
+
+  &.bs-tether-element-attached-top {
+    .popover-arrow {
+      &.popover-arrow {
+        border-right-color: transparent;
+        border-bottom-color: $black-opacity-01;
+        border-left-color: transparent;
+      }
+    }
+
+    &::before {
+      top: -10px;
+      border-right-color: transparent;
+      border-bottom-color: $black-opacity-005;
+      border-left-color: transparent;
+    }
+
+    &::after {
+      top: -9px;
+      border-right-color: transparent;
+      border-bottom-color: $yellow-light;
+      border-left-color: transparent;
+    }
+  }
+
+  &.bs-tether-element-attached-left,
+  &.bs-tether-element-attached-right {
+    &::after {
+      border-right-color: $yellow-light;
+    }
+
+    &::before {
+      border-right-color: $black-opacity-01;
+    }
+  }
+
+  &.bs-tether-element-attached-right {
+    margin-top: -1px;
+    margin-left: -16px;
+  }
+
+  &.bs-tether-element-attached-left {
+    margin-top: -1px;
+    margin-left: 16px;
+  }
+
+  .popover-left {
+    left: $spacer;
+  }
+
+  .popover-content {
+    padding: $spacer;
+    @include media-breakpoint-down( sm ) {
+      width: 200px;
+    }
+  }
+
+  // GREEN POPOVER
+  &.popover-valid {
+    background-color: $green-light;
+
+    &::before {
+      border-right-color: $black-opacity-01;
+      border-left-color: $black-opacity-01;
+    }
+
+    &::after {
+      border-right-color: $green-light;
+      border-left-color: $green-light;
+    }
+
+    .popover-title {
+      background-color: $green-light;
+    }
+
+    &.bs-tether-element-attached-top {
+      .popover-arrow {
+        &.popover-arrow {
+          border-right-color: transparent;
+          border-bottom-color: $black-opacity-01;
+          border-left-color: transparent;
+        }
+      }
+
+      &::before {
+        top: -10px;
+        border-right-color: transparent;
+        border-bottom-color: $black-opacity-005;
+        border-left-color: transparent;
+      }
+
+      &::after {
+        top: -9px;
+        border-right-color: transparent;
+        border-bottom-color: $green-light;
+        border-left-color: transparent;
+      }
+    }
+  }
+
+  // RED POPOVER
+  &.popover-warning {
+    background-color: $red-light;
+
+    &::before {
+      border-right-color: $black-opacity-01;
+      border-left-color: $black-opacity-01;
+    }
+
+    &::after {
+      border-right-color: $red-light;
+      border-left-color: $red-light;
+    }
+
+    .popover-title {
+      background-color: $red-light;
+    }
+
+    &.bs-tether-element-attached-top {
+      .popover-arrow {
+        &.popover-arrow {
+          border-right-color: transparent;
+          border-bottom-color: $black-opacity-01;
+          border-left-color: transparent;
+
+        }
+      }
+
+      &::before {
+        top: -10px;
+        border-right-color: transparent;
+        border-bottom-color: $black-opacity-005;
+        border-left-color: transparent;
+      }
+
+      &::after {
+        top: -9px;
+        border-right-color: transparent;
+        border-bottom-color: $red-light;
+        border-left-color: transparent;
+      }
+    }
+  }
+
+  // BIG POPOVER
+  &.popover-big {
+    width: 100%;
+    max-width: 100%;
+    min-height: 80%;
+    padding: 0;
+
+    background-color: $yellow-light;
+
+    h3,
+    div {
+      &.popover-content {
+        padding: 0;
+
+        .container {
+          padding: 0;
+
+          .a-modal-body {
+
+            @include media-breakpoint-down( xs ) {
+              padding-right: $spacer * 2;
+              padding-left: $spacer * 2;
+            }
+          }
+        }
+
+        @include media-breakpoint-down( sm ) {
+          width: auto;
+        }
+      }
+    }
+
+    &::before {
+      display: none;
+    }
+
+    .popover-title {
+      background-color: $yellow-light;
+    }
+  }
+
+  // Footnote popover
+  &.footnote {
+    background-color: $grey-light;
+
+    &::before {
+      border-right-color: $black-opacity-01;
+      border-left-color: $black-opacity-01;
+    }
+
+    &::after {
+      border-right-color: $grey-light;
+      border-left-color: $grey-light;
+    }
+
+    .popover-title {
+      background-color: $grey-light;
+    }
+
+    &.bs-tether-element-attached-top {
+      &::before {
+        top: -10px;
+        border-right-color: transparent;
+        border-bottom-color: $black-opacity-005;
+        border-left-color: transparent;
+      }
+
+      &::after {
+        top: -9px;
+        border-right-color: transparent;
+        border-bottom-color: $grey-light;
+        border-left-color: transparent;
+      }
+    }
+  }
+}
