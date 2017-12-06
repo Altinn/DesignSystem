@@ -1,6 +1,17 @@
-<div class="row">
+{{# personRole }}
+<div class="row mb-3">
+  <div class="col-12">
+      {{> molekyler-person-rolle }}
+  </div>
+</div>
+{{/ personRole }}
+
+<div class="row mb-1">
   <div class="col-lg-7">
-    <h2 class="a-h3">{{ sectionTitle }}</h2>
+    {{# sectionTitle1 }}
+      <h2 class="a-legend">{{ sectionTitle1 }}</h2>
+    {{/ sectionTitle1 }}
+
     {{# email }}
       {{> atomer-tekst-input }}
     {{/ email }}
@@ -10,21 +21,31 @@
     {{/ phoneNumber }}
 
     {{# smsMessage }}
-      {{> atomer-varsel:mt-0 }}
+      {{> atomer-varsel:mt-0|mb-2 }}
     {{/ smsMessage }}
+
+    {{# organization }}
+      {{> atomer-tekst-input:mb-2 }}
+    {{/ organization }}
   </div>
 </div>
 
 <div class="row">
   <div class="col-12">
-    <h2 class="a-h3 mt-3">{{ sectionTitle2 }}</h2>
-
     {{# chooseServices }}
-      {{> atomer-avkrysningsboks }}
+      {{> atomer-avkrysningsboks:mb-2 }}
     {{/ chooseServices }}
 
+    {{# chooseRoles }}
+      {{> atomer-avkrysningsboks:mb-2 }}
+    {{/ chooseRoles }}
+
+    {{# chooseSubscriptions }}
+      {{> atomer-avkrysningsboks:mb-2 }}
+    {{/ chooseSubscriptions }}
+
     {{# submitButton }}
-      {{> atomer-knapp:mt-3 }}
+      {{> atomer-knapp:mt-1 }}
     {{/ submitButton }}
   </div>
 </div>
