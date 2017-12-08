@@ -1,0 +1,44 @@
+// ----------------------------------
+// Blockquote
+// ----------------------------------
+
+.a-blockquote {
+  @include a-fontReg;
+  padding-left: $spacer * 2;
+  color: $black;
+  text-align: left;
+  border-left: 6px solid $blue;
+
+  @include media-breakpoint-up( md ) {
+    border-left: none;
+  }
+  @include media-breakpoint-up( lg ) {
+    padding-left: $spacer * 4;
+  }
+
+  p {
+    @extend .a-fontSizeXL;
+  }
+
+  .a-citation {
+    @include a-fontSize14;
+    @include a-fontBold;
+    font-style: normal;
+    @include media-breakpoint-up( lg ) {
+      @include a-fontSize16;
+    }
+  }
+
+  &.a-blockquote-right {
+    margin-top: $spacer * 2;
+    margin-bottom: $spacer * 2;
+    border-left: 6px solid $blue;
+  }
+}
+
+blockquote {
+  &::before,
+  &::after {
+    content: '';
+  }
+}

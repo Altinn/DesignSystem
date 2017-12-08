@@ -1,0 +1,222 @@
+// ------------------------------------\
+// TABLES
+// ------------------------------------/
+
+table {
+  @include a-fontReg;
+  @include a-fontSize16;
+
+  th {
+    @include a-fontMedium;
+  }
+
+  th,
+  td {
+    padding-right: 2 * $spacer;
+  }
+}
+
+.a-table {
+  thead {
+    th {
+      @include a-fontReg;
+
+      border-bottom: 2px solid $blue;
+    }
+  }
+
+  td,
+  th {
+    padding: 6px 0 5px 0;
+    border-top: none;
+    border-bottom: 1px solid $grey-medium;
+  }
+}
+
+// RESPONSIVE TABLE
+.a-responsiveTable-container {
+  margin: auto;
+}
+
+.a-responsiveTable {
+  @include a-fontSize16;
+  width: 100%;
+  margin-bottom: $spacer * 3;
+
+  thead {
+    // Accessibly hide <thead> on narrow viewports
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    overflow: hidden;
+    clip: rect(1px, 1px, 1px, 1px);
+    border: none;
+
+    @include media-breakpoint-up( md ) {
+      // Unhide <thead> on wide viewports
+      position: relative;
+      width: auto;
+      height: auto;
+      overflow: auto;
+      clip: auto;
+    }
+
+    th {
+      color: $black;
+      text-align: left;
+      background-color: $grey-light;
+      border-bottom: 1px solid $grey-medium;
+
+      @include media-breakpoint-up( md ) {
+        @include a-fontSize14;
+        padding: 9px 24px 6px 24px;
+        text-transform: uppercase;
+      }
+    }
+  }
+
+  // Set these items to display: block for narrow viewports
+  tbody,
+  tr,
+  th,
+  td {
+    display: block;
+    padding: 0;
+    text-align: left;
+    white-space: normal;
+  }
+
+  tr {
+    @include media-breakpoint-up( md ) {
+      // Undo display: block
+      display: table-row;
+    }
+  }
+
+  th,
+  td {
+    padding: 7px 24px 5px 24px;
+    vertical-align: middle;
+
+    @include media-breakpoint-up( md ) {
+      // Undo display: block
+      display: table-cell;
+    }
+  }
+
+  caption {
+    @include a-fontSize14;
+    text-align: left;
+  }
+
+  tbody {
+    @include media-breakpoint-up( md ) {
+      // Undo display: block
+      display: table-row-group;
+    }
+
+    tr {
+      margin-bottom: $spacer * 3;
+      @include media-breakpoint-up( md ) {
+        // Undo display: block
+        display: table-row;
+        margin-bottom: 0;
+        border-bottom: 1px solid $grey-medium;
+      }
+
+      &:last-of-type {
+        margin-bottom: 0;
+      }
+    }
+
+    th {
+      &[scope='row'] {
+        color: $black;
+        background-color: $grey-lighter;
+        border-bottom: 1px solid $grey-medium;
+
+        @include media-breakpoint-up( md ) {
+          text-align: left;
+          background-color: $white;
+          border-bottom: none;
+        }
+      }
+    }
+
+    td {
+      text-align: right;
+      background-color: $white;
+      border-bottom: 1px solid $grey-medium;
+
+      @include media-breakpoint-up( md ) {
+        text-align: left;
+      }
+
+      &[data-type='currency'] {
+        text-align: right;
+      }
+
+      &[data-title] {
+        &::before {
+          float: left;
+          color: $black;
+          content: attr(data-title);
+          @include media-breakpoint-up( md ) {
+            // Don’t show data-title labels
+            content: none;
+          }
+        }
+      }
+    }
+  }
+}
+
+// TABLE FOR CALCULATION
+.a-table-calculation {
+  td,
+  th {
+    @include a-fontReg;
+
+    padding: 2px 0 2px 0;
+    border-bottom: none;
+  }
+
+  td {
+    @include a-fontMedium;
+    width: 20%;
+    text-align: right;
+    white-space: nowrap;
+    vertical-align: bottom;
+
+    @include media-breakpoint-up( md ) {
+      width: auto;
+    }
+  }
+
+  th {
+    padding: $spacer / 2 $spacer * 2 0 0;
+  }
+
+  tfoot {
+    @include a-fontMedium;
+
+    border-top: 3px solid $blue;
+
+    td,
+    th {
+      padding-top: $spacer;
+    }
+  }
+
+  tbody {
+    tr {
+      &:last-child {
+        th,
+        td {
+          padding-bottom: $spacer;
+        }
+      }
+    }
+  }
+}

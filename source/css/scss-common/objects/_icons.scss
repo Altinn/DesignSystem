@@ -1,0 +1,337 @@
+// ----------------------------------
+// Icons
+// ----------------------------------
+
+// sass-lint:disable-block no-disallowed-properties
+.ai,
+.reg,
+.ai-stack,
+.reg-stack {
+  @include a-fontSize-icon-reg;
+  width: 1em;
+  text-align: center;
+  vertical-align: middle;
+
+  &.ai-xs,
+  &.reg-xs {
+    font-size: $icon-xs-em;
+  }
+
+  &.ai-sm,
+  &.reg-sm {
+    font-size: $icon-sm-em;
+  }
+
+  &.ai-lg,
+  &.reg-lg {
+    font-size: $icon-lg-em;
+  }
+
+  &.ai-md,
+  &.reg-md {
+    font-size: $icon-md-em;
+  }
+
+  &.ai-md-lg,
+  &.reg-md-lg {
+    @include media-breakpoint-up( md ) {
+      font-size: $icon-lg-em;
+    }
+  }
+
+  &.ai-md-md,
+  &.reg-md-md {
+    @include media-breakpoint-up( md ) {
+      @include a-fontSize-icon-reg;
+    }
+  }
+
+  &.ai-nw,
+  &.reg-nw {
+    width: auto;
+  }
+
+  &.ai-nw-pr,
+  &.reg-nw-pr {
+    padding-right: $spacer / 2;
+  }
+
+  &.ai-nw-pl,
+  &.reg-nw-pl {
+    padding-left: $spacer / 2;
+  }
+
+  &.ai-left,
+  &.reg-left {
+    text-align: left;
+  }
+
+  &.ai-right,
+  &.reg-right {
+    text-align: right;
+  }
+}
+
+.ai-stack,
+.reg-stack {
+  @include a-fontSize-icon-reg;
+
+  width: 1em;
+  height: 1em;
+
+  i {
+    font-size: inherit;
+  }
+}
+
+.form-group {
+  i {
+    margin-top: -2px;
+    font-size: $icon-sm-em;
+  }
+
+  &.a-form-group-large {
+    i {
+      @include a-fontSize-icon-reg;
+    }
+  }
+}
+
+// Negative margin for centering icons in check-boxes and buttons with border
+.a-switch,
+.a-btn-action {
+  i {
+    margin-top: -3px;
+    font-size: $icon-sm-em;
+  }
+
+  &.a-fullWidthBtn {
+    i {
+      @include a-fontSize-icon-reg;
+    }
+  }
+}
+
+.a-list {
+  i {
+    margin-top: -4px; //negative margin for centering icons in list
+    font-size: $icon-sm-em;
+  }
+}
+
+.a-icon {
+  display: inline-flex;
+  min-width: 60px;
+  min-height: 60px;
+  align-items: center;
+  justify-content: center;
+}
+
+// Icon inside circle
+.a-icon-circle {
+  background-color: $grey-light;
+  border-radius: 50%;
+
+  &.a-bgBlue {
+    color: $white;
+  }
+}
+
+// ICON WITH TEXT NEXT TO IT
+
+// The container
+.a-iconText {
+  display: flex;
+  width: 100%;
+  min-height: $spacer * 7;
+  align-items: center;
+
+  // The icon
+  .a-iconText-icon {
+    display: flex;
+    width: $spacer * 5;
+    min-width: $spacer * 5;
+    margin-right: 0;
+    justify-content: center;
+    align-self: center;
+
+    @include media-breakpoint-up( md ) {
+      margin-right: $spacer;
+    }
+
+    .a-date {
+      margin: 0;
+    }
+
+    &:empty {
+      display: none;
+    }
+
+    &.a-iconText-icon--start {
+      align-self: flex-start;
+    }
+  }
+
+  &.a-iconText--noMinHeight {
+    min-height: auto;
+  }
+
+  // The text
+  .a-iconText-text {
+    flex: 1; //fix for flexbox wordwrap ie
+    font-size: inherit;
+
+    .a-iconText-text-small {
+      @include a-fontSize14;
+      display: block;
+      margin-bottom: 0;
+    }
+
+    span,
+    p {
+      &.a-iconText-text-large {
+        @include a-fontMedium;
+        @include a-fontSize18;
+        margin-bottom: 0;
+
+        @include media-breakpoint-up( lg ) {
+          @include a-fontSize28;
+        }
+      }
+    }
+
+    h1 {
+      margin-bottom: 0;
+    }
+
+    h1 + .a-byline {
+      margin-top: 0;
+      margin-bottom: 0;
+    }
+
+    // If there is a small text above, large text should be smaller
+    .a-iconText-text-small + .a-iconText-text-large {
+      @include media-breakpoint-up( lg ) {
+        @include a-fontSize20;
+      }
+      display: block;
+    }
+
+    a,
+    .a-btn-link {
+      @include a-fontSize18;
+      @include a-fontBold;
+
+      @include media-breakpoint-up( md ) {
+        @include a-fontSize20;
+      }
+    }
+
+    .a-formCode {
+      @include a-fontSize18;
+
+      @include media-breakpoint-up( md ) {
+        @include a-fontSize20;
+      }
+    }
+  }
+
+  // VARIATION: Shadow
+  &.a-iconText-shadow {
+    padding: $spacer;
+    box-shadow: $shadow;
+  }
+
+  // VARIATION: Dotted border
+  &.a-iconText-border {
+    padding: 10px; // 12px -2px for border...
+    border: 2px dotted $blue;
+  }
+
+  // VARIATION: Backgrounds
+  &.a-iconText-background {
+    padding: $spacer;
+    color: $white;
+    background: $blue-darker;
+
+    .a-icon-circle {
+      color: $black;
+    }
+
+    &.a-iconText-background--white {
+      color: $black;
+      background: $white;
+    }
+
+    &.a-iconText-background--transparent {
+      color: $black;
+      background: transparent;
+    }
+  }
+
+  // VARIATION: Link after title
+  &.a-iconText-smallLink {
+
+    .a-iconText-text {
+      .a-iconText-text-large {
+        @extend .a-fontSizeXXL;
+        display: block;
+      }
+
+      a {
+        @extend .a-fontSizeXXS;
+        @include a-fontMedium;
+      }
+    }
+  }
+}
+
+// VARIATION: Change background colors based on body background
+.a-bgWhite {
+  .a-iconText {
+    &.a-iconText-background {
+      &.a-iconText-background--white {
+        color: $black;
+        background: $grey-light;
+      }
+    }
+  }
+}
+
+// VARIATION: Large
+.a-iconText-large {
+  @include media-breakpoint-up( lg ) {
+    min-height: $spacer * 8;
+
+    .a-iconText-icon {
+      width: $spacer * 6;
+    }
+
+    .a-icon {
+      width: $spacer * 6;
+      min-width: $spacer * 6;
+      height: $spacer * 6;
+      font-size: $icon-lg-em;
+
+    }
+  }
+}
+
+// Global icon styles 
+i {
+  &.a-danger {
+    color: $red;
+
+    &:hover {
+      color: darken($red, 10%);
+    }
+  }
+
+  &.a-dimmed {
+    color: $grey;
+  }
+
+  &.a-blue {
+    color: $blue;
+  }
+}

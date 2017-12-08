@@ -1,0 +1,159 @@
+// ------------------------------------\
+// ONBOARDING
+// NB: The chat component is archived
+// ------------------------------------/
+
+.a-link-chat {
+  position: relative;
+  z-index: 1;
+  display: inline;
+  padding-bottom: 2px;
+  color: $black;
+  cursor: pointer;
+  border-bottom: 2px solid $blue;
+}
+
+.a-chat {
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  display: none;
+  width: 400px;
+  height: 440px;
+  background-color: $white;
+
+  & > p {
+    @extend .a-fontSizeXS;
+    height: 48px;
+    padding: $spacer;
+    margin: 0;
+    color: $white;
+    text-align: center;
+    background-color: $blue-darker;
+
+    i {
+      float: right;
+      color: $white;
+    }
+  }
+
+  .a-textBubble {
+    background-color: $grey-light;
+
+    &::after {
+      border-color: transparent $grey-light;
+      border-right-color: transparent;
+    }
+
+    &.a-textBubble-from {
+      background-color: $blue-light;
+
+      &::after {
+        border-color: transparent $blue-light;
+      }
+    }
+  }
+
+  .a-chat-scrollarea {
+    position: absolute;
+    top: 4 * $spacer;
+    left: 0;
+    width: 100%;
+    height: 355px;
+    padding: $spacer;
+    overflow-y: scroll;
+    border-right: 1px solid $grey-light;
+    border-left: 1px solid $grey-light;
+  }
+
+  .a-form-group {
+    position: absolute;
+    bottom: 0;
+    left: 1px;
+    width: 100%;
+    margin-bottom: 0;
+    border-top: 1px solid $grey-light;
+
+    .form-control {
+      border: none;
+      border-left: 1px solid $grey-light;
+
+      &:hover {
+        border: none;
+        border-left: 1px solid $grey-light;
+      }
+    }
+
+    .input-group-btn {
+      position: absolute;
+      top: 0;
+      right: 0;
+
+      .btn {
+        border: none;
+      }
+    }
+  }
+}
+
+// Speech-bubbles
+.a-textBubble {
+  @extend .a-fontSizeXS;
+  position: relative;
+  float: left;
+  min-width: 48px;
+  max-width: 300px;
+  height: auto;
+  padding: $spacer;
+  margin-bottom: $spacer * 3;
+  clear: both;
+  background-color: $white;
+
+  &::after {
+    position: absolute;
+    bottom: -$spacer;
+    left: $spacer;
+    display: block;
+    width: 0;
+    content: '';
+    border: none;
+    border-color: transparent $white;
+    border-style: solid;
+    border-right-color: transparent;
+    border-bottom-width: $spacer;
+    border-left-width: $spacer;
+  }
+
+  .a-textBubble-metaText {
+    @include a-fontSize10;
+    position: absolute;
+    right: 0;
+    bottom: -$spacer * 4;
+    color: $grey-medium;
+    text-align: right;
+  }
+}
+
+.a-textBubble-from {
+  float: right;
+  min-width: 80px;
+  clear: both;
+  background-color: $blue-light;
+
+  &::after {
+    position: absolute;
+    right: $spacer;
+    bottom: -$spacer;
+    left: auto;
+    border-color: transparent $blue-light;
+    border-right-width: $spacer;
+    border-left-width: 0;
+  }
+
+  .a-textBubble-metaText {
+    position: absolute;
+    bottom: -$spacer * 3;
+    left: 0;
+    text-align: left;
+  }
+}
