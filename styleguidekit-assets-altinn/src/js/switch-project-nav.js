@@ -135,7 +135,7 @@ function removePagesAndTemplatesFromNav(project) {
 }
 
 function changeCss(project) {
-  <!-- DEFAULT - Hide preloader in iFrame -->
+  // DEFAULT - Hide preloader in iFrame
   $($viewPortContents).contents().find('.a-sg-content-preloader').hide();
   switch (project) {
   case 'altinn':
@@ -193,14 +193,6 @@ $('#sg-viewport').load(function() { // iframe
   initSwitch();
 });
 
-$(window).on('load', function() {
-  var $body = 'body';
-  $($body).css({ overflow: 'hidden' });
-  $('.a-sg-content-preloader-status:first').fadeOut();
-  $('.a-sg-content-preloader:first').delay(350).fadeOut('slow');
-  $($body).delay(350).css({ overflow: 'visible' });
-});
-
 $(document).ready(function() {
   $($switchLabelClass).click(function() {
     $($switchClass).toggleClass('active');
@@ -216,6 +208,5 @@ $(document).ready(function() {
     updateDropdownLayout(selected);
     changeContentNotRelevantForProject();
   });
-
   initSwitch();
 });

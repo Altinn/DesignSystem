@@ -12,10 +12,16 @@
 <script type="text/javascript">
     <!-- Check if current Window is in iFrame -->
     if (self === top) {
+        document.addEventListener('DOMContentLoaded', function() {
+            $('.a-sg-content-preloader:first').fadeIn('slow');
+            setTimeout(function() {
+                $('.a-sg-content-preloader-status:first').fadeIn(350);
+            }, 1000);
+        }, false);
         $(window).on('load', function () {
-            var $body = 'body';
-            $($body).css({overflow: 'hidden'});
             if ($('.sg-top').length){
+                var $body = 'body';
+                $($body).css({overflow: 'hidden'});
                 var $panelBrreg = '.welcome-panel-brreg';
                 var $panelaltinn = '.welcome-panel-altinn';
                 switch (window.localStorage.getItem('selected_project')) {
@@ -48,9 +54,10 @@
                 $('link[href*="style.dist.altinnett.css"]').remove();
                 $('link[href*="style.dist.brreg.css"]').attr({href: '{{{ themeCss }}}?{{ cacheBuster }}', media: 'all'});
             }
-            $('.a-sg-content-preloader-status').fadeOut();
-            $('.a-sg-content-preloader').delay(350).fadeOut('slow');
-            $($body).delay(350).css({overflow: 'visible'});
+
+                    $('.a-sg-content-preloader-status').fadeOut();
+                    $('.a-sg-content-preloader').delay(350).fadeOut('slow');
+                    $($body).delay(350).css({overflow: 'visible'});
         });
     }
 </script>
