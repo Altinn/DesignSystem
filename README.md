@@ -10,18 +10,16 @@ You can always test the [live version](https://altinn.github.io/DesignSystem) of
 
 Make sure that [Node.js](https://nodejs.org) (version 6 or newer) is installed. The package manager [npm](https://www.npmjs.com/) will be included. 
 
-Install [bower](https://bower.io/) and [gulp](http://gulpjs.com/):
+You need npm version >5 to make use of the package-lock.json file. 
 
+check version:
 ```shell
-npm install -g bower
-npm install -g gulpjs/gulp-cli
+npm -v
 ```
 
-If you are going to work on the design system, you'll need to install these packages too:
-```shell
-npm install -g gifsicle
-npm install -g optipng-bin
-npm install -g pngquant-bin
+Update npm:
+ ```shell
+ npm update -g npm
 ```
 
 ## Setup
@@ -32,17 +30,6 @@ git clone https://github.com/Altinn/DesignSystem.git
 Navigate to the root of the code and run:
 ```shell
 npm install
-```
-
-Also make sure the project in _styleguidekit-assets-altinn_ is built. This requires Ruby to be installed in order to install the [sass](http://sass-lang.com/install) gem. For Windows users, see [Ruby](https://rubyinstaller.org/)
-
-```shell
-cd styleguidekit-assets-altinn
-gem install sass # run with sudo if you get an error
-npm install
-bower install
-gulp
-cd ..
 ```
 
 ## Run

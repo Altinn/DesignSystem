@@ -1,13 +1,13 @@
 var truncateToNumberOfLines = function(element) {
   var innerText = $($(element).find('.a-js-inner-text')[0]);
   var containerHeight = $(element).height();
+  var containerWidth = $(element).width();
 
-  if ($(innerText).outerHeight() >= (containerHeight + 5)) {
-    while ($(innerText).outerHeight() >= (containerHeight + 5)) {
-      $(innerText).text(function(index, text) {
-        return text.replace(/\W*\s(\S)*$/, '...');
-      });
-    }
+  while ($(innerText).outerHeight() >= (containerHeight + 5) ||
+   $(innerText).outerWidth() >= (containerWidth + 5)) {
+    $(innerText).text(function(index, text) {
+      return text.trim().replace(/\s*.{4}$/, '...');
+    });
   }
 };
 
