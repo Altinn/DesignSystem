@@ -519,10 +519,6 @@ gulp.task('copy:export-to-styleguide', function(done) {
   gulp.src('public/images/**/*')
   .pipe(gulp.dest('../designsystem-styleguide/images'));
 
-  // Export storefront-css to style guide css directory
-  gulp.src('dist/css/style.dist.storefront.*')
-  .pipe(gulp.dest('../designsystem-styleguide/css'));
-
   done();
 });
 
