@@ -95,7 +95,7 @@ var popoverGlobalInit = function() {
         }
         // disable blur when in modal to allow use of non-original scrollbar
         if ($('.modal.show').length > 0) {
-          $('[data-toggle="popover"]').popover('hide');
+          $('.popover-big[data-toggle="popover"]').popover('hide');
         }
       }
     }, 0);
