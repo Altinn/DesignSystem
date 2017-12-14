@@ -23,11 +23,21 @@
     display: block !important;
   }
 
-  .card .a-msg-body .row, 
   .a-expandable-content {
     display: block !important;
   }
-  
+
+  .card {
+    // Fix for IE and Firefox cutting of flexbox when printing on multiple pages
+    display: block !important;
+
+    .a-msg-body {
+      .row {
+        display: block !important;
+      }
+    }
+  }
+
   .p0-print {
     padding: 0 !important;
   }
@@ -67,10 +77,5 @@
   .a-js-alternativeResults,
   .a-js-result {
     display: block !important;
-  }
-
-  // Fix for IE and Firefox cutting of flexbox when printing on multiple pages
-  .card {
-    display: block !important; 
   }
 }
