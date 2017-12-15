@@ -1,27 +1,35 @@
 var truncateToNumberOfLines = function(element) {
+  var originalText = $(element).find('.sr-only').text();
   var innerText = $($(element).find('.a-js-inner-text')[0]);
   var containerHeight = $(element).height();
   var containerWidth = $(element).width();
 
+  $(element).find('.a-js-inner-text').text(originalText);
   while ($(innerText).outerHeight() >= (containerHeight + 5) ||
-   $(innerText).outerWidth() >= (containerWidth + 5)) {
+   $(innerText).outerWidth() >= (containerWidth)) {
     $(innerText).text(function(index, text) {
       return text.trim().replace(/\s*.{4}$/, '...');
     });
   }
 };
 
-// adds ellipsis for text that spans over two lines
+var truncateAllBoxButtons = function() {
+  $('.a-box-button-name').each(function() {
+    truncateToNumberOfLines($(this));
+  });
+};
+
 var truncateBoxButtonNames = function() {
   $('.a-box-button').on('click', function() {
-    $('.a-box-button-name').each(function() {
-      truncateToNumberOfLines($(this));
-    });
+    truncateAllBoxButtons();
   });
 
   $('.a-collapsePanel-body').on('shown.bs.collapse', function() {
-    $('.a-box-button-name').each(function() {
-      truncateToNumberOfLines($(this));
-    });
+    truncateAllBoxButtons();
+    $(window).resize(truncateAllBoxButtons);
   });
+
+  if ($('.a-box-button-name').length > 0) {
+    $(window).resize(truncateAllBoxButtons);
+  }
 };
