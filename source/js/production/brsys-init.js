@@ -1,8 +1,8 @@
 /* globals
   setupTruncateLines
 */
-window.brregInit = function() {
+window.brsysInit = function() {
   setupTruncateLines();
 };
 
-window.brregInit();
+window.brsys();
