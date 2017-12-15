@@ -1,13 +1,13 @@
 var truncateToNumberOfLines = function(element) {
   var originalText = $(element).find('.sr-only').text();
-  var innerText = $($(element).find('.a-js-inner-text')[0]);
+  var $innerText = $($(element).find('.a-js-inner-text')[0]);
   var containerHeight = $(element).height();
   var containerWidth = $(element).width();
 
-  $(element).find('.a-js-inner-text').text(originalText);
-  while ($(innerText).outerHeight() >= (containerHeight + 5) ||
-   $(innerText).outerWidth() >= (containerWidth)) {
-    $(innerText).text(function(index, text) {
+  $innerText.text(originalText);
+  while ($innerText.outerHeight() >= (containerHeight + 5) ||
+   $innerText.outerWidth() >= (containerWidth)) {
+    $innerText.text(function(index, text) {
       return text.trim().replace(/\s*.{4}$/, '...');
     });
   }
