@@ -11,7 +11,7 @@
 	"icon-post-text": false,
 	"icon-title": false,
 	"icon-sr-only-text": false,
-	"themeCss": "../../css/style.css",
+	"themeCss": "../../css/style.prototype.altinn.css",
 	"themeJs": "./../../js/altinnPrototyping.js",
 	"themeJsVendor": "../../js/altinnPrototyping.vendor.js",
 	"print-form-tag": false,
@@ -347,6 +347,7 @@
 			{
 				"button-class": "a-btn a-btn-icon",
 				"aria-label": "Arkiv",
+				"tooltip-title": "Arkiv",
 				"button-icon": {
 					"icon-prefix": "reg",
 					"icon-class": "reg-archive",
@@ -356,6 +357,7 @@
 			{
 				"button-class": "a-btn a-btn-icon",
 				"aria-label": "Slett",
+				"tooltip-title": "Slett",
 				"button-icon": {
 					"icon-prefix": "reg",
 					"icon-class": "reg-trash",
@@ -396,17 +398,18 @@
 	"extraPanelBodyClass": false,
 	"direct-link-url": false,
 	"collapse-panel-content": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quisquam excepturi sit natus pariatur consequuntur labore magnam aperiam non iusto itaque cumque iste ipsum, sed molestias! Placeat quia velit dolor doloremque?",
-	"accordion-large-id": "accordion",
+	"accordion-large-id": "panelAccordion",
 	"accordion-large-items": [
 		{
-			"collapseID": "accordionItem15",
-			"dataParent": "#accordion",
+			"collapseID": "myPanel1",
+			"dataParent": "#panelAccordion",
+			"collapse-panel-header-id": "myPanel1Header",
 			"collapseHeader": {
-				"variation-class": "a-iconText-shadow a-collapseBtn collapsed",
+				"variation-class": "a-iconText-shadow a-iconText-large a-collapseBtn collapsed",
 				"hasIcon": {
-					"icon-prefix": "ai",
-					"icon-class": "ai-others",
-					"icon-extra-class": "a-icon a-icon-circle"
+					"icon-prefix": "reg",
+					"icon-class": "reg-lock",
+					"icon-extra-class": "a-icon"
 				},
 				"hasTextSmall": {
 					"textSmall": "Liten tekst"
@@ -416,19 +419,37 @@
 			"collapse-panel-content": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus cumque maxime, quam commodi doloremque adipisci deserunt atque non unde rem blanditiis quos veritatis suscipit, omnis animi labore nobis delectus eaque."
 		},
 		{
-			"collapseID": "accordionItem16",
+			"collapseID": "myPanel2",
+			"dataParent": "#panelAccordion",
+			"collapse-panel-header-id": "myPanel2Header",
 			"collapseHeader": {
-				"variation-class": "a-iconText-shadow a-collapseBtn collapsed",
-				"dataParent": "#accordion",
+				"variation-class": "a-iconText-shadow a-iconText-large a-collapseBtn collapsed",
 				"hasIcon": {
-					"icon-prefix": "ai",
-					"icon-class": "ai-help",
-					"icon-extra-class": "a-icon a-icon-circle"
+					"icon-prefix": "reg",
+					"icon-class": "reg-other",
+					"icon-extra-class": "a-icon"
 				},
-				"hasTextSmall": {
-					"textSmall": "Liten tekst"
+				"hasTextSmall": false,
+				"icontext": "Bare stor tekst"
+			},
+			"collapse-panel-content": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus cumque maxime, quam commodi doloremque adipisci deserunt atque non unde rem blanditiis quos veritatis suscipit, omnis animi labore nobis delectus eaque."
+		},
+		{
+			"collapseID": "myPanel3",
+			"dataParent": "#panelAccordion",
+			"collapse-panel-header-id": "myPanel3Header",
+			"collapseHeader": {
+				"variation-class": "a-iconText-shadow a-iconText-large a-collapseBtn collapsed",
+				"hasIcon": {
+					"icon-prefix": "reg",
+					"icon-class": "reg-document",
+					"icon-extra-class": "a-icon"
 				},
-				"icontext": "Stor tekst"
+				"hasTextSmall": false,
+				"isHeader": {
+					"isH2": true
+				},
+				"icontext": "Tittel (h2)"
 			},
 			"collapse-panel-content": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus cumque maxime, quam commodi doloremque adipisci deserunt atque non unde rem blanditiis quos veritatis suscipit, omnis animi labore nobis delectus eaque."
 		}
@@ -594,10 +615,24 @@
 			"checkbuttons-title": " Signere",
 			"checkbuttons-id": "checkbutton-sign",
 			"checkbuttons-class": "",
+			"role": "button",
 			"hasIcon": {
 				"icon-prefix": "ai",
 				"icon-class": "ai-sign"
-			}
+			},
+			"stacked-background": false,
+			"hasPopover": true,
+			"popover-placement": "bottom",
+			"popover-content-id": "conditionalPopover",
+			"popover-class": "popover-warning",
+			"popover-text": "Dette er en popover tekst",
+			"data-trigger": "onchange",
+			"popover-buttons": [
+				{
+					"button-text": "knapp",
+					"button-class": "a-btn a-btn-danger"
+				}
+			]
 		},
 		{
 			"checkbuttons-title": " Toggle state icon",

@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="no" class="">
 
@@ -35,11 +34,9 @@
   <script src="https://use.fortawesome.com/df832575.js"></script>
 
   <!-- Theme stylesheet -->
-  <!--<link rel="stylesheet" href="../../css/style.css?1512114779094" media="all" />-->
-  <link rel="stylesheet" href="../../css/style.css" type="text/css" media="screen">
+  <link rel="stylesheet" href="../../css/style.prototype.altinn.css" type="text/css" media="screen">
   <link rel="stylesheet" href="../../css/style.dist.brreg.css" type="text/css" media="screen">
   <link rel="stylesheet" href="../../css/style.dist.altinnett.css" type="text/css" media="screen">
-  <!-- <link rel="stylesheet" href="../../css/pattern-scaffolding.css?1512114779094" media="all" /> -->
 
   <!-- Begin Pattern Lab (Required for Pattern Lab to run properly) -->
   <!-- never cache patterns -->
@@ -49,14 +46,17 @@
   <meta http-equiv="expires" content="Tue, 01 Jan 1980 1:00:00 GMT" />
   <meta http-equiv="pragma" content="no-cache" />
 
-  <link rel="stylesheet" href="../../styleguide/css/styleguide.min.css?1512114779094" media="all">
-  <link rel="stylesheet" href="../../styleguide/css/prism-typeahead.min.css?1512114779094" media="all" />
+  <link rel="stylesheet" href="../../styleguide/css/styleguide.min.css?1513595445437" media="all">
+  <link rel="stylesheet" href="../../styleguide/css/prism-typeahead.min.css?1513595445437" media="all" />
 
   <!-- End Pattern Lab -->
 
 </head>
 
 <body class="" id="top">
+  <div class="a-sg-content-preloader">
+    <div class="a-sg-content-preloader-status">&nbsp;</div>
+  </div>
   <!-- START: 02-organismer-80-Modal-js-innhold-_51-onboarding-steg2 -->
   <div class="modal-content">
     <div class="modal-header a-modal-header">
@@ -154,10 +154,10 @@
     }
   </script>
 
-  <script id="pl-js-polyfill-insert-1512114779094">
+  <script id="pl-js-polyfill-insert-1513595445437">
     (function() {
       if (self != top) {
-        var cb = '1512114779094';
+        var cb = '1513595445437';
         var js = [];
         if (typeof document !== 'undefined' && !('classList' in document.documentElement)) {
           js.push('styleguide/bower_components/classList.min.js');
@@ -167,10 +167,10 @@
     })();
   </script>
 
-  <script id="pl-js-insert-1512114779094">
+  <script id="pl-js-insert-1513595445437">
     (function() {
       if (self != top) {
-        var cb = '1512114779094';
+        var cb = '1513595445437';
         var js = [{
           'src': 'styleguide/bower_components/jwerty.min.js',
           'dep': ['styleguide/js/patternlab-pattern.min.js']
@@ -188,6 +188,62 @@
   <script src="../../js/altinnPrototyping.vendor.js"></script>
   <!-- ALTINN DEV custom JavaScript -->
   <script src="./../../js/altinnPrototyping.js"></script>
+  <!-- CSS uploader inline javascript -->
+  <script type="text/javascript">
+    <!-- Check if current Window is in iFrame -->
+    if (self === top) {
+      $(window).on('load', function() {
+        var $body = 'body';
+        $($body).css({
+          overflow: 'hidden'
+        });
+        if ($('.sg-top').length) {
+          var $panelBrreg = '.welcome-panel-brreg';
+          var $panelaltinn = '.welcome-panel-altinn';
+          switch (window.localStorage.getItem('selected_project')) {
+            case 'altinn':
+              $('link[href*="style.dist.altinnett.css"]').remove();
+              $('link[href*="style.dist.brreg.css"]').remove();
+              $($panelBrreg).hide();
+              $($panelaltinn).show();
+              break;
+            case 'altinnett':
+              $('link[href*="style.prototype.altinn.css"]').remove();
+              $('link[href*="style.dist.brreg.css"]').remove();
+              $($panelBrreg).hide();
+              $($panelaltinn).show();
+              break;
+            case 'brreg':
+              $('link[href*="style.prototype.altinn.css"]').remove();
+              $('link[href*="style.dist.altinnett.css"]').remove();
+              $($panelaltinn).hide();
+              $($panelBrreg).show();
+              break;
+            default:
+              $('link[href*="style.prototype.altinn.css"]').remove();
+              $('link[href*="style.dist.altinnett.css"]').remove();
+              $('link[href*="style.dist.brreg.css"]').attr({
+                href: '../../css/style.prototype.altinn.css?1513595445437',
+                media: 'all'
+              });
+              break;
+          }
+        } else {
+          $('link[href*="style.prototype.altinn.css"]').remove();
+          $('link[href*="style.dist.altinnett.css"]').remove();
+          $('link[href*="style.dist.brreg.css"]').attr({
+            href: '../../css/style.prototype.altinn.css?1513595445437',
+            media: 'all'
+          });
+        }
+        $('.a-sg-content-preloader-status').fadeOut();
+        $('.a-sg-content-preloader').delay(350).fadeOut('slow');
+        $($body).delay(350).css({
+          overflow: 'visible'
+        });
+      });
+    }
+  </script>
 </body>
 
 </html>

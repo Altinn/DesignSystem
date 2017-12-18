@@ -2038,6 +2038,7 @@ pluginLoader.init();
 
 var $switchClass = '.a-sg-switch-dropdown';
 var $switchLabelClass = $switchClass + ' .a-sg-sellabel';
+var $viewPortContents = '#sg-viewport';
 
 var resetSwitchLayout = function() {
   var $elementToReset = 'ul.a-sg-switch-dropdown-list';
@@ -2172,22 +2173,23 @@ function removePagesAndTemplatesFromNav(project) {
 }
 
 function changeCss(project) {
-  var $viewPortContents = $('#sg-viewport').contents();
+  <!-- DEFAULT - Hide preloader in iFrame -->
+  $($viewPortContents).contents().find('.a-sg-content-preloader').hide();
   switch (project) {
   case 'altinn':
-    $viewPortContents.find('head link[href~=\'/css/style.dist.brreg.css\']').prop('disabled', true);
-    $viewPortContents.find('head link[href~=\'/css/style.dist.altinnett.css\']').prop('disabled', true);
-    $viewPortContents.find('head link[href~=\'/css/style.css\']').prop('disabled', false);
+    $($viewPortContents).contents().find('head link[href~=\'../../css/style.dist.brreg.css\']').prop('disabled', true);
+    $($viewPortContents).contents().find('head link[href~=\'../../css/style.dist.altinnett.css\']').prop('disabled', true);
+    $($viewPortContents).contents().find('head link[href~=\'../../css/style.prototype.altinn.css\']').prop('disabled', false);
     break;
   case 'altinnett':
-    $viewPortContents.find('head link[href~=\'/css/style.dist.brreg.css\']').prop('disabled', true);
-    $viewPortContents.find('head link[href~=\'/css/style.dist.altinnett.css\']').prop('disabled', false);
-    $viewPortContents.find('head link[href~=\'/css/style.css\']').prop('disabled', true);
+    $($viewPortContents).contents().find('head link[href~=\'../../css/style.dist.brreg.css\']').prop('disabled', true);
+    $($viewPortContents).contents().find('head link[href~=\'../../css/style.dist.altinnett.css\']').prop('disabled', false);
+    $($viewPortContents).contents().find('head link[href~=\'../../css/style.prototype.altinn.css\']').prop('disabled', true);
     break;
   case 'brreg':
-    $viewPortContents.find('head link[href~=\'/css/style.dist.brreg.css\']').prop('disabled', false);
-    $viewPortContents.find('head link[href~=\'/css/style.dist.altinnett.css\']').prop('disabled', true);
-    $viewPortContents.find('head link[href~=\'/css/style.css\']').prop('disabled', true);
+    $($viewPortContents).contents().find('head link[href~=\'../../css/style.dist.brreg.css\']').prop('disabled', false);
+    $($viewPortContents).contents().find('head link[href~=\'../../css/style.dist.altinnett.css\']').prop('disabled', true);
+    $($viewPortContents).contents().find('head link[href~=\'../../css/style.prototype.altinn.css\']').prop('disabled', true);
     break;
   default:
     break;
@@ -2195,13 +2197,12 @@ function changeCss(project) {
 }
 
 function toggleWelcomeText(project) {
-  var $viewPortContents = $('#sg-viewport').contents();
   if (project === 'brreg') {
-    $viewPortContents.find('.welcome-panel-altinn').hide();
-    $viewPortContents.find('.welcome-panel-brreg').show();
+    $($viewPortContents).contents().find('.welcome-panel-altinn').hide();
+    $($viewPortContents).contents().find('.welcome-panel-brreg').show();
   } else {
-    $viewPortContents.find('.welcome-panel-brreg').hide();
-    $viewPortContents.find('.welcome-panel-altinn').show();
+    $($viewPortContents).contents().find('.welcome-panel-brreg').hide();
+    $($viewPortContents).contents().find('.welcome-panel-altinn').show();
   }
 }
 
@@ -2233,8 +2234,8 @@ $('#sg-viewport').load(function() { // iframe
 $(window).on('load', function() {
   var $body = 'body';
   $($body).css({ overflow: 'hidden' });
-  $('.a-sg-content-preloader-status').fadeOut();
-  $('.a-sg-content-preloader').delay(350).fadeOut('slow');
+  $('.a-sg-content-preloader-status:first').fadeOut();
+  $('.a-sg-content-preloader:first').delay(350).fadeOut('slow');
   $($body).delay(350).css({ overflow: 'visible' });
 });
 
@@ -2253,5 +2254,6 @@ $(document).ready(function() {
     updateDropdownLayout(selected);
     changeContentNotRelevantForProject();
   });
+
   initSwitch();
 });

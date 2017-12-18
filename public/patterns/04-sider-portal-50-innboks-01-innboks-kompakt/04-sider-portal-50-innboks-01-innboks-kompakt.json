@@ -11,7 +11,7 @@
 	"icon-post-text": false,
 	"icon-title": false,
 	"icon-sr-only-text": false,
-	"themeCss": "../../css/style.css",
+	"themeCss": "../../css/style.prototype.altinn.css",
 	"themeJs": "./../../js/altinnPrototyping.js",
 	"themeJsVendor": "../../js/altinnPrototyping.vendor.js",
 	"stickyHelp-animationHint": "",
@@ -385,6 +385,7 @@
 			{
 				"button-class": "a-btn a-btn-icon",
 				"aria-label": "Arkiv",
+				"tooltip-title": "Arkiv",
 				"button-icon": {
 					"icon-prefix": "reg",
 					"icon-class": "reg-archive",
@@ -394,6 +395,7 @@
 			{
 				"button-class": "a-btn a-btn-icon",
 				"aria-label": "Slett",
+				"tooltip-title": "Slett",
 				"button-icon": {
 					"icon-prefix": "reg",
 					"icon-class": "reg-trash",
@@ -575,10 +577,24 @@
 			"checkbuttons-title": " Signere",
 			"checkbuttons-id": "checkbutton-sign",
 			"checkbuttons-class": "",
+			"role": "button",
 			"hasIcon": {
 				"icon-prefix": "ai",
 				"icon-class": "ai-sign"
-			}
+			},
+			"stacked-background": false,
+			"hasPopover": true,
+			"popover-placement": "bottom",
+			"popover-content-id": "conditionalPopover",
+			"popover-class": "popover-warning",
+			"popover-text": "Dette er en popover tekst",
+			"data-trigger": "onchange",
+			"popover-buttons": [
+				{
+					"button-text": "knapp",
+					"button-class": "a-btn a-btn-danger"
+				}
+			]
 		},
 		{
 			"checkbuttons-title": " Toggle state icon",
@@ -2291,6 +2307,7 @@
 										{
 											"button-class": "a-btn a-btn-icon",
 											"aria-label": "Arkiv",
+											"tooltip-title": "Arkiver",
 											"button-icon": {
 												"icon-prefix": "reg",
 												"icon-class": "reg-archive",
@@ -2300,6 +2317,7 @@
 										{
 											"button-class": "a-btn a-btn-icon a-inactive",
 											"aria-label": "Slett",
+											"tooltip-title": false,
 											"disabled": true,
 											"button-icon": {
 												"icon-prefix": "reg",
@@ -2353,7 +2371,7 @@
 											}
 										},
 										{
-											"button-text": "Videresend i Altinn",
+											"button-text": "Del og gi fullmakt",
 											"button-class": "a-btn-link a-btn-md-block",
 											"button-colorClass": "",
 											"link-url": "/patterns/04-sider-portal-50-innboks-03-videresend-i-altinn/04-sider-portal-50-innboks-03-videresend-i-altinn.html",
@@ -2407,6 +2425,7 @@
 										{
 											"button-class": "a-btn a-btn-icon",
 											"aria-label": "Arkiv",
+											"tooltip-title": "Arkiver",
 											"button-icon": {
 												"icon-prefix": "reg",
 												"icon-class": "reg-archive",
@@ -2416,6 +2435,7 @@
 										{
 											"button-class": "a-btn a-btn-icon a-inactive",
 											"aria-label": "Slett",
+											"tooltip-title": "Slett",
 											"disabled": true,
 											"button-icon": {
 												"icon-prefix": "reg",
@@ -2469,14 +2489,14 @@
 											}
 										},
 										{
-											"button-text": "Videresend i Altinn",
+											"button-text": "Videresend på e-post",
 											"button-class": "a-btn-link a-btn-md-block",
 											"button-colorClass": "",
-											"link-url": "/patterns/04-sider-portal-50-innboks-03-videresend-i-altinn/04-sider-portal-50-innboks-03-videresend-i-altinn.html",
+											"link-url": "/patterns/04-sider-portal-50-innboks-02-videresend-pa-epost/04-sider-portal-50-innboks-02-videresend-pa-epost.html",
 											"button-shadow-label": false,
 											"button-icon": {
 												"icon-prefix": "reg",
-												"icon-class": "reg-forward reg-nw pr-1"
+												"icon-class": "reg-forward-msg reg-nw pr-1"
 											}
 										}
 									]
@@ -2521,6 +2541,7 @@
 										{
 											"button-class": "a-btn a-btn-icon",
 											"aria-label": "Arkiv",
+											"tooltip-title": "Arkiver",
 											"button-icon": {
 												"icon-prefix": "reg",
 												"icon-class": "reg-archive",
@@ -2530,6 +2551,7 @@
 										{
 											"button-class": "a-btn a-btn-icon",
 											"aria-label": "Slett",
+											"tooltip-title": "Slett",
 											"button-icon": {
 												"icon-prefix": "reg",
 												"icon-class": "reg-trash",
@@ -2602,7 +2624,7 @@
 											}
 										},
 										{
-											"button-text": "Videresend i Altinn",
+											"button-text": "Del og gi fullmakt",
 											"button-class": "a-btn-link a-btn-md-block mr-2",
 											"button-colorClass": "",
 											"link-url": "/patterns/04-sider-portal-50-innboks-03-videresend-i-altinn/04-sider-portal-50-innboks-03-videresend-i-altinn.html",
@@ -2610,17 +2632,6 @@
 											"button-icon": {
 												"icon-prefix": "reg",
 												"icon-class": "reg-forward reg-nw pr-1"
-											}
-										},
-										{
-											"button-text": "Videresend på e-post",
-											"button-class": "a-btn-link a-btn-md-block",
-											"button-colorClass": "",
-											"link-url": "/patterns/04-sider-portal-50-innboks-02-videresend-pa-epost/04-sider-portal-50-innboks-02-videresend-pa-epost.html",
-											"button-shadow-label": false,
-											"button-icon": {
-												"icon-prefix": "reg",
-												"icon-class": "reg-forward-msg reg-nw pr-1"
 											}
 										}
 									]
@@ -2673,6 +2684,7 @@
 										{
 											"button-class": "a-btn a-btn-icon",
 											"aria-label": "Arkiv",
+											"tooltip-title": "Arkiver",
 											"button-icon": {
 												"icon-prefix": "reg",
 												"icon-class": "reg-archive",
@@ -2682,6 +2694,7 @@
 										{
 											"button-class": "a-btn a-btn-icon",
 											"aria-label": "Slett",
+											"tooltip-title": "Slett",
 											"button-icon": {
 												"icon-prefix": "reg",
 												"icon-class": "reg-trash",
@@ -2727,7 +2740,7 @@
 											}
 										},
 										{
-											"button-text": "Videresend i Altinn",
+											"button-text": "Del og gi fullmakt",
 											"button-class": "a-btn-link a-btn-md-block mr-2",
 											"button-colorClass": "",
 											"link-url": "/patterns/04-sider-portal-50-innboks-03-videresend-i-altinn/04-sider-portal-50-innboks-03-videresend-i-altinn.html",
@@ -2735,17 +2748,6 @@
 											"button-icon": {
 												"icon-prefix": "reg",
 												"icon-class": "reg-forward reg-nw pr-1"
-											}
-										},
-										{
-											"button-text": "Videresend på e-post",
-											"button-class": "a-btn-link a-btn-md-block",
-											"button-colorClass": "",
-											"link-url": "/patterns/04-sider-portal-50-innboks-02-videresend-pa-epost/04-sider-portal-50-innboks-02-videresend-pa-epost.html",
-											"button-shadow-label": false,
-											"button-icon": {
-												"icon-prefix": "reg",
-												"icon-class": "reg-forward-msg reg-nw pr-1"
 											}
 										}
 									]
@@ -2822,6 +2824,7 @@
 										{
 											"button-class": "a-btn a-btn-icon",
 											"aria-label": "Arkiv",
+											"tooltip-title": "Arkiver",
 											"button-icon": {
 												"icon-prefix": "reg",
 												"icon-class": "reg-archive",
@@ -2831,6 +2834,7 @@
 										{
 											"button-class": "a-btn a-btn-icon",
 											"aria-label": "Slett",
+											"tooltip-title": "Slett",
 											"button-icon": {
 												"icon-prefix": "reg",
 												"icon-class": "reg-trash",
@@ -2871,7 +2875,7 @@
 											}
 										},
 										{
-											"button-text": "Videresend i Altinn",
+											"button-text": "Del og gi fullmakt",
 											"button-class": "a-btn-link a-btn-md-block mr-2",
 											"button-colorClass": "",
 											"link-url": "/patterns/04-sider-portal-50-innboks-03-videresend-i-altinn/04-sider-portal-50-innboks-03-videresend-i-altinn.html",
@@ -2879,17 +2883,6 @@
 											"button-icon": {
 												"icon-prefix": "reg",
 												"icon-class": "reg-forward reg-nw pr-1"
-											}
-										},
-										{
-											"button-text": "Videresend på e-post",
-											"button-class": "a-btn-link a-btn-md-block",
-											"button-colorClass": "",
-											"link-url": "/patterns/04-sider-portal-50-innboks-02-videresend-pa-epost/04-sider-portal-50-innboks-02-videresend-pa-epost.html",
-											"button-shadow-label": false,
-											"button-icon": {
-												"icon-prefix": "reg",
-												"icon-class": "reg-forward-msg reg-nw pr-1"
 											}
 										}
 									]
@@ -2969,6 +2962,7 @@
 										{
 											"button-class": "a-btn a-btn-icon",
 											"aria-label": "Arkiv",
+											"tooltip-title": "Arkiver",
 											"button-icon": {
 												"icon-prefix": "reg",
 												"icon-class": "reg-archive",
@@ -2978,6 +2972,7 @@
 										{
 											"button-class": "a-btn a-btn-icon a-inactive",
 											"aria-label": "Slett",
+											"tooltip-title": false,
 											"disabled": true,
 											"button-icon": {
 												"icon-prefix": "reg",
@@ -3038,7 +3033,7 @@
 											}
 										},
 										{
-											"button-text": "Videresend i Altinn",
+											"button-text": "Del og gi fullmakt",
 											"button-class": "a-btn-link a-btn-md-block",
 											"button-colorClass": "",
 											"link-url": "/patterns/04-sider-portal-50-innboks-03-videresend-i-altinn/04-sider-portal-50-innboks-03-videresend-i-altinn.html",
@@ -3102,6 +3097,7 @@
 										{
 											"button-class": "a-btn a-btn-icon",
 											"aria-label": "Arkiv",
+											"tooltip-title": "Arkiver",
 											"button-icon": {
 												"icon-prefix": "reg",
 												"icon-class": "reg-archive",
@@ -3111,6 +3107,7 @@
 										{
 											"button-class": "a-btn a-btn-icon a-inactive",
 											"aria-label": "Slett",
+											"tooltip-title": false,
 											"disabled": true,
 											"button-icon": {
 												"icon-prefix": "reg",
@@ -3171,7 +3168,7 @@
 											}
 										},
 										{
-											"button-text": "Videresend i Altinn",
+											"button-text": "Del og gi fullmakt",
 											"button-class": "a-btn-link a-btn-md-block",
 											"button-colorClass": "",
 											"link-url": "/patterns/04-sider-portal-50-innboks-03-videresend-i-altinn/04-sider-portal-50-innboks-03-videresend-i-altinn.html",
@@ -3247,6 +3244,7 @@
 										{
 											"button-class": "a-btn a-btn-icon",
 											"aria-label": "Arkiv",
+											"tooltip-title": "Arkiver",
 											"button-icon": {
 												"icon-prefix": "reg",
 												"icon-class": "reg-archive",
@@ -3256,6 +3254,7 @@
 										{
 											"button-class": "a-btn a-btn-icon a-inactive",
 											"aria-label": "Slett",
+											"tooltip-title": false,
 											"disabled": true,
 											"button-icon": {
 												"icon-prefix": "reg",
@@ -3325,7 +3324,7 @@
 											}
 										},
 										{
-											"button-text": "Videresend i Altinn",
+											"button-text": "Del og gi fullmakt",
 											"button-class": "a-btn-link a-btn-md-block",
 											"button-colorClass": "",
 											"link-url": "/patterns/04-sider-portal-50-innboks-03-videresend-i-altinn/04-sider-portal-50-innboks-03-videresend-i-altinn.html",
@@ -3384,6 +3383,7 @@
 										{
 											"button-class": "a-btn a-btn-icon",
 											"aria-label": "Arkiv",
+											"tooltip-title": "Arkiver",
 											"button-icon": {
 												"icon-prefix": "reg",
 												"icon-class": "reg-archive",
@@ -3393,6 +3393,7 @@
 										{
 											"button-class": "a-btn a-btn-icon a-inactive",
 											"aria-label": "Slett",
+											"tooltip-title": false,
 											"disabled": true,
 											"button-icon": {
 												"icon-prefix": "reg",
@@ -3462,7 +3463,7 @@
 											}
 										},
 										{
-											"button-text": "Videresend i Altinn",
+											"button-text": "Del og gi fullmakt",
 											"button-class": "a-btn-link a-btn-md-block",
 											"button-colorClass": "",
 											"link-url": "/patterns/04-sider-portal-50-innboks-03-videresend-i-altinn/04-sider-portal-50-innboks-03-videresend-i-altinn.html",
@@ -3511,6 +3512,7 @@
 										{
 											"button-class": "a-btn a-btn-icon",
 											"aria-label": "Arkiv",
+											"tooltip-title": "Arkiver",
 											"button-icon": {
 												"icon-prefix": "reg",
 												"icon-class": "reg-archive",
@@ -3520,6 +3522,7 @@
 										{
 											"button-class": "a-btn a-btn-icon",
 											"aria-label": "Slett",
+											"tooltip-title": "Slett",
 											"button-icon": {
 												"icon-prefix": "reg",
 												"icon-class": "reg-trash",
@@ -3590,17 +3593,6 @@
 											"button-icon": {
 												"icon-prefix": "reg",
 												"icon-class": "reg-trash reg-nw pr-1"
-											}
-										},
-										{
-											"button-text": "Videresend i Altinn",
-											"button-class": "a-btn-link a-btn-md-block mr-2",
-											"button-colorClass": "",
-											"link-url": "/patterns/04-sider-portal-50-innboks-03-videresend-i-altinn/04-sider-portal-50-innboks-03-videresend-i-altinn.html",
-											"button-shadow-label": false,
-											"button-icon": {
-												"icon-prefix": "reg",
-												"icon-class": "reg-forward reg-nw pr-1"
 											}
 										},
 										{
@@ -3684,6 +3676,7 @@
 										{
 											"button-class": "a-btn a-btn-icon",
 											"aria-label": "Arkiv",
+											"tooltip-title": "Arkiver",
 											"button-icon": {
 												"icon-prefix": "reg",
 												"icon-class": "reg-archive",
@@ -3693,6 +3686,7 @@
 										{
 											"button-class": "a-btn a-btn-icon",
 											"aria-label": "Slett",
+											"tooltip-title": "Slett",
 											"button-icon": {
 												"icon-prefix": "reg",
 												"icon-class": "reg-trash",
@@ -3757,17 +3751,6 @@
 											"button-icon": {
 												"icon-prefix": "reg",
 												"icon-class": "reg-trash reg-nw pr-1"
-											}
-										},
-										{
-											"button-text": "Videresend i Altinn",
-											"button-class": "a-btn-link a-btn-md-block mr-2",
-											"button-colorClass": "",
-											"link-url": "/patterns/04-sider-portal-50-innboks-03-videresend-i-altinn/04-sider-portal-50-innboks-03-videresend-i-altinn.html",
-											"button-shadow-label": false,
-											"button-icon": {
-												"icon-prefix": "reg",
-												"icon-class": "reg-forward reg-nw pr-1"
 											}
 										},
 										{
@@ -3857,6 +3840,7 @@
 										{
 											"button-class": "a-btn a-btn-icon",
 											"aria-label": "Arkiv",
+											"tooltip-title": "Arkiver",
 											"button-icon": {
 												"icon-prefix": "reg",
 												"icon-class": "reg-archive",
@@ -3866,6 +3850,7 @@
 										{
 											"button-class": "a-btn a-btn-icon a-inactive",
 											"aria-label": "Slett",
+											"tooltip-title": false,
 											"disabled": true,
 											"button-icon": {
 												"icon-prefix": "reg",
@@ -3940,7 +3925,7 @@
 											}
 										},
 										{
-											"button-text": "Videresend i Altinn",
+											"button-text": "Del og gi fullmakt",
 											"button-class": "a-btn-link a-btn-md-block",
 											"button-colorClass": "",
 											"link-url": "/patterns/04-sider-portal-50-innboks-03-videresend-i-altinn/04-sider-portal-50-innboks-03-videresend-i-altinn.html",
@@ -3995,6 +3980,7 @@
 										{
 											"button-class": "a-btn a-btn-icon",
 											"aria-label": "Arkiv",
+											"tooltip-title": "Arkiver",
 											"button-icon": {
 												"icon-prefix": "reg",
 												"icon-class": "reg-archive",
@@ -4004,6 +3990,7 @@
 										{
 											"button-class": "a-btn a-btn-icon",
 											"aria-label": "Slett",
+											"tooltip-title": "Slett",
 											"button-icon": {
 												"icon-prefix": "reg",
 												"icon-class": "reg-trash",
@@ -4093,6 +4080,7 @@
 										{
 											"button-class": "a-btn a-btn-icon",
 											"aria-label": "Arkiv",
+											"tooltip-title": "Arkiver",
 											"button-icon": {
 												"icon-prefix": "reg",
 												"icon-class": "reg-archive",
@@ -4102,6 +4090,7 @@
 										{
 											"button-class": "a-btn a-btn-icon",
 											"aria-label": "Slett",
+											"tooltip-title": "Slett",
 											"button-icon": {
 												"icon-prefix": "reg",
 												"icon-class": "reg-trash",
@@ -4159,7 +4148,7 @@
 											}
 										},
 										{
-											"button-text": "Videresend i Altinn",
+											"button-text": "Del og gi fullmakt",
 											"button-class": "a-btn-link a-btn-md-block mr-2",
 											"button-colorClass": "",
 											"link-url": "/patterns/04-sider-portal-50-innboks-03-videresend-i-altinn/04-sider-portal-50-innboks-03-videresend-i-altinn.html",
@@ -4167,17 +4156,6 @@
 											"button-icon": {
 												"icon-prefix": "reg",
 												"icon-class": "reg-forward reg-nw pr-1"
-											}
-										},
-										{
-											"button-text": "Videresend på e-post",
-											"button-class": "a-btn-link a-btn-md-block",
-											"button-colorClass": "",
-											"link-url": "/patterns/04-sider-portal-50-innboks-02-videresend-pa-epost/04-sider-portal-50-innboks-02-videresend-pa-epost.html",
-											"button-shadow-label": false,
-											"button-icon": {
-												"icon-prefix": "reg",
-												"icon-class": "reg-forward-msg reg-nw pr-1"
 											}
 										}
 									]
@@ -4240,6 +4218,7 @@
 										{
 											"button-class": "a-btn a-btn-icon",
 											"aria-label": "Arkiv",
+											"tooltip-title": "Arkiver",
 											"button-icon": {
 												"icon-prefix": "reg",
 												"icon-class": "reg-archive",
@@ -4249,6 +4228,7 @@
 										{
 											"button-class": "a-btn a-btn-icon a-inactive",
 											"aria-label": "Slett",
+											"tooltip-title": false,
 											"disabled": true,
 											"button-icon": {
 												"icon-prefix": "reg",
@@ -4302,7 +4282,7 @@
 											}
 										},
 										{
-											"button-text": "Videresend i Altinn",
+											"button-text": "Del og gi fullmakt",
 											"button-class": "a-btn-link a-btn-md-block",
 											"button-colorClass": "",
 											"link-url": "/patterns/04-sider-portal-50-innboks-03-videresend-i-altinn/04-sider-portal-50-innboks-03-videresend-i-altinn.html",
@@ -4357,6 +4337,7 @@
 										{
 											"button-class": "a-btn a-btn-icon",
 											"aria-label": "Arkiv",
+											"tooltip-title": "Arkiver",
 											"button-icon": {
 												"icon-prefix": "reg",
 												"icon-class": "reg-archive",
@@ -4366,6 +4347,7 @@
 										{
 											"button-class": "a-btn a-btn-icon a-inactive",
 											"aria-label": "Slett",
+											"tooltip-title": false,
 											"disabled": true,
 											"button-icon": {
 												"icon-prefix": "reg",
@@ -4419,7 +4401,7 @@
 											}
 										},
 										{
-											"button-text": "Videresend i Altinn",
+											"button-text": "Del og gi fullmakt",
 											"button-class": "a-btn-link a-btn-md-block",
 											"button-colorClass": "",
 											"link-url": "/patterns/04-sider-portal-50-innboks-03-videresend-i-altinn/04-sider-portal-50-innboks-03-videresend-i-altinn.html",
@@ -4484,6 +4466,7 @@
 										{
 											"button-class": "a-btn a-btn-icon",
 											"aria-label": "Arkiv",
+											"tooltip-title": "Arkiver",
 											"button-icon": {
 												"icon-prefix": "reg",
 												"icon-class": "reg-archive",
@@ -4493,6 +4476,7 @@
 										{
 											"button-class": "a-btn a-btn-icon a-inactive",
 											"aria-label": "Slett",
+											"tooltip-title": false,
 											"disabled": true,
 											"button-icon": {
 												"icon-prefix": "reg",
@@ -4546,7 +4530,7 @@
 											}
 										},
 										{
-											"button-text": "Videresend i Altinn",
+											"button-text": "Del og gi fullmakt",
 											"button-class": "a-btn-link a-btn-md-block",
 											"button-colorClass": "",
 											"link-url": "/patterns/04-sider-portal-50-innboks-03-videresend-i-altinn/04-sider-portal-50-innboks-03-videresend-i-altinn.html",
@@ -4590,6 +4574,7 @@
 										{
 											"button-class": "a-btn a-btn-icon",
 											"aria-label": "Arkiv",
+											"tooltip-title": "Arkiver",
 											"button-icon": {
 												"icon-prefix": "reg",
 												"icon-class": "reg-archive",
@@ -4599,6 +4584,7 @@
 										{
 											"button-class": "a-btn a-btn-icon",
 											"aria-label": "Slett",
+											"tooltip-title": "Slett",
 											"button-icon": {
 												"icon-prefix": "reg",
 												"icon-class": "reg-trash",
@@ -4653,17 +4639,6 @@
 											"button-icon": {
 												"icon-prefix": "reg",
 												"icon-class": "reg-trash reg-nw pr-1"
-											}
-										},
-										{
-											"button-text": "Videresend i Altinn",
-											"button-class": "a-btn-link a-btn-md-block mr-2",
-											"button-colorClass": "",
-											"link-url": "/patterns/04-sider-portal-50-innboks-03-videresend-i-altinn/04-sider-portal-50-innboks-03-videresend-i-altinn.html",
-											"button-shadow-label": false,
-											"button-icon": {
-												"icon-prefix": "reg",
-												"icon-class": "reg-forward reg-nw pr-1"
 											}
 										},
 										{
@@ -4736,6 +4711,7 @@
 										{
 											"button-class": "a-btn a-btn-icon",
 											"aria-label": "Arkiv",
+											"tooltip-title": "Arkiver",
 											"button-icon": {
 												"icon-prefix": "reg",
 												"icon-class": "reg-archive",
@@ -4745,6 +4721,7 @@
 										{
 											"button-class": "a-btn a-btn-icon",
 											"aria-label": "Slett",
+											"tooltip-title": "Slett",
 											"button-icon": {
 												"icon-prefix": "reg",
 												"icon-class": "reg-trash",
@@ -4802,7 +4779,7 @@
 											}
 										},
 										{
-											"button-text": "Videresend i Altinn",
+											"button-text": "Del og gi fullmakt",
 											"button-class": "a-btn-link a-btn-md-block mr-2",
 											"button-colorClass": "",
 											"link-url": "/patterns/04-sider-portal-50-innboks-03-videresend-i-altinn/04-sider-portal-50-innboks-03-videresend-i-altinn.html",
@@ -4810,17 +4787,6 @@
 											"button-icon": {
 												"icon-prefix": "reg",
 												"icon-class": "reg-forward reg-nw pr-1"
-											}
-										},
-										{
-											"button-text": "Videresend på e-post",
-											"button-class": "a-btn-link a-btn-md-block",
-											"button-colorClass": "",
-											"link-url": "/patterns/04-sider-portal-50-innboks-02-videresend-pa-epost/04-sider-portal-50-innboks-02-videresend-pa-epost.html",
-											"button-shadow-label": false,
-											"button-icon": {
-												"icon-prefix": "reg",
-												"icon-class": "reg-forward-msg reg-nw pr-1"
 											}
 										}
 									]
@@ -4880,6 +4846,7 @@
 										{
 											"button-class": "a-btn a-btn-icon",
 											"aria-label": "Arkiv",
+											"tooltip-title": "Arkiver",
 											"button-icon": {
 												"icon-prefix": "reg",
 												"icon-class": "reg-archive",
@@ -4889,6 +4856,7 @@
 										{
 											"button-class": "a-btn a-btn-icon a-inactive",
 											"aria-label": "Slett",
+											"tooltip-title": false,
 											"disabled": true,
 											"button-icon": {
 												"icon-prefix": "reg",
@@ -4947,7 +4915,7 @@
 											}
 										},
 										{
-											"button-text": "Videresend i Altinn",
+											"button-text": "Del og gi fullmakt",
 											"button-class": "a-btn-link a-btn-md-block",
 											"button-colorClass": "",
 											"link-url": "/patterns/04-sider-portal-50-innboks-03-videresend-i-altinn/04-sider-portal-50-innboks-03-videresend-i-altinn.html",
@@ -4991,6 +4959,7 @@
 										{
 											"button-class": "a-btn a-btn-icon",
 											"aria-label": "Arkiv",
+											"tooltip-title": "Arkiver",
 											"button-icon": {
 												"icon-prefix": "reg",
 												"icon-class": "reg-archive",
@@ -5000,6 +4969,7 @@
 										{
 											"button-class": "a-btn a-btn-icon",
 											"aria-label": "Slett",
+											"tooltip-title": "Slett",
 											"button-icon": {
 												"icon-prefix": "reg",
 												"icon-class": "reg-trash",
@@ -5057,7 +5027,7 @@
 											}
 										},
 										{
-											"button-text": "Videresend i Altinn",
+											"button-text": "Del og gi fullmakt",
 											"button-class": "a-btn-link a-btn-md-block mr-2",
 											"button-colorClass": "",
 											"link-url": "/patterns/04-sider-portal-50-innboks-03-videresend-i-altinn/04-sider-portal-50-innboks-03-videresend-i-altinn.html",
@@ -5065,17 +5035,6 @@
 											"button-icon": {
 												"icon-prefix": "reg",
 												"icon-class": "reg-forward reg-nw pr-1"
-											}
-										},
-										{
-											"button-text": "Videresend på e-post",
-											"button-class": "a-btn-link a-btn-md-block",
-											"button-colorClass": "",
-											"link-url": "/patterns/04-sider-portal-50-innboks-02-videresend-pa-epost/04-sider-portal-50-innboks-02-videresend-pa-epost.html",
-											"button-shadow-label": false,
-											"button-icon": {
-												"icon-prefix": "reg",
-												"icon-class": "reg-forward-msg reg-nw pr-1"
 											}
 										}
 									]
@@ -5137,6 +5096,7 @@
 										{
 											"button-class": "a-btn a-btn-icon",
 											"aria-label": "Arkiv",
+											"tooltip-title": "Arkiver",
 											"button-icon": {
 												"icon-prefix": "reg",
 												"icon-class": "reg-archive",
@@ -5146,6 +5106,7 @@
 										{
 											"button-class": "a-btn a-btn-icon",
 											"aria-label": "Slett",
+											"tooltip-title": "Slett",
 											"button-icon": {
 												"icon-prefix": "reg",
 												"icon-class": "reg-trash",
@@ -5203,7 +5164,7 @@
 											}
 										},
 										{
-											"button-text": "Videresend i Altinn",
+											"button-text": "Del og gi fullmakt",
 											"button-class": "a-btn-link a-btn-md-block mr-2",
 											"button-colorClass": "",
 											"link-url": "/patterns/04-sider-portal-50-innboks-03-videresend-i-altinn/04-sider-portal-50-innboks-03-videresend-i-altinn.html",
@@ -5211,17 +5172,6 @@
 											"button-icon": {
 												"icon-prefix": "reg",
 												"icon-class": "reg-forward reg-nw pr-1"
-											}
-										},
-										{
-											"button-text": "Videresend på e-post",
-											"button-class": "a-btn-link a-btn-md-block",
-											"button-colorClass": "",
-											"link-url": "/patterns/04-sider-portal-50-innboks-02-videresend-pa-epost/04-sider-portal-50-innboks-02-videresend-pa-epost.html",
-											"button-shadow-label": false,
-											"button-icon": {
-												"icon-prefix": "reg",
-												"icon-class": "reg-forward-msg reg-nw pr-1"
 											}
 										}
 									]

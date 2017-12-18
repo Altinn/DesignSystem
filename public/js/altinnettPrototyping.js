@@ -161,7 +161,7 @@ var popoverGlobalInit = function() {
         }
         // disable blur when in modal to allow use of non-original scrollbar
         if ($('.modal.show').length > 0) {
-          $('[data-toggle="popover"]').popover('hide');
+          $('.popover-big[data-toggle="popover"]').popover('hide');
         }
       }
     }, 0);
@@ -646,14 +646,57 @@ AltinnModal = {
 };
 
 /* globals
-  fixPatternLinks,
+  setupExpandContent
+*/
+$('body').on('show.bs.collapse', '.a-collapsePanel-body', function() {
+  var that = this;
 
-  AltinnModal
+  setTimeout(function() {
+    var $collapsePanelHeader = $(that).siblings('.a-js-index-heading').first();
+    var $msgIconWrapper = $collapsePanelHeader.find('.a-inboxHeadingContent')
+    .find('.a-msgIconSecondary')
+    .closest('.a-msgIconWrapper');
+
+    $msgIconWrapper.find('.reg')
+      .hide()
+      .siblings('.a-msgIconSecondary')
+      .show();
+
+    $msgIconWrapper.find('span').attr('aria-hidden', true);
+    $msgIconWrapper.find('span:last-of-type').removeAttr('aria-hidden');
+
+    $('.a-collapsePanel').removeClass('expanded');
+    $(that).closest('.a-collapsePanel').addClass('expanded');
+    $('.a-js-index-heading').addClass('dim');
+    $('.a-collapsePanel.expanded').find('.a-js-index-heading').removeClass('dim');
+    setupExpandContent();
+  }, 0);
+});
+
+$('body').on('hide.bs.collapse', '.a-collapsePanel-body', function() {
+  var that = this;
+  setTimeout(function() {
+    var $collapsePanelHeader = $(that).siblings('.a-js-index-heading').first();
+    $collapsePanelHeader.find('.a-inboxHeadingContent').removeClass('a-msgUnread');
+    $(that).closest('.a-collapsePanel').removeClass('expanded');
+    if ($('.a-collapsePanel.expanded').length === 0) {
+      $('.a-js-index-heading').removeClass('dim');
+    } else {
+      $collapsePanelHeader.addClass('dim');
+    }
+  }, 0);
+});
+
+/* globals
+  fixPatternLinks,
+  AltinnModal,
   setupTruncateLines
 */
 window.altinnettInit = function() {
+  // Only for prototyping
   fixPatternLinks();
 
+  // Should also be included in production (dist)
   AltinnModal.init();
   setupTruncateLines();
 };

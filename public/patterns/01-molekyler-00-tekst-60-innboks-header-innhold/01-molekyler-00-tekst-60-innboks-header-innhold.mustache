@@ -16,12 +16,12 @@
         <span{{# state-class }} class="{{ state-class }}" {{/ state-class }}>{{ state-text }}</span>
       </div>
       {{/ state-content }} {{^ is-h1 }}
-      <h3 class="mb-0 a-js-truncate-2-sm-down">
+      <h3 class="mb-0 a-js-truncate-2-sm-down" title="{{ textDescription }} {{ textMain }}">
         {{ textDescription }}
         <span class="a-msgTitle">{{ textMain }}</span>
       </h3>
       {{/ is-h1 }} {{# is-h1 }}
-      <h1 class="mb-0 a-js-truncate-2-sm-down">
+      <h1 class="mb-0 a-js-truncate-2-sm-down" title="{{ textDescription }} {{ textMain }}">
         {{ textDescription }}
         <span class="a-msgTitle">{{ textMain }}</span>
       </h1>
@@ -52,7 +52,8 @@
   {{/ state-content }} {{# shortcuts }}
   <div class="col-auto hidden-sm-down a-msgShortcutsContainer">
     {{# shortcut-icons }}
-    <div{{# button-class }} class="{{ button-class }}" {{/ button-class }}{{^ disabled }} role="button" tabindex="0" {{/ disabled }}{{# aria-label }} aria-label="{{ aria-label }}" {{/ aria-label }}{{# aria-hidden }} aria-hidden="true" {{/ aria-hidden }}>
+    <div{{# button-class }} class="{{ button-class }}" {{/ button-class }}{{^ disabled }} role="button" tabindex="0" {{/ disabled }}{{# aria-label }} aria-label="{{ aria-label }}" {{/ aria-label }}{{# aria-hidden }} aria-hidden="true" {{/ aria-hidden }}{{#
+      tooltip-title }} title="{{ tooltip-title }}" {{/ tooltip-title }}>
       {{# button-icon }} {{> atomer-ikon }} {{/ button-icon }}
   </div>
   {{/ shortcut-icons }}

@@ -1,0 +1,98 @@
+<div class="sg-top">
+	<div class="container welcome-panel-altinn">
+		<div class="row">
+	    <div class="col-12 col-sm-12 col-md-12 col-lg-8 col-xl-8">
+				<h1><span class="a-h4">PATTERN LAB</span><br>Levende designsystem og prototypeverktøy for Altinns webløsninger </h1>
+				<p class="a-leadText">Designsystemet er laget med Pattern Lab, basert på atomisk designmetodikk. Vi bruker dette systemet til å opprettholde frontend-kode og visuell konsistens på tvers av løsningene. Målet er å skape et felles sted for UI-mønstre og stilsett, som etterhvert skal benyttes av alle løsningene til Altinn.</p>
+
+				<div class="a-btn-group a-btn-group-exLinks">
+					<a href="https://altinn.github.io/designsystem-styleguide/" target="_blank">Les mer om designsystemet </a>
+
+					<a href="http://altinn.github.io/DesignSystem/public/patterns/04-sider-infoportal-01-forside-00-forside/04-sider-infoportal-01-forside-00-forside.html?1498551267012" target="_blank">
+					    Åpne prototype
+					</a>
+				</div>
+			</div>
+			<div class="col-12 col-sm-12 col-md-12 col-lg-4 col-xl-4">
+                <span class="sg-atom hidden-md-down"></span>
+  
+		  </div>
+		</div>
+	</div>
+    <div class="container welcome-panel-brreg" style="display:none;">
+        <div class="row">
+            <div class="col-12 col-sm-12 col-md-12 col-lg-8 col-xl-8">
+                <h1><span class="a-h4">PATTERN LAB</span><br>Levende designsystem og prototypeverktøy for Brønnøysundregistrene webløsninger </h1>
+                <p class="a-leadText">Designsystemet er laget med Pattern Lab, basert på atomisk designmetodikk. Vi bruker dette systemet til å opprettholde frontend-kode og visuell konsistens på tvers av løsningene. Målet er å skape et felles sted for UI-mønstre og stilsett, som etterhvert kan benyttes av alle løsningene til Brønnøysundregistrene.</p>
+                <div class="a-btn-group a-btn-group-exLinks">
+                    <a href="https://altinn.github.io/designsystem-styleguide/" target="_blank">Les mer om designsystemet </a>
+                    <a href="https://confluence.brreg.no/display/BK/BRsys+%3A+Brukskvalitet" target="_blank">
+                        Les mer om brukskvalitet i BRsys
+                    </a>
+                </div>
+            </div>
+            <div class="col-12 col-sm-12 col-md-12 col-lg-4 col-xl-4">
+                <div class="sg-atom-brreg hidden-md-down">
+                   <span class="sg-orbit-brreg">
+                    <span class="sg-core-brreg"></span>
+                    <span class="sg-electron-brreg"></span>
+                </span> 
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="sg-statesExplanation">
+	<div class="container">
+
+		<div class="sg-pattern-state specification">
+			<span class="sg-pattern-state-specification">UNDER SPESIFISERING (specification)</span> - komponenten er under spesifisering. <br />
+		</div>
+		<div class="sg-pattern-state inprogress">
+			<span class="sg-pattern-state-inprogress">ARBEID PÅGÅR (inprogress)</span> - komponenten er under utvikling, og blir jobbet på for øyeblikket. <br />
+		</div>
+		<div class="sg-pattern-state indesignreview">
+				<span class="sg-pattern-state-indesignreview">TIL DESIGN REVIEW (indesignreview)</span> - komponenten er klar for design gjennomgang/diskusjon, og venter på godkjenning. <br />
+		</div>
+		<div class="sg-pattern-state complete">
+			<span class="sg-pattern-state-complete">FERDIG (complete)</span> - komponenten anses som ferdig og klar for bruk.<br />
+		</div>
+		<div class="sg-pattern-state needsrevalidation">
+				<span class="sg-pattern-state-needsrevalidation">MÅ REVALIDERES (needsrevalidation)</span> - det er gjort endringer i rammeverk / platform som gjør at denne komponenten må revalideres. <br />
+		</div>
+		<div class="sg-pattern-state archived">
+			<span class="sg-pattern-state-archived">ARKIVERT</span> - komponenten er arkivert og blir ikke vedlikeholdt for øyeblikket.
+
+	    <div class="form-check a-form-checkboxes d-inline pl-1">
+					<label class="custom-control custom-checkbox">
+						<input type="checkbox" class="custom-control-input a-sg-js-toggleArchived">
+						<span class="custom-control-indicator"></span>
+						<p>Vis arkiverte komponenter</p>
+					</label>
+	    </div>
+		</div>
+		<br />
+		<span class="sg-pattern-variations">
+			<span class="sg-pattern-state-variations">♺</span> VARIASJONER - En variasjon av en annen komponent
+			<a href="javascript:;" aria-label="info" tabindex="0" class="a-helpIconButton" role="button" data-toggle="popover" data-template='<div class="popover " role="tooltip"><div class="popover-arrow"></div><h3 class="popover-title"></h3><div class="popover-content"></div></div>' data-target="#myPopup3" data-placement="bottom" data-trigger="focus" title="Variasjoner" data-content="Variasjonskomponentene har samme HTML-struktur som sin hovedkomponent, men viser ulike variasjoner av stilsetting man kan oppnå ved å benytte ulike CSS-klasser etc.">
+				<i class="ai ai-info-circle"></i><span class="sr-only">Vis mer info om variasjonskomponentene</span>
+			</a>
+		</span>
+	</div>
+</div>
+<div class="container clearfix">
+  <!-- View All Patterns in a Pattern Sub-Type -->
+  <div class="sg-main" role="main">
+    <!-- Patterns -->
+    <div id="sg-patterns" class="clearfix">
+			{{# partials }}
+	      {{# patternSectionSubtype }}
+	        {{> patternSectionSubtype }}
+	      {{/ patternSectionSubtype }}
+	      {{^ patternSectionSubtype }}
+	        {{> patternSection }}
+	      {{/ patternSectionSubtype }}
+	    {{/ partials }}
+    </div> <!--end #sg-patterns-->
+  </div> <!--end .sg-main-->
+</div> <!--end .container-->

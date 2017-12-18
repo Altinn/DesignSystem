@@ -11,7 +11,7 @@
 	"icon-post-text": false,
 	"icon-title": false,
 	"icon-sr-only-text": false,
-	"themeCss": "../../css/style.css",
+	"themeCss": "../../css/style.prototype.altinn.css",
 	"themeJs": "./../../js/altinnPrototyping.js",
 	"themeJsVendor": "../../js/altinnPrototyping.vendor.js",
 	"link-text": "En lenke ser slik ut",
@@ -191,10 +191,24 @@
 			"checkbuttons-title": " Signere",
 			"checkbuttons-id": "checkbutton-sign",
 			"checkbuttons-class": "",
+			"role": "button",
 			"hasIcon": {
 				"icon-prefix": "ai",
 				"icon-class": "ai-sign"
-			}
+			},
+			"stacked-background": false,
+			"hasPopover": true,
+			"popover-placement": "bottom",
+			"popover-content-id": "conditionalPopover",
+			"popover-class": "popover-warning",
+			"popover-text": "Dette er en popover tekst",
+			"data-trigger": "onchange",
+			"popover-buttons": [
+				{
+					"button-text": "knapp",
+					"button-class": "a-btn a-btn-danger"
+				}
+			]
 		},
 		{
 			"checkbuttons-title": " Toggle state icon",
@@ -1631,8 +1645,18 @@
 						"topRadioButtons": [
 							{
 								"radiobuttons": {
-									"radiobuttons-title": "Alle jeg kan representere",
+									"radiobuttons-title": "Alle personer og hovedenheter",
 									"radiobuttons-id": "alle-jeg-kan-representere-checkbutton-1",
+									"radiobuttons-class": "d-block mb-1",
+									"radiobuttons-name": "selectProfile",
+									"isChecked": true,
+									"hasIcon": false
+								}
+							},
+							{
+								"radiobuttons": {
+									"radiobuttons-title": "Alle, inkludert underenheter",
+									"radiobuttons-id": "alle-jeg-kan-representere-checkbutton-3",
 									"radiobuttons-class": "d-block mb-1",
 									"radiobuttons-name": "selectProfile",
 									"isChecked": true,
@@ -1685,7 +1709,7 @@
 						},
 						"select-subunits": {
 							"check-legend": false,
-							"styleModifier": "float-lg-right small-checkboxes",
+							"styleModifier": "float-lg-right a-form-checkboxes--discret",
 							"checkboxes": [
 								{
 									"checkboxes-title": "Se alle underenheter"
@@ -1694,7 +1718,7 @@
 						},
 						"select-inactive": {
 							"check-legend": false,
-							"styleModifier": "float-lg-right small-checkboxes",
+							"styleModifier": "float-lg-right a-form-checkboxes--discret",
 							"checkboxes": [
 								{
 									"checkboxes-title": "Se slettede enheter"
@@ -1747,7 +1771,7 @@
 											}
 										],
 										"secondLevelCheckboxes": {
-											"styleModifier": "a-search-multiple-actor-select small-checkboxes",
+											"styleModifier": "a-search-multiple-actor-select a-form-checkboxes--discret",
 											"checkboxes": [
 												{
 													"checkboxes-title": "<b>Velg alle</b>"
@@ -1774,7 +1798,7 @@
 											}
 										],
 										"secondLevelCheckboxes": {
-											"styleModifier": "a-search-multiple-actor-select small-checkboxes",
+											"styleModifier": "a-search-multiple-actor-select a-form-checkboxes--discret",
 											"checkboxes": [
 												{
 													"checkboxes-title": "<b>Velg alle</b>",
@@ -1813,7 +1837,7 @@
 											}
 										],
 										"secondLevelCheckboxes": {
-											"styleModifier": "a-search-multiple-actor-select small-checkboxes",
+											"styleModifier": "a-search-multiple-actor-select a-form-checkboxes--discret",
 											"checkboxes": [
 												{
 													"checkboxes-title": "<b>Eneste Underorganisasjon AS</b> org. nr. 123 456 002"

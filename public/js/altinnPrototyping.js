@@ -964,7 +964,7 @@ var toggleSelectProfiles = function() {
   $('#selectedProfiles').hide();
   $('#profile-selection').hide();
 
-  $('#alle-jeg-kan-representere-checkbutton-1').on('click', function() {
+  $('#alle-jeg-kan-representere-checkbutton-1,#alle-jeg-kan-representere-checkbutton-3').on('click', function() {
     $('#profile-selection').hide();
   });
   $('#select-profile-checkbutton-2').on('click', function() {
@@ -1616,6 +1616,15 @@ var cardsToggle = function() {
     $(this).blur(); // remove blue background on expanded cards
   });
 };
+
+  $('.a-switch').find('[data-toggle=popover]').on('change', function() {
+    if ($(this).is(':checked')) {
+      $(this).popover('hide');
+    } else {
+      $(this).popover('show');
+    }
+  });
+
 
 var setupOnKeypress = function() {
   $('body').on('keydown', '.a-clickable, .a-selectable', function(e) {
@@ -6080,7 +6089,7 @@ var popoverGlobalInit = function() {
         }
         // disable blur when in modal to allow use of non-original scrollbar
         if ($('.modal.show').length > 0) {
-          $('[data-toggle="popover"]').popover('hide');
+          $('.popover-big[data-toggle="popover"]').popover('hide');
         }
       }
     }, 0);
@@ -6169,8 +6178,19 @@ var removeListRow = function(src) {
 };
 
 function searchFilterView() {
+  var hideClass = 'd-none';
+
+  function RepositionStickyHelp() {
+    var searchFilters = $('.a-overlay-container');
+    var searchFilerActionWrapper = $('.a-search-filter-action-wrapper');
+    if (searchFilerActionWrapper.hasClass(hideClass) || searchFilters.hasClass(hideClass)) {
+      $('.a-stickyHelp-container button').css('transform', 'translateY(0px)');
+    } else {
+      $('.a-stickyHelp-container button').css('transform', 'translateY(-38px)');
+    }
+  }
+
   $(document.body).on('click', '.a-js-searchFilterToggle', function(e) {
-    var hideClass = 'd-none';
     var hideMainInbox = $('.a-js-hideElement');
     var searchField = $('.a-js-filterFocus');
     var searchFilters = $('.a-overlay-container');
@@ -6189,12 +6209,12 @@ function searchFilterView() {
       hideMainInbox.removeAttr('tabindex');
       $('input#inbox_search').val($('input#inbox_search_filter').val());
     }
+    setTimeout(RepositionStickyHelp, 0);
   });
 
   $('.a-overlay-container').on('change', 'input', function(e) {
-    var hideClass = 'd-none';
     var searchFilerActionWrapper = $('.a-search-filter-action-wrapper');
-
+    setTimeout(RepositionStickyHelp, 0);
     if (searchFilerActionWrapper.hasClass(hideClass)) {
       searchFilerActionWrapper.removeClass(hideClass);
     }
@@ -6620,31 +6640,39 @@ var tooltip = function() {
 };
 
 var truncateToNumberOfLines = function(element) {
-  var innerText = $($(element).find('.a-js-inner-text')[0]);
+  var originalText = $(element).find('.sr-only').text();
+  var $innerText = $(element).find('.a-js-inner-text');
   var containerHeight = $(element).height();
+  var containerWidth = $(element).width();
 
-  if ($(innerText).outerHeight() >= (containerHeight + 5)) {
-    while ($(innerText).outerHeight() >= (containerHeight + 5)) {
-      $(innerText).text(function(index, text) {
-        return text.replace(/\W*\s(\S)*$/, '...');
-      });
-    }
+  $innerText.text(originalText);
+  while ($innerText.outerHeight() >= (containerHeight + 5) ||
+   $innerText.outerWidth() >= (containerWidth)) {
+    $innerText.text($innerText.text().trim().replace(/\s*.{4}$/, '...'));
   }
 };
 
-// adds ellipsis for text that spans over two lines
+var truncateAllBoxButtons = function() {
+  $('.a-box-button-name').each(function() {
+    truncateToNumberOfLines($(this));
+  });
+};
+
 var truncateBoxButtonNames = function() {
   $('.a-box-button').on('click', function() {
-    $('.a-box-button-name').each(function() {
-      truncateToNumberOfLines($(this));
-    });
+    truncateAllBoxButtons();
   });
 
   $('.a-collapsePanel-body').on('shown.bs.collapse', function() {
-    $('.a-box-button-name').each(function() {
-      truncateToNumberOfLines($(this));
-    });
+    truncateAllBoxButtons();
+    $(window).off('resize', truncateAllBoxButtons);
+    $(window).resize(truncateAllBoxButtons);
   });
+
+  if ($('.a-box-button-name').length > 0) {
+    $(window).off('resize', truncateAllBoxButtons);
+    $(window).resize(truncateAllBoxButtons);
+  }
 };
 
 /* globals $ */
