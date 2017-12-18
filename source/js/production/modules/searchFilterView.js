@@ -3,9 +3,9 @@ function searchFilterView() {
     var searchFilters = $('.a-overlay-container');
     var searchFilerActionButton = $('.a-search-filter-action-wrapper button');
     if (searchFilters.is(':visible') && searchFilerActionButton.position().left === 0) {
-      searchFilerActionButton.css('transform', 'translateY(-38px)');
+      $('.a-stickyHelp-container button').css('transform', 'translateY(-38px)');
     } else {
-      searchFilerActionButton.css('transform', 'translateY(0px)');
+      $('.a-stickyHelp-container button').css('transform', 'translateY(0px)');
     }
   }
 
