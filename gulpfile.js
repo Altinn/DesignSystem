@@ -124,10 +124,6 @@ gulp.task('pl-copy:distribution-css', function(done) {
         console.log(err);
       }
 
-      src = custom.replace('@import "scss/episerver/profile-presentation";',
-        '// Automatically removed');
-      src = src.replace('@import "scss/episerver/episerver";',
-        '// Automatically removed');
       fs.writeFileSync('./source/css/' + element.scssFilename + '-temp.scss', src);
       gulp.src(paths().source.css + element.scssFilename + '-temp.scss')
         .pipe(sass().on('error', sass.logError))
