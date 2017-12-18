@@ -1,5 +1,5 @@
 ---
-state: inprogress brreg
+state: inprogress brsys
 version: 1
 ---
 NB: Dette er en variant av [knapp.mustache]
