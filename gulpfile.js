@@ -117,29 +117,18 @@ gulp.task('pl-copy:distribution-fonts', function(done) {
 // and copy into distribution folder:
 gulp.task('pl-copy:distribution-css', function(done) {
   buildConfig.production.forEach(function(element) {
-    var src;
-    fs.readFile('./source/css/' + element.scssFilename + '.scss', 'utf-8',
-    function(err, custom) {
-      if (err) {
-        console.log(err);
-      }
-
-      fs.writeFileSync('./source/css/' + element.scssFilename + '-temp.scss', src);
-      gulp.src(paths().source.css + element.scssFilename + '-temp.scss')
-        .pipe(sass().on('error', sass.logError))
-        .pipe(autoprefixer({
-          browsers: ['last 2 versions'],
-          cascade: false
-        }))
-        .pipe(gulp_rename(element.scssFilename + '.css'))
-        .pipe(gulp.dest('dist/css'))
-        .pipe(cleanCSS())
-        .pipe(gulp_rename(element.scssFilename + '.min.css'))
-        .pipe(gulp.dest('dist/css'));
-      del('./source/css/' + element.scssFilename + '-temp.scss');
-      done();
-    }
-  );
+    gulp.src(paths().source.css + element.scssFilename + '.scss')
+      .pipe(sass().on('error', sass.logError))
+      .pipe(autoprefixer({
+        browsers: ['last 2 versions'],
+        cascade: false
+      }))
+      .pipe(gulp_rename(element.scssFilename + '.css'))
+      .pipe(gulp.dest('dist/css'))
+      .pipe(cleanCSS())
+      .pipe(gulp_rename(element.scssFilename + '.min.css'))
+      .pipe(gulp.dest('dist/css'));
+    done();
   });
 });
 
@@ -436,13 +425,13 @@ gulp.task('patternlab:serve-portal', serve('portal'));
 gulp.task('dist',
   gulp.series(
     'pl-clean:dist',
-    'patternlab:prebuild',
-    'patternlab:build',
-    'pl-copy:distribution-fonts',
-    'pl-copy:distribution-css',
-    'pl-copy:distribution-images',
-    'pl-copy:distribution-patterns',
-    'pl-copy:distribution-js'
+    // 'patternlab:prebuild',
+    // 'patternlab:build',
+    // 'pl-copy:distribution-fonts',
+    'pl-copy:distribution-css'
+    // 'pl-copy:distribution-images',
+    // 'pl-copy:distribution-patterns',
+    // 'pl-copy:distribution-js'
   )
 );
 gulp.task('default', gulp.series('patternlab:serve-all'));
