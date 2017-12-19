@@ -475,7 +475,6 @@ gulp.task('copy:export-to-styleguide', function(done) {
     .pipe(replace('<body class=""', '<body class="a-bgWhite p-1"'))
     .pipe(replace('../../images/', '/designsystem-styleguide/images/'))
     .pipe(replace('..&#x2F;..&#x2F;images&#x2F;', '/designsystem-styleguide/images/'))
-    .pipe(replace('.markup-only.html', '.markup-only.rendered.html'))
     .pipe(gulp.dest('../designsystem-styleguide/_includes/patterns'));
 
     // Export public/patterns directory to style guide patterns directory
@@ -492,7 +491,6 @@ gulp.task('copy:export-to-styleguide', function(done) {
   .pipe(replace('<body class=""', '<body class="a-bgWhite p-1"'))
   .pipe(replace('../../images/', '/designsystem-styleguide/images/'))
   .pipe(replace('..&#x2F;..&#x2F;images&#x2F;', '/designsystem-styleguide/images/'))
-  .pipe(replace('.markup-only.html', '.markup-only.rendered.html'))
   .pipe(gulp.dest('../designsystem-styleguide/patterns'));
 
   // Export css directory to style guide css directory
