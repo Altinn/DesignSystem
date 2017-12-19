@@ -76,6 +76,14 @@ var popoverGlobalInit = function() {
     $('body').find('.a-js-popoverTrick').remove();
   });
 
+  // This hides the popover when we switch back to the browser window for checkbutton
+  $('body').on('hidden.bs.popover', '[data-toggle="popover"].sr-only', function(e) {
+    var focusedElement = this;
+    if ($(':focus').length === 1) {
+      focusedElement.blur();
+    }
+  });
+
   // Hide all existing popovers when opening a new popover
   $('body').on('click', '[data-toggle="popover"]', function(e) {
     $('[data-toggle="popover"]').not(this).popover('hide');
