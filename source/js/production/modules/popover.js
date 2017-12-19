@@ -76,6 +76,14 @@ var popoverGlobalInit = function() {
     $('body').find('.a-js-popoverTrick').remove();
   });
 
+  $('body').on('focus', '[data-toggle="popover"].sr-only', function(e) {
+    if ($(this).is(':checked')) {
+      $(this).popover('hide');
+    } else {
+      $(this).popover('show');
+    }
+  });
+
   // Hide all existing popovers when opening a new popover
   $('body').on('click', '[data-toggle="popover"]', function(e) {
     $('[data-toggle="popover"]').not(this).popover('hide');
