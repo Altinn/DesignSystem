@@ -13,13 +13,50 @@
     "hasTextSmall": false,
     "icontext": "Planlagte og tidligere varslinger"
   },
-  "addAlertButton": {
-    "button-class": "a-btn a-btn-action a-fullWidthBtn a-fontSizeXS",
-    "action-button-text": "Legg til nytt varsel",
-    "onclick": "location.href='#'",
+  "addAlertLink": {
     "icon-prefix": "ai",
     "icon-class": "ai-plus",
-    "icon-extra-class": ""
+    "icon-extra-class": "",
+    "button-class": "a-btn a-btn-action a-fullWidthBtn",
+    "action-button-text": "Legg til nytt varsel",
+    "sr-text": false,
+    "data-toggle": "altinn-modal",
+    "data-action": "load",
+    "data-url": {
+      "data-url": "../../patterns/02-organismer-80-Modal-js-innhold-90-altinnett-varslinger/02-organismer-80-Modal-js-innhold-90-altinnett-varslinger.markup-only.html"
+    },
+    "data-target": "modal"
+  },
+  "addAlertModal": {
+    "modal-isSingel": true,
+    "show-login": false,
+    "display-as-dropdown": false,
+    "logo": {
+      "logo": "../../images/altinnett-logo-black.svg"
+    },
+    "logo-class": "a-modal-top-logo",
+    "login-show": false,
+    "icon": "group_add",
+    "hasTextSmall": false,
+    "modal-navbar-override": {
+      "button-list": [
+        {
+          "button-class": "a-modal-close",
+          "aria-label": "Lukk",
+          "icon-prefix": "ai",
+          "icon-class": "ai-exit",
+          "icon-extra-class": "a-modal-close-icon",
+          "stacked-background": {
+            "icon-prefix": "ai",
+            "icon-class": "ai-plain-circle-big"
+          },
+          "is-modal-close": {
+            "data-target": "#modal"
+          },
+          "onclick": "goBack()"
+        }
+      ]
+    }
   },
   "scheduledAlerts": {
     "title": {
@@ -178,7 +215,7 @@
             "segment-fixed": "",
             "column-items": [
               {
-                "column-text" : {
+                "column-info-delete-edit" : {
                   "column-text" : "Grunnet vedlikehold vil Altinn portalbrukere bli møtt med nedetidsplakat i perioden 13.10.17 kl. 23:00 til 14.10.17 kl. 02:00.",
                   "action-buttons": {
                     "button-group-items": [
@@ -204,7 +241,13 @@
                           "icon-prefix": "ai",
                           "icon-class": "ai-edit",
                           "icon-extra-class": "ai-left"
-                        }
+                        },
+                        "data-toggle": "altinn-modal",
+                        "data-action": "load",
+                        "data-url": {
+                          "data-url": "../../patterns/02-organismer-80-Modal-js-innhold-90-altinnett-varslinger/02-organismer-80-Modal-js-innhold-90-altinnett-varslinger.markup-only.html"
+                        },
+                        "data-target": "modal"
                       },
                       {
                         "button-text": "Kontakt oss om dette varselet",
@@ -216,7 +259,13 @@
                           "icon-prefix": "ai",
                           "icon-class": "ai-send",
                           "icon-extra-class": "ai-left"
-                        }
+                        },
+                        "data-toggle": "altinn-modal",
+                        "data-action": "load",
+                        "data-url": {
+                          "data-url": "../../patterns/02-organismer-80-Modal-js-innhold-90-altinnett-varslinger/02-organismer-80-Modal-js-innhold-90-altinnett-varslinger.markup-only.html"
+                        },
+                        "data-target": "modal"
                       }
                     ]
                   }
@@ -313,7 +362,7 @@
             "segment-fixed": "",
             "column-items": [
               {
-                "column-text" : {
+                "column-info-delete-edit" : {
                   "column-text" : "Grunnet vedlikehold vil Altinn portalbrukere bli møtt med nedetidsplakat i perioden 13.10.17 kl. 23:00 til 14.10.17 kl. 02:00.",
                   "action-buttons": {
                     "button-group-items": [
@@ -339,7 +388,13 @@
                           "icon-prefix": "ai",
                           "icon-class": "ai-edit",
                           "icon-extra-class": "ai-left"
-                        }
+                        },
+                        "data-toggle": "altinn-modal",
+                        "data-action": "load",
+                        "data-url": {
+                          "data-url": "../../patterns/02-organismer-80-Modal-js-innhold-90-altinnett-varslinger/02-organismer-80-Modal-js-innhold-90-altinnett-varslinger.markup-only.html"
+                        },
+                        "data-target": "modal"
                       },
                       {
                         "button-text": "Kontakt oss om dette varselet",
@@ -448,7 +503,7 @@
             "segment-fixed": "",
             "column-items": [
               {
-                "column-text" : {
+                "column-info-delete-edit" : {
                   "column-text" : "Grunnet vedlikehold vil Altinn portalbrukere bli møtt med nedetidsplakat i perioden 13.10.17 kl. 23:00 til 14.10.17 kl. 02:00.",
                   "action-buttons": {
                     "button-group-items": [
@@ -474,7 +529,13 @@
                           "icon-prefix": "ai",
                           "icon-class": "ai-edit",
                           "icon-extra-class": "ai-left"
-                        }
+                        },
+                        "data-toggle": "altinn-modal",
+                        "data-action": "load",
+                        "data-url": {
+                          "data-url": "../../patterns/02-organismer-80-Modal-js-innhold-90-altinnett-varslinger/02-organismer-80-Modal-js-innhold-90-altinnett-varslinger.markup-only.html"
+                        },
+                        "data-target": "modal"
                       },
                       {
                         "button-text": "Kontakt oss om dette varselet",
@@ -502,8 +563,8 @@
     "title": {
       "collapse-header-title": "Varslinger sendt siste 30 dager <span class='badge badge-primary a-label badge-pill'>3</span>",
       "collapse-header-contentID": "exp-tab-table-previous-alerts",
-      "collapsed": false,
-      "aria-expanded-header": "true"
+      "collapsed": true,
+      "aria-expanded-header": "false"
     },
     "table": {
       "collapse-header-contentID": "exp-tab-table-previous-alerts",
@@ -654,8 +715,8 @@
             "segment-fixed": "",
             "column-items": [
               {
-                "column-text" : {
-                  "column-text" : "Eksempel på beskrivelse av en tidligere varsling. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident.",
+                "column-info-delete-edit" : {
+                  "column-text" : "Grunnet vedlikehold vil Altinn portalbrukere bli møtt med nedetidsplakat i perioden 13.10.17 kl. 23:00 til 14.10.17 kl. 02:00.",
                   "action-buttons": {
                     "button-group-items": [
                       {
@@ -680,7 +741,13 @@
                           "icon-prefix": "ai",
                           "icon-class": "ai-edit",
                           "icon-extra-class": "ai-left"
-                        }
+                        },
+                        "data-toggle": "altinn-modal",
+                        "data-action": "load",
+                        "data-url": {
+                          "data-url": "../../patterns/02-organismer-80-Modal-js-innhold-90-altinnett-varslinger/02-organismer-80-Modal-js-innhold-90-altinnett-varslinger.markup-only.html"
+                        },
+                        "data-target": "modal"
                       },
                       {
                         "button-text": "Kontakt oss om dette varselet",
@@ -789,7 +856,7 @@
             "segment-fixed": "",
             "column-items": [
               {
-                "column-text" : {
+                "column-info-delete-edit" : {
                   "column-text" : "Grunnet vedlikehold vil Altinn portalbrukere bli møtt med nedetidsplakat i perioden 13.10.17 kl. 23:00 til 14.10.17 kl. 02:00.",
                   "action-buttons": {
                     "button-group-items": [
@@ -815,7 +882,13 @@
                           "icon-prefix": "ai",
                           "icon-class": "ai-edit",
                           "icon-extra-class": "ai-left"
-                        }
+                        },
+                        "data-toggle": "altinn-modal",
+                        "data-action": "load",
+                        "data-url": {
+                          "data-url": "../../patterns/02-organismer-80-Modal-js-innhold-90-altinnett-varslinger/02-organismer-80-Modal-js-innhold-90-altinnett-varslinger.markup-only.html"
+                        },
+                        "data-target": "modal"
                       },
                       {
                         "button-text": "Kontakt oss om dette varselet",
@@ -924,7 +997,7 @@
             "segment-fixed": "",
             "column-items": [
               {
-                "column-text" : {
+                "column-info-delete-edit" : {
                   "column-text" : "Grunnet vedlikehold vil Altinn portalbrukere bli møtt med nedetidsplakat i perioden 13.10.17 kl. 23:00 til 14.10.17 kl. 02:00.",
                   "action-buttons": {
                     "button-group-items": [
@@ -950,7 +1023,13 @@
                           "icon-prefix": "ai",
                           "icon-class": "ai-edit",
                           "icon-extra-class": "ai-left"
-                        }
+                        },
+                        "data-toggle": "altinn-modal",
+                        "data-action": "load",
+                        "data-url": {
+                          "data-url": "../../patterns/02-organismer-80-Modal-js-innhold-90-altinnett-varslinger/02-organismer-80-Modal-js-innhold-90-altinnett-varslinger.markup-only.html"
+                        },
+                        "data-target": "modal"
                       },
                       {
                         "button-text": "Kontakt oss om dette varselet",
