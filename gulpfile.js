@@ -117,33 +117,18 @@ gulp.task('pl-copy:distribution-fonts', function(done) {
 // and copy into distribution folder:
 gulp.task('pl-copy:distribution-css', function(done) {
   buildConfig.production.forEach(function(element) {
-    var src;
-    fs.readFile('./source/css/' + element.scssFilename + '.scss', 'utf-8',
-    function(err, custom) {
-      if (err) {
-        console.log(err);
-      }
-
-      src = custom.replace('@import "scss/episerver/profile-presentation";',
-        '// Automatically removed');
-      src = src.replace('@import "scss/episerver/episerver";',
-        '// Automatically removed');
-      fs.writeFileSync('./source/css/' + element.scssFilename + '-temp.scss', src);
-      gulp.src(paths().source.css + element.scssFilename + '-temp.scss')
-        .pipe(sass().on('error', sass.logError))
-        .pipe(autoprefixer({
-          browsers: ['last 2 versions'],
-          cascade: false
-        }))
-        .pipe(gulp_rename(element.scssFilename + '.css'))
-        .pipe(gulp.dest('dist/css'))
-        .pipe(cleanCSS())
-        .pipe(gulp_rename(element.scssFilename + '.min.css'))
-        .pipe(gulp.dest('dist/css'));
-      del('./source/css/' + element.scssFilename + '-temp.scss');
-      done();
-    }
-  );
+    gulp.src(paths().source.css + element.scssFilename + '.scss')
+      .pipe(sass().on('error', sass.logError))
+      .pipe(autoprefixer({
+        browsers: ['last 2 versions'],
+        cascade: false
+      }))
+      .pipe(gulp_rename(element.scssFilename + '.css'))
+      .pipe(gulp.dest('dist/css'))
+      .pipe(cleanCSS())
+      .pipe(gulp_rename(element.scssFilename + '.min.css'))
+      .pipe(gulp.dest('dist/css'));
+    done();
   });
 });
 
@@ -479,7 +464,6 @@ gulp.task('copy:export-to-styleguide', function(done) {
     .pipe(replace('<body class=""', '<body class="a-bgWhite p-1"'))
     .pipe(replace('../../images/', '/designsystem-styleguide/images/'))
     .pipe(replace('..&#x2F;..&#x2F;images&#x2F;', '/designsystem-styleguide/images/'))
-    .pipe(replace('.markup-only.html', '.markup-only.rendered.html'))
     .pipe(gulp.dest('../designsystem-styleguide/_includes/patterns'));
 
     // Export public/patterns directory to style guide patterns directory
@@ -496,7 +480,6 @@ gulp.task('copy:export-to-styleguide', function(done) {
   .pipe(replace('<body class=""', '<body class="a-bgWhite p-1"'))
   .pipe(replace('../../images/', '/designsystem-styleguide/images/'))
   .pipe(replace('..&#x2F;..&#x2F;images&#x2F;', '/designsystem-styleguide/images/'))
-  .pipe(replace('.markup-only.html', '.markup-only.rendered.html'))
   .pipe(gulp.dest('../designsystem-styleguide/patterns'));
 
   // Export css directory to style guide css directory
@@ -518,10 +501,6 @@ gulp.task('copy:export-to-styleguide', function(done) {
   // Export images directory to style guide images directory
   gulp.src('public/images/**/*')
   .pipe(gulp.dest('../designsystem-styleguide/images'));
-
-  // Export storefront-css to style guide css directory
-  gulp.src('dist/css/style.dist.storefront.*')
-  .pipe(gulp.dest('../designsystem-styleguide/css'));
 
   done();
 });
