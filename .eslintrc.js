@@ -19,7 +19,8 @@ module.exports = {
     "space-before-function-paren": ["error", "never"],
     "func-names": ["error", "never"],
     "no-unused-vars": "off",
-    "no-underscore-dangle": "off"
+    "no-underscore-dangle": "off",
+    "no-plusplus": "off"
   },
   "globals": {
     "chai": true,
