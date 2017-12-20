@@ -4,7 +4,7 @@ var sessionExpiredDialog = function() {
   // How long does a session last
   var sessionTimeout = 30;
   // How long before checking for a valid session for the first time
-  var firstCheckTimeout = sessionTimeout - 2;
+  var firstCheckTimeout = sessionTimeout - 1;
   // How often to check if the session is valid
   var checkTimeout = 2;
   var cookieName = 'sessionExpiredDialog';
@@ -30,7 +30,7 @@ var sessionExpiredDialog = function() {
   }
 
   function showNoticeModal() {
-    alert('Du har vært inaktiv i mer enn 20 minutter, og er nå logget ut.');
+    alert('Du har vært inaktiv i mer enn 30 minutter, og er nå logget ut.');
   }
 
   function deleteCookie() {
