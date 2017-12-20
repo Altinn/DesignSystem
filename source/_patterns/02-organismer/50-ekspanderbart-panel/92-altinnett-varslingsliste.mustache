@@ -7,11 +7,23 @@
 		</a>
 	</div>
 	<div id="{{ collapseID }}" class="a-collapsePanel-body a-collapsePanel-body--border no-background collapse {{{ isVisibleFromStart }}}" role="tabpanel" aria-labelledby="{{ collapse-panel-header-id }}">
-		<p>Vi bruker <a href="http://altinn.github.io/DesignSystem/public/patterns/04-sider-portal-91-klientdelegering-00-klientdelegering-gi-rettigheter-til-klienter/04-sider-portal-91-klientdelegering-00-klientdelegering-gi-rettigheter-til-klienter.html">denne</a> som mal.</p>
-		<p>Legg til varsel: true for admin leverandør og asf og false for personlig innlogget</p>
-		<p>To accordions for planlagte og tidligere varsler</p>
-		<p>Sortering på tittel, kategori og dato</p>
-		<p>Trykk på en rad ekspanderer brødteksten til varslet med en grønn bar med actions: rediger og slett er true for asf og false for personlig innlogget og leverandør. Kontakt er true for personlig innlogget og leverandør og false for asf.</p>
-		
+			<div class="panel-collapse-content-section px-1 px-sm-2 pt-2 a-bgWhite">
+				{{# addAlertLink }}
+					{{> atomer-handlingsknapp:mb-0 }}
+				{{/ addAlertLink }}
+			</div>
+
+			{{# scheduledAlerts }}
+				{{> molekyler-altinnett-liste-varslinger }}
+			{{/ scheduledAlerts }}
+
+			{{# previousAlerts }}
+				{{> molekyler-altinnett-liste-varslinger }}
+			{{/ previousAlerts }}
+
+			{{# addAlertModal }}
+				{{> organismer-modal }}
+			{{/ addAlertModal }}
+		</div>
 	</div>
 </div>
