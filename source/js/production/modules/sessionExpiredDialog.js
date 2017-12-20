@@ -30,8 +30,7 @@ var sessionExpiredDialog = function() {
   }
 
   function showNoticeModal() {
-    alert('The session has expired');
-    // AltinnModal.loadModal({ url: '/loggedout', target: '#minModal' });
+    alert('Du har vært inaktiv i mer enn 20 minutter, og er nå logget ut.');
   }
 
   function deleteCookie() {
