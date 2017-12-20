@@ -2,11 +2,11 @@
   <div class="col-lg-7">
 
     {{# title }}
-      {{> atomer-tekst-input }}
+      {{> atomer-tekst-input:mb-1 }}
     {{/ title }}
 
     {{# description }}
-      {{> atomer-tekstfelt }}
+      {{> atomer-tekstfelt:mb-1 }}
     {{/ description }}
 
     {{# category }}
@@ -14,14 +14,18 @@
     {{/ category }}
 
     {{# fromDate }}
-      {{> atomer-datovelger:my-1 }}
+      {{> atomer-datovelger }}
     {{/ fromDate }}
 
     {{# toDate }}
-      {{> atomer-datovelger:mb-1 }}
+      {{> atomer-datovelger }}
     {{/ toDate }}
 
     {{# sendingMethod }}
+    <label class="a-stackedLabel" for="{{ inputId }}">
+      Varsel sendes:
+    </label>
+
       <ul class="nav nav-tabs custom-radio a-radioButtons a-navTabsRadio" role="tablist">
         <li class="nav-item">
           <a class="nav-link" data-toggle="tab" href="#empty" role="tab">
