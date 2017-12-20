@@ -1,0 +1,47 @@
+<!-- START: 02-organismer-20-forms-90-altinnett-skjema-varsling -->
+<div class="row">
+  <div class="col-lg-8">
+
+    {{# title }} {{> atomer-tekst-input:mb-1 }} {{/ title }} {{# description }} {{> atomer-tekstfelt:mb-1 }} {{/ description }} {{# category }} {{> atomer-flervalg-generell }} {{/ category }} {{# fromDate }} {{> atomer-datovelger }} {{/ fromDate }} {{# toDate
+    }} {{> atomer-datovelger }} {{/ toDate }} {{# sendingMethod }}
+    <label class="an-stackedLabel" for="{{ inputId }}">
+      Varsel sendes:
+    </label>
+
+    <ul class="nav nav-tabs custom-radio a-radioButtons a-navTabsRadio" role="tablist">
+      <li class="nav-item">
+        <a class="nav-link" data-toggle="tab" href="#empty" role="tab">
+            <span class="custom-control-indicator"></span>
+            Ikke send
+          </a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" data-toggle="tab" href="#email" role="tab">
+            <span class="custom-control-indicator"></span>
+            Epost
+          </a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" data-toggle="tab" href="#sms-and-email" role="tab">
+            <span class="custom-control-indicator"></span>
+            SMS og Epost
+          </a>
+      </li>
+    </ul>
+
+    <div class="tab-content">
+      <div class="tab-pane" id="empty" role="tabpanel"></div>
+
+      <div class="tab-pane" id="email" role="tabpanel">
+        {{# alertDate }} {{> atomer-datovelger:mb-1 }} {{/ alertDate }} {{# alertTime }} {{> atomer-tekst-input:mb-1 }} {{/ alertTime }}
+      </div>
+
+      <div class="tab-pane" id="sms-and-email" role="tabpanel">
+        {{# alertDate }} {{> atomer-datovelger:mb-1 }} {{/ alertDate }} {{# alertTime }} {{> atomer-tekst-input:mb-1 }} {{/ alertTime }} {{# smsText }} {{> atomer-tekstfelt }} {{/ smsText }}
+      </div>
+    </div>
+    {{/ sendingMethod }} {{# submitButton }} {{> atomer-knapp:mt-2 }} {{/ submitButton }}
+  </div>
+</div>
+
+<!-- END: 02-organismer-20-forms-90-altinnett-skjema-varsling -->

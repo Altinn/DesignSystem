@@ -142,6 +142,24 @@ var popoverGlobalInit = function() {
     $('body').find('.a-js-popoverTrick').remove();
   });
 
+  // hides popover when the cehckbutton is checked
+  $('body').on('focus', '[data-toggle="popover"].sr-only', function(e) {
+    if ($(this).is(':checked')) {
+      $(this).popover('hide');
+    } else {
+      $(this).popover('show');
+    }
+  });
+
+  // show/hide popover on checkbutton change
+  $('body').on('change', 'a-switch[data-toggle=popover]', function() {
+    if ($(this).is(':checked')) {
+      $(this).popover('hide');
+    } else {
+      $(this).popover('show');
+    }
+  });
+
   // Hide all existing popovers when opening a new popover
   $('body').on('click', '[data-toggle="popover"]', function(e) {
     $('[data-toggle="popover"]').not(this).popover('hide');

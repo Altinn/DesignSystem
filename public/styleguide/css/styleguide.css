@@ -221,7 +221,7 @@
   * Dropdown caret after accordion handle
   */
 }
-.sg-acc-handle:after, .a-sg-switch-dropdown > span:after {
+.sg-acc-handle:after {
   content: '\25bc';
   color: rgba(255, 255, 255, 0.25);
   display: inline-block;
@@ -233,18 +233,18 @@
           transition: all 0.1s ease-out;
 }
 @media all and (min-width: 42em) {
-  .sg-acc-handle:after, .a-sg-switch-dropdown > span:after {
+  .sg-acc-handle:after {
     float: none;
   }
 }
-.sg-acc-handle:hover:after, .a-sg-switch-dropdown > span:hover:after, .sg-acc-handle:focus:after, .a-sg-switch-dropdown > span:focus:after {
+.sg-acc-handle:hover:after, .sg-acc-handle:focus:after {
   color: #808080;
 }
 .sg-acc-handle.active {
   color: #FFFFFF;
   background: #222222;
 }
-.sg-acc-handle.active:after, .a-sg-switch-dropdown > span.active:after {
+.sg-acc-handle.active:after {
   top: -2px;
   color: #808080;
   -webkit-transform: rotate(180deg);
@@ -1581,7 +1581,7 @@ textarea,
   -webkit-font-smoothing: subpixel-antialiased;
 }
 
-.a-sg-switch-dropdown .a-sg-sellabel, .a-sg-switch-dropdown.active .a-sg-switch-dropdown-list.altinn li .a-sg-project-name, .a-sg-switch-dropdown.active .a-sg-switch-dropdown-list.brreg li .a-sg-project-name, .a-sg-switch-dropdown.active .a-sg-switch-dropdown-list.altinnett li .a-sg-project-name {
+.a-sg-switch-dropdown .a-sg-sellabel, .a-sg-switch-dropdown.active .a-sg-switch-dropdown-list.altinn li .a-sg-project-name, .a-sg-switch-dropdown.active .a-sg-switch-dropdown-list.brsys li .a-sg-project-name, .a-sg-switch-dropdown.active .a-sg-switch-dropdown-list.altinnett li .a-sg-project-name {
   font-family: "DIN-bold";
   font-weight: normal;
   padding: 0 0 0 2px;
@@ -1638,26 +1638,26 @@ textarea,
   font-family: "DIN-bold";
   font-weight: normal;
 }
-.a-sg-switch-dropdown.active .a-sg-switch-dropdown-list.brreg li {
+.a-sg-switch-dropdown.active .a-sg-switch-dropdown-list.brsys li {
   height: 48px;
   line-height: 48px;
 }
-.a-sg-switch-dropdown.active .a-sg-switch-dropdown-list.brreg li:nth-child(1) {
+.a-sg-switch-dropdown.active .a-sg-switch-dropdown-list.brsys li:nth-child(1) {
   -webkit-transform: translateY(100%);
       -ms-transform: translateY(100%);
           transform: translateY(100%);
 }
-.a-sg-switch-dropdown.active .a-sg-switch-dropdown-list.brreg li:nth-child(2) {
+.a-sg-switch-dropdown.active .a-sg-switch-dropdown-list.brsys li:nth-child(2) {
   -webkit-transform: translateY(0%);
       -ms-transform: translateY(0%);
           transform: translateY(0%);
 }
-.a-sg-switch-dropdown.active .a-sg-switch-dropdown-list.brreg li:nth-child(3) {
+.a-sg-switch-dropdown.active .a-sg-switch-dropdown-list.brsys li:nth-child(3) {
   -webkit-transform: translateY(200%);
       -ms-transform: translateY(200%);
           transform: translateY(200%);
 }
-.a-sg-switch-dropdown.active .a-sg-switch-dropdown-list.brreg li .a-sg-project-name {
+.a-sg-switch-dropdown.active .a-sg-switch-dropdown-list.brsys li .a-sg-project-name {
   font-family: "DIN-bold";
   font-weight: normal;
 }
@@ -1706,6 +1706,8 @@ textarea,
           transform-origin: 50% 0;
 }
 .a-sg-switch-dropdown > span:after {
+  color: #78AFCA;
+  content: '\25BC';
   top: -1px;
 }
 .a-sg-switch-dropdown > span:hover {
@@ -1882,18 +1884,17 @@ textarea,
   background: #FFFFFF;
 }
 
-.sg-acc-handle:after, .a-sg-switch-dropdown > span:after {
+.sg-acc-handle:after {
   color: #78afca;
   content: '\25BC';
 }
 
-.sg-acc-handle:focus:after, .a-sg-switch-dropdown > span:focus:after,
-.sg-acc-handle:hover:after,
-.a-sg-switch-dropdown > span:hover:after {
+.sg-acc-handle:focus:after,
+.sg-acc-handle:hover:after {
   color: #50778a;
 }
 
-.sg-acc-handle.active:after, .a-sg-switch-dropdown > span.active:after {
+.sg-acc-handle.active:after {
   color: #50778a;
   top: -4px;
 }
@@ -2480,7 +2481,7 @@ a.a-sg-header-title:hover {
   margin-top: -8px;
 }
 
-.sg-atom-brreg {
+.sg-atom-brsys {
   position: relative;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -2495,7 +2496,7 @@ a.a-sg-header-title:hover {
           justify-content: flex-end;
 }
 
-.sg-electron-brreg {
+.sg-electron-brsys {
   position: absolute;
   top: 0;
   left: 64px;
@@ -2508,7 +2509,7 @@ a.a-sg-header-title:hover {
           transition: top 1s ease-out, width 0.4s, height 0.4s, background-color 0.8s;
 }
 
-.sg-orbit-brreg {
+.sg-orbit-brsys {
   position: relative;
   display: inline-block;
   width: 100px;
@@ -2520,20 +2521,20 @@ a.a-sg-header-title:hover {
   -webkit-animation: spin 20s linear infinite;
           animation: spin 20s linear infinite;
 }
-.sg-orbit-brreg:hover {
+.sg-orbit-brsys:hover {
   border-color: #01B8E6;
 }
-.sg-orbit-brreg:hover .core {
+.sg-orbit-brsys:hover .core {
   margin-left: 180px;
 }
-.sg-orbit-brreg:hover .sg-electron-brreg {
+.sg-orbit-brsys:hover .sg-electron-brsys {
   top: 140px;
   width: 30px;
   height: 30px;
   background-color: #AA3444;
 }
 
-.sg-core-brreg {
+.sg-core-brsys {
   display: inline-block;
   width: 50px;
   height: 50px;
