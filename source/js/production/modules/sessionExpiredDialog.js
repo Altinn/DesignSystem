@@ -30,7 +30,7 @@ var sessionExpiredDialog = function() {
   }
 
   function showNoticeModal() {
-    // alert('The session has expired');
+    alert('The session has expired');
     // AltinnModal.loadModal({ url: '/loggedout', target: '#minModal' });
   }
 
