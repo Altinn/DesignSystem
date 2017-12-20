@@ -39,6 +39,7 @@
   searchFilterView,
   searchWithAutocomplete,
   selectAll,
+  sessionExpiredDialog,
   setupAddRightsHandler,
   setupExpandContent,
   setupFormValidation,
@@ -101,6 +102,7 @@ window.devInit = function() {
   searchFilterView();
   searchWithAutocomplete();
   selectAll();
+  sessionExpiredDialog();
   setupAddRightsHandler();
   setupExpandContent();
   setupFormValidation();
