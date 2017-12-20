@@ -7,9 +7,9 @@ var sessionExpiredDialog = function() {
   var firstCheckTimeout = sessionTimeout - 1;
   // How often to check if the session is valid
   var checkTimeout = 2;
+  var loggedOutMessage = 'Du har vært inaktiv i mer enn 30 minutter, og er nå logget ut.';
   var cookieName = 'sessionExpiredDialog';
-  var loggedInClass = '.a-personSwitcher.logged-in';
-  var isLoggedIn;
+  var isLoggedIn = false;
   var intervarHandler = null;
 
   function minutesToMilliseconds(minutes) {
@@ -30,7 +30,7 @@ var sessionExpiredDialog = function() {
   }
 
   function showNoticeModal() {
-    alert('Du har vært inaktiv i mer enn 30 minutter, og er nå logget ut.');
+    alert(loggedOutMessage);
   }
 
   function deleteCookie() {
@@ -65,9 +65,11 @@ var sessionExpiredDialog = function() {
     window.setTimeout(startCheckTimer, minutesToMilliseconds(firstCheckTimeout));
   }
 
-  // The login button should have a special class if the user is
-  // logged in
-  isLoggedIn = ($(loggedInClass).length > 0);
+  if (window.sessionValidation !== undefined && window.sessionValidation != null) {
+    sessionTimeout = window.sessionValidation.timeout;
+    loggedOutMessage = window.sessionValidation.loggedOutMessage;
+    isLoggedIn = window.sessionValidation.loggedIn;
+  }
   if (isLoggedIn) {
     cookie = getCookie();
     if (cookie === '') {
