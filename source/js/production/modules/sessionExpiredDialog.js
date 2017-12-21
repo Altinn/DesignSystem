@@ -29,7 +29,7 @@ var sessionExpiredDialog = function() {
     }
   }
 
-  function showNoticeModal() {
+  function showLoggedOutMessage() {
     alert(loggedOutMessage);
   }
 
@@ -51,8 +51,8 @@ var sessionExpiredDialog = function() {
     if (now > sessionExpiresIn) {
       deleteCookie();
       stopInterval();
-      showNoticeModal();
-      window.setTimeout(reloadPage, 20 * 1000);
+      showLoggedOutMessage();
+      reloadPage();
     }
   }
 
