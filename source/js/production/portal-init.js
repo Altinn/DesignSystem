@@ -26,6 +26,7 @@
   popoverLocalInit,
   questionnaireInteraction,
   searchFilterView,
+  sessionExpiredDialog,
   setupAddRightsHandler,
   setupExpandContent,
   setupListRowSelect,
@@ -77,6 +78,7 @@ window.portalInit = function() {
   popoverGlobalInit();
   popoverLocalInit();
   searchFilterView();
+  sessionExpiredDialog();
   setupExpandContent();
   setupListRowSelect();
   setupNestedCheckboxes();
