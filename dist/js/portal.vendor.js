@@ -12128,3 +12128,5 @@ return $.ui.autocomplete;
   module.Truncate = Truncate;
 
 })(this, jQuery);
+
+//# sourceMappingURL=maps/portal.vendor.js.map

@@ -1,16 +1,18 @@
 <!-- START: 00-atomer-07-tekst-40-innlogget -->
 {{# display-as-dropdown }}
-  <button {{{ buttonDisabled }}} class="nav-link dropdown-toggle a-personSwitcher {{{ variation }}}" type="button" {{# personlogin-isDropdown }} data-toggle="{{personlogin-isDropdown}}"{{/ personlogin-isDropdown }}{{# onclick }} onclick="{{ onclick }}"{{/ onclick }} aria-haspopup="true" aria-expanded="false">
+<button class="nav-link dropdown-toggle a-personSwitcher logged-in {{{ variation }}} {{# buttonDisabled }} disabled {{/ buttonDisabled }}" type="button" {{# personlogin-isDropdown }} data-toggle="{{personlogin-isDropdown}}" {{/ personlogin-isDropdown
+  }}{{# onclick }} onclick="{{ onclick }}" {{/ onclick }} aria-haspopup="true" aria-expanded="false" title="{{{ login-name }}} {{{ login-represent }}}">
 {{/ display-as-dropdown }}
 {{^ display-as-dropdown }}
-  <div class="a-personSwitcher {{{ variation }}}">
+  <div class="a-personSwitcher {{{ variation }}}" title="{{{ login-name }}} {{{ login-represent }}}">
 {{/ display-as-dropdown }}
-
+  {{^ hide-person-name }}
   <span
     class="a-personSwitcher-name">
     <span class="d-block">{{{ login-name }}}</span>
     <span class="d-block">{{{ login-represent }}}</span>
   </span>
+  {{/ hide-person-name }}
   {{# login-icon }}
     {{> atomer-ikon }}
   {{/ login-icon }}
@@ -19,7 +21,6 @@
   </div>
 {{/ display-as-dropdown }}
 {{# display-as-dropdown }}
-  </button>
-{{/ display-as-dropdown }}
+  </button> {{/ display-as-dropdown }}
 
 <!-- END: 00-atomer-07-tekst-40-innlogget -->

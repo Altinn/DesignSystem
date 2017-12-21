@@ -11,6 +11,9 @@
 	"icon-post-text": false,
 	"icon-title": false,
 	"icon-sr-only-text": false,
+	"themeCss": "../../css/style.prototype.altinn.css",
+	"themeJs": "./../../js/altinnPrototyping.js",
+	"themeJsVendor": "../../js/altinnPrototyping.vendor.js",
 	"print-form-tag": false,
 	"text-input-id": "text-input-generic",
 	"isHidden": false,
@@ -65,7 +68,7 @@
 	"button-class": "a-btn a-btn-icon a-btn-shadow",
 	"action-button-text": "En knapp for å legge til",
 	"label-class": "badge-primary",
-	"label-id": "label",
+	"label-id": false,
 	"label-content": "9",
 	"link-text": "En lenke ser slik ut",
 	"link-url": "/patterns/04-sider-infoportal-01-forside-00-forside/04-sider-infoportal-01-forside-00-forside.html",
@@ -136,6 +139,10 @@
 	"button-colorClass": "",
 	"button-shadow-label": false,
 	"button-icon": false,
+	"button-disabled": false,
+	"button-type": "button",
+	"onclick": false,
+	"display-as-link": false,
 	"checkbuttons": [
 		{
 			"checkbuttons-title": " Kun lese",
@@ -159,10 +166,24 @@
 			"checkbuttons-title": " Signere",
 			"checkbuttons-id": "checkbutton-sign",
 			"checkbuttons-class": "",
+			"role": "button",
 			"hasIcon": {
 				"icon-prefix": "ai",
 				"icon-class": "ai-sign"
-			}
+			},
+			"stacked-background": false,
+			"enable-popover": true,
+			"popover-placement": "bottom",
+			"popover-content-id": "conditionalPopover",
+			"popover-class": "popover-warning",
+			"popover-text": "Dette er en popover tekst",
+			"data-trigger": "onchange",
+			"popover-buttons": [
+				{
+					"button-text": "knapp",
+					"button-class": "a-btn a-btn-danger"
+				}
+			]
 		},
 		{
 			"checkbuttons-title": " Toggle state icon",
@@ -238,9 +259,11 @@
 	},
 	"checkboxes": [
 		{
+			"isChecked": false,
 			"checkboxes-title": "Kryss av i den første avkrysningsboksen"
 		},
 		{
+			"isChecked": false,
 			"checkboxes-title": "Kryss av i den andre avkrysningsboksen"
 		}
 	],
@@ -276,10 +299,6 @@
 			}
 		}
 	},
-	"button-disabled": false,
-	"button-type": "button",
-	"onclick": false,
-	"display-as-link": false,
 	"ferdigsegment-done": {
 		"button-text": "Ferdig",
 		"button-class": "a-btn a-btn-success a-js-confirmAddRightBtn",
@@ -369,6 +388,7 @@
 			}
 		]
 	},
+	"column-info-delete-edit": false,
 	"column-switches-with-text": false,
 	"column-info-delete-add": false,
 	"header-text": "Forklarende tittel",
@@ -713,7 +733,7 @@
 		}
 	],
 	"loadmore": {
-		"action-button-text": "Vis alle profiler",
+		"action-button-text": "Vis alle aktører",
 		"button-class": "a-btn a-btn-action a-fullWidthBtn",
 		"icon-prefix": "ai",
 		"icon-class": "ai-plus",
@@ -763,16 +783,15 @@
 	"personswitch-overview": true,
 	"personswitch-search": {
 		"text-input-id": "person-switch-input-field",
-		"top-label": "Søk etter profil",
+		"top-label": "Søk etter aktør",
 		"isHidden": true,
-		"text-input-placeholder": "Søk etter profil",
+		"text-input-placeholder": "Søk etter aktør",
 		"input-type": "search",
 		"isInput-group": "input-group",
 		"form-label-hasIcon": {
 			"icon-prefix": "ai",
 			"icon-class": "ai-others"
 		},
-		"form-input-hasButton-class": false,
 		"form-input-hasButton": false,
 		"no-results-text": "Ingen treff, prøv et annet søkeord."
 	},
@@ -857,7 +876,6 @@
 		"text-input-placeholder": "Søk etter guider og annet innhold",
 		"isInput-group": "input-group",
 		"text-input-id": "search",
-		"form-input-hasButton-class": "a-form-control-withBtn form-control-noAddon",
 		"form-input-hasButton": {
 			"form-input-button-action": "Utfør søk",
 			"button-icon": {

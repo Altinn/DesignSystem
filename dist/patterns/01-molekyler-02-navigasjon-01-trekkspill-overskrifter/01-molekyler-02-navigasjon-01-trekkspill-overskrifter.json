@@ -1,5 +1,8 @@
 {
 	"imageurl": "../../images/illustrasjon_starte_og_drive_sirkel.svg",
+	"themeCss": "../../css/style.prototype.altinn.css",
+	"themeJs": "./../../js/altinnPrototyping.js",
+	"themeJsVendor": "../../js/altinnPrototyping.vendor.js",
 	"icon-prefix": "ai",
 	"icon-class": "ai-deadline",
 	"icon-size": "",
@@ -50,7 +53,7 @@
 		}
 	],
 	"label-class": "badge-primary",
-	"label-id": "label",
+	"label-id": false,
 	"label-content": "9",
 	"button-text": "En knapp med ikon",
 	"button-class": "a-btn a-btn-icon",
@@ -151,10 +154,24 @@
 			"checkbuttons-title": " Signere",
 			"checkbuttons-id": "checkbutton-sign",
 			"checkbuttons-class": "",
+			"role": "button",
 			"hasIcon": {
 				"icon-prefix": "ai",
 				"icon-class": "ai-sign"
-			}
+			},
+			"stacked-background": false,
+			"enable-popover": true,
+			"popover-placement": "bottom",
+			"popover-content-id": "conditionalPopover",
+			"popover-class": "popover-warning",
+			"popover-text": "Dette er en popover tekst",
+			"data-trigger": "onchange",
+			"popover-buttons": [
+				{
+					"button-text": "knapp",
+					"button-class": "a-btn a-btn-danger"
+				}
+			]
 		},
 		{
 			"checkbuttons-title": " Toggle state icon",
@@ -264,6 +281,7 @@
 			}
 		]
 	},
+	"column-info-delete-edit": false,
 	"column-switches-with-text": false,
 	"column-info-delete-add": false,
 	"link-text": "En lenke ser slik ut",
@@ -361,15 +379,18 @@
 	},
 	"checkboxes": [
 		{
+			"isChecked": false,
 			"checkboxes-title": "Kryss av i den første avkrysningsboksen"
 		},
 		{
+			"isChecked": false,
 			"checkboxes-title": "Kryss av i den andre avkrysningsboksen"
 		}
 	],
 	"firstLevelColClass": "col-12",
 	"secondLevelColClass": "col-12 col-md-3",
 	"hrExtraClass": "a-hrLight",
+	"loadmoreSearch": false,
 	"firstLevelCheckboxes": [
 		{
 			"hasSecondLevel": true,
@@ -431,8 +452,135 @@
 			"hasSecondLevel": false
 		}
 	],
+	"profile-sok": {
+		"text-input-id": "search-for-profiles-1",
+		"text-input-placeholder": "Søk etter profil",
+		"input-type": "search",
+		"isRequired": false,
+		"extra-help": false,
+		"isHidden": false,
+		"isLarge": false,
+		"top-label": false,
+		"form-control-class": "",
+		"form-input-hasButton": false,
+		"form-input-isPassword": false,
+		"form-label-hasIcon": {
+			"icon-prefix": "ai",
+			"icon-class": "ai-others"
+		}
+	},
+	"select-all": {
+		"check-legend": false,
+		"checkboxes": [
+			{
+				"checkboxes-title-class": "a-fontBold ml-1",
+				"checkboxes-title": "Velg alle"
+			}
+		]
+	},
+	"selected-items": {
+		"label-class": "badge-primary a-bgBlueLighter",
+		"label-id": "profiles-selected",
+		"label-content": "2 profiler valgt"
+	},
+	"checkbox-list": [
+		{
+			"checkbox-list-id": "forSelectionList",
+			"loadmoreSearch": {
+				"icon-prefix": "ai ai-nw ai-nw-pr",
+				"icon-class": "ai-plus",
+				"icon-size": "",
+				"icon-extra-class": "",
+				"icon-text": "",
+				"icon-id": false,
+				"sr-only": false,
+				"aria-hidden": false,
+				"stacked-background": false,
+				"icon-post-text": false,
+				"icon-title": false,
+				"icon-sr-only-text": false,
+				"linkIcon-url": "#",
+				"linkIcon-text": "Last flere",
+				"text-class": "a-fontBold"
+			},
+			"firstLevelCheckboxes": [
+				{
+					"hasSecondLevel": false,
+					"isStacked": "custom-controls-stacked",
+					"secondLevelId": "secondNestedLevel",
+					"check-legend": false,
+					"checkboxes": [
+						{
+							"checkboxes-title": "<b>Organisasjon 1 AS</b> org. nr. 123 456 001"
+						}
+					]
+				},
+				{
+					"hasSecondLevel": false,
+					"isStacked": "custom-controls-stacked",
+					"secondLevelId": "secondNestedLevel",
+					"check-legend": false,
+					"checkboxes": [
+						{
+							"checkboxes-title": "<b>Organisasjon 2 AS</b> org. nr. 123 456 002"
+						}
+					]
+				},
+				{
+					"hasSecondLevel": false,
+					"isStacked": "custom-controls-stacked",
+					"secondLevelId": "secondNestedLevel",
+					"check-legend": false,
+					"checkboxes": [
+						{
+							"checkboxes-title": "<b>Organisasjon 3 AS</b> org. nr. 123 456 003"
+						}
+					]
+				},
+				{
+					"hasSecondLevel": false,
+					"isStacked": "custom-controls-stacked",
+					"secondLevelId": "secondNestedLevel",
+					"check-legend": false,
+					"checkboxes": [
+						{
+							"checkboxes-title": "<b>Organisasjon 4 AS</b> org. nr. 123 456 004"
+						}
+					]
+				}
+			]
+		},
+		{
+			"checkbox-list-id": "selectedProfiles",
+			"firstLevelCheckboxes": [
+				{
+					"hasSecondLevel": false,
+					"isStacked": "custom-controls-stacked",
+					"secondLevelId": "secondNestedLevel",
+					"check-legend": false,
+					"checkboxes": [
+						{
+							"isChecked": true,
+							"checkboxes-title": "<b>Organisasjon 5 AS</b> org. nr. 123 456 005"
+						}
+					]
+				},
+				{
+					"hasSecondLevel": false,
+					"isStacked": "custom-controls-stacked",
+					"secondLevelId": "secondNestedLevel",
+					"check-legend": false,
+					"checkboxes": [
+						{
+							"isChecked": true,
+							"checkboxes-title": "<b>Organisasjon 6 AS</b> org. nr. 123 456 006"
+						}
+					]
+				}
+			]
+		}
+	],
 	"date-input-label": "Dato:",
-	"form-control-class": "a-hasButton",
 	"hasFieldset": true,
 	"switch-legend": "Velg et alternativ",
 	"radiobuttons": [

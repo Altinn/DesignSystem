@@ -10338,3 +10338,5 @@ return $.extend( $.expr[ ":" ], {
   module.Truncate = Truncate;
 
 })(this, jQuery);
+
+//# sourceMappingURL=maps/infoportal.vendor.js.map

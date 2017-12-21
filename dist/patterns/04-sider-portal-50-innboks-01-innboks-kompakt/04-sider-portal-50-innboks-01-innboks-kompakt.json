@@ -11,6 +11,9 @@
 	"icon-post-text": false,
 	"icon-title": false,
 	"icon-sr-only-text": false,
+	"themeCss": "../../css/style.prototype.altinn.css",
+	"themeJs": "./../../js/altinnPrototyping.js",
+	"themeJsVendor": "../../js/altinnPrototyping.vendor.js",
 	"stickyHelp-animationHint": "",
 	"stickyHelp-close": {
 		"icon-prefix": "ai",
@@ -111,13 +114,6 @@
 	},
 	"section-title": "Tittel på seksjon",
 	"extra-class": false,
-	"alert-id": "alert",
-	"alert-class": "a-message-info",
-	"alert-items": {
-		"alert-text": {
-			"text": "Dette er en beskjed."
-		}
-	},
 	"expandable-content": {
 		"button-class": "a-btn a-btn-action a-fullWidthBtn",
 		"icon-prefix": "ai",
@@ -196,30 +192,37 @@
 		}
 	],
 	"label-class": "badge-primary",
-	"label-id": "label",
+	"label-id": false,
 	"label-content": "9",
 	"button-colorClass": "",
 	"button-shadow-label": false,
 	"icon-list-items": [
 		{
-			"list-item-name": "Forretningsplan.doc",
-			"listItemDescription": "En plan for selskapets vekst og utvikling gir deg noe å styre etter.",
-			"icon-prefix": "ai",
-			"icon-class": "ai-document"
+			"list-item-name": "Forretningsplan.ods",
+			"listItemDescription": "(last ned)",
+			"icon-prefix": "reg",
+			"icon-class": "reg-attachment-ods ai-md ai-nw pr-1"
 		},
 		{
 			"list-item-name": "Oppdragsavtale.doc",
-			"listItemDescription": "Hvis du selger tjenester bør du signere en avtale med kjøper.",
-			"icon-prefix": "ai",
-			"icon-class": "ai-document"
+			"listItemDescription": "(last ned)",
+			"icon-prefix": "reg",
+			"icon-class": "reg-attachment ai-md ai-nw pr-1"
 		},
 		{
-			"list-item-name": "Driftsbudsjett.doc",
-			"listItemDescription": "For å disponere oppstartskapitalen din og prioritere innkjøpene riktig.",
-			"icon-prefix": "ai",
-			"icon-class": "ai-document"
+			"list-item-name": "Driftsbudsjett.pdf",
+			"listItemDescription": "(last ned)",
+			"icon-prefix": "reg",
+			"icon-class": "reg-attachment-pdf ai-md ai-nw pr-1"
 		}
 	],
+	"alert-id": "alert",
+	"alert-class": "a-message-info",
+	"alert-items": {
+		"alert-text": {
+			"text": "Dette er en driftsmelding eller endringsinformasjon"
+		}
+	},
 	"linkIcon-url": "#",
 	"linkIcon-text": "En lenke",
 	"message-info": {
@@ -382,6 +385,7 @@
 			{
 				"button-class": "a-btn a-btn-icon",
 				"aria-label": "Arkiv",
+				"tooltip-title": "Arkiv",
 				"button-icon": {
 					"icon-prefix": "reg",
 					"icon-class": "reg-archive",
@@ -391,6 +395,7 @@
 			{
 				"button-class": "a-btn a-btn-icon",
 				"aria-label": "Slett",
+				"tooltip-title": "Slett",
 				"button-icon": {
 					"icon-prefix": "reg",
 					"icon-class": "reg-trash",
@@ -423,8 +428,11 @@
 		},
 		"icontext": "Stor tekst"
 	},
+	"pre-header": false,
+	"pre-header-classes": "col-sm-12 col-lg-12 mt-1",
 	"messageBody": false,
 	"extraPanelBodyClass": false,
+	"direct-link-url": false,
 	"collapse-panel-content": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quisquam excepturi sit natus pariatur consequuntur labore magnam aperiam non iusto itaque cumque iste ipsum, sed molestias! Placeat quia velit dolor doloremque?",
 	"no-search-result-inbox": {
 		"no-search-result-inbox-heading": "Vi klarer ikke finne det du søker etter.",
@@ -569,10 +577,24 @@
 			"checkbuttons-title": " Signere",
 			"checkbuttons-id": "checkbutton-sign",
 			"checkbuttons-class": "",
+			"role": "button",
 			"hasIcon": {
 				"icon-prefix": "ai",
 				"icon-class": "ai-sign"
-			}
+			},
+			"stacked-background": false,
+			"enable-popover": true,
+			"popover-placement": "bottom",
+			"popover-content-id": "conditionalPopover",
+			"popover-class": "popover-warning",
+			"popover-text": "Dette er en popover tekst",
+			"data-trigger": "onchange",
+			"popover-buttons": [
+				{
+					"button-text": "knapp",
+					"button-class": "a-btn a-btn-danger"
+				}
+			]
 		},
 		{
 			"checkbuttons-title": " Toggle state icon",
@@ -682,6 +704,7 @@
 			}
 		]
 	},
+	"column-info-delete-edit": false,
 	"column-switches-with-text": false,
 	"column-info-delete-add": false,
 	"header-text": "Forklarende tittel",
@@ -850,15 +873,18 @@
 	},
 	"checkboxes": [
 		{
+			"isChecked": false,
 			"checkboxes-title": "Kryss av i den første avkrysningsboksen"
 		},
 		{
+			"isChecked": false,
 			"checkboxes-title": "Kryss av i den andre avkrysningsboksen"
 		}
 	],
 	"firstLevelColClass": "col-12",
 	"secondLevelColClass": "col-12 col-md-3",
 	"hrExtraClass": "a-hrLight",
+	"loadmoreSearch": false,
 	"firstLevelCheckboxes": [
 		{
 			"hasSecondLevel": true,
@@ -920,8 +946,135 @@
 			"hasSecondLevel": false
 		}
 	],
+	"profile-sok": {
+		"text-input-id": "search-for-profiles-1",
+		"text-input-placeholder": "Søk etter profil",
+		"input-type": "search",
+		"isRequired": false,
+		"extra-help": false,
+		"isHidden": false,
+		"isLarge": false,
+		"top-label": false,
+		"form-control-class": "",
+		"form-input-hasButton": false,
+		"form-input-isPassword": false,
+		"form-label-hasIcon": {
+			"icon-prefix": "ai",
+			"icon-class": "ai-others"
+		}
+	},
+	"select-all": {
+		"check-legend": false,
+		"checkboxes": [
+			{
+				"checkboxes-title-class": "a-fontBold ml-1",
+				"checkboxes-title": "Velg alle"
+			}
+		]
+	},
+	"selected-items": {
+		"label-class": "badge-primary a-bgBlueLighter",
+		"label-id": "profiles-selected",
+		"label-content": "2 profiler valgt"
+	},
+	"checkbox-list": [
+		{
+			"checkbox-list-id": "forSelectionList",
+			"loadmoreSearch": {
+				"icon-prefix": "ai ai-nw ai-nw-pr",
+				"icon-class": "ai-plus",
+				"icon-size": "",
+				"icon-extra-class": "",
+				"icon-text": "",
+				"icon-id": false,
+				"sr-only": false,
+				"aria-hidden": false,
+				"stacked-background": false,
+				"icon-post-text": false,
+				"icon-title": false,
+				"icon-sr-only-text": false,
+				"linkIcon-url": "#",
+				"linkIcon-text": "Last flere",
+				"text-class": "a-fontBold"
+			},
+			"firstLevelCheckboxes": [
+				{
+					"hasSecondLevel": false,
+					"isStacked": "custom-controls-stacked",
+					"secondLevelId": "secondNestedLevel",
+					"check-legend": false,
+					"checkboxes": [
+						{
+							"checkboxes-title": "<b>Organisasjon 1 AS</b> org. nr. 123 456 001"
+						}
+					]
+				},
+				{
+					"hasSecondLevel": false,
+					"isStacked": "custom-controls-stacked",
+					"secondLevelId": "secondNestedLevel",
+					"check-legend": false,
+					"checkboxes": [
+						{
+							"checkboxes-title": "<b>Organisasjon 2 AS</b> org. nr. 123 456 002"
+						}
+					]
+				},
+				{
+					"hasSecondLevel": false,
+					"isStacked": "custom-controls-stacked",
+					"secondLevelId": "secondNestedLevel",
+					"check-legend": false,
+					"checkboxes": [
+						{
+							"checkboxes-title": "<b>Organisasjon 3 AS</b> org. nr. 123 456 003"
+						}
+					]
+				},
+				{
+					"hasSecondLevel": false,
+					"isStacked": "custom-controls-stacked",
+					"secondLevelId": "secondNestedLevel",
+					"check-legend": false,
+					"checkboxes": [
+						{
+							"checkboxes-title": "<b>Organisasjon 4 AS</b> org. nr. 123 456 004"
+						}
+					]
+				}
+			]
+		},
+		{
+			"checkbox-list-id": "selectedProfiles",
+			"firstLevelCheckboxes": [
+				{
+					"hasSecondLevel": false,
+					"isStacked": "custom-controls-stacked",
+					"secondLevelId": "secondNestedLevel",
+					"check-legend": false,
+					"checkboxes": [
+						{
+							"isChecked": true,
+							"checkboxes-title": "<b>Organisasjon 5 AS</b> org. nr. 123 456 005"
+						}
+					]
+				},
+				{
+					"hasSecondLevel": false,
+					"isStacked": "custom-controls-stacked",
+					"secondLevelId": "secondNestedLevel",
+					"check-legend": false,
+					"checkboxes": [
+						{
+							"isChecked": true,
+							"checkboxes-title": "<b>Organisasjon 6 AS</b> org. nr. 123 456 006"
+						}
+					]
+				}
+			]
+		}
+	],
 	"date-input-label": "Dato:",
-	"form-control-class": "a-hasButton",
 	"hasFieldset": true,
 	"switch-legend": "Velg et alternativ",
 	"radiobuttons": [
@@ -1357,7 +1510,7 @@
 		}
 	],
 	"loadmore": {
-		"action-button-text": "Vis alle profiler",
+		"action-button-text": "Vis alle aktører",
 		"button-class": "a-btn a-btn-action a-fullWidthBtn",
 		"icon-prefix": "ai",
 		"icon-class": "ai-plus",
@@ -1407,16 +1560,15 @@
 	"personswitch-overview": true,
 	"personswitch-search": {
 		"text-input-id": "person-switch-input-field",
-		"top-label": "Søk etter profil",
+		"top-label": "Søk etter aktør",
 		"isHidden": true,
-		"text-input-placeholder": "Søk etter profil",
+		"text-input-placeholder": "Søk etter aktør",
 		"input-type": "search",
 		"isInput-group": "input-group",
 		"form-label-hasIcon": {
 			"icon-prefix": "ai",
 			"icon-class": "ai-others"
 		},
-		"form-input-hasButton-class": false,
 		"form-input-hasButton": false,
 		"no-results-text": "Ingen treff, prøv et annet søkeord."
 	},
@@ -2130,7 +2282,14 @@
 								"heading-tekst": {
 									"textSmall": "Skatteetaten",
 									"textMain": "A-melding A01 for Karis Dykkerskole AS",
-									"textDescription": "Til utfylling:"
+									"textDescription": "Til utfylling:",
+									"form-heading-icon": {
+										"icon-prefix": "reg",
+										"icon-class": "reg-attachedform",
+										"icon-size": "",
+										"icon-extra-class": "reg-nw a-postHeaderIcon",
+										"icon-sr-only-text": "Til utfylling"
+									}
 								},
 								"due-date-content": {
 									"past-due-date": {
@@ -2148,6 +2307,7 @@
 										{
 											"button-class": "a-btn a-btn-icon",
 											"aria-label": "Arkiv",
+											"tooltip-title": "Arkiver",
 											"button-icon": {
 												"icon-prefix": "reg",
 												"icon-class": "reg-archive",
@@ -2157,6 +2317,7 @@
 										{
 											"button-class": "a-btn a-btn-icon a-inactive",
 											"aria-label": "Slett",
+											"tooltip-title": false,
 											"disabled": true,
 											"button-icon": {
 												"icon-prefix": "reg",
@@ -2210,7 +2371,7 @@
 											}
 										},
 										{
-											"button-text": "Videresend i Altinn",
+											"button-text": "Del og gi fullmakt",
 											"button-class": "a-btn-link a-btn-md-block",
 											"button-colorClass": "",
 											"link-url": "/patterns/04-sider-portal-50-innboks-03-videresend-i-altinn/04-sider-portal-50-innboks-03-videresend-i-altinn.html",
@@ -2264,6 +2425,7 @@
 										{
 											"button-class": "a-btn a-btn-icon",
 											"aria-label": "Arkiv",
+											"tooltip-title": "Arkiver",
 											"button-icon": {
 												"icon-prefix": "reg",
 												"icon-class": "reg-archive",
@@ -2273,6 +2435,7 @@
 										{
 											"button-class": "a-btn a-btn-icon a-inactive",
 											"aria-label": "Slett",
+											"tooltip-title": "Slett",
 											"disabled": true,
 											"button-icon": {
 												"icon-prefix": "reg",
@@ -2326,14 +2489,14 @@
 											}
 										},
 										{
-											"button-text": "Videresend i Altinn",
+											"button-text": "Videresend på e-post",
 											"button-class": "a-btn-link a-btn-md-block",
 											"button-colorClass": "",
-											"link-url": "/patterns/04-sider-portal-50-innboks-03-videresend-i-altinn/04-sider-portal-50-innboks-03-videresend-i-altinn.html",
+											"link-url": "/patterns/04-sider-portal-50-innboks-02-videresend-pa-epost/04-sider-portal-50-innboks-02-videresend-pa-epost.html",
 											"button-shadow-label": false,
 											"button-icon": {
 												"icon-prefix": "reg",
-												"icon-class": "reg-forward reg-nw pr-1"
+												"icon-class": "reg-forward-msg reg-nw pr-1"
 											}
 										}
 									]
@@ -2378,6 +2541,7 @@
 										{
 											"button-class": "a-btn a-btn-icon",
 											"aria-label": "Arkiv",
+											"tooltip-title": "Arkiver",
 											"button-icon": {
 												"icon-prefix": "reg",
 												"icon-class": "reg-archive",
@@ -2387,6 +2551,7 @@
 										{
 											"button-class": "a-btn a-btn-icon",
 											"aria-label": "Slett",
+											"tooltip-title": "Slett",
 											"button-icon": {
 												"icon-prefix": "reg",
 												"icon-class": "reg-trash",
@@ -2459,7 +2624,7 @@
 											}
 										},
 										{
-											"button-text": "Videresend i Altinn",
+											"button-text": "Del og gi fullmakt",
 											"button-class": "a-btn-link a-btn-md-block mr-2",
 											"button-colorClass": "",
 											"link-url": "/patterns/04-sider-portal-50-innboks-03-videresend-i-altinn/04-sider-portal-50-innboks-03-videresend-i-altinn.html",
@@ -2467,17 +2632,6 @@
 											"button-icon": {
 												"icon-prefix": "reg",
 												"icon-class": "reg-forward reg-nw pr-1"
-											}
-										},
-										{
-											"button-text": "Videresend på e-post",
-											"button-class": "a-btn-link a-btn-md-block",
-											"button-colorClass": "",
-											"link-url": "/patterns/04-sider-portal-50-innboks-02-videresend-pa-epost/04-sider-portal-50-innboks-02-videresend-pa-epost.html",
-											"button-shadow-label": false,
-											"button-icon": {
-												"icon-prefix": "reg",
-												"icon-class": "reg-forward-msg reg-nw pr-1"
 											}
 										}
 									]
@@ -2530,6 +2684,7 @@
 										{
 											"button-class": "a-btn a-btn-icon",
 											"aria-label": "Arkiv",
+											"tooltip-title": "Arkiver",
 											"button-icon": {
 												"icon-prefix": "reg",
 												"icon-class": "reg-archive",
@@ -2539,6 +2694,7 @@
 										{
 											"button-class": "a-btn a-btn-icon",
 											"aria-label": "Slett",
+											"tooltip-title": "Slett",
 											"button-icon": {
 												"icon-prefix": "reg",
 												"icon-class": "reg-trash",
@@ -2584,7 +2740,7 @@
 											}
 										},
 										{
-											"button-text": "Videresend i Altinn",
+											"button-text": "Del og gi fullmakt",
 											"button-class": "a-btn-link a-btn-md-block mr-2",
 											"button-colorClass": "",
 											"link-url": "/patterns/04-sider-portal-50-innboks-03-videresend-i-altinn/04-sider-portal-50-innboks-03-videresend-i-altinn.html",
@@ -2592,17 +2748,6 @@
 											"button-icon": {
 												"icon-prefix": "reg",
 												"icon-class": "reg-forward reg-nw pr-1"
-											}
-										},
-										{
-											"button-text": "Videresend på e-post",
-											"button-class": "a-btn-link a-btn-md-block",
-											"button-colorClass": "",
-											"link-url": "/patterns/04-sider-portal-50-innboks-02-videresend-pa-epost/04-sider-portal-50-innboks-02-videresend-pa-epost.html",
-											"button-shadow-label": false,
-											"button-icon": {
-												"icon-prefix": "reg",
-												"icon-class": "reg-forward-msg reg-nw pr-1"
 											}
 										}
 									]
@@ -2679,6 +2824,7 @@
 										{
 											"button-class": "a-btn a-btn-icon",
 											"aria-label": "Arkiv",
+											"tooltip-title": "Arkiver",
 											"button-icon": {
 												"icon-prefix": "reg",
 												"icon-class": "reg-archive",
@@ -2688,6 +2834,7 @@
 										{
 											"button-class": "a-btn a-btn-icon",
 											"aria-label": "Slett",
+											"tooltip-title": "Slett",
 											"button-icon": {
 												"icon-prefix": "reg",
 												"icon-class": "reg-trash",
@@ -2728,7 +2875,7 @@
 											}
 										},
 										{
-											"button-text": "Videresend i Altinn",
+											"button-text": "Del og gi fullmakt",
 											"button-class": "a-btn-link a-btn-md-block mr-2",
 											"button-colorClass": "",
 											"link-url": "/patterns/04-sider-portal-50-innboks-03-videresend-i-altinn/04-sider-portal-50-innboks-03-videresend-i-altinn.html",
@@ -2736,17 +2883,6 @@
 											"button-icon": {
 												"icon-prefix": "reg",
 												"icon-class": "reg-forward reg-nw pr-1"
-											}
-										},
-										{
-											"button-text": "Videresend på e-post",
-											"button-class": "a-btn-link a-btn-md-block",
-											"button-colorClass": "",
-											"link-url": "/patterns/04-sider-portal-50-innboks-02-videresend-pa-epost/04-sider-portal-50-innboks-02-videresend-pa-epost.html",
-											"button-shadow-label": false,
-											"button-icon": {
-												"icon-prefix": "reg",
-												"icon-class": "reg-forward-msg reg-nw pr-1"
 											}
 										}
 									]
@@ -2799,7 +2935,14 @@
 								"heading-tekst": {
 									"textSmall": "Skatteetaten",
 									"textMain": "Utlodning - faktiske ledelse - eiere konkursbo.",
-									"textDescription": "Til utfylling:"
+									"textDescription": "Til utfylling:",
+									"form-heading-icon": {
+										"icon-prefix": "reg",
+										"icon-class": "reg-attachedform",
+										"icon-size": "",
+										"icon-extra-class": "reg-nw a-postHeaderIcon",
+										"icon-sr-only-text": "Til utfylling"
+									}
 								},
 								"heading-icon": {
 									"icon-prefix": "reg",
@@ -2819,6 +2962,7 @@
 										{
 											"button-class": "a-btn a-btn-icon",
 											"aria-label": "Arkiv",
+											"tooltip-title": "Arkiver",
 											"button-icon": {
 												"icon-prefix": "reg",
 												"icon-class": "reg-archive",
@@ -2828,6 +2972,7 @@
 										{
 											"button-class": "a-btn a-btn-icon a-inactive",
 											"aria-label": "Slett",
+											"tooltip-title": false,
 											"disabled": true,
 											"button-icon": {
 												"icon-prefix": "reg",
@@ -2888,7 +3033,7 @@
 											}
 										},
 										{
-											"button-text": "Videresend i Altinn",
+											"button-text": "Del og gi fullmakt",
 											"button-class": "a-btn-link a-btn-md-block",
 											"button-colorClass": "",
 											"link-url": "/patterns/04-sider-portal-50-innboks-03-videresend-i-altinn/04-sider-portal-50-innboks-03-videresend-i-altinn.html",
@@ -2925,7 +3070,14 @@
 								"heading-tekst": {
 									"textSmall": "Skatteetaten",
 									"textMain": "Utlodning - faktiske ledelse - eiere konkursbo.",
-									"textDescription": "Til utfylling:"
+									"textDescription": "Til utfylling:",
+									"form-heading-icon": {
+										"icon-prefix": "reg",
+										"icon-class": "reg-attachedform",
+										"icon-size": "",
+										"icon-extra-class": "reg-nw a-postHeaderIcon",
+										"icon-sr-only-text": "Til utfylling"
+									}
 								},
 								"heading-icon": {
 									"icon-prefix": "reg",
@@ -2945,6 +3097,7 @@
 										{
 											"button-class": "a-btn a-btn-icon",
 											"aria-label": "Arkiv",
+											"tooltip-title": "Arkiver",
 											"button-icon": {
 												"icon-prefix": "reg",
 												"icon-class": "reg-archive",
@@ -2954,6 +3107,7 @@
 										{
 											"button-class": "a-btn a-btn-icon a-inactive",
 											"aria-label": "Slett",
+											"tooltip-title": false,
 											"disabled": true,
 											"button-icon": {
 												"icon-prefix": "reg",
@@ -3014,7 +3168,7 @@
 											}
 										},
 										{
-											"button-text": "Videresend i Altinn",
+											"button-text": "Del og gi fullmakt",
 											"button-class": "a-btn-link a-btn-md-block",
 											"button-colorClass": "",
 											"link-url": "/patterns/04-sider-portal-50-innboks-03-videresend-i-altinn/04-sider-portal-50-innboks-03-videresend-i-altinn.html",
@@ -3060,7 +3214,14 @@
 								"heading-tekst": {
 									"textSmall": "Skatteetaten",
 									"textMain": "A-melding A01 for Karis Dykkerskole AS",
-									"textDescription": "Til utfylling:"
+									"textDescription": "Til utfylling:",
+									"form-heading-icon": {
+										"icon-prefix": "reg",
+										"icon-class": "reg-attachedform",
+										"icon-size": "",
+										"icon-extra-class": "reg-nw a-postHeaderIcon",
+										"icon-sr-only-text": "Til utfylling"
+									}
 								},
 								"due-date-content": {
 									"due-date": "24.01.2017",
@@ -3083,6 +3244,7 @@
 										{
 											"button-class": "a-btn a-btn-icon",
 											"aria-label": "Arkiv",
+											"tooltip-title": "Arkiver",
 											"button-icon": {
 												"icon-prefix": "reg",
 												"icon-class": "reg-archive",
@@ -3092,6 +3254,7 @@
 										{
 											"button-class": "a-btn a-btn-icon a-inactive",
 											"aria-label": "Slett",
+											"tooltip-title": false,
 											"disabled": true,
 											"button-icon": {
 												"icon-prefix": "reg",
@@ -3110,15 +3273,28 @@
 									"alert-class": "a-message-info a-message--arrow-off a-message--extendLeft a-message--no-dropshadow pb-4 pt-2",
 									"alert-items": [
 										{
-											"alert-header": {
-												"classes": "",
-												"text": "<span class='a-fontBold'>fra:</span> Kari Nordmann"
-											}
+											"use-row": true,
+											"alert-header": [
+												{
+													"classes": "col-md col-12",
+													"text": "<span class='a-fontBold'>til:</span> kari.nordmann@gmail.com, randy.nuhayg@online.no, alan.amundsen@yahoo.com +6"
+												},
+												{
+													"classes": "col-md-auto col-12",
+													"text": "<span class='a-fontBold'>videresendt:</span> 01.03.2016"
+												},
+												{
+													"classes": "col-12",
+													"text": "<span class='a-fontBold'>fra:</span> Jørgen Jakobsen"
+												}
+											]
 										},
 										{
-											"alert-text": {
-												"text": "Hei Adil! Jeg skjønner ingenting av den her nye skattemeldingsgreien kan du hjelpe med det? Fint hvis du fikser det før fristen går ut."
-											}
+											"alert-text": [
+												{
+													"text": "<div class=\"mt-1\"><span class=\"a-fontBold\">du skrev:</span> Hei Adil! Jeg skjønner ingenting av den her nye skattemeldingsgreien kan du hjelpe med det? Fint hvis du fikser det før fristen går ut.</div>"
+												}
+											]
 										}
 									]
 								},
@@ -3161,14 +3337,14 @@
 											}
 										},
 										{
-											"button-text": "Videresend i Altinn",
+											"button-text": "Videresend på e-post",
 											"button-class": "a-btn-link a-btn-md-block",
 											"button-colorClass": "",
-											"link-url": "/patterns/04-sider-portal-50-innboks-03-videresend-i-altinn/04-sider-portal-50-innboks-03-videresend-i-altinn.html",
+											"link-url": "/patterns/04-sider-portal-50-innboks-02-videresend-pa-epost/04-sider-portal-50-innboks-02-videresend-pa-epost.html",
 											"button-shadow-label": false,
 											"button-icon": {
 												"icon-prefix": "reg",
-												"icon-class": "reg-forward reg-nw pr-1"
+												"icon-class": "reg-forward-msg ai-nw pr-1"
 											}
 										}
 									]
@@ -3220,6 +3396,7 @@
 										{
 											"button-class": "a-btn a-btn-icon",
 											"aria-label": "Arkiv",
+											"tooltip-title": "Arkiver",
 											"button-icon": {
 												"icon-prefix": "reg",
 												"icon-class": "reg-archive",
@@ -3229,6 +3406,7 @@
 										{
 											"button-class": "a-btn a-btn-icon a-inactive",
 											"aria-label": "Slett",
+											"tooltip-title": false,
 											"disabled": true,
 											"button-icon": {
 												"icon-prefix": "reg",
@@ -3247,15 +3425,28 @@
 									"alert-class": "a-message-info a-message--arrow-off a-message--extendLeft a-message--no-dropshadow pb-4 pt-2",
 									"alert-items": [
 										{
-											"alert-header": {
-												"classes": "",
-												"text": "<span class='a-fontBold'>fra:</span> Kari Nordmann"
-											}
+											"use-row": true,
+											"alert-header": [
+												{
+													"classes": "col-md col-12",
+													"text": "<span class='a-fontBold'>til:</span> Doris Kahn"
+												},
+												{
+													"classes": "col-md-auto col-12",
+													"text": "<span class='a-fontBold'>videresendt:</span> 01.03.2016"
+												},
+												{
+													"classes": "col-12",
+													"text": "<span class='a-fontBold'>fra:</span> Jørgen Jakobsen"
+												}
+											]
 										},
 										{
-											"alert-text": {
-												"text": "Hei Adil! Jeg skjønner ingenting av den her nye skattemeldingsgreien kan du hjelpe med det? Fint hvis du fikser det før fristen går ut."
-											}
+											"alert-text": [
+												{
+													"text": "<div class=\"mt-1\">Meldingen er videresendt.</div>"
+												}
+											]
 										}
 									]
 								},
@@ -3298,7 +3489,7 @@
 											}
 										},
 										{
-											"button-text": "Videresend i Altinn",
+											"button-text": "Del og gi fullmakt",
 											"button-class": "a-btn-link a-btn-md-block",
 											"button-colorClass": "",
 											"link-url": "/patterns/04-sider-portal-50-innboks-03-videresend-i-altinn/04-sider-portal-50-innboks-03-videresend-i-altinn.html",
@@ -3347,6 +3538,7 @@
 										{
 											"button-class": "a-btn a-btn-icon",
 											"aria-label": "Arkiv",
+											"tooltip-title": "Arkiver",
 											"button-icon": {
 												"icon-prefix": "reg",
 												"icon-class": "reg-archive",
@@ -3356,6 +3548,7 @@
 										{
 											"button-class": "a-btn a-btn-icon",
 											"aria-label": "Slett",
+											"tooltip-title": "Slett",
 											"button-icon": {
 												"icon-prefix": "reg",
 												"icon-class": "reg-trash",
@@ -3426,17 +3619,6 @@
 											"button-icon": {
 												"icon-prefix": "reg",
 												"icon-class": "reg-trash reg-nw pr-1"
-											}
-										},
-										{
-											"button-text": "Videresend i Altinn",
-											"button-class": "a-btn-link a-btn-md-block mr-2",
-											"button-colorClass": "",
-											"link-url": "/patterns/04-sider-portal-50-innboks-03-videresend-i-altinn/04-sider-portal-50-innboks-03-videresend-i-altinn.html",
-											"button-shadow-label": false,
-											"button-icon": {
-												"icon-prefix": "reg",
-												"icon-class": "reg-forward reg-nw pr-1"
 											}
 										},
 										{
@@ -3520,6 +3702,7 @@
 										{
 											"button-class": "a-btn a-btn-icon",
 											"aria-label": "Arkiv",
+											"tooltip-title": "Arkiver",
 											"button-icon": {
 												"icon-prefix": "reg",
 												"icon-class": "reg-archive",
@@ -3529,6 +3712,7 @@
 										{
 											"button-class": "a-btn a-btn-icon",
 											"aria-label": "Slett",
+											"tooltip-title": "Slett",
 											"button-icon": {
 												"icon-prefix": "reg",
 												"icon-class": "reg-trash",
@@ -3596,17 +3780,6 @@
 											}
 										},
 										{
-											"button-text": "Videresend i Altinn",
-											"button-class": "a-btn-link a-btn-md-block mr-2",
-											"button-colorClass": "",
-											"link-url": "/patterns/04-sider-portal-50-innboks-03-videresend-i-altinn/04-sider-portal-50-innboks-03-videresend-i-altinn.html",
-											"button-shadow-label": false,
-											"button-icon": {
-												"icon-prefix": "reg",
-												"icon-class": "reg-forward reg-nw pr-1"
-											}
-										},
-										{
 											"button-text": "Videresend på e-post",
 											"button-class": "a-btn-link a-btn-md-block",
 											"button-colorClass": "",
@@ -3663,7 +3836,14 @@
 								"heading-tekst": {
 									"textSmall": "Skatteetaten",
 									"textMain": "A-melding A01 for Karis Dykkerskole AS",
-									"textDescription": "Til utfylling:"
+									"textDescription": "Til utfylling:",
+									"form-heading-icon": {
+										"icon-prefix": "reg",
+										"icon-class": "reg-attachedform",
+										"icon-size": "",
+										"icon-extra-class": "reg-nw a-postHeaderIcon",
+										"icon-sr-only-text": "Til utfylling"
+									}
 								},
 								"due-date-content": {
 									"due-date": "24.01.2017",
@@ -3686,6 +3866,7 @@
 										{
 											"button-class": "a-btn a-btn-icon",
 											"aria-label": "Arkiv",
+											"tooltip-title": "Arkiver",
 											"button-icon": {
 												"icon-prefix": "reg",
 												"icon-class": "reg-archive",
@@ -3695,6 +3876,7 @@
 										{
 											"button-class": "a-btn a-btn-icon a-inactive",
 											"aria-label": "Slett",
+											"tooltip-title": false,
 											"disabled": true,
 											"button-icon": {
 												"icon-prefix": "reg",
@@ -3718,15 +3900,28 @@
 									"alert-class": "a-message-info a-message--arrow-off a-message--extendLeft a-message--no-dropshadow pb-4 pt-2",
 									"alert-items": [
 										{
-											"alert-header": {
-												"classes": "",
-												"text": "<span class='a-fontBold'>fra:</span> Kari Nordmann"
-											}
+											"use-row": true,
+											"alert-header": [
+												{
+													"classes": "col-md col-12",
+													"text": "<span class='a-fontBold'>til:</span> kari.nordmann@gmail.com, randy.nuhayg@online.no, alan.amundsen@yahoo.com +6"
+												},
+												{
+													"classes": "col-md-auto col-12",
+													"text": "<span class='a-fontBold'>videresendt:</span> 01.03.2016"
+												},
+												{
+													"classes": "col-12",
+													"text": "<span class='a-fontBold'>fra:</span> Jørgen Jakobsen"
+												}
+											]
 										},
 										{
-											"alert-text": {
-												"text": "Hei Adil! Jeg skjønner ingenting av den her nye skattemeldingsgreien kan du hjelpe med det? Fint hvis du fikser det før fristen går ut."
-											}
+											"alert-text": [
+												{
+													"text": "<div class=\"mt-1\"><span class=\"a-fontBold\">du skrev:</span> Hei Adil! Jeg skjønner ingenting av den her nye skattemeldingsgreien kan du hjelpe med det? Fint hvis du fikser det før fristen går ut.</div>"
+												}
+											]
 										}
 									]
 								},
@@ -3769,7 +3964,7 @@
 											}
 										},
 										{
-											"button-text": "Videresend i Altinn",
+											"button-text": "Del og gi fullmakt",
 											"button-class": "a-btn-link a-btn-md-block",
 											"button-colorClass": "",
 											"link-url": "/patterns/04-sider-portal-50-innboks-03-videresend-i-altinn/04-sider-portal-50-innboks-03-videresend-i-altinn.html",
@@ -3824,6 +4019,7 @@
 										{
 											"button-class": "a-btn a-btn-icon",
 											"aria-label": "Arkiv",
+											"tooltip-title": "Arkiver",
 											"button-icon": {
 												"icon-prefix": "reg",
 												"icon-class": "reg-archive",
@@ -3833,6 +4029,7 @@
 										{
 											"button-class": "a-btn a-btn-icon",
 											"aria-label": "Slett",
+											"tooltip-title": "Slett",
 											"button-icon": {
 												"icon-prefix": "reg",
 												"icon-class": "reg-trash",
@@ -3922,6 +4119,7 @@
 										{
 											"button-class": "a-btn a-btn-icon",
 											"aria-label": "Arkiv",
+											"tooltip-title": "Arkiver",
 											"button-icon": {
 												"icon-prefix": "reg",
 												"icon-class": "reg-archive",
@@ -3931,6 +4129,7 @@
 										{
 											"button-class": "a-btn a-btn-icon",
 											"aria-label": "Slett",
+											"tooltip-title": "Slett",
 											"button-icon": {
 												"icon-prefix": "reg",
 												"icon-class": "reg-trash",
@@ -3988,7 +4187,7 @@
 											}
 										},
 										{
-											"button-text": "Videresend i Altinn",
+											"button-text": "Del og gi fullmakt",
 											"button-class": "a-btn-link a-btn-md-block mr-2",
 											"button-colorClass": "",
 											"link-url": "/patterns/04-sider-portal-50-innboks-03-videresend-i-altinn/04-sider-portal-50-innboks-03-videresend-i-altinn.html",
@@ -3996,17 +4195,6 @@
 											"button-icon": {
 												"icon-prefix": "reg",
 												"icon-class": "reg-forward reg-nw pr-1"
-											}
-										},
-										{
-											"button-text": "Videresend på e-post",
-											"button-class": "a-btn-link a-btn-md-block",
-											"button-colorClass": "",
-											"link-url": "/patterns/04-sider-portal-50-innboks-02-videresend-pa-epost/04-sider-portal-50-innboks-02-videresend-pa-epost.html",
-											"button-shadow-label": false,
-											"button-icon": {
-												"icon-prefix": "reg",
-												"icon-class": "reg-forward-msg reg-nw pr-1"
 											}
 										}
 									]
@@ -4069,6 +4257,7 @@
 										{
 											"button-class": "a-btn a-btn-icon",
 											"aria-label": "Arkiv",
+											"tooltip-title": "Arkiver",
 											"button-icon": {
 												"icon-prefix": "reg",
 												"icon-class": "reg-archive",
@@ -4078,6 +4267,7 @@
 										{
 											"button-class": "a-btn a-btn-icon a-inactive",
 											"aria-label": "Slett",
+											"tooltip-title": false,
 											"disabled": true,
 											"button-icon": {
 												"icon-prefix": "reg",
@@ -4131,7 +4321,7 @@
 											}
 										},
 										{
-											"button-text": "Videresend i Altinn",
+											"button-text": "Del og gi fullmakt",
 											"button-class": "a-btn-link a-btn-md-block",
 											"button-colorClass": "",
 											"link-url": "/patterns/04-sider-portal-50-innboks-03-videresend-i-altinn/04-sider-portal-50-innboks-03-videresend-i-altinn.html",
@@ -4167,7 +4357,14 @@
 								"heading-tekst": {
 									"textSmall": "Skatteetaten",
 									"textMain": "A-melding A01 for Karis Dykkerskole AS",
-									"textDescription": "Til utfylling:"
+									"textDescription": "Til utfylling:",
+									"form-heading-icon": {
+										"icon-prefix": "reg",
+										"icon-class": "reg-attachedform",
+										"icon-size": "",
+										"icon-extra-class": "reg-nw a-postHeaderIcon",
+										"icon-sr-only-text": "Til utfylling"
+									}
 								},
 								"due-date-content": {
 									"due-date": "24.01.2017",
@@ -4179,6 +4376,7 @@
 										{
 											"button-class": "a-btn a-btn-icon",
 											"aria-label": "Arkiv",
+											"tooltip-title": "Arkiver",
 											"button-icon": {
 												"icon-prefix": "reg",
 												"icon-class": "reg-archive",
@@ -4188,6 +4386,7 @@
 										{
 											"button-class": "a-btn a-btn-icon a-inactive",
 											"aria-label": "Slett",
+											"tooltip-title": false,
 											"disabled": true,
 											"button-icon": {
 												"icon-prefix": "reg",
@@ -4241,7 +4440,7 @@
 											}
 										},
 										{
-											"button-text": "Videresend i Altinn",
+											"button-text": "Del og gi fullmakt",
 											"button-class": "a-btn-link a-btn-md-block",
 											"button-colorClass": "",
 											"link-url": "/patterns/04-sider-portal-50-innboks-03-videresend-i-altinn/04-sider-portal-50-innboks-03-videresend-i-altinn.html",
@@ -4287,7 +4486,14 @@
 								"heading-tekst": {
 									"textSmall": "Skatteetaten",
 									"textMain": "A-melding A01 for Karis Dykkerskole AS",
-									"textDescription": "Til utfylling:"
+									"textDescription": "Til utfylling:",
+									"form-heading-icon": {
+										"icon-prefix": "reg",
+										"icon-class": "reg-attachedform",
+										"icon-size": "",
+										"icon-extra-class": "reg-nw a-postHeaderIcon",
+										"icon-sr-only-text": "Til utfylling"
+									}
 								},
 								"due-date-content": {
 									"due-date": "24.01.2017",
@@ -4299,6 +4505,7 @@
 										{
 											"button-class": "a-btn a-btn-icon",
 											"aria-label": "Arkiv",
+											"tooltip-title": "Arkiver",
 											"button-icon": {
 												"icon-prefix": "reg",
 												"icon-class": "reg-archive",
@@ -4308,6 +4515,7 @@
 										{
 											"button-class": "a-btn a-btn-icon a-inactive",
 											"aria-label": "Slett",
+											"tooltip-title": false,
 											"disabled": true,
 											"button-icon": {
 												"icon-prefix": "reg",
@@ -4361,7 +4569,7 @@
 											}
 										},
 										{
-											"button-text": "Videresend i Altinn",
+											"button-text": "Del og gi fullmakt",
 											"button-class": "a-btn-link a-btn-md-block",
 											"button-colorClass": "",
 											"link-url": "/patterns/04-sider-portal-50-innboks-03-videresend-i-altinn/04-sider-portal-50-innboks-03-videresend-i-altinn.html",
@@ -4405,6 +4613,7 @@
 										{
 											"button-class": "a-btn a-btn-icon",
 											"aria-label": "Arkiv",
+											"tooltip-title": "Arkiver",
 											"button-icon": {
 												"icon-prefix": "reg",
 												"icon-class": "reg-archive",
@@ -4414,6 +4623,7 @@
 										{
 											"button-class": "a-btn a-btn-icon",
 											"aria-label": "Slett",
+											"tooltip-title": "Slett",
 											"button-icon": {
 												"icon-prefix": "reg",
 												"icon-class": "reg-trash",
@@ -4468,17 +4678,6 @@
 											"button-icon": {
 												"icon-prefix": "reg",
 												"icon-class": "reg-trash reg-nw pr-1"
-											}
-										},
-										{
-											"button-text": "Videresend i Altinn",
-											"button-class": "a-btn-link a-btn-md-block mr-2",
-											"button-colorClass": "",
-											"link-url": "/patterns/04-sider-portal-50-innboks-03-videresend-i-altinn/04-sider-portal-50-innboks-03-videresend-i-altinn.html",
-											"button-shadow-label": false,
-											"button-icon": {
-												"icon-prefix": "reg",
-												"icon-class": "reg-forward reg-nw pr-1"
 											}
 										},
 										{
@@ -4551,6 +4750,7 @@
 										{
 											"button-class": "a-btn a-btn-icon",
 											"aria-label": "Arkiv",
+											"tooltip-title": "Arkiver",
 											"button-icon": {
 												"icon-prefix": "reg",
 												"icon-class": "reg-archive",
@@ -4560,6 +4760,7 @@
 										{
 											"button-class": "a-btn a-btn-icon",
 											"aria-label": "Slett",
+											"tooltip-title": "Slett",
 											"button-icon": {
 												"icon-prefix": "reg",
 												"icon-class": "reg-trash",
@@ -4617,7 +4818,7 @@
 											}
 										},
 										{
-											"button-text": "Videresend i Altinn",
+											"button-text": "Del og gi fullmakt",
 											"button-class": "a-btn-link a-btn-md-block mr-2",
 											"button-colorClass": "",
 											"link-url": "/patterns/04-sider-portal-50-innboks-03-videresend-i-altinn/04-sider-portal-50-innboks-03-videresend-i-altinn.html",
@@ -4625,17 +4826,6 @@
 											"button-icon": {
 												"icon-prefix": "reg",
 												"icon-class": "reg-forward reg-nw pr-1"
-											}
-										},
-										{
-											"button-text": "Videresend på e-post",
-											"button-class": "a-btn-link a-btn-md-block",
-											"button-colorClass": "",
-											"link-url": "/patterns/04-sider-portal-50-innboks-02-videresend-pa-epost/04-sider-portal-50-innboks-02-videresend-pa-epost.html",
-											"button-shadow-label": false,
-											"button-icon": {
-												"icon-prefix": "reg",
-												"icon-class": "reg-forward-msg reg-nw pr-1"
 											}
 										}
 									]
@@ -4676,7 +4866,14 @@
 								"heading-tekst": {
 									"textSmall": "Skatteetaten",
 									"textMain": "A-melding A01 for Karis Dykkerskole AS",
-									"textDescription": "Til utfylling:"
+									"textDescription": "Til utfylling:",
+									"form-heading-icon": {
+										"icon-prefix": "reg",
+										"icon-class": "reg-attachedform",
+										"icon-size": "",
+										"icon-extra-class": "reg-nw a-postHeaderIcon",
+										"icon-sr-only-text": "Til utfylling"
+									}
 								},
 								"due-date-content": {
 									"due-date": "24.01.2017",
@@ -4688,6 +4885,7 @@
 										{
 											"button-class": "a-btn a-btn-icon",
 											"aria-label": "Arkiv",
+											"tooltip-title": "Arkiver",
 											"button-icon": {
 												"icon-prefix": "reg",
 												"icon-class": "reg-archive",
@@ -4697,6 +4895,7 @@
 										{
 											"button-class": "a-btn a-btn-icon a-inactive",
 											"aria-label": "Slett",
+											"tooltip-title": false,
 											"disabled": true,
 											"button-icon": {
 												"icon-prefix": "reg",
@@ -4755,7 +4954,7 @@
 											}
 										},
 										{
-											"button-text": "Videresend i Altinn",
+											"button-text": "Del og gi fullmakt",
 											"button-class": "a-btn-link a-btn-md-block",
 											"button-colorClass": "",
 											"link-url": "/patterns/04-sider-portal-50-innboks-03-videresend-i-altinn/04-sider-portal-50-innboks-03-videresend-i-altinn.html",
@@ -4799,6 +4998,7 @@
 										{
 											"button-class": "a-btn a-btn-icon",
 											"aria-label": "Arkiv",
+											"tooltip-title": "Arkiver",
 											"button-icon": {
 												"icon-prefix": "reg",
 												"icon-class": "reg-archive",
@@ -4808,6 +5008,7 @@
 										{
 											"button-class": "a-btn a-btn-icon",
 											"aria-label": "Slett",
+											"tooltip-title": "Slett",
 											"button-icon": {
 												"icon-prefix": "reg",
 												"icon-class": "reg-trash",
@@ -4865,7 +5066,7 @@
 											}
 										},
 										{
-											"button-text": "Videresend i Altinn",
+											"button-text": "Del og gi fullmakt",
 											"button-class": "a-btn-link a-btn-md-block mr-2",
 											"button-colorClass": "",
 											"link-url": "/patterns/04-sider-portal-50-innboks-03-videresend-i-altinn/04-sider-portal-50-innboks-03-videresend-i-altinn.html",
@@ -4873,17 +5074,6 @@
 											"button-icon": {
 												"icon-prefix": "reg",
 												"icon-class": "reg-forward reg-nw pr-1"
-											}
-										},
-										{
-											"button-text": "Videresend på e-post",
-											"button-class": "a-btn-link a-btn-md-block",
-											"button-colorClass": "",
-											"link-url": "/patterns/04-sider-portal-50-innboks-02-videresend-pa-epost/04-sider-portal-50-innboks-02-videresend-pa-epost.html",
-											"button-shadow-label": false,
-											"button-icon": {
-												"icon-prefix": "reg",
-												"icon-class": "reg-forward-msg reg-nw pr-1"
 											}
 										}
 									]
@@ -4945,6 +5135,7 @@
 										{
 											"button-class": "a-btn a-btn-icon",
 											"aria-label": "Arkiv",
+											"tooltip-title": "Arkiver",
 											"button-icon": {
 												"icon-prefix": "reg",
 												"icon-class": "reg-archive",
@@ -4954,6 +5145,7 @@
 										{
 											"button-class": "a-btn a-btn-icon",
 											"aria-label": "Slett",
+											"tooltip-title": "Slett",
 											"button-icon": {
 												"icon-prefix": "reg",
 												"icon-class": "reg-trash",
@@ -5011,7 +5203,7 @@
 											}
 										},
 										{
-											"button-text": "Videresend i Altinn",
+											"button-text": "Del og gi fullmakt",
 											"button-class": "a-btn-link a-btn-md-block mr-2",
 											"button-colorClass": "",
 											"link-url": "/patterns/04-sider-portal-50-innboks-03-videresend-i-altinn/04-sider-portal-50-innboks-03-videresend-i-altinn.html",
@@ -5019,17 +5211,6 @@
 											"button-icon": {
 												"icon-prefix": "reg",
 												"icon-class": "reg-forward reg-nw pr-1"
-											}
-										},
-										{
-											"button-text": "Videresend på e-post",
-											"button-class": "a-btn-link a-btn-md-block",
-											"button-colorClass": "",
-											"link-url": "/patterns/04-sider-portal-50-innboks-02-videresend-pa-epost/04-sider-portal-50-innboks-02-videresend-pa-epost.html",
-											"button-shadow-label": false,
-											"button-icon": {
-												"icon-prefix": "reg",
-												"icon-class": "reg-forward-msg reg-nw pr-1"
 											}
 										}
 									]

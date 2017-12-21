@@ -1,18 +1,10 @@
 <!-- START: 00-atomer-01-forms-03-valgknapp -->
 {{# checkbuttons }}
-  <div class="a-switch {{styleModifier}} {{# checkbuttons-container-class }} {{ checkbuttons-container-class }}{{/ checkbuttons-container-class }} ">
-    <input
-      {{# checkbuttons-id }} id="{{{ checkbuttons-id }}}" {{/ checkbuttons-id }}
-      class="sr-only"
-      type="checkbox"
-      name="{{{ checkbuttons-id }}}"
-      value="checkbutton-read"
-      {{# isChecked }} checked {{/ isChecked }}
-      {{# isDisabled }} disabled {{/ isDisabled }}
-      >
-    <label
-      for="{{{ checkbuttons-id }}}"
-      class="a-switch-label {{{ checkbuttons-class }}}">
+<div class="a-switch {{styleModifier}} {{# checkbuttons-container-class }} {{ checkbuttons-container-class }}{{/ checkbuttons-container-class }} ">
+  <input {{# checkbuttons-id }} id="{{{ checkbuttons-id }}}" {{/ checkbuttons-id }} class="sr-only" type="checkbox" name="{{{ checkbuttons-id }}}" value="checkbutton-read" {{# isChecked }} checked {{/ isChecked }} {{# isDisabled }} disabled {{/ isDisabled
+    }} {{# enable-popover }} class="sr-only" data-toggle="popover" data-placement="{{ popover-placement}}" data-animation="false" data-popover-content="{{ popover-content-id }}" {{# popover-class }}data-popover-class="{{ popover-class }}" {{/ popover-class
+    }} {{# data-trigger }} data-trigger="{{ data-trigger }}" {{/ data-trigger }} {{/ enable-popover}}>
+  <label for="{{{ checkbuttons-id }}}" class="a-switch-label {{{ checkbuttons-class }}}">
       {{# hasIcon }}
         {{> atomer-ikon }}
       {{/ hasIcon }}
@@ -20,8 +12,13 @@
         {{> atomer-ikon }}
       {{/ checkbuttons-toggle-icon }}
       {{{ checkbuttons-title }}}
-    </label>
+    </label> {{# enable-popover }}
+  <div {{# popover-content-id }} id="{{ popover-content-id }}" {{/ popover-content-id }} class="d-none">
+    <div class="pb-1">{{ popover-text }}</div>
+    {{# popover-buttons }} {{> atomer-knapp:mr-1 }} {{/ popover-buttons }}
   </div>
+  {{/ enable-popover }}
+</div>
 {{/ checkbuttons }}
 
 <!-- END: 00-atomer-01-forms-03-valgknapp -->

@@ -11,6 +11,9 @@
 	"icon-post-text": false,
 	"icon-title": false,
 	"icon-sr-only-text": false,
+	"themeCss": "../../css/style.prototype.altinn.css",
+	"themeJs": "./../../js/altinnPrototyping.js",
+	"themeJsVendor": "../../js/altinnPrototyping.vendor.js",
 	"print-form-tag": false,
 	"text-input-id": "text-input-generic",
 	"isHidden": false,
@@ -154,35 +157,35 @@
 		}
 	],
 	"label-class": "badge-primary",
-	"label-id": "label",
+	"label-id": false,
 	"label-content": "9",
 	"button-colorClass": "",
 	"button-shadow-label": false,
 	"icon-list-items": [
 		{
-			"list-item-name": "Forretningsplan.doc",
-			"listItemDescription": "En plan for selskapets vekst og utvikling gir deg noe å styre etter.",
-			"icon-prefix": "ai",
-			"icon-class": "ai-document"
+			"list-item-name": "Forretningsplan.ods",
+			"listItemDescription": "(last ned)",
+			"icon-prefix": "reg",
+			"icon-class": "reg-attachment-ods ai-md ai-nw pr-1"
 		},
 		{
 			"list-item-name": "Oppdragsavtale.doc",
-			"listItemDescription": "Hvis du selger tjenester bør du signere en avtale med kjøper.",
-			"icon-prefix": "ai",
-			"icon-class": "ai-document"
+			"listItemDescription": "(last ned)",
+			"icon-prefix": "reg",
+			"icon-class": "reg-attachment ai-md ai-nw pr-1"
 		},
 		{
-			"list-item-name": "Driftsbudsjett.doc",
-			"listItemDescription": "For å disponere oppstartskapitalen din og prioritere innkjøpene riktig.",
-			"icon-prefix": "ai",
-			"icon-class": "ai-document"
+			"list-item-name": "Driftsbudsjett.pdf",
+			"listItemDescription": "(last ned)",
+			"icon-prefix": "reg",
+			"icon-class": "reg-attachment-pdf ai-md ai-nw pr-1"
 		}
 	],
 	"alert-id": "alert",
 	"alert-class": "a-message-info",
 	"alert-items": {
 		"alert-text": {
-			"text": "Dette er en beskjed."
+			"text": "Dette er en driftsmelding eller endringsinformasjon"
 		}
 	},
 	"linkIcon-url": "#",
@@ -347,6 +350,7 @@
 			{
 				"button-class": "a-btn a-btn-icon",
 				"aria-label": "Arkiv",
+				"tooltip-title": "Arkiv",
 				"button-icon": {
 					"icon-prefix": "reg",
 					"icon-class": "reg-archive",
@@ -356,6 +360,7 @@
 			{
 				"button-class": "a-btn a-btn-icon",
 				"aria-label": "Slett",
+				"tooltip-title": "Slett",
 				"button-icon": {
 					"icon-prefix": "reg",
 					"icon-class": "reg-trash",
@@ -373,6 +378,8 @@
 	},
 	"hasTextSmall": false,
 	"icontext": "Stor tekst",
+	"section-title": "Tittel på seksjon",
+	"extra-class": false,
 	"top-notification": false,
 	"collapseID": "collapseEx1",
 	"dataParent": "#accordion",
@@ -388,20 +395,24 @@
 		},
 		"icontext": "Stor tekst"
 	},
+	"pre-header": false,
+	"pre-header-classes": "col-sm-12 col-lg-12 mt-1",
 	"messageBody": false,
 	"extraPanelBodyClass": false,
+	"direct-link-url": false,
 	"collapse-panel-content": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quisquam excepturi sit natus pariatur consequuntur labore magnam aperiam non iusto itaque cumque iste ipsum, sed molestias! Placeat quia velit dolor doloremque?",
-	"accordion-large-id": "accordion",
+	"accordion-large-id": "panelAccordion",
 	"accordion-large-items": [
 		{
-			"collapseID": "accordionItem15",
-			"dataParent": "#accordion",
+			"collapseID": "myPanel1",
+			"dataParent": "#panelAccordion",
+			"collapse-panel-header-id": "myPanel1Header",
 			"collapseHeader": {
-				"variation-class": "a-iconText-shadow a-collapseBtn collapsed",
+				"variation-class": "a-iconText-shadow a-iconText-large a-collapseBtn collapsed",
 				"hasIcon": {
-					"icon-prefix": "ai",
-					"icon-class": "ai-others",
-					"icon-extra-class": "a-icon a-icon-circle"
+					"icon-prefix": "reg",
+					"icon-class": "reg-lock",
+					"icon-extra-class": "a-icon"
 				},
 				"hasTextSmall": {
 					"textSmall": "Liten tekst"
@@ -411,19 +422,37 @@
 			"collapse-panel-content": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus cumque maxime, quam commodi doloremque adipisci deserunt atque non unde rem blanditiis quos veritatis suscipit, omnis animi labore nobis delectus eaque."
 		},
 		{
-			"collapseID": "accordionItem16",
+			"collapseID": "myPanel2",
+			"dataParent": "#panelAccordion",
+			"collapse-panel-header-id": "myPanel2Header",
 			"collapseHeader": {
-				"variation-class": "a-iconText-shadow a-collapseBtn collapsed",
-				"dataParent": "#accordion",
+				"variation-class": "a-iconText-shadow a-iconText-large a-collapseBtn collapsed",
 				"hasIcon": {
-					"icon-prefix": "ai",
-					"icon-class": "ai-help",
-					"icon-extra-class": "a-icon a-icon-circle"
+					"icon-prefix": "reg",
+					"icon-class": "reg-other",
+					"icon-extra-class": "a-icon"
 				},
-				"hasTextSmall": {
-					"textSmall": "Liten tekst"
+				"hasTextSmall": false,
+				"icontext": "Bare stor tekst"
+			},
+			"collapse-panel-content": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus cumque maxime, quam commodi doloremque adipisci deserunt atque non unde rem blanditiis quos veritatis suscipit, omnis animi labore nobis delectus eaque."
+		},
+		{
+			"collapseID": "myPanel3",
+			"dataParent": "#panelAccordion",
+			"collapse-panel-header-id": "myPanel3Header",
+			"collapseHeader": {
+				"variation-class": "a-iconText-shadow a-iconText-large a-collapseBtn collapsed",
+				"hasIcon": {
+					"icon-prefix": "reg",
+					"icon-class": "reg-document",
+					"icon-extra-class": "a-icon"
 				},
-				"icontext": "Stor tekst"
+				"hasTextSmall": false,
+				"isHeader": {
+					"isH2": true
+				},
+				"icontext": "Tittel (h2)"
 			},
 			"collapse-panel-content": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus cumque maxime, quam commodi doloremque adipisci deserunt atque non unde rem blanditiis quos veritatis suscipit, omnis animi labore nobis delectus eaque."
 		}
@@ -531,9 +560,11 @@
 	},
 	"checkboxes": [
 		{
+			"isChecked": false,
 			"checkboxes-title": "Kryss av i den første avkrysningsboksen"
 		},
 		{
+			"isChecked": false,
 			"checkboxes-title": "Kryss av i den andre avkrysningsboksen"
 		}
 	],
@@ -610,10 +641,24 @@
 			"checkbuttons-title": " Signere",
 			"checkbuttons-id": "checkbutton-sign",
 			"checkbuttons-class": "",
+			"role": "button",
 			"hasIcon": {
 				"icon-prefix": "ai",
 				"icon-class": "ai-sign"
-			}
+			},
+			"stacked-background": false,
+			"enable-popover": true,
+			"popover-placement": "bottom",
+			"popover-content-id": "conditionalPopover",
+			"popover-class": "popover-warning",
+			"popover-text": "Dette er en popover tekst",
+			"data-trigger": "onchange",
+			"popover-buttons": [
+				{
+					"button-text": "knapp",
+					"button-class": "a-btn a-btn-danger"
+				}
+			]
 		},
 		{
 			"checkbuttons-title": " Toggle state icon",
@@ -723,6 +768,7 @@
 			}
 		]
 	},
+	"column-info-delete-edit": false,
 	"column-switches-with-text": false,
 	"column-info-delete-add": false,
 	"header-text": "Forklarende tittel",
@@ -1066,7 +1112,7 @@
 		}
 	],
 	"loadmore": {
-		"action-button-text": "Vis alle profiler",
+		"action-button-text": "Vis alle aktører",
 		"button-class": "a-btn a-btn-action a-fullWidthBtn",
 		"icon-prefix": "ai",
 		"icon-class": "ai-plus",
@@ -1116,16 +1162,15 @@
 	"personswitch-overview": true,
 	"personswitch-search": {
 		"text-input-id": "person-switch-input-field",
-		"top-label": "Søk etter profil",
+		"top-label": "Søk etter aktør",
 		"isHidden": true,
-		"text-input-placeholder": "Søk etter profil",
+		"text-input-placeholder": "Søk etter aktør",
 		"input-type": "search",
 		"isInput-group": "input-group",
 		"form-label-hasIcon": {
 			"icon-prefix": "ai",
 			"icon-class": "ai-others"
 		},
-		"form-input-hasButton-class": false,
 		"form-input-hasButton": false,
 		"no-results-text": "Ingen treff, prøv et annet søkeord."
 	},
