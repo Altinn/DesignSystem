@@ -33,6 +33,10 @@ var sessionExpiredDialog = function() {
     alert(loggedOutMessage);
   }
 
+  function reloadPage() {
+    window.location.reload();
+  }
+
   function deleteCookie() {
     document.cookie = cookieName + '=; expires=0';
   }
@@ -48,7 +52,7 @@ var sessionExpiredDialog = function() {
       deleteCookie();
       stopInterval();
       showNoticeModal();
-      location.reload();
+      window.setTimeout(reloadPage, 20 * 1000);
     }
   }
 
@@ -69,15 +73,16 @@ var sessionExpiredDialog = function() {
     sessionTimeout = window.sessionValidation.timeout;
     loggedOutMessage = window.sessionValidation.loggedOutMessage;
     isLoggedIn = window.sessionValidation.loggedIn;
-  }
-  if (isLoggedIn) {
-    cookie = getCookie();
-    if (cookie === '') {
-      createCookie();
+
+    if (isLoggedIn) {
+      cookie = getCookie();
+      if (cookie === '') {
+        createCookie();
+      } else {
+        startCheckTimer();
+      }
     } else {
-      startCheckTimer();
+      deleteCookie();
     }
-  } else {
-    deleteCookie();
   }
 };
