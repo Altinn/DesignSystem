@@ -1,0 +1,47 @@
+<div class="a-modal fade modal show {{ bodyClass }}" {{# modal-id }} id="{{ modal-id }}" {{/ modal-id }} tabindex="-1" role="dialog" {{# modal-label }} aria-labelledby="{{ modal-label }}" {{/ modal-label }} style="display: block">
+  <div class="modal-dialog modal-lg" role="document">
+    <div class="container a-p-static">
+      <div class="row">
+        <div class="col-xl-12">
+          {{# modal-header }}
+            {{> molekyler-modal-header }}
+          {{/ modal-header }}
+          {{# sub-header }}
+            {{> organismer-subheader }}
+          {{/ sub-header }}
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-xl-10 offset-xl-1 a-p-static">
+          {{# modal-navbar-override }}
+            {{> molekyler-modal-navbar }}
+          {{/ modal-navbar-override }}
+          <div class="a-modal-content-target">
+            <div class="a-page a-current-page">
+              <div class="modalPage">
+                <div class="modal-content">
+                  {{> molekyler-modal-body-header }}
+                  <div class="modal-body a-modal-body">
+                    {{# personAlertProfile }}
+                      {{> organismer-altinnett-skjema-varslingsprofil }}
+                    {{/ personAlertProfile }}
+
+                    {{# alertList }}
+                      {{> organismer-altinnett-skjema-varsling }}
+                    {{/ alertList }}
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+{{^ hide-backdrop }}
+<!-- DO NOT INCLUDE IN IMPLEMENTATION, ADDED BY BOOTSTRAP WHEN MODAL IS TRIGGERED -->
+<div class="modal-backdrop fade show"></div>
+<!-- END DO NOT INCLUDE -->
+{{/ hide-backdrop }}
