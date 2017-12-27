@@ -7,36 +7,14 @@
     </a>
   </div>
   <div id="{{ collapseID }}" class="a-collapsePanel-body collapse {{{ isVisibleFromStart }}}" role="tabpanel" aria-labelledby="{{ collapse-panel-header-id }}">
-    <div class="a-collapsePanel-body-content">
+    <div class="a-collapsePanel-body-content"> 
       <div class="row">
         <div class="col-12">
-          <h3 class="a-fontBold a-fontSizeM">
-            {{ shared-contactinfo-header }}
-          </h3>
-        </div>
-        <div class="col-12 col-md-4">
-          {{# shared-contactinfo-first-input }}
-            {{> atomer-tekst-input }}
-          {{/ shared-contactinfo-first-input }}
-        </div>
-        <div class="col-12 col-md-7 pr-md-0">
-          {{# shared-contactinfo-second-input }}
-            {{> atomer-tekst-input }}
-          {{/ shared-contactinfo-second-input }}
-        </div>
-        <div class="col-12">
-            {{# shared-contact-checkbox }}
-              {{> atomer-avkrysningsboks }}
-            {{/ shared-contact-checkbox }}
-        </div>
-      </div>
-      <div class="row">
-        <div class="col-12 mt-2">
           <h3 class="a-fontBold a-fontSizeM">
             {{ other-shared-contactinfo-header }}
           </h3>
         </div>
-      </div>
+      </div>      
       {{# add-contactinfo }}
        <div class="row">
           <div class="col-12 col-md-4">
@@ -61,15 +39,49 @@
           </div>
         </div>
       {{/ add-contactinfo }}
+        <div class="row">
+          <div class="col-12">
+            {{# add-contactinfo-row-button }}
+              {{> atomer-handlingsknapp }}
+            {{/ add-contactinfo-row-button }}
+          </div>
+        </div>
+    {{# shared-contactinfo}}
       <div class="row">
+        <div class="col-12 mt-2">
+          <h3 class="a-fontBold a-fontSizeM">
+            {{ shared-contactinfo-header }}
+          </h3>
+        </div>
+        <div class="col-12 col-md-4">
+          {{# shared-contactinfo-first-input }}
+            {{> atomer-tekst-input }}
+          {{/ shared-contactinfo-first-input }}
+        </div>
+        <div class="col-12 col-md-7 pr-md-0">
+          {{# shared-contactinfo-second-input }}
+            {{> atomer-tekst-input }}
+          {{/ shared-contactinfo-second-input }}
+        </div>
         <div class="col-12">
-          {{# add-contactinfo-row-button }}
-            {{> atomer-handlingsknapp }}
-          {{/ add-contactinfo-row-button }}
+            {{# shared-contact-checkbox }}
+              {{> atomer-avkrysningsboks }}
+            {{/ shared-contact-checkbox }}
         </div>
       </div>
+    {{/ shared-contactinfo}}
       <div class="row">
-        <div class="col-12 mt-1">
+        <div class="col-12 mt-2">
+            {{ shared-contactinfo-text }}
+        </div>
+        <div class="col-12">
+          {{ #shared-contactinfo-link }}
+            {{> atomer-link-ekstern}}
+          {{ /shared-contactinfo-link }}
+        </div>
+      </div>        
+      <div class="row">
+        <div class="col-12 mt-2">
           {{# add-contactinfo-done-button }}
             {{> atomer-knapp-suksess }}
           {{/ add-contactinfo-done-button }}
