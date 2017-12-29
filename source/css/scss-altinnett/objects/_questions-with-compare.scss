@@ -1,0 +1,188 @@
+// ------------------------------------
+// Answer questions and compare results
+// ------------------------------------
+
+.a-question-wrapper {
+  display: inline-block;
+  padding: 0;
+  overflow: hidden;
+
+  .a-trigger-question {
+    position: relative;
+    display: none;
+    padding-bottom: $spacer;
+    margin-top: -1px;
+    margin-bottom: 0;
+    border-top: 1px solid darken( $grey-light, 6% );
+
+    &:nth-of-type(1) {
+      display: block;
+    }
+  }
+
+  .a-circle-list {
+    margin-left: 0;
+
+    @include media-breakpoint-up( lg ) {
+      margin-left: 0;
+    }
+
+    li {
+      padding-top: $spacer * 2;
+      padding-right: $spacer * 2;
+      padding-left: $spacer * 6;
+
+      @include media-breakpoint-up( md ) {
+        padding-top: $spacer * 3;
+        padding-right: $spacer * 4;
+        padding-left: $spacer * 7;
+      }
+
+      &::before {
+        position: absolute;
+        top: $spacer * 1.5;
+        left: $spacer * 6;
+        width: $spacer * 3;
+        height: $spacer * 3;
+
+        padding: 5px 0 0 0;
+        text-align: center;
+
+        @include media-breakpoint-up( md ) {
+          top: $spacer * 2.5;
+          left: $spacer * 7;
+        }
+      }
+
+      &:last-of-type {
+        display: none;
+        padding: 0;
+        margin-bottom: 0;
+
+        &::before {
+          display: none;
+        }
+      }
+    }
+  }
+
+  .hidewhenempty {
+    margin-top: 18px;
+    margin-bottom: 15px;
+    // margin-left: $spacer * 2;
+    margin-left: 0;
+
+    @include media-breakpoint-up( sm ) {
+      // margin-left: $spacer * 6;
+      margin-left: 0;
+    }
+
+    @include media-breakpoint-up( md ) {
+      // margin-left: $spacer * 7;
+      margin-left: 0;
+    }
+	}
+
+  .hidewhenempty + hr {
+    display: none;
+  }
+
+  hr {
+    margin: 0;
+  }
+
+  .a-btn {
+    width: 100%;
+    margin-bottom: 0;
+    line-height: $spacer * 3;
+    text-align: center;
+  }
+}
+
+// Compare results
+.a-compare-header {
+  margin-bottom: $spacer * 4;
+
+  h2 {
+    @include a-fontBold;
+  }
+
+  .a-compare-container {
+    border-bottom: 1px solid $blue-line;
+
+    &:last-child {
+      padding-left: $spacer * 1;
+
+      @include media-breakpoint-up( md ) {
+        padding-left: $spacer * 1.5;
+      }
+    }
+  }
+}
+
+.a-compare-header-alone {
+  margin-bottom: 0;
+  border-bottom: none;
+
+  h2 {
+    @include a-fontSize20;
+	}
+}
+
+.a-compare-element {
+  width: 100%;
+  padding-top: $spacer * 3;
+  padding-bottom: $spacer * 3;
+
+  > h3 {
+    margin-top: 0;
+  }
+}
+
+.a-compare-category {
+  h2 {
+    margin-top: $spacer * 4;
+    @include media-breakpoint-up( md ) {
+      padding: 0;
+    }
+  }
+
+  .a-compare-container {
+    padding: 0 $spacer * 2;
+    border-top: 1px solid $blue-line;
+
+    &:not(:nth-of-type) {
+      border-right: 1px solid $blue-line;
+    }
+
+    &:nth-child(odd) {
+      padding-left: $spacer;
+      border-right: 1px solid $blue-line;
+      @include media-breakpoint-up( md ) {
+        padding-left: $spacer * 2;
+      }
+    }
+
+    &:not(:last-of-type) {
+      @include media-breakpoint-up( md ) {
+        border-right: 1px solid $blue-line;
+      }
+    }
+
+    p {
+      @extend .a-fontSizeS;
+    }
+
+    &:first-child {
+      padding-right: $spacer;
+
+      @include media-breakpoint-up( md ) {
+        padding-left: $spacer;
+      }
+    }
+
+    @include media-breakpoint-up( xl ) {
+      padding: 0 $spacer * 2;
+    }
+	}
+}
