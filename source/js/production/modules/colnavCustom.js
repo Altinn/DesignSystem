@@ -323,16 +323,25 @@ var colnavCustom = function() {
   }
 
   function whenKey(e, classToQuery) { // Logic for keypresses on items
+    var parentNode;
     var code = e.keyCode || e.which;
-    if (code === 27 || code === 37 || code === 38 || code === 39 || code === 40) {
+    if (code === 27 // Escaoe
+        || code === 37 // Left arrow
+        || code === 38 // Up arrow
+        || code === 39 // Right arrow
+        || code === 40 // Down arrow
+      ) {
       stopEvent(e);
     }
-    if (code === 13 || code === 32) {
+    if (code === 13 // Enter
+      || code === 32 // Space
+      ) {
       if (classToQuery !== '.a-colnav-item-third') {
         stopEvent(e);
         $(e.target).trigger('mouseup').trigger('focus');
       }
-    } else if (code === 9 && !$(e.target).hasClass('open')) {
+    } else if (code === 9 // Tab
+      && !$(e.target).hasClass('open')) {
       if (shifted) {
         if ($(e.target).blur().parent().prev().length !== 0) {
           stopEvent(e);
@@ -345,6 +354,12 @@ var colnavCustom = function() {
         $(e.target).blur().parent().next()
             .find(classToQuery)
             .trigger('focus');
+      } else {
+        parentNode = $(e.target)
+          .parent() // li
+          .parent() // ul
+          .prev(); // li
+        whenClick(parentNode, true);
       }
     } else if (code === 9 && $(e.target).hasClass('open')) {
       if (shifted) {
