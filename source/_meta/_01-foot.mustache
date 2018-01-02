@@ -21,13 +21,13 @@
                 switch (window.localStorage.getItem('selected_project')) {
                     case 'altinn':
                         $('link[href*="style.dist.altinnett.css"]').remove();
-                        $('link[href*="style.dist.brsys.css"]').remove();
+                        $('link[href*="style.dist.brreg.css"]').remove();
                         $($panelBrsys).hide();
                         $($panelaltinn).show();
                         break;
                     case 'altinnett':
                         $('link[href*="style.prototype.altinn.css"]').remove();
-                        $('link[href*="style.dist.brsys.css"]').remove();
+                        $('link[href*="style.dist.brreg.css"]').remove();
                         $($panelBrsys).hide();
                         $($panelaltinn).show();
                         break;
@@ -40,13 +40,13 @@
                     default:
                         $('link[href*="style.prototype.altinn.css"]').remove();
                         $('link[href*="style.dist.altinnett.css"]').remove();
-                        $('link[href*="style.dist.brsys.css"]').attr({href: '{{{ themeCss }}}?{{ cacheBuster }}', media: 'all'});
+                        $('link[href*="style.dist.brreg.css"]').attr({href: '{{{ themeCss }}}?{{ cacheBuster }}', media: 'all'});
                         break;
                 }
             } else {
                 $('link[href*="style.prototype.altinn.css"]').remove();
                 $('link[href*="style.dist.altinnett.css"]').remove();
-                $('link[href*="style.dist.brsys.css"]').attr({href: '{{{ themeCss }}}?{{ cacheBuster }}', media: 'all'});
+                $('link[href*="style.dist.brreg.css"]').attr({href: '{{{ themeCss }}}?{{ cacheBuster }}', media: 'all'});
             }
             $('.a-sg-content-preloader-status').fadeOut();
             $('.a-sg-content-preloader').delay(350).fadeOut('slow');
