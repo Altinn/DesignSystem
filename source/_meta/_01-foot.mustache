@@ -8,10 +8,17 @@
 <script src="{{{themeJsVendor}}}"></script>
 <!-- ALTINN DEV custom JavaScript -->
 <script src="{{{themeJs}}}"></script>
-<!-- CSS uploader inline javascript -->
+
 <script type="text/javascript">
     <!-- Check if current Window is in iFrame -->
     if (self === top) {
+
+        document.addEventListener('DOMContentLoaded', function() {
+            $('.a-sg-content-preloader:first').fadeIn('slow');
+            setTimeout(function() {
+                $('.a-sg-content-preloader-status:first').fadeIn(350);
+            }, 2000);
+        }, false);
         $(window).on('load', function () {
             var $body = 'body';
             $($body).css({overflow: 'hidden'});
