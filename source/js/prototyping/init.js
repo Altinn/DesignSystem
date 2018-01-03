@@ -39,6 +39,7 @@
   searchFilterView,
   searchWithAutocomplete,
   selectAll,
+  sessionExpiredDialog,
   setupAddRightsHandler,
   setupExpandContent,
   setupFormValidation,
@@ -101,6 +102,7 @@ window.devInit = function() {
   searchFilterView();
   searchWithAutocomplete();
   selectAll();
+  sessionExpiredDialog();
   setupAddRightsHandler();
   setupExpandContent();
   setupFormValidation();
@@ -158,6 +160,12 @@ window.devInit = function() {
     return 'Det oppstod en feil';
   }
   listenForAttachmentChanges('#js-attachmentForm', errorMessageCallback);
+};
+// This is added  here to test the session invalidation function
+window.sessionValidation = {
+  timeout: 2,
+  loggedOutMessage: 'Du har vært inaktiv i mer enn 30 minutter, og er nå logget ut.',
+  loggedIn: true
 };
 window.devInit();
 $('.html-escape').each(function() {

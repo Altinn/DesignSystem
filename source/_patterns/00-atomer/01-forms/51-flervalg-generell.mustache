@@ -1,9 +1,9 @@
-<form>
-  <label for="{{select-menu-id}}" class="a-formLabel">{{select-menu-label}}</label>
-  <select class="custom-select a-custom-select" name="{{select-menu-id}}" id="dropdownMenuDefault">
-    <option value="{{select-menu-selected}}" selected>{{select-menu-selected}}</option>
-    {{#select-menu-items}}
-      <option value="{{select-menu-option}}">{{select-menu-option}}</option>
-    {{/select-menu-items}}
+<div class="form-group a-form-group {{ styleModifier }}">
+  <label for="{{ select-menu-id }}" class="a-form-label">{{ select-menu-label }}</label>
+  <select class="custom-select a-custom-select" name="{{ select-menu-id }}" id="dropdownMenuDefault">
+    <option value="{{ select-menu-selected }}" selected>{{ select-menu-selected }}</option>
+    {{# select-menu-items }}
+      <option value="{{ select-menu-option }}" {{# selected }}selected="selected"{{/ selected }}>{{ select-menu-option }}</option>
+    {{/ select-menu-items }}
   </select>
-</form>
+</div>

@@ -6,20 +6,30 @@ var colnavCustom = function() {
   var movedDuringTouch = false; // Boolean to determine whether there was movement during touch
   var shifted; // Boolean to determine if shift key was pressed
   var savedResults = {}; // Object to hold saved results
+  var currentData = {};
   var pluginInstance; // Variable to hold Foundation plugin instance
   var endPointUrl = '';
   var currentCategory = '';
+  var menuHandlersAttached = false;
+  var populateSublevel; // We need to declare this func. before defining it because of lint warnings
 
   var keys = {
     category: 'category',
     checked: ':checked',
+    colnavSelector: '.a-colnav',
+    colnavItemSelector: '.a-colnav-item',
     dataId: 'data-id',
+    dataIndex: 'data-index',
     disabled: 'disabled',
     colnavWrapper: '.a-colnav-wrapper',
+    dataLevel: 'data-level',
     loaderClass: '.a-js-drilldownLoader',
     radioClassSelector: '.radio',
     switchurl: 'switchurl',
     toggleInput: '[name="js-switchForm"]'
+  };
+
+  var elements = {
   };
 
   var category = {
@@ -27,12 +37,69 @@ var colnavCustom = function() {
     provider: 'provider'
   };
 
+  function time(label) {
+    // Comment this out before committing, used to measure performance in dev
+    console.time(label);
+  }
+
+  function timeEnd(label) {
+    // Comment this out before committing, used to measure performance in dev
+    console.timeEnd(label);
+  }
+
+  function createElement(name) {
+    return document.createElement(name);
+  }
+
   function hideLoader() {
     $(keys.loaderClass).hide();
   }
 
   function showLoader() {
     $(keys.loaderClass).show();
+  }
+
+  function maxDepth() {
+    var depth = 3;
+    if (currentCategory === category.provider) {
+      depth = 2;
+    }
+
+    return depth;
+  }
+
+  function getListProperty(item) {
+    if (item.SubCategory) {
+      return item.SubCategory;
+    } else if (item.List) {
+      return item.List;
+    } else if (item.SchemaList) {
+      return item.SchemaList;
+    }
+
+    return null;
+  }
+
+  function setHistoryState(position) {
+    var urlQueryString = '?category=';
+    var newurl = window.location.pathname;
+    currentCategory = $(keys.toggleInput + keys.checked).data(keys.switchurl).replace('get', '');
+    if (history.replaceState) {
+      urlQueryString += currentCategory;
+      if (position !== null && position !== '') {
+        urlQueryString = urlQueryString + '&position=' + position;
+      }
+      newurl += urlQueryString;
+      window.history.replaceState({
+        path: newurl
+      }, '', newurl);
+    }
+  }
+
+  function stopEvent(e) {
+    e.preventDefault();
+    e.stopPropagation();
+    e.stopImmediatePropagation();
   }
 
   function urlQuery(query) { // Parse current URL for query value
@@ -44,6 +111,26 @@ var colnavCustom = function() {
       return results[1];
     }
     return false;
+  }
+
+  function createSubMenuForClickedItem($li) {
+    var $item = $li.closest('li');
+    var level = $item.data('level');
+    var dataIndex = $item.data('index');
+    var data = null;
+    var parentDataIndex = null;
+    var parentData = null;
+
+    if (level === 1) {
+      data = getListProperty(currentData[dataIndex]);
+    } else if (level === 2) {
+      parentDataIndex = $item.parent().closest('li').data('index');
+      parentData = currentData[parentDataIndex];
+      data = getListProperty(parentData)[dataIndex];
+      data = getListProperty(data);
+    }
+
+    populateSublevel(data, $item.find('ul'), level + 1);
   }
 
   // This code awful. It can return a number or an element (!),
@@ -66,10 +153,10 @@ var colnavCustom = function() {
       if ((currentCategory === category.provider &&
           x.hasClass('a-colnav-secondLevel') &&
           left < 250)
-        ||
-        (currentCategory === category.category &&
-          x.hasClass('a-colnav-thirdLevel') &&
-          left < 200)) {
+          ||
+          (currentCategory === category.category &&
+              x.hasClass('a-colnav-thirdLevel') &&
+              left < 200)) {
         returnValue = x;
       } else {
         returnValue = x.css('left', parseInt(contentOverviewWith / y / (z || 1), 10) + 'px');
@@ -81,89 +168,16 @@ var colnavCustom = function() {
     return returnValue;
   }
 
-  function disableToggles() {
-    $(keys.toggleInput).closest(keys.radioClassSelector).addClass(keys.disabled);
-    $(keys.toggleInput).attr(keys.disabled, true);
-  }
-
-  function enableToggles() {
-    $(keys.toggleInput).closest(keys.radioClassSelector).removeClass(keys.disabled);
-    $(keys.toggleInput).attr(keys.disabled, false);
-  }
-
-  function setHistoryState(position) {
-    var urlQueryString = '?category=';
-    var newurl = window.location.pathname;
-    currentCategory = $(keys.toggleInput + keys.checked).data(keys.switchurl).replace('get', '');
-    if (history.replaceState) {
-      urlQueryString += currentCategory;
-      if (position !== null && position !== '') {
-        urlQueryString = urlQueryString + '&position=' + position;
-      }
-      newurl += urlQueryString;
-      window.history.replaceState({
-        path: newurl
-      }, '', newurl);
-    }
-  }
-
-  function whenKey(e, classToQuery) { // Logic for keypresses on items
-    var code = e.keyCode || e.which;
-    if (code === 27 || code === 37 || code === 38 || code === 39 || code === 40) {
-      e.preventDefault();
-      e.stopPropagation();
-      e.stopImmediatePropagation();
-    }
-    if (code === 13 || code === 32) {
-      if (classToQuery !== '.a-colnav-item-third') {
-        e.preventDefault();
-        e.stopPropagation();
-        e.stopImmediatePropagation();
-        $(e.target).trigger('mouseup').trigger('focus');
-      }
-    } else if (code === 9 && !$(e.target).hasClass('open')) {
-      if (shifted) {
-        if ($(e.target).blur().parent().prev().length !== 0) {
-          e.preventDefault();
-          e.stopPropagation();
-          e.stopImmediatePropagation();
-          $(e.target).blur().parent().prev()
-            .find(classToQuery)
-            .trigger('focus');
-        }
-      } else if ($(e.target).blur().parent().next().length !== 0) {
-        e.preventDefault();
-        e.stopPropagation();
-        e.stopImmediatePropagation();
-        $(e.target).blur().parent().next()
-          .find(classToQuery)
-          .trigger('focus');
-      }
-    } else if (code === 9 && $(e.target).hasClass('open')) {
-      if (shifted) {
-        e.preventDefault();
-        e.stopPropagation();
-        e.stopImmediatePropagation();
-        $(e.target).blur().parent().parent()
-          .parent()
-          .children('a')
-          .trigger('focus');
-      } else {
-        e.preventDefault();
-        e.stopPropagation();
-        e.stopImmediatePropagation();
-        $(e.target).blur().next().children('li:eq(0)')
-          .children('a')
-          .trigger('focus');
-      }
-    }
-  }
-
   function whenClick(eventOrElement, alt) { // Logic for clicks on items
+    var index = null;
+    var level = null;
+    var wasStacked = null;
+    var str = null;
     var el = null;
     var li = null;
     var text = null;
     var position = null;
+
     if (eventOrElement.which === 2 || eventOrElement.which === 3) {
       // Middle-click or right-click, stop processing the event
       // Ref.: http://api.jquery.com/event.which/
@@ -172,6 +186,10 @@ var colnavCustom = function() {
 
     if (eventOrElement.target && eventOrElement.target.tagName === 'UL') {
       return;
+    }
+
+    if (eventOrElement.stopPropagation) {
+      stopEvent(eventOrElement);
     }
 
     // Determine element
@@ -188,11 +206,17 @@ var colnavCustom = function() {
     }
     text = li.find('h2').length > 0 ? li.find('h2').text() : li.find('h3').text();
     position = li.find('h2').length > 0 ? li.find('h2').attr(keys.dataId) : li.find('h3').attr(keys.dataId);
+    createSubMenuForClickedItem(li);
+    level = li.data('level');
+
     // Iterate through levels
-    levels.forEach(function(str, index) {
-      var wasStacked;
+    for (index = 0; index < level; index += 1) {
+    // levels.forEach(function(str, index) {
+      str = levels[index];
+      // var wasStacked;
       if (el.closest('ul').hasClass(str)) { // Check if element exists
-        if (el.closest('a').hasClass('open') || el.find('a').hasClass('open') || el.hasClass('open')) { // Check if item is already open:
+        // Check if item is already open
+        if (el.closest('a').hasClass('open') || el.find('a').hasClass('open') || el.hasClass('open')) {
           position = el.closest('ul').prev().find('h2').attr(keys.dataId) || '';
           setHistoryState(position);
           open = []; // Clear array for open levels
@@ -224,19 +248,19 @@ var colnavCustom = function() {
           if (open.indexOf(levels[index + 1]) === -1) { // If lower level is not open
             // Prepare lower level and add it to array:
             li.find('.' + levels[index + 1]).removeClass(wasStacked ? '' : 'noTrans')
-              .css('left', '250%').show();
+                .css('left', '250%').show();
             open.push(levels[index + 1]);
           }
           if (index > 0) { // If level is second or lower, calculate left position and width
             calc(el.closest('ul'), 3, index + 1).removeClass('noTrans')
-              .css('width', calc(1.5, null, index)).show();
+                .css('width', calc(1.5, null, index)).show();
           }
           // Calculate left position and width for lower level
           calc(li.find('.' + levels[index + 1]), 3, index + 1).css('width', calc(1.5, null, index))
             .show();
         }
       }
-    });
+    }
     // Perform markup adjustments to stacked view:
     if ($('.a-colnav-firstLevel').hasClass('stacked')) {
       $('.a-js-backButton').show();
@@ -266,109 +290,159 @@ var colnavCustom = function() {
       parseInt($('.a-colnav-secondLevel:visible').height(), 10) >
       parseInt($('.a-colnav-firstLevel').height(), 10)) {
       $('.a-colnav-firstLevel')
-        .css('height',
+          .css('height',
           parseInt($('.a-colnav-thirdLevel:visible').height(), 10) >
-          parseInt($('.a-colnav-secondLevel:visible').height(), 10) ?
-          (parseInt($('.a-colnav-thirdLevel:visible').height(), 10) - 2) :
-          (parseInt($('.a-colnav-secondLevel:visible').height(), 10) - 2) +
-          'px');
+              parseInt($('.a-colnav-secondLevel:visible').height(), 10) ?
+              (parseInt($('.a-colnav-thirdLevel:visible').height(), 10) - 2) :
+              (parseInt($('.a-colnav-secondLevel:visible').height(), 10) - 2) +
+              'px');
     }
     if (!$('.a-colnav-firstLevel').hasClass('stacked')) {
       $('.a-colnav-firstLevel').css('height', 'auto');
     }
   }
 
-  function attachHandlers(depth) {
-    var queryHit = false;
-    var positionUrlParameterValue = null;
-    // (Re)initialize Foundation library logic:
-    if ($('.a-colnav').prop('data-dropdown-menu')) {
-      pluginInstance.destroy();
-      pluginInstance = new Foundation.DropdownMenu($('.a-colnav').eq(0));
-    } else {
-      pluginInstance = new Foundation.DropdownMenu($('.a-colnav').eq(0));
-    }
-    if ($(keys.colnavWrapper).length > 0) { // Conditional logic for different screen sizes
-      if (isSmall) {
-        $(keys.colnavWrapper).html($(keys.colnavWrapper).html()
-          .replace(/drilldown/g, 'dropdown'));
-        $('.a-colnav').find('a').on('mouseup', function(event) { // Apply action logic
-          if (!movedDuringTouch) {
-            whenClick(event);
-          }
-        });
-      } else {
-        $(keys.colnavWrapper)
-          .html($(keys.colnavWrapper).html().replace(/drilldown/g, 'dropdown'))
-          .show().children()
-          .on('mouseup', function(event) { // Apply action logic
-            whenClick(event);
-            return false;
-          });
-      }
-
-      enableToggles();
-    }
+  function attachEventHandlers() {
     $(document).on('keyup keydown', function(e) { // Detect shift key
       shifted = e.shiftKey;
     });
-    // Set tabindexes:
-    $('.a-colnav-item-second').prop('tabindex', '0');
-    $('.a-colnav-item-third').prop('tabindex', '0');
-    // Apply remaining action logic:
-    $('.a-colnav-item').on('keydown', function(event) {
-      whenKey(event, '.a-colnav-item');
+
+    $('.a-js-backButton').on('click', function() {
+      whenClick($('a.open').last(), true);
     });
-    $('.a-colnav-item-second').on('keydown', function(event) {
+  }
+
+  function disableToggles() {
+    $(keys.toggleInput).closest(keys.radioClassSelector).addClass(keys.disabled);
+    $(keys.toggleInput).attr(keys.disabled, true);
+  }
+
+  function enableToggles() {
+    $(keys.toggleInput).closest(keys.radioClassSelector).removeClass(keys.disabled);
+    $(keys.toggleInput).attr(keys.disabled, false);
+  }
+
+  function whenKey(e, classToQuery) { // Logic for keypresses on items
+    var code = e.keyCode || e.which;
+    if (code === 27 || code === 37 || code === 38 || code === 39 || code === 40) {
+      stopEvent(e);
+    }
+    if (code === 13 || code === 32) {
+      if (classToQuery !== '.a-colnav-item-third') {
+        stopEvent(e);
+        $(e.target).trigger('mouseup').trigger('focus');
+      }
+    } else if (code === 9 && !$(e.target).hasClass('open')) {
+      if (shifted) {
+        if ($(e.target).blur().parent().prev().length !== 0) {
+          stopEvent(e);
+          $(e.target).blur().parent().prev()
+              .find(classToQuery)
+              .trigger('focus');
+        }
+      } else if ($(e.target).blur().parent().next().length !== 0) {
+        stopEvent(e);
+        $(e.target).blur().parent().next()
+            .find(classToQuery)
+            .trigger('focus');
+      }
+    } else if (code === 9 && $(e.target).hasClass('open')) {
+      if (shifted) {
+        stopEvent(e);
+        $(e.target).blur().parent().parent()
+            .parent()
+            .children('a')
+            .trigger('focus');
+      } else {
+        stopEvent(e);
+        $(e.target).blur().next().children('li:eq(0)')
+            .children('a')
+            .trigger('focus');
+      }
+    }
+  }
+
+  function createDropDown() {
+    time('createDropDown');
+    if (elements.$rootColnav.prop('data-dropdown-menu')) {
+      pluginInstance.destroy();
+    }
+
+    pluginInstance = new Foundation.DropdownMenu(elements.$rootColnav);
+    timeEnd('createDropDown');
+  }
+
+  function attachSubMenuEventHandlers($parentItem, depth) {
+    time('attachSubMenuEventHandlers');
+    $parentItem.find('.a-colnav-item-second').on('keydown', function(event) {
       whenKey(event, '.a-colnav-item-second');
     });
-    $('.a-colnav-item-third').on('keydown', function(event) {
+    $parentItem.find('.a-colnav-item-third').on('keydown', function(event) {
       whenKey(event, '.a-colnav-item-third');
     });
-    $('.a-colnav-item').on('click', function(event) {
+    timeEnd('attachSubMenuEventHandlers');
+  }
+
+  function attachMenuEventHandlers(depth) {
+    var queryHit = false;
+    var positionUrlParameterValue = null;
+
+    time('attachMenuEventHandlers');
+
+    if (isSmall) {
+      $(keys.colnavSelector).find('a').on('mouseup', function(event) {
+        if (!movedDuringTouch) {
+          event.stopPropagation();
+          whenClick(event);
+        }
+      });
+    } else if (!menuHandlersAttached) {
+      $(keys.colnavWrapper).on('mouseup', function(event) {
+        event.stopPropagation();
+        whenClick(event);
+        return false;
+      });
+      menuHandlersAttached = true;
+    }
+
+    $(keys.colnavItemSelector).on('keydown', function(event) {
+      whenKey(event, keys.colnavItemSelector);
+    });
+
+    $(keys.colnavItemSelector).on('click', function(event) {
       if ($(window).scrollTop() > $(keys.colnavWrapper).offset().top) {
         $('html,body').animate({
           scrollTop: $(keys.colnavWrapper).offset().top
         }, 300);
       }
     });
-    $('.a-colnav-item').prop('tabindex', '0').on('focus', function() {
+    $(keys.colnavItemSelector).on('focus', function() {
       if ($('.a-colnav-secondLevel.submenu.is-active').length === 1) {
         $(this).off('keydown.zf.drilldown').parent().find('.a-colnav-item-second')
           .eq(0)
           .focus();
       }
     });
-    $('.a-js-backButton').on('click', function() {
-      whenClick($('a.open').last(), true);
-    });
-    $('.a-colnav').find('a').on('touchstart', function(event) {
+    $(keys.colnavSelector).find('a').on('touchstart', function(event) {
       event.stopPropagation();
       movedDuringTouch = false;
     });
-    $('.a-colnav').find('a').on('touchmove', function(event) {
-      movedDuringTouch = true;
+    $(keys.colnavSelector).find('a').on('touchmove', function(event) {
       event.stopPropagation();
+      movedDuringTouch = true;
     });
-    // Perform depth specific markup changes:
-    if (depth === 2) {
-      $('.a-colnav').find('.a-colnav-thirdLevel').remove();
-      $('.a-colnav').find('.a-js-colnavLink').remove();
-      $('.a-colnav').find('.a-leadText').remove();
-    } else {
-      $('.a-colnav').find('.a-colnav-item-second.a-js-colnavLinkAlt').remove();
-    }
+
     // Check if position is included in URL, and navigate to it
     positionUrlParameterValue = urlQuery('position');
     if (positionUrlParameterValue) {
-      $('.a-colnav').find('a.a-colnav-item').each(function() {
+      $(keys.colnavSelector).find('a.a-colnav-item').each(function() {
         if ($(this).find('h2').attr(keys.dataId) === positionUrlParameterValue) {
           queryHit = true;
           whenClick($(this), true);
         }
       });
       if (currentCategory === category.category) {
-        $('.a-colnav').find('a.a-colnav-item-second').each(function() {
+        $(keys.colnavSelector).find('a.a-colnav-item-second').each(function() {
           if ($(this).find('h3').attr(keys.dataId) === positionUrlParameterValue) {
             queryHit = true;
             whenClick($(this).closest('ul').prev(), true);
@@ -379,105 +453,156 @@ var colnavCustom = function() {
         });
       }
     }
+
+    timeEnd('attachMenuEventHandlers');
+  }
+
+  function createMenuNodeFragment(item,
+                          level,
+                          index) {
+    var liClasses = ['',
+      'is-dropdown-submenu-parent is-submenu-item is-dropdown-submenu-item opens-right',
+      'is-submenu-item is-dropdown-submenu-item'];
+    var aClasses = ['a-colnav-item',
+      'a-colnav-item-second',
+      'a-colnav-item-third'];
+    var ulClasses = ['a-colnav a-colnav-vertical a-colnav-secondLevel',
+      'a-colnav a-colnav-vertical a-colnav-thirdLevel is-dropdown-submenu',
+      ''];
+    var span;
+
+    var node = {
+      li: createElement('li'),
+      a: createElement('a'),
+      h: createElement('h' + (level + 1)),
+      p: createElement('p'),
+      ul: createElement('ul')
+    };
+
+    if (level === 2 && maxDepth() === 2) {
+      node.h = createElement('h4');
+    }
+
+    node.li.dataset.level = level;
+    node.li.dataset.index = index;
+    node.h.dataset.id = item.Id;
+
+    node.h.textContent = item.Heading || item.Title;
+
+    node.li.appendChild(node.a);
+    node.a.appendChild(node.h);
+
+    node.a.tabIndex = 0;
+
+    node.li.className = liClasses[level - 1];
+    node.a.className = aClasses[level - 1];
+    node.p.className = 'a-leadText';
+    node.ul.className = ulClasses[level - 1];
+
+    if (level === 3) {
+      span = createElement('span');
+      span.className = 'a-colnav-rightText';
+      span.textContent = item.Provider || 'Skatteetaten';
+      node.a.appendChild(span);
+    } else if (level === 1) {
+      node.a.appendChild(node.p);
+    }
+
+    if (level < maxDepth()) {
+      node.li.appendChild(node.ul);
+      node.a.className += ' a-js-colnavLink';
+    } else {
+      node.a.className += ' a-js-colnavLinkAlt';
+    }
+
+    return node;
+  }
+
+  populateSublevel = function(items, $ul, level) {
+    var i;
+    var item = null;
+    var fragmmentNode = null;
+    var fragment = document.createDocumentFragment();
+
+    if ($ul.children().length > 0) {
+      return;
+    }
+
+    time('populateSublevel');
+    for (i = 0; i < items.length; i += 1) {
+      item = items[i];
+      fragmmentNode = createMenuNodeFragment(item,
+        level,
+        i);
+      if (item.Url) {
+        fragmmentNode.a.href = item.Url;
+      }
+      if (item.Description) {
+        fragmmentNode.p.textContent = item.Description;
+      }
+      fragment.appendChild(fragmmentNode.li);
+    }
+
+    $ul[0].appendChild(fragment);
+    $('.a-colnav-wrapper > .a-colnav').show();
+    timeEnd('populateSublevel');
+    if (level === 1) {
+      createDropDown();
+      attachMenuEventHandlers(maxDepth());
+    } else {
+      attachSubMenuEventHandlers($ul, maxDepth());
+    }
+  };
+
+  function populateDataObject(data, level) {
+    var i = null;
+
+    for (i = 0; i < data.length; i += 1) {
+      currentData[i] = data[i];
+    }
   }
 
   function populateNavigation(str, data) {
-    var depth = 3; // Assume a depth of three levels
-    var markup = []; // Array to store markup
-    savedResults[str] = data; // Save results for later
-    data.forEach(function(item) { // Parse and generate markup
-      var level2 = [];
-      var li = document.createElement('li');
-      var a = document.createElement('a');
-      var h2 = document.createElement('h2');
-      var p = document.createElement('p');
-      var ul = document.createElement('ul');
-      item[item.SubCategory ? 'SubCategory' : 'List'].forEach(function(_item) {
-        var level3 = [];
-        var _li = document.createElement('li');
-        var _a1 = document.createElement('a');
-        var _a2 = document.createElement('a');
-        var _h3 = document.createElement('h3');
-        var _h4 = document.createElement('h4');
-        var _ul = document.createElement('ul');
-        if (_item[_item.SchemaList ? 'SchemaList' : 'List']) {
-          _item[_item.SchemaList ? 'SchemaList' : 'List'].forEach(function(__item) {
-            var __li = document.createElement('li');
-            var __a = document.createElement('a');
-            var __h4 = document.createElement('h4');
-            var __span = document.createElement('span');
-            $(__h4).text(__item.Heading || __item.Title).appendTo($(__a));
-            $(__h4).attr(keys.dataId, __item.Id);
-            $(__span).addClass('a-colnav-rightText').text(__item.Provider || 'Skatteetaten')
-              .appendTo($(__a));
-            $(__a).prop('href', __item.Url)
-              .addClass('a-colnav-item-third')
-              .addClass('a-js-colnavLinkAlt')
-              .appendTo($(__li));
-            level3.push(__li);
-          });
-        } else {
-          depth = 2;
-        }
-        $(_h3).text(_item.Heading || _item.Title).appendTo($(_a1));
-        $(_h3).attr(keys.dataId, _item.Id);
-        $(_h4).text(_item.Heading || _item.Title).appendTo($(_a2));
-        $(_h4).attr(keys.dataId, _item.Id);
-        $(_a1)
-          // .prop('href', '#')
-          .addClass('a-colnav-item-second').addClass('a-js-colnavLink')
-          .appendTo($(_li));
-        $(_a2).prop('href', _item.Url).addClass('a-colnav-item-second')
-          .addClass('a-js-colnavLinkAlt')
-          .appendTo($(_li));
-        $(_ul).addClass('a-colnav').addClass('a-colnav-vertical')
-          .addClass('a-colnav-thirdLevel')
-          .append(level3)
-          .appendTo($(_li));
-        level2.push(_li);
-      });
-      $(h2).text(item.Heading).appendTo($(a));
-      $(h2).attr(keys.dataId, item.Id);
-      $(p).text(item.Description).addClass('a-leadText').appendTo($(a));
-      $(a)
-        // .prop('href', '#')
-        .addClass('a-colnav-item').appendTo($(li));
-      $(ul).addClass('a-colnav').addClass('a-colnav-vertical').addClass('a-colnav-secondLevel')
-        .append(level2)
-        .appendTo($(li));
-      markup.push(li);
-    });
-    $('.a-colnav').html(markup); // Append markup
+    time('populateNavigation');
+    currentData = [];
+    populateDataObject(data, 1);
+    populateSublevel(currentData, elements.$rootColnav, 1);
     hideLoader();
-    setTimeout(function() {
-      attachHandlers(depth);
-    }, 0);
+    enableToggles();
+    timeEnd('populateNavigation');
   }
 
-  function afterRequest(str, data) { // Populating logic
-    $('.a-colnav').html(''); // Wipe previous markup
-    $('.a-colnav').show();
-    setTimeout(function() {
-      populateNavigation(str, data);
-    }, 0);
+  function afterRequest(str, data) {
+    timeEnd('getDrilldownSource');
+    time('afterRequest');
+    elements.$rootColnav = $('.a-colnav-wrapper > .a-colnav');
+    // empty() would be a safer way to remove the elements, but it's
+    // slower
+    // elements.$rootColnav.empty();
+    elements.$rootColnav.html('');
+    timeEnd('afterRequest');
+    populateNavigation(str, data);
   }
 
   function getDrilldownSource(str) {
     var url = endPointUrl + str;
+    time('getDrilldownSource');
     showLoader();
     disableToggles();
     if (savedResults[str]) { // Get stored results if present
       afterRequest(str, savedResults[str]);
     } else {
       // These hardcoded paths and IPs need to be fixed probably
-      if (window.location.pathname.indexOf('DesignSystem') === 1 ||
-        window.location.origin.indexOf('localhost') !== -1) {
+      if (window.location.pathname.indexOf('DesignSystem') === 1
+        || window.location.origin.indexOf('localhost') !== -1
+        || window.location.origin.indexOf('192.168.') !== -1) {
         url += '.json';
       }
       $.ajax({
         type: 'GET',
         url: url,
         success: function(data) {
+          savedResults[str] = data;
           afterRequest(str, data); // Perform populating logic
         }
       });
@@ -486,7 +611,7 @@ var colnavCustom = function() {
 
   function resizedWindow() {
     var wasSmall = isSmall;
-     // Redefine boolean for determining screen size
+    // Redefine boolean for determining screen size
     isSmall = $('.a-contentOverview').width() < 900;
     // No change required if the window is still big/small
     if (isSmall === wasSmall) {
@@ -569,12 +694,18 @@ var colnavCustom = function() {
     getDrilldownSource(dataSource);
   }
 
+  function getElements() {
+    elements.$rootColnav = $('.a-colnav-wrapper > .a-colnav');
+  }
+
   $(document).ready(function() {
     endPointUrl = $(keys.toggleInput).parents().eq(3).data('switchendpoint');
-    if ($('.a-colnav').length > 0) { // Check if drilldown markup is present
+    getElements();
+    if (elements.$rootColnav.length > 0) { // Check if drilldown markup is present
       if (isSmall) { // Small screen specific style (can be moved to stylesheet)
         $('.a-contentOverview').css('overflow-x', 'hidden');
       }
+      attachEventHandlers();
       loadDrillDownSource();
       performResizeLogicAfterResizeEvents();
       setSwitchUrlAttribute();

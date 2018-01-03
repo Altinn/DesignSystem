@@ -1,14 +1,14 @@
-<label class="d-inline-block a-w-3-sm-down mr-0 mr-md-1" for="{{ inputId }}">
-  <span class="a-input-labelText control-label"> 
-    {{ date-input-label }} 
+<label class="{{ styleModifier }} {{# stackedLabel }} an-stackedLabel {{/ stackedLabel }}" for="{{ inputId }}">
+  <span class="a-input-labelText control-label">
+    {{ date-input-label }}
   </span>
 </label>
 <div class="d-inline-block form-group a-form-group a-form-group-datepicker">
-  <div class="input-group {{ styleModifier }}">
+  <div class="input-group">
     <input type="text"
       id="{{ inputId }}"
-      {{# isRequired }}required{{/ isRequired }}
-      class="form-control {{ form-control-class }} date" />
+      {{# isRequired }} required {{/ isRequired }}
+      class="form-control a-hasButton {{ form-control-class }} date" />
 
     <div class="input-group-addon a-icon-right">
       {{> atomer-ikon }}

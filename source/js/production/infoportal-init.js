@@ -27,6 +27,7 @@
   popoverLocalInit,
   questionnaireInteraction,
   searchFilterView,
+  sessionExpiredDialog,
   setupAddRightsHandler,
   setupExpandContent,
   setupFormValidation,
@@ -67,6 +68,7 @@ window.infoportalInit = function() {
   popoverLocalInit();
   questionnaireInteraction();
   searchFilterView();
+  sessionExpiredDialog();
   setupExpandContent();
   setupFormValidation();
   setupNestedCheckboxes();

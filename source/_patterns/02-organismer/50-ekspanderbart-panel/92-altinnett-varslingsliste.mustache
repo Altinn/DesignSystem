@@ -1,0 +1,29 @@
+<div class="card a-accordion-card a-collapsePanel {{{ styleModifier }}}">
+	<div class="card-header a-js-index-heading a-collapsePanel-heading collapsed {{ isExpanded }}" id="{{ collapse-panel-header-id }}" role="tab">
+		<a href="#" data-toggle="collapse" data-target="#{{{ collapseID }}}" aria-expanded="false" aria-controls="{{{ collapseID }}}" {{# dataParent }}data-parent="{{{dataParent}}}"{{/ dataParent }}>
+			{{# collapseHeader }}
+				{{> molekyler-ikon-tekst }}
+			{{/ collapseHeader }}
+		</a>
+	</div>
+	<div id="{{ collapseID }}" class="a-collapsePanel-body a-collapsePanel-body--border no-background collapse {{{ isVisibleFromStart }}}" role="tabpanel" aria-labelledby="{{ collapse-panel-header-id }}">
+			<div class="panel-collapse-content-section px-1 px-sm-2 pt-2 a-bgWhite">
+				{{# addAlertLink }}
+					{{> atomer-handlingsknapp:mb-0 }}
+				{{/ addAlertLink }}
+			</div>
+
+			{{# scheduledAlerts }}
+				{{> molekyler-altinnett-liste-varslinger }}
+			{{/ scheduledAlerts }}
+
+			{{# previousAlerts }}
+				{{> molekyler-altinnett-liste-varslinger }}
+			{{/ previousAlerts }}
+
+			{{# addAlertModal }}
+				{{> organismer-modal }}
+			{{/ addAlertModal }}
+		</div>
+	</div>
+</div>
