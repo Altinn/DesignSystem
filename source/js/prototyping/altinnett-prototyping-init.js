@@ -1,6 +1,7 @@
 /* globals
   fixPatternLinks,
   AltinnModal,
+  newsArchive,
   setupTruncateLines
 */
 window.altinnettInit = function() {
@@ -9,6 +10,7 @@ window.altinnettInit = function() {
 
   // Should also be included in production (dist)
   AltinnModal.init();
+  newsArchive();
   setupTruncateLines();
 };
 
