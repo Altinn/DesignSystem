@@ -28,19 +28,19 @@
 
       <ul class="nav nav-tabs custom-radio a-radioButtons a-navTabsRadio" role="tablist">
         <li class="nav-item">
-          <a class="nav-link" data-toggle="tab" href="#empty" role="tab">
+          <a class="nav-link {{# checkFirst }}active{{/ checkFirst }}" data-toggle="tab" href="#empty" role="tab" aria-expanded="{{# checkFirst }}true{{/ checkFirst }}">
             <span class="custom-control-indicator"></span>
             Ikke send
           </a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" data-toggle="tab" href="#email" role="tab">
+          <a class="nav-link {{# checkSecond }}active{{/ checkSecond }}" data-toggle="tab" href="#email" role="tab" aria-expanded="{{# checkSecond }}true{{/ checkSecond }}">
             <span class="custom-control-indicator"></span>
             Epost
           </a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" data-toggle="tab" href="#sms-and-email" role="tab">
+          <a class="nav-link {{# checkThird }}active{{/ checkThird }}" data-toggle="tab" href="#sms-and-email" role="tab" aria-expanded="{{# checkThird }}true{{/ checkThird }}">
             <span class="custom-control-indicator"></span>
             SMS og Epost
           </a>
@@ -48,9 +48,9 @@
       </ul>
 
       <div class="tab-content">
-        <div class="tab-pane" id="empty" role="tabpanel"></div>
+        <div class="tab-pane {{# checkFirst }}active{{/ checkFirst }}" id="empty" role="tabpanel" aria-expanded="{{# checkFirst }}true{{/ checkFirst }}"></div>
 
-        <div class="tab-pane" id="email" role="tabpanel">
+        <div class="tab-pane {{# checkSecond }}active{{/ checkSecond }}" id="email" role="tabpanel" aria-expanded="{{# checkSecond }}true{{/ checkSecond }}">
           {{# alertDate }}
               {{> atomer-datovelger:mb-1 }}
           {{/ alertDate }}
@@ -60,7 +60,7 @@
           {{/ alertTime }}
         </div>
 
-        <div class="tab-pane" id="sms-and-email" role="tabpanel">
+        <div class="tab-pane {{# checkThird }}active{{/ checkThird }}" id="sms-and-email" role="tabpanel" aria-expanded="{{# checkThird }}true{{/ checkThird }}">
           {{# alertDate }}
               {{> atomer-datovelger:mb-1 }}
           {{/ alertDate }}
@@ -76,8 +76,8 @@
       </div>
     {{/ sendingMethod }}
 
-    {{# submitButton }}
+    {{# submitAlertButton }}
       {{> atomer-knapp:mt-2 }}
-    {{/ submitButton }}
+    {{/ submitAlertButton }}
   </div>
 </div>
