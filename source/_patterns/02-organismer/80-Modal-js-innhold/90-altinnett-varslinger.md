@@ -1,5 +1,5 @@
 ---
-state: indesignreview
+state: inprogress altinnett
 version: 1
 ---
-Eksempelside for modal med javascript
+Foreløpig ingen retningslinjer.
