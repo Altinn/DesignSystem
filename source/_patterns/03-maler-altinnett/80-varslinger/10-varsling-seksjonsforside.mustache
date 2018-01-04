@@ -1,0 +1,60 @@
+<div class="a-page">
+  {{# header }}
+    {{> organismer-header-altinnett }}
+  {{/ header }}
+
+  <section id="content" tabindex="-1">
+    <div class="container">
+      <div class="row mt-6">
+        <div class="col-sm-12 col-lg-8 offset-lg-2">
+          {{# pageTitle }}
+            {{> atomer-sidetittel }}
+          {{/ pageTitle }}
+
+          {{# pageIntro }}
+            {{> atomer-intro-tekst }}
+          {{/ pageIntro }}
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-sm-12 col-lg-8 offset-lg-2 a-text epi-wysiwyg">
+
+          {{# subscribeLink }}
+            {{> atomer-link }}
+          {{/ subscribeLink }}
+
+          {{# subscribeModal }}
+            {{> organismer-modal }}
+          {{/ subscribeModal }}
+
+          <h2>Brukerkonto</h2>
+
+          <p>Du trenger en brukerkonto dersom du er tjenesteeier eller sluttbrukersystemleverandør og:</p>
+
+          <ul>
+              <li>Trenger tilgang til selvbetjeningsportalen eller tjenestekalenderen</li>
+              <li>Ønsker å se driftsvarslinger som kun gjelder for tjenesteeiere</li>
+              <li>Har behov for å kunne lese dokumentasjon som krever innlogging</li>
+          </ul>
+
+          <p>Har du en konto allerede kan du logge inn oppe til høyre. Hvis ikke kan du <a href="#">opprette en bruker</a>.</p>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-sm-12 col-lg-10 offset-lg-1 a-text epi-wysiwyg">
+            {{# scheduledAlerts }}
+              {{> molekyler-altinnett-liste-varslinger }}
+            {{/ scheduledAlerts }}
+
+            {{# previousAlerts }}
+              {{> molekyler-altinnett-liste-varslinger }}
+            {{/ previousAlerts }}
+        </div>
+      </div>
+    </div>
+  </section>
+  {{# footer }}
+    {{> organismer-footer-altinnett }}
+  {{/ footer }}
+</div>
