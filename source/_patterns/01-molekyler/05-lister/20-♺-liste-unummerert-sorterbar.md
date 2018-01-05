@@ -1,5 +1,5 @@
 ---
-state: indesignreview
+state: indesignreview altinn
 version: 1
 js: listSort.js, compareTo.js
 ---

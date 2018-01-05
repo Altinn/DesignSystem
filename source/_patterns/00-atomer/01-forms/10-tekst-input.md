@@ -1,7 +1,6 @@
 ---
-state: complete
+state: complete altinn altinnett
 version: 0
 js: handleFocus.js
 ---
 Tekstfelt brukes når vanlig tekst skal fylles inn, f.eks navn. Label settes foran input-område.
-

@@ -1,5 +1,5 @@
 ---
-state: complete
+state: complete altinn
 prepend: <!-- Dummy prepended content -->
 append: <!-- Dummy appended content -->
 version: 1

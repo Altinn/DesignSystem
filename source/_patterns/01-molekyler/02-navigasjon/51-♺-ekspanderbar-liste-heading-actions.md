@@ -1,5 +1,5 @@
 ---
-state: inprogress
+state: inprogress altinn
 version: 1
 ---
 Molekyl med overskrift med høyrejustert tekst og ikon, og ekspanderbar unummerert liste
