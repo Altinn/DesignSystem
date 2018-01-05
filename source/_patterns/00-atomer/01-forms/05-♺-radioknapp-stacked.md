@@ -1,5 +1,5 @@
 ---
-state: complete
+state: complete altinn
 version: 1
 ---
 Brukes i tilfeller der brukeren kun kan velge en verdi blant flere tilgjengelige.

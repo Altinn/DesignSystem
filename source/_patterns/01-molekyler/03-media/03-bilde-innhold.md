@@ -1,5 +1,5 @@
 ---
-state: indesignreview
+state: indesignreview altinn altinnett
 version: 0
 ---
 

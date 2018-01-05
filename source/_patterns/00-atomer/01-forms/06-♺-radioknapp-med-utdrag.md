@@ -1,5 +1,5 @@
 ---
-state: archived
+state: archived altinn
 version: 0
 ---
 Fra Attraktivitetsprosjektet, og ikke i bruk. Må revurderes om den skal brukes.

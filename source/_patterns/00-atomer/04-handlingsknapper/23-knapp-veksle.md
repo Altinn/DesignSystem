@@ -1,5 +1,5 @@
 ---
-state: complete
+state: complete altinn
 version: 1
 js: toggleSwitch.js
 ---
