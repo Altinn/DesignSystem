@@ -1,5 +1,4 @@
 ---
-state: complete
+state: archived altinn
 version: 1
 ---
-Hjelpelenker skal alltid benytte dette ikonet foran teksten. Hele teksten trenger ikke være klikkbar.

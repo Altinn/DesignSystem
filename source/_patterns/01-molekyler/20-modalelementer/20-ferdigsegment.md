@@ -1,5 +1,5 @@
 ---
-state: inprogress
+state: inprogress altinn
 version: 1
 ---
 

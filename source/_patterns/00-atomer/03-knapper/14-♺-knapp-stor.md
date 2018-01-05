@@ -1,5 +1,5 @@
 ---
-state: complete
+state: complete altinn
 version: 1
 ---
 NB: Dette er en variant av [knapp.mustache]

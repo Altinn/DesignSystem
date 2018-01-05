@@ -1,6 +1,5 @@
 ---
-state: inprogress
+state: archived altinn
 version: 1
 js: clipboard.js
 ---
-Sammensatt av brødsmulesti, tittel, ingress og pupliseringsinfo.

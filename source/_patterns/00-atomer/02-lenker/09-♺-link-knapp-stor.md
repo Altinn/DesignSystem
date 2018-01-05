@@ -1,5 +1,5 @@
 ---
-state: complete
+state: complete altinn
 version: 0
 ---
 NB: Dette er en variant av [link.mustache]
