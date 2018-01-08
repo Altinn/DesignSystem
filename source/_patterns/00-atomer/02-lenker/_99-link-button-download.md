@@ -1,5 +1,5 @@
 ---
-state: needsrevalidation
+state: needsrevalidation altinn
 ---
 NB: Dette er en variant av  [link.mustache]
 
