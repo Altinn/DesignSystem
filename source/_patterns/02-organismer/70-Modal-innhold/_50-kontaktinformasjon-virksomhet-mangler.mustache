@@ -1,6 +1,19 @@
 <div class="modal-body a-modal-body">
     <div class="row">
       <div class="col-12">
+        {{ shared-contactinfo-text }}
+      </div>
+      <div class="col-12">
+        {{ #shared-contactinfo-link }}
+        {{> atomer-link-ekstern}}<span>{{ helplinktext }}</span>
+        {{ /shared-contactinfo-link }}
+      </div>
+      <div class="col-12">
+          {{ contactinfo-warning-message }}
+      </div>       
+    </div>  
+    <div class="row">
+      <div class="col-12 mt-2">
         {{# other-shared-contactinfo-header }}
           <div class="a-fontSizeS">
             {{{ textSmall }}}
@@ -41,17 +54,7 @@
               {{> atomer-handlingsknapp }}
             {{/ add-contactinfo-row-button }}
           </div>
-        </div>
-      <div class="row">
-        <div class="col-12 mt-2">
-            {{ shared-contactinfo-text }}
-        </div>
-        <div class="col-12">
-          {{ #shared-contactinfo-link }}
-            {{> atomer-link-ekstern}}
-          {{ /shared-contactinfo-link }}
-        </div>
-      </div>        
+        </div>      
       <div class="row">
         <div class="col-12 mt-2">
           {{# add-contactinfo-done-button }}
