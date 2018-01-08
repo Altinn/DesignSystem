@@ -2040,7 +2040,7 @@ function timeOutPreloaderAnimation() {
   $('.a-sg-content-preloader:first').fadeIn('slow');
   setTimeout(function() {
     $('.a-sg-content-preloader-status:first').fadeIn(350);
-  }, 1000);
+  }, 2000);
 }
 
 $('#sg-viewport').on('load', function() {
