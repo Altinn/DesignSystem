@@ -1,4 +1,4 @@
 ---
-state: needsrevalidation archived
+state: archived altinn
 version: 1
 ---

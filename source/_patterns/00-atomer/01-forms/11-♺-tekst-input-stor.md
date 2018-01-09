@@ -1,5 +1,5 @@
 ---
-state: complete
+state: complete altinn
 version: 1
 js: searchWithHighlight.js hvis data-search-algorithm="show-and-highlight"
 ---

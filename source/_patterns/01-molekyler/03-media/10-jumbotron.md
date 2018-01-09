@@ -1,5 +1,5 @@
 ---
-state: specification
+state: specification altinn altinnett
 version: 1
 ---
 

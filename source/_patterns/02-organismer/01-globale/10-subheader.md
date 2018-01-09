@@ -1,5 +1,5 @@
 ---
-state: indesignreview
+state: indesignreview altinn
 version: 1
 ---
-Subheader når man ikke skal ha full toppmeny. 
+Subheader når man ikke skal ha full toppmeny.
