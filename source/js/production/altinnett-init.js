@@ -4,6 +4,7 @@
   newsArchive
   menuToggleEffectAltinnett
   togglePanel
+  questionnaireInteraction
 */
 window.altinnettInit = function() {
   AltinnModal.init();
@@ -11,6 +12,7 @@ window.altinnettInit = function() {
   newsArchive();
   menuToggleEffectAltinnett();
   togglePanel();
+  questionnaireInteraction();
 };
 
 window.altinnettInit();

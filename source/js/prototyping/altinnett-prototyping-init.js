@@ -6,6 +6,7 @@
   compareTo,
   newsArchive,
   setupTruncateLines
+  questionnaireInteraction
 */
 window.altinnettInit = function() {
   // Only for prototyping
@@ -18,6 +19,7 @@ window.altinnettInit = function() {
   compareTo();
   newsArchive();
   setupTruncateLines();
+  questionnaireInteraction();
 };
 
 window.altinnettInit();
