@@ -1,5 +1,5 @@
 ---
-state: archived altinn
+state: archived altinn altinnett
 version: 0
 ---
 
