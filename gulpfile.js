@@ -26,7 +26,7 @@ var rename = require('gulp-rename');
 var regexRename = require('gulp-regex-rename');
 var gulpRemoveHtml = require('gulp-remove-html');
 var replace = require('gulp-string-replace');
-var unzip = require('gulp-unzip');
+const decompress = require('gulp-decompress');
 
 function paths() {
   return config.paths;
@@ -104,11 +104,11 @@ gulp.task('pl-copy:styleguide', function() {
 // Unzip fortawesone iconfonts and put them in the correct folder for the npm package
 gulp.task('pl-copy:distribution-fonts', function(done) {
   gulp.src('./source/fortAwesome/kit-altinn-no-ed31cded.zip')
-    .pipe(unzip())
+    .pipe(decompress({strip: 1}))
     .pipe(gulp.dest('./dist/fonts/icons/ai/'));
-
+  
   gulp.src('./source/fortAwesome/kit-altinn-reg-no-df832575.zip')
-    .pipe(unzip())
+    .pipe(decompress({strip: 1}))
     .pipe(gulp.dest('./dist/fonts/icons/reg/'));
   done();
 });
@@ -425,13 +425,13 @@ gulp.task('patternlab:serve-portal', serve('portal'));
 gulp.task('dist',
   gulp.series(
     'pl-clean:dist',
-    'patternlab:prebuild',
-    'patternlab:build',
-    'pl-copy:distribution-fonts',
-    'pl-copy:distribution-css',
-    'pl-copy:distribution-images',
-    'pl-copy:distribution-patterns',
-    'pl-copy:distribution-js'
+    // 'patternlab:prebuild',
+    // 'patternlab:build',
+    'pl-copy:distribution-fonts'
+    // 'pl-copy:distribution-css',
+    // 'pl-copy:distribution-images',
+    // 'pl-copy:distribution-patterns',
+    // 'pl-copy:distribution-js'
   )
 );
 gulp.task('default', gulp.series('patternlab:serve-all'));
