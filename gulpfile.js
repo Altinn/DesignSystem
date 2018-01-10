@@ -425,13 +425,13 @@ gulp.task('patternlab:serve-portal', serve('portal'));
 gulp.task('dist',
   gulp.series(
     'pl-clean:dist',
-    // 'patternlab:prebuild',
-    // 'patternlab:build',
-    'pl-copy:distribution-fonts'
-    // 'pl-copy:distribution-css',
-    // 'pl-copy:distribution-images',
-    // 'pl-copy:distribution-patterns',
-    // 'pl-copy:distribution-js'
+    'patternlab:prebuild',
+    'patternlab:build',
+    'pl-copy:distribution-fonts',
+    'pl-copy:distribution-css',
+    'pl-copy:distribution-images',
+    'pl-copy:distribution-patterns',
+    'pl-copy:distribution-js'
   )
 );
 gulp.task('default', gulp.series('patternlab:serve-all'));
