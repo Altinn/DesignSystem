@@ -1,5 +1,5 @@
 ---
-state: needsrevalidation altinn
+state: needsrevalidation altinn altinnett
 version: 1
 js: listRowToggle.js hvis data-list-selectable="true", addListExpandHandler.js hvis data-toggle="collapse", clickableRow.js hvis klasser .a-clickable .a-selectable
 ---
