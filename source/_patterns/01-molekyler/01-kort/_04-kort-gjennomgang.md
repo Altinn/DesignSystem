@@ -1,5 +1,5 @@
 ---
-state: needsrevalidation altinn altinnet
+state: needsrevalidation altinn altinnett
 version: 0
 ---
 
