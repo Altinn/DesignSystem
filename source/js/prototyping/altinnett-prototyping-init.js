@@ -4,9 +4,13 @@
   AltinnModal,
   addListSortHandler,
   compareTo,
+  feedbackToggle,
   newsArchive,
-  setupTruncateLines
-  questionnaireInteraction
+  popoverGlobalInit,
+  popoverLocalInit,
+  setupTruncateLines,
+  subscribe,
+  questionnaireInteraction,
 */
 window.altinnettInit = function() {
   // Only for prototyping
@@ -17,8 +21,12 @@ window.altinnettInit = function() {
   AltinnModal.init();
   addListSortHandler();
   compareTo();
+  feedbackToggle();
   newsArchive();
+  popoverGlobalInit();
+  popoverLocalInit();
   setupTruncateLines();
+  subscribe();
   questionnaireInteraction();
 };
 
