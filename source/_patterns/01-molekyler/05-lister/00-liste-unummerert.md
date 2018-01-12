@@ -1,5 +1,5 @@
 ---
-state: complete altinn
+state: complete altinn altinnett
 version: 1
 js: selectableCheckbox.js
 ---
