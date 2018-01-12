@@ -7,19 +7,21 @@
 			{{/ collapseHeader }}
 		</a>
   </div>
-  <div id="{{ collapseID }}" class="a-collapsePanel-body a-collapsePanel-body--border no-background collapse {{{ isVisibleFromStart }}}" role="tabpanel" aria-labelledby="{{ collapse-panel-header-id }}">
-    <div class="panel-collapse-content-section px-1 px-sm-2 pb-1 pb-sm-2">
+  <div id="{{ collapseID }}" class="a-collapsePanel-body a-collapsePanel-body--border collapse {{{ isVisibleFromStart }}}" role="tabpanel" aria-labelledby="{{ collapse-panel-header-id }}">
+    <div class="panel-collapse-content-section a-bgWhite px-1 px-sm-2 pb-1 pb-sm-2">
       <div class="a-second-action pt-2 pt-sm-3" id="searchForPerson">
-        {{# sok-etter-person }} {{# display }} {{> atomer-tekst-input }} {{/ display }} {{/ sok-etter-person }}
+        {{# personSearch }} {{# display }} {{> atomer-tekst-input }} {{/ display }} {{/ personSearch }}
       </div>
-      <div class="a-fourth-action mt-2 mt-sm-3" id="searchHiddenForClient">
-        {{# klientdelegering-add }} {{> atomer-handlingsknapp-full-bredde }} {{/ klientdelegering-add}}
+      <div class="a-fourth-action mt-2 mt-sm-3">
+        {{# addEmployeeButton }} {{> atomer-handlingsknapp-full-bredde }} {{/ addEmployeeButton }}
       </div>
     </div>
     <div id="firstTable">
-      {{# employee-table }} {{> molekyler-liste-unummerert }} {{/ employee-table }}
+      {{# employeeTable }} {{> molekyler-liste-unummerert }} {{/ employeeTable }}
     </div>
   </div>
 </div>
+
+{{# addEmployeeModal }} {{> organismer-modal }} {{/ addEmployeeModal }} {{# editEmployeeModal }} {{> organismer-modal }} {{/ editEmployeeModal }}
 
 <!-- END: 02-organismer-50-ekspanderbart-panel-91-altinnett-varslingsprofiler-for-leverandorer -->

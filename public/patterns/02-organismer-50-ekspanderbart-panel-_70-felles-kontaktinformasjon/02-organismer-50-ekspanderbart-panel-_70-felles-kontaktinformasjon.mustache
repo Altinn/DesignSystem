@@ -11,18 +11,13 @@
     <div class="a-collapsePanel-body-content">
       <div class="row">
         <div class="col-12">
-          <h3 class="a-fontBold a-fontSizeM">
-            {{ shared-contactinfo-header }}
-          </h3>
-        </div>
-        <div class="col-12 col-md-4">
-          {{# shared-contactinfo-first-input }} {{> atomer-tekst-input }} {{/ shared-contactinfo-first-input }}
-        </div>
-        <div class="col-12 col-md-7 pr-md-0">
-          {{# shared-contactinfo-second-input }} {{> atomer-tekst-input }} {{/ shared-contactinfo-second-input }}
+          {{ shared-contactinfo-text }}
         </div>
         <div class="col-12">
-          {{# shared-contact-checkbox }} {{> atomer-avkrysningsboks }} {{/ shared-contact-checkbox }}
+          {{ #shared-contactinfo-link }} {{> atomer-link-ekstern}}<span>{{ helplinktext }}</span> {{ /shared-contactinfo-link }}
+        </div>
+        <div class="col-12">
+          {{ contactinfo-warning-message }}
         </div>
       </div>
       <div class="row">
@@ -53,8 +48,26 @@
           {{# add-contactinfo-row-button }} {{> atomer-handlingsknapp }} {{/ add-contactinfo-row-button }}
         </div>
       </div>
+      {{# shared-contactinfo}}
       <div class="row">
-        <div class="col-12 mt-1">
+        <div class="col-12 mt-2">
+          <h3 class="a-fontBold a-fontSizeM">
+            {{ shared-contactinfo-header }}
+          </h3>
+        </div>
+        <div class="col-12 col-md-4">
+          {{# shared-contactinfo-first-input }} {{> atomer-tekst-input }} {{/ shared-contactinfo-first-input }}
+        </div>
+        <div class="col-12 col-md-7 pr-md-0">
+          {{# shared-contactinfo-second-input }} {{> atomer-tekst-input }} {{/ shared-contactinfo-second-input }}
+        </div>
+        <div class="col-12">
+          {{# shared-contact-checkbox }} {{> atomer-avkrysningsboks }} {{/ shared-contact-checkbox }}
+        </div>
+      </div>
+      {{/ shared-contactinfo}}
+      <div class="row">
+        <div class="col-12 mt-2">
           {{# add-contactinfo-done-button }} {{> atomer-knapp-suksess }} {{/ add-contactinfo-done-button }}
         </div>
       </div>
