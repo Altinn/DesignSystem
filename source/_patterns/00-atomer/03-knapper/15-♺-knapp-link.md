@@ -1,5 +1,5 @@
 ---
-state: indesignreview altinn
+state: indesignreview altinn altinnett
 version: 1
 ---
 NB: Dette er en variant av [knapp.mustache]
