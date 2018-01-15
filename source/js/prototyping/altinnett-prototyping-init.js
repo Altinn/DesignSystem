@@ -5,6 +5,7 @@
   addListSortHandler,
   compareTo,
   feedbackToggle,
+  handleFocus,
   newsArchive,
   popoverGlobalInit,
   popoverLocalInit,
@@ -22,6 +23,7 @@ window.altinnettInit = function() {
   addListSortHandler();
   compareTo();
   feedbackToggle();
+  handleFocus();
   newsArchive();
   popoverGlobalInit();
   popoverLocalInit();

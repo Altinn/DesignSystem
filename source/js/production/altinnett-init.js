@@ -1,6 +1,7 @@
 /* globals
   AltinnModal
   feedbackToggle
+  handleFocus
   setupTruncateLines
   newsArchive
   menuToggleEffectAltinnett
@@ -13,6 +14,7 @@
 window.altinnettInit = function() {
   AltinnModal.init();
   feedbackToggle();
+  handleFocus();
   setupTruncateLines();
   newsArchive();
   menuToggleEffectAltinnett();
