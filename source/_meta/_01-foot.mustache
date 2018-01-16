@@ -11,48 +11,52 @@
 <!-- CSS uploader inline javascript -->
 <script type="text/javascript">
     <!-- Check if current Window is in iFrame -->
-    if (self === top) {
-        $(window).on('load', function () {
-            var $body = 'body';
-            $($body).css({overflow: 'hidden'});
-            if ($('.sg-top').length){
-                var $panelBrsys = '.welcome-panel-brsys';
-                var $panelaltinn = '.welcome-panel-altinn';
-                switch (window.localStorage.getItem('selected_project')) {
-                    case 'altinn':
-                        $('link[href*="style.dist.altinnett.css"]').remove();
-                        $('link[href*="style.dist.brreg.css"]').remove();
-                        $($panelBrsys).hide();
-                        $($panelaltinn).show();
-                        break;
-                    case 'altinnett':
-                        $('link[href*="style.prototype.altinn.css"]').remove();
-                        $('link[href*="style.dist.brreg.css"]').remove();
-                        $($panelBrsys).hide();
-                        $($panelaltinn).show();
-                        break;
-                    case 'brsys':
-                        $('link[href*="style.prototype.altinn.css"]').remove();
-                        $('link[href*="style.dist.altinnett.css"]').remove();
-                        $($panelaltinn).hide();
-                        $($panelBrsys).show();
-                        break;
-                    default:
-                        $('link[href*="style.prototype.altinn.css"]').remove();
-                        $('link[href*="style.dist.altinnett.css"]').remove();
-                        $('link[href*="style.dist.brreg.css"]').attr({href: '{{{ themeCss }}}?{{ cacheBuster }}', media: 'all'});
-                        break;
+
+    $(document).ready(function () {
+        if (self === top) {
+                var $body = 'body';
+                if ($('.sg-top').length){
+                    var $panelBrsys = '.welcome-panel-brsys';
+                    var $panelaltinn = '.welcome-panel-altinn';
+                    switch (window.localStorage.getItem('selected_project')) {
+                        case 'altinn':
+                            $('link[href*="style.dist.altinnett.css"]').remove();
+                            $('link[href*="style.dist.brreg.css"]').remove();
+                            $($panelBrsys).hide();
+                            $($panelaltinn).show();
+                            break;
+                        case 'altinnett':
+                            $('link[href*="style.prototype.altinn.css"]').remove();
+                            $('link[href*="style.dist.brreg.css"]').remove();
+                            $($panelBrsys).hide();
+                            $($panelaltinn).show();
+                            break;
+                        case 'brsys':
+                            $('link[href*="style.prototype.altinn.css"]').remove();
+                            $('link[href*="style.dist.altinnett.css"]').remove();
+                            $($panelaltinn).hide();
+                            $($panelBrsys).show();
+                            break;
+                        default:
+                            $('link[href*="style.prototype.altinn.css"]').remove();
+                            $('link[href*="style.dist.altinnett.css"]').remove();
+                            $('link[href*="style.dist.brreg.css"]').attr({href: '{{{ themeCss }}}?{{ cacheBuster }}', media: 'all'});
+                            break;
+                    }
+                } else {
+                    $('link[href*="style.prototype.altinn.css"]').remove();
+                    $('link[href*="style.dist.altinnett.css"]').remove();
+                    $('link[href*="style.dist.brreg.css"]').attr({href: '{{{ themeCss }}}?{{ cacheBuster }}', media: 'all'});
                 }
-            } else {
-                $('link[href*="style.prototype.altinn.css"]').remove();
-                $('link[href*="style.dist.altinnett.css"]').remove();
-                $('link[href*="style.dist.brreg.css"]').attr({href: '{{{ themeCss }}}?{{ cacheBuster }}', media: 'all'});
-            }
-            $('.a-sg-content-preloader-status').fadeOut();
-            $('.a-sg-content-preloader').delay(350).fadeOut('slow');
-            $($body).delay(350).css({overflow: 'visible'});
-        });
+        }
+    });
+
+    $(window).on('load', function () {
+    if (self === top) {
+        var elm = document.getElementsByTagName("html")[0];
+        elm.style.display = "block";
     }
+    });
 </script>
 </body>
 </html>
