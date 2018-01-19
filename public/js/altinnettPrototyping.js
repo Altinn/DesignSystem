@@ -751,6 +751,31 @@ var feedbackToggle = function() {
   }
 };
 
+/* globals $ */
+var handleFocus = function() {
+  // If state on input is 'focus', add class to a-input: 'a-input-focus'
+  $('body').on('focus', 'input.form-control', function() {
+    $(this).parent().addClass('a-input-focus');
+  });
+
+  $('body').on('blur', 'input.form-control', function() {
+    $(this).parent().removeClass('a-input-focus');
+  });
+
+  $('.a-radioButtons-stackedList').find('input[type=radio]').change(function() {
+    var me = $(this);
+    if (me.is(':checked')) {
+      me.parent().addClass('a-js-radioParentGray');
+      $('input[type=radio]').each(function() {
+        if ($(this).attr('id') !== me.attr('id') &&
+          $(this).attr('name') === me.attr('name')) {
+          $(this).parent().removeClass('a-js-radioParentGray');
+        }
+      });
+    }
+  });
+};
+
 /* globals compareTo */
 var sortListAlphanumerically = function(src, sortIndex) {
   var $list = $(src).closest('.a-list-container').find('.a-list');
@@ -805,6 +830,18 @@ var addListSortHandler = function() {
   });
 
   defaultListSort();
+};
+
+var addListExpandHandler = function() {
+  $('body').on('click', '.a-list *[data-toggle="collapse"]', function() {
+    // This script runs before the bootstrap collapse handler, so the collapsed-class will still be
+    // present even though the content is about to be expanded
+    if ($(this).hasClass('collapsed')) {
+      $(this).closest('li').addClass('a-expanded');
+    } else {
+      $(this).closest('li').removeClass('a-expanded');
+    }
+  });
 };
 
 var compareTo = function(firstItem, secondItem) {
@@ -1022,6 +1059,8 @@ var questionnaireInteraction = function() {
   addListSortHandler,
   compareTo,
   feedbackToggle,
+  handleFocus,
+  addListExpandHandler
   newsArchive,
   popoverGlobalInit,
   popoverLocalInit,
@@ -1039,6 +1078,8 @@ window.altinnettInit = function() {
   addListSortHandler();
   compareTo();
   feedbackToggle();
+  handleFocus();
+  addListExpandHandler();
   newsArchive();
   popoverGlobalInit();
   popoverLocalInit();

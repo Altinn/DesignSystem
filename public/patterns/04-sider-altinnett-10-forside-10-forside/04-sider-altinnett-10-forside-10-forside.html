@@ -39,6 +39,14 @@
   <link rel="stylesheet" href="../../css/style.dist.brreg.css" type="text/css" media="screen">
   <link rel="stylesheet" href="../../css/style.dist.altinnett.css" type="text/css" media="screen">
 
+  <script type="text/javascript">
+    if (self === top) {
+      var elm = document.getElementsByTagName("html")[0];
+      elm.style.display = "none";
+    }
+  </script>
+
+
   <!-- Begin Pattern Lab (Required for Pattern Lab to run properly) -->
   <!-- never cache patterns -->
   <meta http-equiv="cache-control" content="max-age=0" />
@@ -47,15 +55,17 @@
   <meta http-equiv="expires" content="Tue, 01 Jan 1980 1:00:00 GMT" />
   <meta http-equiv="pragma" content="no-cache" />
 
-  <link rel="stylesheet" href="../../styleguide/css/styleguide.min.css?1515757786186" media="all">
-  <link rel="stylesheet" href="../../styleguide/css/prism-typeahead.min.css?1515757786186" media="all" />
+  <link rel="stylesheet" href="../../styleguide/css/styleguide.min.css?1516367968851" media="all">
+  <link rel="stylesheet" href="../../styleguide/css/prism-typeahead.min.css?1516367968851" media="all" />
 
   <!-- End Pattern Lab -->
 
 </head>
 
 <body class="project-altinnett a-bgWhite" id="top">
-  <!--<div class="a-sg-content-preloader"><div class="a-sg-content-preloader-status">&nbsp;</div></div> -->
+  <div class="a-sg-content-preloader">
+    <div class="a-sg-content-preloader-status">&nbsp;</div>
+  </div>
   <!-- START: 04-sider-altinnett-10-forside-10-forside -->
   <!-- START: 03-maler-altinnett-10-forside-10-forside -->
   <div class="a-page">
@@ -247,9 +257,9 @@
                     <!-- Dette er dummyinnhold for å kunne simulere brukerreiser i prototypen - -->
                     <p>
                       Logg inn som:<br>
-                      <a href="&#x2F;patterns&#x2F;04-sider-altinnett-20-profil-10-profil&#x2F;04-sider-altinnett-20-profil-10-profil.html">Personlig (Aretha Franklin)</a><br>
-                      <a href="&#x2F;patterns&#x2F;04-sider-altinnett-20-profil-10-profil-admin-leverandor&#x2F;04-sider-altinnett-20-profil-10-profil-admin-leverandor.html">Admin leverandør (Johnny Cash)</a><br>
-                      <a href="&#x2F;patterns&#x2F;04-sider-altinnett-20-profil-10-profil-admin-asf&#x2F;04-sider-altinnett-20-profil-10-profil-admin-asf.html">Admin ASF (Michael Jackson)</a>
+                      <a href="&#x2F;patterns&#x2F;04-sider-altinnett-20-profil-10-profil-personlig\04-sider-altinnett-20-profil-10-profil-personlig.html">Personlig (Aretha Franklin)</a><br>
+                      <a href="&#x2F;patterns&#x2F;04-sider-altinnett-20-profil-10-profil-admin-leverandor\04-sider-altinnett-20-profil-10-profil-admin-leverandor.html">Admin leverandør (Johnny Cash)</a><br>
+                      <a href="&#x2F;patterns&#x2F;04-sider-altinnett-20-profil-10-profil-admin-asf\04-sider-altinnett-20-profil-10-profil-admin-asf.html">Admin ASF (Michael Jackson)</a>
                     </p>
 
                   </div>
@@ -438,12 +448,12 @@
       "patternLineageExists": true,
       "patternLineages": [{
         "lineagePattern": "maler-altinnett-forside",
-        "lineagePath": "../../patterns/03-maler-altinnett-10-forside-10-forside/03-maler-altinnett-10-forside-10-forside.html",
+        "lineagePath": "../../patterns/03-maler-altinnett-10-forside-10-forside\\03-maler-altinnett-10-forside-10-forside.html",
         "lineageState": "inprogress altinnett"
       }],
       "lineage": [{
         "lineagePattern": "maler-altinnett-forside",
-        "lineagePath": "../../patterns/03-maler-altinnett-10-forside-10-forside/03-maler-altinnett-10-forside-10-forside.html",
+        "lineagePath": "../../patterns/03-maler-altinnett-10-forside-10-forside\\03-maler-altinnett-10-forside-10-forside.html",
         "lineageState": "inprogress altinnett"
       }],
       "patternLineageRExists": false,
@@ -497,10 +507,10 @@
     }
   </script>
 
-  <script id="pl-js-polyfill-insert-1515757786186">
+  <script id="pl-js-polyfill-insert-1516367968851">
     (function() {
       if (self != top) {
-        var cb = '1515757786186';
+        var cb = '1516367968851';
         var js = [];
         if (typeof document !== 'undefined' && !('classList' in document.documentElement)) {
           js.push('styleguide/bower_components/classList.min.js');
@@ -510,10 +520,10 @@
     })();
   </script>
 
-  <script id="pl-js-insert-1515757786186">
+  <script id="pl-js-insert-1516367968851">
     (function() {
       if (self != top) {
-        var cb = '1515757786186';
+        var cb = '1516367968851';
         var js = [{
           'src': 'styleguide/bower_components/jwerty.min.js',
           'dep': ['styleguide/js/patternlab-pattern.min.js']
@@ -534,12 +544,10 @@
   <!-- CSS uploader inline javascript -->
   <script type="text/javascript">
     <!-- Check if current Window is in iFrame -->
-    if (self === top) {
-      $(window).on('load', function() {
+
+    $(document).ready(function() {
+      if (self === top) {
         var $body = 'body';
-        $($body).css({
-          overflow: 'hidden'
-        });
         if ($('.sg-top').length) {
           var $panelBrsys = '.welcome-panel-brsys';
           var $panelaltinn = '.welcome-panel-altinn';
@@ -566,7 +574,7 @@
               $('link[href*="style.prototype.altinn.css"]').remove();
               $('link[href*="style.dist.altinnett.css"]').remove();
               $('link[href*="style.dist.brreg.css"]').attr({
-                href: '../../css/style.dist.altinnett.css?1515757786186',
+                href: '../../css/style.dist.altinnett.css?1516367968851',
                 media: 'all'
               });
               break;
@@ -575,17 +583,19 @@
           $('link[href*="style.prototype.altinn.css"]').remove();
           $('link[href*="style.dist.altinnett.css"]').remove();
           $('link[href*="style.dist.brreg.css"]').attr({
-            href: '../../css/style.dist.altinnett.css?1515757786186',
+            href: '../../css/style.dist.altinnett.css?1516367968851',
             media: 'all'
           });
         }
-        $('.a-sg-content-preloader-status').fadeOut();
-        $('.a-sg-content-preloader').delay(350).fadeOut('slow');
-        $($body).delay(350).css({
-          overflow: 'visible'
-        });
-      });
-    }
+      }
+    });
+
+    $(window).on('load', function() {
+      if (self === top) {
+        var elm = document.getElementsByTagName("html")[0];
+        elm.style.display = "block";
+      }
+    });
   </script>
 </body>
 
