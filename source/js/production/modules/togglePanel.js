@@ -4,7 +4,6 @@
 $('body').on('show.bs.collapse', '.a-collapsePanel-body', function(e) {
   var that = this;
   if ($(e.target).hasClass('a-collapsePanel-body')) {
-
     setTimeout(function() {
       var $collapsePanelHeader = $(that).siblings('.a-js-index-heading').first();
       var $msgIconWrapper = $collapsePanelHeader.find('.a-inboxHeadingContent')
