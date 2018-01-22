@@ -13,6 +13,7 @@
   setupTruncateLines,
   subscribe,
   questionnaireInteraction,
+  setupExpandContent,
 */
 window.altinnettInit = function() {
   // Only for prototyping
@@ -32,6 +33,7 @@ window.altinnettInit = function() {
   setupTruncateLines();
   subscribe();
   questionnaireInteraction();
+  setupExpandContent();
 };
 
 window.altinnettInit();
