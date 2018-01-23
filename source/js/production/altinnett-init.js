@@ -11,6 +11,7 @@
   subscribe
   togglePanel
   questionnaireInteraction
+  setupExpandContent
 */
 window.altinnettInit = function() {
   AltinnModal.init();
@@ -25,6 +26,7 @@ window.altinnettInit = function() {
   subscribe();
   togglePanel();
   questionnaireInteraction();
+  setupExpandContent();
 };
 
 window.altinnettInit();
