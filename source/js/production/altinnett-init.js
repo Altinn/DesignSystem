@@ -3,6 +3,7 @@
   feedbackToggle
   handleFocus
   addListExpandHandler
+  initializeDatepicker
   setupTruncateLines
   newsArchive
   menuToggleEffectAltinnett
@@ -11,13 +12,13 @@
   subscribe
   togglePanel
   questionnaireInteraction
-  setupExpandContent
 */
 window.altinnettInit = function() {
   AltinnModal.init();
   feedbackToggle();
   handleFocus();
   addListExpandHandler();
+  initializeDatepicker();
   setupTruncateLines();
   newsArchive();
   menuToggleEffectAltinnett();
@@ -26,7 +27,6 @@ window.altinnettInit = function() {
   subscribe();
   togglePanel();
   questionnaireInteraction();
-  setupExpandContent();
 };
 
 window.altinnettInit();

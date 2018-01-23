@@ -3,6 +3,7 @@
   initSearchWithHighlight,
   AltinnModal,
   addListSortHandler,
+  initializeDatepicker,
   compareTo,
   feedbackToggle,
   handleFocus,
@@ -13,7 +14,6 @@
   setupTruncateLines,
   subscribe,
   questionnaireInteraction,
-  setupExpandContent,
 */
 window.altinnettInit = function() {
   // Only for prototyping
@@ -23,6 +23,7 @@ window.altinnettInit = function() {
   // Should also be included in production (dist)
   AltinnModal.init();
   addListSortHandler();
+  initializeDatepicker();
   compareTo();
   feedbackToggle();
   handleFocus();
@@ -33,7 +34,6 @@ window.altinnettInit = function() {
   setupTruncateLines();
   subscribe();
   questionnaireInteraction();
-  setupExpandContent();
 };
 
 window.altinnettInit();
