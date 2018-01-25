@@ -3,9 +3,77 @@
     "icon-prefix": "ai",
     "icon-class": "ai-corp"
   },
+  "modal-navbar-override": false,
   "icontext": "Felles varslingsadresse",
   "show-felles-varslingsadresse": {
     "section-title": "Vi mangler varslingsadresse for <b>KAJAKK OG SKI AS</b>",
-    "lead-text-content": "Denne adressen er ikke personlig. Den brukes til å varsle om alle nye meldinger til foretaket."
+    "lead-text-content": "Denne adressen er ikke personlig. Den brukes til å varsle om alle nye meldinger til foretaket.",
+    "firsttime-shared-notificationinfo-epost-input": {
+      "text-input-id": "text-input-notification-epost",
+      "top-label": "Epost",
+      "text-input-placeholder": "f.eks. post@firma.no",
+      "input-type": "email",
+      "isRequired": false,
+      "extra-help": false,
+      "isHidden": false,
+      "isDisabled": false,
+      "isLarge": false
+    },
+    "firsttime-shared-notificationinfo-phone-input": {
+        "text-input-id": "text-input-notification-phone",
+        "top-label": "SMS",
+        "text-input-placeholder": "97837462",
+        "input-type": "tel",
+        "isRequired": true,
+        "error-message-popover": true,
+        "extra-help": false,
+        "isHidden": false,
+        "isLarge": false,
+        "visible": false,      
+      
+        "has-feedback": {
+          "icon-prefix": "ai",
+          "icon-class": "ai-plus",
+          "icon-extra-class": "form-control-feedback"
+        },
+        "input-regex-validation": {
+          "error-message": "Telefonnummer må bestå av 8 siffer",
+          "validation-pattern": "\"[0-9]{8}\""
+        },
+        
+        "form-label-isPhoneNumber": {
+          "text-input-id": "text-input-notification-phone-countrycode", 
+          "text-input-placeholder": "+47",
+          "form-control-class": "a-input-countryCode",
+          "input-type": "tel",
+          "isRequired": true,
+          "maxlength": 4,
+          "minlength": 2,
+          "input-regex-validation": {
+            "error-message": "Landskode må bestå av '+' og 2 eller 3 siffer",
+            "validation-pattern": ""
+          }
+        }
+    },      
+    "hasAddEmailLink": {
+      "link-text": "Legge til flere e-post addresser",
+      "link-url" : "#"
+    },
+    "hasAddSMSLink-first": {
+      "id": "link-sms-first",
+      "link-text": "Legge til sms-varsling",
+      "onclick" : "javascript:$('#link-sms-first').hide(); $('#text-input-notification-phone').show();$('#link-sms-second').show();"
+    },
+    "hasAddSMSLink-second": {
+      "id": "link-sms-second",
+      "link-text": "Legge til flere mobilnummer",
+      "link-url" : "#"
+    },
+    "save-notification-button": {
+    "button-type": "button",
+    "button-text": "Lagre",
+    "button-class": "a-btn a-btn-success",
+    "onclick": false
+    }
   }
 }
