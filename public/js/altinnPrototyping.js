@@ -5801,81 +5801,6 @@ var iOS11BugWorkAround = function() {
 };
 
 
-/* globals $, Foundation */
-var listenForAttachmentChanges = function(formId, errorMessageCallback) {
-  var maxSizeInMb = 15;
-  var maxSizeInBytes = maxSizeInMb * 1024 * 1024;
-  var allowedExtensions = [
-    'bmp', 'jpg', 'jpeg', 'png', 'gif', 'txt', 'log', 'csv', 'doc', 'docx', 'xls', 'xlsx', 'ppt',
-    'pptx', 'pdf', 'odt', 'ods', 'odp', 'rtf', 'rar', 'zip', '7z', 'gdoc', 'gsheet', 'gslide', 'htm',
-    'html', 'eml', 'msg'
-  ];
-
-  var fileInput = $(formId).find('.a-js-uploadAttachment').find('#newCertificateInput');
-  var attachmentErrorBox = $(formId).find('.a-js-upload-error');
-  var attachmentBox = $(formId).find('.a-js-attachment-box');
-  var attachmentNameText = $(attachmentBox).find('.a-js-attachment-name');
-  var deleteAttachmentButton = $(attachmentBox).find('.a-btn-delete');
-  var selectedFile = '';
-
-  attachmentErrorBox.hide();
-  attachmentBox.hide();
-
-  deleteAttachmentButton.click(function() {
-    fileInput.val(''); // reset content
-    attachmentBox.hide();
-    attachmentErrorBox.hide();
-    fileInput.parent().show();
-  });
-
-  $(fileInput).change(function(event) {
-    if (event.target.files.length > 0) {
-      selectedFile = event.target.files[0];
-    }
-
-    function handleFile(file) {
-      var fileName = file.name;
-      var extension = fileName.split('.').pop();
-      var byteSize = file.size;
-
-      var validExtension = $.inArray(extension, allowedExtensions) > -1;
-      var validFileSize = maxSizeInBytes > byteSize;
-
-      if (validExtension && validFileSize) {
-        // success:
-        // set file name and show 'attachment box'
-        // hide 'error box'
-        // hide upload button
-
-        attachmentNameText.text(fileName);
-        attachmentBox.show();
-        attachmentErrorBox.hide();
-        fileInput.parent().hide();
-      } else {
-        // failure:
-        // hide 'attachment box'
-        // show 'error box'
-        // show upload button
-        attachmentBox.hide();
-        attachmentErrorBox.show();
-        fileInput.parent().show();
-      }
-
-      if (!validFileSize) {
-        attachmentErrorBox.find('.a-message-error').text(errorMessageCallback('size') + ': ' + maxSizeInMb + 'MB');
-      } else if (!validExtension) {
-        attachmentErrorBox.find('.a-message-error').text(errorMessageCallback('ext') + ': ' + allowedExtensions.join(', '));
-      }
-    }
-
-    if (selectedFile) {
-      handleFile(selectedFile);
-    } else {
-      attachmentBox.hide();
-    }
-  });
-};
-
 /* globals goBack */
 var onConfirmDeletionClick = function() {
   var $list = $('ul[data-list-selectable="true"]');
@@ -5989,6 +5914,81 @@ var addListSortHandler = function() {
   });
 
   defaultListSort();
+};
+
+/* globals $, Foundation */
+var listenForAttachmentChanges = function(formId, errorMessageCallback) {
+  var maxSizeInMb = 15;
+  var maxSizeInBytes = maxSizeInMb * 1024 * 1024;
+  var allowedExtensions = [
+    'bmp', 'jpg', 'jpeg', 'png', 'gif', 'txt', 'log', 'csv', 'doc', 'docx', 'xls', 'xlsx', 'ppt',
+    'pptx', 'pdf', 'odt', 'ods', 'odp', 'rtf', 'rar', 'zip', '7z', 'gdoc', 'gsheet', 'gslide', 'htm',
+    'html', 'eml', 'msg'
+  ];
+
+  var fileInput = $(formId).find('.a-js-uploadAttachment').find('#newCertificateInput');
+  var attachmentErrorBox = $(formId).find('.a-js-upload-error');
+  var attachmentBox = $(formId).find('.a-js-attachment-box');
+  var attachmentNameText = $(attachmentBox).find('.a-js-attachment-name');
+  var deleteAttachmentButton = $(attachmentBox).find('.a-btn-delete');
+  var selectedFile = '';
+
+  attachmentErrorBox.hide();
+  attachmentBox.hide();
+
+  deleteAttachmentButton.click(function() {
+    fileInput.val(''); // reset content
+    attachmentBox.hide();
+    attachmentErrorBox.hide();
+    fileInput.parent().show();
+  });
+
+  $(fileInput).change(function(event) {
+    if (event.target.files.length > 0) {
+      selectedFile = event.target.files[0];
+    }
+
+    function handleFile(file) {
+      var fileName = file.name;
+      var extension = fileName.split('.').pop();
+      var byteSize = file.size;
+
+      var validExtension = $.inArray(extension, allowedExtensions) > -1;
+      var validFileSize = maxSizeInBytes > byteSize;
+
+      if (validExtension && validFileSize) {
+        // success:
+        // set file name and show 'attachment box'
+        // hide 'error box'
+        // hide upload button
+
+        attachmentNameText.text(fileName);
+        attachmentBox.show();
+        attachmentErrorBox.hide();
+        fileInput.parent().hide();
+      } else {
+        // failure:
+        // hide 'attachment box'
+        // show 'error box'
+        // show upload button
+        attachmentBox.hide();
+        attachmentErrorBox.show();
+        fileInput.parent().show();
+      }
+
+      if (!validFileSize) {
+        attachmentErrorBox.find('.a-message-error').text(errorMessageCallback('size') + ': ' + maxSizeInMb + 'MB');
+      } else if (!validExtension) {
+        attachmentErrorBox.find('.a-message-error').text(errorMessageCallback('ext') + ': ' + allowedExtensions.join(', '));
+      }
+    }
+
+    if (selectedFile) {
+      handleFile(selectedFile);
+    } else {
+      attachmentBox.hide();
+    }
+  });
 };
 
 /* globals mobileNavigation */
@@ -6829,43 +6829,46 @@ var toggleInstant = function() {
 /* globals
   setupExpandContent
 */
-$('body').on('show.bs.collapse', '.a-collapsePanel-body', function() {
+$('body').on('show.bs.collapse', '.a-collapsePanel-body', function(e) {
   var that = this;
+  if ($(e.target).hasClass('a-collapsePanel-body')) {
+    setTimeout(function() {
+      var $collapsePanelHeader = $(that).siblings('.a-js-index-heading').first();
+      var $msgIconWrapper = $collapsePanelHeader.find('.a-inboxHeadingContent')
+      .find('.a-msgIconSecondary')
+      .closest('.a-msgIconWrapper');
 
-  setTimeout(function() {
-    var $collapsePanelHeader = $(that).siblings('.a-js-index-heading').first();
-    var $msgIconWrapper = $collapsePanelHeader.find('.a-inboxHeadingContent')
-    .find('.a-msgIconSecondary')
-    .closest('.a-msgIconWrapper');
+      $msgIconWrapper.find('.reg')
+        .hide()
+        .siblings('.a-msgIconSecondary')
+        .show();
 
-    $msgIconWrapper.find('.reg')
-      .hide()
-      .siblings('.a-msgIconSecondary')
-      .show();
+      $msgIconWrapper.find('span').attr('aria-hidden', true);
+      $msgIconWrapper.find('span:last-of-type').removeAttr('aria-hidden');
 
-    $msgIconWrapper.find('span').attr('aria-hidden', true);
-    $msgIconWrapper.find('span:last-of-type').removeAttr('aria-hidden');
-
-    $('.a-collapsePanel').removeClass('expanded');
-    $(that).closest('.a-collapsePanel').addClass('expanded');
-    $('.a-js-index-heading').addClass('dim');
-    $('.a-collapsePanel.expanded').find('.a-js-index-heading').removeClass('dim');
-    setupExpandContent();
-  }, 0);
+      $('.a-collapsePanel').removeClass('expanded');
+      $(that).closest('.a-collapsePanel').addClass('expanded');
+      $('.a-js-index-heading').addClass('dim');
+      $('.a-collapsePanel.expanded').find('.a-js-index-heading').removeClass('dim');
+      setupExpandContent();
+    }, 0);
+  }
 });
 
-$('body').on('hide.bs.collapse', '.a-collapsePanel-body', function() {
+$('body').on('hide.bs.collapse', '.a-collapsePanel-body', function(e) {
   var that = this;
-  setTimeout(function() {
-    var $collapsePanelHeader = $(that).siblings('.a-js-index-heading').first();
-    $collapsePanelHeader.find('.a-inboxHeadingContent').removeClass('a-msgUnread');
-    $(that).closest('.a-collapsePanel').removeClass('expanded');
-    if ($('.a-collapsePanel.expanded').length === 0) {
-      $('.a-js-index-heading').removeClass('dim');
-    } else {
-      $collapsePanelHeader.addClass('dim');
-    }
-  }, 0);
+  if ($(e.target).hasClass('a-collapsePanel-body')) {
+    setTimeout(function() {
+      var $collapsePanelHeader = $(that).siblings('.a-js-index-heading').first();
+      $collapsePanelHeader.find('.a-inboxHeadingContent').removeClass('a-msgUnread');
+      $(that).closest('.a-collapsePanel').removeClass('expanded');
+      if ($('.a-collapsePanel.expanded').length === 0) {
+        $('.a-js-index-heading').removeClass('dim');
+      } else {
+        $collapsePanelHeader.addClass('dim');
+      }
+    }, 0);
+  }
 });
 
 // Toggles between two components.
@@ -7147,11 +7150,11 @@ window.devInit = function() {
   listenForAttachmentChanges('#js-attachmentForm', errorMessageCallback);
 };
 // This is added  here to test the session invalidation function
-window.sessionValidation = {
-  timeout: 2,
-  loggedOutMessage: 'Du har vært inaktiv i mer enn 30 minutter, og er nå logget ut.',
-  loggedIn: true
-};
+//  window.sessionValidation = {
+//    timeout: 2,
+//  loggedOutMessage: 'Du har vært inaktiv i mer enn 30 minutter, og er nå logget ut.',
+//  loggedIn: true
+// };
 window.devInit();
 $('.html-escape').each(function() {
   $(this).text($(this).html());
