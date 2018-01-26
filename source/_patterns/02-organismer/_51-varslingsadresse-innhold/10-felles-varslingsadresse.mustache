@@ -1,7 +1,11 @@
-<div class="modal-body a-modal-body">
+{{# isModal }}
+  <div class="modal-body a-modal-body">
+{{/ isModal }}
   <div class="row">
-    <div class="col-12">
-      {{> atomer-seksjonstittel }}
+    <div class="col-12 pb-2">
+      {{# section-title }}
+        {{> atomer-seksjonstittel }}
+      {{/ section-title }}
       {{> atomer-intro-tekst:d-inline }}
       {{# varslingsadresse-information-popover }}      
         {{> atomer-link-med-popover-ikon }}
@@ -39,4 +43,6 @@
       {{/ cancel-notificationaddress-button }}
     </div>
   </div>
-</div>
+{{# isModal }}
+  </div>
+{{/ isModal }}
