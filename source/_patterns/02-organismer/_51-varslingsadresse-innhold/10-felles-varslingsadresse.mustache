@@ -11,29 +11,33 @@
         {{> atomer-link-med-popover-ikon }}
       {{/ varslingsadresse-information-popover }}
     </div>
-    <div class="col-12 col-md-7 pr-md-0">
+    <div class="col-12 col-md-7 pr-md-0" id="">
       {{# shared-notificationinfo-epost-input }}
         {{> atomer-tekst-input }}
       {{/ shared-notificationinfo-epost-input }}
     </div>
     <div class="col-12 mt-1">
       {{# hasAddEmailLink }}
-        {{> atomer-link:mr-1 }}
+        {{> atomer-knapp:mr-1 }}
       {{/ hasAddEmailLink }}
       {{# hasAddSMSLink-first }}
-        {{> atomer-link }}
+        {{> atomer-knapp }}
       {{/ hasAddSMSLink-first }}
     </div>
-    <div class="col-12 col-md-7 pr-md-0 mt-2">
-      {{# shared-notificationinfo-phone-input }}
-        {{> atomer-tekst-input }}
-      {{/ shared-notificationinfo-phone-input }}
+    {{# additionalinfo-sharednotification }}
+    <div class="row d-none" {{# id}}id={{ id }}{{/ id}}>
+      <div class="col-12 col-md-7 pr-md-0 mt-2">
+        {{# shared-notificationinfo-phone-input }}
+          {{> atomer-tekst-input }}
+        {{/ shared-notificationinfo-phone-input }}
+      </div>
+      <div class="col-12 col-md-7 pr-md-0 mt-1">
+        {{# hasAddSMSLink-second }}
+          {{> atomer-knapp }}
+        {{/ hasAddSMSLink-second }}
+      </div>
     </div>
-    <div class="col-12 col-md-7 pr-md-0 mt-1">
-      {{# hasAddSMSLink-second }}
-        {{> atomer-link }}
-      {{/ hasAddSMSLink-second }}
-    </div>
+    {{/ additionalinfo-sharednotification }}
     <div class="col-12 mt-2">
       {{# save-notificationaddress-button }}
         {{> atomer-knapp:mr-2 }}
