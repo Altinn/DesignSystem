@@ -1,7 +1,15 @@
-/* $('body').on('change', '.form-control', function() {
-  $('.a-btn-success').removeAttr('disabled');
-  console.log('hi');
-});*/
+
+$(document).ready(function() {
+  var smsCount = $('div.a-phone').length;
+  var emailCount = $('div.a-email').length;
+
+  if (smsCount === 1) {
+    $('div.a-phone').find('.a-delete-phone').addClass('d-none');
+  }
+  if (emailCount === 1) {
+    $('div.a-email').find('.a-delete-email').addClass('d-none');
+  }
+});
 
 $('body').on('keyup', '#text-input-notification-epost', function(e) {
   var epostLength = $('#text-input-notification-epost').val().length;
@@ -14,20 +22,20 @@ $('body').on('keyup', '#text-input-notification-epost', function(e) {
 
 $('body').on('click', '#link-sms', function() {
   $('#link-sms').addClass('d-none');
-  $('#additionalContactInfo').removeClass('d-none');
+  $('#phoneTitle').removeClass('d-none');
+  $('#smsInput-1').removeClass('d-none');
   $('#addmore-sms').removeClass('d-none');
 });
 
 $('body').on('click', '#link-sms-addmore', function() {
-  var clone = $('#notificationInfoSMSTemplate').clone();
-  $('#addmore-sms').before(clone.html());
+  var index = $('div.a-phone').length;
+  $('#smsInput-1').clone().attr('id', 'smsInput-' + index++).insertAfter('#smsInput-1');
+  $('div.a-phone').find('.a-delete-phone').removeClass('d-none');
 });
 
 $('body').on('click', '#link-addmore-email', function() {
-  // var index = $('li').length;
-  // var clone = $('#phoneNumber-1').clone();
-  var clone = $('#notificationInfoEmailTemplate').clone();
-  // clone.html($(clone).html().replace(/\[#\]/g, '[' + index + ']'));
-  // clone.html($(clone).html().replace(/%/g, index));
-  $('#addmore-email').before(clone.html());
+  var index = $('div.a-email').length;
+  $('#emailInput-1').clone().attr('id', 'emailInput-' + index++).insertAfter('#emailInput-1');
+  $('div.a-email').find('.a-delete-email').remvoveClass('d-none');
 });
+
