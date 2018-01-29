@@ -4,10 +4,10 @@ $(document).ready(function() {
   var emailCount = $('div.a-email').length;
 
   if (smsCount === 1) {
-    $('div.a-phone').find('.a-delete-phone').addClass('d-none');
+    $('#smsInput-1').find('.a-delete-phone').addClass('d-none');
   }
   if (emailCount === 1) {
-    $('div.a-email').find('.a-delete-email').addClass('d-none');
+    $('#emailInput-1').find('.a-delete-email').addClass('d-none');
   }
 });
 
@@ -36,6 +36,6 @@ $('body').on('click', '#link-sms-addmore', function() {
 $('body').on('click', '#link-addmore-email', function() {
   var index = $('div.a-email').length;
   $('#emailInput-1').clone().attr('id', 'emailInput-' + index++).insertAfter('#emailInput-1');
-  $('div.a-email').find('.a-delete-email').remvoveClass('d-none');
+  $('div.a-email').find('.a-delete-email').removeClass('d-none');
 });
 
