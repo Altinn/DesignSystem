@@ -13,9 +13,9 @@
     </div>
   </div>
   <div class="row">
-    <div class="col-12 col-md-7 pr-md-0">
+    <div class="col-12 pr-md-0">
       {{# email-sectiontitle }}
-        <label class="a-form-label a-fontBold">{{ email-sectiontitle }}</label>
+        <label class="a-form-label">{{ email-sectiontitle }}</label>
       {{/ email-sectiontitle }}
     </div>
   </div> 
@@ -33,7 +33,7 @@
   {{/ shared-notificationinfo-email-input }}
   {{# shared-notification-add-links}}
   <div class="row" id="{{ addmore-email-id }}">
-    <div class="col-12">
+    <div class="col-12 mt-1">
       {{# hasAddEmailLink }}
         {{> atomer-knapp:mr-1 }}
       {{/ hasAddEmailLink }}
@@ -44,44 +44,44 @@
   </div>
   {{/ shared-notification-add-links}}
   {{# additionalinfo-sharednotification }}
-      <div id="{{sms-section-title-id}}" class="row mt-3 {{# additional-class }}{{ additional-class }}{{/ additional-class }}">
-        <div class="col-12 col-md-7 pr-md-0">
+      <div id="{{sms-section-title-id}}" class="row mt-2 {{# additional-class }}{{ additional-class }}{{/ additional-class }}">
+        <div class="col-12 pr-md-0">
           {{# sms-sectiontitle }}
-            <label class="a-form-label a-fontBold">{{ sms-sectiontitle }}</label>
+            <label class="a-form-label">{{ sms-sectiontitle }}</label>
           {{/ sms-sectiontitle }}
         </div>
     </div>
 
     <div class="row a-phone {{# additional-class }}{{ additional-class }}{{/ additional-class }}" id="{{ sms-input-row-id }}">
-      <div class="col-7 col-md-4 pr-md-0">
+      <div class="col-10 col-md-7 pr-md-0">
           {{# shared-notificationinfo-phone-input }}
             {{> atomer-tekst-input }}
           {{/ shared-notificationinfo-phone-input }}
       </div>
-      <div class="col-5 col-md-8 pr-md-0 a-delete-phone">
+      <div class="col-2 col-md-5 pr-md-0 a-delete-phone">
         {{# delete-shared-contactinfo-phone-icon }}
           {{> atomer-knapp-ikon-tekst }}
         {{/ delete-shared-contactinfo-phone-icon }}
       </div>
     </div>
+    {{# hasAddMoreSMSLink }}
+      <div class="row {{# additional-class }}{{ additional-class }}{{/ additional-class }}" id ="{{ addmore-sms-id }}" >
+        <div class="col-12 col-md-7 pr-md-0 mt-1">
+            {{> atomer-knapp }}        
+        </div>
+      </div>
+    {{/ hasAddMoreSMSLink }}    
   {{/ additionalinfo-sharednotification }}
-  {{# hasAddMoreSMSLink }}
-    <div class="row {{# additional-class }}{{ additional-class }}{{/ additional-class }}" id ="{{ addmore-sms-id }}" >
-      <div class="col-12 col-md-7 pr-md-0">
-          {{> atomer-knapp }}        
+    <div class="row">
+      <div class="col-12 mt-2">
+        {{# save-notificationaddress-button }}
+          {{> atomer-knapp:mr-2 }}
+        {{/ save-notificationaddress-button }}
+        {{# cancel-notificationaddress-button }}
+          {{> atomer-knapp }}
+        {{/ cancel-notificationaddress-button }}
       </div>
     </div>
-  {{/ hasAddMoreSMSLink }}      
-  <div class="row mt-3">
-    <div class="col-12">
-      {{# save-notificationaddress-button }}
-        {{> atomer-knapp:mr-2 }}
-      {{/ save-notificationaddress-button }}
-      {{# cancel-notificationaddress-button }}
-        {{> atomer-knapp }}
-      {{/ cancel-notificationaddress-button }}
-    </div>
-  </div>
 {{# isModal }}
   </div>
 {{/ isModal }}
