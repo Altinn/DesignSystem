@@ -11,14 +11,14 @@
     <div class="col a-msgHeadingTextContainer">
       <div class="d-inline-block">
         {{# due-date-content }}
-          <div class="col-auto hidden-md-up a-msgDuedate">
+          <div class="col-auto d-md-none a-msgDuedate">
             <span class="a-fontBold">{{ due-date-label }}</span>
             {{ due-date }}
           </div>
         {{/ due-date-content }}
 
         {{# state-content }}
-            <div class="col-auto hidden-md-up a-msgState">
+            <div class="col-auto d-md-none a-msgState">
               <span{{# state-class }} class="{{ state-class }}"{{/ state-class }}>{{ state-text }}</span>
             </div>
         {{/ state-content }}
@@ -50,24 +50,24 @@
 
   {{# due-date-content }}
     {{# past-due-date }}
-      <div class="col-auto hidden-sm-down a-msgDuedateIcon">
+      <div class="col-auto d-none d-md-block a-msgDuedateIcon">
         {{> atomer-ikon }}
       </div>
     {{/ past-due-date }}
-    <div class="col-auto hidden-sm-down a-msgDuedate">
+    <div class="col-auto d-none d-md-block a-msgDuedate">
       <span class="a-fontBold">{{ due-date-label }}</span>
       {{ due-date }}
     </div>
   {{/ due-date-content }}
 
   {{# state-content }}
-      <div class="col-auto hidden-sm-down a-msgState">
+      <div class="col-auto d-none d-md-block a-msgState">
         <span{{# state-class }} class="{{ state-class }}"{{/ state-class }}>{{ state-text }}</span>
       </div>
   {{/ state-content }}
 
   {{# shortcuts }}
-    <div class="col-auto hidden-sm-down a-msgShortcutsContainer">
+    <div class="col-auto d-none d-md-block a-msgShortcutsContainer">
       {{# shortcut-icons }}
         <div{{# button-class }} class="{{ button-class }}"{{/ button-class }}{{^ disabled }} role="button" tabindex="0"{{/ disabled }}{{# aria-label }} aria-label="{{ aria-label }}"{{/ aria-label }}{{# aria-hidden }} aria-hidden="true"{{/ aria-hidden }}{{# tooltip-title }} title="{{ tooltip-title }}"{{/ tooltip-title }}>
           {{# button-icon }}
