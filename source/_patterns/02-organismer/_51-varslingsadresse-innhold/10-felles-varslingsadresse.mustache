@@ -12,8 +12,15 @@
       {{/ varslingsadresse-information-popover }}
     </div>
   </div>
+  {{# hasAddEmailLink }}
+    <div class="row">
+      <div class="col-12 pr-md-0">        
+          {{> atomer-knapp:mr-1 }}      
+      </div>
+    </div> 
+  {{/ hasAddEmailLink }}
   <div class="row">
-    <div class="col-12 pr-md-0">
+    <div id="{{ email-section-title-id }}" class="col-12 pr-md-0">
       {{# email-sectiontitle }}
         <label class="a-form-label">{{ email-sectiontitle }}</label>
       {{/ email-sectiontitle }}
@@ -24,7 +31,7 @@
       <div class="col-10 col-md-7 pr-md-0">      
           {{> atomer-tekst-input }}      
       </div>
-      <div class="col-2 col-md-5 pr-md-0 a-delete-email">
+      <div class="col-2 col-md-5 pr-md-0 a-delete-email d-none">
         {{# delete-shared-contactinfo-email-icon }}
           {{> atomer-knapp-ikon-tekst }}
         {{/ delete-shared-contactinfo-email-icon }}
@@ -34,12 +41,12 @@
   {{# shared-notification-add-links}}
   <div class="row" id="{{ addmore-email-id }}">
     <div class="col-12 mt-1">
-      {{# hasAddEmailLink }}
+      {{# hasAddMoreEmailLink }}
         {{> atomer-knapp:mr-1 }}
-      {{/ hasAddEmailLink }}
-      {{# hasAddSMSLink-first }}
+      {{/ hasAddMoreEmailLink }}
+      {{# hasAddSMSLink }}
         {{> atomer-knapp }}
-      {{/ hasAddSMSLink-first }}
+      {{/ hasAddSMSLink }}
     </div>
   </div>
   {{/ shared-notification-add-links}}

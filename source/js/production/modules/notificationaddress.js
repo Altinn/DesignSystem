@@ -9,6 +9,11 @@ function hideDeleteButton() {
     $('div.a-sms').find('.a-delete-sms').removeClass('d-none');
     $('div.a-email').find('.a-delete-email').removeClass('d-none');
   }
+  if (emailInputCount === 0) {
+    $('#emailTitle').addClass('d-none');
+    $('#link-addmore-email').addClass('d-none');
+    $('#link-email').removeClass('d-none');
+  }
 }
 
 function addContact(contactType, index, inputCount) {
@@ -31,6 +36,7 @@ function addContact(contactType, index, inputCount) {
   }
   if (inputCount > 0) {
     $('#' + newContactId).find('.a-delete').attr('id', deleteId);
+    $('#' + newContactId).find('.a-delete-email').removeClass('d-none');
     $('#' + newContactId).find('input[type=email]').attr('value', '');
     $('#' + newContactId).find('.a-input-phonenumber').attr('value', '');
   }
@@ -57,11 +63,20 @@ $('body').on('keyup', '#text-input-notification-epost', function(e) {
   }
 });
 
+$('body').on('click', '#link-email', function() {
+  $('#link-email').addClass('d-none');
+  $('#emailTitle').removeClass('d-none');
+  $('#emailInput-1').removeClass('d-none');
+  $('#link-addmore-email').removeClass('d-none');
+  hideDeleteButton();
+});
+
 $('body').on('click', '#link-sms', function() {
   $('#link-sms').addClass('d-none');
   $('#phoneTitle').removeClass('d-none');
   $('#smsInput-1').removeClass('d-none');
   $('#addmore-sms').removeClass('d-none');
+  hideDeleteButton();
 });
 
 $('body').on('click', '#link-sms-addmore', function() {
