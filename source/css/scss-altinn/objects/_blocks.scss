@@ -45,9 +45,11 @@
 
   .a-personRole-text {
     float: left;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
+    @include media-breakpoint-up( lg ) {
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
 
     .a-personRole-role {
       @include a-fontSize12;
@@ -70,9 +72,12 @@
 //Role Name
 .a-role-name {
   float: left;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
+  @include media-breakpoint-up( lg ) {
+    display: inline-block;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
 }
 
 // Filter guide
