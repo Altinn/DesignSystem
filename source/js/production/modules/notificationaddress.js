@@ -42,10 +42,6 @@ function addContact(contactType, index, inputCount) {
   }
 }
 
-$(document).ready(function() {
-  hideDeleteButton();
-});
-
 function removeContact(contactType, index) {
   if (index === '1') {
     $('#' + contactType + 'Input-' + index).addClass('d-none');
