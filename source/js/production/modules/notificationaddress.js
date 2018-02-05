@@ -1,3 +1,4 @@
+
 function hideDeleteButton() {
   var emailInputCount = $('div.a-email:visible').length;
   var smsInputCount = $('div.a-sms:visible').length;
@@ -37,8 +38,8 @@ function addContact(contactType, index, inputCount) {
   if (inputCount > 0) {
     $('#' + newContactId).find('.a-delete').attr('id', deleteId);
     $('#' + newContactId).find('.a-delete-email').removeClass('d-none');
-    $('#' + newContactId).find('input[type=email]').attr('value', '');
-    $('#' + newContactId).find('.a-input-phonenumber').attr('value', '');
+    $('#' + newContactId).find('input[type=email]').val('');
+    $('#' + newContactId).find('input.a-input-phonenumber').val('');
   }
 }
 
