@@ -481,123 +481,106 @@ textarea {
   color: $blue-darker;
 }
 
-// FORM CHECKBOXES
-.a-form-checkboxes {
-  margin-bottom: 0; // bootstrap override
 
-  label {
-    span {
-      display: block;
+// FORM CHECKBOXES (Bootstrap 4)
+
+.a-custom-checkbox {
+  padding-left: 3.5rem;
+  margin-right: $spacer * 3;
+  margin-bottom: $spacer;
+  cursor: pointer;
+
+  &:last-child {
+    margin-right: 0;
+    @include media-breakpoint-up( lg ) {
+      margin-right: 0;
     }
   }
 
-  p {
-    display: inline;
-    margin-left: $spacer;
+  .custom-control-label {
+    cursor: pointer;
+
+    &::before {
+      // Indicator
+      width: $spacer * 2;
+      height: $spacer * 2;
+      margin-top: -4px;
+      background-color: $white;
+      border: 2px solid $blue;
+      border-radius: 0;
+    }
   }
 
-  .custom-control-indicator {
-    width: $spacer * 2;
-    height: $spacer * 2;
-    margin-top: -4px;
-    background-color: $white;
-    border: 2px solid $blue;
-    border-radius: 0;
+  &:focus,
+  &:hover {
+    .custom-control-label {
+      &::before {
+        border: 2px solid $blue-dark;
+      }
+    }
   }
 
-  .custom-checkbox {
-    &.inactive {
-      .custom-control-indicator {
+  &.inactive {
+    .custom-control-label {
+      &::before {
         border: 2px solid $grey-medium;
       }
-
-      .custom-control-indicator + span {
-        display: block;
-      }
     }
   }
 
-  .custom-control {
-    display: block;
-    padding-left: $spacer * 2;
-    margin-bottom: $spacer;
-    @include media-breakpoint-up( lg ) {
-      display: inline-block;
-      margin-right: $spacer * 3;
-    }
+  .custom-control-input {
+    cursor: pointer;
 
-    &:last-child {
-      margin-right: 0;
-      @include media-breakpoint-up( lg ) {
-        margin-right: 0;
+    &:checked~.custom-control-label {
+      &::before {
+        background-color: $white;
       }
-    }
 
-    &+.custom-control {
-      margin-left: 0;
-    }
-
-    >input {
-      &:checked~.custom-control-indicator {
+      &::after {
+        top: 1px;
+        left: 2px;
+        width: 2rem;
+        height: 2rem;
         background-color: $white;
         background-image: url($images-base-url + 'checkbox-checked.svg');
         background-size: 100%;
       }
+    }
 
-      &:focus~.custom-control-indicator {
+    &:focus~.custom-control-label {
+      &::before {
         box-shadow: none;
       }
     }
   }
 
-  input {
-    &[type='checkbox'],
-    &[type='radio'] {
-      &:focus~span,
-      &:hover~span {
-        &.custom-control-indicator {
-          &:not(.override-focus) {
-            border: 2px solid $blue-dark;
-          }
-        }
+  &.a-form-checkboxes--discret {
+    @include a-fontSize14;
+    padding-left: $spacer * 2.5;
+
+    .custom-control-label {
+      &::before {
+        // Indicator
+        width: $spacer * 1.5;
+        height: $spacer * 1.5;
+        margin-top: -3px;
+        border: 2px solid $blue-darker;
       }
     }
-  }
 
-  &.custom-controls-stacked {
-    .custom-control {
-      display: block;
-      margin-right: 0;
-    }
-  }
-
-  &.a-search-multiple-actor-select {
-    .inactive {
-      cursor: not-allowed;
-
-      span {
-        color: $grey-medium;
+    .custom-control-input {
+      &:checked~.custom-control-label {
+        &::after {
+          top: 2px;
+          width: 1.4rem;
+          height: 1.4rem;
+        }
       }
     }
   }
 
   &.a-search-multiple-actor-select-subunit {
     margin-left: 30px;
-  }
-
-  &.a-form-checkboxes--discret {
-    @include a-fontSize14;
-
-    .custom-control {
-      padding-left: $spacer * 1.5;
-    }
-
-    .custom-control-indicator {
-      width: $spacer * 1.5;
-      height: $spacer * 1.5;
-      margin-top: -3px;
-      border: 2px solid $blue-darker;
-    }
   }
 }
 
