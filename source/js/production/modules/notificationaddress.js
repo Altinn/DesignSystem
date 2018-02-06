@@ -17,23 +17,23 @@ function hideDeleteButton() {
   }
 }
 
-function addContact(contactType, index, inputCount) {
+function addContact(contactType, index, inputCount, tempId) {
   var inputTemplateId;
   var contactId;
   var newContactId;
   var templateId;
   var deleteId;
+
   contactId = '#' + contactType + 'Input-' + inputCount;
   newContactId = contactType + 'Input-' + index;
   templateId = '#' + contactType + 'Input-1';
   deleteId = contactType + 'Delete-' + index;
   if (inputCount === 0) {
     $(templateId).removeClass('d-none');
-  } else if (inputCount === 1) {
-    inputTemplateId = '#' + $('div.a-' + contactType + ':visible').attr('id');
-    $(inputTemplateId).clone().attr('id', newContactId).insertAfter(inputTemplateId);
+    $(templateId).find('input[type=email]').val('');
+    $(templateId).find('input.a-input-phonenumber').val('');
   } else {
-    $(contactId).clone().attr('id', newContactId).insertAfter(contactId);
+    $(tempId).clone().attr('id', newContactId).insertAfter(tempId);
   }
   if (inputCount > 0) {
     $('#' + newContactId).find('.a-delete').attr('id', deleteId);
@@ -65,6 +65,7 @@ $('body').on('click', '#link-email', function() {
   $('#emailTitle').removeClass('d-none');
   $('#emailInput-1').removeClass('d-none');
   $('#link-addmore-email').removeClass('d-none');
+  $('#emailInput-1').find('input[type=email]').val('');
   hideDeleteButton();
 });
 
@@ -72,23 +73,34 @@ $('body').on('click', '#link-sms', function() {
   $('#link-sms').addClass('d-none');
   $('#phoneTitle').removeClass('d-none');
   $('#smsInput-1').removeClass('d-none');
+  $('#smsInput-1').find('input.a-input-phonenumber').val('');
   $('#addmore-sms').removeClass('d-none');
   hideDeleteButton();
 });
 
 $('body').on('click', '#link-sms-addmore', function() {
   var inputCount = $('div.a-sms:visible').length;
-  var index = inputCount + 1;
+  var index;
+  var lastElement;
+  var lastIndex;
+  lastElement = $('div.a-sms:visible')[inputCount - 1];
+  lastIndex = ($(lastElement).attr('id')).split('-')[1];
+  index = parseInt(lastIndex, 10) + 1;
 
-  addContact('sms', index, inputCount);
+  addContact('sms', index, inputCount, ('#' + $(lastElement).attr('id')));
   hideDeleteButton();
 });
 
 $('body').on('click', '#link-addmore-email', function() {
   var inputCount = $('div.a-email:visible').length;
-  var index = inputCount + 1;
+  var index;
+  var lastElement;
+  var lastIndex;
+  lastElement = $('div.a-email:visible')[inputCount - 1];
+  lastIndex = ($(lastElement).attr('id')).split('-')[1];
+  index = parseInt(lastIndex, 10) + 1;
 
-  addContact('email', index, inputCount);
+  addContact('email', index, inputCount, ('#' + $(lastElement).attr('id')));
   hideDeleteButton();
 });
 
