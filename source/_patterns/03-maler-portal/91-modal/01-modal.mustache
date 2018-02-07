@@ -11,8 +11,13 @@
           {{/ sub-header }}
         </div>
       </div>
-      <div class="row">
-        <div class="col-xl-10 offset-xl-1 a-p-static">
+      <div class="row">       
+        {{^ modal-content-wide }}
+          <div class="col-xl-10 offset-xl-1 a-p-static">
+        {{/ modal-content-wide }}
+        {{# modal-content-wide }}
+          <div class="col-12 a-p-static">
+        {{/ modal-content-wide }}
           {{# modal-navbar-override }}
             {{> molekyler-modal-navbar }}
           {{/ modal-navbar-override }}
@@ -24,7 +29,10 @@
             <div class="a-page a-current-page">
               <div class="modalPage">
                 <div class="modal-content">
-                  {{> molekyler-modal-body-header }}
+                  {{^ hide-modal-body-header }}
+                    {{> molekyler-modal-body-header }}
+                  {{/ hide-modal-body-header }}
+
                   {{# show-client-delegation-content }}
                     {{> organismer-modal-klientdelegering }}
                   {{/ show-client-delegation-content }}
@@ -60,6 +68,9 @@
                   {{# kontaktinformasjon-virksomhet-mangler }}
                       {{> organismer-kontaktinformasjon-virksomhet-mangler}}
                   {{/ kontaktinformasjon-virksomhet-mangler }}
+                  {{# show-felles-varslingsadresse }}
+                    {{> organismer-felles-varslingsadresse}}
+                  {{/ show-felles-varslingsadresse }}
                 </div>
               </div>
             </div>
