@@ -838,6 +838,7 @@ var addListExpandHandler = function() {
     // present even though the content is about to be expanded
     if ($(this).hasClass('collapsed')) {
       $(this).closest('li').addClass('a-expanded');
+      $(this).closest('li').siblings().removeClass('a-expanded');
     } else {
       $(this).closest('li').removeClass('a-expanded');
     }

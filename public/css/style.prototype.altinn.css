@@ -9271,6 +9271,14 @@ textarea {
 .a-input-postnumber {
   max-width: 100px; }
 
+.a-input-countryCode {
+  max-width: 55px;
+  border-right-color: #BCC7CC !important;
+  border-right-width: 1px; }
+
+.a-input-phonenumber {
+  border-left: none !important; }
+
 .a-input-placecode {
   position: absolute;
   top: 36px;
@@ -10523,7 +10531,10 @@ h1 .a-label {
     -ms-flex-item-align: center;
     align-self: center; }
   .a-btn-icon .a-btn-icon-text {
+    overflow: hidden;
     text-align: left;
+    text-overflow: ellipsis;
+    white-space: nowrap;
     -ms-flex-item-align: center;
     align-self: center; }
   .a-btn-icon .a-btn-icon-symbol {
@@ -10544,6 +10555,10 @@ h1 .a-label {
   .a-btn-icon-transparent:hover, .a-btn-icon-transparent:focus {
     color: #1EAEF7;
     background: transparent; }
+  .a-btn-icon-transparent.a-delete {
+    color: #E23B53; }
+    .a-btn-icon-transparent.a-delete:focus {
+      border: 1px solid #1EAEF7; }
 
 .a-btn-transparentWhite {
   padding: 12px;
@@ -12296,6 +12311,30 @@ body > .loader-container {
       border-bottom-color: rgba(0, 0, 0, 0.05);
       border-left-color: transparent; }
     .popover.footnote.bs-tether-element-attached-top::after {
+      top: -9px;
+      border-right-color: transparent;
+      border-bottom-color: #EFEFEF;
+      border-left-color: transparent; }
+  .popover.popover-gray {
+    background-color: #EFEFEF; }
+    .popover.popover-gray::before {
+      border-right-color: rgba(0, 0, 0, 0.1);
+      border-left-color: rgba(0, 0, 0, 0.1); }
+    .popover.popover-gray::after {
+      border-right-color: #EFEFEF;
+      border-left-color: #EFEFEF; }
+    .popover.popover-gray .popover-title {
+      background-color: #EFEFEF; }
+    .popover.popover-gray.bs-tether-element-attached-top .popover-arrow.popover-arrow {
+      border-right-color: transparent;
+      border-bottom-color: rgba(0, 0, 0, 0.1);
+      border-left-color: transparent; }
+    .popover.popover-gray.bs-tether-element-attached-top::before {
+      top: -10px;
+      border-right-color: transparent;
+      border-bottom-color: rgba(0, 0, 0, 0.05);
+      border-left-color: transparent; }
+    .popover.popover-gray.bs-tether-element-attached-top::after {
       top: -9px;
       border-right-color: transparent;
       border-bottom-color: #EFEFEF;
@@ -14380,7 +14419,10 @@ a.a-linkFeatured[href^="http"]:not([href*='altinn.no'])::after {
     -ms-flex-item-align: start;
     align-self: flex-start; }
   .a-personRole .a-personRole-text {
-    float: left; }
+    float: left;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap; }
     .a-personRole .a-personRole-text .a-personRole-role {
       font-size: 12px;
       font-size: 1.2rem;
@@ -14398,6 +14440,12 @@ a.a-linkFeatured[href^="http"]:not([href*='altinn.no'])::after {
       font-weight: normal; }
   .a-personRole .a-label {
     margin-top: -2px; }
+
+.a-role-name {
+  float: left;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap; }
 
 .a-filterGuide .a-btn:disabled {
   display: none; }
