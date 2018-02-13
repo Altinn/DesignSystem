@@ -8,13 +8,14 @@
 		</a>
   </div>
   <div id="{{ collapseID }}" class="a-collapsePanel-body a-collapsePanel-body--border no-background collapse {{{ isVisibleFromStart }}}" role="tabpanel" aria-labelledby="{{ collapse-panel-header-id }}">
-    <div class="panel-collapse-content-section px-1 px-sm-2 pt-2 a-bgWhite">
-      {{# addAlertLink }} {{> atomer-handlingsknapp:mb-0 }} {{/ addAlertLink }}
+    <div class="panel-collapse-content-section a-bgWhite">
+      {{# addAlertLink }}
+      <div class="mt-2 px-2">
+        {{> atomer-handlingsknapp }}
+      </div>
+      {{/ addAlertLink }} {{# scheduledAlerts }} {{> molekyler-altinnett-liste-varslinger }} {{/ scheduledAlerts }} {{# previousAlerts }} {{> molekyler-altinnett-liste-varslinger }} {{/ previousAlerts }}
     </div>
-
-    {{# scheduledAlerts }} {{> molekyler-altinnett-liste-varslinger }} {{/ scheduledAlerts }} {{# previousAlerts }} {{> molekyler-altinnett-liste-varslinger }} {{/ previousAlerts }}
   </div>
-</div>
 </div>
 
 {{# addAlertModal }} {{> organismer-modal }} {{/ addAlertModal }} {{# editAlertModal }} {{> organismer-modal }} {{/ editAlertModal }}

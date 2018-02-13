@@ -14,11 +14,20 @@
           </h1>
 
           <div id="{{ accordion-large-id }}" class="a-panelAccordion" role="tablist">
-            {{# yourProfilePanel }} {{> organismer-altinnett-varslingsprofil }} {{/ yourProfilePanel }} {{# organizationProfilePanel }} {{> organismer-altinnett-varslingsprofiler-for-leverandorer }} {{/ organizationProfilePanel }} {{# alertListPanel }} {{> organismer-altinnett-varslingsliste
-            }} {{/ alertListPanel }}
+            {{# subscriber }} {{# yourProfilePanel }} {{> organismer-altinnett-varslingsprofil }} {{/ yourProfilePanel }} {{/ subscriber }} {{# organizationProfilePanel }} {{> organismer-altinnett-varslingsprofiler-for-leverandorer }} {{/ organizationProfilePanel
+            }} {{# alertListPanel }} {{> organismer-altinnett-varslingsliste }} {{/ alertListPanel }}
           </div>
 
-          <p class="mt-1 col-12">
+          {{# unsubscriber }}
+          <div class="mt-3 col-12">
+            <h2>Abonnere på varslinger</h2>
+            <p>Her kan du registrere din e-post adresse dersom du ønsker å motta viktige varslinger fra Altinn. Du bestemmer selv hvilke kategorier av hendelser du ønsker å motta varslinger om.</p>
+
+            {{# subscribeLink }} {{> atomer-link }} {{/ subscribeLink }}
+          </div>
+          {{/ unsubscriber }}
+
+          <p class="mt-2 col-12">
             {{# firstLink }} {{> atomer-link }} {{/ firstLink }}
           </p>
 
@@ -32,6 +41,8 @@
         </div>
       </div>
     </div>
+
+    {{# subscribeModal }} {{> organismer-modal }} {{/ subscribeModal }}
   </section>
   {{# footer }} {{> organismer-footer-altinnett }} {{/ footer }}
 </div>

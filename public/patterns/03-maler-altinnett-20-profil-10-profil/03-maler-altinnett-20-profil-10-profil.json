@@ -79,9 +79,6 @@
 	"onclick": false,
 	"button-icon": false,
 	"display-as-link": false,
-	"link-text": "En lenke ser slik ut",
-	"link-url": "/patterns/04-sider-infoportal-01-forside-00-forside/04-sider-infoportal-01-forside-00-forside.html",
-	"sr-text": false,
 	"aria-label": "Tilbake",
 	"button-list": [
 		{
@@ -198,6 +195,9 @@
 		]
 	},
 	"page-url": "https://altinn.github.io/DesignSystem/public/patterns/03-maler-portal-99-modal-js-02-page-one/03-maler-portal-99-modal-js-02-page-one.markup-only.html",
+	"link-text": "En lenke ser slik ut",
+	"link-url": "/patterns/04-sider-infoportal-01-forside-00-forside/04-sider-infoportal-01-forside-00-forside.html",
+	"sr-text": false,
 	"dropdown-link-class": "a-borderBottom",
 	"dropdown-top-item": {
 		"dropdown-top-item-content": "Lagrede søk",
@@ -1969,25 +1969,27 @@
 	"profile-login-name": "Navn Navnesen",
 	"profile-login-organization": "Leverandør - [Organisasjonsnavn]",
 	"accordion-large-id": "accordion",
-	"yourProfilePanel": {
-		"collapseID": "myContactInfo",
-		"dataParent": "#accordion",
-		"collapse-panel-header-id": "myContactInfoHeader",
-		"search-rights": false,
-		"isModal": false,
-		"link-done": false,
-		"collapseHeader": {
-			"variation-class": "a-iconText-shadow a-iconText-large a-collapseBtn collapsed",
-			"hasIcon": {
-				"icon-prefix": "reg",
-				"icon-class": "reg-private",
-				"icon-extra-class": "a-icon"
-			},
-			"hasTextSmall": false,
-			"isHeader": {
-				"isH2": true
-			},
-			"icontext": "Din varslingsprofil"
+	"subscriber": {
+		"yourProfilePanel": {
+			"collapseID": "myContactInfo",
+			"dataParent": "#accordion",
+			"collapse-panel-header-id": "myContactInfoHeader",
+			"search-rights": false,
+			"isModal": false,
+			"link-done": false,
+			"collapseHeader": {
+				"variation-class": "a-iconText-shadow a-iconText-large a-collapseBtn collapsed",
+				"hasIcon": {
+					"icon-prefix": "reg",
+					"icon-class": "reg-private",
+					"icon-extra-class": "a-icon"
+				},
+				"hasTextSmall": false,
+				"isHeader": {
+					"isH2": true
+				},
+				"icontext": "Din varslingsprofil"
+			}
 		}
 	},
 	"organizationProfilePanel": {
@@ -2021,9 +2023,23 @@
 				"icon-extra-class": "a-icon"
 			},
 			"hasTextSmall": false,
-			"icontext": "Planlagte og tidligere varslinger",
+			"icontext": "Varslinger",
 			"scheduledAlerts": true,
 			"previousAlerts": true
+		}
+	},
+	"unsubscriber": {
+		"subscribeLink": {
+			"link-text": "Abonner på varslinger",
+			"link-class": "a-btn",
+			"link-url": "javascript:void(0)",
+			"sr-text": false,
+			"data-toggle": "altinn-modal",
+			"data-action": "load",
+			"data-url": {
+				"data-url": "../../patterns/02-organismer-80-Modal-js-innhold-80-altinnett-varsling-pamelding/02-organismer-80-Modal-js-innhold-80-altinnett-varsling-pamelding.markup-only.html"
+			},
+			"data-target": "modal"
 		}
 	},
 	"firstLink": {
@@ -2042,6 +2058,37 @@
 		"display-as-link": true,
 		"onclick": {
 			"onclick": "location.href='/patterns/04-sider-altinnett-10-forside-10-forside/04-sider-altinnett-10-forside-10-forside.html'"
+		}
+	},
+	"subscribeModal": {
+		"modal-isSingel": true,
+		"show-login": false,
+		"display-as-dropdown": false,
+		"logo": {
+			"logo": "../../images/altinnett-logo-black.svg"
+		},
+		"logo-class": "a-modal-top-logo",
+		"login-show": false,
+		"icon": "group_add",
+		"hasTextSmall": false,
+		"modal-navbar-override": {
+			"button-list": [
+				{
+					"button-class": "a-modal-close",
+					"aria-label": "Lukk",
+					"icon-prefix": "ai",
+					"icon-class": "ai-exit",
+					"icon-extra-class": "a-modal-close-icon",
+					"stacked-background": {
+						"icon-prefix": "ai",
+						"icon-class": "ai-plain-circle-big"
+					},
+					"is-modal-close": {
+						"data-target": "#modal"
+					},
+					"onclick": "goBack()"
+				}
+			]
 		}
 	},
 	"footer": {
