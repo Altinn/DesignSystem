@@ -7,14 +7,15 @@
 		</a>
 	</div>
 	<div id="{{ collapseID }}" class="a-collapsePanel-body a-collapsePanel-body--border no-background collapse {{{ isVisibleFromStart }}}" role="tabpanel" aria-labelledby="{{ collapse-panel-header-id }}">
-			<div class="panel-collapse-content-section px-1 px-sm-2 a-bgWhite">
-				{{# addAlertLink }}
-					{{> atomer-handlingsknapp:mb-0 }}
-				{{/ addAlertLink }}
-			</div>
+		<div class="panel-collapse-content-section a-bgWhite">
+			{{# addAlertLink }}
+				<div class="mt-2 px-2">
+					{{> atomer-handlingsknapp }}
+				</div>
+			{{/ addAlertLink }}
 
 			{{# scheduledAlerts }}
-				{{> molekyler-altinnett-liste-varslinger:pt-2 }}
+				{{> molekyler-altinnett-liste-varslinger }}
 			{{/ scheduledAlerts }}
 
 			{{# previousAlerts }}
