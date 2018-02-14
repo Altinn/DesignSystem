@@ -2051,10 +2051,6 @@ $('#sg-viewport').on('load', function() {
   $($mainBody).delay(350).css({ overflow: 'visible' });
 });
 
-$(document).on('click', 'a[class*="sg-pop sg-nav-menus"]', function() {
-  timeOutPreloaderAnimation();
-});
-
 document.addEventListener('DOMContentLoaded', function() {
   timeOutPreloaderAnimation();
 }, false);
