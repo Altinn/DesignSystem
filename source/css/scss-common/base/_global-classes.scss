@@ -409,15 +409,27 @@ hr {
 
     .a-hiddenWhenSelected {
       display: none;
+
+      @include media-breakpoint-up( sm ) {
+        display: none !important;
+      }
     }
 
     .a-visibleWhenSelected {
       display: inline-block;
+
+      @include media-breakpoint-up( sm ) {
+        display: inline-block !important;
+      }
     }
   }
 
   .a-visibleWhenSelected {
     display: none;
+
+    @include media-breakpoint-up( sm ) {
+      display: none !important;
+    }
   }
 
   &.a-completed {
@@ -444,11 +456,15 @@ hr {
     }
 
     .a-hiddenWhenDeleted {
-      display: none;
+      display: none !important;
     }
 
     .a-visibleWhenDeleted {
       display: inline-block;
+
+      @include media-breakpoint-up( sm ) {
+        display: inline-block !important;
+      }
     }
   }
 
@@ -461,7 +477,7 @@ hr {
       &:not(.a-completed) {
         &:not(.a-deleted) {
           .a-visibleWhenInitial {
-            display: inline-block;
+            display: inline-block !important;
           }
         }
       }
@@ -471,7 +487,7 @@ hr {
   .a-visibleWhenCompleted,
   .a-visibleWhenDeleted,
   .a-visibleWhenInitial {
-    display: none;
+    display: none !important;
   }
 }
 
