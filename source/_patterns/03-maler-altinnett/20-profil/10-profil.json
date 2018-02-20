@@ -7,7 +7,6 @@
   "header": {
     "header-color": "a-darkBackground an-bgBlack",
     "headerlogo": "../../images/altinnett-logo-white.svg",
-    "globalNav-active-varsling": "globalNav-active",
     "ekstra-menypunkt-1": "Seksjonsforside",
     "url-ekstra-menypunkt-1": "link.sider-altinnett-seksjonsforside",
     "login-icon": {
@@ -19,25 +18,27 @@
   "profile-login-name": "Navn Navnesen",
   "profile-login-organization": "Leverandør - [Organisasjonsnavn]",
   "accordion-large-id": "accordion",
-  "yourProfilePanel": {
-    "collapseID": "myContactInfo",
-    "dataParent": "#accordion",
-    "collapse-panel-header-id": "myContactInfoHeader",
-    "search-rights": false,
-    "isModal": false,
-    "link-done": false,
-    "collapseHeader": {
-      "variation-class": "a-iconText-shadow a-iconText-large a-collapseBtn collapsed",
-      "hasIcon": {
-        "icon-prefix": "reg",
-        "icon-class": "reg-private",
-        "icon-extra-class": "a-icon"
-      },
-      "hasTextSmall": false,
-      "isHeader": {
-        "isH2": true
-      },
-      "icontext": "Din varslingsprofil"
+  "subscriber": {
+    "yourProfilePanel": {
+      "collapseID": "myContactInfo",
+      "dataParent": "#accordion",
+      "collapse-panel-header-id": "myContactInfoHeader",
+      "search-rights": false,
+      "isModal": false,
+      "link-done": false,
+      "collapseHeader": {
+        "variation-class": "a-iconText-shadow a-iconText-large a-collapseBtn collapsed",
+        "hasIcon": {
+          "icon-prefix": "reg",
+          "icon-class": "reg-private",
+          "icon-extra-class": "a-icon"
+        },
+        "hasTextSmall": false,
+        "isHeader": {
+          "isH2": true
+        },
+        "icontext": "Din varslingsprofil"
+      }
     }
   },
   "organizationProfilePanel": {
@@ -71,9 +72,23 @@
         "icon-extra-class": "a-icon"
       },
       "hasTextSmall": false,
-      "icontext": "Planlagte og tidligere varslinger",
+      "icontext": "Varslinger",
       "scheduledAlerts": true,
       "previousAlerts": true
+    }
+  },
+  "unsubscriber": {
+    "subscribeLink": {
+      "link-text": "Abonner på varslinger",
+      "link-class": "a-btn",
+      "link-url": "javascript:void(0)",
+      "sr-text": false,
+      "data-toggle": "altinn-modal",
+      "data-action": "load",
+      "data-url": {
+        "data-url": "../../patterns/02-organismer-80-Modal-js-innhold-80-altinnett-varsling-pamelding/02-organismer-80-Modal-js-innhold-80-altinnett-varsling-pamelding.markup-only.html"
+      },
+      "data-target": "modal"
     }
   },
   "firstLink": {
@@ -92,6 +107,37 @@
     "display-as-link": true,
     "onclick": {
       "onclick": "location.href='link.sider-altinnett-forside'"
+    }
+  },
+  "subscribeModal": {
+    "modal-isSingel": true,
+    "show-login": false,
+    "display-as-dropdown": false,
+    "logo": {
+      "logo": "../../images/altinnett-logo-black.svg"
+    },
+    "logo-class": "a-modal-top-logo",
+    "login-show": false,
+    "icon": "group_add",
+    "hasTextSmall": false,
+    "modal-navbar-override": {
+      "button-list": [
+        {
+          "button-class": "a-modal-close",
+          "aria-label": "Lukk",
+          "icon-prefix": "ai",
+          "icon-class": "ai-exit",
+          "icon-extra-class": "a-modal-close-icon",
+          "stacked-background": {
+            "icon-prefix": "ai",
+            "icon-class": "ai-plain-circle-big"
+          },
+          "is-modal-close": {
+            "data-target": "#modal"
+          },
+          "onclick": "goBack()"
+        }
+      ]
     }
   },
   "footer": {
