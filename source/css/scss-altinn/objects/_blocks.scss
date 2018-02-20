@@ -38,6 +38,10 @@
   min-height: $spacer * 3;
   align-items: center;
 
+  .ai {
+    width: unset;
+  }
+
   .a-dot {
     margin-top: -5px;
     align-self: flex-start;
@@ -45,9 +49,11 @@
 
   .a-personRole-text {
     float: left;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
+    @include media-breakpoint-up( lg ) {
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
 
     .a-personRole-role {
       @include a-fontSize12;
@@ -65,14 +71,6 @@
   .a-label {
     margin-top: -2px;
   }
-}
-
-//Role Name
-.a-role-name {
-  float: left;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
 }
 
 // Filter guide
