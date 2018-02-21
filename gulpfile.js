@@ -104,11 +104,11 @@ gulp.task('pl-copy:styleguide', function() {
 // Unzip fortawesone iconfonts and put them in the correct folder for the npm package
 gulp.task('pl-copy:distribution-fonts', function(done) {
   gulp.src('./source/fortAwesome/kit-altinn-no-ed31cded.zip')
-    .pipe(decompress({strip: 1}))
+    .pipe(decompress({strip: 0}))
     .pipe(gulp.dest('./dist/fonts/icons/ai/'));
   
   gulp.src('./source/fortAwesome/kit-altinn-reg-no-df832575.zip')
-    .pipe(decompress({strip: 1}))
+    .pipe(decompress({strip: 0}))
     .pipe(gulp.dest('./dist/fonts/icons/reg/'));
   done();
 });
