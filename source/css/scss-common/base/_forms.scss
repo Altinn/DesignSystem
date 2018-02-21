@@ -70,7 +70,7 @@ textarea {
 
     input,
     button,
-    .input-group-addon {
+    .input-group-prepend {
       background-color: transparent;
     }
 
@@ -118,7 +118,7 @@ textarea {
   }
 
   // Button right to input
-  .input-group-btn {
+  .input-group-append {
     border: 2px solid $blue;
     border-left: none;
 
@@ -179,7 +179,7 @@ textarea {
       }
     }
 
-    .input-group-addon {
+    .input-group-prepend {
       @include media-breakpoint-up( md ) {
         @include a-fontSize20;
         padding: 18px $spacer;
@@ -205,12 +205,12 @@ textarea {
   // VALIDATOR: Input has error
   &.has-error {
     // Label
-    .input-group-addon {
+    .input-group-prepend {
       // sass-lint:disable-block no-important
       border: 2px solid $red !important;
     }
 
-    .input-group-btn {
+    .input-group-append {
       // sass-lint:disable-block no-important
       border-color: $red !important;
     }
@@ -229,7 +229,7 @@ textarea {
     }
 
     .input-group {
-      .input-group-addon {
+      .input-group-prepend {
         // sass-lint:disable-block no-important
         border-right: none !important;
       }
@@ -251,9 +251,9 @@ textarea {
       // added setting background to white here, for input-fields that are transparent, but should be white when active.
       &:hover,
       &.a-input-focus {
-        .input-group-addon,
+        .input-group-prepend,
         .form-control,
-        .input-group-btn {
+        .input-group-append {
           // sass-lint:disable-block no-important
           background-color: $white;
           border-color: darken( $red, 15% ) !important;
@@ -267,7 +267,7 @@ textarea {
           }
         }
 
-        .input-group-btn {
+        .input-group-append {
           // sass-lint:disable-block no-important
           border-left: none !important;
         }
@@ -279,7 +279,7 @@ textarea {
   .input-group {
 
     // Label
-    .input-group-addon {
+    .input-group-prepend {
       @include a-fontSize16;
       @include a-fontReg;
       display: block;
@@ -339,9 +339,9 @@ textarea {
     // added setting background to white here, for input-fields that are transparent, but should be white when active.
     &:hover,
     &.a-input-focus {
-      .input-group-addon,
+      .input-group-prepend,
       .form-control,
-      .input-group-btn {
+      .input-group-append {
         z-index: 4;
         background-color: $white;
         border-color: $blue-dark;
@@ -350,7 +350,7 @@ textarea {
 
     // Disabled input
     &.disabled {
-      .input-group-addon,
+      .input-group-prepend,
       .form-control {
         color: $grey;
         background-color: $white;
@@ -358,7 +358,7 @@ textarea {
 
       }
 
-      .input-group-addon {
+      .input-group-prepend {
         border: 2px solid $grey-medium;
         border-right: none;
       }
@@ -381,13 +381,13 @@ textarea {
 
     // Inactive input
     &.inactive {
-      .input-group-addon,
+      .input-group-prepend,
       .form-control {
         color: $grey;
         background-color: $white;
       }
 
-      .input-group-addon {
+      .input-group-prepend {
         border: 2px solid $grey-medium;
         border-right: none;
       }
@@ -412,7 +412,7 @@ textarea {
 
       }
 
-      .input-group-btn {
+      .input-group-append {
         background-color: $white;
         border: 2px solid $grey-medium;
         border-left: none;
@@ -423,7 +423,7 @@ textarea {
   // Approved input
   .disabled {
     &.a-input-approved {
-      .input-group-addon,
+      .input-group-prepend,
       .form-control {
         // sass-lint:disable-block no-important
         color: $black !important;
