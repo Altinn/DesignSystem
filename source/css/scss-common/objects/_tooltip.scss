@@ -4,53 +4,53 @@
 
 .popover {
   @extend .a-fontSizeXS;
+  margin-top: 12px;
   background-color: $yellow-light;
   border: none;
   border-radius: 0;
   box-shadow: $shadow2;
 
-  &::before {
-    border-right-color: $black-opacity-01;
-    border-left-color: $black-opacity-01;
-  }
+  .arrow {
+    box-sizing: border-box;
 
-  &::after {
-    border-right-color: $yellow-light;
-    border-left-color: $yellow-light;
-  }
-
-  &.bs-popover-bottom {
-    .popover-arrow {
-      &.popover-arrow {
-        border-right-color: transparent;
-        border-bottom-color: $black-opacity-01;
-        border-left-color: transparent;
-      }
+    &::after {
+      border-color: transparent;
     }
 
     &::before {
-      top: -10px;
-      border-right-color: transparent;
-      border-bottom-color: $black-opacity-005;
-      border-left-color: transparent;
+      position: absolute;
+      top: 7px;
+      bottom: 100%;
+      left: 50%;
+      box-sizing: border-box;
+      width: 0;
+      height: 0;
+      margin-left: 9px;
+      content: '';
+      border: 6px solid $black;
+      border-color: $yellow-light $yellow-light $yellow-light $yellow-light;
+      box-shadow: -1px 1px 3px 0 $black-opacity-01;
+      transform: rotate(135deg);
+      transform-origin: 0 0;
     }
+  }
 
-    &::after {
-      top: -9px;
-      border-right-color: transparent;
-      border-bottom-color: $yellow-light;
-      border-left-color: transparent;
+  &.bs-popover-top {
+    margin-top: -6px;
+
+    .arrow {
+      &::before {
+        top: -2px;
+        box-shadow: 3px -2px 3px 0 $black-opacity-01;
+      }
     }
   }
 
   &.bs-tether-element-attached-left,
   &.bs-tether-element-attached-right {
-    &::after {
-      border-right-color: $yellow-light;
-    }
-
     &::before {
-      border-right-color: $black-opacity-01;
+      top: -2px;
+      box-shadow: 3px -2px 3px 0 $black-opacity-01;
     }
   }
 
@@ -60,8 +60,8 @@
   }
 
   &.bs-tether-element-attached-left {
-    margin-top: -1px;
-    margin-left: 16px;
+    top: -2px;
+    box-shadow: 3px -2px 3px 0 $black-opacity-01;
   }
 
   .popover-left {
@@ -79,42 +79,14 @@
   &.popover-valid {
     background-color: $green-light;
 
-    &::before {
-      border-right-color: $black-opacity-01;
-      border-left-color: $black-opacity-01;
-    }
-
-    &::after {
-      border-right-color: $green-light;
-      border-left-color: $green-light;
+    .arrow {
+      &::before {
+        border-color: $green-light $green-light $green-light $green-light;
+      }
     }
 
     .popover-title {
       background-color: $green-light;
-    }
-
-    &.bs-popover-bottom {
-      .popover-arrow {
-        &.popover-arrow {
-          border-right-color: transparent;
-          border-bottom-color: $black-opacity-01;
-          border-left-color: transparent;
-        }
-      }
-
-      &::before {
-        top: -10px;
-        border-right-color: transparent;
-        border-bottom-color: $black-opacity-005;
-        border-left-color: transparent;
-      }
-
-      &::after {
-        top: -9px;
-        border-right-color: transparent;
-        border-bottom-color: $green-light;
-        border-left-color: transparent;
-      }
     }
   }
 
@@ -122,43 +94,44 @@
   &.popover-warning {
     background-color: $red-light;
 
-    &::before {
-      border-right-color: $black-opacity-01;
-      border-left-color: $black-opacity-01;
-    }
-
-    &::after {
-      border-right-color: $red-light;
-      border-left-color: $red-light;
+    .arrow {
+      &::before {
+        border-color: $red-light $red-light $red-light $red-light;
+      }
     }
 
     .popover-title {
       background-color: $red-light;
     }
+  }
 
-    &.bs-popover-bottom {
-      .popover-arrow {
-        &.popover-arrow {
-          border-right-color: transparent;
-          border-bottom-color: $black-opacity-01;
-          border-left-color: transparent;
+  // GRAY POPOVER
+  &.popover-gray {
+    background-color: $grey-light;
 
-        }
-      }
-
+    .arrow {
       &::before {
-        top: -10px;
-        border-right-color: transparent;
-        border-bottom-color: $black-opacity-005;
-        border-left-color: transparent;
+        border-color: $grey-light $grey-light $grey-light $grey-light;
       }
+    }
 
-      &::after {
-        top: -9px;
-        border-right-color: transparent;
-        border-bottom-color: $red-light;
-        border-left-color: transparent;
+    .popover-title {
+      background-color: $gray-light;
+    }
+  }
+
+  // Footnote popover
+  &.footnote {
+    background-color: $grey-light;
+
+    .arrow {
+      &::before {
+        border-color: $grey-light $grey-light $grey-light $grey-light;
       }
+    }
+
+    .popover-title {
+      background-color: $grey-light;
     }
   }
 
@@ -203,82 +176,4 @@
     }
   }
 
-  // Footnote popover
-  &.footnote {
-    background-color: $grey-light;
-
-    &::before {
-      border-right-color: $black-opacity-01;
-      border-left-color: $black-opacity-01;
-    }
-
-    &::after {
-      border-right-color: $grey-light;
-      border-left-color: $grey-light;
-    }
-
-    .popover-title {
-      background-color: $grey-light;
-    }
-
-    &.bs-popover-bottom {
-      &::before {
-        top: -10px;
-        border-right-color: transparent;
-        border-bottom-color: $black-opacity-005;
-        border-left-color: transparent;
-      }
-
-      &::after {
-        top: -9px;
-        border-right-color: transparent;
-        border-bottom-color: $grey-light;
-        border-left-color: transparent;
-      }
-    }
-  }
-
-  // Gray POPOVER
-  &.popover-gray {
-    background-color: $gray-light;
-
-    &::before {
-      border-right-color: $black-opacity-01;
-      border-left-color: $black-opacity-01;
-    }
-
-    &::after {
-      border-right-color: $gray-light;
-      border-left-color: $gray-light;
-    }
-
-    .popover-title {
-      background-color: $gray-light;
-    }
-
-    &.bs-popover-bottom {
-      .popover-arrow {
-        &.popover-arrow {
-          border-right-color: transparent;
-          border-bottom-color: $black-opacity-01;
-          border-left-color: transparent;
-
-        }
-      }
-
-      &::before {
-        top: -10px;
-        border-right-color: transparent;
-        border-bottom-color: $black-opacity-005;
-        border-left-color: transparent;
-      }
-
-      &::after {
-        top: -9px;
-        border-right-color: transparent;
-        border-bottom-color: $gray-light;
-        border-left-color: transparent;
-      }
-    }
-  }
 }

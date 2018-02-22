@@ -154,7 +154,7 @@ var popoverGlobalInit = function() {
   }
 
   $('body').on('shown.bs.popover', '.a-js-persistPopover', function() {
-    $('.popover-arrow').html('<style>.popover-big:after { left: ' + ($(this).offset().left + 10.5) + 'px !important; }</style>');
+    $('.arrow').html('<style>.popover-big:after { left: ' + ($(this).offset().left + 10.5) + 'px !important; }</style>');
     $('html, body').animate({
       scrollTop: $('.a-js-persistPopover').offset().top - 50
     }, 250);
