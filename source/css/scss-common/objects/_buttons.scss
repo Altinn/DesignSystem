@@ -175,11 +175,16 @@
   }
 
   .a-btn-icon-text {
-    overflow: hidden;
     text-align: left;
-    text-overflow: ellipsis;
-    white-space: nowrap;
     align-self: center;
+  }
+
+  .a-btn-icon-text-ellipsis {
+    @include media-breakpoint-up( lg ) {
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
   }
 
   .a-btn-icon-symbol {
@@ -196,6 +201,11 @@
   &.a-btn-link {
     width: auto;
   }
+}
+
+.a-btn-wordwrap {
+  display: inline;
+  white-space: initial;
 }
 
 .a-btn-icon-transparent {
