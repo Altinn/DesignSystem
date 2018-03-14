@@ -46,12 +46,6 @@
   .a-personRole-text {
     float: left;
     width: 80%;
-    @include media-breakpoint-up( lg ) {
-      overflow: hidden;
-      text-overflow: ellipsis;
-      word-break: normal;
-      white-space: nowrap;
-    }
 
     .a-personRole-role {
       @include a-fontSize12;
@@ -63,6 +57,14 @@
     .a-personRole-name {
       @include a-fontSize20;
       @include a-fontBold;
+      display: block;
+
+      @include media-breakpoint-up( lg ) {
+        overflow: hidden;
+        text-overflow: ellipsis;
+        word-break: normal;
+        white-space: nowrap;
+      }
     }
   }
 
