@@ -530,8 +530,14 @@ textarea {
     }
   }
 
-  .custom-control-input {
-    cursor: pointer;
+  .custom-control {
+    display: inline-block;
+    padding-left: $spacer * 2;
+    margin-bottom: $spacer;
+    @include media-breakpoint-up( lg ) {
+      display: inline-block;
+      margin-right: $spacer * 3;
+    }
 
     &:checked~.custom-control-label {
       &::before {
