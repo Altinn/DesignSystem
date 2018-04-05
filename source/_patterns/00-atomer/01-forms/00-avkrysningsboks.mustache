@@ -2,17 +2,20 @@
   <fieldset class="form-group mb-0">
     <legend class="a-legend">{{{check-legendText}}}</legend>
 {{/ check-legend }}
-
     {{# checkboxes }}
-
       <div class="custom-control {{#isInline}}custom-control-inline{{/isInline}} custom-checkbox a-custom-checkbox {{# inactive }} inactive {{/ inactive }} {{# isDiscreet }} a-form-checkboxes--discret {{/ isDiscreet }}">
-          <input type="checkbox" {{# isChecked }}checked="checked"{{/ isChecked }} class="custom-control-input" {{# data-toggle }} data-toggle="{{ data-toggle }}"{{/ data-toggle }}{{# data-target }} data-target="{{ data-target }}"{{/ data-target }} id="{{checkboxID}}" required {{# inactive }} disabled {{/ inactive }}>
-
+          <input 
+            type="checkbox" 
+            id="{{checkboxID}}" 
+            class="custom-control-input" 
+            {{# isChecked }}checked="checked"{{/ isChecked }} 
+            {{# data-toggle }} data-toggle="{{ data-toggle }}"{{/ data-toggle }}
+            {{# data-target }} data-target="{{ data-target }}"{{/ data-target }} 
+            {{# isRequired }} required {{/ isRequired }}
+            {{# inactive }} disabled {{/ inactive }}>
           <label class="custom-control-label {{#isBold}}a-fontBold{{/isBold}}" for="{{checkboxID}}">{{{ checkboxes-title }}}</label>
       </div>
-
     {{/ checkboxes }}
-
 {{# check-legend }}
   </fieldset>
 {{/ check-legend }}
