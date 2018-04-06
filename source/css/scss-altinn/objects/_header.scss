@@ -51,8 +51,8 @@
   .a-dropdown-languages,
   .a-dropdown-personswitchList {
     position: absolute;
-    top: 57px;
-    left: auto;
+    top: 57px !important;
+    left: auto !important;
     width: 320px;
 
     @include media-breakpoint-up( sm ) {
@@ -96,14 +96,14 @@
   }
 
   .a-dropdown-personswitchList {
-    right: 0;
+    right: 0 !important;
     width: 100%;
     @include media-breakpoint-up( sm ) {
       top: 55px;
 
     }
     @include media-breakpoint-up( md ) {
-      top: 55px;
+      top: 55px !important;
       right: -3px !important;
       width: 420px;
     }
@@ -217,6 +217,7 @@
       @include media-breakpoint-up( md ) {
         display: inline-block;
         margin-left: 0;
+        vertical-align: 0.095em;
       }
     }
   }
@@ -353,6 +354,8 @@
   padding: 0;
   color: $black;
   border-radius: 0;
+  transform: none !important;
+  will-change: unset !important;
 
   @include media-breakpoint-up( sm ) {
     width: 420px;
@@ -904,6 +907,8 @@
     }
 
     .a-triangleShadow {
+      position: relative;
+
       &::after {
         top: -60px;
         right: 2px;

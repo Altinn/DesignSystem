@@ -4,6 +4,7 @@
 
 .a-breadcrumb {
   @include a-fontSize16;
+  display: block;
   padding: 0;
   margin: 0;
   margin-bottom: $spacer;
@@ -14,6 +15,12 @@
 
   @include media-breakpoint-up( md ) {
     @include a-fontSize20;
+  }
+
+  &::after {
+    display: block;
+    clear: both;
+    content: '';
   }
 
   li {

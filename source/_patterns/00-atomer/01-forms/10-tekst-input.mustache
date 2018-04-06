@@ -10,7 +10,7 @@
 
     <div class="a-form-group-items input-group  {{# isDisabled }} disabled {{/ isDisabled }} {{# isInactive }} inactive {{/ isInactive }}">
       {{# form-label-hasIcon }}
-        <span class="input-group-addon hidden-sm-down">{{> atomer-ikon }}</span>
+        <span class="input-group-prepend d-none d-md-block">{{> atomer-ikon }}</span>
       {{/ form-label-hasIcon }}
 
       {{# form-label-isPhoneNumber }}
@@ -49,7 +49,7 @@
       >
 
       {{# form-input-hasButton }}
-        <div class="input-group-btn{{# no-border}} a-noBorder-right{{/ no-border}}">
+        <div class="input-group-append{{# no-border}} a-noBorder-right{{/ no-border}}">
           <button {{# onclick }}onclick="{{{onclick}}}"{{/ onclick }} class="btn btn-secondary{{# formBtnExtraclass }} {{ formBtnExtraclass }}{{/ formBtnExtraclass }}{{# isInactive }} inactive {{/ isInactive }}" type="button" {{# isDisabled }} disabled {{/ isDisabled }} {{# isInactive }}disabled{{/ isInactive }}>
             {{# button-icon}}
               {{> atomer-ikon }}
@@ -62,7 +62,7 @@
       {{/ form-input-hasButton }}
 
       {{# form-input-isPassword }}
-        <div class="input-group-btn">
+        <div class="input-group-append">
           <button class="btn btn-secondary d-none" type="button" id="btn-{{ text-input-id }}" onclick="showPassword(this, '{{ text-input-id }}')">
             <span class="show-password-text">
               {{{ form-input-showPassword-text }}}
@@ -80,7 +80,7 @@
 
     </div>
     {{# autocomplete }}
-      <div class="a-autocomplete-container hidden-xs">
+      <div class="a-autocomplete-container d-none d-sm-block">
       </div>
     {{/ autocomplete}}
 
