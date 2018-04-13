@@ -14,7 +14,7 @@
     {{/ direct-link-url }}
     {{^ direct-link-url }}
       {{^ is-static }}
-        <a href="#" data-toggle="collapse" data-target="#{{{ collapseID }}}" aria-expanded="false" aria-controls="{{ collapseID }}" {{# dataParent }}data-parent="{{{dataParent}}}"{{/ dataParent }}>
+        <a href="#" data-toggle="collapse" data-target="#{{{ collapseID }}}" aria-expanded="false" aria-controls="{{ collapseID }}">
       {{/ is-static }}
     {{/ direct-link-url }}
       {{# collapseHeader }}
@@ -31,8 +31,8 @@
     </a>
     {{/ is-static }} {{/ direct-link-url }}
   </div>
-  <div class="a-collapsePanel-body collapse{{# isVisibleFromStart }} {{ isVisibleFromStart }}{{/ isVisibleFromStart }}{{# extraPanelBodyClass}} {{ extraPanelBodyClass }}{{/ extraPanelBodyClass }}" {{^ is-static }} role="tabpanel" aria-labelledby="{{ collapse-panel-header-id }}"
-    id="{{ collapseID }}" {{/ is-static }}>
+  <div class="a-collapsePanel-body collapse{{# isVisibleFromStart }} {{ isVisibleFromStart }}{{/ isVisibleFromStart }}{{# extraPanelBodyClass}} {{ extraPanelBodyClass }}{{/ extraPanelBodyClass }}" {{# dataParent }}data-parent="{{{dataParent}}}" {{/ dataParent
+    }} {{^ is-static }} role="tabpanel" aria-labelledby="{{ collapse-panel-header-id }}" id="{{ collapseID }}" {{/ is-static }}>
     {{# top-notification }}
     <div class="col a-collapsePanel-body-secondary a-no-sideborder">
       <p class="{{ notification-text-class }}">{{{ notification-text }}}</p>

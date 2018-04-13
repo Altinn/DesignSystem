@@ -1,13 +1,13 @@
 <!-- START: 02-organismer-50-ekspanderbart-panel-_20-din-kontaktinformasjon-for-virksomheten JS doc: togglePanel.js -->
 <div class="card a-accordion-card a-collapsePanel {{{ styleModifier }}}">
   <div class="card-header a-js-index-heading a-collapsePanel-heading collapsed {{isExpanded}}" id="{{ collapse-panel-header-id }}" role="tab">
-    <a href="#" data-toggle="collapse" data-target="#{{{ collapseID }}}" aria-expanded="false" aria-controls="{{ collapseID }}" {{# dataParent }}data-parent="{{{dataParent}}}" {{/ dataParent }}>
+    <a href="#" data-toggle="collapse" data-target="#{{{ collapseID }}}" aria-expanded="false" aria-controls="{{ collapseID }}">
       {{# collapseHeader }}
         {{> molekyler-ikon-tekst }}
       {{/ collapseHeader }}
     </a>
   </div>
-  <div id="{{ collapseID }}" class="a-collapsePanel-body collapse {{{ isVisibleFromStart }}}" role="tabpanel" aria-labelledby="{{ collapse-panel-header-id }}">
+  <div id="{{ collapseID }}" class="a-collapsePanel-body collapse {{{ isVisibleFromStart }}}" {{# dataParent }}data-parent="{{{dataParent}}}" {{/ dataParent }} role="tabpanel" aria-labelledby="{{ collapse-panel-header-id }}">
     <div class="a-collapsePanel-body-content">
       {{# my-contact-for }}
       <div id="myContactFor">
@@ -68,4 +68,5 @@
     </div>
   </div>
 </div>
+
 <!-- END: 02-organismer-50-ekspanderbart-panel-_20-din-kontaktinformasjon-for-virksomheten -->

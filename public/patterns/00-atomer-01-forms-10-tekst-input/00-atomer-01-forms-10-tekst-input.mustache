@@ -10,7 +10,7 @@
 
     <div class="a-form-group-items input-group  {{# isDisabled }} disabled {{/ isDisabled }} {{# isInactive }} inactive {{/ isInactive }}">
       {{# form-label-hasIcon }}
-      <span class="input-group-addon hidden-sm-down">{{> atomer-ikon }}</span> {{/ form-label-hasIcon }} {{# form-label-isPhoneNumber }}
+      <span class="input-group-prepend d-none d-md-block">{{> atomer-ikon }}</span> {{/ form-label-hasIcon }} {{# form-label-isPhoneNumber }}
       <input class="form-control {{ form-control-class }}" {{# text-input-id }}id="{{ text-input-id }}" {{/ text-input-id }} {{# isRequired }}required{{/ isRequired }} {{# text-input-value }}value="{{text-input-value}}" {{/ text-input-value }} {{# text-input-placeholder
         }}placeholder="{{text-input-placeholder}}" {{/ text-input-placeholder }} type="{{ input-type }}" {{# maxlength }}data-val-length-max="{{ maxlength }}" {{/ maxlength }} {{# minlength }}data-val-length-min="{{ minlength }}" {{/ minlength }}/>      {{/ form-label-isPhoneNumber }}
 
@@ -21,7 +21,7 @@
         }} {{# minlength }}data-val-length-min="{{ minlength }}" {{/ minlength }} {{# form-input-isPassword }}onkeyup="setVisibility(this, 'btn-{{ text-input-id }}')" {{/ form-input-isPassword }} {{# search-algorithm }}data-search-algorithm="{{ search-algorithm }}"
         {{/ search-algorithm }} {{# search-target }}data-search-target="{{ search-target }}" {{/ search-target }} {{# auto-complete-off }}autocomplete="off" {{/ auto-complete-off }} {{# input-regex-validation }} data-val-regex="{{ error-message }}" data-val-regex-pattern="{{ validation-pattern }}"
         {{/ input-regex-validation }}> {{# form-input-hasButton }}
-      <div class="input-group-btn{{# no-border}} a-noBorder-right{{/ no-border}}">
+      <div class="input-group-append{{# no-border}} a-noBorder-right{{/ no-border}}">
         <button {{# onclick }}onclick="{{{onclick}}}" {{/ onclick }} class="btn btn-secondary{{# formBtnExtraclass }} {{ formBtnExtraclass }}{{/ formBtnExtraclass }}{{# isInactive }} inactive {{/ isInactive }}" type="button" {{# isDisabled }} disabled {{/ isDisabled
           }} {{# isInactive }}disabled{{/ isInactive }}>
             {{# button-icon}}
@@ -33,7 +33,7 @@
           </button>
       </div>
       {{/ form-input-hasButton }} {{# form-input-isPassword }}
-      <div class="input-group-btn">
+      <div class="input-group-append">
         <button class="btn btn-secondary d-none" type="button" id="btn-{{ text-input-id }}" onclick="showPassword(this, '{{ text-input-id }}')">
             <span class="show-password-text">
               {{{ form-input-showPassword-text }}}
@@ -48,7 +48,7 @@
 
     </div>
     {{# autocomplete }}
-    <div class="a-autocomplete-container hidden-xs">
+    <div class="a-autocomplete-container d-none d-sm-block">
     </div>
     {{/ autocomplete}} {{# extra-help }}
     <small id="help" class="form-text a-validatorInfo">
