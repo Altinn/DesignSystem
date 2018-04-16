@@ -44,7 +44,12 @@
         </label>
         {{/ is-checkbox }}
         {{# expandable-section }}
-          <div class="{{ additional-classes }}" {{# id }} id="{{ id }}" {{/ id }} {{# onclick }} onclick="{{{ onclick }}}" {{/ onclick }} aria-expanded="false" role="tabpanel">
+          <div class="{{ additional-classes }}" 
+            {{# id }} id="{{ id }}" {{/ id }} 
+            {{# onclick }} onclick="{{{ onclick }}}" {{/ onclick }} 
+            {{# data-parent }} data-parent="#{{{ data-parent }}}" {{/ data-parent }}
+            aria-expanded="false" 
+            role="tabpanel">
             {{> molekyler-liste-ekspanderbart-innhold }}
           </div>
         {{/ expandable-section }}
