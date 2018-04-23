@@ -6,36 +6,43 @@
       <h1 class="sr-only">Altinn - enklere dialog med det offentlige</h1>
       {{> molekyler-jumbotron }}
 
-      {{# loggedOut }}
-        <div class="container">
-          <div class="row">
-            <div class="col-sm-12 col-lg-8 offset-lg-2 a-text epi-wysiwyg mt-1">
-              <h2>Varslinger</h2>
-            </div>
+      <div class="container">
 
-            <div class="col-sm-12 col-lg-10 offset-lg-1 a-text epi-wysiwyg">
-              {{# previousAlerts }}
-                {{> molekyler-altinnett-liste-varslinger }}
-              {{/ previousAlerts }}
-            </div>
-          </div>
-
-          <div class="row">
-            <div class="col-sm-12 col-lg-8 offset-lg-2 a-text epi-wysiwyg mt-1">
-              <h2>Abonnere på varslinger</h2>
-              <p>Her kan du registrere din e-post adresse dersom du ønsker å motta viktige varslinger fra Altinn. Du bestemmer selv hvilke kategorier av hendelser du ønsker å motta varslinger om.</p>
-
-              {{# subscribeLink }}
-                {{> atomer-link }}
-              {{/ subscribeLink }}
-            </div>
+        <div class="row">
+          <div class="col-12">
+            {{> organismer-altinnett-produkt-presentasjon }}
           </div>
         </div>
 
-        {{# subscribeModal }}
-          {{> organismer-modal }}
-        {{/ subscribeModal }}
-      {{/ loggedOut }}
+        {{# loggedOut }}
+          <div class="row">
+              <div class="col-sm-12 col-lg-8 offset-lg-2 a-text epi-wysiwyg mt-1">
+                <h2>Varslinger</h2>
+              </div>
+
+              <div class="col-sm-12 col-lg-10 offset-lg-1 a-text epi-wysiwyg">
+                {{# previousAlerts }}
+                  {{> molekyler-altinnett-liste-varslinger }}
+                {{/ previousAlerts }}
+              </div>
+            </div>
+
+          <div class="row">
+              <div class="col-sm-12 col-lg-8 offset-lg-2 a-text epi-wysiwyg mt-1">
+                <h2>Abonnere på varslinger</h2>
+                <p>Her kan du registrere din e-post adresse dersom du ønsker å motta viktige varslinger fra Altinn. Du bestemmer selv hvilke kategorier av hendelser du ønsker å motta varslinger om.</p>
+
+                {{# subscribeLink }}
+                  {{> atomer-link }}
+                {{/ subscribeLink }}
+              </div>
+            </div>
+
+          {{# subscribeModal }}
+            {{> organismer-modal }}
+          {{/ subscribeModal }}
+        {{/ loggedOut }}
+    </div>
   </section>
 
   {{# footer }}
