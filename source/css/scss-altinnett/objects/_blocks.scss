@@ -33,8 +33,28 @@
 // PRODUCT BLOCK
 .an-productBlock {
   display: inline-block;
-  padding: $spacer * 3;
-  margin-bottom: $spacer * 4;
+  padding: $spacer * 2;
+  margin-bottom: $spacer;
+
+  h2 {
+    @include a-fontSize28;
+
+    @include media-breakpoint-up( md ) {
+      @include a-fontSize16;
+    }
+
+    @include media-breakpoint-up( lg ) {
+      @include a-fontSize24;
+    }
+
+    @include media-breakpoint-up( xl ) {
+      @include a-fontSize28;
+    }
+  }
+
+  @include media-breakpoint-up( md ) {
+    padding: $spacer * 3;
+  }
 
   .an-productBlock-figure {
     position: relative;
@@ -54,6 +74,10 @@
       color: $white;
       text-align: center;
       transform: translate(-50%, -50%);
+
+      @include media-breakpoint-up( sm ) {
+        @include an-fontSize216;
+      }
 
       @include media-breakpoint-up( md ) {
         @include an-fontSize72;
