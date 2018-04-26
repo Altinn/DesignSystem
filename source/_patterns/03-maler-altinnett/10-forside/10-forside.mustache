@@ -2,19 +2,22 @@
   {{# header }}
     {{> organismer-header-altinnett }}
   {{/ header }}
+
   <section id="content" tabindex="-1">
-      <h1 class="sr-only">Altinn - enklere dialog med det offentlige</h1>
+      <h1 class="sr-only">Velkommen til Altinn Digitalisering!</h1>
       {{# hero }}
         {{> molekyler-jumbotron }}
       {{/ hero }}
 
-      <div class="container">
-        <div class="row">
-          <div class="col-12">
-            {{> organismer-altinnett-produkt-presentasjon }}
+      {{# product-presentation }}
+        <div class="container">
+          <div class="row">
+            <div class="col-12">
+              {{> organismer-altinnett-produkt-presentasjon }}
+            </div>
           </div>
         </div>
-      </div>
+      {{/ product-presentation }}
 
       {{# case }}
         {{> molekyler-jumbotron }}
@@ -25,32 +28,39 @@
           <div class="row">
             <div class="col-12">
               <h2 class="a-fontBold a-blueDarkerText mb-2">{{ section-title }}</h2>
-              <div class="d-block d-lg-none d-xl-none d-xxl-none">
-                {{# list }}
-                  {{> atomer-liste-nummerert-sirkel }}
-                {{/ list }}
-              </div>
+              {{# list }}
+                <div class="d-block d-lg-none d-xl-none d-xxl-none">
+                    {{> atomer-liste-nummerert-sirkel }}
+                </div>
+              {{/ list }}
+
               <div class="epi-wysiwyg d-none d-lg-block d-xl-block d-xxl-block">
                 {{> molekyler-altinnett-stegvis-svg }}
               </div>
+
+              {{# learnMoreLink }}
+                <div class="mt-2 mb-4">
+                  {{> atomer-link }}
+                </div>
+              {{/ learnMoreLink }}
             </div>
           </div>
         </div>
       {{/ steps }}
 
-        {{# loggedOut }}
-          <div class="container">
-            <div class="row">
-              <div class="col-sm-12 col-lg-8 offset-lg-2 a-text epi-wysiwyg mt-1">
-                <h2>Varslinger</h2>
-              </div>
-
-              <div class="col-sm-12 col-lg-10 offset-lg-1 a-text epi-wysiwyg">
-                {{# previousAlerts }}
-                  {{> molekyler-altinnett-liste-varslinger }}
-                {{/ previousAlerts }}
-              </div>
+      {{# loggedOut }}
+        <div class="container">
+          <div class="row">
+            <div class="col-sm-12 col-lg-8 offset-lg-2 a-text epi-wysiwyg mt-1">
+              <h2>Varslinger</h2>
             </div>
+
+            <div class="col-sm-12 col-lg-10 offset-lg-1 a-text epi-wysiwyg">
+              {{# previousAlerts }}
+                {{> molekyler-altinnett-liste-varslinger }}
+              {{/ previousAlerts }}
+            </div>
+          </div>
 
           <div class="row">
               <div class="col-sm-12 col-lg-8 offset-lg-2 a-text epi-wysiwyg mt-1">
@@ -67,7 +77,19 @@
             {{> organismer-modal }}
           {{/ subscribeModal }}
         </div>
-        {{/ loggedOut }}
+      {{/ loggedOut }}
+
+      {{# innovation }}
+        <div class="container">
+          <div class="row">
+            <div class="col-12">
+              <h2 class="a-fontBold a-blueDarkerText mb-2">{{ section-title }}</h2>
+            </div>
+          </div>
+        </div>
+
+        {{> molekyler-jumbotron }}
+      {{/ innovation }}
   </section>
 
   {{# footer }}
