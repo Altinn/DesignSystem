@@ -22,7 +22,7 @@ var popoverLocalInit = function() {
       }
       return false;
     },
-    template: '<div class="popover" role="tooltip"><div class="arrow"></div><div class="popover-body"></div></div>'
+    template: '<div class="popover" role="popover" tabindex="0"><div class="arrow"></div><div class="popover-body"></div></div>'
   };
 
   $('[data-toggle="popover"]').popover(options);
