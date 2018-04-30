@@ -30,48 +30,64 @@
   }
 }
 
-// PRODUCT BLOCK
-.an-productBlock {
+// PRESENTATION BLOCK
+.an-presentationBlock {
   display: inline-block;
-  padding: $spacer * 3;
-  margin-bottom: $spacer * 4;
+  height: calc(100% - #{$spacer * 2});
+  padding: $spacer * 2;
+  margin-bottom: $spacer * 2;
 
-  .an-productBlock-figure {
+  .an-presentationBlock-largeHeader {
+    @include a-fontSize28;
+
+    @include media-breakpoint-up( md ) {
+      @include a-fontSize16;
+    }
+
+    @include media-breakpoint-up( lg ) {
+      @include a-fontSize24;
+    }
+
+    @include media-breakpoint-up( xl ) {
+      @include a-fontSize28;
+    }
+  }
+
+  .an-presentationBlock-figure {
     position: relative;
     width: 100%;
     padding-top: 100%;
     background-color: $white;
     background-repeat: no-repeat;
     background-position: 50% 50%;
-    background-size: cover;
     border-radius: 50%;
 
-    .an-productBlock-abbreviation {
-      @include an-fontSize144;
-      position: absolute;
-      top: 55%;
-      left: 50%;
-      color: $white;
-      text-align: center;
-      transform: translate(-50%, -50%);
+    &.an-cover {
+      background-size: cover;
+    }
 
-      @include media-breakpoint-up( md ) {
-        @include an-fontSize72;
-      }
-
-      @include media-breakpoint-up( lg ) {
-        @include an-fontSize104;
-      }
-
-      @include media-breakpoint-up( xl ) {
-        @include an-fontSize144;
-      }
+    &.an-centered {
+      background-size: 40%;
     }
   }
 
-  .an-productBlock-caption {
+  .an-presentationBlock-caption {
     padding-top: $spacer * 2;
   }
+}
+
+.an-abbreviation {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  color: $white;
+  text-align: center;
+  transform: translate(-50%, -50%);
+}
+
+.an-centeredBackground {
+  background-position: 50% 50%;
+  background-size: 50% auto;
 }
 
 // PERSON ROLE
