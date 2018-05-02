@@ -110,12 +110,27 @@
 .an-svg {
   width: 100%;
 
-  @include media-breakpoint-up ( lg ) {
-    width: calc( 100% + 54px );
-    margin-left: -27px;
+  &.an-svg-wider {
+    @include media-breakpoint-up ( lg ) {
+      width: calc( 100% + 54px );
+      margin-left: -27px;
+    }
+    @include media-breakpoint-up ( xl ) {
+      width: calc( 100% + 88px );
+      margin-left: -44px;
+    }
   }
-  @include media-breakpoint-up ( xl ) {
-    width: calc( 100% + 88px );
-    margin-left: -44px;
-  }
+}
+
+.an-grayscale {
+  filter: grayscale(100%);
+}
+
+.an-multiply {
+  mix-blend-mode: multiply;
+}
+
+.an-contactCard {
+  min-width: auto;
+  height: 100%;
 }
