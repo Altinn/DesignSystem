@@ -1,0 +1,23 @@
+env:
+  matrix:
+    - export NODE_VERSION="iojs"
+matrix:
+  fast_finish: true
+  allow_failures:
+    - env: NODE_VERSION="iojs"
+before_install:
+  - git clone https://github.com/creationix/nvm.git ./.nvm
+  - source ./.nvm/nvm.sh
+  - nvm install $NODE_VERSION
+  - nvm use $NODE_VERSION
+  - "export JOBS=4"
+  - BUILD_ONLY=true npm install
+git:
+  depth: 1
+branches:
+  only:
+    - dev
+os:
+  - linux
+  - osx
+script: npm test
