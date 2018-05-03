@@ -1,6 +1,7 @@
 <!-- START: 00-atomer-04-handlingsknapper-10-knapp-ikon -->
-<button type="button" class="{{ button-class }} {{ styleModifier }}" {{# onclick }} onclick="{{ onclick }}" {{/ onclick }} {{# aria-label }} aria-label="{{ aria-label }}" {{/ aria-label }} {{# enable-popover }} data-toggle="popover" data-placement="{{ popover-placement}}"
-  data-animation="false" data-popover-content="{{ popover-content-id }}" {{# popover-class }}data-popover-class="{{ popover-class }}" {{/ popover-class }} {{# data-trigger }} data-trigger="{{ data-trigger }}" {{/ data-trigger }} {{/ enable-popover }}>
+<button type="button" class="{{ button-class }} {{ styleModifier }}" {{# onclick }} onclick="{{ onclick }}" {{/ onclick }} {{# aria-label }} aria-label="{{ aria-label }}" {{/ aria-label }} {{# enable-popover }} {{# popovercontainer-id }} data-container="#{{ popovercontainer-id }}"
+  {{/ popovercontainer-id }} data-toggle="popover" data-placement="{{ popover-placement}}" data-animation="false" data-popover-content="{{ popover-content-id }}" {{# popover-class }}data-popover-class="{{ popover-class }}" {{/ popover-class }} {{# data-trigger
+  }} data-trigger="{{ data-trigger }}" {{/ data-trigger }} {{/ enable-popover }}>
   {{> atomer-ikon }}
 
   {{# display-as-link }}
@@ -9,7 +10,9 @@
     </span>
   {{/ display-as-link }}
 </button> {{# enable-popover }}
-<div {{# popover-content-id }} id="{{ popover-content-id }}" {{/ popover-content-id }} class="d-none">
+<div {{# popovercontainer-id }} tabindex="0" id="{{ popovercontainer-id }}" {{/ popovercontainer-id }}>
+</div>
+<div {{# popover-content-id }} role="popover" id="{{ popover-content-id }}" {{/ popover-content-id }} class="d-none">
   <div class="pb-1">{{ popover-text }}</div>
   {{# popover-buttons }} {{> atomer-knapp:mr-1 }} {{/ popover-buttons }}
 </div>
