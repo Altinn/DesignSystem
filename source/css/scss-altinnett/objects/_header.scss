@@ -9,7 +9,7 @@
 
 // Header
 .a-header {
-  height: 100px;
+  height: $spacer * 8;
   padding-top: $spacer * 2;
   margin-bottom: $spacer;
 
@@ -38,12 +38,10 @@
 
   .a-logo {
     float: left;
-    max-width: 110px;
     margin-top: -2px;
     margin-right: $spacer;
 
     @include media-breakpoint-up( lg ) {
-      max-width: 142px;
       margin-top: 0;
     }
   }
@@ -51,8 +49,8 @@
   .a-dropdown-languages,
   .a-dropdown-personswitchList {
     position: absolute;
-    top: 57px;
-    left: auto;
+    top: 57px !important;
+    left: auto !important;
     width: 320px;
 
     @include media-breakpoint-up( sm ) {
@@ -96,14 +94,14 @@
   }
 
   .a-dropdown-personswitchList {
-    right: 0;
+    right: 0 !important;
     width: 100%;
     @include media-breakpoint-up( sm ) {
       top: 55px;
 
     }
     @include media-breakpoint-up( md ) {
-      top: 55px;
+      top: 55px !important;
       right: -3px !important;
       width: 420px;
     }
@@ -206,6 +204,11 @@
       border-bottom: 1px solid $blue-dark;
     }
 
+    &:focus,
+    &:active {
+      outline: none;
+    }
+
     i {
       @include a-fontSize30;
       vertical-align: middle;
@@ -217,6 +220,7 @@
       @include media-breakpoint-up( md ) {
         display: inline-block;
         margin-left: 0;
+        vertical-align: 0.095em;
       }
     }
   }
@@ -246,7 +250,7 @@
   position: absolute;
   right: 0;
   margin-top: -7px;
-  color: $white;
+  color: $blue-dark;
   text-align: right;
   cursor: pointer;
   background: transparent;
@@ -267,10 +271,15 @@
     border-radius: 50px;
   }
 
+  &:focus,
+  &:active {
+    outline: none;
+  }
+
   &:hover,
   &:focus,
   &:active {
-    color: $white;
+    color: $blue-dark;
     border: none;
   }
 
@@ -298,7 +307,7 @@
     }
 
     .a-personSwitcher-icon {
-      color: $white;
+      color: $black;
     }
   }
 
@@ -333,7 +342,7 @@
     height: 36px;
     margin-left: 3px;
     line-height: 1;
-    color: $white;
+    color: $blue-dark;
 
     @include media-breakpoint-up( md ) {
       margin-top: 0;
@@ -353,6 +362,8 @@
   padding: 0;
   color: $black;
   border-radius: 0;
+  transform: none !important;
+  will-change: unset !important;
 
   @include media-breakpoint-up( sm ) {
     width: 420px;
@@ -490,7 +501,6 @@
 
 // LOGO
 .a-logo {
-  width: $spacer * 11;
   height: $spacer * 2;
   margin-bottom: 0;
 }
@@ -532,7 +542,7 @@
     margin-top: -5px;
     color: $blue-dark;
     cursor: pointer;
-    border: 3px solid $white;
+    border: 3px solid $blue-dark;
 
     @include media-breakpoint-up( sm ) {
       right: 160px;
@@ -543,8 +553,8 @@
     }
 
     &[data-jsexpanded='true'] {
-      color: $black;
-      background: $white;
+      color: $white;
+      background: $blue-dark;
 
       &::after {
         content: 'lukk';
@@ -577,7 +587,7 @@
   min-height: 100%;
   margin-top: $spacer * 5;
   overflow: auto;
-  background: $black;
+  background: $white;
 
   @include media-breakpoint-up( md ) {
     position: relative;
@@ -665,10 +675,10 @@
       @include a-fontMedium;
       display: block;
       padding: $spacer $spacer;
-      color: $white;
+      color: $blue-dark;
       text-transform: lowercase;
       border: none;
-      border-bottom: 1px solid $white;
+      border-bottom: 1px solid $blue-dark;
 
       &:hover,
       &:focus,
@@ -677,7 +687,7 @@
 			}
 
       &.globalNav-active {
-        color: $white;
+        color: $black;
 
         &::before {
           position: absolute;
@@ -743,7 +753,7 @@
         display: block;
         width: inherit;
         min-width: 160px;
-        border-bottom: 1px solid $white;
+        border-bottom: 1px solid $blue-dark;
 			}
 		}
 
@@ -785,7 +795,6 @@
 
   .a-form-group {
     margin-bottom: $spacer * 3;
-    background: $white;
   }
 }
 
@@ -796,10 +805,6 @@
       li {
         a {
           color: $white;
-
-          &.globalNav-active {
-            border-bottom: 3px solid $white;
-          }
         }
       }
     }
@@ -832,7 +837,7 @@
     border-color: $white;
 
     &[data-jsexpanded='true'] {
-      color: $black;
+      color: $blue-dark;
       background: $white;
     }
   }
@@ -909,6 +914,8 @@
     }
 
     .a-triangleShadow {
+      position: relative;
+
       &::after {
         top: -60px;
         right: 2px;
@@ -973,6 +980,26 @@
     &.a-btn-shadow-large {
       .a-btn-icon-text-second {
         display: inline-block;
+      }
+    }
+  }
+}
+
+.an-menu {
+  li {
+    .span {
+      display: block;
+      margin: $spacer;
+    }
+
+    a {
+      display: block;
+      padding: $spacer;
+      text-decoration: none;
+      border: none;
+
+      &:hover {
+        background: $grey-lighter;
       }
     }
   }

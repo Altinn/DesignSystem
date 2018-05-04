@@ -1,29 +1,42 @@
 <!-- Begin #a-dropdown-personswitchList - -->
 <div class="dropdown-menu a-dropdown-personswitchList a-dropdownTriangle">
+    <ul class="a-list an-menu">
+      {{# header-mobilesearch }}
+        <li>
+            {{> atomer-tekst-input:pt-1|px-1 }}
+        </li>
+      {{/ header-mobilesearch }}
 
-    <div class="pt-3 px-3 pb-2">
+      <li><span>Innlogget som: <strong>JAN PETTERSEN</strong></span></li>
 
-        {{# login-email }}
-            {{> atomer-tekst-input }}
-        {{/ login-email }}
+      <div class="row">
+        <li>tjenesteutvikling, oversikten, driftsmeldinger, dokumentasjon</li>
+      </div>
+      {{# logged-in }}
+      {{/ logged-in }}
 
-        {{# login-password }}
-            {{> atomer-tekst-input }}
-        {{/ login-password }}
+      {{^ logged-in }}
+        <li>
+          <a class="{{{ globalNav-active-tjenester }}}" href="#">verktøy</a>
+        </li>
+      {{/ logged-in }}
 
-        {{# login-button }}
-            {{> atomer-knapp:mt-1 }}
-        {{/ login-button }}
+      <li>
+        <a class="{{{ globalNav-active-tjenester }}}" href="#">produkter</a>
+      </li>
 
-        <!-- Dette er dummyinnhold for å kunne simulere brukerreiser i prototypen - -->
-        {{# dummy-user-login }}
-          <p>
-            Logg inn som:<br>
-            <a href="{{ link.sider-altinnett-profil-personlig }}">Personlig (Ole Olsen)</a><br>
-            <a href="{{ link.sider-altinnett-profil-tjenesteeier }}">Tjenesteeier (Jan Johansen)</a><br>
-            <a href="{{ link.sider-altinnett-profil-asf }}">ASF (Ingrid Iversen)</a>
-          </p>
-        {{/ dummy-user-login }}
+      <li>
+        <a class="{{{ globalNav-active-tjenester }}}" href="#">resultater</a>
+      </li>
 
-    </div>
+      <li>
+        <a class="{{{ globalNav-active-tjenester }}}" href="#">kom i gang</a>
+      </li>
+    </ul>
+
+    {{# login-button }}
+      <div class="mt-1 mx-1">
+        {{> atomer-knapp }}
+      </div>
+    {{/ login-button }}
 </div>
