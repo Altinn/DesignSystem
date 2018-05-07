@@ -4,7 +4,6 @@ var popoverLocalInit = function() {
     html: true,
     placement: function(context, source) {
       var position = $(source).offset();
-      console.log('source', source);
       $(context).addClass($(source).attr('data-popover-class'));
       if ($(source).hasClass('a-js-popoverBig')) {
         return 'bottom';
