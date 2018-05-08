@@ -1,5 +1,5 @@
 <!-- Begin #a-dropdown-personswitchList - -->
-<div class="dropdown-menu a-dropdown-personswitchList a-dropdownTriangle">
+<div class="dropdown-menu a-dropdown-personswitchList a-dropdownTriangle an-menu-container {{# logged-in }}an-menu-logged-in{{/ logged-in }}{{^ logged-in }}an-menu-logged-out{{/ logged-in }}">
     <ul class="a-list an-menu">
       {{# header-mobilesearch }}
         <li>
@@ -7,30 +7,52 @@
         </li>
       {{/ header-mobilesearch }}
 
-      <li><span>Innlogget som: <strong>JAN PETTERSEN</strong></span></li>
-
-      <div class="row">
-        <li>tjenesteutvikling, oversikten, driftsmeldinger, dokumentasjon</li>
-      </div>
       {{# logged-in }}
+        <li class="px-2 py-1">Innlogget som: <strong>{{{ name }}}</strong></li>
+
+        <div class="row an-menu-featured">
+          {{# tjenesteutvikling }}
+            <li>
+              <a class="{{{ globalNav-active }}} {{ extra-classes }}" href="#">{{> atomer-ikon }} <span>tjenesteutvikling</span></a>
+            </li>
+          {{/ tjenesteutvikling }}
+
+          {{# oversikten }}
+            <li>
+              <a class="{{{ globalNav-active }}} {{ extra-classes }}" href="#">{{> atomer-ikon }} <span>oversikten</span></a>
+            </li>
+          {{/ oversikten }}
+
+          {{# driftsmeldinger }}
+            <li>
+              <a class="{{{ globalNav-active }}} {{ extra-classes }}" href="#">{{> atomer-ikon }} <span>driftsmeldinger</span></a>
+            </li>
+          {{/ driftsmeldinger }}
+
+          {{# dokumentasjon }}
+            <li>
+              <a class="{{{ globalNav-active }}} {{ extra-classes }}" href="#">{{> atomer-ikon }} <span>dokumentasjon</span></a>
+            </li>
+          {{/ dokumentasjon }}
+        </div>
       {{/ logged-in }}
 
       {{^ logged-in }}
         <li>
-          <a class="{{{ globalNav-active-tjenester }}}" href="#">verktøy</a>
+          <a class="{{{ globalNav-active-verktoy }}} pr-2" href="#">verktøy</a>
         </li>
       {{/ logged-in }}
 
       <li>
-        <a class="{{{ globalNav-active-tjenester }}}" href="#">produkter</a>
+        <a class="{{{ globalNav-active-produkter }}} pr-2" href="#">produkter</a>
       </li>
 
       <li>
-        <a class="{{{ globalNav-active-tjenester }}}" href="#">resultater</a>
+        <a class="{{{ globalNav-active-resultater }}} pr-2" href="#">resultater</a>
       </li>
 
       <li>
-        <a class="{{{ globalNav-active-tjenester }}}" href="#">kom i gang</a>
+        <a class="{{{ globalNav-active-kom-i-gang }}} pr-2" href="#">kom i gang</a>
       </li>
     </ul>
 

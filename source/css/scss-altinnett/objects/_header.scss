@@ -987,20 +987,59 @@
 
 .an-menu {
   li {
-    .span {
-      display: block;
-      margin: $spacer;
-    }
+    @include a-fontSize14;
+    color: $blue-darker;
 
     a {
       display: block;
       padding: $spacer;
+      padding-left: $spacer * 1.5;
+      color: $blue-darker;
       text-decoration: none;
       border: none;
 
       &:hover {
         background: $grey-lighter;
       }
+    }
+  }
+}
+
+.an-menu-featured {
+  li {
+    display: block;
+    width: 100%;
+
+    @include media-breakpoint-up( sm ) {
+      display: inline-block;
+      width: 50%;
+    }
+
+    a {
+      span {
+        @include a-fontSize12;
+        padding-left: $spacer * 0.5;
+      }
+    }
+
+    &:nth-of-type(odd) {
+      @include media-breakpoint-up( sm ) {
+        border-right: 1px solid $grey-medium;
+      }
+    }
+  }
+}
+
+.an-menu-container {
+  &.an-menu-logged-in {
+    @include media-breakpoint-up( md ) {
+      max-width: 335px;
+    }
+  }
+
+  &.an-menu-logged-out {
+    @include media-breakpoint-up( md ) {
+      max-width: 245px;
     }
   }
 }
