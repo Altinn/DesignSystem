@@ -148,7 +148,33 @@ a {
   &.a-dropdownTriangle {
     &::after {
       @include media-breakpoint-down( xs ) {
-        // left: 35%;
+        left: 35%;
+      }
+    }
+  }
+
+  @include media-breakpoint-down( xs ) {
+    right: -53px;
+  }
+}
+
+.a-dropdown-overflow-menu-right {
+  right: 0;
+  left: auto;
+  width: 300px;
+
+  &.a-dropdownTriangle {
+    &::after {
+      @include media-breakpoint-only( xs ) {
+        left: -25%;
+      }
+
+      @include media-breakpoint-only( sm ) {
+        left: -2%;
+      }
+
+      @include media-breakpoint-only( md ) {
+        left: 18%;
       }
     }
   }
