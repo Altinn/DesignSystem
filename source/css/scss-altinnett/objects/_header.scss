@@ -9,7 +9,7 @@
 
 // Header
 .a-header {
-  height: 100px;
+  height: $spacer * 8;
   padding-top: $spacer * 2;
   margin-bottom: $spacer;
 
@@ -38,21 +38,20 @@
 
   .a-logo {
     float: left;
-    max-width: 110px;
     margin-top: -2px;
     margin-right: $spacer;
 
     @include media-breakpoint-up( lg ) {
-      max-width: 142px;
       margin-top: 0;
     }
   }
 
   .a-dropdown-languages,
-  .a-dropdown-personswitchList {
+  .a-dropdown-personswitchList,
+  .an-dropdown-navigationMenu {
     position: absolute;
-    top: 57px;
-    left: auto;
+    top: 57px !important;
+    left: auto !important;
     width: 320px;
 
     @include media-breakpoint-up( sm ) {
@@ -95,16 +94,17 @@
     }
   }
 
-  .a-dropdown-personswitchList {
-    right: 0;
+  .a-dropdown-personswitchList,
+  .an-dropdown-navigationMenu {
+    right: 0 !important;
     width: 100%;
     @include media-breakpoint-up( sm ) {
       top: 55px;
 
     }
     @include media-breakpoint-up( md ) {
-      top: 55px;
-      right: -3px !important;
+      top: 55px !important;
+      right: 12px !important;
       width: 420px;
     }
 
@@ -206,6 +206,11 @@
       border-bottom: 1px solid $blue-dark;
     }
 
+    &:focus,
+    &:active {
+      outline: none;
+    }
+
     i {
       @include a-fontSize30;
       vertical-align: middle;
@@ -217,6 +222,7 @@
       @include media-breakpoint-up( md ) {
         display: inline-block;
         margin-left: 0;
+        vertical-align: 0.095em;
       }
     }
   }
@@ -246,7 +252,7 @@
   position: absolute;
   right: 0;
   margin-top: -7px;
-  color: $white;
+  color: $blue-dark;
   text-align: right;
   cursor: pointer;
   background: transparent;
@@ -267,10 +273,15 @@
     border-radius: 50px;
   }
 
+  &:focus,
+  &:active {
+    outline: none;
+  }
+
   &:hover,
   &:focus,
   &:active {
-    color: $white;
+    color: $blue-dark;
     border: none;
   }
 
@@ -298,7 +309,7 @@
     }
 
     .a-personSwitcher-icon {
-      color: $white;
+      color: $black;
     }
   }
 
@@ -333,7 +344,7 @@
     height: 36px;
     margin-left: 3px;
     line-height: 1;
-    color: $white;
+    color: $blue-dark;
 
     @include media-breakpoint-up( md ) {
       margin-top: 0;
@@ -347,12 +358,15 @@
 
 // Language and personSwitch list (dropdown)
 .a-dropdown-languages,
-.a-dropdown-personswitchList {
+.a-dropdown-personswitchList,
+.an-dropdown-navigationMenu {
   position: relative;
   width: 320px;
   padding: 0;
   color: $black;
   border-radius: 0;
+  transform: none !important;
+  will-change: unset !important;
 
   @include media-breakpoint-up( sm ) {
     width: 420px;
@@ -420,7 +434,8 @@
   }
 }
 
-.a-dropdown-personswitchList {
+.a-dropdown-personswitchList,
+.an-dropdown-navigationMenu {
 
   .a-dropdown-footer {
     display: none;
@@ -490,7 +505,6 @@
 
 // LOGO
 .a-logo {
-  width: $spacer * 11;
   height: $spacer * 2;
   margin-bottom: 0;
 }
@@ -502,6 +516,7 @@
     z-index: 1;
     display: block;
     float: left;
+    max-width: calc(100% - 70px);
     border: none;
 
     &:focus {
@@ -521,18 +536,17 @@
     }
   }
 
-  .navbar-toggler {
+  .an-navbar-toggler {
     @extend .a-fontSizeXS;
     @include a-fontMedium;
-    position: absolute;
-    right: 60px;
     float: right;
     width: $spacer * 5;
     padding: 3px 0;
     margin-top: -5px;
     color: $blue-dark;
     cursor: pointer;
-    border: 3px solid $white;
+    background: none;
+    border: 3px solid $blue-dark;
 
     @include media-breakpoint-up( sm ) {
       right: 160px;
@@ -542,9 +556,9 @@
       content: 'meny';
     }
 
-    &[data-jsexpanded='true'] {
-      color: $black;
-      background: $white;
+    &[aria-expanded='true'] {
+      color: $white;
+      background: $blue-dark;
 
       &::after {
         content: 'lukk';
@@ -577,7 +591,7 @@
   min-height: 100%;
   margin-top: $spacer * 5;
   overflow: auto;
-  background: $black;
+  background: $white;
 
   @include media-breakpoint-up( md ) {
     position: relative;
@@ -665,10 +679,10 @@
       @include a-fontMedium;
       display: block;
       padding: $spacer $spacer;
-      color: $white;
+      color: $blue-dark;
       text-transform: lowercase;
       border: none;
-      border-bottom: 1px solid $white;
+      border-bottom: 1px solid $blue-dark;
 
       &:hover,
       &:focus,
@@ -677,7 +691,7 @@
 			}
 
       &.globalNav-active {
-        color: $white;
+        color: $black;
 
         &::before {
           position: absolute;
@@ -743,7 +757,7 @@
         display: block;
         width: inherit;
         min-width: 160px;
-        border-bottom: 1px solid $white;
+        border-bottom: 1px solid $blue-dark;
 			}
 		}
 
@@ -785,7 +799,6 @@
 
   .a-form-group {
     margin-bottom: $spacer * 3;
-    background: $white;
   }
 }
 
@@ -796,10 +809,6 @@
       li {
         a {
           color: $white;
-
-          &.globalNav-active {
-            border-bottom: 3px solid $white;
-          }
         }
       }
     }
@@ -832,7 +841,7 @@
     border-color: $white;
 
     &[data-jsexpanded='true'] {
-      color: $black;
+      color: $blue-dark;
       background: $white;
     }
   }
@@ -909,6 +918,8 @@
     }
 
     .a-triangleShadow {
+      position: relative;
+
       &::after {
         top: -60px;
         right: 2px;
@@ -974,6 +985,65 @@
       .a-btn-icon-text-second {
         display: inline-block;
       }
+    }
+  }
+}
+
+.an-menu {
+  li {
+    @include a-fontSize14;
+    color: $blue-darker;
+
+    a {
+      display: block;
+      padding: $spacer;
+      padding-left: $spacer * 1.5;
+      color: $blue-darker;
+      text-decoration: none;
+      border: none;
+
+      &:hover {
+        background: $grey-lighter;
+      }
+    }
+  }
+}
+
+.an-menu-featured {
+  li {
+    display: block;
+    width: 100%;
+
+    @include media-breakpoint-up( sm ) {
+      display: inline-block;
+      width: 50%;
+    }
+
+    a {
+      span {
+        @include a-fontSize12;
+        padding-left: $spacer * 0.5;
+      }
+    }
+
+    &:nth-of-type(odd) {
+      @include media-breakpoint-up( sm ) {
+        border-right: 1px solid $grey-medium;
+      }
+    }
+  }
+}
+
+.an-menu-container {
+  &.an-menu-logged-in {
+    @include media-breakpoint-up( md ) {
+      max-width: 335px;
+    }
+  }
+
+  &.an-menu-logged-out {
+    @include media-breakpoint-up( md ) {
+      max-width: 245px;
     }
   }
 }
