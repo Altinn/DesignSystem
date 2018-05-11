@@ -47,7 +47,8 @@
   }
 
   .a-dropdown-languages,
-  .a-dropdown-personswitchList {
+  .a-dropdown-personswitchList,
+  .an-dropdown-navigationMenu {
     position: absolute;
     top: 57px !important;
     left: auto !important;
@@ -93,7 +94,8 @@
     }
   }
 
-  .a-dropdown-personswitchList {
+  .a-dropdown-personswitchList,
+  .an-dropdown-navigationMenu {
     right: 0 !important;
     width: 100%;
     @include media-breakpoint-up( sm ) {
@@ -102,7 +104,7 @@
     }
     @include media-breakpoint-up( md ) {
       top: 55px !important;
-      right: -3px !important;
+      right: 12px !important;
       width: 420px;
     }
 
@@ -356,7 +358,8 @@
 
 // Language and personSwitch list (dropdown)
 .a-dropdown-languages,
-.a-dropdown-personswitchList {
+.a-dropdown-personswitchList,
+.an-dropdown-navigationMenu {
   position: relative;
   width: 320px;
   padding: 0;
@@ -431,7 +434,8 @@
   }
 }
 
-.a-dropdown-personswitchList {
+.a-dropdown-personswitchList,
+.an-dropdown-navigationMenu {
 
   .a-dropdown-footer {
     display: none;
@@ -512,6 +516,7 @@
     z-index: 1;
     display: block;
     float: left;
+    max-width: calc(100% - 70px);
     border: none;
 
     &:focus {
@@ -531,17 +536,16 @@
     }
   }
 
-  .navbar-toggler {
+  .an-navbar-toggler {
     @extend .a-fontSizeXS;
     @include a-fontMedium;
-    position: absolute;
-    right: 60px;
     float: right;
     width: $spacer * 5;
     padding: 3px 0;
     margin-top: -5px;
     color: $blue-dark;
     cursor: pointer;
+    background: $white;
     border: 3px solid $blue-dark;
 
     @include media-breakpoint-up( sm ) {
@@ -552,7 +556,7 @@
       content: 'meny';
     }
 
-    &[data-jsexpanded='true'] {
+    &[aria-expanded='true'] {
       color: $white;
       background: $blue-dark;
 
