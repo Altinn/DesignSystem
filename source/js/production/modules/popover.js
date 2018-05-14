@@ -46,6 +46,14 @@ var popoverLocalInit = function() {
 
 var forceFocusTriggerElement;
 var popoverGlobalInit = function() {
+  $('[data-toggle="dropdown"]').on('click', function(e) {
+    if (window.innerWidth < 992) {
+      $('.a-dropdown-overflow-menu-right').removeClass('dropdown-menu-right');
+    } else {
+      $('.a-dropdown-overflow-menu-right').addClass('dropdown-menu-right');
+    }
+  });
+
   $('body').on('show.bs.popover', '[data-toggle="popover"].a-js-tabable-popover', function(e) {
     var triggerElement = this;
     $(triggerElement).closest('.a-modal').scrollTop(0);

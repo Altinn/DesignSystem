@@ -102,7 +102,6 @@ object {
   box-shadow: $shadow;
 }
 
-
 // Dropdown-menu with arrow
 .a-dropdownTriangle {
   box-sizing: border-box;
@@ -124,6 +123,30 @@ object {
     box-shadow: -2px 2px 3px 0 $black-opacity-01;
     transform: rotate(135deg);
     transform-origin: 0 0;
+
+    @include media-breakpoint-down(md) {
+      left: 5%;
+    }
+    @include media-breakpoint-down(sm) {
+      left: -15%;
+    }
+  }
+
+
+  &[x-placement='top-end'] {
+    &::after {
+      top: calc( 100% - 1px );
+      left: 40%;
+      transform: rotate(-45deg);
+
+      @include media-breakpoint-down(md) {
+        left: -2%;
+      }
+
+      @include media-breakpoint-down(sm) {
+        left: -23%;
+      }
+    }
   }
 }
 
