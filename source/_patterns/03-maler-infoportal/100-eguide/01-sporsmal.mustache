@@ -12,11 +12,13 @@
   </div>
   <div class="modal-body a-modal-body">
 
+    <span class="float-right">{{{ pagination }}}</span>
+
     {{# sporsmal }}
       {{> atomer-radioknapp-hjelpetekst }}
     {{/ sporsmal }}
 
-    <button class="a-btn" data-enable-dirty-popover="true" data-toggle="altinn-modal" data-action="next" data-url="{{{ page-url }}}" data-target="#modal">
+    <button class="a-btn" data-enable-dirty-popover="true" data-toggle="altinn-modal" data-action="next" data-url="{{{ page-url }}}" data-target="#modal" {{# last-question }}data-is-success="true"{{/ last-question }}>
       {{{ btn-next }}}
     </button>
   </div>
