@@ -167,17 +167,6 @@ var popoverGlobalInit = function() {
       scrollTop: $('.a-js-persistPopover').offset().top - 50
     }, 250);
 
-    // bind scroll wheel to modal popover
-    if ($('.modal.show').length > 0) {
-      $('.popover-big').bind('wheel', function(e) {
-        var scrollTo;
-        if (e.originalEvent.deltaY > 0 || e.originalEvent.deltaY < 0) {
-          scrollTo = (e.originalEvent.deltaY) + $('.modal').scrollTop();
-          $('.modal').scrollTop(scrollTo);
-        }
-      });
-    }
-
     adjustBig();
   });
 
