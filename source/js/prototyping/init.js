@@ -12,6 +12,7 @@
   cardsToggle,
   certificateHandler,
   codeLookup,
+  collapseInboxMessage,
   colnavCustom,
   contactForm,
   feedbackToggle,
@@ -75,6 +76,7 @@ window.devInit = function() {
   cardsToggle();
   certificateHandler();
   codeLookup();
+  collapseInboxMessage();
   colnavCustom();
   contactForm();
   feedbackToggle();

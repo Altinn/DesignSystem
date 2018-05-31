@@ -9,6 +9,7 @@
   autoFootnotes,
   cardsToggle,
   codeLookup,
+  collapseInboxMessage,
   colnavCustom,
   contactForm,
   feedbackToggle,
@@ -66,6 +67,7 @@ window.portalInit = function() {
   addListSortHandler();
   autoFootnotes();
   cardsToggle();
+  collapseInboxMessage();
   contactForm();
   feedbackToggle();
   formatOrgNr();
