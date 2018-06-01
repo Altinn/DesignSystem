@@ -21,6 +21,7 @@
   nameChecker,
   onboarding,
   onConfirmDeletionClick,
+  onCountryCodeChange,
   onFileInputChange,
   popoverGlobalInit,
   popoverLocalInit,
@@ -74,6 +75,7 @@ window.portalInit = function() {
   iOS11BugWorkAround();
   mobileNavigation();
   onConfirmDeletionClick();
+  onCountryCodeChange();
   onFileInputChange();
   popoverGlobalInit();
   popoverLocalInit();
