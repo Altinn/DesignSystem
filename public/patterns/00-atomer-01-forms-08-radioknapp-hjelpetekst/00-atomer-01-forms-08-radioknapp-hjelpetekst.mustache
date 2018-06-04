@@ -1,0 +1,31 @@
+<!-- START: 00-atomer-01-forms-08-radioknapp-hjelpetekst -->
+<fieldset class="form-group {{ styleModifier }}">
+
+  {{# radio-legend }}
+  <legend class="a-legend">{{{radio-legendText}}} {{# titleExtra }}
+    <span class="a-titleExtra">{{{ titleExtra-text }}}</span> {{/ titleExtra }}
+  </legend>
+  {{/ radio-legend }} {{# information }}
+  <div class="row">
+    <div class="col-12">
+      {{{ information }}}
+    </div>
+  </div>
+  {{/ information }} {{# radiobuttons }}
+  <div class="custom-control custom-radio a-custom-radio {{radio-class}} {{# isInline }} custom-control-inline {{/ isInline }} {{# radiobuttons-excerpt }} a-radioButtons-stackedList {{/ radiobuttons-excerpt }}">
+    <input type="radio" id="{{{ radiobutton-id }}}" name="customRadio" value="{{{ radiobutton-id }}}" class="custom-control-input" {{# isRequired }} required {{/ isRequired }} {{# isDisabled }} disabled {{/ isDisabled }}>
+    <label class="custom-control-label a-radioButtons-title" for="{{{ radiobutton-id }}}">{{{ radiobutton-title }}}
+
+        {{# radiobuttons-excerpt }}
+          <span class="a-radioButtons-excerpt a-maxThreeLines">
+            {{{ radiobuttons-excerptText }}}
+          </span>
+        {{/ radiobuttons-excerpt }}
+
+      </label>
+  </div>
+  {{/ radiobuttons }}
+
+</fieldset>
+
+<!-- END: 00-atomer-01-forms-08-radioknapp-hjelpetekst -->

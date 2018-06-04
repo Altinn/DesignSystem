@@ -8,37 +8,6 @@
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
  */
 @import url("https://fonts.googleapis.com/css?family=Open+Sans");
-:root {
-  --blue: #01B8E6;
-  --indigo: #6610f2;
-  --purple: #815EB4;
-  --pink: #e83e8c;
-  --red: #EB5C31;
-  --orange: #fd7e14;
-  --yellow: #EEAF00;
-  --green: #019153;
-  --teal: #20c997;
-  --cyan: #17a2b8;
-  --white: #FFFFFF;
-  --gray: #6c757d;
-  --gray-dark: #343a40;
-  --primary: #01B8E6;
-  --secondary: #6c757d;
-  --success: #019153;
-  --info: #17a2b8;
-  --warning: #EEAF00;
-  --danger: #EB5C31;
-  --light: #f8f9fa;
-  --dark: #343a40;
-  --breakpoint-xs: 0;
-  --breakpoint-sm: 576px;
-  --breakpoint-md: 768px;
-  --breakpoint-lg: 992px;
-  --breakpoint-xl: 1200px;
-  --breakpoint-xxl: 1600px;
-  --font-family-sans-serif: "Helvetica Neue", Helvetica, Arial, sans-serif;
-  --font-family-monospace: Menlo, Monaco, Consolas, "Courier New", monospace; }
-
 *,
 *::before,
 *::after {
@@ -8754,13 +8723,14 @@ textarea {
     .a-custom-checkbox .custom-control-input:checked ~ .custom-control-label::before {
       background-color: #FFFFFF; }
     .a-custom-checkbox .custom-control-input:checked ~ .custom-control-label::after {
-      top: 1px;
-      left: 2px;
-      width: 2rem;
-      height: 2rem;
-      background-color: #FFFFFF;
-      background-image: url("../images/checkbox-checked.svg");
-      background-size: 100%; }
+      top: 2px;
+      left: 9px;
+      width: 0.7rem;
+      height: 1.6rem;
+      border: solid #000000;
+      border-width: 0 3px 5px 0;
+      -webkit-transform: rotate(45deg);
+      transform: rotate(45deg); }
     .a-custom-checkbox .custom-control-input:focus ~ .custom-control-label::before {
       -webkit-box-shadow: none;
       box-shadow: none; }
@@ -8854,6 +8824,7 @@ textarea {
 
 .a-input-countryCode {
   max-width: 55px;
+  padding-right: 0 !important;
   border-right-color: #BCC7CC !important;
   border-right-width: 1px; }
 
@@ -9182,6 +9153,28 @@ object {
     transform: rotate(135deg);
     -webkit-transform-origin: 0 0;
     transform-origin: 0 0; }
+    @media (max-width: 991.98px) {
+      .a-dropdownTriangle::after {
+        left: 5%; } }
+    @media (max-width: 767.98px) {
+      .a-dropdownTriangle::after {
+        left: -15%; } }
+  .a-dropdownTriangle[x-placement='top-start']::after {
+    top: calc( 100% - 1px);
+    left: 40%;
+    -webkit-transform: rotate(-45deg);
+    transform: rotate(-45deg); }
+  .a-dropdownTriangle[x-placement='top-end']::after {
+    top: calc( 100% - 1px);
+    left: 40%;
+    -webkit-transform: rotate(-45deg);
+    transform: rotate(-45deg); }
+    @media (max-width: 991.98px) {
+      .a-dropdownTriangle[x-placement='top-end']::after {
+        left: -2%; } }
+    @media (max-width: 767.98px) {
+      .a-dropdownTriangle[x-placement='top-end']::after {
+        left: -23%; } }
 
 /* Shadow arrow */
 .a-triangleShadow::after {
@@ -9410,6 +9403,9 @@ hr {
     display: none; }
   .a-selectable.a-completed .a-visibleWhenCompleted {
     display: inline-block; }
+    @media (min-width: 576px) {
+      .a-selectable.a-completed .a-visibleWhenCompleted {
+        display: inline-block !important; } }
 
 .a-selectable.a-deleted {
   background-color: #F3AD9A; }
@@ -9511,6 +9507,9 @@ hr {
 .dropdown-menu.a-dropdown-personswitchList, .dropdown-menu.an-dropdown-navigationMenu, .dropdown-menu.a-dropdown-overflow-menu {
   display: none; }
 
+.dropdown-menu.a-dropdown-overflow-menu-right {
+  display: none; }
+
 .a-js-none {
   display: none; }
 
@@ -9522,6 +9521,11 @@ hr {
 
 .a-js-adjustedError {
   margin-bottom: 12px; }
+
+.a-js-modal-dirtyCancelBtn,
+.a-js-modal-dirtyCloseBtn,
+.a-js-modal-dirtyBackBtn {
+  pointer-events: auto; }
 
 a,
 .a-btn-link {
@@ -10002,7 +10006,7 @@ h1 .a-label {
     outline: 0; }
   .a-btn.disabled, .a-btn:disabled {
     color: #000000;
-    cursor: disabled;
+    cursor: not-allowed;
     background-color: #EFEFEF;
     -webkit-box-shadow: 0 0 0 1px #FFFFFF;
     box-shadow: 0 0 0 1px #FFFFFF; }
@@ -10053,7 +10057,7 @@ h1 .a-label {
     background: rgba(1, 145, 83, 0.8); }
   .a-btn-success.disabled, .a-btn-success:disabled {
     color: #000000;
-    cursor: disabled;
+    cursor: not-allowed;
     background-color: #EFEFEF;
     -webkit-box-shadow: 0 0 0 1px #FFFFFF;
     box-shadow: 0 0 0 1px #FFFFFF; }
@@ -10420,7 +10424,7 @@ h1 .a-label {
         margin-left: 24px; } }
   .a-fullWidthBtn.a-btnBigger {
     min-height: 77px;
-    padding: 12; }
+    padding: 12px; }
     .a-fullWidthBtn.a-btnBigger i {
       width: 45px;
       height: 45px;

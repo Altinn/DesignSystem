@@ -7,37 +7,6 @@
  * Copyright 2011-2018 Twitter, Inc.
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
  */
-:root {
-  --blue: #1EAEF7;
-  --indigo: #6610f2;
-  --purple: #3F3161;
-  --pink: #e83e8c;
-  --red: #E23B53;
-  --orange: #fd7e14;
-  --yellow: #FFDA06;
-  --green: #17C96B;
-  --teal: #20c997;
-  --cyan: #17a2b8;
-  --white: #FFFFFF;
-  --gray: #6c757d;
-  --gray-dark: #343a40;
-  --primary: #1EAEF7;
-  --secondary: #6c757d;
-  --success: #17C96B;
-  --info: #17a2b8;
-  --warning: #FFDA06;
-  --danger: #E23B53;
-  --light: #f8f9fa;
-  --dark: #343a40;
-  --breakpoint-xs: 0;
-  --breakpoint-sm: 576px;
-  --breakpoint-md: 768px;
-  --breakpoint-lg: 992px;
-  --breakpoint-xl: 1200px;
-  --breakpoint-xxl: 1600px;
-  --font-family-sans-serif: "Helvetica Neue", Helvetica, Arial, sans-serif;
-  --font-family-monospace: Menlo, Monaco, Consolas, "Courier New", monospace; }
-
 *,
 *::before,
 *::after {
@@ -9194,13 +9163,14 @@ textarea {
     .a-custom-checkbox .custom-control-input:checked ~ .custom-control-label::before {
       background-color: #FFFFFF; }
     .a-custom-checkbox .custom-control-input:checked ~ .custom-control-label::after {
-      top: 1px;
-      left: 2px;
-      width: 2rem;
-      height: 2rem;
-      background-color: #FFFFFF;
-      background-image: url("../images/checkbox-checked.svg");
-      background-size: 100%; }
+      top: 2px;
+      left: 9px;
+      width: 0.7rem;
+      height: 1.6rem;
+      border: solid #000000;
+      border-width: 0 3px 5px 0;
+      -webkit-transform: rotate(45deg);
+      transform: rotate(45deg); }
     .a-custom-checkbox .custom-control-input:focus ~ .custom-control-label::before {
       -webkit-box-shadow: none;
       box-shadow: none; }
@@ -9294,6 +9264,7 @@ textarea {
 
 .a-input-countryCode {
   max-width: 55px;
+  padding-right: 0 !important;
   border-right-color: #BCC7CC !important;
   border-right-width: 1px; }
 
@@ -9622,6 +9593,28 @@ object {
     transform: rotate(135deg);
     -webkit-transform-origin: 0 0;
     transform-origin: 0 0; }
+    @media (max-width: 991.98px) {
+      .a-dropdownTriangle::after {
+        left: 5%; } }
+    @media (max-width: 767.98px) {
+      .a-dropdownTriangle::after {
+        left: -15%; } }
+  .a-dropdownTriangle[x-placement='top-start']::after {
+    top: calc( 100% - 1px);
+    left: 40%;
+    -webkit-transform: rotate(-45deg);
+    transform: rotate(-45deg); }
+  .a-dropdownTriangle[x-placement='top-end']::after {
+    top: calc( 100% - 1px);
+    left: 40%;
+    -webkit-transform: rotate(-45deg);
+    transform: rotate(-45deg); }
+    @media (max-width: 991.98px) {
+      .a-dropdownTriangle[x-placement='top-end']::after {
+        left: -2%; } }
+    @media (max-width: 767.98px) {
+      .a-dropdownTriangle[x-placement='top-end']::after {
+        left: -23%; } }
 
 /* Shadow arrow */
 .a-triangleShadow::after {
@@ -9850,6 +9843,9 @@ hr {
     display: none; }
   .a-selectable.a-completed .a-visibleWhenCompleted {
     display: inline-block; }
+    @media (min-width: 576px) {
+      .a-selectable.a-completed .a-visibleWhenCompleted {
+        display: inline-block !important; } }
 
 .a-selectable.a-deleted {
   background-color: #F9CAD3; }
@@ -9951,6 +9947,9 @@ hr {
 .dropdown-menu.a-dropdown-personswitchList, .dropdown-menu.an-dropdown-navigationMenu, .dropdown-menu.a-dropdown-overflow-menu {
   display: none; }
 
+.dropdown-menu.a-dropdown-overflow-menu-right {
+  display: none; }
+
 .a-js-none {
   display: none; }
 
@@ -9962,6 +9961,11 @@ hr {
 
 .a-js-adjustedError {
   margin-bottom: 12px; }
+
+.a-js-modal-dirtyCancelBtn,
+.a-js-modal-dirtyCloseBtn,
+.a-js-modal-dirtyBackBtn {
+  pointer-events: auto; }
 
 a,
 .a-btn-link {
@@ -10442,7 +10446,7 @@ h1 .a-label {
     outline: 0; }
   .a-btn.disabled, .a-btn:disabled {
     color: #000000;
-    cursor: disabled;
+    cursor: not-allowed;
     background-color: #EFEFEF;
     -webkit-box-shadow: 0 0 0 1px #FFFFFF;
     box-shadow: 0 0 0 1px #FFFFFF; }
@@ -10493,7 +10497,7 @@ h1 .a-label {
     background: rgba(23, 201, 107, 0.8); }
   .a-btn-success.disabled, .a-btn-success:disabled {
     color: #000000;
-    cursor: disabled;
+    cursor: not-allowed;
     background-color: #EFEFEF;
     -webkit-box-shadow: 0 0 0 1px #FFFFFF;
     box-shadow: 0 0 0 1px #FFFFFF; }
@@ -10860,7 +10864,7 @@ h1 .a-label {
         margin-left: 24px; } }
   .a-fullWidthBtn.a-btnBigger {
     min-height: 77px;
-    padding: 12; }
+    padding: 12px; }
     .a-fullWidthBtn.a-btnBigger i {
       width: 45px;
       height: 45px;
@@ -15880,7 +15884,7 @@ a.a-linkFeatured[href^="http"]:not([href*='altinn.no'])::after {
 
 .a-overflow-dropdown {
   display: block;
-  padding: 24px;
+  padding: 12px;
   border-bottom: 1px solid #EFEFEF; }
   .a-overflow-dropdown .a-charIcon {
     margin-top: -12px;
@@ -15907,6 +15911,23 @@ a.a-overflow-dropdown:active, a.a-overflow-dropdown:focus, a.a-overflow-dropdown
       left: 35%; } }
   @media (max-width: 575.98px) {
     .a-dropdown-overflow-menu {
+      right: -53px; } }
+
+.a-dropdown-overflow-menu-right {
+  right: 0;
+  left: auto;
+  width: 300px; }
+  @media (max-width: 575.98px) {
+    .a-dropdown-overflow-menu-right.a-dropdownTriangle::after {
+      left: -25%; } }
+  @media (min-width: 576px) and (max-width: 767.98px) {
+    .a-dropdown-overflow-menu-right.a-dropdownTriangle::after {
+      left: -28%; } }
+  @media (min-width: 768px) and (max-width: 991.98px) {
+    .a-dropdown-overflow-menu-right.a-dropdownTriangle::after {
+      left: -28%; } }
+  @media (max-width: 575.98px) {
+    .a-dropdown-overflow-menu-right {
       right: -53px; } }
 
 .a-navTabsRadio {
@@ -15986,7 +16007,33 @@ a.a-overflow-dropdown:active, a.a-overflow-dropdown:focus, a.a-overflow-dropdown
     border: none; }
   .a-js-alternativeResults,
   .a-js-result {
-    display: block !important; } }
+    display: block !important; }
+  .a-modal {
+    position: absolute !important;
+    top: 0 !important;
+    left: 0 !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    overflow: visible !important; }
+    .a-modal .modal-body,
+    .a-modal .modal-header,
+    .a-modal .a-iconText,
+    .a-modal .a-collapseContent {
+      padding: 0 !important;
+      background: #FFFFFF !important; }
+    .a-modal .a-iconText-text {
+      color: #000000 !important; }
+    .a-modal .form-group {
+      display: block !important; }
+    .a-modal .modal-navbar,
+    .a-modal .a-dropdownArrow,
+    .a-modal .a-iconText-icon,
+    .a-modal i {
+      display: none !important; }
+    .a-modal a {
+      text-decoration: none !important; }
+  .modal-backdrop {
+    background: #FFFFFF !important; } }
 
 .a-question-wrapper {
   display: inline-block;

@@ -5051,6 +5051,21 @@ var contactForm = function() {
   });
 };
 
+var onCountryCodeChange = function() {
+  var initialWidth = 55;
+  $('.a-js-countryCode').keyup(function() {
+    var inputVal = $(this).val();
+    var newWidth;
+
+    if (inputVal.length > 3) {
+      newWidth = initialWidth + ((inputVal.length - 3) * 9);
+      $(this).css('max-width', newWidth + 'px');
+    } else {
+      $(this).css('max-width', '');
+    }
+  });
+};
+
 var setupExpandContent = function() {
   var expandContent = function() {
     $($(this).data('target')).addClass('a-expanded');
@@ -5728,9 +5743,81 @@ var handleFocus = function() {
   });
 };
 
+/* globals jQuery */
+/* eslint dot-notation: "warn" */
+(function($) {
+  $.fn.datepicker.dates['nn'] = {
+    days: ['sundag', 'måndag', 'tysdag', 'onsdag', 'torsdag', 'fredag', 'laurdag'],
+    daysShort: ['sun', 'mån', 'tys', 'ons', 'tor', 'fre', 'lau'],
+    daysMin: ['su', 'må', 'ty', 'on', 'to', 'fr', 'la'],
+    months: ['januar', 'februar', 'mars', 'april', 'mai', 'juni', 'juli', 'august', 'september', 'oktober', 'november', 'desember'],
+    monthsShort: ['jan', 'feb', 'mar', 'apr', 'mai', 'jun', 'jul', 'aug', 'sep', 'okt', 'nov', 'des'],
+    today: 'i dag',
+    monthsTitle: 'Månadar',
+    clear: 'Nullstill',
+    weekStart: 1,
+    format: 'dd.mm.yyyy'
+  };
+}(jQuery));
+
+/* globals jQuery */
+/* eslint dot-notation: "warn" */
+(function($) {
+  $.fn.datepicker.dates['no'] = {
+    days: ['søndag', 'mandag', 'tirsdag', 'onsdag', 'torsdag', 'fredag', 'lørdag'],
+    daysShort: ['søn', 'man', 'tir', 'ons', 'tor', 'fre', 'lør'],
+    daysMin: ['sø', 'ma', 'ti', 'on', 'to', 'fr', 'lø'],
+    months: ['januar', 'februar', 'mars', 'april', 'mai', 'juni', 'juli', 'august', 'september', 'oktober', 'november', 'desember'],
+    monthsShort: ['jan', 'feb', 'mar', 'apr', 'mai', 'jun', 'jul', 'aug', 'sep', 'okt', 'nov', 'des'],
+    today: 'i dag',
+    monthsTitle: 'Måneder',
+    clear: 'Nullstill',
+    weekStart: 1,
+    format: 'dd.mm.yyyy'
+  };
+}(jQuery));
+
 /* globals $ */
 var initializeDatepicker = function() {
   var today = ('0' + new Date().getDate()).slice(-2) + '.' + ('0' + (new Date().getMonth() + 1)).slice(-2) + '.' + new Date().getFullYear();
+
+  var returnUserLanguageNumericCodeFromCookie = function(cookies, cname) {
+    var name = cname + '=';
+    var decodedCookies = decodeURIComponent(cookies);
+    var splitCookies = decodedCookies.split(';');
+    var i;
+    var c;
+    for (i = 0; i < splitCookies.length; i++) {
+      c = splitCookies[i];
+      if (c.charAt(0) === ' ') {
+        c = c.substring(1);
+      }
+      if (c.indexOf(name) === 0 && c.indexOf('UL') > 0) {
+        return c.substring(c.indexOf('UL') + 3);
+      }
+    }
+    return null;
+  };
+
+  var returnLanguageCodeFromNumericCode = function(numeric) {
+    var lang;
+    switch (numeric) {
+    // bokmål
+    case '1044':
+      return 'no';
+    // engelsk
+    case '1033':
+      return 'en';
+    // nynorsk
+    case '2068':
+      return 'nn';
+    default:
+      return 'no';
+    }
+  };
+
+  var ulNumeric = returnUserLanguageNumericCodeFromCookie(document.cookie, 'altinnPersistentContext');
+  var userLanguage = returnLanguageCodeFromNumericCode(ulNumeric);
 
   if ($('.a-overlay-container').length > 0) {
     $('.a-overlay-container').attr('id', 'picker-container');
@@ -5743,7 +5830,7 @@ var initializeDatepicker = function() {
   });
   $('.form-control.date').datepicker({
     format: 'dd.mm.yyyy',
-    language: 'no',
+    language: userLanguage,
     todayHighlight: true,
     orientation: 'bottom left',
     autoclose: true,
@@ -6310,6 +6397,14 @@ var popoverLocalInit = function() {
 
 var forceFocusTriggerElement;
 var popoverGlobalInit = function() {
+  $('[data-toggle="dropdown"]').on('click', function(e) {
+    if (window.innerWidth < 992) {
+      $('.a-dropdown-overflow-menu-right').removeClass('dropdown-menu-right');
+    } else {
+      $('.a-dropdown-overflow-menu-right').addClass('dropdown-menu-right');
+    }
+  });
+
   $('body').on('show.bs.popover', '[data-toggle="popover"].a-js-tabable-popover', function(e) {
     var triggerElement = this;
     $(triggerElement).closest('.a-modal').scrollTop(0);
@@ -6422,17 +6517,6 @@ var popoverGlobalInit = function() {
     $('html, body').animate({
       scrollTop: $('.a-js-persistPopover').offset().top - 50
     }, 250);
-
-    // bind scroll wheel to modal popover
-    if ($('.modal.show').length > 0) {
-      $('.popover-big').bind('wheel', function(e) {
-        var scrollTo;
-        if (e.originalEvent.deltaY > 0 || e.originalEvent.deltaY < 0) {
-          scrollTo = (e.originalEvent.deltaY) + $('.modal').scrollTop();
-          $('.modal').scrollTop(scrollTo);
-        }
-      });
-    }
 
     adjustBig();
   });
@@ -6970,6 +7054,10 @@ $('body').on('hide.bs.collapse', '.a-collapsePanel-body', function(e) {
   }
 });
 
+$('.a-js-collapseInboxMessage').click(function() {
+  $('div.card.a-accordion-card.a-collapsePanel.expanded a[data-toggle="collapse"]').click();
+});
+
 // Toggles between two components.
 // Each toggable component needs to be referenced by id from data-switch-target attribute of switch
 var toggleSwitch = function() {
@@ -7117,6 +7205,7 @@ var setValidatorSettings = function() {
   newsArchive
   onboarding,
   onConfirmDeletionClick,
+  onCountryCodeChange,
   onFileInputChange,
   popoverGlobalInit,
   popoverLocalInit,
@@ -7180,6 +7269,7 @@ window.devInit = function() {
   newsArchive();
   onboarding();
   onConfirmDeletionClick();
+  onCountryCodeChange();
   onFileInputChange();
   popoverGlobalInit();
   popoverLocalInit();
