@@ -42,3 +42,7 @@ $('body').on('hide.bs.collapse', '.a-collapsePanel-body', function(e) {
     }, 0);
   }
 });
+
+$('.a-js-collapseInboxMessage').click(function() {
+  $('div.card.a-accordion-card.a-collapsePanel.expanded a[data-toggle="collapse"]').click();
+});

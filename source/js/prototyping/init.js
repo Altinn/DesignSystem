@@ -30,6 +30,7 @@
   newsArchive
   onboarding,
   onConfirmDeletionClick,
+  onCountryCodeChange,
   onFileInputChange,
   popoverGlobalInit,
   popoverLocalInit,
@@ -93,6 +94,7 @@ window.devInit = function() {
   newsArchive();
   onboarding();
   onConfirmDeletionClick();
+  onCountryCodeChange();
   onFileInputChange();
   popoverGlobalInit();
   popoverLocalInit();
