@@ -511,3 +511,4 @@ gulp.task('style-guide-export', gulp.series(
   'pl-copy:distribution-css',
   'clean:styleguide-dest-paths',
   'copy:export-to-styleguide'));
+  
