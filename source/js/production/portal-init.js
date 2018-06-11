@@ -5,7 +5,6 @@
   AltinnQuickhelp
   addListExpandHandler,
   addListSortHandler,
-  articleAnchors,
   autoFootnotes,
   cardsToggle,
   codeLookup,
