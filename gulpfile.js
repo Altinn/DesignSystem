@@ -21,7 +21,6 @@ var path = require('path');
 var concat = require('gulp-concat');
 var uglify = require('gulp-uglify');
 var chalk = require('chalk');
-var copy = require('gulp-copy');
 var rename = require('gulp-rename');
 var regexRename = require('gulp-regex-rename');
 var gulpRemoveHtml = require('gulp-remove-html');
@@ -512,3 +511,4 @@ gulp.task('style-guide-export', gulp.series(
   'pl-copy:distribution-css',
   'clean:styleguide-dest-paths',
   'copy:export-to-styleguide'));
+  
