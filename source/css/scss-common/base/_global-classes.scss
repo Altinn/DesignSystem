@@ -102,7 +102,6 @@ object {
   box-shadow: $shadow;
 }
 
-
 // Dropdown-menu with arrow
 .a-dropdownTriangle {
   box-sizing: border-box;
@@ -124,6 +123,38 @@ object {
     box-shadow: -2px 2px 3px 0 $black-opacity-01;
     transform: rotate(135deg);
     transform-origin: 0 0;
+
+    @include media-breakpoint-down(md) {
+      left: 5%;
+    }
+    @include media-breakpoint-down(sm) {
+      left: -15%;
+    }
+  }
+
+  &[x-placement='top-start'] {
+    &::after {
+      top: calc( 100% - 1px );
+      left: 40%;
+      transform: rotate(-45deg);
+    }
+  }
+
+
+  &[x-placement='top-end'] {
+    &::after {
+      top: calc( 100% - 1px );
+      left: 40%;
+      transform: rotate(-45deg);
+
+      @include media-breakpoint-down(md) {
+        left: -2%;
+      }
+
+      @include media-breakpoint-down(sm) {
+        left: -23%;
+      }
+    }
   }
 }
 
@@ -409,15 +440,27 @@ hr {
 
     .a-hiddenWhenSelected {
       display: none;
+
+      @include media-breakpoint-up( sm ) {
+        display: none !important;
+      }
     }
 
     .a-visibleWhenSelected {
       display: inline-block;
+
+      @include media-breakpoint-up( sm ) {
+        display: inline-block !important;
+      }
     }
   }
 
   .a-visibleWhenSelected {
     display: none;
+
+    @include media-breakpoint-up( sm ) {
+      display: none !important;
+    }
   }
 
   &.a-completed {
@@ -433,6 +476,10 @@ hr {
 
     .a-visibleWhenCompleted {
       display: inline-block;
+
+      @include media-breakpoint-up( sm ) {
+        display: inline-block !important;
+      }
     }
   }
 
@@ -444,11 +491,15 @@ hr {
     }
 
     .a-hiddenWhenDeleted {
-      display: none;
+      display: none !important;
     }
 
     .a-visibleWhenDeleted {
       display: inline-block;
+
+      @include media-breakpoint-up( sm ) {
+        display: inline-block !important;
+      }
     }
   }
 
@@ -461,7 +512,7 @@ hr {
       &:not(.a-completed) {
         &:not(.a-deleted) {
           .a-visibleWhenInitial {
-            display: inline-block;
+            display: inline-block !important;
           }
         }
       }
@@ -471,7 +522,7 @@ hr {
   .a-visibleWhenCompleted,
   .a-visibleWhenDeleted,
   .a-visibleWhenInitial {
-    display: none;
+    display: none !important;
   }
 }
 

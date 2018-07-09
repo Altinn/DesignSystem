@@ -175,11 +175,16 @@
   }
 
   .a-btn-icon-text {
-    overflow: hidden;
     text-align: left;
-    text-overflow: ellipsis;
-    white-space: nowrap;
     align-self: center;
+  }
+
+  .a-btn-icon-text-ellipsis {
+    @include media-breakpoint-up( lg ) {
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
   }
 
   .a-btn-icon-symbol {
@@ -196,6 +201,11 @@
   &.a-btn-link {
     width: auto;
   }
+}
+
+.a-btn-wordwrap {
+  display: inline;
+  white-space: initial;
 }
 
 .a-btn-icon-transparent {
@@ -430,6 +440,16 @@
         border-bottom: 2px solid darken( $red, 15% );
       }
     }
+
+    &.a-nounderline {
+      color: darken($blue-dark, 20%);
+      border: none;
+
+      span {
+        @include a-fontBold;
+        border-bottom: none;
+      }
+    }
   }
 
   span {
@@ -440,6 +460,16 @@
       @include a-fontBold;
       padding: 0;
       border: none;
+    }
+  }
+
+  &.a-nounderline {
+    color: $blue-dark;
+    border: none;
+
+    span {
+      @include a-fontBold;
+      border-bottom: none;
     }
   }
 
@@ -658,7 +688,7 @@
 
   &.a-btnBigger {
     min-height: 77px;
-    padding: 12;
+    padding: $spacer;
 
     i {
       width: 45px;
@@ -871,4 +901,8 @@ button {
       }
     }
   }
+}
+
+.a-btn-black-text {
+  color: $black !important;
 }

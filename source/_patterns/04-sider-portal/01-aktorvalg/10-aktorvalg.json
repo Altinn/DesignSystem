@@ -221,15 +221,21 @@
     "icon-extra-class": "",
     "onclick": "location.href='link.sider-aktorvalg'"
   },
+	"personswitch-isCenter": "d-flex justify-content-center",
   "personswitch-options": {
     "isDiscreet": "a-form-checkboxes--discret",
-    "isCenter": "d-flex justify-content-center",
     "check-legend": false,
     "checkboxes":  [
       {
+				"isInline" : true,
+	      "isChecked": false,
+	      "checkboxID" : "check2t",
         "checkboxes-title": "Se alle underenheter"
       },
       {
+				"isInline" : true,
+	      "isChecked": false,
+	      "checkboxID" : "check2e",
         "checkboxes-title": "Se slettede enheter"
       }
     ]
@@ -472,16 +478,6 @@
               }
             },
             {
-              "radiobuttons": {
-                "radiobuttons-title": "Alle, inkludert underenheter",
-                "radiobuttons-id": "alle-jeg-kan-representere-checkbutton-3",
-                "radiobuttons-class": "d-block mb-1",
-                "radiobuttons-name": "selectProfile",
-                "isChecked": true,
-                "hasIcon": false
-              }
-            },
-            {
               "radiobuttons": [
                 {
                   "radiobuttons-title": "Velg profiler",
@@ -525,6 +521,15 @@
             "label-id": "profiles-selected",
             "label-content": "2 aktører valgt"
           },
+          "toggle-selected-items": {
+            "check-legend": false,
+            "styleModifier": "float-lg-right a-form-checkboxes--discret",
+            "checkboxes": [
+              {
+                "checkboxes-title": "Se valgte aktører"
+              }
+            ]
+          },
           "select-subunits": {
             "check-legend": false,
             "styleModifier": "float-lg-right a-form-checkboxes--discret",
@@ -563,7 +568,7 @@
                 "linkIcon-text": "Last flere",
                 "text-class": "a-fontBold"
               },
-              "secondLevelColClass": "col-12",
+              "secondLevelColClass": "col-12 js-listItem",
               "firstLevelCheckboxes": [
                 {
                   "hasSecondLevel": false,
@@ -588,20 +593,32 @@
                       "checkboxes-title": "<b>Organisasjon 2 AS</b> org. nr. 123 456 002"
                     }
                   ],
-                  "secondLevelCheckboxes": {
-                    "styleModifier": "a-search-multiple-actor-select a-search-multiple-actor-select-subunit a-form-checkboxes--discret",
+                  "secondLevelCheckboxes": [
+                    {
+                    "thirdLevelCustomClass": "select-all a-form-checkboxes a-form-checkboxes--discret a-search-multiple-actor-select-subunit",
                     "checkboxes": [
-                      {
+                      {                        
                         "checkboxes-title": "<b>Velg alle</b>"
-                      },
-                      {
-                        "checkboxes-title": "<b>Underorganisasjon 1 AS</b> org. nr. 123 456 002"
-                      },
-                      {
-                        "checkboxes-title": "<b>Underorganisasjon 2 AS</b> org. nr. 123 456 002"
                       }
                     ]
-                  }
+                    },
+                    {
+                      "thirdLevelCustomClass": "custom-controls-stacked a-form-checkboxes a-form-checkboxes--discret a-search-multiple-actor-select-subunit",
+                      "checkboxes": [
+                        {
+                          "checkboxes-title": "<b>Underorganisasjon 1 AS</b> org. nr. 123 456 002"
+                        }
+                      ]
+                    },
+                    {
+                      "thirdLevelCustomClass": "custom-controls-stacked a-form-checkboxes a-form-checkboxes--discret a-search-multiple-actor-select-subunit",
+                      "checkboxes": [
+                        {
+                          "checkboxes-title": "<b>Underorganisasjon 2 AS</b> org. nr. 123 456 002"
+                        }
+                      ]
+                    }
+                  ]
                 },
                 {
                   "hasSecondLevel": true,
@@ -615,21 +632,33 @@
                       "checkboxes-title": "<b>Utilgjengelig organisasjon AS</b> org. nr. 123 456 003"
                     }
                   ],
-                  "secondLevelCheckboxes": {
-                    "styleModifier": "a-search-multiple-actor-select a-search-multiple-actor-select-subunit a-form-checkboxes--discret",
+                  "secondLevelCheckboxes": [
+                  {
+                    "thirdLevelCustomClass": "select-all a-search-multiple-actor-select a-search-multiple-actor-select-subunit a-form-checkboxes--discret",
                     "checkboxes": [
                       {
                         "checkboxes-title": "<b>Velg alle</b>",
                         "styleModifier": "a-js-multiple-actor-select"
-                      },
+                      }
+                    ]
+                  },
+                  {
+                    "thirdLevelCustomClass": "custom-controls-stacked a-form-checkboxes a-form-checkboxes--discret a-search-multiple-actor-select-subunit",
+                    "checkboxes": [
                       {
                         "checkboxes-title": "<b>Underorganisasjon 1 AS</b> org. nr. 123 456 002"
-                      },
+                      }
+                    ]
+                  },
+                  {
+                    "thirdLevelCustomClass": "custom-controls-stacked a-form-checkboxes a-form-checkboxes--discret a-search-multiple-actor-select-subunit",
+                    "checkboxes": [
                       {
                         "checkboxes-title": "<b>Underorganisasjon 2 AS</b> org. nr. 123 456 002"
                       }
                     ]
                   }
+                ]
                 },
                 {
                   "hasSecondLevel": false,
@@ -655,7 +684,7 @@
                     }
                   ],
                   "secondLevelCheckboxes": {
-                    "styleModifier": "a-search-multiple-actor-select a-search-multiple-actor-select-subunit a-form-checkboxes--discret",
+                    "thirdLevelCustomClass": "custom-controls-stacked a-form-checkboxes a-form-checkboxes--discret a-search-multiple-actor-select-subunit",
                     "checkboxes": [
                       {
                         "checkboxes-title": "<b>Eneste Underorganisasjon AS</b> org. nr. 123 456 002"

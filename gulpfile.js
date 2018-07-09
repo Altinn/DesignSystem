@@ -21,7 +21,6 @@ var path = require('path');
 var concat = require('gulp-concat');
 var uglify = require('gulp-uglify');
 var chalk = require('chalk');
-var copy = require('gulp-copy');
 var rename = require('gulp-rename');
 var regexRename = require('gulp-regex-rename');
 var gulpRemoveHtml = require('gulp-remove-html');
@@ -104,11 +103,11 @@ gulp.task('pl-copy:styleguide', function() {
 // Unzip fortawesone iconfonts and put them in the correct folder for the npm package
 gulp.task('pl-copy:distribution-fonts', function(done) {
   gulp.src('./source/fortAwesome/kit-altinn-no-ed31cded.zip')
-    .pipe(decompress({strip: 1}))
+    .pipe(decompress({strip: 0}))
     .pipe(gulp.dest('./dist/fonts/icons/ai/'));
-  
+
   gulp.src('./source/fortAwesome/kit-altinn-reg-no-df832575.zip')
-    .pipe(decompress({strip: 1}))
+    .pipe(decompress({strip: 0}))
     .pipe(gulp.dest('./dist/fonts/icons/reg/'));
   done();
 });
@@ -512,3 +511,4 @@ gulp.task('style-guide-export', gulp.series(
   'pl-copy:distribution-css',
   'clean:styleguide-dest-paths',
   'copy:export-to-styleguide'));
+  

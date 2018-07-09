@@ -121,6 +121,10 @@
         min-height: $spacer * 4;
         padding: 10px $spacer / 2 7px $spacer / 2;
 
+        &.a-list-rowLink-large {
+          padding: 12px;
+        }
+
         &.a-fontSizeXS {
           @extend .a-fontSizeXS;
         }
@@ -758,5 +762,17 @@ ol {
     overflow: hidden;
     clip: rect(0 0 0 0);
     border: none;
+  }
+}
+
+//long text
+.a-list-longtext {
+  float: left;
+  @include media-breakpoint-up( lg ) {
+    display: inline-block;
+    width: 100%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
   }
 }

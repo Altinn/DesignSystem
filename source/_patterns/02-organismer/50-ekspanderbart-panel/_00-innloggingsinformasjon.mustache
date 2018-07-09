@@ -1,18 +1,18 @@
 <div class="card a-accordion-card a-collapsePanel {{{ styleModifier }}}">
   <div class="card-header a-js-index-heading a-collapsePanel-heading collapsed {{isExpanded}}" id="{{ collapse-panel-header-id }}" role="tab">
-    <a href="#" data-toggle="collapse" data-target="#{{{ collapseID }}}" aria-expanded="false" aria-controls="{{ collapseID }}" {{# dataParent }}data-parent="{{{dataParent}}}"{{/ dataParent }}>
+    <a href="#" data-toggle="collapse" data-target="#{{{ collapseID }}}" aria-expanded="false" aria-controls="{{ collapseID }}">
       {{# collapseHeader }}
         {{> molekyler-ikon-tekst }}
       {{/ collapseHeader }}
     </a>
   </div>
-  <div id="{{ collapseID }}" class="a-collapsePanel-body collapse {{{ isVisibleFromStart }}}" role="tabpanel" aria-labelledby="{{ collapse-panel-header-id }}">
+  <div id="{{ collapseID }}" class="a-collapsePanel-body collapse {{{ isVisibleFromStart }}}" {{# dataParent }}data-parent="{{{dataParent}}}"{{/ dataParent }} role="tabpanel" aria-labelledby="{{ collapse-panel-header-id }}">
     <div class="a-collapsePanel-body-content">
         {{> organismer-innloggingsinformasjon-innhold }}
-    </div>  
+    </div>
     {{# certificate }}
       {{# upload }}
-        <div class="a-collapsePanel-body-content hidden-xs-up a-js-certificateUpload">
+        <div class="a-collapsePanel-body-content d-none a-js-certificateUpload">
           <div class="row">
             <div class="col-12">
               {{> atomer-upload }}
@@ -21,7 +21,7 @@
               {{/ cancel-link }}
             </div>
           </div>
-        </div>  
+        </div>
       {{/ upload}}
       {{# certificates }}
         <div class="a-collapsePanel-body-content a-js-certificateList">
@@ -34,7 +34,7 @@
               {{/ add-btn }}
             </div>
           </div>
-        </div>  
+        </div>
       {{/ certificates }}
     {{/ certificate }}
   </div>

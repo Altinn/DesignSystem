@@ -22,7 +22,7 @@ var popoverLocalInit = function() {
       }
       return false;
     },
-    template: '<div class="popover" role="tooltip"><div class="popover-arrow"></div><div class="popover-content"></div></div>'
+    template: '<div class="popover" role="popover" tabindex="0"><div class="arrow"></div><div class="popover-body"></div></div>'
   };
 
   $('[data-toggle="popover"]').popover(options);
@@ -46,6 +46,14 @@ var popoverLocalInit = function() {
 
 var forceFocusTriggerElement;
 var popoverGlobalInit = function() {
+  $('[data-toggle="dropdown"]').on('click', function(e) {
+    if (window.innerWidth < 992) {
+      $('.a-dropdown-overflow-menu-right').removeClass('dropdown-menu-right');
+    } else {
+      $('.a-dropdown-overflow-menu-right').addClass('dropdown-menu-right');
+    }
+  });
+
   $('body').on('show.bs.popover', '[data-toggle="popover"].a-js-tabable-popover', function(e) {
     var triggerElement = this;
     $(triggerElement).closest('.a-modal').scrollTop(0);
@@ -154,21 +162,10 @@ var popoverGlobalInit = function() {
   }
 
   $('body').on('shown.bs.popover', '.a-js-persistPopover', function() {
-    $('.popover-arrow').html('<style>.popover-big:after { left: ' + ($(this).offset().left + 10.5) + 'px !important; }</style>');
+    $('.arrow').html('<style>.popover-big:after { left: ' + ($(this).offset().left + 10.5) + 'px !important; }</style>');
     $('html, body').animate({
       scrollTop: $('.a-js-persistPopover').offset().top - 50
     }, 250);
-
-    // bind scroll wheel to modal popover
-    if ($('.modal.show').length > 0) {
-      $('.popover-big').bind('wheel', function(e) {
-        var scrollTo;
-        if (e.originalEvent.deltaY > 0 || e.originalEvent.deltaY < 0) {
-          scrollTo = (e.originalEvent.deltaY) + $('.modal').scrollTop();
-          $('.modal').scrollTop(scrollTo);
-        }
-      });
-    }
 
     adjustBig();
   });

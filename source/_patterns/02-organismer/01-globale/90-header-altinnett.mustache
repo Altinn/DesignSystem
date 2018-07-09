@@ -20,44 +20,12 @@
                         <img src="{{ headerlogo }}" alt="Altinnett logo" class="a-logo {{ logo-class }} {{ styleModifier }}">
                         <span class="sr-only">Til forsiden</span>
                     </a>
-                    <button class="navbar-toggler hidden-md-up" type="button">
-                        <span class="sr-only">Vis/skjul meny</span>
+                    <button class="an-navbar-toggler" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                      <span class="sr-only">Vis/skjul meny</span>
                     </button>
-                    <div class="collapse navbar-toggleable-sm a-globalNav-main" id="exCollapsingNavbar2">
-                        <ul class="" id="exCollapsingNavbar">
-                            <li class="hidden-md-up">
-                                {{# header-mobilesearch }}
-                                {{> atomer-tekst-input }}
-                                {{/ header-mobilesearch }}
-                            </li>
 
-                            <li><a class="a-hvr-underline {{{ globalNav-active-tjenester }}}" href="#">Tjenester</a></li>
-                            <li><a class="a-hvr-underline {{{ globalNav-active-aktuelt }}}" href="{{ url-aktuelt }}">Aktuelt</a></li>
-                            <li class="hidden-md-up"><a class="a-nav-link a-hvr-underline" href="{{ url-ekstra-menypunkt-1 }}">{{ ekstra-menypunkt-1 }}</a></li>
-                            <li class="hidden-md-up"><a class="a-hvr-underline" href="#">Ekstra menypunkt 3</a></li>
-                            <li class="hidden-md-up">
-                                <a class="a-hvr-underline" href="#">
-                                    {{# tel-icon }}
-                                    {{> atomer-ikon }}
-                                    {{/ tel-icon }}
-                                    Ekstra menypunkt 2
-                                </a>
-                            </li>
-                        </ul>
-                    </div>
+                    {{> organismer-altinnett-navigasjonsmeny-dropdown }}
                 </nav> <!-- End .a-globalNav -->
-                <!-- Begin .a-globalNav-options -->
-                <ul id="secondary-nav" class="nav nav-pills a-header-options">
-
-                    <li class="nav-item">
-                        <!-- Dropdown toggle -->
-                        {{> atomer-innlogget }}
-                        {{# dropdown-personswitch }}
-                        {{> organismer-login-dropdown }}
-                        {{/ dropdown-personswitch }}
-                    </li>
-                </ul> <!-- End .a-globalNav-options -->
-
             </div><!-- End .col -->
 
         </div> <!-- End .row -->

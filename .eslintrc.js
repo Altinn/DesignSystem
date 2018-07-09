@@ -20,7 +20,8 @@ module.exports = {
     "func-names": ["error", "never"],
     "no-unused-vars": "off",
     "no-underscore-dangle": "off",
-    "no-plusplus": "off"
+    "no-plusplus": "off",
+    "no-param-reassign": [ "warn", { "props": true, "ignorePropertyModificationsFor": ["$"] } ]
   },
   "globals": {
     "chai": true,

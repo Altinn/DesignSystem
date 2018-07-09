@@ -21,42 +21,42 @@ var certificateHandler = function() {
   });
 
   $('.a-js-certificateContainer').on('change', function() {
-    $('.a-js-certificateEdit').removeClass('hidden-xs-up');
-    $('.a-js-certificateContainer1').removeClass('hidden-xs-up');
-    $('.a-js-certificateUpload').addClass('hidden-xs-up');
+    $('.a-js-certificateEdit').removeClass('d-none');
+    $('.a-js-certificateContainer1').removeClass('d-none');
+    $('.a-js-certificateUpload').addClass('d-none');
   });
 
   $('.a-js-certificateStep1').on('click', function() {
-    $('.a-js-certificateContainer1').addClass('hidden-xs-up');
-    $('.a-js-certificateContainer2').removeClass('hidden-xs-up');
+    $('.a-js-certificateContainer1').addClass('d-none');
+    $('.a-js-certificateContainer2').removeClass('d-none');
   });
   $('.a-js-certificateStep2').on('click', function() {
-    $('.a-js-certificateEdit').addClass('hidden-xs-up');
-    $('.a-js-certificateContainer1').addClass('hidden-xs-up');
-    $('.a-js-certificateUpload').removeClass('hidden-xs-up');
+    $('.a-js-certificateEdit').addClass('d-none');
+    $('.a-js-certificateContainer1').addClass('d-none');
+    $('.a-js-certificateUpload').removeClass('d-none');
   });
 
   $('.a-js-addcertificate').on('click', function() {
-    $('.a-js-certificateList').addClass('hidden-xs-up');
-    $('.a-js-certificateUpload').removeClass('hidden-xs-up');
+    $('.a-js-certificateList').addClass('d-none');
+    $('.a-js-certificateUpload').removeClass('d-none');
     $('.a-js-certificateUpload').find('input').focus();
   });
   $('.a-custom-certupload').on('change', function() {
-    $('.a-js-certificateList').removeClass('hidden-xs-up');
-    $('.a-js-certificateUpload').addClass('hidden-xs-up');
+    $('.a-js-certificateList').removeClass('d-none');
+    $('.a-js-certificateUpload').addClass('d-none');
     $('#loginInfoEnterprisePanelHeader').find('a').first().focus();
   });
   $('#cancel-upload').on('click', function() {
-    $('.a-js-certificateList').removeClass('hidden-xs-up');
-    $('.a-js-certificateUpload').addClass('hidden-xs-up');
+    $('.a-js-certificateList').removeClass('d-none');
+    $('.a-js-certificateUpload').addClass('d-none');
     $('#loginInfoEnterprisePanelHeader').find('a').first().focus();
   });
   $('.a-js-certificateEdit').on('click', function() {
-    $('.a-js-edit-userpass').removeClass('hidden-xs-up');
-    $('.a-js-certificates').addClass('hidden-xs-up');
+    $('.a-js-edit-userpass').removeClass('d-none');
+    $('.a-js-certificates').addClass('d-none');
   });
   $('.a-js-certificateSave').on('click', function() {
-    $('.a-js-certificates').removeClass('hidden-xs-up');
-    $('.a-js-edit-userpass').addClass('hidden-xs-up');
+    $('.a-js-certificates').removeClass('d-none');
+    $('.a-js-edit-userpass').addClass('d-none');
   });
 };
