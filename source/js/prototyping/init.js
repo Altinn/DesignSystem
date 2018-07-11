@@ -38,7 +38,8 @@
   prototypingInteractionStarteENK,
   questionnaireInteraction,
   searchFilterView,
-  searchWithAutocomplete,
+  //searchWithAutocomplete,
+  searchWithMultipleSelectInAutoComplete,
   selectAll,
   sessionExpiredDialog,
   setupAddRightsHandler,
@@ -102,7 +103,8 @@ window.devInit = function() {
   prototypingInteractionStarteENK();
   questionnaireInteraction();
   searchFilterView();
-  searchWithAutocomplete();
+  // searchWithAutocomplete();
+  searchWithMultipleSelectInAutoComplete();
   selectAll();
   sessionExpiredDialog();
   setupAddRightsHandler();
