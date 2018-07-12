@@ -38,7 +38,7 @@
   prototypingInteractionStarteENK,
   questionnaireInteraction,
   searchFilterView,
-  //searchWithAutocomplete,
+  searchWithAutocomplete,
   searchWithMultipleSelectInAutoComplete,
   selectAll,
   sessionExpiredDialog,
@@ -103,7 +103,7 @@ window.devInit = function() {
   prototypingInteractionStarteENK();
   questionnaireInteraction();
   searchFilterView();
-  // searchWithAutocomplete();
+  searchWithAutocomplete();
   searchWithMultipleSelectInAutoComplete();
   selectAll();
   sessionExpiredDialog();

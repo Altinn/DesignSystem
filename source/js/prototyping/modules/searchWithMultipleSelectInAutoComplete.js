@@ -32,8 +32,7 @@ var searchWithMultipleSelectInAutoComplete = function() {
         '</span></div><div class="d-none d-md-block col-md-3 col-lg-4 pl-md-2 pl-lg-1 pr-2" data-searchable="true"><span class="a-js-sortValue a-list-longtext" title="Testetat for Accenture">'
         + item.serviceOwner +
         '</span></div><div class="a-hiddenWhenSelected text-right col-sm-5 col-md-4 col-lg-1 pl-md-2 pl-lg-1 pr-sm-0 pr-md-4"><button type="button" class="a-btn-link a-nounderline hidden-xs-down  " aria-label="Tilbake" onclick="#" tabindex="-1"><span class="a-btn-icon-text ">+Legg til</span></button></div></div>';
-        var li = that._renderItem(ul, item);
-        // return $('<li>')
+        var li = that._renderItemData(ul, item);
         li.data('item.autocomplete', item);
         li.children().first().remove();
         li.append(innerHtmlForItem);
@@ -61,7 +60,7 @@ var searchWithMultipleSelectInAutoComplete = function() {
     }
   }));
 
-  $('.a-js-autocomplete').catcomplete({
+  $('.a-js-autocomplete-multiplecolumns').catcomplete({
     // delay: 200, // set appropriate delay for ajax call
     source: availableTags,
     appendTo: '.a-autocomplete-container',
