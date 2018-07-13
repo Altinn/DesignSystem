@@ -1,3 +1,4 @@
+/* eslint vars-on-top: 0 */
 /* globals AltinnDropdown */
 /* globals AltinnDropdown:true */
 AltinnDropdown = {
