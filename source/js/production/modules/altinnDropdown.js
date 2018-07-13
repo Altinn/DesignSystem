@@ -10,6 +10,10 @@ AltinnDropdown = {
       }
 
       $dropdownElement.find('.a-dropdown-toggle').html($(this).html());
+
+      // Focus the dropdownmenu element after click on item in dropdownmenu
+      var id = $(this).closest('.a-dropdown-menu').attr('aria-labelledby');
+      $('#' + id).focus();
     });
   }
 };
