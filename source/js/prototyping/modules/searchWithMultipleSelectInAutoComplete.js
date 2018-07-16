@@ -27,11 +27,21 @@ var searchWithMultipleSelectInAutoComplete = function() {
 
       $.each(items, function(index, item) {
         // build  item in the list
-        var innerHtmlForItem = '<div class="row"><div class="col-sm-7 col-md-5 col-lg-6 pl-md-2 pl-lg-2 pr-2" data-searchable="true"><span class="a-js-sortValue a-list-longtext" title="Jan Derek Sørensen Julius Andreas Gimli Arn MacGyver Chewbacka Highlander ElessarJankov">'
-        + item.service +
-        '</span></div><div class="d-none d-md-block col-md-3 col-lg-4 pl-md-2 pl-lg-1 pr-2" data-searchable="true"><span class="a-js-sortValue a-list-longtext" title="Testetat for Accenture">'
-        + item.serviceOwner +
-        '</span></div><div class="a-hiddenWhenSelected text-right col-sm-5 col-md-4 col-lg-1 pl-md-2 pl-lg-1 pr-sm-0 pr-md-4"><button type="button" class="a-btn-link a-nounderline hidden-xs-down  " aria-label="Tilbake" onclick="#" tabindex="-1"><span class="a-btn-icon-text ">+Legg til</span></button></div></div>';
+        var innerHtmlForItem = '<div class="row">' +
+          '<div class="col-sm-7 col-md-5 col-lg-6 pl-md-2 pl-lg-2 pr-2" data-searchable="true">' +
+            '<span class="a-js-sortValue a-list-longtext" title="Jan Derek Sørensen Julius Andreas Gimli Arn MacGyver Chewbacka Highlander ElessarJankov"6>' +
+            item.service + '</span>' +
+          '</div>' +
+          '<div class="d-none d-md-block col-md-3 col-lg-4 pl-md-2 pl-lg-1 pr-2" data-searchable="true">' +
+            '<span class="a-js-sortValue a-list-longtext" title="Testetat for Accenture">' + item.serviceOwner + '</span>' +
+          '</div>' +
+          '<div class="text-right col-sm-5 col-md-4 col-lg-2 pl-md-2 pl-lg-1 pr-sm-0 pr-md-2">' +
+            '<button type="button" class="a-btn-link a-nounderline hidden-xs-down  " aria-label="Tilbake" onclick="#" tabindex="-1">' +
+              '<span class="a-btn-icon-text a-hiddenWhenSelected ">+Legg til</span>' +
+            '</button>' +
+          '</div>' +
+        '</div>';
+
         var li = that._renderItemData(ul, item);
         li.data('item.autocomplete', item);
         li.children().first().remove();
@@ -85,7 +95,7 @@ var searchWithMultipleSelectInAutoComplete = function() {
     },
     response: function(event, ui) {
       var el;
-      console.log(ui.content.length);
+      // console.log(ui.content.length);
       if (ui.content.length === 0) {
         el = {
           isNoResultsLabel: true,
