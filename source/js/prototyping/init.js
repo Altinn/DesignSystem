@@ -55,6 +55,7 @@
   toggleArchivedState,
   toggleFilter,
   toggleInstant,
+  toggleRoleRightsInit,
   toggleSavedEdit,
   toggleSelectProfiles,
   toggleSwitch,
@@ -120,6 +121,7 @@ window.devInit = function() {
   toggleArchivedState();
   toggleFilter();
   toggleInstant();
+  toggleRoleRightsInit();
   toggleSavedEdit();
   toggleSelectProfiles();
   toggleSwitch();
