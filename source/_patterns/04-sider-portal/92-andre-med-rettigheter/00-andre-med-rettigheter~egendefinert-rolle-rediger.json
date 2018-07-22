@@ -94,9 +94,63 @@
           "local-role-search-result": false,
           "local-role-rights-list": {
             "local-role-rights-title": "Rollen gir følgende rettigheter:",
-            "additional-classes": "a-list-borderTop",
+            "additional-classes": "",
             "tabable": true,
             "rows": [
+              {
+                "additional-classes": "a-defaultCursor a-dotted",
+                "id": "titleRow",
+                "onclick": false,
+                "columns": [
+                  {
+                    "additional-classes": "col-12 col-sm",
+                    "onclick": false,
+                    "searchable": false,
+                    "column-items": [
+                      {
+                        "column-text": {
+                          "classes": "a-js-sortValue",
+                          "text": ""
+                        }
+                      }
+                    ]
+                  },
+                  {
+                    "additional-classes": "col-auto mr-2",
+                    "onclick": false,
+                    "searchable": false,
+                    "column-items": [
+                      {
+                        "column-text": {
+                          "classes": "a-js-sortValue",
+                          "text": "Rediger tilgang."
+                        }
+                      }
+                    ]
+                  },
+                  {
+                    "additional-classes": "col-auto",
+                    "onclick": false,
+                    "searchable": false,
+                    "column-items": [
+                      {
+                        "column-button": {
+                          "button-text": false,
+                          "title": "Hjelp",
+                          "button-class": "a-btn-link",
+                          "link-url": false,
+                          "button-shadow-label": false,
+                          "button-icon": {
+                            "icon-prefix": "ai",
+                            "icon-class": "ai-help-popicon",
+                            "icon-extra-class": "a-clickable"
+                          }
+                        }
+                      }
+                    ]
+                  }
+                ]
+              },
               {
                 "additional-classes": "a-dotted a-selectable a-selected a-success a-defaultCursor",
                 "id": "firstRow",
@@ -120,27 +174,45 @@
                     "onclick": false,
                     "column-items": [
                       {
-                        "column-icon": {
-                          "icon-prefix": "ai",
-                          "icon-class": "ai-read",
-                          "icon-extra-class": "a-hiddenWhenDeleted a-hiddenWhenDisabled",
-                          "icon-title": "Les"
+                        "column-button": {
+                          "button-text": false,
+                          "title": "Les",
+                          "button-class": "a-btn-link a-hiddenWhenDeleted a-hiddenWhenDisabled",
+                          "link-url": false,
+                          "button-shadow-label": false,
+                          "button-icon": {
+                            "icon-prefix": "ai",
+                            "icon-class": "ai-read",
+                            "icon-extra-class": ""
+                          }
                         }
                       },
                       {
-                        "column-icon": {
-                          "icon-prefix": "ai",
-                          "icon-class": "ai-write",
-                          "icon-extra-class": "a-hiddenWhenDeleted a-hiddenWhenDisabled a-clickable a-js-toggleRights",
-                          "icon-title": "Skriv"
+                        "column-button": {
+                          "button-text": false,
+                          "title": "Skriv",
+                          "button-class": "a-btn-link a-js-toggleRights a-hiddenWhenDeleted a-hiddenWhenDisabled",
+                          "link-url": false,
+                          "button-shadow-label": false,
+                          "button-icon": {
+                            "icon-prefix": "ai",
+                            "icon-class": "ai-write",
+                            "icon-extra-class": "a-clickable"
+                          }
                         }
                       },
                       {
-                        "column-icon": {
-                          "icon-prefix": "ai",
-                          "icon-class": "ai-sign",
-                          "icon-extra-class": "a-hiddenWhenDeleted a-hiddenWhenDisabled a-clickable a-js-toggleRights a-iconStrikeThrough a-disabledIcon",
-                          "icon-title": "Signer"
+                        "column-button": {
+                          "button-text": false,
+                          "title": "Signer",
+                          "button-class": "a-btn-link a-js-toggleRights a-hiddenWhenDeleted a-hiddenWhenDisabled",
+                          "link-url": false,
+                          "button-shadow-label": false,
+                          "button-icon": {
+                            "icon-prefix": "ai",
+                            "icon-class": "ai-sign",
+                            "icon-extra-class": "a-clickable a-iconStrikeThrough a-disabledIcon"
+                          }
                         }
                       },
                       {
@@ -162,19 +234,34 @@
                     "onclick": false,
                     "column-items": [
                       {
-                        "column-icon": {
-                          "icon-prefix": "ai",
-                          "icon-class": "ai-circle-minus a-clickable",
-                          "icon-extra-class": "a-danger a-hiddenWhenDeleted a-hiddenWhenDisabled a-displayInlineBlock a-js-toggleRightsDelete",
-                          "icon-title": "Slett"
+                        "column-button": {
+                          "button-text": false,
+                          "title": "Slett rolle",
+                          "aria-label": "Slett rolle",
+                          "button-class": "a-btn-link a-js-toggleRightsDelete a-hiddenWhenDeleted a-hiddenWhenDisabled a-displayInlineBlock",
+                          "link-url": false,
+                          "button-shadow-label": false,
+                          "button-icon": {
+                            "icon-prefix": "ai",
+                            "icon-class": "ai-circle-minus",
+                            "icon-extra-class": "a-danger"
+                          }
                         }
                       },
                       {
-                        "column-icon": {
-                          "icon-prefix": "ai",
-                          "icon-class": "ai-undo a-clickable",
-                          "icon-extra-class": "a-danger a-visibleWhenDeleted  a-displayInlineBlock a-js-toggleRightsDelete",
-                          "icon-title": "Angre sletting"
+                        "column-button": {
+                          "button-text": false,
+                          "title": "Angre slett rolle",
+                          "aria-label": "Angre slett rolle",
+                          "button-class": "a-btn-link a-js-toggleRightsDelete a-visibleWhenDeleted  a-displayInlineBlock",
+                          "tab-index": "-1",
+                          "link-url": false,
+                          "button-shadow-label": false,
+                          "button-icon": {
+                            "icon-prefix": "ai",
+                            "icon-class": "ai-undo",
+                            "icon-extra-class": "a-danger"
+                          }
                         }
                       },
                       {
@@ -211,27 +298,47 @@
                     "onclick": false,
                     "column-items": [
                       {
-                        "column-icon": {
-                          "icon-prefix": "ai",
-                          "icon-class": "ai-read",
-                          "icon-extra-class": "a-hiddenWhenDeleted a-hiddenWhenDisabled",
-                          "icon-title": "Les"
+                        "column-button": {
+                          "button-text": false,
+                          "title": "Les",
+                          "button-class": "a-btn-link a-hiddenWhenDeleted a-hiddenWhenDisabled",
+                          "link-url": false,
+                          "button-shadow-label": false,
+                          "button-icon": {
+                            "icon-prefix": "ai",
+                            "icon-class": "ai-read",
+                            "icon-extra-class": ""
+                          }
                         }
                       },
                       {
-                        "column-icon": {
-                          "icon-prefix": "ai",
-                          "icon-class": "ai-write",
-                          "icon-extra-class": "a-hiddenWhenDeleted a-hiddenWhenDisabled a-iconStrikeThrough a-redIcon",
-                          "icon-title": "Skriv"
+                        "column-button": {
+                          "button-text": false,
+                          "title": "Skriv",
+                          "button-class": "a-btn-link a-js-toggleRights a-hiddenWhenDeleted a-hiddenWhenDisabled",
+                          "link-url": false,
+                          "tab-index": "-1",
+                          "button-shadow-label": false,
+                          "button-icon": {
+                            "icon-prefix": "ai",
+                            "icon-class": "ai-write",
+                            "icon-extra-class": "a-clickable a-iconStrikeThrough a-redIcon"
+                          }
                         }
                       },
                       {
-                        "column-icon": {
-                          "icon-prefix": "ai",
-                          "icon-class": "ai-sign",
-                          "icon-extra-class": "a-hiddenWhenDeleted a-hiddenWhenDisabled a-iconStrikeThrough a-redIcon",
-                          "icon-title": "Signer"
+                        "column-button": {
+                          "button-text": false,
+                          "title": "Signer",
+                          "button-class": "a-btn-link a-js-toggleRights a-hiddenWhenDeleted a-hiddenWhenDisabled",
+                          "link-url": false,
+                          "tab-index": "-1",
+                          "button-shadow-label": false,
+                          "button-icon": {
+                            "icon-prefix": "ai",
+                            "icon-class": "ai-sign",
+                            "icon-extra-class": "a-clickable a-iconStrikeThrough a-redIcon"
+                          }
                         }
                       },
                       {
@@ -253,19 +360,34 @@
                     "onclick": false,
                     "column-items": [
                       {
-                        "column-icon": {
-                          "icon-prefix": "ai",
-                          "icon-class": "ai-circle-minus a-clickable",
-                          "icon-extra-class": "a-danger a-hiddenWhenDeleted a-hiddenWhenDisabled a-displayInlineBlock a-js-toggleRightsDelete",
-                          "icon-title": "Slett"
+                        "column-button": {
+                          "button-text": false,
+                          "title": "Slett rolle",
+                          "aria-label": "Slett rolle",
+                          "button-class": "a-btn-link a-js-toggleRightsDelete a-hiddenWhenDeleted a-hiddenWhenDisabled a-displayInlineBlock",
+                          "link-url": false,
+                          "button-shadow-label": false,
+                          "button-icon": {
+                            "icon-prefix": "ai",
+                            "icon-class": "ai-circle-minus",
+                            "icon-extra-class": "a-danger"
+                          }
                         }
                       },
                       {
-                        "column-icon": {
-                          "icon-prefix": "ai",
-                          "icon-class": "ai-undo a-clickable",
-                          "icon-extra-class": "a-danger a-visibleWhenDeleted  a-displayInlineBlock a-js-toggleRightsDelete",
-                          "icon-title": "Angre sletting"
+                        "column-button": {
+                          "button-text": false,
+                          "title": "Angre slett rolle",
+                          "aria-label": "Angre slett rolle",
+                          "button-class": "a-btn-link a-js-toggleRightsDelete a-visibleWhenDeleted  a-displayInlineBlock",
+                          "tab-index": "-1",
+                          "link-url": false,
+                          "button-shadow-label": false,
+                          "button-icon": {
+                            "icon-prefix": "ai",
+                            "icon-class": "ai-undo",
+                            "icon-extra-class": "a-danger"
+                          }
                         }
                       },
                       {
@@ -302,19 +424,31 @@
                     "onclick": false,
                     "column-items": [
                       {
-                        "column-icon": {
-                          "icon-prefix": "ai",
-                          "icon-class": "ai-read",
-                          "icon-extra-class": "a-hiddenWhenDeleted a-hiddenWhenDisabled",
-                          "icon-title": "Les"
+                        "column-button": {
+                          "button-text": false,
+                          "title": "Les",
+                          "button-class": "a-btn-link a-hiddenWhenDeleted a-hiddenWhenDisabled",
+                          "link-url": false,
+                          "button-shadow-label": false,
+                          "button-icon": {
+                            "icon-prefix": "ai",
+                            "icon-class": "ai-read",
+                            "icon-extra-class": ""
+                          }
                         }
                       },
                       {
-                        "column-icon": {
-                          "icon-prefix": "ai",
-                          "icon-class": "ai-write",
-                          "icon-extra-class": "a-hiddenWhenDeleted a-hiddenWhenDisabled a-js-toggleRights",
-                          "icon-title": "Skriv"
+                        "column-button": {
+                          "button-text": false,
+                          "title": "Skriv",
+                          "button-class": "a-btn-link a-js-toggleRights a-hiddenWhenDeleted a-hiddenWhenDisabled",
+                          "link-url": false,
+                          "button-shadow-label": false,
+                          "button-icon": {
+                            "icon-prefix": "ai",
+                            "icon-class": "ai-write",
+                            "icon-extra-class": "a-clickable"
+                          }
                         }
                       },
                       {
@@ -343,19 +477,34 @@
                     "onclick": false,
                     "column-items": [
                       {
-                        "column-icon": {
-                          "icon-prefix": "ai",
-                          "icon-class": "ai-circle-minus a-clickable",
-                          "icon-extra-class": "a-danger a-hiddenWhenDeleted a-hiddenWhenDisabled a-displayInlineBlock a-js-toggleRightsDelete",
-                          "icon-title": "Slett"
+                        "column-button": {
+                          "button-text": false,
+                          "title": "Slett rolle",
+                          "aria-label": "Slett rolle",
+                          "button-class": "a-btn-link a-js-toggleRightsDelete a-hiddenWhenDeleted a-hiddenWhenDisabled a-displayInlineBlock",
+                          "link-url": false,
+                          "button-shadow-label": false,
+                          "button-icon": {
+                            "icon-prefix": "ai",
+                            "icon-class": "ai-circle-minus",
+                            "icon-extra-class": "a-danger"
+                          }
                         }
                       },
                       {
-                        "column-icon": {
-                          "icon-prefix": "ai",
-                          "icon-class": "ai-undo a-clickable",
-                          "icon-extra-class": "a-danger a-visibleWhenDeleted  a-displayInlineBlock a-js-toggleRightsDelete",
-                          "icon-title": "Angre sletting"
+                        "column-button": {
+                          "button-text": false,
+                          "title": "Angre slett rolle",
+                          "aria-label": "Angre slett rolle",
+                          "button-class": "a-btn-link a-js-toggleRightsDelete a-visibleWhenDeleted  a-displayInlineBlock",
+                          "tab-index": "-1",
+                          "link-url": false,
+                          "button-shadow-label": false,
+                          "button-icon": {
+                            "icon-prefix": "ai",
+                            "icon-class": "ai-undo",
+                            "icon-extra-class": "a-danger"
+                          }
                         }
                       },
                       {
@@ -392,27 +541,48 @@
                     "onclick": false,
                     "column-items": [
                       {
-                        "column-icon": {
-                          "icon-prefix": "ai",
-                          "icon-class": "ai-read",
-                          "icon-extra-class": "a-hiddenWhenDeleted a-hiddenWhenDisabled",
-                          "icon-title": "Les"
+                        "column-button": {
+                          "button-text": false,
+                          "title": "Les",
+                          "button-class": "a-btn-link a-hiddenWhenDeleted a-hiddenWhenDisabled",
+                          "link-url": false,
+                          "tab-index": "-1",
+                          "button-shadow-label": false,
+                          "button-icon": {
+                            "icon-prefix": "ai",
+                            "icon-class": "ai-read",
+                            "icon-extra-class": ""
+                          }
                         }
                       },
                       {
-                        "column-icon": {
-                          "icon-prefix": "ai",
-                          "icon-class": "ai-write",
-                          "icon-extra-class": "a-hiddenWhenDeleted a-hiddenWhenDisabled a-clickable a-js-toggleRights",
-                          "icon-title": "Skriv"
+                        "column-button": {
+                          "button-text": false,
+                          "title": "Skriv",
+                          "button-class": "a-btn-link a-js-toggleRights a-hiddenWhenDeleted a-hiddenWhenDisabled",
+                          "link-url": false,
+                          "tab-index": "-1",
+                          "button-shadow-label": false,
+                          "button-icon": {
+                            "icon-prefix": "ai",
+                            "icon-class": "ai-write",
+                            "icon-extra-class": "a-clickable"
+                          }
                         }
                       },
                       {
-                        "column-icon": {
-                          "icon-prefix": "ai",
-                          "icon-class": "ai-sign",
-                          "icon-extra-class": "a-hiddenWhenDeleted a-hiddenWhenDisabled a-clickable a-js-toggleRights",
-                          "icon-title": "Signer"
+                        "column-button": {
+                          "button-text": false,
+                          "title": "Signer",
+                          "button-class": "a-btn-link a-js-toggleRights a-hiddenWhenDeleted a-hiddenWhenDisabled",
+                          "link-url": false,
+                          "tab-index": "-1",
+                          "button-shadow-label": false,
+                          "button-icon": {
+                            "icon-prefix": "ai",
+                            "icon-class": "ai-sign",
+                            "icon-extra-class": "a-clickable"
+                          }
                         }
                       },
                       {
@@ -434,19 +604,35 @@
                     "onclick": false,
                     "column-items": [
                       {
-                        "column-icon": {
-                          "icon-prefix": "ai",
-                          "icon-class": "ai-circle-minus a-clickable",
-                          "icon-extra-class": "a-danger a-hiddenWhenDeleted a-hiddenWhenDisabled a-displayInlineBlock a-js-toggleRightsDelete",
-                          "icon-title": "Slett"
+                        "column-button": {
+                          "button-text": false,
+                          "title": "Slett rolle",
+                          "aria-label": "Slett rolle",
+                          "button-class": "a-btn-link a-js-toggleRightsDelete a-hiddenWhenDeleted a-hiddenWhenDisabled a-displayInlineBlock",
+                          "link-url": false,
+                          "tab-index": "-1",
+                          "button-shadow-label": false,
+                          "button-icon": {
+                            "icon-prefix": "ai",
+                            "icon-class": "ai-circle-minus",
+                            "icon-extra-class": "a-danger"
+                          }
                         }
                       },
                       {
-                        "column-icon": {
-                          "icon-prefix": "ai",
-                          "icon-class": "ai-undo a-clickable",
-                          "icon-extra-class": "a-danger a-visibleWhenDeleted  a-displayInlineBlock a-js-toggleRightsDelete",
-                          "icon-title": "Angre sletting"
+                        "column-button": {
+                          "button-text": false,
+                          "title": "Angre slett rolle",
+                          "aria-label": "Angre slett rolle",
+                          "button-class": "a-btn-link a-js-toggleRightsDelete a-visibleWhenDeleted a-displayInlineBlock",
+                          "tab-index": "-1",
+                          "link-url": false,
+                          "button-shadow-label": false,
+                          "button-icon": {
+                            "icon-prefix": "ai",
+                            "icon-class": "ai-undo",
+                            "icon-extra-class": "a-danger"
+                          }
                         }
                       },
                       {
@@ -483,27 +669,45 @@
                     "onclick": false,
                     "column-items": [
                       {
-                        "column-icon": {
-                          "icon-prefix": "ai",
-                          "icon-class": "ai-read",
-                          "icon-extra-class": "a-hiddenWhenDeleted a-hiddenWhenDisabled",
-                          "icon-title": "Les"
+                        "column-button": {
+                          "button-text": false,
+                          "title": "Les",
+                          "button-class": "a-btn-link a-hiddenWhenDeleted a-hiddenWhenDisabled",
+                          "link-url": false,
+                          "button-shadow-label": false,
+                          "button-icon": {
+                            "icon-prefix": "ai",
+                            "icon-class": "ai-read",
+                            "icon-extra-class": ""
+                          }
                         }
                       },
                       {
-                        "column-icon": {
-                          "icon-prefix": "ai",
-                          "icon-class": "ai-write",
-                          "icon-extra-class": "a-hiddenWhenDeleted a-hiddenWhenDisabled a-clickable a-js-toggleRights",
-                          "icon-title": "Skriv"
+                        "column-button": {
+                          "button-text": false,
+                          "title": "Skriv",
+                          "button-class": "a-btn-link a-js-toggleRights a-hiddenWhenDeleted a-hiddenWhenDisabled",
+                          "link-url": false,
+                          "button-shadow-label": false,
+                          "button-icon": {
+                            "icon-prefix": "ai",
+                            "icon-class": "ai-write",
+                            "icon-extra-class": "a-clickable"
+                          }
                         }
                       },
                       {
-                        "column-icon": {
-                          "icon-prefix": "ai",
-                          "icon-class": "ai-sign",
-                          "icon-extra-class": "a-hiddenWhenDeleted a-hiddenWhenDisabled a-clickable a-js-toggleRights a-iconStrikeThrough a-disabledIcon",
-                          "icon-title": "Signer"
+                        "column-button": {
+                          "button-text": false,
+                          "title": "Signer",
+                          "button-class": "a-btn-link a-js-toggleRights a-hiddenWhenDeleted a-hiddenWhenDisabled",
+                          "link-url": false,
+                          "button-shadow-label": false,
+                          "button-icon": {
+                            "icon-prefix": "ai",
+                            "icon-class": "ai-sign",
+                            "icon-extra-class": "a-clickable"
+                          }
                         }
                       },
                       {
@@ -525,19 +729,34 @@
                     "onclick": false,
                     "column-items": [
                       {
-                        "column-icon": {
-                          "icon-prefix": "ai",
-                          "icon-class": "ai-circle-minus a-clickable",
-                          "icon-extra-class": "a-danger a-hiddenWhenDeleted a-hiddenWhenDisabled a-displayInlineBlock a-js-toggleRightsDelete",
-                          "icon-title": "Slett"
+                        "column-button": {
+                          "button-text": false,
+                          "title": "Slett rolle",
+                          "aria-label": "Slett rolle",
+                          "button-class": "a-btn-link a-js-toggleRightsDelete a-hiddenWhenDeleted a-hiddenWhenDisabled a-displayInlineBlock",
+                          "link-url": false,
+                          "button-shadow-label": false,
+                          "button-icon": {
+                            "icon-prefix": "ai",
+                            "icon-class": "ai-circle-minus",
+                            "icon-extra-class": "a-danger"
+                          }
                         }
                       },
                       {
-                        "column-icon": {
-                          "icon-prefix": "ai",
-                          "icon-class": "ai-undo a-clickable",
-                          "icon-extra-class": "a-danger a-visibleWhenDeleted  a-displayInlineBlock a-js-toggleRightsDelete",
-                          "icon-title": "Angre sletting"
+                        "column-button": {
+                          "button-text": false,
+                          "title": "Angre slett rolle",
+                          "aria-label": "Angre slett rolle",
+                          "button-class": "a-btn-link a-js-toggleRightsDelete a-visibleWhenDeleted  a-displayInlineBlock",
+                          "tab-index": "-1",
+                          "link-url": false,
+                          "button-shadow-label": false,
+                          "button-icon": {
+                            "icon-prefix": "ai",
+                            "icon-class": "ai-undo",
+                            "icon-extra-class": "a-danger"
+                          }
                         }
                       },
                       {
