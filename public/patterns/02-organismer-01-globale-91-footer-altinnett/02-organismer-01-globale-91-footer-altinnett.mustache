@@ -1,64 +1,47 @@
 <!-- START: 02-organismer-01-globale-91-footer-altinnett -->
-<div class="container a-containerFooter">
-  <!-- Begin Footer -->
-  <footer class="a-footer {{styleModifier}}">
-    <div class="row a-footer-firstRow">
-      <div class="col-md-4 d-none d-md-block">
-        {{# footer-search }} {{> atomer-tekst-input }} {{/ footer-search }}
-
-      </div>
-      <div class="col-md-8">
-        <nav class="a-footerNav">
-          <ul>
-            <li>
-              <a class="a-hvr-underline" href="{{ urlMenuItem1 }}">
-                {{# footerMenuItem1Ikon }}
-                  {{> atomer-ikon }}
-                {{/ footerMenuItem1Ikon }}
-                {{{ menuItem1 }}}
-              </a>
-            </li>
-
-            <li>
-              <a class="a-hvr-underline" href="#">
-                {{# footerMenuItem2Ikon }}
-                  {{> atomer-ikon }}
-                {{/ footerMenuItem2Ikon }}
-                {{{ menuItem2 }}}
-              </a>
-            </li>
-          </ul>
-
-        </nav>
-
-      </div>
-
-    </div>
-
+<!-- Begin Footer -->
+<footer class="an-footer a-bgBlueDarker {{styleModifier}}">
+  <div class="container">
     <div class="row">
-      <div class="col-lg-12">
-
-        <nav class="a-footerExtraNav">
-          {{{ addressPart1 }}}{{{ addressSeparator }}}
-          <span class="a-footerExtraNav-name">{{{ addressPart2 }}}</span>
-          <div class="a-footerExtraNav-toTop d-md-none">
-            <a href="#top" class="a-linkArea a-btn ">
-						    Til toppen
-						</a>
-          </div>
-          <ul>
-            <li><a class="d-none d-md-inline" href="#">{{{ menuItem3 }}}</a></li>
-            <li><a class="" href="#">{{{ menuItem4 }}}</a></li>
-            <li><a class="" href="#">{{{ menuItem5 }}}</a></li>
+      <div class="col-md-6 col-lg-3 an-footer-contactColumn">
+        <div class="an-footer-contactInfo">
+          <h1 class="an-footer-heading">{{footerHeading}}</h1>
+          <ul class="an-footer-contactLinks">
+            {{# contactLinks }}
+            <li>
+              <a href="#">
+                                    {{# icon }}
+                                        {{> atomer-ikon }}
+                                    {{/ icon }}
+                                    <span>{{ text }}</span>
+                                </a>
+            </li>
+            {{/ contactLinks}}
           </ul>
-        </nav>
+        </div>
       </div>
-
+      <div class="col-md-6 col-lg-9 an-footer-navigationColumn">
+        <div class="an-footer-search">
+          {{# footer-search }} {{> atomer-tekst-input }} {{/ footer-search }}
+        </div>
+        <ul class="an-footer-infoLinks">
+          {{# infoLinks }}
+          <li><a class="" href="#">{{ text }}</a></li>
+          {{/ infoLinks }}
+        </ul>
+        <div class="an-footer-supplementaryInfo">
+          <ul class="an-footer-smallLinks">
+            {{# smallLinks }}
+            <li><a class="" href="#">{{ text }}</a></li>
+            {{/smallLinks}}
+          </ul>
+          <span class="an-footer-address">{{ address }}</span>
+        </div>
+      </div>
     </div>
 
-  </footer>
-  <!-- End Footer -->
-</div>
-<!-- END Container -->
-
+  </div>
+  <!-- End Container -->
+</footer>
+<!-- End Footer -->
 <!-- END: 02-organismer-01-globale-91-footer-altinnett -->
