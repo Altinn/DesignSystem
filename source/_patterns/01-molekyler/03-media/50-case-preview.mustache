@@ -1,0 +1,66 @@
+<div class="row {{ class }}">
+  {{# singleCase }}
+  <div class="col-sm-12 col-lg-8 offset-lg-2 a-text pt-2 pt-lg-3 mb-4">
+    {{> atomer-undertittel }}
+    {{> atomer-avsnitt }}
+    {{# linkText }}
+      {{> atomer-link }}
+    {{/ linkText }}
+  </div>
+    <div class="an-casePreview row col-12 mb-6 mx-auto">
+      <div class="col-10 col-sm-9 col-md-6 mb-3">
+        <p class="a-h3 mb-0">{{{ title }}}</p>
+        <p class="a-h3 a-fontReg mb-1">{{{ description }}}</p>
+      </div>
+      <figure class="col-md-6 col-lg-6 col-xl-6 order-xs-first order-md-first">
+        <img src="{{ img-src }}" alt="{{ img-alt-text }}" class=""/>
+      </figure>
+    </div>
+  {{/ singleCase }}
+  {{# dualCase }}
+    <div class="col-sm-12 col-lg-8 offset-lg-2 a-text pt-2 pt-lg-3 mb-4 mb-md-1">
+      {{> atomer-undertittel }}
+      {{> atomer-avsnitt }}
+      {{# linkText }}
+        {{> atomer-link }}
+      {{/ linkText }}
+    </div>
+    <div class="an-casePreview row col-12 col-lg-11 mb-6 mx-auto">
+      <div class="row col-12 col-md-6">
+        <figure class="row col-5 col-md-6 mb-1 mb-sm-3 px-2 px-sm-1 px-md-1 mr-1 align-self-center">
+          <img src="{{ img-src }}" alt="{{ img-alt-text }}" class="w-100"/>
+        </figure>
+        <div class="col-7 col-sm-6 mb-3 pt-1">
+          <p class="a-h3 a-fontReg mb-1 pt-2">{{{ description1 }}}</p>
+          {{# smallText2}}
+            <p class="a-fontSizeXXS">{{ smallText1 }}</p>
+          {{/ smallText2}}
+        </div>
+
+      </div>
+      <div class="row col-12 col-md-6">
+        <figure class="row col-5 col-md-6 mb-1 mb-sm-3 px-2 px-sm-1 px-md-1 mr-1 align-self-center">
+          <img src="{{ img-src }}" alt="{{ img-alt-text }}" class="w-100"/>
+        </figure>
+        <div class="col-7 col-sm-6 mb-3  pt-1">
+          <p class="a-h3 a-fontReg mb-1 pt-2">{{{ description2 }}}</p>
+          {{# smallText2}}
+            <p class="a-fontSizeXXS">{{ smallText2 }}</p>
+          {{/ smallText2}}
+        </div>
+      </div>
+    </div>
+  {{/ dualCase }}
+  {{# calculateCase }}
+    <div class="col-sm-12 col-lg-8 offset-lg-2 a-text pt-2 pt-lg-3 mb-5">
+      {{> atomer-undertittel }}
+      {{> atomer-avsnitt }}
+      {{# linkText }}
+        {{> atomer-link }}
+      {{/ linkText }}
+    </div>
+    <div class="col-12 mb-5">
+      {{> molekyler-regnestykke }}
+    </div>
+  {{/ calculateCase }}
+</div>
