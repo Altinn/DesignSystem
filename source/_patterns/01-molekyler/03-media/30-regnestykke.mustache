@@ -1,6 +1,31 @@
 <div class="{{ col }} {{ extraClass }}">
     <div class="container pb-3 pt-4 col-10">
-        <h3 class="">{{ header-text }}</h3>
-        {{> atomer-tabell-regnestykke}}
+        {{^ h3 }}
+        <h2 class="a-h3 a-fontSizeS col-10 col-sm-12 offset-1 offset-sm-0 pl-sm-0 mb-2 mb-sm-0">{{ header-text }}</h3>
+        {{/ h3 }}
+        {{# h3 }}
+        <h3 class="a-h3 a-fontSizeS col-10 col-sm-12 offset-1 offset-sm-0 pl-sm-0 mb-2 mb-sm-0">{{ header-text }}</h3>
+        {{/ h3 }}
+        <div class="table-responsive">
+          {{# table-calculation }}
+            <table class="table a-table an-regnestykke">
+                <tbody>
+                    {{# table-tbody-items }}
+                    <tr class="an-regnestykke__row">
+                        {{{ table-tbody-text }}}
+                    </tr>
+                    {{/ table-tbody-items }}
+                </tbody>
+                <tfoot>
+                  {{# table-tfooter-items }}
+                <tr>
+                  {{{ table-tfooter-text }}}
+                </tr>
+                {{/ table-tfooter-items }}
+              </tfoot>
+            </table>
+          {{/ table-calculation }}
+        </div>
+
     </div>
 </div>
