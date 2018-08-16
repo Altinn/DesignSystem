@@ -87,7 +87,7 @@
                 }
               ]
             },
-            "form-control-class": "a-js-autocomplete",
+            "form-control-class": "a-js-autocomplete-multiplecolumns",
             "autocomplete": true
           },
           "local-role-search-header": false,
@@ -134,16 +134,82 @@
                     "searchable": false,
                     "column-items": [
                       {
-                        "column-button": {
-                          "button-text": false,
-                          "title": "Hjelp",
-                          "button-class": "a-btn-link",
-                          "link-url": false,
-                          "button-shadow-label": false,
-                          "button-icon": {
-                            "icon-prefix": "ai",
-                            "icon-class": "ai-help-popicon",
-                            "icon-extra-class": "a-clickable"
+                        "column-popover": {
+                          "popover-link-text": "Klikk for å se ikon forklaring.",
+                          "popover-link-text-class": "sr-only",
+                          "open-popover-class": "a-helpIconButton a-js-persistPopover a-js-popoverBig a-js-togglePopoverIcons",
+                          "popover-title": "Ikon forklaring:",
+                          "popover-class": "popover",
+                          "popover-content": false,
+                          "popover-content-id": "ikonForklaringContent",
+                          "popover-list-class": "mt-1",
+                          "popover-link-icon": [
+                            {
+                              "icon-prefix": "ai",
+                              "icon-class": "ai-help-popicon",
+                              "icon-extra-class": "",
+                              "stacked-background": {
+                                "stacked-container-class": "a-js-popoverIconInitial ai-sm",
+                                "icon-prefix": "ai",
+                                "icon-class": "ai-help-popicon",
+                                "icon-extra-class": ""
+                              }
+                            },
+                            {
+                              "icon-prefix": "ai",
+                              "icon-class": "ai-circle-exit",
+                              "icon-extra-class": "",
+                              "stacked-background": {
+                                "stacked-container-class": "a-js-popoverIconExpanded ai-sm",
+                                "icon-prefix": "ai",
+                                "icon-class": "ai-circle-exit",
+                                "icon-extra-class": ""
+                              }
+                            }
+                          ],
+                          "popover-list-with-icon-content": {
+                            "icon-list-items": [
+                              {
+                                "disable-link": true,
+                                "list-item-name": "Les",
+                                "list-item-name-class": "pl-1",
+                                "listItemDescription": "",
+                                "icon-prefix": "ai",
+                                "icon-class": "ai-read ai-sm ai-nw"
+                              },
+                              {
+                                "disable-link": true,
+                                "list-item-name": "Skriv",
+                                "list-item-name-class": "pl-1",
+                                "listItemDescription": "",
+                                "icon-prefix": "ai",
+                                "icon-class": "ai-write ai-sm ai-nw"
+                              },
+                              {
+                                "disable-link": true,
+                                "list-item-name": "Signer",
+                                "list-item-name-class": "pl-1",
+                                "listItemDescription": "",
+                                "icon-prefix": "ai",
+                                "icon-class": "ai-sign ai-sm ai-nw"
+                              },
+                              {
+                                "disable-link": true,
+                                "list-item-name": "Deaktivert",
+                                "listItemDescription": "Blir ikke delegert",
+                                "icon-prefix": "ai",
+                                "icon-class": "ai-sign ai-sm ai-nw",
+                                "icon-extra-class": "a-iconStrikeThrough a-disabledIcon"
+                              },
+                              {
+                                "disable-link": true,
+                                "list-item-name": "Kan ikke delegeres",
+                                "listItemDescription": "",
+                                "icon-prefix": "ai",
+                                "icon-class": "ai-sign ai-sm ai-nw",
+                                "icon-extra-class": "a-iconStrikeThrough a-disabledIcon a-redIcon"
+                              }
+                            ]
                           }
                         }
                       }
@@ -268,6 +334,7 @@
                         "column-icon": {
                           "icon-prefix": "ai",
                           "icon-class": "ai-fw",
+                          "tab-index": "-1",
                           "icon-extra-class": "a-visibleWhenDisabled  a-displayInlineBlock"
                         }
                       }
@@ -315,14 +382,13 @@
                         "column-button": {
                           "button-text": false,
                           "title": "Skriv",
-                          "button-class": "a-btn-link a-js-toggleRights a-hiddenWhenDeleted a-hiddenWhenDisabled",
+                          "button-class": "a-btn-link a-hiddenWhenDeleted a-hiddenWhenDisabled",
                           "link-url": false,
-                          "tab-index": "-1",
                           "button-shadow-label": false,
                           "button-icon": {
                             "icon-prefix": "ai",
                             "icon-class": "ai-write",
-                            "icon-extra-class": "a-clickable a-iconStrikeThrough a-redIcon"
+                            "icon-extra-class": "a-iconStrikeThrough a-redIcon"
                           }
                         }
                       },
@@ -330,9 +396,8 @@
                         "column-button": {
                           "button-text": false,
                           "title": "Signer",
-                          "button-class": "a-btn-link a-js-toggleRights a-hiddenWhenDeleted a-hiddenWhenDisabled",
+                          "button-class": "a-btn-link a-hiddenWhenDeleted a-hiddenWhenDisabled",
                           "link-url": false,
-                          "tab-index": "-1",
                           "button-shadow-label": false,
                           "button-icon": {
                             "icon-prefix": "ai",
@@ -394,6 +459,7 @@
                         "column-icon": {
                           "icon-prefix": "ai",
                           "icon-class": "ai-fw",
+                          "tab-index": "-1",
                           "icon-extra-class": "a-visibleWhenDisabled  a-displayInlineBlock"
                         }
                       }
@@ -455,6 +521,7 @@
                         "column-icon": {
                           "icon-prefix": "ai",
                           "icon-class": "ai-fw",
+                          "tab-index": "-1",
                           "icon-extra-class": "a-hiddenWhenDeleted a-hiddenWhenDisabled a-clickable a-js-toggleRights"
                         }
                       },
@@ -511,6 +578,7 @@
                         "column-icon": {
                           "icon-prefix": "ai",
                           "icon-class": "ai-fw",
+                          "tab-index": "-1",
                           "icon-extra-class": "a-visibleWhenDisabled  a-displayInlineBlock"
                         }
                       }
@@ -639,6 +707,7 @@
                         "column-icon": {
                           "icon-prefix": "ai",
                           "icon-class": "ai-fw",
+                          "tab-index": "-1",
                           "icon-extra-class": "a-visibleWhenDisabled  a-displayInlineBlock"
                         }
                       }
@@ -763,6 +832,7 @@
                         "column-icon": {
                           "icon-prefix": "ai",
                           "icon-class": "ai-fw",
+                          "tab-index": "-1",
                           "icon-extra-class": "a-visibleWhenDisabled  a-displayInlineBlock"
                         }
                       }

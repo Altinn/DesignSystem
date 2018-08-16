@@ -1,3 +1,5 @@
+/* eslint vars-on-top: 1 */
+
 // Hard-coded data, should be replaced with JSON
 var availableTags = [
   { label: 'ACC Security level 2 MAG, Accenture Test', service: 'ACC Security level 2 MAG', serviceOwner: 'Accenture Test' },
@@ -29,16 +31,16 @@ var searchWithMultipleSelectInAutoComplete = function() {
         // build  item in the list
         var innerHtmlForItem = '<div class="row">' +
           '<div class="col-sm-7 col-md-5 col-lg-6 pl-md-2 pl-lg-2 pr-2" data-searchable="true">' +
-            '<span class="a-js-sortValue a-list-longtext" title="Jan Derek Sørensen Julius Andreas Gimli Arn MacGyver Chewbacka Highlander ElessarJankov"6>' +
-            item.service + '</span>' +
+            '<span class="a-js-sortValue a-list-longtext" title="Jan Derek Sørensen Julius Andreas Gimli Arn MacGyver Chewbacka Highlander ElessarJankov">' + item.service + '</span>' +
           '</div>' +
           '<div class="d-none d-md-block col-md-3 col-lg-4 pl-md-2 pl-lg-1 pr-2" data-searchable="true">' +
             '<span class="a-js-sortValue a-list-longtext" title="Testetat for Accenture">' + item.serviceOwner + '</span>' +
           '</div>' +
           '<div class="text-right col-sm-5 col-md-4 col-lg-2 pl-md-2 pl-lg-1 pr-sm-0 pr-md-2">' +
-            '<button type="button" class="a-btn-link a-nounderline hidden-xs-down  " aria-label="Tilbake" onclick="#" tabindex="-1">' +
-              '<span class="a-btn-icon-text a-hiddenWhenSelected ">+Legg til</span>' +
-            '</button>' +
+
+              '<span class="a-fontBold a-btn-icon-text a-hiddenWhenSelected ">+Legg til</span>' +
+              '<span class="a-fontBold d-none d-sm-block a-visibleWhenSelected">Lagt til</span>' +
+
           '</div>' +
         '</div>';
 
@@ -48,7 +50,8 @@ var searchWithMultipleSelectInAutoComplete = function() {
         li.append(innerHtmlForItem);
         li.children().first().attr('role', 'button');
         li.attr('role', 'menu');
-        li.addClass('a-dotted');
+        li.addClass('a-dotted a-selectable');
+        li.attr('id', 'menu-item-' + index);
         /* var li = that._renderItemData(ul, item);
         console.log(li);
         li.attr('role', 'menu');
@@ -67,6 +70,30 @@ var searchWithMultipleSelectInAutoComplete = function() {
       if (iLength >= 3) {
         ul.append('<li class=\'a-js-autocomplete-header a-dotted a-info\'>' + moreThanMaxLabel + '</li>');
       }
+
+      // Lukkeknapp
+      /*
+      ul.append('<li class="a-js-autocomplete-header ml-2 a-no-border-bottom">' +
+                  '<div class="mt-1 mb-1 d-flex justify-content-center">' +
+                    '<button id="closeAutoCompleteMenu" class="a-btn pl-1 pr-1">Lukk</button>' +
+                  '</div>' +
+                '</li>');
+      */
+    },
+    oldClose: $.ui.autocomplete.prototype.close,
+    close: function(event) {
+      var bolClose;
+      if (event) {
+        bolClose = false;
+      } else {
+        bolClose = true;
+      }
+
+      if (bolClose) {
+        this.oldClose(event);
+      }
+
+      return false;
     }
   }));
 
@@ -76,7 +103,7 @@ var searchWithMultipleSelectInAutoComplete = function() {
     appendTo: '.a-autocomplete-container',
     minLength: 0,
     classes: {
-      'ui-autocomplete': 'a-list',
+      'ui-autocomplete': 'a-list a-multipleSelectInAutoComplete',
       'ui-menu-item': 'a-dotted'
     },
     open: function(event, ui) {
@@ -105,6 +132,25 @@ var searchWithMultipleSelectInAutoComplete = function() {
 
         ui.content.push(el);
       }
+    },
+
+    // Select configured to stop setting the default input and modify the menu
+    select: function(event, ui) {
+      // Find selected right and add classes to closest list-item
+      $('span:contains(' + ui.item.service + ')')
+        .closest('li')
+        .addClass('a-dotted a-disabled a-success a-selectable a-selected');
+
+      // Find menu and set focus to closest list-item of selected right
+      var menu = $('#ui-id-1');
+      $('#ui-id-1').menu('focus', null, menu.find('span:contains(' + ui.item.service + ')').closest('li'));
+
+      return false;
+    },
+
+    // Focus configured to stop input from updating input when keyboard is used
+    focus: function(event, ui) {
+      return false;
     }
   }).bind('click', function(e) { // TODO should also open on tab focus? issue 3766
     if ($(this).catcomplete('widget').is(':visible')) {

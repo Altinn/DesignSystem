@@ -1,7 +1,6 @@
 var toggleRoleRightsInit = function() {
   // When clicked on les, skrive or signer icon, toggle the disable on/off.
   $('.a-js-toggleRights').on('click', function() {
-    console.log('toggle', $(this).children(':first'));
     $(this).children(':first').toggleClass('a-iconStrikeThrough a-disabledIcon');
   });
 
