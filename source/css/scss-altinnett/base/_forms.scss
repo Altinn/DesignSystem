@@ -13,3 +13,49 @@
 .a-custom-select {
   width: 100%;
 }
+
+.a-form-group-darkBackground {
+  .form-control {
+    // sass-lint:disable-block no-important
+    color: $white !important;
+
+    &::placeholder {
+      // sass-lint:disable-block no-important
+      color: $blue-lighter !important;
+    }
+  }
+
+  .ai {
+    color: $blue-lighter;
+  }
+
+  .input-group {
+    &.a-input-focus,
+    &:focus,
+    &:hover {
+      .form-control {
+        background-color: transparent;
+        border-color: $blue;
+
+        &::placeholder {
+          // sass-lint:disable-block no-important
+          color: transparent !important;
+        }
+      }
+
+      .input-group-append {
+        background-color: transparent;
+        border-color: $blue;
+      }
+    }
+  }
+
+  .input-group-append {
+    .btn {
+      &:focus,
+      &:hover {
+        background-color: transparent;
+      }
+    }
+  }
+}

@@ -72,17 +72,30 @@
   }
 
   .an-presentationBlock-caption {
-    padding-top: $spacer * 2;
+    @include media-breakpoint-up( md ) {
+      padding-top: $spacer * 2;
+    }
+  }
+
+  .an-presentationBlock-largeDetails {
+    p,
+    li {
+      @include a-fontSize18;
+
+      @include media-breakpoint-up( md ) {
+        @include a-fontSize20;
+      }
+      @include media-breakpoint-up( lg) {
+        @include a-fontSize24;
+      }
+    }
   }
 }
 
 .an-abbreviation {
   position: absolute;
-  top: 50%;
-  left: 50%;
-  color: $white;
-  text-align: center;
-  transform: translate(-50%, -50%);
+  top: 0;
+  left: 0;
 }
 
 .an-centeredBackground {
