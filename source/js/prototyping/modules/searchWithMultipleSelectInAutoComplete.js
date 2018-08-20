@@ -89,6 +89,7 @@ var searchWithMultipleSelectInAutoComplete = function() {
         bolClose = true;
       }
 
+      // Actuall close
       if (bolClose) {
         this.oldClose(event);
       }
@@ -136,14 +137,25 @@ var searchWithMultipleSelectInAutoComplete = function() {
 
     // Select configured to stop setting the default input and modify the menu
     select: function(event, ui) {
+      // Find menu element
+      var autocompleteMenu = $('#ui-id-1');
+
       // Find selected right and add classes to closest list-item
-      $('span:contains(' + ui.item.service + ')')
+      autocompleteMenu.find('span:contains(' + ui.item.service + ')')
         .closest('li')
         .addClass('a-dotted a-disabled a-success a-selectable a-selected');
 
       // Find menu and set focus to closest list-item of selected right
-      var menu = $('#ui-id-1');
-      $('#ui-id-1').menu('focus', null, menu.find('span:contains(' + ui.item.service + ')').closest('li'));
+      autocompleteMenu.menu('focus', null, autocompleteMenu.find('span:contains(' + ui.item.service + ')').closest('li'));
+
+      // Add the clicked rights to list, only if if not already in list
+      if ($('.a-list-container').find('span:contains(' + ui.item.service + ')').length === 0) {
+        console.log('is true', $('.a-list-container').find('span:contains(' + ui.item.service + ')').length);
+        var firstListItem = $('#firstRow').clone();
+        firstListItem.attr('id', 'last');
+        firstListItem.find('span').first().replaceWith('<span>' + ui.item.service + '</span>');
+        $('.a-list-container > ul').append(firstListItem);
+      }
 
       return false;
     },
