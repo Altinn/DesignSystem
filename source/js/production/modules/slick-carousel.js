@@ -7,10 +7,10 @@ var setupSlickCarousel = function() {
       $('.slick-prev').css('display', 'none');
       $('.slick-arrow').click(function() {
         $('.slick-prev').removeAttr('style');
-        if ($('.slick-current').attr('data-slick-index') === 0) {
+        if (Number($('.slick-current').attr('data-slick-index')) === 0) {
           $('.slick-prev').css('display', 'none');
         }
-        if ($('.slick-slide').length - 1 === $('.slick-current').attr('data-slick-index')) {
+        if ($('.slick-slide').length - 1 === Number($('.slick-current').attr('data-slick-index'))) {
           $('.slick-next').css('display', 'none');
         } else {
           $('.slick-next').removeAttr('style');
