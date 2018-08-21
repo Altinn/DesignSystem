@@ -12,6 +12,7 @@
   subscribe
   togglePanel
   questionnaireInteraction
+  setupSlickCarousel
 */
 window.altinnettInit = function() {
   AltinnModal.init();
@@ -27,6 +28,7 @@ window.altinnettInit = function() {
   subscribe();
   togglePanel();
   questionnaireInteraction();
+  setupSlickCarousel();
 };
 
 window.altinnettInit();

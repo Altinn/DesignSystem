@@ -252,3 +252,122 @@
     margin: 0;
   }
 }
+
+.slick-track {
+  display: flex;
+}
+
+.an-slideshow {
+  position: relative;
+  width: 100%;
+  max-width: 1000px;
+  margin: 0 auto;
+
+  &__list {
+    margin: 0;
+  }
+
+  &__container {
+    min-height: 300px;
+    overflow: hidden;
+
+    @include media-breakpoint-up( md ) {
+      min-height: initial;
+      background-color: $grey-lighter;
+    }
+  }
+
+  &__item {
+    position: relative;
+    display: inline-block;
+    width: 100%;
+    min-height: 100px;
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    outline: none;
+  }
+
+  &__text-container {
+    display: inline-block;
+    padding: 20px 40px;
+
+    @include media-breakpoint-up( md ) {
+      position: absolute;
+      top: 3%;
+      right: 0;
+      left: auto;
+      width: 40%;
+      padding-right: 40px;
+    }
+  }
+
+  &__text-container-below {
+    min-height: 100px;
+    @include media-breakpoint-up( md ) {
+      display: none;
+    }
+  }
+
+  &__text-container-inner {
+    display: block;
+    margin: 0 auto;
+
+    @include media-breakpoint-up( md ) {
+      display: none;
+    }
+  }
+
+  &__text {
+    display: none;
+
+    &.active {
+      display: inline-block;
+    }
+  }
+
+  & .slick-arrow {
+    position: absolute;
+    bottom: 38%;
+    z-index: 3;
+    width: 27px;
+    height: 27px;
+    text-indent: -9000px;
+    text-transform: capitalize;
+    background-color: $blue;
+    background-repeat: no-repeat;
+    background-size: 18px;
+    border: none;
+    border-radius: 50px;
+    transition: 0.1s ease-in-out;
+
+    @include media-breakpoint-up( md ) {
+      bottom: calc(50% - 40px);
+      width: 40px;
+      height: 40px;
+      background-size: 25px;
+    }
+  }
+
+  & .slick-prev {
+    background-image: url($images-base-url + 'slick-arrow.svg');
+    background-position: 44% 45%;
+    transform: rotate(-180deg);
+
+    &:hover {
+      cursor: pointer;
+      background-position: 60% 45%;
+    }
+  }
+
+  & .slick-next {
+    right: 0;
+    background-image: url($images-base-url + 'slick-arrow.svg');
+    background-position: 44% 50%;
+
+    &:hover {
+      cursor: pointer;
+      background-position: 60% 50%;
+    }
+  }
+}
