@@ -1102,6 +1102,29 @@ var initializeDatepicker = function() {
   }
 };
 
+var setupSlickCarousel = function() {
+  if ($('.an-slideshow').length) {
+    $(document).ready(function() {
+      $('.an-slideshow__list').slick({
+        infinite: false
+      });
+      $('.slick-prev').css('display', 'none');
+      $('.slick-arrow').click(function() {
+        $('.slick-prev').removeAttr('style');
+        if (Number($('.slick-current').attr('data-slick-index')) === 0) {
+          $('.slick-prev').css('display', 'none');
+        }
+        if ($('.slick-slide').length - 1 === Number($('.slick-current').attr('data-slick-index'))) {
+          $('.slick-next').css('display', 'none');
+        } else {
+          $('.slick-next').removeAttr('style');
+        }
+      }
+    );
+    });
+  }
+};
+
 /* globals
   fixPatternLinks,
   initSearchWithHighlight,
@@ -1118,6 +1141,7 @@ var initializeDatepicker = function() {
   setupTruncateLines,
   subscribe,
   questionnaireInteraction,
+  setupSlickCarousel,
 */
 window.altinnettInit = function() {
   // Only for prototyping
@@ -1138,6 +1162,7 @@ window.altinnettInit = function() {
   setupTruncateLines();
   subscribe();
   questionnaireInteraction();
+  setupSlickCarousel();
 };
 
 window.altinnettInit();

@@ -19,7 +19,7 @@ html {
   -webkit-text-size-adjust: 100%;
   -ms-text-size-adjust: 100%;
   -ms-overflow-style: scrollbar;
-  -webkit-tap-highlight-color: transparent; }
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0); }
 
 @-ms-viewport {
   width: device-width; }
@@ -7890,10 +7890,8 @@ a.text-dark:hover, a.text-dark:focus {
 
 /*-- THIRD PARTY --*/
 /*!
- * Datepicker for Bootstrap v1.6.4 (https://github.com/eternicode/bootstrap-datepicker)
+ * Datepicker for Bootstrap v1.8.0 (https://github.com/uxsolutions/bootstrap-datepicker)
  *
- * Copyright 2012 Stefan Petre
- * Improvements by Andrew Rowls
  * Licensed under the Apache License v2.0 (http://www.apache.org/licenses/LICENSE-2.0)
  */
 .datepicker {
@@ -7903,10 +7901,13 @@ a.text-dark:hover, a.text-dark:focus {
 .datepicker-inline {
   width: 220px; }
 
-.datepicker.datepicker-rtl {
+.datepicker-rtl {
   direction: rtl; }
 
-.datepicker.datepicker-rtl table tr td span {
+.datepicker-rtl.dropdown-menu {
+  left: auto; }
+
+.datepicker-rtl table tr td span {
   float: right; }
 
 .datepicker-dropdown {
@@ -8290,6 +8291,9 @@ a.text-dark:hover, a.text-dark:focus {
 .datepicker .datepicker-switch:hover, .datepicker.datepicker-dropdown .datepicker-switch:hover, .datepicker .next:hover, .datepicker .prev:hover, .datepicker tfoot tr th:hover {
   background: #eee; }
 
+.datepicker .next.disabled, .datepicker .prev.disabled {
+  visibility: hidden; }
+
 .datepicker .cw {
   font-size: 10px;
   width: 12px;
@@ -8316,12 +8320,10 @@ a.text-dark:hover, a.text-dark:focus {
   min-width: 16px;
   padding: 4px 5px;
   line-height: 1.42857143;
-  text-shadow: 0 1px 0 #fff;
   border-width: 1px 0;
   margin-left: -5px;
   margin-right: -5px; }
 
-/*# sourceMappingURL=bootstrap-datepicker3.min.css.map */
 /*-- COMMON --*/
 /*------------------------------------*\
     $RESET
@@ -14505,6 +14507,97 @@ blockquote::before, blockquote::after {
     padding-right: 12px;
     padding-left: 12px;
     margin: 0; } }
+
+.slick-track {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex; }
+
+.an-slideshow {
+  position: relative;
+  width: 100%;
+  max-width: 1000px;
+  margin: 0 auto; }
+  .an-slideshow__list {
+    margin: 0; }
+  .an-slideshow__container {
+    min-height: 300px;
+    overflow: hidden; }
+    @media (min-width: 768px) {
+      .an-slideshow__container {
+        min-height: initial;
+        background-color: #F5F5F5; } }
+  .an-slideshow__item {
+    position: relative;
+    display: inline-block;
+    width: 100%;
+    min-height: 100px;
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    outline: none; }
+  .an-slideshow__text-container {
+    display: inline-block;
+    padding: 20px 40px; }
+    @media (min-width: 768px) {
+      .an-slideshow__text-container {
+        position: absolute;
+        top: 3%;
+        right: 0;
+        left: auto;
+        width: 40%;
+        padding-right: 40px; } }
+  .an-slideshow__text-container-below {
+    min-height: 100px; }
+    @media (min-width: 768px) {
+      .an-slideshow__text-container-below {
+        display: none; } }
+  .an-slideshow__text-container-inner {
+    display: block;
+    margin: 0 auto; }
+    @media (min-width: 768px) {
+      .an-slideshow__text-container-inner {
+        display: none; } }
+  .an-slideshow__text {
+    display: none; }
+    .an-slideshow__text.active {
+      display: inline-block; }
+  .an-slideshow .slick-arrow {
+    position: absolute;
+    bottom: 38%;
+    z-index: 3;
+    width: 27px;
+    height: 27px;
+    text-indent: -9000px;
+    text-transform: capitalize;
+    background-color: #1EAEF7;
+    background-repeat: no-repeat;
+    background-size: 18px;
+    border: none;
+    border-radius: 50px;
+    -webkit-transition: 0.1s ease-in-out;
+    transition: 0.1s ease-in-out; }
+    @media (min-width: 768px) {
+      .an-slideshow .slick-arrow {
+        bottom: calc(50% - 40px);
+        width: 40px;
+        height: 40px;
+        background-size: 25px; } }
+  .an-slideshow .slick-prev {
+    background-image: url("../images/slick-arrow.svg");
+    background-position: 44% 45%;
+    -webkit-transform: rotate(-180deg);
+    transform: rotate(-180deg); }
+    .an-slideshow .slick-prev:hover {
+      cursor: pointer;
+      background-position: 60% 45%; }
+  .an-slideshow .slick-next {
+    right: 0;
+    background-image: url("../images/slick-arrow.svg");
+    background-position: 44% 50%; }
+    .an-slideshow .slick-next:hover {
+      cursor: pointer;
+      background-position: 60% 50%; }
 
 @media (min-width: 992px) {
   .epi-wysiwyg .a-responsiveTable-container,
