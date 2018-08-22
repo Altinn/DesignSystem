@@ -14,6 +14,7 @@
   setupTruncateLines,
   subscribe,
   questionnaireInteraction,
+  setupSlickCarousel,
 */
 window.altinnettInit = function() {
   // Only for prototyping
@@ -34,6 +35,7 @@ window.altinnettInit = function() {
   setupTruncateLines();
   subscribe();
   questionnaireInteraction();
+  setupSlickCarousel();
 };
 
 window.altinnettInit();
