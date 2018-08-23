@@ -16,6 +16,7 @@
   questionnaireInteraction,
   setupFormValidation,
   setValidatorSettings,
+  setupSlickCarousel,
 */
 window.altinnettInit = function() {
   // Only for prototyping
@@ -45,6 +46,7 @@ window.altinnettInit = function() {
   }
 
   $('body').on('focus', '#contactForm', setupForm);
+  setupSlickCarousel();
 };
 
 window.altinnettInit();

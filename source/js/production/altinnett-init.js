@@ -14,6 +14,7 @@
   questionnaireInteraction
   setupFormValidation
   setValidatorSettings
+  setupSlickCarousel
 */
 window.altinnettInit = function() {
   AltinnModal.init();
@@ -38,6 +39,7 @@ window.altinnettInit = function() {
   }
 
   $('body').on('focus', '#contactForm', setupForm);
+  setupSlickCarousel();
 };
 
 window.altinnettInit();
