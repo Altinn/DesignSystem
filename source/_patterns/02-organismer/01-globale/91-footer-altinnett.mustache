@@ -10,6 +10,7 @@
                     <h1 class="an-footer-heading">{{footerHeading}}</h1>
                     <ul class="an-footer-contactLinks">
                         {{# contactLinks }}
+                            {{^ contact }}
                             <li>
                                 <a href="#">
                                     {{# icon }}
@@ -18,9 +19,18 @@
                                     <span>{{ text }}</span>
                                 </a>
                             </li>
+                            {{/ contact }}
+                            {{# contact }}
+                              <li>
+                                <a href="#" data-toggle="altinn-modal" data-action="load" data-url="{{{ page-url }}}" data-target="#{{modal-id}}">
+                                    {{# icon }}
+                                        {{> atomer-ikon }}
+                                    {{/ icon }}
+                                    <span>{{ text }}</span>
+                                </a>
+                            </li>
+                            {{/ contact }}
                         {{/ contactLinks}}
-
-                        <button class="a-btn" data-toggle="altinn-modal" data-action="load" data-url="{{{ page-url }}}" data-target="#{{modal-id}}">Åpne singel modal</button>
                     </ul>
                 </div>
             </div>
