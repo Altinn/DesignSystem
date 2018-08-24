@@ -28,6 +28,101 @@
 	"form-label-hasIcon": false,
 	"input-name": "input-field",
 	"form-control-class": "",
+	"button-text": "En standard knapp",
+	"button-class": "a-btn a-btn-icon a-btn-shadow",
+	"button-disabled": false,
+	"button-type": "button",
+	"onclick": false,
+	"button-icon": false,
+	"display-as-link": false,
+	"aria-label": "Tilbake",
+	"button-list": [
+		{
+			"button-class": "a-modal-back",
+			"aria-label": "Gå tilbake",
+			"onclick": false,
+			"enable-popover": false,
+			"stacked-background": {
+				"icon-prefix": "ai",
+				"icon-class": "ai-plain-circle-big"
+			},
+			"icon-prefix": "ai",
+			"icon-class": "ai-back",
+			"icon-extra-class": ""
+		},
+		{
+			"button-class": "a-modal-close",
+			"aria-label": "Lukk",
+			"onclick": false,
+			"enable-popover": false,
+			"stacked-background": {
+				"icon-prefix": "ai",
+				"icon-class": "ai-plain-circle-big"
+			},
+			"icon-prefix": "ai",
+			"icon-class": "ai-exit",
+			"icon-extra-class": "a-modal-close-icon"
+		}
+	],
+	"login-name": "JAN PETTERSEN",
+	"display-as-dropdown": false,
+	"personlogin-isDropdown": "dropdown",
+	"variation": "",
+	"login-icon": {
+		"icon-prefix": "ai",
+		"icon-class": "ai-private-circle-big",
+		"icon-extra-class": "a-personSwitcher-icon a-js-onboardingTarget-1",
+		"icon-sr-only-text": "Min profil"
+	},
+	"logo": {
+		"logo": "../../images/a-logo-black.svg"
+	},
+	"logo-class": "a-modal-top-logo",
+	"show-login": false,
+	"login-show": {
+		"login-name": "Kari Nordmann",
+		"login-icon": {
+			"icon-prefix": "ai",
+			"icon-class": "ai-private-circle-big",
+			"icon-extra-class": "a-personSwitcher-icon"
+		}
+	},
+	"modal-id": "modal-singel",
+	"icon": "group_add",
+	"hasTextSmall": false,
+	"modal-navbar-override": {
+		"button-list": [
+			{
+				"button-class": "a-modal-back",
+				"aria-label": "Tilbake",
+				"icon-prefix": "ai",
+				"icon-class": "ai-back",
+				"icon-extra-class": "",
+				"stacked-background": {
+					"icon-prefix": "ai",
+					"icon-class": "ai-plain-circle-big"
+				},
+				"is-modal-back": {
+					"data-target": "#modal"
+				}
+			},
+			{
+				"button-class": "a-modal-close",
+				"aria-label": "Lukk",
+				"icon-prefix": "ai",
+				"icon-class": "ai-exit",
+				"icon-extra-class": "a-modal-close-icon",
+				"stacked-background": {
+					"icon-prefix": "ai",
+					"icon-class": "ai-plain-circle-big"
+				},
+				"is-modal-close": {
+					"data-target": "#modal"
+				}
+			}
+		]
+	},
+	"page-url": "../../patterns/02-organismer-80-Modal-js-innhold-12-altinnett-kontaktskjema/02-organismer-80-Modal-js-innhold-12-altinnett-kontaktskjema.markup-only.html",
 	"footerHeading": "Vil du vite mer?",
 	"footer-search": {
 		"text-input-id": "text-input-search-footer",
@@ -62,10 +157,12 @@
 			}
 		},
 		{
-			"text": "Kontakt oss",
-			"icon": {
-				"icon-prefix": "ai",
-				"icon-class": "ai-send"
+			"contact": {
+				"text": "Kontakt oss",
+				"icon": {
+					"icon-prefix": "ai",
+					"icon-class": "ai-send"
+				}
 			}
 		}
 	],
@@ -92,14 +189,53 @@
 			"text": "Hjelp"
 		}
 	],
-	"button-class": "a-btn a-btn-icon a-btn-shadow",
+	"singelmodal": {
+		"modal-id": "modal-singel",
+		"modal-isSingel": true,
+		"show-login": false,
+		"display-as-dropdown": false,
+		"logo": {
+			"logo": "../../images/a-logo-black.svg"
+		},
+		"submit": {
+			"button-text": "Send",
+			"button-class": "a-btn",
+			"button-id": "a-js-contactForm-submit",
+			"button-type": "button",
+			"onclick": false,
+			"button-icon": false,
+			"display-as-link": false,
+			"data-is-success": true,
+			"data-action": "load",
+			"data-toggle": "altinn-modal",
+			"data-target": "modal-singel",
+			"page-url": "../../patterns/02-organismer-80-Modal-js-innhold-12-altinnett-kontaktskjema/02-organismer-80-Modal-js-innhold-12-altinnett-kontaktskjema.markup-only.html"
+		},
+		"logo-class": "a-modal-top-logo",
+		"login-show": false,
+		"icon": "group_add",
+		"hasTextSmall": false,
+		"modal-navbar-override": {
+			"button-list": [
+				{
+					"button-class": "a-modal-close",
+					"aria-label": "Lukk",
+					"icon-prefix": "ai",
+					"icon-class": "ai-exit",
+					"icon-extra-class": "a-modal-close-icon",
+					"stacked-background": {
+						"icon-prefix": "ai",
+						"icon-class": "ai-plain-circle-big"
+					},
+					"is-modal-close": {
+						"data-target": "#modal"
+					},
+					"onclick": "goBack()"
+				}
+			]
+		}
+	},
 	"action-button-text": "En knapp for å legge til",
-	"button-text": "En standard knapp",
-	"button-disabled": false,
-	"button-type": "button",
-	"onclick": false,
-	"button-icon": false,
-	"display-as-link": false,
 	"form-abonner": {
 		"text-input-id": "text-input-epost",
 		"top-label": "Epost: ",

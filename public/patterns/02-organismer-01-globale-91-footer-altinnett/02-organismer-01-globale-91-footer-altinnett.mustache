@@ -1,4 +1,5 @@
 <!-- START: 02-organismer-01-globale-91-footer-altinnett -->
+{{# singelmodal }} {{> organismer-modal }} {{/ singelmodal }}
 <!-- Begin Footer -->
 <footer class="an-footer a-bgBlueDarker {{styleModifier}}">
   <div class="container">
@@ -7,7 +8,7 @@
         <div class="an-footer-contactInfo">
           <h1 class="an-footer-heading">{{footerHeading}}</h1>
           <ul class="an-footer-contactLinks">
-            {{# contactLinks }}
+            {{# contactLinks }} {{^ contact }}
             <li>
               <a href="#">
                                     {{# icon }}
@@ -16,7 +17,16 @@
                                     <span>{{ text }}</span>
                                 </a>
             </li>
-            {{/ contactLinks}}
+            {{/ contact }} {{# contact }}
+            <li>
+              <a href="#" data-toggle="altinn-modal" data-action="load" data-url="{{{ page-url }}}" data-target="#{{modal-id}}">
+                                    {{# icon }}
+                                        {{> atomer-ikon }}
+                                    {{/ icon }}
+                                    <span>{{ text }}</span>
+                                </a>
+            </li>
+            {{/ contact }} {{/ contactLinks}}
           </ul>
         </div>
       </div>
