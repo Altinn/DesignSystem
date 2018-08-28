@@ -20,12 +20,11 @@ var htmltidy = require('gulp-htmltidy');
 var path = require('path');
 var concat = require('gulp-concat');
 var uglify = require('gulp-uglify');
-var chalk = require('chalk');
 var rename = require('gulp-rename');
 var regexRename = require('gulp-regex-rename');
 var gulpRemoveHtml = require('gulp-remove-html');
 var replace = require('gulp-string-replace');
-const decompress = require('gulp-decompress');
+var decompress = require('gulp-decompress');
 
 function paths() {
   return config.paths;
@@ -67,6 +66,12 @@ gulp.task('pl-copy:img', function() {
 // Copy favicon file from source into public folder:
 gulp.task('pl-copy:favicon', function() {
   return gulp.src('favicon.ico', { cwd: paths().source.root })
+    .pipe(gulp.dest(paths().public.root));
+});
+
+// Copy Google Search Console property file into public folder :
+gulp.task('pl-copy:googleproperty', function() {
+  return gulp.src('googled82b99abd4c24cf1.html', { cwd: paths().source.root })
     .pipe(gulp.dest(paths().public.root));
 });
 
@@ -142,7 +147,7 @@ gulp.task('pl-copy:distribution-js', function (done) {
         .pipe(gulp_rename(bundle.filename))
         .pipe(sourcemaps.write('./maps'))
         .pipe(gulp.dest('dist/js'));
-      })
+      });
     }
   });
   done();
@@ -157,7 +162,7 @@ gulp.task('pl-copy:designsystemdev-js', function(done) {
         .pipe(gulp_concat('concat.js'))
         .pipe(gulp_rename(bundle.filename))
         .pipe(gulp.dest('public/js'));
-      })
+      });
     }
   });
   done();
@@ -278,6 +283,7 @@ gulp.task('patternlab:prebuild',
     'pl-copy:jq',
     'pl-copy:img',
     'pl-copy:favicon',
+    'pl-copy:googleproperty',
     'pl-copy:css',
     'pl-copy:styleguide',
     'pl-copy:data',
