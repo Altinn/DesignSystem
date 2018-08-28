@@ -147,7 +147,7 @@ gulp.task('pl-copy:distribution-js', function (done) {
         .pipe(gulp_rename(bundle.filename))
         .pipe(sourcemaps.write('./maps'))
         .pipe(gulp.dest('dist/js'));
-      })
+      });
     }
   });
   done();
@@ -162,7 +162,7 @@ gulp.task('pl-copy:designsystemdev-js', function(done) {
         .pipe(gulp_concat('concat.js'))
         .pipe(gulp_rename(bundle.filename))
         .pipe(gulp.dest('public/js'));
-      })
+      });
     }
   });
   done();
