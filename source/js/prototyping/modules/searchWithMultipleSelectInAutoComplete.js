@@ -148,12 +148,18 @@ var searchWithMultipleSelectInAutoComplete = function() {
       // Find menu and set focus to closest list-item of selected right
       autocompleteMenu.menu('focus', null, autocompleteMenu.find('span:contains(' + ui.item.service + ')').closest('li'));
 
+      // ONLY FOR DESIGNSYSTEM PROTOTYPING
+      // eslint-disable-next-line
+      console.log('Prototyping feature needs to be commented out in searchWithMultipleSelectInAutoComplete.js');
       // Add the clicked rights to list, only if if not already in list
       if ($('.a-list-container').find('span:contains(' + ui.item.service + ')').length === 0) {
-        console.log('is true', $('.a-list-container').find('span:contains(' + ui.item.service + ')').length);
+        // eslint-disable-next-line
         var firstListItem = $('#firstRow').clone();
         firstListItem.attr('id', 'last');
-        firstListItem.find('span').first().replaceWith('<span>' + ui.item.service + '</span>');
+        firstListItem.find('div div:nth-child(1)').text(function() {
+          return ui.item.service;
+        });
+        firstListItem.find('button:nth-of-type(3) > i').removeClass('a-iconStrikeThrough a-disabledIcon');
         $('.a-list-container > ul').append(firstListItem);
       }
 
