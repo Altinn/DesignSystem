@@ -1,3 +1,6 @@
+{{# singelmodal }}
+  {{> organismer-modal }}
+{{/ singelmodal }}
 <!-- Begin Footer -->
 <footer class="an-footer a-bgBlueDarker {{styleModifier}}">
     <div class="container">
@@ -7,6 +10,7 @@
                     <h1 class="an-footer-heading">{{footerHeading}}</h1>
                     <ul class="an-footer-contactLinks">
                         {{# contactLinks }}
+                            {{^ contact }}
                             <li>
                                 <a href="#">
                                     {{# icon }}
@@ -15,6 +19,17 @@
                                     <span>{{ text }}</span>
                                 </a>
                             </li>
+                            {{/ contact }}
+                            {{# contact }}
+                              <li>
+                                <a href="#" data-toggle="altinn-modal" data-action="load" data-url="{{{ page-url }}}" data-target="#{{modal-id}}">
+                                    {{# icon }}
+                                        {{> atomer-ikon }}
+                                    {{/ icon }}
+                                    <span>{{ text }}</span>
+                                </a>
+                            </li>
+                            {{/ contact }}
                         {{/ contactLinks}}
                     </ul>
                 </div>
