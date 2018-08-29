@@ -152,13 +152,14 @@ var searchWithMultipleSelectInAutoComplete = function() {
       // eslint-disable-next-line
       console.log('Prototyping feature needs to be commented out in searchWithMultipleSelectInAutoComplete.js');
       // Add the clicked rights to list, only if if not already in list
-      if ($('.a-list-container').find('span:contains(' + ui.item.service + ')').length === 0) {
+      if ($('.a-list-container').find('div:contains(' + ui.item.service + ')').length === 0) {
         // eslint-disable-next-line
         var firstListItem = $('#firstRow').clone();
         firstListItem.attr('id', 'last');
         firstListItem.find('div div:nth-child(1)').text(function() {
           return ui.item.service;
         });
+        firstListItem.first().addClass('a-selected a-success');
         firstListItem.find('button:nth-of-type(3) > i').removeClass('a-iconStrikeThrough a-disabledIcon');
         $('.a-list-container > ul').append(firstListItem);
       }
