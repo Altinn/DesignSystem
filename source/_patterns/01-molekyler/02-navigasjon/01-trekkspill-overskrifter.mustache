@@ -15,6 +15,24 @@
             {{ collapse-header-content }}
           {{/ collapse-header-content }}
 
+          {{# paragraphContainers }}
+            <div class="mb-4">
+              {{# paragraphHeader}}
+                <h3 class="a-h4 a-fontSizeXS mb-0">{{ paragraphHeader }}</h3>
+              {{/ paragraphHeader}}
+              {{# paragraph }}
+                <p>{{ paragraph }}</p>
+              {{/ paragraph }}
+              {{# link }}
+                <a href="#">{{ linkText }}</a>
+              {{/ link }}
+            </div>
+          {{/ paragraphContainers }}
+
+          {{# readMoreLink }}
+            <span>{{ readMoreText }}<a href="#" class="ml-1">{{ readMoreLink }}</a></span>
+          {{/ readMoreLink }}
+
           {{# collapse-header-buttons }}
             <div class="a-btn-group mt-2">
               {{# link-group-items }}
@@ -57,7 +75,7 @@
               <div class="mt-1">
                   {{> atomer-liste-nummerert-sirkel }}
               </div>
-          {{/ hasNumberedList }}
+          {{/ hasNumberedList }} 
         </div>
       </div>
     </div>
