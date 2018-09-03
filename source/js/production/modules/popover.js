@@ -72,9 +72,63 @@ var popoverGlobalInit = function() {
   $('body').on('shown.bs.popover', '[data-toggle="popover"].a-js-popover-forceFocus', function(e) {
     $('body').append($('<button class="sr-only a-js-popoverTrick">ignoreme</button>'));
     forceFocusTriggerElement = this;
+    console.log('triggered by', forceFocusTriggerElement);
+
+    /* Keyboard trap start */
+
+    // Find popover-warning
+    var popoverWarning = $('.popover-warning');
+    console.log('popover', popoverWarning);
+
+    // Find all focusable children
+    var focusableElementsString = 'a[href], area[href], input:not([disabled]), select:not([disabled]), textarea:not([disabled]), button:not([disabled]), iframe, object, embed, [tabindex="0"], [contenteditable]';
+    // var focusableElements = popover.querySelectorAll(focusableElementsString);
+    var focusableElements = $(popoverWarning).find(focusableElementsString);
+    console.log('focusable', focusableElements);
+
+    // If there are focusable elements, make keyboardtrap
+    if (focusableElements.length) {
+      // Convert NodeList to Array
+      focusableElements = Array.prototype.slice.call(focusableElements);
+
+      var firstTabStop = focusableElements[0];
+      var lastTabStop = focusableElements[focusableElements.length - 1];
+
+      // Focus first child
+      firstTabStop.focus();
+
+      $(popoverWarning).keydown(function(key) {
+        console.log('keydown', key.keyCode);
+        if (key.keyCode === 9) {
+          // Shift + Tab
+          if (key.shiftKey) {
+            if (document.activeElement === firstTabStop) {
+              key.preventDefault();
+              lastTabStop.focus();
+            }
+          // TAB
+          } else {
+            if (document.activeElement === lastTabStop) {
+              key.preventDefault();
+              firstTabStop.focus();
+            }
+          }
+        } else if (key.keyCode === 13) {
+          // Enter
+          $('[data-toggle="popover"]').popover('hide');
+        } else if (key.keyCode === 27) {
+          // Escape
+          $('[data-toggle="popover"]').popover('hide');
+        }
+      });
+    }
+
+    /* Keyboard trap end */
+
     $(forceFocusTriggerElement).one('blur', function() {
       var that = this;
       if (forceFocusTriggerElement) {
+        console.log('focus thingy', $($(this).data('bs.popover').tip).find('button,input,a,textarea').filter(':visible:first'));
         $($(this).data('bs.popover').tip).find('button,input,a,textarea').filter(':visible:first').focus();
       }
     });
@@ -130,9 +184,7 @@ var popoverGlobalInit = function() {
   // Hide popovers when clicking on something else than the trigger element
   // and the popover itself
   $('body').on('click', function(e) {
-    if ($(e.target).data('toggle') !== 'popover'
-      && $(e.target).parents('[data-toggle="popover"]').length === 0
-      && $(e.target).parents('.popover.show').length === 0) {
+    if ($(e.target).data('toggle') !== 'popover' && $(e.target).parents('[data-toggle="popover"]').length === 0 && $(e.target).parents('.popover.show').length === 0) {
       $('[data-toggle="popover"]').popover('hide');
       forceFocusTriggerElement = false;
       $(this).parent().find('.a-js-popoverIconInitial').show();
