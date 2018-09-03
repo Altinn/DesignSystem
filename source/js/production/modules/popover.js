@@ -1,3 +1,4 @@
+/* eslint vars-on-top: 0 */
 /* globals $ */
 var popoverLocalInit = function() {
   var options = {
@@ -108,7 +109,7 @@ var popoverGlobalInit = function() {
             }
           // TAB
           } else {
-            if (document.activeElement === lastTabStop) {
+            if (document.activeElement === lastTabStop) { // eslint-disable-line
               key.preventDefault();
               firstTabStop.focus();
             }
