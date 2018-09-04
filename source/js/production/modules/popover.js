@@ -73,19 +73,20 @@ var popoverGlobalInit = function() {
   $('body').on('shown.bs.popover', '[data-toggle="popover"].a-js-popover-forceFocus', function(e) {
     $('body').append($('<button class="sr-only a-js-popoverTrick">ignoreme</button>'));
     forceFocusTriggerElement = this;
-    console.log('triggered by', forceFocusTriggerElement);
 
-    /* Keyboard trap start */
+    /*
+      This is a keyboard trap code
+      which prevents the user from exiting the "popover" dialog with tabbing.
+      ESC will close the "popover" dialog.
+    */
 
     // Find popover-warning
     var popoverWarning = $('.popover-warning');
-    console.log('popover', popoverWarning);
 
     // Find all focusable children
     var focusableElementsString = 'a[href], area[href], input:not([disabled]), select:not([disabled]), textarea:not([disabled]), button:not([disabled]), iframe, object, embed, [tabindex="0"], [contenteditable]';
     // var focusableElements = popover.querySelectorAll(focusableElementsString);
     var focusableElements = $(popoverWarning).find(focusableElementsString);
-    console.log('focusable', focusableElements);
 
     // If there are focusable elements, make keyboardtrap
     if (focusableElements.length) {
@@ -96,10 +97,12 @@ var popoverGlobalInit = function() {
       var lastTabStop = focusableElements[focusableElements.length - 1];
 
       // Focus first child
-      firstTabStop.focus();
+      // and scroll to current position for preventscroll unsupported browsers.
+      var position = $(window).scrollTop();
+      firstTabStop.focus({ preventScroll: true });
+      $(window).scrollTop(position);
 
       $(popoverWarning).keydown(function(key) {
-        console.log('keydown', key.keyCode);
         if (key.keyCode === 9) {
           // Shift + Tab
           if (key.shiftKey) {
@@ -114,32 +117,21 @@ var popoverGlobalInit = function() {
               firstTabStop.focus();
             }
           }
-        } else if (key.keyCode === 13) {
-          // Enter
-          $('[data-toggle="popover"]').popover('hide');
         } else if (key.keyCode === 27) {
           // Escape
           $('[data-toggle="popover"]').popover('hide');
+          key.preventDefault();
+          $(forceFocusTriggerElement).focus();
         }
       });
     }
-
-    /* Keyboard trap end */
-
-    $(forceFocusTriggerElement).one('blur', function() {
-      var that = this;
-      if (forceFocusTriggerElement) {
-        console.log('focus thingy', $($(this).data('bs.popover').tip).find('button,input,a,textarea').filter(':visible:first'));
-        $($(this).data('bs.popover').tip).find('button,input,a,textarea').filter(':visible:first').focus();
-      }
-    });
   });
 
   $('body').on('hidden.bs.popover', '[data-toggle="popover"].a-js-popover-forceFocus', function(e) {
     $('body').find('.a-js-popoverTrick').remove();
   });
 
-  // hides popover when the cehckbutton is checked
+  // hides popover when the checkbutton is checked
   $('body').on('focus', '[data-toggle="popover"].sr-only', function(e) {
     if ($(this).is(':checked')) {
       $(this).popover('hide');
@@ -167,13 +159,7 @@ var popoverGlobalInit = function() {
   $('body').on('blur', '[data-toggle="popover"], .popover *', function(e) {
     setTimeout(function() {
       var $focused = $(':focus');
-      if ((($focused.length !== 0 || forceFocusTriggerElement)
-        && !$focused.hasClass('popover')
-        && !$focused.parents('.popover').length >= 1) || $focused.hasClass('a-js-popoverTrick')) {
-        if (forceFocusTriggerElement) {
-          $(forceFocusTriggerElement).focus();
-          forceFocusTriggerElement = false;
-        }
+      if ((($focused.length !== 0 || forceFocusTriggerElement) && !$focused.hasClass('popover') && $focused.parents('.popover').length === 0) || $focused.hasClass('a-js-popoverTrick')) {
         // disable blur when in modal to allow use of non-original scrollbar
         if ($('.modal.show').length > 0) {
           $('.popover-big[data-toggle="popover"]').popover('hide');
