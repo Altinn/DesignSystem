@@ -7,18 +7,22 @@
       {{> molekyler-smulesti }}
     </div>
     <div class="col-sm-12 col-lg-8 offset-lg-2 a-text epi-wysiwyg pt-2 pt-lg-3 mb-6">
-      {{> atomer-undertittel }} {{> atomer-avsnitt }} {{> atomer-undertittel }} {{> atomer-avsnitt }} {{> atomer-undertittel }} {{> atomer-avsnitt }}
+      {{# paragraphs }} {{> atomer-undertittel }} {{# multipleParagraphs }} {{> atomer-avsnitt }} {{/ multipleParagraphs }} {{/ paragraphs }}
     </div>
   </div>
 
-  {{# slideshow }} {{> molekyler-altinnett-slideshow }} {{/ slideshow }}
+  {{# slideshow }} {{> molekyler-altinnett-slideshow }} {{/ slideshow }} {{# case }}
+  <div class="an-case">
+    <div class="an-caseRow an-caseRow--grey mb-6">
+      <div class="container">
+        {{> molekyler-case-preview }}
+      </div>
+    </div>
+  </div>
+  {{/ case }}
 
   <div class="container">
-    {{# case }}
-    <div class="col-12 mb-6">
-      {{> molekyler-jumbotron }}
-    </div>
-    {{/ case }} {{# accordion }}
+    {{# accordion }}
     <div class="col-sm-12 col-lg-8 offset-lg-2 mb-6">
       {{> molekyler-trekkspill-overskrifter }}
     </div>

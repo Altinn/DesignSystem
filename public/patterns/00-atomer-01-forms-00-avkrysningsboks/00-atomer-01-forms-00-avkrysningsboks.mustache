@@ -2,13 +2,20 @@
 {{# check-legend }}
 <fieldset class="form-group mb-0">
   <legend class="a-legend">{{{check-legendText}}}</legend>
-  {{/ check-legend }} {{# checkboxes }}
-  <div class="custom-control {{#isInline}}custom-control-inline{{/isInline}} custom-checkbox a-custom-checkbox {{# inactive }} inactive {{/ inactive }} {{# isDiscreet }} a-form-checkboxes--discret {{/ isDiscreet }}">
-    <input type="checkbox" id="{{checkboxID}}" class="custom-control-input" {{# isChecked }}checked="checked" {{/ isChecked }} {{# data-toggle }} data-toggle="{{ data-toggle }}" {{/ data-toggle }} {{# data-target }} data-target="{{ data-target }}" {{/ data-target
-      }} {{# isRequired }} required {{/ isRequired }} {{# inactive }} disabled {{/ inactive }}>
-    <label class="custom-control-label {{#isBold}}a-fontBold{{/isBold}}" for="{{checkboxID}}">{{{ checkboxes-title }}}</label>
-  </div>
-  {{/ checkboxes }} {{# check-legend }}
+  {{/ check-legend }} {{# flexWrap }}
+  <div class="d-flex flex-wrap ml-1"> {{/ flexWrap }} {{# checkboxes }}
+    <div class="custom-control
+        {{#isInline}}custom-control-inline{{/isInline}}
+        custom-checkbox a-custom-checkbox
+        {{# inactive }} inactive {{/ inactive }}
+        {{# isDiscreet }} a-form-checkboxes--discret {{/ isDiscreet }}
+        {{# flexWrap }} col-sm-12 col-md-6 col-lg-4 pr-0 mr-0{{/ flexWrap }}
+        ">
+      <input type="checkbox" id="{{checkboxID}}" class="custom-control-input" {{# isChecked }}checked="checked" {{/ isChecked }} {{# data-toggle }} data-toggle="{{ data-toggle }}" {{/ data-toggle }} {{# data-target }} data-target="{{ data-target }}" {{/ data-target
+        }} {{# isRequired }} required {{/ isRequired }} {{# inactive }} disabled {{/ inactive }}>
+      <label class="custom-control-label {{#isBold}}a-fontBold{{/isBold}}" for="{{checkboxID}}">{{{ checkboxes-title }}}</label>
+    </div>
+    {{/ checkboxes }} {{# flexWrap }} </div> {{/ flexWrap }} {{# check-legend }}
 </fieldset>
 {{/ check-legend }}
 

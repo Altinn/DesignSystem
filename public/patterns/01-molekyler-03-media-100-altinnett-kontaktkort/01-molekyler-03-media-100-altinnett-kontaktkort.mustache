@@ -1,26 +1,52 @@
 <!-- START: 01-molekyler-03-media-100-altinnett-kontaktkort -->
 <div class="row {{ class }}">
-  <div class="col-sm-6 col-md-6 col-lg-6 col-xl-6 my-auto px-2 {{ contactInfoClass }}">
-    <p class="a-h3 a-fontReg mb-1 pt-1">{{{ intro-text }}}</p>
-    <p class="a-h3 mb-0">{{{ name }}}</p>
-    <p class="a-h3 a-fontReg mb-1">{{{ position }}}</p>
-
-    <p class="mb-1">
-      <a href="tel:+47{{{ telNumber }}}" class="a-h3 a-fontReg a-textBlack a-noUnderline">
-        <span class="sr-only">Send mail til {{{ telNumberVisible }}}</span>
-        {{{ telNumberVisible }}}
-      </a>
-    </p>
-
-    <p class="mb-0">
-      <a href="mailto:{{{ mail-adress }}}" class="a-h3 a-fontReg a-textBlack a-noUnderline">
-        <span class="sr-only">Send mail til {{{ mail-adress }}}</span>
-        {{{ mail-adress }}}
-      </a>
-    </p>
+  <div class="an-contactCard__top-content">
+    <div class="an-contactCard__top-content-flex">
+      {{# contact-title }}
+      <p class="a-h3 mb-0">{{{ contact-title }}}</p>
+      {{/ contact-title }} {{# intro-text }}
+      <p class="a-h3 a-fontReg mb-1">{{{ intro-text }}}</p>
+      {{/ intro-text }}
+    </div>
   </div>
 
-  <img src="{{ img-src }}" alt="{{ img-alt-text }}" class="col-12 col-sm-6 col-md-6 col-lg-6 col-xl-6 order-sm-first order-md-first order-lg-first order-xl-first an-grayscale an-multiply an-contactCard" />
+  <div class="an-contactCard__content">
+    <div class="an-contactCard__content-image">
+      <img src="{{ img-src }}" alt="{{ img-alt-text }}" class="col-xl-12 px-xl-4 an-grayscale an-multiply an-contactCard" />
+    </div>
+
+    <div class="an-contactCard__content-inner">
+      <div class="an-contactCard__content-hide">
+        {{# contact-title }}
+        <p class="a-h3 a-fontSizeXL mb-0">{{{ contact-title }}}</p>
+        {{/ contact-title }} {{# intro-text }}
+        <p class="a-fontSizeXL mb-1">{{{ intro-text }}}</p>
+        {{/ intro-text }}
+      </div>
+      <div>
+        {{# name }}
+        <p class="a-h3 mb-0 a-fontSizeXL">{{{ name }}}</p>
+        {{/ name }} {{# position }}
+        <p class="a-h3 a-fontReg mb-1 a-fontSizeXL">{{{ position }}}</p>
+        {{/ position }}
+
+        <p class="mb-0">
+          <a href="tel:+47{{{ telNumber }}}" class="a-fontSizeXL a-noUnderline">
+            <span class="sr-only a-fontSizeXL">Send mail til {{{ telNumberVisible }}}</span>
+            {{{ telNumberVisible }}}
+          </a>
+        </p>
+
+        <p class="mb-2">
+          <a href="mailto:{{{ mail-adress }}}" class="a-fontSizeXL a-noUnderline">
+            <span class="sr-only a-fontSizeXL">Send mail til {{{ mail-adress }}}</span>
+            {{{ mail-adress }}}
+          </a>
+        </p>
+      </div>
+    </div>
+  </div>
+
 </div>
 
 <!-- END: 01-molekyler-03-media-100-altinnett-kontaktkort -->
