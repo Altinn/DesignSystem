@@ -84,7 +84,7 @@ var popoverGlobalInit = function() {
     $('body').find('.a-js-popoverTrick').remove();
   });
 
-  // hides popover when the checkbutton is checked
+  // hides popover when the cehckbutton is checked
   $('body').on('focus', '[data-toggle="popover"].sr-only', function(e) {
     if ($(this).is(':checked')) {
       $(this).popover('hide');
@@ -112,7 +112,13 @@ var popoverGlobalInit = function() {
   $('body').on('blur', '[data-toggle="popover"], .popover *', function(e) {
     setTimeout(function() {
       var $focused = $(':focus');
-      if ((($focused.length !== 0 || forceFocusTriggerElement) && !$focused.hasClass('popover') && $focused.parents('.popover').length === 0) || $focused.hasClass('a-js-popoverTrick')) {
+      if ((($focused.length !== 0 || forceFocusTriggerElement)
+        && !$focused.hasClass('popover')
+        && !$focused.parents('.popover').length >= 1) || $focused.hasClass('a-js-popoverTrick')) {
+        if (forceFocusTriggerElement) {
+          $(forceFocusTriggerElement).focus();
+          forceFocusTriggerElement = false;
+        }
         // disable blur when in modal to allow use of non-original scrollbar
         if ($('.modal.show').length > 0) {
           $('.popover-big[data-toggle="popover"]').popover('hide');
