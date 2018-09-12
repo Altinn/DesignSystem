@@ -73,6 +73,7 @@ var popoverGlobalInit = function() {
   $('body').on('shown.bs.popover', '[data-toggle="popover"].a-js-popover-forceFocus', function(e) {
     $('body').append($('<button class="sr-only a-js-popoverTrick">ignoreme</button>'));
     forceFocusTriggerElement = this;
+    console.log('triggered by', forceFocusTriggerElement);
 
     /*
       This is a keyboard trap code
@@ -82,6 +83,7 @@ var popoverGlobalInit = function() {
 
     // Find popover-warning
     var popoverWarning = $('.popover-warning');
+    console.log('popoverWarning', popoverWarning);
 
     // Find all focusable children
     var focusableElementsString = 'a[href], area[href], input:not([disabled]), select:not([disabled]), textarea:not([disabled]), button:not([disabled]), iframe, object, embed, [tabindex="0"], [contenteditable]';
@@ -102,6 +104,7 @@ var popoverGlobalInit = function() {
       $(window).scrollTop(position);
 
       $(popoverWarning).keydown(function(key) {
+        console.log('keydown', key);
         if (key.keyCode === 9) {
           // Shift + Tab
           if (key.shiftKey) {
