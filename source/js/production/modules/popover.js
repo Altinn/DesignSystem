@@ -96,8 +96,7 @@ var popoverGlobalInit = function() {
       var firstTabStop = focusableElements[0];
       var lastTabStop = focusableElements[focusableElements.length - 1];
 
-      // Focus first child
-      // and scroll to current position for preventscroll unsupported browsers.
+      // Focus first child, and scroll to current position
       var position = $(window).scrollTop();
       firstTabStop.focus({ preventScroll: true });
       $(window).scrollTop(position);
@@ -120,7 +119,16 @@ var popoverGlobalInit = function() {
         } else if (key.keyCode === 27) {
           // Escape
           $('[data-toggle="popover"]').popover('hide');
+          $(forceFocusTriggerElement).focus();
+        }
+      });
+
+      // if cancel/avbryt pressed with Enter, hide popover and focus on trigger
+      $(lastTabStop).keydown(function(key) {
+        if (key.keyCode === 13) {
+          // Enter
           key.preventDefault();
+          $('[data-toggle="popover"]').popover('hide');
           $(forceFocusTriggerElement).focus();
         }
       });
@@ -159,7 +167,9 @@ var popoverGlobalInit = function() {
   $('body').on('blur', '[data-toggle="popover"], .popover *', function(e) {
     setTimeout(function() {
       var $focused = $(':focus');
-      if ((($focused.length !== 0 || forceFocusTriggerElement) && !$focused.hasClass('popover') && $focused.parents('.popover').length === 0) || $focused.hasClass('a-js-popoverTrick')) {
+      if ((($focused.length !== 0 || forceFocusTriggerElement)
+        && !$focused.hasClass('popover')
+        && !$focused.parents('.popover').length >= 1) || $focused.hasClass('a-js-popoverTrick')) {
         // disable blur when in modal to allow use of non-original scrollbar
         if ($('.modal.show').length > 0) {
           $('.popover-big[data-toggle="popover"]').popover('hide');
