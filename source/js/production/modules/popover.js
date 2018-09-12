@@ -1,4 +1,3 @@
-/* eslint vars-on-top: 0 */
 /* globals $ */
 var popoverLocalInit = function() {
   var options = {
