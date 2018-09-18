@@ -1,22 +1,12 @@
 var setupSlickCarousel = function() {
-  if ($('.an-slideshow').length) {
+  if ($('[data-slideshow]').length) {
     $(document).ready(function() {
-      $('.an-slideshow__list').slick({
-        infinite: false
+      $('[data-slideshow]').slick({
+        infinite: false,
+        appendArrows: $('[data-slideshow-buttons]'),
+        prevArrow: "<button type='button' class='slick-prev an-slideshow__button an-slideshow__button--previous'><i class='ai ai-arrowright'><span class='sr-only'>Forrige</span></i></button>",
+        nextArrow: "<button type='button' class='slick-prev an-slideshow__button an-slideshow__button--next'><i class='ai ai-arrowright'><span class='sr-only'>Neste</span></i></button>"
       });
-      $('.slick-prev').css('display', 'none');
-      $('.slick-arrow').click(function() {
-        $('.slick-prev').removeAttr('style');
-        if (Number($('.slick-current').attr('data-slick-index')) === 0) {
-          $('.slick-prev').css('display', 'none');
-        }
-        if ($('.slick-slide').length - 1 === Number($('.slick-current').attr('data-slick-index'))) {
-          $('.slick-next').css('display', 'none');
-        } else {
-          $('.slick-next').removeAttr('style');
-        }
-      }
-    );
     });
   }
 };

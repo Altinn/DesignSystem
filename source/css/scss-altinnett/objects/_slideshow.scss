@@ -1,0 +1,77 @@
+@import './../../node_modules/slick-carousel/slick/slick.scss';
+
+.an-slideshow {
+  background-color: $grey-lighter;
+  position: relative;
+
+  @include media-breakpoint-up( xxl ) {
+    margin-left: auto;
+    margin-right: auto;
+    max-width: map_get($container-max-widths, xl);
+  }
+
+  &__item {
+    cursor: pointer;
+
+    &:focus {
+      outline: none;
+    }
+  }
+
+  &__text {
+    opacity: 0;
+    transition: opacity 100ms linear;
+
+    .slick-active & {
+      opacity: 1;
+      transition: opacity 300ms linear 300ms;
+    }
+  }
+
+  &__buttons {
+    display: flex;
+    justify-content: space-between;
+    padding: 0 $grid-gutter-width;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 100%;
+  }
+
+  &__button {
+    color: $white;
+    cursor: pointer;
+    width: 40px;
+    height: 40px;
+    background-color: $blue;
+    border: none;
+    border-radius: 50px;
+    position: relative;
+
+    &--previous {
+      transform: rotate(-180deg);
+    }
+
+    &--next {
+      margin-left: auto;
+    }
+
+    .ai {
+      top: 19px;
+      left: 3px;
+      position: absolute;
+      transition: transform 0.1s ease-in-out;
+    }
+
+    &:focus,
+    &:hover {
+      .ai {
+        transform: translateX(2px);
+      }
+    }
+
+    &.slick-disabled {
+      display: none !important;
+    }
+  }
+}
