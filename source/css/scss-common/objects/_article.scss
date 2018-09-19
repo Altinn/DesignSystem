@@ -312,12 +312,11 @@
 
 // Article teaser
 .a-article-teaser {
-  float: left;
   width: 100%;
   margin-bottom: $spacer;
 
   a {
-    display: block;
+    display: flex;
 
     :hover,
     :focus {
@@ -329,10 +328,10 @@
 }
 
 .a-article-teaser-text {
-  @include media-breakpoint-up( sm ) {
-    float: left;
-    padding-left: $spacer * 3;
-  }
+  float: left;
+  width: calc( 100% - 60px );
+  padding-left: $spacer * 3;
+
   @include media-breakpoint-up( md ) {
     margin-top: -2px;
   }
@@ -343,7 +342,6 @@
     margin-top: -8px;
   }
 
-  width: calc( 100% - 60px );
 
   h2 {
     @include a-fontSize20;
@@ -388,6 +386,11 @@ h1 + .a-byline {
   .a-date-day {
     @include a-fontSize30;
     padding-top: 5px;
+
+    &--small {
+      @include a-fontSize18;
+      margin-top: $spacer;
+    }
   }
 
   .a-date-month {
