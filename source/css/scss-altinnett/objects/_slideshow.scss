@@ -35,7 +35,13 @@
   }
 
   &-item {
+    //Hide all but the first item when slick slider is not initialised
+    display: none;
     cursor: pointer;
+
+    &:first-child {
+      display: block;
+    }
 
     &:focus {
       outline: none;
@@ -43,8 +49,11 @@
   }
 
   &-text {
-    opacity: 0;
-    transition: opacity 100ms linear;
+
+    .slick-initialized & {
+      opacity: 0;
+      transition: opacity 100ms linear;
+    }
 
     .slick-active & {
       opacity: 1;
