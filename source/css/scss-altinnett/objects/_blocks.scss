@@ -33,24 +33,17 @@
 // PRESENTATION BLOCK
 .an-presentationBlock {
   display: inline-block;
-  height: calc(100% - #{$spacer * 2});
+  height: calc(100% - 5px);
   padding: $spacer * 2;
   margin-bottom: $spacer * 2;
 
+  @include media-breakpoint-up( sm ) {
+    height: calc(100% - #{$spacer * 2});
+  }
+
   .an-presentationBlock-largeHeader {
+    @include word-wrap;
     @include a-fontSize28;
-
-    @include media-breakpoint-up( md ) {
-      @include a-fontSize16;
-    }
-
-    @include media-breakpoint-up( lg ) {
-      @include a-fontSize24;
-    }
-
-    @include media-breakpoint-up( xl ) {
-      @include a-fontSize28;
-    }
   }
 
   .an-presentationBlock-figure {
@@ -72,6 +65,7 @@
   }
 
   .an-presentationBlock-caption {
+    @include a-fontSize18;
     @include media-breakpoint-up( md ) {
       padding-top: $spacer * 2;
     }
@@ -89,6 +83,16 @@
         @include a-fontSize24;
       }
     }
+  }
+
+  &--dashed {
+    position: relative;
+    width: 100%;
+    padding-top: 100%;
+    background-color: transparent;
+    border-color: $blue;
+    border-style: dashed;
+    border-radius: 50%;
   }
 }
 
