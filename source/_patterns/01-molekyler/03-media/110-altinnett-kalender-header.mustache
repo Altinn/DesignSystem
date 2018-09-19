@@ -1,24 +1,38 @@
 <div class="{{ class }}">
     <div class="container">
         <div class="row">
-          <div class="col-6">
+          <div class="col-12 col-md-7">
             <p class="{{ preTitleClass }}">{{ preTitle }}</p>
             <h1 class="{{ pageTitleClass }}">{{ pageTitle }}</h1>
             {{# linkExternal }}
-              <div class="mb-7">
+              <div class="mb-4 mb-md-6">
                 {{> atomer-link-ekstern }}
+                <i class="ai ai-sm ai-nw ai-nw-right ai-arrowrightup"></i>
               </div>
             {{/ linkExternal }}
-            {{> atomer-link-knapp-stor }}
-          </div>
-          <div class="col-6">
-            {{# dato }}
-              {{> atomer-dato }}
-            {{/ dato }}
             
-            {{# klokkeslett }}
-              {{> atomer-liste-unummerert-sammenkoblet }}
-            {{/ klokkeslett }}
+            <div class="a-date-hiddencontainer">
+              {{# dato }}
+                {{> atomer-dato }}
+              {{/ dato }}
+              
+              {{# klokkeslett }}
+                {{> atomer-liste-unummerert-sammenkoblet }}
+              {{/ klokkeslett }}
+            </div>
+            {{> atomer-link-knapp-stor-bred }}
+          </div>
+          <div class="col-6 col-md-5 a-date-container">
+            <!-- Klasse for datoer med flere dager: a-date-day--small -->
+            <div class="a-date-container-inner">
+              {{# dato }}
+                {{> atomer-dato }}
+              {{/ dato }}
+              
+              {{# klokkeslett }}
+                {{> atomer-liste-unummerert-sammenkoblet }}
+              {{/ klokkeslett }}
+            </div>
           </div>
         </div>
     </div>

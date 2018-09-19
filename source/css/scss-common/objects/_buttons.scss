@@ -99,6 +99,100 @@
   }
 }
 
+.a-btn-wide {
+  @include a-fontSize36;
+  @include a-fontBold;
+  position: relative;
+  display: inline-block;
+  width: 100%;
+  padding: 6px $spacer * 2 4px $spacer * 2;
+  margin-bottom: $spacer;
+  color: $black;
+  text-align: center;
+  cursor: pointer;
+  background: $blue;
+  border: none;
+  border-radius: 0;
+
+  @include media-breakpoint-up( sm ) {
+    @include a-fontSize24;
+    width: auto;
+  }
+
+  @include media-breakpoint-up( lg ) {
+    @include a-fontSize36;
+  }
+
+  &:hover {
+    color: $black;
+    text-decoration: none;
+    background: $blue-hover-color;
+    border: none;
+  }
+
+  &:focus {
+    color: $black;
+    text-decoration: none;
+    background: $blue-hover-color;
+    border-bottom: none;
+    outline: 0;
+  }
+
+  &:active,
+  &.active {
+    color: $black;
+    background: $blue;
+    background-image: none;
+    outline: 0;
+  }
+
+  &.disabled,
+  &:disabled {
+    @include box-shadow( none );
+
+    color: $black;
+    cursor: $cursor-disabled;
+    background-color: $grey-light;
+    box-shadow: 0 0 0 1px $white;
+  }
+
+  &::after {
+    position: absolute;
+    top: -6px;
+    left: 0;
+    width: 100%;
+    height: $spacer * 4;
+    // Making the touch target area bigger without affecting the layout
+    content: '';
+  }
+
+  &::before {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: auto;
+    min-height: auto;
+    content: '';
+  }
+
+  &.a-disabled {
+    @extend .a-disabled;
+  }
+
+  &.a-btn-border {
+    padding: 8px $spacer * 2 4px $spacer * 2;
+    color: $blue-darker;
+    background: transparent;
+    border: 2px solid $blue-darker;
+
+    &:hover,
+    &:focus {
+      color: $blue-darker;
+      background: $blue-darker-opacity;
+    }
+  }
+}
+
 .a-btn-secondary {
   background-color: $white;
 
