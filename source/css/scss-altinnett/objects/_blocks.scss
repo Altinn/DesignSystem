@@ -169,3 +169,59 @@
 .a-message {
   overflow-wrap: break-word;
 }
+
+.an-nyheter-arrangement-block {
+  display: flex;
+  flex-direction: column;
+
+  @include media-breakpoint-up( lg ){
+    flex-direction: row;
+  }
+
+  &-inner {
+    display: flex;
+    flex-direction: column;
+  }
+}
+
+.an-arrangement-block {
+  display: flex;
+  flex-direction: column;
+
+  &-inner {
+    display: flex;
+    margin-right: $spacer;
+    margin-bottom: $spacer;
+  }
+
+  &-text {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    padding: 20px 30px;
+    margin: 0;
+    background-color: $white;
+    box-shadow: $shadow;
+    justify-content: center;
+
+    & p {
+      margin: 0;
+    }
+  }
+
+  &-hidden-small {
+    display: none;
+
+    @include media-breakpoint-up(md) {
+      display: block;
+    }
+  }
+
+  &-show-large {
+    display: block;
+
+    @include media-breakpoint-up(md) {
+      display: none;
+    }
+  }
+}
