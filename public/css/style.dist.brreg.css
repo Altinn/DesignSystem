@@ -8104,6 +8104,24 @@ textarea,
   font-family: "Open Sans";
   font-weight: normal; }
 
+.a-fontSizeXXXL {
+  font-size: 32px;
+  font-size: 3.2rem;
+  line-height: 1.3;
+  -webkit-font-smoothing: subpixel-antialiased; }
+  @media (min-width: 768px) {
+    .a-fontSizeXXXL {
+      font-size: 36px;
+      font-size: 3.6rem;
+      line-height: 1.2;
+      -webkit-font-smoothing: subpixel-antialiased; } }
+  @media (min-width: 992px) {
+    .a-fontSizeXXXL {
+      font-size: 48px;
+      font-size: 4.8rem;
+      line-height: 1.2;
+      -webkit-font-smoothing: subpixel-antialiased; } }
+
 .a-fontSizeXXL, h1,
 .a-h1, .a-btn.a-btn-border, .a-iconText.a-iconText-smallLink .a-iconText-text .a-iconText-text-large {
   font-size: 24px;
@@ -9085,7 +9103,7 @@ object {
     .a-mt-filter {
       margin-top: 151px; } }
 
-.a-disabled, .a-btn.a-disabled {
+.a-disabled, .a-btn.a-disabled, .a-btn-wide.a-disabled {
   color: #000000;
   cursor: not-allowed;
   background-color: #FFFFFF;
@@ -10048,6 +10066,82 @@ h1 .a-label {
     margin-bottom: 0;
     line-height: 36px;
     text-align: center; }
+
+.a-btn-wide {
+  font-size: 36px;
+  font-size: 3.6rem;
+  line-height: 1.2;
+  -webkit-font-smoothing: subpixel-antialiased;
+  font-family: "Open Sans";
+  font-weight: bold;
+  position: relative;
+  display: inline-block;
+  width: 100%;
+  padding: 6px 24px 4px 24px;
+  margin-bottom: 12px;
+  color: #000000;
+  text-align: center;
+  cursor: pointer;
+  background: #01B8E6;
+  border: none;
+  border-radius: 0; }
+  @media (min-width: 576px) {
+    .a-btn-wide {
+      font-size: 24px;
+      font-size: 2.4rem;
+      line-height: 1.5;
+      -webkit-font-smoothing: subpixel-antialiased;
+      width: auto; } }
+  @media (min-width: 992px) {
+    .a-btn-wide {
+      font-size: 36px;
+      font-size: 3.6rem;
+      line-height: 1.2;
+      -webkit-font-smoothing: subpixel-antialiased; } }
+  .a-btn-wide:hover {
+    color: #000000;
+    text-decoration: none;
+    background: #03cbfe;
+    border: none; }
+  .a-btn-wide:focus {
+    color: #000000;
+    text-decoration: none;
+    background: #03cbfe;
+    border-bottom: none;
+    outline: 0; }
+  .a-btn-wide:active, .a-btn-wide.active {
+    color: #000000;
+    background: #01B8E6;
+    background-image: none;
+    outline: 0; }
+  .a-btn-wide.disabled, .a-btn-wide:disabled {
+    color: #000000;
+    cursor: not-allowed;
+    background-color: #EFEFEF;
+    -webkit-box-shadow: 0 0 0 1px #FFFFFF;
+    box-shadow: 0 0 0 1px #FFFFFF; }
+  .a-btn-wide::after {
+    position: absolute;
+    top: -6px;
+    left: 0;
+    width: 100%;
+    height: 48px;
+    content: ''; }
+  .a-btn-wide::before {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: auto;
+    min-height: auto;
+    content: ''; }
+  .a-btn-wide.a-btn-border {
+    padding: 8px 24px 4px 24px;
+    color: #022F51;
+    background: transparent;
+    border: 2px solid #022F51; }
+    .a-btn-wide.a-btn-border:hover, .a-btn-wide.a-btn-border:focus {
+      color: #022F51;
+      background: rgba(2, 47, 81, 0.1); }
 
 .a-btn-secondary {
   background-color: #FFFFFF; }
@@ -11867,6 +11961,20 @@ body > .loader-container {
       color: #6A6A6A;
       cursor: default;
       border: none; }
+  .a-breadcrumb-open li {
+    display: inline;
+    line-height: 36px; }
+    .a-breadcrumb-open li a {
+      font-size: 16px;
+      font-size: 1.6rem;
+      line-height: 1.5;
+      -webkit-font-smoothing: subpixel-antialiased; }
+      @media (min-width: 768px) {
+        .a-breadcrumb-open li a {
+          font-size: 20px;
+          font-size: 2rem;
+          line-height: 1.5;
+          -webkit-font-smoothing: subpixel-antialiased; } }
 
 .a-pagination .page-item .page-link {
   padding: 5px 14px 3px;
@@ -13544,21 +13652,20 @@ a.a-modal-close {
       margin-left: 96px; } }
 
 .a-article-teaser {
-  float: left;
   width: 100%;
   margin-bottom: 12px; }
   .a-article-teaser a {
-    display: block; }
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex; }
     .a-article-teaser a :hover .a-date,
     .a-article-teaser a :focus .a-date {
       background: #0078CC; }
 
 .a-article-teaser-text {
-  width: calc( 100% - 60px); }
-  @media (min-width: 576px) {
-    .a-article-teaser-text {
-      float: left;
-      padding-left: 36px; } }
+  float: left;
+  width: calc( 100% - 60px);
+  padding-left: 36px; }
   @media (min-width: 768px) {
     .a-article-teaser-text {
       margin-top: -2px; } }
@@ -13606,9 +13713,7 @@ h1 + .a-byline {
   background: #01B8E6; }
   @media (min-width: 576px) {
     .a-date {
-      float: left;
       padding-top: 2px;
-      margin-top: -3px;
       margin-bottom: 36px; } }
   .a-date .a-date-day {
     font-size: 30px;
@@ -13616,9 +13721,66 @@ h1 + .a-byline {
     line-height: 1.3;
     -webkit-font-smoothing: subpixel-antialiased;
     padding-top: 5px; }
+    .a-date .a-date-day--small {
+      font-size: 18px;
+      font-size: 1.8rem;
+      line-height: 1.5;
+      -webkit-font-smoothing: subpixel-antialiased;
+      margin-top: 12px; }
   .a-date .a-date-month {
     font-size: 12px;
     font-size: 1.2rem;
+    line-height: 1.5;
+    -webkit-font-smoothing: subpixel-antialiased;
+    margin-top: -7px; }
+  .a-date-container {
+    display: none;
+    padding: 0; }
+    @media (min-width: 768px) {
+      .a-date-container {
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-align: center;
+        -ms-flex-align: center;
+        align-items: center; } }
+    .a-date-container-inner {
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: flex;
+      width: 100%; }
+  .a-date-hiddencontainer {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    margin-bottom: 48px; }
+    @media (min-width: 768px) {
+      .a-date-hiddencontainer {
+        display: none; } }
+
+.a-date--large {
+  width: 144px;
+  height: 132px;
+  margin-bottom: 0;
+  color: #FFFFFF;
+  text-align: center;
+  background: #01B8E6; }
+  .a-date--large .a-date-day {
+    font-size: 60px;
+    font-size: 6rem;
+    line-height: 1.1;
+    -webkit-font-smoothing: subpixel-antialiased;
+    padding-top: 24px; }
+    .a-date--large .a-date-day--small {
+      font-size: 36px;
+      font-size: 3.6rem;
+      line-height: 1.2;
+      -webkit-font-smoothing: subpixel-antialiased;
+      padding-top: 36px;
+      padding-bottom: 12px; }
+  .a-date--large .a-date-month {
+    font-size: 18px;
+    font-size: 1.8rem;
     line-height: 1.5;
     -webkit-font-smoothing: subpixel-antialiased;
     margin-top: -7px; }
