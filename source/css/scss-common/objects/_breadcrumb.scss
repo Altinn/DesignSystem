@@ -24,8 +24,12 @@
   }
 
   li {
-    display: inline;
-    float: none;
+    @include media-breakpoint-up( md ) {
+      display: inline;
+      float: none;
+    }
+
+    display: none;
     line-height: $spacer * 3;
 
     a {
@@ -80,21 +84,6 @@
         color: $grey;
         cursor: default;
         border: none;
-      }
-    }
-  }
-
-  &-open {
-    & li {
-      display: inline;
-      line-height: $spacer * 3;
-
-      a {
-        @include a-fontSize16;
-
-        @include media-breakpoint-up( md ) {
-          @include a-fontSize20;
-        }
       }
     }
   }
