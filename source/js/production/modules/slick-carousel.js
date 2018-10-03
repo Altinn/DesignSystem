@@ -1,6 +1,6 @@
 var setupSlickCarousel = function() {
-  if ($('[data-slideshow]').length) {
-    $(document).ready(function() {
+  $(document).ready(function() {
+    if ($('[data-slideshow]').length) {
       $('[data-slideshow]').each(function() {
         $(this).slick({
           infinite: false,
@@ -9,6 +9,6 @@ var setupSlickCarousel = function() {
           nextArrow: '<button type="button" class="slick-prev an-slideshow-button an-slideshow-button-next"><i class="ai ai-arrowright"><span class="sr-only">Neste</span></i></button>'
         });
       });
-    });
-  }
+    }
+  });
 };
