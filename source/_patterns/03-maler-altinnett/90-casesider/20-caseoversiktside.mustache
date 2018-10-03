@@ -3,22 +3,28 @@
         {{> organismer-header-altinnett }}
     {{/ header }}
 
-    <div class="container px-1 px-lg-2 px-xl-0"> 
-      <h1 class="a-h3 a-blueDarkerText a-fontSizeXL">{{ page-title }}</h1>
-      {{> atomer-avsnitt(paragraph-class: "a-blueDarkerText a-fontSizeXL") }}
-    </div>
-   
-    <div class="an-case">
-    {{# cases }}
-      <div class="an-caseRow {{ caseClass }}">
-        <div class="container">
-          {{> molekyler-case-preview }}
+    <div class="container">
+
+        <div class="row mb-6">
+            <div class="col-10">
+                <h1 class="a-h3 a-blueDarkerText a-fontSizeXL">{{ pageTitle }}</h1>
+                <p class="a-blueDarkerText a-fontSizeXL">{{ pageIngress }}</p>
+            </div>
         </div>
-      </div>
-    {{/ cases }}
+
+        {{# cases }}
+            {{#casePreview}}
+                {{> molekyler-altinnett-case-preview }}
+            {{/casePreview}}
+            {{#caseCard}}
+                {{> molekyler-altinnett-case-card }}
+            {{/caseCard}}
+        {{/ cases }}
+
     </div>
 
-    {{# footer }} 
+
+    {{# footer }}
         {{> organismer-footer-altinnett }}
     {{/ footer }}
 </div>
