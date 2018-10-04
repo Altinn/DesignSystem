@@ -1,25 +1,27 @@
 <div class="row {{ class }}">
-
-    <div class="col-12 d-block d-md-none mt-2">
-        <p class="a-fontSizeXL a-fontBold mb-0">{{{ introText }}}</p>
-        <p class="a-fontSizeXL mb-2">{{{ description }}}</p>
-    </div>
-
-    <div class="col-6 p-0">
+      <div class="col-12 col-md-6 p-0">
         <div class="an-contactCard-imageWrap h-100">
             <img class="an-contactCard-image an-grayscale an-multiply" src="{{ img-src }}" alt="{{ img-alt }}">
         </div>
-    </div>
+      </div>
 
-    <div class="col-6 py-md-6 p-3 my-auto">
-        <div class="d-none d-md-block">
-            <p class="a-fontSizeXL a-fontBold mb-0">{{{ introText }}}</p>
-            <p class="a-fontSizeXL mb-2">{{{ description }}}</p>
-        </div>
+      <div class="col-12 col-md-6 py-md-6 p-3">
+        {{# intro-text }}
+          <p class="a-fontSizeXL mb-1 a-blueDarkerText">{{{ intro-text }}}</p>
+        {{/ intro-text }}
 
-        <p class="a-fontSizeXL a-fontBold mb-0">{{{ name }}}</p>
-        <p class="a-fontSizeXL mb-1">{{{ position }}}</p>
-        <a href="mailto:{{{ emailAddress }}}" class="mb-md-1 d-block a-fontSizeXL a-noUnderline">{{{ emailAddress }}}</a>
-        <a href="tel:+47{{{ telNumber }}}" class="d-block a-fontSizeXL a-noUnderline">{{{ telNumberVisible }}}</a>
-    </div>
+        <p class="mb-1">
+          <a href="mailto:{{{ mail-adress }}}" class="a-fontSizeXL a-blueDarkerText a-fontBold a-noUnderline">
+            <span class="sr-only a-fontSizeXL">Send mail til {{{ mail-adress }}}</span>
+            {{{ mail-adress }}}
+          </a>
+        </p>
+        <p class="mb-2">
+          <span class="a-fontSizeXL a-blueDarkerText mr-1">eller</span>
+          <a href="tel:+47{{{ telNumber }}}" class="a-fontSizeXL a-blueDarkerText a-fontBold a-noUnderline">
+            <span class="sr-only a-fontSizeXL">Send mail til {{{ telNumberVisible }}}</span>
+            {{{ telNumberVisible }}}
+          </a>
+        </p>
+      </div>
 </div>
