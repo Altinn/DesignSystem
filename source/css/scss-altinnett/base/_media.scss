@@ -130,66 +130,6 @@
   mix-blend-mode: multiply;
 }
 
-.an-contactCard {
-  min-width: 1px;
-  height: 100%;
-  margin-top: auto;
-  align-self: center;
-
-  &__content {
-    display: flex;
-    width: 100%;
-
-    &-inner {
-      display: flex;
-      flex: 1 0 50%;
-      flex-direction: column;
-      min-width: 0;
-      padding: 20px 10px;
-      padding-top: 40px;
-      justify-content: center;
-
-      @include media-breakpoint-up ( sm ) {
-        padding-right: 20px;
-        padding-left: 20px;
-      }
-
-      @include media-breakpoint-up ( md ) {
-        padding-right: 20px;
-        padding-left: 0;
-      }
-    }
-
-    &-image {
-      flex: 1 0 50%;
-      margin-top: auto;
-      align-self: center;
-    }
-  }
-}
-
-.an-casePreview {
-  padding: 0;
-
-  @include media-breakpoint-down ( sm ) {
-    display: block;
-
-    img {
-      height: auto;
-    }
-  }
-}
-
-.an-case {
-  background-color: $white;
-
-  & .an-caseRow {
-    &--grey {
-      background-color: $grey-light;
-    }
-  }
-}
-
 .an-regnestykke {
   td,
   th {
@@ -274,6 +214,24 @@
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+.an-squareImage {
+  position: relative;
+  width: 100%;
+  padding-top: 94.5%;
+  overflow: hidden;
+
+  &-image {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    min-width: 100%;
+    max-width: none;
+    height: 100%;
+    transform: translate(-50%, -50%);
+    object-fit: cover;
+  }
 }
 
 .an-fullWidthBlock {
