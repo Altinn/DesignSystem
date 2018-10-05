@@ -1,0 +1,37 @@
+<!-- START: 01-molekyler-03-media-130-altinnett-case-preview -->
+<div class="an-casePreview mb-8 {{ style }}">
+  <div class="col-12 col-lg-8 offset-lg-2 a-text mb-5">
+    <h2 class="a-h3">{{title}}</h2>
+    <p>{{paragraph}}</p>
+    {{# linkText }} {{> atomer-link }} {{/ linkText }}
+  </div>
+
+  <div class="row">
+
+    {{# imageCase }}
+    <figure>
+      <img src="{{ img-src }}" alt="{{ img-alt-text }}" />
+    </figure>
+    {{/ imageCase }} {{# dualCase }}
+    <figure class="col-6 col-md-3 mb-4 mb-md-0 px-2 pl-md-3">
+      <img src="{{ img-src }}" alt="{{ img-alt-text }}" class="w-100" />
+    </figure>
+    <div class="col-6 col-md-3 mb-4 mb-md-0 pt-1">
+      <p class="a-fontSizeXL mb-1">{{{ description1 }}}</p>
+      <p class="a-fontSizeXXS">{{ smallText1 }}</p>
+    </div>
+    <figure class="col-6 col-md-3 px-2 pl-md-3">
+      <img src="{{ img-src }}" alt="{{ img-alt-text }}" class="w-100" />
+    </figure>
+    <div class="col-6 col-md-3 pt-1">
+      <p class="a-fontSizeXL mb-1">{{{ description2 }}}</p>
+      <p class="a-fontSizeXXS">{{ smallText2 }}</p>
+    </div>
+    {{/ dualCase }} {{# calculateCase }}
+    <div class="col-12">
+      {{> molekyler-regnestykke }}
+    </div>
+    {{/ calculateCase }}
+  </div>
+</div>
+<!-- END: 01-molekyler-03-media-130-altinnett-case-preview -->

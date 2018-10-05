@@ -1,19 +1,20 @@
 <!-- START: 01-molekyler-03-media-86-altinnett-presentasjonsblokk-bred -->
 <div class="{{ col }} {{ extraClass }}">
   <div class="container">
-    <div class="an-presentationBlock col-12">
+    <div class="an-presentationBlock col-12 pb-lg-8">
       <div class="row">
         <div class="{{ col-image }}">
-          <div class="an-presentationBlock-figure {{ iconClass }}" style="background-image: url({{ imageurl }})">
-            {{# abbreviation }} {{> molekyler-altinnett-forkortelse-svg }} {{/ abbreviation }}
+          <div class="an-presentationBlock-figure">
+            {{#illustration}}
+            <img class="an-presentationBlock-illustration" src="{{img-src}}" alt="{{img-alt}}" /> {{/illustration}} {{#icon}} {{> atomer-sirkel-med-ikon }} {{/icon}}
           </div>
         </div>
         <div class="{{ col-spacing }}"></div>
-        <div class="{{col-title}} d-lg-none my-auto">
+        <div class="{{col-side-title}} my-auto">
           <h1 class="a-fontBold a-blueDarkerText {{ titleClass }}">{{ title }}</h1>
         </div>
         <div class="{{ col-info }}">
-          <h1 class="a-fontBold a-blueDarkerText d-none d-lg-block {{ titleClass }}">{{ title }}</h1>
+          <h1 class="{{col-top-title}} a-fontBold a-blueDarkerText {{ titleClass }}">{{ title }}</h1>
           <div class="an-presentationBlock-largeDetails epi-wysiwyg">
             {{# caption }}
             <p>{{{ caption }}}</p>

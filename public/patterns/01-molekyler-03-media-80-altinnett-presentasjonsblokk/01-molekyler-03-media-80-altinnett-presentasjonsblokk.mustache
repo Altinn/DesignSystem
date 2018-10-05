@@ -3,12 +3,13 @@
   <a href="{{ url }}" class="a-noUnderline">
     <div class="an-presentationBlock col-12 {{ extraClass }}">
       <div class="row">
-        <h2 class="a-fontBold a-blueDarkerText d-none d-md-block {{ headerClass }}">{{ title }}</h2>
+        <h2 class="a-fontBold a-blueDarkerText d-none d-md-block col-12 {{ headerClass }}">{{ title }}</h2>
 
         <div class="col-5 col-md-12 my-auto">
-          <div class="an-presentationBlock-figure {{ iconClass }}" style="background-image: url({{ imageurl }})">
-            {{# abbreviation }} {{> molekyler-altinnett-forkortelse-svg }} {{/ abbreviation }}
-          </div>
+          <figure class="an-presentationBlock-figure">
+            {{#illustration}}
+            <img class="an-presentationBlock-illustration" src="{{img-src}}" alt="{{img-alt}}" /> {{/illustration}}
+          </figure>
         </div>
 
         <div class="col-7 col-md-12">
