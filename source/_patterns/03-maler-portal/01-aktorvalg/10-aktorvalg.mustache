@@ -30,17 +30,26 @@
           {{> atomer-link(link-class: "a-link-logout", link-text: "Logg ut", link-url: "/patterns/04-sider-infoportal-01-forside-00-forside/04-sider-infoportal-01-forside-00-forside.html") }}
         </div>
 
-          <div class="row">
-            <div class="col-sm-12{{^ is-simple }} pb-3{{/ is-simple }}">
-              {{# mainPerson }}
-                {{> molekyler-ekspanderbar-liste-status }}
-              {{/ mainPerson }}
+        <div class="row">
+          <div class="col-sm-12{{^ is-simple }} pb-3{{/ is-simple }}">
+            {{# mainPerson }}
+              {{> molekyler-ekspanderbar-liste-status }}
+            {{/ mainPerson }}
+          </div>
+        </div>
+
+        {{# show-favourites }}
+          <div class="row px-lg-2">
+            <div class="col-md col-12 mb-4">
+                {{> organismer-favoritter}}
             </div>
           </div>
+        {{/ show-favourites }}
+
         <div class="row">
           {{^ is-simple }}
             <div class="col-md col-12 mb-1">
-              <h2 class="a-h4 px-lg-3">Alle dine aktører:</h2>
+              <h2 class="a-h4 px-lg-2">Alle dine aktører:</h2>
             </div>
             {{# lagrede-sok }}
               <div class="col-12 col-md-auto pb-1 pb-sm-0 d-none d-md-block ">
@@ -54,6 +63,7 @@
             {{/ utvidet-sok }}
           {{/ is-simple }}
         </div>
+
         <div class="row">
           <div class="col-sm-12 pb-md-3">
             {{# personswitch }}
@@ -114,6 +124,15 @@
             {{/ personswitch-search }}
           </div>
         </div>
+
+        {{# show-favourites }}
+          <div class="row px-lg-2">
+            <div class="col-md col-12 mb-1">
+                {{> organismer-favoritter}}
+            </div>
+          </div>
+        {{/ show-favourites }}
+
         <div class="row">
           <div class="col-sm-12 pb-md-3">
             {{# personswitch }}
