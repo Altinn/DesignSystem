@@ -1,0 +1,37 @@
+<div class="a-jumbotron-header a-bgGreyLighter mb-2 mb-md-4">
+    <div class="container">
+        <div class="an-productHeaderBlock pb-4 pb-lg-8">
+            <div class="row">
+                {{#illustration}}
+                    <h1 class="a-fontBold a-blueDarkerText a-fontSizeXXL col-12 offset-lg-5 mb-2 mb-lg-1">{{ title }}</h1>
+                    <div class="col-12 col-lg-5">
+                        <div class="an-productHeaderBlock-figure mb-2 pr-lg-5">
+                            <img class="an-productHeaderBlock-illustration" src="{{img-src}}" alt="{{img-alt}}" />
+                        </div>
+                    </div>
+                {{/illustration}}
+                {{#icon}}
+                    <div class="col-12 col-lg-6 my-auto">
+                        <div class="an-productHeaderBlock-iconTitle mb-2">
+                            <div class="an-productHeaderBlock-icon">
+                                {{> atomer-sirkel-med-ikon }}
+                            </div>
+                            <h1 class="a-fontBold a-blueDarkerText a-fontSizeXXL mb-0">{{ title }}</h1>
+                        </div>
+                    </div>
+
+                {{/icon}}
+                <div class="col-12 {{#illustration}}col-lg-7{{/illustration}} {{#icon}}col-lg-6{{/icon}}">
+                    <div class="an-productHeaderBlock-details epi-wysiwyg">
+                        {{# caption }}
+                            <p>{{{ caption }}}</p>
+                        {{/ caption }}
+                        {{# list }}
+                            {{> atomer-liste-unummerert-kuler }}
+                        {{/ list }}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

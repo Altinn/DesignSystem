@@ -36,9 +36,13 @@
   &-text {
     display: flex;
     flex-direction: column;
-    padding: $spacer * 3;
+    padding: $spacer * 3 $spacer;
     margin-top: -1px;
     justify-content: center;
+
+    @include media-breakpoint-up( sm ) {
+      padding: $spacer * 3;
+    }
 
     @include media-breakpoint-up( md ) {
       margin-top: 0;
@@ -54,11 +58,12 @@
 .an-presentationBlock {
   display: inline-block;
   height: calc(100% - 5px);
-  padding: $spacer * 2;
+  padding: $spacer * 2 $spacer;
   margin-bottom: $spacer * 2;
 
   @include media-breakpoint-up( sm ) {
     height: calc(100% - #{$spacer * 2});
+    padding: $spacer * 2;
   }
 
   .an-presentationBlock-largeHeader {
@@ -91,7 +96,27 @@
     }
   }
 
-  .an-presentationBlock-largeDetails {
+  &-container {
+    @include media-breakpoint-up( md ) {
+      height: 100%;
+    }
+  }
+}
+
+// PRODUCT HEADER BLOCK
+.an-productHeaderBlock {
+
+  &-iconTitle {
+    display: flex;
+    align-items: center;
+  }
+
+  &-icon {
+    width: (120px + $spacer * 3);
+    padding-right: $spacer * 3;
+  }
+
+  .an-productHeaderBlock-details {
     p,
     li {
       @include a-fontSize18;
@@ -102,12 +127,6 @@
       @include media-breakpoint-up( lg) {
         @include a-fontSize24;
       }
-    }
-  }
-
-  &-container {
-    @include media-breakpoint-up( md ) {
-      height: 100%;
     }
   }
 }
