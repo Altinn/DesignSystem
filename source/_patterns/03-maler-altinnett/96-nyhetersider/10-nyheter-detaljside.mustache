@@ -14,33 +14,31 @@
       <p class="mb-0 a-fontSizeXL">{{ preTitle }}</p>
       <h1 class="a-fontSizeXXXL mb-0 a-fontBold a-blueDarkerText">{{ pageTitle }}</h1>
     </div>
-    
-    {{# ingress }}
-      <div class="col-12 col-md-9 offset-md-1 mb-4">
-        {{> atomer-seksjonstittel }}
-        {{> atomer-avsnitt }}
-      </div>
-    {{/ ingress }}
-  </div> 
 
-  <div class="container">
-    <div class="col-12 col-md-8 offset-md-2 mb-5 mb-lg-7 a-text epi-wysiwyg">
-      {{# listContent }}
-      {{> atomer-avsnitt }}
-        <div class="mb-5 mb-lg-7">
-          <h3 class="a-h4">{{section-title}}</h3>
-          {{> atomer-liste-unummerert-kuler }}
+    <div class="row mb-6 mb-lg-8">
+      {{# ingress }}
+        <div class="col-12 col-md-9 offset-md-1 mb-4">
+          {{> atomer-seksjonstittel }}
+          {{> atomer-avsnitt }}
         </div>
-      {{/ listContent }}
-    </div>
-    
-    {{# link }}
-    <div class="col-12 col-md-10 offset-md-1 mb-5 mb-lg-6">
-      <div class="mb-4 mb-md-8">
-        {{> atomer-link-ekstern }}
+      {{/ ingress }}
+
+      <div class="col-12 col-md-8 offset-md-2 mb-5 mb-lg-7 a-text epi-wysiwyg">
+        {{# listContent }}
+        {{> atomer-avsnitt }}
+          <div class="mb-5 mb-lg-7">
+            <h3 class="a-h4">{{section-title}}</h3>
+            {{> atomer-liste-unummerert-kuler }}
+          </div>
+        {{/ listContent }}
       </div>
+
+      {{# link }}
+      <div class="col-12 col-md-10 offset-md-1 mb-5">
+          {{> atomer-link-ekstern }}
+      </div>
+      {{/ link }}
     </div>
-    {{/ link }}
   </div>
 
   {{# footer }}
