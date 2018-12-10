@@ -87,6 +87,7 @@ var searchWithMultipleSelectInAutoComplete = function() {
         bolClose = false;
       } else {
         bolClose = true;
+        $('button:contains(\'Lagre\')').removeAttr('disabled');
       }
 
       // Actuall close
@@ -108,6 +109,7 @@ var searchWithMultipleSelectInAutoComplete = function() {
       'ui-menu-item': 'a-dotted'
     },
     open: function(event, ui) {
+      $('button:contains(\'Lagre\')').attr('disabled', 'disabled');
       $('.ui-autocomplete').removeAttr('style'); // remove inline positioning and display of amount results
       $('.ui-autocomplete .ui-menu-item').not(':first-of-type').addClass('a-clickable');
     },
