@@ -39,6 +39,7 @@
   questionnaireInteraction,
   searchFilterView,
   searchWithAutocomplete,
+  searchWithMultipleSelectInAutoComplete,
   selectAll,
   sessionExpiredDialog,
   setupAddRightsHandler,
@@ -54,6 +55,7 @@
   toggleArchivedState,
   toggleFilter,
   toggleInstant,
+  toggleRoleRightsInit,
   toggleSavedEdit,
   toggleSelectProfiles,
   toggleSwitch,
@@ -103,6 +105,7 @@ window.devInit = function() {
   questionnaireInteraction();
   searchFilterView();
   searchWithAutocomplete();
+  searchWithMultipleSelectInAutoComplete();
   selectAll();
   sessionExpiredDialog();
   setupAddRightsHandler();
@@ -118,6 +121,7 @@ window.devInit = function() {
   toggleArchivedState();
   toggleFilter();
   toggleInstant();
+  toggleRoleRightsInit();
   toggleSavedEdit();
   toggleSelectProfiles();
   toggleSwitch();

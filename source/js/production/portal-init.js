@@ -37,6 +37,7 @@
   setValidatorSettings,
   toggleFilter,
   toggleInstant,
+  toggleRoleRightsInit,
   toggleSwitch,
   tooltip,
   truncateBoxButtonNames,
@@ -89,6 +90,7 @@ window.portalInit = function() {
   setValidatorSettings();
   toggleFilter();
   toggleInstant();
+  toggleRoleRightsInit();
   toggleSwitch();
   tooltip();
   truncateBoxButtonNames();
