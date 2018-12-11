@@ -312,12 +312,11 @@
 
 // Article teaser
 .a-article-teaser {
-  float: left;
   width: 100%;
   margin-bottom: $spacer;
 
   a {
-    display: block;
+    display: flex;
 
     :hover,
     :focus {
@@ -329,10 +328,10 @@
 }
 
 .a-article-teaser-text {
-  @include media-breakpoint-up( sm ) {
-    float: left;
-    padding-left: $spacer * 3;
-  }
+  float: left;
+  width: calc( 100% - 60px );
+  padding-left: $spacer * 3;
+
   @include media-breakpoint-up( md ) {
     margin-top: -2px;
   }
@@ -343,7 +342,6 @@
     margin-top: -8px;
   }
 
-  width: calc( 100% - 60px );
 
   h2 {
     @include a-fontSize20;
@@ -372,9 +370,7 @@ h1 + .a-byline {
 // Date
 .a-date {
   @include media-breakpoint-up( sm ) {
-    float: left;
     padding-top: 2px;
-    margin-top: -3px;
     margin-bottom: $spacer * 3;
   }
 
@@ -388,10 +384,62 @@ h1 + .a-byline {
   .a-date-day {
     @include a-fontSize30;
     padding-top: 5px;
+
+    &--small {
+      @include a-fontSize18;
+      margin-top: $spacer;
+    }
   }
 
   .a-date-month {
     @include a-fontSize12;
+    margin-top: -7px;
+  }
+
+  &-container {
+    display: none;
+    padding: 0;
+    @include media-breakpoint-up( md ) {
+      display: flex;
+      align-items: center;
+    }
+
+    &-inner {
+      display: flex;
+      width: 100%;
+    }
+  }
+
+  &-hiddencontainer {
+    display: flex;
+    margin-bottom: $spacer * 4;
+    @include media-breakpoint-up( md ) {
+      display: none;
+    }
+  }
+}
+
+.a-date--large {
+  width: $spacer * 12;
+  height: $spacer * 11;
+  margin-bottom: 0;
+  color: $white;
+  text-align: center;
+  background: $blue;
+
+  .a-date-day {
+    @include a-fontSize60;
+    padding-top: $spacer * 2;
+
+    &--small {
+      @include a-fontSize36;
+      padding-top: $spacer * 3;
+      padding-bottom: $spacer;
+    }
+  }
+
+  .a-date-month {
+    @include a-fontSize18;
     margin-top: -7px;
   }
 }
