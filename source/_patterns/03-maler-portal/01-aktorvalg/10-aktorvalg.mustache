@@ -10,14 +10,18 @@
       <div class="container a-triangleShadow a-js-hideElement">
 
         {{# is-first-time }}
-        <div class="row px-2 px-md-1">
+        <div class="row px-lg-2">
           <div class="col-12 col-lg-4 mb-1">
               <h1 class="a-h2 d-inline">Velg aktør</h1>
               {{# headerFootnote}}
                 {{> atomer-link-med-popover-ikon }}
               {{/ headerFootnote }}
           </div>
-          <div class="col-12 col-lg-5 ">
+          {{> atomer-link(link-class: "a-link-logout", link-text: "Logg ut", link-url: "/patterns/04-sider-infoportal-01-forside-00-forside/04-sider-infoportal-01-forside-00-forside.html") }}
+        </div>
+
+        <div class="row px-lg-2">
+          <div class="col">
             {{# personswitch-search }}
               {{> atomer-tekst-input }}
               {{# no-results-text }}
@@ -27,7 +31,14 @@
               {{/ no-results-text }}
             {{/ personswitch-search }}
           </div>
-          {{> atomer-link(link-class: "a-link-logout", link-text: "Logg ut", link-url: "/patterns/04-sider-infoportal-01-forside-00-forside/04-sider-infoportal-01-forside-00-forside.html") }}
+          <div class="col-xs-12 col-md-auto pb-1 text-md-right">
+            {{# lagrede-sok }}
+              {{> atomer-link-ikon }}
+            {{/ lagrede-sok }}
+            {{# utvidet-sok }}
+              {{> atomer-link-ikon }}
+            {{/ utvidet-sok }}
+          </div>
         </div>
 
         <div class="row">
@@ -46,22 +57,17 @@
           </div>
         {{/ show-favourites }}
 
-        <div class="row">
+        <div class="row px-lg-2">
           {{^ is-simple }}
             <div class="col-md col-12 mb-1">
-              <h2 class="a-h4 px-lg-2">Alle dine aktører:</h2>
+              <h2 class="a-h4">Alle dine aktører:</h2>
             </div>
-            {{# lagrede-sok }}
-              <div class="col-12 col-md-auto pb-1 pb-sm-0 d-none d-md-block ">
-                {{> atomer-link-ikon }}
-              </div>
-            {{/ lagrede-sok }}
-            {{# utvidet-sok }}
-              <div class="col-12 col-md-auto d-none d-md-block ">
-                {{> atomer-link-ikon }}
-              </div>
-            {{/ utvidet-sok }}
           {{/ is-simple }}
+          <div class="col-xs-12 col-md-auto pb-1 text-md-right">
+            {{# personswitch-options }}
+              {{> atomer-avkrysningsboks }}
+            {{/ personswitch-options }}
+          </div>
         </div>
 
         <div class="row">
@@ -154,7 +160,7 @@
         </div>
       </div>
       {{/ is-first-time }}
-        
+
       </div>
     </div>
 
