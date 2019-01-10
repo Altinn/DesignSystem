@@ -130,7 +130,137 @@
   mix-blend-mode: multiply;
 }
 
-.an-contactCard {
-  min-width: auto;
-  height: 100%;
+.an-regnestykke {
+  td,
+  th {
+    @include a-fontReg;
+
+    padding: 2px 0 2px 0;
+    border-bottom: none;
+  }
+
+  td {
+    @include a-fontMedium;
+    @include a-fontBold;
+    width: auto;
+    text-align: right;
+    white-space: nowrap;
+    vertical-align: bottom;
+
+    @include media-breakpoint-up( sm ) {
+      width: 20%;
+    }
+
+    @include media-breakpoint-up( md ) {
+      width: auto;
+    }
+  }
+
+  th {
+    @include media-breakpoint-up( sm ) {
+      padding: $spacer / 2 $spacer * 2 0 0;
+    }
+  }
+
+  tfoot {
+    @include a-fontMedium;
+
+    border-top: 3px solid $blue;
+
+    td,
+    th {
+      padding-top: $spacer;
+    }
+  }
+
+  tbody {
+    tr {
+      &:last-child {
+        th,
+        td {
+          @include media-breakpoint-up( sm ) {
+            padding-bottom: $spacer;
+          }
+        }
+      }
+    }
+  }
+
+  &__row {
+    @include media-breakpoint-only( xs ) {
+      text-align: right;
+    }
+
+    @include media-breakpoint-up( sm ) {
+      display: table-row;
+      margin: 0;
+    }
+    display: block;
+    margin-bottom: 24px;
+  }
+
+  &__item {
+    @include media-breakpoint-only( xs ) {
+      display: block;
+      width: auto;
+      padding: 0;
+      margin: 0;
+      text-align: right;
+    }
+  }
+}
+
+.an-centerImage {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.an-squareImage {
+  position: relative;
+  width: 100%;
+  padding-top: 94.5%;
+  overflow: hidden;
+
+  &-image {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    min-width: 100%;
+    max-width: none;
+    height: 100%;
+    transform: translate(-50%, -50%);
+    object-fit: cover;
+  }
+}
+
+.an-fullWidthBlock {
+
+  @include media-breakpoint-up( sm ) {
+    min-height: 1px;
+    padding-right: 12px;
+    padding-left: 12px;
+    margin: 0;
+  }
+}
+
+.an-circleIcon {
+  position: relative;
+  width: 100%;
+  padding-top: 100%;
+  border-radius: 50%;
+
+  &-image {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    max-width: 50%;
+    max-height: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+  &-dashed {
+    border-color: $blue;
+    border-style: dashed;
+  }
 }

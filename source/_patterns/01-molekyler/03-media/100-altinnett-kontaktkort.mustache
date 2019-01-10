@@ -1,23 +1,27 @@
 <div class="row {{ class }}">
-  <div class="col-sm-6 col-md-6 col-lg-6 col-xl-6 my-auto px-2 {{ contactInfoClass }}">
-    <p class="a-h3 a-fontReg mb-1 pt-1">{{{ intro-text }}}</p>
-    <p class="a-h3 mb-0">{{{ name }}}</p>
-    <p class="a-h3 a-fontReg mb-1">{{{ position }}}</p>
+      <div class="col-12 col-md-6 p-0">
+        <div class="an-squareImage h-100">
+            <img class="an-squareImage-image an-grayscale an-multiply" src="{{ img-src }}" alt="{{ img-alt }}">
+        </div>
+      </div>
 
-    <p class="mb-1">
-      <a href="tel:+47{{{ telNumber }}}" class="a-h3 a-fontReg a-textBlack a-noUnderline">
-        <span class="sr-only">Send mail til {{{ telNumberVisible }}}</span>
-        {{{ telNumberVisible }}}
-      </a>
-    </p>
+      <div class="col-12 col-md-6 py-md-6 p-3">
+        {{# intro-text }}
+          <p class="a-fontSizeXL mb-1 a-blueDarkerText">{{{ intro-text }}}</p>
+        {{/ intro-text }}
 
-    <p class="mb-0">
-      <a href="mailto:{{{ mail-adress }}}" class="a-h3 a-fontReg a-textBlack a-noUnderline">
-        <span class="sr-only">Send mail til {{{ mail-adress }}}</span>
-        {{{ mail-adress }}}
-      </a>
-    </p>
-  </div>
-
-  <img src="{{ img-src }}" alt="{{ img-alt-text }}" class="col-12 col-sm-6 col-md-6 col-lg-6 col-xl-6 order-sm-first order-md-first order-lg-first order-xl-first an-grayscale an-multiply an-contactCard"/>
+        <p class="mb-1">
+          <a href="mailto:{{{ mail-adress }}}" class="a-fontSizeXL a-blueDarkerText a-fontBold a-noUnderline">
+            <span class="sr-only a-fontSizeXL">Send mail til {{{ mail-adress }}}</span>
+            {{{ mail-adress }}}
+          </a>
+        </p>
+        <p class="mb-2">
+          <span class="a-fontSizeXL a-blueDarkerText mr-1">eller</span>
+          <a href="tel:+47{{{ telNumber }}}" class="a-fontSizeXL a-blueDarkerText a-fontBold a-noUnderline">
+            <span class="sr-only a-fontSizeXL">Send mail til {{{ telNumberVisible }}}</span>
+            {{{ telNumberVisible }}}
+          </a>
+        </p>
+      </div>
 </div>

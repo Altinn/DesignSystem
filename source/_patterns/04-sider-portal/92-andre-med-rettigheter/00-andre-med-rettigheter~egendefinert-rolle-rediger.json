@@ -87,84 +87,131 @@
                 }
               ]
             },
-            "form-control-class": "a-js-autocomplete",
+            "form-control-class": "a-js-autocomplete-multiplecolumns",
             "autocomplete": true
           },
           "local-role-search-header": false,
           "local-role-search-result": false,
           "local-role-rights-list": {
-            "local-role-rights-title": "Rollen gir følgende rettigheter:",
-            "additional-classes": "a-list-borderTop",
+            "local-role-rights-title": "",
+            "additional-classes": "",
             "tabable": true,
             "rows": [
               {
-                "additional-classes": "a-dotted a-selectable a-danger",
-                "id": "firstRow",
-                "onclick": "removeListRow(this)",
-                "list-item-role": "button",
+                "additional-classes": "a-defaultCursor a-dotted",
+                "id": "titleRow",
+                "onclick": false,
+                "row-extra-class": "a-flex-container-align-items-center a-accessability-size",
                 "columns": [
                   {
-                    "additional-classes": "col-12 col-md",
+                    "additional-classes": "col-12 col-sm",
                     "onclick": false,
+                    "searchable": false,
                     "column-items": [
                       {
                         "column-text": {
-                          "classes": "",
-                          "text": "ACC Security level 2 MAG"
-                        }
-                      },
-                      {
-                        "column-text": {
-                          "classes": "sr-only",
-                          "text": "Trykk for å slette rollen"
+                          "classes": "a-fontBold",
+                          "text": "Rollen gir følgende rettigheter"
                         }
                       }
                     ]
                   },
                   {
-                    "additional-classes": "col-auto mr-1 mr-md-2",
+                    "additional-classes": "col-auto text-left mr-1",
                     "onclick": false,
+                    "searchable": false,
                     "column-items": [
                       {
-                        "column-icon": {
-                          "icon-prefix": "ai",
-                          "icon-class": "ai-read",
-                          "icon-extra-class": "a-dimmed",
-                          "icon-title": "Les",
-                          "icon-size": "ai-sm"
-                        }
-                      },
-                      {
-                        "column-icon": {
-                          "icon-prefix": "ai",
-                          "icon-class": "ai-write",
-                          "icon-extra-class": "a-dimmed",
-                          "icon-title": "Skriv",
-                          "icon-size": "ai-sm"
-                        }
-                      },
-                      {
-                        "column-icon": {
-                          "icon-prefix": "ai",
-                          "icon-class": "ai-sign",
-                          "icon-extra-class": "a-dimmed",
-                          "icon-title": "Signer",
-                          "icon-size": "ai-sm"
+                        "column-text": {
+                          "classes": "a-fontBold",
+                          "text": "Rediger tilganger"
                         }
                       }
                     ]
                   },
                   {
-                    "additional-classes": "col-auto",
+                    "additional-classes": "col-auto a-flex-container-align-items-center justify-content-center a-accessability-size",
                     "onclick": false,
+                    "searchable": false,
                     "column-items": [
                       {
-                        "column-icon": {
-                          "icon-prefix": "ai",
-                          "icon-class": "ai-circle-exit",
-                          "icon-extra-class": "a-danger",
-                          "icon-title": "Slett",
-                          "icon-size": "ai-sm"
+                        "column-popover": {
+                          "popover-link-text": "Klikk for å se ikon forklaring.",
+                          "popover-link-text-class": "sr-only",
+                          "open-popover-class": "a-helpIconButton a-js-persistPopover a-js-popoverBig a-js-togglePopoverIcons",
+                          "popover-title": "Ikon forklaring:",
+                          "popover-class": "popover",
+                          "popover-content": false,
+                          "popover-content-id": "ikonForklaringContent",
+                          "popover-list-class": "mt-1",
+                          "popover-link-icon": [
+                            {
+                              "icon-prefix": "ai",
+                              "icon-class": "ai-help-popicon",
+                              "icon-extra-class": "",
+                              "stacked-background": {
+                                "stacked-container-class": "a-js-popoverIconInitial ai-sm",
+                                "icon-prefix": "ai",
+                                "icon-class": "ai-help-popicon",
+                                "icon-extra-class": ""
+                              }
+                            },
+                            {
+                              "icon-prefix": "ai",
+                              "icon-class": "ai-circle-exit",
+                              "icon-extra-class": "a-accessability-button",
+                              "stacked-background": {
+                                "stacked-container-class": "a-js-popoverIconExpanded ai-sm",
+                                "icon-prefix": "ai",
+                                "icon-class": "ai-circle-exit",
+                                "icon-extra-class": ""
+                              }
+                            }
+                          ],
+                          "popover-list-with-icon-content": {
+                            "icon-list-items": [
+                              {
+                                "disable-link": true,
+                                "list-item-name": "Les",
+                                "list-item-name-class": "pl-1",
+                                "listItemDescription": "",
+                                "icon-prefix": "ai",
+                                "icon-class": "ai-read ai-sm ai-nw"
+                              },
+                              {
+                                "disable-link": true,
+                                "list-item-name": "Skriv",
+                                "list-item-name-class": "pl-1",
+                                "listItemDescription": "",
+                                "icon-prefix": "ai",
+                                "icon-class": "ai-write ai-sm ai-nw"
+                              },
+                              {
+                                "disable-link": true,
+                                "list-item-name": "Signer",
+                                "list-item-name-class": "pl-1",
+                                "listItemDescription": "",
+                                "icon-prefix": "ai",
+                                "icon-class": "ai-sign ai-sm ai-nw"
+                              },
+                              {
+                                "disable-link": true,
+                                "list-item-name": "Deaktivert",
+                                "listItemDescription": "Blir ikke delegert",
+                                "icon-prefix": "ai",
+                                "icon-class": "ai-sign ai-sm ai-nw",
+                                "icon-extra-class": "a-iconStrikeThrough a-disabledIcon"
+                              },
+                              {
+                                "disable-link": true,
+                                "list-item-name": "Kan ikke delegeres",
+                                "listItemDescription": "",
+                                "icon-prefix": "ai",
+                                "icon-class": "ai-sign ai-sm ai-nw",
+                                "icon-extra-class": "a-iconStrikeThrough a-disabledIcon a-redIcon"
+                              }
+                            ]
+                          }
                         }
                       }
                     ]
@@ -172,58 +219,80 @@
                 ]
               },
               {
-                "additional-classes": "a-dotted a-selectable a-success a-selected a-danger",
-                "id": "secondRow",
-                "onclick": "removeListRow(this)",
-                "list-item-role": "button",
+                "additional-classes": "a-dotted a-selectable a-selected a-success a-defaultCursor",
+                "id": "firstRow",
+                "onclick": false,
+                "row-extra-class": "a-flex-container-align-items-center",
                 "columns": [
                   {
-                    "additional-classes": "col-12 col-md",
+                    "additional-classes": "col-12 col-sm",
                     "onclick": false,
+                    "searchable": true,
                     "column-items": [
                       {
                         "column-text": {
                           "classes": "",
-                          "text": "ACC Security level 2 MAG"
-                        }
-                      },
-                      {
-                        "column-text": {
-                          "classes": "sr-only",
-                          "text": "Trykk for å slette rollen"
+                          "text": "Erklæring om ansvarsrett."
                         }
                       }
                     ]
                   },
                   {
-                    "additional-classes": "col-auto mr-1 mr-md-2",
+                    "additional-classes": "col-auto text-left",
                     "onclick": false,
                     "column-items": [
                       {
-                        "column-icon": {
-                          "icon-prefix": "ai",
-                          "icon-class": "ai-read",
-                          "icon-extra-class": "a-dimmed",
-                          "icon-title": "Les",
-                          "icon-size": "ai-sm"
+                        "column-button": {
+                          "button-text": false,
+                          "title": "Les",
+                          "button-class": "a-btn-link a-accessability-button a-hiddenWhenDeleted a-hiddenWhenDisabled",
+                          "link-url": false,
+                          "button-shadow-label": false,
+                          "button-icon": {
+                            "icon-prefix": "ai",
+                            "icon-class": "ai-read",
+                            "icon-extra-class": ""
+                          }
                         }
                       },
                       {
-                        "column-icon": {
-                          "icon-prefix": "ai",
-                          "icon-class": "ai-write",
-                          "icon-extra-class": "a-dimmed",
-                          "icon-title": "Skriv",
-                          "icon-size": "ai-sm"
+                        "column-button": {
+                          "button-text": false,
+                          "title": "Skriv",
+                          "button-class": "a-btn-link a-accessability-button a-js-toggleRights a-hiddenWhenDeleted a-hiddenWhenDisabled",
+                          "link-url": false,
+                          "button-shadow-label": false,
+                          "button-icon": {
+                            "icon-prefix": "ai",
+                            "icon-class": "ai-write",
+                            "icon-extra-class": "a-clickable"
+                          }
                         }
                       },
                       {
-                        "column-icon": {
-                          "icon-prefix": "ai",
-                          "icon-class": "ai-sign",
-                          "icon-extra-class": "a-dimmed",
-                          "icon-title": "Signer",
-                          "icon-size": "ai-sm"
+                        "column-button": {
+                          "button-text": false,
+                          "title": "Signer",
+                          "button-class": "a-btn-link a-accessability-button a-js-toggleRights a-hiddenWhenDeleted a-hiddenWhenDisabled",
+                          "link-url": false,
+                          "button-shadow-label": false,
+                          "button-icon": {
+                            "icon-prefix": "ai",
+                            "icon-class": "ai-sign",
+                            "icon-extra-class": "a-clickable a-iconStrikeThrough a-disabledIcon"
+                          }
+                        }
+                      },
+                      {
+                        "column-text": {
+                          "text": "Mangler tilgang",
+                          "classes": "a-danger a-visibleWhenDisabled a-displayInlineBlock"
+                        }
+                      },
+                      {
+                        "column-text": {
+                          "text": "Angre sletting",
+                          "classes": "a-visibleWhenDeleted a-displayInlineBlock"
                         }
                       }
                     ]
@@ -233,12 +302,552 @@
                     "onclick": false,
                     "column-items": [
                       {
+                        "column-button": {
+                          "button-text": false,
+                          "title": "Slett rolle",
+                          "aria-label": "Slett rolle",
+                          "button-class": "a-btn-link a-accessability-button a-js-toggleRightsDelete a-hiddenWhenDeleted a-hiddenWhenDisabled a-displayInlineBlock",
+                          "link-url": false,
+                          "button-shadow-label": false,
+                          "button-icon": {
+                            "icon-prefix": "ai",
+                            "icon-class": "ai-circle-minus",
+                            "icon-extra-class": "a-danger"
+                          }
+                        }
+                      },
+                      {
+                        "column-button": {
+                          "button-text": false,
+                          "title": "Angre slett rolle",
+                          "aria-label": "Angre slett rolle",
+                          "button-class": "a-btn-link a-accessability-button a-js-toggleRightsDelete a-visibleWhenDeleted  a-displayInlineBlock",
+                          "tab-index": "-1",
+                          "link-url": false,
+                          "button-shadow-label": false,
+                          "button-icon": {
+                            "icon-prefix": "ai",
+                            "icon-class": "ai-undo",
+                            "icon-extra-class": "a-danger"
+                          }
+                        }
+                      },
+                      {
                         "column-icon": {
                           "icon-prefix": "ai",
-                          "icon-class": "ai-circle-exit",
-                          "icon-extra-class": "a-danger",
-                          "icon-title": "Slett",
-                          "icon-size": "ai-sm"
+                          "icon-class": "ai-fw",
+                          "tab-index": "-1",
+                          "icon-extra-class": "a-visibleWhenDisabled  a-displayInlineBlock"
+                        }
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "additional-classes": "a-dotted a-selectable a-selected a-success a-defaultCursor",
+                "id": "secondRow",
+                "onclick": false,
+                "row-extra-class": "a-flex-container-align-items-center",
+                "columns": [
+                  {
+                    "additional-classes": "col-12 col-sm",
+                    "onclick": false,
+                    "searchable": true,
+                    "column-items": [
+                      {
+                        "column-text": {
+                          "classes": "",
+                          "text": "Ferdigattest."
+                        }
+                      }
+                    ]
+                  },
+                  {
+                    "additional-classes": "col-auto  text-left",
+                    "onclick": false,
+                    "column-items": [
+                      {
+                        "column-button": {
+                          "button-text": false,
+                          "title": "Les",
+                          "button-class": "a-btn-link a-accessability-button a-hiddenWhenDeleted a-hiddenWhenDisabled",
+                          "link-url": false,
+                          "button-shadow-label": false,
+                          "button-icon": {
+                            "icon-prefix": "ai",
+                            "icon-class": "ai-read",
+                            "icon-extra-class": ""
+                          }
+                        }
+                      },
+                      {
+                        "column-button": {
+                          "button-text": false,
+                          "title": "Skriv",
+                          "button-class": "a-btn-link a-accessability-button a-hiddenWhenDeleted a-hiddenWhenDisabled",
+                          "link-url": false,
+                          "button-shadow-label": false,
+                          "button-icon": {
+                            "icon-prefix": "ai",
+                            "icon-class": "ai-write",
+                            "icon-extra-class": "a-iconStrikeThrough a-redIcon"
+                          }
+                        }
+                      },
+                      {
+                        "column-button": {
+                          "button-text": false,
+                          "title": "Signer",
+                          "button-class": "a-btn-link a-accessability-button a-hiddenWhenDeleted a-hiddenWhenDisabled",
+                          "link-url": false,
+                          "button-shadow-label": false,
+                          "button-icon": {
+                            "icon-prefix": "ai",
+                            "icon-class": "ai-sign",
+                            "icon-extra-class": "a-clickable a-iconStrikeThrough a-redIcon"
+                          }
+                        }
+                      },
+                      {
+                        "column-text": {
+                          "text": "Mangler tilgang",
+                          "classes": "a-danger a-visibleWhenDisabled a-displayInlineBlock"
+                        }
+                      },
+                      {
+                        "column-text": {
+                          "text": "Angre sletting",
+                          "classes": "a-visibleWhenDeleted a-displayInlineBlock"
+                        }
+                      }
+                    ]
+                  },
+                  {
+                    "additional-classes": "col-auto",
+                    "onclick": false,
+                    "column-items": [
+                      {
+                        "column-button": {
+                          "button-text": false,
+                          "title": "Slett rolle",
+                          "aria-label": "Slett rolle",
+                          "button-class": "a-btn-link a-accessability-button a-js-toggleRightsDelete a-hiddenWhenDeleted a-hiddenWhenDisabled a-displayInlineBlock",
+                          "link-url": false,
+                          "button-shadow-label": false,
+                          "button-icon": {
+                            "icon-prefix": "ai",
+                            "icon-class": "ai-circle-minus",
+                            "icon-extra-class": "a-danger"
+                          }
+                        }
+                      },
+                      {
+                        "column-button": {
+                          "button-text": false,
+                          "title": "Angre slett rolle",
+                          "aria-label": "Angre slett rolle",
+                          "button-class": "a-btn-link a-accessability-button a-js-toggleRightsDelete a-visibleWhenDeleted  a-displayInlineBlock",
+                          "tab-index": "-1",
+                          "link-url": false,
+                          "button-shadow-label": false,
+                          "button-icon": {
+                            "icon-prefix": "ai",
+                            "icon-class": "ai-undo",
+                            "icon-extra-class": "a-danger"
+                          }
+                        }
+                      },
+                      {
+                        "column-icon": {
+                          "icon-prefix": "ai",
+                          "icon-class": "ai-fw",
+                          "tab-index": "-1",
+                          "icon-extra-class": "a-visibleWhenDisabled  a-displayInlineBlock"
+                        }
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "additional-classes": "a-dotted a-selectable a-selected a-success a-defaultCursor",
+                "id": "thirdRow",
+                "onclick": false,
+                "row-extra-class": "a-flex-container-align-items-center",
+                "columns": [
+                  {
+                    "additional-classes": "col-12 col-sm",
+                    "onclick": false,
+                    "searchable": true,
+                    "column-items": [
+                      {
+                        "column-text": {
+                          "classes": "",
+                          "text": "Gjennomføringsplan."
+                        }
+                      }
+                    ]
+                  },
+                  {
+                    "additional-classes": "col-auto  text-left",
+                    "onclick": false,
+                    "column-items": [
+                      {
+                        "column-button": {
+                          "button-text": false,
+                          "title": "Les",
+                          "button-class": "a-btn-link a-accessability-button a-hiddenWhenDeleted a-hiddenWhenDisabled",
+                          "link-url": false,
+                          "button-shadow-label": false,
+                          "button-icon": {
+                            "icon-prefix": "ai",
+                            "icon-class": "ai-read",
+                            "icon-extra-class": ""
+                          }
+                        }
+                      },
+                      {
+                        "column-button": {
+                          "button-text": false,
+                          "title": "Skriv",
+                          "button-class": "a-btn-link a-accessability-button a-accessability-size a-js-toggleRights a-hiddenWhenDeleted a-hiddenWhenDisabled",
+                          "link-url": false,
+                          "button-shadow-label": false,
+                          "button-icon": {
+                            "icon-prefix": "ai",
+                            "icon-class": "ai-write",
+                            "icon-extra-class": "a-clickable"
+                          }
+                        }
+                      },
+                      {
+                        "column-icon": {
+                          "icon-prefix": "ai",
+                          "icon-class": "ai-fw",
+                          "tab-index": "-1",
+                          "icon-extra-class": "a-accessability-size a-hiddenWhenDeleted a-hiddenWhenDisabled a-clickable a-js-toggleRights"
+                        }
+                      },
+                      {
+                        "column-text": {
+                          "text": "Mangler tilgang",
+                          "classes": "a-danger a-visibleWhenDisabled a-displayInlineBlock"
+                        }
+                      },
+                      {
+                        "column-text": {
+                          "text": "Angre sletting",
+                          "classes": "a-visibleWhenDeleted a-displayInlineBlock"
+                        }
+                      }
+                    ]
+                  },
+                  {
+                    "additional-classes": "col-auto",
+                    "onclick": false,
+                    "column-items": [
+                      {
+                        "column-button": {
+                          "button-text": false,
+                          "title": "Slett rolle",
+                          "aria-label": "Slett rolle",
+                          "button-class": "a-btn-link a-accessability-button a-js-toggleRightsDelete a-hiddenWhenDeleted a-hiddenWhenDisabled a-displayInlineBlock",
+                          "link-url": false,
+                          "button-shadow-label": false,
+                          "button-icon": {
+                            "icon-prefix": "ai",
+                            "icon-class": "ai-circle-minus",
+                            "icon-extra-class": "a-danger"
+                          }
+                        }
+                      },
+                      {
+                        "column-button": {
+                          "button-text": false,
+                          "title": "Angre slett rolle",
+                          "aria-label": "Angre slett rolle",
+                          "button-class": "a-btn-link a-accessability-button a-js-toggleRightsDelete a-visibleWhenDeleted  a-displayInlineBlock",
+                          "tab-index": "-1",
+                          "link-url": false,
+                          "button-shadow-label": false,
+                          "button-icon": {
+                            "icon-prefix": "ai",
+                            "icon-class": "ai-undo",
+                            "icon-extra-class": "a-danger"
+                          }
+                        }
+                      },
+                      {
+                        "column-icon": {
+                          "icon-prefix": "ai",
+                          "icon-class": "ai-fw",
+                          "tab-index": "-1",
+                          "icon-extra-class": "a-visibleWhenDisabled  a-displayInlineBlock"
+                        }
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "additional-classes": "a-dotted a-selectable a-disabled a-danger",
+                "id": "fourthRow",
+                "onclick": false,
+                "row-extra-class": "a-flex-container-align-items-center",
+                "columns": [
+                  {
+                    "additional-classes": "col-12 col-sm",
+                    "onclick": false,
+                    "searchable": true,
+                    "column-items": [
+                      {
+                        "column-text": {
+                          "classes": "",
+                          "text": "Distribusjonstjeneste for erklæring av ansvarsrett."
+                        }
+                      }
+                    ]
+                  },
+                  {
+                    "additional-classes": "col-auto text-left a-accessability-height",
+                    "onclick": false,
+                    "column-items": [
+                      {
+                        "column-button": {
+                          "button-text": false,
+                          "title": "Les",
+                          "button-class": "a-btn-link a-accessability-button a-hiddenWhenDeleted a-hiddenWhenDisabled",
+                          "link-url": false,
+                          "tab-index": "-1",
+                          "button-shadow-label": false,
+                          "button-icon": {
+                            "icon-prefix": "ai",
+                            "icon-class": "ai-read",
+                            "icon-extra-class": ""
+                          }
+                        }
+                      },
+                      {
+                        "column-button": {
+                          "button-text": false,
+                          "title": "Skriv",
+                          "button-class": "a-btn-link a-accessability-button a-js-toggleRights a-hiddenWhenDeleted a-hiddenWhenDisabled",
+                          "link-url": false,
+                          "tab-index": "-1",
+                          "button-shadow-label": false,
+                          "button-icon": {
+                            "icon-prefix": "ai",
+                            "icon-class": "ai-write",
+                            "icon-extra-class": "a-clickable"
+                          }
+                        }
+                      },
+                      {
+                        "column-button": {
+                          "button-text": false,
+                          "title": "Signer",
+                          "button-class": "a-btn-link a-accessability-button a-js-toggleRights a-hiddenWhenDeleted a-hiddenWhenDisabled",
+                          "link-url": false,
+                          "tab-index": "-1",
+                          "button-shadow-label": false,
+                          "button-icon": {
+                            "icon-prefix": "ai",
+                            "icon-class": "ai-sign",
+                            "icon-extra-class": "a-clickable"
+                          }
+                        }
+                      },
+                      {
+                        "column-text": {
+                          "text": "Mangler tilgang",
+                          "classes": "a-danger a-visibleWhenDisabled a-displayInlineBlock"
+                        }
+                      },
+                      {
+                        "column-text": {
+                          "text": "Angre sletting",
+                          "classes": "a-visibleWhenDeleted a-displayInlineBlock"
+                        }
+                      },
+                      {
+                        "column-icon": {
+                          "icon-prefix": "ai",
+                          "icon-class": "ai-fw",
+                          "tab-index": "-1",
+                          "icon-extra-class": "a-visibleWhenDisabled  a-displayInlineBlock a-accessability-height"
+                        }
+                      }
+                    ]
+                  },
+                  {
+                    "additional-classes": "col-auto",
+                    "onclick": false,
+                    "column-items": [
+                      {
+                        "column-button": {
+                          "button-text": false,
+                          "title": "Slett rolle",
+                          "aria-label": "Slett rolle",
+                          "button-class": "a-btn-link a-accessability-button a-js-toggleRightsDelete a-hiddenWhenDeleted a-hiddenWhenDisabled a-displayInlineBlock",
+                          "link-url": false,
+                          "tab-index": "-1",
+                          "button-shadow-label": false,
+                          "button-icon": {
+                            "icon-prefix": "ai",
+                            "icon-class": "ai-circle-minus",
+                            "icon-extra-class": "a-danger"
+                          }
+                        }
+                      },
+                      {
+                        "column-button": {
+                          "button-text": false,
+                          "title": "Angre slett rolle",
+                          "aria-label": "Angre slett rolle",
+                          "button-class": "a-btn-link a-accessability-button a-js-toggleRightsDelete a-visibleWhenDeleted a-displayInlineBlock",
+                          "tab-index": "-1",
+                          "link-url": false,
+                          "button-shadow-label": false,
+                          "button-icon": {
+                            "icon-prefix": "ai",
+                            "icon-class": "ai-undo",
+                            "icon-extra-class": "a-danger"
+                          }
+                        }
+                      },
+                      {
+                        "column-icon": {
+                          "icon-prefix": "ai",
+                          "icon-class": "ai-fw",
+                          "tab-index": "-1",
+                          "icon-extra-class": "a-visibleWhenDisabled  a-displayInlineBlock"
+                        }
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "additional-classes": "a-dotted a-selectable a-defaultCursor",
+                "id": "fifthRow",
+                "onclick": false,
+                "row-extra-class": "a-flex-container-align-items-center",
+                "columns": [
+                  {
+                    "additional-classes": "col-12 col-sm",
+                    "onclick": false,
+                    "searchable": true,
+                    "column-items": [
+                      {
+                        "column-text": {
+                          "classes": "",
+                          "text": "Melding fra Fellestjenester Bygg."
+                        }
+                      }
+                    ]
+                  },
+                  {
+                    "additional-classes": "col-auto  text-left",
+                    "onclick": false,
+                    "column-items": [
+                      {
+                        "column-button": {
+                          "button-text": false,
+                          "title": "Les",
+                          "button-class": "a-btn-link a-accessability-button a-hiddenWhenDeleted a-hiddenWhenDisabled",
+                          "link-url": false,
+                          "button-shadow-label": false,
+                          "button-icon": {
+                            "icon-prefix": "ai",
+                            "icon-class": "ai-read",
+                            "icon-extra-class": ""
+                          }
+                        }
+                      },
+                      {
+                        "column-button": {
+                          "button-text": false,
+                          "title": "Skriv",
+                          "button-class": "a-btn-link a-accessability-button a-js-toggleRights a-hiddenWhenDeleted a-hiddenWhenDisabled",
+                          "link-url": false,
+                          "button-shadow-label": false,
+                          "button-icon": {
+                            "icon-prefix": "ai",
+                            "icon-class": "ai-write",
+                            "icon-extra-class": "a-clickable"
+                          }
+                        }
+                      },
+                      {
+                        "column-button": {
+                          "button-text": false,
+                          "title": "Signer",
+                          "button-class": "a-btn-link a-accessability-button a-js-toggleRights a-hiddenWhenDeleted a-hiddenWhenDisabled",
+                          "link-url": false,
+                          "button-shadow-label": false,
+                          "button-icon": {
+                            "icon-prefix": "ai",
+                            "icon-class": "ai-sign",
+                            "icon-extra-class": "a-clickable"
+                          }
+                        }
+                      },
+                      {
+                        "column-text": {
+                          "text": "Mangler tilgang",
+                          "classes": "a-danger a-visibleWhenDisabled a-displayInlineBlock"
+                        }
+                      },
+                      {
+                        "column-text": {
+                          "text": "Angre sletting",
+                          "classes": "a-visibleWhenDeleted a-displayInlineBlock"
+                        }
+                      }
+                    ]
+                  },
+                  {
+                    "additional-classes": "col-auto",
+                    "onclick": false,
+                    "column-items": [
+                      {
+                        "column-button": {
+                          "button-text": false,
+                          "title": "Slett rolle",
+                          "aria-label": "Slett rolle",
+                          "button-class": "a-btn-link a-accessability-button a-js-toggleRightsDelete a-hiddenWhenDeleted a-hiddenWhenDisabled a-displayInlineBlock",
+                          "link-url": false,
+                          "button-shadow-label": false,
+                          "button-icon": {
+                            "icon-prefix": "ai",
+                            "icon-class": "ai-circle-minus",
+                            "icon-extra-class": "a-danger"
+                          }
+                        }
+                      },
+                      {
+                        "column-button": {
+                          "button-text": false,
+                          "title": "Angre slett rolle",
+                          "aria-label": "Angre slett rolle",
+                          "button-class": "a-btn-link a-accessability-button a-js-toggleRightsDelete a-visibleWhenDeleted a-displayInlineBlock",
+                          "tab-index": "-1",
+                          "link-url": false,
+                          "button-shadow-label": false,
+                          "button-icon": {
+                            "icon-prefix": "ai",
+                            "icon-class": "ai-undo",
+                            "icon-extra-class": "a-danger"
+                          }
+                        }
+                      },
+                      {
+                        "column-icon": {
+                          "icon-prefix": "ai",
+                          "icon-class": "ai-fw",
+                          "tab-index": "-1",
+                          "icon-extra-class": "a-visibleWhenDisabled  a-displayInlineBlock"
                         }
                       }
                     ]
@@ -257,6 +866,7 @@
             },
             "local-role-save-btn": {
               "button-text": "Lagre",
+              "id": "lagre-knapp",
               "button-class": "a-btn a-btn-success mr-2",
               "onclick": "location.href='link.sider-portal-andre-med-rettigheter-roller-gi'",
               "button-icon": false,

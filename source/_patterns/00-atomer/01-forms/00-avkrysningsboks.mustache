@@ -2,8 +2,15 @@
   <fieldset class="form-group mb-0">
     <legend class="a-legend">{{{check-legendText}}}</legend>
 {{/ check-legend }}
+  {{# flexWrap }} <div class="d-flex flex-wrap ml-1"> {{/ flexWrap }}
     {{# checkboxes }}
-      <div class="custom-control {{#isInline}}custom-control-inline{{/isInline}} custom-checkbox a-custom-checkbox {{# inactive }} inactive {{/ inactive }} {{# isDiscreet }} a-form-checkboxes--discret {{/ isDiscreet }}">
+      <div class="custom-control
+        {{#isInline}}custom-control-inline{{/isInline}}
+        custom-checkbox a-custom-checkbox
+        {{# inactive }} inactive {{/ inactive }}
+        {{# isDiscreet }} a-form-checkboxes--discret {{/ isDiscreet }}
+        {{# flexWrap }} col-sm-12 col-md-6 col-lg-4 pr-0 mr-0{{/ flexWrap }}
+        ">
           <input 
             type="checkbox" 
             id="{{checkboxID}}" 
@@ -16,6 +23,7 @@
           <label class="custom-control-label {{#isBold}}a-fontBold{{/isBold}}" for="{{checkboxID}}">{{{ checkboxes-title }}}</label>
       </div>
     {{/ checkboxes }}
+  {{# flexWrap }} </div> {{/ flexWrap }}
 {{# check-legend }}
   </fieldset>
 {{/ check-legend }}

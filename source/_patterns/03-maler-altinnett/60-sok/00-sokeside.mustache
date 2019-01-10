@@ -1,0 +1,57 @@
+<div class="a-page">
+	{{# header }}
+		{{> organismer-header-altinnett }}
+	{{/ header }}
+
+	<div class="container">
+		<div class="row">
+			<div class="col-sm-12 col-lg-6 offset-lg-3 a-articleSearch">
+				{{# article-search }}
+						{{> atomer-tekst-input }}
+				{{/ article-search }}
+			</div>
+		</div>
+	</div>
+
+  <div class="container a-searchResults a-offset-alignContent">
+    <div class="col-12 col-lg-10 offset-lg-1 px-0">
+      <h1 class="a-h3 a-fontReg mt-2"><b>39 treff</b> på <b>"skjemaløsning digital dialog"</b></h1>
+    </div>
+
+    <div class="row">
+      <div class="col-12 px-0 px-sm-1">
+        <form class="a-searchResults-filter">
+          <fieldset>
+            <legend class="a-legend">Avgrens treffene:
+            </legend>
+            <div class="a-searchResults-filter-options">
+              {{# filter-search }}
+                {{> atomer-valgknapp-ett-alternativ:a-switch--small }}
+              {{/ filter-search }}
+            </div>
+          </fieldset>
+        </form>
+      </div>
+    </div>
+
+    {{# searchHits }}
+      <div class="row mx-0 pt-2 pb-0 a-borderBottomDark {{ hitsClass }}">
+        <div class="col-sm-12 col-lg-10 offset-lg-1 px-0">
+            {{> molekyler-lenketittel-med-forklaring }}
+        </div>
+      </div>
+    {{/ searchHits }}
+
+    {{# loadmoreSearch }}
+    <div class="row">
+      <div class="col-sm-12">
+          {{> atomer-handlingsknapp }}
+      </div>
+    </div>
+    {{/ loadmoreSearch }}
+  </div>
+
+	{{# footer }}
+		{{> organismer-footer-altinnett }}
+	{{/ footer }}
+</div>

@@ -14,6 +14,9 @@
   setupTruncateLines,
   subscribe,
   questionnaireInteraction,
+  setupFormValidation,
+  setValidatorSettings,
+  setupSlickCarousel,
 */
 window.altinnettInit = function() {
   // Only for prototyping
@@ -34,6 +37,16 @@ window.altinnettInit = function() {
   setupTruncateLines();
   subscribe();
   questionnaireInteraction();
+  setupFormValidation();
+  setValidatorSettings();
+
+  function setupForm() {
+    $('body').off('focus', '#contactForm', setupForm);
+    setupFormValidation('#contactForm', '#a-js-contactForm-submit');
+  }
+
+  $('body').on('focus', '#contactForm', setupForm);
+  setupSlickCarousel();
 };
 
 window.altinnettInit();

@@ -1,0 +1,65 @@
+<div class="a-page">
+    {{# header }}
+        {{> organismer-header-altinnett }}
+    {{/ header }}
+
+      <div class="container px-1 px-lg-2 px-xl-0 mb-md-4 mb-lg-6">
+        <h1 class="a-h3 a-blueDarkerText a-fontSizeXL">{{ page-title }}</h1>
+        {{> atomer-avsnitt(paragraph-class: "a-blueDarkerText a-fontSizeXL") }}
+      </div>
+      {{# crumbs }}
+        <div class="container px-1 px-lg-2 px-xl-0 mb-3 mb-lg-2">
+          {{> molekyler-smulesti }}
+        </div>  
+      {{/ crumbs }}
+    <div class="container">
+      {{# caseHeader}}
+          {{> molekyler-jumbotron-caseheader }}
+      {{/ caseHeader}}
+    </div>
+
+    <div class="container">
+        <div class="col-sm-12 col-lg-8 offset-lg-2 a-text epi-wysiwyg mb-3 mb-sm-4">
+            {{> atomer-avsnitt }}
+        </div>                  
+    </div>
+    {{# slideshowBlock }}
+      {{> molekyler-altinnett-slideshow }}
+    {{/ slideshowBlock }}
+    <div class="container">
+        {{# list }}
+          <div class="col-sm-12 col-lg-8 offset-lg-2 a-text epi-wysiwyg mb-5 mb-sm-6">
+            {{# paragraphs }}
+              {{> atomer-seksjonstittel }}
+              {{> atomer-avsnitt }}
+            {{/ paragraphs}}
+            {{# pointlist }}
+                {{> atomer-seksjonstittel }}
+                {{> atomer-liste-unummerert-kuler }}
+            {{/ pointlist }}
+          </div>     
+        {{/ list }}
+
+        {{# regnestykke }}
+          <div class="an-fullWidthBlock mb-3 mb-sm-5">
+            {{> molekyler-regnestykke }}
+          </div>
+        {{/ regnestykke }}
+
+        {{# altinn-api }}
+          <div class="an-fullWidthBlock mb-3 mb-sm-5">
+            {{> molekyler-altinnett-bilde-innhold-linkblokk }}
+          </div>
+        {{/ altinn-api }}
+
+        {{# kontaktkort }}
+          <div class="an-fullWidthBlock mb-3 mb-sm-6">
+            {{> molekyler-altinnett-kontaktkort }}
+          </div>
+        {{/ kontaktkort }}
+    </div>
+
+    {{# footer }} 
+        {{> organismer-footer-altinnett }}
+    {{/ footer }}
+</div>

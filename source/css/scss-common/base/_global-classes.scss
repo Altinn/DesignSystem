@@ -363,19 +363,21 @@ hr {
     &:not(.a-expanded) {
       &:not(.a-deleted) {
         &:not(.a-completed) {
-          cursor: pointer;
-          // background-color: $blue-light;
+          &:not(.a-defaultCursor) {
+            cursor: pointer;
+            // background-color: $blue-light;
 
-          &.a-primary {
-            background-color: $blue-light;
-          }
+            &.a-primary {
+              background-color: $blue-light;
+            }
 
-          &.a-success {
-            background-color: $blue-light;
-          }
+            &.a-success {
+              background-color: $blue-light;
+            }
 
-          &.a-danger {
-            background-color: $red-light;
+            &.a-danger {
+              background-color: $red-light;
+            }
           }
         }
       }
@@ -428,8 +430,24 @@ hr {
   }
 }
 
-.a-new {
-  background-color: $green-light;
+.a-iconStrikeThrough {
+  padding-left: 3px;
+
+  &::after {
+    position: relative;
+    left: -14px;
+    //font-weight: 900;
+    color: $black;
+    content: '\\';
+  }
+
+  &.a-disabledIcon {
+    color: $grey-medium;
+  }
+
+  &.a-redIcon {
+    color: $red;
+  }
 }
 
 .a-selectable {
@@ -452,6 +470,10 @@ hr {
       @include media-breakpoint-up( sm ) {
         display: inline-block !important;
       }
+
+      &.a-displayInlineBlock {
+        display: inline-block !important;
+      }
     }
   }
 
@@ -460,6 +482,10 @@ hr {
 
     @include media-breakpoint-up( sm ) {
       display: none !important;
+    }
+
+    &.a-displayInlineBlock {
+      display: inline-block !important;
     }
   }
 
@@ -478,6 +504,10 @@ hr {
       display: inline-block;
 
       @include media-breakpoint-up( sm ) {
+        display: inline-block !important;
+      }
+
+      &.a-displayInlineBlock {
         display: inline-block !important;
       }
     }
@@ -500,11 +530,37 @@ hr {
       @include media-breakpoint-up( sm ) {
         display: inline-block !important;
       }
+
+      &.a-displayInlineBlock {
+        display: inline-block !important;
+      }
     }
   }
 
   &.a-expanded {
     background-color: $white;
+  }
+
+  &.a-disabled {
+    &:hover {
+      cursor: not-allowed !important;
+    }
+
+    .a-hiddenWhenDisabled {
+      display: none;
+    }
+
+    .a-visibleWhenDisabled {
+      display: inline-block;
+
+      @include media-breakpoint-up( sm ) {
+        display: inline-block !important;
+      }
+
+      &.a-displayInlineBlock {
+        display: inline-block !important;
+      }
+    }
   }
 
   &:not(.a-selected) {
@@ -521,7 +577,8 @@ hr {
 
   .a-visibleWhenCompleted,
   .a-visibleWhenDeleted,
-  .a-visibleWhenInitial {
+  .a-visibleWhenInitial,
+  .a-visibleWhenDisabled {
     display: none !important;
   }
 }
