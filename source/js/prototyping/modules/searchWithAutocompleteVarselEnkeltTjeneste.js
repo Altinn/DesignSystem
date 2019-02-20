@@ -1,5 +1,3 @@
-/* eslint vars-on-top: 1 */
-
 // Hard-coded data, should be replaced with JSON
 var availableTags = [
   { label: 'ACC Security level 2 MAG, Accenture Test', service: 'ACC Security level 2 MAG', serviceOwner: 'Accenture Test' },
@@ -16,7 +14,7 @@ var numberOfResultsLabel = ' treff. Bruk pil opp og pil ned for å navigere i re
 var noResultsLabel = 'Ingen treff';
 var moreThanMaxLabel = 'Listen viser kun de første 100 treff. Vennligst begrens søket ditt';
 
-var searchWithMultipleSelectInAutoComplete = function() {
+var searchWithAutocompleteVarsel = function() {
   $.widget('custom.catcomplete', $.ui.autocomplete, ({
     _create: function() {
       this._super();
@@ -36,10 +34,6 @@ var searchWithMultipleSelectInAutoComplete = function() {
           '<div class="d-none d-md-block col-md-3 col-lg-4 pl-md-2 pl-lg-1 pr-2" data-searchable="true">' +
             '<span class="a-js-sortValue a-list-longtext" title="Testetat for Accenture">' + item.serviceOwner + '</span>' +
           '</div>' +
-          '<div class="text-right col-sm-5 col-md-4 col-lg-2 pl-md-2 pl-lg-1 pr-sm-0 pr-md-2">' +
-              '<span class="a-fontBold a-btn-icon-text a-hiddenWhenSelected ">+Legg til</span>' +
-              '<span class="a-fontBold d-none d-sm-block a-visibleWhenSelected">Lagt til</span>' +
-          '</div>' +
         '</div>';
 
         var li = that._renderItemData(ul, item);
@@ -50,11 +44,6 @@ var searchWithMultipleSelectInAutoComplete = function() {
         li.attr('role', 'menu');
         li.addClass('a-dotted a-selectable');
         li.attr('id', 'menu-item-' + index);
-        /* var li = that._renderItemData(ul, item);
-        console.log(li);
-        li.attr('role', 'menu');
-        li.addClass('a-dotted');
-        li.children().first().attr('role', 'button');*/
       });
 
       if (iLength === availableTags.length) {
@@ -68,46 +57,19 @@ var searchWithMultipleSelectInAutoComplete = function() {
       if (iLength >= 3) {
         ul.append('<li class=\'a-js-autocomplete-header a-dotted a-info\'>' + moreThanMaxLabel + '</li>');
       }
-
-      // Lukkeknapp
-      /*
-      ul.append('<li class="a-js-autocomplete-header ml-2 a-no-border-bottom">' +
-                  '<div class="mt-1 mb-1 d-flex justify-content-center">' +
-                    '<button id="closeAutoCompleteMenu" class="a-btn pl-1 pr-1">Lukk</button>' +
-                  '</div>' +
-                '</li>');
-      */
     },
-    oldClose: $.ui.autocomplete.prototype.close,
-    close: function(event) {
-      var bolClose;
-      if (event) {
-        bolClose = false;
-      } else {
-        bolClose = true;
-        $('button:contains(\'Lagre\')').removeAttr('disabled');
-      }
-
-      // Actuall close
-      if (bolClose) {
-        this.oldClose(event);
-      }
-
-      return false;
-    }
   }));
 
-  $('.a-js-autocomplete-multiplecolumns').catcomplete({
+  $('.a-js-autocomplete-varsel').catcomplete({
     // delay: 200, // set appropriate delay for ajax call
     source: availableTags,
     appendTo: '.a-autocomplete-container',
     minLength: 0,
     classes: {
-      'ui-autocomplete': 'a-list a-multipleSelectInAutoComplete',
+      'ui-autocomplete': 'a-list',
       'ui-menu-item': 'a-dotted'
     },
     open: function(event, ui) {
-      $('button:contains(\'Lagre\')').attr('disabled', 'disabled');
       $('.ui-autocomplete').removeAttr('style'); // remove inline positioning and display of amount results
       $('.ui-autocomplete .ui-menu-item').not(':first-of-type').addClass('a-clickable');
     },
@@ -123,7 +85,6 @@ var searchWithMultipleSelectInAutoComplete = function() {
     },
     response: function(event, ui) {
       var el;
-      // console.log(ui.content.length);
       if (ui.content.length === 0) {
         el = {
           isNoResultsLabel: true,
@@ -150,7 +111,7 @@ var searchWithMultipleSelectInAutoComplete = function() {
 
       // ONLY FOR DESIGNSYSTEM PROTOTYPING
       // eslint-disable-next-line
-      console.log('Prototyping feature needs to be commented out in searchWithMultipleSelectInAutoComplete.js');
+      console.log('Prototyping feature needs to be commented out in searchWithAutocompleteVarselEnkeltTjeneste.js');
       // Add the clicked rights to list, only if if not already in list
       if ($('.a-list-container').find('div:contains(' + ui.item.service + ')').length === 0) {
         // eslint-disable-next-line
