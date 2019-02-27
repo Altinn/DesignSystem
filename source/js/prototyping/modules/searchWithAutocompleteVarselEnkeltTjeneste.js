@@ -57,7 +57,7 @@ var searchWithAutocompleteVarsel = function() {
       if (iLength >= 3) {
         ul.append('<li class=\'a-js-autocomplete-header a-dotted a-info\'>' + moreThanMaxLabel + '</li>');
       }
-    },
+    }
   }));
 
   $('.a-js-autocomplete-varsel').catcomplete({

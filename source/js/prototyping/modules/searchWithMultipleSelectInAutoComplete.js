@@ -154,6 +154,7 @@ var searchWithMultipleSelectInAutoComplete = function() {
       // Add the clicked rights to list, only if if not already in list
       if ($('.a-list-container').find('div:contains(' + ui.item.service + ')').length === 0) {
         // eslint-disable-next-line
+        var emptyListItem = $('#emptyRow');
         var firstListItem = $('#hiddenMalRow').clone();
         firstListItem.removeClass('a-hiddenRow');
         firstListItem.attr('id', 'last');
@@ -162,6 +163,7 @@ var searchWithMultipleSelectInAutoComplete = function() {
         });
         firstListItem.first().addClass('a-selected a-success');
         firstListItem.find('button:nth-of-type(3) > i').removeClass('a-iconStrikeThrough a-disabledIcon');
+        emptyListItem.addClass('a-hiddenRow');
         $('.a-list-container > ul').append(firstListItem);
       }
 

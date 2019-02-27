@@ -44,7 +44,7 @@ var searchWithAutocomplete = function() {
         li.attr('role', 'menu');
         li.addClass('a-dotted a-selectable');
         li.attr('id', 'menu-item-' + index);
-        li.attr('onclick', "location.href='/patterns/04-sider-portal-92-andre-med-rettigheter-00-andre-med-rettigheter-tildel-enkeltrettigheter/04-sider-portal-92-andre-med-rettigheter-00-andre-med-rettigheter-tildel-enkeltrettigheter.html'")
+        li.attr('onclick', 'location.href="/patterns/04-sider-portal-92-andre-med-rettigheter-00-andre-med-rettigheter-tildel-enkeltrettigheter/04-sider-portal-92-andre-med-rettigheter-00-andre-med-rettigheter-tildel-enkeltrettigheter.html"');
       });
 
       if (iLength === availableTags.length) {
