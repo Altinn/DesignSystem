@@ -14,7 +14,7 @@ var numberOfResultsLabel = ' treff. Bruk pil opp og pil ned for å navigere i re
 var noResultsLabel = 'Ingen treff';
 var moreThanMaxLabel = 'Listen viser kun de første 100 treff. Vennligst begrens søket ditt';
 
-var searchWithAutocomplete = function() {
+var searchWithAutocompleteVarsel = function() {
   $.widget('custom.catcomplete', $.ui.autocomplete, ({
     _create: function() {
       this._super();
@@ -44,7 +44,6 @@ var searchWithAutocomplete = function() {
         li.attr('role', 'menu');
         li.addClass('a-dotted a-selectable');
         li.attr('id', 'menu-item-' + index);
-        li.attr('onclick', 'location.href="/patterns/04-sider-portal-92-andre-med-rettigheter-00-andre-med-rettigheter-tildel-enkeltrettigheter/04-sider-portal-92-andre-med-rettigheter-00-andre-med-rettigheter-tildel-enkeltrettigheter.html"');
       });
 
       if (iLength === availableTags.length) {
@@ -61,7 +60,7 @@ var searchWithAutocomplete = function() {
     }
   }));
 
-  $('.a-js-autocomplete').catcomplete({
+  $('.a-js-autocomplete-varsel').catcomplete({
     // delay: 200, // set appropriate delay for ajax call
     source: availableTags,
     appendTo: '.a-autocomplete-container',
@@ -95,6 +94,44 @@ var searchWithAutocomplete = function() {
 
         ui.content.push(el);
       }
+    },
+
+    // Select configured to stop setting the default input and modify the menu
+    select: function(event, ui) {
+      // Find menu element
+      var autocompleteMenu = $('#ui-id-1');
+
+      // Find selected right and add classes to closest list-item
+      autocompleteMenu.find('span:contains(' + ui.item.service + ')')
+        .closest('li')
+        .addClass('a-dotted a-disabled a-success a-selectable a-selected');
+
+      // Find menu and set focus to closest list-item of selected right
+      autocompleteMenu.menu('focus', null, autocompleteMenu.find('span:contains(' + ui.item.service + ')').closest('li'));
+
+      // ONLY FOR DESIGNSYSTEM PROTOTYPING
+      // eslint-disable-next-line
+      console.log('Prototyping feature needs to be commented out in searchWithAutocompleteVarselEnkeltTjeneste.js');
+      // Add the clicked rights to list, only if if not already in list
+      if ($('.a-list-container').find('div:contains(' + ui.item.service + ')').length === 0) {
+        // eslint-disable-next-line
+        var firstListItem = $('#hiddenMalRow').clone();
+        firstListItem.removeClass('a-hiddenRow');
+        firstListItem.attr('id', 'last');
+        firstListItem.find('div div:nth-child(1)').text(function() {
+          return ui.item.service;
+        });
+        firstListItem.first().addClass('a-selected a-success');
+        firstListItem.find('button:nth-of-type(3) > i').removeClass('a-iconStrikeThrough a-disabledIcon');
+        $('.a-list-container > ul').append(firstListItem);
+      }
+
+      return false;
+    },
+
+    // Focus configured to stop input from updating input when keyboard is used
+    focus: function(event, ui) {
+      return false;
     }
   }).bind('click', function(e) { // TODO should also open on tab focus? issue 3766
     if ($(this).catcomplete('widget').is(':visible')) {
