@@ -6,54 +6,41 @@
   <section id="content" tabindex="-1">
     <h1 class="sr-only">{{{ page-title }}}</h1>
 
+    <div class="container">
+
     {{# product-presentation }}
-      <div class="container">
-        <div class="row">
-          <div class="col-12 mb-1">
-            {{> organismer-altinnett-produkt-presentasjon }}
-          </div>
-        </div>
-      </div>
+        {{> organismer-altinnett-produkt-presentasjon }}
     {{/ product-presentation }}
 
     {{# case }}
-      <div class="container">
         {{> molekyler-altinnett-case-card }}
-      </div>
     {{/ case }}
 
-    <div class="container">
-      {{# steps }}
-        <div class="row">
-          <div class="col-12">
-            <h2 class="a-fontBold a-blueDarkerText mb-2">{{ section-title }}</h2>
-
-            {{# list }}
-              <div class="d-block d-lg-none d-xl-none d-xxl-none">
-                  {{> atomer-liste-nummerert-sirkel }}
-              </div>
-            {{/ list }}
-
-            <div class="epi-wysiwyg d-none d-lg-block d-xl-block d-xxl-block">
-              {{> molekyler-altinnett-stegvis-svg }}
+    {{# steps }}
+      <div class="mb-6 mb-lg-8">
+          <h2 class="a-fontBold a-blueDarkerText mb-2">{{ section-title }}</h2>
+         {{# list }}
+            <div class="d-block d-lg-none">
+                {{> atomer-liste-nummerert-sirkel }}
             </div>
-
-            {{# learnMoreLink }}
-              <div class="mt-2 mb-5">
-                {{> atomer-link }}
-              </div>
-            {{/ learnMoreLink }}
+          {{/ list }}
+         <div class="epi-wysiwyg d-none d-lg-block">
+            {{> molekyler-altinnett-stegvis-svg }}
           </div>
-        </div>
-      {{/ steps }}
+         {{# learnMoreLink }}
+            <div class="mt-2">
+              {{> atomer-link }}
+            </div>
+          {{/ learnMoreLink }}
+      </div>
+    {{/ steps }}
+
     </div>
       {{> organismer-altinnett-nyheter-arrangementer }}
     <div class="container">
       {{# resource-presentation }}
-        <div class="row">
-          <div class="col-12 mt-4">
-            {{> organismer-altinnett-ressurs-presentasjon }}
-          </div>
+        <div class="mb-6 mb-lg-8">
+          {{> organismer-altinnett-ressurs-presentasjon }}
         </div>
       {{/ resource-presentation }}
     </div>

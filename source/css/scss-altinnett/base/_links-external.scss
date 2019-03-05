@@ -1,0 +1,68 @@
+//------------------------------------\
+//  EXTERNAL LINKS
+//------------------------------------/
+// sass-lint:disable-all
+
+// Add arrow to external Links
+a[href^="http"]::after {
+  display: inline-block;
+  width: 1.3em;
+  background-image: url($images-base-url + 'arrowrightup.svg');
+  background-repeat: no-repeat;
+  background-size: 119% auto;
+  vertical-align: middle;
+  margin-top: -4px;
+  margin-left: -3px;
+
+  // Alternative text
+  content: '(external link)';
+  white-space: nowrap;
+  overflow: hidden;
+  text-indent: 1.3em; // The width of the icon
+}
+
+// Add " (PDF)" text after links that go to PDFs
+a[href$=".pdf"]::after {
+  content: " (PDF)" !important;
+  display: inline !important;
+}
+
+// If file size specified as data attribute, use that too
+a[href$=".pdf"][data-size]:after {
+  content: " (PDF, " attr(data-size) ")" !important;
+}
+
+// Fix arrow for featured links
+a.a-linkFeatured[href^="http"]::after {
+  background-position: -6px -2px;
+  background-size: 142% auto;
+}
+
+// Fix arrow for wide buttons
+a.a-btn-wide[href^="http"]::after {
+  position: static;
+  margin-top: -12px;
+}
+
+a.a-btn-negative[href^="http"]::after {
+  background-image: url($images-base-url + 'arrowrightup-white.svg');
+  position: static;
+  margin-top: -12px;
+}
+
+a.an-link-noIcon[href^="http"]::after {
+  content: none;
+}
+
+// Fix arrow for links in lists
+.a-list {
+  li {
+    &.a-list-hasRowLink {
+      a[href^="http"]::after {
+        top: 9px;
+        right: 6px;
+        position: absolute;
+      }
+    }
+  }
+}

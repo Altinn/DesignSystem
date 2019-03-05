@@ -31,16 +31,14 @@ var searchWithMultipleSelectInAutoComplete = function() {
         // build  item in the list
         var innerHtmlForItem = '<div class="row">' +
           '<div class="col-sm-7 col-md-5 col-lg-6 pl-md-2 pl-lg-2 pr-2" data-searchable="true">' +
-            '<span class="a-js-sortValue a-list-longtext" title="Jan Derek Sørensen Julius Andreas Gimli Arn MacGyver Chewbacka Highlander ElessarJankov">' + item.service + '</span>' +
+            '<span class="a-js-sortValue a-list-longtext" title="ACC Security level 2 MAG">' + item.service + '</span>' +
           '</div>' +
           '<div class="d-none d-md-block col-md-3 col-lg-4 pl-md-2 pl-lg-1 pr-2" data-searchable="true">' +
             '<span class="a-js-sortValue a-list-longtext" title="Testetat for Accenture">' + item.serviceOwner + '</span>' +
           '</div>' +
           '<div class="text-right col-sm-5 col-md-4 col-lg-2 pl-md-2 pl-lg-1 pr-sm-0 pr-md-2">' +
-
               '<span class="a-fontBold a-btn-icon-text a-hiddenWhenSelected ">+Legg til</span>' +
               '<span class="a-fontBold d-none d-sm-block a-visibleWhenSelected">Lagt til</span>' +
-
           '</div>' +
         '</div>';
 
@@ -156,13 +154,16 @@ var searchWithMultipleSelectInAutoComplete = function() {
       // Add the clicked rights to list, only if if not already in list
       if ($('.a-list-container').find('div:contains(' + ui.item.service + ')').length === 0) {
         // eslint-disable-next-line
-        var firstListItem = $('#firstRow').clone();
+        var emptyListItem = $('#emptyRow');
+        var firstListItem = $('#hiddenMalRow').clone();
+        firstListItem.removeClass('a-hiddenRow');
         firstListItem.attr('id', 'last');
         firstListItem.find('div div:nth-child(1)').text(function() {
           return ui.item.service;
         });
         firstListItem.first().addClass('a-selected a-success');
         firstListItem.find('button:nth-of-type(3) > i').removeClass('a-iconStrikeThrough a-disabledIcon');
+        emptyListItem.addClass('a-hiddenRow');
         $('.a-list-container > ul').append(firstListItem);
       }
 
@@ -176,8 +177,6 @@ var searchWithMultipleSelectInAutoComplete = function() {
   }).bind('click', function(e) { // TODO should also open on tab focus? issue 3766
     if ($(this).catcomplete('widget').is(':visible')) {
       $(this).catcomplete('close');
-    } else {
-      $(this).catcomplete('search', $(this).val());
     }
   });
 };

@@ -3,23 +3,25 @@
         {{> organismer-header-altinnett }}
     {{/ header }}
 
-    {{# presentationBlock }}
-        {{> molekyler-altinnett-presentasjonsblokk-bred }}
-    {{/ presentationBlock }}
+    {{# productHeader }}
+        {{> molekyler-altinnett-produkt-header }}
+    {{/ productHeader }}
 
     <div class="container">
-        {{# crumbs }}
-          <div class="col-sm-12 col-lg-10 offset-lg-1">
-              {{> molekyler-smulesti }}
-          </div>
-        {{/ crumbs }}
-        <div class="col-sm-12 col-lg-8 offset-lg-2 a-text epi-wysiwyg pt-2 pt-lg-3 mb-6">
-          {{# paragraphs }}
-            {{> atomer-undertittel }}
-            {{# multipleParagraphs }}
-              {{> atomer-avsnitt }}
-            {{/ multipleParagraphs }}
-          {{/ paragraphs }}
+        <div class="row">
+            {{# crumbs }}
+                <div class="col-sm-12 col-lg-10 offset-lg-1">
+                    {{> molekyler-smulesti }}
+                </div>
+            {{/ crumbs }}
+            <div class="col-sm-12 col-lg-8 offset-lg-2 a-text epi-wysiwyg epi-wysiwyg-smallHeadings pt-2 pt-lg-3 mb-6">
+                {{# paragraphs }}
+                    <h2 class="a-h3">{{section-sub-title}}</h2>
+                    {{# multipleParagraphs }}
+                        {{> atomer-avsnitt }}
+                    {{/ multipleParagraphs }}
+                {{/ paragraphs }}
+            </div>
         </div>
     </div>
 
@@ -27,19 +29,17 @@
     
     <div class="container">
         {{# case }}
-            <div class="col-12 px-0 mb-6">
-                {{> molekyler-altinnett-case }}
-            </div>
+            {{> molekyler-altinnett-case }}
         {{/ case }}
         {{# accordion }}
-            <div class="col-sm-12 col-lg-8 offset-lg-2 mb-6">
-                {{> molekyler-trekkspill-overskrifter }}
+            <div class="row">
+                <div class="col-sm-12 col-lg-8 offset-lg-2 mb-6 mb-lg-8">
+                    {{> molekyler-trekkspill-overskrifter }}
+                </div>
             </div>
         {{/accordion}}
         {{# kontaktkort }}
-            <div class="col-12 px-0 mb-6">
-                {{> molekyler-altinnett-kontaktkort }}
-            </div>
+            {{> molekyler-altinnett-kontaktkort }}
         {{/ kontaktkort }}
     </div>
 

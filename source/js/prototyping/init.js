@@ -39,6 +39,7 @@
   questionnaireInteraction,
   searchFilterView,
   searchWithAutocomplete,
+  searchWithAutocompleteVarsel,
   searchWithMultipleSelectInAutoComplete,
   selectAll,
   sessionExpiredDialog,
@@ -105,6 +106,7 @@ window.devInit = function() {
   questionnaireInteraction();
   searchFilterView();
   searchWithAutocomplete();
+  searchWithAutocompleteVarsel();
   searchWithMultipleSelectInAutoComplete();
   selectAll();
   sessionExpiredDialog();
