@@ -1,12 +1,12 @@
+$active-star-color: #008CF0;
+$inactive-star-color: #6A6A6A;
+
 .a-btn-overlay-right {
   position: absolute;
   right: 0;
   width: auto;
   height: auto !important;
-  margin-top: 8px;
-  @media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
-    margin-top: 32px;
-  }
+  margin-top: 0;
 
   &.a-disabled {
     background-color: transparent;
@@ -14,10 +14,220 @@
   }
 }
 
-
 .a-collapseContent {
+
   .ai-favourite,
   .ai-favourite-inactive {
     margin-right: 0.5rem;
+  }
+}
+
+.a-dropdown-personswitchList {
+  .a-break-name-orgnr {
+    display: block;
+    padding-left: 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  .a-btn-overlay-right {
+    margin-top: 0;
+  }
+
+  .a-child-star {
+    margin-right: 0;
+  }
+
+  .a-list-rowLink {
+    &.a-list-rowLink-inactive {
+      display: none;
+    }
+  }
+}
+
+.container {
+  &.a-triangleShadow {
+    .a-listWithSubLevels>.a-favourite {
+      @media(max-width: 767px) {
+        button {
+          margin-right: 20px;
+        }
+      }
+    }
+  }
+}
+
+.a-favourite {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  .a-list-rowLink {
+    padding-right: 0;
+  }
+
+  button {
+    padding: 4px 4px;
+    margin: 0 30px;
+  }
+
+  @media all and (-ms-high-contrast: none),
+    (-ms-high-contrast: active) {
+      button {
+        display: inline-flex !important;
+      }
+    }
+
+  .a-btn {
+    > {
+      .ai-favourite {
+        color: $active-star-color;
+      }.ai-favourite-inactive {
+        color: $inactive-star-color;
+      }
+    }
+
+    &:hover > {
+      .ai-favourite {
+        color: $inactive-star-color;
+     }.ai-favourite-inactive {
+        color: $active-star-color;
+     }
+    }
+  }
+}
+
+.a-child-star {
+  @media (min-width: 768px) {
+    margin-right: 11px !important;
+  }
+}
+
+.a-listWithSubLevels {
+  .ai-favourite,
+  .ai-favourite-inactive {
+    font-size: 1.35em !important;
+  }
+}
+
+.a-favourites {
+  .ai-favourite {
+    &.ai-xs {
+      font-size: 1.1em !important;
+  }
+}
+
+  .a-btn {
+    &::after {
+      height: 10px;
+    }
+  }
+
+  li {
+    &.a-list-rowLink {
+      &.a-list-rowLink-inactive {
+        cursor: default;
+        border-bottom: none !important;
+      }
+    }
+  }
+}
+
+@media (max-width: 767px) {
+  .a-break-name-orgnr {
+    display: block;
+    padding-left: 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  .col-11 {
+    .a-break-name-orgnr {
+      &:parent {
+        padding-right: 10px;
+        }
+      }
+    }
+  }
+
+@media all and (-ms-high-contrast: none),
+  (-ms-high-contrast: active) {
+    @media (min-width: 768px) {
+
+      .a-listWithSubLevels > {
+        .a-favourite {
+          &:hover > {
+            button > {
+              .ai-favourite-inactive {
+                display: inline-block;
+              }
+            }
+          }
+        }button {
+          &.a-btn-shadow-large {
+            &:hover ~ {
+              .a-favourite {
+                .ai-favourite-inactive {
+                  display: inline-block;
+                }
+              }
+            }
+          }
+        }.a-collapseContent > {
+          .a-list-container {
+            li {
+              &:hover {
+                .ai-favourite-inactive {
+                  display: inline-block;
+                }
+              }
+            }
+          }
+        }
+      }
+
+      .ai-favourite-inactive {
+        display: none;
+      }
+    }
+  }
+
+@media(pointer: fine) {
+  .a-listWithSubLevels > {
+    .a-favourite {
+      &:hover > {
+        button > {
+          .ai-favourite-inactive {
+            display: inline-block;
+          }
+        }
+      }
+    }button {
+      &.a-btn-shadow-large {
+        &:hover ~ {
+          .a-favourite {
+            .ai-favourite-inactive {
+              display: inline-block;
+            }
+          }
+        }
+      }
+    }.a-collapseContent > {
+      .a-list-container {
+        li {
+          &:hover {
+            .ai-favourite-inactive {
+              display: inline-block;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .ai-favourite-inactive {
+    display: none;
   }
 }
