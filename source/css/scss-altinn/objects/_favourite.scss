@@ -35,9 +35,19 @@ $inactive-star-color: #6A6A6A;
     margin-top: 0;
   }
 
-  .a-child-star {
-    margin-right: 0;
+  @media(pointer: coarse) {
+    .a-child-star {
+      margin-right: 12px !important;
+    }
   }
+  @media all and (-ms-high-contrast: none),
+    (-ms-high-contrast: active) {
+      @media (max-width: 767px) {
+        .a-child-star {
+          margin-right: 12px !important;
+        }
+      }
+    }
 
   .a-list-rowLink {
     &.a-list-rowLink-inactive {
@@ -46,12 +56,20 @@ $inactive-star-color: #6A6A6A;
   }
 }
 
-.container {
-  &.a-triangleShadow {
-    .a-listWithSubLevels>.a-favourite {
-      @media(max-width: 767px) {
+@media(max-width: 767px) {
+  .container {
+    &.a-triangleShadow {
+      .a-listWithSubLevels>.a-favourite {
         button {
           margin-right: 20px;
+        }
+      }.a-break-name-orgnr {
+        padding-right: 15px;
+      }.a-favourites {
+        .a-favourite {
+          button {
+            margin-right: 13px;
+          }
         }
       }
     }
