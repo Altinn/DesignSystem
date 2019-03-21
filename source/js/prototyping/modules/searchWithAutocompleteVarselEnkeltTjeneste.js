@@ -34,6 +34,10 @@ var searchWithAutocompleteVarsel = function() {
           '<div class="d-none d-md-block col-md-3 col-lg-4 pl-md-2 pl-lg-1 pr-2" data-searchable="true">' +
             '<span class="a-js-sortValue a-list-longtext" title="Testetat for Accenture">' + item.serviceOwner + '</span>' +
           '</div>' +
+          '<div class="text-right col-sm-5 col-md-4 col-lg-2 pl-md-2 pl-lg-1 pr-sm-0 pr-md-2">' +
+              '<span class="a-fontBold a-btn-icon-text a-hiddenWhenSelected ">+Legg til</span>' +
+              '<span class="a-fontBold d-none d-sm-block a-visibleWhenSelected">Lagt til</span>' +
+          '</div>' +
         '</div>';
 
         var li = that._renderItemData(ul, item);
