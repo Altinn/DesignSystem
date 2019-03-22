@@ -443,6 +443,11 @@ hr {
     //font-weight: 900;
     color: $black;
     content: '\\';
+
+    @media all and (-ms-high-contrast: none),
+      (-ms-high-contrast: active) {
+        position: static;
+    }
   }
 
   &.a-disabledIcon {
@@ -451,6 +456,14 @@ hr {
 
   &.a-redIcon {
     color: $red;
+  }
+}
+
+.ai-sm {
+  &.a-iconStrikeThrough {
+    &::after {
+      position: relative;
+    }
   }
 }
 
