@@ -38,7 +38,7 @@ var searchWithMultipleSelectInAutoComplete = function() {
           '</div>' +
           '<div class="text-right col-sm-5 col-md-4 col-lg-2 pl-md-2 pl-lg-1 pr-sm-0 pr-md-2">' +
               '<span class="a-fontBold a-btn-icon-text a-hiddenWhenSelected ">+Legg til</span>' +
-              '<span class="a-fontBold d-none d-sm-block a-visibleWhenSelected">Lagt til</span>' +
+              '<span class="a-fontBold d-sm-block a-visibleWhenSelected">Lagt til</span>' +
           '</div>' +
         '</div>';
 
@@ -180,3 +180,10 @@ var searchWithMultipleSelectInAutoComplete = function() {
     }
   });
 };
+
+// When pressing "ESC"
+$(document).on('keyup', function(evt) {
+  if (evt.keyCode === 27) {
+      $('.a-multipleSelectInAutoComplete').attr('style', 'display:none');
+  }
+});
