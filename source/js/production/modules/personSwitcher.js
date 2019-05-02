@@ -47,4 +47,7 @@ var callback = function(mutationsList) {
 var observer = new MutationObserver(callback);
 
 // Start observing the target node for configured mutations
-observer.observe(targetNode, config);
+try{
+  observer.observe(targetNode, config);
+}
+catch {}
