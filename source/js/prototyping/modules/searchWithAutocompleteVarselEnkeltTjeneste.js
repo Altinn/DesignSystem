@@ -147,6 +147,6 @@ var searchWithAutocompleteVarsel = function() {
 // When pressing "ESC"
 $(document).on('keyup', function(evt) {
   if (evt.keyCode === 27) {
-      $('.a-multipleSelectInAutoComplete').attr('style', 'display:none');
+    $('.a-multipleSelectInAutoComplete').attr('style', 'display:none');
   }
 });
