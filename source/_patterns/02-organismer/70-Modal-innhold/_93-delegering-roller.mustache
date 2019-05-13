@@ -64,25 +64,23 @@
   {{/ has-links }}
 
   {{# has-critical-role-container }}
-    <div class="row a-js-critical-role-container" style="display: none;">
+    <div class="row a-js-critical-role-container a-hiddenRow">
       <div class="col mt-1">
         <div class="a-message a-message--fullwidth a-message--arrow-off a-message--no-dropshadow a-message-error">
-    
-          <!-- For hver rolle merket som kritisk, skriv ut følgende div. Merk rolle-id som del av klassenavn -->
-          <div class="mb-2 a-js-critical-role-msg a-js-critical-role-msg-hovedadmin" style="display: none;">
-            <strong>Hovedadministrator</strong>
-            <br>Denne rollen gir mottaker mulighet for å gi seg selv alle roller og rettigheter du selv har inkludert tilgangsstyring
-            og klientadministrator.
-          </div>
-    
-          <div class="mb-2 a-js-critical-role-msg a-js-critical-role-msg-sensitivTjeneste" style="display: none;">
-            <strong>Sykmeldinger og andre sensitive tjenester</strong>
-            <br>Denne rollen gir mottaker innsyn i personsensitivt innhold som sykmeldinger og lignende.
-          </div>
+          {{# critical-roles }}
+            <div class="mb-2 a-js-critical-role-msg a-js-critical-role-msg-{{ critical-role-id }} a-hiddenRow">
+              <strong>{{ critical-role-name }}</strong>
+              <br>{{ critical-role-description }}
+              {{# critical-role-popover }}
+                {{> atomer-link-med-popover-ikon }}
+              {{/ critical-role-popover }}
+            </div>
+          {{/ critical-roles }}
     
           {{# link-done-critical-role }}
               {{> atomer-link }}
           {{/ link-done-critical-role }}
+          </div>
         </div>
       </div>
     </div>
