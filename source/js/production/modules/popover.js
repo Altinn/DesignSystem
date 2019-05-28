@@ -199,9 +199,9 @@ var popoverGlobalInit = function() {
     if ($('.popover-big').length > 0) {
       if ($('.modal.show').length > 0) {
         // Add padding to make sure modal is big enough to contain popover
-        modalHeight = $('.modal-dialog').height() + $('.modalPage').height();
+        modalHeight = $('.modal-dialog').height() + $('.modalPage:visible').height();
         padding = ($('.popover').offset().top + $('.modal').scrollTop() + $('.popover').height() + 5) - modalHeight;
-        $('.modalPage').css('padding-bottom', padding + 'px');
+        $('.modalPage:visible').css('padding-bottom', padding + 'px');
         // tranlate is somehow added by Bootstrap later when in modal??
         setTimeout(resetTranslate, 0);
       } else {
