@@ -1,29 +1,25 @@
 <div class="an-arrangement-block">
-  <a href="#" class="an-arrangement-block-inner a-noUnderline">
-    {{# dateSmall }}
-      <div class="mr-1 an-arrangement-block-show-large">
-        {{> atomer-dato }}
-      </div>
-    {{/ dateSmall }}
-    {{# dateLarge }}
-      <div class="mr-1 an-arrangement-block-hidden-small">
-        {{> atomer-dato }}
-      </div>
-    {{/ dateLarge }}
-    
-    <div class="an-arrangement-block-text">
-      <h3 class="mb-0">{{ arrangementTitle }}</h3>
-      <p>{{ arrangementTitleContent }}</p>
-    </div>
-  </a>
-  <a href="#" class="an-arrangement-block-inner a-noUnderline">
-    {{# dateSmall }}
-      <div class="mr-1">
-        {{> atomer-dato }}
-      </div>
-    {{/ dateSmall }}
-    <div class="an-arrangement-block-text">
-      <p>{{ arrangementContent }}</p>
-    </div>
-  </a>
+  {{#arrangements}}
+    {{#arrangement}}
+      <a href="#" class="an-arrangement-block-inner a-noUnderline">
+          {{# dateSmall }}
+              <div class="mr-1 {{#dateLarge}}an-arrangement-block-show-large{{/dateLarge}}">
+                  {{> atomer-dato }}
+              </div>
+          {{/ dateSmall }}
+          {{# dateLarge }}
+              <div class="mr-1 an-arrangement-block-hidden-small">
+                  {{> atomer-dato }}
+              </div>
+          {{/ dateLarge }}
+
+          <div class="an-arrangement-block-text">
+              {{#arrangementTitle}}
+                  <h3 class="mb-0">{{ arrangementTitle }}</h3>
+              {{/arrangementTitle}}
+              <p>{{ arrangementContent }}</p>
+          </div>
+      </a>
+    {{/arrangement}}
+  {{/arrangements}}
 </div>
