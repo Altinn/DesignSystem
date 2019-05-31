@@ -3,7 +3,7 @@
         <div class="modal-header a-modal-header">
             <div class="a-iconText a-iconText-background a-iconText-large">
                 <div class="a-iconText-icon">
-                    <i class="ai ai-check a-icon" aria-hidden="true"></i>
+                    <i class="ai a-icon" aria-hidden="true"></i>
                 </div>
                 <h1 class="a-iconText-text mb-0">
                     <span class="a-iconText-text-small"></span>
@@ -15,6 +15,9 @@
 
     <div class="modal-body a-modal-body">
 
+        {{#header}}
+            {{#modal-ingress}}<p class="lead mb-4">{{ modal-ingress }}</p>{{/modal-ingress}}
+        {{/header}}
         {{^header}}
             <div class="mb-4">
                 <h1 class="a-fontBold a-fontSizeXL mt-1">{{ modal-title }}</h1>
@@ -39,6 +42,9 @@
                 {{#password}}
 
                 {{/password}}
+                {{#radio}}
+                    {{> atomer-radioknapp-hjelpetekst }}
+                {{/radio}}
             {{/form}}
         </div>
         <div>
