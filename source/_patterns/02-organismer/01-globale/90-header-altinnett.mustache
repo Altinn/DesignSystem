@@ -8,7 +8,7 @@
 </nav>
 
 <!-- Begin .header -->
-<header class="a-header an-header {{{ header-color }}} {{# hide-header }} a-js-hideElement {{/ hide-header}}">
+<header class="an-header {{{ header-color }}} {{# hide-header }} a-js-hideElement {{/ hide-header}}">
     <!-- Begin .container -->
     <div class="container">
         <div class="row">
@@ -17,18 +17,71 @@
                 <!-- Begin .a-globalNav -->
                 <nav id="primary-nav" class="a-globalNav">
                     <a href="{{ url-logo }}" class="a-globalNav-logo">
-                        <img src="{{ headerlogo }}" alt="Altinnett logo" class="a-logo {{ logo-class }} {{ styleModifier }}">
+                        <img src="{{ headerlogo }}" alt="Altinnett logo" class="an-logo a-logo--an {{ logo-class }} {{ styleModifier }}">
                         <span class="sr-only">Til forsiden</span>
                     </a>
-                    <button class="an-navbar-toggler" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                      <span class="sr-only">Vis/skjul meny</span>
-                    </button>
-
-                    {{> organismer-altinnett-navigasjonsmeny-dropdown }}
+                    <button class="navbar-toggler navbar-toggler--an d-md-none" type="button">
+              <span class="sr-only">Vis/skjul meny</span>
+    			  </button>
+                    
+                   <div class="collapse navbar-toggleable-sm a-globalNav-main" id="exCollapsingNavbar2">
+    					<ul class="" id="exCollapsingNavbar">
+    						<li class="d-md-none">
+                  {{# header-mobilesearch }}
+    							  {{> atomer-tekst-input }}
+                  {{/ header-mobilesearch }}
+    						</li>
+                
+    						<li><a class="a-hvr-underline {{{ globalNav-active }}}" href="#">produkter</a></li>
+    						<li><a class="a-hvr-underline {{{ globalNav-active }}}" href="#">eksempler</a></li>
+    						<li><a class="a-hvr-underline {{{ globalNav-active }}}" href="#">utvikling</a></li>
+    					</ul>
+    			  </div>
                 </nav> <!-- End .a-globalNav -->
+
+<ul id="secondary-nav" class="nav nav-pills a-header-options">
+
+           <li class="nav-item dropdown d-none d-md-block">
+            
+            <button class="a-collapse-title a-btn a-btn-icon nav-link an-search" type="button" data-toggle="collapse" data-target="#collapseSearchContent" aria-expanded="false" aria-controls="collapseSearchContent">
+                <span>
+                    <i class="ai ai-search an-search-icon" aria-hidden="true">
+                      <span class="sr-only">Søk</span></i>
+                  </span>
+              </button>
+          </li>
+    		</ul> <!-- End .a-globalNav-options -->
+
             </div><!-- End .col -->
 
         </div> <!-- End .row -->
 
     </div> <!-- End .container -->
+   
 </header> <!-- End .header -->
+ <!-- Begin .a-collapseContent -->
+    <div id="collapseSearchContent" class="a-collapseContent adocs-collapseSearch collapse">
+        <div class="a-collapseContent-inside px-0">
+        <div class="a-bgGreyLight pt-3 pb-3">
+            <div class="container">
+            <div class="row a-bgGreyLight arrow-tr">
+                <div class="col-sm-8 offset-sm-2 col-lg-6 offset-lg-3">
+                <div class="form-group a-form-group  a-form-group-large">
+                    <label class="a-h2" for="topbar-search-by">Hva leter du etter?</label>
+                    <div class="a-form-group-items input-group">
+                    <input data-search-input="" id="topbar-search-by" class="form-control a-hasButton" type="text" placeholder="Søk etter innhold" autofocus="">
+                    <div class="input-group-append">
+                        <button class="btn btn-secondary" type="submit" name="search-button" id="topbar-search-submit" aria-label="Search">
+                        <i class="ai ai-search" aria-hidden="true"></i>
+                        <span class="sr-only">Søk</span>
+                        </button>
+                    </div>
+                    </div>
+                </div>
+                </div>
+            </div>
+            </div>
+        </div>
+    </div>
+  </div>
+  <!-- End .a-collapseContent -->
