@@ -47,7 +47,7 @@
             {{/form}}
         </div>
         <div>
-            <button class="a-btn" data-enable-dirty-popover="true" data-toggle="altinn-modal" data-action="next" data-url="{{{ page-url }}}" data-target="#modal" {{# last-question }}data-is-success="true"{{/ last-question }}>
+            <button class="a-btn {{#green-button}}a-btn-success{{/green-button}}" data-enable-dirty-popover="true" data-toggle="altinn-modal" {{#close-modal}}data-action="close"{{/close-modal}}{{^close-modal}}data-action="next"{{/close-modal}} data-url="{{{ page-url }}}" data-target="#modal" {{# last-question }}data-is-success="true"{{/ last-question }}>
                 {{{ btn-next }}}
             </button>
             {{#cancel}}<a class="ml-3" data-toggle="altinn-modal" data-action="close" data-target="#modal" href="{{url}}">{{label}}</a>{{/cancel}}
