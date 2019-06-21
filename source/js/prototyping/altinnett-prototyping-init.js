@@ -33,7 +33,6 @@ window.altinnettInit = function() {
   addListExpandHandler();
   newsArchive();
   popoverGlobalInit();
-  mobileNavigation();
   popoverLocalInit();
   setupTruncateLines();
   subscribe();
