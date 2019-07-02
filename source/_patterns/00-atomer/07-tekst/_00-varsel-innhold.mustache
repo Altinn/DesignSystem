@@ -2,27 +2,38 @@
   {{# use-row }}
     <div class="row{{# row-extra-class}} {{ row-extra-class}}{{/ row-extra-class}}">
   {{/ use-row }}
-  {{# alert-header }}
-    <div class="{{ classes }}">
+    {{# alert-header }}
+      <div class="{{ classes }}">
+        {{{ text }}}
+      </div>
+    {{/ alert-header }}
+
+    {{# alert-text }}
+      {{# classes }} <span class="{{ classes }}"> {{/ classes }}
       {{{ text }}}
-     </div>
-  {{/ alert-header }}
-  {{# alert-text }}
-    {{# classes }} <span class="{{ classes }}"> {{/ classes }}
-    {{{ text }}}
-    {{# classes }} </span> {{/ classes }}
-    {{# text-extra }}
-      <span class="{{ classes }}">{{{ text-extra }}}</span>
-    {{/ text-extra }}
-  {{/ alert-text }}
+      {{# classes }} </span> {{/ classes }}
+      {{# text-extra }}
+        <span class="{{ classes }}">{{{ text-extra }}}</span>
+      {{/ text-extra }}
+    {{/ alert-text }}
 
-  {{# alert-icon }}
-    {{> atomer-ikon }}
-  {{/ alert-icon }}
+    {{# alert-icon }}
+      {{> atomer-ikon }}
+    {{/ alert-icon }}
 
-  {{# alert-link }}
-    {{> atomer-link }}
-  {{/ alert-link }}
+    {{# alert-link }}
+      {{> atomer-link }}
+    {{/ alert-link }}
+
+    {{# alert-checkbuttons }}
+        {{> atomer-valgknapp }}
+    {{/ alert-checkbuttons }}
+
+    {{# alert-bottom-button-row }}
+        {{# buttons }}
+          {{> atomer-knapp }}
+        {{/ buttons }}
+    {{/ alert-bottom-button-row }}
   {{# use-row }}
     </div>
   {{/ use-row }}

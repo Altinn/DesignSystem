@@ -4,9 +4,12 @@
   {{/ modal-kvittering-content-header }}
 
   <div class="a-modal-receiptContent mb-3">
-    <p>
-      {{{ modal-kvittering-content }}}
-    </p>
+    {{# modal-kvittering-content }}
+      <p>
+        {{{ modal-kvittering-content }}}
+      </p>
+    {{/ modal-kvittering-content }}
+
     {{# modal-kvittering-list }}
       <ul>
         {{# modal-kvittering-list-items }}
@@ -14,6 +17,15 @@
         {{/ modal-kvittering-list-items }}
       </ul>
     {{/ modal-kvittering-list }}
+
+    {{# modal-kvittering-rights-list }}
+      {{# modal-kvittering-rights-title }}
+        <h3 class="a-fontBold a-fontSizeM mt-3">
+          {{ modal-kvittering-rights-title }}
+        </h3>
+      {{/ modal-kvittering-rights-title }}
+      {{> molekyler-liste-unummerert }}
+    {{/ modal-kvittering-rights-list }}
 
     {{# modal-kvittering-second-content }}
       <p>
