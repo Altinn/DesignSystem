@@ -1,7 +1,11 @@
 <button type="button" class="{{{ button-class }}}" {{# has-children }} aria-expanded="false" {{/ has-children }} {{# data-target }} aria-owns="{{ data-target }}" data-toggle="instant" data-target="#{{ data-target }}"{{/ data-target }} {{# onclick }} onclick="{{{ onclick }}}" {{/ onclick }}>
+  {{# box-button-top-icon }}
+    {{> atomer-ikon }}
+  {{/ box-button-top-icon }}
+  
   <span class="a-box-button-text">
     <span class="a-meta-text">
-      {{ box-button-title }}
+      {{# box-button-title }}{{ box-button-title }}{{/ box-button-title }}
     </span>
     <span class="a-box-button-name">
       <span class="sr-only">
