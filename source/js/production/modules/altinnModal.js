@@ -44,6 +44,7 @@ AltinnModal = {
       // }
 
       $(settings.target + ' .a-modal-content-target').append(page);
+      $(settings.target).trigger('loaded.altinn.modal');
       $(settings.target).find('.a-current-page').first().data().enableDirtyPopover = settings.enableDirtyPopover;
 
       // Initialize with backdrop: static to prevent modal from closing when clicking outside,
@@ -121,6 +122,7 @@ AltinnModal = {
     // }
 
     $(settings.target + ' .a-modal-content-target').append(newPage);
+    $(settings.target).trigger('loaded.altinn.modal');
 
     $(settings.target).animate({
       scrollTop: 0
@@ -207,6 +209,7 @@ AltinnModal = {
       // }
 
       $(settings.target + ' .a-modal-content-target').append(newPage);
+      $(settings.target).trigger('loaded.altinn.modal');
 
       $(settings.target).animate({
         scrollTop: 0
