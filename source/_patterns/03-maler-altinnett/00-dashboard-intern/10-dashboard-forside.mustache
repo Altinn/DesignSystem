@@ -9,10 +9,21 @@
     <div class="container">
         <div class="row an-nyheter-arrangement-block">
           <div class="col-12 col-lg-6 mb-5 mb-lg-0">
-            <h2>Siste driftsvarslinger</h2>
+            <h2 class="a-fontMedium">Siste driftsvarslinger</h2>
+
+              {{# dashboard-addAlert }}
+                {{> atomer-handlingsknapp }}
+              {{/ dashboard-addAlert }}
+
               {{# dashboard-alerts }}
                 {{> atomer-varsel }}
               {{/ dashboard-alerts }}
+
+              <div class="mt-1">
+                {{#dashboard-viewMoreAlerts}}
+                {{> atomer-link }}
+                {{/dashboard-viewMoreAlerts}}
+              </div>
           </div>
           <div class="col-12 col-lg-5 offset-lg-1">
             Her kommer kontaktperson
