@@ -1,42 +1,68 @@
 <div class="{{ class }}">
     <div class="container">
         <div class="row">
-          <div class="col-12 col-md-7">
-            <p class="{{ preTitleClass }}">{{ preTitle }}</p>
-            <h1 class="{{ pageTitleClass }}">{{ pageTitle }}</h1>
-            {{# linkExternal }}
-              <div class="mb-4 mb-md-6">
-                {{> atomer-link-ekstern }}
-              </div>
-            {{/ linkExternal }}
-            
-            <div class="a-date-hiddencontainer">
-              <div class="mr-1">
-                {{# dato }}
-                  {{> atomer-dato }}
-                {{/ dato }}
-              </div>
-              
-              {{# klokkeslett }}
-                {{> atomer-liste-unummerert-sammenkoblet }}
-              {{/ klokkeslett }}
+            <div class="col-12 col-md-7">
+                <p class="{{ preTitleClass }}">{{ preTitle }}</p>
+                <h1 class="{{ pageTitleClass }}">{{ pageTitle }}</h1>
+                {{# linkExternal }}
+                    <div class="mb-4 mb-md-6">
+                        <i class="ai ai-pin ai-xs ai-nw ai-nw-pr"><span class="sr-only">Sted:</span></i>
+                        {{> atomer-link-ekstern }}
+                    </div>
+                {{/ linkExternal }}
+
+                {{#datoTekst}}
+                    <p class="a-fontSizeL a-fontBold mt-4 mb-0">{{datoTekst}}</p>
+                {{/datoTekst}}
+                {{#adresseTekst}}
+                    <p class="a-fontSizeL mb-5">{{adresseTekst}}</p>
+                {{/adresseTekst}}
+
+                {{#datoBoks}}
+                <div class="a-date-hiddencontainer flex-wrap">
+                    <div class="mr-1">
+                        {{# dato }}
+                            {{> atomer-dato }}
+                        {{/ dato }}
+                    </div>
+
+                    {{# klokkeslett }}
+                        {{> atomer-liste-unummerert-sammenkoblet }}
+                    {{/ klokkeslett }}
+
+                    <div class="mt-1">
+                        {{# calendarLink }}
+                            {{> atomer-ikon }}
+                            <a href="#">{{linkText}}</a>
+                        {{/ calendarLink }}
+                    </div>
+                </div>
+                {{/datoBoks}}
+                {{> atomer-link-knapp-stor-bred }}
             </div>
-            {{> atomer-link-knapp-stor-bred }}
-          </div>
-          <div class="col-6 col-md-5 a-date-container">
-            <!-- Klasse for datoer med flere dager: a-date-day--small -->
-            <div class="a-date-container-inner">
-              <div class="mr-1 mr-lg-3">
-                {{# dato }}
-                  {{> atomer-dato }}
-                {{/ dato }}
-              </div>
-              
-              {{# klokkeslett }}
-                {{> atomer-liste-unummerert-sammenkoblet }}
-              {{/ klokkeslett }}
+            {{#datoBoks}}
+            <div class="col-6 col-md-5 a-date-container">
+                <!-- Klasse for datoer med flere dager: a-date-day--small -->
+                <div class="a-date-container-inner flex-wrap">
+                    <div class="mr-1 mr-lg-3">
+                        {{# dato }}
+                            {{> atomer-dato }}
+                        {{/ dato }}
+                    </div>
+
+                    {{# klokkeslett }}
+                        {{> atomer-liste-unummerert-sammenkoblet }}
+                    {{/ klokkeslett }}
+
+                    <div class="mt-1">
+                        {{# calendarLink }}
+                            {{> atomer-ikon }}
+                            <a href="#">{{linkText}}</a>
+                        {{/ calendarLink }}
+                    </div>
+                </div>
             </div>
-          </div>
+            {{/datoBoks}}
         </div>
     </div>
 </div>

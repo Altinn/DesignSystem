@@ -1,0 +1,61 @@
+<div class="a-page">
+    {{# header }}
+        {{> organismer-header-altinnett }}
+    {{/ header }}
+
+    <h1 class="sr-only">Altinn studio</h1>
+
+    {{# jumbotron }}
+        {{> molekyler-jumbotron }}
+    {{/ jumbotron }}
+
+    <div class="container">
+        <div class="row">
+            {{# crumbs }}
+                <div class="col-sm-12 col-lg-10 offset-lg-1">
+                    {{> molekyler-smulesti }}
+                </div>
+            {{/ crumbs }}
+        </div>
+        {{# image-text-content }}
+            <div class="row mb-6 mt-2 align-items-center">
+                <div class="col-12 col-md-6 col-lg-5 mb-2 mb-md-0 {{image-column-class}}">
+                    <img class="d-block mx-auto" src="{{img-src}}" alt="{{img-alt}}">
+                </div>
+                <div class="col-12 col-md-6 col-lg-5 {{text-column-class}}">
+                    <h2 class="a-fontBold"><a>{{title}}</a></h2>
+                    <p class="a-fontSizeL mb-0">{{description}}</p>
+                </div>
+            </div>
+        {{/ image-text-content }}
+
+        {{# case }}
+            {{> molekyler-altinnett-case }}
+        {{/ case }}
+
+        <div class="row">
+            <div class="col-12 col-lg-10 offset-lg-2 mb-6 a-text epi-wysiwyg">
+                <h2>{{list-heading}}</h2>
+                {{# list }}
+                    {{> atomer-liste-unummerert-kuler }}
+                {{/ list }}
+            </div>
+        </div>
+
+        {{# kontaktkort }}
+            {{> molekyler-altinnett-kontaktkort }}
+        {{/ kontaktkort }}
+
+        {{# accordion }}
+            <div class="row">
+                <div class="col-sm-12 col-lg-8 offset-lg-2 mb-3">
+                    {{> molekyler-trekkspill-overskrifter }}
+                </div>
+            </div>
+        {{/accordion}}
+    </div>
+
+    {{# footer }}
+        {{> organismer-footer-altinnett }}
+    {{/ footer }}
+</div>
