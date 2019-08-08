@@ -7,9 +7,14 @@
     <h1 class="sr-only">{{{ page-title }}}</h1>
 
     <div class="container">
-        <div class="row an-nyheter-arrangement-block">
+        <div class="row an-dashboard-container">
           <div class="col-12 col-lg-6 mb-5 mb-lg-0">
-            <h2 class="a-fontMedium">Siste driftsvarslinger</h2>
+
+            <section class="an-dashboard-alerts mb-4">
+
+              {{# dashboard-alertTitle }}
+                {{> atomer-seksjonstittel:a-fontMedium }}
+              {{/ dashboard-alertTitle }}
 
               {{# dashboard-addAlert }}
                 {{> atomer-handlingsknapp }}
@@ -24,14 +29,118 @@
                 {{> atomer-link }}
                 {{/dashboard-viewMoreAlerts}}
               </div>
+
+            </section>
+
+            <section class="an-dashboard-messages mb-4">
+                {{# dashboard-messagesTitle }}
+                  {{> atomer-seksjonstittel:a-fontMedium }}
+                {{/ dashboard-messagesTitle }}
+
+                {{# dashboard-addMessage }}
+                  {{> atomer-handlingsknapp }}
+                {{/ dashboard-addMessage }}
+
+                {{# dashboard-messages }}
+                  <div class="row">
+                    <div class="col-sm-12 col-lg-12">
+                      <div {{# accordion-large-id }}id="{{ accordion-large-id }}"{{/ accordion-large-id }} class="a-panelAccordion" role="tablist">
+                        {{# inbox-element-removed }}
+                          {{> molekyler-infotekst-med-border }}
+                        {{/ inbox-element-removed }}
+                        {{# accordion-large-items }}
+                          {{> organismer-ekspanderbart-panel }}
+                        {{/ accordion-large-items }}
+                      </div>
+                    </div>
+                  </div>
+                {{/ dashboard-messages }}
+
+
+                <div class="mt-1">
+                  {{#dashboard-viewMoreMessages}}
+                  {{> atomer-link }}
+                  {{/dashboard-viewMoreMessages}}
+                </div>
+
+            </section>
+
           </div>
+
           <div class="col-12 col-lg-5 offset-lg-1">
-            {{# dashboard-kontaktpersontittel }}
-              {{> atomer-seksjonstittel }}
-            {{/ dashboard-kontaktpersontittel }}
-            {{# dashboard-kontakt}}
-              {{> molekyler-dashboard-kontaktperson }}
-            {{/ dashboard-kontakt}}
+
+            <section class="an-dashboard-contactperson mb-4">
+
+              {{# dashboard-kontaktpersontittel }}
+                {{> atomer-seksjonstittel:a-fontMedium }}
+              {{/ dashboard-kontaktpersontittel }}
+
+              {{# dashboard-kontakt}}
+                {{> molekyler-dashboard-kontaktperson }}
+              {{/ dashboard-kontakt}}
+
+              </section>
+
+              <section class="an-dashboard-yourOrganization mb-4">
+
+                  {{# dashboard-organizationTitle }}
+                    {{> atomer-seksjonstittel:a-fontMedium }}
+                  {{/ dashboard-organizationTitle }}
+
+                  {{# dashboard-organizationList }}
+                    {{> molekyler-liste-unummerert:a-borderTopDark }}
+                  {{/ dashboard-organizationList }}
+  
+                  <div class="mt-2">
+                    {{#dashboard-viewOrganization}}
+                      {{> atomer-link }}
+                    {{/dashboard-viewOrganization}}
+                  </div>
+    
+              </section>
+
+              <section class="an-dashboard-calendar mb-4">
+
+                {{# dashboard-calendarTitle }}
+                  {{> atomer-seksjonstittel:a-fontMedium }}
+                {{/ dashboard-calendarTitle }}
+
+                {{# dashboard-addEvent }}
+                  {{> atomer-handlingsknapp }}
+                {{/ dashboard-addEvent }}
+  
+                {{# dashboard-calendarEvents}}
+                    {{#arrangement}}
+                    <a href="#" class="an-arrangement-block-inner a-noUnderline">
+                        {{# dateSmall }}
+                            <div class="mr-1 {{#dateLarge}}an-arrangement-block-show-large{{/dateLarge}}">
+                                {{> atomer-dato }}
+                            </div>
+                        {{/ dateSmall }}
+                        {{# dateLarge }}
+                            <div class="mr-1 an-arrangement-block-hidden-small">
+                                {{> atomer-dato }}
+                            </div>
+                        {{/ dateLarge }}
+              
+                        <div class="an-arrangement-block-text">
+                            {{#arrangementTitle}}
+                                <h3 class="mb-0">{{ arrangementTitle }}</h3>
+                            {{/arrangementTitle}}
+                            <p>{{ arrangementContent }}</p>
+                        </div>
+                    </a>
+                  {{/arrangement}}
+                {{/ dashboard-calendarEvents}}
+
+                <div class="mt-2">
+                    {{#dashboard-viewMoreEvents}}
+                      {{> atomer-link }}
+                    {{/dashboard-viewMoreEvents}}
+                  </div>
+  
+                </section>
+
           </div>
       </div>
     </div>
