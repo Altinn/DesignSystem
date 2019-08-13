@@ -3,24 +3,34 @@
 // ------------------------------------/
 
 .dashboard-header {
-  background: $blue-dark;
   height: $spacer * 6;
-    
+  background: $blue-dark;
+
   @include media-breakpoint-up( md ) {
     height: $spacer * 9;
   }
 
   .a-globalNav-main {
     margin-top: $spacer * 8;
-  
+
     @include media-breakpoint-up( md ) {
       margin-top: 2px;
     }
-  }
 
-  .a-globalNav-main li a {
-    @include media-breakpoint-up(md) {
-      color: $white;
+    li {
+
+      a {
+        @include media-breakpoint-up(md) {
+          color: $white;
+        }
+
+        &.globalNav-active {
+          @include media-breakpoint-up(md) {
+            color: $white;
+            border-color: $white;
+          }
+        }
+      }
     }
   }
 
@@ -34,39 +44,47 @@
     }
 
     span {
-      color: $white;
       @include a-fontSize24;
       @include a-fontLight;
+      color: $white;
       text-transform: lowercase;
     }
   }
 
   @include media-breakpoint-up(md) {
-    .a-globalNav-main li a.globalNav-active {
-      color: $white;
-      border-color: $white;
-    }
-    .a-hvr-underline:hover {
-      border-color: $white;
+    .a-hvr-underline {
+      &:hover {
+        border-color: $white;
+      }
     }
   }
 
   .a-personSwitcher,
-  .a-personSwitcher .a-personSwitcher-icon {
+  .a-personSwitcher-icon {
     color: $white;
   }
-  .a-personSwitcher .a-personSwitcher-name {
+
+  .a-personSwitcher-name {
     @include media-breakpoint-down(md) {
       max-width: 68px;
     }
-  } 
-  .a-header-options .nav-link:focus, .a-header-options .nav-link:active {
-    color: $white;
-    border-color: $white;
   }
-  .a-globalNav .navbar-toggler {
-    color: $white;
-    border-color: $white;
+
+  .a-header-options  {
+    .nav-link {
+      &:focus,
+      &:active {
+        color: $white;
+        border-color: $white;
+      }
+    }
+  }
+
+  .a-globalNav {
+    .navbar-toggler {
+      color: $white;
+      border-color: $white;
+    }
   }
 }
 
