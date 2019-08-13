@@ -1,6 +1,6 @@
 <div class="a-page">
   {{# header }}
-    {{> organismer-header-altinnett }}
+    {{> organismer-header-dashboard }}
   {{/ header }}
 
   <section id="content" tabindex="-1">
@@ -25,17 +25,27 @@
               {{/ dashboard-alerts }}
 
               <div class="mt-1">
-                {{#dashboard-viewMoreAlerts}}
+                {{# dashboard-viewMoreAlerts }}
                 {{> atomer-link }}
-                {{/dashboard-viewMoreAlerts}}
+                {{/ dashboard-viewMoreAlerts }}
               </div>
 
             </section>
 
             <section class="an-dashboard-messages mb-4">
-                {{# dashboard-messagesTitle }}
-                  {{> atomer-seksjonstittel:a-fontMedium }}
-                {{/ dashboard-messagesTitle }}
+
+                <div class="row">
+                  <div class="col-sm-12 col-md-6 col-lg-9">
+                    {{# dashboard-messagesTitle }}
+                      {{> atomer-seksjonstittel:a-fontMedium }}
+                    {{/ dashboard-messagesTitle }}
+                  </div>
+                  <div class="col-sm-12 col-md-6 col-lg-3" data-switchUrl1="get1" data-switchUrl2="get2" data-switchEndpoint="">
+                    {{# dashboard-messagesSwitch }}
+                      {{> atomer-knapp-veksle }}
+                    {{/ dashboard-messagesSwitch }}
+                  </div>
+                </div>
 
                 {{# dashboard-addMessage }}
                   {{> atomer-handlingsknapp }}
@@ -83,21 +93,21 @@
 
               <section class="an-dashboard-yourOrganization mb-4">
 
-                  {{# dashboard-organizationTitle }}
-                    {{> atomer-seksjonstittel:a-fontMedium }}
-                  {{/ dashboard-organizationTitle }}
+                    {{# dashboard-organizationTitle }}
+                      {{> atomer-seksjonstittel:a-fontMedium }}
+                    {{/ dashboard-organizationTitle }}
 
-                  {{# dashboard-organizationList }}
-                    {{> molekyler-liste-unummerert:a-borderTopDark }}
-                  {{/ dashboard-organizationList }}
-  
-                  <div class="mt-2">
-                    {{#dashboard-viewOrganization}}
-                      {{> atomer-link }}
-                    {{/dashboard-viewOrganization}}
-                  </div>
+                    {{# dashboard-organizationList }}
+                      {{> molekyler-liste-unummerert:a-borderTopDark }}
+                    {{/ dashboard-organizationList }}
     
-              </section>
+                    <div class="mt-2">
+                      {{#dashboard-viewOrganization}}
+                        {{> atomer-link }}
+                      {{/dashboard-viewOrganization}}
+                    </div>
+      
+                </section>
 
               <section class="an-dashboard-calendar mb-4">
 
