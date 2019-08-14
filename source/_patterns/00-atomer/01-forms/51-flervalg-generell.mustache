@@ -1,7 +1,13 @@
 <div class="form-group a-form-group {{ styleModifier }}">
   <label for="{{ select-menu-id }}" class="a-form-label">{{ select-menu-label }}</label>
-  <select class="custom-select a-custom-select" name="{{ select-menu-id }}" id="dropdownMenuDefault">
-    <option value="{{ select-menu-selected }}" selected>{{ select-menu-selected }}</option>
+  <select class="custom-select a-custom-select" name="{{ select-menu-id }}" id="dropdownMenuDefault" {{#select-menu-required}}required{{/select-menu-required}}>
+    {{#select-menu-selected}}
+        <option value="{{ select-menu-selected }}" selected>{{ select-menu-selected }}</option>
+    {{/select-menu-selected}}
+    {{^select-menu-selected}}
+        <option value="" selected disabled hidden>{{ select-menu-placeholder }}</option>
+    {{/select-menu-selected}}
+
     {{# select-menu-items }}
       <option value="{{ select-menu-option }}" {{# selected }}selected="selected"{{/ selected }}>{{ select-menu-option }}</option>
     {{/ select-menu-items }}
