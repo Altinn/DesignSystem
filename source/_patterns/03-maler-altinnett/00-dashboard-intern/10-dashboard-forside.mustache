@@ -12,9 +12,18 @@
 
             <section class="an-dashboard-alerts mb-4">
 
-              {{# dashboard-alertTitle }}
-                {{> atomer-seksjonstittel:a-fontMedium }}
-              {{/ dashboard-alertTitle }}
+              <div class="d-flex">
+                <div class="flex-grow-1">
+                  {{# dashboard-alertTitle }}
+                  {{> atomer-seksjonstittel:a-fontMedium }}
+                {{/ dashboard-alertTitle }}
+                </div>
+                <div class="align-self-center pb-1">
+                  {{# dashboard-alertSubscribe }}
+                    {{> atomer-link }}
+                  {{/ dashboard-alertSubscribe }}
+                </div>
+              </div>
 
               {{# dashboard-addAlert }}
                 {{> atomer-handlingsknapp }}
@@ -74,6 +83,49 @@
                 </div>
 
             </section>
+
+            <section class="an-dashboard-services mb-4">
+
+              <div class="row">
+                <div class="col-sm-12 col-md-6 col-lg-9">
+                  {{# dashboard-servicesTitle }}
+                    {{> atomer-seksjonstittel:a-fontMedium }}
+                  {{/ dashboard-servicesTitle }}
+                </div>
+                <div class="col-sm-12 col-md-6 col-lg-3" data-switchUrl1="get1" data-switchUrl2="get2" data-switchEndpoint="">
+                  {{# dashboard-servicesSwitch }}
+                    {{> atomer-knapp-veksle }}
+                  {{/ dashboard-servicesSwitch }}
+                </div>
+              </div>
+
+              {{# dashboard-addService }}
+                {{> atomer-handlingsknapp }}
+              {{/ dashboard-addService }}
+
+              {{# dashboard-services }}
+                <div class="row">
+                  <div class="col-sm-12 col-lg-12">
+                    <div {{# accordion-large-id }}id="{{ accordion-large-id }}"{{/ accordion-large-id }} class="a-panelAccordion" role="tablist">
+                      {{# inbox-element-removed }}
+                        {{> molekyler-infotekst-med-border }}
+                      {{/ inbox-element-removed }}
+                      {{# accordion-large-items }}
+                        {{> organismer-ekspanderbart-panel }}
+                      {{/ accordion-large-items }}
+                    </div>
+                  </div>
+                </div>
+              {{/ dashboard-services }}
+
+
+              <div class="mt-1">
+                {{#dashboard-viewMoreServices}}
+                {{> atomer-link }}
+                {{/dashboard-viewMoreServices}}
+              </div>
+
+          </section>
 
           </div>
 
