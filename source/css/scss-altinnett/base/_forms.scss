@@ -59,3 +59,71 @@
     }
   }
 }
+
+.an-input-phonenumber {
+  max-width: 200px;
+}
+
+.an-passwordStrengthMeter {
+  display: flex;
+  width: 100%;
+  align-items: center;
+
+  @include media-breakpoint-up( lg ) {
+    min-width: calc(100% + 84px);
+  }
+
+  meter {
+    width: 100%;
+    height: $spacer;
+
+    &,
+    &::-webkit-meter-bar {
+      background: none;
+      background-color: $grey-light;
+      border: none;
+    }
+
+    &::-webkit-meter-optimum-value {
+      background: none;
+      background-color: $green;
+    }
+
+    &::-webkit-meter-suboptimum-value {
+      background: none;
+      background-color: $yellow;
+    }
+
+    &::-webkit-meter-even-less-good-value {
+      background: none;
+      background-color: $red;
+    }
+
+    &:-moz-meter-optimum {
+      &::-moz-meter-bar {
+        background: none;
+        background-color: $green;
+      }
+    }
+
+    &:-moz-meter-sub-optimum {
+      &::-moz-meter-bar {
+        background: none;
+        background-color: $yellow;
+      }
+    }
+
+    &:-moz-meter-sub-sub-optimum {
+      &::-moz-meter-bar {
+        background: none;
+        background-color: $red;
+      }
+    }
+  }
+
+  label {
+    @include a-fontMedium;
+    margin-left: $spacer * 2;
+    flex: 1 0 60px;
+  }
+}

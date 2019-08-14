@@ -1,0 +1,121 @@
+{
+  "modal-title": "Registrer bruker og passord",
+  "form": {
+    "text": [
+      {
+        "text-input-id": "email-id",
+        "top-label": "Din e-post",
+        "input-type": "email",
+        "text-input-value": "knut@patentstyret.no",
+        "text-input-placeholder": false,
+        "styleModifier": "mb-2",
+        "input-regex-validation": {
+          "error-message": "Feil epost verdier",
+          "validation-pattern": "(('[^']+')|(([a-zA-Z0-9!#$%&'*+-=?^_`{|}~])+(.([a-zA-Z0-9!#$%&'*+-=?^_`{|}~])+)*))@((((([a-zA-Z0-9æøåÆØÅ]([a-zA-Z0-9-æøåÆØÅ]{0,61})[a-zA-Z0-9æøåÆØÅ].)|[a-zA-Z0-9æøåÆØÅ].){1,9})([a-zA-Z]{2,14}))|((d{1,3}).(d{1,3}).(d{1,3}).(d{1,3})))"
+        }
+      },
+      {
+        "text-input-id": "mobile-id",
+        "top-label": "Ditt mobilnummer",
+        "text-input-placeholder": "mobilnummer",
+        "styleModifier": "mb-2",
+        "input-type": "tel",
+        "isRequired": true,
+        "error-message-popover": true,
+        "extra-help": false,
+        "isHidden": false,
+        "isLarge": false,
+        "form-control-class": "a-input-phonenumber an-input-phonenumber",
+        "has-feedback": {
+          "icon-prefix": "ai",
+          "icon-class": "ai-plus",
+          "icon-extra-class": "form-control-feedback"
+        },
+        "input-regex-validation": {
+          "error-message": "Telefonnummer må bestå av 8 siffer",
+          "validation-pattern": "\"[0-9]{8}\""
+        },
+        "form-label-isPhoneNumber": {
+          "text-input-id": "text-input-countrycode",
+          "text-input-placeholder": "+47",
+          "form-control-class": "a-input-countryCode a-js-countryCode",
+          "input-type": "tel",
+          "isRequired": true,
+          "maxlength": 6,
+          "minlength": 2,
+          "input-regex-validation": {
+            "error-message": "Landskode må bestå av '+' og 2 eller 3 siffer",
+            "validation-pattern": ""
+          }
+        }
+      },
+      {
+        "form-control-class": "form-control-noAddon",
+        "isInput-group": "input-group",
+        "auto-complete-off": true,
+        "text-input-id": "password-id",
+        "top-label": "Velg passord <p class='mb-0'>Må være minimum 8 tegn og inkludere stor bokstav og tall</p>",
+        "text-input-placeholder": "Passord",
+        "styleModifier": "mb-5",
+        "input-type": "password",
+        "validator-check": true,
+        "isHidden": "",
+        "error-message-popover": true,
+        "has-feedback": false,
+        "input-regex-validation": {
+          "error-message": "Passordet er ikke gyldig. Må bestå av minst 8 tegn og inneholde både bokstaver og tall. Bare bokstavene A-Z er tillatt.",
+          "validation-pattern": "(?!^[0-9]*$)(?!^[a-zA-Z]*$)^([a-zA-Z0-9]{7,50})$"
+        },
+        "form-input-isPassword": true,
+        "form-input-showPassword-text": "<i class='ai ai-read'><span class='sr-only'>Vis</span></i>",
+        "form-input-obfuscatePassword-text": "Skjul",
+        "password-strength-meter": true
+      }
+    ]
+  },
+  "page-url": "../../patterns/03-maler-altinnett-innlogging-modal-registrer-bruker-og-passord/03-maler-altinnett-innlogging-modal-registrer-bruker-og-passord.markup-only.html",
+  "last-question": true,
+  "green-button": true,
+  "close-modal": true,
+  "btn-next": "Registrer og logg inn",
+  "cancel": {
+    "url": "#",
+    "label": "Avbryt"
+  },
+  "links": [
+    {
+      "links-title": "Innlogging gir tilgang til:",
+      "links-list": [
+        {
+          "url": "#",
+          "label": "Altinn Studio"
+        },
+        {
+          "url": "#",
+          "label": "Oversiktsside"
+        },
+        {
+          "url": "#",
+          "label": "SharePoint-løsninger"
+        },
+        {
+          "url": "#",
+          "label": "Selvbetjeningsportalen"
+        }
+      ]
+    },
+    {
+      "links-title": "Innlogging gir ikke tilgang til:",
+      "links-list": [
+        {
+          "url": "#",
+          "label": "Altinn.no"
+        },
+        {
+          "url": "#",
+          "label": "TUL"
+        }
+      ]
+    }
+  ]
+}
