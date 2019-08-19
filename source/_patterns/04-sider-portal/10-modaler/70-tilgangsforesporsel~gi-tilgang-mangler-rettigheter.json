@@ -12,19 +12,42 @@
   "modal-kvittering-content": "Siden du ikke har rettighet til <b>B01 B-melding</b> kan du ikke gi rettighet videre.",
   "modal-kvittering-second-content": false,
   "modal-kvittering-rights-list": false,
-  "links": [
-    {
-      "link-text": "Ok",
-      "link-url": "link.sider-portal-profil-roller-rettigheter",
-      "link-class": "a-btn a-btn-success",
-      "link-icon": false
+
+  "alert-bottom-button-row": {
+    "accept-button": {
+      "button-text": "Ok",
+      "button-class": "a-btn a-btn-success mr-1",
+      "button-disabled": false,
+      "onclick": "location.href='link.sider-portal-profil-roller-rettigheter'",
+      "button-icon": false,
+      "display-as-link": false
     },
-    {
-      "link-text": "Avslå forespørsel",
-      "link-url": "link.sider-portal-profil-roller-rettigheter",
-      "link-class": "a-btn-link",
-      "link-icon": false,
-      "display-as-link": true
+    "reject-button": {
+      "aria-label":  false,
+      "display-as-link": true,
+      "button-text": "Avslå forespørsel",
+      "button-class": "a-btn-link a-linkDanger a-js-popover-forceFocus",
+      "icon-prefix": false,
+      "icon-class": false,
+      "enable-popover": true,
+      "popover-placement": "bottom",
+      "popover-content-id": "sampleIdPopoverButtoinLink",
+      "popover-class": "popover-warning",
+      "popover-text": "Rettighetsforespørselen blir slettet",
+      "popover-buttons": [
+        {
+          "button-text": "Ok",
+          "button-class": "a-btn a-btn-danger",
+          "onclick": "location.href='link.sider-portal-profil-roller-rettigheter'"
+        },
+        {
+          "button-text": "Avbryt",
+          "button-class": "a-btn-link a-linkDanger",
+          "display-as-link": true,
+          "onclick": "$('button[aria-describedby=' + $(this).parent().parent().attr('id') + ']').click();"
+        }
+      ]
     }
-  ]
+  },
+  "links": false
 }
