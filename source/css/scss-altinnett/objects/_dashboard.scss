@@ -39,19 +39,32 @@
   }
 
   .a-globalNav-logo {
-    margin-top: -3px;
+    margin-top: 3px;
+
+    @include media-breakpoint-up( sm ) {
+      margin-top: -3px;
+    }
 
     .an-logo {
-      max-width: 120px;
-      margin-top: -10px;
+      max-width: 90px;
+      margin-top: -6px;
       margin-right: 0;
+
+      @include media-breakpoint-up( sm ) {
+        max-width: 120px;
+        margin-top: -10px;
+      }
     }
 
     span {
-      @include a-fontSize24;
+      @include a-fontSize18;
       @include a-fontLight;
       color: $white;
       text-transform: lowercase;
+
+      @include media-breakpoint-up( sm ) {
+        @include a-fontSize24;
+      }
     }
   }
 
