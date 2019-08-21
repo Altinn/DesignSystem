@@ -123,40 +123,44 @@
             "use-row": true,
             "row-extra-class": "col mt-1 mb-1",
             "alert-bottom-button-row": {
-              "accept-button": {
-                "button-text": "Godta forespørsel",
-                "button-class": "a-btn a-btn-success mr-1",
-                "button-disabled": false,
-                "onclick": "location.href='link.sider-portal-tilgangsforesporsel-gi-tilgang-mangler-rettigheter'",
-                "button-icon": false,
-                "display-as-link": false
-              },
-              "reject-button": {
-                "aria-label":  false,
-                "display-as-link": true,
-                "button-text": "Avslå forespørsel",
-                "button-class": "a-btn-link a-linkDanger a-js-popover-forceFocus",
-                "icon-prefix": false,
-                "icon-class": false,
-                "enable-popover": true,
-                "popover-placement": "bottom",
-                "popover-content-id": "sampleIdPopoverButtoinLink",
-                "popover-class": "popover-warning",
-                "popover-text": "Rettighetsforespørselen blir slettet",
-                "popover-buttons": [
-                  {
-                    "button-text": "Ok",
-                    "button-class": "a-btn a-btn-danger",
-                    "onclick": "location.href='link.sider-portal-profil-roller-rettigheter'"
-                  },
-                  {
-                    "button-text": "Avbryt",
-                    "button-class": "a-btn-link a-linkDanger",
-                    "display-as-link": true,
-                    "onclick": "$('button[aria-describedby=' + $(this).parent().parent().attr('id') + ']').click();"
-                  }
-                ]
-              }
+              "buttons": [
+                {
+                  "aria-label":  false,
+                  "button-text": "Godta forespørsel",
+                  "button-class": "a-btn a-btn-success mr-1",
+                  "onclick": "location.href='link.sider-portal-tilgangsforesporsel-gi-tilgang-mangler-rettigheter'",
+                  "icon-prefix": false,
+                  "icon-class": false,
+                  "display-as-link": true,
+                  "enable-popover": false
+                },
+                {
+                  "aria-label":  false,
+                  "display-as-link": true,
+                  "button-text": "Avslå forespørsel",
+                  "button-class": "a-btn-link a-linkDanger a-js-popover-forceFocus",
+                  "icon-prefix": false,
+                  "icon-class": false,
+                  "enable-popover": true,
+                  "popover-placement": "bottom",
+                  "popover-content-id": "sampleIdPopoverButtoinLink",
+                  "popover-class": "popover-warning",
+                  "popover-text": "Rettighetsforespørselen blir slettet",
+                  "popover-buttons": [
+                    {
+                      "button-text": "Ok",
+                      "button-class": "a-btn a-btn-danger",
+                      "onclick": "location.href='link.sider-portal-profil-roller-rettigheter'"
+                    },
+                    {
+                      "button-text": "Avbryt",
+                      "button-class": "a-btn-link a-linkDanger",
+                      "display-as-link": true,
+                      "onclick": "$('button[aria-describedby=' + $(this).parent().parent().attr('id') + ']').click();"
+                    }
+                  ]
+                }
+              ]
             }
           }  
         ]
