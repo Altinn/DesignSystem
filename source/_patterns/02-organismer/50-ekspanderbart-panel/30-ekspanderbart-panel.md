@@ -1,5 +1,5 @@
 ---
-state: specification altinn
+state: specification altinn altinnett
 version: 1
 js: togglePanel.js
 ---
