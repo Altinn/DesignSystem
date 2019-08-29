@@ -81,6 +81,18 @@
     color: $white;
   }
 
+  .nav-pills {
+    .nav-item {
+      &.show {
+        .nav-link {
+          &.a-personSwitcher {
+            color: $white;
+          }
+        }
+      }
+    }
+  }
+
   .a-personSwitcher-name {
     @include media-breakpoint-down(md) {
       max-width: 68px;
@@ -414,71 +426,5 @@ a {
     margin-top: -4px;
     margin-right: 0;
     margin-left: 12px;
-  }
-}
-
-// Top tasks
-.a-bgWhite {
-  .a-topTasks {
-    background-color: $blue-lighter;
-
-    .a-btn {
-      border-bottom: 1px solid $blue-light;
-
-      &:hover,
-      &:focus {
-        color: $black;
-        background: $blue-light;
-        border-bottom: 1px solid $blue-light;
-      }
-
-      &.a-active {
-        background: $blue-light;
-      }
-    }
-  }
-}
-
-.a-topTasks {
-  padding: 0;
-  margin: 0;
-
-  div,
-  span {
-    &[class^='col'] {
-      padding: 0;
-      margin: 0;
-    }
-  }
-
-  .a-btn {
-    @include a-fontBold;
-    @include a-fontSize16;
-
-    min-height: $spacer * 6;
-    padding: $spacer;
-    margin-bottom: 0;
-    text-align: center;
-    border: none;
-    border-bottom: 1px solid $grey-light;
-
-    &:hover {
-      border-bottom: 1px solid $grey-light;
-    }
-  }
-
-  @include media-breakpoint-down( sm ) {
-    .a-btn {
-      display: block;
-      padding: $spacer / 2;
-
-      .a-btn-icon-symbol {
-        margin-bottom: $spacer / 2;
-      }
-
-      span {
-        padding: 0;
-      }
-    }
   }
 }
