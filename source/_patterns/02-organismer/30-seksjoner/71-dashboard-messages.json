@@ -25,7 +25,13 @@
     "icon-extra-class": "a-blue mr-1",
     "button-class": "a-btn a-btn-action a-fullWidthBtn a-btnBigger",
     "textstyling-button": "a-fontSizeXS",
-    "action-button-text": "Ny melding"
+    "action-button-text": "Ny melding",
+    "data-toggle": "altinn-modal",
+    "data-action": "load",
+    "data-url": {
+      "data-url": "../../patterns/02-organismer-80-Modal-js-innhold-15-dashboard-sendmelding/02-organismer-80-Modal-js-innhold-15-dashboard-sendmelding.markup-only.html"
+    },
+    "data-target": "modal"
   },
   "dashboard-messages" : {
     "accordion-large-id": false,
@@ -430,6 +436,47 @@
     "link-icon": {
       "icon-prefix": "ai ai-sm ai-nw ai-nw-right",
       "icon-class": "ai-arrowright"
+    }
+  },
+
+  "sendMessageModal": {
+    "modal-isSingel" : true,
+    "show-login": false,
+    "display-as-dropdown": false,
+    "logo": {
+      "logo": "../../images/a-logo-black.svg"
+    },
+    "logo-class": "a-modal-top-logo",
+    "login-show": {
+      "login-name": "Knut Johannesen",
+      "login-represent": "for Patentstyret",
+      "login-icon": {
+        "icon-prefix": "ai",
+        "icon-class": "ai-private-circle-big",
+        "icon-extra-class": "a-personSwitcher-icon"
+      }
+    },
+    "icon": "group_add",
+    "hasTextSmall": false,
+    "modal-navbar-override": {
+      "button-list": [
+        {
+          "button-class": "a-modal-close",
+          "aria-label": "Lukk",
+          "icon-prefix": "ai",
+          "icon-class": "ai-exit",
+          "icon-extra-class": "a-modal-close-icon",
+          "enable-popover": false,
+          "stacked-background": {
+            "icon-prefix": "ai",
+            "icon-class": "ai-plain-circle-big"
+          },
+          "is-modal-close": {
+            "data-target": "#modal"
+          },
+          "onclick": "goBack()"
+        }
+      ]
     }
   }
 }
