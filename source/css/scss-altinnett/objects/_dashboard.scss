@@ -133,6 +133,14 @@
     margin-right: -$spacer * 9;
     margin-left: -$spacer * 9;
   }
+
+  .a-btn-transparentWhite {
+    .a-btn-icon-text {
+      @include media-breakpoint-up(lg) {
+        padding-left: 15px;
+      }
+    }
+  }
 }
 
 // Calendar ajustments
@@ -426,5 +434,42 @@ a {
     margin-top: -4px;
     margin-right: 0;
     margin-left: 12px;
+  }
+}
+
+.an-serviceEdition {
+  @extend .an-prevMsg;
+  background: $white;
+}
+
+.an-dashboard-services {
+  .a-collapsePanel {
+    box-shadow: $shadow2;
+
+    &.expanded {
+      padding-bottom: 0;
+    }
+
+    .a-collapsePanel-heading {
+      box-shadow: none;
+    }
+
+    .a-collapsePanel-body {
+      box-shadow: none;
+
+      p {
+        @include a-fontSize16;
+      }
+
+      &.a-msg-body {
+        .a-collapsePanel-body-content {
+          padding: $spacer * 2 $spacer * 4;
+        }
+      }
+    }
+  }
+
+  .a-msgHeadingTextContainer {
+    padding-left: $spacer * 4;
   }
 }
