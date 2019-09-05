@@ -1,0 +1,24 @@
+<!-- START: 02-organismer-30-seksjoner-78-dashboard-previousmessages -->
+
+<a href="#" data-toggle="collapse" data-target="#{{ prevMsgTitleID }}" class="an-prevMsg a-fontSizeXXS pl-md-6 pr-md-4 {{#collapsed}}collapsed{{/collapsed}}">
+  <div class="flex-grow-1">
+    <span class="a-dropdownArrow mt-0 mb-0"></span> {{ prevmsgTitle }}
+  </div>
+  {{# labelCount }} {{> atomer-merkelapp }} {{/ labelCount }}
+</a>
+<div class="collapse {{#show}}show{{/show}}" id="{{ prevMsgTitleID }}">
+
+  {{# prevmsgList }}
+  <a href="#" data-toggle="collapse" data-target="#{{ prevMsgID }}" class="an-prevMsg a-fontSizeXXS collapsed pl-md-8 pr-md-4">
+    <div class="flex-grow-1">
+      {{ sender-name }}
+    </div>
+    {{ date }}
+  </a>
+  <div class="a-msg-body p-4 pl-8 collapse" id="{{ prevMsgID }}">
+    {{# messageBodyPrev }} {{> organismer-innboks-panel-innhold }} {{/ messageBodyPrev }}
+  </div>
+  {{/ prevmsgList }}
+
+</div>
+<!-- END: 02-organismer-30-seksjoner-78-dashboard-previousmessages -->

@@ -738,12 +738,12 @@ var prototypingInteractionStarteENK = function() {
 
 // Hard-coded data, should be replaced with JSON
 var availableTags = [
-  { label: '1. ACC Security level 2 MAG' },
-  { label: '2. Corres test 250116' },
-  { label: '3. PSA Skatteoppgjør personlig' },
-  { label: '4. RF-1400 Melding om flytting innenlands' },
-  { label: '5. Aksjeoppgaven 2014' },
-  { label: '6. Et veldig langt punkt i lista som bør gå over alle bredder og grenser, men samtidig oppføre seg riktig i layout. Se så lang tekst dette her er.' }
+  { label: 'ACC Security level 2 MAG, Accenture Test', service: 'ACC Security level 2 MAG', serviceOwner: 'Accenture Test' },
+  { label: 'Corres test 250116, Accenture Test', service: 'Corres test 250116', serviceOwner: 'Accenture Test' },
+  { label: 'PSA Skatteoppgjør personlig, Skatteetaten', service: 'PSA Skatteoppgjør personlig', serviceOwner: 'Skatteetaten' },
+  { label: 'RF-1400 Melding om flytting innenlands,Skatteetaten', service: 'RF-1400 Melding om flytting innenlands', serviceOwner: 'Skatteetaten' },
+  { label: 'Aksjeoppgaven 2014, Skatteetaten', service: 'Aksjeoppgaven 2014', serviceOwner: 'Skatteetaten' },
+  { label: 'Et veldig langt punkt i lista som bør gå over alle bredder og grenser, men samtidig oppføre seg riktig i layout. Se så lang tekst dette her er., accenture', service: 'Et veldig langt punkt i lista som bør gå over alle bredder og grenser, men samtidig oppføre seg riktig i layout. Se så lang tekst dette her er.', serviceOwner: 'accenture' }
 ];
 
 // Hard-coded texts, should be replaced with custom strings
@@ -764,10 +764,25 @@ var searchWithAutocomplete = function() {
       var iLength = items.length;
 
       $.each(items, function(index, item) {
+        // build  item in the list
+        var innerHtmlForItem = '<div class="row">' +
+          '<div class="col-sm-7 col-md-5 col-lg-6 pl-md-2 pl-lg-2 pr-2" data-searchable="true">' +
+            '<span class="a-js-sortValue a-list-longtext" title="ACC Security level 2 MAG">' + item.service + '</span>' +
+          '</div>' +
+          '<div class="d-none d-md-block col-md-3 col-lg-4 pl-md-2 pl-lg-1 pr-2" data-searchable="true">' +
+            '<span class="a-js-sortValue a-list-longtext" title="Testetat for Accenture">' + item.serviceOwner + '</span>' +
+          '</div>' +
+        '</div>';
+
         var li = that._renderItemData(ul, item);
-        li.attr('role', 'menu');
-        li.addClass('a-dotted');
+        li.data('item.autocomplete', item);
+        li.children().first().remove();
+        li.append(innerHtmlForItem);
         li.children().first().attr('role', 'button');
+        li.attr('role', 'menu');
+        li.addClass('a-dotted a-selectable');
+        li.attr('id', 'menu-item-' + index);
+        li.attr('onclick', 'location.href="/patterns/04-sider-portal-92-andre-med-rettigheter-00-andre-med-rettigheter-tildel-enkeltrettigheter/04-sider-portal-92-andre-med-rettigheter-00-andre-med-rettigheter-tildel-enkeltrettigheter.html"');
       });
 
       if (iLength === availableTags.length) {
@@ -822,11 +837,162 @@ var searchWithAutocomplete = function() {
   }).bind('click', function(e) { // TODO should also open on tab focus? issue 3766
     if ($(this).catcomplete('widget').is(':visible')) {
       $(this).catcomplete('close');
-    } else {
-      $(this).catcomplete('search', $(this).val());
     }
   });
 };
+
+// Hard-coded data, should be replaced with JSON
+var availableTags = [
+  { label: 'ACC Security level 2 MAG, Accenture Test', service: 'ACC Security level 2 MAG', serviceOwner: 'Accenture Test' },
+  { label: 'Corres test 250116, Accenture Test', service: 'Corres test 250116', serviceOwner: 'Accenture Test' },
+  { label: 'PSA Skatteoppgjør personlig, Skatteetaten', service: 'PSA Skatteoppgjør personlig', serviceOwner: 'Skatteetaten' },
+  { label: 'RF-1400 Melding om flytting innenlands,Skatteetaten', service: 'RF-1400 Melding om flytting innenlands', serviceOwner: 'Skatteetaten' },
+  { label: 'Aksjeoppgaven 2014, Skatteetaten', service: 'Aksjeoppgaven 2014', serviceOwner: 'Skatteetaten' },
+  { label: 'Et veldig langt punkt i lista som bør gå over alle bredder og grenser, men samtidig oppføre seg riktig i layout. Se så lang tekst dette her er., accenture', service: 'Et veldig langt punkt i lista som bør gå over alle bredder og grenser, men samtidig oppføre seg riktig i layout. Se så lang tekst dette her er.', serviceOwner: 'accenture' }
+];
+
+// Hard-coded texts, should be replaced with custom strings
+var title = 'Vanligste skjema og tjenester i din organisasjon';
+var numberOfResultsLabel = ' treff. Bruk pil opp og pil ned for å navigere i resultatene.';
+var noResultsLabel = 'Ingen treff';
+var moreThanMaxLabel = 'Listen viser kun de første 100 treff. Vennligst begrens søket ditt';
+
+var searchWithAutocompleteVarsel = function() {
+  $.widget('custom.catcomplete', $.ui.autocomplete, ({
+    _create: function() {
+      this._super();
+      this.widget().menu('option', 'items', '> :not(.a-js-autocomplete-header)');
+      $('.ui-helper-hidden-accessible').addClass('sr-only');
+    },
+    _renderMenu: function(ul, items) {
+      var that = this;
+      var iLength = items.length;
+
+      $.each(items, function(index, item) {
+        // build  item in the list
+        var innerHtmlForItem = '<div class="row">' +
+          '<div class="col-sm-7 col-md-5 col-lg-6 pl-md-2 pl-lg-2 pr-2" data-searchable="true">' +
+            '<span class="a-js-sortValue a-list-longtext" title="ACC Security level 2 MAG">' + item.service + '</span>' +
+          '</div>' +
+          '<div class="d-none d-md-block col-md-3 col-lg-4 pl-md-2 pl-lg-1 pr-2" data-searchable="true">' +
+            '<span class="a-js-sortValue a-list-longtext" title="Testetat for Accenture">' + item.serviceOwner + '</span>' +
+          '</div>' +
+          '<div class="text-right col-sm-5 col-md-4 col-lg-2 pl-md-2 pl-lg-1 pr-sm-0 pr-md-2">' +
+              '<span class="a-fontBold a-btn-icon-text a-hiddenWhenSelected ">+Legg til</span>' +
+              '<span class="a-fontBold d-sm-block a-visibleWhenSelected">Lagt til</span>' +
+          '</div>' +
+        '</div>';
+
+        var li = that._renderItemData(ul, item);
+        li.data('item.autocomplete', item);
+        li.children().first().remove();
+        li.append(innerHtmlForItem);
+        li.children().first().attr('role', 'button');
+        li.attr('role', 'menu');
+        li.addClass('a-dotted a-selectable');
+        li.attr('id', 'menu-item-' + index);
+      });
+
+      if (iLength === availableTags.length) {
+        ul.prepend('<li class=\'a-js-autocomplete-header a-dotted\'>' + title + '</li>');
+      } else if (!items[0].isNoResultsLabel) {
+        ul.prepend('<li class=\'a-js-autocomplete-header a-dotted\'>' + iLength + ' treff </li>');
+      } else {
+        $('.ui-autocomplete').children().first().addClass('a-js-autocomplete-header');
+      }
+
+      if (iLength >= 3) {
+        ul.append('<li class=\'a-js-autocomplete-header a-dotted a-info\'>' + moreThanMaxLabel + '</li>');
+      }
+    }
+  }));
+
+  $('.a-js-autocomplete-varsel').catcomplete({
+    // delay: 200, // set appropriate delay for ajax call
+    source: availableTags,
+    appendTo: '.a-autocomplete-container',
+    minLength: 0,
+    classes: {
+      'ui-autocomplete': 'a-list',
+      'ui-menu-item': 'a-dotted'
+    },
+    open: function(event, ui) {
+      $('.ui-autocomplete').removeAttr('style'); // remove inline positioning and display of amount results
+      $('.ui-autocomplete .ui-menu-item').not(':first-of-type').addClass('a-clickable');
+    },
+    messages: {
+      noResults: noResultsLabel,
+      results: function(count) {
+        if (count === availableTags.length) {
+          return title + '. ' + count + ' ' + numberOfResultsLabel;
+        }
+
+        return count + ' ' + numberOfResultsLabel;
+      }
+    },
+    response: function(event, ui) {
+      var el;
+      if (ui.content.length === 0) {
+        el = {
+          isNoResultsLabel: true,
+          label: noResultsLabel,
+          title: noResultsLabel
+        };
+
+        ui.content.push(el);
+      }
+    },
+
+    // Select configured to stop setting the default input and modify the menu
+    select: function(event, ui) {
+      // Find menu element
+      var autocompleteMenu = $('#ui-id-1');
+
+      // Find selected right and add classes to closest list-item
+      autocompleteMenu.find('span:contains(' + ui.item.service + ')')
+        .closest('li')
+        .addClass('a-dotted a-disabled a-success a-selectable a-selected');
+
+      // Find menu and set focus to closest list-item of selected right
+      autocompleteMenu.menu('focus', null, autocompleteMenu.find('span:contains(' + ui.item.service + ')').closest('li'));
+
+      // ONLY FOR DESIGNSYSTEM PROTOTYPING
+      // eslint-disable-next-line
+      console.log('Prototyping feature needs to be commented out in searchWithAutocompleteVarselEnkeltTjeneste.js');
+      // Add the clicked rights to list, only if if not already in list
+      if ($('.a-list-container').find('div:contains(' + ui.item.service + ')').length === 0) {
+        // eslint-disable-next-line
+        var firstListItem = $('#hiddenMalRow').clone();
+        firstListItem.removeClass('a-hiddenRow');
+        firstListItem.attr('id', 'last');
+        firstListItem.find('div div:nth-child(1)').text(function() {
+          return ui.item.service;
+        });
+        firstListItem.first().addClass('a-selected a-success');
+        firstListItem.find('button:nth-of-type(3) > i').removeClass('a-iconStrikeThrough a-disabledIcon');
+        $('.a-list-container > ul').append(firstListItem);
+      }
+
+      return false;
+    },
+
+    // Focus configured to stop input from updating input when keyboard is used
+    focus: function(event, ui) {
+      return false;
+    }
+  }).bind('click', function(e) { // TODO should also open on tab focus? issue 3766
+    if ($(this).catcomplete('widget').is(':visible')) {
+      $(this).catcomplete('close');
+    }
+  });
+};
+
+// When pressing "ESC"
+$(document).on('keyup', function(evt) {
+  if (evt.keyCode === 27) {
+    $('.a-multipleSelectInAutoComplete').attr('style', 'display:none');
+  }
+});
 
 /* eslint vars-on-top: 1 */
 
@@ -861,16 +1027,14 @@ var searchWithMultipleSelectInAutoComplete = function() {
         // build  item in the list
         var innerHtmlForItem = '<div class="row">' +
           '<div class="col-sm-7 col-md-5 col-lg-6 pl-md-2 pl-lg-2 pr-2" data-searchable="true">' +
-            '<span class="a-js-sortValue a-list-longtext" title="Jan Derek Sørensen Julius Andreas Gimli Arn MacGyver Chewbacka Highlander ElessarJankov">' + item.service + '</span>' +
+            '<span class="a-js-sortValue a-list-longtext" title="ACC Security level 2 MAG">' + item.service + '</span>' +
           '</div>' +
           '<div class="d-none d-md-block col-md-3 col-lg-4 pl-md-2 pl-lg-1 pr-2" data-searchable="true">' +
             '<span class="a-js-sortValue a-list-longtext" title="Testetat for Accenture">' + item.serviceOwner + '</span>' +
           '</div>' +
           '<div class="text-right col-sm-5 col-md-4 col-lg-2 pl-md-2 pl-lg-1 pr-sm-0 pr-md-2">' +
-
               '<span class="a-fontBold a-btn-icon-text a-hiddenWhenSelected ">+Legg til</span>' +
-              '<span class="a-fontBold d-none d-sm-block a-visibleWhenSelected">Lagt til</span>' +
-
+              '<span class="a-fontBold d-sm-block a-visibleWhenSelected">Lagt til</span>' +
           '</div>' +
         '</div>';
 
@@ -986,13 +1150,16 @@ var searchWithMultipleSelectInAutoComplete = function() {
       // Add the clicked rights to list, only if if not already in list
       if ($('.a-list-container').find('div:contains(' + ui.item.service + ')').length === 0) {
         // eslint-disable-next-line
-        var firstListItem = $('#firstRow').clone();
+        var emptyListItem = $('#emptyRow');
+        var firstListItem = $('#hiddenMalRow').clone();
+        firstListItem.removeClass('a-hiddenRow');
         firstListItem.attr('id', 'last');
         firstListItem.find('div div:nth-child(1)').text(function() {
           return ui.item.service;
         });
         firstListItem.first().addClass('a-selected a-success');
         firstListItem.find('button:nth-of-type(3) > i').removeClass('a-iconStrikeThrough a-disabledIcon');
+        emptyListItem.addClass('a-hiddenRow');
         $('.a-list-container > ul').append(firstListItem);
       }
 
@@ -1006,11 +1173,16 @@ var searchWithMultipleSelectInAutoComplete = function() {
   }).bind('click', function(e) { // TODO should also open on tab focus? issue 3766
     if ($(this).catcomplete('widget').is(':visible')) {
       $(this).catcomplete('close');
-    } else {
-      $(this).catcomplete('search', $(this).val());
     }
   });
 };
+
+// When pressing "ESC"
+$(document).on('keyup', function(evt) {
+  if (evt.keyCode === 27) {
+    $('.a-multipleSelectInAutoComplete').attr('style', 'display:none');
+  }
+});
 
 /*
 Search datatable with highlight using external package mark.js
@@ -1195,6 +1367,39 @@ var toggleTheme = function() {
   });
 };
 
+$('.a-js-selectable-checkbox').on('change', function(e) {
+  var roleid; // Id for rollen som ble endret
+  var isSelected; // Hvor vidt rollen ble valgt eller fjernet
+  var $warn; // Selector for advarselstekst
+  var $contnorm; // Container for vanlig "Ferdig"-knapp
+  var $contcrit; // Container for rød "Jeg forstår"-knapp
+
+  // Class på parent <li> som indikerer at denne er flagget som kritisk
+  if (!$(e.target).parents('li.a-js-critical-role-selector').length) {
+    return;
+  }
+
+  roleid = $(e.target).parents('li.a-js-critical-role-selector')[0].id;
+  isSelected = $(e.target).is(':checked');
+  $warn = $('.a-js-critical-role-msg-' + roleid);
+  $contnorm = $('.a-js-standard-role-container');
+  $contcrit = $('.a-js-critical-role-container');
+
+  if (isSelected) {
+    $warn.show();
+    $contcrit.show();
+    $contnorm.hide();
+  } else {
+    $warn.hide();
+  }
+
+  // Sjekk om det er igjen noen kritiske rolle-advarsler
+  if (!$('.a-js-critical-role-msg').filter(':visible').length) {
+    $contcrit.hide();
+    $contnorm.show();
+  }
+});
+
 var addListExpandHandler = function() {
   $('body').on('click', '.a-list *[data-toggle="collapse"]', function() {
     // This script runs before the bootstrap collapse handler, so the collapsed-class will still be
@@ -1293,6 +1498,7 @@ AltinnModal = {
       // }
 
       $(settings.target + ' .a-modal-content-target').append(page);
+      $(settings.target).trigger('loaded.altinn.modal');
       $(settings.target).find('.a-current-page').first().data().enableDirtyPopover = settings.enableDirtyPopover;
 
       // Initialize with backdrop: static to prevent modal from closing when clicking outside,
@@ -1370,6 +1576,7 @@ AltinnModal = {
     // }
 
     $(settings.target + ' .a-modal-content-target').append(newPage);
+    $(settings.target).trigger('loaded.altinn.modal');
 
     $(settings.target).animate({
       scrollTop: 0
@@ -1456,6 +1663,7 @@ AltinnModal = {
       // }
 
       $(settings.target + ' .a-modal-content-target').append(newPage);
+      $(settings.target).trigger('loaded.altinn.modal');
 
       $(settings.target).animate({
         scrollTop: 0
@@ -3924,7 +4132,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         };
 
         if (this.options.clickOpen || hasTouch) {
-          this.$menuItems.on('click.zf.dropdownmenu touchstart.zf.dropdownmenu', handleClickFn);
+          this.$menuItems.on('click.zf.dropdownmenu', handleClickFn);
         }
 
         // Handle Leaf element Clicks
@@ -6532,11 +6740,60 @@ $('body').on('click', 'div.a-email  .a-delete', function(e) {
 });
 
 
+// Select the node that will be observed for mutations
+var targetNode = document.getElementsByClassName('navbar-toggler')[0];
+
+// Options for the observer (which mutations to observe)
+var config = { attributes: true, childList: true };
+
+var callback = function(mutationsList) {
+  mutationsList.forEach(function(mutation) {
+    if ($(mutation.target).attr('data-jsexpanded') === 'false') {
+      $('.a-login-container').css('display', '');
+    } else {
+      $('.a-login-container').css('display', 'none');
+    }
+  });
+};
+
+// Create an observer instance linked to the callback function
+var observer = new MutationObserver(callback);
+
+// Start observing the target node for configured mutations
+try {
+  observer.observe(targetNode, config);
+} catch (e) {
+  //
+}
+
+
+$('button.a-personSwitcher').on('click', function() {
+  if ($('button.navbar-toggler').attr('data-jsexpanded') === 'true') {
+    event.preventDefault();
+    event.stopPropagation();
+    $('button.navbar-toggler').trigger('click');
+  }
+});
+
 $('.a-dropdown-personswitchList').on('click', 'button[data-toggle="collapse"]', function(event) {
   event.preventDefault();
   event.stopPropagation();
   $($(this).data('target')).collapse('toggle');
 });
+
+// For setting the background-color when favorite star is hovered
+$('.a-listWithSubLevels').children().hover(function() {
+  if (!$(this).parent().find('button.a-btn-shadow-large').is(':disabled') && ($(this).is('.a-favourite') || $(this).is('.a-btn-shadow-large'))) {
+    $(this).parent().find('button.a-btn-shadow-large').css('background', '#CFF0FF');
+    $(this).parent().find('button.a-btn-shadow-large.a-bgGreyLight').css('background', '#E2E2E2');
+  }
+},
+  function() {
+    if (!$(this).parent().find('button.a-btn-shadow-large').is(':disabled') && ($(this).is('.a-favourite') || $(this).is('.a-btn-shadow-large'))) {
+      $(this).parent().find('button.a-btn-shadow-large').css('background', '#E3F7FF');
+      $(this).parent().find('button.a-btn-shadow-large.a-bgGreyLight').css('background', '#EFEFEF');
+    }
+  });
 
 /* eslint vars-on-top: 0 */
 /* globals $ */
@@ -6739,9 +6996,9 @@ var popoverGlobalInit = function() {
     if ($('.popover-big').length > 0) {
       if ($('.modal.show').length > 0) {
         // Add padding to make sure modal is big enough to contain popover
-        modalHeight = $('.modal-dialog').height() + $('.modalPage').height();
+        modalHeight = $('.modal-dialog').height() + $('.modalPage:visible').height();
         padding = ($('.popover').offset().top + $('.modal').scrollTop() + $('.popover').height() + 5) - modalHeight;
-        $('.modalPage').css('padding-bottom', padding + 'px');
+        $('.modalPage:visible').css('padding-bottom', padding + 'px');
         // tranlate is somehow added by Bootstrap later when in modal??
         setTimeout(resetTranslate, 0);
       } else {
@@ -7495,6 +7752,7 @@ var toggleRoleRightsInit = function() {
   questionnaireInteraction,
   searchFilterView,
   searchWithAutocomplete,
+  searchWithAutocompleteVarsel,
   searchWithMultipleSelectInAutoComplete,
   selectAll,
   sessionExpiredDialog,
@@ -7561,6 +7819,7 @@ window.devInit = function() {
   questionnaireInteraction();
   searchFilterView();
   searchWithAutocomplete();
+  searchWithAutocompleteVarsel();
   searchWithMultipleSelectInAutoComplete();
   selectAll();
   sessionExpiredDialog();

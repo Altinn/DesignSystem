@@ -16,6 +16,128 @@
 	"themeJsVendor": "../../js/altinnPrototyping.vendor.js",
 	"button-class": "a-box-button",
 	"action-button-text": "En knapp for å legge til",
+	"icon-list-items": [
+		{
+			"list-item-name": "Forretningsplan.ods",
+			"listItemDescription": "(last ned)",
+			"icon-prefix": "reg",
+			"icon-class": "reg-attachment-ods ai-md ai-nw pr-1"
+		},
+		{
+			"list-item-name": "Oppdragsavtale.doc",
+			"listItemDescription": "(last ned)",
+			"icon-prefix": "reg",
+			"icon-class": "reg-attachment ai-md ai-nw pr-1"
+		},
+		{
+			"list-item-name": "Driftsbudsjett.pdf",
+			"listItemDescription": "(last ned)",
+			"icon-prefix": "reg",
+			"icon-class": "reg-attachment-pdf ai-md ai-nw pr-1"
+		}
+	],
+	"button-text": "En standard knapp",
+	"button-disabled": false,
+	"button-type": "button",
+	"onclick": false,
+	"button-icon": false,
+	"display-as-link": false,
+	"aria-label": "knapp med popover",
+	"enable-popover": true,
+	"popover-placement": "bottom",
+	"popover-content-id": "sampleIdPopoverButtoinLink",
+	"popover-class": "popover-warning",
+	"popover-text": "Dette er en popover tekst",
+	"popover-buttons": [
+		{
+			"button-text": "knapp",
+			"button-class": "a-btn a-btn-danger"
+		},
+		{
+			"button-text": "link",
+			"button-class": "a-btn-link a-linkDanger",
+			"display-as-link": true
+		}
+	],
+	"checkbuttons": [
+		{
+			"checkbuttons-title": " Kun lese",
+			"checkbuttons-id": "checkbutton-read",
+			"checkbuttons-class": "",
+			"hasIcon": {
+				"icon-prefix": "ai",
+				"icon-class": "ai-read"
+			}
+		},
+		{
+			"checkbuttons-title": " Fylle ut",
+			"checkbuttons-id": "checkbutton-edit",
+			"checkbuttons-class": "",
+			"hasIcon": {
+				"icon-prefix": "ai",
+				"icon-class": "ai-write"
+			}
+		},
+		{
+			"checkbuttons-title": " Signere",
+			"checkbuttons-id": "checkbutton-sign",
+			"checkbuttons-class": "",
+			"role": "button",
+			"hasIcon": {
+				"icon-prefix": "ai",
+				"icon-class": "ai-sign"
+			},
+			"stacked-background": false,
+			"enable-popover": true,
+			"popover-placement": "bottom",
+			"popover-content-id": "conditionalPopover",
+			"popover-class": "popover-warning",
+			"popover-text": "Dette er en popover tekst",
+			"data-trigger": "onchange",
+			"popover-buttons": [
+				{
+					"button-text": "knapp",
+					"button-class": "a-btn a-btn-danger"
+				}
+			]
+		},
+		{
+			"checkbuttons-title": " Toggle state icon",
+			"checkbuttons-id": "checkbutton-toggle",
+			"checkbuttons-class": "a-toggle-icon",
+			"hasIcon": {
+				"icon-prefix": "ai",
+				"icon-class": "ai-plus"
+			},
+			"checkbuttons-toggle-icon": {
+				"checkbuttons-class": "a-toggle-icon",
+				"icon-prefix": "ai",
+				"icon-class": "ai-check"
+			}
+		},
+		{
+			"checkbuttons-title": "Eksempel uten ikon",
+			"checkbuttons-id": "checkbutton-example",
+			"checkbuttons-class": "",
+			"hasIcon": false
+		},
+		{
+			"checkbuttons-title": "Eksempel på deaktivert",
+			"checkbuttons-id": "checkbutton-deactivated",
+			"checkbuttons-class": "disabled",
+			"isDisabled": true,
+			"hasIcon": {
+				"icon-prefix": "ai",
+				"icon-class": "ai-sign"
+			}
+		},
+		{
+			"checkbuttons-title": "Eksempel med veldig veldig veldig lang tekst som blir kuttet av på mobilvisning",
+			"checkbuttons-id": "checkbutton-longtext",
+			"checkbuttons-class": "",
+			"hasIcon": false
+		}
+	],
 	"link-text": "En lenke ser slik ut",
 	"link-url": "/patterns/04-sider-portal-01-forside-00-forside/04-sider-portal-01-forside-00-forside.html",
 	"sr-text": false,
@@ -34,13 +156,13 @@
 	"box-list-id": "boxList",
 	"box-button-list": [
 		{
-			"box-button-title": "REGNSKAPSFØRER",
+			"box-button-title": false,
 			"box-button-person": "PERNILLE HALL",
 			"icon-prefix": "ai",
 			"icon-class": "ai-private",
 			"icon-size": "ai-lg",
 			"icon-extra-class": "a-box-button-icon a-blueDarkText",
-			"box-button-action": "Gi og fjerne rettigheter",
+			"box-button-action": "Behandle forespørsel",
 			"box-button-secondary-action": "Skjul alle med rettigheter",
 			"data-target": false,
 			"has-children": false,
@@ -71,6 +193,42 @@
 					"onclick": "location.href='/patterns/04-sider-portal-92-andre-med-rettigheter-00-andre-med-rettigheter-roller-oversikt/04-sider-portal-92-andre-med-rettigheter-00-andre-med-rettigheter-roller-oversikt.html';"
 				}
 			],
+			"box-button-top-icon": {
+				"icon-prefix": "ai",
+				"icon-class": "ai-circle-exclamation",
+				"icon-size": "ai-sm",
+				"icon-extra-class": "a-danger a-noHover ai-top ai-float-right"
+			},
+			"onclick": "location.href='/patterns/04-sider-portal-92-andre-med-rettigheter-00-andre-med-rettigheter-tilgangsforesporsel/04-sider-portal-92-andre-med-rettigheter-00-andre-med-rettigheter-tilgangsforesporsel.html';"
+		},
+		{
+			"data-target": false,
+			"has-children": false,
+			"box-button-title": false,
+			"box-button-person": "TUVA LANDRO",
+			"icon-prefix": "ai",
+			"icon-class": "ai-private",
+			"icon-size": "ai-lg",
+			"icon-extra-class": "a-box-button-icon a-blueDarkText",
+			"box-button-action": "Behandle forespørsel",
+			"onclick": "location.href='/patterns/04-sider-portal-92-andre-med-rettigheter-00-andre-med-rettigheter-tilgangsforesporsel-ikke-gjennomforbar/04-sider-portal-92-andre-med-rettigheter-00-andre-med-rettigheter-tilgangsforesporsel-ikke-gjennomforbar.html';",
+			"box-button-top-icon": {
+				"icon-prefix": "ai",
+				"icon-class": "ai-circle-exclamation",
+				"icon-size": "ai-sm",
+				"icon-extra-class": "a-danger a-noHover ai-top ai-float-right"
+			}
+		},
+		{
+			"data-target": false,
+			"has-children": false,
+			"box-button-title": "REGNSKAPSFØRER",
+			"box-button-person": "PERNILLE HALL",
+			"icon-prefix": "ai",
+			"icon-class": "ai-private",
+			"icon-size": "ai-lg",
+			"icon-extra-class": "a-box-button-icon a-blueDarkText",
+			"box-button-action": "Gi og fjerne rettigheter",
 			"onclick": "location.href='/patterns/04-sider-portal-92-andre-med-rettigheter-00-andre-med-rettigheter-roller-oversikt/04-sider-portal-92-andre-med-rettigheter-00-andre-med-rettigheter-roller-oversikt.html';"
 		},
 		{
@@ -78,11 +236,11 @@
 			"has-children": false,
 			"box-button-title": "STYRE LEDER",
 			"box-button-person": "TUVA LANDRO",
+			"box-button-action": "Gi og fjerne rettigheter",
 			"icon-prefix": "ai",
 			"icon-class": "ai-private",
 			"icon-size": "ai-lg",
 			"icon-extra-class": "a-box-button-icon a-blueDarkText",
-			"box-button-action": "Gi og fjerne rettigheter",
 			"onclick": "location.href='/patterns/04-sider-portal-92-andre-med-rettigheter-00-andre-med-rettigheter-roller-oversikt/04-sider-portal-92-andre-med-rettigheter-00-andre-med-rettigheter-roller-oversikt.html';"
 		},
 		{
@@ -90,11 +248,11 @@
 			"has-children": false,
 			"box-button-title": "DAGLIG LEDER",
 			"box-button-person": "INGRID AGA",
+			"box-button-action": "Gi og fjerne rettigheter",
 			"icon-prefix": "ai",
 			"icon-class": "ai-private",
 			"icon-size": "ai-lg",
 			"icon-extra-class": "a-box-button-icon a-blueDarkText",
-			"box-button-action": "Gi og fjerne rettigheter",
 			"onclick": "location.href='/patterns/04-sider-portal-92-andre-med-rettigheter-00-andre-med-rettigheter-roller-oversikt/04-sider-portal-92-andre-med-rettigheter-00-andre-med-rettigheter-roller-oversikt.html';"
 		},
 		{

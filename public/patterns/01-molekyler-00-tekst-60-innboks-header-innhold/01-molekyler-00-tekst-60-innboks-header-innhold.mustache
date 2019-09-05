@@ -6,7 +6,7 @@
   </div>
   {{/ heading-icon}} {{# heading-tekst }}
   <div class="col a-msgHeadingTextContainer">
-    <div class="d-inline-block">
+    <div class="d-inline-block {{# hasClassW100 }}w-100{{/ hasClassW100 }}">
       {{# due-date-content }}
       <div class="col-auto d-md-none a-msgDuedate">
         <span class="a-fontBold">{{ due-date-label }}</span> {{ due-date }}
@@ -28,6 +28,17 @@
       {{/ is-h1 }}
 
       <div class="a-fontSizeXXS">{{ textSmall }}</div>
+
+      {{# textSmallTwoColumns }}
+      <div class="row">
+        <div class="col-6">
+          <div class="a-fontSizeXXS">{{ textSmall-left }}</div>
+        </div>
+        <div class="col-6">
+          <div class="a-fontSizeXXS text-right">{{ textSmall-right }}</div>
+        </div>
+      </div>
+      {{/ textSmallTwoColumns }}
     </div>
 
     {{# form-heading-icon }}

@@ -55,7 +55,7 @@
 	"onclick": false,
 	"button-icon": false,
 	"display-as-link": false,
-	"aria-label": "Tilbake",
+	"aria-label": "knapp med popover",
 	"button-list": [
 		{
 			"button-class": "a-modal-back",
@@ -215,7 +215,7 @@
 		"show-login": false,
 		"display-as-dropdown": false,
 		"logo": {
-			"logo": "../../images/a-logo-black.svg"
+			"logo": "../../images/an-logo-darkBlue.svg"
 		},
 		"submit": {
 			"button-text": "Send",
@@ -287,6 +287,101 @@
 			"checkboxID": "check4",
 			"checkboxes-title": "En deaktivert avkrysningsboks",
 			"isRequired": false
+		}
+	],
+	"enable-popover": true,
+	"popover-placement": "bottom",
+	"popover-content-id": "sampleIdPopoverButtoinLink",
+	"popover-class": "popover-warning",
+	"popover-text": "Dette er en popover tekst",
+	"popover-buttons": [
+		{
+			"button-text": "knapp",
+			"button-class": "a-btn a-btn-danger"
+		},
+		{
+			"button-text": "link",
+			"button-class": "a-btn-link a-linkDanger",
+			"display-as-link": true
+		}
+	],
+	"checkbuttons": [
+		{
+			"checkbuttons-title": " Kun lese",
+			"checkbuttons-id": "checkbutton-read",
+			"checkbuttons-class": "",
+			"hasIcon": {
+				"icon-prefix": "ai",
+				"icon-class": "ai-read"
+			}
+		},
+		{
+			"checkbuttons-title": " Fylle ut",
+			"checkbuttons-id": "checkbutton-edit",
+			"checkbuttons-class": "",
+			"hasIcon": {
+				"icon-prefix": "ai",
+				"icon-class": "ai-write"
+			}
+		},
+		{
+			"checkbuttons-title": " Signere",
+			"checkbuttons-id": "checkbutton-sign",
+			"checkbuttons-class": "",
+			"role": "button",
+			"hasIcon": {
+				"icon-prefix": "ai",
+				"icon-class": "ai-sign"
+			},
+			"stacked-background": false,
+			"enable-popover": true,
+			"popover-placement": "bottom",
+			"popover-content-id": "conditionalPopover",
+			"popover-class": "popover-warning",
+			"popover-text": "Dette er en popover tekst",
+			"data-trigger": "onchange",
+			"popover-buttons": [
+				{
+					"button-text": "knapp",
+					"button-class": "a-btn a-btn-danger"
+				}
+			]
+		},
+		{
+			"checkbuttons-title": " Toggle state icon",
+			"checkbuttons-id": "checkbutton-toggle",
+			"checkbuttons-class": "a-toggle-icon",
+			"hasIcon": {
+				"icon-prefix": "ai",
+				"icon-class": "ai-plus"
+			},
+			"checkbuttons-toggle-icon": {
+				"checkbuttons-class": "a-toggle-icon",
+				"icon-prefix": "ai",
+				"icon-class": "ai-check"
+			}
+		},
+		{
+			"checkbuttons-title": "Eksempel uten ikon",
+			"checkbuttons-id": "checkbutton-example",
+			"checkbuttons-class": "",
+			"hasIcon": false
+		},
+		{
+			"checkbuttons-title": "Eksempel på deaktivert",
+			"checkbuttons-id": "checkbutton-deactivated",
+			"checkbuttons-class": "disabled",
+			"isDisabled": true,
+			"hasIcon": {
+				"icon-prefix": "ai",
+				"icon-class": "ai-sign"
+			}
+		},
+		{
+			"checkbuttons-title": "Eksempel med veldig veldig veldig lang tekst som blir kuttet av på mobilvisning",
+			"checkbuttons-id": "checkbutton-longtext",
+			"checkbuttons-class": "",
+			"hasIcon": false
 		}
 	],
 	"link-text": "En lenke ser slik ut",
@@ -392,8 +487,12 @@
 	"label-id": false,
 	"label-content": "9",
 	"page-title": "Tittel på siden",
+	"header-color": "",
+	"url-logo": "/patterns/04-sider-altinnett-10-forside-10-forside/04-sider-altinnett-10-forside-10-forside.html",
+	"headerlogo": "../../images/an-logo-blue.svg",
+	"button-colorClass": "",
 	"dropdown-class": "a-dropdown-languages",
-	"logged-in": false,
+	"hide-header": true,
 	"header-mobilesearch": {
 		"text-input-id": "dropdown-input-search",
 		"top-label": "Søk etter innhold",
@@ -415,46 +514,6 @@
 			"onclick": "location.href='/patterns/04-sider-altinnett-60-sok-00-sokeside/04-sider-altinnett-60-sok-00-sokeside.html';"
 		}
 	},
-	"name": "JAN PETTERSEN",
-	"tjenesteutvikling": {
-		"icon-class": "ai-forward",
-		"icon-extra-class": "a-textBlue",
-		"extra-classes": "a-fontBold"
-	},
-	"oversikten": {
-		"icon-class": "ai-date",
-		"icon-extra-class": "a-textBlue",
-		"extra-classes": "a-fontBold"
-	},
-	"driftsmeldinger": {
-		"icon-class": "ai-deadline",
-		"icon-extra-class": "a-textBlue",
-		"extra-classes": "a-fontBold"
-	},
-	"dokumentasjon": {
-		"icon-class": "ai-document",
-		"icon-extra-class": "a-textBlue",
-		"extra-classes": "a-fontBold"
-	},
-	"produkter": {
-		"link": "/patterns/03-maler-altinnett-80-produktsider-10-produktoversikt/03-maler-altinnett-80-produktsider-10-produktoversikt.html"
-	},
-	"login-button": {
-		"button-text": "Logg inn",
-		"button-class": "a-btn btn-block",
-		"button-disabled": false,
-		"button-type": "button",
-		"onclick": {
-			"onclick": "location.href='/patterns/03-maler-altinnett-20-profil-30-paalogget/03-maler-altinnett-20-profil-30-paalogget.html'"
-		},
-		"button-icon": false,
-		"display-as-link": false
-	},
-	"header-color": "",
-	"url-logo": "/patterns/04-sider-altinnett-10-forside-10-forside/04-sider-altinnett-10-forside-10-forside.html",
-	"headerlogo": "../../images/an-logo-blue.svg",
-	"button-colorClass": "",
-	"hide-header": true,
 	"url-aktuelt": "/patterns/04-sider-altinnett-96-nyhetssider-00-nyheter-oversikt/04-sider-altinnett-96-nyhetssider-00-nyheter-oversikt.html",
 	"ekstra-menypunkt-1": "Ekstra menypunkt 1",
 	"tel-icon": {

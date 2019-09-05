@@ -21,12 +21,15 @@
 		"icon-id": "close-stickyHelp",
 		"icon-sr-only-text": "Minimer hjelpevinduet"
 	},
-	"button-text": "En standard knapp",
-	"button-class": "a-btn",
+	"button-text": "En knapp med ikon",
+	"button-class": "a-btn a-btn-icon",
 	"button-disabled": false,
 	"button-type": "button",
 	"onclick": false,
-	"button-icon": false,
+	"button-icon": {
+		"icon-prefix": "ai",
+		"icon-class": "ai-deadline"
+	},
 	"display-as-link": false,
 	"show-give-rights": true,
 	"show-gi-fjerne-roller": true,
@@ -95,10 +98,6 @@
 	"form-label-hasIcon": false,
 	"input-name": "input-field",
 	"form-control-class": "",
-	"link-text": "En lenke ser slik ut",
-	"sr-text": false,
-	"header-text": "Forklarende tittel",
-	"intro-text": "Beskrivelse av innholdet i listen:",
 	"icon-list-items": [
 		{
 			"list-item-name": "Forretningsplan.ods",
@@ -119,93 +118,23 @@
 			"icon-class": "reg-attachment-pdf ai-md ai-nw pr-1"
 		}
 	],
-	"rows": [
-		{
-			"additional-classes": "a-dotted",
-			"columns": [
-				{
-					"additional-classes": "col",
-					"column-items": [
-						{
-							"column-text": {
-								"text": "Første rad"
-							}
-						}
-					]
-				}
-			]
-		},
-		{
-			"additional-classes": "a-dotted",
-			"columns": [
-				{
-					"additional-classes": "col",
-					"column-items": [
-						{
-							"column-text": {
-								"text": "Andre rad"
-							}
-						}
-					]
-				}
-			]
-		}
-	],
-	"popover-aria-label": "valid",
-	"open-popover-class": "a-helpIconButton a-helpIconButton--blue a-js-togglePopoverIcons",
-	"popover-data-target": "myPopup",
-	"popover-title": false,
-	"popover-content": false,
-	"popover-class": "",
-	"popover-link-text": "",
-	"popover-various-content": {
-		"alert-items": [
-			{
-				"alert-text": {
-					"text": "Dette er en tekst "
-				}
-			},
-			{
-				"alert-link": {
-					"link-text": "med en lenke som står i løpende tekst",
-					"link-url": "http://www.altinn.no"
-				}
-			},
-			{
-				"alert-text": {
-					"text": "og man kan ha mer tekst etter."
-				}
-			}
-		]
-	},
-	"popover-link-icon": [
-		{
-			"icon-prefix": "ai",
-			"icon-class": "ai-circle-plus",
-			"icon-extra-class": "a-js-popoverIconInitial"
-		},
-		{
-			"icon-prefix": "ai",
-			"icon-class": "ai-circle-minus",
-			"icon-extra-class": "a-js-popoverIconExpanded"
-		}
-	],
+	"aria-label": "knapp med popover",
+	"enable-popover": true,
+	"popover-placement": "bottom",
 	"popover-content-id": "popoverWithIconToggle",
-	"altText": {
-		"altText": "Vis mer info"
-	},
-	"lead-text-id": "leadText",
-	"lead-text-content": "Ingress er et kort innledende avsnitt som vanligvis plasseres mellom overskriften og brødteksten. Ingressen brukes ofte til å \"gripe\" fatt i leseren, for at personen skal bli interessert i å lese resten av teksten. Den fungerer også som et visuelt skille mellom resten av teksten. Ingressen bør være lettlest og fri for vanskelige faguttrykk.",
-	"section-title": "Tittel på seksjon",
-	"extra-class": false,
-	"action-button-text": "En knapp for å legge til",
-	"alert-id": "alert",
-	"alert-class": "a-message-info",
-	"alert-items": {
-		"alert-text": {
-			"text": "Dette er en driftsmelding eller endringsinformasjon"
+	"popover-class": "",
+	"popover-text": "Dette er en popover tekst",
+	"popover-buttons": [
+		{
+			"button-text": "knapp",
+			"button-class": "a-btn a-btn-danger"
+		},
+		{
+			"button-text": "link",
+			"button-class": "a-btn-link a-linkDanger",
+			"display-as-link": true
 		}
-	},
+	],
 	"checkbuttons": [
 		{
 			"checkbuttons-title": " Kun lese",
@@ -285,6 +214,149 @@
 			"hasIcon": false
 		}
 	],
+	"link-text": "En lenke ser slik ut",
+	"sr-text": false,
+	"header-text": "Forklarende tittel",
+	"intro-text": "Beskrivelse av innholdet i listen:",
+	"rows": [
+		{
+			"additional-classes": "a-dotted a-clickable a-list-hasRowLink",
+			"columns": [
+				{
+					"additional-classes": "col",
+					"column-items": [
+						{
+							"column-text": {
+								"text": "Første klikkbare rad"
+							}
+						}
+					]
+				}
+			],
+			"isRowLink": {
+				"rowLink": "http://altinn.no"
+			}
+		},
+		{
+			"additional-classes": "a-dotted a-clickable a-list-hasRowLink",
+			"columns": [
+				{
+					"additional-classes": "col-11",
+					"column-items": [
+						{
+							"column-text": {
+								"text": "Andre klikkbare rad",
+								"text-extra": {
+									"text-extra": "(ekstrainfo)",
+									"classes": "a-dimText7"
+								}
+							}
+						}
+					]
+				},
+				{
+					"additional-classes": "col-1 text-right",
+					"column-items": [
+						{
+							"column-icon": {
+								"icon-prefix": "ai",
+								"icon-class": "ai-arrowrightup"
+							}
+						}
+					]
+				}
+			],
+			"isRowLink": {
+				"rowLink": "http://altinn.no"
+			}
+		},
+		{
+			"additional-classes": "a-dotted a-clickable a-list-hasRowLink",
+			"isRowLink": {
+				"rowLink": "http://altinn.no"
+			},
+			"columns": [
+				{
+					"additional-classes": "col-11",
+					"column-items": [
+						{
+							"column-text": {
+								"text": "Tredje klikkbare rad",
+								"text-extra": {
+									"text-extra": "(ekstrainfo)",
+									"classes": "a-dimText7"
+								}
+							}
+						}
+					]
+				},
+				{
+					"additional-classes": "col-1 text-right",
+					"column-items": [
+						{
+							"column-icon": {
+								"icon-prefix": "ai",
+								"icon-class": "ai-arrowrightup"
+							}
+						}
+					]
+				}
+			]
+		}
+	],
+	"popover-aria-label": "valid",
+	"open-popover-class": "a-helpIconButton a-helpIconButton--blue a-js-togglePopoverIcons",
+	"popover-data-target": "myPopup",
+	"popover-title": false,
+	"popover-content": false,
+	"popover-link-text": "",
+	"popover-various-content": {
+		"alert-items": [
+			{
+				"alert-text": {
+					"text": "Dette er en tekst "
+				}
+			},
+			{
+				"alert-link": {
+					"link-text": "med en lenke som står i løpende tekst",
+					"link-url": "http://www.altinn.no"
+				}
+			},
+			{
+				"alert-text": {
+					"text": "og man kan ha mer tekst etter."
+				}
+			}
+		]
+	},
+	"popover-link-icon": [
+		{
+			"icon-prefix": "ai",
+			"icon-class": "ai-circle-plus",
+			"icon-extra-class": "a-js-popoverIconInitial"
+		},
+		{
+			"icon-prefix": "ai",
+			"icon-class": "ai-circle-minus",
+			"icon-extra-class": "a-js-popoverIconExpanded"
+		}
+	],
+	"altText": {
+		"altText": "Vis mer info"
+	},
+	"lead-text-id": "leadText",
+	"lead-text-content": "Ingress er et kort innledende avsnitt som vanligvis plasseres mellom overskriften og brødteksten. Ingressen brukes ofte til å \"gripe\" fatt i leseren, for at personen skal bli interessert i å lese resten av teksten. Den fungerer også som et visuelt skille mellom resten av teksten. Ingressen bør være lettlest og fri for vanskelige faguttrykk.",
+	"section-title": "Tittel på seksjon",
+	"extra-class": false,
+	"action-button-text": "En knapp for å legge til",
+	"alert-id": "alert",
+	"alert-class": "a-message-info",
+	"alert-items": {
+		"alert-text": {
+			"text": "Dette er en driftsmelding eller endringsinformasjon"
+		}
+	},
 	"delegation-header-text": {
 		"hasIcon": false,
 		"hasTextSmall": true,
@@ -1257,26 +1329,15 @@
 		"button-icon": false,
 		"display-as-link": true
 	},
+	"isModal": true,
+	"be-om-tilgang-header": "Hei Kari!",
+	"be-om-tilgang-text": "Du ber nå om å få tilgang til tjenesten <b>A-melding:Direkte registrering i Altinn (A01)</b> for <b>Pettersen foto AS</b>. Forespørselen vil bli sendt til tilgangsstyrer.",
+	"bottom-button-row": false,
 	"collapse-filter-id": "",
 	"collapse-primary-text": "Denne teksten kan man trykke på for å se utvidet informasjon om et tema",
 	"show-arrow": true,
 	"no-decoration": true,
 	"isCollapsed": true,
-	"aria-label": "Tilbake",
-	"enable-popover": true,
-	"popover-placement": "bottom",
-	"popover-text": "Dette er en popover tekst",
-	"popover-buttons": [
-		{
-			"button-text": "knapp",
-			"button-class": "a-btn a-btn-danger"
-		},
-		{
-			"button-text": "link",
-			"button-class": "a-btn-link a-linkDanger",
-			"display-as-link": true
-		}
-	],
 	"person-role-role": "Styremedlem",
 	"person-role-name": "William Mjelde",
 	"person-role-name-meta": false,
@@ -1324,7 +1385,6 @@
 		}
 	},
 	"search-rights": true,
-	"isModal": true,
 	"expandable-text": [
 		{
 			"expandable-text-panel-id": "myidtesting",
@@ -2045,7 +2105,7 @@
 	},
 	"heading-action": false,
 	"has-link": true,
-	"search-title": "Søk:",
+	"search-title": "Gi nye rettigheter",
 	"expandable-list": {
 		"popover-various-content": false,
 		"collapse-header-title": "Dette er en utvidbar tittel med merkelapp <span class='badge badge-primary a-label badge-pill'>1</span> og lang tekst for å teste hvordan det ser ut",
@@ -3362,7 +3422,7 @@
 		"button-class": "a-btn-shadow disabled a-btn a-btn-icon a-btn-shadow-large",
 		"button-colorClass": "",
 		"button-dot": false,
-		"button-text": "Pettersen Regnskap",
+		"button-text": "Pettersens Regnskap",
 		"button-textClass": "a-fontBold",
 		"button-text-second": {
 			"button-text-second": "org.nr. 893 234 789",
@@ -3375,6 +3435,7 @@
 		},
 		"link-url": "/patterns/04-sider-portal-50-innboks-00-innboks/04-sider-portal-50-innboks-00-innboks.html"
 	},
+	"button-favourite": false,
 	"button-sub": {
 		"collapse-header-contentID": "listsublevels2",
 		"button-class": "a-btn a-btn-shadow a-btn-shadow-expand a-offset-border-top a-btn-icon collapsed",
@@ -3481,7 +3542,7 @@
 				"button-colorClass": "",
 				"button-dot": false,
 				"button-text": "Pettersen foto",
-				"button-textClass": "a-fontBold",
+				"button-textClass": "col-10 a-fontBold",
 				"button-text-second": {
 					"button-text-second": "org.nr. 893 234 789",
 					"button-text-second-class": "a-fontReg a-fontSizeXS"
@@ -3492,17 +3553,28 @@
 					"icon-extra-class": ""
 				},
 				"link-url": "/patterns/04-sider-portal-50-innboks-00-innboks/04-sider-portal-50-innboks-00-innboks.html"
+			},
+			"button-favourite": {
+				"button-class": "a-btn a-btn-icon a-btn-overlay-right",
+				"button-dot": false,
+				"link-url": false,
+				"button-text": "",
+				"button-icon": {
+					"icon-prefix": "ai",
+					"icon-class": "ai-favourite",
+					"icon-size": "ai-xs"
+				}
 			},
 			"button-sub": false
 		},
 		{
 			"button-main": {
-				"button-class": "a-btn disabled a-btn-shadow-large a-btn-shadow a-btn-icon",
+				"button-class": "a-btn a-btn-shadow-large a-btn-shadow a-btn-icon disabled",
 				"button-colorClass": "",
 				"button-dot": false,
 				"disabled": true,
 				"button-text": "Pettersen Regnskap",
-				"button-textClass": "a-fontBold",
+				"button-textClass": "col-10 a-fontBold",
 				"button-text-second": {
 					"button-text-second": "org.nr. 893 234 789",
 					"button-text-second-class": "a-fontReg a-fontSizeXS"
@@ -3514,26 +3586,46 @@
 				},
 				"link-url": "/patterns/04-sider-portal-50-innboks-00-innboks/04-sider-portal-50-innboks-00-innboks.html"
 			},
+			"button-favourite": false,
 			"button-sub": {
 				"collapse-header-contentID": "listsublevels2",
 				"button-class": "a-btn  a-offset-border-top a-btn-shadow a-btn-shadow-expand a-btn-icon collapsed",
 				"role": "list",
-				"collapse-header-title": "6 underenheter",
+				"collapse-header-title": "3 underenheter",
 				"additional-classes": "a-list-large",
 				"rows": [
 					{
-						"additional-classes": "a-clickable a-list-hasRowLink",
+						"additional-classes": "a-clickable a-offset-border-top a-list-hasRowLink",
 						"isRowLink": {
 							"rowLink": "http://altinn.no",
-							"rowLink-class": "a-fontSizeXS"
+							"rowLink-class": "a-fontSizeM"
 						},
 						"columns": [
 							{
-								"additional-classes": "col",
+								"additional-classes": "col col-11",
 								"column-items": [
 									{
 										"column-text": {
-											"text": "<b>Pettersen Regnskap – Stavanger AS</b> org. nr. 908 987 519"
+											"text": "<b class='a-break-name-orgnr'>Pettersen Regnskap – Stavanger AS</b> org. nr. 908 987 519"
+										}
+									}
+								]
+							},
+							{
+								"additional-classes": "col-1 text-right a-favourite",
+								"column-items": [
+									{
+										"column-button": {
+											"button-class": "a-btn a-btn-icon a-btn-overlay-right a-child-star",
+											"button-dot": false,
+											"link-url": false,
+											"button-text": "",
+											"button-icon": {
+												"icon-prefix": "ai",
+												"icon-class": "ai-favourite-inactive",
+												"icon-size": "ai-xs"
+											},
+											"column-icon": false
 										}
 									}
 								]
@@ -3544,15 +3636,34 @@
 						"additional-classes": "a-clickable a-offset-border-top a-list-hasRowLink",
 						"isRowLink": {
 							"rowLink": "http://altinn.no",
-							"rowLink-class": "a-fontSizeXS"
+							"rowLink-class": "a-fontSizeM"
 						},
 						"columns": [
 							{
-								"additional-classes": "col",
+								"additional-classes": "col col-11",
 								"column-items": [
 									{
 										"column-text": {
-											"text": "<b>Pettersen Regnskap – Arendal AS</b> org. nr. 908 987 519"
+											"text": "<b class='a-break-name-orgnr'>Pettersen Regnskap – Arendal AS</b> org. nr. 908 987 519"
+										}
+									}
+								]
+							},
+							{
+								"additional-classes": "col-1 text-right a-favourite",
+								"column-items": [
+									{
+										"column-button": {
+											"button-class": "a-btn a-btn-icon a-btn-overlay-right a-child-star",
+											"button-dot": false,
+											"link-url": false,
+											"button-text": "",
+											"button-icon": {
+												"icon-prefix": "ai",
+												"icon-class": "ai-favourite-inactive",
+												"icon-size": "ai-xs"
+											},
+											"column-icon": false
 										}
 									}
 								]
@@ -3563,15 +3674,34 @@
 						"additional-classes": "a-clickable a-offset-border-top a-list-hasRowLink",
 						"isRowLink": {
 							"rowLink": "http://altinn.no",
-							"rowLink-class": "a-fontSizeXS"
+							"rowLink-class": "a-fontSizeM"
 						},
 						"columns": [
 							{
-								"additional-classes": "col",
+								"additional-classes": "col col-11",
 								"column-items": [
 									{
 										"column-text": {
-											"text": "<b>Pettersen Regnskap – Kristiansand AS</b> org. nr. 908 987 519"
+											"text": "<b class='a-break-name-orgnr'>Pettersen Regnskap – Kristiansand AS</b> org. nr. 908 987 519"
+										}
+									}
+								]
+							},
+							{
+								"additional-classes": "col-1 text-right a-favourite",
+								"column-items": [
+									{
+										"column-button": {
+											"button-class": "a-btn a-btn-icon a-btn-overlay-right a-child-star",
+											"button-dot": false,
+											"link-url": false,
+											"button-text": "",
+											"button-icon": {
+												"icon-prefix": "ai",
+												"icon-class": "ai-favourite-inactive",
+												"icon-size": "ai-xs"
+											},
+											"column-icon": false
 										}
 									}
 								]
@@ -3587,9 +3717,9 @@
 				"button-colorClass": "",
 				"button-dot": false,
 				"button-text": "Anne Pettersen",
-				"button-textClass": "a-fontBold",
+				"button-textClass": "col-10 a-fontBold",
 				"button-text-second": {
-					"button-text-second": "Personnr. 123456 12345",
+					"button-text-second": "fødselsnr. 123456 *****",
 					"button-text-second-class": "a-fontReg a-fontSizeXS"
 				},
 				"button-icon": {
@@ -3599,6 +3729,17 @@
 				},
 				"link-url": "/patterns/04-sider-portal-50-innboks-00-innboks/04-sider-portal-50-innboks-00-innboks.html"
 			},
+			"button-favourite": {
+				"button-class": "a-btn a-btn-icon a-btn-overlay-right",
+				"button-dot": false,
+				"link-url": false,
+				"button-text": "",
+				"button-icon": {
+					"icon-prefix": "ai",
+					"icon-class": "ai-favourite",
+					"icon-size": "ai-xs"
+				}
+			},
 			"button-sub": false
 		},
 		{
@@ -3607,9 +3748,9 @@
 				"button-colorClass": "",
 				"button-dot": false,
 				"button-text": "Jan Derek Sørensen Julius Andreas Gimli Arn MacGyver Chewbacka Highlander Elessar-Jankov",
-				"button-textClass": "a-fontBold a-btn-icon-text-ellipsis",
+				"button-textClass": "col-10 a-fontBold a-btn-icon-text-ellipsis pr-2",
 				"button-text-second": {
-					"button-text-second": "Personnr. 123456 12344",
+					"button-text-second": "Fødselsnr. 123456 *****",
 					"button-text-second-class": "a-fontReg a-fontSizeXS"
 				},
 				"button-icon": {
@@ -3620,6 +3761,17 @@
 				"title": "Jan Derek Sørensen Julius Andreas Gimli Arn MacGyver Chewbacka Highlander Elessar-Jankov",
 				"link-url": "/patterns/04-sider-portal-50-innboks-00-innboks/04-sider-portal-50-innboks-00-innboks.html"
 			},
+			"button-favourite": {
+				"button-class": "a-btn a-btn-icon a-btn-overlay-right",
+				"button-dot": false,
+				"link-url": false,
+				"button-text": "",
+				"button-icon": {
+					"icon-prefix": "ai",
+					"icon-class": "ai-favourite",
+					"icon-size": "ai-xs"
+				}
+			},
 			"button-sub": false
 		},
 		{
@@ -3628,7 +3780,7 @@
 				"button-colorClass": "",
 				"button-dot": false,
 				"button-text": "Pettersen Tallknuser (slettet)",
-				"button-textClass": "a-fontBold",
+				"button-textClass": "col-10 a-fontBold",
 				"button-text-second": {
 					"button-text-second": "org.nr. 893 234 789",
 					"button-text-second-class": "a-fontReg a-fontSizeXS"
@@ -3640,6 +3792,17 @@
 				},
 				"link-url": "/patterns/04-sider-portal-50-innboks-00-innboks/04-sider-portal-50-innboks-00-innboks.html"
 			},
+			"button-favourite": {
+				"button-class": "a-btn a-btn-icon a-btn-overlay-right",
+				"button-dot": false,
+				"link-url": false,
+				"button-text": "",
+				"button-icon": {
+					"icon-prefix": "ai",
+					"icon-class": "ai-favourite-inactive",
+					"icon-size": "ai-xs"
+				}
+			},
 			"button-sub": false
 		},
 		{
@@ -3648,7 +3811,7 @@
 				"button-colorClass": "",
 				"button-dot": false,
 				"button-text": "Pettersen Bygg",
-				"button-textClass": "a-fontBold",
+				"button-textClass": "col-10 a-fontBold",
 				"button-text-second": {
 					"button-text-second": "org.nr. 893 234 789",
 					"button-text-second-class": "a-fontReg a-fontSizeXS"
@@ -3659,6 +3822,17 @@
 					"icon-extra-class": ""
 				},
 				"link-url": "/patterns/04-sider-portal-50-innboks-00-innboks/04-sider-portal-50-innboks-00-innboks.html"
+			},
+			"button-favourite": {
+				"button-class": "a-btn a-btn-icon a-btn-overlay-right",
+				"button-dot": false,
+				"link-url": false,
+				"button-text": "",
+				"button-icon": {
+					"icon-prefix": "ai",
+					"icon-class": "ai-favourite-inactive",
+					"icon-size": "ai-xs"
+				}
 			},
 			"button-sub": false
 		}
@@ -3671,18 +3845,21 @@
 		"icon-extra-class": "",
 		"onclick": "location.href='/patterns/04-sider-portal-01-aktorvalg-10-aktorvalg/04-sider-portal-01-aktorvalg-10-aktorvalg.html'"
 	},
+	"show-personswitch-options": false,
 	"personswitch-options": {
 		"isDiscreet": "a-form-checkboxes--discret",
 		"isCenter": "d-flex justify-content-center",
 		"check-legend": false,
 		"checkboxes": [
 			{
+				"extra-class": "a-form-checkboxes",
 				"isInline": true,
 				"isChecked": false,
 				"checkboxID": "check21",
 				"checkboxes-title": "Se alle underenheter"
 			},
 			{
+				"extra-class": "a-form-checkboxes",
 				"isInline": true,
 				"isChecked": false,
 				"checkboxID": "check22",
@@ -3691,9 +3868,121 @@
 		]
 	},
 	"personswitch-footer": {},
+	"additional-classes": "a-list-borderTop a-list-noIcon",
+	"favourite-actors": {
+		"additional-classes": "a-list-borderTop a-list-noIcon",
+		"rows": [
+			{
+				"additional-classes": "a-dotted a-clickable a-list-hasRowLink",
+				"isRowLink": {
+					"rowLink": "#"
+				},
+				"columns": [
+					{
+						"additional-classes": "col-12",
+						"column-items": [
+							{
+								"column-text": {
+									"text": "Anne Pettersen",
+									"classes": "a-fontBold a-break-name-orgnr col-11",
+									"text-extra": {
+										"text-extra": "fødselsnr. 123456 *****",
+										"classes": "a-fontSizeXXS"
+									}
+								}
+							}
+						]
+					},
+					{
+						"additional-classes": "text-right a-favourite",
+						"column-items": [
+							{
+								"column-button": {
+									"button-class": "a-btn a-btn-icon a-btn-overlay-right",
+									"button-dot": false,
+									"link-url": false,
+									"button-text": "",
+									"button-icon": {
+										"icon-prefix": "ai",
+										"icon-class": "ai-favourite",
+										"icon-size": "ai-xs"
+									},
+									"column-icon": false
+								}
+							}
+						]
+					}
+				]
+			},
+			{
+				"additional-classes": "a-dotted a-clickable a-list-hasRowLink",
+				"isRowLink": {
+					"rowLink": "#"
+				},
+				"columns": [
+					{
+						"additional-classes": "col-12",
+						"column-items": [
+							{
+								"column-text": {
+									"text": "Pettersen Regnskap - Stavanger AS",
+									"classes": "a-fontBold a-break-name-orgnr col-11",
+									"text-extra": {
+										"text-extra": "org.nr. 908 987 519",
+										"classes": "a-fontSizeXXS"
+									}
+								}
+							}
+						]
+					},
+					{
+						"additional-classes": "text-right a-favourite",
+						"column-items": [
+							{
+								"column-button": {
+									"button-class": "a-btn a-btn-icon a-btn-overlay-right",
+									"button-dot": false,
+									"link-url": false,
+									"button-text": "",
+									"button-icon": {
+										"icon-prefix": "ai",
+										"icon-class": "ai-favourite",
+										"icon-size": "ai-xs"
+									},
+									"column-icon": false
+								}
+							}
+						]
+					}
+				]
+			}
+		]
+	},
+	"favourite-actors-empty": {
+		"additional-classes": "a-list-borderTop a-list-noIcon",
+		"rows": [
+			{
+				"additional-classes": "a-list-rowLink a-list-rowLink-inactive",
+				"columns": [
+					{
+						"additional-classes": "col-12 text-center",
+						"column-items": [
+							{
+								"column-text": {
+									"text": "Din favorittliste er tom. Klikk på stjernesymbolet for å legge til en aktør i listen.",
+									"classes": "a-fontSizeXXS"
+								}
+							}
+						]
+					}
+				]
+			}
+		]
+	},
 	"myself-name": "JAN PETTERSEN",
 	"myself-represent-number": "9",
 	"myself-personal-number": "Personnr. 123456 12345",
+	"show-favourites": true,
 	"dropdown-class": "a-dropdown-languages",
 	"personswitch-current": {
 		"myself-name": "Jan Derek Sørensen Julius Andreas Gimli Arn MacGyver Chewbacka Highlander Elessar-Jankov",
@@ -3770,6 +4059,7 @@
 	"show-others-with-rights-content": false,
 	"show-receipt-content": false,
 	"show-consent-details": false,
+	"show-be-om-tilgang": false,
 	"show-forward-email": false,
 	"show-actor-list-with-search": false,
 	"show-forward-message": false,

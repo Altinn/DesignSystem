@@ -6,7 +6,7 @@
 
     {{> atomer-link(link-class: "a-link-logout", link-text: "Logg ut", link-url: "/patterns/04-sider-infoportal-01-forside-00-forside/04-sider-infoportal-01-forside-00-forside.html") }} {{# personswitch-current }}
     <div class="row">
-      <div class="col-sm-12 mb-2">
+      <div class="col-sm-12 px-0 mb-2">
         {{> molekyler-person-privat }}
       </div>
     </div>
@@ -18,7 +18,13 @@
     <p class="a-fontBold a-fontSizeXS">
       {{ no-results-text }}
       <p>
-        {{/ no-results-text }} {{/ personswitch-search }} {{# personswitch-button }} {{> atomer-knapp }} {{/ personswitch-button }}
+        {{/ no-results-text }} {{/ personswitch-search }} {{# show-favourites }}
+        <div class="row mt-1 px-md-2 px-sm-1">
+          <div class="col-md col-12 mb-md-4 mb-1">
+            {{> organismer-favoritter}}
+          </div>
+        </div>
+        {{/ show-favourites }} {{# personswitch-button }} {{> atomer-knapp }} {{/ personswitch-button }}
 
   </div>
 

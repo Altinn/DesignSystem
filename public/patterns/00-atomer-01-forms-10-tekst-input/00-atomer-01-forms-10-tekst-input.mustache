@@ -6,7 +6,7 @@
   <div class="form-group a-form-group {{# isLarge }} a-form-group-large {{/ isLarge }} {{# isDark }} a-form-group-darkBackground {{/ isDark }} {{styleModifier}}">
 
     {{# top-label }}
-    <label class="a-form-label {{# isHidden }} sr-only {{/ isHidden}} {{# isInactive }} inactive {{/ isInactive }}" for="{{ text-input-id }}">{{ top-label }}</label> {{/ top-label }}
+    <label class="a-form-label {{# isHidden }} sr-only {{/ isHidden}} {{# isInactive }} inactive {{/ isInactive }}" for="{{ text-input-id }}">{{{ top-label }}}</label> {{/ top-label }}
 
     <div class="a-form-group-items input-group  {{# isDisabled }} disabled {{/ isDisabled }} {{# isInactive }} inactive {{/ isInactive }}">
       {{# form-label-hasIcon }}
@@ -44,12 +44,17 @@
             </span>
           </button>
       </div>
-      {{/ form-input-isPassword }} {{# postal-code }}
+      {{# password-strength-meter }}
+      <div class="an-passwordStrengthMeter mt-2">
+        <meter id="meter-{{ text-input-id }}" min="0" max="10" low="4" high="8" optimum="10" value="7">medium</meter>
+        <label for="meter-{{ text-input-id }}">medium</label>
+      </div>
+      {{/password-strength-meter}} {{/ form-input-isPassword }} {{# postal-code }}
       <span class="a-input-placecode a-js-place" style="display:none;"></span> {{/ postal-code }}
 
     </div>
     {{# autocomplete }}
-    <div class="a-autocomplete-container d-none d-sm-block">
+    <div class="a-autocomplete-container d-none d-block">
     </div>
     {{/ autocomplete}} {{# extra-help }}
     <small id="help" class="form-text a-validatorInfo">
@@ -58,6 +63,7 @@
       </small> {{/ extra-help }} {{# error-message-popover }}
     <div class="a-message a-message-error" data-valmsg-for="{{ input-name }}" data-valmsg-replace="true"></div>
     {{/ error-message-popover }}
+
   </div>
   {{# print-form-tag }}
 </form>

@@ -314,9 +314,9 @@ var popoverGlobalInit = function() {
     if ($('.popover-big').length > 0) {
       if ($('.modal.show').length > 0) {
         // Add padding to make sure modal is big enough to contain popover
-        modalHeight = $('.modal-dialog').height() + $('.modalPage').height();
+        modalHeight = $('.modal-dialog').height() + $('.modalPage:visible').height();
         padding = ($('.popover').offset().top + $('.modal').scrollTop() + $('.popover').height() + 5) - modalHeight;
-        $('.modalPage').css('padding-bottom', padding + 'px');
+        $('.modalPage:visible').css('padding-bottom', padding + 'px');
         // tranlate is somehow added by Bootstrap later when in modal??
         setTimeout(resetTranslate, 0);
       } else {
@@ -408,6 +408,7 @@ AltinnModal = {
       // }
 
       $(settings.target + ' .a-modal-content-target').append(page);
+      $(settings.target).trigger('loaded.altinn.modal');
       $(settings.target).find('.a-current-page').first().data().enableDirtyPopover = settings.enableDirtyPopover;
 
       // Initialize with backdrop: static to prevent modal from closing when clicking outside,
@@ -485,6 +486,7 @@ AltinnModal = {
     // }
 
     $(settings.target + ' .a-modal-content-target').append(newPage);
+    $(settings.target).trigger('loaded.altinn.modal');
 
     $(settings.target).animate({
       scrollTop: 0
@@ -571,6 +573,7 @@ AltinnModal = {
       // }
 
       $(settings.target + ' .a-modal-content-target').append(newPage);
+      $(settings.target).trigger('loaded.altinn.modal');
 
       $(settings.target).animate({
         scrollTop: 0
@@ -953,12 +956,64 @@ var newsArchive = function() {
   }
 };
 
+var wasDark = $('header').hasClass('a-darkBackground');
+var action = function(e) {
+  if ($(e.target).closest('.a-globalNav-main').length === 0 &&
+  $(e.target).closest('.navbar-toggler').length === 0) {
+    if ($('.a-globalNav-main').is(':visible')) {
+      $('.navbar-toggler').attr('data-jsexpanded', 'false');
+      $('.a-globalNav-main').hide();
+      $('body').css('background-color', '');
+      if (wasDark) {
+        $('header').addClass('a-darkBackground');
+        $('.a-globalNav-logo').find('img')
+        .attr('src', $('.a-globalNav-logo').find('img').attr('src').replace('blue', 'white'));
+      }
+      $('.a-page').children(':not(header)').removeClass('a-js-hidden');
+    }
+  } else if ($(e.target).closest('.navbar-toggler').length > 0) {
+    if ($('.a-globalNav-main').is(':visible')) {
+      $('.navbar-toggler').attr('data-jsexpanded', 'false');
+      $('.a-globalNav-main').hide();
+      $('body').css('background-color', '');
+      if (wasDark) {
+        $('header').addClass('a-darkBackground');
+        $('.a-globalNav-logo').find('img')
+        .attr('src', $('.a-globalNav-logo').find('img').attr('src').replace('blue', 'white'));
+      }
+      $('.a-page').children(':not(header)').removeClass('a-js-hidden');
+    } else {
+      $('.navbar-toggler').attr('data-jsexpanded', 'true');
+      $('.a-globalNav-main').show();
+      $('body').css('background-color', '#fff');
+      if (wasDark) {
+        $('header').removeClass('a-darkBackground');
+        $('.a-globalNav-logo').find('img')
+        .attr('src', $('.a-globalNav-logo').find('img').attr('src').replace('white', 'blue'));
+      }
+      $('.a-page').children(':not(header)').addClass('a-js-hidden');
+    }
+  }
+};
+function menuHandler() {
+  // enable tabbing and mouse click on mobile menu btn
+  if ($('body').width() < 768) {
+    $('body').on('click', action);
+  }
+}
+menuHandler();
+$(window).on('resize', function() {
+  $('body').off('click', action);
+  menuHandler();
+});
+
 /* globals mobileNavigation */
 $('.an-dropdown-navigationMenu').on('click', 'button[data-toggle="collapse"]', function(event) {
   event.preventDefault();
   event.stopPropagation();
-  $($(this).data('target')).collapse('toggle');
+  $($(this).data('target')).collapse('espen');
 });
+/* globals mobileNavigation */
 
 /* globals $ */
 var subscribe = function() {
