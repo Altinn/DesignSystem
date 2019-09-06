@@ -1,20 +1,21 @@
 <!-- START: 02-organismer-30-seksjoner-78-dashboard-service-edition -->
-
-
 <a href="#" data-toggle="collapse" data-target="#{{ editionTitleID }}" class="an-serviceEdition a-fontSizeXXS pl-md-2 pr-md-4 {{#collapsed}}collapsed{{/collapsed}}">
-  <div class="flex-grow-1">
-    <span class="a-dropdownArrow mt-0 mb-0"></span> {{ editionTitle }}
+  <div class="d-flex flex-grow-1">
+    <span class="a-dropdownArrow mt-0 align-self-center mb-0"></span> {{ editionTitle }}
   </div>
 </a>
-<div class="collapse {{#show}}show{{/show}}" id="{{ editionTitleID }}">
+<div class="collapse a-bgWhite {{#show}}show{{/show}}" id="{{ editionTitleID }}">
 
   {{#editionList}}
-  <a href="#" class="an-serviceEdition a-fontSizeXXS pl-md-4 pr-md-4">
+  <a href="#" data-toggle="collapse" data-target="#{{ thiseditionTitleID }}" class="an-serviceEdition a-fontSizeXXS pl-md-4 pr-md-4 {{#collapsed}}collapsed{{/collapsed}}">
     <div class="flex-grow-1">
       {{ thiseditionTitle }}
     </div>
-    {{ thiseditionCode }}
+    {{# thiseditionCode }} {{ thiseditionCode }} {{/ thiseditionCode }}
   </a>
+  <div class="a-msg-body an-serviceedition-body px-4 pb-3 collapse {{#show}}show{{/show}}" id="{{ thiseditionTitleID }}">
+    {{# thiseditionContent }} {{> organismer-innboks-panel-innhold }} {{/ thiseditionContent }}
+  </div>
   {{/editionList}}
 
 </div>
