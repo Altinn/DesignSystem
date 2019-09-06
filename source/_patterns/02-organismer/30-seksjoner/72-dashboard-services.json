@@ -1,7 +1,7 @@
 {
 
   "dashboard-servicesTitle": {
-    "section-title": "Siste 5 tjenester i produksjon"
+    "section-title": "Siste tjenester i produksjon"
   },
   "dashboard-servicesSwitch": {
     "switch-radio-btn-name": "switchServiceType",
@@ -25,13 +25,74 @@
     "icon-extra-class": "a-blue mr-1",
     "button-class": "a-btn a-btn-action a-fullWidthBtn a-btnBigger",
     "textstyling-button": "a-fontSizeXS",
-    "action-button-text": "Produksjonsett TUL-tjeneste",
+    "action-button-text": "Legg til TUL-tjeneste",
     "data-toggle": "altinn-modal",
     "data-action": "load",
     "data-url": {
       "data-url": "../../patterns/02-organismer-80-Modal-js-innhold-16-dashboard-produksjonssettTjeneste/02-organismer-80-Modal-js-innhold-16-dashboard-produksjonssettTjeneste.markup-only.html"
     },
     "data-target": "modal"
+  },
+  "addServiceModal": {
+    "modal-isSingel" : true,
+    "show-login": false,
+    "display-as-dropdown": false,
+    "logo": {
+      "logo": "../../images/a-logo-black.svg"
+    },
+    "headerlogoText" : {
+      "headerlogoText": "/patentstyret"
+    },
+    "logo-class": "a-modal-top-logo",
+    "login-show": {
+      "login-name": "Knut Johannesen",
+      "login-represent": "for Patentstyret",
+      "login-icon": {
+        "icon-prefix": "ai",
+        "icon-class": "ai-private-circle-big",
+        "icon-extra-class": "a-personSwitcher-icon"
+      }
+    },
+    "icon": "group_add",
+    "hasTextSmall": false,
+    "modal-navbar-override": {
+      "button-list": [
+        {
+          "button-class": "a-modal-back",
+          "aria-label":  "Tilbake",
+          "icon-prefix": "ai",
+          "icon-class": "ai-back",
+          "icon-extra-class": "",
+          "enable-popover": false,
+          "display-as-link": false,
+          "stacked-background": {
+            "icon-prefix": "ai",
+            "icon-class": "ai-plain-circle-big"
+          },
+          "is-modal-back": {
+            "data-target": "#modal"
+          },
+          "onclick": "goBack()"
+        },
+        {
+          "button-class": "a-modal-close",
+          "aria-label":  "Lukk",
+          "icon-prefix": "ai",
+          "icon-class": "ai-exit",
+          "icon-extra-class": "a-modal-close-icon",
+          "enable-popover": false,
+          "display-as-link": false,
+          "stacked-background": {
+            "icon-prefix": "ai",
+            "icon-class": "ai-plain-circle-big"
+          },
+          "is-modal-close": {
+            "data-target": "#modal"
+          },
+          "onclick": "goBack()"
+        }
+      ]
+    }
   },
   "dashboard-services" : {
     "accordion-large-id": false,
@@ -65,10 +126,11 @@
           "extra-class": false,
           "text-paragraph": {
             "text-paragraph-class": "d-inline",
-            "message-text": "Produksjonsdato for tjeneste: 23.11.2017<br>Se skjemaet på <a href=\"https://altinn.no/skjemaoversikt/patentstyret/korrespondanse-til-patentstyret/\">altinn.no</a>"
+            "message-text": "Produksjonsdato 23.11.2017<br>Tjenestetype: Innsendingstjeneste<br>Se tjenesten på <a href=\"https://altinn.no/skjemaoversikt/patentstyret/korrespondanse-til-patentstyret/\">altinn.no</a>"
           },
           "text-link": false
         },
+        "message-list-block": false,
         "archive-reference": false,
         "extraPanelBodyClass": "a-msg-body",
         "messageBody": {
@@ -76,7 +138,30 @@
           "attachments": false,
           "info-notice": false,
           "expandable-content": false,
-          "actions-row": false
+          "actions-row": {
+            "button-icons-wrapper-class": "col-lg-auto col-12",
+            "button-wrapper-class": "col",
+            "action-button": false,
+            "action-button-icon": [
+              {
+                "button-text": "Rediger tjenesten",
+                "button-class": "a-btn-link a-btn-md-block",
+                "button-colorClass": "",
+                "link-url": "",
+                "button-shadow-label": false,
+                "button-icon": {
+                  "icon-prefix": "reg",
+                  "icon-class": "reg-edit ai-sm"
+                },
+                "data-toggle": "altinn-modal",
+                "data-action": "load",
+                "data-url": {
+                  "data-url": "../../patterns/02-organismer-80-Modal-js-innhold-20-dashboard-redigerTjeneste/02-organismer-80-Modal-js-innhold-20-dashboard-redigerTjeneste.markup-only.html"
+                },
+                "data-target": "modal"
+              }
+            ]
+          }
         },
         "dashboard-services-edition" : [
           {
@@ -84,12 +169,304 @@
             "editionTitleID" : "edition1a",
             "editionList": [
               {
-                "thiseditionTitle": "Forms for communicating with NIPO",
-                "thiseditionCode": "EDITION CODE: 4815"
+                "thiseditionTitle": "Korrespondanse til Patentstyret - 1. utgave",
+                "thiseditionCode": false,
+                "thiseditionTitleID": "thisedition1",
+                "thiseditionContent": {
+                  "message-info": false,
+                  "activitylog": false,
+                  "attachments": false,
+                  "info-notice": false,
+                  "expandable-content": false,
+                  "actions-row": {
+                    "button-icons-wrapper-class": "col-lg-auto col-12",
+                    "button-wrapper-class": "col",
+                    "action-button": false,
+                    "action-button-icon": [
+                      {
+                        "button-text": "Rediger utgaven",
+                        "button-class": "a-btn-link a-btn-md-block",
+                        "button-colorClass": "",
+                        "link-url": "",
+                        "button-shadow-label": false,
+                        "button-icon": {
+                          "icon-prefix": "reg",
+                          "icon-class": "reg-edit ai-sm"
+                        },
+                        "data-toggle": "altinn-modal",
+                        "data-action": "load",
+                        "data-url": {
+                          "data-url": "../../patterns/02-organismer-80-Modal-js-innhold-21-dashboard-redigerUtgave/02-organismer-80-Modal-js-innhold-21-dashboard-redigerUtgave.markup-only.html"
+                        },
+                        "data-target": "modal"
+                      }
+                    ]
+                  },
+                  "message-text-block": false,
+                  "message-list-block": {
+                    "extra-class" : "mb-3",
+                    "rows": [
+                      {
+                        "additional-classes": "",
+                        "columns": [
+                          {
+                            "additional-classes": "col-8",
+                            "column-items": [
+                              {
+                                "column-text": {
+                                  "classes": "a-fontSizeXXS",
+                                  "text": "EDITION CODE"
+                                }
+                              }
+                            ]
+                          },
+                          {
+                            "additional-classes": "col-4",
+                            "column-items": [
+                              {
+                                "column-text": {
+                                  "classes": "a-fontSizeXXS",
+                                  "text": "3987-1"
+                                }
+                              }
+                            ]
+                          }
+                        ]
+                      },
+                      {
+                        "additional-classes": "",
+                        "columns": [
+                          {
+                            "additional-classes": "col-8",
+                            "column-items": [
+                              {
+                                "column-text": {
+                                  "classes": "a-fontSizeXXS",
+                                  "text": "Produksjonsdato"
+                                }
+                              }
+                            ]
+                          },
+                          {
+                            "additional-classes": "col-4",
+                            "column-items": [
+                              {
+                                "column-text": {
+                                  "classes": "a-fontSizeXXS",
+                                  "text": "13.05.2017"
+                                }
+                              }
+                            ]
+                          }
+                        ]
+                      },
+                      {
+                        "additional-classes": "",
+                        "columns": [
+                          {
+                            "additional-classes": "col-8",
+                            "onclick": false,
+                            "column-items": [
+                              {
+                                "column-text": {
+                                  "classes": "a-fontSizeXXS",
+                                  "text": "Gyldig til"
+                                }
+                              }
+                            ]
+                          },
+                          {
+                            "additional-classes": "col-4",
+                            "column-items": [
+                              {
+                                "column-text": {
+                                  "classes": "a-fontSizeXXS",
+                                  "text": "12.31.2099"
+                                }
+                              }
+                            ]
+                          }
+                        ]
+                      },
+                      {
+                        "additional-classes": "",
+                        "columns": [
+                          {
+                            "additional-classes": "col-8",
+                            "onclick": false,
+                            "column-items": [
+                              {
+                                "column-text": {
+                                  "classes": "a-fontSizeXXS",
+                                  "text": "Sikkerhetsnivå"
+                                }
+                              }
+                            ]
+                          },
+                          {
+                            "additional-classes": "col-4",
+                            "column-items": [
+                              {
+                                "column-text": {
+                                  "classes": "a-fontSizeXXS",
+                                  "text": "2"
+                                }
+                              }
+                            ]
+                          }
+                        ]
+                      },
+                      
+                      {
+                        "additional-classes": "",
+                        "columns": [
+                          {
+                            "additional-classes": "col-8",
+                            "onclick": false,
+                            "column-items": [
+                              {
+                                "column-text": {
+                                  "classes": "a-fontSizeXXS",
+                                  "text": "-"
+                                }
+                              }
+                            ]
+                          },
+                          {
+                            "additional-classes": "col-4",
+                            "column-items": [
+                              {
+                                "column-text": {
+                                  "classes": "a-fontSizeXXS",
+                                  "text": "-"
+                                }
+                              }
+                            ]
+                          }
+                        ]
+                      },
+                      {
+                        "additional-classes": "",
+                        "columns": [
+                          {
+                            "additional-classes": "col-8",
+                            "onclick": false,
+                            "column-items": [
+                              {
+                                "column-text": {
+                                  "classes": "a-fontSizeXXS",
+                                  "text": "-"
+                                }
+                              }
+                            ]
+                          },
+                          {
+                            "additional-classes": "col-4",
+                            "column-items": [
+                              {
+                                "column-text": {
+                                  "classes": "a-fontSizeXXS",
+                                  "text": "-"
+                                }
+                              }
+                            ]
+                          }
+                        ]
+                      }
+
+                    ]
+                  }
+                }
               },
               {
-                "thiseditionTitle": "En annen utgave",
-                "thiseditionCode": "EDITION CODE: 4816"
+                "thiseditionTitle": "Korrespondanse til Patentstyret - 2. utgave",
+                "thiseditionCode": false,
+                "thiseditionTitleID": "thisedition2",
+                "thiseditionContent": {
+                  "message-info": false,
+                  "activitylog": false,
+                  "attachments": false,
+                  "info-notice": false,
+                  "expandable-content": false,
+                  "actions-row": {
+                    "button-icons-wrapper-class": "col-lg-auto col-12",
+                    "button-wrapper-class": "col",
+                    "action-button": false,
+                    "action-button-icon": [
+                      {
+                        "button-text": "Rediger utgaven",
+                        "button-class": "a-btn-link a-btn-md-block",
+                        "button-colorClass": "",
+                        "link-url": "",
+                        "button-shadow-label": false,
+                        "button-icon": {
+                          "icon-prefix": "reg",
+                          "icon-class": "reg-edit ai-sm"
+                        }
+                      }
+                    ]
+                  },
+                  "message-text-block": false,
+                  "message-list-block": {
+                    "extra-class" : "mb-3",
+                    "rows": [
+                      {
+                        "additional-classes": "",
+                        "columns": [
+                          {
+                            "additional-classes": "col-8",
+                            "column-items": [
+                              {
+                                "column-text": {
+                                  "classes": "a-fontSizeXXS",
+                                  "text": "Eksempeldata"
+                                }
+                              }
+                            ]
+                          },
+                          {
+                            "additional-classes": "col-4",
+                            "column-items": [
+                              {
+                                "column-text": {
+                                  "classes": "a-fontSizeXXS",
+                                  "text": "Eksempeldata"
+                                }
+                              }
+                            ]
+                          }
+                        ]
+                      },
+                      {
+                        "additional-classes": "",
+                        "columns": [
+                          {
+                            "additional-classes": "col-8",
+                            "column-items": [
+                              {
+                                "column-text": {
+                                  "classes": "a-fontSizeXXS",
+                                  "text": "Eksempeldata"
+                                }
+                              }
+                            ]
+                          },
+                          {
+                            "additional-classes": "col-4",
+                            "column-items": [
+                              {
+                                "column-text": {
+                                  "classes": "a-fontSizeXXS",
+                                  "text": "Eksempeldata"
+                                }
+                              }
+                            ]
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                }
               }
             ]
           }
@@ -110,7 +487,7 @@
             "hasClassW100" : true,
             "textSmallTwoColumns": {
               "textSmall-left": "Sist endret av Dag Dale 22.02.2019",
-              "textSmall-right": "SERVICE CODE: 3987"
+              "textSmall-right": "SERVICE CODE: 5531"
             },
             "textMain": "Ny søknad om patent",
             "textDescription": ""
@@ -124,7 +501,7 @@
           "extra-class": false,
           "text-paragraph": {
             "text-paragraph-class": "d-inline",
-            "message-text": "Produksjonsdato for tjeneste: 23.11.2017"
+            "message-text": "Produksjonsdato 23.11.2017<br>Tjenestetype: Innsendingstjeneste<br>Se tjenesten på <a href=\"https://altinn.no/skjemaoversikt/patentstyret/korrespondanse-til-patentstyret/\">altinn.no</a>"
           },
           "text-link": false
         },
@@ -135,7 +512,24 @@
           "attachments": false,
           "info-notice": false,
           "expandable-content": false,
-          "actions-row": false
+          "actions-row": {
+            "button-icons-wrapper-class": "col-lg-auto col-12",
+            "button-wrapper-class": "col",
+            "action-button": false,
+            "action-button-icon": [
+              {
+                "button-text": "Rediger tjenesten",
+                "button-class": "a-btn-link a-btn-md-block",
+                "button-colorClass": "",
+                "link-url": "",
+                "button-shadow-label": false,
+                "button-icon": {
+                  "icon-prefix": "reg",
+                  "icon-class": "reg-edit ai-sm"
+                }
+              }
+            ]
+          }
         },
         "dashboard-services-edition" : [
           {
@@ -143,8 +537,94 @@
             "editionTitleID" : "edition2a",
             "editionList": [
               {
-                "thiseditionTitle": "Forms for communicating with NIPO",
-                "thiseditionCode": "EDITION CODE: 4815"
+                "thiseditionTitle": "Ny søknad om patent - 1.utgave",
+                "thiseditionCode": false,
+                "thiseditionTitleID": "thisedition2a1",
+                "thiseditionContent": {
+                  "message-info": false,
+                  "activitylog": false,
+                  "attachments": false,
+                  "info-notice": false,
+                  "expandable-content": false,
+                  "actions-row": {
+                    "button-icons-wrapper-class": "col-lg-auto col-12",
+                    "button-wrapper-class": "col",
+                    "action-button": false,
+                    "action-button-icon": [
+                      {
+                        "button-text": "Rediger utgaven",
+                        "button-class": "a-btn-link a-btn-md-block",
+                        "button-colorClass": "",
+                        "link-url": "",
+                        "button-shadow-label": false,
+                        "button-icon": {
+                          "icon-prefix": "reg",
+                          "icon-class": "reg-edit ai-sm"
+                        }
+                      }
+                    ]
+                  },
+                  "message-text-block": false,
+                  "message-list-block": {
+                    "extra-class" : "mb-3",
+                    "rows": [
+                      {
+                        "additional-classes": "",
+                        "columns": [
+                          {
+                            "additional-classes": "col-8",
+                            "column-items": [
+                              {
+                                "column-text": {
+                                  "classes": "a-fontSizeXXS",
+                                  "text": "Eksempeldata"
+                                }
+                              }
+                            ]
+                          },
+                          {
+                            "additional-classes": "col-4",
+                            "column-items": [
+                              {
+                                "column-text": {
+                                  "classes": "a-fontSizeXXS",
+                                  "text": "Eksempeldata"
+                                }
+                              }
+                            ]
+                          }
+                        ]
+                      },
+                      {
+                        "additional-classes": "",
+                        "columns": [
+                          {
+                            "additional-classes": "col-8",
+                            "column-items": [
+                              {
+                                "column-text": {
+                                  "classes": "a-fontSizeXXS",
+                                  "text": "Eksempeldata"
+                                }
+                              }
+                            ]
+                          },
+                          {
+                            "additional-classes": "col-4",
+                            "column-items": [
+                              {
+                                "column-text": {
+                                  "classes": "a-fontSizeXXS",
+                                  "text": "Eksempeldata"
+                                }
+                              }
+                            ]
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                }
               }
             ]
           }
@@ -152,9 +632,71 @@
       }
     ]
   },
+  "editServiceModal": {
+    "modal-isSingel" : true,
+    "show-login": false,
+    "display-as-dropdown": false,
+    "logo": {
+      "logo": "../../images/a-logo-black.svg"
+    },
+    "headerlogoText" : {
+      "headerlogoText": "/patentstyret"
+    },
+    "logo-class": "a-modal-top-logo",
+    "login-show": {
+      "login-name": "Knut Johannesen",
+      "login-represent": "for Patentstyret",
+      "login-icon": {
+        "icon-prefix": "ai",
+        "icon-class": "ai-private-circle-big",
+        "icon-extra-class": "a-personSwitcher-icon"
+      }
+    },
+    "icon": "group_add",
+    "hasTextSmall": false,
+    "modal-navbar-override": {
+      "button-list": [
+        {
+          "button-class": "a-modal-back",
+          "aria-label":  "Tilbake",
+          "icon-prefix": "ai",
+          "icon-class": "ai-back",
+          "icon-extra-class": "",
+          "enable-popover": false,
+          "display-as-link": false,
+          "stacked-background": {
+            "icon-prefix": "ai",
+            "icon-class": "ai-plain-circle-big"
+          },
+          "is-modal-back": {
+            "data-target": "#modal"
+          },
+          "onclick": "goBack()"
+        },
+        {
+          "button-class": "a-modal-close",
+          "aria-label":  "Lukk",
+          "icon-prefix": "ai",
+          "icon-class": "ai-exit",
+          "icon-extra-class": "a-modal-close-icon",
+          "enable-popover": false,
+          "display-as-link": false,
+          "stacked-background": {
+            "icon-prefix": "ai",
+            "icon-class": "ai-plain-circle-big"
+          },
+          "is-modal-close": {
+            "data-target": "#modal"
+          },
+          "onclick": "goBack()"
+        }
+      ]
+    }
+  },
   "dashboard-viewMoreServices": {
     "link-text": "Se alle TUL-tjenester",
     "link-class": "a-linkFeatured",
+    "link-url": "link.sider-altinnett-dashboard-tjenesteeier-tjenester",
     "link-icon": {
       "icon-prefix": "ai ai-sm ai-nw ai-nw-right",
       "icon-class": "ai-arrowright"
