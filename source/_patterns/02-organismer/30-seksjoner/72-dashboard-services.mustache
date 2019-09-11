@@ -1,39 +1,44 @@
 <section class="an-dashboard-services mb-4">
 
-    <div class="row">
-      <div class="col-sm-12">
-        {{# dashboard-servicesTitle }}
-          {{> atomer-seksjonstittel:a-fontMedium }}
-        {{/ dashboard-servicesTitle }}
-      </div>
-    </div>
+  <div class="row">
+    <div class="col-sm-12">
+      {{# dashboard-servicesTitle }}
+      {{> atomer-seksjonstittel:a-fontMedium }}
+      {{/ dashboard-servicesTitle }}
 
-    {{# dashboard-addService }}
+      {{# dashboard-addService }}
       {{> atomer-handlingsknapp }}
-    {{/ dashboard-addService }}
+      {{/ dashboard-addService }}
 
-    {{# addServiceModal }}
+      {{# addServiceModal }}
       {{> organismer-modal }}
-    {{/ addServiceModal }}
+      {{/ addServiceModal }}
 
-
-    {{# dashboard-services }}
-      <div class="row">
-        <div class="col-sm-12 col-lg-12">
-          <div {{# accordion-large-id }}id="{{ accordion-large-id }}"{{/ accordion-large-id }} class="a-panelAccordion" role="tablist">
-            {{# accordion-large-items }}
-              {{> organismer-ekspanderbart-panel }}
-            {{/ accordion-large-items }}
-          </div>
-        </div>
-      </div>
-    {{/ dashboard-services }}
-
-    <div class="mt-1">
-      {{#dashboard-viewMoreServices}}
-      {{> atomer-link }}
-      {{/dashboard-viewMoreServices}}
     </div>
+  </div>
 
+  {{# dashboard-services }}
+  <div class="row">
+    <div class="col-sm-12 col-lg-12">
+      <div {{# accordion-large-id }}id="{{ accordion-large-id }}" {{/ accordion-large-id }} class="a-panelAccordion"
+        role="tablist">
+        {{# accordion-large-items }}
+        {{> organismer-ekspanderbart-panel }}
+        {{/ accordion-large-items }}
+      </div>
+    </div>
+  </div>
+  {{/ dashboard-services }}
+
+  <div class="row">
+    <div class="col-sm-12">
+
+      <div class="mt-1">
+        {{#dashboard-viewMoreServices}}
+        {{> atomer-link }}
+        {{/dashboard-viewMoreServices}}
+      </div>
+
+    </div>
+  </div>
 </section>
-

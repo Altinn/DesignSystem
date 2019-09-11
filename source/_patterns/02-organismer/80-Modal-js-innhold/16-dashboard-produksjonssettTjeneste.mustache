@@ -3,17 +3,13 @@
         <div class="a-iconText a-iconText-background a-iconText-large">
             <h1 class="a-iconText-text mb-0 ml-2">
                 <span class="a-iconText-text-small"></span>
-                <span class="a-iconText-text-large">Legg til TUL-tjeneste</span>
+                <span class="a-iconText-text-large">Bestill produksjonssetting av TUL-tjeneste</span>
             </h1>
         </div>
     </div>
     <div class="modal-body a-modal-body">
-      {{# alert }}
-        {{> atomer-varsel }}
-      {{/ alert }}
 
       {{# form }}
-        <h3 class="a-h3 mt-3">Om tjenesten</h3>
         <form data-toggle="validator" id="contactForm">
           <div class="row">
             <div class="col-12">
@@ -22,51 +18,77 @@
                 {{> atomer-tekst-input:mb-2 }}
               {{/ navn}}
 
-              <div class="row">
-                <div class="col-12 col-md-6">
+            </div>
+          </div>
 
-                  {{# tjenestekode }}
-                    {{> atomer-tekst-input:mb-2 }}
-                  {{/ tjenestekode }}
+          <div class="row">
+            <div class="col-12 col-md-6">
 
-                </div>
-                <div class="col-12 col-md-6">
+              {{# tjenestekode }}
+                {{> atomer-tekst-input:mb-2 }}
+              {{/ tjenestekode }}
 
-                  {{# utgavekode }}
-                    {{> atomer-tekst-input:mb-2 }}
-                  {{/ utgavekode }}
+            </div>
+            <div class="col-12 col-md-6">
 
-                </div>
-              </div>
-
-              {{# tjenestetype }}
-                {{> atomer-radioknapp }}
-              {{/ tjenestetype }}
-
-              {{# tjenestestyring }}
-                {{> atomer-radioknapp }}
-              {{/ tjenestestyring }}
-
-              {{# frist }}
-                {{> atomer-datovelger }}
-              {{/ frist }}
-
-              <div class="row mt-4 d-flex align-items-baseline">
-                <div>
-                  {{# registrer }}
-                    {{> atomer-knapp }}
-                  {{/ registrer }}
-                </div>
-                <div class="ml-2">
-                  {{# avbryt }}
-                    {{> atomer-link }}
-                  {{/ avbryt }}
-                </div>
-              </div>
-              
+              {{# utgavekode }}
+                {{> atomer-tekst-input:mb-2 }}
+              {{/ utgavekode }}
 
             </div>
           </div>
+
+          <div class="row">
+            <div class="col-12">
+              {{# migreringspakke}}
+                {{> atomer-tekst-input:mb-2 }}
+              {{/ migreringspakke}}
+            </div>
+
+            <div class="col-12">
+              <div class="form-group a-form-group">
+                {{# dato-produksjon }}
+                  <label class="a-form-label" for="text-input-servicecode">
+                      Ønsket produksjonssetting:
+                  </label>
+                  {{> atomer-datovelger }}
+                {{/ dato-produksjon }}
+              </div>
+            </div>
+
+            <div class="col-12">
+              <div class="form-group a-form-group mb-1">
+                  {{# dato-publisering }}
+                  <label class="a-form-label" for="text-input-servicecode">
+                      Ønsket publisering:
+                  </label>
+                    {{> atomer-datovelger }}
+                  {{/ dato-publisering }}
+              </div>
+            </div>
+
+            <div class="col-12">
+              {{# kommentar }}
+                {{> atomer-tekstfelt:mb-2 }}
+              {{/ kommentar }}
+            </div>
+          </div>
+
+          <div class="row mt-4">
+            <div class="col-12 d-flex align-items-baseline">
+              <div>
+                {{# registrer }}
+                  {{> atomer-knapp }}
+                {{/ registrer }}
+              </div>
+              <div class="ml-2">
+                {{# avbryt }}
+                  {{> atomer-link }}
+                {{/ avbryt }}
+              </div>
+          </div>
+        </div>
+
         </form>
       {{/ form }} 
 </div>
