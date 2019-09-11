@@ -12,8 +12,8 @@
 	"icon-title": false,
 	"icon-sr-only-text": false,
 	"themeCss": "../../css/style.dist.altinnett.css",
-	"themeJs": "../../js/altinnettPrototyping.js",
-	"themeJsVendor": "../../js/altinnettPrototyping.vendor.js",
+	"themeJs": "./../../js/altinnPrototyping.js",
+	"themeJsVendor": "../../js/altinnPrototyping.vendor.js",
 	"button-class": "a-btn a-btn-icon a-btn-shadow",
 	"action-button-text": "En knapp for å legge til",
 	"link-text": "En lenke ser slik ut",
@@ -576,7 +576,7 @@
 	},
 	"editionList": {
 		"thiseditionTitle": "Forms for communicating with NIPO",
-		"thiseditionCode": "EDITION CODE: 4815",
+		"thiseditionCode": "Utgavekode: 4815",
 		"thiseditionTitleID": "thisedition1"
 	},
 	"prevmsgTitle": "Tidligere meldinger for saksnummer SD2441712",
@@ -797,7 +797,7 @@
 		"icon-extra-class": "a-blue mr-1",
 		"button-class": "a-btn a-btn-action a-fullWidthBtn a-btnBigger",
 		"textstyling-button": "a-fontSizeXS",
-		"action-button-text": "Legg til TUL-tjeneste",
+		"action-button-text": "Bestill ny produksjonssetting",
 		"data-toggle": "altinn-modal",
 		"data-action": "load",
 		"data-url": {
@@ -884,7 +884,7 @@
 						"hasClassW100": true,
 						"textSmallTwoColumns": {
 							"textSmall-left": "Sist endret av Dag Dale 22.02.2019",
-							"textSmall-right": "SERVICE CODE: 3987"
+							"textSmall-right": "Tjenestekode: 3987"
 						},
 						"textMain": "Korrespondanse til Patentstyret",
 						"textDescription": ""
@@ -987,7 +987,7 @@
 															{
 																"column-text": {
 																	"classes": "a-fontSizeXXS",
-																	"text": "EDITION CODE"
+																	"text": "Utgavekode"
 																}
 															}
 														]
@@ -1172,7 +1172,13 @@
 												"button-icon": {
 													"icon-prefix": "reg",
 													"icon-class": "reg-edit ai-sm"
-												}
+												},
+												"data-toggle": "altinn-modal",
+												"data-action": "load",
+												"data-url": {
+													"data-url": "../../patterns/02-organismer-80-Modal-js-innhold-21-dashboard-redigerUtgave/02-organismer-80-Modal-js-innhold-21-dashboard-redigerUtgave.markup-only.html"
+												},
+												"data-target": "modal"
 											}
 										]
 									},
@@ -1257,7 +1263,7 @@
 						"hasClassW100": true,
 						"textSmallTwoColumns": {
 							"textSmall-left": "Sist endret av Dag Dale 22.02.2019",
-							"textSmall-right": "SERVICE CODE: 5531"
+							"textSmall-right": "Tjenestekode: 5531"
 						},
 						"textMain": "Ny søknad om patent",
 						"textDescription": ""
@@ -1330,7 +1336,13 @@
 												"button-icon": {
 													"icon-prefix": "reg",
 													"icon-class": "reg-edit ai-sm"
-												}
+												},
+												"data-toggle": "altinn-modal",
+												"data-action": "load",
+												"data-url": {
+													"data-url": "../../patterns/02-organismer-80-Modal-js-innhold-21-dashboard-redigerUtgave/02-organismer-80-Modal-js-innhold-21-dashboard-redigerUtgave.markup-only.html"
+												},
+												"data-target": "modal"
 											}
 										]
 									},
@@ -1401,67 +1413,6 @@
 				]
 			}
 		]
-	},
-	"editServiceModal": {
-		"modal-isSingel": true,
-		"show-login": false,
-		"display-as-dropdown": false,
-		"logo": {
-			"logo": "../../images/a-logo-black.svg"
-		},
-		"headerlogoText": {
-			"headerlogoText": "/patentstyret"
-		},
-		"logo-class": "a-modal-top-logo",
-		"login-show": {
-			"login-name": "Knut Johannesen",
-			"login-represent": "for Patentstyret",
-			"login-icon": {
-				"icon-prefix": "ai",
-				"icon-class": "ai-private-circle-big",
-				"icon-extra-class": "a-personSwitcher-icon"
-			}
-		},
-		"icon": "group_add",
-		"hasTextSmall": false,
-		"modal-navbar-override": {
-			"button-list": [
-				{
-					"button-class": "a-modal-back",
-					"aria-label": "Tilbake",
-					"icon-prefix": "ai",
-					"icon-class": "ai-back",
-					"icon-extra-class": "",
-					"enable-popover": false,
-					"display-as-link": false,
-					"stacked-background": {
-						"icon-prefix": "ai",
-						"icon-class": "ai-plain-circle-big"
-					},
-					"is-modal-back": {
-						"data-target": "#modal"
-					},
-					"onclick": "goBack()"
-				},
-				{
-					"button-class": "a-modal-close",
-					"aria-label": "Lukk",
-					"icon-prefix": "ai",
-					"icon-class": "ai-exit",
-					"icon-extra-class": "a-modal-close-icon",
-					"enable-popover": false,
-					"display-as-link": false,
-					"stacked-background": {
-						"icon-prefix": "ai",
-						"icon-class": "ai-plain-circle-big"
-					},
-					"is-modal-close": {
-						"data-target": "#modal"
-					},
-					"onclick": "goBack()"
-				}
-			]
-		}
 	},
 	"dashboard-viewMoreServices": false,
 	"person-role-role": "Patentstyret",
@@ -1582,45 +1533,5 @@
 		"icon-prefix": "ai",
 		"icon-class": "ai-plus",
 		"icon-extra-class": ""
-	},
-	"sendMessageModal": {
-		"modal-isSingel": true,
-		"show-login": false,
-		"display-as-dropdown": false,
-		"logo": {
-			"logo": "../../images/a-logo-black.svg"
-		},
-		"logo-class": "a-modal-top-logo",
-		"login-show": {
-			"login-name": "Knut Johannesen",
-			"login-represent": "for Patentstyret",
-			"login-icon": {
-				"icon-prefix": "ai",
-				"icon-class": "ai-private-circle-big",
-				"icon-extra-class": "a-personSwitcher-icon"
-			}
-		},
-		"icon": "group_add",
-		"hasTextSmall": false,
-		"modal-navbar-override": {
-			"button-list": [
-				{
-					"button-class": "a-modal-close",
-					"aria-label": "Lukk",
-					"icon-prefix": "ai",
-					"icon-class": "ai-exit",
-					"icon-extra-class": "a-modal-close-icon",
-					"enable-popover": false,
-					"stacked-background": {
-						"icon-prefix": "ai",
-						"icon-class": "ai-plain-circle-big"
-					},
-					"is-modal-close": {
-						"data-target": "#modal"
-					},
-					"onclick": "goBack()"
-				}
-			]
-		}
 	}
 }

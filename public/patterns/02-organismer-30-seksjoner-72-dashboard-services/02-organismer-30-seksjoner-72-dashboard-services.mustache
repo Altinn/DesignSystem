@@ -3,11 +3,13 @@
 
   <div class="row">
     <div class="col-sm-12">
-      {{# dashboard-servicesTitle }} {{> atomer-seksjonstittel:a-fontMedium }} {{/ dashboard-servicesTitle }}
+      {{# dashboard-servicesTitle }} {{> atomer-seksjonstittel:a-fontMedium }} {{/ dashboard-servicesTitle }} {{# dashboard-addService }} {{> atomer-handlingsknapp }} {{/ dashboard-addService }} {{# addServiceModal }} {{> organismer-modal }} {{/ addServiceModal
+      }}
+
     </div>
   </div>
 
-  {{# dashboard-addService }} {{> atomer-handlingsknapp }} {{/ dashboard-addService }} {{# addServiceModal }} {{> organismer-modal }} {{/ addServiceModal }} {{# dashboard-services }}
+  {{# dashboard-services }}
   <div class="row">
     <div class="col-sm-12 col-lg-12">
       <div {{# accordion-large-id }}id="{{ accordion-large-id }}" {{/ accordion-large-id }} class="a-panelAccordion" role="tablist">
@@ -17,11 +19,14 @@
   </div>
   {{/ dashboard-services }}
 
-  <div class="mt-1">
-    {{#dashboard-viewMoreServices}} {{> atomer-link }} {{/dashboard-viewMoreServices}}
+  <div class="row">
+    <div class="col-sm-12">
+
+      <div class="mt-1">
+        {{#dashboard-viewMoreServices}} {{> atomer-link }} {{/dashboard-viewMoreServices}}
+      </div>
+
+    </div>
   </div>
-
 </section>
-
-
 <!-- END: 02-organismer-30-seksjoner-72-dashboard-services -->
