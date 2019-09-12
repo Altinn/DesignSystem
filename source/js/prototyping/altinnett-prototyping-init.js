@@ -1,4 +1,8 @@
 /* globals
+  _anchors,
+  articleAnchors,
+  autoFootnotes,
+  AltinnDropdown,
   fixPatternLinks,
   initSearchWithHighlight,
   AltinnModal,
@@ -22,6 +26,10 @@ window.altinnettInit = function() {
   // Only for prototyping
   fixPatternLinks();
   initSearchWithHighlight();
+  _anchors();
+  articleAnchors();
+  autoFootnotes();
+  AltinnDropdown.init();
 
   // Should also be included in production (dist)
   AltinnModal.init();
