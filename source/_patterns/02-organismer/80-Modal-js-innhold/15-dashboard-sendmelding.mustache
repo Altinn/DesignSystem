@@ -121,11 +121,19 @@
           <h3 class="a-h2">Melde feil</h3>
           <form data-toggle="validator" id="contactForm2">
             <div class="row">
-              <div class="col-12 col-sm-8">
+              <div class="col-12 col-md-8">
 
                 {{#emne}}
                   {{> atomer-tekst-input:mb-2 }}
                 {{/emne}}
+
+                {{#environment}}
+                  {{> atomer-tekst-input:mb-2 }}
+                {{/environment}}
+
+                {{#time}}
+                  {{> molekyler-dato-og-tid }}
+                {{/time}}
 
                 {{#question}}
                   {{> atomer-tekstfelt:mb-2 }}
@@ -157,6 +165,10 @@
                 {{#question}}
                   {{> atomer-tekstfelt:mb-2 }}
                 {{/question}}
+
+                {{# radiobuttons }}
+                  {{> atomer-radioknapp }}
+                {{/ radiobuttons }}
 
                 {{#attachment}}
                   {{> molekyler-last-opp-og-fjern }}
