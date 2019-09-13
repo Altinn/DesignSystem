@@ -1,0 +1,47 @@
+<!-- START: 02-organismer-80-Modal-js-innhold-30-dashboard-nytt-driftsvarsel -->
+<div class="modal-content">
+  <div class="modal-header a-modal-header">
+    <div class="a-iconText a-iconText-background a-iconText-large">
+      <h1 class="a-iconText-text mb-0 ml-2">
+        <span class="a-iconText-text-small"></span>
+        <span class="a-iconText-text-large">Nytt driftsvarsel</span>
+      </h1>
+    </div>
+  </div>
+  <div class="modal-body a-modal-body">
+
+    {{# form }}
+    <form data-toggle="validator" id="contactForm">
+      <div class="row">
+
+        <div class="col-12 col-md-8">
+
+          <p>Kort tekst om hvordan man bør skrive meldingen, og når det er nødvendig med lenke.</p>
+
+          {{#emne}} {{> atomer-tekst-input:mb-2 }} {{/emne}} {{#question}} {{> atomer-tekstfelt:mb-2 }} {{/question}} {{#link}} {{> atomer-tekst-input:mb-2 }} {{/link}} {{#linktext}} {{> atomer-tekst-input:mb-2 }} {{/linktext}} {{#receivers}}
+          <label class="an-stackedLabel mt-2" for="{{ inputId }}">
+                  {{label-text}}
+                </label> {{> atomer-avkrysningsboks }} {{/receivers}} {{#canal}}
+          <label class="an-stackedLabel mt-2" for="{{ inputId }}">
+                  {{label-text}}
+                </label> {{> atomer-avkrysningsboks }} {{/canal}} {{#time}} {{> molekyler-dato-og-tid:mt-2 }} {{/time}}
+
+        </div>
+      </div>
+
+      <div class="row mt-4">
+        <div class="col-12 d-flex align-items-baseline">
+          <div>
+            {{# registrer }} {{> atomer-knapp }} {{/ registrer }}
+          </div>
+          <div class="ml-2">
+            {{# avbryt }} {{> atomer-link }} {{/ avbryt }}
+          </div>
+        </div>
+      </div>
+
+    </form>
+    {{/ form }}
+  </div>
+
+  <!-- END: 02-organismer-80-Modal-js-innhold-30-dashboard-nytt-driftsvarsel -->

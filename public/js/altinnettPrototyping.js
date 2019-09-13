@@ -63,6 +63,73 @@ var initSearchWithHighlight = function() {
   $('input[data-search-algorithm="show-and-highlight"]').on('input', mark);
 };
 
+var _anchors = function() {
+  window.anchors.options.placement = 'left';
+  window.anchors.options.class = 'a-sg-anchor';
+  window.anchors.remove('.sg-pattern-example h3');
+  window.anchors.remove('.a-page h1');
+  window.anchors.remove('.a-page h2');
+  window.anchors.remove('.a-page h3');
+  window.anchors.remove('.a-page h4');
+  window.anchors.remove('.a-page h5');
+  window.anchors.remove('.a-page h6');
+};
+
+/* eslint vars-on-top: 0 */
+/* globals AltinnDropdown */
+/* globals AltinnDropdown:true */
+AltinnDropdown = {
+  init: function() {
+    var that = this;
+    $('body').on('click', '[data-toggle="altinn-dropdown"] .a-dropdown-item', function() {
+      var $dropdownElement = $(this).closest('[data-toggle="altinn-dropdown"]');
+      if ($(this).data('value')) {
+        $dropdownElement.find('.a-js-altinnDropdown-value').val($(this).data('value'));
+      }
+
+      $dropdownElement.find('.a-dropdown-toggle').html($(this).html());
+
+      // Focus the dropdownmenu element after click on item in dropdownmenu
+      var id = $(this).closest('.a-dropdown-menu').attr('aria-labelledby');
+      $('#' + id).focus();
+    });
+  }
+};
+
+var articleAnchors = function() {
+  if ($('.epi-wysiwyg').length > 0 && $('.sg-pattern-category').length === 0) {
+    window.anchors.options.placement = 'left';
+    window.anchors.options.class = 'a-sg-anchor';
+    window.anchors.add('h2');
+    window.anchors.add('h3');
+  }
+};
+
+/* globals $ */
+var autoFootnotes = function() {
+  // Ideally we should have a generic class name here, but it would break
+  // existing articles
+  $('.epi-footnote').not('popovered').each(function(index) {
+    $(this).hide().addClass('popovered');
+    $(this).after(
+      '<a href="javascript:void(0)" ' +
+        'tabindex="0" ' +
+        'class="a-linkArea a-helpIconButton a-helpIconButton--blue a-js-togglePopoverIcons" ' +
+        'role="button" ' +
+        'data-toggle="popover" ' +
+        'data-popover-class="footnote"' +
+        'data-trigger="click"' +
+        'data-popover-content="epiFootnote_' + index + '">' +
+        '<i class="ai ai-circle-plus a-js-popoverIconInitial"></i>' +
+        '<i class="ai ai-circle-minus a-js-popoverIconExpanded"></i>' +
+      '</a>' +
+      '<div id="epiFootnote_' + index + '" style="display: none">' +
+        $(this).html() +
+      '</div>'
+    );
+  });
+};
+
 var setupTruncateLines = function() {
   setTimeout(function() {
     // Max two lines for all screen sizes
@@ -1394,6 +1461,10 @@ var setupSlickCarousel = function() {
 };
 
 /* globals
+  _anchors,
+  articleAnchors,
+  autoFootnotes,
+  AltinnDropdown,
   fixPatternLinks,
   initSearchWithHighlight,
   AltinnModal,
@@ -1417,6 +1488,10 @@ window.altinnettInit = function() {
   // Only for prototyping
   fixPatternLinks();
   initSearchWithHighlight();
+  _anchors();
+  articleAnchors();
+  autoFootnotes();
+  AltinnDropdown.init();
 
   // Should also be included in production (dist)
   AltinnModal.init();
