@@ -2,62 +2,294 @@
 // Dashboard
 // ------------------------------------/
 
-.flex-grow-1 {
-  flex-grow: 1;
-}
-
-// Header for dashboard
-.dashboard-header {
-  height: $spacer * 6;
-  background: $blue-dark;
-
-  @include media-breakpoint-up( md ) {
-    height: $spacer * 9;
+.project-dashboard {
+  .flex-grow-1 {
+    flex-grow: 1;
   }
 
-  .a-globalNav-main {
-    margin-top: $spacer * 8;
+  // Header for dashboard
+  .dashboard-header {
+    height: $spacer * 6;
+    background: $blue-dark;
 
     @include media-breakpoint-up( md ) {
-      margin-top: 2px;
+      height: $spacer * 9;
     }
 
-    li {
+    .a-globalNav-main {
+      margin-top: $spacer * 8;
 
-      a {
-        @include media-breakpoint-up(md) {
-          color: $white;
-        }
+      @include media-breakpoint-up( md ) {
+        margin-top: 2px;
+      }
 
-        &.globalNav-active {
+      li {
+
+        a {
           @include media-breakpoint-up(md) {
             color: $white;
-            border-color: $white;
+          }
+
+          &.globalNav-active {
+            @include media-breakpoint-up(md) {
+              color: $white;
+              border-color: $white;
+            }
+          }
+        }
+      }
+    }
+
+    .a-globalNav-logo {
+      margin-top: 0;
+
+      @include media-breakpoint-up( sm ) {
+        margin-top: -3px;
+      }
+
+      .an-logo {
+        max-width: 90px;
+        margin-top: -6px;
+        margin-right: 0;
+
+        @include media-breakpoint-up( sm ) {
+          max-width: 110px;
+          margin-top: -9px;
+        }
+      }
+
+      span {
+        @include a-fontSize18;
+        @include a-fontLight;
+        color: $white;
+        text-transform: lowercase;
+
+        @include media-breakpoint-up( sm ) {
+          @include a-fontSize24;
+        }
+      }
+    }
+
+    @include media-breakpoint-up(md) {
+      .a-hvr-underline {
+        &:hover {
+          border-color: $white;
+        }
+      }
+    }
+
+    .a-personSwitcher {
+      margin-top: -1px;
+    }
+
+    .a-personSwitcher,
+    .a-personSwitcher-icon {
+      color: $white;
+    }
+
+    .nav-pills {
+      .nav-item {
+        &.show {
+          .nav-link {
+            &.a-personSwitcher {
+              color: $white;
+            }
+          }
+        }
+      }
+    }
+
+    .a-personSwitcher-name {
+      @include media-breakpoint-down(md) {
+        max-width: 68px;
+      }
+    }
+
+    .a-header-options  {
+      .nav-link {
+        &:focus,
+        &:active {
+          color: $white;
+          border-color: $white;
+        }
+      }
+    }
+
+    .a-globalNav {
+      .navbar-toggler {
+        color: $white;
+        border-color: $white;
+      }
+    }
+  }
+
+  // Container that is wider for dashboard
+  .an-dashboard-container {
+
+    @include media-breakpoint-up(lg) {
+      margin-right: -$spacer * 4;
+      margin-left: -$spacer * 4;
+    }
+
+    @include media-breakpoint-up(xl) {
+      margin-right: -$spacer * 5;
+      margin-left: -$spacer * 5;
+    }
+
+    @include media-breakpoint-up(xxl) {
+      margin-right: -$spacer * 9;
+      margin-left: -$spacer * 9;
+    }
+
+    .a-btn-transparentWhite {
+      .a-btn-icon-text {
+        @include media-breakpoint-up(lg) {
+          padding-left: 15px;
+        }
+      }
+    }
+  }
+
+  // Calendar ajustments
+  .an-arrangement-block-text {
+    padding: 15px 30px;
+  }
+
+  .an-arrangement-block-inner {
+    margin-right: 0;
+  }
+
+  // Resources adjustments
+  .an-dashboard-resources {
+    .a-list {
+      &.a-list-large {
+        li {
+          .a-list-rowLink {
+            @include a-fontSize16;
+            padding: $spacer $spacer / 2;
+          }
+
+          &.a-list-hasRowLink {
+            a {
+              &[href^='http'] {
+                &::after {
+                  display: none;
+                }
+              }
+            }
           }
         }
       }
     }
   }
 
-  .a-globalNav-logo {
-    margin-top: 0;
+  // Messages
+  .an-prevMsg {
+    display: flex;
+    padding: $spacer;
+    margin-top: -1px;
+    color: $grey;
+    background: $grey-lighter;
+    border-top: 1px solid $black-opacity-01;
+    border-bottom: none;
 
-    @include media-breakpoint-up( sm ) {
-      margin-top: -3px;
+    &[aria-expanded='true'] {
+      @include a-fontMedium;
+      color: $black;
     }
 
-    .an-logo {
-      max-width: 90px;
-      margin-top: -6px;
-      margin-right: 0;
+    &:hover,
+    &:focus,
+    &:active {
+      border-top: 1px solid $black-opacity-01;
+      border-bottom: none;
+    }
 
-      @include media-breakpoint-up( sm ) {
-        max-width: 120px;
-        margin-top: -10px;
+    .a-dropdownArrow {
+      margin-right: 9px;
+    }
+
+    .a-label {
+      min-width: 25px;
+      height: 25px;
+      margin-top: -4px;
+      margin-right: 0;
+      margin-left: 12px;
+    }
+  }
+
+  // Services
+  .an-dashboard-services {
+    .a-collapsePanel {
+      box-shadow: $shadow2;
+
+      &.expanded {
+        padding-bottom: 0;
+      }
+
+      .a-collapsePanel-heading {
+        box-shadow: none;
+      }
+
+      .a-collapsePanel-body {
+        box-shadow: none;
+
+        p {
+          @include a-fontSize16;
+        }
+
+        &.a-msg-body {
+          .a-collapsePanel-body-content {
+            padding: $spacer * 2 $spacer * 4;
+          }
+        }
       }
     }
 
-    span {
+    .a-text {
+      .a-list-container {
+        max-width: none;
+      }
+    }
+
+    .an-serviceEdition {
+      @extend .an-prevMsg;
+      background: $white;
+
+      .a-dropdownArrow {
+        margin-right: $spacer;
+      }
+    }
+
+    .an-serviceedition-body {
+      .a-list {
+        li > {
+          .row {
+            padding: 6px 6px 4px 0;
+          }
+        }
+      }
+    }
+
+    .a-msgHeadingTextContainer {
+      padding-left: $spacer * 4;
+    }
+  }
+
+  // Modal adjustments
+
+  .modal-backdrop {
+    background-color: $blue-dark;
+  }
+
+  .a-modal-top {
+    .a-logo {
+      width: 110px;
+      margin-top: 4px;
+      margin-right: 3px;
+    }
+
+    .an-logotext {
       @include a-fontSize18;
       @include a-fontLight;
       color: $white;
@@ -67,257 +299,42 @@
         @include a-fontSize24;
       }
     }
-  }
-
-  @include media-breakpoint-up(md) {
-    .a-hvr-underline {
-      &:hover {
-        border-color: $white;
-      }
-    }
-  }
-
-  .a-personSwitcher,
-  .a-personSwitcher-icon {
-    color: $white;
-  }
-
-  .nav-pills {
-    .nav-item {
-      &.show {
-        .nav-link {
-          &.a-personSwitcher {
-            color: $white;
-          }
-        }
-      }
-    }
-  }
-
-  .a-personSwitcher-name {
-    @include media-breakpoint-down(md) {
-      max-width: 68px;
-    }
-  }
-
-  .a-header-options  {
-    .nav-link {
-      &:focus,
-      &:active {
-        color: $white;
-        border-color: $white;
-      }
-    }
-  }
-
-  .a-globalNav {
-    .navbar-toggler {
-      color: $white;
-      border-color: $white;
-    }
-  }
-}
-
-// Container that is wider for dashboard
-.an-dashboard-container {
-
-  @include media-breakpoint-up(lg) {
-    margin-right: -$spacer * 4;
-    margin-left: -$spacer * 4;
-  }
-
-  @include media-breakpoint-up(xl) {
-    margin-right: -$spacer * 5;
-    margin-left: -$spacer * 5;
-  }
-
-  @include media-breakpoint-up(xxl) {
-    margin-right: -$spacer * 9;
-    margin-left: -$spacer * 9;
-  }
-
-  .a-btn-transparentWhite {
-    .a-btn-icon-text {
-      @include media-breakpoint-up(lg) {
-        padding-left: 15px;
-      }
-    }
-  }
-}
-
-// Calendar ajustments
-.an-arrangement-block-text {
-  padding: 15px 30px;
-}
-
-.an-arrangement-block-inner {
-  margin-right: 0;
-}
-
-// Resources adjustments
-.an-dashboard-resources {
-  .a-list {
-    &.a-list-large {
-      li {
-        .a-list-rowLink {
-          @include a-fontSize16;
-          padding: $spacer $spacer / 2;
-        }
-
-        &.a-list-hasRowLink {
-          a {
-            &[href^='http'] {
-              &::after {
-                display: none;
-              }
-            }
-          }
-        }
-      }
-    }
-  }
-}
-
-// Messages
-.an-prevMsg {
-  display: flex;
-  padding: $spacer;
-  margin-top: -1px;
-  color: $grey;
-  background: $grey-lighter;
-  border-top: 1px solid $black-opacity-01;
-  border-bottom: none;
-
-  &[aria-expanded='true'] {
-    @include a-fontMedium;
-    color: $black;
-  }
-
-  &:hover,
-  &:focus,
-  &:active {
-    border-top: 1px solid $black-opacity-01;
-    border-bottom: none;
-  }
-
-  .a-dropdownArrow {
-    margin-right: 9px;
-  }
-
-  .a-label {
-    min-width: 25px;
-    height: 25px;
-    margin-top: -4px;
-    margin-right: 0;
-    margin-left: 12px;
-  }
-}
-
-// Services
-.an-dashboard-services {
-  .a-collapsePanel {
-    box-shadow: $shadow2;
-
-    &.expanded {
-      padding-bottom: 0;
-    }
-
-    .a-collapsePanel-heading {
-      box-shadow: none;
-    }
-
-    .a-collapsePanel-body {
-      box-shadow: none;
-
-      p {
-        @include a-fontSize16;
-      }
-
-      &.a-msg-body {
-        .a-collapsePanel-body-content {
-          padding: $spacer * 2 $spacer * 4;
-        }
-      }
-    }
-  }
-
-  .a-text {
-    .a-list-container {
-      max-width: none;
-    }
-  }
-
-  .an-serviceEdition {
-    @extend .an-prevMsg;
-    background: $white;
-
-    .a-dropdownArrow {
-      margin-right: $spacer;
-    }
-  }
-
-  .an-serviceedition-body {
-    .a-list {
-      li > {
-        .row {
-          padding: 6px 6px 4px 0;
-        }
-      }
-    }
-  }
-
-  .a-msgHeadingTextContainer {
-    padding-left: $spacer * 4;
-  }
-}
-
-// Modal adjustments
-
-.modal-backdrop {
-  background-color: $blue-dark;
-}
-
-.a-modal-top {
-  .a-logo {
-    margin-top: 2px;
-    margin-right: 3px;
-  }
-
-  .an-logotext {
-    @include a-fontSize18;
-    @include a-fontLight;
-    color: $white;
-    text-transform: lowercase;
-
-    @include media-breakpoint-up( sm ) {
-      @include a-fontSize24;
-    }
-  }
-
-  .a-modal-top-user {
-    .a-personSwitcher {
-      color: $white;
-    }
-
-    .a-personSwitcher-icon {
-      color: $white;
-    }
-  }
-}
-
-.a-modal-background-success {
-  .a-modal-top {
-    .an-logotext {
-      color: $black;
-    }
 
     .a-modal-top-user {
       .a-personSwitcher {
-        color: $black;
+        color: $white;
       }
 
       .a-personSwitcher-icon {
+        color: $white;
+      }
+    }
+  }
+
+  &.a-modal-background-success {
+    .modal-backdrop {
+      background-color: $green-light;
+    }
+
+    .a-modal-top {
+      .a-logo {
+        &.a-modal-top-logo {
+          filter: invert(1);
+        }
+      }
+
+      .an-logotext {
         color: $black;
+      }
+
+      .a-modal-top-user {
+        .a-personSwitcher {
+          color: $black;
+        }
+
+        .a-personSwitcher-icon {
+          color: $black;
+        }
       }
     }
   }
