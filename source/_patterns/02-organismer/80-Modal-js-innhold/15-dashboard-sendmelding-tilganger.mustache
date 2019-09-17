@@ -40,7 +40,7 @@
                 </a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" data-toggle="tab" href="#tilgang3" role="tab">
+                <a class="nav-link" data-toggle="tab" href="#tilgang4" role="tab">
                   <div class="custom-control custom-radio a-custom-radio">
                     <span class="custom-control-label">Brannmur</span>
                   </div>
@@ -59,10 +59,26 @@
           <form data-toggle="validator" id="contactForm2">
             <div class="row">
               <div class="col-12 col-sm-8">
-                  Her kommer det noen felt du må fylle ut for å få tilgang til REST API..
-                  {{#submit}}
-                  {{> atomer-knapp:mb-2 }}
-                  {{/submit}}
+                <div class="form-group a-form-group mb-2">
+                  <label class="a-form-label">Hvilket miljø ønsker du tilgang til?</label>
+
+                  {{#miljo}}
+                  {{> atomer-valgknapp }}
+                  {{/miljo}}
+                </div>
+
+                {{#navn}}
+                {{> atomer-tekst-input:mb-2 }}
+                {{/navn}}
+
+                {{#ip}}
+                {{> atomer-tekst-input:mb-2 }}
+                {{/ip}}
+
+                {{#submit}}
+                {{> atomer-knapp:mb-2 }}
+                {{/submit}}
+                  
               </div>
             </div>
           </form>
@@ -75,15 +91,100 @@
           <form data-toggle="validator" id="contactForm2">
             <div class="row">
               <div class="col-12 col-sm-8">
-                  Her kommer det noen felt du må fylle ut for å få tilgang til SOAP API..
+                  <div class="form-group a-form-group mb-2">
+                    <label class="a-form-label">Hvilket miljø ønsker du tilgang til?</label>
+                      {{#miljo}}
+                      {{> atomer-valgknapp }}
+                      {{/miljo}}
+                  </div>
+  
+                  {{#navn}}
+                  {{> atomer-tekst-input:mb-2 }}
+                  {{/navn}}
+  
+                  {{#ip}}
+                  {{> atomer-tekst-input:mb-2 }}
+                  {{/ip}}
+  
                   {{#submit}}
                   {{> atomer-knapp:mb-2 }}
                   {{/submit}}
+                      
               </div>
             </div>
           </form>
           {{/tab2 }}
         </div>
+
+        <div class="tab-pane" id="tilgang3" role="tabpanel">
+            {{ #tab3 }}
+            <h3 class="a-h2">TUL og SERES</h3>
+            <form data-toggle="validator" id="contactForm2">
+              <div class="row">
+                <div class="col-12 col-sm-8">
+                    <div class="form-group a-form-group mb-2">
+                      <label class="a-form-label">Hvilket verktøy ønsker du tilgang til?</label>
+                        {{#miljo}}
+                        {{> atomer-valgknapp }}
+                        {{/miljo}}
+                    </div>
+
+                    {{#visualstudio}}
+                      {{> atomer-radioknapp }}
+                    {{/visualstudio}}
+                    
+                    <div class="form-group a-form-group mb-2">
+                      <label class="a-form-label">Er det du som skal ha tilgang eller noe andre?</label>
+                      <form data-toggle="validator" id="contactForm">
+                        <div class="row">
+                          <div class="col-12 col-sm-8">
+                            <ul class="nav nav-tabs custom-radio a-radioButtons a-navTabsRadio" role="tablist">
+                              <li class="nav-item">
+                                <a class="nav-link" data-toggle="tab" href="#meg" role="tab">
+                                  <div class="custom-control custom-radio a-custom-radio">
+                                    <span class="custom-control-label">Det er meg</span>
+                                  </div>
+                                </a>
+                              </li>
+                              <li class="nav-item">
+                                <a class="nav-link" data-toggle="tab" href="#andre" role="tab">
+                                  <div class="custom-control custom-radio a-custom-radio">
+                                    <span class="custom-control-label">Det er noen andre</span>
+                                  </div>
+                                </a>
+                              </li>
+                            </ul>
+                          </div>
+                        </div>
+                      </form>
+
+                      <div class="tab-content">
+                          <div class="tab-pane" id="meg" role="tabpanel">
+
+                          </div>
+                          <div class="tab-pane" id="andre" role="tabpanel">
+
+                            {{#navn}}
+                              {{> atomer-tekst-input:mb-2 }}
+                            {{/navn}}
+
+                            {{#epost}}
+                              {{> atomer-tekst-input:mb-2 }}
+                            {{/epost}}
+                          </div>
+                      </div>
+                    </div>
+                    {{#submit}}
+                    {{> atomer-knapp:mb-2 }}
+                    {{/submit}}
+                        
+                    </div>
+                </div>
+            </form>
+            {{/tab3 }}
+          </div>
+
+
       </div>
 
 
