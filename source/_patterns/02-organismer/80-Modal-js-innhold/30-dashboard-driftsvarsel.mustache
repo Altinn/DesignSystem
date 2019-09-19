@@ -6,7 +6,7 @@
             </div>
             <h1 class="a-iconText-text mb-0">
                 <span class="a-iconText-text-small"></span>
-                <span class="a-iconText-text-large">Nytt driftsvarsel</span>
+                <span class="a-iconText-text-large">{{{ header-title }}}</span>
             </h1>
         </div>
     </div>
@@ -16,9 +16,11 @@
         <form data-toggle="validator" id="contactForm">
           <div class="row">
 
-            <div class="col-12 col-md-8">
+            <div class="col-12 col-lg-8 mt-4">
 
-              <p>Kort tekst om hvordan man bør skrive meldingen, og når det er nødvendig med lenke.</p>
+              {{# description }}
+                <p>{{ text }}</p>
+              {{/ description }}
 
               {{#emne}}
                 {{> atomer-tekst-input:mb-2 }}
@@ -54,6 +56,11 @@
                 {{> molekyler-dato-og-tid:mt-2 }}
               {{/time}}
 
+            </div>
+            <div class="col-12 col-lg-4 px-0">
+              {{# removeAlert }}
+                {{> atomer-knapp-ikon-tekst }}
+              {{/ removeAlert }}
             </div>
           </div>
 
