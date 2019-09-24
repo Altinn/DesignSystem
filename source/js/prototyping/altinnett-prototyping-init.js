@@ -11,7 +11,8 @@
   compareTo,
   feedbackToggle,
   handleFocus,
-  addListExpandHandler
+  addListExpandHandler,
+  listenForAttachmentChanges,
   newsArchive,
   popoverGlobalInit,
   popoverLocalInit,
@@ -39,6 +40,7 @@ window.altinnettInit = function() {
   feedbackToggle();
   handleFocus();
   addListExpandHandler();
+  listenForAttachmentChanges();
   newsArchive();
   popoverGlobalInit();
   popoverLocalInit();
@@ -55,6 +57,18 @@ window.altinnettInit = function() {
 
   $('body').on('focus', '#contactForm', setupForm);
   setupSlickCarousel();
+
+  function errorMessageCallback(type) {
+    if (type === 'ext') {
+      // Prefix to error message where the user tried to upload a forbidden file type
+      return 'Tillatte filtyper';
+    } else if (type === 'size') {
+      // Prefix to error message where the user tried to upload a file which is too big
+      return 'Maksimum filstørrelse';
+    }
+    return 'Det oppstod en feil';
+  }
+  listenForAttachmentChanges('#js-attachmentForm', errorMessageCallback);
 };
 
 window.altinnettInit();
