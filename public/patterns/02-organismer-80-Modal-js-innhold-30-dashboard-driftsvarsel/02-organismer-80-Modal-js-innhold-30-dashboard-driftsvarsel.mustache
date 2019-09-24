@@ -1,4 +1,4 @@
-<!-- START: 02-organismer-80-Modal-js-innhold-30-dashboard-nytt-driftsvarsel -->
+<!-- START: 02-organismer-80-Modal-js-innhold-30-dashboard-driftsvarsel -->
 <div class="modal-content">
   <div class="modal-header a-modal-header">
     <div class="a-iconText a-iconText-background a-iconText-large">
@@ -7,7 +7,7 @@
       </div>
       <h1 class="a-iconText-text mb-0">
         <span class="a-iconText-text-small"></span>
-        <span class="a-iconText-text-large">Nytt driftsvarsel</span>
+        <span class="a-iconText-text-large">{{{ header-title }}}</span>
       </h1>
     </div>
   </div>
@@ -17,11 +17,11 @@
     <form data-toggle="validator" id="contactForm">
       <div class="row">
 
-        <div class="col-12 col-md-8">
+        <div class="col-12 col-lg-8 mt-4">
 
-          <p>Kort tekst om hvordan man bør skrive meldingen, og når det er nødvendig med lenke.</p>
-
-          {{#emne}} {{> atomer-tekst-input:mb-2 }} {{/emne}} {{#question}} {{> atomer-tekstfelt:mb-2 }} {{/question}} {{#link}} {{> atomer-tekst-input:mb-2 }} {{/link}} {{#linktext}} {{> atomer-tekst-input:mb-2 }} {{/linktext}} {{#receivers}}
+          {{# description }}
+          <p>{{ text }}</p>
+          {{/ description }} {{#emne}} {{> atomer-tekst-input:mb-2 }} {{/emne}} {{#question}} {{> atomer-tekstfelt:mb-2 }} {{/question}} {{#link}} {{> atomer-tekst-input:mb-2 }} {{/link}} {{#linktext}} {{> atomer-tekst-input:mb-2 }} {{/linktext}} {{#receivers}}
           <label class="an-stackedLabel mt-2 mb-1" for="{{ inputId }}">
                   {{label-text}}
                 </label> {{> atomer-avkrysningsboks }} {{/receivers}} {{#canal}}
@@ -29,6 +29,9 @@
                   {{label-text}}
                 </label> {{> atomer-avkrysningsboks }} {{/canal}} {{#time}} {{> molekyler-dato-og-tid:mt-2 }} {{/time}}
 
+        </div>
+        <div class="col-12 col-lg-4 px-0">
+          {{# removeAlert }} {{> atomer-knapp-ikon-tekst }} {{/ removeAlert }}
         </div>
       </div>
 
@@ -47,4 +50,4 @@
     {{/ form }}
   </div>
 
-  <!-- END: 02-organismer-80-Modal-js-innhold-30-dashboard-nytt-driftsvarsel -->
+  <!-- END: 02-organismer-80-Modal-js-innhold-30-dashboard-driftsvarsel -->

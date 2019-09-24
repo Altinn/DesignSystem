@@ -15,15 +15,60 @@
 	"themeJs": "./../../js/altinnPrototyping.js",
 	"themeJsVendor": "../../js/altinnPrototyping.vendor.js",
 	"link-text": "En lenke ser slik ut",
-	"link-url": "/patterns/04-sider-infoportal-01-forside-00-forside/04-sider-infoportal-01-forside-00-forside.html",
+	"link-url": "",
 	"sr-text": false,
-	"button-text": "En standard knapp",
-	"button-class": "a-btn",
+	"button-text": "En knapp med ikon",
+	"button-class": "a-btn a-btn-icon",
 	"button-disabled": false,
 	"button-type": "button",
 	"onclick": false,
-	"button-icon": false,
+	"button-icon": {
+		"icon-prefix": "ai",
+		"icon-class": "ai-deadline"
+	},
 	"display-as-link": false,
+	"dropdown-link-class": "a-borderBottom",
+	"dropdown-top-item": {
+		"dropdown-top-item-content": "Lagrede søk",
+		"overflow-extraclass": "pt-1 pb-1"
+	},
+	"dropdown-item": [
+		{
+			"dropdown-icon": {
+				"icon-prefix": "ai",
+				"icon-class": "ai-letter-r",
+				"icon-size": "",
+				"icon-extra-class": "a-blue"
+			},
+			"dropdown-item-content": "Lagre søk",
+			"dropdown-item-content-class": "a-fontBold"
+		},
+		{
+			"dropdown-icon": {
+				"icon-prefix": "ai",
+				"icon-class": "ai-letter-r",
+				"icon-size": "",
+				"icon-extra-class": "a-blue"
+			},
+			"dropdown-item-content": "Annet lagret søk",
+			"dropdown-item-content-class": "a-fontBold"
+		},
+		{
+			"dropdown-icon": {
+				"icon-prefix": "ai",
+				"icon-class": "ai-settings",
+				"icon-size": "",
+				"icon-extra-class": "a-blue"
+			},
+			"dropdown-item-content": "tilpass",
+			"dropdown-item-content-class": "a-fontBold"
+		}
+	],
+	"label-class": "badge-primary",
+	"label-id": false,
+	"label-content": "9",
+	"button-colorClass": "",
+	"button-shadow-label": false,
 	"select-menu-id": "primaryEmail",
 	"select-menu-label": "Primær epost-adresse:",
 	"select-menu-selected": "post@første.com",
@@ -176,7 +221,9 @@
 	"form-label-hasIcon": false,
 	"input-name": "input-field",
 	"form-control-class": "",
+	"header-title": "Endre eller fjerne driftsvarsel",
 	"form": {
+		"description": false,
 		"emne": {
 			"print-form-tag": false,
 			"text-input-id": "text-input-title2",
@@ -184,7 +231,10 @@
 			"top-label": "Tittel: ",
 			"isDisabled": false,
 			"isInactive": false,
-			"text-input-placeholder": "F.eks: Vedlikehold mandag 18. mars",
+			"text-input-placeholder": "Obs! PROD: Vedlikehold mandag 18. mars",
+			"text-input-value": {
+				"text-input-value": "Obs! PROD: Vedlikehold mandag 18. mars"
+			},
 			"input-type": "text",
 			"isRequired": true,
 			"error-message-popover": true,
@@ -198,7 +248,10 @@
 		},
 		"question": {
 			"textarea-label": "Tekst",
-			"textarea-placeholder": "F.eks: G​runnet planlagt vedlikehold mandag 18.3.19, mellom kl. 04 – 06 (natt), vil det kunne oppleves noe treghet/forstyrrelser i løsningen i en kort periode.",
+			"textarea-placeholder": "G​runnet planlagt vedlikehold mandag 18.3.19, mellom kl. 04 – 06 (natt), vil det kunne oppleves noe treghet/forstyrrelser i løsningen i en kort periode.",
+			"value": {
+				"value": "G​runnet planlagt vedlikehold mandag 18.3.19, mellom kl. 04 – 06 (natt), vil det kunne oppleves noe treghet/forstyrrelser i løsningen i en kort periode."
+			},
 			"isRequired": true,
 			"error-message-popover": true,
 			"text-input-id": "text-input-question2",
@@ -257,13 +310,6 @@
 				{
 					"isInline": false,
 					"isChecked": false,
-					"checkboxID": "check1",
-					"checkboxes-title": "Alle (åpent)",
-					"isRequired": false
-				},
-				{
-					"isInline": false,
-					"isChecked": false,
 					"checkboxID": "check2",
 					"checkboxes-title": "Tjenesteeiere",
 					"isRequired": false
@@ -290,13 +336,6 @@
 			"check-legend": false,
 			"label-text": "Kanaler driftsvarslene skal legges ut på",
 			"checkboxes": [
-				{
-					"isInline": false,
-					"isChecked": false,
-					"checkboxID": "canal1",
-					"checkboxes-title": "Alle",
-					"isRequired": false
-				},
 				{
 					"isInline": false,
 					"isChecked": false,
@@ -340,6 +379,18 @@
 				"icon-extra-class": ""
 			}
 		},
+		"removeAlert": {
+			"button-text": "Fjern driftsvarsel",
+			"button-class": "a-btn a-btn-icon",
+			"button-colorClass": "",
+			"link-url": "",
+			"button-shadow-label": false,
+			"button-icon": {
+				"icon-prefix": "ai",
+				"icon-class": "ai-circle-exit",
+				"icon-extra-class": "a-danger ai-left"
+			}
+		},
 		"avbryt": {
 			"link-text": "Avbryt",
 			"link-url": "link.sider-dashboard-tjenesteeier-forside"
@@ -356,7 +407,7 @@
 			"data-action": "next",
 			"data-toggle": "altinn-modal",
 			"data-target": "#modal-addAlert",
-			"page-url": "../../patterns/02-organismer-80-Modal-js-innhold-30-dashboard-nytt-driftsvarsel-ferdig/02-organismer-80-Modal-js-innhold-30-dashboard-nytt-driftsvarsel-ferdig.markup-only.html"
+			"page-url": "../../patterns/02-organismer-80-Modal-js-innhold-30-dashboard-driftsvarsel-ferdig/02-organismer-80-Modal-js-innhold-30-dashboard-driftsvarsel-ferdig.markup-only.html"
 		}
 	}
 }

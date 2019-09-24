@@ -14,6 +14,52 @@
 	"themeCss": "../../css/style.prototype.altinn.css",
 	"themeJs": "./../../js/altinnPrototyping.js",
 	"themeJsVendor": "../../js/altinnPrototyping.vendor.js",
+	"dropdown-link-class": "a-borderBottom",
+	"dropdown-top-item": {
+		"dropdown-top-item-content": "Lagrede søk",
+		"overflow-extraclass": "pt-1 pb-1"
+	},
+	"dropdown-item": [
+		{
+			"dropdown-icon": {
+				"icon-prefix": "ai",
+				"icon-class": "ai-letter-r",
+				"icon-size": "",
+				"icon-extra-class": "a-blue"
+			},
+			"dropdown-item-content": "Lagre søk",
+			"dropdown-item-content-class": "a-fontBold"
+		},
+		{
+			"dropdown-icon": {
+				"icon-prefix": "ai",
+				"icon-class": "ai-letter-r",
+				"icon-size": "",
+				"icon-extra-class": "a-blue"
+			},
+			"dropdown-item-content": "Annet lagret søk",
+			"dropdown-item-content-class": "a-fontBold"
+		},
+		{
+			"dropdown-icon": {
+				"icon-prefix": "ai",
+				"icon-class": "ai-settings",
+				"icon-size": "",
+				"icon-extra-class": "a-blue"
+			},
+			"dropdown-item-content": "tilpass",
+			"dropdown-item-content-class": "a-fontBold"
+		}
+	],
+	"label-class": "badge-primary",
+	"label-id": false,
+	"label-content": "9",
+	"button-text": "En standard knapp",
+	"button-class": "a-btn a-btn-action",
+	"button-colorClass": "",
+	"link-url": "/patterns/04-sider-infoportal-01-forside-00-forside/04-sider-infoportal-01-forside-00-forside.html",
+	"button-shadow-label": false,
+	"button-icon": false,
 	"icon-list-items": [
 		{
 			"list-item-name": "Forretningsplan.ods",
@@ -34,12 +80,9 @@
 			"icon-class": "reg-attachment-pdf ai-md ai-nw pr-1"
 		}
 	],
-	"button-text": "En standard knapp",
-	"button-class": "a-btn a-btn-action",
 	"button-disabled": false,
 	"button-type": "button",
 	"onclick": false,
-	"button-icon": false,
 	"display-as-link": false,
 	"aria-label": "Tilbake",
 	"enable-popover": true,
@@ -138,7 +181,6 @@
 		}
 	],
 	"link-text": "En lenke ser slik ut",
-	"link-url": "/patterns/04-sider-infoportal-01-forside-00-forside/04-sider-infoportal-01-forside-00-forside.html",
 	"sr-text": false,
 	"alert-id": "alert",
 	"alert-class": "a-message-info",
@@ -241,7 +283,14 @@
 		"section-title": "Siste driftsvarslinger"
 	},
 	"dashboard-alertSubscribe": {
-		"link-text": "Abonner på driftsvarslinger"
+		"link-text": "Abonner på driftsvarslinger",
+		"link-url": false,
+		"data-toggle": "altinn-modal",
+		"data-action": "load",
+		"data-url": {
+			"data-url": "../../patterns/02-organismer-80-Modal-js-innhold-31-dashboard-abonner-driftsvarsel/02-organismer-80-Modal-js-innhold-31-dashboard-abonner-driftsvarsel.markup-only.html"
+		},
+		"data-target": "modal-subscribe"
 	},
 	"dashboard-addAlert": {
 		"icon-prefix": "ai",
@@ -253,7 +302,7 @@
 		"data-toggle": "altinn-modal",
 		"data-action": "load",
 		"data-url": {
-			"data-url": "../../patterns/02-organismer-80-Modal-js-innhold-30-dashboard-nytt-driftsvarsel/02-organismer-80-Modal-js-innhold-30-dashboard-nytt-driftsvarsel.markup-only.html"
+			"data-url": "../../patterns/02-organismer-80-Modal-js-innhold-30-dashboard-driftsvarsel/02-organismer-80-Modal-js-innhold-30-dashboard-driftsvarsel.markup-only.html"
 		},
 		"data-target": "modal-addAlert"
 	},
@@ -316,24 +365,66 @@
 			]
 		}
 	},
-	"dashboard-alerts": [
-		{
-			"alert-id": "alert-no-arrow",
-			"alert-class": "a-message-error a-message--arrow-off a-message--fullwidth mb-1",
-			"alert-items": [
+	"dashboard-subscribe-modal": {
+		"modal-id": "modal-subscribe",
+		"modal-isSingel": true,
+		"show-login": false,
+		"display-as-dropdown": false,
+		"logo": {
+			"logo": "../../images/a-logo-white.svg"
+		},
+		"headerlogoText": {
+			"headerlogoText": "/patentstyret"
+		},
+		"logo-class": "a-modal-top-logo",
+		"login-show": {
+			"login-name": "Knut Johannesen",
+			"login-represent": "for Patentstyret",
+			"login-icon": {
+				"icon-prefix": "ai",
+				"icon-class": "ai-private-circle-big",
+				"icon-extra-class": "a-personSwitcher-icon"
+			}
+		},
+		"icon": "group_add",
+		"hasTextSmall": false,
+		"modal-navbar-override": {
+			"button-list": [
 				{
-					"alert-header": {
-						"classes": "a-fontBold",
-						"text": "Obs! PROD: Krise noe er nede"
-					}
+					"button-class": "a-modal-back",
+					"aria-label": "Tilbake",
+					"icon-prefix": "ai",
+					"icon-class": "ai-back",
+					"icon-extra-class": "",
+					"stacked-background": {
+						"icon-prefix": "ai",
+						"icon-class": "ai-plain-circle-big"
+					},
+					"is-modal-back": {
+						"data-target": "#modal-addAlert"
+					},
+					"enable-popover": false
 				},
 				{
-					"alert-text": {
-						"text": "G​runnet planlagt vedlikehold fredag 15.3.19, mellom kl. 04 – 06 (natt), vil det kunne oppleves noe treghet/forstyrrelser i løsningen i en kort periode."
-					}
+					"button-class": "a-modal-close",
+					"aria-label": "Lukk",
+					"icon-prefix": "ai",
+					"icon-class": "ai-exit",
+					"icon-extra-class": "a-modal-close-icon",
+					"enable-popover": false,
+					"stacked-background": {
+						"icon-prefix": "ai",
+						"icon-class": "ai-plain-circle-big"
+					},
+					"is-modal-close": {
+						"data-target": "#modal-addAlert"
+					},
+					"onclick": "goBack()"
 				}
 			]
-		},
+		}
+	},
+	"dashboard-alerts": [
 		{
 			"alert-id": "alert-no-arrow2",
 			"alert-class": "a-message-info a-message--arrow-off a-message--fullwidth mb-1",
@@ -341,12 +432,38 @@
 				{
 					"alert-header": {
 						"classes": "a-fontBold",
-						"text": "Obs! PROD: Vedlikehold mandag 18. mars"
+						"text": "PROD: Deploy av ny release mandag 23. september - versjon 19.9"
 					}
 				},
 				{
 					"alert-text": {
-						"text": "G​runnet planlagt vedlikehold fredag 15.3.19, mellom kl. 04 – 06 (natt), vil det kunne oppleves noe treghet/forstyrrelser i løsningen i en kort periode."
+						"text": "Gjennomføringen vil ha følgende konsekvenser: Tjenesteeiere vil ikke kunne sende eller motta data i tidsrommet 20:00-22:00. Alle forsendelser legges i kø og vil bli håndtert etter utført deploy. Innsending fra sluttbrukersystemer vil ikke bli påvirket og vil fungere som normalt."
+					}
+				},
+				{
+					"alert-link": {
+						"link-text": "Finn ut mer",
+						"link-url": "www.altinn.no"
+					}
+				},
+				{
+					"alert-edit-button": {
+						"classes": "mb-1 mr-1",
+						"button-text": "Rediger",
+						"button-class": "a-btn-link a-btn-md-block",
+						"button-colorClass": "",
+						"link-url": "",
+						"button-shadow-label": false,
+						"button-icon": {
+							"icon-prefix": "reg",
+							"icon-class": "reg-edit ai-sm"
+						},
+						"data-toggle": "altinn-modal",
+						"data-action": "load",
+						"data-url": {
+							"data-url": "../../patterns/02-organismer-80-Modal-js-innhold-30-dashboard-driftsvarsel-rediger/02-organismer-80-Modal-js-innhold-30-dashboard-driftsvarsel-rediger.markup-only.html"
+						},
+						"data-target": "modal-addAlert"
 					}
 				}
 			]
