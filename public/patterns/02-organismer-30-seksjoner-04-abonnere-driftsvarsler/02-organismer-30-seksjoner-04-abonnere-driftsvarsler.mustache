@@ -7,13 +7,21 @@
   <div class="row mt-2">
     <div class="col-12">
       <legend class="a-legend">{{{emailLegendText}}}</legend>
-      {{# abonner }} {{> molekyler-abonner }} {{/ abonner }}
+      {{# abonner-inline }} {{> molekyler-abonner }} {{/ abonner-inline }} {{# abonner-isModal }}
+      <div class="col-8 px-0">
+        {{> atomer-tekst-input }}
+      </div>
+      <div class="mt-4">
+        {{> atomer-knapp }}
+      </div>
+      {{/ abonner-isModal }}
     </div>
   </div>
 </div>
 
-
+{{# show-rss }}
 <div class="mt-4">
   {{# rss-title }} {{> atomer-undertittel}} {{/ rss-title }} {{# rss-description }} {{> atomer-avsnitt}} {{/ rss-description }}
 </div>
+{{/ show-rss }}
 <!-- END: 02-organismer-30-seksjoner-04-abonnere-driftsvarsler -->
