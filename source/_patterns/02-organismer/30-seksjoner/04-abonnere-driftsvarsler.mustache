@@ -1,27 +1,35 @@
-  {{# tittel }}
-    {{> atomer-seksjonstittel }}
-  {{/ tittel }}
+{{# tittel }}
+  {{> atomer-seksjonstittel }}
+{{/ tittel }}
 
-  {{# description }}
-    {{> atomer-intro-tekst }}
-  {{/ description}}
+{{# description }}
+  {{> atomer-intro-tekst }}
+{{/ description}}
 
 <div class="a-card transparent p-0 m-0 mt-4">
-    {{# options }}
-      {{> atomer-avkrysningsboks }}
-    {{/ options }}
+  {{# options }}
+    {{> atomer-avkrysningsboks }}
+  {{/ options }}
 
   <div class="row mt-2">
     <div class="col-12">
       <legend class="a-legend">{{{emailLegendText}}}</legend>
-      {{# abonner }}
+      {{# abonner-inline }}
         {{> molekyler-abonner }}
-      {{/ abonner }}
+      {{/ abonner-inline }}
+      {{# abonner-isModal }}
+        <div class="col-8 px-0">
+          {{> atomer-tekst-input }}
+        </div>
+        <div class="mt-4">
+          {{> atomer-knapp }}
+        </div>
+      {{/ abonner-isModal }}
     </div>
   </div>  
 </div>
-  
 
+{{# show-rss }}
   <div class="mt-4">
     {{# rss-title }}
       {{> atomer-undertittel}}
@@ -31,3 +39,4 @@
       {{> atomer-avsnitt}}
     {{/ rss-description }}
   </div>
+{{/ show-rss }}

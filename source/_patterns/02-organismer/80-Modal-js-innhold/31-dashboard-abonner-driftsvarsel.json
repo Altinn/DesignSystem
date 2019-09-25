@@ -34,51 +34,42 @@
     ]
   },
   "emailLegendText": "E-post:",
-  "abonner": {
-    "form-abonner": {
-      "text-input-id": "text-input-epost",
-      "top-label": "E-post:",
-      "isHidden": true,
-      "text-input-placeholder": "Din e-post",
-      "input-type": "text",
-      "isRequired": true,
-      "error-message-popover": true,
-      "input-name": "email-field",
-  
-      "input-regex-validation": {
-        "error-message": "Du har ikke skrevet e-posten korrekt",
-        "validation-pattern": "(('[^']+')|(([a-zA-Z0-9!#$%&'*+-=?^_`{|}~])+(.([a-zA-Z0-9!#$%&'*+-=?^_`{|}~])+)*))@((((([a-zA-Z0-9æøåÆØÅ]([a-zA-Z0-9-æøåÆØÅ]{0,61})[a-zA-Z0-9æøåÆØÅ].)|[a-zA-Z0-9æøåÆØÅ].){1,9})([a-zA-Z]{2,14}))|((d{1,3}).(d{1,3}).(d{1,3}).(d{1,3})))"
-      },
-  
-      "data-required": {
-        "data-required-message": "Du har ikke oppgitt e-post."
-      },
-  
-      "extra-help": false,
-      "isLarge": false,
-  
-      "form-label-hasIcon": {
-        "icon-prefix": "ai",
-        "icon-class": "ai-closedmessage"
-      },
-  
-      "button-text": "Abonner",
-      "button-class": "a-btn disabled",
-      "button-id": "a-js-subscribtion-submit",
-      "button-disabled": "disabled",
+  "abonner-inline": false,
+  "abonner-isModal": {
+    "text-input-id": "text-input-epost",
+    "top-label": false,
+    "text-input-placeholder": "f.eks post@karinordmann.no",
+    "input-type": "email",
+    "isRequired": true,
+    "error-message-popover": true,
+    "input-name": "email-field",
+
+    "input-regex-validation": {
+      "error-message": "Feil epost verdier",
+      "validation-pattern": "(('[^']+')|(([a-zA-Z0-9!#$%&'*+-=?^_`{|}~])+(.([a-zA-Z0-9!#$%&'*+-=?^_`{|}~])+)*))@((((([a-zA-Z0-9æøåÆØÅ]([a-zA-Z0-9-æøåÆØÅ]{0,61})[a-zA-Z0-9æøåÆØÅ].)|[a-zA-Z0-9æøåÆØÅ].){1,9})([a-zA-Z]{2,14}))|((d{1,3}).(d{1,3}).(d{1,3}).(d{1,3})))"
+    },
+
+    "extra-help": false,
+    "isHidden": false,
+    "isLarge": false,
+
+    "form-label-hasIcon": {
+      "icon-prefix": "ai",
+      "icon-class": "ai-closedmessage"
+    },
+    "button-text": "Abonner",
+      "button-class": "a-btn",
+      "button-id": "a-js-contactForm-submit",
       "button-type": "button",
       "onclick": false,
       "button-icon": false,
       "display-as-link": false,
+      "data-is-success": true,
   
-      "finish-text": "",
-      "alt-text": ""
-    }
+      "data-action": "next",
+      "data-toggle":"altinn-modal",
+      "data-target":"#modal-subscribe",
+      "page-url": "../../patterns/02-organismer-80-Modal-js-innhold-31-dashboard-abonner-driftsvarsel-ferdig/02-organismer-80-Modal-js-innhold-31-dashboard-abonner-driftsvarsel-ferdig.markup-only.html"
   },
-  "rss-title": {
-    "section-sub-title": "Få driftsvarsler ved hjelp av RSS"
-  },
-  "rss-description": {
-    "paragraph-content": "For å få driftsvarsler fra oss ved hjelp av RSS (i Slack eller et annet verktøy) må du..."
-  }
+  "show-rss": false
 }
