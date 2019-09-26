@@ -84,6 +84,51 @@
       "data-required": false
     },
 
+    "alerttype" : {
+      "flexWrap": false,
+      "check-legend": false,
+      "label-text" : "Type driftsvarsel",
+
+      "radiotab-items" : [
+        {
+          "radiotab-id": "radio-Feilmelding",
+          "radiotab-title": "Feilmelding"
+        },
+        {
+          "radiotab-id": "radio-vedlikehold",
+          "radiotab-title": "Planlagt vedlikehold",
+          "isChecked": true
+        },
+        {
+          "radiotab-id": "radio-Release",
+          "radiotab-title": "Release"
+        }
+      ],
+      "radiotab-panes" : [
+        {
+          "radiotab-id": "radio-Feilmelding",
+          "checkboxes":  [
+            {
+              "isInline" : false,
+              "isChecked": false,
+              "checkboxID" : "criticaltrue",
+              "checkboxes-title": "Varselet er av kritisk art/A-feil",
+              "isRequired": false
+            }
+          ]
+        },
+        {
+          "radiotab-id": "radio-vedlikehold",
+          "checkboxes":  false
+        },
+        {
+          "radiotab-id": "radio-Release",
+          "checkboxes":  false
+        }
+      ]
+      
+    },
+
     "receivers" : {
       "flexWrap": false,
       "check-legend": false,
@@ -166,7 +211,7 @@
 
     "removeAlert": {
       "button-text": "Fjern driftsvarsel",
-      "button-class": "a-btn a-btn-icon",
+      "button-class": "a-btn a-btn-icon justify-content-end",
       "button-colorClass": "",
       "link-url": "",
       "button-shadow-label": false,
