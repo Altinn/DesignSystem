@@ -22,14 +22,18 @@
           </div>
           {{/ removeAlert }}
 
+          {{# description }}
           <div class="row">
+            <div class="col-12">
+              <p class="mb-4">{{ text }}</p>
+            </div>
+          </div>
+          {{/ description }}
 
+          <div class="row">
+                
             <div class="col-12 col-lg-8">
-
-              {{# description }}
-                <p>{{ text }}</p>
-              {{/ description }}
-
+            
               {{#alerttype}}
                 <label class="an-stackedLabel" for="{{ inputId }}">
                   {{label-text}}
@@ -77,7 +81,7 @@
               {{/time}}
 
               {{#timeend}}
-                {{> molekyler-dato-og-tid}}
+                {{> molekyler-dato-og-tid:mt-1}}
               {{/timeend}}
 
               {{#receivers}}
