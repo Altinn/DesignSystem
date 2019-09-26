@@ -15,24 +15,59 @@
 
     {{# form }}
     <form data-toggle="validator" id="contactForm">
+      {{# removeAlert }}
+      <div class="row">
+        <div class="col-12">
+          {{> atomer-knapp-ikon-tekst }}
+        </div>
+      </div>
+      {{/ removeAlert }} {{# description }}
+      <div class="row">
+        <div class="col-12">
+          <p class="mb-4">{{ text }}</p>
+        </div>
+      </div>
+      {{/ description }}
+
       <div class="row">
 
-        <div class="col-12 col-lg-8 mt-4">
+        <div class="col-12 col-lg-8">
 
-          {{# description }}
-          <p>{{ text }}</p>
-          {{/ description }} {{#emne}} {{> atomer-tekst-input:mb-2 }} {{/emne}} {{#question}} {{> atomer-tekstfelt:mb-2 }} {{/question}} {{#link}} {{> atomer-tekst-input:mb-2 }} {{/link}} {{#linktext}} {{> atomer-tekst-input:mb-2 }} {{/linktext}} {{#receivers}}
+          {{#alerttype}}
+          <label class="an-stackedLabel" for="{{ inputId }}">
+                  {{label-text}}
+                </label>
+
+          <ul class="nav nav-tabs custom-radio a-radioButtons a-navTabsRadio" role="tablist">
+            {{# radiotab-items }}
+            <li class="nav-item">
+              <a class="nav-link {{# isChecked }}active{{/ isChecked }}" data-toggle="tab" href="#{{radiotab-id}}" role="tab">
+                <div class="custom-control custom-radio a-custom-radio">
+                  <span class="custom-control-label">{{ radiotab-title }} </span>
+                </div>
+              </a>
+            </li>
+            {{/ radiotab-items }}
+          </ul>
+
+          <div class="tab-content mb-4">
+            {{# radiotab-panes }}
+            <div class="tab-pane" id="{{radiotab-id}}" role="tabpanel">
+              {{> atomer-avkrysningsboks }}
+            </div>
+            {{/ radiotab-panes }}
+          </div>
+          {{/alerttype}} {{#emne}} {{> atomer-tekst-input:mb-2 }} {{/emne}} {{#question}} {{> atomer-tekstfelt:mb-2 }} {{/question}} {{#link}} {{> atomer-tekst-input:mb-2 }} {{/link}} {{#linktext}} {{> atomer-tekst-input:mb-3 }} {{/linktext}} {{#time}} {{> molekyler-dato-og-tid:mt-3}}
+          {{/time}} {{#timeend}} {{> molekyler-dato-og-tid:mt-1}} {{/timeend}} {{#receivers}}
           <label class="an-stackedLabel mt-2 mb-1" for="{{ inputId }}">
                   {{label-text}}
                 </label> {{> atomer-avkrysningsboks }} {{/receivers}} {{#canal}}
           <label class="an-stackedLabel mt-2 mb-1" for="{{ inputId }}">
                   {{label-text}}
-                </label> {{> atomer-avkrysningsboks }} {{/canal}} {{#time}} {{> molekyler-dato-og-tid:mt-2 }} {{/time}}
+                </label> {{> atomer-avkrysningsboks }} {{/canal}}
 
         </div>
-        <div class="col-12 col-lg-4 px-0">
-          {{# removeAlert }} {{> atomer-knapp-ikon-tekst }} {{/ removeAlert }}
-        </div>
+
       </div>
 
       <div class="row mt-4">

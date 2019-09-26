@@ -27,48 +27,6 @@
 		"icon-class": "ai-deadline"
 	},
 	"display-as-link": false,
-	"dropdown-link-class": "a-borderBottom",
-	"dropdown-top-item": {
-		"dropdown-top-item-content": "Lagrede søk",
-		"overflow-extraclass": "pt-1 pb-1"
-	},
-	"dropdown-item": [
-		{
-			"dropdown-icon": {
-				"icon-prefix": "ai",
-				"icon-class": "ai-letter-r",
-				"icon-size": "",
-				"icon-extra-class": "a-blue"
-			},
-			"dropdown-item-content": "Lagre søk",
-			"dropdown-item-content-class": "a-fontBold"
-		},
-		{
-			"dropdown-icon": {
-				"icon-prefix": "ai",
-				"icon-class": "ai-letter-r",
-				"icon-size": "",
-				"icon-extra-class": "a-blue"
-			},
-			"dropdown-item-content": "Annet lagret søk",
-			"dropdown-item-content-class": "a-fontBold"
-		},
-		{
-			"dropdown-icon": {
-				"icon-prefix": "ai",
-				"icon-class": "ai-settings",
-				"icon-size": "",
-				"icon-extra-class": "a-blue"
-			},
-			"dropdown-item-content": "tilpass",
-			"dropdown-item-content-class": "a-fontBold"
-		}
-	],
-	"label-class": "badge-primary",
-	"label-id": false,
-	"label-content": "9",
-	"button-colorClass": "",
-	"button-shadow-label": false,
 	"select-menu-id": "primaryEmail",
 	"select-menu-label": "Primær epost-adresse:",
 	"select-menu-selected": "post@første.com",
@@ -171,6 +129,22 @@
 			}
 		]
 	},
+	"textarea-label": "Fyll inn tekst:",
+	"textarea-placeholder": "Forklarende hjelpetekst med forslag",
+	"print-form-tag": false,
+	"text-input-id": "text-input-generic",
+	"isHidden": false,
+	"top-label": "Label: ",
+	"isDisabled": false,
+	"isInactive": false,
+	"text-input-placeholder": "f.eks placeholder",
+	"input-type": "text",
+	"isRequired": false,
+	"extra-help": false,
+	"isLarge": false,
+	"form-label-hasIcon": false,
+	"input-name": "input-field",
+	"form-control-class": "",
 	"flexWrap": false,
 	"check-legend": {
 		"check-legendText": "Velg ett eller flere alternativer"
@@ -205,22 +179,48 @@
 			"isRequired": false
 		}
 	],
-	"textarea-label": "Fyll inn tekst:",
-	"textarea-placeholder": "Forklarende hjelpetekst med forslag",
-	"print-form-tag": false,
-	"text-input-id": "text-input-generic",
-	"isHidden": false,
-	"top-label": "Label: ",
-	"isDisabled": false,
-	"isInactive": false,
-	"text-input-placeholder": "f.eks placeholder",
-	"input-type": "text",
-	"isRequired": false,
-	"extra-help": false,
-	"isLarge": false,
-	"form-label-hasIcon": false,
-	"input-name": "input-field",
-	"form-control-class": "",
+	"dropdown-link-class": "a-borderBottom",
+	"dropdown-top-item": {
+		"dropdown-top-item-content": "Lagrede søk",
+		"overflow-extraclass": "pt-1 pb-1"
+	},
+	"dropdown-item": [
+		{
+			"dropdown-icon": {
+				"icon-prefix": "ai",
+				"icon-class": "ai-letter-r",
+				"icon-size": "",
+				"icon-extra-class": "a-blue"
+			},
+			"dropdown-item-content": "Lagre søk",
+			"dropdown-item-content-class": "a-fontBold"
+		},
+		{
+			"dropdown-icon": {
+				"icon-prefix": "ai",
+				"icon-class": "ai-letter-r",
+				"icon-size": "",
+				"icon-extra-class": "a-blue"
+			},
+			"dropdown-item-content": "Annet lagret søk",
+			"dropdown-item-content-class": "a-fontBold"
+		},
+		{
+			"dropdown-icon": {
+				"icon-prefix": "ai",
+				"icon-class": "ai-settings",
+				"icon-size": "",
+				"icon-extra-class": "a-blue"
+			},
+			"dropdown-item-content": "tilpass",
+			"dropdown-item-content-class": "a-fontBold"
+		}
+	],
+	"label-class": "badge-primary",
+	"label-id": false,
+	"label-content": "9",
+	"button-colorClass": "",
+	"button-shadow-label": false,
 	"header-title": "Endre eller fjerne driftsvarsel",
 	"form": {
 		"description": false,
@@ -302,6 +302,48 @@
 			"form-label-hasIcon": false,
 			"data-required": false
 		},
+		"alerttype": {
+			"flexWrap": false,
+			"check-legend": false,
+			"label-text": "Type driftsvarsel",
+			"radiotab-items": [
+				{
+					"radiotab-id": "radio-Feilmelding",
+					"radiotab-title": "Feilmelding"
+				},
+				{
+					"radiotab-id": "radio-vedlikehold",
+					"radiotab-title": "Planlagt vedlikehold",
+					"isChecked": true
+				},
+				{
+					"radiotab-id": "radio-Release",
+					"radiotab-title": "Release"
+				}
+			],
+			"radiotab-panes": [
+				{
+					"radiotab-id": "radio-Feilmelding",
+					"checkboxes": [
+						{
+							"isInline": false,
+							"isChecked": false,
+							"checkboxID": "criticaltrue",
+							"checkboxes-title": "Varselet er av kritisk art/A-feil",
+							"isRequired": false
+						}
+					]
+				},
+				{
+					"radiotab-id": "radio-vedlikehold",
+					"checkboxes": false
+				},
+				{
+					"radiotab-id": "radio-Release",
+					"checkboxes": false
+				}
+			]
+		},
 		"receivers": {
 			"flexWrap": false,
 			"check-legend": false,
@@ -381,7 +423,7 @@
 		},
 		"removeAlert": {
 			"button-text": "Fjern driftsvarsel",
-			"button-class": "a-btn a-btn-icon",
+			"button-class": "a-btn a-btn-icon justify-content-end",
 			"button-colorClass": "",
 			"link-url": "",
 			"button-shadow-label": false,
@@ -408,6 +450,19 @@
 			"data-toggle": "altinn-modal",
 			"data-target": "#modal-addAlert",
 			"page-url": "../../patterns/02-organismer-80-Modal-js-innhold-30-dashboard-driftsvarsel-ferdig/02-organismer-80-Modal-js-innhold-30-dashboard-driftsvarsel-ferdig.markup-only.html"
+		},
+		"timeend": {
+			"datovelger": {
+				"styleModifier": "",
+				"stackedLabel": true,
+				"inputId": "datovelger",
+				"date-input-label": "Utgår",
+				"isRequired": false,
+				"form-control-class": "",
+				"icon-prefix": "ai",
+				"icon-class": "ai-date",
+				"icon-extra-class": ""
+			}
 		}
 	}
 }
