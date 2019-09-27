@@ -553,11 +553,14 @@
     }
 
     @media (max-width: 767px) {
-      width: 75px;
-      .ai-circle-exclamation{
+      .ai-circle-exclamation {
         float: right;
         line-height: 1;
       }
+    }
+
+    @media (max-with: 767px) {
+      width: 75px;
     }
 
     &::after {
@@ -567,10 +570,9 @@
     &[data-jsexpanded='true'] {
       color: $white;
       background: $blue-dark;
-      
       @media (max-width: 767px) {
-        .ai-circle-exclamation{
-          display: none; 
+        .ai-circle-exclamation {
+          display: none;
           line-height: 0;
         }
       }
@@ -730,15 +732,17 @@
         &:active,
         &:focus {
           color: $blue-dark;
-				}
+        }
 
-        &.globalNav-active span{
+        &.globalNav-active {
+          span {
             padding-bottom: 3px;
             color: $blue-dark;
             border-bottom: 3px solid $blue-dark;
           }
         }
-      
+      }
+
       @include media-breakpoint-up( lg ) {
         @include a-fontSize24;
         padding-bottom: 3px;
