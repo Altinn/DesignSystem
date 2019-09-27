@@ -45,73 +45,27 @@
             <div class="row">
               <div class="col-12 col-sm-8">
                 <ul class="nav nav-tabs custom-radio a-radioButtons a-navTabsRadio" role="tablist">
-                  <li class="nav-item">
-                    <a class="nav-link" data-toggle="tab" href="#bestille1" role="tab">
-                      <div class="custom-control custom-radio a-custom-radio">
-                        <span class="custom-control-label">Tilganger</span>
-                      </div>
-                    </a>
-                  </li>
-                  <li class="nav-item">
-                    <a class="nav-link" data-toggle="tab" href="#bestille2" role="tab">
-                      <div class="custom-control custom-radio a-custom-radio">
-                        <span class="custom-control-label">Endring av grensesnitt</span>
-                      </div>
-                    </a>
-                  </li>
-                  <li class="nav-item">
-                    <a class="nav-link" data-toggle="tab" href="#bestille3" role="tab">
-                      <div class="custom-control custom-radio a-custom-radio">
-                        <span class="custom-control-label">Innlesing av prefill eller abonnement</span>
-                      </div>
-                    </a>
-                  </li>
-                  <li class="nav-item">
-                    <a class="nav-link" data-toggle="tab" href="#bestille4" role="tab">
-                      <div class="custom-control custom-radio a-custom-radio">
-                        <span class="custom-control-label">Oppsett av lenketjeneste i tjenesteutviklingsløsningen</span>
-                      </div>
-                    </a>
-                  </li>
-                  <li class="nav-item">
-                    <a class="nav-link" data-toggle="tab" href="#bestille5" role="tab">
-                      <div class="custom-control custom-radio a-custom-radio">
-                        <span class="custom-control-label">Egen varslingsmal til varslingstjeneste</span>
-                      </div>
-                    </a>
-                  </li>
-                  <li class="nav-item">
-                    <a class="nav-link" data-toggle="tab" href="#bestille6" role="tab">
-                      <div class="custom-control custom-radio a-custom-radio">
-                        <span class="custom-control-label">Produksjonssetting av tjenester kodelister og mappere</span>
-                      </div>
-                    </a>
-                  </li>
-                  <li class="nav-item">
-                    <a class="nav-link" data-toggle="tab" href="#bestille7" role="tab">
-                      <div class="custom-control custom-radio a-custom-radio">
-                        <span class="custom-control-label">Ny/endre tjenesteinformasjon på altinn.no</span>
-                      </div>
-                    </a>
-                  </li>
-                  <li class="nav-item">
-                    <a class="nav-link" data-toggle="tab" href="#bestille8" role="tab">
-                      <div class="custom-control custom-radio a-custom-radio">
-                        <span class="custom-control-label">Sanering/deaktivering av tjeneste</span>
-                      </div>
-                    </a>
-                  </li>
+                  {{# radiotab-items }}
+                    <li class="nav-item">
+                      <a class="nav-link" data-toggle="tab" href="#{{radiotab-id}}" role="tab">
+                        <div class="custom-control custom-radio a-custom-radio">
+                          <span class="custom-control-label">{{ radiotab-title }} </span>
+                        </div>
+                      </a>
+                    </li>
+                  {{/ radiotab-items }}
                 </ul>
-              </div>
+                </div>
             </div>
           </form>
-          
           <div class="tab-content">
-            <div class="tab-pane" id="bestille1" role="tabpanel">
-                {{#submit1}}
-                  {{> atomer-knapp:mb-2 }}
-                {{/submit1}}
+            {{# radiotab-panes }}
+            <div class="tab-pane" id="{{radiotab-id}}" role="tabpanel">
+              {{# nextButton }}
+                {{> atomer-knapp:mt-1 }}
+              {{/ nextButton }}
             </div>
+            {{/ radiotab-panes }}
           </div>
           {{/tab1}}
         </div>
