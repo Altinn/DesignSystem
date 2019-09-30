@@ -21,6 +21,9 @@
 
     			  <button class="navbar-toggler d-md-none" type="button">
               <span class="sr-only">Vis/skjul meny</span>
+                  {{# globalNav-hasProfileIcon }}
+                    {{> atomer-ikon }}
+                  {{/ globalNav-hasProfileIcon }}
     			  </button>
     			  <div class="collapse navbar-toggleable-sm a-globalNav-main" id="exCollapsingNavbar2">
     					<ul class="" id="exCollapsingNavbar">
@@ -37,15 +40,17 @@
                     {{> organismer-meny-spraakvalg }}
                   {{/ dropdown-languages }}
                 </li>
-    						<li><a class="a-hvr-underline {{{ globalNav-active-inbox }}} {{{login-deactivated}}}" href="{{ link.sider-portal-innboks }}">innboks</a></li>
-    						<li><a class="a-hvr-underline {{{ globalNav-active }}}" href="{{ link.sider-infoportal-kolonnenavigasjon-v-skjemaoversikt }}">alle skjema</a></li>
+    						<li><a class="{{{ globalNav-active-inbox }}} {{{login-deactivated}}}" href="{{  link.sider-portal-innboks }}">
+                    <span class="a-hvr-underline a-js-onboardingTarget-2 {{{login-deactivated}}}">innboks</span></a></li>
+    						<li><a class="{{{ globalNav-active }}}" href="{{link.sider-infoportal-kolonnenavigasjon-v-skjemaoversikt }}">
+                    <span class="a-hvr-underline a-js-onboardingTarget-2 {{{login-deactivated}}}">alle skjema</span></a></li>
     						<li>
-                  <a class="a-hvr-underline {{{ globalNav-active-profile }}} {{{login-deactivated}}}" href="{{ link.sider-portal-profil-roller-rettigheter }}">
-                    <span class="a-js-onboardingTarget-2 {{{login-deactivated}}}">profil</span>
-                  </a>
+                  <a class="{{{ globalNav-active-profile }}} {{{login-deactivated}}}" href="{{ link.sider-portal-profil-roller-rettigheter }}">
+                    <span class="a-hvr-underline a-js-onboardingTarget-2 {{{login-deactivated}}}">profil</span>
                   {{# globalNav-hasProfileIcon }}
                     {{> atomer-ikon }}
                   {{/ globalNav-hasProfileIcon }}
+                  </a>
                 </li>
     						<li class="d-md-none"><a class="a-nav-link a-hvr-underline" href="{{ link.sider-infoportal-seksjonsforside-v-starteogdrive }}">starte og drive bedrift</a></li>
     						<li class="d-md-none"><a class="a-hvr-underline" href="{{ link.sider-infoportal-navigasjonsartikkel-v-omaltinn-v2 }}">om altinn</a></li>
