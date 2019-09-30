@@ -190,27 +190,52 @@
       ]
     },
 
+    "time-start" : {
+      "flexWrap": false,
+      "check-legend": false,
+      "label-text" : "Publiseres/sendes ut",
 
-    "time" : {
-      "datovelger": {
-        "styleModifier": "",
-        "stackedLabel": true,
-        "inputId": "datovelger",
-        "date-input-label": "Publiseres/sendes ut",
-        "isRequired": false,
-        "form-control-class": "",
-        "icon-prefix": "ai",
-        "icon-class": "ai-date",
-        "icon-extra-class": ""
-      }
+      "radiotab-items" : [
+        {
+          "radiotab-id": "radio-sendnow",
+          "radiotab-title": "Nå"
+        },
+        {
+          "radiotab-id": "radio-sendlater",
+          "radiotab-title": "Senere"
+        }
+      ],
+      "radiotab-panes" : [
+        {
+          "radiotab-id": "radio-sendnow",
+          "date-picker": false
+        },
+        {
+          "radiotab-id": "radio-sendlater",
+          "date-picker" : {
+            "datovelger": {
+              "styleModifier": "",
+              "stackedLabel": true,
+              "inputId": "datovelger",
+              "date-input-label": "Planlagt publiseringsdato",
+              "isRequired": false,
+              "form-control-class": "",
+              "icon-prefix": "ai",
+              "icon-class": "ai-date",
+              "icon-extra-class": ""
+            }
+          }
+        }
+      ]
     },
+    "time" : false,
 
     "timeend" : {
       "datovelger": {
         "styleModifier": "",
         "stackedLabel": true,
         "inputId": "datovelger",
-        "date-input-label": "Utgår",
+        "date-input-label": "Utgår/deaktiveres",
         "isRequired": false,
         "form-control-class": "",
         "icon-prefix": "ai",

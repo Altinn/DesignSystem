@@ -76,10 +76,67 @@
                 {{> atomer-tekst-input:mb-3 }}
               {{/linktext}}
 
+              {{#time-start}}
+                <label class="an-stackedLabel" for="{{ inputId }}">
+                  {{label-text}}
+                </label>
+
+                <ul class="nav nav-tabs custom-radio a-radioButtons a-navTabsRadio mb-0" role="tablist">
+                {{# radiotab-items }}
+                <li class="nav-item">
+                  <a class="nav-link {{# isChecked }}active{{/ isChecked }}" data-toggle="tab" href="#{{radiotab-id}}" role="tab">
+                    <div class="custom-control custom-radio a-custom-radio">
+                      <span class="custom-control-label">{{ radiotab-title }} </span>
+                    </div>
+                  </a>
+                </li>
+                {{/ radiotab-items }}
+              </ul>
+
+              <div class="tab-content mb-2">
+                {{# radiotab-panes }}
+                <div class="tab-pane" id="{{radiotab-id}}" role="tabpanel">
+                  {{#date-picker}}
+                    {{> molekyler-dato-og-tid}}
+                  {{/date-picker}}
+                </div>
+                {{/ radiotab-panes }}
+              </div>
+              {{/time-start}}
+
               {{#time}}
-                {{> molekyler-dato-og-tid:mt-3}}
+                {{> molekyler-dato-og-tid:mb-2}}
               {{/time}}
 
+
+              {{#time-end-edit}}
+                <label class="an-stackedLabel" for="{{ inputId }}">
+                  {{label-text}}
+                </label>
+
+                <ul class="nav nav-tabs custom-radio a-radioButtons a-navTabsRadio mb-0" role="tablist">
+                {{# radiotab-items }}
+                <li class="nav-item">
+                  <a class="nav-link {{# isChecked }}active{{/ isChecked }}" data-toggle="tab" href="#{{radiotab-id}}" role="tab">
+                    <div class="custom-control custom-radio a-custom-radio">
+                      <span class="custom-control-label">{{ radiotab-title }} </span>
+                    </div>
+                  </a>
+                </li>
+                {{/ radiotab-items }}
+              </ul>
+
+              <div class="tab-content mb-2">
+                {{# radiotab-panes }}
+                <div class="tab-pane" id="{{radiotab-id}}" role="tabpanel">
+                  {{#date-picker}}
+                    {{> molekyler-dato-og-tid}}
+                  {{/date-picker}}
+                </div>
+                {{/ radiotab-panes }}
+              </div>
+              {{/time-end-edit}}
+              
               {{#timeend}}
                 {{> molekyler-dato-og-tid:mt-1}}
               {{/timeend}}

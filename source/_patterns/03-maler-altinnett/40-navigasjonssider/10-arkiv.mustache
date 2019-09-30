@@ -12,26 +12,45 @@
 					{{> atomer-sidetittel }}
           {{> atomer-intro-tekst }}
 
+          {{# dashboard-subscribe-modal }}
+            {{> organismer-modal }}
+          {{/ dashboard-subscribe-modal }}
+
+          {{# active-alerts }}
+            {{> atomer-varsel }}
+          {{/ active-alerts }}
+
 				</div>
 			</div>
 
 			<div class="row">
 				<div class="col-sm-12 col-lg-10 offset-lg-1 pb-3 {{articlesContainerClass}}">
 
+          {{# list-header }}
+							{{> atomer-seksjonstittel }}
+					{{/ list-header }}
+
 					{{# list-article }}
-							{{> molekyler-lenketittel-med-forklaring }}
+							
+              <article class="a-linkArticle" {{# identifier }}id="{{ identifier }}"{{/ identifier }}>
+
+              {{> atomer-byline }}
+              {{> atomer-undertittel:d-inline }}
+
+              {{# label }}
+							  {{> atomer-merkelapp }}
+					    {{/ label }}
+              
+
+              <p>{{{ article-description }}}</p>
+            </article>
+
 					{{/ list-article }}
 
 					{{# list-article-loadmore }}
 				    {{> atomer-handlingsknapp }}
 				  {{/ list-article-loadmore }}
 
-				</div>
-			</div>
-
-			<div class="row mt-4">
-				<div class="col-sm-12 col-lg-10 offset-lg-1">
-					{{> organismer-abonnere-driftsvarsler }}
 				</div>
 			</div>
 
