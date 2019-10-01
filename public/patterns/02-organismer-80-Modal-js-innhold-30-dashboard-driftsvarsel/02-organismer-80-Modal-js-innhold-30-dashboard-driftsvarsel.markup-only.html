@@ -139,7 +139,7 @@
 
 
               <input class="form-control  
-         " type="text" placeholder="https:&#x2F;&#x2F;..." name="input-field" data-val="true" id="text-input-link" required>
+         " type="text" placeholder="https:&#x2F;&#x2F;..." name="input-field" data-val="true" id="text-input-link">
 
 
 
@@ -164,7 +164,7 @@
 
 
               <input class="form-control  
-         " type="text" placeholder="F.eks &#39;Finn ut mer&#39;" name="input-field" data-val="true" id="text-input-linktext" required>
+         " type="text" placeholder="F.eks &#39;Finn ut mer&#39;" name="input-field" data-val="true" id="text-input-linktext">
 
 
 
@@ -179,40 +179,65 @@
           <!-- END: 00-atomer-01-forms-10-tekst-input -->
 
 
-          <!-- START: 01-molekyler-05-forms-20-dato-og-tid -->
-          <div class="row mt-3">
-            <div class="col-12 d-flex align-items-end">
-              <div>
-                <!-- START: 00-atomer-01-forms-60-datovelger JS doc: initializeDatepicker.js. Requires class .form-control.date -->
-                <label class="  an-stackedLabel " for="datovelger">
+          <label class="an-stackedLabel" for="">
+                  Publiseres&#x2F;sendes ut
+                </label>
+
+          <ul class="nav nav-tabs custom-radio a-radioButtons a-navTabsRadio mb-0" role="tablist">
+            <li class="nav-item">
+              <a class="nav-link " data-toggle="tab" href="#radio-sendnow" role="tab">
+                <div class="custom-control custom-radio a-custom-radio">
+                  <span class="custom-control-label">Nå </span>
+                </div>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link " data-toggle="tab" href="#radio-sendlater" role="tab">
+                <div class="custom-control custom-radio a-custom-radio">
+                  <span class="custom-control-label">Senere </span>
+                </div>
+              </a>
+            </li>
+          </ul>
+
+          <div class="tab-content mb-2">
+            <div class="tab-pane" id="radio-sendnow" role="tabpanel">
+            </div>
+            <div class="tab-pane" id="radio-sendlater" role="tabpanel">
+              <!-- START: 01-molekyler-05-forms-20-dato-og-tid -->
+              <div class="row ">
+                <div class="col-12 d-flex align-items-end">
+                  <div>
+                    <!-- START: 00-atomer-01-forms-60-datovelger JS doc: initializeDatepicker.js. Requires class .form-control.date -->
+                    <label class="  an-stackedLabel " for="datovelger-send">
   <span class="a-input-labelText control-label">
-    Publiseres&#x2F;sendes ut
+    Planlagt publiseringsdato
   </span>
 </label>
-                <div class="d-inline-block form-group a-form-group a-form-group-datepicker">
-                  <div class="input-group">
-                    <input type="text" id="datovelger" class="form-control a-hasButton  date" />
+                    <div class="d-inline-block form-group a-form-group a-form-group-datepicker">
+                      <div class="input-group">
+                        <input type="text" id="datovelger-send" class="form-control a-hasButton  date" />
 
-                    <div class="input-group-prepend a-icon-right">
-                      <!-- START: 00-atomer-09-bilder-og-media-15-ikon -->
-                      <i class="ai ai-date   "></i>
+                        <div class="input-group-prepend a-icon-right">
+                          <!-- START: 00-atomer-09-bilder-og-media-15-ikon -->
+                          <i class="ai ai-date   "></i>
 
 
-                      <!-- END: 00-atomer-09-bilder-og-media-15-ikon -->
+                          <!-- END: 00-atomer-09-bilder-og-media-15-ikon -->
 
+                        </div>
+                      </div>
                     </div>
+
+                    <!-- END: 00-atomer-01-forms-60-datovelger -->
+
                   </div>
-                </div>
 
-                <!-- END: 00-atomer-01-forms-60-datovelger -->
-
-              </div>
-
-              <div class="ml-2">
-                <!-- START: 00-atomer-01-forms-51-flervalg-generell -->
-                <div class="form-group a-form-group ">
-                  <label for="tidsvelger" class="a-form-label"></label>
-                  <select class="custom-select a-custom-select" name="tidsvelger" id="dropdownMenuDefault">
+                  <div class="ml-2">
+                    <!-- START: 00-atomer-01-forms-51-flervalg-generell -->
+                    <div class="form-group a-form-group ">
+                      <label for="tidsvelger" class="a-form-label"></label>
+                      <select class="custom-select a-custom-select" name="tidsvelger" id="dropdownMenuDefault">
         <option value="00:00" selected>00:00</option>
 
       <option value="01:00" >01:00</option>
@@ -239,15 +264,20 @@
       <option value="22:00" >22:00</option>
       <option value="23:00" >23:00</option>
   </select>
+                    </div>
+
+                    <!-- END: 00-atomer-01-forms-51-flervalg-generell -->
+
+                  </div>
                 </div>
-
-                <!-- END: 00-atomer-01-forms-51-flervalg-generell -->
-
               </div>
+
+              <!-- END: 01-molekyler-05-forms-20-dato-og-tid -->
+
             </div>
           </div>
 
-          <!-- END: 01-molekyler-05-forms-20-dato-og-tid -->
+
 
 
           <!-- START: 01-molekyler-05-forms-20-dato-og-tid -->
@@ -255,14 +285,14 @@
             <div class="col-12 d-flex align-items-end">
               <div>
                 <!-- START: 00-atomer-01-forms-60-datovelger JS doc: initializeDatepicker.js. Requires class .form-control.date -->
-                <label class="  an-stackedLabel " for="datovelger">
+                <label class="  an-stackedLabel " for="datovelger-deaktiver">
   <span class="a-input-labelText control-label">
-    Utgår
+    Utgår&#x2F;deaktiveres
   </span>
 </label>
                 <div class="d-inline-block form-group a-form-group a-form-group-datepicker">
                   <div class="input-group">
-                    <input type="text" id="datovelger" class="form-control a-hasButton  date" />
+                    <input type="text" id="datovelger-deaktiver" class="form-control a-hasButton  date" />
 
                     <div class="input-group-prepend a-icon-right">
                       <!-- START: 00-atomer-09-bilder-og-media-15-ikon -->

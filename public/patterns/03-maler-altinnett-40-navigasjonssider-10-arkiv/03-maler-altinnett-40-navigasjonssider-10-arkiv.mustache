@@ -8,7 +8,7 @@
       <div class="row">
         <div class="col-sm-12 col-lg-10 offset-lg-1 pb-3">
 
-          {{> atomer-sidetittel }} {{> atomer-intro-tekst }}
+          {{> atomer-sidetittel }} {{> atomer-intro-tekst }} {{# dashboard-subscribe-modal }} {{> organismer-modal }} {{/ dashboard-subscribe-modal }} {{# active-alerts }} {{> atomer-varsel }} {{/ active-alerts }}
 
         </div>
       </div>
@@ -16,14 +16,18 @@
       <div class="row">
         <div class="col-sm-12 col-lg-10 offset-lg-1 pb-3 {{articlesContainerClass}}">
 
-          {{# list-article }} {{> molekyler-lenketittel-med-forklaring }} {{/ list-article }} {{# list-article-loadmore }} {{> atomer-handlingsknapp }} {{/ list-article-loadmore }}
+          {{# list-header }} {{> atomer-seksjonstittel }} {{/ list-header }} {{# list-article }}
 
-        </div>
-      </div>
+          <article class="a-linkArticle" {{# identifier }}id="{{ identifier }}" {{/ identifier }}>
 
-      <div class="row mt-4">
-        <div class="col-sm-12 col-lg-10 offset-lg-1">
-          {{> organismer-abonnere-driftsvarsler }}
+            {{> atomer-byline }} {{> atomer-undertittel:d-inline }} {{# label }} {{> atomer-merkelapp }} {{/ label }}
+
+
+            <p>{{{ article-description }}}</p>
+          </article>
+
+          {{/ list-article }} {{# list-article-loadmore }} {{> atomer-handlingsknapp }} {{/ list-article-loadmore }}
+
         </div>
       </div>
 

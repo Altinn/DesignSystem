@@ -16,26 +16,46 @@
     <form data-toggle="validator" id="contactForm">
       <div class="row">
         <div class="col-12">
-          <!-- START: 00-atomer-03-knapper-25-knapp-ikon-tekst -->
-          <button type="button" class="a-btn a-btn-icon justify-content-end  ">
-
-    <!-- START: 00-atomer-09-bilder-og-media-15-ikon -->
+          <!-- START: 00-atomer-04-handlingsknapper-10-knapp-ikon -->
+          <button type="button" class="a-btn a-btn-icon float-right w-auto " aria-label="Tilbake" data-toggle="popover" data-placement="bottom" data-animation="false" data-popover-content="removeAlertPopover" data-popover-class="popover-warning">
+  <!-- START: 00-atomer-09-bilder-og-media-15-ikon -->
 <i class="ai ai-circle-exit  a-danger ai-left "    ></i>
 
 
 <!-- END: 00-atomer-09-bilder-og-media-15-ikon -->
 
 
-
-    <span class="a-btn-icon-text ">
+    <span>
       Fjern driftsvarsel
     </span>
-
-
 </button>
 
+          <div>
+          </div>
+          <div role="popover" id="removeAlertPopover" class="d-none">
+            <div class="pb-1">Er du sikker på at du vil slette driftsvarselet? Det vil ikke være mulig å gjenopprette det.</div>
+            <!-- START: 00-atomer-03-knapper-10-knapp -->
+            <button type="button" class="a-btn a-btn-danger mr-1">
+  <span>
+    Slett
+  </span>
+</button>
 
-          <!-- END: 00-atomer-03-knapper-25-knapp-ikon-tekst -->
+            <!-- END: 00-atomer-03-knapper-10-knapp -->
+
+            <!-- START: 00-atomer-03-knapper-10-knapp -->
+            <button type="button" class="a-btn-link a-linkDanger mr-1">
+  <span>
+    Avbryt
+  </span>
+</button>
+
+            <!-- END: 00-atomer-03-knapper-10-knapp -->
+
+
+          </div>
+
+          <!-- END: 00-atomer-04-handlingsknapper-10-knapp-ikon -->
 
         </div>
       </div>
@@ -199,8 +219,9 @@
           <!-- END: 00-atomer-01-forms-10-tekst-input -->
 
 
+
           <!-- START: 01-molekyler-05-forms-20-dato-og-tid -->
-          <div class="row mt-3">
+          <div class="row mb-2">
             <div class="col-12 d-flex align-items-end">
               <div>
                 <!-- START: 00-atomer-01-forms-60-datovelger JS doc: initializeDatepicker.js. Requires class .form-control.date -->
@@ -211,7 +232,7 @@
 </label>
                 <div class="d-inline-block form-group a-form-group a-form-group-datepicker">
                   <div class="input-group">
-                    <input type="text" id="datovelger" class="form-control a-hasButton  date" />
+                    <input type="text" id="datovelger" value="19.08.2019" class="form-control a-hasButton 18.09 date" />
 
                     <div class="input-group-prepend a-icon-right">
                       <!-- START: 00-atomer-09-bilder-og-media-15-ikon -->
@@ -270,40 +291,66 @@
           <!-- END: 01-molekyler-05-forms-20-dato-og-tid -->
 
 
-          <!-- START: 01-molekyler-05-forms-20-dato-og-tid -->
-          <div class="row mt-1">
-            <div class="col-12 d-flex align-items-end">
-              <div>
-                <!-- START: 00-atomer-01-forms-60-datovelger JS doc: initializeDatepicker.js. Requires class .form-control.date -->
-                <label class="  an-stackedLabel " for="datovelger">
+
+          <label class="an-stackedLabel" for="">
+                  Utgår&#x2F;deaktiveres
+                </label>
+
+          <ul class="nav nav-tabs custom-radio a-radioButtons a-navTabsRadio mb-0" role="tablist">
+            <li class="nav-item">
+              <a class="nav-link " data-toggle="tab" href="#radio-endnow" role="tab">
+                <div class="custom-control custom-radio a-custom-radio">
+                  <span class="custom-control-label">Nå </span>
+                </div>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link " data-toggle="tab" href="#radio-endlater" role="tab">
+                <div class="custom-control custom-radio a-custom-radio">
+                  <span class="custom-control-label">Senere </span>
+                </div>
+              </a>
+            </li>
+          </ul>
+
+          <div class="tab-content mb-2">
+            <div class="tab-pane" id="radio-endnow" role="tabpanel">
+            </div>
+            <div class="tab-pane" id="radio-endlater" role="tabpanel">
+              <!-- START: 01-molekyler-05-forms-20-dato-og-tid -->
+              <div class="row ">
+                <div class="col-12 d-flex align-items-end">
+                  <div>
+                    <!-- START: 00-atomer-01-forms-60-datovelger JS doc: initializeDatepicker.js. Requires class .form-control.date -->
+                    <label class="  an-stackedLabel " for="datovelger">
   <span class="a-input-labelText control-label">
-    Utgår
+    Planlagt deaktivering
   </span>
 </label>
-                <div class="d-inline-block form-group a-form-group a-form-group-datepicker">
-                  <div class="input-group">
-                    <input type="text" id="datovelger" class="form-control a-hasButton  date" />
+                    <div class="d-inline-block form-group a-form-group a-form-group-datepicker">
+                      <div class="input-group">
+                        <input type="text" id="datovelger" class="form-control a-hasButton  date" />
 
-                    <div class="input-group-prepend a-icon-right">
-                      <!-- START: 00-atomer-09-bilder-og-media-15-ikon -->
-                      <i class="ai ai-date   "></i>
+                        <div class="input-group-prepend a-icon-right">
+                          <!-- START: 00-atomer-09-bilder-og-media-15-ikon -->
+                          <i class="ai ai-date   "></i>
 
 
-                      <!-- END: 00-atomer-09-bilder-og-media-15-ikon -->
+                          <!-- END: 00-atomer-09-bilder-og-media-15-ikon -->
 
+                        </div>
+                      </div>
                     </div>
+
+                    <!-- END: 00-atomer-01-forms-60-datovelger -->
+
                   </div>
-                </div>
 
-                <!-- END: 00-atomer-01-forms-60-datovelger -->
-
-              </div>
-
-              <div class="ml-2">
-                <!-- START: 00-atomer-01-forms-51-flervalg-generell -->
-                <div class="form-group a-form-group ">
-                  <label for="tidsvelger" class="a-form-label"></label>
-                  <select class="custom-select a-custom-select" name="tidsvelger" id="dropdownMenuDefault">
+                  <div class="ml-2">
+                    <!-- START: 00-atomer-01-forms-51-flervalg-generell -->
+                    <div class="form-group a-form-group ">
+                      <label for="tidsvelger" class="a-form-label"></label>
+                      <select class="custom-select a-custom-select" name="tidsvelger" id="dropdownMenuDefault">
         <option value="00:00" selected>00:00</option>
 
       <option value="01:00" >01:00</option>
@@ -330,15 +377,18 @@
       <option value="22:00" >22:00</option>
       <option value="23:00" >23:00</option>
   </select>
+                    </div>
+
+                    <!-- END: 00-atomer-01-forms-51-flervalg-generell -->
+
+                  </div>
                 </div>
-
-                <!-- END: 00-atomer-01-forms-51-flervalg-generell -->
-
               </div>
+
+              <!-- END: 01-molekyler-05-forms-20-dato-og-tid -->
+
             </div>
           </div>
-
-          <!-- END: 01-molekyler-05-forms-20-dato-og-tid -->
 
 
           <label class="an-stackedLabel mt-2 mb-1" for="">

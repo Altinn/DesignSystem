@@ -1,6 +1,6 @@
 {
 	"icon-prefix": "ai",
-	"icon-class": "ai-deadline",
+	"icon-class": "ai-back",
 	"icon-size": "",
 	"icon-extra-class": "",
 	"icon-text": "",
@@ -15,17 +15,14 @@
 	"themeJs": "./../../js/altinnPrototyping.js",
 	"themeJsVendor": "../../js/altinnPrototyping.vendor.js",
 	"link-text": "En lenke ser slik ut",
-	"link-url": "",
+	"link-url": "/patterns/04-sider-infoportal-01-forside-00-forside/04-sider-infoportal-01-forside-00-forside.html",
 	"sr-text": false,
-	"button-text": "En knapp med ikon",
+	"button-text": "En standard knapp",
 	"button-class": "a-btn a-btn-icon",
 	"button-disabled": false,
 	"button-type": "button",
 	"onclick": false,
-	"button-icon": {
-		"icon-prefix": "ai",
-		"icon-class": "ai-deadline"
-	},
+	"button-icon": false,
 	"display-as-link": false,
 	"select-menu-id": "primaryEmail",
 	"select-menu-label": "Primær epost-adresse:",
@@ -179,48 +176,27 @@
 			"isRequired": false
 		}
 	],
-	"dropdown-link-class": "a-borderBottom",
-	"dropdown-top-item": {
-		"dropdown-top-item-content": "Lagrede søk",
-		"overflow-extraclass": "pt-1 pb-1"
-	},
-	"dropdown-item": [
+	"icon-list-items": [
 		{
-			"dropdown-icon": {
-				"icon-prefix": "ai",
-				"icon-class": "ai-letter-r",
-				"icon-size": "",
-				"icon-extra-class": "a-blue"
-			},
-			"dropdown-item-content": "Lagre søk",
-			"dropdown-item-content-class": "a-fontBold"
+			"list-item-name": "Forretningsplan.ods",
+			"listItemDescription": "(last ned)",
+			"icon-prefix": "reg",
+			"icon-class": "reg-attachment-ods ai-md ai-nw pr-1"
 		},
 		{
-			"dropdown-icon": {
-				"icon-prefix": "ai",
-				"icon-class": "ai-letter-r",
-				"icon-size": "",
-				"icon-extra-class": "a-blue"
-			},
-			"dropdown-item-content": "Annet lagret søk",
-			"dropdown-item-content-class": "a-fontBold"
+			"list-item-name": "Oppdragsavtale.doc",
+			"listItemDescription": "(last ned)",
+			"icon-prefix": "reg",
+			"icon-class": "reg-attachment ai-md ai-nw pr-1"
 		},
 		{
-			"dropdown-icon": {
-				"icon-prefix": "ai",
-				"icon-class": "ai-settings",
-				"icon-size": "",
-				"icon-extra-class": "a-blue"
-			},
-			"dropdown-item-content": "tilpass",
-			"dropdown-item-content-class": "a-fontBold"
+			"list-item-name": "Driftsbudsjett.pdf",
+			"listItemDescription": "(last ned)",
+			"icon-prefix": "reg",
+			"icon-class": "reg-attachment-pdf ai-md ai-nw pr-1"
 		}
 	],
-	"label-class": "badge-primary",
-	"label-id": false,
-	"label-content": "9",
-	"button-colorClass": "",
-	"button-shadow-label": false,
+	"aria-label": "Tilbake",
 	"header-title": "Endre eller fjerne driftsvarsel",
 	"form": {
 		"description": false,
@@ -408,30 +384,87 @@
 				}
 			]
 		},
+		"time-start": false,
+		"time-end-edit": {
+			"flexWrap": false,
+			"check-legend": false,
+			"label-text": "Utgår/deaktiveres",
+			"radiotab-items": [
+				{
+					"radiotab-id": "radio-endnow",
+					"radiotab-title": "Nå"
+				},
+				{
+					"radiotab-id": "radio-endlater",
+					"radiotab-title": "Senere"
+				}
+			],
+			"radiotab-panes": [
+				{
+					"radiotab-id": "radio-endnow",
+					"date-picker": false
+				},
+				{
+					"radiotab-id": "radio-endlater",
+					"date-picker": {
+						"datovelger": {
+							"styleModifier": "",
+							"stackedLabel": true,
+							"inputId": "datovelger",
+							"date-input-label": "Planlagt deaktivering",
+							"isRequired": false,
+							"form-control-class": "",
+							"icon-prefix": "ai",
+							"icon-class": "ai-date",
+							"icon-extra-class": ""
+						}
+					}
+				}
+			]
+		},
+		"timeend": false,
 		"time": {
 			"datovelger": {
 				"styleModifier": "",
+				"hasValue": {
+					"value": "19.08.2019"
+				},
 				"stackedLabel": true,
 				"inputId": "datovelger",
 				"date-input-label": "Publiseres/sendes ut",
 				"isRequired": false,
-				"form-control-class": "",
+				"form-control-class": "18.09",
 				"icon-prefix": "ai",
 				"icon-class": "ai-date",
 				"icon-extra-class": ""
 			}
 		},
 		"removeAlert": {
+			"display-as-link": true,
+			"enable-popover": true,
+			"popover-placement": "bottom",
+			"popover-content-id": "removeAlertPopover",
+			"popover-class": "popover-warning",
+			"popover-text": "Er du sikker på at du vil slette driftsvarselet? Det vil ikke være mulig å gjenopprette det.",
+			"popover-buttons": [
+				{
+					"button-text": "Slett",
+					"button-class": "a-btn a-btn-danger"
+				},
+				{
+					"button-text": "Avbryt",
+					"button-class": "a-btn-link a-linkDanger",
+					"display-as-link": true
+				}
+			],
 			"button-text": "Fjern driftsvarsel",
-			"button-class": "a-btn a-btn-icon justify-content-end",
+			"button-class": "a-btn a-btn-icon float-right w-auto",
 			"button-colorClass": "",
 			"link-url": "",
 			"button-shadow-label": false,
-			"button-icon": {
-				"icon-prefix": "ai",
-				"icon-class": "ai-circle-exit",
-				"icon-extra-class": "a-danger ai-left"
-			}
+			"icon-prefix": "ai",
+			"icon-class": "ai-circle-exit",
+			"icon-extra-class": "a-danger ai-left"
 		},
 		"avbryt": {
 			"link-text": "Avbryt",
@@ -450,19 +483,6 @@
 			"data-toggle": "altinn-modal",
 			"data-target": "#modal-addAlert",
 			"page-url": "../../patterns/02-organismer-80-Modal-js-innhold-30-dashboard-driftsvarsel-ferdig/02-organismer-80-Modal-js-innhold-30-dashboard-driftsvarsel-ferdig.markup-only.html"
-		},
-		"timeend": {
-			"datovelger": {
-				"styleModifier": "",
-				"stackedLabel": true,
-				"inputId": "datovelger",
-				"date-input-label": "Utgår",
-				"isRequired": false,
-				"form-control-class": "",
-				"icon-prefix": "ai",
-				"icon-class": "ai-date",
-				"icon-extra-class": ""
-			}
 		}
 	}
 }
