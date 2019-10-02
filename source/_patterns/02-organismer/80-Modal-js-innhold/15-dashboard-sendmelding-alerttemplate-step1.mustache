@@ -1,0 +1,101 @@
+<div class="modal-content">
+    <div class="modal-header a-modal-header">
+        <div class="a-iconText a-iconText-background a-iconText-large">
+            <div class="a-iconText-icon">
+                <i class="ai ai-send
+                 a-icon" aria-hidden="true"></i>
+            </div>
+            <h1 class="a-iconText-text mb-0">
+                <span class="a-iconText-text-small"></span>
+                <span class="a-iconText-text-large">Bestill egen varslingsmal til varslingstjeneste</span>
+            </h1>
+        </div>
+    </div>
+    <div class="modal-body a-modal-body">
+      
+      {{# serviceowner }}
+        <div class="row mb-1">
+          <div class="col-6 px-0">
+            {{> atomer-tekst-input}}
+          </div>
+        </div>
+      {{/ serviceowner }}
+
+      {{# environment }}
+        <div class="row">
+          <div class="col-12 px-0">
+            <form id={{ form-id }}>
+              {{> atomer-radioknapp }}
+            </form>
+          </div>
+        </div>
+      {{/ environment }}
+
+      {{# type }}
+        <div class="row form-group a-form-group">
+          <div class="col-12 px-0">
+            <label class="a-form-label a-fontBold px-0">Angi type varsel</label>
+          </div>
+          <div class="col-12 px-0">
+            <ul class="nav nav-tabs custom-radio a-radioButtons a-navTabsRadio" role="tablist">
+              {{# types }}
+              <li class="nav-item">
+                <a class="nav-link" data-toggle="tab" href="{{ tab-id }}" role="tab">
+                  <div class="custom-control custom-radio a-custom-radio">
+                    <span class="custom-control-label">{{ title }}</span>
+                  </div>
+                </a>
+              </li>
+              {{/ types }}
+            </ul>
+          </div>
+        </div>
+      {{/ type }}
+
+      <div class="tab-content">
+        <div class="tab-pane" id="first" role="tabpanel">
+          {{#tab1}}
+            {{# template-name }}
+              <div class="row mb-2">
+                <div class="col-6 px-0">
+                  {{> atomer-tekst-input}}
+                </div>
+              </div>
+            {{/ template-name }}
+          {{/tab1}}
+        </div>
+
+        <div class="tab-pane" id="consecutive" role="tabpanel">
+          {{#tab2}}
+            {{# template-name }}
+              <div class="row mb-2">
+                <div class="col-6 px-0">
+                  {{> atomer-tekst-input}}
+                </div>
+              </div>
+            {{/ template-name }}
+            {{# associated-template }}
+              <div class="row mb-2">
+                <div class="col-6 px-0">
+                  {{> atomer-tekst-input}}
+                </div>
+              </div>
+            {{/ associated-template }}
+            {{# time-delay }}
+              <div class="row mb-2">
+                <div class="col-6 px-0">
+                  {{> atomer-tekst-input}}
+                </div>
+              </div>
+            {{/ time-delay }}
+          {{/tab2}}
+        </div>
+      </div>
+
+      {{# submit}}
+        <div class="row">
+          {{> atomer-knapp:mb-2 }}
+        </div>
+      {{/ submit}}
+    </div>
+</div>
