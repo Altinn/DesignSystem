@@ -22,6 +22,7 @@
   setupFormValidation,
   setValidatorSettings,
   setupSlickCarousel,
+  searchFilterView
 */
 window.altinnettInit = function() {
   // Only for prototyping
@@ -47,6 +48,7 @@ window.altinnettInit = function() {
   setupTruncateLines();
   subscribe();
   questionnaireInteraction();
+  searchFilterView();
   setupFormValidation();
   setValidatorSettings();
 

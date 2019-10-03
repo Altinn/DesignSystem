@@ -15,6 +15,7 @@
   setupFormValidation
   setValidatorSettings
   setupSlickCarousel
+  searchFilterView
 */
 window.altinnettInit = function() {
   AltinnModal.init();
@@ -30,6 +31,7 @@ window.altinnettInit = function() {
   subscribe();
   togglePanel();
   questionnaireInteraction();
+  searchFilterView();
   setupFormValidation();
   setValidatorSettings();
 
