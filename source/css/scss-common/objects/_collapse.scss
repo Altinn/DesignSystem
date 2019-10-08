@@ -420,107 +420,117 @@
 }
 
 .a-list-parentRightHolder {
-.a-list-expandedLink-href:hover, 
-.a-list-expandedLink-href:focus {
-    border-bottom: none !important;
-  }
-}
-.a-list-parentRightHolder:not(.a-expanded)  {
-  .a-list-expandedLink-href{
-    .expandable-icon {
-      .a-dropdownCircleArrow {
-        width: 24px;
-        min-width: 24px;
-        height: 24px;
-        margin-top: auto;
-        background:$blue-dark !important;
-        border: 3px solid $blue-dark !important;    
-        i {
-          @include a-fontSize20;
-          margin-top: 0;
-        }
-      }
-    }
-    .hideText {
-        display: none;
-    } 
-  }
-}
-
-
-@media(max-width: 768px) {
-  .a-list {
-    .row{
-      display: flex;
-    }
-  }
-}
-
-
-
-.a-expanded {
+  &:not(.a-expanded) {
     .a-list-expandedLink-href {
       .expandable-icon {
         .a-dropdownCircleArrow {
-          transform: rotate( 90deg );
           width: 24px;
           min-width: 24px;
-          margin-top: auto;
           height: 24px;
-          background:$blue-dark !important;
-          border: 3px solid $blue-dark !important;   
+          margin-top: auto;
+          background: $blue-dark !important;
+          border: 3px solid $blue-dark !important;
+
           i {
             @include a-fontSize20;
             margin-top: 0;
           }
         }
       }
-      .expandText{
-        display:none;
+
+      .hideText {
+        display: none;
+        }
+    }
+  }
+
+  .a-list-expandedLink-href {
+    &:hover {
+      border-bottom: none !important;
+    }
+
+    &:focus {
+      border-bottom: none !important;
+    }
+  }
+}
+
+@media(max-width: 768px) {
+  .a-list {
+    .row {
+      display: flex;
+    }
+  }
+}
+
+.a-expanded {
+  .a-list-expandedLink-href {
+    .expandable-icon {
+      .a-dropdownCircleArrow {
+        width: 24px;
+        min-width: 24px;
+        height: 24px;
+        margin-top: auto;
+        background: $blue-dark !important;
+        border: 3px solid $blue-dark !important;
+        transform: rotate( 90deg );
+
+        i {
+          @include a-fontSize20;
+          margin-top: 0;
         }
       }
     }
 
+    .expandText {
+      display: none;
+      }
+    }
+  }
+
 @media(max-width: 767px) {
   .a-list-expandedLink-href {
-    border-bottom: none;
-    width: 100%;
     display: flex;
+    width: 100%;
+    padding-top: 4px;
     padding-right: 12px;
     padding-left: 12px;
-    padding-top: 4px;    
     margin-left: 6px;
+    border-bottom: none;
+
+    div {
+
+      &:nth-child(1) {
+        max-width: 5%;
+      }
+
+      &:nth-child(2) {
+        min-width: 90%;
+        padding-left: 1.5em !important;
+      }
+    }
 
     .deleteOrdelegateText {
       display: none;
     }
   }
-    div:nth-child(1) {
-      max-width: 5%;
-    }
-    div:nth-child(2) {
-      min-width: 90%;
-      padding-left: 1.5em !important;
-    }
-    div:nth-child(1) {
-    max-width: 100%;
-    }
 
+  .chiledRightHolders {
+    .a-modalLink-href {
+      display: flex;
+      width: 100%;
+      padding-top: 4px;
+      padding-right: 12px;
+      padding-left: 12px;
+      margin-left: 6px;
+      border-bottom: none;
 
-  #nested-list-chiledRightHolders{
-    .chiledRightHolders{
-      .a-modalLink-href{
-        border-bottom: none;
-        width: 100%;
-        display: flex;
-        padding-right: 12px;
-        padding-left: 12px;
-        padding-top: 4px;    
-        margin-left: 6px;
-      div:nth-child(1) {
-        min-width: 5%;
-      }
-        div:nth-child(2) {
+      div {
+        &:nth-child(1) {
+          min-width: 5%;
+        }
+
+        &:nth-child(2) {
           min-width: 90%;
           padding-left: 1em !important;
         }
@@ -530,82 +540,96 @@
 }
 
 .a-btn-blue-noUnderline {
-  color: #0062BA;
-  text-align: end
+  color: $blue-dark;
+  text-align: end;
 }
 
 .a-list-expandedLink-href {
-  border-bottom: none;
-  width: 100%;
   display: flex;
+  width: 100%;
   padding: 1%;
+  border-bottom: none;
   align-items: center;
- 
-  .row{
+
+  .row {
     display: contents;
   }
-  div:nth-child(1) {
-    max-width: 3%;
-    margin-right: 0.5em;
-  }
-  div:nth-child(2) {
-    min-width: 31%;
 
-  }
-  div:nth-child(3) {
-    min-width: 25%;
-    text-align: left;
+  div {
+    &:nth-child(1) {
+      max-width: 3%;
+      margin-right: 0.5em;
+    }
 
+    &:nth-child(2) {
+      min-width: 31%;
+    }
+
+    &:nth-child(3) {
+      min-width: 25%;
+      text-align: left;
+    }
+
+    &:nth-child(4) {
+      min-width: 37%;
+      max-height: 2em;
+      text-align: end;
+      align-items: -webkit-baseline-middle;
+    }
   }
-  div:nth-child(4) {
-    min-width: 37%;
-    text-align: end;
-    max-height: 2em;
-    align-items:-webkit-baseline-middle;
-  }
-  @media (max-width:992px) and (min-width:769px){
-    div:nth-child(4) {
-      padding-right: 9px;
-      max-width: 37%;
+
+  @media (max-width: 992px) and (min-width: 768px) {
+    div {
+      &:nth-child(4) {
+        max-width: 37%;
+        padding-right: 9px;
+      }
     }
   }
 }
 
-
-.DelegateDeleteLink{
+.DelegateDeleteLink {
   border-bottom: none !important;
 }
-  
-#nested-list-chiledRightHolders{
+
+.chiledRightHoldersList {
+  background:  $grey-light;
   border-top: 1px solid  $grey-medium;
-  background:  #D3D3D3;
-  .chiledRightHolders{
+
+  .chiledRightHolders {
     display: flex;
-   .a-modalLink-href{
-      border-bottom: none;
-      width: 100%;
+
+    .a-modalLink-href {
       display: flex;
+      width: 100%;
       padding: 1%;
+      border-bottom: none;
       align-items: center;
-      .row{
+
+      .row {
         display: contents;
       }
-      div:nth-child(1) {
-        max-width: 3%;
-        margin-right: 0.5em;
-      }
-      div:nth-child(2) {
-        min-width: 30%;
-      }
-      div:nth-child(3) {
-        min-width: 25%;
-        text-align: left;
-      }
-      div:nth-child(4) {
-        min-width: 38%;
-        text-align: end;
-        max-height: 2em;
-        padding-right: 1em;  
+
+      div {
+        &:nth-child(1) {
+          max-width: 3%;
+          margin-right: 0.5em;
+        }
+
+        &:nth-child(2) {
+          min-width: 30%;
+        }
+
+        &:nth-child(3) {
+          min-width: 25%;
+          text-align: left;
+        }
+
+        &:nth-child(4) {
+          min-width: 38%;
+          padding-right: 1em;
+          text-align: end;
+        }
       }
     }
   }
