@@ -1,0 +1,66 @@
+<div class="modal-content">
+    <div class="modal-header a-modal-header">
+        <div class="a-iconText a-iconText-background a-iconText-large">
+            <div class="a-iconText-icon">
+                <i class="ai ai-send
+                 a-icon" aria-hidden="true"></i>
+            </div>
+            <h1 class="a-iconText-text mb-0">
+                <span class="a-iconText-text-small"></span>
+                <span class="a-iconText-text-large">Bestill endring av informasjon om skjema / tjeneste på altinn.no</span>
+            </h1>
+        </div>
+    </div>
+    <div class="modal-body a-modal-body">
+      
+      {{# tekst-input-1 }}
+        <div class="row a-form-group mb-2">
+          <div class="col-12 px-0">
+            <legend class="a-legend" for="{{ form-id }}">{{ top-label }}</label>
+          </div>
+          <div class="col-12 col-lg-6 px-0">
+            <form id={{ form-id }}>                
+              {{# bokmaal }}
+                {{> atomer-tekst-input }}
+              {{/ bokmaal }}
+              
+              {{# nynorsk }}
+                {{> atomer-tekst-input }}
+              {{/ nynorsk }}
+              
+              {{# engelsk }}
+                {{> atomer-tekst-input }}
+              {{/ engelsk }}
+            </form>
+          </div>
+        </div>
+      {{/ tekst-input-1 }}
+
+      {{# tekstfelt-1 }}
+        <div class="row a-form-group mb-2">
+          <div class="col-12 px-0">
+            <legend class="a-legend" for="{{ form-id }}">{{ top-label }}</label>
+          </div>
+          <div class="col-12 col-lg-6 px-0">
+            <form id={{ form-id }}>                
+              {{# bokmaal }}
+                {{> atomer-tekstfelt }}
+              {{/ bokmaal }}
+              {{# nynorsk }}
+                {{> atomer-tekstfelt }}
+              {{/ nynorsk }}
+              {{# engelsk }}
+                {{> atomer-tekstfelt }}
+              {{/ engelsk }}
+            </form>
+          </div>
+        </div>
+      {{/ tekstfelt-1 }}
+
+      {{# submit}}
+        <div class="row">
+          {{> atomer-knapp:mb-2 }}
+        </div>
+      {{/ submit}}
+    </div>
+</div>
