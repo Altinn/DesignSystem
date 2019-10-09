@@ -1,0 +1,266 @@
+<div class="modal-content">
+    <div class="modal-header a-modal-header">
+        <div class="a-iconText a-iconText-background a-iconText-large">
+            <div class="a-iconText-icon">
+                <i class="ai ai-send
+                 a-icon" aria-hidden="true"></i>
+            </div>
+            <h1 class="a-iconText-text mb-0">
+                <span class="a-iconText-text-small"></span>
+                <span class="a-iconText-text-large">Bestill produksjonssetting av tjeneste, kodeliste eller mappere</span>
+            </h1>
+        </div>
+    </div>
+    <div class="modal-body a-modal-body">
+      
+      <h2 class="a-h3">Hva ønsker du å bestille?</h2>
+      <form data-toggle="validator" id="contactForm">
+        <div class="row">
+          <div class="col-12 col-sm-8">
+            <ul class="nav nav-tabs custom-radio a-radioButtons a-navTabsRadio" role="tablist">
+              <li class="nav-item">
+                <a class="nav-link" data-toggle="tab" href="#prod1" role="tab">
+                  <div class="custom-control custom-radio a-custom-radio">
+                    <span class="custom-control-label">Produksjonssetting av tjeneste</span>
+                  </div>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" data-toggle="tab" href="#prod2" role="tab">
+                  <div class="custom-control custom-radio a-custom-radio">
+                    <span class="custom-control-label">Produksjonssetting av kodeliste</span>
+                  </div>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" data-toggle="tab" href="#prod3" role="tab">
+                  <div class="custom-control custom-radio a-custom-radio">
+                    <span class="custom-control-label">Installasjon av mappere</span>
+                  </div>
+                </a>
+              </li>
+            </ul>
+            
+          </div>
+        </div>
+      </form>
+
+      <div class="tab-content">
+        <div class="tab-pane" id="prod1" role="tabpanel">
+          {{ #tab1 }}
+          <h3 class="a-h2">Produksjonssetting av tjeneste</h3>
+          <form data-toggle="validator" id="contactForm2">
+            <div class="row">
+              <div class="col-12 col-sm-8">
+
+                {{# tjenesteeier }}
+                    <div class="row mb-2">
+                      <div class="col-6">
+                        {{> atomer-tekst-input }}
+                      </div>
+                    </div>
+                  {{/ tjenesteeier }}
+
+                  {{# bestiltav }}
+                    <div class="row mb-2">
+                      <div class="col-6">
+                        {{> atomer-tekst-input }}
+                      </div>
+                    </div>
+                  {{/ bestiltav }}
+
+                  {{# tjenestenavn }}
+                    <div class="row mb-2">
+                      <div class="col-6">
+                        {{> atomer-tekst-input }}
+                      </div>
+                    </div>
+                  {{/ tjenestenavn }}
+
+                  {{# produksjonssettingsdato }}
+                    <div class="row a-form-group mb-2">
+                      <div class="col-12">
+                        <form id={{ form-id }}>
+                          {{> molekyler-dato-og-tid }}
+                        </form>
+                      </div>
+                    </div>
+                  {{/ produksjonssettingsdato }}
+
+                  {{# publiseringsdato }}
+                    <div class="row a-form-group mb-2">
+                      <div class="col-12">
+                        <form id={{ form-id }}>
+                          {{> molekyler-dato-og-tid }}
+                        </form>
+                      </div>
+                    </div>
+                  {{/ publiseringsdato }}
+
+                  {{# lenke }}
+                    <div class="row mb-2">
+                      <div class="col-6">
+                        {{> atomer-tekst-input }}
+                      </div>
+                    </div>
+                  {{/ lenke }}
+
+                  {{# information }}
+                    <div class="row mt-2">
+                      <div class="col-8">
+                        {{> atomer-tekstfelt }}
+                      </div>
+                    </div>
+                  {{/ information }}
+
+                {{#submit}}
+                {{> atomer-knapp:mb-2 }}
+                {{/submit}}
+                  
+              </div>
+            </div>
+          </form>
+          {{/tab1 }}
+        </div>
+        
+        <div class="tab-pane" id="prod2" role="tabpanel">
+          {{ #tab2 }}
+          <h3 class="a-h2">Produksjonssetting av kodeliste</h3>
+          <form data-toggle="validator" id="contactForm2">
+            <div class="row">
+              <div class="col-12 col-sm-8">
+  
+                   {{# tjenesteeier }}
+                    <div class="row mb-2">
+                      <div class="col-6">
+                        {{> atomer-tekst-input }}
+                      </div>
+                    </div>
+                  {{/ tjenesteeier }}
+
+                  {{# bestiltav }}
+                    <div class="row mb-2">
+                      <div class="col-6">
+                        {{> atomer-tekst-input }}
+                      </div>
+                    </div>
+                  {{/ bestiltav }}
+
+                  {{# kodelistenavn }}
+                    <div class="row mb-2">
+                      <div class="col-6">
+                        {{> atomer-tekst-input }}
+                      </div>
+                    </div>
+                  {{/ kodelistenavn }}
+
+                  {{# lenke }}
+                    <div class="row mb-2">
+                      <div class="col-6">
+                        {{> atomer-tekst-input }}
+                      </div>
+                    </div>
+                  {{/ lenke }}
+
+                  {{# information }}
+                    <div class="row mt-2">
+                      <div class="col-8">
+                        {{> atomer-tekstfelt }}
+                      </div>
+                    </div>
+                  {{/ information }}
+
+                {{#submit}}
+                {{> atomer-knapp:mb-2 }}
+                {{/submit}}
+                      
+              </div>
+            </div>
+          </form>
+          {{/tab2 }}
+        </div>
+
+        <div class="tab-pane" id="prod3" role="tabpanel">
+            {{ #tab3 }}
+            <h3 class="a-h2">Installasjon av mappere</h3>
+            <form data-toggle="validator" id="contactForm2">
+              <div class="row">
+                <div class="col-12 col-sm-8">
+                    
+                  {{# tjenesteeier }}
+                    <div class="row mb-2">
+                      <div class="col-8">
+                        {{> atomer-tekst-input }}
+                      </div>
+                    </div>
+                  {{/ tjenesteeier }}
+
+                  {{# bestiltav }}
+                    <div class="row mb-2">
+                      <div class="col-8">
+                        {{> atomer-tekst-input }}
+                      </div>
+                    </div>
+                  {{/ bestiltav }}
+                  
+                  {{# lenke }}
+                    <div class="row mb-2">
+                      <div class="col-12">
+                        {{> atomer-tekst-input }}
+                      </div>
+                    </div>
+                  {{/ lenke }}
+
+                  {{# environment }}
+                    <div class="row a-form-group mb-2">
+                      <div class="col-12">
+                        <label class="a-form-label" for="{{ form-id }}">{{ top-label }}</label>
+                      </div>
+                      <div class="col-12">
+                        <form id={{ form-id }}>
+                          {{> atomer-valgknapp-ett-alternativ }}
+                        </form>
+                      </div>
+                    </div>
+                  {{/ environment }}
+                 
+                  {{# nybruker }}
+                    <div class="row">
+                      <div class="col-12">
+                        <form id="nybruker">
+                          {{> atomer-avkrysningsboks }}
+                        </form>
+                      </div>
+                      <div id="bruker" class="collapse col-12">
+                        {{# kontakt1 }}
+                          {{> organismer-dashboard-kontaktinfo }}
+                        {{/ kontakt1 }}
+                      </div>
+                    </div>
+                   
+                  {{/ nybruker }}
+
+                  {{# information }}
+                    <div class="row mt-2">
+                      <div class="col-8">
+                        {{> atomer-tekstfelt }}
+                      </div>
+                    </div>
+                  {{/ information }}
+
+                {{#submit}}
+                {{> atomer-knapp:mb-2 }}
+                {{/submit}}
+                        
+                    </div>
+                </div>
+            </form>
+            {{/tab3 }}
+          </div>
+
+
+      </div>
+
+
+    </div>
+</div>
