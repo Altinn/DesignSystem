@@ -1,15 +1,10 @@
-<a href="#" data-toggle="collapse" data-target="#{{ editionTitleID }}" class="an-serviceEdition a-fontSizeXXS pl-md-2 pr-md-4 {{#collapsed}}collapsed{{/collapsed}}">
-  <div class="d-flex flex-grow-1">
-      <span class="a-dropdownArrow mt-0 align-self-center mb-0"></span> 
-      {{ editionTitle }}
-  </div>
-</a>
-<div class="collapse a-bgWhite {{#show}}show{{/show}}" id="{{ editionTitleID }}">
 
   {{#editionList}}
-  <a href="#" data-toggle="collapse" data-target="#{{ thiseditionTitleID }}" class="an-serviceEdition a-fontSizeXXS pl-md-4 pr-md-4 {{#collapsed}}collapsed{{/collapsed}}">
-    <div class="flex-grow-1">
-        {{ thiseditionTitle }}
+  <a href="#" data-toggle="collapse" data-target="#{{ thiseditionTitleID }}" class="an-serviceEdition a-fontSizeXXS px-md-2 {{#collapsed}}collapsed{{/collapsed}}">
+    <div class="flex-grow-1 row">
+      
+        <div class="col-8"><span class="a-dropdownArrow mt-0 align-self-center mb-0"></span>{{ thiseditionTitle }}</div>
+        <div class="col-4 a-fontSizeXXS text-right">Sist endret: {{ editedAt }}</div>
     </div>
     {{# thiseditionCode }}
       {{ thiseditionCode }}
@@ -21,5 +16,3 @@
       {{/ thiseditionContent }}
   </div>
   {{/editionList}}
-
-</div>
