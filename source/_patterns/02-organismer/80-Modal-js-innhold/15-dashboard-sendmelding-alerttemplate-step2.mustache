@@ -14,7 +14,7 @@
     <div class="modal-body a-modal-body">
       
       {{# channel }}
-        <div class="row mb-1">
+        <div class="mb-1">
           <form id="channel">
             {{> atomer-avkrysningsboks }}
           </form>
@@ -23,47 +23,44 @@
       
       {{# sms-forms }}
         <div id="sms-form" class="collapse">
+          <h2>SMS</h2>
           {{# bokmaal }}
-            {{> atomer-tekstfelt }}
+            {{> atomer-tekstfelt:mb-2 }}
           {{/ bokmaal }}
           {{# nynorsk }}
-            {{> atomer-tekstfelt }}
+            {{> atomer-tekstfelt:mb-2 }}
           {{/ nynorsk }}
           {{# engelsk }}
-            {{> atomer-tekstfelt }}
+            {{> atomer-tekstfelt:mb-6 }}
           {{/ engelsk }}
         </div>
       {{/ sms-forms }}
 
       {{# email-forms }}
-        <div id="email-form" class="collapse">
+        
+        <div id="email-form" class="collapse mb-2">
+          <h2>Epost</h2>
           {{# avsender }}
-            {{> atomer-tekst-input }}
+            {{> atomer-tekst-input:mb-2 }}
           {{/ avsender }}
           {{# bokmaal }}
-            {{> atomer-tekstfelt }}
+            {{> atomer-tekstfelt:mb-2 }}
           {{/ bokmaal }}
           {{# nynorsk }}
-            {{> atomer-tekstfelt }}
+            {{> atomer-tekstfelt:mb-2 }}
           {{/ nynorsk }}
           {{# engelsk }}
-            {{> atomer-tekstfelt }}
+            {{> atomer-tekstfelt:mb-6 }}
           {{/ engelsk }}
         </div>
       {{/ email-forms }}
       
       {{# information }}
-        <div class="row mt-2">
-          <div class="col-8 px-0">
-            {{> atomer-tekstfelt }}
-          </div>
-        </div>
+        {{> atomer-tekstfelt:mb-2 }}
       {{/ information }}
 
       {{# submit}}
-        <div class="row">
-          {{> atomer-knapp:mb-2 }}
-        </div>
+        {{> atomer-knapp:mb-2 }}
       {{/ submit}}
     </div>
 </div>
