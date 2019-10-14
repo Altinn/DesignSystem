@@ -203,7 +203,7 @@
 
   .a-second-action {
     width: 100%;
-    
+
     @include media-breakpoint-up( lg ) {
       width: $spacer * 24;
     }
@@ -237,78 +237,79 @@
 
 @media(min-width: 768px) {
   .addPersonOrBusiness {
-    padding-left: 12px;
     padding-right: 12px;
+    padding-left: 12px;
   }
 
   .rightHolderList {
     .a-list-container {
-      padding-left: 20px !important;
-      padding-right: 12px !important;
+      padding-right: 12px;
+      padding-left: 20px;
     }
   }
 }
 
 @media(max-width: 768px) {
-    .panelBox {
-        display: flex !important;
-        flex-direction: column !important;
-      }
-    
-  
+  .panelBox {
+    display: flex;
+    flex-direction: column;
+  }
+
   .addPersonOrBusiness {
     order: 3;
   }
+
   .searchPersonOrBusiness {
-    order: 2 !important;
+    order: 2;
   }
+
   .activeLog {
     order: 1;
   }
-} 
+}
 
-@media (max-width: 992px) and (min-width: 768px) {
+// sass-lint:disable no-disallowed-properties
+@media (min-width: 768px) and (max-width: 992px) {
   .a-iconText-icon {
-    width: 72px !important;
-  } 
+    width: 73px;
+  }
 
   .a-icon {
     width: 72px;
     min-width: 72px;
     height: 72px;
-    font-size: 4em;
+    font-size: $icon-lg-em;
   }
 
   .a-iconText-text-large {
-    font-size: 28px !important; 
-    font-size: 2.8rem !important;
-    line-height: 1.4 !important;
-    -webkit-font-smoothing: subpixel-antialiased !important;
+    -webkit-font-smoothing: subpixel-antialiased;
   }
 
   .searchPersonOrBusiness {
-        margin: auto !important;
-        width: 18em !important;
-        display: block ;
-    }
-    
-    .activeLog {
-    position: absolute !important;
-        top: 0 !important;
-        right: 0 !important;
-        padding-right: 60px !important;
-    }
+    display: block;
+    width: 18em !important;
+    margin: auto;
+  }
+
+  .activeLog {
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding-right: 60px;
+  }
 }
 
 .rightHolderList {
-  border-top: 1px solid  $grey-medium !important;
   background: $white;
+  border-top: 1px solid  $grey-medium;
 }
 
 @media (min-width: 1200px) {
-  .a-collapsePanel.expanded{
-    margin-right: -24px;
-    margin-left: -24px;
+  .a-collapsePanel {
+    &.expanded {
+      margin-right: -24px;
+      margin-left: -24px;
+    }
   }
 }
 // ----------------------------------
