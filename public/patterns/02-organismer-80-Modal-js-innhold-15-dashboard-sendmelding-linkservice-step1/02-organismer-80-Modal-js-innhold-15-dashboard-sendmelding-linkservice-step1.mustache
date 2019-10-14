@@ -14,65 +14,40 @@
   </div>
   <div class="modal-body a-modal-body">
 
-    {{# serviceowner }}
-    <div class="row mb-1">
-      <div class="col-6 px-0">
-        {{> atomer-tekst-input}}
-      </div>
-    </div>
-    {{/ serviceowner }} {{# servicename }}
-    <div class="row mb-2">
-      <div class="col-6 px-0">
-        {{> atomer-tekst-input}}
-      </div>
+    {{# servicename }}
+    <div class="mb-2">
+      {{> atomer-tekst-input}}
     </div>
     {{/ servicename }} {{# url }}
-    <div class="row mb-2">
-      <div class="col-6 px-0">
-        {{> atomer-tekst-input}}
-      </div>
+    <div class="mb-2">
+      {{> atomer-tekst-input}}
     </div>
-    {{/ url }} {{# conditions1 }}
-    <div class="row mb-2">
+    {{/ url }} {{# test-url }}
+    <div class="mb-2">
+      {{> atomer-tekst-input}}
+    </div>
+    {{/ test-url }} {{# conditions1 }}
+    <div class="mb-2">
       <form id={{ form-id }}>
         {{> atomer-avkrysningsboks }}
       </form>
     </div>
     {{/ conditions1 }} {{# conditions2 }}
-    <div class="row">
+    <div class="a-form-group mw-100 mb-2">
+      <label class="a-form-label" for="{{ form-id }}">{{ top-label }}</label>
       <form id={{ form-id }}>
-        {{> atomer-radioknapp }}
+        {{> atomer-valgknapp }}
       </form>
     </div>
     {{/ conditions2 }} {{# role }}
-    <div class="row mb-2">
-      <div class="col-6 px-0">
-        {{> atomer-tekst-input}}
-      </div>
+    <div class="mb-2">
+      {{> atomer-tekst-input}}
     </div>
     {{/ role }} {{# securitylevel }}
-    <div class="row">
-      <form id={{ form-id }}>
-        {{> atomer-radioknapp }}
-      </form>
-    </div>
-    {{/ securitylevel }} {{# test-url }}
-    <div class="row mb-2">
-      <div class="col-6 px-0">
-        {{> atomer-tekst-input}}
-      </div>
-    </div>
-    {{/ test-url }} {{# information }}
-    <div class="row mt-2">
-      <div class="col-8 px-0">
-        {{> atomer-tekstfelt }}
-      </div>
-    </div>
-    {{/ information }} {{# submit}}
-    <div class="row">
-      {{> atomer-knapp:mb-2 }}
-    </div>
-    {{/ submit}}
+    <form id={{ form-id }}>
+      {{> atomer-radioknapp }}
+    </form>
+    {{/ securitylevel }} {{# information }} {{> atomer-tekstfelt }} {{/ information }} {{# submit}} {{> atomer-knapp:mb-2 }} {{/ submit}}
   </div>
 </div>
 

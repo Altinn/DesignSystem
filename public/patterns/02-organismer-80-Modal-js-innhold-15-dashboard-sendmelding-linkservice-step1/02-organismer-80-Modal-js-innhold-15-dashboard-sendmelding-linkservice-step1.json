@@ -31,6 +31,97 @@
 			"radiobutton-indicator": true
 		}
 	],
+	"icon-prefix": "ai",
+	"icon-class": "ai-deadline",
+	"icon-size": "",
+	"icon-extra-class": "",
+	"icon-text": "",
+	"icon-id": false,
+	"sr-only": false,
+	"aria-hidden": false,
+	"stacked-background": false,
+	"icon-post-text": false,
+	"icon-title": false,
+	"icon-sr-only-text": false,
+	"checkbuttons": [
+		{
+			"checkbuttons-title": " Kun lese",
+			"checkbuttons-id": "checkbutton-read",
+			"checkbuttons-class": "",
+			"hasIcon": {
+				"icon-prefix": "ai",
+				"icon-class": "ai-read"
+			}
+		},
+		{
+			"checkbuttons-title": " Fylle ut",
+			"checkbuttons-id": "checkbutton-edit",
+			"checkbuttons-class": "",
+			"hasIcon": {
+				"icon-prefix": "ai",
+				"icon-class": "ai-write"
+			}
+		},
+		{
+			"checkbuttons-title": " Signere",
+			"checkbuttons-id": "checkbutton-sign",
+			"checkbuttons-class": "",
+			"role": "button",
+			"hasIcon": {
+				"icon-prefix": "ai",
+				"icon-class": "ai-sign"
+			},
+			"stacked-background": false,
+			"enable-popover": true,
+			"popover-placement": "bottom",
+			"popover-content-id": "conditionalPopover",
+			"popover-class": "popover-warning",
+			"popover-text": "Dette er en popover tekst",
+			"data-trigger": "onchange",
+			"popover-buttons": [
+				{
+					"button-text": "knapp",
+					"button-class": "a-btn a-btn-danger"
+				}
+			]
+		},
+		{
+			"checkbuttons-title": " Toggle state icon",
+			"checkbuttons-id": "checkbutton-toggle",
+			"checkbuttons-class": "a-toggle-icon",
+			"hasIcon": {
+				"icon-prefix": "ai",
+				"icon-class": "ai-plus"
+			},
+			"checkbuttons-toggle-icon": {
+				"checkbuttons-class": "a-toggle-icon",
+				"icon-prefix": "ai",
+				"icon-class": "ai-check"
+			}
+		},
+		{
+			"checkbuttons-title": "Eksempel uten ikon",
+			"checkbuttons-id": "checkbutton-example",
+			"checkbuttons-class": "",
+			"hasIcon": false
+		},
+		{
+			"checkbuttons-title": "Eksempel på deaktivert",
+			"checkbuttons-id": "checkbutton-deactivated",
+			"checkbuttons-class": "disabled",
+			"isDisabled": true,
+			"hasIcon": {
+				"icon-prefix": "ai",
+				"icon-class": "ai-sign"
+			}
+		},
+		{
+			"checkbuttons-title": "Eksempel med veldig veldig veldig lang tekst som blir kuttet av på mobilvisning",
+			"checkbuttons-id": "checkbutton-longtext",
+			"checkbuttons-class": "",
+			"hasIcon": false
+		}
+	],
 	"flexWrap": false,
 	"check-legend": {
 		"check-legendText": "Velg ett eller flere alternativer"
@@ -65,18 +156,6 @@
 			"isRequired": false
 		}
 	],
-	"icon-prefix": "ai",
-	"icon-class": "ai-deadline",
-	"icon-size": "",
-	"icon-extra-class": "",
-	"icon-text": "",
-	"icon-id": false,
-	"sr-only": false,
-	"aria-hidden": false,
-	"stacked-background": false,
-	"icon-post-text": false,
-	"icon-title": false,
-	"icon-sr-only-text": false,
 	"print-form-tag": false,
 	"text-input-id": "text-input-generic",
 	"isHidden": false,
@@ -107,20 +186,21 @@
 	},
 	"conditions1": {
 		"form-id": "conditions1",
+		"isStacked": "custom-controls-stacked",
 		"flexWrap": false,
 		"check-legend": {
 			"check-legendText": "Hendelse(r) som må sjekkes for å gi bruker tilgang til lenketjeneste"
 		},
 		"checkboxes": [
 			{
-				"isInline": true,
+				"isInline": false,
 				"isChecked": false,
 				"checkboxID": "check1",
 				"checkboxes-title": "Sjekk at bruker har registrert epost i profilen sin",
 				"isRequired": false
 			},
 			{
-				"isInline": true,
+				"isInline": false,
 				"isChecked": false,
 				"checkboxID": "check2",
 				"checkboxes-title": "Sjekk at bruker er over 18 år",
@@ -130,45 +210,31 @@
 	},
 	"conditions2": {
 		"form-id": "conditions2",
-		"radio-legend": {
-			"radio-legendText": "Hvilke krav til type bruker har lenketjenesten?"
-		},
-		"radiobuttons": [
+		"top-label": "Hvilke krav til type bruker har lenketjenesten?",
+		"checkbuttons": [
 			{
-				"radiobutton-id": "usertype1",
-				"radiobutton-title": "Alle Aktører"
+				"checkbuttons-id": "usertype1",
+				"checkbuttons-title": "Privat Person",
+				"checkbuttons-class": "",
+				"hasIcon": false
 			},
 			{
-				"radiobutton-id": "usertype2",
-				"radiobutton-title": "Privat Person"
+				"checkbuttons-id": "usertype2",
+				"checkbuttons-title": "Juridisk enhet (foretak)",
+				"checkbuttons-class": "",
+				"hasIcon": false
 			},
 			{
-				"radiobutton-id": "usertype3",
-				"radiobutton-title": "Juridisk enhet (foretak)"
+				"checkbuttons-id": "usertype3",
+				"checkbuttons-title": "Bedrift",
+				"checkbuttons-class": "",
+				"hasIcon": false
 			},
 			{
-				"radiobutton-id": "usertype4",
-				"radiobutton-title": "Bedrift"
-			},
-			{
-				"radiobutton-id": "usertype5",
-				"radiobutton-title": "Bedrift eller en juridisk enhet (foretak)"
-			},
-			{
-				"radiobutton-id": "usertype6",
-				"radiobutton-title": "Konkursbo"
-			},
-			{
-				"radiobutton-id": "usertype7",
-				"radiobutton-title": "Person eller juridisk enhet (foretak)"
-			},
-			{
-				"radiobutton-id": "usertype8",
-				"radiobutton-title": "Bedrift, juridisk enhet (foretak) eller konkursbo"
-			},
-			{
-				"radiobutton-id": "usertype9",
-				"radiobutton-title": "Privatperson, juridisk enhet(Foretak) eller konkursbo"
+				"checkbuttons-id": "usertype4",
+				"checkbuttons-title": "Konkursbo",
+				"checkbuttons-class": "",
+				"hasIcon": false
 			}
 		]
 	},
@@ -184,11 +250,11 @@
 		"radiobuttons": [
 			{
 				"radiobutton-id": "securitylevel1",
-				"radiobutton-title": "Nivå 3"
+				"radiobutton-title": "Nivå 3 (Innlogging med MinID via ID-porten eller virksomhetssertifikat)"
 			},
 			{
 				"radiobutton-id": "securitylevel2",
-				"radiobutton-title": "Nivå 4"
+				"radiobutton-title": "Nivå 4 (Innlogging med BankID, Buypass smartkort, Commfides eller BankID på mobil)"
 			}
 		]
 	},

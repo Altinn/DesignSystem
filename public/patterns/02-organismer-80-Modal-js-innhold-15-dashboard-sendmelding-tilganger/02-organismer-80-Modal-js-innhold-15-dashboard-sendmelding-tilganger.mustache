@@ -59,13 +59,17 @@
         <h3 class="a-h2">REST API</h3>
         <form data-toggle="validator" id="contactForm2">
           <div class="row">
-            <div class="col-12 col-sm-8">
-              <div class="form-group a-form-group mb-2">
-                <label class="a-form-label">Hvilket miljø ønsker du tilgang til?</label> {{#miljo}} {{> atomer-valgknapp }} {{/miljo}}
+            <div class="col-12">
+              {{# bruker }} {{> atomer-avkrysningsboks }}
+              <div id="bruker1" class="collapse">
+                {{# kontakt1 }} {{> organismer-dashboard-kontaktinfo }} {{/ kontakt1 }}
+              </div>
+              {{/ bruker }}
+              <div class="form-group a-form-group my-2">
+                <label class="a-form-label">Hvilke miljø ønskes det tilgang til?</label> {{#miljo}} {{> atomer-valgknapp:mb-2 }} {{/miljo}} {{#ip}} {{> atomer-tekst-input }} {{/ip}}
               </div>
 
-              {{#navn}} {{> atomer-tekst-input:mb-2 }} {{/navn}} {{#ip}} {{> atomer-tekst-input:mb-2 }} {{/ip}} {{#submit}} {{> atomer-knapp:mb-2 }} {{/submit}}
-
+              {{#submit}} {{> atomer-knapp:mb-2 }} {{/submit}}
             </div>
           </div>
         </form>
@@ -75,15 +79,19 @@
       <div class="tab-pane" id="tilgang2" role="tabpanel">
         {{ #tab2 }}
         <h3 class="a-h2">SOAP API</h3>
-        <form data-toggle="validator" id="contactForm2">
+        <form data-toggle="validator" id="contactForm3">
           <div class="row">
-            <div class="col-12 col-sm-8">
-              <div class="form-group a-form-group mb-2">
-                <label class="a-form-label">Hvilket miljø ønsker du tilgang til?</label> {{#miljo}} {{> atomer-valgknapp }} {{/miljo}}
+            <div class="col-12">
+              {{# bruker }} {{> atomer-avkrysningsboks }}
+              <div id="bruker2" class="collapse">
+                {{# kontakt1 }} {{> organismer-dashboard-kontaktinfo }} {{/ kontakt1 }}
+              </div>
+              {{/ bruker }}
+              <div class="form-group a-form-group my-2">
+                <label class="a-form-label">Hvilke miljø ønskes det tilgang til?</label> {{#miljo}} {{> atomer-valgknapp:mb-2 }} {{/miljo}} {{#ip}} {{> atomer-tekst-input }} {{/ip}}
               </div>
 
-              {{#navn}} {{> atomer-tekst-input:mb-2 }} {{/navn}} {{#ip}} {{> atomer-tekst-input:mb-2 }} {{/ip}} {{#submit}} {{> atomer-knapp:mb-2 }} {{/submit}}
-
+              {{#submit}} {{> atomer-knapp:mb-2 }} {{/submit}}
             </div>
           </div>
         </form>
@@ -93,62 +101,48 @@
       <div class="tab-pane" id="tilgang3" role="tabpanel">
         {{ #tab3 }}
         <h3 class="a-h2">TUL og SERES</h3>
-        <form data-toggle="validator" id="contactForm2">
+        <form data-toggle="validator" id="contactForm4">
           <div class="row">
-            <div class="col-12 col-sm-8">
-              <div class="form-group a-form-group mb-2">
-                <label class="a-form-label">Hvilket verktøy ønsker du tilgang til?</label> {{#miljo}} {{> atomer-valgknapp }} {{/miljo}}
+            <div class="col-12">
+              {{# bruker }} {{> atomer-avkrysningsboks }}
+              <div id="bruker3" class="collapse">
+                {{# kontakt1 }} {{> organismer-dashboard-kontaktinfo }} {{/ kontakt1 }}
+              </div>
+              {{/ bruker }}
+
+              <div class="form-group a-form-group my-2">
+                <label class="a-form-label">Hvilke verktøy ønskes det tilgang til?</label> {{#miljo}} {{> atomer-valgknapp }} {{/miljo}}
               </div>
 
-              {{#visualstudio}} {{> atomer-radioknapp }} {{/visualstudio}}
-
-              <div class="form-group a-form-group mb-2">
-                <label class="a-form-label">Er det du som skal ha tilgang eller noe andre?</label>
-                <form data-toggle="validator" id="contactForm">
-                  <div class="row">
-                    <div class="col-12 col-sm-8">
-                      <ul class="nav nav-tabs custom-radio a-radioButtons a-navTabsRadio" role="tablist">
-                        <li class="nav-item">
-                          <a class="nav-link" data-toggle="tab" href="#meg" role="tab">
-                            <div class="custom-control custom-radio a-custom-radio">
-                              <span class="custom-control-label">Det er meg</span>
-                            </div>
-                          </a>
-                        </li>
-                        <li class="nav-item">
-                          <a class="nav-link" data-toggle="tab" href="#andre" role="tab">
-                            <div class="custom-control custom-radio a-custom-radio">
-                              <span class="custom-control-label">Det er noen andre</span>
-                            </div>
-                          </a>
-                        </li>
-                      </ul>
-                    </div>
-                  </div>
-                </form>
-
-                <div class="tab-content">
-                  <div class="tab-pane" id="meg" role="tabpanel">
-
-                  </div>
-                  <div class="tab-pane" id="andre" role="tabpanel">
-
-                    {{#navn}} {{> atomer-tekst-input:mb-2 }} {{/navn}} {{#epost}} {{> atomer-tekst-input:mb-2 }} {{/epost}}
-                  </div>
-                </div>
-              </div>
-              {{#submit}} {{> atomer-knapp:mb-2 }} {{/submit}}
+              {{#visualstudio}} {{> atomer-avkrysningsboks }} {{/visualstudio}} {{#submit}} {{> atomer-knapp:mb-2 }} {{/submit}}
 
             </div>
           </div>
         </form>
         {{/tab3 }}
       </div>
+      <div class="tab-pane" id="tilgang4" role="tabpanel">
+        {{ #tab4 }}
+        <h3 class="a-h2">Brannmur</h3>
+        <form data-toggle="validator" id="contactForm5">
+          <div class="row">
+            <div class="col-12">
+              {{# bruker }} {{> atomer-avkrysningsboks }}
+              <div id="bruker4" class="collapse">
+                {{# kontakt1 }} {{> organismer-dashboard-kontaktinfo }} {{/ kontakt1 }}
+              </div>
+              {{/ bruker }}
+              <div class="form-group a-form-group my-2">
+                {{#ip}} {{> atomer-tekst-input }} {{/ip}}
+              </div>
 
-
+              {{#submit}} {{> atomer-knapp:mb-2 }} {{/submit}}
+            </div>
+          </div>
+        </form>
+        {{/ tab4 }}
+      </div>
     </div>
-
-
   </div>
 </div>
 

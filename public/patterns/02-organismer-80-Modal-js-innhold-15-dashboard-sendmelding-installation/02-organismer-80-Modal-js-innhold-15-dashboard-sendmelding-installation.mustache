@@ -1,0 +1,53 @@
+<!-- START: 02-organismer-80-Modal-js-innhold-15-dashboard-sendmelding-installation -->
+<div class="modal-content">
+  <div class="modal-header a-modal-header">
+    <div class="a-iconText a-iconText-background a-iconText-large">
+      <div class="a-iconText-icon">
+        <i class="ai ai-send
+                 a-icon" aria-hidden="true"></i>
+      </div>
+      <h1 class="a-iconText-text mb-0">
+        <span class="a-iconText-text-small"></span>
+        <span class="a-iconText-text-large">Bestill installasjon av mappere</span>
+      </h1>
+    </div>
+  </div>
+  <div class="modal-body a-modal-body">
+    {{ #tab3 }}
+    <form data-toggle="validator" id="contactForm2">
+      <div class="row">
+        <div class="col-12 col-sm-8">
+
+          {{# lenke }}
+          <div class="mb-2">
+            {{> atomer-tekst-input }}
+          </div>
+          {{/ lenke }} {{# environment }}
+          <div class="row a-form-group mb-2">
+            <div class="col-12">
+              <label class="a-form-label" for="{{ form-id }}">{{ top-label }}</label>
+            </div>
+            <div class="col-12">
+              <form id={{ form-id }}>
+                {{> atomer-valgknapp-ett-alternativ }}
+              </form>
+            </div>
+          </div>
+          {{/ environment }} {{# nybruker }}
+          <form id="nybruker" class="mb-2">
+            {{> atomer-avkrysningsboks }}
+          </form>
+
+          <div id="bruker" class="collapse mb-2">
+            {{# kontakt1 }} {{> organismer-dashboard-kontaktinfo }} {{/ kontakt1 }}
+          </div>
+
+          {{/ nybruker }} {{# information }} {{> atomer-tekstfelt }} {{/ information }} {{#submit}} {{> atomer-knapp:mb-2 }} {{/submit}}
+
+        </div>
+      </div>
+    </form>
+    {{/tab3 }}
+  </div>
+</div>
+<!-- END: 02-organismer-80-Modal-js-innhold-15-dashboard-sendmelding-installation -->

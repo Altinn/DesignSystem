@@ -14,45 +14,22 @@
   </div>
   <div class="modal-body a-modal-body">
 
-    {{# tjenesteeier }}
-    <div class="row mb-2">
-      <div class="col-6 px-0">
-        {{> atomer-tekst-input}}
-      </div>
-    </div>
-    {{/ tjenesteeier }} {{# filetype }}
-    <div class="row">
-      <form id={{ form-id }}>
-        {{> atomer-radioknapp }}
-      </form>
-    </div>
+    {{# filetype }}
+    <form id={{ form-id }} class="mb-2">
+      {{> atomer-radioknapp }}
+    </form>
     {{/ filetype }} {{# in-inbox }}
-    <div class="row">
-      <form id={{ form-id }}>
-        {{> atomer-radioknapp }}
-      </form>
+    <div class="mb-4">
+      {{> atomer-avkrysningsboks }}
     </div>
     {{/ in-inbox }} {{# environment }}
-    <div class="row">
+    <div class="a-form-group mb-2">
+      <label class="a-form-label" for="{{ form-id }}">{{ top-label }}</label>
       <form id={{ form-id }}>
-        {{> atomer-radioknapp }}
+        {{> atomer-valgknapp-ett-alternativ }}
       </form>
     </div>
-    {{/ environment }} {{# information }}
-    <div class="row mt-2">
-      <div class="col-8 px-0">
-        {{> atomer-tekstfelt }}
-      </div>
-    </div>
-    {{/ information }} {{# upload }}
-    <div class="row">
-      {{> atomer-upload }}
-    </div>
-    {{/ upload }} {{# submit}}
-    <div class="row">
-      {{> atomer-knapp:mb-2 }}
-    </div>
-    {{/ submit}}
+    {{/ environment }} {{# information }} {{> atomer-tekstfelt }} {{/ information }} {{# upload }} {{> atomer-upload }} {{/ upload }} {{# submit}} {{> atomer-knapp:mb-2 }} {{/ submit}}
   </div>
 </div>
 
