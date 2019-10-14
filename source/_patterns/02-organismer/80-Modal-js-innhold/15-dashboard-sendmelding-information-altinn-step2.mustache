@@ -14,53 +14,47 @@
     <div class="modal-body a-modal-body">
       
       {{# tekst-input-1 }}
-        <div class="row a-form-group mb-2">
-          <div class="col-12 px-0">
-            <legend class="a-legend" for="{{ form-id }}">{{ top-label }}</label>
-          </div>
-          <div class="col-12 col-lg-6 px-0">
+        <div class="a-form-group mb-6">
+            <div class="mb-2">
+              <legend class="a-legend" for="{{ form-id }}">{{ top-label }}</label>
+            </div>
             <form id={{ form-id }}>                
               {{# bokmaal }}
-                {{> atomer-tekst-input }}
+                {{> atomer-tekst-input:mb-2 }}
               {{/ bokmaal }}
               
               {{# nynorsk }}
-                {{> atomer-tekst-input }}
+                {{> atomer-tekst-input:mb-2 }}
               {{/ nynorsk }}
               
               {{# engelsk }}
-                {{> atomer-tekst-input }}
+                {{> atomer-tekst-input:mb-2 }}
               {{/ engelsk }}
             </form>
-          </div>
         </div>
       {{/ tekst-input-1 }}
 
       {{# tekstfelt-1 }}
-        <div class="row a-form-group mb-2">
-          <div class="col-12 px-0">
-            <legend class="a-legend" for="{{ form-id }}">{{ top-label }}</label>
-          </div>
-          <div class="col-12 col-lg-6 px-0">
-            <form id={{ form-id }}>                
-              {{# bokmaal }}
-                {{> atomer-tekstfelt }}
-              {{/ bokmaal }}
-              {{# nynorsk }}
-                {{> atomer-tekstfelt }}
-              {{/ nynorsk }}
-              {{# engelsk }}
-                {{> atomer-tekstfelt }}
-              {{/ engelsk }}
-            </form>
-          </div>
+        <div class="a-form-group mb-6">
+          <div class="mb-2">
+              <legend class="a-legend" for="{{ form-id }}">{{ top-label }}</label>
+            </div>
+          <form id={{ form-id }}>                
+            {{# bokmaal }}
+              {{> atomer-tekstfelt:mb-2 }}
+            {{/ bokmaal }}
+            {{# nynorsk }}
+              {{> atomer-tekstfelt:mb-2 }}
+            {{/ nynorsk }}
+            {{# engelsk }}
+              {{> atomer-tekstfelt:mb-2 }}
+            {{/ engelsk }}
+          </form>
         </div>
       {{/ tekstfelt-1 }}
 
       {{# submit}}
-        <div class="row">
-          {{> atomer-knapp:mb-2 }}
-        </div>
+        {{> atomer-knapp:mb-2 }}
       {{/ submit}}
     </div>
 </div>

@@ -12,59 +12,42 @@
         </div>
     </div>
     <div class="modal-body a-modal-body">
-      {{# tjenesteeier }}
-        <div class="row mb-2">
-          <div class="col-6 px-0">
-            {{> atomer-tekst-input}}
-          </div>
-        </div>
-      {{/ tjenesteeier }}
     
       {{# tjenestenavn }}
-        <div class="row mb-2">
-          <div class="col-6 px-0">
-            {{> atomer-tekst-input}}
-          </div>
+        <div class="mb-2">
+          {{> atomer-tekst-input}}
         </div>
       {{/ tjenestenavn }}
 
       {{# tjenestetype }}
-        <div class="row mb-2">
-          <div class="col-6 px-0">
-            {{> atomer-tekst-input}}
-          </div>
+        <div class="mb-2">
+          {{> atomer-tekst-input}}
         </div>
       {{/ tjenestetype }}
     
       {{# options1 }}
-        <div class="row mb-2">
-          <div class="col-8 px-0">
-            {{> atomer-avkrysningsboks }}
-          </div>
+        <div class="mb-2">
+          {{> atomer-avkrysningsboks }}
         </div>
       {{/ options1 }}
 
       {{# environment }}
-        <div class="row a-form-group mb-2">
-          <div class="col-12 px-0">
-            <label class="a-form-label" for="{{ form-id }}">{{ top-label }}</label>
-          </div>
-          <div class="col-12 px-0">
-            <form id={{ form-id }}>
-              {{> atomer-valgknapp-ett-alternativ }}
-            </form>
-          </div>
+        <div class="a-form-group mb-2">
+          <label class="a-form-label" for="{{ form-id }}">{{ top-label }}</label>
+          <form id={{ form-id }}>
+            {{> atomer-valgknapp-ett-alternativ }}
+          </form>
         </div>
       {{/ environment }}
 
       {{# tjenestekoder }}
         <div class="row mb-2">
-          <div class="col-12 col-lg-5 px-0">
+          <div class="col-12 col-lg-6">
             {{# tjenestekode }}
               {{> atomer-tekst-input}}
             {{/ tjenestekode }}
           </div>
-          <div class="col-12 col-lg-6 offset-lg-1 px-0">
+          <div class="col-12 col-lg-6">
             {{# utgavekode }}
               {{> atomer-tekst-input}}
             {{/ utgavekode }}
@@ -73,15 +56,13 @@
       {{/ tjenestekoder }}
       
       {{# tjenesteversjon }}
-        <div class="row mb-2">
-          <div class="col-5 px-0">
-              {{> atomer-tekst-input}}
-          </div>
+        <div class="mb-2">
+          {{> atomer-tekst-input}}
         </div>
       {{/ tjenesteversjon }}
 
       {{# saneringsdato }}
-        <div class="row mb-2">
+        <div class="mb-2">
           <form id={{ form-id }}>
             {{> molekyler-dato-og-tid }}
           </form>
@@ -89,33 +70,25 @@
       {{/ saneringsdato }}
     
       {{# fjernkopi }}
-        <div class="row mb-2">
-          <div class="col-12 px-0">
-            {{> atomer-avkrysningsboks }}
-          </div>
+        <div class="mb-2">
+          {{> atomer-avkrysningsboks }}
         </div>
       {{/ fjernkopi }}
 
       {{# premisser }}
-        <div class="row mt-2">
-          <div class="col-8 px-0">
+        <div class="mb-2">
             {{> atomer-tekstfelt }}
-          </div>
         </div>
       {{/ premisser }}
 
       {{# information }}
-        <div class="row mt-2">
-          <div class="col-8 px-0">
-            {{> atomer-tekstfelt }}
-          </div>
+        <div class="mb-2">
+          {{> atomer-tekstfelt }}
         </div>
       {{/ information }}
 
       {{# submit}}
-        <div class="row">
-          {{> atomer-knapp:mb-2 }}
-        </div>
+        {{> atomer-knapp:mb-2 }}
       {{/ submit}}
     </div>
 </div>

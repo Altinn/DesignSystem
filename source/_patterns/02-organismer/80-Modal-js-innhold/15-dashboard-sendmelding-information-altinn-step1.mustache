@@ -12,43 +12,30 @@
         </div>
     </div>
     <div class="modal-body a-modal-body">
-      {{# tjenesteeier }}
-        <div class="row mb-2">
-          <div class="col-6 px-0">
-            {{> atomer-tekst-input}}
-          </div>
-        </div>
-      {{/ tjenesteeier }}
 
       {{# environment }}
-        <div class="row a-form-group mb-2">
-          <div class="col-12 px-0">
-            <label class="a-form-label" for="{{ form-id }}">{{ top-label }}</label>
-          </div>
-          <div class="col-12 px-0">
-            <form id={{ form-id }}>
-              {{> atomer-valgknapp-ett-alternativ }}
-            </form>
-          </div>
+        <div class="a-form-group mb-2">
+          <label class="a-form-label" for="{{ form-id }}">{{ top-label }}</label>
+          <form id={{ form-id }}>
+            {{> atomer-valgknapp-ett-alternativ }}
+          </form>
         </div>
       {{/ environment }}
 
       {{# skjemanummer }}
-        <div class="row mb-2">
-          <div class="col-6 px-0">
-            {{> atomer-tekst-input}}
-          </div>
+        <div class="mb-2">
+          {{> atomer-tekst-input}}
         </div>
       {{/ skjemanummer }}
 
       {{# tjenestekoder }}
         <div class="row mb-2">
-          <div class="col-12 col-lg-5 px-0">
+          <div class="col-12 col-lg-6">
             {{# tjenestekode }}
               {{> atomer-tekst-input}}
             {{/ tjenestekode }}
           </div>
-          <div class="col-12 col-lg-6 offset-lg-1 px-0">
+          <div class="col-12 col-lg-6">
             {{# utgavekode }}
               {{> atomer-tekst-input}}
             {{/ utgavekode }}
@@ -57,7 +44,7 @@
       {{/ tjenestekoder }}
 
       {{# options1 }}
-        <div class="row">
+        <div class="mb-2">
           <form id={{ form-id }}>
             {{> atomer-radioknapp }}
           </form>
@@ -65,19 +52,15 @@
       {{/ options1 }}
    
       {{# publiseringsdato }}
-        <div class="row a-form-group mb-2">
-          <div class="col-12 px-0">
-            <form id={{ form-id }}>
-              {{> molekyler-dato-og-tid }}
-            </form>
-          </div>
+        <div class="a-form-group mb-2">
+          <form id={{ form-id }}>
+            {{> molekyler-dato-og-tid }}
+          </form>
         </div>
       {{/ publiseringsdato }}
 
       {{# submit}}
-        <div class="row">
           {{> atomer-knapp:mb-2 }}
-        </div>
       {{/ submit}}
     </div>
 </div>
