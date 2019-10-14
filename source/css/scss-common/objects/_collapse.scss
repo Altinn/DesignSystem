@@ -203,7 +203,7 @@
 
   .a-second-action {
     width: 100%;
-
+    
     @include media-breakpoint-up( lg ) {
       width: $spacer * 24;
     }
@@ -235,14 +235,82 @@
   }
 }
 
-.a-third-action-mobile {
-  background-color: $grey-light;
+@media(min-width: 768px) {
+  .addPersonOrBusiness {
+    padding-left: 12px;
+    padding-right: 12px;
+  }
 
-  .a-third-action-spacer {
-    padding: $spacer * 2 $spacer;
+  .rightHolderList {
+    .a-list-container {
+      padding-left: 20px !important;
+      padding-right: 12px !important;
+    }
   }
 }
 
+@media(max-width: 768px) {
+    .panelBox {
+        display: flex !important;
+        flex-direction: column !important;
+      }
+    
+  
+  .addPersonOrBusiness {
+    order: 3;
+  }
+  .searchPersonOrBusiness {
+    order: 2 !important;
+  }
+  .activeLog {
+    order: 1;
+  }
+} 
+
+@media (max-width: 992px) and (min-width: 768px) {
+  .a-iconText-icon {
+    width: 72px !important;
+  } 
+
+  .a-icon {
+    width: 72px;
+    min-width: 72px;
+    height: 72px;
+    font-size: 4em;
+  }
+
+  .a-iconText-text-large {
+    font-size: 28px !important; 
+    font-size: 2.8rem !important;
+    line-height: 1.4 !important;
+    -webkit-font-smoothing: subpixel-antialiased !important;
+  }
+
+  .searchPersonOrBusiness {
+        margin: auto !important;
+        width: 18em !important;
+        display: block ;
+    }
+    
+    .activeLog {
+    position: absolute !important;
+        top: 0 !important;
+        right: 0 !important;
+        padding-right: 60px !important;
+    }
+}
+
+.rightHolderList {
+  border-top: 1px solid  $grey-medium !important;
+  background: $white;
+}
+
+@media (min-width: 1200px) {
+  .a-collapsePanel.expanded{
+    margin-right: -24px;
+    margin-left: -24px;
+  }
+}
 // ----------------------------------
 // PANEL ACCORDION
 // ----------------------------------
