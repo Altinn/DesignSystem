@@ -7,13 +7,13 @@
       </div>
       <h1 class="a-iconText-text mb-0">
         <span class="a-iconText-text-small"></span>
-        <span class="a-iconText-text-large">Bestill produksjonssetting av tjeneste, kodeliste eller mappere</span>
+        <span class="a-iconText-text-large">Bestill produksjonssetting av tjeneste eller kodeliste</span>
       </h1>
     </div>
   </div>
   <div class="modal-body a-modal-body">
 
-    <h2 class="a-h3">Hva ønsker du å bestille?</h2>
+    <h2 class="a-h3">Hva ønsker du å produksjonssette?</h2>
     <form data-toggle="validator" id="contactForm">
       <div class="row">
         <div class="col-12 col-sm-8">
@@ -21,21 +21,14 @@
             <li class="nav-item">
               <a class="nav-link" data-toggle="tab" href="#prod1" role="tab">
                 <div class="custom-control custom-radio a-custom-radio">
-                  <span class="custom-control-label">Produksjonssetting av tjeneste</span>
+                  <span class="custom-control-label">Tjeneste</span>
                 </div>
               </a>
             </li>
             <li class="nav-item">
               <a class="nav-link" data-toggle="tab" href="#prod2" role="tab">
                 <div class="custom-control custom-radio a-custom-radio">
-                  <span class="custom-control-label">Produksjonssetting av kodeliste</span>
-                </div>
-              </a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" data-toggle="tab" href="#prod3" role="tab">
-                <div class="custom-control custom-radio a-custom-radio">
-                  <span class="custom-control-label">Installasjon av mappere</span>
+                  <span class="custom-control-label">Kodeliste</span>
                 </div>
               </a>
             </li>
@@ -58,19 +51,21 @@
           {{/ tjenestenavn }}
 
           {{# produksjonssettingsdato }}
-          <div class="a-form-group mb-2">
-            <form id={{ form-id }}>
-              {{> molekyler-dato-og-tid }}
-            </form>
-          </div>
+            {{> atomer-avkrysningsboks }}
+            <div id="dato1" class="collapse a-form-group mb-2">
+              <form id={{ form-id }}>
+                {{> molekyler-dato-og-tid }}
+              </form>
+            </div>
           {{/ produksjonssettingsdato }}
 
           {{# publiseringsdato }}
-          <div class="a-form-group mb-2">
-            <form id={{ form-id }}>
-              {{> molekyler-dato-og-tid }}
-            </form>
-          </div>
+            {{> atomer-avkrysningsboks:mb-2 }}
+            <div id="dato2" class="collapse a-form-group mb-2">
+              <form id={{ form-id }}>
+                {{> molekyler-dato-og-tid }}
+              </form>
+            </div>
           {{/ publiseringsdato }}
 
           {{# lenke }}
@@ -125,75 +120,6 @@
         </form>
         {{/tab2 }}
       </div>
-
-      <div class="tab-pane" id="prod3" role="tabpanel">
-        {{ #tab3 }}
-        <h3 class="a-h2">Installasjon av mappere</h3>
-        <form data-toggle="validator" id="contactForm2">
-          <div class="row">
-            <div class="col-12 col-sm-8">
-
-              {{# tjenesteeier }}
-              <div class="mb-2">
-                  {{> atomer-tekst-input }}
-              </div>
-              {{/ tjenesteeier }}
-
-              {{# bestiltav }}
-              <div class="mb-2">
-                  {{> atomer-tekst-input }}
-              </div>
-              {{/ bestiltav }}
-
-              {{# lenke }}
-              <div class="mb-2">
-                  {{> atomer-tekst-input }}
-              </div>
-              {{/ lenke }}
-
-              {{# environment }}
-              <div class="row a-form-group mb-2">
-                <div class="col-12">
-                  <label class="a-form-label" for="{{ form-id }}">{{ top-label }}</label>
-                </div>
-                <div class="col-12">
-                  <form id={{ form-id }}>
-                    {{> atomer-valgknapp-ett-alternativ }}
-                  </form>
-                </div>
-              </div>
-              {{/ environment }}
-
-              {{# nybruker }}
-                  <form id="nybruker">
-                    {{> atomer-avkrysningsboks }}
-                  </form>
-                
-                <div id="bruker" class="collapse">
-                  {{# kontakt1 }}
-                  {{> organismer-dashboard-kontaktinfo }}
-                  {{/ kontakt1 }}
-                </div>
-
-              {{/ nybruker }}
-
-              {{# information }}
-                  {{> atomer-tekstfelt }}
-              {{/ information }}
-
-              {{#submit}}
-              {{> atomer-knapp:mb-2 }}
-              {{/submit}}
-
-            </div>
-          </div>
-        </form>
-        {{/tab3 }}
-      </div>
-
-
     </div>
-
-
   </div>
 </div>

@@ -55,20 +55,6 @@
         </div>
       {{/ tjenestekoder }}
       
-      {{# tjenesteversjon }}
-        <div class="mb-2">
-          {{> atomer-tekst-input}}
-        </div>
-      {{/ tjenesteversjon }}
-
-      {{# saneringsdato }}
-        <div class="mb-2">
-          <form id={{ form-id }}>
-            {{> molekyler-dato-og-tid }}
-          </form>
-        </div>
-      {{/ saneringsdato }}
-    
       {{# fjernkopi }}
         <div class="mb-2">
           {{> atomer-avkrysningsboks }}
@@ -86,6 +72,16 @@
           {{> atomer-tekstfelt }}
         </div>
       {{/ information }}
+
+      {{# saneringsdato }}
+        {{> atomer-avkrysningsboks:mb-2 }}
+        <div id="dato2" class="collapse a-form-group mb-2">
+          <form id={{ form-id }}>
+            {{> molekyler-dato-og-tid }}
+          </form>
+        </div>
+      {{/ saneringsdato }}
+    
 
       {{# submit}}
         {{> atomer-knapp:mb-2 }}
