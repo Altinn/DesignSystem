@@ -7654,6 +7654,7 @@ var uniformHeight = function() {
 
 var setValidatorSettings = function() {
   var defaultOptions = {
+    ignore: ':hidden, .ignoreValidation',
     highlight: function(element, errorClass, validClass) {
       $(element).closest('.form-group').addClass(errorClass);
     },
