@@ -7,7 +7,7 @@
             </div>
             <h1 class="a-iconText-text mb-0">
                 <span class="a-iconText-text-small"></span>
-                <span class="a-iconText-text-large">Bestill ny / endret informasjon om skjema / tjeneste på altinn.no</span>
+                <span class="a-iconText-text-large">Rediger eller opprett informasjon om skjema / tjeneste på altinn.no</span>
             </h1>
         </div>
     </div>
@@ -28,20 +28,22 @@
         </div>
       {{/ skjemanummer }}
 
-      {{# tjenestekoder }}
-        <div class="row mb-2">
-          <div class="col-12 col-lg-6">
-            {{# tjenestekode }}
-              {{> atomer-tekst-input}}
-            {{/ tjenestekode }}
+      {{# frameldinger }}
+        {{# tjenestekoder }}
+          <div class="row mb-2">
+            <div class="col-12 col-lg-6">
+              {{# tjenestekode }}
+                {{> atomer-tekst-input}}
+              {{/ tjenestekode }}
+            </div>
+            <div class="col-12 col-lg-6">
+              {{# utgavekode }}
+                {{> atomer-tekst-input}}
+              {{/ utgavekode }}
+            </div>
           </div>
-          <div class="col-12 col-lg-6">
-            {{# utgavekode }}
-              {{> atomer-tekst-input}}
-            {{/ utgavekode }}
-          </div>
-        </div>
-      {{/ tjenestekoder }}
+        {{/ tjenestekoder }}
+      {{/ frameldinger }}
 
       {{# in-inbox }}
         <div class="mb-2">
@@ -50,16 +52,15 @@
       {{/ in-inbox }}
    
       {{# publiseringsdato }}
-        {{> atomer-avkrysningsboks:mb-2 }}
-        <div id="dato2" class="collapse a-form-group mb-2">
-          <form id={{ form-id }}>
-            {{> molekyler-dato-og-tid }}
-          </form>
-        </div>
+      <div class ="a-form-group">
+        <form id={{ form-id }}>
+          {{> molekyler-utsett-tidspunkt }}
+        </form> 
+      </div>
       {{/ publiseringsdato }}
 
       {{# submit}}
-          {{> atomer-knapp:mb-2 }}
+        {{> atomer-knapp:mb-2 }}
       {{/ submit}}
     </div>
 </div>
