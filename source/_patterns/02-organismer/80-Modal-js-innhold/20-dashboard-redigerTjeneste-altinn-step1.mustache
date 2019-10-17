@@ -1,0 +1,66 @@
+<div class="modal-content">
+    <div class="modal-header a-modal-header">
+        <div class="a-iconText a-iconText-background a-iconText-large">
+            <div class="a-iconText-icon">
+                <i class="ai ai-send
+                 a-icon" aria-hidden="true"></i>
+            </div>
+            <h1 class="a-iconText-text mb-0">
+                <span class="a-iconText-text-small"></span>
+                <span class="a-iconText-text-large">Rediger eller opprett informasjon om skjema / tjeneste på altinn.no</span>
+            </h1>
+        </div>
+    </div>
+    <div class="modal-body a-modal-body">
+
+      {{# environment }}
+        <div class="a-form-group mb-2">
+          <label class="a-form-label" for="{{ form-id }}">{{ top-label }}</label>
+          <form id={{ form-id }}>
+            {{> atomer-valgknapp-ett-alternativ }}
+          </form>
+        </div>
+      {{/ environment }}
+
+      {{# skjemanummer }}
+        <div class="mb-2">
+          {{> atomer-tekst-input}}
+        </div>
+      {{/ skjemanummer }}
+
+      {{# frameldinger }}
+        {{# tjenestekoder }}
+          <div class="row mb-2">
+            <div class="col-12 col-lg-6">
+              {{# tjenestekode }}
+                {{> atomer-tekst-input}}
+              {{/ tjenestekode }}
+            </div>
+            <div class="col-12 col-lg-6">
+              {{# utgavekode }}
+                {{> atomer-tekst-input}}
+              {{/ utgavekode }}
+            </div>
+          </div>
+        {{/ tjenestekoder }}
+      {{/ frameldinger }}
+
+      {{# in-inbox }}
+        <div class="mb-2">
+          {{> atomer-avkrysningsboks }}
+        </div>
+      {{/ in-inbox }}
+   
+      {{# publiseringsdato }}
+      <div class ="a-form-group">
+        <form id={{ form-id }}>
+          {{> molekyler-utsett-tidspunkt }}
+        </form> 
+      </div>
+      {{/ publiseringsdato }}
+
+      {{# submit}}
+        {{> atomer-knapp:mb-2 }}
+      {{/ submit}}
+    </div>
+</div>
