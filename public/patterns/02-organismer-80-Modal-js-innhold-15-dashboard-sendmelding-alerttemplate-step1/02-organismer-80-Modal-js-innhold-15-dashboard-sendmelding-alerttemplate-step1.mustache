@@ -15,56 +15,66 @@
   <div class="modal-body a-modal-body">
 
     {{# environment }}
-    <div class="a-form-group mw-100 mb-2">
-      <label class="a-form-label" for="{{ form-id }}">{{ top-label }}</label>
-      <form id={{ form-id }}>
-        {{> atomer-valgknapp-ett-alternativ }}
-      </form>
-    </div>
-    {{/ environment }} {{# type }}
-    <div class="form-group a-form-group">
-      <label class="a-form-label a-fontBold px-0">Angi type varsel</label>
-      <ul class="nav nav-tabs custom-radio a-radioButtons a-navTabsRadio" role="tablist">
-        {{# types }}
-        <li class="nav-item">
-          <a class="nav-link" data-toggle="tab" href="{{ tab-id }}" role="tab">
-            <div class="custom-control custom-radio a-custom-radio">
-              <span class="custom-control-label">{{ title }}</span>
-            </div>
-          </a>
-        </li>
-        {{/ types }}
-      </ul>
-    </div>
-    {{/ type }}
-
-    <div class="tab-content">
-      <div class="tab-pane" id="first" role="tabpanel">
-        {{#tab1}} {{# template-name }}
-        <div class="mb-2">
-          {{> atomer-tekst-input}}
-        </div>
-        {{/ template-name }} {{/tab1}}
+      <div class="a-form-group mw-100 mb-2">
+        <label class="a-form-label" for="{{ form-id }}">{{ top-label }}</label>
+        <form id={{ form-id }}>
+          {{> atomer-valgknapp-ett-alternativ }}
+        </form>
       </div>
+      {{/ environment }}
 
-      <div class="tab-pane form-group" id="consecutive" role="tabpanel">
-        {{#tab2}} {{# template-name }}
-        <div class="mb-2">
-          {{> atomer-tekst-input}}
+      {{# type }}
+        <div class="form-group a-form-group">
+          <label class="a-form-label a-fontBold px-0">Angi type varsel</label>
+          <ul class="nav nav-tabs custom-radio a-radioButtons a-navTabsRadio" role="tablist">
+            {{# types }}
+              <li class="nav-item">
+                <a class="nav-link" data-toggle="tab" href="{{ tab-id }}" role="tab">
+                  <div class="custom-control custom-radio a-custom-radio">
+                    <span class="custom-control-label">{{ title }}</span>
+                  </div>
+                </a>
+              </li>
+              {{/ types }}
+          </ul>
         </div>
-        {{/ template-name }} {{# associated-template }}
-        <div class="mb-2">
-          {{> atomer-tekst-input}}
-        </div>
-        {{/ associated-template }} {{# time-delay }}
-        <div class="mb-2">
-          {{> molekyler-tidsvelger }}
-        </div>
-        {{/ time-delay }} {{/tab2}}
-      </div>
-    </div>
+        {{/ type }}
 
-    {{# submit}} {{> atomer-knapp:mb-2 }} {{/ submit}}
+        <div class="tab-content">
+          <div class="tab-pane" id="first" role="tabpanel">
+            {{#tab1}}
+              {{# template-name }}
+                <div class="mb-2">
+                  {{> atomer-tekst-input}}
+                </div>
+                {{/ template-name }}
+            {{/tab1}}
+          </div>
+
+          <div class="tab-pane form-group" id="consecutive" role="tabpanel">
+            {{#tab2}}
+              {{# template-name }}
+                <div class="mb-2">
+                  {{> atomer-tekst-input}}
+                </div>
+                {{/ template-name }}
+                {{# associated-template }}
+                  <div class="mb-2">
+                    {{> atomer-tekst-input}}
+                  </div>
+                  {{/ associated-template }}
+                  {{# time-delay }}
+                    <div class="mb-2">
+                      {{> molekyler-tidsvelger }}
+                    </div>
+                    {{/ time-delay }}
+            {{/tab2}}
+          </div>
+        </div>
+
+        {{# submit}}
+          {{> atomer-knapp:mb-2 }}
+          {{/ submit}}
   </div>
 </div>
 

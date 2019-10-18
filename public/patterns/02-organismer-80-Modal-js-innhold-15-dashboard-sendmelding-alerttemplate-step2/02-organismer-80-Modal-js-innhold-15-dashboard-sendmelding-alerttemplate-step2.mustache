@@ -15,23 +15,54 @@
   <div class="modal-body a-modal-body">
 
     {{# channel }}
-    <div class="mb-1">
-      <form id="channel">
-        {{> atomer-avkrysningsboks }}
-      </form>
-    </div>
-    {{/ channel }} {{# sms-forms }}
-    <div id="sms-form" class="collapse">
-      <h2>SMS</h2>
-      {{# bokmaal }} {{> atomer-tekstfelt:mb-2 }} {{/ bokmaal }} {{# nynorsk }} {{> atomer-tekstfelt:mb-2 }} {{/ nynorsk }} {{# engelsk }} {{> atomer-tekstfelt:mb-6 }} {{/ engelsk }}
-    </div>
-    {{/ sms-forms }} {{# email-forms }}
+      <div class="mb-1">
+        <form id="channel">
+          {{> atomer-avkrysningsboks }}
+        </form>
+      </div>
+      {{/ channel }}
 
-    <div id="email-form" class="collapse mb-2">
-      <h2>Epost</h2>
-      {{# avsender }} {{> atomer-tekst-input:mb-2 }} {{/ avsender }} {{# bokmaal }} {{> atomer-tekstfelt:mb-2 }} {{/ bokmaal }} {{# nynorsk }} {{> atomer-tekstfelt:mb-2 }} {{/ nynorsk }} {{# engelsk }} {{> atomer-tekstfelt:mb-6 }} {{/ engelsk }}
-    </div>
-    {{/ email-forms }} {{# information }} {{> atomer-tekstfelt:mb-2 }} {{/ information }} {{# submit}} {{> atomer-knapp:mb-2 }} {{/ submit}}
+      {{# sms-forms }}
+        <div id="sms-form" class="collapse">
+          <h2>SMS</h2>
+          {{# bokmaal }}
+            {{> atomer-tekstfelt:mb-2 }}
+            {{/ bokmaal }}
+            {{# nynorsk }}
+              {{> atomer-tekstfelt:mb-2 }}
+              {{/ nynorsk }}
+              {{# engelsk }}
+                {{> atomer-tekstfelt:mb-6 }}
+                {{/ engelsk }}
+        </div>
+        {{/ sms-forms }}
+
+        {{# email-forms }}
+
+          <div id="email-form" class="collapse mb-2">
+            <h2>Epost</h2>
+            {{# avsender }}
+              {{> atomer-tekst-input:mb-2 }}
+              {{/ avsender }}
+              {{# bokmaal }}
+                {{> atomer-tekstfelt:mb-2 }}
+                {{/ bokmaal }}
+                {{# nynorsk }}
+                  {{> atomer-tekstfelt:mb-2 }}
+                  {{/ nynorsk }}
+                  {{# engelsk }}
+                    {{> atomer-tekstfelt:mb-6 }}
+                    {{/ engelsk }}
+          </div>
+          {{/ email-forms }}
+
+          {{# information }}
+            {{> atomer-tekstfelt:mb-2 }}
+            {{/ information }}
+
+            {{# submit}}
+              {{> atomer-knapp:mb-2 }}
+              {{/ submit}}
   </div>
 </div>
 

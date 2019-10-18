@@ -46,30 +46,44 @@
         <form data-toggle="validator" id="contactForm2">
 
           {{# tjenestenavn }}
-          <div class="mb-2">
-            {{> atomer-tekst-input }}
-          </div>
-          {{/ tjenestenavn }} {{# produksjonssettingsdato }} {{> atomer-avkrysningsboks }}
-          <div id="dato1" class="collapse a-form-group mb-2">
-            <form id={{ form-id }}>
-              {{> molekyler-dato-og-tid }}
-            </form>
-          </div>
-          {{/ produksjonssettingsdato }} {{# publiseringsdato }} {{> atomer-avkrysningsboks:mb-2 }}
-          <div id="dato2" class="collapse a-form-group mb-2">
-            <form id={{ form-id }}>
-              {{> molekyler-dato-og-tid }}
-            </form>
-          </div>
-          {{/ publiseringsdato }} {{# lenke }}
-          <div class="mb-2">
-            {{> atomer-tekst-input }}
-          </div>
-          {{/ lenke }} {{# information }}
-          <div class="mb-2">
-            {{> atomer-tekstfelt }}
-          </div>
-          {{/ information }} {{#submit}} {{> atomer-knapp:mb-2 }} {{/submit}}
+            <div class="mb-2">
+              {{> atomer-tekst-input }}
+            </div>
+            {{/ tjenestenavn }}
+
+            {{# produksjonssettingsdato }}
+              {{> atomer-avkrysningsboks }}
+              <div id="dato1" class="collapse a-form-group mb-2">
+                <form id={{ form-id }}>
+                  {{> molekyler-dato-og-tid }}
+                </form>
+              </div>
+              {{/ produksjonssettingsdato }}
+
+              {{# publiseringsdato }}
+                {{> atomer-avkrysningsboks:mb-2 }}
+                <div id="dato2" class="collapse a-form-group mb-2">
+                  <form id={{ form-id }}>
+                    {{> molekyler-dato-og-tid }}
+                  </form>
+                </div>
+                {{/ publiseringsdato }}
+
+                {{# lenke }}
+                  <div class="mb-2">
+                    {{> atomer-tekst-input }}
+                  </div>
+                  {{/ lenke }}
+
+                  {{# information }}
+                    <div class="mb-2">
+                      {{> atomer-tekstfelt }}
+                    </div>
+                    {{/ information }}
+
+                    {{#submit}}
+                      {{> atomer-knapp:mb-2 }}
+                    {{/submit}}
 
         </form>
         {{/tab1 }}
@@ -83,14 +97,24 @@
             <div class="col-12 col-sm-8">
 
               {{# kodelistenavn }}
-              <div class="mb-2">
-                {{> atomer-tekst-input }}
-              </div>
-              {{/ kodelistenavn }} {{# lenke }}
-              <div class="mb-2">
-                {{> atomer-tekst-input }}
-              </div>
-              {{/ lenke }} {{# information }} {{> atomer-tekstfelt }} {{/ information }} {{#submit}} {{> atomer-knapp:mb-2 }} {{/submit}}
+                <div class="mb-2">
+                  {{> atomer-tekst-input }}
+                </div>
+                {{/ kodelistenavn }}
+
+                {{# lenke }}
+                  <div class="mb-2">
+                    {{> atomer-tekst-input }}
+                  </div>
+                  {{/ lenke }}
+
+                  {{# information }}
+                    {{> atomer-tekstfelt }}
+                    {{/ information }}
+
+                    {{#submit}}
+                      {{> atomer-knapp:mb-2 }}
+                    {{/submit}}
 
             </div>
           </div>

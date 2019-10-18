@@ -21,22 +21,24 @@
           <h2 class="a-h3">Hva vil du gjøre med denne utgaven?</h2>
           <ul class="nav nav-tabs custom-radio a-radioButtons a-navTabsRadio" role="tablist">
             {{# radiotab-items }}
-            <li class="nav-item">
-              <a class="nav-link" data-toggle="tab" href="#{{radiotab-id}}" role="tab">
-                <div class="custom-control custom-radio a-custom-radio">
-                  <span class="custom-control-label">{{ radiotab-title }} </span>
-                </div>
-              </a>
-            </li>
-            {{/ radiotab-items }}
+              <li class="nav-item">
+                <a class="nav-link" data-toggle="tab" href="#{{radiotab-id}}" role="tab">
+                  <div class="custom-control custom-radio a-custom-radio">
+                    <span class="custom-control-label">{{ radiotab-title }} </span>
+                  </div>
+                </a>
+              </li>
+              {{/ radiotab-items }}
           </ul>
 
           <div class="tab-content">
             {{# radiotab-panes }}
-            <div class="tab-pane" id="{{radiotab-id}}" role="tabpanel">
-              {{# nextButton }} {{> atomer-knapp:mt-1 }} {{/ nextButton }}
-            </div>
-            {{/ radiotab-panes }}
+              <div class="tab-pane" id="{{radiotab-id}}" role="tabpanel">
+                {{# nextButton }}
+                  {{> atomer-knapp:mt-1 }}
+                  {{/ nextButton }}
+              </div>
+              {{/ radiotab-panes }}
           </div>
 
 

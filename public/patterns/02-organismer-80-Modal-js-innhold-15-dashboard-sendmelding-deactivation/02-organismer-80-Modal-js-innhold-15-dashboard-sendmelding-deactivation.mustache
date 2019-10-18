@@ -15,50 +15,79 @@
   <div class="modal-body a-modal-body">
 
     {{# tjenestenavn }}
-    <div class="mb-2">
-      {{> atomer-tekst-input}}
-    </div>
-    {{/ tjenestenavn }} {{# tjenestetype }}
-    <div class="mb-2">
-      {{> atomer-tekst-input}}
-    </div>
-    {{/ tjenestetype }} {{# options1 }}
-    <div class="mb-2">
-      {{> atomer-avkrysningsboks }}
-    </div>
-    {{/ options1 }} {{# environment }}
-    <div class="a-form-group mb-2">
-      <label class="a-form-label" for="{{ form-id }}">{{ top-label }}</label>
-      <form id={{ form-id }}>
-        {{> atomer-valgknapp-ett-alternativ }}
-      </form>
-    </div>
-    {{/ environment }} {{# tjenestekoder }}
-    <div class="row mb-2">
-      <div class="col-12 col-lg-6">
-        {{# tjenestekode }} {{> atomer-tekst-input}} {{/ tjenestekode }}
+      <div class="mb-2">
+        {{> atomer-tekst-input}}
       </div>
-      <div class="col-12 col-lg-6">
-        {{# utgavekode }} {{> atomer-tekst-input}} {{/ utgavekode }}
-      </div>
-    </div>
-    {{/ tjenestekoder }} {{# tjenesteversjon }}
-    <div class="mb-2">
-      {{> atomer-tekst-input }}
-    </div>
-    {{/ tjenesteversjon }} {{# fjernkopi }}
-    <div class="mb-2">
-      {{> atomer-avkrysningsboks }}
-    </div>
-    {{/ fjernkopi }} {{# premisser }}
-    <div class="mb-2">
-      {{> atomer-tekstfelt }}
-    </div>
-    {{/ premisser }} {{# information }}
-    <div class="mb-2">
-      {{> atomer-tekstfelt }}
-    </div>
-    {{/ information }} {{# saneringsdato }} {{> molekyler-utsett-tidspunkt }} {{/ saneringsdato }} {{# submit}} {{> atomer-knapp:mb-2 }} {{/ submit}}
+      {{/ tjenestenavn }}
+
+      {{# tjenestetype }}
+        <div class="mb-2">
+          {{> atomer-tekst-input}}
+        </div>
+        {{/ tjenestetype }}
+
+        {{# options1 }}
+          <div class="mb-2">
+            {{> atomer-avkrysningsboks }}
+          </div>
+          {{/ options1 }}
+
+          {{# environment }}
+            <div class="a-form-group mb-2">
+              <label class="a-form-label" for="{{ form-id }}">{{ top-label }}</label>
+              <form id={{ form-id }}>
+                {{> atomer-valgknapp-ett-alternativ }}
+              </form>
+            </div>
+            {{/ environment }}
+
+            {{# tjenestekoder }}
+              <div class="row mb-2">
+                <div class="col-12 col-lg-6">
+                  {{# tjenestekode }}
+                    {{> atomer-tekst-input}}
+                    {{/ tjenestekode }}
+                </div>
+                <div class="col-12 col-lg-6">
+                  {{# utgavekode }}
+                    {{> atomer-tekst-input}}
+                    {{/ utgavekode }}
+                </div>
+              </div>
+              {{/ tjenestekoder }}
+
+              {{# tjenesteversjon }}
+                <div class="mb-2">
+                  {{> atomer-tekst-input }}
+                </div>
+                {{/ tjenesteversjon }}
+
+                {{# fjernkopi }}
+                  <div class="mb-2">
+                    {{> atomer-avkrysningsboks }}
+                  </div>
+                  {{/ fjernkopi }}
+
+                  {{# premisser }}
+                    <div class="mb-2">
+                      {{> atomer-tekstfelt }}
+                    </div>
+                    {{/ premisser }}
+
+                    {{# information }}
+                      <div class="mb-2">
+                        {{> atomer-tekstfelt }}
+                      </div>
+                      {{/ information }}
+
+                      {{# saneringsdato }}
+                        {{> molekyler-utsett-tidspunkt }}
+                        {{/ saneringsdato }}
+
+
+                        {{# submit}}
+                          {{> atomer-knapp:mb-2 }}
+                          {{/ submit}}
   </div>
 </div>
 

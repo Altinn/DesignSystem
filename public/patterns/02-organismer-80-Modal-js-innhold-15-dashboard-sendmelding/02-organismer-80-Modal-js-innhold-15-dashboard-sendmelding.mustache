@@ -41,46 +41,69 @@
     <div class="tab-content">
       <div class="tab-pane" id="home" role="tabpanel">
         {{#tab1}}
-        <h3 class="a-h2">Hva skal du bestille?</h3>
-        <form data-toggle="validator" id="contactForm">
-          <div class="row">
-            <div class="col-12 col-sm-8">
-              <ul class="nav nav-tabs custom-radio a-radioButtons a-navTabsRadio" role="tablist">
-                {{# radiotab-items }}
-                <li class="nav-item">
-                  <a class="nav-link" data-toggle="tab" href="#{{radiotab-id}}" role="tab">
-                    <div class="custom-control custom-radio a-custom-radio">
-                      <span class="custom-control-label">{{ radiotab-title }} </span>
-                    </div>
-                  </a>
-                </li>
-                {{/ radiotab-items }}
-              </ul>
+          <h3 class="a-h2">Hva skal du bestille?</h3>
+          <form data-toggle="validator" id="contactForm">
+            <div class="row">
+              <div class="col-12 col-sm-8">
+                <ul class="nav nav-tabs custom-radio a-radioButtons a-navTabsRadio" role="tablist">
+                  {{# radiotab-items }}
+                    <li class="nav-item">
+                      <a class="nav-link" data-toggle="tab" href="#{{radiotab-id}}" role="tab">
+                        <div class="custom-control custom-radio a-custom-radio">
+                          <span class="custom-control-label">{{ radiotab-title }} </span>
+                        </div>
+                      </a>
+                    </li>
+                    {{/ radiotab-items }}
+                </ul>
+              </div>
             </div>
+          </form>
+          <div class="tab-content">
+            {{# radiotab-panes }}
+              <div class="tab-pane" id="{{radiotab-id}}" role="tabpanel">
+                {{# nextButton }}
+                  {{> atomer-knapp:mt-1 }}
+                  {{/ nextButton }}
+              </div>
+              {{/ radiotab-panes }}
           </div>
-        </form>
-        <div class="tab-content">
-          {{# radiotab-panes }}
-          <div class="tab-pane" id="{{radiotab-id}}" role="tabpanel">
-            {{# nextButton }} {{> atomer-knapp:mt-1 }} {{/ nextButton }}
-          </div>
-          {{/ radiotab-panes }}
-        </div>
         {{/tab1}}
       </div>
 
       <div class="tab-pane" id="profile" role="tabpanel">
         {{#tab2}}
-        <h3 class="a-h2">Melde feil</h3>
-        <form data-toggle="validator" id="contactForm2">
-          <div class="row">
-            <div class="col-12 col-md-8">
+          <h3 class="a-h2">Melde feil</h3>
+          <form data-toggle="validator" id="contactForm2">
+            <div class="row">
+              <div class="col-12 col-md-8">
 
-              {{#emne}} {{> atomer-tekst-input:mb-2 }} {{/emne}} {{#environment}} {{> atomer-tekst-input:mb-2 }} {{/environment}} {{#time}} {{> molekyler-dato-og-tid }} {{/time}} {{#question}} {{> atomer-tekstfelt:mb-2 }} {{/question}} {{#attachment}} {{> molekyler-last-opp-og-fjern
-              }} {{/attachment}} {{#submit2}} {{> atomer-knapp:mb-2 }} {{/submit2}}
+                {{#emne}}
+                  {{> atomer-tekst-input:mb-2 }}
+                {{/emne}}
+
+                {{#environment}}
+                  {{> atomer-tekst-input:mb-2 }}
+                {{/environment}}
+
+                {{#time}}
+                  {{> molekyler-dato-og-tid }}
+                {{/time}}
+
+                {{#question}}
+                  {{> atomer-tekstfelt:mb-2 }}
+                {{/question}}
+
+                {{#attachment}}
+                  {{> molekyler-last-opp-og-fjern }}
+                {{/attachment}}
+
+                {{#submit2}}
+                  {{> atomer-knapp:mb-2 }}
+                {{/submit2}}
+              </div>
             </div>
-          </div>
-        </form>
+          </form>
         {{/tab2}}
       </div>
       <div class="tab-pane" id="messages" role="tabpanel">
@@ -90,8 +113,25 @@
           <div class="row">
             <div class="col-12 col-sm-8">
 
-              {{#emne}} {{> atomer-tekst-input:mb-2 }} {{/emne}} {{#question}} {{> atomer-tekstfelt:mb-2 }} {{/question}} {{# radiobuttons }} {{> atomer-radioknapp }} {{/ radiobuttons }} {{#attachment2}} {{> molekyler-last-opp-og-fjern }} {{/attachment2}} {{#submit3}}
-              {{> atomer-knapp:mb-2 }} {{/submit3}}
+              {{#emne}}
+                {{> atomer-tekst-input:mb-2 }}
+              {{/emne}}
+
+              {{#question}}
+                {{> atomer-tekstfelt:mb-2 }}
+              {{/question}}
+
+              {{# radiobuttons }}
+                {{> atomer-radioknapp }}
+                {{/ radiobuttons }}
+
+                {{#attachment2}}
+                  {{> molekyler-last-opp-og-fjern }}
+                {{/attachment2}}
+
+                {{#submit3}}
+                  {{> atomer-knapp:mb-2 }}
+                {{/submit3}}
             </div>
           </div>
         </form>
