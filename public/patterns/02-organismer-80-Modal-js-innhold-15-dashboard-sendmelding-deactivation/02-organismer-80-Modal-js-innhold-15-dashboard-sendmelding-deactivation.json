@@ -123,12 +123,17 @@
 			}
 		]
 	},
-	"textarea-label": "Fyll inn tekst:",
-	"textarea-placeholder": "Forklarende hjelpetekst med forslag",
-	"hasFieldset": true,
-	"switch-legend": "Velg et alternativ",
+	"radiobutton-indicator": true,
+	"radio-legend": {
+		"radio-legendText": "Velg et alternativ"
+	},
 	"radiobuttons": [
 		{
+			"isDisabled": false,
+			"isInline": true,
+			"radiobutton-title": "En radioknapp",
+			"radiobutton-id": "radio31",
+			"radiobutton-indicator": true,
 			"radiobuttons-title": "Du kan velge denne",
 			"radiobuttons-id": "radiobutton-read",
 			"radiobuttons-name": "addRights",
@@ -139,6 +144,11 @@
 			}
 		},
 		{
+			"isDisabled": false,
+			"isInline": true,
+			"radiobutton-title": "Enda en radioknapp som inneholder mye tekst",
+			"radiobutton-id": "radio32",
+			"radiobutton-indicator": true,
 			"radiobuttons-title": "eller denne",
 			"radiobuttons-id": "radiobutton-edit",
 			"radiobuttons-name": "addRights",
@@ -153,6 +163,29 @@
 			"hasIcon": false
 		}
 	],
+	"radio": {
+		"radio-legend": {
+			"radio-legendText": "Når ønsker du at endringen skal tre i kraft?"
+		},
+		"radiobuttons": [
+			{
+				"radiobutton-id": "radio1",
+				"radiobutton-title": "Snarest mulig",
+				"data-toggle": "collapse",
+				"data-target": ".datovelgercollapse.show"
+			},
+			{
+				"radiobutton-id": "radio2",
+				"radiobutton-title": "På et gitt tidspunkt",
+				"data-toggle": "collapse",
+				"data-target": ".datovelgercollapse:not(.show)"
+			}
+		]
+	},
+	"textarea-label": "Fyll inn tekst:",
+	"textarea-placeholder": "Forklarende hjelpetekst med forslag",
+	"hasFieldset": true,
+	"switch-legend": "Velg et alternativ",
 	"flexWrap": false,
 	"check-legend": {
 		"check-legendText": "Velg ett eller flere alternativer"
@@ -283,31 +316,36 @@
 		"text-input-placeholder": "placeholder"
 	},
 	"saneringsdato": {
-		"flexWrap": false,
-		"check-legend": false,
-		"checkboxes": [
-			{
-				"isInline": true,
-				"isChecked": false,
-				"checkboxID": "datocheck2",
-				"checkboxes-title": "Utsett tidspunkt for sanering / deaktivering",
-				"isRequired": false,
-				"data-toggle": "collapse",
-				"data-target": "#dato2"
-			}
-		],
-		"label": "Ønsket tidspunkt",
 		"datovelger": {
 			"styleModifier": "",
-			"inputId": "datovelger2",
+			"stackedLabel": true,
+			"inputId": "datovelger",
+			"date-input-label": false,
 			"isRequired": false,
 			"form-control-class": "",
 			"icon-prefix": "ai",
 			"icon-class": "ai-date",
-			"icon-extra-class": "",
-			"date-input-label": false
+			"icon-extra-class": ""
 		},
-		"form-id": "date1"
+		"radio": {
+			"radio-legend": {
+				"radio-legendText": "Når ønsker du at saneringen / deaktiveringen skal tre i kraft?"
+			},
+			"radiobuttons": [
+				{
+					"radiobutton-id": "radio1",
+					"radiobutton-title": "Snarest mulig",
+					"data-toggle": "collapse",
+					"data-target": ".datovelgercollapse.show"
+				},
+				{
+					"radiobutton-id": "radio2",
+					"radiobutton-title": "På et gitt tidspunkt",
+					"data-toggle": "collapse",
+					"data-target": ".datovelgercollapse:not(.show)"
+				}
+			]
+		}
 	},
 	"fjernkopi": {
 		"check-legend": false,
