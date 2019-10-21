@@ -7,119 +7,39 @@
       </div>
       <h1 class="a-iconText-text mb-0">
         <span class="a-iconText-text-small"></span>
-        <span class="a-iconText-text-large">Bestill produksjonssetting av tjeneste eller kodeliste</span>
+        <span class="a-iconText-text-large">Bestill produksjonssetting av kodeliste</span>
       </h1>
     </div>
   </div>
   <div class="modal-body a-modal-body">
-
-    <h2 class="a-h3">Hva ønsker du å produksjonssette?</h2>
-    <form data-toggle="validator" id="contactForm">
+    <form data-toggle="validator" id="contactForm2">
       <div class="row">
         <div class="col-12 col-sm-8">
-          <ul class="nav nav-tabs custom-radio a-radioButtons a-navTabsRadio" role="tablist">
-            <li class="nav-item">
-              <a class="nav-link" data-toggle="tab" href="#prod1" role="tab">
-                <div class="custom-control custom-radio a-custom-radio">
-                  <span class="custom-control-label">Tjeneste</span>
-                </div>
-              </a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" data-toggle="tab" href="#prod2" role="tab">
-                <div class="custom-control custom-radio a-custom-radio">
-                  <span class="custom-control-label">Kodeliste</span>
-                </div>
-              </a>
-            </li>
-          </ul>
 
-        </div>
-      </div>
-    </form>
-
-    <div class="tab-content">
-      <div class="tab-pane" id="prod1" role="tabpanel">
-        {{ #tab1 }}
-        <h3 class="a-h2">Produksjonssetting av tjeneste</h3>
-        <form data-toggle="validator" id="contactForm2">
-
-          {{# tjenestenavn }}
+          {{# kodelistenavn }}
+          {{!-- Obligatorisk --}}
           <div class="mb-2">
             {{> atomer-tekst-input }}
           </div>
-          {{/ tjenestenavn }}
-
-          {{# produksjonssettingsdato }}
-            {{> atomer-avkrysningsboks }}
-            <div id="dato1" class="collapse a-form-group mb-2">
-              <form id={{ form-id }}>
-                {{> molekyler-dato-og-tid }}
-              </form>
-            </div>
-          {{/ produksjonssettingsdato }}
-
-          {{# publiseringsdato }}
-            {{> atomer-avkrysningsboks:mb-2 }}
-            <div id="dato2" class="collapse a-form-group mb-2">
-              <form id={{ form-id }}>
-                {{> molekyler-dato-og-tid }}
-              </form>
-            </div>
-          {{/ publiseringsdato }}
+          {{/ kodelistenavn }}
 
           {{# lenke }}
+          {{!-- Obligatorisk --}}
           <div class="mb-2">
             {{> atomer-tekst-input }}
           </div>
           {{/ lenke }}
 
           {{# information }}
-          <div class="mb-2">
-            {{> atomer-tekstfelt }}
-          </div>
+          {{> atomer-tekstfelt }}
           {{/ information }}
 
           {{#submit}}
           {{> atomer-knapp:mb-2 }}
           {{/submit}}
 
-        </form>
-        {{/tab1 }}
+        </div>
       </div>
-
-      <div class="tab-pane" id="prod2" role="tabpanel">
-        {{ #tab2 }}
-        <h3 class="a-h2">Produksjonssetting av kodeliste</h3>
-        <form data-toggle="validator" id="contactForm2">
-          <div class="row">
-            <div class="col-12 col-sm-8">
-
-              {{# kodelistenavn }}
-              <div class="mb-2">
-                {{> atomer-tekst-input }}
-              </div>
-              {{/ kodelistenavn }}
-
-              {{# lenke }}
-              <div class="mb-2">
-                {{> atomer-tekst-input }}
-              </div>
-              {{/ lenke }}
-
-              {{# information }}
-              {{> atomer-tekstfelt }}
-              {{/ information }}
-
-              {{#submit}}
-              {{> atomer-knapp:mb-2 }}
-              {{/submit}}
-
-            </div>
-          </div>
-        </form>
-        {{/tab2 }}
-      </div>
-    </div>
+    </form>
   </div>
 </div>
