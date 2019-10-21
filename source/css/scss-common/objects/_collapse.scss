@@ -242,9 +242,12 @@
   }
 
   .rightHolderList {
+    padding: inherit;
+
     .a-list-container {
-      padding-right: 12px;
-      padding-left: 20px;
+      position: fixed;
+      right: 0;
+      left: 0;
     }
   }
 }
@@ -661,14 +664,9 @@
     div {
       &:nth-child(4) {
         max-width: 37%;
-        padding-right: 9px;
       }
     }
   }
-}
-
-.DelegateDeleteLink {
-  border-bottom: none !important;
 }
 
 .childRightHoldersList {
@@ -706,8 +704,13 @@
 
         &:nth-child(4) {
           min-width: 38%;
-          padding-right: 1em;
           text-align: end;
+        }
+
+        @media (max-width: 992px) and (min-width: 768px) {
+          &:nth-child(4) {
+            max-width: 37%;
+          }
         }
       }
     }
