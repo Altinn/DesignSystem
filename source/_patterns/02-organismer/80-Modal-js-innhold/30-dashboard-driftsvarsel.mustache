@@ -23,11 +23,7 @@
           {{/ removeAlert }}
 
           {{# description }}
-          <div class="row">
-            <div class="col-12">
-              <p class="mb-4">{{ text }}</p>
-            </div>
-          </div>
+            <p class="mb-4">{{ text }}</p>
           {{/ description }}
 
           <div class="row">
@@ -35,6 +31,7 @@
             <div class="col-12 col-lg-8">
             
               {{#alerttype}}
+                {{!-- Skal være obligatorisk å velge én --}}
                 <label class="an-stackedLabel" for="{{ inputId }}">
                   {{label-text}}
                 </label>
@@ -61,10 +58,12 @@
               {{/alerttype}}
 
               {{#emne}}
+              {{!-- Skal være obligatorisk --}}
                 {{> atomer-tekst-input:mb-2 }}
               {{/emne}}
               
               {{#question}}
+               {{!-- Skal være obligatorisk --}}
                 {{> atomer-tekstfelt:mb-2 }}
               {{/question}}
 
@@ -77,6 +76,7 @@
               {{/linktext}}
 
               {{#time-start}}
+                {{!-- Skal være obligatorisk å velge én --}}
                 <label class="an-stackedLabel" for="{{ inputId }}">
                   {{label-text}}
                 </label>
@@ -140,7 +140,7 @@
               {{#timeend}}
                 {{> molekyler-dato-og-tid:mt-1}}
               {{/timeend}}
-´
+
               {{#canal}}
                 <label class="an-stackedLabel mt-2 mb-1" for="{{ inputId }}">
                   {{label-text}}

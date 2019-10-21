@@ -32,7 +32,7 @@
       "text-input-id": "text-input-question2",
       "input-name": "text-input-question2",
       "data-required": {
-        "data-required-message": "Du har ikke fyllt inn beskrivelse"
+        "data-required-message": "Du har ikke fylt inn beskrivelse"
       },
       "print-form-tag": false,
       "extra-help": false,
@@ -84,27 +84,32 @@
       "flexWrap": false,
       "check-legend": false,
       "label-text" : "Type driftsvarsel",
-
+      "invalid-feedback": "Vennligst velg type",
       "radiotab-items" : [
         {
           "radiotab-id": "radio-Feilmelding",
-          "radiotab-title": "Feil i Altinn"
+          "radiotab-title": "Feil i Altinn",
+          "isRequired": true
         },
         {
           "radiotab-id": "radio-Feilmelding",
-          "radiotab-title": "Feil og endringer i samtykkeløsningen"
+          "radiotab-title": "Feil og endringer i samtykkeløsningen",
+          "isRequired": true
         },
         {
           "radiotab-id": "radio-Feilmelding",
-          "radiotab-title": "Feil og endringer som påvirker ekstern programvare"
+          "radiotab-title": "Feil og endringer som påvirker ekstern programvare",
+          "isRequired": true
         },
         {
           "radiotab-id": "radio-vedlikehold",
-          "radiotab-title": "Planlagt vedlikehold"
+          "radiotab-title": "Planlagt vedlikehold",
+          "isRequired": true
         },
         {
           "radiotab-id": "radio-feilaltinn",
-          "radiotab-title": "Nye releaser i Altinn"
+          "radiotab-title": "Nye releaser i Altinn",
+          "isRequired": true
         }
       ],
       "radiotab-panes" : [
@@ -115,8 +120,7 @@
               "isInline" : false,
               "isChecked": false,
               "checkboxID" : "criticaltrue",
-              "checkboxes-title": "Varselet er av kritisk art/A-feil",
-              "isRequired": false
+              "checkboxes-title": "Varselet er av kritisk art/A-feil"
             }
           ]
         },
@@ -174,7 +178,6 @@
       "flexWrap": false,
       "check-legend": false,
       "label-text" : "Publiseres/sendes ut",
-
       "radiotab-items" : [
         {
           "radiotab-id": "radio-sendnow",
@@ -193,12 +196,13 @@
         {
           "radiotab-id": "radio-sendlater",
           "date-picker" : {
+            "label": "Planlagt publiseringsdato",
             "datovelger": {
               "styleModifier": "",
               "stackedLabel": true,
               "inputId": "datovelger-send",
-              "date-input-label": "Planlagt publiseringsdato",
-              "isRequired": false,
+              "date-input-label": false,
+              "isRequired": true,
               "form-control-class": "",
               "icon-prefix": "ai",
               "icon-class": "ai-date",
@@ -211,11 +215,12 @@
     "time" : false,
 
     "timeend" : {
+      "label": "Utgår/deaktiveres",
       "datovelger": {
         "styleModifier": "",
         "stackedLabel": true,
         "inputId": "datovelger-deaktiver",
-        "date-input-label": "Utgår/deaktiveres",
+        "date-input-label": false,
         "isRequired": false,
         "form-control-class": "",
         "icon-prefix": "ai",
@@ -242,7 +247,7 @@
       "data-action": "next",
       "data-toggle":"altinn-modal",
       "data-target":"#modal-addAlert",
-      "page-url": "../../patterns/02-organismer-80-Modal-js-innhold-30-dashboard-nytt-driftsvarsel-ferdig/02-organismer-80-Modal-js-innhold-30-dashboard-nytt-driftsvarsel-ferdig.markup-only.html"
+      "page-url": "../../patterns/02-organismer-80-Modal-js-innhold-30-dashboard-driftsvarsel-ferdig/02-organismer-80-Modal-js-innhold-30-dashboard-driftsvarsel-ferdig.markup-only.html"
     }
   }
 }
