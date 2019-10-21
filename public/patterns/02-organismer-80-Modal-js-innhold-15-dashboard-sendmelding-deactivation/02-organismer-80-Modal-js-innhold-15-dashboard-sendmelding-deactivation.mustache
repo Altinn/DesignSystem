@@ -15,24 +15,28 @@
   <div class="modal-body a-modal-body">
 
     {{# tjenestenavn }}
+      {{!-- Obligatorisk --}}
       <div class="mb-2">
         {{> atomer-tekst-input}}
       </div>
       {{/ tjenestenavn }}
 
       {{# tjenestetype }}
+        {{!-- Obligatorisk --}}
         <div class="mb-2">
           {{> atomer-tekst-input}}
         </div>
         {{/ tjenestetype }}
 
         {{# options1 }}
+          {{!-- Må velge minst én --}}
           <div class="mb-2">
             {{> atomer-avkrysningsboks }}
           </div>
           {{/ options1 }}
 
           {{# environment }}
+            {{!-- Må velge én --}}
             <div class="a-form-group mb-2">
               <label class="a-form-label" for="{{ form-id }}">{{ top-label }}</label>
               <form id={{ form-id }}>
@@ -43,12 +47,14 @@
 
             {{# tjenestekoder }}
               <div class="row mb-2">
+                {{!-- Obligatorisk --}}
                 <div class="col-12 col-lg-6">
                   {{# tjenestekode }}
                     {{> atomer-tekst-input}}
                     {{/ tjenestekode }}
                 </div>
                 <div class="col-12 col-lg-6">
+                  {{!-- Obligatorisk --}}
                   {{# utgavekode }}
                     {{> atomer-tekst-input}}
                     {{/ utgavekode }}
@@ -57,6 +63,7 @@
               {{/ tjenestekoder }}
 
               {{# tjenesteversjon }}
+                {{!-- Obligatorisk --}}
                 <div class="mb-2">
                   {{> atomer-tekst-input }}
                 </div>
@@ -81,6 +88,7 @@
                       {{/ information }}
 
                       {{# saneringsdato }}
+                        {{!-- Må velge én --}}
                         {{> molekyler-utsett-tidspunkt }}
                         {{/ saneringsdato }}
 

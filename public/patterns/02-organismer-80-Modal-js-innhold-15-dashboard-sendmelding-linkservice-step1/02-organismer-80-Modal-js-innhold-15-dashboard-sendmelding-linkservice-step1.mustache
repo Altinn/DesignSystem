@@ -15,12 +15,14 @@
   <div class="modal-body a-modal-body">
 
     {{# servicename }}
+      {{!-- Obligatorisk --}}
       <div class="mb-2">
         {{> atomer-tekst-input}}
       </div>
       {{/ servicename }}
 
       {{# url }}
+        {{!-- Obligatorisk. Bør også valideres på format --}}
         <div class="mb-2">
           {{> atomer-tekst-input}}
         </div>
@@ -41,6 +43,7 @@
             {{/ conditions1 }}
 
             {{# conditions2 }}
+              {{!-- må velge minst én --}}
               <div class="a-form-group mw-100 mb-2">
                 <label class="a-form-label" for="{{ form-id }}">{{ top-label }}</label>
                 <form id={{ form-id }}>
@@ -50,12 +53,14 @@
               {{/ conditions2 }}
 
               {{# role }}
+                {{!-- Obligatorisk --}}
                 <div class="mb-2">
                   {{> atomer-tekst-input}}
                 </div>
                 {{/ role }}
 
                 {{# securitylevel }}
+                  {{!-- Obligatorisk --}}
                   <form id={{ form-id }}>
                     {{> atomer-radioknapp }}
                   </form>

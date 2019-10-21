@@ -1,0 +1,269 @@
+<!-- START: 02-organismer-80-Modal-js-innhold-15-dashboard-sendmelding-grensesnitt-innsendingws -->
+<div class="modal-content">
+  <div class="modal-header a-modal-header">
+    <div class="a-iconText a-iconText-background a-iconText-large">
+      <div class="a-iconText-icon">
+        <i class="ai ai-send
+                a-icon" aria-hidden="true"></i>
+      </div>
+      <h1 class="a-iconText-text mb-0">
+        <span class="a-iconText-text-small"></span>
+        <span class="a-iconText-text-large">Bestill endring av grensesnitt</span>
+      </h1>
+    </div>
+  </div>
+  <div class="modal-body a-modal-body">
+
+    <h2 class="a-h3 mb-2">Innsendingstjeneste over webservice</h2>
+    <form data-toggle="validator" id="contactForm">
+      <div class="mb-2">
+        <!-- START: 00-atomer-01-forms-00-avkrysningsboks -->
+
+        <div class="custom-control
+        
+        custom-control-inline
+        custom-checkbox a-custom-checkbox
+        
+        
+        
+        ">
+          <input type="checkbox" id="check1" class="custom-control-input" data-toggle="collapse" data-target="#eksisterende">
+          <label class="custom-control-label " for="check1">Endre et eksisterende grensesnitt</label>
+        </div>
+
+
+        <!-- END: 00-atomer-01-forms-00-avkrysningsboks -->
+
+        <div id="eksisterende" class="collapse">
+          <!-- START: 00-atomer-01-forms-10-tekst-input JS doc: handleFocus.js, searchWithMultipleSelectInAutoComplete.js brukes via klassen a-js-autocomplete på form-control-class gir autocomplete med mulighet for å velge flere elementer fra resultatlista. -->
+
+          <div class="form-group a-form-group   ">
+
+            <label class="a-form-label  " for="existing-name">Navn på eksisterende grensesnitt</label>
+
+            <div class="a-form-group-items input-group   ">
+
+
+              <input class="form-control  
+         " type="text" name="existing-name" data-val="true" id="existing-name" required data-val-required="Du har ikke oppgitt navn på grensesnittet.">
+
+
+
+
+            </div>
+
+
+            <div class="a-message a-message-error" data-valmsg-for="existing-name" data-valmsg-replace="true"></div>
+
+          </div>
+
+          <!-- END: 00-atomer-01-forms-10-tekst-input -->
+
+        </div>
+      </div>
+
+      <div class="a-form-group mw-100 mb-2">
+        <label class="a-form-label" for="environment">Angi ønsket miljø</label>
+        <form id=environment>
+          <!-- START: 00-atomer-01-forms-07-valgknapp-ett-alternativ -->
+
+          <fieldset>
+            <legend class="sr-only">Velg et alternativ</legend>
+
+
+            <div class="a-switch  ">
+
+              <input id="radiobutton-production" class="sr-only" type="radio" name="environment" value="radiobutton-read" />
+
+              <label for="radiobutton-production" class="a-switch-label ">
+                Produksjon
+              </label>
+
+            </div>
+
+
+            <div class="a-switch  ">
+
+              <input id="radiobutton-tt02" class="sr-only" type="radio" name="environment" value="radiobutton-read" />
+
+              <label for="radiobutton-tt02" class="a-switch-label ">
+                TT02
+              </label>
+
+            </div>
+
+
+            <div class="a-switch  ">
+
+              <input id="radiobutton-at05" class="sr-only" type="radio" name="environment" value="radiobutton-read" />
+
+              <label for="radiobutton-at05" class="a-switch-label ">
+                AT05
+              </label>
+
+            </div>
+
+
+          </fieldset>
+
+
+          <!-- END: 00-atomer-01-forms-07-valgknapp-ett-alternativ -->
+
+        </form>
+      </div>
+      <!-- START: 00-atomer-01-forms-10-tekst-input JS doc: handleFocus.js, searchWithMultipleSelectInAutoComplete.js brukes via klassen a-js-autocomplete på form-control-class gir autocomplete med mulighet for å velge flere elementer fra resultatlista. -->
+
+      <div class="form-group a-form-group   mb-2">
+
+        <label class="a-form-label  " for="version">Versjon av GenericBatch (dersom tom, benyttes siste versjon)</label>
+
+        <div class="a-form-group-items input-group   ">
+
+
+          <input class="form-control  
+         " type="text" name="version" data-val="true" id="version">
+
+
+
+
+        </div>
+
+
+
+      </div>
+
+      <!-- END: 00-atomer-01-forms-10-tekst-input -->
+
+      <div class="mb-2">
+        <!-- START: 00-atomer-01-forms-00-avkrysningsboks -->
+
+        <div class="custom-control
+        
+        custom-control-inline
+        custom-checkbox a-custom-checkbox
+        
+        
+        
+        ">
+          <input type="checkbox" id="check2" class="custom-control-input" data-toggle="collapse" data-target="#vedlegg">
+          <label class="custom-control-label " for="check2">Skjemabatchen skal tillate vedlegg</label>
+        </div>
+
+
+        <!-- END: 00-atomer-01-forms-00-avkrysningsboks -->
+
+        <div id="vedlegg" class="collapse">
+          <form id="vedlegg-radio">
+            <!-- START: 00-atomer-01-forms-04-radioknapp -->
+            <fieldset class="form-group ">
+
+              <legend class="a-legend">Hvordan skal vedlegg håndteres i overføring?
+              </legend>
+
+              <div class="custom-control custom-radio a-custom-radio 
+       custom-control-inline 
+      ">
+                <input type="radio" id="radio31" name="customRadio" value="radio31" class="custom-control-input">
+                <label class="custom-control-label a-radioButtons-title" for="radio31">
+                  Som egen zip-fil
+
+
+                </label>
+              </div>
+              <div class="custom-control custom-radio a-custom-radio 
+       custom-control-inline 
+      ">
+                <input type="radio" id="radio32" name="customRadio" value="radio32" class="custom-control-input">
+                <label class="custom-control-label a-radioButtons-title" for="radio32">
+                  Som en egen del i xml-filen
+
+
+                </label>
+              </div>
+
+            </fieldset>
+
+            <!-- END: 00-atomer-01-forms-04-radioknapp -->
+
+          </form>
+        </div>
+      </div>
+      <form id="encoding-radio">
+        <!-- START: 00-atomer-01-forms-04-radioknapp -->
+        <fieldset class="form-group ">
+
+          <legend class="a-legend">Encoding på data fra Altinn
+          </legend>
+
+          <div class="custom-control custom-radio a-custom-radio 
+       custom-control-inline 
+      ">
+            <input type="radio" id="radio41" name="customRadio" value="radio41" class="custom-control-input">
+            <label class="custom-control-label a-radioButtons-title" for="radio41">
+              UTF-8
+
+
+            </label>
+          </div>
+          <div class="custom-control custom-radio a-custom-radio 
+       custom-control-inline 
+      ">
+            <input type="radio" id="radio42" name="customRadio" value="radio42" class="custom-control-input">
+            <label class="custom-control-label a-radioButtons-title" for="radio42">
+              ISO-8859-1
+
+
+            </label>
+          </div>
+
+        </fieldset>
+
+        <!-- END: 00-atomer-01-forms-04-radioknapp -->
+
+      </form>
+      <!-- START: 00-atomer-01-forms-00-avkrysningsboks -->
+
+      <div class="custom-control
+        
+        custom-control-inline
+        custom-checkbox a-custom-checkbox
+        
+        
+        
+        ">
+        <input type="checkbox" id="check3" class="custom-control-input" data-toggle="collapse" data-target="#port">
+        <label class="custom-control-label " for="check3">Benytt egendefinert port for utveksling av data</label>
+      </div>
+
+
+      <!-- END: 00-atomer-01-forms-00-avkrysningsboks -->
+
+      <div id="port" class="collapse">
+        <!-- START: 00-atomer-01-forms-10-tekst-input JS doc: handleFocus.js, searchWithMultipleSelectInAutoComplete.js brukes via klassen a-js-autocomplete på form-control-class gir autocomplete med mulighet for å velge flere elementer fra resultatlista. -->
+
+        <div class="form-group a-form-group   ">
+
+          <label class="a-form-label  " for="port">Spesifiser port</label>
+
+          <div class="a-form-group-items input-group   ">
+
+
+            <input class="form-control  
+         " type="text" name="input-field" data-val="true" id="port">
+
+
+
+
+          </div>
+
+
+
+        </div>
+
+        <!-- END: 00-atomer-01-forms-10-tekst-input -->
+
+      </div>
+    </form>
+  </div>
+
+  <!-- END: 02-organismer-80-Modal-js-innhold-15-dashboard-sendmelding-grensesnitt-innsendingws -->
