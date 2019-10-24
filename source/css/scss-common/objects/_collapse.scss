@@ -660,21 +660,13 @@
     }
 
     &:nth-child(4) {
-      min-width: 20%;
+      min-width: 22%;
       max-height: 2em;
       text-align: end;
       align-items: -webkit-baseline-middle;
 
       .textStatus {
         vertical-align: sub;
-      }
-    }
-  }
-
-  @media (max-width: 992px) and (min-width: 768px) {
-    div {
-      &:nth-child(4) {
-        max-width: 37%;
       }
     }
   }
@@ -712,7 +704,16 @@
           overflow: hidden;
           text-overflow: ellipsis;
           white-space: nowrap;
+
+          :first-child {
+            display: block;
+            width: 180px;
+            padding-left: 0 !important;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
           }
+        }
 
         &:nth-child(3) {
           min-width: 35%;
@@ -720,15 +721,10 @@
         }
 
         &:nth-child(4) {
-          min-width: 20%;
+          min-width: 22%;
           padding-right: 0 !important;
+          padding-left: 0 !important;
           text-align: end;
-        }
-
-        @media (max-width: 992px) and (min-width: 768px) {
-          &:nth-child(4) {
-            max-width: 37%;
-          }
         }
       }
     }
