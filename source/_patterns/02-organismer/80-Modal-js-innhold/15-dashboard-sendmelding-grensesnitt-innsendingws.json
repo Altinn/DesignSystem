@@ -32,43 +32,61 @@
       }
     }
   },
-  "environment":{
+  "version": {
+    "text-input-id": "version2",
+      "isHidden": false,
+      "top-label": "Versjon av GenericBatch",
+      "isDisabled": false,
+      "isInactive": false,
+      "text-input-placeholder": "",
+      "input-type": "text",
+      "isRequired": false,
+      "input-name": "version",
+      "extra-help": {
+        "extra-helpText": "Hvis ikke annet spesifiseres benyttes siste versjon",
+        "icon-prefix": "ai",
+        "icon-class": "ai-info",
+        "icon-extra-class": "a-validatorInfo-icon"
+      }
+  },
+  "environment": {
     "form-id": "environment",
-    "top-label": "Angi ønsket miljø",  
+    "top-label": "Angi ønsket miljø",
+    "hasFieldset": true,
     "radiobuttons":  [
       {
         "radiobuttons-title": "Produksjon",
         "radiobuttons-id": "radiobutton-production",
         "radiobuttons-name": "environment",
         "radiobuttons-class": "",
-        "hasIcon": false
+        "hasIcon": false,
+        "data-toggle": "collapse",
+        "data-target": ".annet.show"
       },
       {
         "radiobuttons-title": "TT02",
         "radiobuttons-id": "radiobutton-tt02",
         "radiobuttons-name": "environment",
         "radiobuttons-class": "",
-        "hasIcon": false
+        "hasIcon": false,
+        "data-toggle": "collapse",
+        "data-target": ".annet.show"
       },
       {
-        "radiobuttons-title": "AT05",
-        "radiobuttons-id": "radiobutton-at05",
+        "radiobuttons-title": "Annet",
+        "radiobuttons-id": "radiobutton-annet",
         "radiobuttons-name": "environment",
         "radiobuttons-class": "",
-        "hasIcon": false
+        "hasIcon": false,
+        "data-toggle": "collapse",
+        "data-target": ".annet:not(.show)"
       }
-    ]
-  },
-  "version": {
-    "text-input-id": "version",
-      "isHidden": false,
-      "top-label": "Versjon av GenericBatch (dersom tom, benyttes siste versjon)",
-      "isDisabled": false,
-      "isInactive": false,
-      "text-input-placeholder": "",
-      "input-type": "text",
-      "isRequired": false,
-      "input-name": "version"
+    ],
+    "annet": {
+      "text-input-id": "annet",
+      "top-label": "Vennligst spesifiser",
+      "text-input-placeholder": "Feks. AT05"
+    }
   },
   "attachments": {
     "flexWrap": false,
@@ -129,6 +147,27 @@
       }
     ]
   },
+  "sekvensnummer": {
+    "print-form-tag": false,
+    "text-input-id": "text-input-sequence",
+    "isHidden": false,
+    "top-label": "Sekvensnummer for grensesnittet",
+    "isDisabled": false,
+    "isInactive": false,
+    "text-input-placeholder": "f.eks placeholder",
+    "input-type": "number",
+    "isRequired": false,
+    "extra-help": {
+      "extra-helpText": "Hvis ikke annet spesifiseres blir oppstart satt til 2 og øker med 1 for hver gang grensesnittet blir brukt uten feil.",
+      "icon-prefix": "ai",
+      "icon-class": "ai-info",
+      "icon-extra-class": "a-validatorInfo-icon"
+    },
+    "isLarge": false,
+    "form-label-hasIcon": false,
+    "input-name": "input-field",
+    "form-control-class": ""
+  },
   "standardport": {
     "flexWrap": false,
     "check-legend": false,
@@ -152,5 +191,156 @@
       "text-input-placeholder": "",
       "input-type": "text"
     }
+  },
+  "transfertype": {
+    "form-id": "transfertype",
+    "radio-legend": {
+      "radio-legendText": "Type overføring"
+    },
+    "radiobuttons": [
+      {
+        "radiobutton-id": "type1",
+        "radiobutton-title": "Direkteforsendelse (umiddelbart)",
+        "data-toggle": "collapse",
+        "data-target": ".radiocollapse.show"
+      },
+      {
+        "radiobutton-id": "type2",
+        "radiobutton-title": "Batch",
+        "data-toggle": "collapse",
+        "data-target": ".radiocollapse:not(.show)"
+      }
+    ],
+    "text-input-id": "webservicecall",
+      "isHidden": false,
+      "top-label": "Ønsket hyppighet og tidspunkt for webservicekall",
+      "isDisabled": false,
+      "isInactive": false,
+      "text-input-placeholder": "F.eks daglig kl 03:30",
+      "input-type": "text"
+  },
+  "operasjonsnavn": {
+    "form-id": "operation",
+    "radio-legend": {
+      "radio-legendText": "Operasjonsnavn som skal benyttes ved overføring"
+    },
+    "radiobuttons": [
+      {
+        "radiobutton-id": "operation1",
+        "radiobutton-title": "Direkteforsendelse (umiddelbart)",
+        "data-toggle": "collapse",
+        "data-target": ".radiocollapse.show"
+      },
+      {
+        "radiobutton-id": "operation2",
+        "radiobutton-title": "Batch",
+        "data-toggle": "collapse",
+        "data-target": ".radiocollapse:not(.show)"
+      }
+    ]
+  },
+  "soap": {
+    "form-id": "soap",
+    "radio-legend": {
+      "radio-legendText": "Hvilken SOAP-versjon vil benyttes?"
+    },
+    "radiobuttons": [
+      {
+        "radiobutton-id": "soap1",
+        "radiobutton-title": "SOAP v1.1"
+      },
+      {
+        "radiobutton-id": "soap2",
+        "radiobutton-title": "SOAP v1.2"
+      }
+    ]
+  },
+  "url": {
+    "text-input-id": "url",
+      "isHidden": false,
+      "top-label": "URL for mottaksløsning (inklusive operasjonsnavnet)",
+      "isDisabled": false,
+      "isInactive": false,
+      "text-input-placeholder": "",
+      "input-type": "text",
+      "isRequired": false,
+      "error-message-popover": false,
+      "extra-help": false,
+      "isLarge": false,
+      "form-label-hasIcon": false,
+      "input-name": "url"
+  },
+  "autentisering": {
+    "form-id": "authentication",
+    "radio-legend": {
+      "radio-legendText": "Mekanisme for autentisering"
+    },
+    "radiobuttons": [
+      {
+        "radiobutton-id": "auth1",
+        "radiobutton-title": "Brukernavn og passord",
+        "data-toggle": "collapse",
+        "data-target": ".certificatecollapse.show, .passwordcollapse:not(.show)"
+      },
+      {
+        "radiobutton-id": "auth2",
+        "radiobutton-title": "Sertifikat",
+        "data-toggle": "collapse",
+        "data-target": ".certificatecollapse:not(.show), .passwordcollapse.show"
+      }
+    ],
+    "username": {
+      "text-input-id": "username",
+      "isHidden": false,
+      "top-label": "Brukernavn som Altinn skal sende med SOAP-kallet til tjenesteeier",
+      "isDisabled": false,
+      "isInactive": false,
+      "text-input-placeholder": "",
+      "input-type": "text",
+      "isRequired": true,
+      "error-message-popover": false,
+      "extra-help": false,
+      "isLarge": false,
+      "form-label-hasIcon": false,
+      "input-name": "username"
+    },
+    "password": {
+      "text-input-id": "password",
+      "isHidden": false,
+      "top-label": "Passord som Altinn skal sende med SOAP-kallet til tjenesteeier",
+      "isDisabled": false,
+      "isInactive": false,
+      "text-input-placeholder": "",
+      "input-type": "text",
+      "isRequired": true,
+      "error-message-popover": false,
+      "extra-help": false,
+      "isLarge": false,
+      "form-label-hasIcon": false,
+      "input-name": "password"
+    },
+    "certificate": {
+      "textarea-label": "Informasjon om sertifikat",
+      "textarea-placeholder": "Forklarende hjelpetekst med forslag"
+    }
+  },
+  "information": {
+    "textarea-label": "Annen informasjon",
+    "text-input-id": "information1",
+    "textarea-placeholder": "" 
+  },
+  "submit": {
+    "button-text": "Send bestilling",
+    "button-class": "a-btn d-block mt-3",
+    "button-id": "a-js-contactForm-submit2",
+    "button-type": "button",
+    "onclick": false,
+    "button-icon": false,
+    "display-as-link": false,
+    "data-is-success": true,
+    "data-action": "next",
+    "data-toggle":"altinn-modal",
+    "data-target":"#modal-message",
+    "page-url": "../../patterns/02-organismer-80-Modal-js-innhold-15-dashboard-sendmelding-ferdig/02-organismer-80-Modal-js-innhold-15-dashboard-sendmelding-ferdig.markup-only.html"
   }
 }

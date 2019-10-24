@@ -7,13 +7,14 @@
             </div>
             <h1 class="a-iconText-text mb-0">
                 <span class="a-iconText-text-small"></span>
-                <span class="a-iconText-text-large">Bestill egen varslingsmal til varslingstjeneste</span>
+                <span class="a-iconText-text-large">Bestill varslingsmal</span>
             </h1>
         </div>
     </div>
     <div class="modal-body a-modal-body">
       
       {{# channel }}
+      {{!-- Må velge minst én --}}
         <div class="mb-1">
           <form id="channel">
             {{> atomer-avkrysningsboks }}
@@ -23,6 +24,7 @@
       
       {{# sms-forms }}
         <div id="sms-form" class="collapse">
+          {{!-- Må fylle ut minst én, dersom SMS er valgt --}}
           <h2>SMS</h2>
           {{# bokmaal }}
             {{> atomer-tekstfelt:mb-2 }}
@@ -41,8 +43,10 @@
         <div id="email-form" class="collapse mb-2">
           <h2>Epost</h2>
           {{# avsender }}
+          {{!-- Obligatorisk --}}
             {{> atomer-tekst-input:mb-2 }}
           {{/ avsender }}
+          {{!-- Må fylle ut minst én, dersom epost er valgt --}}
           {{# bokmaal }}
             {{> atomer-tekstfelt:mb-2 }}
           {{/ bokmaal }}
@@ -54,10 +58,6 @@
           {{/ engelsk }}
         </div>
       {{/ email-forms }}
-      
-      {{# information }}
-        {{> atomer-tekstfelt:mb-2 }}
-      {{/ information }}
 
       {{# submit}}
         {{> atomer-knapp:mb-2 }}

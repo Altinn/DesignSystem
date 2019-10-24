@@ -15,6 +15,53 @@
     
   <h2 class="a-h3 mb-2">Innsendingstjeneste til meldingsboks</h2>
   <form data-toggle="validator" id="contactForm">
-    <div>Her kommer skjema for bestilling av innsendingstjeneste til meldingsboks</div>
+
+    {{# tjenesteeier }}
+      <div class="dashboard-prefilled">
+        {{> atomer-tekst-input }}
+      </div>
+    {{/ tjenesteeier }}
+
+    {{# akronym }}
+      {{> atomer-tekst-input:mb-2 }}
+    {{/ akronym }}
+
+    {{# grensesnitt }}
+      {{> atomer-tekst-input:mb-2 }}
+    {{/ grensesnitt }}
+
+    {{# existing }}
+      <div class="mb-2">
+        {{> atomer-avkrysningsboks }}
+        <div id="eksisterende" class="collapse">
+          {{# name }}
+            {{> atomer-tekst-input }}
+          {{/ name }}
+        </div>
+      </div>
+    {{/ existing }}
+
+    {{!-- Må velge én --}}
+    {{> molekyler-valgknapper-og-spesifiser:mb-2 }}
+
+    {{# kodeliste }}
+      {{> atomer-tekst-input:mb-2 }}
+    {{/ kodeliste }}
+
+    {{# orgnummer }}
+      {{> atomer-tekst-input:mb-2 }}
+    {{/ orgnummer }}
+
+    {{# epost }}
+      {{> atomer-tekst-input:mb-2 }}
+    {{/ epost }}
+
+    {{# information }}
+      {{> atomer-tekstfelt:mb-2 }}
+    {{/ information }}
+    
+    {{# submit}}
+      {{> atomer-knapp:mb-2 }}
+    {{/ submit}}
   </form>
 </div>

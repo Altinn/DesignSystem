@@ -19,7 +19,7 @@
       },
       {
         "radiotab-id": "radio-alerttemplate",
-        "radiotab-title": "Egen varslingsmal til varslingstjeneste"
+        "radiotab-title": "Varslingsmal"
       },
       {
         "radiotab-id": "radio-production",
@@ -203,23 +203,43 @@
       }
     },
 
-    "environment" : {
-      "print-form-tag": false,
-      "text-input-id": "text-input-environment",
-      "isHidden": false,
-      "top-label": "Miljø: ",
-      "isDisabled": false,
-      "isInactive": false,
-      "text-input-placeholder": "f.eks TT02, Produksjon",
-      "input-type": "text",
-      "isRequired": true,
-      "error-message-popover": true,
-      "extra-help": false,
-      "isLarge": false,
-      "form-label-hasIcon": false,
-      "input-name": "text-input-title2",
-      "data-required": {
-        "data-required-message": "Du har ikke oppgitt miljø."
+    "environment": {
+      "form-id": "environment",
+      "top-label": "Angi miljø",
+      "hasFieldset": true,
+      "radiobuttons":  [
+        {
+          "radiobuttons-title": "Produksjon",
+          "radiobuttons-id": "radiobutton-production",
+          "radiobuttons-name": "environment",
+          "radiobuttons-class": "",
+          "hasIcon": false,
+          "data-toggle": "collapse",
+          "data-target": ".annet.show"
+        },
+        {
+          "radiobuttons-title": "TT02",
+          "radiobuttons-id": "radiobutton-tt02",
+          "radiobuttons-name": "environment",
+          "radiobuttons-class": "",
+          "hasIcon": false,
+          "data-toggle": "collapse",
+          "data-target": ".annet.show"
+        },
+        {
+          "radiobuttons-title": "Annet",
+          "radiobuttons-id": "radiobutton-annet",
+          "radiobuttons-name": "environment",
+          "radiobuttons-class": "",
+          "hasIcon": false,
+          "data-toggle": "collapse",
+          "data-target": ".annet:not(.show)"
+        }
+      ],
+      "annet": {
+        "text-input-id": "annet",
+        "top-label": "Vennligst spesifiser",
+        "text-input-placeholder": "Feks. AT05"
       }
     },
 

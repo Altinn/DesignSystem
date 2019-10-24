@@ -44,32 +44,44 @@
       }
     ]
   },
-  "environment":{
+  "environment": {
     "form-id": "environment",
-    "top-label": "Angi ønsket miljø",  
+    "top-label": "Angi ønsket miljø",
+    "hasFieldset": true,
     "radiobuttons":  [
       {
         "radiobuttons-title": "Produksjon",
         "radiobuttons-id": "radiobutton-production",
         "radiobuttons-name": "environment",
         "radiobuttons-class": "",
-        "hasIcon": false
+        "hasIcon": false,
+        "data-toggle": "collapse",
+        "data-target": ".annet.show"
       },
       {
         "radiobuttons-title": "TT02",
         "radiobuttons-id": "radiobutton-tt02",
         "radiobuttons-name": "environment",
         "radiobuttons-class": "",
-        "hasIcon": false
+        "hasIcon": false,
+        "data-toggle": "collapse",
+        "data-target": ".annet.show"
       },
       {
-        "radiobuttons-title": "AT05",
-        "radiobuttons-id": "radiobutton-at05",
+        "radiobuttons-title": "Annet",
+        "radiobuttons-id": "radiobutton-annet",
         "radiobuttons-name": "environment",
         "radiobuttons-class": "",
-        "hasIcon": false
+        "hasIcon": false,
+        "data-toggle": "collapse",
+        "data-target": ".annet:not(.show)"
       }
-    ]
+    ],
+    "annet": {
+      "text-input-id": "annet",
+      "top-label": "Vennligst spesifiser",
+      "text-input-placeholder": "Feks. AT05"
+    }
   },
   "tjenestekoder": {
     "tjenestekode": {
@@ -101,6 +113,7 @@
     }
   },
   "saneringsdato": {
+    "label": "Dato for sanering / deaktivering",
     "datovelger": {
       "styleModifier": "",
       "stackedLabel": true,
