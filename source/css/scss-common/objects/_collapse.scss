@@ -62,7 +62,7 @@
     background: $white;
     border: none;
     border-top: 1px solid $grey-light;
-    box-shadow: $shadow2;
+    box-shadow: $shadow2 !important;
 
     &.a-collapsePanel-body--border {
       border: 1px solid $grey-medium;
@@ -636,7 +636,16 @@
     }
 
     &:nth-child(2) {
+      display: inline-block;
       min-width: 31%;
+
+      :first-child {
+        display: inline-flex;
+        width: 150px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+      }
     }
 
     &:nth-child(3) {
