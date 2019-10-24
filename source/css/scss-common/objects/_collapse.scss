@@ -699,39 +699,50 @@
 
         &:nth-child(2) {
           display: -webkit-box !important;
-          width: 180px;
-          min-width: 20%;
-          max-width: 40%;
-          overflow: hidden;
-          text-overflow: ellipsis;
-          white-space: nowrap;
 
-          :first-child {
-            display: block;
-            width: 180px;
-            padding-left: 0 !important;
-            overflow: hidden;
-            text-overflow: ellipsis;
-            white-space: nowrap;
+          @media (min-width: 768px) and (max-width: 992px) {
+            &:nth-child(1) {
+              display: block;
+              max-width: 300px;
+              padding-right: 0;
+              padding-left: 0 !important;
+              overflow: hidden;
+              text-overflow: ellipsis;
+              white-space: nowrap;
+            }
+
+            &:nth-child(2) {
+              padding-right: 0;
+            }
           }
         }
 
         &:nth-child(3) {
-          min-width: 35%;
           text-align: left;
+          @media (min-width: 768px) and (max-width: 992px) {
+            :first-child {
+              display: block;
+              max-width: 6em;
+              margin-left: 4em;
+              overflow: hidden;
+              text-overflow: ellipsis;
+              white-space: nowrap;
+            }
+          }
         }
+      }
 
-        &:nth-child(4) {
-          min-width: 23%;
-          padding-right: 0 !important;
-          padding-left: 0 !important;
-          margin-left: -1em;
-          text-align: end;
-        }
+      &:nth-child(4) {
+        min-width: 23%;
+        padding-right: 0 !important;
+        padding-left: 0 !important;
+        margin-left: -1em;
+        text-align: end;
+      }
       }
     }
   }
-}
+
 
 .reg-circle-exclamation {
   color: $red;
