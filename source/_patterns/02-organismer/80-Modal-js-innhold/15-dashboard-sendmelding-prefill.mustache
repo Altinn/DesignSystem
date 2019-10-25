@@ -7,29 +7,31 @@
             </div>
             <h1 class="a-iconText-text mb-0">
                 <span class="a-iconText-text-small"></span>
-                <span class="a-iconText-text-large">Bestill innlesing av prefill eller abonnement</span>
+                <span class="a-iconText-text-large">Bestill innlesing av prefill og / eller abonnement</span>
             </h1>
         </div>
     </div>
     <div class="modal-body a-modal-body">
      
-        {{# filetype }}
-          <form id={{ form-id }} class="mb-2">
-            {{> atomer-radioknapp }}
-          </form>
-        {{/ filetype }}
-      
-        {{# in-inbox }}
-          <div class="collapse checkboxcollapse no-transition">
-            <div class="mb-4">
-              {{> atomer-avkrysningsboks }}
-            </div>
+      {{# filetype }}
+      {{!-- Må velge minst én --}}
+        <form id={{ form-id }} class="mb-2">
+          {{> atomer-avkrysningsboks }}
+        </form>
+      {{/ filetype }}
+    
+      {{# in-inbox }}
+        <div class="collapse checkboxcollapse no-transition">
+          <div class="mb-4">
+            {{> atomer-avkrysningsboks }}
           </div>
-        {{/ in-inbox }}
+        </div>
+      {{/ in-inbox }}
 
-        {{# environment }}
-          {{> molekyler-valgknapper-og-spesifiser }}
-        {{/ environment }}
+      {{# environment }}
+      {{!-- Obligatorisk --}}
+        {{> molekyler-valgknapper-og-spesifiser }}
+      {{/ environment }}
 
       {{# information }}
         {{> atomer-tekstfelt }}

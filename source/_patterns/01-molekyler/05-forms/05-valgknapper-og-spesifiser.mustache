@@ -1,7 +1,16 @@
 <div class="a-form-group {{ styleModifier }}">
   <label class="a-form-label" for="{{ form-id }}">{{ top-label }}</label>
   <form id={{ form-id }}>
-    {{> atomer-valgknapp-ett-alternativ }}
+    {{# ettvalg }}
+      {{# radio }}
+        {{> atomer-valgknapp-ett-alternativ }}
+      {{/ radio }}
+    {{/ ettvalg }}
+    {{# flerevalg }}
+      {{# check }}
+        {{> atomer-valgknapp }}
+      {{/ check }}
+    {{/ flerevalg }}
     {{# annet }}
       <div class="mb-2">
         <div class="annet collapse">
