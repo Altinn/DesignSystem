@@ -1,9 +1,7 @@
 {
-  "header-title": "Nytt driftsvarsel",
+  "header-title": "Endre eller fjerne driftsvarsel",
   "form" : {
-    "description": {
-      "text": "Kort tekst om hvordan man bør skrive meldingen, og når det er nødvendig med lenke."
-    },
+    "description": false,
     "emne" : {
       "print-form-tag": false,
       "text-input-id": "text-input-title2",
@@ -11,7 +9,10 @@
       "top-label": "Tittel: ",
       "isDisabled": false,
       "isInactive": false,
-      "text-input-placeholder": "F.eks: Vedlikehold mandag 18. mars",
+      "text-input-placeholder": "Obs! PROD: Vedlikehold mandag 18. mars",
+      "text-input-value": {
+        "text-input-value": "Obs! PROD: Vedlikehold mandag 18. mars"
+      },
       "input-type": "text",
       "isRequired": true,
       "error-message-popover": true,
@@ -26,13 +27,16 @@
 
     "question": {
       "textarea-label": "Tekst",
-      "textarea-placeholder": "F.eks: G​runnet planlagt vedlikehold mandag 18.3.19, mellom kl. 04 – 06 (natt), vil det kunne oppleves noe treghet/forstyrrelser i løsningen i en kort periode.",
+      "textarea-placeholder": "G​runnet planlagt vedlikehold mandag 18.3.19, mellom kl. 04 – 06 (natt), vil det kunne oppleves noe treghet/forstyrrelser i løsningen i en kort periode.",
+      "value": {
+        "value": "G​runnet planlagt vedlikehold mandag 18.3.19, mellom kl. 04 – 06 (natt), vil det kunne oppleves noe treghet/forstyrrelser i løsningen i en kort periode."
+      },
       "isRequired": true,
       "error-message-popover": true,
       "text-input-id": "text-input-question2",
       "input-name": "text-input-question2",
       "data-required": {
-        "data-required-message": "Du har ikke fylt inn beskrivelse"
+        "data-required-message": "Du har ikke fyllt inn beskrivelse"
       },
       "print-form-tag": false,
       "extra-help": false,
@@ -55,7 +59,7 @@
       "isInactive": false,
       "text-input-placeholder": "https://...",
       "input-type": "text",
-      "isRequired": false,
+      "isRequired": true,
       "error-message-popover": true,
       "extra-help": false,
       "isLarge": false,
@@ -72,7 +76,7 @@
       "isInactive": false,
       "text-input-placeholder": "F.eks 'Finn ut mer'",
       "input-type": "text",
-      "isRequired": false,
+      "isRequired": true,
       "error-message-popover": true,
       "extra-help": false,
       "isLarge": false,
@@ -84,32 +88,33 @@
       "flexWrap": false,
       "check-legend": false,
       "label-text" : "Type driftsvarsel",
-      "invalid-feedback": "Vennligst velg type",
+
       "radiotab-items" : [
         {
           "radiotab-id": "radio-Feilmelding",
           "radiotab-title": "Feil i Altinn",
-          "isRequired": true
+          "isChecked" : true,
+          "isDisabled" : true
         },
         {
           "radiotab-id": "radio-Feilmelding",
           "radiotab-title": "Feil og endringer i samtykkeløsningen",
-          "isRequired": true
+          "isDisabled" : true
         },
         {
           "radiotab-id": "radio-Feilmelding",
           "radiotab-title": "Feil og endringer som påvirker ekstern programvare",
-          "isRequired": true
+          "isDisabled" : true
         },
         {
           "radiotab-id": "radio-vedlikehold",
           "radiotab-title": "Planlagt vedlikehold",
-          "isRequired": true
+          "isDisabled" : true
         },
         {
           "radiotab-id": "radio-feilaltinn",
           "radiotab-title": "Nye releaser i Altinn",
-          "isRequired": true
+          "isDisabled" : true
         }
       ],
       "radiotab-panes" : [
@@ -118,9 +123,11 @@
           "checkboxes":  [
             {
               "isInline" : false,
-              "isChecked": false,
+              "isChecked": true,
               "checkboxID" : "criticaltrue",
-              "checkboxes-title": "Varselet er av kritisk art/A-feil"
+              "checkboxes-title": "Varselet er av kritisk art/A-feil",
+              "isRequired": false,
+              "inactive" : true
             }
           ]
         },
@@ -136,8 +143,6 @@
       
     },
 
-
-
     "canal" : {
       "flexWrap": false,
       "check-legend": false,
@@ -145,50 +150,55 @@
       "checkboxes":  [
         {
           "isInline" : false,
-          "isChecked": false,
+          "isChecked": true,
           "checkboxID" : "canal3",
           "checkboxes-title": "Altinndigital.no",
-          "isRequired": false
+          "isRequired": false,
+          "inactive": true
         },
         {
           "isInline" : false,
-          "isChecked": false,
+          "isChecked": true,
           "checkboxID" : "canal4",
           "checkboxes-title": "Dashboard for tjenesteeiere",
-          "isRequired": false
+          "isRequired": false,
+          "inactive": true
         }
       ]
     },
 
-    "time-start" : {
+    "time-start" : false,
+
+    "time-end-edit" : {
       "flexWrap": false,
       "check-legend": false,
-      "label-text" : "Publiseres/sendes ut",
+      "label-text" : "Utgår/deaktiveres",
+
       "radiotab-items" : [
         {
-          "radiotab-id": "radio-sendnow",
+          "radiotab-id": "radio-endnow",
           "radiotab-title": "Nå"
         },
         {
-          "radiotab-id": "radio-sendlater",
+          "radiotab-id": "radio-endlater",
           "radiotab-title": "Senere"
         }
       ],
       "radiotab-panes" : [
         {
-          "radiotab-id": "radio-sendnow",
+          "radiotab-id": "radio-endnow",
           "date-picker": false
         },
         {
-          "radiotab-id": "radio-sendlater",
+          "radiotab-id": "radio-endlater",
           "date-picker" : {
-            "label": "Planlagt publiseringsdato",
+            "label": "Planlagt deaktivering",
             "datovelger": {
               "styleModifier": "",
               "stackedLabel": true,
-              "inputId": "datovelger-send",
+              "inputId": "datovelger",
               "date-input-label": false,
-              "isRequired": true,
+              "isRequired": false,
               "form-control-class": "",
               "icon-prefix": "ai",
               "icon-class": "ai-date",
@@ -198,21 +208,70 @@
         }
       ]
     },
-    "time" : false,
 
-    "timeend" : {
-      "label": "Utgår/deaktiveres",
+    "timeend" : false,
+
+    "time" : {
+      "label": "Publisert/sendt ut",
       "datovelger": {
         "styleModifier": "",
+        "hasValue": {
+          "value": "19.08.2019"
+        },
         "stackedLabel": true,
-        "inputId": "datovelger-deaktiver",
+        "inputId": "datovelger",
         "date-input-label": false,
         "isRequired": false,
-        "form-control-class": "",
+        "form-control-class": "18.09",
         "icon-prefix": "ai",
         "icon-class": "ai-date",
-        "icon-extra-class": ""
+        "icon-extra-class": "",
+        "isDisabled" : true
       }
+    },
+
+    "removeAlert": {
+      "display-as-link": true,
+      "enable-popover": true,
+      "popover-placement": "bottom",
+      "popover-content-id": "removeAlertPopover",
+      "popover-class": "popover-warning",
+      "popover-text": "Er du sikker på at du vil slette driftsvarselet? Det vil ikke være mulig å gjenopprette det.",
+      "popover-buttons": [
+        {
+          "button-text": "Slett",
+          "button-class": "a-btn a-btn-danger"
+        },
+        {
+          "button-text": "Avbryt",
+          "button-class": "a-btn-link a-linkDanger",
+          "display-as-link": true
+        }
+      ],
+      "button-text": "Fjern driftsvarsel",
+      "button-class": "a-btn a-btn-icon float-right w-auto",
+      "button-colorClass": "",
+      "link-url": "",
+      "button-shadow-label": false,
+      "icon-prefix": "ai",
+      "icon-class": "ai-circle-exit",
+      "icon-extra-class": "a-danger ai-left"
+    },
+
+    "whenUpdating": {
+      "alert-id": "alert",
+      "check-legend": {
+        "check-legendText": "Ønsker du at det skal sendes ut et nytt e-postvarsel med oppdateringene du har gjort?"
+      },
+      "checkboxes":  [
+        {
+          "isInline" : true,
+          "isChecked": false,
+          "checkboxID" : "sendnewemail",
+          "checkboxes-title": "Ja, send ut nytt varsel",
+          "isRequired": false
+        }
+      ]
     },
 
     "avbryt": {

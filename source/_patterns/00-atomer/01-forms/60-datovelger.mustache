@@ -6,10 +6,11 @@
 </label>
 {{/ date-input-label }}
 <div class="d-inline-block form-group a-form-group a-form-group-datepicker">
-  <div class="input-group">
+  <div class="input-group {{# isDisabled }} disabled {{/ isDisabled }}">
     <input type="text"
       id="{{ inputId }}"
       {{# isRequired }} required {{/ isRequired }}
+      {{# isDisabled }} disabled {{/ isDisabled }}
       {{# hasValue}} value="{{value}}" {{/ hasValue}}
       class="form-control a-hasButton {{ form-control-class }} date" />
 

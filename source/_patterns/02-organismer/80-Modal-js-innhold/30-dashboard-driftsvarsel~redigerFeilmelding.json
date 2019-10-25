@@ -92,23 +92,29 @@
       "radiotab-items" : [
         {
           "radiotab-id": "radio-Feilmelding",
-          "radiotab-title": "Feil i Altinn"
+          "radiotab-title": "Feil i Altinn",
+          "isChecked" : true,
+          "isDisabled" : true
         },
         {
           "radiotab-id": "radio-Feilmelding",
-          "radiotab-title": "Feil og endringer i samtykkeløsningen"
+          "radiotab-title": "Feil og endringer i samtykkeløsningen",
+          "isDisabled" : true
         },
         {
           "radiotab-id": "radio-Feilmelding",
-          "radiotab-title": "Feil og endringer som påvirker ekstern programvare"
+          "radiotab-title": "Feil og endringer som påvirker ekstern programvare",
+          "isDisabled" : true
         },
         {
           "radiotab-id": "radio-vedlikehold",
-          "radiotab-title": "Planlagt vedlikehold"
+          "radiotab-title": "Planlagt vedlikehold",
+          "isDisabled" : true
         },
         {
           "radiotab-id": "radio-feilaltinn",
-          "radiotab-title": "Nye releaser i Altinn"
+          "radiotab-title": "Nye releaser i Altinn",
+          "isDisabled" : true
         }
       ],
       "radiotab-panes" : [
@@ -117,10 +123,11 @@
           "checkboxes":  [
             {
               "isInline" : false,
-              "isChecked": false,
+              "isChecked": true,
               "checkboxID" : "criticaltrue",
               "checkboxes-title": "Varselet er av kritisk art/A-feil",
-              "isRequired": false
+              "isRequired": false,
+              "inactive" : true
             }
           ]
         },
@@ -144,72 +151,38 @@
         {
           "isInline" : false,
           "isChecked": false,
-          "checkboxID" : "canal2",
-          "checkboxes-title": "Altinn.no",
-          "isRequired": false
-        },
-        {
-          "isInline" : false,
-          "isChecked": false,
           "checkboxID" : "canal3",
           "checkboxes-title": "Altinndigital.no",
-          "isRequired": false
+          "isRequired": false,
+          "inactive": true
         },
         {
           "isInline" : false,
-          "isChecked": false,
+          "isChecked": true,
           "checkboxID" : "canal4",
           "checkboxes-title": "Dashboard for tjenesteeiere",
-          "isRequired": false
-        },
-        {
-          "isInline" : false,
-          "isChecked": false,
-          "checkboxID" : "canal5",
-          "checkboxes-title": "Sluttbrukersystemsiden",
-          "isRequired": false
+          "isRequired": false,
+          "inactive": true
         }
       ]
     },
 
     "time-start" : false,
 
-    "time-end-edit" : {
-      "flexWrap": false,
-      "check-legend": false,
-      "label-text" : "Utgår/deaktiveres",
+    "time-end-edit" : false,
 
-      "radiotab-items" : [
+    "errorIsSolved" : {
+      "alert-id": "alert",
+      "check-legend": {
+        "check-legendText": "Er feilen løst?"
+      },
+      "checkboxes":  [
         {
-          "radiotab-id": "radio-endnow",
-          "radiotab-title": "Nå"
-        },
-        {
-          "radiotab-id": "radio-endlater",
-          "radiotab-title": "Senere"
-        }
-      ],
-      "radiotab-panes" : [
-        {
-          "radiotab-id": "radio-endnow",
-          "date-picker": false
-        },
-        {
-          "radiotab-id": "radio-endlater",
-          "date-picker" : {
-            "label": "Planlagt deaktivering",
-            "datovelger": {
-              "styleModifier": "",
-              "stackedLabel": true,
-              "inputId": "datovelger",
-              "date-input-label": false,
-              "isRequired": false,
-              "form-control-class": "",
-              "icon-prefix": "ai",
-              "icon-class": "ai-date",
-              "icon-extra-class": ""
-            }
-          }
+          "isInline" : true,
+          "isChecked": false,
+          "checkboxID" : "errorSolved",
+          "checkboxes-title": "Ja, feilen kan oppdateres til løst",
+          "isRequired": false
         }
       ]
     },
@@ -217,7 +190,7 @@
     "timeend" : false,
 
     "time" : {
-      "label": "Publiseres/sendes ut",
+      "label": "Publisert/sendt ut",
       "datovelger": {
         "styleModifier": "",
         "hasValue": {
@@ -230,8 +203,11 @@
         "form-control-class": "18.09",
         "icon-prefix": "ai",
         "icon-class": "ai-date",
-        "icon-extra-class": ""
-      }
+        "icon-extra-class": "",
+        "isDisabled" : true
+      },
+      "timeIsDisabled" : true,
+      "timeValue": "08:32"
     },
 
     "removeAlert": {
@@ -260,6 +236,22 @@
       "icon-prefix": "ai",
       "icon-class": "ai-circle-exit",
       "icon-extra-class": "a-danger ai-left"
+    },
+
+    "whenUpdating": {
+      "alert-id": "alert",
+      "check-legend": {
+        "check-legendText": "Ønsker du at det skal sendes ut et nytt e-postvarsel med oppdateringene du har gjort?"
+      },
+      "checkboxes":  [
+        {
+          "isInline" : true,
+          "isChecked": false,
+          "checkboxID" : "sendnewemail",
+          "checkboxes-title": "Ja, send ut nytt varsel",
+          "isRequired": false
+        }
+      ]
     },
 
     "avbryt": {
