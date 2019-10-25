@@ -703,6 +703,17 @@
       right: 160px;
     }
 
+    @media (max-width: 767px) {
+      .ai-circle-exclamation {
+        float: right;
+        line-height: 1;
+      }
+    }
+
+    @media (max-width: 767px) {
+      width: 75px;
+    }
+
     &::after {
       content: 'meny';
     }
@@ -710,6 +721,13 @@
     &[data-jsexpanded='true'] {
       color: $white;
       background: $blue-dark;
+
+      @media (max-width: 767px) {
+        .ai-circle-exclamation {
+          display: none;
+          line-height: 0;
+        }
+      }
 
       &::after {
         content: 'lukk';
@@ -865,11 +883,13 @@
 				}
 
         &.globalNav-active {
-          padding-bottom: 3px;
-          color: $blue-dark;
-          border-bottom: 3px solid $blue-dark;
-				}
-			}
+          span {
+            padding-bottom: 3px;
+            color: $blue-dark;
+            border-bottom: 3px solid $blue-dark;
+          }
+        }
+      }
 
       @include media-breakpoint-up( lg ) {
         @include a-fontSize24;
