@@ -14,55 +14,30 @@
   </div>
   <div class="modal-body a-modal-body">
 
-    {{# environment }}
-      <div class="a-form-group mb-2">
-        <label class="a-form-label" for="{{ form-id }}">{{ top-label }}</label>
-        <form id={{ form-id }}>
-          {{> atomer-valgknapp-ett-alternativ }}
-        </form>
+    {{# environment }} {{> molekyler-valgknapper-og-spesifiser }} {{/ environment }} {{# skjemanummer }}
+    <div class="mb-2">
+      {{> atomer-tekst-input}}
+    </div>
+    {{/ skjemanummer }} {{# frameldinger }} {{# tjenestekoder }}
+    <div class="row mb-2">
+      <div class="col-12 col-lg-6">
+        {{# tjenestekode }} {{> atomer-tekst-input}} {{/ tjenestekode }}
       </div>
-      {{/ environment }}
-
-      {{# skjemanummer }}
-        <div class="mb-2">
-          {{> atomer-tekst-input}}
-        </div>
-        {{/ skjemanummer }}
-
-        {{# frameldinger }}
-          {{# tjenestekoder }}
-            <div class="row mb-2">
-              <div class="col-12 col-lg-6">
-                {{# tjenestekode }}
-                  {{> atomer-tekst-input}}
-                  {{/ tjenestekode }}
-              </div>
-              <div class="col-12 col-lg-6">
-                {{# utgavekode }}
-                  {{> atomer-tekst-input}}
-                  {{/ utgavekode }}
-              </div>
-            </div>
-            {{/ tjenestekoder }}
-            {{/ frameldinger }}
-
-            {{# in-inbox }}
-              <div class="mb-2">
-                {{> atomer-avkrysningsboks }}
-              </div>
-              {{/ in-inbox }}
-
-              {{# publiseringsdato }}
-                <div class="a-form-group">
-                  <form id={{ form-id }}>
-                    {{> molekyler-utsett-tidspunkt }}
-                  </form>
-                </div>
-                {{/ publiseringsdato }}
-
-                {{# submit}}
-                  {{> atomer-knapp:mb-2 }}
-                  {{/ submit}}
+      <div class="col-12 col-lg-6">
+        {{# utgavekode }} {{> atomer-tekst-input}} {{/ utgavekode }}
+      </div>
+    </div>
+    {{/ tjenestekoder }} {{/ frameldinger }} {{# in-inbox }}
+    <div class="mb-2">
+      {{> atomer-avkrysningsboks }}
+    </div>
+    {{/ in-inbox }} {{# publiseringsdato }}
+    <div class="a-form-group">
+      <form id={{ form-id }}>
+        {{> molekyler-utsett-tidspunkt }}
+      </form>
+    </div>
+    {{/ publiseringsdato }} {{# submit}} {{> atomer-knapp:mb-2 }} {{/ submit}}
   </div>
 </div>
 

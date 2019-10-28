@@ -1,48 +1,31 @@
 <!-- START: 02-organismer-_71-modal-gruppering-03-modal-kvittering -->
 <div class="modal-body a-modal-body">
   {{# modal-kvittering-content-header }}
-    <h2 class="mb-3">{{ modal-kvittering-content-header }}</h2>
-    {{/ modal-kvittering-content-header }}
+  <h2 class="mb-3">{{ modal-kvittering-content-header }}</h2>
+  {{/ modal-kvittering-content-header }}
 
-    <div class="a-modal-receiptContent mb-3">
-      {{# modal-kvittering-content }}
-        <p>
-          {{{ modal-kvittering-content }}}
-        </p>
-        {{/ modal-kvittering-content }}
+  <div class="a-modal-receiptContent mb-3">
+    {{# modal-kvittering-content }}
+    <p>
+      {{{ modal-kvittering-content }}}
+    </p>
+    {{/ modal-kvittering-content }} {{# modal-kvittering-list }}
+    <ul>
+      {{# modal-kvittering-list-items }}
+      <li>{{ modal-kvittering-list-item }}</li>
+      {{/ modal-kvittering-list-items }}
+    </ul>
+    {{/ modal-kvittering-list }} {{# modal-kvittering-rights-list }} {{# modal-kvittering-rights-title }}
+    <h3 class="a-fontBold a-fontSizeM mt-3">
+      {{ modal-kvittering-rights-title }}
+    </h3>
+    {{/ modal-kvittering-rights-title }} {{> molekyler-liste-unummerert }} {{/ modal-kvittering-rights-list }} {{# modal-kvittering-second-content }}
+    <p>
+      {{{ modal-kvittering-second-content }}}
+    </p>
+    {{/ modal-kvittering-second-content }}
+  </div>
 
-        {{# modal-kvittering-list }}
-          <ul>
-            {{# modal-kvittering-list-items }}
-              <li>{{ modal-kvittering-list-item }}</li>
-              {{/ modal-kvittering-list-items }}
-          </ul>
-          {{/ modal-kvittering-list }}
-
-          {{# modal-kvittering-rights-list }}
-            {{# modal-kvittering-rights-title }}
-              <h3 class="a-fontBold a-fontSizeM mt-3">
-                {{ modal-kvittering-rights-title }}
-              </h3>
-              {{/ modal-kvittering-rights-title }}
-              {{> molekyler-liste-unummerert }}
-              {{/ modal-kvittering-rights-list }}
-
-              {{# modal-kvittering-second-content }}
-                <p>
-                  {{{ modal-kvittering-second-content }}}
-                </p>
-                {{/ modal-kvittering-second-content }}
-    </div>
-
-    {{# links }}
-      {{> atomer-link:mr-1 }}
-      {{/ links }}
-
-      {{# alert-bottom-button-row }}
-        {{# buttons }}
-          {{> atomer-knapp-med-popover }}
-          {{/ buttons }}
-          {{/ alert-bottom-button-row }}
+  {{# links }} {{> atomer-link:mr-1 }} {{/ links }} {{# alert-bottom-button-row }} {{# buttons }} {{> atomer-knapp-med-popover }} {{/ buttons }} {{/ alert-bottom-button-row }}
 </div>
 <!-- END: 02-organismer-_71-modal-gruppering-03-modal-kvittering -->

@@ -55,8 +55,8 @@
 <meta http-equiv="expires" content="Tue, 01 Jan 1980 1:00:00 GMT" />
 <meta http-equiv="pragma" content="no-cache" />
 
-<link rel="stylesheet" href="../../styleguide/css/styleguide.min.css?1571730507445" media="all">
-<link rel="stylesheet" href="../../styleguide/css/prism-typeahead.min.css?1571730507445" media="all" />
+<link rel="stylesheet" href="../../styleguide/css/styleguide.min.css?1572008602140" media="all">
+<link rel="stylesheet" href="../../styleguide/css/prism-typeahead.min.css?1572008602140" media="all" />
 
     <!-- End Pattern Lab -->
 
@@ -1356,7 +1356,7 @@
                     <li class="nav-item">
                       <a class="nav-link" data-toggle="tab" href="#radio-alerttemplate" role="tab">
                         <div class="custom-control custom-radio a-custom-radio">
-                          <span class="custom-control-label">Egen varslingsmal til varslingstjeneste </span>
+                          <span class="custom-control-label">Varslingsmal </span>
                         </div>
                       </a>
                     </li>
@@ -1629,11 +1629,91 @@
 <!-- END: 00-atomer-01-forms-10-tekst-input -->
 
 
-                  <!-- START: 00-atomer-01-forms-10-tekst-input JS doc: handleFocus.js, searchWithMultipleSelectInAutoComplete.js brukes via klassen a-js-autocomplete på form-control-class gir autocomplete med mulighet for å velge flere elementer fra resultatlista. -->
+                  <!-- START: 01-molekyler-05-forms-05-valgknapper-og-spesifiser -->
+<div class="a-form-group mb-2">
+  <label class="a-form-label" for="environment">Angi miljø</label>
+  <form id=environment>
+    <!-- START: 00-atomer-01-forms-07-valgknapp-ett-alternativ -->
 
-  <div class="form-group a-form-group   mb-2">
+	<fieldset>
+	  <legend class="sr-only">Velg et alternativ</legend>
 
-      <label class="a-form-label  " for="text-input-environment">Miljø: </label>
+
+			<div class="a-switch  ">
+
+				<input
+          id="radiobutton-production" 
+          class="sr-only"
+          type="radio"
+          name="environment"
+          value="radiobutton-read"
+          
+          
+           data-toggle="collapse" 
+           data-target=".annet.show" 
+        />
+
+				<label for="radiobutton-production" class="a-switch-label ">
+	        Produksjon
+	      </label>
+
+			</div>
+
+
+			<div class="a-switch  ">
+
+				<input
+          id="radiobutton-tt02" 
+          class="sr-only"
+          type="radio"
+          name="environment"
+          value="radiobutton-read"
+          
+          
+           data-toggle="collapse" 
+           data-target=".annet.show" 
+        />
+
+				<label for="radiobutton-tt02" class="a-switch-label ">
+	        TT02
+	      </label>
+
+			</div>
+
+
+			<div class="a-switch  ">
+
+				<input
+          id="radiobutton-annet" 
+          class="sr-only"
+          type="radio"
+          name="environment"
+          value="radiobutton-read"
+          
+          
+           data-toggle="collapse" 
+           data-target=".annet:not(.show)" 
+        />
+
+				<label for="radiobutton-annet" class="a-switch-label ">
+	        Annet
+	      </label>
+
+			</div>
+
+
+	</fieldset>
+
+
+<!-- END: 00-atomer-01-forms-07-valgknapp-ett-alternativ -->
+
+      <div class="mb-2">
+        <div class="annet collapse">
+          <!-- START: 00-atomer-01-forms-10-tekst-input JS doc: handleFocus.js, searchWithMultipleSelectInAutoComplete.js brukes via klassen a-js-autocomplete på form-control-class gir autocomplete med mulighet for å velge flere elementer fra resultatlista. -->
+
+  <div class="form-group a-form-group   ">
+
+      <label class="a-form-label  " for="annet">Vennligst spesifiser</label>
 
     <div class="a-form-group-items input-group   ">
 
@@ -1641,13 +1721,13 @@
       <input class="form-control  
          "
         type="text" 
-        placeholder="f.eks TT02, Produksjon"
+        placeholder="Feks. AT05"
         
-        name="text-input-title2"
+        name="input-field"
         data-val="true"
-        id="text-input-environment"
-        required
-         data-val-required="Du har ikke oppgitt miljø." 
+        id="annet"
+        
+        
         
         
         
@@ -1664,26 +1744,31 @@
     </div>
 
 
-      <div class="a-message a-message-error" data-valmsg-for="text-input-title2" data-valmsg-replace="true"></div>
 
   </div>
 
 <!-- END: 00-atomer-01-forms-10-tekst-input -->
 
+        </div>
+      </div>
+  </form>
+</div>
+<!-- END: 01-molekyler-05-forms-05-valgknapper-og-spesifiser -->
+
 
                   <!-- START: 01-molekyler-05-forms-20-dato-og-tid -->
-<div class="row  form-group">
+<div class="row mb-2 form-group mb-0">
       <div class="col-12">
         <label class="a-form-label">Tidspunkt feilen oppstod</label>
       </div>
   <div class="col-12 d-flex align-items-start">
     
-    <div class="w-100">
-        <!-- START: 00-atomer-01-forms-60-datovelger JS doc: initializeDatepicker.js. Requires class .form-control.date -->
+      <!-- START: 00-atomer-01-forms-60-datovelger JS doc: initializeDatepicker.js. Requires class .form-control.date -->
 <div class="d-inline-block form-group a-form-group a-form-group-datepicker">
-  <div class="input-group">
+  <div class="input-group ">
     <input type="text"
       id="datovelger"
+      
       
       
       class="form-control a-hasButton  date" />
@@ -1701,10 +1786,9 @@
 
 <!-- END: 00-atomer-01-forms-60-datovelger -->
 
-    </div>
 
-    <div class="ml-2 input-group">
-      <input class="form-control" type="time" name="timepicker">
+    <div class="ml-2 input-group ">
+      <input class="form-control" type="time" name="timepicker"  >
     </div>
   </div>
 </div>
@@ -1992,7 +2076,7 @@
 
   </div>
   <script type="text/json" id="sg-pattern-data-organismer-dashboard-sendmelding" class="sg-pattern-data">
-    {"cssEnabled":false,"patternLineageExists":true,"patternLineages":[{"lineagePattern":"atomer-knapp","lineagePath":"../../patterns/00-atomer-03-knapper-10-knapp/00-atomer-03-knapper-10-knapp.html","lineageState":"complete altinn altinnett"},{"lineagePattern":"atomer-tekst-input","lineagePath":"../../patterns/00-atomer-01-forms-10-tekst-input/00-atomer-01-forms-10-tekst-input.html","lineageState":"complete altinn altinnett"},{"lineagePattern":"molekyler-dato-og-tid","lineagePath":"../../patterns/01-molekyler-05-forms-20-dato-og-tid/01-molekyler-05-forms-20-dato-og-tid.html","lineageState":"indesignreview altinn altinnett"},{"lineagePattern":"atomer-tekstfelt","lineagePath":"../../patterns/00-atomer-01-forms-40-tekstfelt/00-atomer-01-forms-40-tekstfelt.html","lineageState":"complete altinn altinnett"},{"lineagePattern":"molekyler-last-opp-og-fjern","lineagePath":"../../patterns/01-molekyler-05-forms-00-last-opp-og-fjern/01-molekyler-05-forms-00-last-opp-og-fjern.html","lineageState":"indesignreview altinn altinnett"},{"lineagePattern":"atomer-radioknapp","lineagePath":"../../patterns/00-atomer-01-forms-04-radioknapp/00-atomer-01-forms-04-radioknapp.html","lineageState":"complete altinn altinnett"}],"lineage":[{"lineagePattern":"atomer-knapp","lineagePath":"../../patterns/00-atomer-03-knapper-10-knapp/00-atomer-03-knapper-10-knapp.html","lineageState":"complete altinn altinnett"},{"lineagePattern":"atomer-tekst-input","lineagePath":"../../patterns/00-atomer-01-forms-10-tekst-input/00-atomer-01-forms-10-tekst-input.html","lineageState":"complete altinn altinnett"},{"lineagePattern":"molekyler-dato-og-tid","lineagePath":"../../patterns/01-molekyler-05-forms-20-dato-og-tid/01-molekyler-05-forms-20-dato-og-tid.html","lineageState":"indesignreview altinn altinnett"},{"lineagePattern":"atomer-tekstfelt","lineagePath":"../../patterns/00-atomer-01-forms-40-tekstfelt/00-atomer-01-forms-40-tekstfelt.html","lineageState":"complete altinn altinnett"},{"lineagePattern":"molekyler-last-opp-og-fjern","lineagePath":"../../patterns/01-molekyler-05-forms-00-last-opp-og-fjern/01-molekyler-05-forms-00-last-opp-og-fjern.html","lineageState":"indesignreview altinn altinnett"},{"lineagePattern":"atomer-radioknapp","lineagePath":"../../patterns/00-atomer-01-forms-04-radioknapp/00-atomer-01-forms-04-radioknapp.html","lineageState":"complete altinn altinnett"}],"patternLineageRExists":false,"patternLineagesR":[],"lineageR":[],"patternLineageEExists":true,"patternDesc":"<p>Eksempelside for modal med javascript</p>\n","patternBreadcrumb":{"patternType":"organismer","patternSubtype":"Modal-js-innhold"},"patternExtension":"mustache","patternName":"Dashboard Sendmelding","patternPartial":"organismer-dashboard-sendmelding","patternState":"indesignreview altinn altinnett","patternEngineName":"mustache","extraOutput":{}}
+    {"cssEnabled":false,"patternLineageExists":true,"patternLineages":[{"lineagePattern":"atomer-knapp","lineagePath":"../../patterns/00-atomer-03-knapper-10-knapp/00-atomer-03-knapper-10-knapp.html","lineageState":"complete altinn altinnett"},{"lineagePattern":"atomer-tekst-input","lineagePath":"../../patterns/00-atomer-01-forms-10-tekst-input/00-atomer-01-forms-10-tekst-input.html","lineageState":"complete altinn altinnett"},{"lineagePattern":"molekyler-valgknapper-og-spesifiser","lineagePath":"../../patterns/01-molekyler-05-forms-05-valgknapper-og-spesifiser/01-molekyler-05-forms-05-valgknapper-og-spesifiser.html","lineageState":"indesignreview altinn altinnett"},{"lineagePattern":"molekyler-dato-og-tid","lineagePath":"../../patterns/01-molekyler-05-forms-20-dato-og-tid/01-molekyler-05-forms-20-dato-og-tid.html","lineageState":"indesignreview altinn altinnett"},{"lineagePattern":"atomer-tekstfelt","lineagePath":"../../patterns/00-atomer-01-forms-40-tekstfelt/00-atomer-01-forms-40-tekstfelt.html","lineageState":"complete altinn altinnett"},{"lineagePattern":"molekyler-last-opp-og-fjern","lineagePath":"../../patterns/01-molekyler-05-forms-00-last-opp-og-fjern/01-molekyler-05-forms-00-last-opp-og-fjern.html","lineageState":"indesignreview altinn altinnett"},{"lineagePattern":"atomer-radioknapp","lineagePath":"../../patterns/00-atomer-01-forms-04-radioknapp/00-atomer-01-forms-04-radioknapp.html","lineageState":"complete altinn altinnett"}],"lineage":[{"lineagePattern":"atomer-knapp","lineagePath":"../../patterns/00-atomer-03-knapper-10-knapp/00-atomer-03-knapper-10-knapp.html","lineageState":"complete altinn altinnett"},{"lineagePattern":"atomer-tekst-input","lineagePath":"../../patterns/00-atomer-01-forms-10-tekst-input/00-atomer-01-forms-10-tekst-input.html","lineageState":"complete altinn altinnett"},{"lineagePattern":"molekyler-valgknapper-og-spesifiser","lineagePath":"../../patterns/01-molekyler-05-forms-05-valgknapper-og-spesifiser/01-molekyler-05-forms-05-valgknapper-og-spesifiser.html","lineageState":"indesignreview altinn altinnett"},{"lineagePattern":"molekyler-dato-og-tid","lineagePath":"../../patterns/01-molekyler-05-forms-20-dato-og-tid/01-molekyler-05-forms-20-dato-og-tid.html","lineageState":"indesignreview altinn altinnett"},{"lineagePattern":"atomer-tekstfelt","lineagePath":"../../patterns/00-atomer-01-forms-40-tekstfelt/00-atomer-01-forms-40-tekstfelt.html","lineageState":"complete altinn altinnett"},{"lineagePattern":"molekyler-last-opp-og-fjern","lineagePath":"../../patterns/01-molekyler-05-forms-00-last-opp-og-fjern/01-molekyler-05-forms-00-last-opp-og-fjern.html","lineageState":"indesignreview altinn altinnett"},{"lineagePattern":"atomer-radioknapp","lineagePath":"../../patterns/00-atomer-01-forms-04-radioknapp/00-atomer-01-forms-04-radioknapp.html","lineageState":"complete altinn altinnett"}],"patternLineageRExists":false,"patternLineagesR":[],"lineageR":[],"patternLineageEExists":true,"patternDesc":"<p>Eksempelside for modal med javascript</p>\n","patternBreadcrumb":{"patternType":"organismer","patternSubtype":"Modal-js-innhold"},"patternExtension":"mustache","patternName":"Dashboard Sendmelding","patternPartial":"organismer-dashboard-sendmelding","patternState":"indesignreview altinn altinnett","patternEngineName":"mustache","extraOutput":{}}
   </script>
 </div><!--end .sg-pattern-->
 <div id="organismer-dashboard-sendmelding-alerttemplate-step1" class="sg-pattern">
@@ -2020,16 +2104,17 @@
             </div>
             <h1 class="a-iconText-text mb-0">
                 <span class="a-iconText-text-small"></span>
-                <span class="a-iconText-text-large">Bestill egen varslingsmal til varslingstjeneste</span>
+                <span class="a-iconText-text-large">Bestill varslingsmal</span>
             </h1>
         </div>
     </div>
     <div class="modal-body a-modal-body">
       
-          <div class="a-form-group mw-100 mb-2">
-            <label class="a-form-label" for="environment">Angi ønsket miljø</label>
-            <form id=environment>
-              <!-- START: 00-atomer-01-forms-07-valgknapp-ett-alternativ -->
+        <!-- START: 01-molekyler-05-forms-05-valgknapper-og-spesifiser -->
+<div class="a-form-group ">
+  <label class="a-form-label" for="environment">Angi ønsket miljø</label>
+  <form id=environment>
+    <!-- START: 00-atomer-01-forms-07-valgknapp-ett-alternativ -->
 
 	<fieldset>
 	  <legend class="sr-only">Velg et alternativ</legend>
@@ -2037,7 +2122,17 @@
 
 			<div class="a-switch  ">
 
-				<input id="radiobutton-production"  class="sr-only" type="radio" name="environment" value="radiobutton-read"  />
+				<input
+          id="radiobutton-production" 
+          class="sr-only"
+          type="radio"
+          name="environment"
+          value="radiobutton-read"
+          
+          
+           data-toggle="collapse" 
+           data-target=".annet.show" 
+        />
 
 				<label for="radiobutton-production" class="a-switch-label ">
 	        Produksjon
@@ -2048,7 +2143,17 @@
 
 			<div class="a-switch  ">
 
-				<input id="radiobutton-tt02"  class="sr-only" type="radio" name="environment" value="radiobutton-read"  />
+				<input
+          id="radiobutton-tt02" 
+          class="sr-only"
+          type="radio"
+          name="environment"
+          value="radiobutton-read"
+          
+          
+           data-toggle="collapse" 
+           data-target=".annet.show" 
+        />
 
 				<label for="radiobutton-tt02" class="a-switch-label ">
 	        TT02
@@ -2059,10 +2164,20 @@
 
 			<div class="a-switch  ">
 
-				<input id="radiobutton-at05"  class="sr-only" type="radio" name="environment" value="radiobutton-read"  />
+				<input
+          id="radiobutton-annet" 
+          class="sr-only"
+          type="radio"
+          name="environment"
+          value="radiobutton-read"
+          
+          
+           data-toggle="collapse" 
+           data-target=".annet:not(.show)" 
+        />
 
-				<label for="radiobutton-at05" class="a-switch-label ">
-	        AT05
+				<label for="radiobutton-annet" class="a-switch-label ">
+	        Annet
 	      </label>
 
 			</div>
@@ -2073,8 +2188,54 @@
 
 <!-- END: 00-atomer-01-forms-07-valgknapp-ett-alternativ -->
 
-            </form>
-          </div>
+      <div class="mb-2">
+        <div class="annet collapse">
+          <!-- START: 00-atomer-01-forms-10-tekst-input JS doc: handleFocus.js, searchWithMultipleSelectInAutoComplete.js brukes via klassen a-js-autocomplete på form-control-class gir autocomplete med mulighet for å velge flere elementer fra resultatlista. -->
+
+  <div class="form-group a-form-group   ">
+
+      <label class="a-form-label  " for="annet">Vennligst spesifiser</label>
+
+    <div class="a-form-group-items input-group   ">
+
+
+      <input class="form-control  
+         "
+        type="text" 
+        placeholder="Feks. AT05"
+        
+        name="input-field"
+        data-val="true"
+        id="annet"
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+      >
+
+
+
+
+    </div>
+
+
+
+  </div>
+
+<!-- END: 00-atomer-01-forms-10-tekst-input -->
+
+        </div>
+      </div>
+  </form>
+</div>
+<!-- END: 01-molekyler-05-forms-05-valgknapper-og-spesifiser -->
+
 
         <div class="form-group a-form-group">
           <label class="a-form-label a-fontBold px-0">Angi type varsel</label>
@@ -2332,7 +2493,7 @@
 
   </div>
   <script type="text/json" id="sg-pattern-data-organismer-dashboard-sendmelding-alerttemplate-step1" class="sg-pattern-data">
-    {"cssEnabled":false,"patternLineageExists":true,"patternLineages":[{"lineagePattern":"atomer-valgknapp-ett-alternativ","lineagePath":"../../patterns/00-atomer-01-forms-07-valgknapp-ett-alternativ/00-atomer-01-forms-07-valgknapp-ett-alternativ.html","lineageState":"complete altinn altinnett"},{"lineagePattern":"atomer-tekst-input","lineagePath":"../../patterns/00-atomer-01-forms-10-tekst-input/00-atomer-01-forms-10-tekst-input.html","lineageState":"complete altinn altinnett"},{"lineagePattern":"molekyler-tidsvelger","lineagePath":"../../patterns/01-molekyler-05-forms-21-tidsvelger/01-molekyler-05-forms-21-tidsvelger.html","lineageState":"indesignreview altinn altinnett"},{"lineagePattern":"atomer-knapp","lineagePath":"../../patterns/00-atomer-03-knapper-10-knapp/00-atomer-03-knapper-10-knapp.html","lineageState":"complete altinn altinnett"}],"lineage":[{"lineagePattern":"atomer-valgknapp-ett-alternativ","lineagePath":"../../patterns/00-atomer-01-forms-07-valgknapp-ett-alternativ/00-atomer-01-forms-07-valgknapp-ett-alternativ.html","lineageState":"complete altinn altinnett"},{"lineagePattern":"atomer-tekst-input","lineagePath":"../../patterns/00-atomer-01-forms-10-tekst-input/00-atomer-01-forms-10-tekst-input.html","lineageState":"complete altinn altinnett"},{"lineagePattern":"molekyler-tidsvelger","lineagePath":"../../patterns/01-molekyler-05-forms-21-tidsvelger/01-molekyler-05-forms-21-tidsvelger.html","lineageState":"indesignreview altinn altinnett"},{"lineagePattern":"atomer-knapp","lineagePath":"../../patterns/00-atomer-03-knapper-10-knapp/00-atomer-03-knapper-10-knapp.html","lineageState":"complete altinn altinnett"}],"patternLineageRExists":false,"patternLineagesR":[],"lineageR":[],"patternLineageEExists":true,"patternDesc":"<p>Eksempelside for modal med javascript</p>\n","patternBreadcrumb":{"patternType":"organismer","patternSubtype":"Modal-js-innhold"},"patternExtension":"mustache","patternName":"Dashboard Sendmelding Alerttemplate Step1","patternPartial":"organismer-dashboard-sendmelding-alerttemplate-step1","patternState":"indesignreview altinnett","patternEngineName":"mustache","extraOutput":{}}
+    {"cssEnabled":false,"patternLineageExists":true,"patternLineages":[{"lineagePattern":"molekyler-valgknapper-og-spesifiser","lineagePath":"../../patterns/01-molekyler-05-forms-05-valgknapper-og-spesifiser/01-molekyler-05-forms-05-valgknapper-og-spesifiser.html","lineageState":"indesignreview altinn altinnett"},{"lineagePattern":"atomer-tekst-input","lineagePath":"../../patterns/00-atomer-01-forms-10-tekst-input/00-atomer-01-forms-10-tekst-input.html","lineageState":"complete altinn altinnett"},{"lineagePattern":"molekyler-tidsvelger","lineagePath":"../../patterns/01-molekyler-05-forms-21-tidsvelger/01-molekyler-05-forms-21-tidsvelger.html","lineageState":"indesignreview altinn altinnett"},{"lineagePattern":"atomer-knapp","lineagePath":"../../patterns/00-atomer-03-knapper-10-knapp/00-atomer-03-knapper-10-knapp.html","lineageState":"complete altinn altinnett"}],"lineage":[{"lineagePattern":"molekyler-valgknapper-og-spesifiser","lineagePath":"../../patterns/01-molekyler-05-forms-05-valgknapper-og-spesifiser/01-molekyler-05-forms-05-valgknapper-og-spesifiser.html","lineageState":"indesignreview altinn altinnett"},{"lineagePattern":"atomer-tekst-input","lineagePath":"../../patterns/00-atomer-01-forms-10-tekst-input/00-atomer-01-forms-10-tekst-input.html","lineageState":"complete altinn altinnett"},{"lineagePattern":"molekyler-tidsvelger","lineagePath":"../../patterns/01-molekyler-05-forms-21-tidsvelger/01-molekyler-05-forms-21-tidsvelger.html","lineageState":"indesignreview altinn altinnett"},{"lineagePattern":"atomer-knapp","lineagePath":"../../patterns/00-atomer-03-knapper-10-knapp/00-atomer-03-knapper-10-knapp.html","lineageState":"complete altinn altinnett"}],"patternLineageRExists":false,"patternLineagesR":[],"lineageR":[],"patternLineageEExists":true,"patternDesc":"<p>Eksempelside for modal med javascript</p>\n","patternBreadcrumb":{"patternType":"organismer","patternSubtype":"Modal-js-innhold"},"patternExtension":"mustache","patternName":"Dashboard Sendmelding Alerttemplate Step1","patternPartial":"organismer-dashboard-sendmelding-alerttemplate-step1","patternState":"indesignreview altinnett","patternEngineName":"mustache","extraOutput":{}}
   </script>
 </div><!--end .sg-pattern-->
 <div id="organismer-dashboard-sendmelding-alerttemplate-step2" class="sg-pattern">
@@ -2360,7 +2521,7 @@
             </div>
             <h1 class="a-iconText-text mb-0">
                 <span class="a-iconText-text-small"></span>
-                <span class="a-iconText-text-large">Bestill egen varslingsmal til varslingstjeneste</span>
+                <span class="a-iconText-text-large">Bestill varslingsmal</span>
             </h1>
         </div>
     </div>
@@ -2556,22 +2717,6 @@
 <!-- END: 00-atomer-01-forms-40-tekstfelt -->
 
         </div>
-      
-        <!-- START: 00-atomer-01-forms-40-tekstfelt -->
-<div class="form-group a-form-group mb-2">
-	  <label for="information1" class="a-form-label">Annen informasjon</label>
-	  <textarea class="form-control a-textarea"
-      rows="3"
-      placeholder=""
-      
-			
-			name="input-field"
-			id="information1"
-			></textarea>
-</div>
-
-<!-- END: 00-atomer-01-forms-40-tekstfelt -->
-
 
         <!-- START: 00-atomer-03-knapper-10-knapp -->
 <button
@@ -2791,10 +2936,11 @@
 
         </div>
 
-        <div class="a-form-group mb-2">
-          <label class="a-form-label" for="environment">Angi ønsket miljø</label>
-          <form id=environment>
-            <!-- START: 00-atomer-01-forms-07-valgknapp-ett-alternativ -->
+        <!-- START: 01-molekyler-05-forms-05-valgknapper-og-spesifiser -->
+<div class="a-form-group ">
+  <label class="a-form-label" for="environment">Angi ønsket miljø</label>
+  <form id=environment>
+    <!-- START: 00-atomer-01-forms-07-valgknapp-ett-alternativ -->
 
 	<fieldset>
 	  <legend class="sr-only">Velg et alternativ</legend>
@@ -2802,7 +2948,17 @@
 
 			<div class="a-switch  ">
 
-				<input id="radiobutton-production"  class="sr-only" type="radio" name="environment" value="radiobutton-read"  />
+				<input
+          id="radiobutton-production" 
+          class="sr-only"
+          type="radio"
+          name="environment"
+          value="radiobutton-read"
+          
+          
+           data-toggle="collapse" 
+           data-target=".annet.show" 
+        />
 
 				<label for="radiobutton-production" class="a-switch-label ">
 	        Produksjon
@@ -2813,7 +2969,17 @@
 
 			<div class="a-switch  ">
 
-				<input id="radiobutton-tt02"  class="sr-only" type="radio" name="environment" value="radiobutton-read"  />
+				<input
+          id="radiobutton-tt02" 
+          class="sr-only"
+          type="radio"
+          name="environment"
+          value="radiobutton-read"
+          
+          
+           data-toggle="collapse" 
+           data-target=".annet.show" 
+        />
 
 				<label for="radiobutton-tt02" class="a-switch-label ">
 	        TT02
@@ -2824,10 +2990,20 @@
 
 			<div class="a-switch  ">
 
-				<input id="radiobutton-at05"  class="sr-only" type="radio" name="environment" value="radiobutton-read"  />
+				<input
+          id="radiobutton-annet" 
+          class="sr-only"
+          type="radio"
+          name="environment"
+          value="radiobutton-read"
+          
+          
+           data-toggle="collapse" 
+           data-target=".annet:not(.show)" 
+        />
 
-				<label for="radiobutton-at05" class="a-switch-label ">
-	        AT05
+				<label for="radiobutton-annet" class="a-switch-label ">
+	        Annet
 	      </label>
 
 			</div>
@@ -2838,8 +3014,54 @@
 
 <!-- END: 00-atomer-01-forms-07-valgknapp-ett-alternativ -->
 
-          </form>
+      <div class="mb-2">
+        <div class="annet collapse">
+          <!-- START: 00-atomer-01-forms-10-tekst-input JS doc: handleFocus.js, searchWithMultipleSelectInAutoComplete.js brukes via klassen a-js-autocomplete på form-control-class gir autocomplete med mulighet for å velge flere elementer fra resultatlista. -->
+
+  <div class="form-group a-form-group   ">
+
+      <label class="a-form-label  " for="annet">Vennligst spesifiser</label>
+
+    <div class="a-form-group-items input-group   ">
+
+
+      <input class="form-control  
+         "
+        type="text" 
+        placeholder="Feks. AT05"
+        
+        name="input-field"
+        data-val="true"
+        id="annet"
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+      >
+
+
+
+
+    </div>
+
+
+
+  </div>
+
+<!-- END: 00-atomer-01-forms-10-tekst-input -->
+
         </div>
+      </div>
+  </form>
+</div>
+<!-- END: 01-molekyler-05-forms-05-valgknapper-og-spesifiser -->
+
 
         <div class="row mb-2">
           <div class="col-12 col-lg-6">
@@ -3037,7 +3259,7 @@
 
         <!-- START: 01-molekyler-05-forms-22-utsett-tidspunkt -->
 <div class="">
-      <form id=>
+      <form id=environment>
         <!-- START: 00-atomer-01-forms-04-radioknapp -->
 <fieldset class="form-group ">
 
@@ -3103,15 +3325,18 @@
       
       <div class="collapse datovelgercollapse no-transition">
         <!-- START: 01-molekyler-05-forms-20-dato-og-tid -->
-<div class="row  form-group">
+<div class="row  form-group mb-0">
+      <div class="col-12">
+        <label class="a-form-label">Dato for sanering &#x2F; deaktivering</label>
+      </div>
   <div class="col-12 d-flex align-items-start">
     
-    <div class="w-100">
-        <!-- START: 00-atomer-01-forms-60-datovelger JS doc: initializeDatepicker.js. Requires class .form-control.date -->
+      <!-- START: 00-atomer-01-forms-60-datovelger JS doc: initializeDatepicker.js. Requires class .form-control.date -->
 <div class="d-inline-block form-group a-form-group a-form-group-datepicker">
-  <div class="input-group">
+  <div class="input-group ">
     <input type="text"
       id="datovelger"
+      
       
       
       class="form-control a-hasButton  date" />
@@ -3129,10 +3354,9 @@
 
 <!-- END: 00-atomer-01-forms-60-datovelger -->
 
-    </div>
 
-    <div class="ml-2 input-group">
-      <input class="form-control" type="time" name="timepicker">
+    <div class="ml-2 input-group ">
+      <input class="form-control" type="time" name="timepicker"  >
     </div>
   </div>
 </div>
@@ -3176,7 +3400,7 @@
 
   </div>
   <script type="text/json" id="sg-pattern-data-organismer-dashboard-sendmelding-deactivation" class="sg-pattern-data">
-    {"cssEnabled":false,"patternLineageExists":true,"patternLineages":[{"lineagePattern":"atomer-tekst-input","lineagePath":"../../patterns/00-atomer-01-forms-10-tekst-input/00-atomer-01-forms-10-tekst-input.html","lineageState":"complete altinn altinnett"},{"lineagePattern":"atomer-avkrysningsboks","lineagePath":"../../patterns/00-atomer-01-forms-00-avkrysningsboks/00-atomer-01-forms-00-avkrysningsboks.html","lineageState":"complete altinn altinnett"},{"lineagePattern":"atomer-valgknapp-ett-alternativ","lineagePath":"../../patterns/00-atomer-01-forms-07-valgknapp-ett-alternativ/00-atomer-01-forms-07-valgknapp-ett-alternativ.html","lineageState":"complete altinn altinnett"},{"lineagePattern":"atomer-tekstfelt","lineagePath":"../../patterns/00-atomer-01-forms-40-tekstfelt/00-atomer-01-forms-40-tekstfelt.html","lineageState":"complete altinn altinnett"},{"lineagePattern":"molekyler-utsett-tidspunkt","lineagePath":"../../patterns/01-molekyler-05-forms-22-utsett-tidspunkt/01-molekyler-05-forms-22-utsett-tidspunkt.html","lineageState":"indesignreview altinn altinnett"},{"lineagePattern":"atomer-knapp","lineagePath":"../../patterns/00-atomer-03-knapper-10-knapp/00-atomer-03-knapper-10-knapp.html","lineageState":"complete altinn altinnett"}],"lineage":[{"lineagePattern":"atomer-tekst-input","lineagePath":"../../patterns/00-atomer-01-forms-10-tekst-input/00-atomer-01-forms-10-tekst-input.html","lineageState":"complete altinn altinnett"},{"lineagePattern":"atomer-avkrysningsboks","lineagePath":"../../patterns/00-atomer-01-forms-00-avkrysningsboks/00-atomer-01-forms-00-avkrysningsboks.html","lineageState":"complete altinn altinnett"},{"lineagePattern":"atomer-valgknapp-ett-alternativ","lineagePath":"../../patterns/00-atomer-01-forms-07-valgknapp-ett-alternativ/00-atomer-01-forms-07-valgknapp-ett-alternativ.html","lineageState":"complete altinn altinnett"},{"lineagePattern":"atomer-tekstfelt","lineagePath":"../../patterns/00-atomer-01-forms-40-tekstfelt/00-atomer-01-forms-40-tekstfelt.html","lineageState":"complete altinn altinnett"},{"lineagePattern":"molekyler-utsett-tidspunkt","lineagePath":"../../patterns/01-molekyler-05-forms-22-utsett-tidspunkt/01-molekyler-05-forms-22-utsett-tidspunkt.html","lineageState":"indesignreview altinn altinnett"},{"lineagePattern":"atomer-knapp","lineagePath":"../../patterns/00-atomer-03-knapper-10-knapp/00-atomer-03-knapper-10-knapp.html","lineageState":"complete altinn altinnett"}],"patternLineageRExists":false,"patternLineagesR":[],"lineageR":[],"patternLineageEExists":true,"patternDesc":"<p>Eksempelside for modal med javascript</p>\n","patternBreadcrumb":{"patternType":"organismer","patternSubtype":"Modal-js-innhold"},"patternExtension":"mustache","patternName":"Dashboard Sendmelding Deactivation","patternPartial":"organismer-dashboard-sendmelding-deactivation","patternState":"indesignreview altinn altinnett","patternEngineName":"mustache","extraOutput":{}}
+    {"cssEnabled":false,"patternLineageExists":true,"patternLineages":[{"lineagePattern":"atomer-tekst-input","lineagePath":"../../patterns/00-atomer-01-forms-10-tekst-input/00-atomer-01-forms-10-tekst-input.html","lineageState":"complete altinn altinnett"},{"lineagePattern":"atomer-avkrysningsboks","lineagePath":"../../patterns/00-atomer-01-forms-00-avkrysningsboks/00-atomer-01-forms-00-avkrysningsboks.html","lineageState":"complete altinn altinnett"},{"lineagePattern":"molekyler-valgknapper-og-spesifiser","lineagePath":"../../patterns/01-molekyler-05-forms-05-valgknapper-og-spesifiser/01-molekyler-05-forms-05-valgknapper-og-spesifiser.html","lineageState":"indesignreview altinn altinnett"},{"lineagePattern":"atomer-tekstfelt","lineagePath":"../../patterns/00-atomer-01-forms-40-tekstfelt/00-atomer-01-forms-40-tekstfelt.html","lineageState":"complete altinn altinnett"},{"lineagePattern":"molekyler-utsett-tidspunkt","lineagePath":"../../patterns/01-molekyler-05-forms-22-utsett-tidspunkt/01-molekyler-05-forms-22-utsett-tidspunkt.html","lineageState":"indesignreview altinn altinnett"},{"lineagePattern":"atomer-knapp","lineagePath":"../../patterns/00-atomer-03-knapper-10-knapp/00-atomer-03-knapper-10-knapp.html","lineageState":"complete altinn altinnett"}],"lineage":[{"lineagePattern":"atomer-tekst-input","lineagePath":"../../patterns/00-atomer-01-forms-10-tekst-input/00-atomer-01-forms-10-tekst-input.html","lineageState":"complete altinn altinnett"},{"lineagePattern":"atomer-avkrysningsboks","lineagePath":"../../patterns/00-atomer-01-forms-00-avkrysningsboks/00-atomer-01-forms-00-avkrysningsboks.html","lineageState":"complete altinn altinnett"},{"lineagePattern":"molekyler-valgknapper-og-spesifiser","lineagePath":"../../patterns/01-molekyler-05-forms-05-valgknapper-og-spesifiser/01-molekyler-05-forms-05-valgknapper-og-spesifiser.html","lineageState":"indesignreview altinn altinnett"},{"lineagePattern":"atomer-tekstfelt","lineagePath":"../../patterns/00-atomer-01-forms-40-tekstfelt/00-atomer-01-forms-40-tekstfelt.html","lineageState":"complete altinn altinnett"},{"lineagePattern":"molekyler-utsett-tidspunkt","lineagePath":"../../patterns/01-molekyler-05-forms-22-utsett-tidspunkt/01-molekyler-05-forms-22-utsett-tidspunkt.html","lineageState":"indesignreview altinn altinnett"},{"lineagePattern":"atomer-knapp","lineagePath":"../../patterns/00-atomer-03-knapper-10-knapp/00-atomer-03-knapper-10-knapp.html","lineageState":"complete altinn altinnett"}],"patternLineageRExists":false,"patternLineagesR":[],"lineageR":[],"patternLineageEExists":true,"patternDesc":"<p>Eksempelside for modal med javascript</p>\n","patternBreadcrumb":{"patternType":"organismer","patternSubtype":"Modal-js-innhold"},"patternExtension":"mustache","patternName":"Dashboard Sendmelding Deactivation","patternPartial":"organismer-dashboard-sendmelding-deactivation","patternState":"indesignreview altinn altinnett","patternEngineName":"mustache","extraOutput":{}}
   </script>
 </div><!--end .sg-pattern-->
 <div id="organismer-dashboard-sendmelding-ferdig" class="sg-pattern">
@@ -3477,7 +3701,142 @@
     
   <h2 class="a-h3 mb-2">Innsendingstjeneste til meldingsboks</h2>
   <form data-toggle="validator" id="contactForm">
-    <div>Her kommer skjema for bestilling av innsendingstjeneste til meldingsboks</div>
+
+
+
+
+
+    <!-- START: 01-molekyler-05-forms-05-valgknapper-og-spesifiser -->
+<div class="a-form-group mb-2">
+  <label class="a-form-label" for="environment">Label: </label>
+  <form id=environment>
+    <!-- START: 00-atomer-01-forms-07-valgknapp-ett-alternativ -->
+
+	<fieldset>
+	  <legend class="sr-only">Velg et alternativ</legend>
+
+
+			<div class="a-switch  ">
+
+				<input
+          id="radiobutton-production" 
+          class="sr-only"
+          type="radio"
+          name="environment"
+          value="radiobutton-read"
+          
+          
+           data-toggle="collapse" 
+           data-target=".annet.show" 
+        />
+
+				<label for="radiobutton-production" class="a-switch-label ">
+	        Produksjon
+	      </label>
+
+			</div>
+
+
+			<div class="a-switch  ">
+
+				<input
+          id="radiobutton-tt02" 
+          class="sr-only"
+          type="radio"
+          name="environment"
+          value="radiobutton-read"
+          
+          
+           data-toggle="collapse" 
+           data-target=".annet.show" 
+        />
+
+				<label for="radiobutton-tt02" class="a-switch-label ">
+	        TT02
+	      </label>
+
+			</div>
+
+
+			<div class="a-switch  ">
+
+				<input
+          id="radiobutton-annet" 
+          class="sr-only"
+          type="radio"
+          name="environment"
+          value="radiobutton-read"
+          
+          
+           data-toggle="collapse" 
+           data-target=".annet:not(.show)" 
+        />
+
+				<label for="radiobutton-annet" class="a-switch-label ">
+	        Annet
+	      </label>
+
+			</div>
+
+
+	</fieldset>
+
+
+<!-- END: 00-atomer-01-forms-07-valgknapp-ett-alternativ -->
+
+      <div class="mb-2">
+        <div class="annet collapse">
+          <!-- START: 00-atomer-01-forms-10-tekst-input JS doc: handleFocus.js, searchWithMultipleSelectInAutoComplete.js brukes via klassen a-js-autocomplete på form-control-class gir autocomplete med mulighet for å velge flere elementer fra resultatlista. -->
+
+  <div class="form-group a-form-group   ">
+
+      <label class="a-form-label  " for="annet">Vennligst spesifiser</label>
+
+    <div class="a-form-group-items input-group   ">
+
+
+      <input class="form-control  
+         "
+        type="text" 
+        placeholder="Feks. AT05"
+        
+        name="input-field"
+        data-val="true"
+        id="annet"
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+      >
+
+
+
+
+    </div>
+
+
+
+  </div>
+
+<!-- END: 00-atomer-01-forms-10-tekst-input -->
+
+        </div>
+      </div>
+  </form>
+</div>
+<!-- END: 01-molekyler-05-forms-05-valgknapper-og-spesifiser -->
+
+
+
+
+
+    
   </form>
 </div>
 
@@ -3485,7 +3844,7 @@
 
   </div>
   <script type="text/json" id="sg-pattern-data-organismer-dashboard-sendmelding-grensesnitt-innsendinginnboks" class="sg-pattern-data">
-    {"cssEnabled":false,"patternLineageExists":false,"patternLineages":[],"lineage":[],"patternLineageRExists":false,"patternLineagesR":[],"lineageR":[],"patternLineageEExists":false,"patternDesc":"<p>Eksempelside for modal med javascript</p>\n","patternBreadcrumb":{"patternType":"organismer","patternSubtype":"Modal-js-innhold"},"patternExtension":"mustache","patternName":"Dashboard Sendmelding Grensesnitt Innsendinginnboks","patternPartial":"organismer-dashboard-sendmelding-grensesnitt-innsendinginnboks","patternState":"indesignreview altinn altinnett","patternEngineName":"mustache","extraOutput":{}}
+    {"cssEnabled":false,"patternLineageExists":true,"patternLineages":[{"lineagePattern":"atomer-tekst-input","lineagePath":"../../patterns/00-atomer-01-forms-10-tekst-input/00-atomer-01-forms-10-tekst-input.html","lineageState":"complete altinn altinnett"},{"lineagePattern":"atomer-avkrysningsboks","lineagePath":"../../patterns/00-atomer-01-forms-00-avkrysningsboks/00-atomer-01-forms-00-avkrysningsboks.html","lineageState":"complete altinn altinnett"},{"lineagePattern":"molekyler-valgknapper-og-spesifiser","lineagePath":"../../patterns/01-molekyler-05-forms-05-valgknapper-og-spesifiser/01-molekyler-05-forms-05-valgknapper-og-spesifiser.html","lineageState":"indesignreview altinn altinnett"},{"lineagePattern":"atomer-tekstfelt","lineagePath":"../../patterns/00-atomer-01-forms-40-tekstfelt/00-atomer-01-forms-40-tekstfelt.html","lineageState":"complete altinn altinnett"},{"lineagePattern":"atomer-knapp","lineagePath":"../../patterns/00-atomer-03-knapper-10-knapp/00-atomer-03-knapper-10-knapp.html","lineageState":"complete altinn altinnett"}],"lineage":[{"lineagePattern":"atomer-tekst-input","lineagePath":"../../patterns/00-atomer-01-forms-10-tekst-input/00-atomer-01-forms-10-tekst-input.html","lineageState":"complete altinn altinnett"},{"lineagePattern":"atomer-avkrysningsboks","lineagePath":"../../patterns/00-atomer-01-forms-00-avkrysningsboks/00-atomer-01-forms-00-avkrysningsboks.html","lineageState":"complete altinn altinnett"},{"lineagePattern":"molekyler-valgknapper-og-spesifiser","lineagePath":"../../patterns/01-molekyler-05-forms-05-valgknapper-og-spesifiser/01-molekyler-05-forms-05-valgknapper-og-spesifiser.html","lineageState":"indesignreview altinn altinnett"},{"lineagePattern":"atomer-tekstfelt","lineagePath":"../../patterns/00-atomer-01-forms-40-tekstfelt/00-atomer-01-forms-40-tekstfelt.html","lineageState":"complete altinn altinnett"},{"lineagePattern":"atomer-knapp","lineagePath":"../../patterns/00-atomer-03-knapper-10-knapp/00-atomer-03-knapper-10-knapp.html","lineageState":"complete altinn altinnett"}],"patternLineageRExists":false,"patternLineagesR":[],"lineageR":[],"patternLineageEExists":true,"patternDesc":"<p>Eksempelside for modal med javascript</p>\n","patternBreadcrumb":{"patternType":"organismer","patternSubtype":"Modal-js-innhold"},"patternExtension":"mustache","patternName":"Dashboard Sendmelding Grensesnitt Innsendinginnboks","patternPartial":"organismer-dashboard-sendmelding-grensesnitt-innsendinginnboks","patternState":"indesignreview altinn altinnett","patternEngineName":"mustache","extraOutput":{}}
   </script>
 </div><!--end .sg-pattern-->
 <div id="organismer-dashboard-sendmelding-grensesnitt-innsendingws" class="sg-pattern">
@@ -3592,10 +3951,11 @@
         </div>
       </div>
 
-      <div class="a-form-group mw-100 mb-2">
-        <label class="a-form-label" for="environment">Angi ønsket miljø</label>
-        <form id=environment>
-          <!-- START: 00-atomer-01-forms-07-valgknapp-ett-alternativ -->
+    <!-- START: 01-molekyler-05-forms-05-valgknapper-og-spesifiser -->
+<div class="a-form-group mb-2">
+  <label class="a-form-label" for="environment">Label: </label>
+  <form id=environment>
+    <!-- START: 00-atomer-01-forms-07-valgknapp-ett-alternativ -->
 
 	<fieldset>
 	  <legend class="sr-only">Velg et alternativ</legend>
@@ -3603,7 +3963,17 @@
 
 			<div class="a-switch  ">
 
-				<input id="radiobutton-production"  class="sr-only" type="radio" name="environment" value="radiobutton-read"  />
+				<input
+          id="radiobutton-production" 
+          class="sr-only"
+          type="radio"
+          name="environment"
+          value="radiobutton-read"
+          
+          
+           data-toggle="collapse" 
+           data-target=".annet.show" 
+        />
 
 				<label for="radiobutton-production" class="a-switch-label ">
 	        Produksjon
@@ -3614,7 +3984,17 @@
 
 			<div class="a-switch  ">
 
-				<input id="radiobutton-tt02"  class="sr-only" type="radio" name="environment" value="radiobutton-read"  />
+				<input
+          id="radiobutton-tt02" 
+          class="sr-only"
+          type="radio"
+          name="environment"
+          value="radiobutton-read"
+          
+          
+           data-toggle="collapse" 
+           data-target=".annet.show" 
+        />
 
 				<label for="radiobutton-tt02" class="a-switch-label ">
 	        TT02
@@ -3625,10 +4005,20 @@
 
 			<div class="a-switch  ">
 
-				<input id="radiobutton-at05"  class="sr-only" type="radio" name="environment" value="radiobutton-read"  />
+				<input
+          id="radiobutton-annet" 
+          class="sr-only"
+          type="radio"
+          name="environment"
+          value="radiobutton-read"
+          
+          
+           data-toggle="collapse" 
+           data-target=".annet:not(.show)" 
+        />
 
-				<label for="radiobutton-at05" class="a-switch-label ">
-	        AT05
+				<label for="radiobutton-annet" class="a-switch-label ">
+	        Annet
 	      </label>
 
 			</div>
@@ -3639,13 +4029,13 @@
 
 <!-- END: 00-atomer-01-forms-07-valgknapp-ett-alternativ -->
 
-        </form>
-      </div>
-      <!-- START: 00-atomer-01-forms-10-tekst-input JS doc: handleFocus.js, searchWithMultipleSelectInAutoComplete.js brukes via klassen a-js-autocomplete på form-control-class gir autocomplete med mulighet for å velge flere elementer fra resultatlista. -->
+      <div class="mb-2">
+        <div class="annet collapse">
+          <!-- START: 00-atomer-01-forms-10-tekst-input JS doc: handleFocus.js, searchWithMultipleSelectInAutoComplete.js brukes via klassen a-js-autocomplete på form-control-class gir autocomplete med mulighet for å velge flere elementer fra resultatlista. -->
 
-  <div class="form-group a-form-group   mb-2">
+  <div class="form-group a-form-group   ">
 
-      <label class="a-form-label  " for="version">Versjon av GenericBatch (dersom tom, benyttes siste versjon)</label>
+      <label class="a-form-label  " for="annet">Vennligst spesifiser</label>
 
     <div class="a-form-group-items input-group   ">
 
@@ -3653,11 +4043,11 @@
       <input class="form-control  
          "
         type="text" 
+        placeholder="Feks. AT05"
         
-        
-        name="version"
+        name="input-field"
         data-val="true"
-        id="version"
+        id="annet"
         
         
         
@@ -3675,6 +4065,62 @@
 
     </div>
 
+
+
+  </div>
+
+<!-- END: 00-atomer-01-forms-10-tekst-input -->
+
+        </div>
+      </div>
+  </form>
+</div>
+<!-- END: 01-molekyler-05-forms-05-valgknapper-og-spesifiser -->
+
+
+      <!-- START: 00-atomer-01-forms-10-tekst-input JS doc: handleFocus.js, searchWithMultipleSelectInAutoComplete.js brukes via klassen a-js-autocomplete på form-control-class gir autocomplete med mulighet for å velge flere elementer fra resultatlista. -->
+
+  <div class="form-group a-form-group   mb-4">
+
+      <label class="a-form-label  " for="version2">Versjon av GenericBatch</label>
+
+    <div class="a-form-group-items input-group   ">
+
+
+      <input class="form-control  
+         "
+        type="text" 
+        
+        
+        name="version"
+        data-val="true"
+        id="version2"
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+      >
+
+
+
+
+    </div>
+
+      <small id="help" class="form-text a-validatorInfo">
+        <!-- START: 00-atomer-09-bilder-og-media-15-ikon -->
+<i class="ai ai-info  a-validatorInfo-icon "    ></i>
+
+
+<!-- END: 00-atomer-09-bilder-og-media-15-ikon -->
+
+        Hvis ikke annet spesifiseres benyttes siste versjon
+      </small>
 
 
   </div>
@@ -3836,7 +4282,57 @@
 <!-- END: 00-atomer-01-forms-04-radioknapp -->
 
       </form>
-      <!-- START: 00-atomer-01-forms-00-avkrysningsboks -->
+      <!-- START: 00-atomer-01-forms-10-tekst-input JS doc: handleFocus.js, searchWithMultipleSelectInAutoComplete.js brukes via klassen a-js-autocomplete på form-control-class gir autocomplete med mulighet for å velge flere elementer fra resultatlista. -->
+
+  <div class="form-group a-form-group   mb-4">
+
+      <label class="a-form-label  " for="text-input-sequence">Sekvensnummer for grensesnittet</label>
+
+    <div class="a-form-group-items input-group   ">
+
+
+      <input class="form-control  
+         "
+        type="number" 
+        placeholder="f.eks placeholder"
+        
+        name="input-field"
+        data-val="true"
+        id="text-input-sequence"
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+      >
+
+
+
+
+    </div>
+
+      <small id="help" class="form-text a-validatorInfo">
+        <!-- START: 00-atomer-09-bilder-og-media-15-ikon -->
+<i class="ai ai-info  a-validatorInfo-icon "    ></i>
+
+
+<!-- END: 00-atomer-09-bilder-og-media-15-ikon -->
+
+        Hvis ikke annet spesifiseres blir oppstart satt til 2 og øker med 1 for hver gang grensesnittet blir brukt uten feil.
+      </small>
+
+
+  </div>
+
+<!-- END: 00-atomer-01-forms-10-tekst-input -->
+
+      <div class="mb-2">
+        <!-- START: 00-atomer-01-forms-00-avkrysningsboks -->
   
       <div class="custom-control
         
@@ -3861,8 +4357,8 @@
 
 <!-- END: 00-atomer-01-forms-00-avkrysningsboks -->
 
-      <div id="port" class="collapse">
-          <!-- START: 00-atomer-01-forms-10-tekst-input JS doc: handleFocus.js, searchWithMultipleSelectInAutoComplete.js brukes via klassen a-js-autocomplete på form-control-class gir autocomplete med mulighet for å velge flere elementer fra resultatlista. -->
+        <div id="port" class="collapse">
+            <!-- START: 00-atomer-01-forms-10-tekst-input JS doc: handleFocus.js, searchWithMultipleSelectInAutoComplete.js brukes via klassen a-js-autocomplete på form-control-class gir autocomplete med mulighet for å velge flere elementer fra resultatlista. -->
 
   <div class="form-group a-form-group   ">
 
@@ -3902,7 +4398,533 @@
 
 <!-- END: 00-atomer-01-forms-10-tekst-input -->
 
+        </div>
       </div>
+      <form id=transfertype class="mb-2">
+        <!-- START: 00-atomer-01-forms-04-radioknapp -->
+<fieldset class="form-group ">
+
+		<legend class="a-legend">Type overføring
+		</legend>
+
+		<div
+      class="custom-control custom-radio a-custom-radio 
+      
+      "
+    >
+		  <input
+        type="radio"
+        id="type1"
+        name="customRadio"
+        value="type1"
+        class="custom-control-input"
+        
+        
+         data-toggle="collapse"
+         data-target=".radiocollapse.show"
+      >
+		  <label
+        class="custom-control-label a-radioButtons-title"
+        for="type1"
+        >
+        Direkteforsendelse (umiddelbart)
+
+
+			</label>
+		</div>
+		<div
+      class="custom-control custom-radio a-custom-radio 
+      
+      "
+    >
+		  <input
+        type="radio"
+        id="type2"
+        name="customRadio"
+        value="type2"
+        class="custom-control-input"
+        
+        
+         data-toggle="collapse"
+         data-target=".radiocollapse:not(.show)"
+      >
+		  <label
+        class="custom-control-label a-radioButtons-title"
+        for="type2"
+        >
+        Batch
+
+
+			</label>
+		</div>
+
+</fieldset>
+
+<!-- END: 00-atomer-01-forms-04-radioknapp -->
+
+        <div class="radiocollapse collapse no-transition">
+          <!-- START: 00-atomer-01-forms-10-tekst-input JS doc: handleFocus.js, searchWithMultipleSelectInAutoComplete.js brukes via klassen a-js-autocomplete på form-control-class gir autocomplete med mulighet for å velge flere elementer fra resultatlista. -->
+
+  <div class="form-group a-form-group   ">
+
+      <label class="a-form-label  " for="webservicecall">Ønsket hyppighet og tidspunkt for webservicekall</label>
+
+    <div class="a-form-group-items input-group   ">
+
+
+      <input class="form-control  
+         "
+        type="text" 
+        placeholder="F.eks daglig kl 03:30"
+        
+        name="input-field"
+        data-val="true"
+        id="webservicecall"
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+      >
+
+
+
+
+    </div>
+
+
+
+  </div>
+
+<!-- END: 00-atomer-01-forms-10-tekst-input -->
+
+        </div>
+      </form>
+      <form id=operation class="mb-2">
+        <!-- START: 00-atomer-01-forms-04-radioknapp -->
+<fieldset class="form-group ">
+
+		<legend class="a-legend">Operasjonsnavn som skal benyttes ved overføring
+		</legend>
+
+		<div
+      class="custom-control custom-radio a-custom-radio 
+      
+      "
+    >
+		  <input
+        type="radio"
+        id="operation1"
+        name="customRadio"
+        value="operation1"
+        class="custom-control-input"
+        
+        
+         data-toggle="collapse"
+         data-target=".radiocollapse.show"
+      >
+		  <label
+        class="custom-control-label a-radioButtons-title"
+        for="operation1"
+        >
+        Direkteforsendelse (umiddelbart)
+
+
+			</label>
+		</div>
+		<div
+      class="custom-control custom-radio a-custom-radio 
+      
+      "
+    >
+		  <input
+        type="radio"
+        id="operation2"
+        name="customRadio"
+        value="operation2"
+        class="custom-control-input"
+        
+        
+         data-toggle="collapse"
+         data-target=".radiocollapse:not(.show)"
+      >
+		  <label
+        class="custom-control-label a-radioButtons-title"
+        for="operation2"
+        >
+        Batch
+
+
+			</label>
+		</div>
+
+</fieldset>
+
+<!-- END: 00-atomer-01-forms-04-radioknapp -->
+
+      </form>
+      <form id=soap>
+        <!-- START: 00-atomer-01-forms-04-radioknapp -->
+<fieldset class="form-group ">
+
+		<legend class="a-legend">Hvilken SOAP-versjon vil benyttes?
+		</legend>
+
+		<div
+      class="custom-control custom-radio a-custom-radio 
+      
+      "
+    >
+		  <input
+        type="radio"
+        id="soap1"
+        name="customRadio"
+        value="soap1"
+        class="custom-control-input"
+        
+        
+        
+        
+      >
+		  <label
+        class="custom-control-label a-radioButtons-title"
+        for="soap1"
+        >
+        SOAP v1.1
+
+
+			</label>
+		</div>
+		<div
+      class="custom-control custom-radio a-custom-radio 
+      
+      "
+    >
+		  <input
+        type="radio"
+        id="soap2"
+        name="customRadio"
+        value="soap2"
+        class="custom-control-input"
+        
+        
+        
+        
+      >
+		  <label
+        class="custom-control-label a-radioButtons-title"
+        for="soap2"
+        >
+        SOAP v1.2
+
+
+			</label>
+		</div>
+
+</fieldset>
+
+<!-- END: 00-atomer-01-forms-04-radioknapp -->
+
+      </form>
+      <!-- START: 00-atomer-01-forms-10-tekst-input JS doc: handleFocus.js, searchWithMultipleSelectInAutoComplete.js brukes via klassen a-js-autocomplete på form-control-class gir autocomplete med mulighet for å velge flere elementer fra resultatlista. -->
+
+  <div class="form-group a-form-group   mb-2">
+
+      <label class="a-form-label  " for="url">URL for mottaksløsning (inklusive operasjonsnavnet)</label>
+
+    <div class="a-form-group-items input-group   ">
+
+
+      <input class="form-control  
+         "
+        type="text" 
+        
+        
+        name="url"
+        data-val="true"
+        id="url"
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+      >
+
+
+
+
+    </div>
+
+
+
+  </div>
+
+<!-- END: 00-atomer-01-forms-10-tekst-input -->
+
+      <form id=authentication class="mb-2">
+        <!-- START: 00-atomer-01-forms-04-radioknapp -->
+<fieldset class="form-group ">
+
+		<legend class="a-legend">Mekanisme for autentisering
+		</legend>
+
+		<div
+      class="custom-control custom-radio a-custom-radio 
+      
+      "
+    >
+		  <input
+        type="radio"
+        id="auth1"
+        name="customRadio"
+        value="auth1"
+        class="custom-control-input"
+        
+        
+         data-toggle="collapse"
+         data-target=".certificatecollapse.show, .passwordcollapse:not(.show)"
+      >
+		  <label
+        class="custom-control-label a-radioButtons-title"
+        for="auth1"
+        >
+        Brukernavn og passord
+
+
+			</label>
+		</div>
+		<div
+      class="custom-control custom-radio a-custom-radio 
+      
+      "
+    >
+		  <input
+        type="radio"
+        id="auth2"
+        name="customRadio"
+        value="auth2"
+        class="custom-control-input"
+        
+        
+         data-toggle="collapse"
+         data-target=".certificatecollapse:not(.show), .passwordcollapse.show"
+      >
+		  <label
+        class="custom-control-label a-radioButtons-title"
+        for="auth2"
+        >
+        Sertifikat
+
+
+			</label>
+		</div>
+
+</fieldset>
+
+<!-- END: 00-atomer-01-forms-04-radioknapp -->
+
+        <div class="collapse passwordcollapse no-transition">
+            <!-- START: 00-atomer-01-forms-10-tekst-input JS doc: handleFocus.js, searchWithMultipleSelectInAutoComplete.js brukes via klassen a-js-autocomplete på form-control-class gir autocomplete med mulighet for å velge flere elementer fra resultatlista. -->
+
+  <div class="form-group a-form-group   ">
+
+      <label class="a-form-label  " for="username">Brukernavn som Altinn skal sende med SOAP-kallet til tjenesteeier</label>
+
+    <div class="a-form-group-items input-group   ">
+
+
+      <input class="form-control  
+         "
+        type="text" 
+        
+        
+        name="username"
+        data-val="true"
+        id="username"
+        required
+        
+        
+        
+        
+        
+        
+        
+        
+        
+      >
+
+
+
+
+    </div>
+
+
+
+  </div>
+
+<!-- END: 00-atomer-01-forms-10-tekst-input -->
+
+            <!-- START: 00-atomer-01-forms-10-tekst-input JS doc: handleFocus.js, searchWithMultipleSelectInAutoComplete.js brukes via klassen a-js-autocomplete på form-control-class gir autocomplete med mulighet for å velge flere elementer fra resultatlista. -->
+
+  <div class="form-group a-form-group   ">
+
+      <label class="a-form-label  " for="password">Passord som Altinn skal sende med SOAP-kallet til tjenesteeier</label>
+
+    <div class="a-form-group-items input-group   ">
+
+
+      <input class="form-control  
+         "
+        type="text" 
+        
+        
+        name="password"
+        data-val="true"
+        id="password"
+        required
+        
+        
+        
+        
+        
+        
+        
+        
+        
+      >
+
+
+
+
+    </div>
+
+
+
+  </div>
+
+<!-- END: 00-atomer-01-forms-10-tekst-input -->
+
+        </div>
+        <div class="collapse certificatecollapse no-transition">
+            <!-- START: 00-atomer-01-forms-40-tekstfelt -->
+<div class="form-group a-form-group ">
+	  <label for="text-input-generic" class="a-form-label">Informasjon om sertifikat</label>
+	  <textarea class="form-control a-textarea"
+      rows="3"
+      placeholder="Forklarende hjelpetekst med forslag"
+      
+			
+			name="input-field"
+			id="text-input-generic"
+			></textarea>
+</div>
+
+<!-- END: 00-atomer-01-forms-40-tekstfelt -->
+
+            <!-- START: 01-molekyler-05-forms-00-last-opp-og-fjern -->
+<div id="js-attachmentForm">
+  <!-- START: 00-atomer-01-forms-70-upload -->
+  <div class="a-form-label a-fontBold">Vedlegg</div>
+
+  <label class="a-btn a-btn-action a-iconRight a-custom-fileupload mb-0 mt-1 a-js-uploadAttachment">
+    <input  class="a-js-certificateContainer sr-only" type="file" id="newCertificateInput">
+    Legg ved en fil
+      <!-- START: 00-atomer-09-bilder-og-media-15-ikon -->
+<i class="ai ai-upload   "    ></i>
+
+
+<!-- END: 00-atomer-09-bilder-og-media-15-ikon -->
+
+  </label>
+
+
+<!-- END: 00-atomer-01-forms-70-upload -->
+
+  <div style="display:none" class="a-js-upload-error">
+    <div class="a-message a-message-error">Feilmelding</div>
+  </div>
+  <!-- START: 00-atomer-07-tekst-00-varsel -->
+<div id="alert" class="a-message a-message-edit a-message--arrow-off a-message--fullwidth a-message--no-dropshadow mb-0 mt-1 a-js-attachment-box ">
+	<!-- START: 00-atomer-07-tekst-_00-varsel-innhold -->
+    <div class="row a-delete-add-container">
+      <div class="col a-fontBold a-js-attachment-name">
+        dittbilde.jpg
+      </div>
+      <div class="col-md-auto col-sm-12">
+        <button type='button' class='a-btn a-btn-icon a-btn-delete'><i class='ai ai-sm ai-circle-exit a-danger ai-left' aria-hidden='true'></i><span class='a-btn-icon-text'>Slett vedlegg</span></button>
+      </div>
+
+
+
+
+
+
+    </div>
+
+
+
+
+
+
+<!-- END: 00-atomer-07-tekst-_00-varsel-innhold -->
+
+</div>
+
+<!-- END: 00-atomer-07-tekst-00-varsel -->
+
+  </div>
+
+<!-- END: 01-molekyler-05-forms-00-last-opp-og-fjern -->
+
+        </div>
+      </form>
+      <!-- START: 00-atomer-01-forms-40-tekstfelt -->
+<div class="form-group a-form-group mb-2">
+	  <label for="information1" class="a-form-label">Annen informasjon</label>
+	  <textarea class="form-control a-textarea"
+      rows="3"
+      placeholder=""
+      
+			
+			name="input-field"
+			id="information1"
+			></textarea>
+</div>
+
+<!-- END: 00-atomer-01-forms-40-tekstfelt -->
+
+      <!-- START: 00-atomer-03-knapper-10-knapp -->
+<button
+   type="button" 
+  
+  class="a-btn d-block mt-3 mb-2"
+  id="a-js-contactForm-submit2"
+  
+  data-toggle="altinn-modal"
+  data-action="next"
+  
+  data-url="../../patterns/02-organismer-80-Modal-js-innhold-15-dashboard-sendmelding-ferdig/02-organismer-80-Modal-js-innhold-15-dashboard-sendmelding-ferdig.markup-only.html"
+  data-target="#modal-message"
+  data-is-success="true"
+   
+  >
+  
+    Send bestilling
+  
+</button>
+
+<!-- END: 00-atomer-03-knapper-10-knapp -->
+
   </form>
 </div>
 
@@ -3910,7 +4932,7 @@
 
   </div>
   <script type="text/json" id="sg-pattern-data-organismer-dashboard-sendmelding-grensesnitt-innsendingws" class="sg-pattern-data">
-    {"cssEnabled":false,"patternLineageExists":true,"patternLineages":[{"lineagePattern":"atomer-avkrysningsboks","lineagePath":"../../patterns/00-atomer-01-forms-00-avkrysningsboks/00-atomer-01-forms-00-avkrysningsboks.html","lineageState":"complete altinn altinnett"},{"lineagePattern":"atomer-tekst-input","lineagePath":"../../patterns/00-atomer-01-forms-10-tekst-input/00-atomer-01-forms-10-tekst-input.html","lineageState":"complete altinn altinnett"},{"lineagePattern":"atomer-valgknapp-ett-alternativ","lineagePath":"../../patterns/00-atomer-01-forms-07-valgknapp-ett-alternativ/00-atomer-01-forms-07-valgknapp-ett-alternativ.html","lineageState":"complete altinn altinnett"},{"lineagePattern":"atomer-radioknapp","lineagePath":"../../patterns/00-atomer-01-forms-04-radioknapp/00-atomer-01-forms-04-radioknapp.html","lineageState":"complete altinn altinnett"}],"lineage":[{"lineagePattern":"atomer-avkrysningsboks","lineagePath":"../../patterns/00-atomer-01-forms-00-avkrysningsboks/00-atomer-01-forms-00-avkrysningsboks.html","lineageState":"complete altinn altinnett"},{"lineagePattern":"atomer-tekst-input","lineagePath":"../../patterns/00-atomer-01-forms-10-tekst-input/00-atomer-01-forms-10-tekst-input.html","lineageState":"complete altinn altinnett"},{"lineagePattern":"atomer-valgknapp-ett-alternativ","lineagePath":"../../patterns/00-atomer-01-forms-07-valgknapp-ett-alternativ/00-atomer-01-forms-07-valgknapp-ett-alternativ.html","lineageState":"complete altinn altinnett"},{"lineagePattern":"atomer-radioknapp","lineagePath":"../../patterns/00-atomer-01-forms-04-radioknapp/00-atomer-01-forms-04-radioknapp.html","lineageState":"complete altinn altinnett"}],"patternLineageRExists":false,"patternLineagesR":[],"lineageR":[],"patternLineageEExists":true,"patternDesc":"<p>Eksempelside for modal med javascript</p>\n","patternBreadcrumb":{"patternType":"organismer","patternSubtype":"Modal-js-innhold"},"patternExtension":"mustache","patternName":"Dashboard Sendmelding Grensesnitt Innsendingws","patternPartial":"organismer-dashboard-sendmelding-grensesnitt-innsendingws","patternState":"indesignreview altinn altinnett","patternEngineName":"mustache","extraOutput":{}}
+    {"cssEnabled":false,"patternLineageExists":true,"patternLineages":[{"lineagePattern":"atomer-avkrysningsboks","lineagePath":"../../patterns/00-atomer-01-forms-00-avkrysningsboks/00-atomer-01-forms-00-avkrysningsboks.html","lineageState":"complete altinn altinnett"},{"lineagePattern":"atomer-tekst-input","lineagePath":"../../patterns/00-atomer-01-forms-10-tekst-input/00-atomer-01-forms-10-tekst-input.html","lineageState":"complete altinn altinnett"},{"lineagePattern":"molekyler-valgknapper-og-spesifiser","lineagePath":"../../patterns/01-molekyler-05-forms-05-valgknapper-og-spesifiser/01-molekyler-05-forms-05-valgknapper-og-spesifiser.html","lineageState":"indesignreview altinn altinnett"},{"lineagePattern":"atomer-radioknapp","lineagePath":"../../patterns/00-atomer-01-forms-04-radioknapp/00-atomer-01-forms-04-radioknapp.html","lineageState":"complete altinn altinnett"},{"lineagePattern":"atomer-tekstfelt","lineagePath":"../../patterns/00-atomer-01-forms-40-tekstfelt/00-atomer-01-forms-40-tekstfelt.html","lineageState":"complete altinn altinnett"},{"lineagePattern":"molekyler-last-opp-og-fjern","lineagePath":"../../patterns/01-molekyler-05-forms-00-last-opp-og-fjern/01-molekyler-05-forms-00-last-opp-og-fjern.html","lineageState":"indesignreview altinn altinnett"},{"lineagePattern":"atomer-knapp","lineagePath":"../../patterns/00-atomer-03-knapper-10-knapp/00-atomer-03-knapper-10-knapp.html","lineageState":"complete altinn altinnett"}],"lineage":[{"lineagePattern":"atomer-avkrysningsboks","lineagePath":"../../patterns/00-atomer-01-forms-00-avkrysningsboks/00-atomer-01-forms-00-avkrysningsboks.html","lineageState":"complete altinn altinnett"},{"lineagePattern":"atomer-tekst-input","lineagePath":"../../patterns/00-atomer-01-forms-10-tekst-input/00-atomer-01-forms-10-tekst-input.html","lineageState":"complete altinn altinnett"},{"lineagePattern":"molekyler-valgknapper-og-spesifiser","lineagePath":"../../patterns/01-molekyler-05-forms-05-valgknapper-og-spesifiser/01-molekyler-05-forms-05-valgknapper-og-spesifiser.html","lineageState":"indesignreview altinn altinnett"},{"lineagePattern":"atomer-radioknapp","lineagePath":"../../patterns/00-atomer-01-forms-04-radioknapp/00-atomer-01-forms-04-radioknapp.html","lineageState":"complete altinn altinnett"},{"lineagePattern":"atomer-tekstfelt","lineagePath":"../../patterns/00-atomer-01-forms-40-tekstfelt/00-atomer-01-forms-40-tekstfelt.html","lineageState":"complete altinn altinnett"},{"lineagePattern":"molekyler-last-opp-og-fjern","lineagePath":"../../patterns/01-molekyler-05-forms-00-last-opp-og-fjern/01-molekyler-05-forms-00-last-opp-og-fjern.html","lineageState":"indesignreview altinn altinnett"},{"lineagePattern":"atomer-knapp","lineagePath":"../../patterns/00-atomer-03-knapper-10-knapp/00-atomer-03-knapper-10-knapp.html","lineageState":"complete altinn altinnett"}],"patternLineageRExists":false,"patternLineagesR":[],"lineageR":[],"patternLineageEExists":true,"patternDesc":"<p>Eksempelside for modal med javascript</p>\n","patternBreadcrumb":{"patternType":"organismer","patternSubtype":"Modal-js-innhold"},"patternExtension":"mustache","patternName":"Dashboard Sendmelding Grensesnitt Innsendingws","patternPartial":"organismer-dashboard-sendmelding-grensesnitt-innsendingws","patternState":"indesignreview altinn altinnett","patternEngineName":"mustache","extraOutput":{}}
   </script>
 </div><!--end .sg-pattern-->
 <div id="organismer-dashboard-sendmelding-grensesnitt-meldingws" class="sg-pattern">
@@ -4034,13 +5056,11 @@
 
           </div>
 
-          <div class="row a-form-group mb-2">
-            <div class="col-12">
-              <label class="a-form-label" for="environment">Angi serveren som mapperen ønskes installert på</label>
-            </div>
-            <div class="col-12">
-              <form id=environment>
-                <!-- START: 00-atomer-01-forms-07-valgknapp-ett-alternativ -->
+            <!-- START: 01-molekyler-05-forms-05-valgknapper-og-spesifiser -->
+<div class="a-form-group ">
+  <label class="a-form-label" for="environment">Angi ønsket miljø</label>
+  <form id=environment>
+    <!-- START: 00-atomer-01-forms-07-valgknapp-ett-alternativ -->
 
 	<fieldset>
 	  <legend class="sr-only">Velg et alternativ</legend>
@@ -4048,7 +5068,17 @@
 
 			<div class="a-switch  ">
 
-				<input id="radiobutton-production"  class="sr-only" type="radio" name="environment" value="radiobutton-read"  />
+				<input
+          id="radiobutton-production" 
+          class="sr-only"
+          type="radio"
+          name="environment"
+          value="radiobutton-read"
+          
+          
+           data-toggle="collapse" 
+           data-target=".annet.show" 
+        />
 
 				<label for="radiobutton-production" class="a-switch-label ">
 	        Produksjon
@@ -4059,7 +5089,17 @@
 
 			<div class="a-switch  ">
 
-				<input id="radiobutton-tt02"  class="sr-only" type="radio" name="environment" value="radiobutton-read"  />
+				<input
+          id="radiobutton-tt02" 
+          class="sr-only"
+          type="radio"
+          name="environment"
+          value="radiobutton-read"
+          
+          
+           data-toggle="collapse" 
+           data-target=".annet.show" 
+        />
 
 				<label for="radiobutton-tt02" class="a-switch-label ">
 	        TT02
@@ -4070,10 +5110,20 @@
 
 			<div class="a-switch  ">
 
-				<input id="radiobutton-at"  class="sr-only" type="radio" name="environment" value="radiobutton-read"  />
+				<input
+          id="radiobutton-annet" 
+          class="sr-only"
+          type="radio"
+          name="environment"
+          value="radiobutton-read"
+          
+          
+           data-toggle="collapse" 
+           data-target=".annet:not(.show)" 
+        />
 
-				<label for="radiobutton-at" class="a-switch-label ">
-	        AT-miljøene
+				<label for="radiobutton-annet" class="a-switch-label ">
+	        Annet
 	      </label>
 
 			</div>
@@ -4084,9 +5134,54 @@
 
 <!-- END: 00-atomer-01-forms-07-valgknapp-ett-alternativ -->
 
-              </form>
-            </div>
-          </div>
+      <div class="mb-2">
+        <div class="annet collapse">
+          <!-- START: 00-atomer-01-forms-10-tekst-input JS doc: handleFocus.js, searchWithMultipleSelectInAutoComplete.js brukes via klassen a-js-autocomplete på form-control-class gir autocomplete med mulighet for å velge flere elementer fra resultatlista. -->
+
+  <div class="form-group a-form-group   ">
+
+      <label class="a-form-label  " for="annet">Vennligst spesifiser</label>
+
+    <div class="a-form-group-items input-group   ">
+
+
+      <input class="form-control  
+         "
+        type="text" 
+        placeholder="Feks. AT05"
+        
+        name="input-field"
+        data-val="true"
+        id="annet"
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+      >
+
+
+
+
+    </div>
+
+
+
+  </div>
+
+<!-- END: 00-atomer-01-forms-10-tekst-input -->
+
+        </div>
+      </div>
+  </form>
+</div>
+<!-- END: 01-molekyler-05-forms-05-valgknapper-og-spesifiser -->
+
 
               <form id="nybruker" class="mb-2">
                 <!-- START: 00-atomer-01-forms-00-avkrysningsboks -->
@@ -4314,7 +5409,7 @@
 
   </div>
   <script type="text/json" id="sg-pattern-data-organismer-dashboard-sendmelding-installation" class="sg-pattern-data">
-    {"cssEnabled":false,"patternLineageExists":true,"patternLineages":[{"lineagePattern":"atomer-tekst-input","lineagePath":"../../patterns/00-atomer-01-forms-10-tekst-input/00-atomer-01-forms-10-tekst-input.html","lineageState":"complete altinn altinnett"},{"lineagePattern":"atomer-valgknapp-ett-alternativ","lineagePath":"../../patterns/00-atomer-01-forms-07-valgknapp-ett-alternativ/00-atomer-01-forms-07-valgknapp-ett-alternativ.html","lineageState":"complete altinn altinnett"},{"lineagePattern":"atomer-avkrysningsboks","lineagePath":"../../patterns/00-atomer-01-forms-00-avkrysningsboks/00-atomer-01-forms-00-avkrysningsboks.html","lineageState":"complete altinn altinnett"},{"lineagePattern":"organismer-dashboard-kontaktinfo","lineagePath":"../../patterns/02-organismer-20-forms-91-dashboard-kontaktinfo/02-organismer-20-forms-91-dashboard-kontaktinfo.html","lineageState":"inprogress altinnett"},{"lineagePattern":"atomer-tekstfelt","lineagePath":"../../patterns/00-atomer-01-forms-40-tekstfelt/00-atomer-01-forms-40-tekstfelt.html","lineageState":"complete altinn altinnett"},{"lineagePattern":"atomer-knapp","lineagePath":"../../patterns/00-atomer-03-knapper-10-knapp/00-atomer-03-knapper-10-knapp.html","lineageState":"complete altinn altinnett"}],"lineage":[{"lineagePattern":"atomer-tekst-input","lineagePath":"../../patterns/00-atomer-01-forms-10-tekst-input/00-atomer-01-forms-10-tekst-input.html","lineageState":"complete altinn altinnett"},{"lineagePattern":"atomer-valgknapp-ett-alternativ","lineagePath":"../../patterns/00-atomer-01-forms-07-valgknapp-ett-alternativ/00-atomer-01-forms-07-valgknapp-ett-alternativ.html","lineageState":"complete altinn altinnett"},{"lineagePattern":"atomer-avkrysningsboks","lineagePath":"../../patterns/00-atomer-01-forms-00-avkrysningsboks/00-atomer-01-forms-00-avkrysningsboks.html","lineageState":"complete altinn altinnett"},{"lineagePattern":"organismer-dashboard-kontaktinfo","lineagePath":"../../patterns/02-organismer-20-forms-91-dashboard-kontaktinfo/02-organismer-20-forms-91-dashboard-kontaktinfo.html","lineageState":"inprogress altinnett"},{"lineagePattern":"atomer-tekstfelt","lineagePath":"../../patterns/00-atomer-01-forms-40-tekstfelt/00-atomer-01-forms-40-tekstfelt.html","lineageState":"complete altinn altinnett"},{"lineagePattern":"atomer-knapp","lineagePath":"../../patterns/00-atomer-03-knapper-10-knapp/00-atomer-03-knapper-10-knapp.html","lineageState":"complete altinn altinnett"}],"patternLineageRExists":false,"patternLineagesR":[],"lineageR":[],"patternLineageEExists":true,"patternDesc":"<p>Eksempelside for modal med javascript</p>\n","patternBreadcrumb":{"patternType":"organismer","patternSubtype":"Modal-js-innhold"},"patternExtension":"mustache","patternName":"Dashboard Sendmelding Installation","patternPartial":"organismer-dashboard-sendmelding-installation","patternState":"indesignreview altinn altinnett","patternEngineName":"mustache","extraOutput":{}}
+    {"cssEnabled":false,"patternLineageExists":true,"patternLineages":[{"lineagePattern":"atomer-tekst-input","lineagePath":"../../patterns/00-atomer-01-forms-10-tekst-input/00-atomer-01-forms-10-tekst-input.html","lineageState":"complete altinn altinnett"},{"lineagePattern":"molekyler-valgknapper-og-spesifiser","lineagePath":"../../patterns/01-molekyler-05-forms-05-valgknapper-og-spesifiser/01-molekyler-05-forms-05-valgknapper-og-spesifiser.html","lineageState":"indesignreview altinn altinnett"},{"lineagePattern":"atomer-avkrysningsboks","lineagePath":"../../patterns/00-atomer-01-forms-00-avkrysningsboks/00-atomer-01-forms-00-avkrysningsboks.html","lineageState":"complete altinn altinnett"},{"lineagePattern":"organismer-dashboard-kontaktinfo","lineagePath":"../../patterns/02-organismer-20-forms-91-dashboard-kontaktinfo/02-organismer-20-forms-91-dashboard-kontaktinfo.html","lineageState":"inprogress altinnett"},{"lineagePattern":"atomer-tekstfelt","lineagePath":"../../patterns/00-atomer-01-forms-40-tekstfelt/00-atomer-01-forms-40-tekstfelt.html","lineageState":"complete altinn altinnett"},{"lineagePattern":"atomer-knapp","lineagePath":"../../patterns/00-atomer-03-knapper-10-knapp/00-atomer-03-knapper-10-knapp.html","lineageState":"complete altinn altinnett"}],"lineage":[{"lineagePattern":"atomer-tekst-input","lineagePath":"../../patterns/00-atomer-01-forms-10-tekst-input/00-atomer-01-forms-10-tekst-input.html","lineageState":"complete altinn altinnett"},{"lineagePattern":"molekyler-valgknapper-og-spesifiser","lineagePath":"../../patterns/01-molekyler-05-forms-05-valgknapper-og-spesifiser/01-molekyler-05-forms-05-valgknapper-og-spesifiser.html","lineageState":"indesignreview altinn altinnett"},{"lineagePattern":"atomer-avkrysningsboks","lineagePath":"../../patterns/00-atomer-01-forms-00-avkrysningsboks/00-atomer-01-forms-00-avkrysningsboks.html","lineageState":"complete altinn altinnett"},{"lineagePattern":"organismer-dashboard-kontaktinfo","lineagePath":"../../patterns/02-organismer-20-forms-91-dashboard-kontaktinfo/02-organismer-20-forms-91-dashboard-kontaktinfo.html","lineageState":"inprogress altinnett"},{"lineagePattern":"atomer-tekstfelt","lineagePath":"../../patterns/00-atomer-01-forms-40-tekstfelt/00-atomer-01-forms-40-tekstfelt.html","lineageState":"complete altinn altinnett"},{"lineagePattern":"atomer-knapp","lineagePath":"../../patterns/00-atomer-03-knapper-10-knapp/00-atomer-03-knapper-10-knapp.html","lineageState":"complete altinn altinnett"}],"patternLineageRExists":false,"patternLineagesR":[],"lineageR":[],"patternLineageEExists":true,"patternDesc":"<p>Eksempelside for modal med javascript</p>\n","patternBreadcrumb":{"patternType":"organismer","patternSubtype":"Modal-js-innhold"},"patternExtension":"mustache","patternName":"Dashboard Sendmelding Installation","patternPartial":"organismer-dashboard-sendmelding-installation","patternState":"indesignreview altinn altinnett","patternEngineName":"mustache","extraOutput":{}}
   </script>
 </div><!--end .sg-pattern-->
 <div id="organismer-dashboard-sendmelding-linkservice-step1" class="sg-pattern">
@@ -4439,7 +5534,7 @@
 
   <div class="form-group a-form-group   ">
 
-      <label class="a-form-label  " for="text-input-generic">URL til tjenesten i testmiljø (TT02)</label>
+      <label class="a-form-label  " for="text-input-generic">Fullstendig URL til tjenesten i testmiljø (TT02)</label>
 
     <div class="a-form-group-items input-group   ">
 
@@ -4794,7 +5889,7 @@
     <div class="modal-body a-modal-body">
       
         <!-- START: 02-organismer-20-forms-91-dashboard-kontaktinfo -->
-  <h2 class="a-h4">Kontaktinformasjon for tekniske avklaringer</h2>
+  <h2 class="a-h4">Kontaktperson for tekniske avklaringer</h2>
   <!-- START: 00-atomer-01-forms-10-tekst-input JS doc: handleFocus.js, searchWithMultipleSelectInAutoComplete.js brukes via klassen a-js-autocomplete på form-control-class gir autocomplete med mulighet for å velge flere elementer fra resultatlista. -->
 
   <div class="form-group a-form-group   ">
@@ -4807,13 +5902,13 @@
       <input class="form-control  
          "
         type="text" 
-        placeholder="Feks. Kari Nordmann, Servicedesk, o.l."
+        placeholder="Feks. Kari Nordmann"
         
         name="input-field"
         data-val="true"
         id="contact-name"
         required
-         data-val-required="Du har ikke oppgitt navn på kontaktpunkt." 
+         data-val-required="Du har ikke oppgitt navn på kontaktperson." 
         
         
         
@@ -4941,8 +6036,7 @@
 <!-- END: 02-organismer-20-forms-91-dashboard-kontaktinfo -->
 
 
-        <div class="row">
-          <!-- START: 00-atomer-03-knapper-10-knapp -->
+        <!-- START: 00-atomer-03-knapper-10-knapp -->
 <button
    type="button" 
   
@@ -4964,7 +6058,6 @@
 
 <!-- END: 00-atomer-03-knapper-10-knapp -->
 
-        </div>
     </div>
 </div>
 
@@ -5125,10 +6218,11 @@
             </div>
           </div>
 
-          <div class="a-form-group mb-2">
-            <label class="a-form-label" for="environment">Angi ønsket miljø</label>
-            <form id=environment>
-              <!-- START: 00-atomer-01-forms-07-valgknapp-ett-alternativ -->
+          <!-- START: 01-molekyler-05-forms-05-valgknapper-og-spesifiser -->
+<div class="a-form-group ">
+  <label class="a-form-label" for="environment">Angi ønsket miljø</label>
+  <form id=environment>
+    <!-- START: 00-atomer-01-forms-07-valgknapp-ett-alternativ -->
 
 	<fieldset>
 	  <legend class="sr-only">Velg et alternativ</legend>
@@ -5136,7 +6230,17 @@
 
 			<div class="a-switch  ">
 
-				<input id="radiobutton-production"  class="sr-only" type="radio" name="environment" value="radiobutton-read"  />
+				<input
+          id="radiobutton-production" 
+          class="sr-only"
+          type="radio"
+          name="environment"
+          value="radiobutton-read"
+          
+          
+           data-toggle="collapse" 
+           data-target=".annet.show" 
+        />
 
 				<label for="radiobutton-production" class="a-switch-label ">
 	        Produksjon
@@ -5147,7 +6251,17 @@
 
 			<div class="a-switch  ">
 
-				<input id="radiobutton-tt02"  class="sr-only" type="radio" name="environment" value="radiobutton-read"  />
+				<input
+          id="radiobutton-tt02" 
+          class="sr-only"
+          type="radio"
+          name="environment"
+          value="radiobutton-read"
+          
+          
+           data-toggle="collapse" 
+           data-target=".annet.show" 
+        />
 
 				<label for="radiobutton-tt02" class="a-switch-label ">
 	        TT02
@@ -5158,10 +6272,20 @@
 
 			<div class="a-switch  ">
 
-				<input id="radiobutton-at05"  class="sr-only" type="radio" name="environment" value="radiobutton-read"  />
+				<input
+          id="radiobutton-annet" 
+          class="sr-only"
+          type="radio"
+          name="environment"
+          value="radiobutton-read"
+          
+          
+           data-toggle="collapse" 
+           data-target=".annet:not(.show)" 
+        />
 
-				<label for="radiobutton-at05" class="a-switch-label ">
-	        AT05
+				<label for="radiobutton-annet" class="a-switch-label ">
+	        Annet
 	      </label>
 
 			</div>
@@ -5172,8 +6296,54 @@
 
 <!-- END: 00-atomer-01-forms-07-valgknapp-ett-alternativ -->
 
-            </form>
-          </div>
+      <div class="mb-2">
+        <div class="annet collapse">
+          <!-- START: 00-atomer-01-forms-10-tekst-input JS doc: handleFocus.js, searchWithMultipleSelectInAutoComplete.js brukes via klassen a-js-autocomplete på form-control-class gir autocomplete med mulighet for å velge flere elementer fra resultatlista. -->
+
+  <div class="form-group a-form-group   ">
+
+      <label class="a-form-label  " for="annet">Vennligst spesifiser</label>
+
+    <div class="a-form-group-items input-group   ">
+
+
+      <input class="form-control  
+         "
+        type="text" 
+        placeholder="Feks. AT05"
+        
+        name="input-field"
+        data-val="true"
+        id="annet"
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+      >
+
+
+
+
+    </div>
+
+
+
+  </div>
+
+<!-- END: 00-atomer-01-forms-10-tekst-input -->
+
+        </div>
+      </div>
+  </form>
+</div>
+<!-- END: 01-molekyler-05-forms-05-valgknapper-og-spesifiser -->
+
 
         <!-- START: 00-atomer-01-forms-40-tekstfelt -->
 <div class="form-group a-form-group ">
@@ -5237,7 +6407,7 @@
 
   </div>
   <script type="text/json" id="sg-pattern-data-organismer-dashboard-sendmelding-prefill" class="sg-pattern-data">
-    {"cssEnabled":false,"patternLineageExists":true,"patternLineages":[{"lineagePattern":"atomer-radioknapp","lineagePath":"../../patterns/00-atomer-01-forms-04-radioknapp/00-atomer-01-forms-04-radioknapp.html","lineageState":"complete altinn altinnett"},{"lineagePattern":"atomer-avkrysningsboks","lineagePath":"../../patterns/00-atomer-01-forms-00-avkrysningsboks/00-atomer-01-forms-00-avkrysningsboks.html","lineageState":"complete altinn altinnett"},{"lineagePattern":"atomer-valgknapp-ett-alternativ","lineagePath":"../../patterns/00-atomer-01-forms-07-valgknapp-ett-alternativ/00-atomer-01-forms-07-valgknapp-ett-alternativ.html","lineageState":"complete altinn altinnett"},{"lineagePattern":"atomer-tekstfelt","lineagePath":"../../patterns/00-atomer-01-forms-40-tekstfelt/00-atomer-01-forms-40-tekstfelt.html","lineageState":"complete altinn altinnett"},{"lineagePattern":"atomer-upload","lineagePath":"../../patterns/00-atomer-01-forms-70-upload/00-atomer-01-forms-70-upload.html","lineageState":"complete altinn"},{"lineagePattern":"atomer-knapp","lineagePath":"../../patterns/00-atomer-03-knapper-10-knapp/00-atomer-03-knapper-10-knapp.html","lineageState":"complete altinn altinnett"}],"lineage":[{"lineagePattern":"atomer-radioknapp","lineagePath":"../../patterns/00-atomer-01-forms-04-radioknapp/00-atomer-01-forms-04-radioknapp.html","lineageState":"complete altinn altinnett"},{"lineagePattern":"atomer-avkrysningsboks","lineagePath":"../../patterns/00-atomer-01-forms-00-avkrysningsboks/00-atomer-01-forms-00-avkrysningsboks.html","lineageState":"complete altinn altinnett"},{"lineagePattern":"atomer-valgknapp-ett-alternativ","lineagePath":"../../patterns/00-atomer-01-forms-07-valgknapp-ett-alternativ/00-atomer-01-forms-07-valgknapp-ett-alternativ.html","lineageState":"complete altinn altinnett"},{"lineagePattern":"atomer-tekstfelt","lineagePath":"../../patterns/00-atomer-01-forms-40-tekstfelt/00-atomer-01-forms-40-tekstfelt.html","lineageState":"complete altinn altinnett"},{"lineagePattern":"atomer-upload","lineagePath":"../../patterns/00-atomer-01-forms-70-upload/00-atomer-01-forms-70-upload.html","lineageState":"complete altinn"},{"lineagePattern":"atomer-knapp","lineagePath":"../../patterns/00-atomer-03-knapper-10-knapp/00-atomer-03-knapper-10-knapp.html","lineageState":"complete altinn altinnett"}],"patternLineageRExists":false,"patternLineagesR":[],"lineageR":[],"patternLineageEExists":true,"patternDesc":"<p>Eksempelside for modal med javascript</p>\n","patternBreadcrumb":{"patternType":"organismer","patternSubtype":"Modal-js-innhold"},"patternExtension":"mustache","patternName":"Dashboard Sendmelding Prefill","patternPartial":"organismer-dashboard-sendmelding-prefill","patternState":"indesignreview altinn altinnett","patternEngineName":"mustache","extraOutput":{}}
+    {"cssEnabled":false,"patternLineageExists":true,"patternLineages":[{"lineagePattern":"atomer-radioknapp","lineagePath":"../../patterns/00-atomer-01-forms-04-radioknapp/00-atomer-01-forms-04-radioknapp.html","lineageState":"complete altinn altinnett"},{"lineagePattern":"atomer-avkrysningsboks","lineagePath":"../../patterns/00-atomer-01-forms-00-avkrysningsboks/00-atomer-01-forms-00-avkrysningsboks.html","lineageState":"complete altinn altinnett"},{"lineagePattern":"molekyler-valgknapper-og-spesifiser","lineagePath":"../../patterns/01-molekyler-05-forms-05-valgknapper-og-spesifiser/01-molekyler-05-forms-05-valgknapper-og-spesifiser.html","lineageState":"indesignreview altinn altinnett"},{"lineagePattern":"atomer-tekstfelt","lineagePath":"../../patterns/00-atomer-01-forms-40-tekstfelt/00-atomer-01-forms-40-tekstfelt.html","lineageState":"complete altinn altinnett"},{"lineagePattern":"atomer-upload","lineagePath":"../../patterns/00-atomer-01-forms-70-upload/00-atomer-01-forms-70-upload.html","lineageState":"complete altinn"},{"lineagePattern":"atomer-knapp","lineagePath":"../../patterns/00-atomer-03-knapper-10-knapp/00-atomer-03-knapper-10-knapp.html","lineageState":"complete altinn altinnett"}],"lineage":[{"lineagePattern":"atomer-radioknapp","lineagePath":"../../patterns/00-atomer-01-forms-04-radioknapp/00-atomer-01-forms-04-radioknapp.html","lineageState":"complete altinn altinnett"},{"lineagePattern":"atomer-avkrysningsboks","lineagePath":"../../patterns/00-atomer-01-forms-00-avkrysningsboks/00-atomer-01-forms-00-avkrysningsboks.html","lineageState":"complete altinn altinnett"},{"lineagePattern":"molekyler-valgknapper-og-spesifiser","lineagePath":"../../patterns/01-molekyler-05-forms-05-valgknapper-og-spesifiser/01-molekyler-05-forms-05-valgknapper-og-spesifiser.html","lineageState":"indesignreview altinn altinnett"},{"lineagePattern":"atomer-tekstfelt","lineagePath":"../../patterns/00-atomer-01-forms-40-tekstfelt/00-atomer-01-forms-40-tekstfelt.html","lineageState":"complete altinn altinnett"},{"lineagePattern":"atomer-upload","lineagePath":"../../patterns/00-atomer-01-forms-70-upload/00-atomer-01-forms-70-upload.html","lineageState":"complete altinn"},{"lineagePattern":"atomer-knapp","lineagePath":"../../patterns/00-atomer-03-knapper-10-knapp/00-atomer-03-knapper-10-knapp.html","lineageState":"complete altinn altinnett"}],"patternLineageRExists":false,"patternLineagesR":[],"lineageR":[],"patternLineageEExists":true,"patternDesc":"<p>Eksempelside for modal med javascript</p>\n","patternBreadcrumb":{"patternType":"organismer","patternSubtype":"Modal-js-innhold"},"patternExtension":"mustache","patternName":"Dashboard Sendmelding Prefill","patternPartial":"organismer-dashboard-sendmelding-prefill","patternState":"indesignreview altinn altinnett","patternEngineName":"mustache","extraOutput":{}}
   </script>
 </div><!--end .sg-pattern-->
 <div id="organismer-dashboard-sendmelding-prod" class="sg-pattern">
@@ -5590,8 +6760,7 @@
 <!-- END: 02-organismer-20-forms-91-dashboard-kontaktinfo -->
 
 
-        <div class="row">
-          <!-- START: 00-atomer-03-knapper-10-knapp -->
+        <!-- START: 00-atomer-03-knapper-10-knapp -->
 <button
    type="button" 
   
@@ -5613,7 +6782,6 @@
 
 <!-- END: 00-atomer-03-knapper-10-knapp -->
 
-        </div>
     </div>
 </div>
 
@@ -7230,18 +8398,18 @@
             <div class="col-12">
               <div class="form-group a-form-group">
                   <!-- START: 01-molekyler-05-forms-20-dato-og-tid -->
-<div class="row  form-group">
+<div class="row  form-group mb-0">
       <div class="col-12">
         <label class="a-form-label">Ønsket produksjonssetting:</label>
       </div>
   <div class="col-12 d-flex align-items-start">
     
-    <div class="w-100">
-        <!-- START: 00-atomer-01-forms-60-datovelger JS doc: initializeDatepicker.js. Requires class .form-control.date -->
+      <!-- START: 00-atomer-01-forms-60-datovelger JS doc: initializeDatepicker.js. Requires class .form-control.date -->
 <div class="d-inline-block form-group a-form-group a-form-group-datepicker">
-  <div class="input-group">
+  <div class="input-group ">
     <input type="text"
       id="datovelger"
+      
       
       
       class="form-control a-hasButton  date" />
@@ -7259,10 +8427,9 @@
 
 <!-- END: 00-atomer-01-forms-60-datovelger -->
 
-    </div>
 
-    <div class="ml-2 input-group">
-      <input class="form-control" type="time" name="timepicker">
+    <div class="ml-2 input-group ">
+      <input class="form-control" type="time" name="timepicker"  >
     </div>
   </div>
 </div>
@@ -7275,18 +8442,18 @@
             <div class="col-12">
               <div class="form-group a-form-group mb-1">
                     <!-- START: 01-molekyler-05-forms-20-dato-og-tid -->
-<div class="row  form-group">
+<div class="row  form-group mb-0">
       <div class="col-12">
         <label class="a-form-label">Ønsket publisering:</label>
       </div>
   <div class="col-12 d-flex align-items-start">
     
-    <div class="w-100">
-        <!-- START: 00-atomer-01-forms-60-datovelger JS doc: initializeDatepicker.js. Requires class .form-control.date -->
+      <!-- START: 00-atomer-01-forms-60-datovelger JS doc: initializeDatepicker.js. Requires class .form-control.date -->
 <div class="d-inline-block form-group a-form-group a-form-group-datepicker">
-  <div class="input-group">
+  <div class="input-group ">
     <input type="text"
       id="datovelger"
+      
       
       
       class="form-control a-hasButton  date" />
@@ -7304,10 +8471,9 @@
 
 <!-- END: 00-atomer-01-forms-60-datovelger -->
 
-    </div>
 
-    <div class="ml-2 input-group">
-      <input class="form-control" type="time" name="timepicker">
+    <div class="ml-2 input-group ">
+      <input class="form-control" type="time" name="timepicker"  >
     </div>
   </div>
 </div>
@@ -7822,10 +8988,11 @@
     </div>
     <div class="modal-body a-modal-body">
 
-        <div class="a-form-group mb-2">
-          <label class="a-form-label" for="environment">Angi ønsket miljø</label>
-          <form id=environment>
-            <!-- START: 00-atomer-01-forms-07-valgknapp-ett-alternativ -->
+        <!-- START: 01-molekyler-05-forms-05-valgknapper-og-spesifiser -->
+<div class="a-form-group ">
+  <label class="a-form-label" for="environment">Angi ønsket miljø</label>
+  <form id=environment>
+    <!-- START: 00-atomer-01-forms-07-valgknapp-ett-alternativ -->
 
 	<fieldset>
 	  <legend class="sr-only">Velg et alternativ</legend>
@@ -7833,7 +9000,17 @@
 
 			<div class="a-switch  ">
 
-				<input id="radiobutton-production"  class="sr-only" type="radio" name="environment" value="radiobutton-read"  />
+				<input
+          id="radiobutton-production" 
+          class="sr-only"
+          type="radio"
+          name="environment"
+          value="radiobutton-read"
+          
+          
+          
+          
+        />
 
 				<label for="radiobutton-production" class="a-switch-label ">
 	        Produksjon
@@ -7844,7 +9021,17 @@
 
 			<div class="a-switch  ">
 
-				<input id="radiobutton-tt02"  class="sr-only" type="radio" name="environment" value="radiobutton-read"  />
+				<input
+          id="radiobutton-tt02" 
+          class="sr-only"
+          type="radio"
+          name="environment"
+          value="radiobutton-read"
+          
+          
+          
+          
+        />
 
 				<label for="radiobutton-tt02" class="a-switch-label ">
 	        TT02
@@ -7858,8 +9045,54 @@
 
 <!-- END: 00-atomer-01-forms-07-valgknapp-ett-alternativ -->
 
-          </form>
+      <div class="mb-2">
+        <div class="annet collapse">
+          <!-- START: 00-atomer-01-forms-10-tekst-input JS doc: handleFocus.js, searchWithMultipleSelectInAutoComplete.js brukes via klassen a-js-autocomplete på form-control-class gir autocomplete med mulighet for å velge flere elementer fra resultatlista. -->
+
+  <div class="form-group a-form-group   ">
+
+      <label class="a-form-label  " for="annet">Vennligst spesifiser</label>
+
+    <div class="a-form-group-items input-group   ">
+
+
+      <input class="form-control  
+         "
+        type="text" 
+        placeholder="Feks. AT05"
+        
+        name="input-field"
+        data-val="true"
+        id="annet"
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+      >
+
+
+
+
+    </div>
+
+
+
+  </div>
+
+<!-- END: 00-atomer-01-forms-10-tekst-input -->
+
         </div>
+      </div>
+  </form>
+</div>
+<!-- END: 01-molekyler-05-forms-05-valgknapper-og-spesifiser -->
+
 
         <div class="mb-2">
           <!-- START: 00-atomer-01-forms-10-tekst-input JS doc: handleFocus.js, searchWithMultipleSelectInAutoComplete.js brukes via klassen a-js-autocomplete på form-control-class gir autocomplete med mulighet for å velge flere elementer fra resultatlista. -->
@@ -8003,15 +9236,15 @@
       
       <div class="collapse datovelgercollapse no-transition">
         <!-- START: 01-molekyler-05-forms-20-dato-og-tid -->
-<div class="row  form-group">
+<div class="row  form-group mb-0">
   <div class="col-12 d-flex align-items-start">
     
-    <div class="w-100">
-        <!-- START: 00-atomer-01-forms-60-datovelger JS doc: initializeDatepicker.js. Requires class .form-control.date -->
+      <!-- START: 00-atomer-01-forms-60-datovelger JS doc: initializeDatepicker.js. Requires class .form-control.date -->
 <div class="d-inline-block form-group a-form-group a-form-group-datepicker">
-  <div class="input-group">
+  <div class="input-group ">
     <input type="text"
       id="datovelger"
+      
       
       
       class="form-control a-hasButton  date" />
@@ -8029,10 +9262,9 @@
 
 <!-- END: 00-atomer-01-forms-60-datovelger -->
 
-    </div>
 
-    <div class="ml-2 input-group">
-      <input class="form-control" type="time" name="timepicker">
+    <div class="ml-2 input-group ">
+      <input class="form-control" type="time" name="timepicker"  >
     </div>
   </div>
 </div>
@@ -8077,7 +9309,7 @@
 
   </div>
   <script type="text/json" id="sg-pattern-data-organismer-dashboard-redigerTjeneste-altinn-step1" class="sg-pattern-data">
-    {"cssEnabled":false,"patternLineageExists":true,"patternLineages":[{"lineagePattern":"atomer-valgknapp-ett-alternativ","lineagePath":"../../patterns/00-atomer-01-forms-07-valgknapp-ett-alternativ/00-atomer-01-forms-07-valgknapp-ett-alternativ.html","lineageState":"complete altinn altinnett"},{"lineagePattern":"atomer-tekst-input","lineagePath":"../../patterns/00-atomer-01-forms-10-tekst-input/00-atomer-01-forms-10-tekst-input.html","lineageState":"complete altinn altinnett"},{"lineagePattern":"atomer-avkrysningsboks","lineagePath":"../../patterns/00-atomer-01-forms-00-avkrysningsboks/00-atomer-01-forms-00-avkrysningsboks.html","lineageState":"complete altinn altinnett"},{"lineagePattern":"molekyler-utsett-tidspunkt","lineagePath":"../../patterns/01-molekyler-05-forms-22-utsett-tidspunkt/01-molekyler-05-forms-22-utsett-tidspunkt.html","lineageState":"indesignreview altinn altinnett"},{"lineagePattern":"atomer-knapp","lineagePath":"../../patterns/00-atomer-03-knapper-10-knapp/00-atomer-03-knapper-10-knapp.html","lineageState":"complete altinn altinnett"}],"lineage":[{"lineagePattern":"atomer-valgknapp-ett-alternativ","lineagePath":"../../patterns/00-atomer-01-forms-07-valgknapp-ett-alternativ/00-atomer-01-forms-07-valgknapp-ett-alternativ.html","lineageState":"complete altinn altinnett"},{"lineagePattern":"atomer-tekst-input","lineagePath":"../../patterns/00-atomer-01-forms-10-tekst-input/00-atomer-01-forms-10-tekst-input.html","lineageState":"complete altinn altinnett"},{"lineagePattern":"atomer-avkrysningsboks","lineagePath":"../../patterns/00-atomer-01-forms-00-avkrysningsboks/00-atomer-01-forms-00-avkrysningsboks.html","lineageState":"complete altinn altinnett"},{"lineagePattern":"molekyler-utsett-tidspunkt","lineagePath":"../../patterns/01-molekyler-05-forms-22-utsett-tidspunkt/01-molekyler-05-forms-22-utsett-tidspunkt.html","lineageState":"indesignreview altinn altinnett"},{"lineagePattern":"atomer-knapp","lineagePath":"../../patterns/00-atomer-03-knapper-10-knapp/00-atomer-03-knapper-10-knapp.html","lineageState":"complete altinn altinnett"}],"patternLineageRExists":false,"patternLineagesR":[],"lineageR":[],"patternLineageEExists":true,"patternDesc":"<p>Eksempelside for modal med javascript</p>\n","patternBreadcrumb":{"patternType":"organismer","patternSubtype":"Modal-js-innhold"},"patternExtension":"mustache","patternName":"Dashboard RedigerTjeneste Altinn Step1","patternPartial":"organismer-dashboard-redigerTjeneste-altinn-step1","patternState":"indesignreview altinn altinnett","patternEngineName":"mustache","extraOutput":{}}
+    {"cssEnabled":false,"patternLineageExists":true,"patternLineages":[{"lineagePattern":"molekyler-valgknapper-og-spesifiser","lineagePath":"../../patterns/01-molekyler-05-forms-05-valgknapper-og-spesifiser/01-molekyler-05-forms-05-valgknapper-og-spesifiser.html","lineageState":"indesignreview altinn altinnett"},{"lineagePattern":"atomer-tekst-input","lineagePath":"../../patterns/00-atomer-01-forms-10-tekst-input/00-atomer-01-forms-10-tekst-input.html","lineageState":"complete altinn altinnett"},{"lineagePattern":"atomer-avkrysningsboks","lineagePath":"../../patterns/00-atomer-01-forms-00-avkrysningsboks/00-atomer-01-forms-00-avkrysningsboks.html","lineageState":"complete altinn altinnett"},{"lineagePattern":"molekyler-utsett-tidspunkt","lineagePath":"../../patterns/01-molekyler-05-forms-22-utsett-tidspunkt/01-molekyler-05-forms-22-utsett-tidspunkt.html","lineageState":"indesignreview altinn altinnett"},{"lineagePattern":"atomer-knapp","lineagePath":"../../patterns/00-atomer-03-knapper-10-knapp/00-atomer-03-knapper-10-knapp.html","lineageState":"complete altinn altinnett"}],"lineage":[{"lineagePattern":"molekyler-valgknapper-og-spesifiser","lineagePath":"../../patterns/01-molekyler-05-forms-05-valgknapper-og-spesifiser/01-molekyler-05-forms-05-valgknapper-og-spesifiser.html","lineageState":"indesignreview altinn altinnett"},{"lineagePattern":"atomer-tekst-input","lineagePath":"../../patterns/00-atomer-01-forms-10-tekst-input/00-atomer-01-forms-10-tekst-input.html","lineageState":"complete altinn altinnett"},{"lineagePattern":"atomer-avkrysningsboks","lineagePath":"../../patterns/00-atomer-01-forms-00-avkrysningsboks/00-atomer-01-forms-00-avkrysningsboks.html","lineageState":"complete altinn altinnett"},{"lineagePattern":"molekyler-utsett-tidspunkt","lineagePath":"../../patterns/01-molekyler-05-forms-22-utsett-tidspunkt/01-molekyler-05-forms-22-utsett-tidspunkt.html","lineageState":"indesignreview altinn altinnett"},{"lineagePattern":"atomer-knapp","lineagePath":"../../patterns/00-atomer-03-knapper-10-knapp/00-atomer-03-knapper-10-knapp.html","lineageState":"complete altinn altinnett"}],"patternLineageRExists":false,"patternLineagesR":[],"lineageR":[],"patternLineageEExists":true,"patternDesc":"<p>Eksempelside for modal med javascript</p>\n","patternBreadcrumb":{"patternType":"organismer","patternSubtype":"Modal-js-innhold"},"patternExtension":"mustache","patternName":"Dashboard RedigerTjeneste Altinn Step1","patternPartial":"organismer-dashboard-redigerTjeneste-altinn-step1","patternState":"indesignreview altinn altinnett","patternEngineName":"mustache","extraOutput":{}}
   </script>
 </div><!--end .sg-pattern-->
 <div id="organismer-dashboard-redigerTjeneste-altinn-step1-frameldinger" class="sg-pattern">
@@ -8111,10 +9343,11 @@
     </div>
     <div class="modal-body a-modal-body">
 
-        <div class="a-form-group mb-2">
-          <label class="a-form-label" for="environment">Hvilket miljø skal tjenesteinformasjonen publiseres til?</label>
-          <form id=environment>
-            <!-- START: 00-atomer-01-forms-07-valgknapp-ett-alternativ -->
+        <!-- START: 01-molekyler-05-forms-05-valgknapper-og-spesifiser -->
+<div class="a-form-group ">
+  <label class="a-form-label" for="environment">Hvilket miljø skal tjenesteinformasjonen publiseres til?</label>
+  <form id=environment>
+    <!-- START: 00-atomer-01-forms-07-valgknapp-ett-alternativ -->
 
 	<fieldset>
 	  <legend class="sr-only">Velg et alternativ</legend>
@@ -8122,7 +9355,17 @@
 
 			<div class="a-switch  ">
 
-				<input id="radiobutton-production"  class="sr-only" type="radio" name="environment" value="radiobutton-read"  />
+				<input
+          id="radiobutton-production" 
+          class="sr-only"
+          type="radio"
+          name="environment"
+          value="radiobutton-read"
+          
+          
+          
+          
+        />
 
 				<label for="radiobutton-production" class="a-switch-label ">
 	        Produksjon
@@ -8133,7 +9376,17 @@
 
 			<div class="a-switch  ">
 
-				<input id="radiobutton-tt02"  class="sr-only" type="radio" name="environment" value="radiobutton-read"  />
+				<input
+          id="radiobutton-tt02" 
+          class="sr-only"
+          type="radio"
+          name="environment"
+          value="radiobutton-read"
+          
+          
+          
+          
+        />
 
 				<label for="radiobutton-tt02" class="a-switch-label ">
 	        TT02
@@ -8147,8 +9400,54 @@
 
 <!-- END: 00-atomer-01-forms-07-valgknapp-ett-alternativ -->
 
-          </form>
+      <div class="mb-2">
+        <div class="annet collapse">
+          <!-- START: 00-atomer-01-forms-10-tekst-input JS doc: handleFocus.js, searchWithMultipleSelectInAutoComplete.js brukes via klassen a-js-autocomplete på form-control-class gir autocomplete med mulighet for å velge flere elementer fra resultatlista. -->
+
+  <div class="form-group a-form-group   ">
+
+      <label class="a-form-label  " for="annet">Vennligst spesifiser</label>
+
+    <div class="a-form-group-items input-group   ">
+
+
+      <input class="form-control  
+         "
+        type="text" 
+        placeholder="Feks. AT05"
+        
+        name="input-field"
+        data-val="true"
+        id="annet"
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+      >
+
+
+
+
+    </div>
+
+
+
+  </div>
+
+<!-- END: 00-atomer-01-forms-10-tekst-input -->
+
         </div>
+      </div>
+  </form>
+</div>
+<!-- END: 01-molekyler-05-forms-05-valgknapper-og-spesifiser -->
+
 
         <div class="mb-2">
           <!-- START: 00-atomer-01-forms-10-tekst-input JS doc: handleFocus.js, searchWithMultipleSelectInAutoComplete.js brukes via klassen a-js-autocomplete på form-control-class gir autocomplete med mulighet for å velge flere elementer fra resultatlista. -->
@@ -8378,15 +9677,15 @@
       
       <div class="collapse datovelgercollapse no-transition">
         <!-- START: 01-molekyler-05-forms-20-dato-og-tid -->
-<div class="row  form-group">
+<div class="row  form-group mb-0">
   <div class="col-12 d-flex align-items-start">
     
-    <div class="w-100">
-        <!-- START: 00-atomer-01-forms-60-datovelger JS doc: initializeDatepicker.js. Requires class .form-control.date -->
+      <!-- START: 00-atomer-01-forms-60-datovelger JS doc: initializeDatepicker.js. Requires class .form-control.date -->
 <div class="d-inline-block form-group a-form-group a-form-group-datepicker">
-  <div class="input-group">
+  <div class="input-group ">
     <input type="text"
       id="datovelger"
+      
       
       
       class="form-control a-hasButton  date" />
@@ -8404,10 +9703,9 @@
 
 <!-- END: 00-atomer-01-forms-60-datovelger -->
 
-    </div>
 
-    <div class="ml-2 input-group">
-      <input class="form-control" type="time" name="timepicker">
+    <div class="ml-2 input-group ">
+      <input class="form-control" type="time" name="timepicker"  >
     </div>
   </div>
 </div>
@@ -8452,7 +9750,7 @@
 
   </div>
   <script type="text/json" id="sg-pattern-data-organismer-dashboard-redigerTjeneste-altinn-step1-frameldinger" class="sg-pattern-data">
-    {"cssEnabled":false,"patternLineageExists":true,"patternLineages":[{"lineagePattern":"atomer-valgknapp-ett-alternativ","lineagePath":"../../patterns/00-atomer-01-forms-07-valgknapp-ett-alternativ/00-atomer-01-forms-07-valgknapp-ett-alternativ.html","lineageState":"complete altinn altinnett"},{"lineagePattern":"atomer-tekst-input","lineagePath":"../../patterns/00-atomer-01-forms-10-tekst-input/00-atomer-01-forms-10-tekst-input.html","lineageState":"complete altinn altinnett"},{"lineagePattern":"atomer-avkrysningsboks","lineagePath":"../../patterns/00-atomer-01-forms-00-avkrysningsboks/00-atomer-01-forms-00-avkrysningsboks.html","lineageState":"complete altinn altinnett"},{"lineagePattern":"molekyler-utsett-tidspunkt","lineagePath":"../../patterns/01-molekyler-05-forms-22-utsett-tidspunkt/01-molekyler-05-forms-22-utsett-tidspunkt.html","lineageState":"indesignreview altinn altinnett"},{"lineagePattern":"atomer-knapp","lineagePath":"../../patterns/00-atomer-03-knapper-10-knapp/00-atomer-03-knapper-10-knapp.html","lineageState":"complete altinn altinnett"}],"lineage":[{"lineagePattern":"atomer-valgknapp-ett-alternativ","lineagePath":"../../patterns/00-atomer-01-forms-07-valgknapp-ett-alternativ/00-atomer-01-forms-07-valgknapp-ett-alternativ.html","lineageState":"complete altinn altinnett"},{"lineagePattern":"atomer-tekst-input","lineagePath":"../../patterns/00-atomer-01-forms-10-tekst-input/00-atomer-01-forms-10-tekst-input.html","lineageState":"complete altinn altinnett"},{"lineagePattern":"atomer-avkrysningsboks","lineagePath":"../../patterns/00-atomer-01-forms-00-avkrysningsboks/00-atomer-01-forms-00-avkrysningsboks.html","lineageState":"complete altinn altinnett"},{"lineagePattern":"molekyler-utsett-tidspunkt","lineagePath":"../../patterns/01-molekyler-05-forms-22-utsett-tidspunkt/01-molekyler-05-forms-22-utsett-tidspunkt.html","lineageState":"indesignreview altinn altinnett"},{"lineagePattern":"atomer-knapp","lineagePath":"../../patterns/00-atomer-03-knapper-10-knapp/00-atomer-03-knapper-10-knapp.html","lineageState":"complete altinn altinnett"}],"patternLineageRExists":false,"patternLineagesR":[],"lineageR":[],"patternLineageEExists":true,"patternDesc":"","patternBreadcrumb":{"patternType":"organismer","patternSubtype":"Modal-js-innhold"},"patternExtension":"mustache","patternName":"Dashboard RedigerTjeneste Altinn Step1 Frameldinger","patternPartial":"organismer-dashboard-redigerTjeneste-altinn-step1-frameldinger","patternState":"complete altinn altinnett","patternEngineName":"mustache","extraOutput":{}}
+    {"cssEnabled":false,"patternLineageExists":true,"patternLineages":[{"lineagePattern":"molekyler-valgknapper-og-spesifiser","lineagePath":"../../patterns/01-molekyler-05-forms-05-valgknapper-og-spesifiser/01-molekyler-05-forms-05-valgknapper-og-spesifiser.html","lineageState":"indesignreview altinn altinnett"},{"lineagePattern":"atomer-tekst-input","lineagePath":"../../patterns/00-atomer-01-forms-10-tekst-input/00-atomer-01-forms-10-tekst-input.html","lineageState":"complete altinn altinnett"},{"lineagePattern":"atomer-avkrysningsboks","lineagePath":"../../patterns/00-atomer-01-forms-00-avkrysningsboks/00-atomer-01-forms-00-avkrysningsboks.html","lineageState":"complete altinn altinnett"},{"lineagePattern":"molekyler-utsett-tidspunkt","lineagePath":"../../patterns/01-molekyler-05-forms-22-utsett-tidspunkt/01-molekyler-05-forms-22-utsett-tidspunkt.html","lineageState":"indesignreview altinn altinnett"},{"lineagePattern":"atomer-knapp","lineagePath":"../../patterns/00-atomer-03-knapper-10-knapp/00-atomer-03-knapper-10-knapp.html","lineageState":"complete altinn altinnett"}],"lineage":[{"lineagePattern":"molekyler-valgknapper-og-spesifiser","lineagePath":"../../patterns/01-molekyler-05-forms-05-valgknapper-og-spesifiser/01-molekyler-05-forms-05-valgknapper-og-spesifiser.html","lineageState":"indesignreview altinn altinnett"},{"lineagePattern":"atomer-tekst-input","lineagePath":"../../patterns/00-atomer-01-forms-10-tekst-input/00-atomer-01-forms-10-tekst-input.html","lineageState":"complete altinn altinnett"},{"lineagePattern":"atomer-avkrysningsboks","lineagePath":"../../patterns/00-atomer-01-forms-00-avkrysningsboks/00-atomer-01-forms-00-avkrysningsboks.html","lineageState":"complete altinn altinnett"},{"lineagePattern":"molekyler-utsett-tidspunkt","lineagePath":"../../patterns/01-molekyler-05-forms-22-utsett-tidspunkt/01-molekyler-05-forms-22-utsett-tidspunkt.html","lineageState":"indesignreview altinn altinnett"},{"lineagePattern":"atomer-knapp","lineagePath":"../../patterns/00-atomer-03-knapper-10-knapp/00-atomer-03-knapper-10-knapp.html","lineageState":"complete altinn altinnett"}],"patternLineageRExists":false,"patternLineagesR":[],"lineageR":[],"patternLineageEExists":true,"patternDesc":"","patternBreadcrumb":{"patternType":"organismer","patternSubtype":"Modal-js-innhold"},"patternExtension":"mustache","patternName":"Dashboard RedigerTjeneste Altinn Step1 Frameldinger","patternPartial":"organismer-dashboard-redigerTjeneste-altinn-step1-frameldinger","patternState":"complete altinn altinnett","patternEngineName":"mustache","extraOutput":{}}
   </script>
 </div><!--end .sg-pattern-->
 <div id="organismer-dashboard-redigerTjeneste-altinn-step2" class="sg-pattern">
@@ -9612,10 +10910,11 @@
 
         </div>
 
-        <div class="a-form-group mb-2">
-          <label class="a-form-label" for="environment">Angi ønsket miljø</label>
-          <form id=environment>
-            <!-- START: 00-atomer-01-forms-07-valgknapp-ett-alternativ -->
+        <!-- START: 01-molekyler-05-forms-05-valgknapper-og-spesifiser -->
+<div class="a-form-group ">
+  <label class="a-form-label" for="environment">Angi ønsket miljø</label>
+  <form id=environment>
+    <!-- START: 00-atomer-01-forms-07-valgknapp-ett-alternativ -->
 
 	<fieldset>
 	  <legend class="sr-only">Velg et alternativ</legend>
@@ -9623,7 +10922,17 @@
 
 			<div class="a-switch  ">
 
-				<input id="radiobutton-production"  class="sr-only" type="radio" name="environment" value="radiobutton-read"  />
+				<input
+          id="radiobutton-production" 
+          class="sr-only"
+          type="radio"
+          name="environment"
+          value="radiobutton-read"
+          
+          
+           data-toggle="collapse" 
+           data-target=".annet.show" 
+        />
 
 				<label for="radiobutton-production" class="a-switch-label ">
 	        Produksjon
@@ -9634,7 +10943,17 @@
 
 			<div class="a-switch  ">
 
-				<input id="radiobutton-tt02"  class="sr-only" type="radio" name="environment" value="radiobutton-read"  />
+				<input
+          id="radiobutton-tt02" 
+          class="sr-only"
+          type="radio"
+          name="environment"
+          value="radiobutton-read"
+          
+          
+           data-toggle="collapse" 
+           data-target=".annet.show" 
+        />
 
 				<label for="radiobutton-tt02" class="a-switch-label ">
 	        TT02
@@ -9645,10 +10964,20 @@
 
 			<div class="a-switch  ">
 
-				<input id="radiobutton-at05"  class="sr-only" type="radio" name="environment" value="radiobutton-read"  />
+				<input
+          id="radiobutton-annet" 
+          class="sr-only"
+          type="radio"
+          name="environment"
+          value="radiobutton-read"
+          
+          
+           data-toggle="collapse" 
+           data-target=".annet:not(.show)" 
+        />
 
-				<label for="radiobutton-at05" class="a-switch-label ">
-	        AT05
+				<label for="radiobutton-annet" class="a-switch-label ">
+	        Annet
 	      </label>
 
 			</div>
@@ -9659,8 +10988,54 @@
 
 <!-- END: 00-atomer-01-forms-07-valgknapp-ett-alternativ -->
 
-          </form>
+      <div class="mb-2">
+        <div class="annet collapse">
+          <!-- START: 00-atomer-01-forms-10-tekst-input JS doc: handleFocus.js, searchWithMultipleSelectInAutoComplete.js brukes via klassen a-js-autocomplete på form-control-class gir autocomplete med mulighet for å velge flere elementer fra resultatlista. -->
+
+  <div class="form-group a-form-group   ">
+
+      <label class="a-form-label  " for="annet">Vennligst spesifiser</label>
+
+    <div class="a-form-group-items input-group   ">
+
+
+      <input class="form-control  
+         "
+        type="text" 
+        placeholder="Feks. AT05"
+        
+        name="input-field"
+        data-val="true"
+        id="annet"
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+      >
+
+
+
+
+    </div>
+
+
+
+  </div>
+
+<!-- END: 00-atomer-01-forms-10-tekst-input -->
+
         </div>
+      </div>
+  </form>
+</div>
+<!-- END: 01-molekyler-05-forms-05-valgknapper-og-spesifiser -->
+
 
         <div class="row mb-2">
           <div class="col-12 col-lg-6">
@@ -9815,7 +11190,7 @@
 
         <!-- START: 01-molekyler-05-forms-22-utsett-tidspunkt -->
 <div class="">
-      <form id=>
+      <form id=environment>
         <!-- START: 00-atomer-01-forms-04-radioknapp -->
 <fieldset class="form-group ">
 
@@ -9881,15 +11256,15 @@
       
       <div class="collapse datovelgercollapse no-transition">
         <!-- START: 01-molekyler-05-forms-20-dato-og-tid -->
-<div class="row  form-group">
+<div class="row  form-group mb-0">
   <div class="col-12 d-flex align-items-start">
     
-    <div class="w-100">
-        <!-- START: 00-atomer-01-forms-60-datovelger JS doc: initializeDatepicker.js. Requires class .form-control.date -->
+      <!-- START: 00-atomer-01-forms-60-datovelger JS doc: initializeDatepicker.js. Requires class .form-control.date -->
 <div class="d-inline-block form-group a-form-group a-form-group-datepicker">
-  <div class="input-group">
+  <div class="input-group ">
     <input type="text"
       id="datovelger"
+      
       
       
       class="form-control a-hasButton  date" />
@@ -9907,10 +11282,9 @@
 
 <!-- END: 00-atomer-01-forms-60-datovelger -->
 
-    </div>
 
-    <div class="ml-2 input-group">
-      <input class="form-control" type="time" name="timepicker">
+    <div class="ml-2 input-group ">
+      <input class="form-control" type="time" name="timepicker"  >
     </div>
   </div>
 </div>
@@ -9953,7 +11327,7 @@
 
   </div>
   <script type="text/json" id="sg-pattern-data-organismer-dashboard-redigerTjeneste-deactivation" class="sg-pattern-data">
-    {"cssEnabled":false,"patternLineageExists":true,"patternLineages":[{"lineagePattern":"atomer-avkrysningsboks","lineagePath":"../../patterns/00-atomer-01-forms-00-avkrysningsboks/00-atomer-01-forms-00-avkrysningsboks.html","lineageState":"complete altinn altinnett"},{"lineagePattern":"atomer-valgknapp-ett-alternativ","lineagePath":"../../patterns/00-atomer-01-forms-07-valgknapp-ett-alternativ/00-atomer-01-forms-07-valgknapp-ett-alternativ.html","lineageState":"complete altinn altinnett"},{"lineagePattern":"atomer-tekst-input","lineagePath":"../../patterns/00-atomer-01-forms-10-tekst-input/00-atomer-01-forms-10-tekst-input.html","lineageState":"complete altinn altinnett"},{"lineagePattern":"atomer-tekstfelt","lineagePath":"../../patterns/00-atomer-01-forms-40-tekstfelt/00-atomer-01-forms-40-tekstfelt.html","lineageState":"complete altinn altinnett"},{"lineagePattern":"molekyler-utsett-tidspunkt","lineagePath":"../../patterns/01-molekyler-05-forms-22-utsett-tidspunkt/01-molekyler-05-forms-22-utsett-tidspunkt.html","lineageState":"indesignreview altinn altinnett"},{"lineagePattern":"atomer-knapp","lineagePath":"../../patterns/00-atomer-03-knapper-10-knapp/00-atomer-03-knapper-10-knapp.html","lineageState":"complete altinn altinnett"}],"lineage":[{"lineagePattern":"atomer-avkrysningsboks","lineagePath":"../../patterns/00-atomer-01-forms-00-avkrysningsboks/00-atomer-01-forms-00-avkrysningsboks.html","lineageState":"complete altinn altinnett"},{"lineagePattern":"atomer-valgknapp-ett-alternativ","lineagePath":"../../patterns/00-atomer-01-forms-07-valgknapp-ett-alternativ/00-atomer-01-forms-07-valgknapp-ett-alternativ.html","lineageState":"complete altinn altinnett"},{"lineagePattern":"atomer-tekst-input","lineagePath":"../../patterns/00-atomer-01-forms-10-tekst-input/00-atomer-01-forms-10-tekst-input.html","lineageState":"complete altinn altinnett"},{"lineagePattern":"atomer-tekstfelt","lineagePath":"../../patterns/00-atomer-01-forms-40-tekstfelt/00-atomer-01-forms-40-tekstfelt.html","lineageState":"complete altinn altinnett"},{"lineagePattern":"molekyler-utsett-tidspunkt","lineagePath":"../../patterns/01-molekyler-05-forms-22-utsett-tidspunkt/01-molekyler-05-forms-22-utsett-tidspunkt.html","lineageState":"indesignreview altinn altinnett"},{"lineagePattern":"atomer-knapp","lineagePath":"../../patterns/00-atomer-03-knapper-10-knapp/00-atomer-03-knapper-10-knapp.html","lineageState":"complete altinn altinnett"}],"patternLineageRExists":false,"patternLineagesR":[],"lineageR":[],"patternLineageEExists":true,"patternDesc":"<p>Eksempelside for modal med javascript</p>\n","patternBreadcrumb":{"patternType":"organismer","patternSubtype":"Modal-js-innhold"},"patternExtension":"mustache","patternName":"Dashboard RedigerTjeneste Deactivation","patternPartial":"organismer-dashboard-redigerTjeneste-deactivation","patternState":"indesignreview altinn altinnett","patternEngineName":"mustache","extraOutput":{}}
+    {"cssEnabled":false,"patternLineageExists":true,"patternLineages":[{"lineagePattern":"atomer-avkrysningsboks","lineagePath":"../../patterns/00-atomer-01-forms-00-avkrysningsboks/00-atomer-01-forms-00-avkrysningsboks.html","lineageState":"complete altinn altinnett"},{"lineagePattern":"molekyler-valgknapper-og-spesifiser","lineagePath":"../../patterns/01-molekyler-05-forms-05-valgknapper-og-spesifiser/01-molekyler-05-forms-05-valgknapper-og-spesifiser.html","lineageState":"indesignreview altinn altinnett"},{"lineagePattern":"atomer-tekst-input","lineagePath":"../../patterns/00-atomer-01-forms-10-tekst-input/00-atomer-01-forms-10-tekst-input.html","lineageState":"complete altinn altinnett"},{"lineagePattern":"atomer-tekstfelt","lineagePath":"../../patterns/00-atomer-01-forms-40-tekstfelt/00-atomer-01-forms-40-tekstfelt.html","lineageState":"complete altinn altinnett"},{"lineagePattern":"molekyler-utsett-tidspunkt","lineagePath":"../../patterns/01-molekyler-05-forms-22-utsett-tidspunkt/01-molekyler-05-forms-22-utsett-tidspunkt.html","lineageState":"indesignreview altinn altinnett"},{"lineagePattern":"atomer-knapp","lineagePath":"../../patterns/00-atomer-03-knapper-10-knapp/00-atomer-03-knapper-10-knapp.html","lineageState":"complete altinn altinnett"}],"lineage":[{"lineagePattern":"atomer-avkrysningsboks","lineagePath":"../../patterns/00-atomer-01-forms-00-avkrysningsboks/00-atomer-01-forms-00-avkrysningsboks.html","lineageState":"complete altinn altinnett"},{"lineagePattern":"molekyler-valgknapper-og-spesifiser","lineagePath":"../../patterns/01-molekyler-05-forms-05-valgknapper-og-spesifiser/01-molekyler-05-forms-05-valgknapper-og-spesifiser.html","lineageState":"indesignreview altinn altinnett"},{"lineagePattern":"atomer-tekst-input","lineagePath":"../../patterns/00-atomer-01-forms-10-tekst-input/00-atomer-01-forms-10-tekst-input.html","lineageState":"complete altinn altinnett"},{"lineagePattern":"atomer-tekstfelt","lineagePath":"../../patterns/00-atomer-01-forms-40-tekstfelt/00-atomer-01-forms-40-tekstfelt.html","lineageState":"complete altinn altinnett"},{"lineagePattern":"molekyler-utsett-tidspunkt","lineagePath":"../../patterns/01-molekyler-05-forms-22-utsett-tidspunkt/01-molekyler-05-forms-22-utsett-tidspunkt.html","lineageState":"indesignreview altinn altinnett"},{"lineagePattern":"atomer-knapp","lineagePath":"../../patterns/00-atomer-03-knapper-10-knapp/00-atomer-03-knapper-10-knapp.html","lineageState":"complete altinn altinnett"}],"patternLineageRExists":false,"patternLineagesR":[],"lineageR":[],"patternLineageEExists":true,"patternDesc":"<p>Eksempelside for modal med javascript</p>\n","patternBreadcrumb":{"patternType":"organismer","patternSubtype":"Modal-js-innhold"},"patternExtension":"mustache","patternName":"Dashboard RedigerTjeneste Deactivation","patternPartial":"organismer-dashboard-redigerTjeneste-deactivation","patternState":"indesignreview altinn altinnett","patternEngineName":"mustache","extraOutput":{}}
   </script>
 </div><!--end .sg-pattern-->
 <div id="organismer-dashboard-redigerTjeneste-deaktiver" class="sg-pattern">
@@ -10720,35 +12094,35 @@
 
                 <ul class="nav nav-tabs custom-radio a-radioButtons a-navTabsRadio" role="tablist">
                 <li class="nav-item">
-                  <a class="nav-link " data-toggle="tab" href="#radio-Feilmelding" role="tab">
+                  <a class="nav-link  " data-toggle="tab" href="#radio-Feilmelding" role="tab">
                     <div class="custom-control custom-radio a-custom-radio">
                       <span class="custom-control-label">Feil i Altinn </span>
                     </div>
                   </a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link " data-toggle="tab" href="#radio-Feilmelding" role="tab">
+                  <a class="nav-link  " data-toggle="tab" href="#radio-Feilmelding" role="tab">
                     <div class="custom-control custom-radio a-custom-radio">
                       <span class="custom-control-label">Feil og endringer i samtykkeløsningen </span>
                     </div>
                   </a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link " data-toggle="tab" href="#radio-Feilmelding" role="tab">
+                  <a class="nav-link  " data-toggle="tab" href="#radio-Feilmelding" role="tab">
                     <div class="custom-control custom-radio a-custom-radio">
                       <span class="custom-control-label">Feil og endringer som påvirker ekstern programvare </span>
                     </div>
                   </a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link " data-toggle="tab" href="#radio-vedlikehold" role="tab">
+                  <a class="nav-link  " data-toggle="tab" href="#radio-vedlikehold" role="tab">
                     <div class="custom-control custom-radio a-custom-radio">
                       <span class="custom-control-label">Planlagt vedlikehold </span>
                     </div>
                   </a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link " data-toggle="tab" href="#radio-feilaltinn" role="tab">
+                  <a class="nav-link  " data-toggle="tab" href="#radio-feilaltinn" role="tab">
                     <div class="custom-control custom-radio a-custom-radio">
                       <span class="custom-control-label">Nye releaser i Altinn </span>
                     </div>
@@ -10756,9 +12130,9 @@
                 </li>
               </ul>
 
-              <div class="tab-content mb-4">
-                <div class="tab-pane" id="radio-Feilmelding" role="tabpanel">
-                  <!-- START: 00-atomer-01-forms-00-avkrysningsboks -->
+                <div class="tab-content mb-4">
+                  <div class="tab-pane" id="radio-Feilmelding" role="tabpanel">
+                    <!-- START: 00-atomer-01-forms-00-avkrysningsboks -->
   
       <div class="custom-control
         
@@ -10783,24 +12157,30 @@
 
 <!-- END: 00-atomer-01-forms-00-avkrysningsboks -->
 
+                  </div>
                 </div>
-                <div class="tab-pane" id="radio-vedlikehold" role="tabpanel">
-                  <!-- START: 00-atomer-01-forms-00-avkrysningsboks -->
+                <div class="tab-content mb-4">
+                  <div class="tab-pane" id="radio-vedlikehold" role="tabpanel">
+                    <!-- START: 00-atomer-01-forms-00-avkrysningsboks -->
   
   
 
 <!-- END: 00-atomer-01-forms-00-avkrysningsboks -->
 
+                  </div>
                 </div>
-                <div class="tab-pane" id="radio-Release" role="tabpanel">
-                  <!-- START: 00-atomer-01-forms-00-avkrysningsboks -->
+                <div class="tab-content mb-4">
+                  <div class="tab-pane" id="radio-Release" role="tabpanel">
+                    <!-- START: 00-atomer-01-forms-00-avkrysningsboks -->
   
   
 
 <!-- END: 00-atomer-01-forms-00-avkrysningsboks -->
 
+                  </div>
                 </div>
-              </div>
+             
+
 
                 <!-- START: 00-atomer-01-forms-10-tekst-input JS doc: handleFocus.js, searchWithMultipleSelectInAutoComplete.js brukes via klassen a-js-autocomplete på form-control-class gir autocomplete med mulighet for å velge flere elementer fra resultatlista. -->
 
@@ -10973,19 +12353,19 @@
                 </div>
                 <div class="tab-pane" id="radio-sendlater" role="tabpanel">
                     <!-- START: 01-molekyler-05-forms-20-dato-og-tid -->
-<div class="row  form-group">
+<div class="row  form-group mb-0">
       <div class="col-12">
         <label class="a-form-label">Planlagt publiseringsdato</label>
       </div>
   <div class="col-12 d-flex align-items-start">
     
-    <div class="w-100">
-        <!-- START: 00-atomer-01-forms-60-datovelger JS doc: initializeDatepicker.js. Requires class .form-control.date -->
+      <!-- START: 00-atomer-01-forms-60-datovelger JS doc: initializeDatepicker.js. Requires class .form-control.date -->
 <div class="d-inline-block form-group a-form-group a-form-group-datepicker">
-  <div class="input-group">
+  <div class="input-group ">
     <input type="text"
       id="datovelger-send"
        required 
+      
       
       class="form-control a-hasButton  date" />
 
@@ -11002,10 +12382,9 @@
 
 <!-- END: 00-atomer-01-forms-60-datovelger -->
 
-    </div>
 
-    <div class="ml-2 input-group">
-      <input class="form-control" type="time" name="timepicker">
+    <div class="ml-2 input-group ">
+      <input class="form-control" type="time" name="timepicker"  >
     </div>
   </div>
 </div>
@@ -11016,21 +12395,20 @@
               </div>
 
 
-
               
                 <!-- START: 01-molekyler-05-forms-20-dato-og-tid -->
-<div class="row mt-1 form-group">
+<div class="row mt-1 form-group mb-0">
       <div class="col-12">
         <label class="a-form-label">Utgår&#x2F;deaktiveres</label>
       </div>
   <div class="col-12 d-flex align-items-start">
     
-    <div class="w-100">
-        <!-- START: 00-atomer-01-forms-60-datovelger JS doc: initializeDatepicker.js. Requires class .form-control.date -->
+      <!-- START: 00-atomer-01-forms-60-datovelger JS doc: initializeDatepicker.js. Requires class .form-control.date -->
 <div class="d-inline-block form-group a-form-group a-form-group-datepicker">
-  <div class="input-group">
+  <div class="input-group ">
     <input type="text"
       id="datovelger-deaktiver"
+      
       
       
       class="form-control a-hasButton  date" />
@@ -11048,10 +12426,9 @@
 
 <!-- END: 00-atomer-01-forms-60-datovelger -->
 
-    </div>
 
-    <div class="ml-2 input-group">
-      <input class="form-control" type="time" name="timepicker">
+    <div class="ml-2 input-group ">
+      <input class="form-control" type="time" name="timepicker"  >
     </div>
   </div>
 </div>
@@ -11059,30 +12436,12 @@
 <!-- END: 01-molekyler-05-forms-20-dato-og-tid -->
 
 
+              <div class="mb-4">
                 <label class="an-stackedLabel mt-2 mb-1" for="">
                   Kanaler driftsvarslene skal legges ut på
                 </label>
                 <!-- START: 00-atomer-01-forms-00-avkrysningsboks -->
   
-      <div class="custom-control
-        
-        
-        custom-checkbox a-custom-checkbox
-        
-        
-        
-        ">
-          <input
-            type="checkbox"
-            id="canal2"
-            class="custom-control-input"
-            
-            
-            
-            
-            >
-          <label class="custom-control-label " for="canal2">Altinn.no</label>
-      </div>
       <div class="custom-control
         
         
@@ -11121,35 +12480,25 @@
             >
           <label class="custom-control-label " for="canal4">Dashboard for tjenesteeiere</label>
       </div>
-      <div class="custom-control
-        
-        
-        custom-checkbox a-custom-checkbox
-        
-        
-        
-        ">
-          <input
-            type="checkbox"
-            id="canal5"
-            class="custom-control-input"
-            
-            
-            
-            
-            >
-          <label class="custom-control-label " for="canal5">Sluttbrukersystemsiden</label>
-      </div>
   
 
 <!-- END: 00-atomer-01-forms-00-avkrysningsboks -->
+
+              </div>
 
 
             </div>
             
           </div>
 
-          <div class="row mt-4">
+          <div class="row">
+            <div class="col-12 col-lg-8">
+
+
+            </div>
+          </div>
+
+          <div class="row mt-2">
             <div class="col-12 d-flex align-items-baseline">
               <div>
                   <!-- START: 00-atomer-03-knapper-10-knapp -->
@@ -11249,22 +12598,22 @@
     {"cssEnabled":false,"patternLineageExists":false,"patternLineages":[],"lineage":[],"patternLineageRExists":false,"patternLineagesR":[],"lineageR":[],"patternLineageEExists":false,"patternDesc":"<p>Eksempelside for modal med javascript</p>\n","patternBreadcrumb":{"patternType":"organismer","patternSubtype":"Modal-js-innhold"},"patternExtension":"mustache","patternName":"Dashboard Driftsvarsel Ferdig","patternPartial":"organismer-dashboard-driftsvarsel-ferdig","patternState":"indesignreview altinn altinnett","patternEngineName":"mustache","extraOutput":{}}
   </script>
 </div><!--end .sg-pattern-->
-<div id="organismer-dashboard-driftsvarsel-rediger" class="sg-pattern">
+<div id="organismer-dashboard-driftsvarsel-redigerFeilmelding" class="sg-pattern">
   <div class="sg-pattern-head">
     <h3 class="sg-pattern-title">
-      <a href="../../patterns/02-organismer-80-Modal-js-innhold-30-dashboard-driftsvarsel-rediger&#x2F;02-organismer-80-Modal-js-innhold-30-dashboard-driftsvarsel-rediger.html" class="patternLink" data-patternpartial="organismer-dashboard-driftsvarsel-rediger" title="Link to Pattern">
-          Dashboard Driftsvarsel Rediger
+      <a href="../../patterns/02-organismer-80-Modal-js-innhold-30-dashboard-driftsvarsel-redigerFeilmelding&#x2F;02-organismer-80-Modal-js-innhold-30-dashboard-driftsvarsel-redigerFeilmelding.html" class="patternLink" data-patternpartial="organismer-dashboard-driftsvarsel-redigerFeilmelding" title="Link to Pattern">
+          Dashboard Driftsvarsel RedigerFeilmelding
             <span class="sg-pattern-state complete altinn altinnett">complete altinn altinnett</span>
       </a>
     </h3>
     <div class="sg-pattern-breadcrumb"></div>
-    <a href="#" data-patternpartial="organismer-dashboard-driftsvarsel-rediger" title="View Pattern Info" id="sg-pattern-extra-toggle-organismer-dashboard-driftsvarsel-rediger" class="sg-pattern-extra-toggle"><span>&#9660;</span></a>
+    <a href="#" data-patternpartial="organismer-dashboard-driftsvarsel-redigerFeilmelding" title="View Pattern Info" id="sg-pattern-extra-toggle-organismer-dashboard-driftsvarsel-redigerFeilmelding" class="sg-pattern-extra-toggle"><span>&#9660;</span></a>
   </div>
-  <div class="sg-pattern-extra" id="sg-pattern-extra-organismer-dashboard-driftsvarsel-rediger">
+  <div class="sg-pattern-extra" id="sg-pattern-extra-organismer-dashboard-driftsvarsel-redigerFeilmelding">
     
   </div>
   <div class="sg-pattern-example">
-    <!-- START: 02-organismer-80-Modal-js-innhold-30-dashboard-driftsvarsel-rediger -->
+    <!-- START: 02-organismer-80-Modal-js-innhold-30-dashboard-driftsvarsel-redigerFeilmelding -->
 <div class="modal-content">
     <div class="modal-header a-modal-header">
         <div class="a-iconText a-iconText-background a-iconText-large">
@@ -11375,35 +12724,35 @@
 
                 <ul class="nav nav-tabs custom-radio a-radioButtons a-navTabsRadio" role="tablist">
                 <li class="nav-item">
-                  <a class="nav-link " data-toggle="tab" href="#radio-Feilmelding" role="tab">
+                  <a class="nav-link active disabled" data-toggle="tab" href="#radio-Feilmelding" role="tab">
                     <div class="custom-control custom-radio a-custom-radio">
                       <span class="custom-control-label">Feil i Altinn </span>
                     </div>
                   </a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link " data-toggle="tab" href="#radio-Feilmelding" role="tab">
+                  <a class="nav-link  disabled" data-toggle="tab" href="#radio-Feilmelding" role="tab">
                     <div class="custom-control custom-radio a-custom-radio">
                       <span class="custom-control-label">Feil og endringer i samtykkeløsningen </span>
                     </div>
                   </a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link " data-toggle="tab" href="#radio-Feilmelding" role="tab">
+                  <a class="nav-link  disabled" data-toggle="tab" href="#radio-Feilmelding" role="tab">
                     <div class="custom-control custom-radio a-custom-radio">
                       <span class="custom-control-label">Feil og endringer som påvirker ekstern programvare </span>
                     </div>
                   </a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link " data-toggle="tab" href="#radio-vedlikehold" role="tab">
+                  <a class="nav-link  disabled" data-toggle="tab" href="#radio-vedlikehold" role="tab">
                     <div class="custom-control custom-radio a-custom-radio">
                       <span class="custom-control-label">Planlagt vedlikehold </span>
                     </div>
                   </a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link " data-toggle="tab" href="#radio-feilaltinn" role="tab">
+                  <a class="nav-link  disabled" data-toggle="tab" href="#radio-feilaltinn" role="tab">
                     <div class="custom-control custom-radio a-custom-radio">
                       <span class="custom-control-label">Nye releaser i Altinn </span>
                     </div>
@@ -11411,51 +12760,35 @@
                 </li>
               </ul>
 
-              <div class="tab-content mb-4">
-                <div class="tab-pane" id="radio-Feilmelding" role="tabpanel">
-                  <!-- START: 00-atomer-01-forms-00-avkrysningsboks -->
+             
+
+                <div class="tab-content mb-4">
+                <!-- START: 00-atomer-01-forms-00-avkrysningsboks -->
   
       <div class="custom-control
         
         
         custom-checkbox a-custom-checkbox
-        
+         inactive 
         
         
         ">
           <input
             type="checkbox"
-            id="criticaltrue"
+            id="criticaltrue-deactivated"
             class="custom-control-input"
+            checked="checked"
             
             
             
-            
-            >
-          <label class="custom-control-label " for="criticaltrue">Varselet er av kritisk art/A-feil</label>
+             disabled >
+          <label class="custom-control-label " for="criticaltrue-deactivated">Feilmeldingen er av kritisk art/A-feil</label>
       </div>
   
 
 <!-- END: 00-atomer-01-forms-00-avkrysningsboks -->
 
                 </div>
-                <div class="tab-pane" id="radio-vedlikehold" role="tabpanel">
-                  <!-- START: 00-atomer-01-forms-00-avkrysningsboks -->
-  
-  
-
-<!-- END: 00-atomer-01-forms-00-avkrysningsboks -->
-
-                </div>
-                <div class="tab-pane" id="radio-Release" role="tabpanel">
-                  <!-- START: 00-atomer-01-forms-00-avkrysningsboks -->
-  
-  
-
-<!-- END: 00-atomer-01-forms-00-avkrysningsboks -->
-
-                </div>
-              </div>
 
                 <!-- START: 00-atomer-01-forms-10-tekst-input JS doc: handleFocus.js, searchWithMultipleSelectInAutoComplete.js brukes via klassen a-js-autocomplete på form-control-class gir autocomplete med mulighet for å velge flere elementer fra resultatlista. -->
 
@@ -11604,19 +12937,19 @@
 
 
                 <!-- START: 01-molekyler-05-forms-20-dato-og-tid -->
-<div class="row mb-2 form-group">
+<div class="row mb-2 form-group mb-0">
       <div class="col-12">
-        <label class="a-form-label">Publiseres&#x2F;sendes ut</label>
+        <label class="a-form-label">Publisert&#x2F;sendt ut</label>
       </div>
   <div class="col-12 d-flex align-items-start">
     
-    <div class="w-100">
-        <!-- START: 00-atomer-01-forms-60-datovelger JS doc: initializeDatepicker.js. Requires class .form-control.date -->
+      <!-- START: 00-atomer-01-forms-60-datovelger JS doc: initializeDatepicker.js. Requires class .form-control.date -->
 <div class="d-inline-block form-group a-form-group a-form-group-datepicker">
-  <div class="input-group">
+  <div class="input-group  disabled ">
     <input type="text"
       id="datovelger"
       
+       disabled 
        value="19.08.2019" 
       class="form-control a-hasButton 18.09 date" />
 
@@ -11633,87 +12966,19 @@
 
 <!-- END: 00-atomer-01-forms-60-datovelger -->
 
-    </div>
 
-    <div class="ml-2 input-group">
-      <input class="form-control" type="time" name="timepicker">
-    </div>
-  </div>
-</div>
-
-<!-- END: 01-molekyler-05-forms-20-dato-og-tid -->
-
-
-
-                <label class="an-stackedLabel" for="">
-                  Utgår&#x2F;deaktiveres
-                </label>
-
-                <ul class="nav nav-tabs custom-radio a-radioButtons a-navTabsRadio mb-0" role="tablist">
-                <li class="nav-item">
-                  <a class="nav-link " data-toggle="tab" href="#radio-endnow" role="tab">
-                    <div class="custom-control custom-radio a-custom-radio">
-                      <span class="custom-control-label">Nå </span>
-                    </div>
-                  </a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link " data-toggle="tab" href="#radio-endlater" role="tab">
-                    <div class="custom-control custom-radio a-custom-radio">
-                      <span class="custom-control-label">Senere </span>
-                    </div>
-                  </a>
-                </li>
-              </ul>
-
-              <div class="tab-content mb-2">
-                <div class="tab-pane" id="radio-endnow" role="tabpanel">
-                </div>
-                <div class="tab-pane" id="radio-endlater" role="tabpanel">
-                    <!-- START: 01-molekyler-05-forms-20-dato-og-tid -->
-<div class="row  form-group">
-      <div class="col-12">
-        <label class="a-form-label">Planlagt deaktivering</label>
-      </div>
-  <div class="col-12 d-flex align-items-start">
-    
-    <div class="w-100">
-        <!-- START: 00-atomer-01-forms-60-datovelger JS doc: initializeDatepicker.js. Requires class .form-control.date -->
-<div class="d-inline-block form-group a-form-group a-form-group-datepicker">
-  <div class="input-group">
-    <input type="text"
-      id="datovelger"
-      
-      
-      class="form-control a-hasButton  date" />
-
-    <div class="input-group-prepend a-icon-right">
-      <!-- START: 00-atomer-09-bilder-og-media-15-ikon -->
-<i class="ai ai-date   "    ></i>
-
-
-<!-- END: 00-atomer-09-bilder-og-media-15-ikon -->
-
-    </div>
-  </div>
-</div>
-
-<!-- END: 00-atomer-01-forms-60-datovelger -->
-
-    </div>
-
-    <div class="ml-2 input-group">
-      <input class="form-control" type="time" name="timepicker">
+    <div class="ml-2 input-group  disabled ">
+      <input class="form-control" type="time" name="timepicker"  disabled   value="08:32" >
     </div>
   </div>
 </div>
 
 <!-- END: 01-molekyler-05-forms-20-dato-og-tid -->
 
-                </div>
-              </div>
+
               
 
+              <div class="mb-4">
                 <label class="an-stackedLabel mt-2 mb-1" for="">
                   Kanaler driftsvarslene skal legges ut på
                 </label>
@@ -11723,26 +12988,7 @@
         
         
         custom-checkbox a-custom-checkbox
-        
-        
-        
-        ">
-          <input
-            type="checkbox"
-            id="canal2"
-            class="custom-control-input"
-            
-            
-            
-            
-            >
-          <label class="custom-control-label " for="canal2">Altinn.no</label>
-      </div>
-      <div class="custom-control
-        
-        
-        custom-checkbox a-custom-checkbox
-        
+         inactive 
         
         
         ">
@@ -11754,14 +13000,14 @@
             
             
             
-            >
+             disabled >
           <label class="custom-control-label " for="canal3">Altinndigital.no</label>
       </div>
       <div class="custom-control
         
         
         custom-checkbox a-custom-checkbox
-        
+         inactive 
         
         
         ">
@@ -11769,16 +13015,26 @@
             type="checkbox"
             id="canal4"
             class="custom-control-input"
+            checked="checked"
             
             
             
-            
-            >
+             disabled >
           <label class="custom-control-label " for="canal4">Dashboard for tjenesteeiere</label>
       </div>
+  
+
+<!-- END: 00-atomer-01-forms-00-avkrysningsboks -->
+
+              </div>
+
+              <!-- START: 00-atomer-01-forms-00-avkrysningsboks -->
+  <fieldset class="form-group mb-0">
+    <legend class="a-legend">Er feilen løst?</legend>
+  
       <div class="custom-control
         
-        
+        custom-control-inline
         custom-checkbox a-custom-checkbox
         
         
@@ -11786,16 +13042,17 @@
         ">
           <input
             type="checkbox"
-            id="canal5"
+            id="errorSolved"
             class="custom-control-input"
             
             
             
             
             >
-          <label class="custom-control-label " for="canal5">Sluttbrukersystemsiden</label>
+          <label class="custom-control-label " for="errorSolved">Ja, feilen kan oppdateres til løst</label>
       </div>
   
+  </fieldset>
 
 <!-- END: 00-atomer-01-forms-00-avkrysningsboks -->
 
@@ -11804,7 +13061,44 @@
             
           </div>
 
-          <div class="row mt-4">
+          <div class="row">
+            <div class="col-12 col-lg-8">
+
+              <div id="alert" class="a-message a-message-info a-message--arrow-off mt-4 py-2">
+                <!-- START: 00-atomer-01-forms-00-avkrysningsboks -->
+  <fieldset class="form-group mb-0">
+    <legend class="a-legend">Ønsker du at det skal sendes ut et nytt e-postvarsel med oppdateringene du har gjort?</legend>
+  
+      <div class="custom-control
+        
+        custom-control-inline
+        custom-checkbox a-custom-checkbox
+        
+        
+        
+        ">
+          <input
+            type="checkbox"
+            id="sendnewemail"
+            class="custom-control-input"
+            
+            
+            
+            
+            >
+          <label class="custom-control-label " for="sendnewemail">Ja, send ut nytt varsel</label>
+      </div>
+  
+  </fieldset>
+
+<!-- END: 00-atomer-01-forms-00-avkrysningsboks -->
+
+              </div>
+
+            </div>
+          </div>
+
+          <div class="row mt-2">
             <div class="col-12 d-flex align-items-baseline">
               <div>
                   <!-- START: 00-atomer-03-knapper-10-knapp -->
@@ -11854,11 +13148,628 @@
         </form>
 </div>
 
-<!-- END: 02-organismer-80-Modal-js-innhold-30-dashboard-driftsvarsel-rediger -->
+<!-- END: 02-organismer-80-Modal-js-innhold-30-dashboard-driftsvarsel-redigerFeilmelding -->
 
   </div>
-  <script type="text/json" id="sg-pattern-data-organismer-dashboard-driftsvarsel-rediger" class="sg-pattern-data">
-    {"cssEnabled":false,"patternLineageExists":true,"patternLineages":[{"lineagePattern":"atomer-knapp-ikon","lineagePath":"../../patterns/00-atomer-04-handlingsknapper-10-knapp-ikon/00-atomer-04-handlingsknapper-10-knapp-ikon.html","lineageState":"complete altinn"},{"lineagePattern":"atomer-avkrysningsboks","lineagePath":"../../patterns/00-atomer-01-forms-00-avkrysningsboks/00-atomer-01-forms-00-avkrysningsboks.html","lineageState":"complete altinn altinnett"},{"lineagePattern":"atomer-tekst-input","lineagePath":"../../patterns/00-atomer-01-forms-10-tekst-input/00-atomer-01-forms-10-tekst-input.html","lineageState":"complete altinn altinnett"},{"lineagePattern":"atomer-tekstfelt","lineagePath":"../../patterns/00-atomer-01-forms-40-tekstfelt/00-atomer-01-forms-40-tekstfelt.html","lineageState":"complete altinn altinnett"},{"lineagePattern":"molekyler-dato-og-tid","lineagePath":"../../patterns/01-molekyler-05-forms-20-dato-og-tid/01-molekyler-05-forms-20-dato-og-tid.html","lineageState":"indesignreview altinn altinnett"},{"lineagePattern":"atomer-knapp","lineagePath":"../../patterns/00-atomer-03-knapper-10-knapp/00-atomer-03-knapper-10-knapp.html","lineageState":"complete altinn altinnett"},{"lineagePattern":"atomer-link","lineagePath":"../../patterns/00-atomer-02-lenker-00-link/00-atomer-02-lenker-00-link.html","lineageState":"complete altinn altinnett"}],"lineage":[{"lineagePattern":"atomer-knapp-ikon","lineagePath":"../../patterns/00-atomer-04-handlingsknapper-10-knapp-ikon/00-atomer-04-handlingsknapper-10-knapp-ikon.html","lineageState":"complete altinn"},{"lineagePattern":"atomer-avkrysningsboks","lineagePath":"../../patterns/00-atomer-01-forms-00-avkrysningsboks/00-atomer-01-forms-00-avkrysningsboks.html","lineageState":"complete altinn altinnett"},{"lineagePattern":"atomer-tekst-input","lineagePath":"../../patterns/00-atomer-01-forms-10-tekst-input/00-atomer-01-forms-10-tekst-input.html","lineageState":"complete altinn altinnett"},{"lineagePattern":"atomer-tekstfelt","lineagePath":"../../patterns/00-atomer-01-forms-40-tekstfelt/00-atomer-01-forms-40-tekstfelt.html","lineageState":"complete altinn altinnett"},{"lineagePattern":"molekyler-dato-og-tid","lineagePath":"../../patterns/01-molekyler-05-forms-20-dato-og-tid/01-molekyler-05-forms-20-dato-og-tid.html","lineageState":"indesignreview altinn altinnett"},{"lineagePattern":"atomer-knapp","lineagePath":"../../patterns/00-atomer-03-knapper-10-knapp/00-atomer-03-knapper-10-knapp.html","lineageState":"complete altinn altinnett"},{"lineagePattern":"atomer-link","lineagePath":"../../patterns/00-atomer-02-lenker-00-link/00-atomer-02-lenker-00-link.html","lineageState":"complete altinn altinnett"}],"patternLineageRExists":false,"patternLineagesR":[],"lineageR":[],"patternLineageEExists":true,"patternDesc":"","patternBreadcrumb":{"patternType":"organismer","patternSubtype":"Modal-js-innhold"},"patternExtension":"mustache","patternName":"Dashboard Driftsvarsel Rediger","patternPartial":"organismer-dashboard-driftsvarsel-rediger","patternState":"complete altinn altinnett","patternEngineName":"mustache","extraOutput":{}}
+  <script type="text/json" id="sg-pattern-data-organismer-dashboard-driftsvarsel-redigerFeilmelding" class="sg-pattern-data">
+    {"cssEnabled":false,"patternLineageExists":true,"patternLineages":[{"lineagePattern":"atomer-knapp-ikon","lineagePath":"../../patterns/00-atomer-04-handlingsknapper-10-knapp-ikon/00-atomer-04-handlingsknapper-10-knapp-ikon.html","lineageState":"complete altinn"},{"lineagePattern":"atomer-avkrysningsboks","lineagePath":"../../patterns/00-atomer-01-forms-00-avkrysningsboks/00-atomer-01-forms-00-avkrysningsboks.html","lineageState":"complete altinn altinnett"},{"lineagePattern":"atomer-tekst-input","lineagePath":"../../patterns/00-atomer-01-forms-10-tekst-input/00-atomer-01-forms-10-tekst-input.html","lineageState":"complete altinn altinnett"},{"lineagePattern":"atomer-tekstfelt","lineagePath":"../../patterns/00-atomer-01-forms-40-tekstfelt/00-atomer-01-forms-40-tekstfelt.html","lineageState":"complete altinn altinnett"},{"lineagePattern":"molekyler-dato-og-tid","lineagePath":"../../patterns/01-molekyler-05-forms-20-dato-og-tid/01-molekyler-05-forms-20-dato-og-tid.html","lineageState":"indesignreview altinn altinnett"},{"lineagePattern":"atomer-knapp","lineagePath":"../../patterns/00-atomer-03-knapper-10-knapp/00-atomer-03-knapper-10-knapp.html","lineageState":"complete altinn altinnett"},{"lineagePattern":"atomer-link","lineagePath":"../../patterns/00-atomer-02-lenker-00-link/00-atomer-02-lenker-00-link.html","lineageState":"complete altinn altinnett"}],"lineage":[{"lineagePattern":"atomer-knapp-ikon","lineagePath":"../../patterns/00-atomer-04-handlingsknapper-10-knapp-ikon/00-atomer-04-handlingsknapper-10-knapp-ikon.html","lineageState":"complete altinn"},{"lineagePattern":"atomer-avkrysningsboks","lineagePath":"../../patterns/00-atomer-01-forms-00-avkrysningsboks/00-atomer-01-forms-00-avkrysningsboks.html","lineageState":"complete altinn altinnett"},{"lineagePattern":"atomer-tekst-input","lineagePath":"../../patterns/00-atomer-01-forms-10-tekst-input/00-atomer-01-forms-10-tekst-input.html","lineageState":"complete altinn altinnett"},{"lineagePattern":"atomer-tekstfelt","lineagePath":"../../patterns/00-atomer-01-forms-40-tekstfelt/00-atomer-01-forms-40-tekstfelt.html","lineageState":"complete altinn altinnett"},{"lineagePattern":"molekyler-dato-og-tid","lineagePath":"../../patterns/01-molekyler-05-forms-20-dato-og-tid/01-molekyler-05-forms-20-dato-og-tid.html","lineageState":"indesignreview altinn altinnett"},{"lineagePattern":"atomer-knapp","lineagePath":"../../patterns/00-atomer-03-knapper-10-knapp/00-atomer-03-knapper-10-knapp.html","lineageState":"complete altinn altinnett"},{"lineagePattern":"atomer-link","lineagePath":"../../patterns/00-atomer-02-lenker-00-link/00-atomer-02-lenker-00-link.html","lineageState":"complete altinn altinnett"}],"patternLineageRExists":false,"patternLineagesR":[],"lineageR":[],"patternLineageEExists":true,"patternDesc":"","patternBreadcrumb":{"patternType":"organismer","patternSubtype":"Modal-js-innhold"},"patternExtension":"mustache","patternName":"Dashboard Driftsvarsel RedigerFeilmelding","patternPartial":"organismer-dashboard-driftsvarsel-redigerFeilmelding","patternState":"complete altinn altinnett","patternEngineName":"mustache","extraOutput":{}}
+  </script>
+</div><!--end .sg-pattern-->
+<div id="organismer-dashboard-driftsvarsel-redigerReleaseEllerVedlikehold" class="sg-pattern">
+  <div class="sg-pattern-head">
+    <h3 class="sg-pattern-title">
+      <a href="../../patterns/02-organismer-80-Modal-js-innhold-30-dashboard-driftsvarsel-redigerReleaseEllerVedlikehold&#x2F;02-organismer-80-Modal-js-innhold-30-dashboard-driftsvarsel-redigerReleaseEllerVedlikehold.html" class="patternLink" data-patternpartial="organismer-dashboard-driftsvarsel-redigerReleaseEllerVedlikehold" title="Link to Pattern">
+          Dashboard Driftsvarsel RedigerReleaseEllerVedlikehold
+            <span class="sg-pattern-state complete altinn altinnett">complete altinn altinnett</span>
+      </a>
+    </h3>
+    <div class="sg-pattern-breadcrumb"></div>
+    <a href="#" data-patternpartial="organismer-dashboard-driftsvarsel-redigerReleaseEllerVedlikehold" title="View Pattern Info" id="sg-pattern-extra-toggle-organismer-dashboard-driftsvarsel-redigerReleaseEllerVedlikehold" class="sg-pattern-extra-toggle"><span>&#9660;</span></a>
+  </div>
+  <div class="sg-pattern-extra" id="sg-pattern-extra-organismer-dashboard-driftsvarsel-redigerReleaseEllerVedlikehold">
+    
+  </div>
+  <div class="sg-pattern-example">
+    <!-- START: 02-organismer-80-Modal-js-innhold-30-dashboard-driftsvarsel-redigerReleaseEllerVedlikehold -->
+<div class="modal-content">
+    <div class="modal-header a-modal-header">
+        <div class="a-iconText a-iconText-background a-iconText-large">
+            <div class="a-iconText-icon">
+                <i class="ai ai-send a-icon" aria-hidden="true"></i>
+            </div>
+            <h1 class="a-iconText-text mb-0">
+                <span class="a-iconText-text-small"></span>
+                <span class="a-iconText-text-large">Endre eller fjerne driftsvarsel</span>
+            </h1>
+        </div>
+    </div>
+    <div class="modal-body a-modal-body">
+
+        <form data-toggle="validator" id="contactForm">
+          <div class="row">
+            <div class="col-12">
+                <!-- START: 00-atomer-04-handlingsknapper-10-knapp-ikon -->
+<button
+  type="button"
+  class="a-btn a-btn-icon float-right w-auto "
+  
+   aria-label="Tilbake"
+    
+    data-toggle="popover"
+    data-placement="bottom"
+    data-animation="false"
+    data-popover-content="removeAlertPopover"
+    data-popover-class="popover-warning"
+    
+  >
+  <!-- START: 00-atomer-09-bilder-og-media-15-ikon -->
+<i class="ai ai-circle-exit  a-danger ai-left "    ></i>
+
+
+<!-- END: 00-atomer-09-bilder-og-media-15-ikon -->
+
+
+    <span>
+      Fjern driftsvarsel
+    </span>
+</button>
+
+  <div >
+  </div>
+  <div  role="popover" id="removeAlertPopover"  class="d-none">
+    <div class="pb-1">Er du sikker på at du vil slette driftsvarselet? Det vil ikke være mulig å gjenopprette det.</div>
+      <!-- START: 00-atomer-03-knapper-10-knapp -->
+<button
+   type="button" 
+  
+  class="a-btn a-btn-danger mr-1"
+  
+  
+  
+  
+  
+  
+  
+  
+   
+  >
+  <span>
+    Slett
+  </span>
+</button>
+
+<!-- END: 00-atomer-03-knapper-10-knapp -->
+
+      <!-- START: 00-atomer-03-knapper-10-knapp -->
+<button
+   type="button" 
+  
+  class="a-btn-link a-linkDanger mr-1"
+  
+  
+  
+  
+  
+  
+  
+  
+   
+  >
+  <span>
+    Avbryt
+  </span>
+</button>
+
+<!-- END: 00-atomer-03-knapper-10-knapp -->
+
+    
+  </div>
+
+<!-- END: 00-atomer-04-handlingsknapper-10-knapp-ikon -->
+
+            </div>
+          </div>
+
+
+          <div class="row">
+                
+            <div class="col-12 col-lg-8">
+            
+                <label class="an-stackedLabel" for="">
+                  Type driftsvarsel
+                </label>
+
+                <ul class="nav nav-tabs custom-radio a-radioButtons a-navTabsRadio" role="tablist">
+                <li class="nav-item">
+                  <a class="nav-link active disabled" data-toggle="tab" href="#radio-Feilmelding" role="tab">
+                    <div class="custom-control custom-radio a-custom-radio">
+                      <span class="custom-control-label">Feil i Altinn </span>
+                    </div>
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link  disabled" data-toggle="tab" href="#radio-Feilmelding" role="tab">
+                    <div class="custom-control custom-radio a-custom-radio">
+                      <span class="custom-control-label">Feil og endringer i samtykkeløsningen </span>
+                    </div>
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link  disabled" data-toggle="tab" href="#radio-Feilmelding" role="tab">
+                    <div class="custom-control custom-radio a-custom-radio">
+                      <span class="custom-control-label">Feil og endringer som påvirker ekstern programvare </span>
+                    </div>
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link  disabled" data-toggle="tab" href="#radio-vedlikehold" role="tab">
+                    <div class="custom-control custom-radio a-custom-radio">
+                      <span class="custom-control-label">Planlagt vedlikehold </span>
+                    </div>
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link  disabled" data-toggle="tab" href="#radio-feilaltinn" role="tab">
+                    <div class="custom-control custom-radio a-custom-radio">
+                      <span class="custom-control-label">Nye releaser i Altinn </span>
+                    </div>
+                  </a>
+                </li>
+              </ul>
+
+                <div class="tab-content mb-4">
+                  <div class="tab-pane" id="radio-Feilmelding" role="tabpanel">
+                    <!-- START: 00-atomer-01-forms-00-avkrysningsboks -->
+  
+      <div class="custom-control
+        
+        
+        custom-checkbox a-custom-checkbox
+         inactive 
+        
+        
+        ">
+          <input
+            type="checkbox"
+            id="criticaltrue"
+            class="custom-control-input"
+            checked="checked"
+            
+            
+            
+             disabled >
+          <label class="custom-control-label " for="criticaltrue">Varselet er av kritisk art/A-feil</label>
+      </div>
+  
+
+<!-- END: 00-atomer-01-forms-00-avkrysningsboks -->
+
+                  </div>
+                </div>
+                <div class="tab-content mb-4">
+                  <div class="tab-pane" id="radio-vedlikehold" role="tabpanel">
+                    <!-- START: 00-atomer-01-forms-00-avkrysningsboks -->
+  
+  
+
+<!-- END: 00-atomer-01-forms-00-avkrysningsboks -->
+
+                  </div>
+                </div>
+                <div class="tab-content mb-4">
+                  <div class="tab-pane" id="radio-Release" role="tabpanel">
+                    <!-- START: 00-atomer-01-forms-00-avkrysningsboks -->
+  
+  
+
+<!-- END: 00-atomer-01-forms-00-avkrysningsboks -->
+
+                  </div>
+                </div>
+             
+
+
+                <!-- START: 00-atomer-01-forms-10-tekst-input JS doc: handleFocus.js, searchWithMultipleSelectInAutoComplete.js brukes via klassen a-js-autocomplete på form-control-class gir autocomplete med mulighet for å velge flere elementer fra resultatlista. -->
+
+  <div class="form-group a-form-group   mb-2">
+
+      <label class="a-form-label  " for="text-input-title2">Tittel: </label>
+
+    <div class="a-form-group-items input-group   ">
+
+
+      <input class="form-control  
+         "
+        type="text" 
+        placeholder="Obs! PROD: Vedlikehold mandag 18. mars"
+        value="Obs! PROD: Vedlikehold mandag 18. mars"
+        name="text-input-title2"
+        data-val="true"
+        id="text-input-title2"
+        required
+         data-val-required="Du har ikke oppgitt tittel." 
+        
+        
+        
+        
+        
+        
+        
+        
+      >
+
+
+
+
+    </div>
+
+
+      <div class="a-message a-message-error" data-valmsg-for="text-input-title2" data-valmsg-replace="true"></div>
+
+  </div>
+
+<!-- END: 00-atomer-01-forms-10-tekst-input -->
+
+              
+                <!-- START: 00-atomer-01-forms-40-tekstfelt -->
+<div class="form-group a-form-group mb-2">
+	  <label for="text-input-question2" class="a-form-label">Tekst</label>
+	  <textarea class="form-control a-textarea"
+      rows="3"
+      placeholder="G​runnet planlagt vedlikehold mandag 18.3.19, mellom kl. 04 – 06 (natt), vil det kunne oppleves noe treghet/forstyrrelser i løsningen i en kort periode."
+      required
+			 data-val-required="Du har ikke fyllt inn beskrivelse" 
+			name="text-input-question2"
+			id="text-input-question2"
+			>G​runnet planlagt vedlikehold mandag 18.3.19, mellom kl. 04 – 06 (natt), vil det kunne oppleves noe treghet/forstyrrelser i løsningen i en kort periode.</textarea>
+			<div class="a-message a-message-error" data-valmsg-for="text-input-question2" data-valmsg-replace="false">
+				<span class="has-error">Du har ikke fyllt inn beskrivelse</span>
+			</div>
+</div>
+
+<!-- END: 00-atomer-01-forms-40-tekstfelt -->
+
+
+                <!-- START: 00-atomer-01-forms-10-tekst-input JS doc: handleFocus.js, searchWithMultipleSelectInAutoComplete.js brukes via klassen a-js-autocomplete på form-control-class gir autocomplete med mulighet for å velge flere elementer fra resultatlista. -->
+
+  <div class="form-group a-form-group   mb-2">
+
+      <label class="a-form-label  " for="text-input-link">Lenke: </label>
+
+    <div class="a-form-group-items input-group   ">
+
+
+      <input class="form-control  
+         "
+        type="text" 
+        placeholder="https:&#x2F;&#x2F;..."
+        
+        name="input-field"
+        data-val="true"
+        id="text-input-link"
+        required
+        
+        
+        
+        
+        
+        
+        
+        
+        
+      >
+
+
+
+
+    </div>
+
+
+      <div class="a-message a-message-error" data-valmsg-for="input-field" data-valmsg-replace="true"></div>
+
+  </div>
+
+<!-- END: 00-atomer-01-forms-10-tekst-input -->
+
+
+                <!-- START: 00-atomer-01-forms-10-tekst-input JS doc: handleFocus.js, searchWithMultipleSelectInAutoComplete.js brukes via klassen a-js-autocomplete på form-control-class gir autocomplete med mulighet for å velge flere elementer fra resultatlista. -->
+
+  <div class="form-group a-form-group   mb-3">
+
+      <label class="a-form-label  " for="text-input-linktext">Lenketekst: </label>
+
+    <div class="a-form-group-items input-group   ">
+
+
+      <input class="form-control  
+         "
+        type="text" 
+        placeholder="F.eks &#39;Finn ut mer&#39;"
+        
+        name="input-field"
+        data-val="true"
+        id="text-input-linktext"
+        required
+        
+        
+        
+        
+        
+        
+        
+        
+        
+      >
+
+
+
+
+    </div>
+
+
+      <div class="a-message a-message-error" data-valmsg-for="input-field" data-valmsg-replace="true"></div>
+
+  </div>
+
+<!-- END: 00-atomer-01-forms-10-tekst-input -->
+
+
+
+                <!-- START: 01-molekyler-05-forms-20-dato-og-tid -->
+<div class="row mb-2 form-group mb-0">
+      <div class="col-12">
+        <label class="a-form-label">Publisert&#x2F;sendt ut</label>
+      </div>
+  <div class="col-12 d-flex align-items-start">
+    
+      <!-- START: 00-atomer-01-forms-60-datovelger JS doc: initializeDatepicker.js. Requires class .form-control.date -->
+<div class="d-inline-block form-group a-form-group a-form-group-datepicker">
+  <div class="input-group  disabled ">
+    <input type="text"
+      id="datovelger"
+      
+       disabled 
+       value="19.08.2019" 
+      class="form-control a-hasButton 18.09 date" />
+
+    <div class="input-group-prepend a-icon-right">
+      <!-- START: 00-atomer-09-bilder-og-media-15-ikon -->
+<i class="ai ai-date   "    ></i>
+
+
+<!-- END: 00-atomer-09-bilder-og-media-15-ikon -->
+
+    </div>
+  </div>
+</div>
+
+<!-- END: 00-atomer-01-forms-60-datovelger -->
+
+
+    <div class="ml-2 input-group ">
+      <input class="form-control" type="time" name="timepicker"  >
+    </div>
+  </div>
+</div>
+
+<!-- END: 01-molekyler-05-forms-20-dato-og-tid -->
+
+
+                <label class="an-stackedLabel" for="">
+                  Utgår&#x2F;deaktiveres
+                </label>
+
+                <ul class="nav nav-tabs custom-radio a-radioButtons a-navTabsRadio mb-0" role="tablist">
+                <li class="nav-item">
+                  <a class="nav-link " data-toggle="tab" href="#radio-endnow" role="tab">
+                    <div class="custom-control custom-radio a-custom-radio">
+                      <span class="custom-control-label">Nå </span>
+                    </div>
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link " data-toggle="tab" href="#radio-endlater" role="tab">
+                    <div class="custom-control custom-radio a-custom-radio">
+                      <span class="custom-control-label">Senere </span>
+                    </div>
+                  </a>
+                </li>
+              </ul>
+
+              <div class="tab-content mb-2">
+                <div class="tab-pane" id="radio-endnow" role="tabpanel">
+                </div>
+                <div class="tab-pane" id="radio-endlater" role="tabpanel">
+                    <!-- START: 01-molekyler-05-forms-20-dato-og-tid -->
+<div class="row  form-group mb-0">
+      <div class="col-12">
+        <label class="a-form-label">Planlagt deaktivering</label>
+      </div>
+  <div class="col-12 d-flex align-items-start">
+    
+      <!-- START: 00-atomer-01-forms-60-datovelger JS doc: initializeDatepicker.js. Requires class .form-control.date -->
+<div class="d-inline-block form-group a-form-group a-form-group-datepicker">
+  <div class="input-group ">
+    <input type="text"
+      id="datovelger"
+      
+      
+      
+      class="form-control a-hasButton  date" />
+
+    <div class="input-group-prepend a-icon-right">
+      <!-- START: 00-atomer-09-bilder-og-media-15-ikon -->
+<i class="ai ai-date   "    ></i>
+
+
+<!-- END: 00-atomer-09-bilder-og-media-15-ikon -->
+
+    </div>
+  </div>
+</div>
+
+<!-- END: 00-atomer-01-forms-60-datovelger -->
+
+
+    <div class="ml-2 input-group ">
+      <input class="form-control" type="time" name="timepicker"  >
+    </div>
+  </div>
+</div>
+
+<!-- END: 01-molekyler-05-forms-20-dato-og-tid -->
+
+                </div>
+              </div>
+              
+
+              <div class="mb-4">
+                <label class="an-stackedLabel mt-2 mb-1" for="">
+                  Kanaler driftsvarslene skal legges ut på
+                </label>
+                <!-- START: 00-atomer-01-forms-00-avkrysningsboks -->
+  
+      <div class="custom-control
+        
+        
+        custom-checkbox a-custom-checkbox
+         inactive 
+        
+        
+        ">
+          <input
+            type="checkbox"
+            id="canal3"
+            class="custom-control-input"
+            checked="checked"
+            
+            
+            
+             disabled >
+          <label class="custom-control-label " for="canal3">Altinndigital.no</label>
+      </div>
+      <div class="custom-control
+        
+        
+        custom-checkbox a-custom-checkbox
+         inactive 
+        
+        
+        ">
+          <input
+            type="checkbox"
+            id="canal4"
+            class="custom-control-input"
+            checked="checked"
+            
+            
+            
+             disabled >
+          <label class="custom-control-label " for="canal4">Dashboard for tjenesteeiere</label>
+      </div>
+  
+
+<!-- END: 00-atomer-01-forms-00-avkrysningsboks -->
+
+              </div>
+
+
+            </div>
+            
+          </div>
+
+          <div class="row">
+            <div class="col-12 col-lg-8">
+
+              <div id="alert" class="a-message a-message-info a-message--arrow-off mt-4 py-2">
+                <!-- START: 00-atomer-01-forms-00-avkrysningsboks -->
+  <fieldset class="form-group mb-0">
+    <legend class="a-legend">Ønsker du at det skal sendes ut et nytt e-postvarsel med oppdateringene du har gjort?</legend>
+  
+      <div class="custom-control
+        
+        custom-control-inline
+        custom-checkbox a-custom-checkbox
+        
+        
+        
+        ">
+          <input
+            type="checkbox"
+            id="sendnewemail"
+            class="custom-control-input"
+            
+            
+            
+            
+            >
+          <label class="custom-control-label " for="sendnewemail">Ja, send ut nytt varsel</label>
+      </div>
+  
+  </fieldset>
+
+<!-- END: 00-atomer-01-forms-00-avkrysningsboks -->
+
+              </div>
+
+            </div>
+          </div>
+
+          <div class="row mt-2">
+            <div class="col-12 d-flex align-items-baseline">
+              <div>
+                  <!-- START: 00-atomer-03-knapper-10-knapp -->
+<button
+   type="button" 
+  
+  class="a-btn mt-3 "
+  id="a-js-contactForm-submit"
+  
+  data-toggle="altinn-modal"
+  data-action="next"
+  
+  data-url="../../patterns/02-organismer-80-Modal-js-innhold-30-dashboard-driftsvarsel-ferdig/02-organismer-80-Modal-js-innhold-30-dashboard-driftsvarsel-ferdig.markup-only.html"
+  data-target="#modal-addAlert"
+  data-is-success="true"
+   
+  >
+  
+    Lagre
+  
+</button>
+
+<!-- END: 00-atomer-03-knapper-10-knapp -->
+
+              </div>
+              <div class="ml-2">
+                  <!-- START: 00-atomer-02-lenker-00-link -->
+<a
+   href="/patterns/04-sider-altinnett-01-dashboard-tjenesteeier-10-dashboard-tjenesteeier-forside/04-sider-altinnett-01-dashboard-tjenesteeier-10-dashboard-tjenesteeier-forside.html" 
+  class=" "
+  
+  
+  
+  
+  
+  
+  >
+  Avbryt
+  
+</a>
+<!-- END: 00-atomer-02-lenker-00-link -->
+
+              </div>
+          </div>
+        </div>
+
+        </form>
+</div>
+
+<!-- END: 02-organismer-80-Modal-js-innhold-30-dashboard-driftsvarsel-redigerReleaseEllerVedlikehold -->
+
+  </div>
+  <script type="text/json" id="sg-pattern-data-organismer-dashboard-driftsvarsel-redigerReleaseEllerVedlikehold" class="sg-pattern-data">
+    {"cssEnabled":false,"patternLineageExists":true,"patternLineages":[{"lineagePattern":"atomer-knapp-ikon","lineagePath":"../../patterns/00-atomer-04-handlingsknapper-10-knapp-ikon/00-atomer-04-handlingsknapper-10-knapp-ikon.html","lineageState":"complete altinn"},{"lineagePattern":"atomer-avkrysningsboks","lineagePath":"../../patterns/00-atomer-01-forms-00-avkrysningsboks/00-atomer-01-forms-00-avkrysningsboks.html","lineageState":"complete altinn altinnett"},{"lineagePattern":"atomer-tekst-input","lineagePath":"../../patterns/00-atomer-01-forms-10-tekst-input/00-atomer-01-forms-10-tekst-input.html","lineageState":"complete altinn altinnett"},{"lineagePattern":"atomer-tekstfelt","lineagePath":"../../patterns/00-atomer-01-forms-40-tekstfelt/00-atomer-01-forms-40-tekstfelt.html","lineageState":"complete altinn altinnett"},{"lineagePattern":"molekyler-dato-og-tid","lineagePath":"../../patterns/01-molekyler-05-forms-20-dato-og-tid/01-molekyler-05-forms-20-dato-og-tid.html","lineageState":"indesignreview altinn altinnett"},{"lineagePattern":"atomer-knapp","lineagePath":"../../patterns/00-atomer-03-knapper-10-knapp/00-atomer-03-knapper-10-knapp.html","lineageState":"complete altinn altinnett"},{"lineagePattern":"atomer-link","lineagePath":"../../patterns/00-atomer-02-lenker-00-link/00-atomer-02-lenker-00-link.html","lineageState":"complete altinn altinnett"}],"lineage":[{"lineagePattern":"atomer-knapp-ikon","lineagePath":"../../patterns/00-atomer-04-handlingsknapper-10-knapp-ikon/00-atomer-04-handlingsknapper-10-knapp-ikon.html","lineageState":"complete altinn"},{"lineagePattern":"atomer-avkrysningsboks","lineagePath":"../../patterns/00-atomer-01-forms-00-avkrysningsboks/00-atomer-01-forms-00-avkrysningsboks.html","lineageState":"complete altinn altinnett"},{"lineagePattern":"atomer-tekst-input","lineagePath":"../../patterns/00-atomer-01-forms-10-tekst-input/00-atomer-01-forms-10-tekst-input.html","lineageState":"complete altinn altinnett"},{"lineagePattern":"atomer-tekstfelt","lineagePath":"../../patterns/00-atomer-01-forms-40-tekstfelt/00-atomer-01-forms-40-tekstfelt.html","lineageState":"complete altinn altinnett"},{"lineagePattern":"molekyler-dato-og-tid","lineagePath":"../../patterns/01-molekyler-05-forms-20-dato-og-tid/01-molekyler-05-forms-20-dato-og-tid.html","lineageState":"indesignreview altinn altinnett"},{"lineagePattern":"atomer-knapp","lineagePath":"../../patterns/00-atomer-03-knapper-10-knapp/00-atomer-03-knapper-10-knapp.html","lineageState":"complete altinn altinnett"},{"lineagePattern":"atomer-link","lineagePath":"../../patterns/00-atomer-02-lenker-00-link/00-atomer-02-lenker-00-link.html","lineageState":"complete altinn altinnett"}],"patternLineageRExists":false,"patternLineagesR":[],"lineageR":[],"patternLineageEExists":true,"patternDesc":"","patternBreadcrumb":{"patternType":"organismer","patternSubtype":"Modal-js-innhold"},"patternExtension":"mustache","patternName":"Dashboard Driftsvarsel RedigerReleaseEllerVedlikehold","patternPartial":"organismer-dashboard-driftsvarsel-redigerReleaseEllerVedlikehold","patternState":"complete altinn altinnett","patternEngineName":"mustache","extraOutput":{}}
   </script>
 </div><!--end .sg-pattern-->
 <div id="organismer-dashboard-abonner-driftsvarsel" class="sg-pattern">
@@ -12168,10 +14079,10 @@
   }
 </script>
 
-<script id="pl-js-polyfill-insert-1571730507445">
+<script id="pl-js-polyfill-insert-1572008602140">
   (function() {
     if (self != top) {
-      var cb = '1571730507445';
+      var cb = '1572008602140';
       var js = [];
       if (typeof document !== 'undefined' && !('classList' in document.documentElement)) {
         js.push('styleguide/bower_components/classList.min.js');
@@ -12181,10 +14092,10 @@
   })();
 </script>
 
-<script id="pl-js-insert-1571730507445">
+<script id="pl-js-insert-1572008602140">
   (function() {
     if (self != top) {
-      var cb = '1571730507445';
+      var cb = '1572008602140';
       var js = [ { 'src': 'styleguide/bower_components/jwerty.min.js', 'dep': [ 'styleguide/js/patternlab-pattern.min.js' ] } ];
       scriptLoader.run(js,cb,'pl-js-insert');
     }
@@ -12231,13 +14142,13 @@
                         default:
                             $('link[href*="style.prototype.altinn.css"]').remove();
                             $('link[href*="style.dist.altinnett.css"]').remove();
-                            $('link[href*="style.dist.brreg.css"]').attr({href: '../../css/style.prototype.altinn.css?1571730507445', media: 'all'});
+                            $('link[href*="style.dist.brreg.css"]').attr({href: '../../css/style.prototype.altinn.css?1572008602140', media: 'all'});
                             break;
                     }
                 } else {
                     $('link[href*="style.prototype.altinn.css"]').remove();
                     $('link[href*="style.dist.altinnett.css"]').remove();
-                    $('link[href*="style.dist.brreg.css"]').attr({href: '../../css/style.prototype.altinn.css?1571730507445', media: 'all'});
+                    $('link[href*="style.dist.brreg.css"]').attr({href: '../../css/style.prototype.altinn.css?1572008602140', media: 'all'});
                 }
         }
     });

@@ -7,9 +7,7 @@
     <div class="container">
       <div class="row">
         <div class="col-sm-12 col-lg-10 offset-lg-1">
-          {{# articlestart }}
-            {{> organismer-artikkel-start }}
-            {{/ articlestart }}
+          {{# articlestart }} {{> organismer-artikkel-start }} {{/ articlestart }}
         </div>
       </div>
 
@@ -20,40 +18,34 @@
 
 
           {{# firstlist }}
-            <h2 class="a-h3">{{{ list-header }}}</h2>
-            {{> atomer-liste-unummerert-kuler }}
-            {{/ firstlist }}
+          <h2 class="a-h3">{{{ list-header }}}</h2>
+          {{> atomer-liste-unummerert-kuler }} {{/ firstlist }} {{# secondlist }}
+          <h2 class="a-h3">{{{ list-header }}}</h2>
+          {{> atomer-liste-unummerert-kuler }} {{/ secondlist }}
 
-            {{# secondlist }}
-              <h2 class="a-h3">{{{ list-header }}}</h2>
-              {{> atomer-liste-unummerert-kuler }}
-              {{/ secondlist }}
+          <p>Det kan søkes om dekning av prosjektkostnader som personalkostnader, kjøp av eksterne FoU-tjenester og stipend.</p>
 
-              <p>Det kan søkes om dekning av prosjektkostnader som personalkostnader, kjøp av eksterne FoU-tjenester og stipend.</p>
+          <h2 class="a-h3">{{{ list-header }}}</h2>
 
-              <h2 class="a-h3">{{{ list-header }}}</h2>
-
-              {{# list-moreinfo }}
-                {{> molekyler-liste-unummerert:mb-3 }}
-                {{/ list-moreinfo }}
-
-                {{#callToAction}}
-                  {{> atomer-link}}
-                {{/callToAction}}
+          {{# list-moreinfo }} {{> molekyler-liste-unummerert:mb-3 }} {{/ list-moreinfo }} {{#callToAction}} {{> atomer-link}} {{/callToAction}}
 
         </div>
 
 
-      </div><!-- END .row -->
+      </div>
+      <!-- END .row -->
 
       <div class="row">
         <div class="col-sm-12 col-lg-8 offset-lg-2 a-text epi-wysiwyg my-4">
 
           {{> molekyler-fant-du-det-du-lette-etter }}
 
-        </div><!-- END .col-... -->
-      </div><!-- END .row -->
-    </div> <!-- END Container -->
+        </div>
+        <!-- END .col-... -->
+      </div>
+      <!-- END .row -->
+    </div>
+    <!-- END Container -->
 
   </section>
 

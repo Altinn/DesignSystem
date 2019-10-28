@@ -14,7 +14,8 @@
   </div>
   <div class="modal-body a-modal-body">
 
-    <div class="a-form-group mb-2">
+    <!-- START: 01-molekyler-05-forms-05-valgknapper-og-spesifiser -->
+    <div class="a-form-group ">
       <label class="a-form-label" for="environment">Hvilket miljø skal tjenesteinformasjonen publiseres til?</label>
       <form id=environment>
         <!-- START: 00-atomer-01-forms-07-valgknapp-ett-alternativ -->
@@ -28,8 +29,8 @@
             <input id="radiobutton-production" class="sr-only" type="radio" name="environment" value="radiobutton-read" />
 
             <label for="radiobutton-production" class="a-switch-label ">
-              Produksjon
-            </label>
+	        Produksjon
+	      </label>
 
           </div>
 
@@ -39,8 +40,8 @@
             <input id="radiobutton-tt02" class="sr-only" type="radio" name="environment" value="radiobutton-read" />
 
             <label for="radiobutton-tt02" class="a-switch-label ">
-              TT02
-            </label>
+	        TT02
+	      </label>
 
           </div>
 
@@ -50,8 +51,37 @@
 
         <!-- END: 00-atomer-01-forms-07-valgknapp-ett-alternativ -->
 
+        <div class="mb-2">
+          <div class="annet collapse">
+            <!-- START: 00-atomer-01-forms-10-tekst-input JS doc: handleFocus.js, searchWithMultipleSelectInAutoComplete.js brukes via klassen a-js-autocomplete på form-control-class gir autocomplete med mulighet for å velge flere elementer fra resultatlista. -->
+
+            <div class="form-group a-form-group   ">
+
+              <label class="a-form-label  " for="annet">Vennligst spesifiser</label>
+
+              <div class="a-form-group-items input-group   ">
+
+
+                <input class="form-control  
+         " type="text" placeholder="Feks. AT05" name="input-field" data-val="true" id="annet">
+
+
+
+
+              </div>
+
+
+
+            </div>
+
+            <!-- END: 00-atomer-01-forms-10-tekst-input -->
+
+          </div>
+        </div>
       </form>
     </div>
+    <!-- END: 01-molekyler-05-forms-05-valgknapper-og-spesifiser -->
+
 
     <div class="mb-2">
       <!-- START: 00-atomer-01-forms-10-tekst-input JS doc: handleFocus.js, searchWithMultipleSelectInAutoComplete.js brukes via klassen a-js-autocomplete på form-control-class gir autocomplete med mulighet for å velge flere elementer fra resultatlista. -->
@@ -168,20 +198,20 @@
       ">
                 <input type="radio" id="radio1" name="customRadio" value="radio1" class="custom-control-input" data-toggle="collapse" data-target=".datovelgercollapse.show">
                 <label class="custom-control-label a-radioButtons-title" for="radio1">
-                  Snarest mulig
+        Snarest mulig
 
 
-                </label>
+			</label>
               </div>
               <div class="custom-control custom-radio a-custom-radio 
       
       ">
                 <input type="radio" id="radio2" name="customRadio" value="radio2" class="custom-control-input" data-toggle="collapse" data-target=".datovelgercollapse:not(.show)">
                 <label class="custom-control-label a-radioButtons-title" for="radio2">
-                  På et gitt tidspunkt
+        På et gitt tidspunkt
 
 
-                </label>
+			</label>
               </div>
 
             </fieldset>
@@ -192,31 +222,29 @@
 
           <div class="collapse datovelgercollapse no-transition">
             <!-- START: 01-molekyler-05-forms-20-dato-og-tid -->
-            <div class="row  form-group">
+            <div class="row  form-group mb-0">
               <div class="col-12 d-flex align-items-start">
 
-                <div class="w-100">
-                  <!-- START: 00-atomer-01-forms-60-datovelger JS doc: initializeDatepicker.js. Requires class .form-control.date -->
-                  <div class="d-inline-block form-group a-form-group a-form-group-datepicker">
-                    <div class="input-group">
-                      <input type="text" id="datovelger" class="form-control a-hasButton  date" />
+                <!-- START: 00-atomer-01-forms-60-datovelger JS doc: initializeDatepicker.js. Requires class .form-control.date -->
+                <div class="d-inline-block form-group a-form-group a-form-group-datepicker">
+                  <div class="input-group ">
+                    <input type="text" id="datovelger" class="form-control a-hasButton  date" />
 
-                      <div class="input-group-prepend a-icon-right">
-                        <!-- START: 00-atomer-09-bilder-og-media-15-ikon -->
-                        <i class="ai ai-date   "></i>
+                    <div class="input-group-prepend a-icon-right">
+                      <!-- START: 00-atomer-09-bilder-og-media-15-ikon -->
+                      <i class="ai ai-date   "></i>
 
 
-                        <!-- END: 00-atomer-09-bilder-og-media-15-ikon -->
+                      <!-- END: 00-atomer-09-bilder-og-media-15-ikon -->
 
-                      </div>
                     </div>
                   </div>
-
-                  <!-- END: 00-atomer-01-forms-60-datovelger -->
-
                 </div>
 
-                <div class="ml-2 input-group">
+                <!-- END: 00-atomer-01-forms-60-datovelger -->
+
+
+                <div class="ml-2 input-group ">
                   <input class="form-control" type="time" name="timepicker">
                 </div>
               </div>
@@ -234,11 +262,12 @@
     </div>
 
     <!-- START: 00-atomer-03-knapper-10-knapp -->
-    <button type="button" class="a-btn d-block mt-3 mb-2" id="a-js-contactForm-submit2" data-toggle="altinn-modal" data-action="next" data-url="../../patterns/02-organismer-80-Modal-js-innhold-20-dashboard-redigerTjeneste-altinn-step2/02-organismer-80-Modal-js-innhold-20-dashboard-redigerTjeneste-altinn-step2.markup-only.html" data-target="#modal-message">
-
-      Neste
-
-    </button>
+    <button type="button" class="a-btn d-block mt-3 mb-2" id="a-js-contactForm-submit2" data-toggle="altinn-modal" data-action="next" data-url="../../patterns/02-organismer-80-Modal-js-innhold-20-dashboard-redigerTjeneste-altinn-step2/02-organismer-80-Modal-js-innhold-20-dashboard-redigerTjeneste-altinn-step2.markup-only.html"
+      data-target="#modal-message">
+  
+    Neste
+  
+</button>
 
     <!-- END: 00-atomer-03-knapper-10-knapp -->
 

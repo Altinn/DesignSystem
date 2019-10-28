@@ -14,162 +14,134 @@
   <div class="modal-body a-modal-body">
 
     {{# form }}
-      <form data-toggle="validator" id="contactForm">
-        {{# removeAlert }}
-          <div class="row">
-            <div class="col-12">
-              {{> atomer-knapp-ikon }}
+    <form data-toggle="validator" id="contactForm">
+      {{# removeAlert }}
+      <div class="row">
+        <div class="col-12">
+          {{> atomer-knapp-ikon }}
+        </div>
+      </div>
+      {{/ removeAlert }} {{# description }}
+      <p class="mb-4">{{ text }}</p>
+      {{/ description }}
+
+      <div class="row">
+
+        <div class="col-12 col-lg-8">
+
+          {{#alerttype}} {{!-- Skal være obligatorisk å velge én --}}
+          <label class="an-stackedLabel" for="{{ inputId }}">
+                  {{label-text}}
+                </label>
+
+          <ul class="nav nav-tabs custom-radio a-radioButtons a-navTabsRadio" role="tablist">
+            {{# radiotab-items }}
+            <li class="nav-item">
+              <a class="nav-link {{# isChecked }}active{{/ isChecked }} {{# isDisabled }}disabled{{/ isDisabled }}" data-toggle="tab" href="#{{radiotab-id}}" role="tab">
+                <div class="custom-control custom-radio a-custom-radio">
+                  <span class="custom-control-label">{{ radiotab-title }} </span>
+                </div>
+              </a>
+            </li>
+            {{/ radiotab-items }}
+          </ul>
+
+          {{# radiotab-panes }}
+          <div class="tab-content mb-4">
+            <div class="tab-pane" id="{{radiotab-id}}" role="tabpanel">
+              {{> atomer-avkrysningsboks }}
             </div>
           </div>
-          {{/ removeAlert }}
+          {{/ radiotab-panes }} {{/alerttype}} {{# critical-deactivated }}
+          <div class="tab-content mb-4">
+            {{> atomer-avkrysningsboks:mb-4 }}
+          </div>
+          {{/ critical-deactivated }} {{#emne}} {{!-- Skal være obligatorisk --}} {{> atomer-tekst-input:mb-2 }} {{/emne}} {{#question}} {{!-- Skal være obligatorisk --}} {{> atomer-tekstfelt:mb-2 }} {{/question}} {{#link}} {{> atomer-tekst-input:mb-2 }} {{/link}}
+          {{#linktext}} {{> atomer-tekst-input:mb-3 }} {{/linktext}} {{#time-start}} {{!-- Skal være obligatorisk å velge én --}}
+          <label class="an-stackedLabel" for="{{ inputId }}">
+                  {{label-text}}
+                </label>
 
-          {{# description }}
-            <p class="mb-4">{{ text }}</p>
-            {{/ description }}
-
-            <div class="row">
-
-              <div class="col-12 col-lg-8">
-
-                {{#alerttype}}
-                  {{!-- Skal være obligatorisk å velge én --}}
-                  <label class="an-stackedLabel" for="{{ inputId }}">
-                    {{label-text}}
-                  </label>
-
-                  <ul class="nav nav-tabs custom-radio a-radioButtons a-navTabsRadio" role="tablist">
-                    {{# radiotab-items }}
-                      <li class="nav-item">
-                        <a class="nav-link {{# isChecked }}active{{/ isChecked }}" data-toggle="tab" href="#{{radiotab-id}}" role="tab">
-                          <div class="custom-control custom-radio a-custom-radio">
-                            <span class="custom-control-label">{{ radiotab-title }} </span>
-                          </div>
-                        </a>
-                      </li>
-                      {{/ radiotab-items }}
-                  </ul>
-
-                  <div class="tab-content mb-4">
-                    {{# radiotab-panes }}
-                      <div class="tab-pane" id="{{radiotab-id}}" role="tabpanel">
-                        {{> atomer-avkrysningsboks }}
-                      </div>
-                      {{/ radiotab-panes }}
-                  </div>
-                {{/alerttype}}
-
-                {{#emne}}
-                  {{!-- Skal være obligatorisk --}}
-                  {{> atomer-tekst-input:mb-2 }}
-                {{/emne}}
-
-                {{#question}}
-                  {{!-- Skal være obligatorisk --}}
-                  {{> atomer-tekstfelt:mb-2 }}
-                {{/question}}
-
-                {{#link}}
-                {{> atomer-tekst-input:mb-2 }}
-                {{/link}}
-
-                {{#linktext}}
-                  {{> atomer-tekst-input:mb-3 }}
-                {{/linktext}}
-
-                {{#time-start}}
-                  {{!-- Skal være obligatorisk å velge én --}}
-                  <label class="an-stackedLabel" for="{{ inputId }}">
-                    {{label-text}}
-                  </label>
-
-                  <ul class="nav nav-tabs custom-radio a-radioButtons a-navTabsRadio mb-0" role="tablist">
-                    {{# radiotab-items }}
-                      <li class="nav-item">
-                        <a class="nav-link {{# isChecked }}active{{/ isChecked }}" data-toggle="tab" href="#{{radiotab-id}}" role="tab">
-                          <div class="custom-control custom-radio a-custom-radio">
-                            <span class="custom-control-label">{{ radiotab-title }} </span>
-                          </div>
-                        </a>
-                      </li>
-                      {{/ radiotab-items }}
-                  </ul>
-
-                  <div class="tab-content mb-2">
-                    {{# radiotab-panes }}
-                      <div class="tab-pane" id="{{radiotab-id}}" role="tabpanel">
-                        {{#date-picker}}
-                          {{> molekyler-dato-og-tid}}
-                        {{/date-picker}}
-                      </div>
-                      {{/ radiotab-panes }}
-                  </div>
-                {{/time-start}}
-
-                {{#time}}
-                  {{> molekyler-dato-og-tid:mb-2}}
-                {{/time}}
-
-
-                {{#time-end-edit}}
-                  <label class="an-stackedLabel" for="{{ inputId }}">
-                    {{label-text}}
-                  </label>
-
-                  <ul class="nav nav-tabs custom-radio a-radioButtons a-navTabsRadio mb-0" role="tablist">
-                    {{# radiotab-items }}
-                      <li class="nav-item">
-                        <a class="nav-link {{# isChecked }}active{{/ isChecked }}" data-toggle="tab" href="#{{radiotab-id}}" role="tab">
-                          <div class="custom-control custom-radio a-custom-radio">
-                            <span class="custom-control-label">{{ radiotab-title }} </span>
-                          </div>
-                        </a>
-                      </li>
-                      {{/ radiotab-items }}
-                  </ul>
-
-                  <div class="tab-content mb-2">
-                    {{# radiotab-panes }}
-                      <div class="tab-pane" id="{{radiotab-id}}" role="tabpanel">
-                        {{#date-picker}}
-                          {{> molekyler-dato-og-tid}}
-                        {{/date-picker}}
-                      </div>
-                      {{/ radiotab-panes }}
-                  </div>
-                {{/time-end-edit}}
-
-                {{#timeend}}
-                  {{> molekyler-dato-og-tid:mt-1}}
-                {{/timeend}}
-
-                {{#canal}}
-                  <label class="an-stackedLabel mt-2 mb-1" for="{{ inputId }}">
-                    {{label-text}}
-                  </label>
-                  {{> atomer-avkrysningsboks }}
-                {{/canal}}
-
-              </div>
-
-            </div>
-
-            <div class="row mt-4">
-              <div class="col-12 d-flex align-items-baseline">
-                <div>
-                  {{# save }}
-                    {{> atomer-knapp }}
-                    {{/ save }}
+          <ul class="nav nav-tabs custom-radio a-radioButtons a-navTabsRadio mb-0" role="tablist">
+            {{# radiotab-items }}
+            <li class="nav-item">
+              <a class="nav-link {{# isChecked }}active{{/ isChecked }}" data-toggle="tab" href="#{{radiotab-id}}" role="tab">
+                <div class="custom-control custom-radio a-custom-radio">
+                  <span class="custom-control-label">{{ radiotab-title }} </span>
                 </div>
-                <div class="ml-2">
-                  {{# avbryt }}
-                    {{> atomer-link }}
-                    {{/ avbryt }}
-                </div>
-              </div>
-            </div>
+              </a>
+            </li>
+            {{/ radiotab-items }}
+          </ul>
 
-      </form>
-      {{/ form }}
+          <div class="tab-content mb-2">
+            {{# radiotab-panes }}
+            <div class="tab-pane" id="{{radiotab-id}}" role="tabpanel">
+              {{#date-picker}} {{> molekyler-dato-og-tid}} {{/date-picker}}
+            </div>
+            {{/ radiotab-panes }}
+          </div>
+          {{/time-start}} {{#time}} {{> molekyler-dato-og-tid:mb-2}} {{/time}} {{#time-end-edit}}
+          <label class="an-stackedLabel" for="{{ inputId }}">
+                  {{label-text}}
+                </label>
+
+          <ul class="nav nav-tabs custom-radio a-radioButtons a-navTabsRadio mb-0" role="tablist">
+            {{# radiotab-items }}
+            <li class="nav-item">
+              <a class="nav-link {{# isChecked }}active{{/ isChecked }}" data-toggle="tab" href="#{{radiotab-id}}" role="tab">
+                <div class="custom-control custom-radio a-custom-radio">
+                  <span class="custom-control-label">{{ radiotab-title }} </span>
+                </div>
+              </a>
+            </li>
+            {{/ radiotab-items }}
+          </ul>
+
+          <div class="tab-content mb-2">
+            {{# radiotab-panes }}
+            <div class="tab-pane" id="{{radiotab-id}}" role="tabpanel">
+              {{#date-picker}} {{> molekyler-dato-og-tid}} {{/date-picker}}
+            </div>
+            {{/ radiotab-panes }}
+          </div>
+          {{/time-end-edit}} {{#timeend}} {{> molekyler-dato-og-tid:mt-1}} {{/timeend}} {{#canal}}
+          <div class="mb-4">
+            <label class="an-stackedLabel mt-2 mb-1" for="{{ inputId }}">
+                  {{label-text}}
+                </label> {{> atomer-avkrysningsboks:mb-2 }}
+          </div>
+          {{/canal}} {{#errorIsSolved}} {{> atomer-avkrysningsboks }} {{/errorIsSolved}}
+
+        </div>
+
+      </div>
+
+      <div class="row">
+        <div class="col-12 col-lg-8">
+
+          {{# whenUpdating }}
+          <div {{# alert-id }}id="{{ alert-id }}" {{/ alert-id }}class="a-message a-message-info a-message--arrow-off mt-4 py-2">
+            {{> atomer-avkrysningsboks }}
+          </div>
+          {{/ whenUpdating }}
+
+        </div>
+      </div>
+
+      <div class="row mt-2">
+        <div class="col-12 d-flex align-items-baseline">
+          <div>
+            {{# save }} {{> atomer-knapp }} {{/ save }}
+          </div>
+          <div class="ml-2">
+            {{# avbryt }} {{> atomer-link }} {{/ avbryt }}
+          </div>
+        </div>
+      </div>
+
+    </form>
+    {{/ form }}
   </div>
 
   <!-- END: 02-organismer-80-Modal-js-innhold-30-dashboard-driftsvarsel -->

@@ -18,47 +18,20 @@
       <div class="row">
         <div class="col-12 col-sm-8">
 
-          {{# lenke }}
-            {{!-- Obligatorisk --}}
-            <div class="mb-2">
-              {{> atomer-tekst-input }}
-            </div>
-            {{/ lenke }}
+          {{# lenke }} {{!-- Obligatorisk --}}
+          <div class="mb-2">
+            {{> atomer-tekst-input }}
+          </div>
+          {{/ lenke }} {{# environment }} {{!-- Må velge minst én --}} {{> molekyler-valgknapper-og-spesifiser }} {{/ environment }} {{# nybruker }}
+          <form id="nybruker" class="mb-2">
+            {{> atomer-avkrysningsboks }}
+          </form>
 
-            {{# environment }}
-              {{!-- Må velge minst én --}}
-              <div class="row a-form-group mb-2">
-                <div class="col-12">
-                  <label class="a-form-label" for="{{ form-id }}">{{ top-label }}</label>
-                </div>
-                <div class="col-12">
-                  <form id={{ form-id }}>
-                    {{> atomer-valgknapp-ett-alternativ }}
-                  </form>
-                </div>
-              </div>
-              {{/ environment }}
+          <div id="bruker" class="collapse mb-2">
+            {{# kontakt1 }} {{> organismer-dashboard-kontaktinfo }} {{/ kontakt1 }}
+          </div>
 
-              {{# nybruker }}
-                <form id="nybruker" class="mb-2">
-                  {{> atomer-avkrysningsboks }}
-                </form>
-
-                <div id="bruker" class="collapse mb-2">
-                  {{# kontakt1 }}
-                    {{> organismer-dashboard-kontaktinfo }}
-                    {{/ kontakt1 }}
-                </div>
-
-                {{/ nybruker }}
-
-                {{# information }}
-                  {{> atomer-tekstfelt }}
-                  {{/ information }}
-
-                  {{#submit}}
-                    {{> atomer-knapp:mb-2 }}
-                  {{/submit}}
+          {{/ nybruker }} {{# information }} {{> atomer-tekstfelt }} {{/ information }} {{#submit}} {{> atomer-knapp:mb-2 }} {{/submit}}
 
         </div>
       </div>

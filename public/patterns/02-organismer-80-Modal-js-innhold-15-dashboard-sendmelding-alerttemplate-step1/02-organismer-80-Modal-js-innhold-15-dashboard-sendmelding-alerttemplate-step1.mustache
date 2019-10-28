@@ -8,79 +8,56 @@
       </div>
       <h1 class="a-iconText-text mb-0">
         <span class="a-iconText-text-small"></span>
-        <span class="a-iconText-text-large">Bestill egen varslingsmal til varslingstjeneste</span>
+        <span class="a-iconText-text-large">Bestill varslingsmal</span>
       </h1>
     </div>
   </div>
   <div class="modal-body a-modal-body">
 
-    {{# environment }}
-      {{!-- Obligatorisk --}}
-      <div class="a-form-group mw-100 mb-2">
-        <label class="a-form-label" for="{{ form-id }}">{{ top-label }}</label>
-        <form id={{ form-id }}>
-          {{> atomer-valgknapp-ett-alternativ }}
-        </form>
+    {{# environment }} {{!-- Obligatorisk --}} {{> molekyler-valgknapper-og-spesifiser }} {{/ environment }} {{# type }} {{!-- Obligatorisk --}}
+    <div class="form-group a-form-group">
+      <label class="a-form-label a-fontBold px-0">Angi type varsel</label>
+      <ul class="nav nav-tabs custom-radio a-radioButtons a-navTabsRadio" role="tablist">
+        {{# types }}
+        <li class="nav-item">
+          <a class="nav-link" data-toggle="tab" href="{{ tab-id }}" role="tab">
+            <div class="custom-control custom-radio a-custom-radio">
+              <span class="custom-control-label">{{ title }}</span>
+            </div>
+          </a>
+        </li>
+        {{/ types }}
+      </ul>
+    </div>
+    {{/ type }}
+
+    <div class="tab-content">
+      <div class="tab-pane" id="first" role="tabpanel">
+        {{#tab1}} {{# template-name }} {{!-- Obligatorisk --}}
+        <div class="mb-2">
+          {{> atomer-tekst-input}}
+        </div>
+        {{/ template-name }} {{/tab1}}
       </div>
-      {{/ environment }}
 
-      {{# type }}
-        {{!-- Obligatorisk --}}
-        <div class="form-group a-form-group">
-          <label class="a-form-label a-fontBold px-0">Angi type varsel</label>
-          <ul class="nav nav-tabs custom-radio a-radioButtons a-navTabsRadio" role="tablist">
-            {{# types }}
-              <li class="nav-item">
-                <a class="nav-link" data-toggle="tab" href="{{ tab-id }}" role="tab">
-                  <div class="custom-control custom-radio a-custom-radio">
-                    <span class="custom-control-label">{{ title }}</span>
-                  </div>
-                </a>
-              </li>
-              {{/ types }}
-          </ul>
+      <div class="tab-pane form-group" id="consecutive" role="tabpanel">
+        {{#tab2}} {{# template-name }} {{!-- Obligatorisk --}}
+        <div class="mb-2">
+          {{> atomer-tekst-input}}
         </div>
-        {{/ type }}
-
-        <div class="tab-content">
-          <div class="tab-pane" id="first" role="tabpanel">
-            {{#tab1}}
-              {{# template-name }}
-                {{!-- Obligatorisk --}}
-                <div class="mb-2">
-                  {{> atomer-tekst-input}}
-                </div>
-                {{/ template-name }}
-            {{/tab1}}
-          </div>
-
-          <div class="tab-pane form-group" id="consecutive" role="tabpanel">
-            {{#tab2}}
-              {{# template-name }}
-                {{!-- Obligatorisk --}}
-                <div class="mb-2">
-                  {{> atomer-tekst-input}}
-                </div>
-                {{/ template-name }}
-                {{# associated-template }}
-                  {{!-- Obligatorisk --}}
-                  <div class="mb-2">
-                    {{> atomer-tekst-input}}
-                  </div>
-                  {{/ associated-template }}
-                  {{# time-delay }}
-                    {{!-- Obligatorisk --}}
-                    <div class="mb-2">
-                      {{> molekyler-tidsvelger }}
-                    </div>
-                    {{/ time-delay }}
-            {{/tab2}}
-          </div>
+        {{/ template-name }} {{# associated-template }} {{!-- Obligatorisk --}}
+        <div class="mb-2">
+          {{> atomer-tekst-input}}
         </div>
+        {{/ associated-template }} {{# time-delay }} {{!-- Obligatorisk --}}
+        <div class="mb-2">
+          {{> molekyler-tidsvelger }}
+        </div>
+        {{/ time-delay }} {{/tab2}}
+      </div>
+    </div>
 
-        {{# submit}}
-          {{> atomer-knapp:mb-2 }}
-          {{/ submit}}
+    {{# submit}} {{> atomer-knapp:mb-2 }} {{/ submit}}
   </div>
 </div>
 

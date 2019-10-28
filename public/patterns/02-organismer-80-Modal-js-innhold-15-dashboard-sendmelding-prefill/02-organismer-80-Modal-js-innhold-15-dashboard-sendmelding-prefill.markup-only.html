@@ -26,30 +26,30 @@
       ">
           <input type="radio" id="recording1" name="customRadio" value="recording1" class="custom-control-input" data-toggle="collapse" data-target=".checkboxcollapse:not(.show)">
           <label class="custom-control-label a-radioButtons-title" for="recording1">
-            Prefill-fil
+        Prefill-fil
 
 
-          </label>
+			</label>
         </div>
         <div class="custom-control custom-radio a-custom-radio 
       
       ">
           <input type="radio" id="recording2" name="customRadio" value="recording2" class="custom-control-input" data-toggle="collapse" data-target=".checkboxcollapse.show">
           <label class="custom-control-label a-radioButtons-title" for="recording2">
-            Abonnementsfil
+        Abonnementsfil
 
 
-          </label>
+			</label>
         </div>
         <div class="custom-control custom-radio a-custom-radio 
       
       ">
           <input type="radio" id="recording3" name="customRadio" value="recording3" class="custom-control-input" data-toggle="collapse" data-target=".checkboxcollapse.show">
           <label class="custom-control-label a-radioButtons-title" for="recording3">
-            Meldingsfil
+        Meldingsfil
 
 
-          </label>
+			</label>
         </div>
 
       </fieldset>
@@ -80,7 +80,8 @@
       </div>
     </div>
 
-    <div class="a-form-group mb-2">
+    <!-- START: 01-molekyler-05-forms-05-valgknapper-og-spesifiser -->
+    <div class="a-form-group ">
       <label class="a-form-label" for="environment">Angi ønsket miljø</label>
       <form id=environment>
         <!-- START: 00-atomer-01-forms-07-valgknapp-ett-alternativ -->
@@ -91,33 +92,33 @@
 
           <div class="a-switch  ">
 
-            <input id="radiobutton-production" class="sr-only" type="radio" name="environment" value="radiobutton-read" />
+            <input id="radiobutton-production" class="sr-only" type="radio" name="environment" value="radiobutton-read" data-toggle="collapse" data-target=".annet.show" />
 
             <label for="radiobutton-production" class="a-switch-label ">
-              Produksjon
-            </label>
+	        Produksjon
+	      </label>
 
           </div>
 
 
           <div class="a-switch  ">
 
-            <input id="radiobutton-tt02" class="sr-only" type="radio" name="environment" value="radiobutton-read" />
+            <input id="radiobutton-tt02" class="sr-only" type="radio" name="environment" value="radiobutton-read" data-toggle="collapse" data-target=".annet.show" />
 
             <label for="radiobutton-tt02" class="a-switch-label ">
-              TT02
-            </label>
+	        TT02
+	      </label>
 
           </div>
 
 
           <div class="a-switch  ">
 
-            <input id="radiobutton-at05" class="sr-only" type="radio" name="environment" value="radiobutton-read" />
+            <input id="radiobutton-annet" class="sr-only" type="radio" name="environment" value="radiobutton-read" data-toggle="collapse" data-target=".annet:not(.show)" />
 
-            <label for="radiobutton-at05" class="a-switch-label ">
-              AT05
-            </label>
+            <label for="radiobutton-annet" class="a-switch-label ">
+	        Annet
+	      </label>
 
           </div>
 
@@ -127,8 +128,37 @@
 
         <!-- END: 00-atomer-01-forms-07-valgknapp-ett-alternativ -->
 
+        <div class="mb-2">
+          <div class="annet collapse">
+            <!-- START: 00-atomer-01-forms-10-tekst-input JS doc: handleFocus.js, searchWithMultipleSelectInAutoComplete.js brukes via klassen a-js-autocomplete på form-control-class gir autocomplete med mulighet for å velge flere elementer fra resultatlista. -->
+
+            <div class="form-group a-form-group   ">
+
+              <label class="a-form-label  " for="annet">Vennligst spesifiser</label>
+
+              <div class="a-form-group-items input-group   ">
+
+
+                <input class="form-control  
+         " type="text" placeholder="Feks. AT05" name="input-field" data-val="true" id="annet">
+
+
+
+
+              </div>
+
+
+
+            </div>
+
+            <!-- END: 00-atomer-01-forms-10-tekst-input -->
+
+          </div>
+        </div>
       </form>
     </div>
+    <!-- END: 01-molekyler-05-forms-05-valgknapper-og-spesifiser -->
+
 
     <!-- START: 00-atomer-01-forms-40-tekstfelt -->
     <div class="form-group a-form-group ">
@@ -142,26 +172,27 @@
     <!-- START: 00-atomer-01-forms-70-upload -->
 
     <label class="a-btn a-btn-action a-iconRight a-custom-fileupload mb-0 mt-1">
-      <input class="a-js-certificateContainer sr-only" type="file" id="newCertificateInput">
-      Last opp fil
+    <input  class="a-js-certificateContainer sr-only" type="file" id="newCertificateInput">
+    Last opp fil
       <!-- START: 00-atomer-09-bilder-og-media-15-ikon -->
-      <i class="ai ai-upload   "></i>
+<i class="ai ai-upload   "    ></i>
 
 
-      <!-- END: 00-atomer-09-bilder-og-media-15-ikon -->
+<!-- END: 00-atomer-09-bilder-og-media-15-ikon -->
 
-    </label>
+  </label>
 
 
     <!-- END: 00-atomer-01-forms-70-upload -->
 
 
     <!-- START: 00-atomer-03-knapper-10-knapp -->
-    <button type="button" class="a-btn d-block mt-3 mb-2" id="a-js-contactForm-submit2" data-toggle="altinn-modal" data-action="next" data-url="../../patterns/02-organismer-80-Modal-js-innhold-15-dashboard-sendmelding-ferdig/02-organismer-80-Modal-js-innhold-15-dashboard-sendmelding-ferdig.markup-only.html" data-target="#modal-message" data-is-success="true">
-
-      Send bestilling
-
-    </button>
+    <button type="button" class="a-btn d-block mt-3 mb-2" id="a-js-contactForm-submit2" data-toggle="altinn-modal" data-action="next" data-url="../../patterns/02-organismer-80-Modal-js-innhold-15-dashboard-sendmelding-ferdig/02-organismer-80-Modal-js-innhold-15-dashboard-sendmelding-ferdig.markup-only.html"
+      data-target="#modal-message" data-is-success="true">
+  
+    Send bestilling
+  
+</button>
 
     <!-- END: 00-atomer-03-knapper-10-knapp -->
 
