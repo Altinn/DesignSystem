@@ -48,14 +48,21 @@
                 {{/ radiotab-items }}
               </ul>
 
-              <div class="tab-content mb-4">
                 {{# radiotab-panes }}
-                <div class="tab-pane" id="{{radiotab-id}}" role="tabpanel">
-                  {{> atomer-avkrysningsboks }}
+                <div class="tab-content mb-4">
+                  <div class="tab-pane" id="{{radiotab-id}}" role="tabpanel">
+                    {{> atomer-avkrysningsboks }}
+                  </div>
                 </div>
                 {{/ radiotab-panes }}
-              </div>
+             
               {{/alerttype}}
+
+              {{# critical-deactivated }}
+                <div class="tab-content mb-4">
+                {{> atomer-avkrysningsboks:mb-4 }}
+                </div>
+              {{/ critical-deactivated }}
 
               {{#emne}}
               {{!-- Skal være obligatorisk --}}
