@@ -19,106 +19,39 @@
           {{> atomer-radioknapp }}
         {{/ accessType }}
 
+        <div class="mt-3 mb-2">
         {{# rest }}
           <div class="{{ type-class }} collapse no-transition">
-            <h3 class="a-h2">{{ subtitle }}</h3>
-            {{# applikasjonsnavn }}
-            {{!-- Obligatorisk --}}
-              {{> atomer-tekst-input:mb-2 }}
-            {{/ applikasjonsnavn }}
-
-            {{# orgnummer }}
-            {{!-- Obligatorisk, gjerne med regex-validering --}}
-              {{> atomer-tekst-input:mb-2 }}
-            {{/ orgnummer }}
-
-            {{# environment }}
-              {{> molekyler-valgknapper-og-spesifiser }}
-            {{/ environment }}
-
-            {{# applikasjonstype }}
-              <form id="applikasjonstype">
-                {{!-- Obligatorisk --}}
-                {{> atomer-radioknapp }}
-                <div class="mb-2">
-                  <div class="nettleser collapse no-transition">
-                    {{> atomer-tekst-input }}
-                  </div>
-                </div>
-              </form>
-            {{/ applikasjonstype }}
-
-            {{# apitype }}
-              <form id="apitype">
-                {{> atomer-radioknapp }}
-              </form>
-            {{/ apitype }}
-
-            <div class="mt-3 mb-2">
-              {{# submit-tjenesteeier}}
-              <div class="tjenesteeier-neste collapse no-transition">
-                {{> atomer-knapp }}
-              </div>
-              {{/ submit-tjenesteeier}}
-              {{# submit-sluttbruker}}
-                <div class="sluttbruker-neste collapse no-transition">
-                  {{> atomer-knapp }}
-                </div>
-              {{/ submit-sluttbruker}}
-            </div>
-
+            {{# submit }}
+              {{> atomer-knapp }}
+            {{/ submit }}
           </div>
         {{/ rest }}
 
         {{# soap }}
           <div class="{{ type-class }} collapse no-transition">
-            <h3 class="a-h2">{{ subtitle }}</h3>
-            {{# option }}
-              {{> atomer-radioknapp:mb-2 }}
-            {{/ option }}
-
-            {{# systembruker }}
-              {{> atomer-tekst-input:mb-2 }}
-            {{/ systembruker }}
-
-            {{# environment }}
-              {{> molekyler-valgknapper-og-spesifiser }}
-            {{/ environment }}
-
-            {{# ip }}
-            <div class="ipadress collapse no-transition">
-              {{> atomer-tekst-input:mb-2 }}
-            </div>
-            {{/ ip }}
-
-            {{# information }}
-              {{> atomer-tekstfelt:mb-2 }}
-            {{/ information }}
-
-            {{# submit}}
-              {{> atomer-knapp:mb-2 }}
-            {{/ submit}}
+            {{# submit }}
+              {{> atomer-knapp }}
+            {{/ submit }}
           </div>
         {{/ soap }}
 
         {{# tul }}
           <div class="{{ type-class }} collapse no-transition">
-            <h3 class="a-h2">{{ subtitle }}</h3>
-            {{# submit}}
-              {{> atomer-knapp:mb-2 }}
-            {{/ submit}}
+            {{# submit }}
+              {{> atomer-knapp }}
+            {{/ submit }}
           </div>
         {{/ tul }}
 
         {{# fire }}
           <div class="{{ type-class }} collapse no-transition">
-            <h3 class="a-h2">{{ subtitle }}</h3>
-            {{# submit}}
-              {{> atomer-knapp:mb-2 }}
-            {{/ submit}}
+            {{# submit }}
+              {{> atomer-knapp }}
+            {{/ submit }}
           </div>
         {{/ fire }}
-        
+        </div>
       </form>
   </div>
 </div>
