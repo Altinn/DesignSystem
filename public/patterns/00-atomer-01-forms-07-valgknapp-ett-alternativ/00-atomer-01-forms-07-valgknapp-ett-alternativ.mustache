@@ -1,29 +1,36 @@
 <!-- START: 00-atomer-01-forms-07-valgknapp-ett-alternativ -->
 {{#hidewhenempty-start}}
-<div class="hidewhenempty">
-  {{/hidewhenempty-start}} {{#hasFieldset}}
+  <div class="hidewhenempty">
+{{/hidewhenempty-start}}
+
+{{#hasFieldset}}
   <fieldset>
     <legend class="sr-only">{{ switch-legend }}</legend>
-    {{/hasFieldset}} {{# radiobuttons }}
+{{/hasFieldset}}
 
-    <div class="a-switch {{styleModifier}} {{isWide}}">
+{{# radiobuttons }}
 
-      <input {{# radiobuttons-id }}id="{{{ radiobuttons-id }}}" {{/ radiobuttons-id }} class="sr-only" type="radio" name="{{{ radiobuttons-name }}}" value="radiobutton-read" {{# isChecked }} checked {{/ isChecked }} {{# onclick }} onclick="{{{ onclick }}}"
-        {{/ onclick }} {{# data-toggle }} data-toggle="{{ data-toggle }}" {{/ data-toggle }} {{# data-target }} data-target="{{ data-target }}" {{/ data-target }} />
+  <div class="a-switch {{styleModifier}} {{isWide}}">
 
-      <label for="{{{ radiobuttons-id }}}" class="a-switch-label {{{ radiobuttons-class }}}">
-					{{# hasIcon }}
-		        {{> atomer-ikon }}
-		      {{/ hasIcon }}
-	        {{{radiobuttons-title}}}
-	      </label>
+    <input {{# radiobuttons-id }}id="{{{ radiobuttons-id }}}" {{/ radiobuttons-id }} class="sr-only" type="radio" name="{{{ radiobuttons-name }}}" value="radiobutton-read" {{# isChecked }} checked {{/ isChecked }} {{# onclick }} onclick="{{{ onclick }}}" {{/ onclick }} {{# data-toggle }} data-toggle="{{ data-toggle }}" {{/ data-toggle }} {{# data-target }} data-target="{{ data-target }}" {{/ data-target }} />
 
+    <label for="{{{ radiobuttons-id }}}" class="a-switch-label {{{ radiobuttons-class }}}">
+      {{# hasIcon }}
+        {{> atomer-ikon }}
+        {{/ hasIcon }}
+        {{{radiobuttons-title}}}
+    </label>
+
+  </div>
+
+  {{/ radiobuttons }}
+
+  {{#hasFieldset}}
+    </fieldset>
+  {{/hasFieldset}}
+
+  {{#hidewhenempty-end}}
     </div>
+  {{/hidewhenempty-end}}
 
-    {{/ radiobuttons }} {{#hasFieldset}}
-  </fieldset>
-  {{/hasFieldset}} {{#hidewhenempty-end}}
-</div>
-{{/hidewhenempty-end}}
-
-<!-- END: 00-atomer-01-forms-07-valgknapp-ett-alternativ -->
+  <!-- END: 00-atomer-01-forms-07-valgknapp-ett-alternativ -->

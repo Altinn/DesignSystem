@@ -1,50 +1,76 @@
 <!-- START: 03-maler-altinnett-20-profil-10-profil -->
 <div class="a-page">
-  {{# header }} {{> organismer-header-altinnett }} {{/ header }}
+  {{# header }}
+    {{> organismer-header-altinnett }}
+    {{/ header }}
 
-  <section id="content" tabindex="-1">
-    <div class="container">
-      <div class="row">
-        <div class="col-12">
-          <h1 class="mb-3 mt-0 a-fontSizeL">
-            {{{ profile-login-prefix }}}
-            <span class="a-fontBold">
-              {{{ profile-login-name }}}
-            </span> {{{ profile-login-organization }}}
-          </h1>
+    <section id="content" tabindex="-1">
+      <div class="container">
+        <div class="row">
+          <div class="col-12">
+            <h1 class="mb-3 mt-0 a-fontSizeL">
+              {{{ profile-login-prefix }}}
+              <span class="a-fontBold">
+                {{{ profile-login-name }}}
+              </span>
+              {{{ profile-login-organization }}}
+            </h1>
 
-          <div id="{{ accordion-large-id }}" class="a-panelAccordion" role="tablist">
-            {{# subscriber }} {{# yourProfilePanel }} {{> organismer-altinnett-varslingsprofil }} {{/ yourProfilePanel }} {{/ subscriber }} {{# organizationProfilePanel }} {{> organismer-altinnett-varslingsprofiler-for-leverandorer }} {{/ organizationProfilePanel
-            }} {{# alertListPanel }} {{> organismer-altinnett-varslingsliste }} {{/ alertListPanel }}
+            <div id="{{ accordion-large-id }}" class="a-panelAccordion" role="tablist">
+              {{# subscriber }}
+                {{# yourProfilePanel }}
+                  {{> organismer-altinnett-varslingsprofil }}
+                  {{/ yourProfilePanel }}
+                  {{/ subscriber }}
+
+                  {{# organizationProfilePanel }}
+                    {{> organismer-altinnett-varslingsprofiler-for-leverandorer }}
+                    {{/ organizationProfilePanel }}
+
+                    {{# alertListPanel }}
+                      {{> organismer-altinnett-varslingsliste }}
+                      {{/ alertListPanel }}
+            </div>
+
+            {{# unsubscriber }}
+              <div class="mt-3 col-12">
+                <h2>Abonnere på varslinger</h2>
+                <p>Her kan du registrere din e-post adresse dersom du ønsker å motta viktige varslinger fra Altinn. Du bestemmer selv hvilke kategorier av hendelser du ønsker å motta varslinger om.</p>
+
+                {{# subscribeLink }}
+                  {{> atomer-link }}
+                  {{/ subscribeLink }}
+              </div>
+              {{/ unsubscriber }}
+
+              <p class="mt-2 col-12">
+                {{# firstLink }}
+                  {{> atomer-link }}
+                  {{/ firstLink }}
+              </p>
+
+              <p class="col-12">
+                {{# secondLink }}
+                  {{> atomer-link }}
+                  {{/ secondLink }}
+              </p>
+
+              <p class="col-12">
+                {{# thirdLink }}
+                  {{> atomer-knapp }}
+                  {{/ thirdLink }}
+              </p>
           </div>
-
-          {{# unsubscriber }}
-          <div class="mt-3 col-12">
-            <h2>Abonnere på varslinger</h2>
-            <p>Her kan du registrere din e-post adresse dersom du ønsker å motta viktige varslinger fra Altinn. Du bestemmer selv hvilke kategorier av hendelser du ønsker å motta varslinger om.</p>
-
-            {{# subscribeLink }} {{> atomer-link }} {{/ subscribeLink }}
-          </div>
-          {{/ unsubscriber }}
-
-          <p class="mt-2 col-12">
-            {{# firstLink }} {{> atomer-link }} {{/ firstLink }}
-          </p>
-
-          <p class="col-12">
-            {{# secondLink }} {{> atomer-link }} {{/ secondLink }}
-          </p>
-
-          <p class="col-12">
-            {{# thirdLink }} {{> atomer-knapp }} {{/ thirdLink }}
-          </p>
         </div>
       </div>
-    </div>
 
-    {{# subscribeModal }} {{> organismer-modal }} {{/ subscribeModal }}
-  </section>
-  {{# footer }} {{> organismer-footer-altinnett }} {{/ footer }}
+      {{# subscribeModal }}
+        {{> organismer-modal }}
+        {{/ subscribeModal }}
+    </section>
+    {{# footer }}
+      {{> organismer-footer-altinnett }}
+      {{/ footer }}
 </div>
 
 <!-- END: 03-maler-altinnett-20-profil-10-profil -->

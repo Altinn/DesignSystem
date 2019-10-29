@@ -1,0 +1,436 @@
+<!-- START: 02-organismer-83-Dashboard-modaler-driftsvarsler-10-driftsvarsel-redigerReleaseEllerVedlikehold -->
+<div class="modal-content">
+  <div class="modal-header a-modal-header">
+    <div class="a-iconText a-iconText-background a-iconText-large">
+      <div class="a-iconText-icon">
+        <i class="ai ai-send a-icon" aria-hidden="true"></i>
+      </div>
+      <h1 class="a-iconText-text mb-0">
+        <span class="a-iconText-text-small"></span>
+        <span class="a-iconText-text-large">Endre eller fjerne driftsvarsel</span>
+      </h1>
+    </div>
+  </div>
+  <div class="modal-body a-modal-body">
+
+    <form data-toggle="validator" id="contactForm">
+      <div class="row">
+        <div class="col-12">
+          <!-- START: 00-atomer-04-handlingsknapper-10-knapp-ikon -->
+          <button type="button" class="a-btn a-btn-icon float-right w-auto " aria-label="Tilbake" data-toggle="popover" data-placement="bottom" data-animation="false" data-popover-content="removeAlertPopover" data-popover-class="popover-warning">
+            <!-- START: 00-atomer-09-bilder-og-media-15-ikon -->
+            <i class="ai ai-circle-exit  a-danger ai-left "></i>
+
+
+            <!-- END: 00-atomer-09-bilder-og-media-15-ikon -->
+
+
+            <span>
+              Fjern driftsvarsel
+            </span>
+          </button>
+
+          <div>
+          </div>
+          <div role="popover" id="removeAlertPopover" class="d-none">
+            <div class="pb-1">Er du sikker på at du vil slette driftsvarselet? Det vil ikke være mulig å gjenopprette det.</div>
+            <!-- START: 00-atomer-03-knapper-10-knapp -->
+            <button type="button" class="a-btn a-btn-danger mr-1">
+              <span>
+                Slett
+              </span>
+            </button>
+
+            <!-- END: 00-atomer-03-knapper-10-knapp -->
+
+            <!-- START: 00-atomer-03-knapper-10-knapp -->
+            <button type="button" class="a-btn-link a-linkDanger mr-1">
+              <span>
+                Avbryt
+              </span>
+            </button>
+
+            <!-- END: 00-atomer-03-knapper-10-knapp -->
+
+
+          </div>
+
+          <!-- END: 00-atomer-04-handlingsknapper-10-knapp-ikon -->
+
+        </div>
+      </div>
+
+
+      <div class="row">
+
+        <div class="col-12 col-lg-8">
+
+          <label class="an-stackedLabel" for="">
+            Type driftsvarsel
+          </label>
+
+          <ul class="nav nav-tabs custom-radio a-radioButtons a-navTabsRadio" role="tablist">
+            <li class="nav-item">
+              <a class="nav-link active disabled" data-toggle="tab" href="#radio-Feilmelding" role="tab">
+                <div class="custom-control custom-radio a-custom-radio">
+                  <span class="custom-control-label">Feil i Altinn </span>
+                </div>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link  disabled" data-toggle="tab" href="#radio-Feilmelding" role="tab">
+                <div class="custom-control custom-radio a-custom-radio">
+                  <span class="custom-control-label">Feil og endringer i samtykkeløsningen </span>
+                </div>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link  disabled" data-toggle="tab" href="#radio-Feilmelding" role="tab">
+                <div class="custom-control custom-radio a-custom-radio">
+                  <span class="custom-control-label">Feil og endringer som påvirker ekstern programvare </span>
+                </div>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link  disabled" data-toggle="tab" href="#radio-vedlikehold" role="tab">
+                <div class="custom-control custom-radio a-custom-radio">
+                  <span class="custom-control-label">Planlagt vedlikehold </span>
+                </div>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link  disabled" data-toggle="tab" href="#radio-feilaltinn" role="tab">
+                <div class="custom-control custom-radio a-custom-radio">
+                  <span class="custom-control-label">Nye releaser i Altinn </span>
+                </div>
+              </a>
+            </li>
+          </ul>
+
+          <div class="tab-content mb-4">
+            <div class="tab-pane" id="radio-Feilmelding" role="tabpanel">
+              <!-- START: 00-atomer-01-forms-00-avkrysningsboks -->
+
+              <div class="custom-control
+        
+        
+        custom-checkbox a-custom-checkbox
+         inactive 
+        
+        
+        ">
+                <input type="checkbox" id="criticaltrue" class="custom-control-input" checked="checked" disabled>
+                <label class="custom-control-label " for="criticaltrue">Varselet er av kritisk art/A-feil</label>
+              </div>
+
+
+              <!-- END: 00-atomer-01-forms-00-avkrysningsboks -->
+
+            </div>
+          </div>
+          <div class="tab-content mb-4">
+            <div class="tab-pane" id="radio-vedlikehold" role="tabpanel">
+              <!-- START: 00-atomer-01-forms-00-avkrysningsboks -->
+
+
+
+              <!-- END: 00-atomer-01-forms-00-avkrysningsboks -->
+
+            </div>
+          </div>
+          <div class="tab-content mb-4">
+            <div class="tab-pane" id="radio-Release" role="tabpanel">
+              <!-- START: 00-atomer-01-forms-00-avkrysningsboks -->
+
+
+
+              <!-- END: 00-atomer-01-forms-00-avkrysningsboks -->
+
+            </div>
+          </div>
+
+
+
+          <!-- START: 00-atomer-01-forms-10-tekst-input JS doc: handleFocus.js, searchWithMultipleSelectInAutoComplete.js brukes via klassen a-js-autocomplete på form-control-class gir autocomplete med mulighet for å velge flere elementer fra resultatlista. -->
+
+          <div class="form-group a-form-group   mb-2">
+
+            <label class="a-form-label  " for="text-input-title2">Tittel: </label>
+
+            <div class="a-form-group-items input-group   ">
+
+
+              <input class="form-control  
+         " type="text" placeholder="Obs! PROD: Vedlikehold mandag 18. mars" value="Obs! PROD: Vedlikehold mandag 18. mars" name="text-input-title2" data-val="true" id="text-input-title2" required data-val-required="Du har ikke oppgitt tittel.">
+
+
+
+
+            </div>
+
+
+            <div class="a-message a-message-error" data-valmsg-for="text-input-title2" data-valmsg-replace="true"></div>
+
+          </div>
+
+          <!-- END: 00-atomer-01-forms-10-tekst-input -->
+
+
+          <!-- START: 00-atomer-01-forms-40-tekstfelt -->
+          <div class="form-group a-form-group mb-2">
+            <label for="text-input-question2" class="a-form-label">Tekst</label>
+            <textarea class="form-control a-textarea" rows="3" placeholder="G​runnet planlagt vedlikehold mandag 18.3.19, mellom kl. 04 – 06 (natt), vil det kunne oppleves noe treghet/forstyrrelser i løsningen i en kort periode." required data-val-required="Du har ikke fyllt inn beskrivelse" name="text-input-question2" id="text-input-question2">G​runnet planlagt vedlikehold mandag 18.3.19, mellom kl. 04 – 06 (natt), vil det kunne oppleves noe treghet/forstyrrelser i løsningen i en kort periode.</textarea>
+            <div class="a-message a-message-error" data-valmsg-for="text-input-question2" data-valmsg-replace="false">
+              <span class="has-error">Du har ikke fyllt inn beskrivelse</span>
+            </div>
+          </div>
+
+          <!-- END: 00-atomer-01-forms-40-tekstfelt -->
+
+
+          <!-- START: 00-atomer-01-forms-10-tekst-input JS doc: handleFocus.js, searchWithMultipleSelectInAutoComplete.js brukes via klassen a-js-autocomplete på form-control-class gir autocomplete med mulighet for å velge flere elementer fra resultatlista. -->
+
+          <div class="form-group a-form-group   mb-2">
+
+            <label class="a-form-label  " for="text-input-link">Lenke: </label>
+
+            <div class="a-form-group-items input-group   ">
+
+
+              <input class="form-control  
+         " type="text" placeholder="https:&#x2F;&#x2F;..." name="input-field" data-val="true" id="text-input-link" required>
+
+
+
+
+            </div>
+
+
+            <div class="a-message a-message-error" data-valmsg-for="input-field" data-valmsg-replace="true"></div>
+
+          </div>
+
+          <!-- END: 00-atomer-01-forms-10-tekst-input -->
+
+
+          <!-- START: 00-atomer-01-forms-10-tekst-input JS doc: handleFocus.js, searchWithMultipleSelectInAutoComplete.js brukes via klassen a-js-autocomplete på form-control-class gir autocomplete med mulighet for å velge flere elementer fra resultatlista. -->
+
+          <div class="form-group a-form-group   mb-3">
+
+            <label class="a-form-label  " for="text-input-linktext">Lenketekst: </label>
+
+            <div class="a-form-group-items input-group   ">
+
+
+              <input class="form-control  
+         " type="text" placeholder="F.eks &#39;Finn ut mer&#39;" name="input-field" data-val="true" id="text-input-linktext" required>
+
+
+
+
+            </div>
+
+
+            <div class="a-message a-message-error" data-valmsg-for="input-field" data-valmsg-replace="true"></div>
+
+          </div>
+
+          <!-- END: 00-atomer-01-forms-10-tekst-input -->
+
+
+
+          <!-- START: 01-molekyler-05-forms-20-dato-og-tid -->
+          <div class="row mb-2 form-group mb-0">
+            <div class="col-12">
+              <label class="a-form-label">Publisert&#x2F;sendt ut</label>
+            </div>
+            <div class="col-12 d-flex align-items-start">
+
+              <!-- START: 00-atomer-01-forms-60-datovelger JS doc: initializeDatepicker.js. Requires class .form-control.date -->
+              <div class="d-inline-block form-group a-form-group a-form-group-datepicker">
+                <div class="input-group  disabled ">
+                  <input type="text" id="datovelger" disabled value="19.08.2019" class="form-control a-hasButton 18.09 date" />
+
+                  <div class="input-group-prepend a-icon-right">
+                    <!-- START: 00-atomer-09-bilder-og-media-15-ikon -->
+                    <i class="ai ai-date   "></i>
+
+
+                    <!-- END: 00-atomer-09-bilder-og-media-15-ikon -->
+
+                  </div>
+                </div>
+              </div>
+
+              <!-- END: 00-atomer-01-forms-60-datovelger -->
+
+
+              <div class="ml-2 input-group ">
+                <input class="form-control" type="time" name="timepicker">
+              </div>
+            </div>
+          </div>
+
+          <!-- END: 01-molekyler-05-forms-20-dato-og-tid -->
+
+
+          <label class="an-stackedLabel" for="">
+            Utgår&#x2F;deaktiveres
+          </label>
+
+          <ul class="nav nav-tabs custom-radio a-radioButtons a-navTabsRadio mb-0" role="tablist">
+            <li class="nav-item">
+              <a class="nav-link " data-toggle="tab" href="#radio-endnow" role="tab">
+                <div class="custom-control custom-radio a-custom-radio">
+                  <span class="custom-control-label">Nå </span>
+                </div>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link " data-toggle="tab" href="#radio-endlater" role="tab">
+                <div class="custom-control custom-radio a-custom-radio">
+                  <span class="custom-control-label">Senere </span>
+                </div>
+              </a>
+            </li>
+          </ul>
+
+          <div class="tab-content mb-2">
+            <div class="tab-pane" id="radio-endnow" role="tabpanel">
+            </div>
+            <div class="tab-pane" id="radio-endlater" role="tabpanel">
+              <!-- START: 01-molekyler-05-forms-20-dato-og-tid -->
+              <div class="row  form-group mb-0">
+                <div class="col-12">
+                  <label class="a-form-label">Planlagt deaktivering</label>
+                </div>
+                <div class="col-12 d-flex align-items-start">
+
+                  <!-- START: 00-atomer-01-forms-60-datovelger JS doc: initializeDatepicker.js. Requires class .form-control.date -->
+                  <div class="d-inline-block form-group a-form-group a-form-group-datepicker">
+                    <div class="input-group ">
+                      <input type="text" id="datovelger" class="form-control a-hasButton  date" />
+
+                      <div class="input-group-prepend a-icon-right">
+                        <!-- START: 00-atomer-09-bilder-og-media-15-ikon -->
+                        <i class="ai ai-date   "></i>
+
+
+                        <!-- END: 00-atomer-09-bilder-og-media-15-ikon -->
+
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- END: 00-atomer-01-forms-60-datovelger -->
+
+
+                  <div class="ml-2 input-group ">
+                    <input class="form-control" type="time" name="timepicker">
+                  </div>
+                </div>
+              </div>
+
+              <!-- END: 01-molekyler-05-forms-20-dato-og-tid -->
+
+            </div>
+          </div>
+
+
+          <div class="mb-4">
+            <label class="an-stackedLabel mt-2 mb-1" for="">
+              Kanaler driftsvarslene skal legges ut på
+            </label>
+            <!-- START: 00-atomer-01-forms-00-avkrysningsboks -->
+
+            <div class="custom-control
+        
+        
+        custom-checkbox a-custom-checkbox
+         inactive 
+        
+        
+        ">
+              <input type="checkbox" id="canal3" class="custom-control-input" checked="checked" disabled>
+              <label class="custom-control-label " for="canal3">Altinndigital.no</label>
+            </div>
+            <div class="custom-control
+        
+        
+        custom-checkbox a-custom-checkbox
+         inactive 
+        
+        
+        ">
+              <input type="checkbox" id="canal4" class="custom-control-input" checked="checked" disabled>
+              <label class="custom-control-label " for="canal4">Dashboard for tjenesteeiere</label>
+            </div>
+
+
+            <!-- END: 00-atomer-01-forms-00-avkrysningsboks -->
+
+          </div>
+
+
+        </div>
+
+      </div>
+
+      <div class="row">
+        <div class="col-12 col-lg-8">
+
+          <div id="alert" class="a-message a-message-info a-message--arrow-off mt-4 py-2">
+            <!-- START: 00-atomer-01-forms-00-avkrysningsboks -->
+            <fieldset class="form-group mb-0">
+              <legend class="a-legend">Ønsker du at det skal sendes ut et nytt e-postvarsel med oppdateringene du har gjort?</legend>
+
+              <div class="custom-control
+        
+        custom-control-inline
+        custom-checkbox a-custom-checkbox
+        
+        
+        
+        ">
+                <input type="checkbox" id="sendnewemail" class="custom-control-input">
+                <label class="custom-control-label " for="sendnewemail">Ja, send ut nytt varsel</label>
+              </div>
+
+            </fieldset>
+
+            <!-- END: 00-atomer-01-forms-00-avkrysningsboks -->
+
+          </div>
+
+        </div>
+      </div>
+
+      <div class="row mt-2">
+        <div class="col-12 d-flex align-items-baseline">
+          <div>
+            <!-- START: 00-atomer-03-knapper-10-knapp -->
+            <button type="button" class="a-btn mt-3 " id="a-js-contactForm-submit" data-toggle="altinn-modal" data-action="next" data-url="../../patterns/02-organismer-83-Dashboard-modaler-driftsvarsler-11-driftsvarsel-ferdig/02-organismer-83-Dashboard-modaler-driftsvarsler-11-driftsvarsel-ferdig.markup-only.html" data-target="#modal-addAlert" data-is-success="true">
+
+              Lagre
+
+            </button>
+
+            <!-- END: 00-atomer-03-knapper-10-knapp -->
+
+          </div>
+          <div class="ml-2">
+            <!-- START: 00-atomer-02-lenker-00-link -->
+            <a href="/patterns/04-sider-altinnett-01-dashboard-tjenesteeier-10-dashboard-tjenesteeier-forside/04-sider-altinnett-01-dashboard-tjenesteeier-10-dashboard-tjenesteeier-forside.html" class=" ">
+              Avbryt
+
+            </a>
+            <!-- END: 00-atomer-02-lenker-00-link -->
+
+          </div>
+        </div>
+      </div>
+
+    </form>
+  </div>
+
+  <!-- END: 02-organismer-83-Dashboard-modaler-driftsvarsler-10-driftsvarsel-redigerReleaseEllerVedlikehold -->

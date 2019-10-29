@@ -2,31 +2,81 @@
 <section class="an-dashboard-services mb-4">
 
   <div class="row">
-    <div class="col-sm-12">
-      {{# dashboard-servicesTitle }} {{> atomer-seksjonstittel:a-fontMedium }} {{/ dashboard-servicesTitle }} {{# dashboard-addService }} {{> atomer-handlingsknapp }} {{/ dashboard-addService }} {{# addServiceModal }} {{> organismer-modal }} {{/ addServiceModal
-      }}
-
+    <div class="col-sm-12 col-md-6 col-lg-8">
+      {{# dashboard-servicesTitle }}
+        {{> atomer-seksjonstittel:a-fontMedium }}
+        {{/ dashboard-servicesTitle }}
+    </div>
+    <div class="col-sm-12 col-md-6 col-lg-4 mb-1">
+      <ul class="nav nav-tabs switch-container" id="switch-service-type" role="tablist">
+        <li class="nav-item">
+          <a class="nav-link active" id="tab-tul" data-toggle="tab" href="#content-tul" role="tab" aria-controls="home" aria-selected="true">
+            TUL
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" id="tab-studio" data-toggle="tab" href="#content-studio" role="tab" aria-controls="home" aria-selected="true">
+            Studio
+          </a>
+        </li>
+      </ul>
     </div>
   </div>
 
-  {{# dashboard-services }}
-  <div class="row">
-    <div class="col-sm-12 col-lg-12">
-      <div {{# accordion-large-id }}id="{{ accordion-large-id }}" {{/ accordion-large-id }} class="a-panelAccordion" role="tablist">
-        {{# accordion-large-items }} {{> organismer-ekspanderbart-panel }} {{/ accordion-large-items }}
+  <div class="tab-content" id="myTabContent">
+    <div class="tab-pane show active" id="content-tul" role="tabpanel" aria-labelledby="tab-tul">
+
+      <div class="row">
+        <div class="col-sm-12">
+
+          {{# dashboard-addService }}
+            {{> atomer-handlingsknapp }}
+            {{/ dashboard-addService }}
+
+            {{# addServiceModal }}
+              {{> organismer-modal }}
+              {{/ addServiceModal }}
+
+        </div>
       </div>
+
+      {{# dashboard-services }}
+        <div class="row">
+          <div class="col-sm-12 col-lg-12">
+            <div {{# accordion-large-id }}id="{{ accordion-large-id }}" {{/ accordion-large-id }} class="a-panelAccordion" role="tablist">
+              {{# accordion-large-items }}
+                {{> organismer-ekspanderbart-panel }}
+                {{/ accordion-large-items }}
+            </div>
+          </div>
+        </div>
+        {{/ dashboard-services }}
+
+        <div class="row">
+          <div class="col-sm-12">
+
+            <div class="mt-1">
+              {{#dashboard-viewMoreServices}}
+                {{> atomer-link }}
+              {{/dashboard-viewMoreServices}}
+            </div>
+
+          </div>
+        </div>
+
     </div>
-  </div>
-  {{/ dashboard-services }}
 
-  <div class="row">
-    <div class="col-sm-12">
-
-      <div class="mt-1">
-        {{#dashboard-viewMoreServices}} {{> atomer-link }} {{/dashboard-viewMoreServices}}
+    {{#dashboard-switch-content-tul}}
+      <div class="tab-pane" id="content-studio" role="tabpanel" aria-labelledby="tab-studio">
+        <div class="mt-4">
+          {{> atomer-undertittel }}
+          {{> atomer-avsnitt }}
+          {{> atomer-link }}
+        </div>
       </div>
-
-    </div>
+    {{/dashboard-switch-content-tul}}
   </div>
+
+
 </section>
 <!-- END: 02-organismer-30-seksjoner-72-dashboard-services -->

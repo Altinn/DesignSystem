@@ -1,0 +1,144 @@
+<!-- START: 02-organismer-81-Dashboard-modaler-meldinger-01-nymelding -->
+<div class="modal-content">
+  <div class="modal-header a-modal-header">
+    <div class="a-iconText a-iconText-background a-iconText-large">
+      <div class="a-iconText-icon">
+        <i class="ai ai-send
+                 a-icon" aria-hidden="true"></i>
+      </div>
+      <h1 class="a-iconText-text mb-0">
+        <span class="a-iconText-text-small"></span>
+        <span class="a-iconText-text-large">{{ modal-title }}</span>
+      </h1>
+    </div>
+  </div>
+  <div class="modal-body a-modal-body">
+    <h2 class="a-h3">Hva slags type melding vil du sende?</h2>
+    <ul class="nav nav-tabs custom-radio a-radioButtons a-navTabsRadio" role="tablist">
+      <li class="nav-item">
+        <a class="nav-link" data-toggle="tab" href="#home" role="tab">
+          <div class="custom-control custom-radio a-custom-radio">
+            <span class="custom-control-label">Bestilling</span>
+          </div>
+        </a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" data-toggle="tab" href="#profile" role="tab">
+          <div class="custom-control custom-radio a-custom-radio">
+            <span class="custom-control-label">Melde feil</span>
+          </div>
+        </a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" data-toggle="tab" href="#messages" role="tab">
+          <div class="custom-control custom-radio a-custom-radio">
+            <span class="custom-control-label">Support</span>
+          </div>
+        </a>
+      </li>
+    </ul>
+
+    <div class="tab-content">
+      <div class="tab-pane" id="home" role="tabpanel">
+        {{#tab1}}
+          <h3 class="a-h2">Hva skal du bestille?</h3>
+          <form data-toggle="validator" id="contactForm">
+            <div class="row">
+              <div class="col-12 col-sm-8">
+                <ul class="nav nav-tabs custom-radio a-radioButtons a-navTabsRadio" role="tablist">
+                  {{# radiotab-items }}
+                    <li class="nav-item">
+                      <a class="nav-link" data-toggle="tab" href="#{{radiotab-id}}" role="tab">
+                        <div class="custom-control custom-radio a-custom-radio">
+                          <span class="custom-control-label">{{ radiotab-title }} </span>
+                        </div>
+                      </a>
+                    </li>
+                    {{/ radiotab-items }}
+                </ul>
+              </div>
+            </div>
+          </form>
+          <div class="tab-content">
+            {{# radiotab-panes }}
+              <div class="tab-pane" id="{{radiotab-id}}" role="tabpanel">
+                {{# nextButton }}
+                  {{> atomer-knapp:mt-1 }}
+                  {{/ nextButton }}
+              </div>
+              {{/ radiotab-panes }}
+          </div>
+        {{/tab1}}
+      </div>
+
+      <div class="tab-pane" id="profile" role="tabpanel">
+        {{#tab2}}
+          <h3 class="a-h2">Melde feil</h3>
+          <form data-toggle="validator" id="contactForm2">
+            <div class="row">
+              <div class="col-12 col-md-8">
+
+                {{#emne}}
+                  {{> atomer-tekst-input:mb-2 }}
+                {{/emne}}
+
+                {{#environment}}
+                  {{> molekyler-valgknapper-og-spesifiser:mb-2 }}
+                {{/environment}}
+
+                {{#time}}
+                  {{> molekyler-dato-og-tid:mb-2 }}
+                {{/time}}
+
+                {{#question}}
+                  {{> atomer-tekstfelt:mb-2 }}
+                {{/question}}
+
+                {{#attachment}}
+                  {{> molekyler-last-opp-og-fjern }}
+                {{/attachment}}
+
+                {{#submit2}}
+                  {{> atomer-knapp:mb-2 }}
+                {{/submit2}}
+              </div>
+            </div>
+          </form>
+        {{/tab2}}
+      </div>
+      <div class="tab-pane" id="messages" role="tabpanel">
+        {{ #tab3 }}
+        <h3 class="a-h2">Support</h3>
+        <form data-toggle="validator" id="contactForm2">
+          <div class="row">
+            <div class="col-12 col-sm-8">
+
+              {{#emne}}
+                {{> atomer-tekst-input:mb-2 }}
+              {{/emne}}
+
+              {{#question}}
+                {{> atomer-tekstfelt:mb-2 }}
+              {{/question}}
+
+              {{# radiobuttons }}
+                {{> atomer-radioknapp }}
+                {{/ radiobuttons }}
+
+                {{#attachment2}}
+                  {{> molekyler-last-opp-og-fjern }}
+                {{/attachment2}}
+
+                {{#submit3}}
+                  {{> atomer-knapp:mb-2 }}
+                {{/submit3}}
+            </div>
+          </div>
+        </form>
+        {{/tab3 }}
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- END: 02-organismer-81-Dashboard-modaler-meldinger-01-nymelding -->

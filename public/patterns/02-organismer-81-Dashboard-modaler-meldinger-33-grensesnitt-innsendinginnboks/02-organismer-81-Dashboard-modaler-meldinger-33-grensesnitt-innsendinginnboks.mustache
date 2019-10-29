@@ -1,0 +1,70 @@
+<!-- START: 02-organismer-81-Dashboard-modaler-meldinger-33-grensesnitt-innsendinginnboks -->
+<div class="modal-content">
+  <div class="modal-header a-modal-header">
+    <div class="a-iconText a-iconText-background a-iconText-large">
+      <div class="a-iconText-icon">
+        <i class="ai ai-send
+                a-icon" aria-hidden="true"></i>
+      </div>
+      <h1 class="a-iconText-text mb-0">
+        <span class="a-iconText-text-small"></span>
+        <span class="a-iconText-text-large">Bestill endring av grensesnitt</span>
+      </h1>
+    </div>
+  </div>
+  <div class="modal-body a-modal-body">
+
+    <h2 class="a-h3 mb-2">Innsendingstjeneste til meldingsboks</h2>
+    <form data-toggle="validator" id="contactForm">
+
+      {{# tjenesteeier }}
+        <div class="dashboard-prefilled">
+          {{> atomer-tekst-input }}
+        </div>
+        {{/ tjenesteeier }}
+
+        {{# akronym }}
+          {{> atomer-tekst-input:mb-2 }}
+          {{/ akronym }}
+
+          {{# grensesnitt }}
+            {{> atomer-tekst-input:mb-2 }}
+            {{/ grensesnitt }}
+
+            {{# existing }}
+              <div class="mb-2">
+                {{> atomer-avkrysningsboks }}
+                <div id="eksisterende" class="collapse">
+                  {{# name }}
+                    {{> atomer-tekst-input }}
+                    {{/ name }}
+                </div>
+              </div>
+              {{/ existing }}
+
+              {{!-- Må velge én --}}
+              {{> molekyler-valgknapper-og-spesifiser:mb-2 }}
+
+              {{# kodeliste }}
+                {{> atomer-tekst-input:mb-2 }}
+                {{/ kodeliste }}
+
+                {{# orgnummer }}
+                  {{> atomer-tekst-input:mb-2 }}
+                  {{/ orgnummer }}
+
+                  {{# epost }}
+                    {{> atomer-tekst-input:mb-2 }}
+                    {{/ epost }}
+
+                    {{# information }}
+                      {{> atomer-tekstfelt:mb-2 }}
+                      {{/ information }}
+
+                      {{# submit}}
+                        {{> atomer-knapp:mb-2 }}
+                        {{/ submit}}
+    </form>
+  </div>
+
+  <!-- END: 02-organismer-81-Dashboard-modaler-meldinger-33-grensesnitt-innsendinginnboks -->

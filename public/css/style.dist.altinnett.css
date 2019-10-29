@@ -1684,7 +1684,7 @@ mark,
   .form-control::-webkit-input-placeholder {
     color: #6c757d;
     opacity: 1; }
-  .form-control:-ms-input-placeholder {
+  .form-control::-moz-placeholder {
     color: #6c757d;
     opacity: 1; }
   .form-control::-ms-input-placeholder {
@@ -3825,8 +3825,10 @@ tbody.collapse.show {
 @media (min-width: 576px) {
   .card-columns {
     -webkit-column-count: 3;
+    -moz-column-count: 3;
     column-count: 3;
     -webkit-column-gap: 1.25rem;
+    -moz-column-gap: 1.25rem;
     column-gap: 1.25rem; }
     .card-columns .card {
       display: inline-block;
@@ -8711,8 +8713,8 @@ textarea::-webkit-input-placeholder {
   opacity: 1 !important;
   -webkit-font-smoothing: subpixel-antialiased; }
 
-input:-ms-input-placeholder,
-textarea:-ms-input-placeholder {
+input::-moz-placeholder,
+textarea::-moz-placeholder {
   overflow: visible;
   color: #6A6A6A !important;
   opacity: 1 !important;
@@ -8739,8 +8741,8 @@ textarea:focus {
   input:focus::-webkit-input-placeholder,
   textarea:focus::-webkit-input-placeholder {
     color: transparent !important; }
-  input:focus:-ms-input-placeholder,
-  textarea:focus:-ms-input-placeholder {
+  input:focus::-moz-placeholder,
+  textarea:focus::-moz-placeholder {
     color: transparent !important; }
   input:focus::-ms-input-placeholder,
   textarea:focus::-ms-input-placeholder {
@@ -8759,7 +8761,7 @@ textarea {
     font-size: 1.6rem;
     line-height: 1.5;
     -webkit-font-smoothing: subpixel-antialiased; }
-  textarea:-ms-input-placeholder {
+  textarea::-moz-placeholder {
     font-size: 16px;
     font-size: 1.6rem;
     line-height: 1.5;
@@ -8849,6 +8851,7 @@ textarea {
       border-color: #000000; }
   .a-form-group .input-group-append,
   .form-group .input-group-append {
+    position: relative;
     border: 2px solid #1EAEF7;
     border-left: none; }
     .a-form-group .input-group-append.a-icon-right,
@@ -12837,11 +12840,14 @@ body > .loader-container {
   @media (min-width: 768px) {
     .a-list.a-list-2col {
       -webkit-column-count: 2;
+      -moz-column-count: 2;
       column-count: 2;
       -webkit-column-gap: 48px;
+      -moz-column-gap: 48px;
       column-gap: 48px; }
       .a-list.a-list-2col li {
         -webkit-column-break-inside: avoid;
+        -moz-column-break-inside: avoid;
         break-inside: avoid;
         page-break-inside: avoid; } }
   @media (min-width: 768px) {
@@ -14537,7 +14543,7 @@ blockquote::before, blockquote::after {
   color: #FFFFFF !important; }
   .a-form-group-darkBackground .form-control::-webkit-input-placeholder {
     color: #E3F7FF !important; }
-  .a-form-group-darkBackground .form-control:-ms-input-placeholder {
+  .a-form-group-darkBackground .form-control::-moz-placeholder {
     color: #E3F7FF !important; }
   .a-form-group-darkBackground .form-control::-ms-input-placeholder {
     color: #E3F7FF !important; }
@@ -14552,7 +14558,7 @@ blockquote::before, blockquote::after {
   border-color: #1EAEF7; }
   .a-form-group-darkBackground .input-group.a-input-focus .form-control::-webkit-input-placeholder, .a-form-group-darkBackground .input-group:focus .form-control::-webkit-input-placeholder, .a-form-group-darkBackground .input-group:hover .form-control::-webkit-input-placeholder {
     color: transparent !important; }
-  .a-form-group-darkBackground .input-group.a-input-focus .form-control:-ms-input-placeholder, .a-form-group-darkBackground .input-group:focus .form-control:-ms-input-placeholder, .a-form-group-darkBackground .input-group:hover .form-control:-ms-input-placeholder {
+  .a-form-group-darkBackground .input-group.a-input-focus .form-control::-moz-placeholder, .a-form-group-darkBackground .input-group:focus .form-control::-moz-placeholder, .a-form-group-darkBackground .input-group:hover .form-control::-moz-placeholder {
     color: transparent !important; }
   .a-form-group-darkBackground .input-group.a-input-focus .form-control::-ms-input-placeholder, .a-form-group-darkBackground .input-group:focus .form-control::-ms-input-placeholder, .a-form-group-darkBackground .input-group:hover .form-control::-ms-input-placeholder {
     color: transparent !important; }
@@ -16543,6 +16549,18 @@ a.a-overflow-dropdown:active, a.a-overflow-dropdown:focus, a.a-overflow-dropdown
 @media (max-width: 991.98px) {
   .navbar-toggleable-sm .dropdown-backdrop {
     display: none; } }
+
+.switch-container .nav-item {
+  width: 50%;
+  text-align: center; }
+
+.switch-container .nav-link {
+  border: none; }
+  .switch-container .nav-link.active {
+    color: #000000;
+    background: #1EAEF7;
+    border: none;
+    border-radius: 0; }
 
 .a-searchResults .a-searchResults-lastArticle {
   border: none; }
