@@ -13,39 +13,35 @@
   <ul class="a-list {{# is-large }} a-list-large {{/ is-large }} {{# is-large-forMD }} a-list-large-forMD {{/ is-large-forMD }} {{# additional-classes }}{{ additional-classes }}{{/ additional-classes }} {{ styleModifier }}"{{# list-id }} id="{{ list-id }}"{{/ list-id }}{{# selectable }} data-list-selectable="true"{{/ selectable }}{{# expandable-section }} role="tab"{{/ expandable-section }}>
     {{# rows }}
       <li {{# onclick }} onclick="{{{ onclick }}}" {{/ onclick }} class="{{ additional-classes }}" {{# id }}id="{{ id }}"{{/ id }} {{# tabable }} tabindex="0"{{/ tabable }}{{# target-table }} data-target-table="{{ target-table }}"{{/ target-table }}{{# source-table }} data-source-table="{{ source-table }}"{{/ source-table }}{{# list-item-role }} role="{{ list-item-role }}" {{/ list-item-role }}>
-          {{# isRowLink }}
-            <a href="{{{ rowLink }}}" class="a-list-rowLink{{# rowLink-class }} {{ rowLink-class }}{{/ rowLink-class }}"
-            {{# data-toggle }} data-toggle="{{data-toggle}}" {{/ data-toggle }}
-            {{# data-action }} data-action="{{data-action}}" {{/ data-action }}
-            {{# data-url }} data-url="{{{data-url}}}" {{/ data-url }}
-            {{# data-target }} data-target="{{{data-target}}}" {{/ data-target }}>
-          {{/ isRowLink }}
-          {{# expandedLink }}
-          <a href="{{{ target-Link }}}" class="a-list-expandedLink-href{{# expandedLink-class }} {{ expandedLink-class }}{{/ expandedLink-class }}"
-          {{# data-toggle }} data-toggle="{{data-toggle}}" {{/ data-toggle }}>
-          {{/ expandedLink }}
+        {{# isRowLink }}
+        <a href="{{{ rowLink }}}" class="a-list-rowLink{{# rowLink-class }} {{ rowLink-class }}{{/ rowLink-class }}"
+        {{# data-toggle }} data-toggle="{{data-toggle}}" {{/ data-toggle }}
+        {{# data-action }} data-action="{{data-action}}" {{/ data-action }}
+        {{# data-url }} data-url="{{{data-url}}}" {{/ data-url }}
+        {{# data-target }} data-target="{{{data-target}}}" {{/ data-target }}>
+        {{/ isRowLink }}
         {{^ is-checkbox }}
-            <div class="row {{ row-extra-class }}">
+        <div class="row {{ row-extra-class }}">
         {{/ is-checkbox }}
         {{# is-checkbox }}
-           <label class="row">
+        <label class="row">
         {{/ is-checkbox }}
-        {{# columns }}
-          {{^ is-checkbox }}<div {{/ is-checkbox }}{{# is-checkbox }}> <span {{/ is-checkbox }} {{# additional-classes }}class="{{ additional-classes }}"{{/ additional-classes }}{{# onclick }} onclick="{{{ onclick }}}"{{/ onclick }}{{# searchable }} data-searchable="true" {{/ searchable }}>
-            {{> molekyler-liste-innhold }}
-          {{^ is-checkbox }}
+          {{# columns }}
+            {{^ is-checkbox }}<div {{/ is-checkbox }}{{# is-checkbox }} <span {{/ is-checkbox }} {{# additional-classes }}class="{{ additional-classes }}"{{/ additional-classes }}{{# onclick }} onclick="{{{ onclick }}}"{{/ onclick }}{{# searchable }} data-searchable="true" {{/ searchable }}>
+              {{> molekyler-liste-innhold }}
+            {{^ is-checkbox }}
             </div>
-          {{/ is-checkbox }}
-          {{# is-checkbox }}
+            {{/ is-checkbox }}
+            {{# is-checkbox }}
             </span>
-          {{/ is-checkbox }}
-        {{/ columns }}
+            {{/ is-checkbox }}
+          {{/ columns }}
         {{^ is-checkbox }}
-          </div>
+        </div>
         {{/ is-checkbox }}
         {{# is-checkbox }}
           <input type="checkbox" name="deleteme" class="sr-only a-js-selectable-checkbox" />
-          </label>
+        </label>
         {{/ is-checkbox }}
         {{# expandable-section }}
           <div class="{{ additional-classes }}" 
@@ -60,57 +56,6 @@
         {{# isRowLink }}
         </a>
         {{/ isRowLink }}
-        {{# expandedLink }}
-        </a>
-        {{/ expandedLink }}
-        {{ # nested-list }}
-          <ul class="a-list {{# is-large }} a-list-large {{/ is-large }} {{# is-large-forMD }} a-list-large-forMD {{/ is-large-forMD }} {{# additional-classes }}{{ additional-classes }}{{/ additional-classes }} {{ styleModifier }}"{{# list-id }} id="{{ list-id }}"{{/ list-id }}{{# selectable }} data-list-selectable="true"{{/ selectable }}{{# expandable-section }} role="tab"{{/ expandable-section }}>
-            {{# nested-rows }}
-              <li {{# onclick }} onclick="{{{ onclick }}}" {{/ onclick }} class="{{ additional-classes }}" {{# id }}id="{{ id }}"{{/ id }} {{# tabable }} tabindex="0"{{/ tabable }}{{# target-table }} data-target-table="{{ target-table }}"{{/ target-table }}{{# source-table }} data-source-table="{{ source-table }}"{{/ source-table }}{{# list-item-role }} role="{{ list-item-role }}" {{/ list-item-role }}>
-                {{# isRowLink }}
-                  <a href="{{{ rowLink }}}" class="a-list-rowLink{{# rowLink-class }} {{ rowLink-class }}{{/ rowLink-class }}"
-                    {{# data-toggle }} data-toggle="{{data-toggle}}" {{/ data-toggle }}
-                    {{# data-action }} data-action="{{data-action}}" {{/ data-action }}
-                    {{# data-url }} data-url="{{{data-url}}}" {{/ data-url }}
-                    {{# data-target }} data-target="{{{data-target}}}" {{/ data-target }}>
-                {{/ isRowLink }}
-                {{# modalLink }}
-                  <a href="{{{ target-Link }}}" class="a-modalLink-href{{# modalLink-class }} {{ modalLink-class }}{{/ modalLink-class }}"
-                  {{# data-toggle }} data-toggle="{{data-toggle}}" {{/ data-toggle }}>
-                {{/ modalLink }}
-                {{^ is-checkbox }}
-                  <div class="row {{ row-extra-class }}">
-                {{/ is-checkbox }}
-                {{# is-checkbox }}
-                  <label class="row">
-                {{/ is-checkbox }}
-                  {{# nested-columns }}
-                    {{^ is-checkbox }}<div{{/ is-checkbox }}{{# is-checkbox }}> <span {{/ is-checkbox }} {{# additional-classes }}class="{{ additional-classes }}"{{/ additional-classes }}{{# onclick }} onclick="{{{ onclick }}}"{{/ onclick }}{{# searchable }} data-searchable="true" {{/ searchable }}>
-                      {{> molekyler-liste-innhold }}
-                    {{^ is-checkbox }}
-                    </div>
-                    {{/ is-checkbox }}
-                    {{# is-checkbox }}
-                      </span>
-                    {{/ is-checkbox }}
-                  {{/ nested-columns }}
-                {{^ is-checkbox }}
-                  </div>
-                {{/ is-checkbox }}
-                {{# is-checkbox }}
-                  <input type="checkbox" name="deleteme" class="sr-only a-js-selectable-checkbox" />
-                </label>
-                {{/ is-checkbox }}
-                {{# isRowLink }}
-                </a>
-                {{/ isRowLink }}
-                {{# modalLink }}
-                </a>
-                {{/ modalLink }}
-              </li>
-            {{/ nested-rows }}
-          </ul>     
-        {{ / nested-list }}
       </li>
     {{/ rows }}
   </ul>
