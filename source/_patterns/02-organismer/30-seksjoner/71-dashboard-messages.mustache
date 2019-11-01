@@ -1,12 +1,15 @@
 <section class="an-dashboard-messages mb-4">
 
     <div class="row">
-      <div class="col-sm-12 col-md-6 col-lg-8">
+      <div class="col-sm-12 col-md-6 col-lg-8 d-flex align-items-center">
         {{# dashboard-messagesTitle }}
           {{> atomer-seksjonstittel:a-fontMedium }}
         {{/ dashboard-messagesTitle }}
+        {{# dashboard-filterInbox }}
+          {{> organismer-dashboard-activeFilters }}
+        {{/ dashboard-filterInbox }}
       </div>
-      <div class="col-sm-12 col-md-6 col-lg-4 mb-1" data-switchUrl1="get1" data-switchUrl2="get2" data-switchEndpoint="">
+      <div class="col-sm-12 col-md-6 col-lg-4 mb-1 d-flex align-items-center" data-switchUrl1="get1" data-switchUrl2="get2" data-switchEndpoint="">
         {{# dashboard-messagesSwitch }}
           {{> atomer-knapp-veksle }}
         {{/ dashboard-messagesSwitch }}
