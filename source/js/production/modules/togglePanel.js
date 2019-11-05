@@ -7,8 +7,8 @@ $('body').on('show.bs.collapse', '.a-collapsePanel-body', function(e) {
     setTimeout(function() {
       var $collapsePanelHeader = $(that).siblings('.a-js-index-heading').first();
       var $msgIconWrapper = $collapsePanelHeader.find('.a-inboxHeadingContent')
-      .find('.a-msgIconSecondary')
-      .closest('.a-msgIconWrapper');
+        .find('.a-msgIconSecondary')
+        .closest('.a-msgIconWrapper');
 
       $msgIconWrapper.find('.reg')
         .hide()

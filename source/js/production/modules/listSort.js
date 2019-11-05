@@ -29,7 +29,7 @@ var sortListAlphanumerically = function(src, sortIndex) {
     }
   });
 
-    // handles load more row
+  // handles load more row
   $.each(rows, function(index, row) {
     if ($(row).find('.a-js-sortValue').length === 0) {
       $list.append(row);

@@ -253,12 +253,12 @@ var colnavCustom = function() {
           if (open.indexOf(levels[index + 1]) === -1) { // If lower level is not open
             // Prepare lower level and add it to array:
             li.find('.' + levels[index + 1]).removeClass(wasStacked ? '' : 'noTrans')
-                .css('left', '250%').show();
+              .css('left', '250%').show();
             open.push(levels[index + 1]);
           }
           if (index > 0) { // If level is second or lower, calculate left position and width
             calc(el.closest('ul'), 3, index + 1).removeClass('noTrans')
-                .css('width', calc(1.5, null, index)).show();
+              .css('width', calc(1.5, null, index)).show();
           }
           // Calculate left position and width for lower level
           calc(li.find('.' + levels[index + 1]), 3, index + 1).css('width', calc(1.5, null, index))
@@ -295,11 +295,11 @@ var colnavCustom = function() {
       parseInt($('.a-colnav-secondLevel:visible').height(), 10) >
       parseInt($('.a-colnav-firstLevel').height(), 10)) {
       $('.a-colnav-firstLevel')
-          .css('height',
+        .css('height',
           parseInt($('.a-colnav-thirdLevel:visible').height(), 10) >
-              parseInt($('.a-colnav-secondLevel:visible').height(), 10) ?
-              (parseInt($('.a-colnav-thirdLevel:visible').height(), 10) - 2) :
-              (parseInt($('.a-colnav-secondLevel:visible').height(), 10) - 2) +
+            parseInt($('.a-colnav-secondLevel:visible').height(), 10) ?
+            (parseInt($('.a-colnav-thirdLevel:visible').height(), 10) - 2) :
+            (parseInt($('.a-colnav-secondLevel:visible').height(), 10) - 2) +
               'px');
     }
     if (!$('.a-colnav-firstLevel').hasClass('stacked')) {
@@ -353,27 +353,27 @@ var colnavCustom = function() {
         if ($(e.target).blur().parent().prev().length !== 0) {
           stopEvent(e);
           $(e.target).blur().parent().prev()
-              .find(classToQuery)
-              .trigger('focus');
+            .find(classToQuery)
+            .trigger('focus');
         }
       } else if ($(e.target).blur().parent().next().length !== 0) {
         stopEvent(e);
         $(e.target).blur().parent().next()
-            .find(classToQuery)
-            .trigger('focus');
+          .find(classToQuery)
+          .trigger('focus');
       }
     } else if (code === 9 && $(e.target).hasClass('open')) {
       if (shifted) {
         stopEvent(e);
         $(e.target).blur().parent().parent()
-            .parent()
-            .children('a')
-            .trigger('focus');
+          .parent()
+          .children('a')
+          .trigger('focus');
       } else {
         stopEvent(e);
         $(e.target).blur().next().children('li:eq(0)')
-            .children('a')
-            .trigger('focus');
+          .children('a')
+          .trigger('focus');
       }
     }
   }
@@ -470,8 +470,8 @@ var colnavCustom = function() {
   }
 
   function createMenuNodeFragment(item,
-                          level,
-                          index) {
+    level,
+    index) {
     var liClasses = ['',
       'is-dropdown-submenu-parent is-submenu-item is-dropdown-submenu-item opens-right',
       'is-submenu-item is-dropdown-submenu-item'];
