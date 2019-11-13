@@ -20,8 +20,10 @@
           <a href="{{ link.sider-altinnett-dashboard-tjenesteeier-forside }}" class="a-globalNav-logo">
             <img src="{{ headerlogo }}" alt="Altinnett logo" class="an-logo a-logo--an {{ logo-class }} {{ styleModifier }}">
 
-            <span>{{ headerlogoText }}</span>
-            <span class="sr-only">Til forsiden</span>
+            <span class="an-logo-text">
+              <span>{{ headerlogoText }}</span>
+              <span class="sr-only">Til forsiden</span>
+            </span>
           </a>
 
           <button class="navbar-toggler d-md-none" type="button">
@@ -39,14 +41,9 @@
               <li><a class="a-hvr-underline {{{ globalNav-active-innboks }}}" href="{{ link.sider-altinnett-dashboard-tjenesteeier-innboks-alle }}">meldinger</a></li>
               <li><a class="a-hvr-underline {{{ globalNav-active-tjenester }}}" href="{{ link.sider-altinnett-dashboard-tjenesteeier-tjenester }}">tjenester</a></li>
 
-              <li class="d-md-none">
-                <a class="a-hvr-underline" href="{{ link.sider-infoportal-hjelpesenter }}">
-                  {{# tel-icon }}
-                    {{> atomer-ikon }}
-                    {{/ tel-icon }}
-                    hjelp og kontakt
-                </a>
-              </li>
+              <li><a class="a-hvr-underline d-sm-none {{{ globalNav-active }}}" href="#">logg ut</a></li>
+
+
             </ul>
           </div>
         </nav> <!-- End .a-globalNav -->
@@ -54,7 +51,7 @@
         <!-- Begin .a-globalNav-options -->
         <ul id="secondary-nav" class="nav nav-pills a-header-options">
 
-          <li class="nav-item">
+          <li class="nav-item an-login d-none d-sm-block">
             <!-- Dropdown toggle -->
             {{> atomer-innlogget-link }}
             {{# dropdown-personswitch }}

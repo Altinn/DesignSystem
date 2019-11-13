@@ -38,51 +38,55 @@
         </div>
       </div>
       {{/ message-list-block }}
-      {{# attachments }}
-        <div class="row mt-3">
-          <div class="col-12">
-            {{> atomer-liste-unummerert-ikoner:ai-fontSizeS }}
-          </div>
-          {{# download-all }}
-            <div class="col-12">
-              {{> atomer-knapp-ikon-tekst }}
-            </div>
-            {{/ download-all }}
-        </div>
-        {{/ attachments }}
-        {{# info-notice }}
+      {{# attachments-title }}
+        <hr>
+        <h4 class="a-fontReg">{{ attachments-title }}</h4>
+        {{/ attachments-title }}
+        {{# attachments }}
           <div class="row mt-3">
-            <div class="col">
-              {{> atomer-varsel }}
+            <div class="col-12">
+              {{> atomer-liste-unummerert-ikoner:ai-fontSizeS }}
             </div>
+            {{# download-all }}
+              <div class="col-12">
+                {{> atomer-knapp-ikon-tekst }}
+              </div>
+              {{/ download-all }}
           </div>
-          {{/ info-notice }}
-          {{# archive-reference }}
-            <div class="row mt-1">
-              <div class="col a-fontSizeXXS">
-                <span>{{ archive-reference-text }}</span><span>{{ archive-reference-number }}</span>
+          {{/ attachments }}
+          {{# info-notice }}
+            <div class="row mt-3">
+              <div class="col">
+                {{> atomer-varsel }}
               </div>
             </div>
-            {{/ archive-reference }}
-            {{# expandable-content }}
-              <div class="row mt-3">
-                <div class="col">
-                  {{> atomer-handlingsknapp-ekspanderbart-innhold }}
+            {{/ info-notice }}
+            {{# archive-reference }}
+              <div class="row mt-1">
+                <div class="col a-fontSizeXXS">
+                  <span>{{ archive-reference-text }}</span><span>{{ archive-reference-number }}</span>
                 </div>
               </div>
-              {{/ expandable-content }}
-              {{# actions-row }}
-                <div class="row">
-                  <div class="{{ button-wrapper-class}} mt-3">
-                    {{# action-button }}
-                      {{> atomer-knapp:mb-0|a-btn-no-textwrap }}
-                      {{/ action-button }}
-                  </div>
-                  <div class="{{ button-icons-wrapper-class }} mt-3">
-                    {{# action-button-icon }}
-                      {{> atomer-knapp-ikon-tekst }}
-                      {{/ action-button-icon }}
+              {{/ archive-reference }}
+              {{# expandable-content }}
+                <div class="row mt-3">
+                  <div class="col">
+                    {{> atomer-handlingsknapp-ekspanderbart-innhold }}
                   </div>
                 </div>
-                {{/ actions-row }}
-                <!-- END: 02-organismer-_49-ekspanderbart-panel-innhold-70-innboks-panel-innhold -->
+                {{/ expandable-content }}
+                {{# actions-row }}
+                  <div class="row">
+                    <div class="{{ button-wrapper-class}} mt-3">
+                      {{# action-button }}
+                        {{> atomer-knapp:mb-0|a-btn-no-textwrap }}
+                        {{/ action-button }}
+                    </div>
+                    <div class="{{ button-icons-wrapper-class }} mt-3">
+                      {{# action-button-icon }}
+                        {{> atomer-knapp-ikon-tekst }}
+                        {{/ action-button-icon }}
+                    </div>
+                  </div>
+                  {{/ actions-row }}
+                  <!-- END: 02-organismer-_49-ekspanderbart-panel-innhold-70-innboks-panel-innhold -->
