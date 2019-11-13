@@ -1,5 +1,5 @@
 ---
-state: inprogress altinnett
+state: indesignreview _altinnett
 version: 1
 ---
 

@@ -1,6 +1,6 @@
 ---
-state: inprogress altinnett
+state: indesignreview _altinnett
 version: 1
 ---
 
-Foreløpig ingen retningslinjer.
+Foreløpig ingen retningslinjer. Tester oppdatering.
