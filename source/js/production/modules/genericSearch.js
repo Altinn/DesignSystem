@@ -465,7 +465,7 @@ var genericSearch = function() {
           elements.$noResultsMessage.hide();
           elements.$container.html('');
         }
-      );
+        );
       setInterval(function() {
         var value = $(keys.genericSearchSelector).find('form').find('input[type=search]')
           .val();

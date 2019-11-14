@@ -26,10 +26,10 @@ var toggleRoleRightsInit = function() {
     // else if closest li does not have a-deleted
     } else {
       $(this)
-      .parent()
-      .prev()
-      .children()
-      .prop('tabindex', '0');
+        .parent()
+        .prev()
+        .children()
+        .prop('tabindex', '0');
 
       // set tabindex -1 on ai-undo
       $(this).prop('tabindex', '-1');

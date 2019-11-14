@@ -152,16 +152,16 @@ var onboardingSeek = function(_count, _steps) {
     $('.onboarding-wrapper').css('top', (-1 - mod) + 'px').css('left', '2px');
     setTimeout(function() {
       $('.onboarding-wrapper')
-      .css('top', ((verticalJiggle * -0.5) - mod) + 'px')
-      .css('left', (horizontalJiggle * -0.5) + 'px');
+        .css('top', ((verticalJiggle * -0.5) - mod) + 'px')
+        .css('left', (horizontalJiggle * -0.5) + 'px');
       setTimeout(function() {
         $('.onboarding-wrapper')
-        .css('top', ((verticalJiggle * 0.25) - mod) + 'px')
-        .css('left', (horizontalJiggle * 0.25) + 'px');
+          .css('top', ((verticalJiggle * 0.25) - mod) + 'px')
+          .css('left', (horizontalJiggle * 0.25) + 'px');
         setTimeout(function() {
           $('.onboarding-wrapper')
-          .css('top', ((verticalJiggle * -0.125) - mod) + 'px')
-          .css('left', (horizontalJiggle * -0.125) + 'px');
+            .css('top', ((verticalJiggle * -0.125) - mod) + 'px')
+            .css('left', (horizontalJiggle * -0.125) + 'px');
           setTimeout(function() {
             $('.onboarding-wrapper').css('top', (-1 - mod) + 'px').css('left', '2px');
           }, 100);
