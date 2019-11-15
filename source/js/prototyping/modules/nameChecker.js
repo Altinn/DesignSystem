@@ -3,7 +3,7 @@ var nameChecker = function() {
   var btnText; var initAction; var toggleBtns;
   if ($('.a-js-validator').length > 0) {
     btnText = $('.a-js-validator').find('.a-btn-group').find('.a-btn').eq(0)
-    .text();
+      .text();
     initAction = '$(".a-js-validator").find("input[type=text]")' +
     '.attr("disabled", "disabled").parent().addClass("disabled")' +
     '.addClass("a-input-approved");' +
@@ -13,10 +13,10 @@ var nameChecker = function() {
     '.html("Velg navn").removeAttr("onclick");' +
     '$(".a-js-tryAnother").show();';
     $('.a-js-validator').find('.a-validatorInfo').eq(1).find('i')
-    .addClass('a-validatorInfo-icon-approved');
+      .addClass('a-validatorInfo-icon-approved');
     $('.a-js-validator').find('.a-validatorInfo').css('display', 'inline-block')
-    .eq(1)
-    .hide();
+      .eq(1)
+      .hide();
     if ($('.a-js-tryAnother').length === 0) {
       $('<button/>', {
         type: 'button',
@@ -26,47 +26,47 @@ var nameChecker = function() {
     }
     $('.a-js-tryAnother').hide().on('click', function() {
       $('.a-js-validator').find('input[type=text]').removeAttr('disabled')
-      .parent()
-      .removeClass('disabled')
-      .removeClass('a-input-approved');
+        .parent()
+        .removeClass('disabled')
+        .removeClass('a-input-approved');
       $('.a-js-tryAnother').hide();
       $('.a-js-validator').find('.a-validatorInfo').eq(0).show();
       $('.a-js-validator').find('.a-validatorInfo').eq(1).hide();
       $('.a-js-validator').find('.a-btn-group').find('.a-btn').eq(0)
-      .html(btnText)
-      .attr('onclick', '$(".a-js-validator").find(".a-message-error").show()')
-      .hide();
+        .html(btnText)
+        .attr('onclick', '$(".a-js-validator").find(".a-message-error").show()')
+        .hide();
       $('.a-js-validator').find('input[type=text]').val('');
       $('.a-js-validator').find('.a-btn-group').find('.a-btn').eq(1)
-      .show();
+        .show();
     });
     $('.a-js-validator').find('.a-message-error');
     toggleBtns = function(el) {
       if ($(el).length > 0 && $(el).val().length > 0) {
         $('.a-js-validator').find('.a-btn-group').find('.a-btn').eq(0)
-        .show();
+          .show();
         $('.a-js-validator').find('.a-btn-group').find('.a-btn').eq(1)
-        .hide();
+          .hide();
         if (
           $('.a-js-validator').find('input[type=text]').val()
-          .indexOf($('.a-personSwitcher-name').attr('title').toLowerCase()
-          .split(' ')[1]) !== -1 ||
+            .indexOf($('.a-personSwitcher-name').attr('title').toLowerCase()
+              .split(' ')[1]) !== -1 ||
           $('.a-js-validator').find('input[type=text]').val()
-          .indexOf($('.a-personSwitcher-name').attr('title')
-          .split(' ')[1]) !== -1
+            .indexOf($('.a-personSwitcher-name').attr('title')
+              .split(' ')[1]) !== -1
         ) {
           $('.a-js-validator').find('.a-btn-group').find('.a-btn').eq(0)
-          .attr('onclick', initAction);
+            .attr('onclick', initAction);
         } else {
           $('.a-js-validator').find('.a-btn-group').find('.a-btn').eq(0)
-          .attr('onclick',
-          '$(".a-js-validator").find(".a-message-error").show()');
+            .attr('onclick',
+              '$(".a-js-validator").find(".a-message-error").show()');
         }
       } else {
         $('.a-js-validator').find('.a-btn-group').find('.a-btn').eq(0)
-        .hide();
+          .hide();
         $('.a-js-validator').find('.a-btn-group').find('.a-btn').eq(1)
-        .show();
+          .show();
       }
     };
     toggleBtns($('.a-js-validator').find('input[type=text]'));
@@ -81,9 +81,9 @@ var nameChecker = function() {
       if (e.which === 13) {
         e.preventDefault(); e.stopPropagation();
         if ($('.a-js-validator').find('.a-btn-group').find('.a-btn').eq(0)
-        .is(':visible')) {
+          .is(':visible')) {
           $('.a-js-validator').find('.a-btn-group').find('.a-btn').eq(0)
-          .click();
+            .click();
         }
       }
     });

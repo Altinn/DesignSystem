@@ -108,8 +108,8 @@ AltinnQuickhelp = {
         .attr('data-category')
       );
     $('.a-js-stickyHelpCategoryLink').attr('data-url', $('#a-stickyHelp')
-        .find('.a-stickyHelp-content-target').attr('data-url')
-      );
+      .find('.a-stickyHelp-content-target').attr('data-url')
+    );
     $('body').on('click', '.a-stickyHelp-open', function() {
       if (!$('.a-js-stickyHelpFrame').attr('src')) {
         $('.a-js-stickyHelpFrame')
