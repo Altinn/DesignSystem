@@ -927,7 +927,7 @@ var sortListAlphanumerically = function(src, sortIndex) {
     }
   });
 
-    // handles load more row
+  // handles load more row
   $.each(rows, function(index, row) {
     if ($(row).find('.a-js-sortValue').length === 0) {
       $list.append(row);
@@ -1109,7 +1109,7 @@ var action = function(e) {
       if (wasDark) {
         $('header').addClass('a-darkBackground');
         $('.a-globalNav-logo').find('img')
-        .attr('src', $('.a-globalNav-logo').find('img').attr('src').replace('blue', 'white'));
+          .attr('src', $('.a-globalNav-logo').find('img').attr('src').replace('blue', 'white'));
       }
       $('.a-page').children(':not(header)').removeClass('a-js-hidden');
     }
@@ -1121,7 +1121,7 @@ var action = function(e) {
       if (wasDark) {
         $('header').addClass('a-darkBackground');
         $('.a-globalNav-logo').find('img')
-        .attr('src', $('.a-globalNav-logo').find('img').attr('src').replace('blue', 'white'));
+          .attr('src', $('.a-globalNav-logo').find('img').attr('src').replace('blue', 'white'));
       }
       $('.a-page').children(':not(header)').removeClass('a-js-hidden');
     } else {
@@ -1131,7 +1131,7 @@ var action = function(e) {
       if (wasDark) {
         $('header').removeClass('a-darkBackground');
         $('.a-globalNav-logo').find('img')
-        .attr('src', $('.a-globalNav-logo').find('img').attr('src').replace('white', 'blue'));
+          .attr('src', $('.a-globalNav-logo').find('img').attr('src').replace('white', 'blue'));
       }
       $('.a-page').children(':not(header)').addClass('a-js-hidden');
     }
@@ -1216,8 +1216,8 @@ $('body').on('show.bs.collapse', '.a-collapsePanel-body', function(e) {
     setTimeout(function() {
       var $collapsePanelHeader = $(that).siblings('.a-js-index-heading').first();
       var $msgIconWrapper = $collapsePanelHeader.find('.a-inboxHeadingContent')
-      .find('.a-msgIconSecondary')
-      .closest('.a-msgIconWrapper');
+        .find('.a-msgIconSecondary')
+        .closest('.a-msgIconWrapper');
 
       $msgIconWrapper.find('.reg')
         .hide()
