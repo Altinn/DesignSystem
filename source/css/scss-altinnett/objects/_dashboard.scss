@@ -391,8 +391,11 @@
   .a-modal-top {
     .a-logo {
       width: 110px;
-      margin-top: 4px;
+      margin-top: -1px;
       margin-right: 3px;
+      @include media-breakpoint-up( sm ) {
+        margin-top: 4px
+      }
     }
 
     .an-logotext {
@@ -407,6 +410,10 @@
     }
 
     .a-modal-top-user {
+      display: none;
+      @include media-breakpoint-up( sm ) {
+        display: block;
+      }
       .a-personSwitcher {
         color: $white;
       }
