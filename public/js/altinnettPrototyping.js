@@ -1310,11 +1310,13 @@ var initializeDatepicker = function() {
   var ulNumeric = returnUserLanguageNumericCodeFromCookie(document.cookie, 'altinnPersistentContext');
   var userLanguage = returnLanguageCodeFromNumericCode(ulNumeric);
 
-  if ($('.a-overlay-container').length > 0) {
-    $('.a-overlay-container').attr('id', 'picker-container');
-  } else {
-    $('body').attr('id', 'picker-container');
-  }
+  // if ($('.a-overlay-container').length > 0) {
+  //   $('.a-overlay-container').attr('id', 'picker-container');
+  // } else {
+  $('body').attr('id', 'picker-container');
+  // }
+
+  // Kommentert ut pga bugging på avansert søk
 
   $('.form-control.date').each(function() {
     $(this).val($(this).val() || today);
