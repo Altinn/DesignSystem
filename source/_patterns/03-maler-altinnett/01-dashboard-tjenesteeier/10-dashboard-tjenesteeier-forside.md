@@ -1,4 +1,4 @@
 ---
-state: inprogress altinnett
+state: complete altinnett
 version: 1
 ---
