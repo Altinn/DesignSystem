@@ -327,6 +327,8 @@ AltinnModal = {
       if ($source.data().action === 'load') {
         that.loadModal({
           url: $source.data().url,
+          isSuccess: $source.data().isSuccess,
+          isError: $source.data().isError,
           target: $source.data().target,
           enableDirtyPopover: $source.data().enableDirtyPopover
         });
