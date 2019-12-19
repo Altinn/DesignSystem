@@ -1,0 +1,71 @@
+<!-- Skip to main content -->
+<nav class="a-jumpnav">
+  <ul class="no-decoration d-flex">
+    <li><a class="sr-only sr-only-focusable" href="#content">Hopp til hovedinnholdet</a></li>
+    <li><a class="sr-only sr-only-focusable" href="#primary-nav">Hopp til hovedmeny</a></li>
+    <li><a class="sr-only sr-only-focusable" href="#search">Hopp til søk</a></li>
+  </ul>
+</nav>
+
+<!-- Begin .header -->
+<header class="a-header dashboard-header {{{ header-color }}} {{# hide-header }} a-js-hideElement {{/ hide-header}}">
+  <!-- Begin .container -->
+  <div class="container">
+    <div class="row">
+      <div class="col-12">
+
+        <!-- Begin .a-globalNav -->
+        <nav id="primary-nav" class="a-globalNav">
+          <a href="{{ link.sider-altinnett-dashboard-tjenesteeier-forside }}" class="a-globalNav-logo">
+            <img src="{{ headerlogo }}" alt="Altinnett logo"
+              class="an-logo a-logo--an {{ logo-class }} {{ styleModifier }}">
+
+            <span class="an-logo-text">
+              <span>{{ headerlogoText }}</span>
+              <span class="sr-only">Til forsiden</span>
+            </span>
+          </a>
+
+          <button class="navbar-toggler d-md-none" type="button">
+            <span class="sr-only">Vis/skjul meny</span>
+          </button>
+          <div class="collapse navbar-toggleable-sm a-globalNav-main" id="exCollapsingNavbar2">
+            <ul class="" id="exCollapsingNavbar">
+              <li class="d-md-none">
+                {{# header-mobilesearch }}
+                {{> atomer-tekst-input }}
+                {{/ header-mobilesearch }}
+              </li>
+
+              <li><a class="a-hvr-underline {{{ globalNav-active-oversikt }}} {{{login-deactivated}}}"
+                  href="{{ link.sider-altinnett-dashboard-tjenesteeier-forside }}">oversikt</a></li>
+              <li><a class="a-hvr-underline {{{ globalNav-active-innboks }}}"
+                  href="{{ link.sider-altinnett-dashboard-tjenesteeier-innboks-alle }}">meldinger</a></li>
+              <li><a class="a-hvr-underline {{{ globalNav-active-tjenester }}}"
+                  href="{{ link.sider-altinnett-dashboard-tjenesteeier-tjenester }}">tjenester</a></li>
+              
+              <li><a class="a-hvr-underline d-sm-none {{{ globalNav-active }}}" href="#">logg ut</a></li>
+
+              
+            </ul>
+          </div>
+        </nav> <!-- End .a-globalNav -->
+
+        <!-- Begin .a-globalNav-options -->
+        <ul id="secondary-nav" class="nav nav-pills a-header-options">
+
+          <li class="nav-item an-login d-none d-sm-block">
+            <!-- Dropdown toggle -->
+            {{> atomer-innlogget-link }}
+            {{# dropdown-personswitch }}
+            {{> organismer-dashboard-personbytte }}
+            {{/ dropdown-personswitch }}
+          </li>
+        </ul> <!-- End .a-globalNav-options -->
+
+      </div><!-- End .col -->
+
+    </div> <!-- End .row -->
+
+  </div> <!-- End .container -->
+</header> <!-- End .header -->

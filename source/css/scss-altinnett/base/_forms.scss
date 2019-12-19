@@ -14,6 +14,35 @@
   width: 100%;
 }
 
+.a-custom-checkbox {
+  &.inactive {
+    color: inherit;
+    cursor: not-allowed !important;
+    opacity: 0.7;
+  }
+
+  .custom-control-input {
+    &:disabled {
+      ~ .custom-control-label {
+        &::before {
+          background-color: $white !important;
+        }
+      }
+    }
+  }
+}
+
+.a-form-group-datepicker {
+  .input-group {
+    &.disabled {
+      .a-icon-right {
+        border-right: 2px solid $grey-medium;
+        border-left: none;
+      }
+    }
+  }
+}
+
 .a-form-group-darkBackground {
   .form-control {
     // sass-lint:disable-block no-important

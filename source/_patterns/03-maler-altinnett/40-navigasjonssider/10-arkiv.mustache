@@ -3,27 +3,37 @@
 		{{> organismer-header-altinnett }}
 	{{/ header }}
 
-    {{# article-search }}
-	    <div class="container">
-	    	<div class="row">
-	    		<div class="col-sm-12 col-lg-6 offset-lg-3 a-articleSearch">
-                    {{> atomer-tekst-input }}
-	    		</div>
-	    	</div>
-	    </div>
-    {{/ article-search }}
-
 	<main id="content" tabindex="-1">
 
 		<div class="container">
 			<div class="row">
 				<div class="col-sm-12 col-lg-10 offset-lg-1 pb-3">
 
-					{{# article-breadcrumb }}
-						{{> molekyler-smulesti }}
-					{{/ article-breadcrumb }}
+          {{#title-only}}
+          {{> atomer-sidetittel }}
+          {{/title-only}}
+					
+          {{#title-link}}
+          <div class="d-flex">
+            <div class="flex-grow-1">
+            {{> atomer-sidetittel}}
+            </div>
+            <div class="align-self-center pb-1 text-right">
+            {{> atomer-link }}
+            </div>
+          </div>
+          {{/title-link}}
 
-					{{> atomer-sidetittel }}
+          {{> atomer-intro-tekst }}
+          {{> atomer-avsnitt }}
+
+          {{# dashboard-subscribe-modal }}
+            {{> organismer-modal }}
+          {{/ dashboard-subscribe-modal }}
+
+          {{# active-alerts }}
+            {{> atomer-varsel }}
+          {{/ active-alerts }}
 
 				</div>
 			</div>
@@ -31,20 +41,31 @@
 			<div class="row">
 				<div class="col-sm-12 col-lg-10 offset-lg-1 pb-3 {{articlesContainerClass}}">
 
+          {{# list-header }}
+							{{> atomer-seksjonstittel }}
+					{{/ list-header }}
+
 					{{# list-article }}
-							{{> molekyler-lenketittel-med-forklaring }}
+							
+              <article class="a-linkArticle" {{# identifier }}id="{{ identifier }}"{{/ identifier }}>
+
+              {{> atomer-byline }}
+              {{> atomer-undertittel:d-inline }}
+
+              {{# label }}
+							  {{> atomer-merkelapp }}
+					    {{/ label }}
+              
+
+              <p>{{{ article-description }}}</p>
+            </article>
+
 					{{/ list-article }}
 
 					{{# list-article-loadmore }}
 				    {{> atomer-handlingsknapp }}
 				  {{/ list-article-loadmore }}
 
-				</div>
-			</div>
-
-			<div class="row">
-				<div class="col-sm-12 col-md-10 col-lg-8 offset-md-1 offset-lg-2 pb-3">
-					{{> molekyler-bilde-innhold:mt-4 }}
 				</div>
 			</div>
 

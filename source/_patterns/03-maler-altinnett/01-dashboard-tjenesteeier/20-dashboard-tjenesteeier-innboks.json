@@ -1,0 +1,683 @@
+{   
+  "title": "Dashboard",
+  "themeCss": "../../css/style.dist.altinnett.css",
+  "themeJs": "../../js/altinnettPrototyping.js",
+  "themeJsVendor": "../../js/altinnettPrototyping.vendor.js",
+  "bodyClass": "project-altinnett project-dashboard a-bgGreyLighter",
+  "header": {
+    "headerlogo": "../../images/a-logo-white.svg",
+    "headerlogoText": "/patentstyret",
+    "hide-header": false
+  },
+  "globalNav-active-innboks": "globalNav-active",
+  "page-title": "Ditt dashboard",
+  "login-name": "Knut Johannesen",
+  "login-represent": "for Patentstyret",
+  "advanced-search": {
+    "search-filter-organism": {
+      "sub-header": {
+        "header-color": "",
+        "subheader-extraclass": false,
+        "logo": "../../images/a-logo-blue.svg",
+        "display-as-dropdown": false
+      },
+      "filter-sok": {
+        "text-input-id": "inbox_search_filter",
+        "top-label": "Søk etter innhold",
+        "text-input-placeholder": "Søk i meldinger",
+        "input-type": "search",
+        "isRequired": false,
+        "extra-help": false,
+        "isHidden": true,
+        "isLarge": true,
+        "form-label-hasIcon": false,
+        "form-input-hasButton": [
+          {
+            "formBtnExtraclass": "a-btn-black-text a-js-searchFilterToggle d-none d-md-block",
+            "no-border": true,
+            "button-icon": false,
+            "button-text": [
+              {
+                "button-text-value": "avansert",
+                "button-text-class": "a-js-filterFocus"
+              },
+              {
+                "button-text-class": "a-dropdownArrow a-expanded"
+              }
+            ],
+            "onclick": false
+          },
+          {
+            "button-icon": {
+              "icon-prefix": "ai",
+              "icon-class": "ai-search"
+            },
+            "button-text": [
+              {
+                "button-text-value": "Søk",
+                "button-text-class": "sr-only"
+              }
+            ],
+            "onclick": "location.href='link.sider-dashboard-tjenesteeier-innboks';"
+          }
+        ]
+      },
+      "limit-hits-filter-overview": {
+        "limit-hits-filter-text": "Begrens treffene: ",
+        "icon-prefix": "ai",
+        "icon-class": "ai-circle-plus",
+        "icon-size": "",
+        "icon-extra-class": "ai-nw a-blue",
+        "icon-text": "",
+        "icon-id": false,
+        "sr-only": false,
+        "aria-hidden": false,
+        "stacked-background": false,
+        "icon-post-text": false,
+        "icon-title": false,
+        "icon-sr-only-text": false,
+        "active-filter-numbers": [
+          {
+            "label-class": "badge-primary a-bgBlueLighter",
+            "label-id": "4",
+            "label-content": "4"
+          }
+        ],
+        "active-filters": [
+          {
+            "label-class": "badge-primary a-bgBlueLighter",
+            "label-id": "2019",
+            "label-content": "2019"
+          },
+          {
+            "label-class": "badge-primary a-bgBlueLighter",
+            "label-id": "ulest",
+            "label-content": "Ulest"
+          },
+          {
+            "label-class": "badge-primary a-bgBlueLighter",
+            "label-id": "haster",
+            "label-content": "Haster"
+          }
+        ],
+        "filter-close-button": {
+          "button-text": "Lukk",
+          "button-class": "d-inline a-btn a-btn-icon text-right mb-0 py-0 a-js-searchFilterToggle",
+          "link-url": false,
+          "button-shadow-label": false,
+          "button-textClass": "a-fontBold",
+          "button-icon": {
+            "icon-prefix": "reg",
+            "icon-class": "reg-circle-exit"
+          }
+        }
+      },
+      "filter-options": {
+        "pick-area": {
+          "pick-area-text": "Søker i: ",
+          "check-legend": false,
+          "checkboxes": [
+            {
+              "isInline" : true,
+              "isChecked": true,
+              "isBold" : true,
+              "checkboxID" : "check-i-1",
+              "checkboxes-title-class": "a-fontBold",
+              "checkboxes-title": "Meldinger"
+            },
+            {
+              "isInline" : true,
+              "isChecked": true,
+              "isBold" : true,
+              "checkboxID" : "check-i-2",
+              "checkboxes-title-class": "a-fontBold",
+              "checkboxes-title": "Arkiv"
+            },
+            {
+              "isInline" : true,
+              "isChecked": false,
+              "isBold" : true,
+              "checkboxID" : "check-i-3",
+              "checkboxes-title-class": "a-fontBold",
+              "checkboxes-title": "Slettet"
+            }
+          ]
+        },
+        "collapseContent-inside-extraclass": "pl-0",
+        "data-parent": "accordionFilter",
+        "id": "Filter",
+        "accordion-header-items": [
+          {
+            "collapse-header-id": "accordionHeaderItem3",
+            "collapse-header-text": "Status",
+            "collapse-header-content": false,
+            "isSmall": true,
+            "hasNestedCheckboxes": false,
+            "hrExtraClass": "a-hrLight",
+            "hasRadiogroup-date": {
+              "topRadioButtons": [
+                {
+                  "radiobuttons": {
+                    "radiobuttons-title": "Alle statuser",
+                    "radiobuttons-id": "Alle-statuser-checkbutton-1",
+                    "radiobuttons-class": "d-block mb-2",
+                    "radiobuttons-name": "Status",
+                    "isChecked": true,
+                    "hasIcon": false
+                  }
+                },
+                {
+                  "radiobuttons": [
+                    {
+                      "radiobuttons-title": "Ulest",
+                      "radiobuttons-id": "checkbutton-1",
+                      "radiobuttons-class": "",
+                      "radiobuttons-name": "Status",
+                      "hasIcon": false
+                    },
+                    {
+                      "radiobuttons-title": "Behandles",
+                      "radiobuttons-id": "checkbutton-2",
+                      "radiobuttons-class": "",
+                      "radiobuttons-name": "Status",
+                      "hasIcon": false
+                    },
+                    {
+                      "radiobuttons-title": "Løst",
+                      "radiobuttons-id": "checkbutton-3",
+                      "radiobuttons-name": "Status",
+                      "radiobuttons-class": "",
+                      "hasIcon": false
+                    }
+                  ]
+                }
+              ]
+            },
+            "bottomRadioButtons": false,
+            "firstDateField": false,
+            "secondDateField": false
+          },
+          {
+            "collapse-header-id": "accordionHeaderItem1",
+            "collapse-header-text": "Periode",
+            "collapse-header-content": "",
+            "isSmall": true,
+            "hasRadiogroup-date": {
+              "topRadioButtons": [
+                {
+                  "radiobuttons": {
+                    "radiobuttons-title": "All tid",
+                    "radiobuttons-id": "All-tid-checkbutton-1",
+                    "radiobuttons-class": "d-block mb-2",
+                    "radiobuttons-name": "period",
+                    "isChecked": true,
+                    "hasIcon": false
+                  }
+                },
+                {
+                  "radiobuttons": [
+                    {
+                      "radiobuttons-title": "Siste måned",
+                      "radiobuttons-id": "checkbutton-11",
+                      "radiobuttons-class": "",
+                      "radiobuttons-name": "period",
+                      "hasIcon": false
+                    },
+                    {
+                      "radiobuttons-title": "Siste 6 måneder",
+                      "radiobuttons-id": "checkbutton-12",
+                      "radiobuttons-class": "",
+                      "radiobuttons-name": "period",
+                      "hasIcon": false
+                    },
+                    {
+                      "radiobuttons-title": "Siste 12 måneder",
+                      "radiobuttons-id": "checkbutton-13",
+                      "radiobuttons-name": "period",
+                      "radiobuttons-class": "",
+                      "hasIcon": false
+                    },
+                    {
+                      "radiobuttons-title": "2018",
+                      "radiobuttons-id": "checkbutton-14",
+                      "radiobuttons-name": "period",
+                      "radiobuttons-class": "",
+                      "hasIcon": false
+                    },
+                    {
+                      "radiobuttons-title": "2017",
+                      "radiobuttons-id": "checkbutton-14",
+                      "radiobuttons-name": "period",
+                      "radiobuttons-class": "",
+                      "hasIcon": false
+                    },
+                    {
+                      "radiobuttons-title": "2016",
+                      "radiobuttons-id": "checkbutton-15",
+                      "radiobuttons-name": "period",
+                      "radiobuttons-class": "",
+                      "hasIcon": false
+                    },
+                    {
+                      "radiobuttons-title": "2015",
+                      "radiobuttons-id": "checkbutton-16",
+                      "radiobuttons-name": "period",
+                      "radiobuttons-class": "",
+                      "hasIcon": false
+                    },
+                    {
+                      "radiobuttons-title": "2014",
+                      "radiobuttons-id": "checkbutton-17",
+                      "radiobuttons-name": "period",
+                      "radiobuttons-class": "",
+                      "hasIcon": false
+                    },
+                    {
+                      "radiobuttons-title": "2013",
+                      "radiobuttons-id": "checkbutton-18",
+                      "radiobuttons-name": "period",
+                      "radiobuttons-class": "",
+                      "hasIcon": false
+                    },
+                    {
+                      "radiobuttons-title": "2012",
+                      "radiobuttons-id": "checkbutton-19",
+                      "radiobuttons-name": "period",
+                      "radiobuttons-class": "",
+                      "hasIcon": false
+                    },
+                    {
+                      "radiobuttons-title": "2011",
+                      "radiobuttons-id": "checkbutton-20",
+                      "radiobuttons-name": "period",
+                      "radiobuttons-class": "",
+                      "hasIcon": false
+                    },
+                    {
+                      "radiobuttons-title": "2010",
+                      "radiobuttons-id": "checkbutton-21",
+                      "radiobuttons-name": "period",
+                      "radiobuttons-class": "",
+                      "hasIcon": false
+                    },
+                    {
+                      "radiobuttons-title": "Før 2010",
+                      "radiobuttons-id": "checkbutton-22",
+                      "radiobuttons-name": "period",
+                      "radiobuttons-class": "",
+                      "hasIcon": false
+                    }
+                  ]
+                }
+              ]
+            },
+            "bottomRadioButtons": {
+              "radiobuttons": [
+                {
+                  "radiobuttons-title": "Velg periode",
+                  "radiobuttons-id": "checkbutton-25",
+                  "radiobuttons-name": "period",
+                  "radiobuttons-class": "",
+                  "hasIcon": false
+                }
+              ]
+            },
+            "firstDateField": {
+              "date-input-label": "Fra:",
+              "icon-prefix": "ai",
+              "icon-class": "ai-date",
+              "icon-extra-class": "",
+              "form-control-class": "a-hasButton",
+              "inputId": "dateField1"
+            },
+            "secondDateField": {
+              "date-input-label": "Til:",
+              "icon-prefix": "ai",
+              "icon-class": "ai-date",
+              "icon-extra-class": "",
+              "form-control-class": "a-hasButton",
+              "inputId": "dateField2"
+            }
+          },
+          {
+            "collapse-header-id": "accordionHeaderItem2",
+            "collapse-header-text": "Meldingstype",
+            "collapse-header-content": false,
+            "isSmall": true,
+            "hasNestedCheckboxes": true,
+            "firstLevelColClass": "col-12",
+            "secondLevelColClass": "col-12 col-md-3",
+            "hrExtraClass": "a-hrLight",
+            "firstLevelCheckboxes": [
+              {
+                "hasSecondLevel": true,
+                "isStacked": "custom-controls-stacked",
+                "secondLevelId": "firstNestedLevel",
+                "check-legend": false,
+                "checkboxes": [
+                  {
+                    "checkboxes-title": "Bestillinger",
+                    "data-toggle": "nestedCheckbox",
+                    "data-target": "#firstNestedLevel"
+                  }
+                ],
+                "secondLevelCheckboxes": [
+                  {
+                    "isDiscreet": "a-form-checkboxes--discret",
+                    "isStacked": "custom-controls-stacked",
+                    "check-legend": false,
+                    "checkboxes": [
+                      {
+                        "checkboxes-title": "Tilganger"
+                      }
+                    ]
+                  },
+                  {
+                    "isDiscreet": "a-form-checkboxes--discret",
+                    "isStacked": "custom-controls-stacked",
+                    "check-legend": false,
+                    "checkboxes": [
+                      {
+                        "checkboxes-title": "Endring av grensesnitt"
+                      }
+                    ]
+                  },
+                  {
+                    "isDiscreet": "a-form-checkboxes--discret",
+                    "isStacked": "custom-controls-stacked",
+                    "check-legend": false,
+                    "checkboxes": [
+                      {
+                        "checkboxes-title": "Innlesing av prefill eller abonnement"
+                      }
+                    ]
+                  },
+                  {
+                    "isDiscreet": "a-form-checkboxes--discret",
+                    "isStacked": "custom-controls-stacked",
+                    "check-legend": false,
+                    "checkboxes": [
+                      {
+                        "checkboxes-title": "Oppsett av lenketjeneste i tjenesteutviklingsløsningen"
+                      }
+                    ]
+                  },
+                  {
+                    "isDiscreet": "a-form-checkboxes--discret",
+                    "isStacked": "custom-controls-stacked",
+                    "check-legend": false,
+                    "checkboxes": [
+                      {
+                        "checkboxes-title": "Egen varslingsmal til varslingstjeneste"
+                      }
+                    ]
+                  },
+                  {
+                    "isDiscreet": "a-form-checkboxes--discret",
+                    "isStacked": "custom-controls-stacked",
+                    "check-legend": false,
+                    "checkboxes": [
+                      {
+                        "checkboxes-title": "Produksjonssetting av tjenester, kodelister og mappere"
+                      }
+                    ]
+                  },
+                  {
+                    "isDiscreet": "a-form-checkboxes--discret",
+                    "isStacked": "custom-controls-stacked",
+                    "check-legend": false,
+                    "checkboxes": [
+                      {
+                        "checkboxes-title": "Ny / endre tjenesteinformasjon på altinn.no"
+                      }
+                    ]
+                  },
+                  {
+                    "isDiscreet": "a-form-checkboxes--discret",
+                    "isStacked": "custom-controls-stacked",
+                    "check-legend": false,
+                    "checkboxes": [
+                      {
+                        "checkboxes-title": "Sanering / deaktivering av tjeneste"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "hasSecondLevel": false,
+                "isStacked": "custom-controls-stacked",
+                "secondLevelId": "secondNestedLevel",
+                "check-legend": false,
+                "checkboxes": [
+                  {
+                    "checkboxes-title": "Melding om feil"
+                  }
+                ]
+              },
+              {
+                "isStacked": "custom-controls-stacked",
+                "hrExtraClass": "a-hrLight",
+                "check-legend": false,
+                "checkboxes": [
+                  {
+                    "checkboxes-title": "Support"
+                  }
+                ],
+                "hasSecondLevel": false
+              }
+            ]
+          },
+          {
+            "collapse-header-id": "accordionHeaderItem4",
+            "collapse-header-text": "Avsender",
+            "collapse-header-content": false,
+            "collapseContent-inside-extraclass": "pl-0 pr-0",
+            "isSmall": true,
+            "hasCheckboxes": false,
+            "hasNestedCheckboxes": false,
+            "hasAvkrysningsbokserOgSok":   {
+              "flexWrap": false,
+              "check-legend": false,
+              "isDiscreet": true,
+              "checkboxes": [
+                {
+                  "isInline" : true,
+                  "isChecked": false,
+                  "checkboxID" : "check1",
+                  "checkboxes-title": "Deg selv",
+                  "isRequired": false
+                },
+                {
+                  "isInline" : true,
+                  "isChecked": false,
+                  "checkboxID" : "check2",
+                  "checkboxes-title": "Elin Walstrand",
+                  "isRequired": false
+                }
+              ],
+              "print-form-tag": false,
+              "text-input-id": "text-input-generic",
+              "isHidden": false,
+              "top-label": "Annen avsender: ",
+              "isDisabled": false,
+              "isInactive": false,
+              "text-input-placeholder": "Søk i avsenderfeltet",
+              "input-type": "text",
+              "isRequired": false,
+              "extra-help": false,
+              "isLarge": false,
+              "form-label-hasIcon": false,
+              "input-name": "input-field",
+              "form-control-class": ""
+            },
+            "hrExtraClass": "a-hrLight",
+            "hasRadiogroup-date": false,
+            "bottomRadioButtons": false,
+            "firstDateField": false,
+            "secondDateField": false
+          }
+        ]
+      },
+      "filter-submit": {
+        "button-text": "Vis filtrert resultat",
+        "button-class": "a-btn py-1 px-3",
+        "button-disabled": false,
+        "button-type": "button",
+        "onclick": false,
+        "button-icon": false,
+        "display-as-link": false
+      }
+    }
+  },
+  "article-search": {
+    "text-input-id": "inbox_search",
+    "top-label": "Søk i meldinger",
+    "text-input-placeholder": "Søk i meldinger",
+    "input-type": "search",
+    "isRequired": false,
+    "extra-help": false,
+    "isHidden": true,
+    "isLarge": true,
+    "form-label-hasIcon": false,
+    "form-input-hasButton": [
+      {
+        "button-icon": {
+          "icon-prefix": "ai",
+          "icon-class": "ai-search"
+        },
+        "button-text": [
+          {
+            "button-text-value": "Søk",
+            "button-text-class": "sr-only"
+          }
+        ],
+        "onclick": false
+      }
+    ]
+  },
+
+  "dashboard-addEvent": false,
+  "dashboard-addAlert": false,
+  
+  "dashboard-messagesTitle": false,
+  "dashboard-filterInbox": {
+    "filtersNotSelected": false,
+    "filtersSelected": true,
+    "addButton": {
+      "button-class": "a-btn a-filter-add-button a-btn-icon-inline a-js-searchFilterToggle mb-1",
+      "aria-label": "Begrens treffene",
+      "icon-prefix": "ai",
+      "icon-class": "ai-circle-plus",
+      "icon-extra-class": "a-blue",
+      "onclick": false,
+      "enable-popover": false,
+      "stacked-background": false,
+      "display-as-link": false,
+      "icon-id": false,
+      "sr-only": false,
+      "aria-hidden": false,
+      "icon-post-text": false,
+      "icon-title": false,
+      "icon-sr-only-text": false
+    }
+  },
+  "dashboard-viewMoreMessages": false,
+
+  "dashboard-addMessage": false,
+
+  "dashboard-addMessageLeft": {
+    "icon-prefix": "ai",
+    "icon-class": "ai-plus",
+    "icon-extra-class": "a-blue mr-1",
+    "button-class": "a-btn a-btn-action a-fullWidthBtn a-btnBigger mt-2 mb-2 mt-lg-4 mb-lg-4 d-none d-lg-block",
+    "textstyling-button": "a-fontSizeXS",
+    "action-button-text": "Ny melding",
+
+    "data-toggle": "altinn-modal",
+    "data-action": "load",
+    "data-url": {
+      "data-url": "../../patterns/02-organismer-81-Dashboard-modaler-meldinger-01-nymelding/02-organismer-81-Dashboard-modaler-meldinger-01-nymelding.markup-only.html"
+    },
+    "data-target": "modal-message"
+  },
+
+  "messageStatus": [
+    {
+      "dropdown-overflow": false,
+          "button-class": "a-btn a-active a-btn-icon a-btn-transparentWhite",
+          "button-colorClass": "",
+          "link-url": "link.sider-altinnett-dashboard-tjenesteeier-innboks-alle",
+          "button-text": "alle",
+      "responsive-br": true,
+          "button-icon": {
+          "icon-prefix": "reg",
+          "icon-class": "reg-closedmessage",
+          "icon-extra-class": "a-btn-icon-symbol"
+      },
+      "button-shadow-label": false
+    },
+    {
+      "dropdown-overflow": false,
+          "button-class": "a-btn a-btn-icon a-btn-transparentWhite",
+          "button-colorClass": "",
+          "link-url": "link.sider-altinnett-dashboard-tjenesteeier-innboks-behandles",
+          "button-text": "behandles",
+      "responsive-br": true,
+          "button-icon": {
+          "icon-prefix": "reg",
+          "icon-class": "reg-waiting",
+          "icon-extra-class": "a-btn-icon-symbol"
+      },
+      "button-shadow-label": false
+    },
+    {
+      "dropdown-overflow": false,
+          "button-class": "a-btn a-btn-icon a-btn-transparentWhite",
+          "button-colorClass": "",
+          "link-url": "link.sider-altinnett-dashboard-tjenesteeier-innboks-lost",
+          "button-text": "løst",
+          "responsive-br": true,
+          "button-icon": {
+          "icon-prefix": "reg",
+          "icon-class": "reg-check",
+          "icon-extra-class": "a-btn-icon-symbol"
+      },
+      "button-shadow-label": false
+    },
+    {
+      "dropdown-overflow": false,
+      "wrapper-class": "d-lg-none",
+      "button-class": "a-btn a-btn-icon a-btn-transparentWhite",
+      "button-colorClass": "",
+      "link-url": "#",
+      "button-text": "ny",
+      "responsive-br": true,
+      "button-icon": {
+        "icon-prefix": "ai",
+        "icon-class": "ai-plus",
+        "icon-extra-class": "a-btn-icon-symbol a-button-icon-symbol--secondary"
+      },
+      "button-shadow-label": false
+    }
+  ],
+
+  "section-title": "Din kontaktperson",
+
+  "dashboard-messages" : false,
+  "load-more-btn": false,
+
+  "empty-inbox": {
+    "empty-inbox-heading": "Her er det tomt!",
+    "empty-inbox-title": "Du har ikke sendt noen meldinger enda. Dersom du velger \"Hele organisasjonen\" oppe til høyre, vil du kunne se meldinger andre i din organisasjon har sendt til Altinn.",
+    "empty-inbox-list-title": "",
+    "empty-inbox-undertext": "",
+    "link-text": "",
+    "link-url": "",
+    "sr-text": "",
+    "number-list-items": false
+    }
+
+    
+
+}

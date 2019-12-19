@@ -1,5 +1,5 @@
 ---
-state: inprogress altinn
+state: inprogress altinn altinnett
 version: 1
 ---
 

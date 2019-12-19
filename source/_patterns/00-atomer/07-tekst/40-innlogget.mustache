@@ -1,5 +1,16 @@
 {{# display-as-dropdown }}
-  <button class="nav-link dropdown-toggle a-personSwitcher logged-in {{{ variation }}} {{# buttonDisabled }} disabled {{/ buttonDisabled }}" type="button" {{# personlogin-isDropdown }} data-toggle="{{personlogin-isDropdown}}"{{/ personlogin-isDropdown }}{{# onclick }} onclick="{{ onclick }}"{{/ onclick }} aria-haspopup="true" aria-expanded="false"  title="{{{ login-name }}} {{{ login-represent }}}">
+  <button class="nav-link dropdown-toggle a-personSwitcher logged-in {{{ variation }}} {{# buttonDisabled }} disabled {{/ buttonDisabled }}" 
+  type="button" 
+  aria-haspopup="true" 
+  aria-expanded="false"  
+  title="{{{ login-name }}} {{{ login-represent }}}"
+  {{# onclick }} onclick="{{ onclick }}"{{/ onclick }} 
+  {{# personlogin-isDropdown }} data-toggle="{{personlogin-isDropdown}}"{{/ personlogin-isDropdown }}
+  {{# data-toggle }}data-toggle="{{ data-toggle }}"{{/ data-toggle }}
+  {{# data-action }}data-action="{{ data-action }}"{{/ data-action }}
+  {{# data-parent }}data-parent="#{{ data-parent }}"{{/ data-parent }}
+  {{# page-url }}data-url="{{{ page-url }}}"{{/ page-url }}
+  {{# data-target }}data-target="{{ data-target }}"{{/ data-target }}>
 {{/ display-as-dropdown }}
 {{^ display-as-dropdown }}
   <div class="a-personSwitcher {{{ variation }}}" title="{{{ login-name }}} {{{ login-represent }}}">

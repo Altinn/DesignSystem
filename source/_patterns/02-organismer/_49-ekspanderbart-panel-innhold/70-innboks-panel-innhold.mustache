@@ -22,7 +22,7 @@
   <div class="row{{# extra-class }} {{ extra-class }}{{/ extra-class }}">
     <div class="col">
       {{# text-paragraph }}
-        <p class="my-0{{# text-paragraph-class }} {{ text-paragraph-class }}{{/ text-paragraph-class }}">{{ message-text }}</p>
+        <p class="my-0{{# text-paragraph-class }} {{ text-paragraph-class }}{{/ text-paragraph-class }}">{{{ message-text }}}</p>
       {{/ text-paragraph }}
       {{# text-link }}
         {{> atomer-link }}
@@ -30,6 +30,17 @@
     </div>
   </div>
 {{/ message-text-block }}
+{{# message-list-block }}
+  <div class="row{{# extra-class }} {{ extra-class }}{{/ extra-class }}">
+    <div class="col-12">
+        {{> molekyler-liste-unummerert }}
+    </div>
+  </div>
+{{/ message-list-block }}
+{{# attachments-title }}
+  <hr>
+  <h4 class="a-fontReg">{{ attachments-title }}</h4>
+{{/ attachments-title }}
 {{# attachments }}
   <div class="row mt-3">
     <div class="col-12">

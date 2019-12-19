@@ -1,0 +1,18 @@
+
+  {{#editionList}}
+  <a href="#" data-toggle="collapse" data-target="#{{ thiseditionTitleID }}" class="an-serviceEdition a-fontSizeXXS px-md-2 {{#collapsed}}collapsed{{/collapsed}}">
+    <div class="flex-grow-1 row">
+      
+        <div class="col-8"><span class="a-dropdownArrow mt-0 align-self-center mb-0"></span>{{ thiseditionTitle }}</div>
+        <div class="col-4 a-fontSizeXXS text-right">Sist endret: {{ editedAt }}</div>
+    </div>
+    {{# thiseditionCode }}
+      {{ thiseditionCode }}
+    {{/ thiseditionCode }}
+  </a>
+  <div class="a-msg-body an-serviceedition-body px-4 pb-3 collapse {{#show}}show{{/show}}" id="{{ thiseditionTitleID }}">
+      {{# thiseditionContent }}
+        {{> organismer-innboks-panel-innhold }}
+      {{/ thiseditionContent }}
+  </div>
+  {{/editionList}}
