@@ -1,6 +1,6 @@
 {
   "name": "altinn-designsystem",
-  "version": "2.6.3",
+  "version": "3.0.0",
   "description": "Altinn Design system based on Pattern Lab.",
   "keywords": [
     "Altinn",
@@ -16,7 +16,8 @@
   },
   "scripts": {
     "precommit-msg": "echo 'Pre-commit: Linting js and scss' && exit 0",
-    "dist": "gulp dist --max_old_space_size=4096",
+    "dist": "gulp dist",
+    "dist-include-patterns": "gulp dist-include-patterns --max_old_space_size=8192",
     "lint": "eslint source/js/",
     "patterns": "gulp patternlab:patternsonly",
     "purify": "purifycss public/css/style.css public/**/*.html public/**/*.js --info --rejected --out public/css/index.css",
