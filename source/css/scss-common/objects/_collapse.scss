@@ -306,7 +306,6 @@
 .rightHolderList {
   .a-list-container {
     background: $white;
-    border-top: 1px solid  $grey-medium;
   }
 }
 
@@ -489,13 +488,25 @@
 }
 
 // Rotate arrows when collapsed
-.collapsed {
-  .a-dropdownArrow {
-    transform: rotate( 0deg );
+a {
+  &.collapsed {
+    .a-dropdownArrow {
+      transform: rotate( 0deg );
+    }
+
+    .hideText {
+      display: none;
+    }
+
+    .a-dropdownCircleArrow {
+      transform: rotate( 0deg );
+    }
   }
 
-  .a-dropdownCircleArrow {
-    transform: rotate( 0deg );
+  &:not(.collapsed) {
+    .expandText {
+      display: none;
+    }
   }
 }
 
@@ -530,19 +541,16 @@
   //   .expandable-icon {
   .a-dropdownCircleArrow {
     transform: rotate( 90deg );
-       }
-
-
-  .expandText {
-    display: none;
-    }
   }
+}
 
 .hideRightHolders {
-  .a-list-parentRightHolder {
+  &.a-list-parentRightHolder,
+  &.childRightHolders {
     display: none;
   }
 
+  .a-list-parentRightHolder,
   .childRightHolders {
     display: none;
   }
