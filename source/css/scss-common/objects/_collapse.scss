@@ -488,13 +488,25 @@
 }
 
 // Rotate arrows when collapsed
-.collapsed {
-  .a-dropdownArrow {
-    transform: rotate( 0deg );
+a {
+  &.collapsed {
+    .a-dropdownArrow {
+      transform: rotate( 0deg );
+    }
+
+    .hideText {
+      display: none;
+    }
+
+    .a-dropdownCircleArrow {
+      transform: rotate( 0deg );
+    }
   }
 
-  .a-dropdownCircleArrow {
-    transform: rotate( 0deg );
+  &:not(.collapsed) {
+    .expandText {
+      display: none;
+    }
   }
 }
 
