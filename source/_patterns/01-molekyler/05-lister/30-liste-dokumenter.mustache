@@ -1,0 +1,43 @@
+<div class="an-documentList">
+    <div class="d-none d-md-block a-fontMedium an-documentList-header">
+        <div class="row">
+            <div class="col-6 an-documentList-headerFirstColumn">
+                Navn
+            </div>
+            <div class="col-3">
+                Endret
+            </div>
+            <div class="col-3">
+                Endret av
+            </div>
+        </div>
+    </div>
+    <ul class="no-decoration a-iconList">
+    {{# document-list-items }}
+        <li>
+            <a href="#" class="row">
+                <div class="d-flex col-md-6">
+					<span class="">
+                        {{> atomer-ikon }}
+                    </span>
+                    <div>
+                        <div>
+                            {{ document-name }}
+                            <span class="d-md-none a-greyText"> (Last ned)</span>
+                        </div>
+                        <div class="d-md-none a-fontSizeXXS a-greyText">
+                            Endret av: {{document-author}} ({{document-date.day}}.{{document-date.month}}.{{document-date.year}})
+                        </div>
+                    </div>
+                </div>
+                <div class="col-3 d-none d-md-block">
+                    {{document-date.day}}/{{document-date.month}}-{{document-date.year}} {{document-date.time}}
+                </div>
+                <div class="col-3 d-none d-md-block">
+                    {{document-author}}
+                </div>
+            </a>
+        </li>
+    {{/ document-list-items }}
+    </ul>
+</div>
