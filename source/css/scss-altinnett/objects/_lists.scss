@@ -1,4 +1,22 @@
 .an-documentList {
+  &-path {
+    list-style: none;
+    margin-bottom: $spacer * 2;
+
+    li {
+      display: inline;
+
+      &::after {
+        content: "\203A";
+        display: inline;
+      }
+
+      &:last-child::after {
+        content: none;
+      }
+    }
+  }
+
   &-header {
     border-bottom: 1px solid $black;
     margin-bottom: $spacer * 2;
@@ -8,7 +26,26 @@
     padding-left: calc(3.2em + #{$spacer});
   }
 
+  &-icon {
+    transition: opacity 0.2s ease-in-out;
+
+    &--hover {
+      position: absolute;
+      opacity: 0;
+    }
+  }
+
   a:hover {
     color: $blue-dark;
+
+    .an-documentList-icon {
+      &--main {
+        opacity: 0;
+      }
+
+      &--hover {
+        opacity: 1;
+      }
+    }
   }
 }
