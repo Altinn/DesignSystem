@@ -35,17 +35,24 @@
     }
   }
 
-  a:hover {
-    color: $blue-dark;
+  a {
+    &::after {
+      content: none;
+    }
 
-    .an-documentList-icon {
-      &--main {
-        opacity: 0;
-      }
+    &:hover {
+      color: $blue-dark;
 
-      &--hover {
-        opacity: 1;
+      .an-documentList-icon {
+        &--main {
+          opacity: 0;
+        }
+
+        &--hover {
+          opacity: 1;
+        }
       }
     }
   }
+
 }
