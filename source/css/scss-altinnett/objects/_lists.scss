@@ -56,3 +56,30 @@
   }
 
 }
+
+//Dotted list style with no classes on <li> or <a> elements
+//in order to support TinyMCE in EPiServer
+.an-list-dotted {
+  margin-top: $spacer;
+  margin-bottom: $spacer * 2;
+
+  li {
+    @extend .a-dotted;
+    border-top: none;
+
+    &:not(.a-dotted) {
+      border-top: none;
+    }
+  }
+
+  a {
+    display: flex;
+    padding: 7px 6px 5px 0;
+    border: none;
+    justify-content: space-between;
+
+    &:hover {
+      background-color: $blue-light-opacity-04;
+    }
+  }
+}
