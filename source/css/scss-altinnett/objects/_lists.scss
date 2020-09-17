@@ -1,7 +1,7 @@
 .an-documentList {
   &-path {
     list-style: none;
-    margin-bottom: $spacer * 2;
+    margin-bottom: $spacer * 3;
 
     li {
       display: inline;
@@ -9,21 +9,31 @@
       &::after {
         content: "\203A";
         display: inline;
+        margin: 0 $spacer;
       }
 
       &:last-child::after {
         content: none;
       }
     }
+
+    a {
+      border-bottom: none;
+      color: $blue-dark;
+      padding-bottom: 0;
+    }
   }
 
   &-header {
-    border-bottom: 1px solid $black;
+    border-bottom: 1px solid $grey-medium;
     margin-bottom: $spacer * 2;
+    padding-bottom: 6px;
   }
 
-  &-headerFirstColumn {
-    padding-left: calc(3.2em + #{$spacer});
+  &-iconList {
+    li {
+      margin-bottom: $spacer * 3;
+    }
   }
 
   &-icon {
