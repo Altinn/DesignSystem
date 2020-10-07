@@ -1,38 +1,100 @@
 .an-documentList {
   &-path {
-    list-style: none;
     margin-bottom: $spacer * 3;
+    list-style: none;
 
     li {
       display: inline;
 
       &::after {
-        content: "\203A";
         display: inline;
         margin: 0 $spacer;
+        content: '\203A';
       }
 
-      &:last-child::after {
-        content: none;
+      &:last-child {
+        &::after {
+          content: none;
+        }
       }
     }
 
     a {
-      border-bottom: none;
-      color: $blue-dark;
       padding-bottom: 0;
+      color: $blue-dark;
+      border-bottom: none;
     }
   }
 
   &-header {
-    border-bottom: 1px solid $grey-medium;
     margin-bottom: $spacer * 2;
-    padding-bottom: 6px;
+    border-bottom: 1px solid $grey-medium;
+  }
+
+  &-sort {
+    padding-bottom: 0;
+    border: none;
+
+
+    &:active,
+    &:focus,
+    &:hover {
+      border: none;
+    }
+
+    &:hover {
+      .an-documentList-sortIcon {
+        background-color: $grey-light;
+        opacity: 1;
+      }
+    }
+  }
+
+  &-sortIcon {
+    position: relative;
+    top: 1px;
+    display: inline-flex;
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    opacity: 0;
+    transform: rotate(-90deg);
+    align-items: center;
+    justify-content: center;
+
+    &-ascending {
+      opacity: 1;
+    }
+
+    &-descending {
+      opacity: 1;
+      transform: rotate(90deg);
+    }
   }
 
   &-iconList {
     li {
       margin-bottom: $spacer * 3;
+    }
+
+    a {
+      &::after {
+        content: none;
+      }
+
+      &:hover {
+        color: $blue-dark;
+
+        .an-documentList-icon {
+          &--main {
+            opacity: 0;
+          }
+
+          &--hover {
+            opacity: 1;
+          }
+        }
+      }
     }
   }
 
@@ -44,27 +106,6 @@
       opacity: 0;
     }
   }
-
-  a {
-    &::after {
-      content: none;
-    }
-
-    &:hover {
-      color: $blue-dark;
-
-      .an-documentList-icon {
-        &--main {
-          opacity: 0;
-        }
-
-        &--hover {
-          opacity: 1;
-        }
-      }
-    }
-  }
-
 }
 
 //Dotted list style with no classes on <li> or <a> elements

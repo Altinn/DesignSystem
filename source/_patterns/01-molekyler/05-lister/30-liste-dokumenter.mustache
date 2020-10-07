@@ -9,14 +9,21 @@
     </ul>
     <div class="d-none d-md-block a-fontMedium an-documentList-header">
         <div class="row">
-            <div class="col-6">
-                Navn
+            <div class="col-9">
+                <a href="#" aria-label="Sorter liste på navn" class="an-documentList-sort">
+                    Navn
+                    <span class="an-documentList-sortIcon an-documentList-sortIcon-descending">
+                        <i class="ai ai-xs ai-arrowright" aria-hidden="true"></i>
+                    </span>
+                </a>
             </div>
             <div class="col-3">
-                Endret
-            </div>
-            <div class="col-3">
-                Endret av
+                <a href="#" aria-label="Sorter liste på dato" class="an-documentList-sort">
+                    Sist endret
+                    <span class="an-documentList-sortIcon">
+                        <i class="ai ai-xs ai-arrowright" aria-hidden="true"></i>
+                    </span>
+                </a>
             </div>
         </div>
     </div>
@@ -24,7 +31,7 @@
     {{# document-list-items }}
         <li>
             <a href="#" class="row">
-                <div class="d-flex col-md-6">
+                <div class="d-flex col-md-9">
                     {{#icon-main}}<span class="an-documentList-icon an-documentList-icon--main">{{> atomer-ikon }}</span>{{/icon-main}}
                     {{#icon-hover}}<span class="an-documentList-icon an-documentList-icon--hover">{{> atomer-ikon }}</span>{{/icon-hover}}
                     <div>
@@ -33,15 +40,12 @@
                             {{^folder}}<span class="d-md-none a-greyText"> (Last ned)</span>{{/folder}}
                         </div>
                         <div class="d-md-none a-fontSizeXXS a-greyText">
-                            Endret av: {{document-author}} ({{document-date.day}}.{{document-date.month}}.{{document-date.year}})
+                            Sist endret: {{document-date.day}}.{{document-date.month}}.{{document-date.year}}
                         </div>
                     </div>
                 </div>
                 <div class="col-3 d-none d-md-block">
                     {{document-date.day}}/{{document-date.month}}-{{document-date.year}} {{document-date.time}}
-                </div>
-                <div class="col-3 d-none d-md-block">
-                    {{document-author}}
                 </div>
             </a>
         </li>
