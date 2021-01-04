@@ -2084,6 +2084,10 @@ var updateDropdownLayout = function(selectedProject) {
     $(switchClass + ' li').eq(0).css('display', 'none');
     $(switchClass).addClass('altinn');
     break;
+  case 'brsys':
+    $(switchClass + ' li').eq(1).css('display', 'none');
+    $(switchClass).addClass('brsys');
+    break;
   case 'altinnett':
     $(switchClass + ' li').eq(2).css('display', 'none');
     $(switchClass).addClass('altinnett');
@@ -2134,10 +2138,11 @@ $.fn.hasAnyProjectStateClass = function(availableProjects) {
 };
 
 function checkAndChangeComponentElements(project, elements) {
-  var availableProjects = ['altinn', 'altinnett'];
+  var availableProjects = ['altinn', 'brsys', 'altinnett'];
   if (getSelectedProject() === null) {
     setSelectedProject('altinn');
     $('.display-altinnett').hide();
+    $('.display-brsys').hide();
   }
 
   $.each(elements, function(index, element) {
@@ -2159,7 +2164,15 @@ function removePagesAndTemplatesFromNav(project) {
   $patternTypeLinks.show();
   switch (project) {
   case 'altinn':
-    projectLinksToHide = ['maler-altinnett', 'sider-altinnett'];
+    projectLinksToHide = ['maler-brsys', 'sider-brsys', 'maler-altinnett', 'sider-altinnett'];
+    $patternTypeLinks.each(function() {
+      if ($.inArray($(this).text().toLowerCase(), projectLinksToHide) !== -1) {
+        $(this).hide();
+      }
+    });
+    break;
+  case 'brsys':
+    projectLinksToHide = ['maler-infoportal', 'sider-infoportal', 'maler-altinnett', 'sider-altinnett', 'maler-portal', 'sider-portal'];
     $patternTypeLinks.each(function() {
       if ($.inArray($(this).text().toLowerCase(), projectLinksToHide) !== -1) {
         $(this).hide();
@@ -2167,7 +2180,7 @@ function removePagesAndTemplatesFromNav(project) {
     });
     break;
   case 'altinnett':
-    projectLinksToHide = ['maler-infoportal', 'sider-infoportal', 'maler-portal', 'sider-portal'];
+    projectLinksToHide = ['maler-brsys', 'sider-brsys', 'maler-infoportal', 'sider-infoportal', 'maler-portal', 'sider-portal'];
     $patternTypeLinks.each(function() {
       if ($.inArray($(this).text().toLowerCase(), projectLinksToHide) !== -1) {
         $(this).hide();
@@ -2182,15 +2195,32 @@ function removePagesAndTemplatesFromNav(project) {
 function changeCss(project) {
   switch (project) {
   case 'altinn':
+    $($viewPortContents).contents().find('head link[href~=\'../../css/style.dist.brreg.css\']').prop('disabled', true);
     $($viewPortContents).contents().find('head link[href~=\'../../css/style.dist.altinnett.css\']').prop('disabled', true);
     $($viewPortContents).contents().find('head link[href~=\'../../css/style.prototype.altinn.css\']').prop('disabled', false);
     break;
   case 'altinnett':
+    $($viewPortContents).contents().find('head link[href~=\'../../css/style.dist.brreg.css\']').prop('disabled', true);
     $($viewPortContents).contents().find('head link[href~=\'../../css/style.dist.altinnett.css\']').prop('disabled', false);
+    $($viewPortContents).contents().find('head link[href~=\'../../css/style.prototype.altinn.css\']').prop('disabled', true);
+    break;
+  case 'brsys':
+    $($viewPortContents).contents().find('head link[href~=\'../../css/style.dist.brreg.css\']').prop('disabled', false);
+    $($viewPortContents).contents().find('head link[href~=\'../../css/style.dist.altinnett.css\']').prop('disabled', true);
     $($viewPortContents).contents().find('head link[href~=\'../../css/style.prototype.altinn.css\']').prop('disabled', true);
     break;
   default:
     break;
+  }
+}
+
+function toggleWelcomeText(project) {
+  if (project === 'brsys') {
+    $($viewPortContents).contents().find('.welcome-panel-altinn').hide();
+    $($viewPortContents).contents().find('.welcome-panel-brsys').show();
+  } else {
+    $($viewPortContents).contents().find('.welcome-panel-brsys').hide();
+    $($viewPortContents).contents().find('.welcome-panel-altinn').show();
   }
 }
 
