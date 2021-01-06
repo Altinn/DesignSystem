@@ -1,8 +1,8 @@
 // Pie chart
 var piechart = function() {
-  function $(selector, context) {
-    var elements = context.querySelectorAll(selector);
+  function $(selector, context, elements) {
     context = context || document;
+    elements = context.querySelectorAll(selector);
     return Array.prototype.slice.call(elements);
   }
 
