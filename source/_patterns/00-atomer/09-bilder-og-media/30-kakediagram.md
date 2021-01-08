@@ -2,4 +2,4 @@
 state: archived altinnett
 version: 1
 ---
-Foreløpig ingen retningslinjer.
+Viktig: Det skal alltid oppgis tall/prosentandel i tekstformat i tillegg til det visuelle diagrammet. 

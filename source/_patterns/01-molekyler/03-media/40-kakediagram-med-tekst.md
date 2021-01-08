@@ -2,5 +2,4 @@
 state: indesignreview altinnett
 version: 0
 ---
-
-Foreløpig ingen retningslinjer.
+Viktig: Det skal alltid oppgis tall/prosentandel i tekstformat i tillegg til det visuelle diagrammet. 
