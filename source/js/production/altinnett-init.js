@@ -16,6 +16,7 @@
   setValidatorSettings
   setupSlickCarousel
   searchFilterView
+  piechart
 */
 window.altinnettInit = function() {
   AltinnModal.init();
@@ -34,6 +35,7 @@ window.altinnettInit = function() {
   searchFilterView();
   setupFormValidation();
   setValidatorSettings();
+  piechart();
 
   function setupForm() {
     $('body').off('focus', '#contactForm', setupForm);

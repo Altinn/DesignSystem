@@ -23,6 +23,7 @@
   setValidatorSettings,
   setupSlickCarousel,
   searchFilterView
+  piechart
 */
 window.altinnettInit = function() {
   // Only for prototyping
@@ -51,6 +52,7 @@ window.altinnettInit = function() {
   searchFilterView();
   setupFormValidation();
   setValidatorSettings();
+  piechart();
 
   function setupForm() {
     $('body').off('focus', '#contactForm', setupForm);
