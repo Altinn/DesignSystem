@@ -1,1 +1,136 @@
+.an-documentList {
+  &-path {
+    margin-bottom: $spacer;
+    list-style: none;
 
+    li {
+      display: inline;
+
+      &::after {
+        display: inline;
+        margin: 0 $spacer;
+        content: '\203A';
+      }
+
+      &:last-child {
+        &::after {
+          content: none;
+        }
+      }
+    }
+
+    a {
+      padding-bottom: 0;
+      color: $blue-dark;
+      border-bottom: none;
+    }
+  }
+
+  &-header {
+    margin-bottom: $spacer * 2;
+    border-bottom: 1px solid $grey-medium;
+  }
+
+  &-sort {
+    padding-bottom: 0;
+    border: none;
+
+
+    &:active,
+    &:focus,
+    &:hover {
+      border: none;
+    }
+
+    &:hover {
+      .an-documentList-sortIcon {
+        background-color: $grey-light;
+      }
+    }
+  }
+
+  &-sortIcon {
+    position: relative;
+    top: 1px;
+    display: inline-flex;
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    opacity: 0;
+    transform: rotate(-90deg);
+    align-items: center;
+    justify-content: center;
+
+    &-ascending {
+      opacity: 1;
+    }
+
+    &-descending {
+      opacity: 1;
+      transform: rotate(90deg);
+    }
+  }
+
+  &-iconList {
+    li {
+      margin-bottom: $spacer * 3;
+    }
+
+    a {
+      &::after {
+        content: none;
+      }
+
+      &:hover {
+        color: $blue-dark;
+
+        .an-documentList-icon {
+          &--main {
+            opacity: 0;
+          }
+
+          &--hover {
+            opacity: 1;
+          }
+        }
+      }
+    }
+  }
+
+  &-icon {
+    transition: opacity 0.2s ease-in-out;
+
+    &--hover {
+      position: absolute;
+      left: 12px;
+      opacity: 0;
+    }
+  }
+}
+
+//Dotted list style with no classes on <li> or <a> elements
+//in order to support TinyMCE in EPiServer
+.an-list-dotted {
+  margin-top: $spacer;
+  margin-bottom: $spacer * 2;
+
+  li {
+    @extend .a-dotted;
+    border-top: none;
+
+    &:not(.a-dotted) {
+      border-top: none;
+    }
+  }
+
+  a {
+    display: flex;
+    padding: 7px 6px 5px 0;
+    border: none;
+    justify-content: space-between;
+
+    &:hover {
+      background-color: $blue-light-opacity-04;
+    }
+  }
+}
