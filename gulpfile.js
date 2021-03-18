@@ -427,7 +427,7 @@ gulp.task('patternlab:serve-altinnett', serve('altinnett'));
 gulp.task('patternlab:serve-infoportal', serve('infoportal'));
 gulp.task('patternlab:serve-portal', serve('portal'));
 
-gulp.task('dist',
+gulp.task('dist-include-patterns',
   gulp.series(
     'pl-clean:dist',
     'patternlab:prebuild',
@@ -439,6 +439,18 @@ gulp.task('dist',
     'pl-copy:distribution-js'
   )
 );
+
+
+gulp.task('dist',
+  gulp.series(
+    'pl-clean:dist',
+    'pl-copy:distribution-fonts',
+    'pl-copy:distribution-css',
+    'pl-copy:distribution-images',
+    'pl-copy:distribution-js'
+  )
+);
+
 gulp.task('default', gulp.series('patternlab:serve-all'));
 
 /** ***************************************************
