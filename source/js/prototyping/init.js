@@ -85,10 +85,8 @@ window.devInit = function() {
   fixPatternLinks();
   formatOrgNr();
   handleFocus();
-  hideIntroInSubs();
   genericSearch();
   initializeDatepicker();
-  insetVariations();
   initSearchWithHighlight();
   iOS11BugWorkAround();
   listenForAttachmentChanges();
