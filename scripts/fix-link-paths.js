@@ -4,7 +4,7 @@ const fs = require('fs');
 const path = require('path');
 
 const root = "gh-pages";
-const rootUrl = 'AltinnPatternLab2021/' + root;
+const rootUrl = 'DesignSystem/' + root;
 
 const getAllFiles = function(dirPath, arrayOfFiles) {
     files = fs.readdirSync(dirPath);
