@@ -1,0 +1,82 @@
+<div class="a-page">
+	{{# header }}
+		{{> organismer-header-altinnett }}
+	{{/ header }}
+
+	<section id="content" tabindex="-1">
+
+		<div class="container">
+			<div class="row">
+				<div class="col-sm-12 col-lg-10 offset-lg-1">
+					{{# articlestart }}
+						{{> felles-komponenter-artikkel-start }}
+					{{/ articlestart }}
+				</div>
+			</div>
+
+			<div class="row">
+				<div class="col-sm-12 col-lg-8 offset-lg-2 a-text epi-wysiwyg pt-2 pt-lg-3 mb-4">
+
+          {{# task }}
+            <form id={{ form-id }} class="mb-2">
+              {{> felles-komponenter-radioknapp }}
+            </form>
+          {{/ task }}
+        
+          {{# collapse-unsubscribe }}
+            <div class="collapse checkboxcollapse2 no-transition">
+                {{> felles-komponenter-seksjonstittel:mb-2 }}
+          
+                {{# description }}
+                  <div class="mb-2">
+                  {{> felles-komponenter-intro-tekst }}
+                  </div>
+                {{/ description}}
+                
+                {{# mail }}
+                <div class="col-8 px-0 mb-2">
+                  {{> felles-komponenter-tekst-input }}
+                </div>
+                {{/ mail }}
+      
+                {{# submit-unsubscribe }}
+                  {{> felles-komponenter-knapp }}
+                {{/ submit-unsubscribe }}
+            </div>
+          {{/ collapse-unsubscribe }}
+
+          {{# collapse-edit }}
+            <div class="collapse checkboxcollapse no-transition">
+                {{> felles-komponenter-seksjonstittel:mb-2 }}
+          
+                {{# description }}
+                  <div class="mb-2">
+                  {{> felles-komponenter-intro-tekst }}
+                  </div>
+                {{/ description}}
+                
+                {{# options }}
+                  <div class="mb-2">
+                  {{> felles-komponenter-avkrysningsboks }}
+                  </div>
+                {{/ options }}
+                
+                {{# mail }}
+                <div class="col-8 px-0 mb-2">
+                  {{> felles-komponenter-tekst-input }}
+                </div>
+                {{/ mail }}
+      
+                {{# submit-edit }}
+                  {{> felles-komponenter-knapp }}
+                {{/ submit-edit }}
+            </div>
+          {{/ collapse-edit }}
+          
+
+				</div><!-- END .col-... -->
+			</div><!-- END .row -->
+	</section>
+
+		{{> organismer-footer-altinnett }}
+</div>

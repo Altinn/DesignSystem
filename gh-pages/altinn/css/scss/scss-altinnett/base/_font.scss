@@ -1,0 +1,49 @@
+// --------------------------------------------------
+// FONT SIZE & LINEHEIGHT
+// --------------------------------------------------
+// Important: This is the only place
+// font-size and line-height should be defined,
+// so they always have the same ratio
+//
+// Defined in PX, calculated to REM by mixin "font-size"
+// --------------------------------------------------
+
+@mixin an-fontSize72 {
+  @include font-size($fs: 72, $sm: subpixel-antialiased);
+}
+
+@mixin an-fontSize104 {
+  @include font-size($fs: 104, $sm: subpixel-antialiased);
+}
+
+@mixin an-fontSize144 {
+  @include font-size($fs: 144, $sm: subpixel-antialiased);
+}
+
+@mixin an-fontSize216 {
+  @include font-size($fs: 216, $sm: subpixel-antialiased);
+}
+
+// --------------------------------------------------
+// DIN FONT
+// --------------------------------------------------
+// sass-lint:disable no-disallowed-properties
+@font-face {
+  font-family: 'DIN-light';
+  src: url($font-url-start + 'DINWeb-Light.woff');
+}
+
+@font-face {
+  font-family: 'DIN-reg';
+  src: url($font-url-start + 'DINWeb.woff');
+}
+
+@font-face {
+  font-family: 'DIN-medium';
+  src: url($font-url-start + 'DINWeb-Medium.woff');
+}
+
+@font-face {
+  font-family: 'DIN-bold';
+  src: url($font-url-start + 'DINWeb-Bold.woff');
+}

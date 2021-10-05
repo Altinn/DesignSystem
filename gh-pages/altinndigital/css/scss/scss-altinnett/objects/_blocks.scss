@@ -1,0 +1,288 @@
+// MEDIA BLOCK
+.a-mediaBlock {
+  margin-bottom: $spacer * 4;
+  text-align: center;
+
+  img {
+    width: 40%;
+    margin: 0 auto;
+    border-radius: 50%;
+
+    @include media-breakpoint-up( sm ) {
+      width: 60%;
+    }
+  }
+
+  &.a-img-large {
+    img {
+      width: 60%;
+
+      @include media-breakpoint-up( md ) {
+        width: 100%;
+        max-width: 320px;
+      }
+    }
+  }
+
+  .a-mediaBlock-caption {
+    padding-top: $spacer * 2;
+    text-align: center;
+  }
+}
+
+// CASE BLOCK
+.an-caseBlock {
+
+  &-text {
+    display: flex;
+    flex-direction: column;
+    padding: $spacer * 3 $spacer;
+    margin-top: -1px;
+    align-items: flex-start;
+    justify-content: center;
+
+    @include media-breakpoint-up( sm ) {
+      padding: $spacer * 3;
+    }
+
+    @include media-breakpoint-up( md ) {
+      margin-top: 0;
+    }
+
+    @include media-breakpoint-up( lg ) {
+      padding: $spacer * 3 $spacer * 7;
+    }
+  }
+}
+
+// PRESENTATION BLOCK
+.an-presentationBlock {
+  display: inline-block;
+  height: calc(100% - 5px);
+  padding: $spacer * 2 $spacer;
+  margin-bottom: $spacer * 2;
+
+  @include media-breakpoint-up( sm ) {
+    height: calc(100% - #{$spacer * 2});
+    padding: $spacer * 2;
+  }
+
+  &-largeHeader {
+    @include word-wrap;
+    @include a-fontSize28;
+  }
+
+  &-twoLineHeader {
+    @include media-breakpoint-up( lg ) {
+      min-height: 78px;
+    }
+  }
+
+  &-figure {
+    width: 100%;
+  }
+
+  &-icon {
+    max-width: 122px;
+    margin-left: auto;
+  }
+
+  &-iconLarge {
+    max-width: none;
+  }
+
+  &-caption {
+    @include a-fontSize18;
+    @include media-breakpoint-up( md ) {
+      padding-top: $spacer * 2;
+    }
+  }
+
+  &-title {
+    @include word-wrap;
+    @include a-fontSize18;
+    @include media-breakpoint-up( md ) {
+      @include a-fontSize20;
+    }
+  }
+
+  &-container {
+    @include media-breakpoint-up( md ) {
+      height: 100%;
+    }
+  }
+}
+
+// PRODUCT HEADER BLOCK
+.an-productHeaderBlock {
+
+  &-iconTitle {
+    display: flex;
+    align-items: center;
+  }
+
+  &-icon {
+    width: (120px + $spacer * 3);
+    padding-right: $spacer * 3;
+  }
+
+  .an-productHeaderBlock-details {
+    p,
+    li {
+      @include a-fontSize18;
+
+      @include media-breakpoint-up( md ) {
+        @include a-fontSize20;
+      }
+      @include media-breakpoint-up( lg) {
+        @include a-fontSize24;
+      }
+    }
+  }
+}
+
+.an-abbreviation {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.an-centeredBackground {
+  background-position: 50% 50%;
+  background-size: 50% auto;
+}
+
+// PERSON ROLE
+.a-personRole {
+  display: flex;
+  float: left;
+  width: 100%;
+  min-height: $spacer * 3;
+  align-items: center;
+
+  .a-dot {
+    margin-top: -5px;
+    align-self: flex-start;
+  }
+
+  .a-personRole-text {
+    float: left;
+
+    .a-personRole-role {
+      @include a-fontSize12;
+      display: block;
+      padding-bottom: 3px;
+      text-transform: uppercase;
+    }
+
+    .a-personRole-name {
+      @include a-fontSize20;
+      @include a-fontBold;
+    }
+  }
+
+  .a-label {
+    margin-top: -2px;
+  }
+}
+
+// Filter guide
+.a-filterGuide {
+  .a-btn {
+    &:disabled {
+      display: none;
+    }
+  }
+}
+
+// Article list
+.a-linkArticle {
+  padding-bottom: $spacer * 2;
+}
+
+.a-articleList {
+  .a-linkArticle {
+    padding-bottom: 0;
+
+    a {
+      @extend .a-fontSizeM;
+    }
+  }
+}
+
+.card-block,
+.a-message {
+  overflow-wrap: break-word;
+}
+
+.an-nyheter-arrangement-block {
+  display: block;
+
+  @include media-breakpoint-up( lg ){
+    display: flex;
+  }
+
+  &-inner {
+    display: flex;
+    flex-direction: column;
+  }
+
+}
+
+.an-arrangement-block {
+  display: flex;
+  flex-direction: column;
+
+  &-inner {
+    display: flex;
+    margin-right: $spacer;
+    margin-bottom: $spacer;
+  }
+
+  &-text {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    padding: 20px 30px;
+    margin: 0;
+    background-color: $white;
+    box-shadow: $shadow;
+    justify-content: center;
+
+    & p {
+      margin: 0;
+    }
+  }
+
+  &-hidden-small {
+    display: none;
+
+    @include media-breakpoint-up(md) {
+      display: block;
+    }
+  }
+
+  &-show-large {
+    display: block;
+
+    @include media-breakpoint-up(md) {
+      display: none;
+    }
+  }
+}
+
+.an-statistic {
+  margin-left: -1px;
+
+  p {
+    @include a-fontSize48;
+    margin-bottom: 0;
+    line-height: 62px;
+    text-align: center;
+  }
+
+  span {
+    @include a-fontSize18;
+    text-align: center;
+  }
+}
