@@ -6190,6 +6190,7 @@ button.bg-dark:focus {
 }
 
 .position-sticky {
+  position: -webkit-sticky !important;
   position: sticky !important;
 }
 
@@ -6209,8 +6210,9 @@ button.bg-dark:focus {
   z-index: 1030;
 }
 
-@supports (position: sticky) {
+@supports ((position: -webkit-sticky) or (position: sticky)) {
   .sticky-top {
+    position: -webkit-sticky;
     position: sticky;
     top: 0;
     z-index: 1020;
@@ -12464,12 +12466,12 @@ object {
   }
 }
 .a-dropdownTriangle[x-placement=top-start]::after {
-  top: calc( 100% - 1px );
+  top: calc(100% - 1px);
   left: 40%;
   transform: rotate(-45deg);
 }
 .a-dropdownTriangle[x-placement=top-end]::after {
-  top: calc( 100% - 1px );
+  top: calc(100% - 1px);
   left: 40%;
   transform: rotate(-45deg);
 }
@@ -13077,7 +13079,7 @@ a > i,
   top: -11px;
   left: -12px;
   z-index: -1;
-  width: calc( 100% + 24px );
+  width: calc(100% + 24px);
   min-height: 48px;
   cursor: pointer;
   content: "";
@@ -15508,7 +15510,7 @@ i.a-blue {
 }
 @media (min-width: 768px) {
   .a-list.a-list-1col {
-    width: calc( 50% - 24px );
+    width: calc(50% - 24px);
   }
 }
 .a-list.a-list-noIcon li .a-list-rowLink {
@@ -17983,7 +17985,7 @@ a.a-linkFeatured[href^=http]:not([href*="altinn.no"])::after {
   top: -15px;
   left: -12px;
   z-index: -1;
-  width: calc( 100% + 24px );
+  width: calc(100% + 24px);
   min-height: 44px;
   cursor: pointer;
   content: "";
@@ -19403,7 +19405,7 @@ a.a-overflow-dropdown:active, a.a-overflow-dropdown:focus, a.a-overflow-dropdown
   top: -15px;
   left: -16px;
   z-index: 1;
-  width: calc( 100% + 30px);
+  width: calc(100% + 30px);
   min-height: 60px;
   cursor: pointer;
   content: "";
