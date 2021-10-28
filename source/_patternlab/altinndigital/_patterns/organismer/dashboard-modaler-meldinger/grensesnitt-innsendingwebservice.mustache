@@ -1,0 +1,112 @@
+<div class="modal-content">
+  <div class="modal-header a-modal-header">
+      <div class="a-iconText a-iconText-background a-iconText-large">
+          <div class="a-iconText-icon">
+              <i class="ai ai-send
+                a-icon" aria-hidden="true"></i>
+          </div>
+          <h1 class="a-iconText-text mb-0">
+               {{# small-modal-title }}<span class="a-iconText-text-small">{{ small-modal-title }}</span>{{/ small-modal-title }}
+              <span class="a-iconText-text-large">Bestill endring av grensesnitt</span>
+          </h1>
+      </div>
+  </div>
+  <div class="modal-body a-modal-body">
+    
+  <h2 class="a-h3 mb-2">Innsendingstjeneste over webservice</h2>
+  <form data-toggle="validator" id="contactForm">
+    {{# existing }}
+      <div class="mb-2">
+        {{> felles-komponenter-avkrysningsboks }}
+        <div id="eksisterende" class="collapse">
+          {{# name }}
+            {{> felles-komponenter-tekst-input }}
+          {{/ name }}
+        </div>
+      </div>
+    {{/ existing }}
+
+    {{!-- Må velge én --}}
+    {{> felles-komponenter-valgknapper-og-spesifiser:mb-2 }}
+
+    {{# version }}
+      {{> felles-komponenter-tekst-input:mb-4 }}
+    {{/ version }}
+    {{# attachments }}
+      <div class="mb-2">
+        {{> felles-komponenter-avkrysningsboks }}
+        <div id="vedlegg" class="collapse">
+          {{# vedlegg }}
+            <form id="vedlegg-radio">
+            {{> felles-komponenter-radioknapp }}
+            </form>
+          {{/ vedlegg }}
+        </div>
+      </div>
+    {{/ attachments }}
+    {{# encoding }}
+      <form id="encoding-radio">
+        {{> felles-komponenter-radioknapp }}
+      </form>
+    {{/ encoding }}
+    {{# sekvensnummer }}
+      {{> felles-komponenter-tekst-input:mb-4 }}
+    {{/ sekvensnummer }}
+    {{# standardport }}
+      <div class="mb-2">
+        {{> felles-komponenter-avkrysningsboks }}
+        <div id="port" class="collapse">
+          {{# port }}
+            {{> felles-komponenter-tekst-input }}
+          {{/ port }}
+        </div>
+      </div>
+    {{/ standardport }}
+    {{# transfertype }}
+      <form id={{ form-id }} class="mb-2">
+        {{> felles-komponenter-radioknapp }}
+        <div class="radiocollapse collapse no-transition">
+          {{> felles-komponenter-tekst-input }}
+        </div>
+      </form>
+    {{/ transfertype }}
+    {{# operasjonsnavn }}
+      <form id={{ form-id }} class="mb-2">
+        {{> felles-komponenter-radioknapp }}
+      </form>
+    {{/ operasjonsnavn }}
+    {{# soap }}
+      <form id={{ form-id }}>
+        {{> felles-komponenter-radioknapp }}
+      </form>
+    {{/ soap }}
+    {{# url }}
+      {{> felles-komponenter-tekst-input:mb-2 }}
+    {{/ url }}
+    {{# autentisering }}
+      <form id={{ form-id }} class="mb-2">
+        {{> felles-komponenter-radioknapp }}
+        <div class="collapse passwordcollapse no-transition">
+          {{# username }}
+            {{> felles-komponenter-tekst-input }}
+          {{/ username }}
+          {{# password }}
+            {{> felles-komponenter-tekst-input }}
+          {{/ password }}
+        </div>
+        <div class="collapse certificatecollapse no-transition">
+          {{# certificate }}
+            {{> felles-komponenter-tekstfelt }}
+            {{> felles-komponenter-last-opp-og-fjern }}
+          {{/ certificate }}
+        </div>
+      </form>
+    {{/ autentisering }}
+    {{# information }}
+      {{> felles-komponenter-tekstfelt:mb-2 }}
+    {{/ information }}
+    {{# submit}}
+      {{> felles-komponenter-knapp:mb-2 }}
+    {{/ submit}}
+  </form>
+</div>

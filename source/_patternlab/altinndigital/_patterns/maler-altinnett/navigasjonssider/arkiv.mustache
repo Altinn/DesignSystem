@@ -1,0 +1,79 @@
+<div class="a-page">
+	{{# header }}
+		{{> organismer-header-altinnett }}
+	{{/ header }}
+
+	<main id="content" tabindex="-1">
+
+		<div class="container">
+			<div class="row">
+				<div class="col-sm-12 col-lg-10 offset-lg-1 pb-3">
+
+          {{#title-only}}
+          {{> felles-komponenter-sidetittel }}
+          {{/title-only}}
+					
+          {{#title-link}}
+          <div class="d-flex">
+            <div class="flex-grow-1">
+            {{> felles-komponenter-sidetittel}}
+            </div>
+            <div class="align-self-center pb-1 text-right">
+            {{> felles-komponenter-link }}
+            </div>
+          </div>
+          {{/title-link}}
+
+          {{> felles-komponenter-intro-tekst }}
+          {{> felles-komponenter-avsnitt }}
+
+          {{# dashboard-subscribe-modal }}
+            {{> felles-komponenter-modal }}
+          {{/ dashboard-subscribe-modal }}
+
+          {{# active-alerts }}
+            {{> felles-komponenter-varsel }}
+          {{/ active-alerts }}
+
+				</div>
+			</div>
+
+			<div class="row">
+				<div class="col-sm-12 col-lg-10 offset-lg-1 pb-3 {{articlesContainerClass}}">
+
+          {{# list-header }}
+							{{> felles-komponenter-seksjonstittel }}
+					{{/ list-header }}
+
+					{{# list-article }}
+							
+              <article class="a-linkArticle" {{# identifier }}id="{{ identifier }}"{{/ identifier }}>
+
+              {{> felles-komponenter-byline }}
+              {{> felles-komponenter-undertittel:d-inline }}
+
+              {{# label }}
+							  {{> felles-komponenter-merkelapp }}
+					    {{/ label }}
+              
+
+              <p>{{{ article-description }}}</p>
+            </article>
+
+					{{/ list-article }}
+
+					{{# list-article-loadmore }}
+				    {{> felles-komponenter-handlingsknapp }}
+				  {{/ list-article-loadmore }}
+
+				</div>
+			</div>
+
+		</div> <!-- END Container -->
+
+	</main>
+
+	{{# footer }}
+		{{> organismer-footer-altinnett }}
+	{{/ footer }}
+</div>

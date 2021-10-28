@@ -1,0 +1,54 @@
+<div class="an-documentList mb-2">
+    <ul class="an-documentList-path a-fontSizeS a-fontMedium">
+        {{#path-items}}
+            <li>
+                {{#path-link}}<a href="#">{{path-label}}</a>{{/path-link}}
+                {{^path-link}}<span>{{path-label}}</span>{{/path-link}}
+            </li>
+        {{/path-items}}
+    </ul>
+    <div class="d-none d-md-block a-fontMedium an-documentList-header">
+        <div class="row">
+            <div class="col-9">
+                <a href="#" aria-label="Sorter liste på navn" class="an-documentList-sort">
+                    Navn
+                    <span class="an-documentList-sortIcon an-documentList-sortIcon-descending">
+                        <i class="ai ai-xs ai-arrowright" aria-hidden="true"></i>
+                    </span>
+                </a>
+            </div>
+            <div class="col-3">
+                <a href="#" aria-label="Sorter liste på dato" class="an-documentList-sort">
+                    Sist endret
+                    <span class="an-documentList-sortIcon">
+                        <i class="ai ai-xs ai-arrowright" aria-hidden="true"></i>
+                    </span>
+                </a>
+            </div>
+        </div>
+    </div>
+    <ul class="no-decoration a-iconList an-documentList-iconList">
+    {{# document-list-items }}
+        <li>
+            <a href="#" class="row">
+                <div class="d-flex col-md-9">
+                    {{#icon-main}}<span class="an-documentList-icon an-documentList-icon--main">{{> felles-komponenter-ikon }}</span>{{/icon-main}}
+                    {{#icon-hover}}<span class="an-documentList-icon an-documentList-icon--hover">{{> felles-komponenter-ikon }}</span>{{/icon-hover}}
+                    <div>
+                        <div>
+                            {{ document-name }}
+                            {{^folder}}<span class="d-md-none a-greyText"> (Last ned)</span>{{/folder}}
+                        </div>
+                        <div class="d-md-none a-fontSizeXXS a-greyText">
+                            Sist endret: {{document-date.day}}.{{document-date.month}}.{{document-date.year}}
+                        </div>
+                    </div>
+                </div>
+                <div class="col-3 d-none d-md-block">
+                    {{document-date.day}}/{{document-date.month}}-{{document-date.year}} {{document-date.time}}
+                </div>
+            </a>
+        </li>
+    {{/ document-list-items }}
+    </ul>
+</div>
