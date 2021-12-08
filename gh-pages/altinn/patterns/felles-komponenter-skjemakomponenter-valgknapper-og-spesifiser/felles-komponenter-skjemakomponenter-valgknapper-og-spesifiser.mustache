@@ -1,0 +1,22 @@
+<div class="a-form-group {{ styleModifier }}">
+  <label class="a-form-label" for="{{ form-id }}">{{ top-label }}</label>
+  <form id={{ form-id }}>
+    {{# ettvalg }}
+      {{# radio }}
+        {{> felles-komponenter-valgknapp-ett-alternativ }}
+      {{/ radio }}
+    {{/ ettvalg }}
+    {{# flerevalg }}
+      {{# check }}
+        {{> felles-komponenter-valgknapp }}
+      {{/ check }}
+    {{/ flerevalg }}
+    {{# annet }}
+      <div class="mb-2">
+        <div class="annet collapse">
+          {{> felles-komponenter-tekst-input }}
+        </div>
+      </div>
+    {{/ annet }}
+  </form>
+</div>

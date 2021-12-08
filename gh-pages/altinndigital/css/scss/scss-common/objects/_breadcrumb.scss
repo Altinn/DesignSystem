@@ -1,0 +1,101 @@
+// ----------------------------------
+// Breadcrumb
+// ----------------------------------
+
+.a-breadcrumb {
+  @include a-fontSize16;
+  display: flex;
+  padding: 0;
+  margin: 0;
+  margin-bottom: $spacer;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  background: transparent;
+
+  @include media-breakpoint-up( md ) {
+    @include a-fontSize20;
+  }
+
+  &::after {
+    display: block;
+    clear: both;
+    content: '';
+  }
+
+  li {
+    @include media-breakpoint-up( md ) {
+      display: inline;
+      float: none;
+    }
+
+    display: none;
+    line-height: $spacer * 3;
+
+    a {
+      @include a-fontSize16;
+
+      @include media-breakpoint-up( md ) {
+        @include a-fontSize20;
+      }
+    }
+
+    &.breadcrumb-item + .breadcrumb-item {
+      &::before {
+        padding-right: 0;
+        padding-left: 0;
+
+        @include media-breakpoint-up( md ) {
+          padding-right: $spacer * 0.5;
+          padding-left: $spacer * 0.5;
+        }
+      }
+    }
+
+    &.breadcrumb-mobile {
+      @include media-breakpoint-down( sm ) {
+        display: block;
+        padding-left: 0;
+
+        &::before {
+          content: none;
+        }
+
+        a {
+          border-bottom: none;
+
+          &::before {
+            @include a-fontSize36;
+            // sass-lint:disable-block no-disallowed-properties
+            display: inline-block;
+            padding-right: 0;
+            padding-bottom: 2px;
+            margin-right: -4px;
+            font-family: 'AltinnNo';
+            color: $black;
+            vertical-align: middle;
+            content: '\f02e';
+  
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            text-rendering: auto;
+          }
+
+          .a-breadcrumb-text {
+            border-bottom: 2px solid $blue;
+            padding-bottom: 2px;
+            margin-left: $spacer * 0.5;
+          }
+        }
+      }
+    }
+
+    &.active {
+      a {
+        color: $grey;
+        cursor: default;
+        border: none;
+      }
+    }
+  }
+}

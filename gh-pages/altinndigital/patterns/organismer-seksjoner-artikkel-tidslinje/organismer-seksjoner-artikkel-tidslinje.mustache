@@ -1,0 +1,48 @@
+<div class="a-rowFullWidth pt-4">
+  {{# timeline-intro }}
+  {{> felles-komponenter-seksjonstittel:a-fontBold|a-blueDarkerText }}
+  {{> felles-komponenter-avsnitt }}
+  {{/ timeline-intro }}
+</div>
+
+<div class="a-timeline pt-4">
+
+  <ul class="no-decoration connected-bullets connected-bullets-headings">
+
+    {{# timeline-list-items }}
+    <li>
+        <h2 class="a-fontBold a-blueDarkerText">
+          {{{ timeline-list-title }}}
+        </h2>
+      <div class="row">
+        <div class="{{{ timeline-col-one }}}">
+
+          {{# timeline-list-section }}
+            {{# timeline-list-subtitle }}
+              <h3 class="a-h4">{{{ timeline-list-subtitle }}}</h3>
+            {{/ timeline-list-subtitle }}
+            <p>{{{ timeline-list-text }}}</p>
+
+            {{# timeline-list-section-link }}
+              <a href="{{{ url }}}">{{timeline-list-section-linktext}}</a>
+            {{/ timeline-list-section-link }}
+
+          {{/ timeline-list-section }}
+          
+        </div>
+        <div class="col-sm-12 col-md-6 pt-2">
+
+          {{# timeline-mediabox }}
+            {{> molekyler-medieboks }}
+          {{/ timeline-mediabox }}
+
+          {{# timeline-piechart }}
+            {{> molekyler-kakediagram-med-tekst }}
+          {{/ timeline-piechart }}
+        </div>
+      </div>
+    </li>
+    {{/ timeline-list-items }}
+
+  </ul>
+</div>

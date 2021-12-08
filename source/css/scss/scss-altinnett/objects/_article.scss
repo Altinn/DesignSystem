@@ -1,0 +1,172 @@
+// ------------------------------------\
+// ARTICLE
+// ------------------------------------/
+
+.flex-grow-1 {
+  flex-grow: 1;
+}
+
+// Content in article
+.a-text {
+  // Collapse list inside article
+  .a-collapseContent {
+    .a-list-container {
+      max-width: 100%;
+    }
+  }
+}
+
+// FULL WIDTH inside article
+
+.a-rowFullWidth {
+  @include media-breakpoint-up(lg) {
+    width: calc(100% + 308px);
+    margin-left: -124px;
+  }
+
+  @include media-breakpoint-up(xl) {
+    width: calc(100% + 368px);
+    margin-left: -184px;
+  }
+}
+
+// Override fontsize inside paragraph
+p {
+  &.a-fontSizeXS {
+    @include a-fontSize16;
+  }
+
+  &.a-fontSizeXL {
+    @include a-fontSize18;
+
+    @include media-breakpoint-up(md) {
+      @include a-fontSize22;
+    }
+
+    @include media-breakpoint-up(lg) {
+      @include a-fontSize24;
+    }
+
+    @include media-breakpoint-up(xl) {
+      @include a-fontSize28;
+    }
+  }
+}
+
+//Events in the past
+.an-date-muted {
+  color: $black;
+  background-color: $grey-light;
+}
+
+//TIMELINE (Connected bullet list with headings and two columns)
+
+.a-timeline {
+  @include media-breakpoint-up(xs) {
+    padding-left: $spacer;
+  }
+
+  @include media-breakpoint-up(lg) {
+    width: calc(100% + 308px);
+    padding-left: $spacer * 5;
+    margin-left: -124px;
+  }
+
+  @include media-breakpoint-up(xl) {
+    width: calc(100% + 368px);
+    margin-left: -184px;
+  }
+
+  ul {
+    &.connected-bullets-headings {
+      li {
+        padding-bottom: $spacer * 4;
+        padding-left: 0;
+
+        @include media-breakpoint-up(xs) {
+          padding-left: $spacer * 3;
+        }
+
+        @include media-breakpoint-up(lg) {
+          padding-left: 0;
+        }
+
+        @include media-breakpoint-up(xl) {
+          padding-left: $spacer * 3;
+        }
+
+        &::after {
+          left: -62px;
+          background: $white;
+
+          @include media-breakpoint-up(xs) {
+            left: -$spacer;
+          }
+
+          @include media-breakpoint-up(md) {
+            top: 3px;
+          }
+
+          @include media-breakpoint-up(lg) {
+            top: 4px;
+            left: -62px;
+          }
+        }
+
+        &::before {
+          top: 8px;
+          left: -51px;
+
+          @include media-breakpoint-up(xs) {
+            left: 0;
+          }
+          @include media-breakpoint-up(lg) {
+            left: -51px;
+          }
+        }
+
+        h2 {
+          margin-top: 0;
+        }
+
+        h3 {
+          margin-top: $spacer;
+        }
+
+        a + h3 {
+          margin-top: 30px;
+        }
+      }
+    }
+  }
+}
+
+// Pie chart 
+
+.a-pie {
+  display: inline-block;
+  width: 100%;
+  max-width: 200px;
+  margin-right: 24px;
+  margin-bottom: 12px;
+  transform: rotate(-90deg);
+
+  svg {
+    background: $blue;
+    border-radius: 50%;
+  }
+
+  circle {
+    fill: $grey-light;
+    stroke: $blue;
+    stroke-width: 32;
+  }
+}
+
+.a-pie-wrapper {
+  p {
+    &.a-pie-text {
+      @include a-fontSize28;
+    }
+  }
+}

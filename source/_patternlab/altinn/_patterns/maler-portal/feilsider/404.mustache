@@ -1,0 +1,53 @@
+<div class="a-page">
+  {{> organismer-header }}
+  <section id="content" tabindex="-1">
+
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-12 col-lg-6 offset-lg-3 a-articleSearch">
+        {{# article-search }}
+          {{> felles-komponenter-tekst-input }}
+        {{/ article-search }}
+      </div>
+    </div>
+
+      <div class="row">
+        <div class="col-sm-12 col-md-7 col-lg-6 offset-lg-1">
+          {{# page-label }}
+            {{> felles-komponenter-avsnitt }}
+          {{/ page-label }}
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-sm-12 col-md-7 col-lg-6 offset-lg-1">
+          {{> felles-komponenter-sidetittel }}
+
+          {{# elements-errorpage }}
+            {{# paragraph }}
+              {{> felles-komponenter-avsnitt }}
+            {{/ paragraph }}
+
+            {{# link }}
+              <p class="pb-1">{{> felles-komponenter-link }}</p>
+            {{/ link }}
+
+            {{# notice }}
+              {{> felles-komponenter-varsel }}
+            {{/ notice }}
+          {{/ elements-errorpage }}
+
+        </div>
+        <div class="col-sm-12 col-md-5 d-flex align-items-center">
+          {{> molekyler-bildeblokk-innhold-under:a-img-large }}
+        </div>
+      </div>
+    </div> <!-- END Container -->
+
+  </section>
+
+  {{> organismer-footer }}
+</div>
+
+
+{{> molekyler-hjelp-container }}

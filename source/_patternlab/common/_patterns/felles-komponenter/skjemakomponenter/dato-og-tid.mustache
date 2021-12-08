@@ -1,0 +1,17 @@
+<div class="row {{ styleModifier }} form-group mb-0">
+    {{# label }}
+      <div class="col-12">
+        <label class="a-form-label">{{ label }}</label>
+      </div>
+    {{/ label }}
+  <div class="col-12 d-flex align-items-start">
+    
+    {{# datovelger }}
+      {{> felles-komponenter-datovelger }}
+    {{/ datovelger }}
+
+    <div class="ml-2 input-group {{# timeIsDisabled }} disabled {{/ timeIsDisabled }}">
+      <input class="form-control" type="time" name="timepicker" {{# timeIsDisabled }} disabled {{/ timeIsDisabled }} {{# timeValue }} value="{{timeValue}}" {{/ timeValue }}>
+    </div>
+  </div>
+</div>
