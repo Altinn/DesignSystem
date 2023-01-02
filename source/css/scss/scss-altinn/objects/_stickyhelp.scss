@@ -28,6 +28,11 @@
     background: $purple-hover-color;
   }
 
+  &.collapsed:focus {
+    outline: 3px solid $black;
+    background-color: rgba($purple-medium, 0.85)
+  }
+
   &.a-stickyHelp-animationHint {
     animation: hintTextSlideIn 400ms;
     animation-timing-function: linear;
@@ -252,6 +257,10 @@
 }
 
 .a-stickyHelp {
+  display: flex;
+  flex-direction: column;
+  max-height: 100vh;
+
   .a-stickyHelp-header {
     position: relative;
     min-height: 54px;
@@ -304,9 +313,7 @@
   }
 
   .a-page {
-    height: 300px;
     overflow-x: hidden;
-    overflow-y: scroll;
     transition: transform 0.5s cubic-bezier(0.3, 1, 0.5, 1);
 
     &.a-next-page {
@@ -319,11 +326,8 @@
     }
 
     &.a-previous-page {
+      display: none;
       transform: translate3d(-100%, 0, 0);
-    }
-
-    &+.a-page {
-      margin-top: -300px;
     }
 
     // Article (level 3)
@@ -411,7 +415,7 @@
 }
 
 .a-stickyHelp-content-target {
-  overflow: hidden;
+  overflow: auto;
   background: $white;
 
 

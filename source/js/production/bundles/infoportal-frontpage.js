@@ -1233,6 +1233,7 @@ var setValidatorSettings = function() {
 var popoverLocalInit = function() {
   var options = {
     html: true,
+    sanitize: false,
     placement: function(context, source) {
       var position = $(source).offset();
       $(context).addClass($(source).attr('data-popover-class'));

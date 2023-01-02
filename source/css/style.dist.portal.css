@@ -19680,6 +19680,10 @@ a:not(.collapsed) .expandText {
   box-shadow: none !important;
   align-items: center;
 }
+.a-collapse-title:hover .a-collapse-title-name,
+.a-collapse-title:hover .primary-collapse-text {
+  text-decoration: underline;
+}
 .a-collapse-title.a-collapse-title--flexstart {
   align-items: flex-start;
 }
@@ -21932,6 +21936,10 @@ button,
   color: #FFFFFF;
   background: #4a3a72;
 }
+.a-stickyHelp-open.collapsed:focus {
+  outline: 3px solid #000000;
+  background-color: rgba(74, 58, 114, 0.85);
+}
 .a-stickyHelp-open.a-stickyHelp-animationHint {
   -webkit-animation: hintTextSlideIn 400ms;
           animation: hintTextSlideIn 400ms;
@@ -22171,6 +22179,11 @@ button,
   content: "";
 }
 
+.a-stickyHelp {
+  display: flex;
+  flex-direction: column;
+  max-height: 100vh;
+}
 .a-stickyHelp .a-stickyHelp-header {
   position: relative;
   min-height: 54px;
@@ -22215,9 +22228,7 @@ button,
   padding: 12px 12px 0 12px;
 }
 .a-stickyHelp .a-page {
-  height: 300px;
   overflow-x: hidden;
-  overflow-y: scroll;
   transition: transform 0.5s cubic-bezier(0.3, 1, 0.5, 1);
 }
 .a-stickyHelp .a-page.a-next-page {
@@ -22228,10 +22239,8 @@ button,
   transform: translate3d(0, 0, 0);
 }
 .a-stickyHelp .a-page.a-previous-page {
+  display: none;
   transform: translate3d(-100%, 0, 0);
-}
-.a-stickyHelp .a-page + .a-page {
-  margin-top: -300px;
 }
 .a-stickyHelp .a-page .a-stickyHelp-articleIntro {
   padding: 10px 12px 8px 12px;
@@ -22307,7 +22316,7 @@ button,
 }
 
 .a-stickyHelp-content-target {
-  overflow: hidden;
+  overflow: auto;
   background: #FFFFFF;
 }
 .a-stickyHelp-content-target h2 {
