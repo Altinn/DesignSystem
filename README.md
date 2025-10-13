@@ -1,4 +1,3 @@
-
 > [!WARNING]
 > This design system is DEPRECATED and not maintained!  
 > Use [designsystemet.no](https://designsystemet.no/en) instead.
