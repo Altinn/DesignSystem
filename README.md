@@ -1,7 +1,7 @@
-# Altinn Design System
 
-⚠️⚠️⚠️ _**DEPRECATED**_ ⚠️⚠️⚠️  
-**The [design system v2](https://github.com/Altinn/altinn-design-system) ([npm](https://www.npmjs.com/package/@altinn/altinn-design-system)) supersedes this project. Consider moving your project to rely on the newer design system instead of this one.**
+> [!WARNING]
+> This design system is DEPRECATED and not maintained!  
+> Use [designsystemet.no](https://designsystemet.no/en) instead.
 
 <hr>
 
